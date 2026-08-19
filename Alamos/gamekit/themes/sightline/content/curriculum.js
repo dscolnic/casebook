@@ -10,6 +10,11 @@ export const CURRICULUM = {
       "scene": "Vision scientist Frey lights the reconstruction bay and runs a tape to the twenty-two-metre floor mark. She puts a face at the doorway and asks what its features become at an eye across the rebuilt street.",
       "takeaway": "Doubling the distance halves the angle, and the angle is what the eye has to work with.",
       "place": "Reconstruction Bay",
+      "guide": "Five numbers, and three of them belong to other questions. The width of a whole face. The height of the doorway. The viewing time. Ask of each whether this angle needs it. A face arrives at the eye as an angle, not as metres. So the distance in the file is not background. It sets what was available before memory enters.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Vision scientist Frey lights the reconstruction bay and runs a tape to the twenty-two-metre floor mark. She puts a face at the doorway and asks what its features become at an eye across the rebuilt street.",
       "game": {
         "type": "BALLPARK",
@@ -52,15 +57,26 @@ export const CURRICULUM = {
           "s": "A detail arrives at the eye as an angle rather than as a size, so the same face is a smaller thing to see the further off it is — twice the distance is half the angle.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Acuity as an angle: what the eye can resolve falls off with distance",
+        "of": 30
+      }
     },
     {
       "day": 2,
       "title": "Where the sightline goes",
-      "scene": "Reconstruction technician Bekele has seven distance marks down the bay floor and a face at the far end. Each station card records what twelve volunteers described there and how often they later named the right person from six.",
+      "scene": "Twelve volunteers stood at each of seven marks down the bay floor and described a face at the far end. Later each tried to pick that person out of six photographs. Describing and identifying are not the same task. Picking one of six by chance alone succeeds about twice in twelve, and Bekele wants the distance where naming stops beating that.",
       "takeaway": "Describing a build is not identifying a face, and the two fail at different distances.",
       "place": "Reconstruction Bay",
-      "story": "Reconstruction technician Bekele has seven distance marks down the bay floor and a face at the far end. Each station card records what twelve volunteers described there and how often they later named the right person from six.",
+      "guide": "Nothing is read for you. Press Read on any mark and it reports what the twelve described from there, and how many of them later picked the right face out of six. Take at least three. Judge the naming rate against what chance alone would give rather than against zero. Then click the first mark where naming has stopped working, and commit.",
+      "background": [
+        "Why the two tasks come apart. Build, clothing, gait and hair are separate features, and any one of them survives a long look at low detail. Recognising a particular face depends on the relations between its parts — the spacing of the eyes against the width of the nose — and those relations blur first. So a witness can be entirely accurate about a jacket at a distance where the face was never available at all.",
+        "What chance looks like in this data. Twelve people picking blindly from six photographs will average two correct, and will sometimes give three or one. A station scoring two out of twelve is therefore reporting no identification at all, and one scoring three is reporting almost none. Zero is not the benchmark, and treating it as one makes a witness sound better the further away they stood.",
+        "Why the distance is worth writing down. Testimony arrives as a description and an identification in one sentence, and a jury hears both as one claim. Knowing the distance at which naming failed in a controlled test on this same bay gives the court a number to put against the sentence rather than an impression."
+      ],
+      "story": "Twelve volunteers stood at each of seven marks down the bay floor and described a face at the far end. Later each tried to pick that person out of six photographs. Describing and identifying are not the same task. Picking one of six by chance alone succeeds about twice in twelve, and Bekele wants the distance where naming stops beating that.",
       "game": {
         "type": "PROBE",
         "title": "Where the sightline goes",
@@ -125,8 +141,7 @@ export const CURRICULUM = {
           "target": "M20",
           "chainLabel": "Mark",
           "minReadings": 3,
-          "commit": "Name the stage",
-          "hint": "Each mark reports what the twelve volunteers described from it and how many of them later picked the right face out of six. Read as few or as many as you like."
+          "commit": "Name the stage"
         }
       },
       "assumes": [
@@ -153,14 +168,87 @@ export const CURRICULUM = {
           ],
           "s": "A detail arrives at the eye as an angle rather than as a size, so the same face is a smaller thing to see the further off it is — twice the distance is half the angle."
         }
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Acuity as an angle: what the eye can resolve falls off with distance",
+        "of": 30
+      }
     },
     {
       "day": 3,
+      "title": "One point four lux, while the bay drifts",
+      "scene": "The bay has to sit at the illuminance the corner had on the night, while a witness walks the identification distance. Lamps warm and drift, somebody opens the corridor door, and the dimmer is the only control.",
+      "takeaway": "A reconstruction is worth what its measurement is worth, and the measurement drifts.",
+      "place": "Reconstruction Bay",
+      "guide": "Hold the bay at the measured illuminance, inside the band on the meter. The band narrows as the run goes on, because the last part of the walk is where the identification was made and it is the part the report will be written about. The dimmer is your control.",
+      "background": [
+        "Why this has to be held rather than set. Tungsten lamps rise in output as they warm, and keep rising for several minutes. A bay set correctly at the start is a bay drifting upward by the time the witness reaches the mark.",
+        "Why a small drift matters at this level. At 1.4 lux the eye is between its two systems, and a factor of two in illuminance is a large change in what can be resolved. The same drift at office levels would be imperceptible.",
+        "Why the door is a disturbance. Any light from the corridor adds to the corner and cannot be subtracted afterwards. The reconstruction is only worth what its light level is worth, and the meter is the only thing that says what that was."
+      ],
+      "story": "The bay has to sit at the illuminance the corner had on the night, while a witness walks the identification distance. Lamps warm and drift, somebody opens the corridor door, and the dimmer is the only control.",
+      "game": {
+        "type": "HOLD",
+        "title": "One point four lux, while the bay drifts",
+        "setup": "Reconstruction Bay",
+        "play": "Hold the bay at the corner's light level.",
+        "task": "Hold the bay at the corner's light level.",
+        "question": "Hold the bay at the corner's illuminance while the walk is done.",
+        "answer": "Inside the band for most of the walk, with the dimmer set against each drift rather than corrected after the meter has already moved.",
+        "why": "The whole value of a reconstruction is that its conditions are the ones being argued about, so a bay that has drifted is not evidence about Ferrier Street. Every disturbance here is a rate. Tungsten lamps rise in output for minutes as they warm, so the bay set correctly at the start is climbing by the time the witness reaches the mark. The corridor door adds light for as long as it is open. The dimmer answers both, and only if it is set to a new position and held. What makes the tolerance so tight is the level itself: at 1.4 lux the eye is between cone and rod vision, where a factor of two in light is a large change in what can be resolved — the same drift at office levels would be invisible to everybody. And the band narrows toward the end of the walk because that is the part of it the report is about.",
+        "hold": {
+          "quantity": "Illuminance at the corner",
+          "control": "Dimmer",
+          "unit": "lux",
+          "hold": 1.4,
+          "band": 0.4,
+          "narrowTo": 0.2,
+          "duration": 45,
+          "authority": 0.1,
+          "pass": 0.8,
+          "direction": "raise",
+          "disturbances": [
+            {
+              "label": "Lamps warm and output climbs",
+              "at": 4,
+              "amount": 0.03
+            },
+            {
+              "label": "Corridor door closes again",
+              "at": 20,
+              "amount": -0.05
+            },
+            {
+              "label": "Second bank of lamps reaches temperature",
+              "at": 38,
+              "amount": 0.045
+            }
+          ],
+          "hint": "The lamps keep warming. Set the dimmer against the drift rather than chasing the meter.",
+          "commit": "Report the walk"
+        }
+      },
+      "assumes": [
+        "a scene can be reproduced at a measured light level"
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Illuminance, and the light a scene actually had",
+        "of": 30
+      }
+    },
+    {
+      "day": 4,
       "title": "How much light the corner had",
       "scene": "Frey has the column's specification from the utility: a 1,800 candela lantern, twelve metres from the shop doorway along the kerb. The scene report's word for this is \"normal\".",
       "takeaway": "Illuminance is set by the distance from the lamp to the thing lit, not by the distance to whoever is looking.",
       "place": "Reconstruction Bay",
+      "guide": "Five numbers, and three of them are the witness's distance and two figures offered for comparison. Ask of each whether this calculation needs it. The distance that matters runs from the lamp to what it lights, not from the eye to the scene. And note what the answer is not: it assumes the lantern was on that night.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Frey has the column's specification from the utility: a 1,800 candela lantern, twelve metres from the shop doorway along the kerb. The scene report's word for this is \"normal\".",
       "game": {
         "type": "BALLPARK",
@@ -176,7 +264,7 @@ export const CURRICULUM = {
           "The column stands 12 m from the shop doorway"
         ],
         "relationship": "Illuminance E = I / d², with E in lux, I the source intensity in candela and d the distance from the source to the lit surface.",
-        "calcKey": "PERCEPT-3"
+        "calcKey": "PERCEPT-4"
       },
       "assumes": [
         "light from a single source spreads over an area that grows with distance"
@@ -202,36 +290,65 @@ export const CURRICULUM = {
           "s": "Light from one lamp spreads over an area that grows as the square of the distance, so a corner twice as far from the streetlight has a quarter of the light on it — which is the difference between a face and a shape.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Illuminance, and the light a scene actually had",
+        "of": 30
+      }
     },
     {
-      "day": 4,
+      "day": 5,
       "title": "Looking out of a lit room",
       "scene": "Bekele has the bay set up from the shop side. The counter, the window, the interior lights at the level the shop record gives. Beyond the glass, the street at the illuminance the corner had.",
       "takeaway": "An eye set for a lit room is the wrong eye for a dark street, and the glass makes it worse.",
       "place": "Reconstruction Bay",
+      "guide": "Say what the counter position can resolve on the street after two minutes of looking out, then run the bay and read the result. The prediction is the part that matters: the eye behind the counter is set for the shop, not for the pavement, and how far along the adaptation curve two minutes gets is a number worth committing to before the answer appears.",
+      "background": [
+        "What dark adaptation is. Cone vision adjusts within about a minute; rod vision takes twenty to thirty and gives no colour and poor acuity. An eye that has been in a lit shop is at the very start of that curve when it turns to a dark street, so the first minutes are the worst of both — cones short of light, rods not yet in.",
+        "Why the glass makes it worse. A lit interior reflects in the window, adding a veil of light that never came from outside. That veil raises the level the eye is adapting to and reduces the contrast of everything beyond it, which is why cupping hands to the glass is what people do without being told.",
+        "Why two minutes is the honest number. The witness statement puts the man at the counter for a couple of minutes before the shout, so the reconstruction has to model that eye, not a fully dark-adapted one. The difference is not subtle: a few minutes on the curve is a factor of several in threshold."
+      ],
       "story": "Bekele has the bay set up from the shop side. The counter, the window, the interior lights at the level the shop record gives. Beyond the glass, the street at the illuminance the corner had.",
       "game": {
-        "type": "CHOICE",
+        "type": "VERIFY",
         "title": "Looking out of a lit room",
         "setup": "Reconstruction Bay",
         "play": "Work out what the man behind the counter could see",
         "task": "Work out what the man behind the counter could see",
-        "question": "Why is Aktaş's view of the street worse than his position suggests?",
-        "answer": "Ordinary window glass removes more than half the light from outside",
-        "why": "The eye adapts to the light level around it. A bright shop leaves it set for a bright shop, which is the wrong setting for a dim street. Dark adaptation can improve that, but it takes minutes. Aktaş did not have those minutes during the robbery. The window creates another problem. Interior light reflects from the glass and overlays the darker scene outside. Distance alone therefore overstates his viewing advantage. A closer witness can still have poorer usable vision when the lighting around the eye is wrong.",
-        "rebuttals": [
-          "The counter is low enough that it does not block a face at the doorway.",
-          "Ordinary glazing transmits most outside light; reflected interior light is the larger problem here.",
-          "A reflection can overlay much of the view when the room behind the observer is brighter than the street."
-        ],
-        "choices": [
-          "His eyes are adapted to the bright shop, and the glass reflects it back",
-          "The counter blocks the part of the doorway where a face would appear",
-          "Ordinary window glass removes more than half the light from outside",
-          "His reflection hides only the centre of the window and leaves the face clear"
-        ],
-        "correctChoice": "Ordinary window glass removes more than half the light from outside"
+        "question": "Predict what the counter position can resolve out on the street after two minutes, then run the bay and measure.",
+        "answer": "About 0.9 metres of detail at the corner — enough to see that somebody is there and their direction, not enough to describe a face. Fully dark-adapted the same eye reaches about 0.25 m, and it takes twenty minutes to get there.",
+        "why": "Two visual systems with different clocks are what makes this answerable. Cones finish adapting in about a minute and cannot use the light a dark street has; rods take twenty to thirty minutes and give no colour and coarse acuity. An eye that has spent the evening in a lit shop is at the beginning of that curve, so at two minutes it is short of both. Measured in the bay at the corner's illuminance, the counter position resolves detail of about 0.9 m — a person, a direction, a gait, and no face. The same eye after twenty minutes reaches roughly 0.25 m, which is the number somebody quoting a fully adapted threshold would have reported. The window adds the rest: the lit interior reflects in the glass and lays a veil over everything beyond it, raising the level the eye is adapting to and cutting the contrast of the street. That is why the reconstruction has to model the eye the witness actually had, and why predicting first is the discipline — a threshold looked up afterwards fits whatever the bay produced.",
+        "verify": {
+          "prediction": {
+            "label": "Smallest detail resolvable at the corner from the counter, after two minutes",
+            "unit": "m",
+            "min": 0.1,
+            "max": 2,
+            "step": 0.05
+          },
+          "truth": 0.9,
+          "passRatio": [
+            0.6,
+            1.6
+          ],
+          "intervention": {
+            "label": "Run the bay at the shop's interior level with the street at the corner's illuminance",
+            "note": "the observer starts at the counter after two minutes in the lit interior, looking through the glass",
+            "outcome": "The bay reaches the set levels and the observer takes the reading from the counter mark."
+          },
+          "measurement": {
+            "label": "Read the resolved detail from the acuity chart at the corner distance",
+            "note": "chart at 8.4 m, the corner distance from the counter",
+            "cost": 4,
+            "costUnit": "minutes of bay time"
+          },
+          "unmeasuredMoral": "A dark-adapted threshold from a textbook is the right number for the wrong eye, and reporting it without running the bay hands the board a figure four times too optimistic.",
+          "lock": "Lock the prediction",
+          "run": "Commit it",
+          "measure": "Take the measurement",
+          "commit": "Report"
+        }
       },
       "assumes": [
         "the eye adjusts to the general level of light it is in"
@@ -256,14 +373,28 @@ export const CURRICULUM = {
           ],
           "s": "Light from one lamp spreads over an area that grows as the square of the distance, so a corner twice as far from the streetlight has a quarter of the light on it — which is the difference between a face and a shape."
         }
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Dark adaptation, and how long the eye takes to arrive",
+        "of": 30,
+        "rests": [
+          "Rods, cones and scotopic vision: what the dark takes away"
+        ]
+      }
     },
     {
-      "day": 5,
+      "day": 6,
       "title": "A face on paper",
       "scene": "Frey has the array photographs and a live volunteer at the same distance under the same lamp. She asks the room which of the two tasks is closer to what Cardoza was doing on 14 November.",
       "takeaway": "A stand-in for a task is easier or harder than the task itself, and the difference is whatever it leaves out.",
       "place": "Reconstruction Bay",
+      "guide": "Four things a photograph array removes. Ask of each whether real recognition depends on it. A remembered face was never a still image. Head turns, expression and gait all add information across time, and a print freezes one angle under one light. That also makes the photographs uneven in a way no filler rule controls.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Frey has the array photographs and a live volunteer at the same distance under the same lamp. She asks the room which of the two tasks is closer to what Cardoza was doing on 14 November.",
       "game": {
         "type": "CHOICE",
@@ -289,14 +420,24 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a face is recognised from more than a single frozen view of it"
-      ]
+      ],
+      "concept": {
+        "n": 19,
+        "c": "How a lineup is built: fillers, and the ones nobody would pick",
+        "of": 30
+      }
     },
     {
-      "day": 6,
+      "day": 7,
       "title": "A centimetre of face",
       "scene": "Frey moves the mark to the surveyed distance and reads out the eye's resolution limit in good light. She wants to know what size of detail that limit corresponds to at the far end of the bay.",
       "takeaway": "The resolution limit is an angle, so the size of the smallest visible detail grows with distance.",
       "place": "Reconstruction Bay",
+      "guide": "Five numbers, and three of them belong to other stops: the earlier distance, the eye gap, and a light level. Ask of each whether this limit needs it. An angular limit becomes a size only once a distance is supplied. And note the order of the argument: distance shrinks the detail before lighting is considered at all.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Frey moves the mark to the surveyed distance and reads out the eye's resolution limit in good light. She wants to know what size of detail that limit corresponds to at the far end of the bay.",
       "game": {
         "type": "BALLPARK",
@@ -312,7 +453,7 @@ export const CURRICULUM = {
           "An eye in good light resolves about 0.0003 radians"
         ],
         "relationship": "Resolution limit s_min = θ_min × d, with θ_min the eye's angular limit and d the distance to the face.",
-        "calcKey": "PERCEPT-6"
+        "calcKey": "PERCEPT-7"
       },
       "assumes": [
         "an eye in good light resolves details about one arc minute across",
@@ -379,14 +520,25 @@ export const CURRICULUM = {
           "s": "Light from one lamp spreads over an area that grows as the square of the distance, so a corner twice as far from the streetlight has a quarter of the light on it — which is the difference between a face and a shape.",
           "card": false
         }
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Acuity as an angle: what the eye can resolve falls off with distance",
+        "of": 30
+      }
     },
     {
-      "day": 7,
+      "day": 8,
       "title": "Column 4471",
       "scene": "Vision scientist Frey lays the utility fault ticket for column 4471 beside the bay switch. It runs from 2 to 21 November 2019. She kills the modeled lantern; the doorway meter settles near two lux from shop-window spill.",
       "takeaway": "With the column out, what light the corner had came from a shop window twelve metres the other way.",
       "place": "Reconstruction Bay",
+      "guide": "Four readings of a fault ticket. Ask of each whether the arithmetic or the premise was wrong. The calculation described the lantern if it was working, and the ticket covers the night. What is left is shop-window spill, which is dim rather than dark. Two lux pushes vision onto rods, where colour goes and fine detail coarsens.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Vision scientist Frey lays the utility fault ticket for column 4471 beside the bay switch. It runs from 2 to 21 November 2019. She kills the modeled lantern; the doorway meter settles near two lux from shop-window spill.",
       "game": {
         "type": "CHOICE",
@@ -433,14 +585,25 @@ export const CURRICULUM = {
           ],
           "s": "Light from one lamp spreads over an area that grows as the square of the distance, so a corner twice as far from the streetlight has a quarter of the light on it — which is the difference between a face and a shape."
         }
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Illuminance, and the light a scene actually had",
+        "of": 30
+      }
     },
     {
-      "day": 8,
+      "day": 9,
       "title": "What holds if everybody withdraws",
       "scene": "Vision scientist Frey shuts the bay lamps down for the last time. She repeats the question from the first morning. Which findings would remain true if nobody involved in the case ever spoke again?",
       "takeaway": "The findings that need no witness are the ones a review can promise will still be there next year.",
       "place": "Reconstruction Bay",
+      "guide": "Four findings, and the question is which survives everybody withdrawing. Ask of each whether it rests on a memory, a form, or a measurement. A distance can be remeasured. A utility record and a reconstruction can be repeated. The others still matter and depend on accounts, which is exactly what the question removes.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Vision scientist Frey shuts the bay lamps down for the last time. She repeats the question from the first morning. Which findings would remain true if nobody involved in the case ever spoke again?",
       "game": {
         "type": "CHOICE",
@@ -506,14 +669,25 @@ export const CURRICULUM = {
           ],
           "s": "Light from one lamp spreads over an area that grows as the square of the distance, so a corner twice as far from the streetlight has a quarter of the light on it — which is the difference between a face and a shape."
         }
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Acuity as an angle: what the eye can resolve falls off with distance",
+        "of": 30
+      }
     },
     {
-      "day": 9,
+      "day": 10,
       "title": "How much light the corner had — Review",
       "scene": "Frey has moved the bay's lamp to the shop window and asks the same question about a different source. The window is twelve metres from the doorway on the other side.",
       "takeaway": "Illuminance belongs to the surface and the source; where anybody stands to look is a separate calculation.",
       "place": "Reconstruction Bay",
+      "guide": "Four answers, and three of them move the light because the observer moved. Ask what illuminance is a property of. It belongs to the surface and the source, and neither of them walked anywhere. What her ten metres changes is the angle the face subtends, which is a separate calculation. Mixing the two is the commonest error in this material.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Frey has moved the bay's lamp to the shop window and asks the same question about a different source. The window is twelve metres from the doorway on the other side.",
       "game": {
         "type": "CHOICE",
@@ -579,7 +753,12 @@ export const CURRICULUM = {
           ],
           "s": "Light from one lamp spreads over an area that grows as the square of the distance, so a corner twice as far from the streetlight has a quarter of the light on it — which is the difference between a face and a shape."
         }
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Illuminance, and the light a scene actually had",
+        "of": 30
+      }
     }
   ],
   "MEMORY": [
@@ -589,32 +768,107 @@ export const CURRICULUM = {
       "scene": "Memory scientist Ren Okada opens Alma Cardoza's first full account at the doorway paragraph. Six seconds, by her estimate, separate the shout from the man crossing the kerb. The bay clock is set to six.",
       "takeaway": "What is remembered is what was attended to, and attention takes one thing at a time.",
       "place": "Interview Suite A",
+      "guide": "Six seconds of attention, and a list of things that would take longer than that between them. Spend it, and read off what the account can then contain. Nothing on the list is a wrong thing to have looked at; what the six seconds cannot buy is the price of what they did. Fixating a face and reading a number plate are not simultaneous acts.",
+      "background": [
+        "Why attention is a budget and not a spotlight that widens. Encoding happens at the moment, from what was attended to, so anything not attended to is not weakly remembered — it was never encoded and there is nothing to recover. That is why the question is what six seconds were spent on rather than how good the memory is.",
+        "What each item actually costs. A fixation lasts about a quarter of a second and a saccade between targets about fifty milliseconds, so six seconds is on the order of twenty fixations if nothing else happens. Reading a plate is several fixations and a rehearsal; a face at eight metres in poor light is several more.",
+        "Why the weapon is the item that spends everything. An arousing, threatening object draws and holds fixations, which is the mechanism behind weapon focus: the description of the object gets better and the description of the face gets worse, out of the same six seconds. That is a prediction about detail, not a claim about honesty."
+      ],
       "story": "Memory scientist Ren Okada opens Alma Cardoza's first full account at the doorway paragraph. Six seconds, by her estimate, separate the shout from the man crossing the kerb. The bay clock is set to six.",
       "game": {
-        "type": "CHOICE",
+        "type": "ALLOCATE",
         "title": "Six seconds, and what they hold",
         "setup": "Interview Suite A",
         "play": "Establish how much time there was to take anything in",
         "task": "Establish how much time there was to take anything in",
-        "question": "Why does six seconds of viewing not deliver six seconds of face?",
-        "answer": "Attention has to be divided among competing parts of the scene",
-        "why": "A scene is not encoded as a complete recording. Attention selects some inputs for deeper processing while other visible inputs receive little. Six seconds contained a shout, a doorway, a moving person, a bag and traffic at the kerb. Each competed for limited attention. Event duration is therefore not the same as face-viewing duration. Later confidence cannot recover which fractions of those six seconds were actually spent processing the face.",
-        "rebuttals": [
-          "Recognition takes a fraction of a second, so the delay before anything registers is far shorter than that.",
-          "Brief events are often remembered for years, and duration alone does not decide how long a memory lasts.",
-          "Eyes stay open under threat, and closing them would leave nothing to explain about the account."
-        ],
-        "choices": [
-          "Attention has to be divided among competing parts of the scene",
-          "The eye needs several seconds in one position before it registers anything at all",
-          "Short events are stored briefly and are gone from memory within a few days",
-          "Threat makes a witness close her eyes for most of the event without noticing"
-        ],
-        "correctChoice": "Attention has to be divided among competing parts of the scene"
+        "question": "Six seconds of attention. Spend them, and know what the account can then contain.",
+        "answer": "The weapon takes about half of it on its own. Buy the face and the exit direction and the plate is gone — and an account that has all four is an account that has been added to since.",
+        "why": "Attention is a budget and encoding spends it. Six seconds is roughly twenty fixations, and the items on this list cost between one and eight of them each: a face at eight metres in dim light is expensive, a number plate is several fixations plus a rehearsal, and the weapon is the item that spends everything because an arousing object draws and holds the eyes. That is weapon focus stated mechanically — the description of the gun improves and the description of the face degrades, out of one budget. What follows is the useful thing for the file. An account containing a detailed face, a plate, the clothing and the direction of travel is not a better witness; it is an account that has acquired detail from somewhere after the six seconds ended. And what was never attended to was never encoded, so it is not weakly remembered and cannot be recovered by asking again more carefully.",
+        "allocate": {
+          "pool": {
+            "amount": 6,
+            "unit": "seconds of attention",
+            "mode": "scalar"
+          },
+          "items": [
+            {
+              "id": "threat",
+              "label": "The weapon, once it is out",
+              "cost": 2.8,
+              "protected": true,
+              "note": "an arousing object takes the eyes whether or not you decide to give them"
+            },
+            {
+              "id": "face",
+              "label": "The man's face, at eight metres in dim light",
+              "cost": 2
+            },
+            {
+              "id": "exit",
+              "label": "Which way he went at the corner",
+              "cost": 0.8
+            },
+            {
+              "id": "plate",
+              "label": "The number plate on the car at the kerb",
+              "cost": 1.6
+            },
+            {
+              "id": "clothes",
+              "label": "The clothing, well enough to describe it",
+              "cost": 1.2
+            },
+            {
+              "id": "second",
+              "label": "Whether there was a second man",
+              "cost": 0.9
+            }
+          ],
+          "answers": [
+            {
+              "question": "Can the account describe the man's face at all?",
+              "requires": [
+                "face"
+              ],
+              "required": true
+            },
+            {
+              "question": "Can it say which way he left?",
+              "requires": [
+                "exit"
+              ]
+            },
+            {
+              "question": "Can it give the number plate?",
+              "requires": [
+                "plate"
+              ]
+            },
+            {
+              "question": "Can it describe what he was wearing?",
+              "requires": [
+                "clothes"
+              ]
+            },
+            {
+              "question": "Can it say whether he was alone?",
+              "requires": [
+                "second"
+              ]
+            }
+          ],
+          "hint": "Nothing here is a wrong thing to have looked at. What the six seconds cannot hold is the price of what they did.",
+          "commit": "Commit the six seconds"
+        }
       },
       "assumes": [
         "memory is built from what was attended to during an event"
-      ]
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Selective attention: attending is choosing, and choosing costs",
+        "of": 30
+      }
     },
     {
       "day": 2,
@@ -622,6 +876,12 @@ export const CURRICULUM = {
       "scene": "Ren Okada lays five interview steps along the corridor floor and queues the 18 November recording. In the audio, the second question arrives eleven seconds after Cardoza begins. He asks the room to rebuild the order before replaying it.",
       "takeaway": "Every question narrows what comes next, so the questions go last and the witness's own account goes first.",
       "place": "Interview Suite A",
+      "guide": "All five steps will happen, so ask what each one protects from the ones after it. Once somebody else's words are in the room, the account cannot be returned to what it was. So ask of each step whether it adds information or only invites it. And one of them has to happen before any photograph exists.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Ren Okada lays five interview steps along the corridor floor and queues the 18 November recording. In the audio, the second question arrives eleven seconds after Cardoza begins. He asks the room to rebuild the order before replaying it.",
       "game": {
         "type": "SEQUENCE",
@@ -648,8 +908,24 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "a question can introduce a detail that was not in the witness's own account"
-      ]
+        "a question can introduce a detail that was not in the witness's own account",
+        "how a lineup is built: fillers, and the ones nobody would pick — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 19,
+          "c": "How a lineup is built: fillers, and the ones nobody would pick"
+        }
+      ],
+      "concept": {
+        "n": 23,
+        "c": "Post-identification feedback and confidence inflation",
+        "of": 30,
+        "rests": [
+          "How a lineup is built: fillers, and the ones nobody would pick",
+          "Confidence and accuracy: a relationship that survives only at the moment"
+        ]
+      }
     },
     {
       "day": 3,
@@ -657,6 +933,12 @@ export const CURRICULUM = {
       "scene": "Ren Okada has four dated items on the screen when Unit Director Ines Baptiste asks whether Cardoza is lying about the scar. Okada says that question arrives too late. He puts the dates across the corridor instead.",
       "takeaway": "Post-event information is stored as memory of the event, because memory does not tag what it took in from where.",
       "place": "Interview Suite B",
+      "guide": "Five items, and four of them carry dates. Ask of each candidate whether the dates support it. The long first interview contains no scar. Ward's photograph appears the next day. The scar arrives later. Memory keeps content better than it keeps where the content came from, so an honest and confident memory can still have the wrong source.",
+      "background": [
+        "Why the unremarkable readings decide it. The salient reading is what draws attention, and it is usually consistent with several explanations at once, which is why it rarely settles anything. The readings that discriminate are the ones a candidate predicts should have moved and which have not: a normal value is a positive result against every mechanism that would have disturbed it.",
+        "How to work the candidates. Take each mechanism and predict the panel it implies before you look at the panel again — which readings it drives, in which direction, and by roughly how much. Then compare. Working that way round is what separates a diagnosis from a rationalisation, because the prediction is made before the data is consulted.",
+        "Why only one candidate survives. Several will account for part of the panel, deliberately so, and a partial fit is exactly what a confident wrong answer feels like from the inside. When two remain, look for the reading on which their predictions differ and let it decide. If no reading separates them you have not finished reading the panel."
+      ],
       "story": "Ren Okada has four dated items on the screen when Unit Director Ines Baptiste asks whether Cardoza is lying about the scar. Okada says that question arrives too late. He puts the dates across the corridor instead.",
       "game": {
         "type": "DIAGNOSIS",
@@ -728,7 +1010,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a remembered detail carries no label saying where it came from"
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "The misinformation effect: what arrives after the event gets in",
+        "of": 30,
+        "rests": [
+          "Retrieval is reconstruction, not playback"
+        ]
+      }
     },
     {
       "day": 4,
@@ -736,32 +1026,118 @@ export const CURRICULUM = {
       "scene": "The first officers arrived at 21:58. Between the robbery and their arrival, Cardoza and Aktaş stood together outside the shop. Okada asks what the file can now say about the four particulars they agree on.",
       "takeaway": "Once two witnesses have talked, their accounts cannot be added together, and neither can be recovered alone.",
       "place": "Interview Suite B",
+      "guide": "Six statements in the file, and five sources they could rest on. Name the source the two accounts share, then keep only the statements that do not come through it. Two witnesses agreeing is two pieces of evidence only if they could have disagreed — and for twenty minutes on the kerb they could not.",
+      "background": [
+        "Why agreement is not independence. Once two people have discussed what happened, each account contains the other. The agreement is then a fact about the conversation rather than about the robbery, and it feels like corroboration to everybody involved, including the witnesses.",
+        "Why it cannot be unpicked afterwards. What one witness heard from the other is encoded the same way as what she saw herself, with no tag saying which is which. Asking her to separate them asks for something the memory system does not store, which is why the only remedy is separating witnesses before they talk.",
+        "What survives. Anything each of them recorded before the twenty minutes — the triple-nine call, a text message with a timestamp — and anything only one of them could have known. Those are genuinely two sources, and they are what the file can still add together."
+      ],
       "story": "The first officers arrived at 21:58. Between the robbery and their arrival, Cardoza and Aktaş stood together outside the shop. Okada asks what the file can now say about the four particulars they agree on.",
       "game": {
-        "type": "CHOICE",
+        "type": "TRACE",
         "title": "Twenty minutes on the kerb",
         "setup": "Interview Suite B",
         "play": "Work out what twenty minutes of waiting cost",
         "task": "Work out what twenty minutes of waiting cost",
-        "question": "What has the wait outside the shop done to the two accounts?",
-        "answer": "They are no longer independent accounts",
-        "why": "Co-witness discussion makes two accounts partly dependent. One person's detail becomes available to the other as content, and later source memory may not preserve where it came from. That means four shared particulars cannot simply be counted twice. The contamination also cannot be subtracted afterwards. Investigators separate witnesses because independence is easiest to protect before accounts meet. Once Cardoza and Deniz Aktaş talked for twenty minutes, agreement stopped being clean evidence that both had encoded the same detail independently.",
-        "rebuttals": [
-          "Two viewpoints help only when the accounts are collected before they can influence each other.",
-          "Describing the same person is the very claim agreement was supposed to support; discussion makes that agreement dependent.",
-          "Both accounts can exchange material. A better original view does not protect a witness from later source confusion."
-        ],
-        "choices": [
-          "They are no longer independent accounts",
-          "They now cover more of the event because two viewpoints have been combined",
-          "They remain independent because both witnesses were describing the same person",
-          "Only Aktaş's account is affected because his original view was poorer"
-        ],
-        "correctChoice": "They are no longer independent accounts"
+        "question": "Which statements in the file are still independent of the twenty minutes on the kerb?",
+        "answer": "Only Cardoza's triple-nine call and Aktaş's own timestamped text. The four particulars they agree on all passed through the conversation, so their agreement is one account reported twice.",
+        "why": "Two accounts are two pieces of evidence only if they could have come out differently, and for twenty minutes outside the shop these two could not. This is co-witness contamination: they talked to each other, so the agreement between the two is a fact about the conversation, and both witnesses now rest on a shared source. Everything the four agreed particulars rest on passed through that conversation — the height, the jacket, the direction, the second man — and once it has, each account contains the other with nothing marking which part came from where. That is not dishonesty and it cannot be unpicked by asking either of them to try, because the memory system does not tag a detail with its source. What survives is what was recorded before they spoke: Cardoza's triple-nine call at 21:41 and Aktaş's text to his brother at 21:44, both timestamped and both made alone. Those two are a real pair. The file can add them together, and it can quote the four particulars once — as the account of two people who agreed on them, which is a different sentence from two witnesses independently reporting the same thing.",
+        "trace": {
+          "channels": [
+            {
+              "id": "height",
+              "label": "Both describe the man as about six feet",
+              "reading": "Cardoza: \"about six foot\"; Aktaş: \"six foot, maybe a bit more\"",
+              "depends": [
+                "kerb",
+                "officer"
+              ]
+            },
+            {
+              "id": "jacket",
+              "label": "Both describe a dark hooded jacket",
+              "reading": "agreed wording in both first accounts",
+              "depends": [
+                "kerb",
+                "officer"
+              ]
+            },
+            {
+              "id": "direction",
+              "label": "Both say he went left toward Ferrier Street",
+              "reading": "agreed in both accounts, and in neither contemporaneous record",
+              "depends": [
+                "kerb",
+                "officer"
+              ]
+            },
+            {
+              "id": "second",
+              "label": "Both mention a second man by the car",
+              "reading": "Cardoza volunteers him; Aktaş agrees when asked",
+              "depends": [
+                "kerb",
+                "officer"
+              ]
+            },
+            {
+              "id": "callrec",
+              "label": "Cardoza's 999 call describes a man in dark clothing running",
+              "reading": "recorded 21:41, before the two spoke",
+              "depends": [
+                "call"
+              ]
+            },
+            {
+              "id": "textrec",
+              "label": "Aktaş's text says the man was carrying something in his right hand",
+              "reading": "sent 21:44, before the two spoke",
+              "depends": [
+                "text"
+              ]
+            }
+          ],
+          "resources": [
+            {
+              "id": "kerb",
+              "label": "The twenty minutes on the kerb, 21:38 to 21:58"
+            },
+            {
+              "id": "call",
+              "label": "Cardoza's 999 call at 21:41"
+            },
+            {
+              "id": "text",
+              "label": "Aktaş's text to his brother at 21:44"
+            },
+            {
+              "id": "officer",
+              "label": "The first officer's notebook"
+            },
+            {
+              "id": "cctv",
+              "label": "The bus-stop camera across the road"
+            }
+          ],
+          "independent": [
+            "callrec",
+            "textrec"
+          ],
+          "target": "kerb",
+          "commit": "Correct it"
+        }
       },
       "assumes": [
         "people compare accounts when something has just happened to both of them"
-      ]
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Co-witness contamination: two accounts that have met are one account",
+        "of": 30,
+        "rests": [
+          "The misinformation effect: what arrives after the event gets in"
+        ]
+      }
     },
     {
       "day": 5,
@@ -769,6 +1145,12 @@ export const CURRICULUM = {
       "scene": "Ren Okada puts the unit's replication on the confidence screen. Half the volunteers are told their choice matched the suspect. Both groups then report how good their original view was and how long they looked.",
       "takeaway": "What somebody says about the circumstances of an event is itself remembered, so it can move long after the event has finished.",
       "place": "Interview Suite A",
+      "guide": "Four things feedback might move. Ask of each whether it is a claim about the night or about the present. Confirming feedback changes what witnesses report about the original view: how clear it was, how long they looked, where they stood. Those sound like evidence about encoding and are partly reconstructed after the choice.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Ren Okada puts the unit's replication on the confidence screen. Half the volunteers are told their choice matched the suspect. Both groups then report how good their original view was and how long they looked.",
       "game": {
         "type": "CHOICE",
@@ -794,7 +1176,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a witness reports the conditions of an event from memory, like everything else"
-      ]
+      ],
+      "concept": {
+        "n": 23,
+        "c": "Post-identification feedback and confidence inflation",
+        "of": 30,
+        "rests": [
+          "How a lineup is built: fillers, and the ones nobody would pick",
+          "Confidence and accuracy: a relationship that survives only at the moment"
+        ]
+      }
     },
     {
       "day": 6,
@@ -802,32 +1193,64 @@ export const CURRICULUM = {
       "scene": "Baptiste asks whether the unit should re-interview Cardoza before the report closes. Ren Okada puts Deniz Aktaş's 2023 interview beside his 2019 statement. Four new details appear, each already present somewhere in the public record.",
       "takeaway": "An account given years later records everything the person has met since, and there is no way to subtract it.",
       "place": "Interview Suite B",
+      "guide": "Say what fraction of the 2019 account a re-interview four years later should still reproduce, then run the comparison and read the result. The curve is steep at the start and shallow later, so most of what was going to be lost went in the first weeks. Commit to a number before the answer appears — the interesting finding is not how much was lost but what arrived.",
+      "background": [
+        "What the forgetting curve does. Retention falls fast at first and then flattens, so the difference between four years and four months is much smaller than the difference between four months and four days. An account four years old is not four years' worth of decay; it is a few weeks' decay and then a long plateau.",
+        "Why the new details are the finding. Four particulars appear in 2023 that are not in the 2019 statement, and every one of them is somewhere in the public record — the paper, the appeal coverage, the campaign. Memory does not tag a detail with where it came from, so they are held with the same confidence as everything else.",
+        "What follows for the decision. A fresh interview cannot recover the 2019 account, because nothing subtracts what has arrived since. It can only produce a 2023 account, and the unit already has one. The 2019 statement is the evidence; a re-interview adds a document about the intervening four years."
+      ],
       "story": "Baptiste asks whether the unit should re-interview Cardoza before the report closes. Ren Okada puts Deniz Aktaş's 2023 interview beside his 2019 statement. Four new details appear, each already present somewhere in the public record.",
       "game": {
-        "type": "CHOICE",
+        "type": "VERIFY",
         "title": "What Aktaş remembers now",
         "setup": "Interview Suite B",
         "play": "Find out what a re-interview after years actually records",
         "task": "Find out what a re-interview after years actually records",
-        "question": "What does the 2023 re-interview establish about asking Cardoza again now?",
-        "answer": "A new account would record seven years of exposure rather than the night",
-        "why": "Later interviews cannot be cleaned back to their earlier state. Aktaş's four new details all have sources in the public record, yet he now experiences them as memories of the shop. Good interview technique protects information before contamination. It cannot subtract years of trials, news and retelling. That is why the November 2019 Cardoza account is perishable evidence. Re-interviewing her in 2026 would create another account while destroying the unit's ability to compare future material with an untouched baseline.",
-        "rebuttals": [
-          "Late accounts are admitted routinely; the objection here is what the account would be evidence of.",
-          "New accounts are often longer rather than shorter, and Aktaş's has grown by four details.",
-          "Interview method protects an uncontaminated account and does nothing for one that has already met the trial."
-        ],
-        "choices": [
-          "A new account would record seven years of exposure rather than the night",
-          "A new account would be inadmissible, because too much time has passed",
-          "A new account would contain less detail than the original and add nothing",
-          "A new account would be reliable if it were taken with a proper interview method"
-        ],
-        "correctChoice": "A new account would record seven years of exposure rather than the night"
+        "question": "Predict how much of the 2019 account the 2023 interview still reproduces, then run the comparison.",
+        "answer": "About 70 per cent of the original particulars survive — and four new ones arrive, each traceable to the public record. The loss is the predictable part; the additions are what make a re-interview useless as evidence.",
+        "why": "The forgetting curve is steep at the start and shallow afterwards, so most of what was going to be lost from the 2019 statement was gone within weeks and the four years since have cost relatively little. Compared item by item, about seven particulars in ten survive intact — which is roughly what the curve predicts and is not the finding. The finding is the other direction. Four details appear in 2023 that are not in the 2019 statement, and each one can be found in the newspaper report, the appeal coverage or the campaign material. Memory stores no tag saying where a detail came from, so Aktaş holds those four exactly as he holds the ones he saw, with the same confidence and no sense of having acquired them. That is why the answer to Baptiste's question is no. A re-interview cannot produce the 2019 account, because nothing subtracts the intervening four years; it can only produce a 2023 account, and the difference between the two documents is a record of what the witness has read.",
+        "verify": {
+          "prediction": {
+            "label": "Share of the 2019 particulars still reproduced in 2023",
+            "unit": "per cent",
+            "min": 20,
+            "max": 100,
+            "step": 5
+          },
+          "truth": 70,
+          "passRatio": [
+            0.75,
+            1.3
+          ],
+          "intervention": {
+            "label": "Compare the 2023 interview against the 2019 statement, particular by particular",
+            "note": "both documents are in the file; the comparison is done blind to which is which by a second reader",
+            "outcome": "The comparison completes and the two accounts are matched item by item, with additions listed separately."
+          },
+          "measurement": {
+            "label": "Read off the surviving share and the list of additions",
+            "note": "23 particulars in the 2019 statement",
+            "cost": 2,
+            "costUnit": "hours of reading"
+          },
+          "unmeasuredMoral": "Predicting the loss and never running the comparison misses the whole finding, because the loss was the predictable half. What a re-interview adds is only visible by looking.",
+          "lock": "Lock the prediction",
+          "run": "Commit it",
+          "measure": "Take the measurement",
+          "commit": "Report"
+        }
       },
       "assumes": [
         "an account can be compared with an earlier account by the same person"
-      ]
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Storage and forgetting: the curve is steep at the start",
+        "of": 30,
+        "rests": [
+          "Encoding: memory is built at the moment, from what was attended to"
+        ]
+      }
     },
     {
       "day": 7,
@@ -835,6 +1258,12 @@ export const CURRICULUM = {
       "scene": "Three days remain. Ren Okada lays four proposals on the last empty desk and turns the re-interview card face down. He says one purchase can consume evidence the unit will never be able to restore.",
       "takeaway": "The best evidence purchase changes the decision without consuming information that cannot be recovered later.",
       "place": "Interview Suite A",
+      "guide": "Three days and four proposals. Open each and ask what its result would change about the review's conclusion. One of them consumes evidence that cannot be restored, so buying it closes off every other question that evidence could have answered. Weigh that against what it would tell you, then commit.",
+      "background": [
+        "Why a re-interview is irreversible. Asking a witness again changes the memory you are asking about. Whatever they say afterwards is a memory of the last telling as much as of the event, and no later procedure can recover the version that existed this morning. Evidence that can only be spent once has to be spent last.",
+        "What makes a purchase worth three days. Two possible results that point at different conclusions. A proposal that would confirm what the file already says has spent the unit's last window on reassurance.",
+        "Why the card is face down. Okada is making the irreversibility visible rather than letting it be discovered afterwards, which is the whole of what good evidence handling looks like from the inside."
+      ],
       "story": "Three days remain. Ren Okada lays four proposals on the last empty desk and turns the re-interview card face down. He says one purchase can consume evidence the unit will never be able to restore.",
       "game": {
         "type": "VALUE",
@@ -911,7 +1340,15 @@ export const CURRICULUM = {
           ],
           "s": "Give the description to people who were not there and see who they choose: if far more than a fair share land on the suspect, the other members were never alternatives and the lineup is smaller than it looks."
         }
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Functional size: how many of them were real alternatives",
+        "of": 30,
+        "rests": [
+          "How a lineup is built: fillers, and the ones nobody would pick"
+        ]
+      }
     },
     {
       "day": 8,
@@ -919,6 +1356,12 @@ export const CURRICULUM = {
       "scene": "Okada puts the question the other way round. Suppose the file said sixteen seconds rather than six. What would the review be able to say then?",
       "takeaway": "More time helps only if the extra time was spent on the face, and no witness can report how it was spent.",
       "place": "Interview Suite A",
+      "guide": "Four things a longer viewing time might establish. Ask of each whether duration reports on what was possible or on what happened. Time gives attention more to spend, and where it went was set by what was threatening and moving. So a long report cannot rescue an identification at the resolution limit, and a short one does not refute it.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Okada puts the question the other way round. Suppose the file said sixteen seconds rather than six. What would the review be able to say then?",
       "game": {
         "type": "CHOICE",
@@ -965,7 +1408,15 @@ export const CURRICULUM = {
           ],
           "s": "Turn the resolution limit around and it says what a distance costs: at ten metres the eye separates about three millimetres, and at thirty-four it separates about a centimetre, which is wider than most of what tells two faces apart."
         }
-      ]
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Encoding: memory is built at the moment, from what was attended to",
+        "of": 30,
+        "rests": [
+          "Selective attention: attending is choosing, and choosing costs"
+        ]
+      }
     },
     {
       "day": 9,
@@ -973,6 +1424,12 @@ export const CURRICULUM = {
       "scene": "Okada counts the times Cardoza was asked about the chin between November and the trial. The answer is nine, by five different people, four of whom already knew what the answer was expected to be.",
       "takeaway": "Repeating a question implies the first answer was wrong, and the account moves toward whatever the asking suggests.",
       "place": "Interview Suite B",
+      "guide": "Four accounts of what nine askings do. Ask of each whether it is about the witness's patience or about what the repetition tells her. A question asked again says somebody was not satisfied. Adults shift under that, and children shift far more. So every version after the first was produced under that pressure, and nobody here had counted the askings.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Okada counts the times Cardoza was asked about the chin between November and the trial. The answer is nine, by five different people, four of whom already knew what the answer was expected to be.",
       "game": {
         "type": "CHOICE",
@@ -998,7 +1455,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a question can be asked more than once about the same detail"
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Suggestibility, repeated questioning and the child witness",
+        "of": 30,
+        "rests": [
+          "The misinformation effect: what arrives after the event gets in"
+        ]
+      }
     }
   ],
   "IDENT": [
@@ -1008,32 +1473,69 @@ export const CURRICULUM = {
       "scene": "Marcus Ilori has the 4 December 2019 array record on the table. Six photographs were laid out together. The witness was asked whether the man she saw was among them. It was standard procedure that year.",
       "takeaway": "Shown together, a lineup asks which face is closest; shown one at a time, it asks whether this is the face.",
       "place": "Identification Suite",
+      "guide": "Put a number on what the array asks. If the man she saw is not among the six and she picks anyway, the chance she lands on the suspect rather than a filler is one over the number of photographs. Pick the count and work it out. One tile is the number of fillers, which is what the suspect is being compared against rather than the divisor.",
+      "background": [
+        "What the two procedures ask. Six photographs together invite a comparison — which of these is closest to the memory — and the answer is always available, because one of six always is closest. One at a time asks an absolute question about each face, which can be answered no six times.",
+        "Why the arithmetic matters to the file. A witness who would pick under a relative judgement, with the offender absent, lands on the innocent suspect about one time in six. That is not an estimate of how often witnesses are wrong; it is the floor set by the procedure itself, before anything about lighting or distance is considered.",
+        "What the fillers do. Fillers nobody would pick shrink the effective size of the array, so an array of six with three implausible fillers behaves like an array of three and the floor rises accordingly. That is why filler selection is scored separately from the identification."
+      ],
       "story": "Marcus Ilori has the 4 December 2019 array record on the table. Six photographs were laid out together. The witness was asked whether the man she saw was among them. It was standard procedure that year.",
       "game": {
-        "type": "CHOICE",
+        "type": "BALLPARK",
         "title": "Six at once",
         "setup": "Identification Suite",
         "play": "Establish what Cardoza was actually asked to do",
         "task": "Establish what Cardoza was actually asked to do",
-        "question": "What does laying all six photographs out together invite a witness to do?",
-        "answer": "Compare them and choose whichever is nearest her memory",
-        "why": "Six faces shown together invite relative judgment. The witness can ask which face is closest to memory instead of whether any face is the offender. That easier question always has a winner, even when the offender is absent. Nothing dishonest has to happen for the error to appear. Sequential presentation changes the task. Each face must be judged before the next arrives, which makes rejecting the lineup a live response rather than a comparison lost among six alternatives.",
-        "rebuttals": [
-          "Certainty tends to rise after a choice from an array rather than fall, so this is the wrong direction.",
-          "Complexion is a real limit of that night, and it constrains what she saw before the array existed.",
-          "Remembering the array instead of the event is a later problem, and it needs a second procedure to appear."
+        "question": "If the man she saw was not among the six and she picked anyway, how often would the suspect be the one picked?",
+        "answer": "About 17 per cent — one in six, from the procedure alone. With three fillers nobody would plausibly pick, the effective array is three and it rises to a third.",
+        "why": "Six photographs shown together ask a relative question: which of these is closest to what I remember. That question always has an answer, because one of six always is closest, which is why the caution about the offender possibly being absent matters so much and why its absence from the 2019 form is the finding here. Put a number on it. If the man she saw is not among the six and she picks regardless, the chance she lands on the suspect rather than a filler is 1 ÷ 6 ≈ 0.17. That figure is set by the procedure before anything about the light on Ferrier Street or the eight-metre distance is considered. And it is a floor rather than an estimate: fillers nobody would plausibly pick do not function as alternatives, so an array of six with three implausible fillers behaves like an array of three, and the chance rises to 1 ÷ 3 ≈ 0.33. Sequential presentation replaces the comparison with six separate yes-or-no questions, all of which can be answered no.",
+        "givens": [
+          "six photographs shown together, one of them the suspect",
+          "no caution that the man she saw might be absent"
         ],
-        "choices": [
-          "Compare them and choose whichever is nearest her memory",
-          "Report a lower level of certainty than she actually holds",
-          "Rely on colour and complexion detail the scene could not have given her",
-          "Recall the array afterwards in place of recalling the man in the doorway"
-        ],
-        "correctChoice": "Compare them and choose whichever is nearest her memory"
+        "relationship": "With the offender absent and a relative judgement, the chance of picking the suspect is 1 divided by the number of photographs — the effective size of the array, not its nominal size.",
+        "calcKey": "IDENT-1"
       },
       "assumes": [
-        "a lineup contains one suspect and a number of people known not to be the offender"
-      ]
+        "a lineup contains one suspect and a number of people known not to be the offender",
+        "how a lineup is built: fillers, and the ones nobody would pick — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "FS = m / k",
+          "c": "functional size — how many members of a lineup were real alternatives",
+          "v": [
+            [
+              "FS",
+              "functional size, an effective number of members"
+            ],
+            [
+              "m",
+              "how many mock witnesses were asked, having read only the description"
+            ],
+            [
+              "k",
+              "how many of them picked the suspect without ever having seen the crime"
+            ]
+          ],
+          "s": "Give the description to people who were not there and see who they choose: if far more than a fair share land on the suspect, the other members were never alternatives and the lineup is smaller than it looks.",
+          "computed": true
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 19,
+          "c": "How a lineup is built: fillers, and the ones nobody would pick"
+        }
+      ],
+      "concept": {
+        "n": 21,
+        "c": "Simultaneous against sequential presentation",
+        "of": 30,
+        "rests": [
+          "How a lineup is built: fillers, and the ones nobody would pick"
+        ]
+      }
     },
     {
       "day": 2,
@@ -1041,6 +1543,12 @@ export const CURRICULUM = {
       "scene": "Marcus Ilori lays Cardoza's first description beside the six 2019 photographs at the identification bench. Forty mock-witness cards are face down beside them. Nobody holding a card has seen the robbery.",
       "takeaway": "A procedure can be tested by people who know the description but not the event; where they land measures the array rather than memory.",
       "place": "Identification Suite",
+      "guide": "Commit to the share of mock witnesses you expect to pick the suspect from the description alone, before any card is turned. It cannot be changed afterwards. Then turn the forty cards and read the measured distribution. Nobody holding a card saw the robbery, so what comes back measures the array rather than anybody's memory.",
+      "background": [
+        "What a fair array looks like in numbers. Six photographs, one of them the suspect, and a description that does not single anybody out should send about one witness in six to each. A share much higher than that means the array itself is pointing, and the description is doing the work rather than the memory.",
+        "Why mock witnesses who saw nothing are the right test. They cannot recognise anybody, so anything above chance comes from the procedure: fillers who do not match the description, a photograph that stands out, an instruction that implies the offender is present.",
+        "Why the prediction is locked first. A distribution read and then explained is a distribution that can be made to support whatever the reader already believed. Committing first is what makes the forty cards evidence about the array."
+      ],
       "story": "Marcus Ilori lays Cardoza's first description beside the six 2019 photographs at the identification bench. Forty mock-witness cards are face down beside them. Nobody holding a card has seen the robbery.",
       "game": {
         "type": "VERIFY",
@@ -1083,8 +1591,44 @@ export const CURRICULUM = {
         }
       },
       "assumes": [
-        "a lineup is built to be consistent with the description already given"
-      ]
+        "a lineup is built to be consistent with the description already given",
+        "how a lineup is built: fillers, and the ones nobody would pick — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "FS = m / k",
+          "c": "functional size — how many members of a lineup were real alternatives",
+          "v": [
+            [
+              "FS",
+              "functional size, an effective number of members"
+            ],
+            [
+              "m",
+              "how many mock witnesses were asked, having read only the description"
+            ],
+            [
+              "k",
+              "how many of them picked the suspect without ever having seen the crime"
+            ]
+          ],
+          "s": "Give the description to people who were not there and see who they choose: if far more than a fair share land on the suspect, the other members were never alternatives and the lineup is smaller than it looks."
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 19,
+          "c": "How a lineup is built: fillers, and the ones nobody would pick"
+        }
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Functional size: how many of them were real alternatives",
+        "of": 30,
+        "rests": [
+          "How a lineup is built: fillers, and the ones nobody would pick"
+        ]
+      }
     },
     {
       "day": 3,
@@ -1092,32 +1636,59 @@ export const CURRICULUM = {
       "scene": "Ilori has the 2019 array form. There is a line for the witness's signature and no line for the caution that the person she saw might not be among the photographs. In 2019 there was no such line.",
       "takeaway": "Without being told the offender may be absent, a witness answers \"which of these\" rather than \"is he here\".",
       "place": "Identification Suite",
+      "guide": "Match each outcome an array can produce to what it actually costs, and to who bears the cost. Two of the four are errors and two are correct answers, and the caution is what changes the rate of one specific error without changing the others. Sorting them is how the missing line stops being a paperwork point.",
+      "background": [
+        "Why an array has four outcomes and not two. The offender is either in the array or not, and the witness either picks the suspect, picks a filler, or declines. That gives a hit, a miss, a filler pick and a correct rejection — and the four are not equally visible afterwards, which is why a procedure can look successful while producing the wrong ones.",
+        "What the caution changes. Told the man may not be present, a witness can answer the absolute question and decline. Not told, they answer the relative one — which of these is closest — and a filler pick or a suspect pick is the only available answer. The caution therefore acts on false identifications and leaves correct ones nearly untouched, which is the finding worth putting in front of a board.",
+        "Why a filler pick is the useful signal. It is the one error the system can see: nobody charges a filler, so a filler pick tells the investigation the witness was guessing. An identification of the suspect under the same guessing produces a charge and looks like evidence."
+      ],
       "story": "Ilori has the 2019 array form. There is a line for the witness's signature and no line for the caution that the person she saw might not be among the photographs. In 2019 there was no such line.",
       "game": {
-        "type": "CHOICE",
+        "type": "PROTOCOL",
         "title": "The man may not be here",
         "setup": "Identification Suite",
         "play": "Find the instruction that was not given",
         "task": "Find the instruction that was not given",
-        "question": "What does the missing caution change about the task Cardoza was given?",
-        "answer": "It turns the task into choosing, rather than deciding whether to choose",
-        "why": "A witness usually assumes police have brought photographs for a reason. Without an explicit caution, 'none of them' can stop feeling like a real answer. The task then shifts toward finding the closest face among the six. An offender-absent lineup still produces a winner under that rule. A may-not-be-present instruction restores rejection as an expected response. It changes the decision criterion before any face is judged, which is why the warning belongs before the array appears.",
-        "rebuttals": [
-          "Declining was always allowed; what was missing was any statement that not choosing was a real answer.",
-          "The choice was recorded and used as an identification, which is the problem rather than a bar to it.",
-          "Repeat procedures are ruled out by having seen the first array, not by anything in the caution."
+        "question": "Match each array outcome to what it costs and who carries it.",
+        "answer": "A hit is evidence, a filler pick is a visible warning, and a declined identification is a lost opportunity. The false identification is the only outcome that reads as evidence while being wrong — and the missing caution raises exactly that one.",
+        "why": "An array produces four outcomes because two things are independently true or false: whether the offender is in it, and what the witness does. Sorted that way, the outcomes are not equally dangerous. A hit is what the procedure is for. A declined identification when the offender was present is a real loss, and it is visible — the case knows it has nothing. A filler pick is the most useful error in the system, because nobody is charged on it, so it tells the investigation the witness was guessing. The false identification is the one that matters here: it produces a charge, reads in the file exactly like a hit, and is carried entirely by somebody who was not there. What the missing caution does is raise that specific outcome. Told the man may be absent, a witness can answer the absolute question and say no. Not told, they answer the relative one — which of these is closest — and with the offender absent the only available answers are a filler pick or a suspect pick. That is why a line missing from a 2019 form is a finding about a wrongful identification rather than about paperwork.",
+        "scenarios": [
+          "The offender is in the array and the witness picks the suspect",
+          "The offender is absent and the witness picks the suspect",
+          "The offender is absent and the witness picks a filler",
+          "The offender is in the array and the witness declines to pick"
         ],
         "choices": [
-          "It turns the task into choosing, rather than deciding whether to choose",
-          "It removes her right to decline to take part in the procedure",
-          "It means her choice could not be recorded as a formal identification",
-          "It prevents the array from being repeated later with different photographs"
+          "Evidence the case can use, and the outcome the procedure exists to produce",
+          "A wrongful identification that reads as evidence, carried entirely by an innocent person",
+          "A visible warning that the witness was guessing, carried by the investigation",
+          "A lost opportunity, carried by the case and by anybody the offender goes on to harm"
         ],
-        "correctChoice": "It turns the task into choosing, rather than deciding whether to choose"
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ]
       },
       "assumes": [
-        "a witness expects an investigation to have found somebody before showing an array"
-      ]
+        "a witness expects an investigation to have found somebody before showing an array",
+        "how a lineup is built: fillers, and the ones nobody would pick — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 19,
+          "c": "How a lineup is built: fillers, and the ones nobody would pick"
+        }
+      ],
+      "concept": {
+        "n": 25,
+        "c": "Signal detection: sensitivity against where the line is set",
+        "of": 30,
+        "rests": [
+          "How a lineup is built: fillers, and the ones nobody would pick"
+        ]
+      }
     },
     {
       "day": 4,
@@ -1125,6 +1696,11 @@ export const CURRICULUM = {
       "scene": "Marcus Ilori spreads forty mock-witness tally marks across the identification bench. Twenty-six sit under one photograph. The volunteers had Cardoza's description and nothing else. He asks how many real alternatives the six-photo array actually offered.",
       "takeaway": "Nominal size is how many faces are on the table; functional size is how many of them a stranger could land on.",
       "place": "Identification Suite",
+      "guide": "Five numbers, and three belong elsewhere: the photographs, the fillers, and the volunteers in the other bay. Ask of each whether this measure needs it. Protection comes from real alternatives rather than printed ones. Mock witnesses know only the description, so where they land is a measurement of the array rather than of the case.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Marcus Ilori spreads forty mock-witness tally marks across the identification bench. Twenty-six sit under one photograph. The volunteers had Cardoza's description and nothing else. He asks how many real alternatives the six-photo array actually offered.",
       "game": {
         "type": "BALLPARK",
@@ -1143,7 +1719,8 @@ export const CURRICULUM = {
         "calcKey": "IDENT-4"
       },
       "assumes": [
-        "a lineup member who nobody would pick from the description is not an alternative"
+        "a lineup member who nobody would pick from the description is not an alternative",
+        "how a lineup is built: fillers, and the ones nobody would pick — taken as read"
       ],
       "equations": [
         {
@@ -1166,47 +1743,298 @@ export const CURRICULUM = {
           "s": "Give the description to people who were not there and see who they choose: if far more than a fair share land on the suspect, the other members were never alternatives and the lineup is smaller than it looks.",
           "computed": true
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 19,
+          "c": "How a lineup is built: fillers, and the ones nobody would pick"
+        }
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Functional size: how many of them were real alternatives",
+        "of": 30,
+        "rests": [
+          "How a lineup is built: fillers, and the ones nobody would pick"
+        ]
+      }
     },
     {
       "day": 5,
+      "title": "A filler, or a giveaway",
+      "scene": "The array has to be built from the photograph library before the witness arrives. A filler works if somebody who never saw the offender could plausibly pick it. Anything else narrows the array without anybody noticing.",
+      "takeaway": "A filler that nobody would pick is not in the array, whatever the paperwork says.",
+      "place": "Identification Suite",
+      "guide": "Two bins. A photograph works as a filler if it fits the witness's own description as well as the suspect does. It fails if it stands out — wrong description, different background, a mugshot board, or simply the only one of something. Sort on whether a stranger could plausibly pick it.",
+      "background": [
+        "Why a bad filler is worse than a missing one. An array of six with three implausible fillers behaves like an array of three, so the chance of a false identification rises and nothing in the paperwork records that it did.",
+        "What makes a photograph stand out. Not being like the suspect — being unlike the others. A different background, a visible custody board, the only person with a beard when the description said clean-shaven, the only photograph in colour."
+      ],
+      "story": "The array has to be built from the photograph library before the witness arrives. A filler works if somebody who never saw the offender could plausibly pick it. Anything else narrows the array without anybody noticing.",
+      "game": {
+        "type": "BELT",
+        "title": "A filler, or a giveaway",
+        "setup": "Identification Suite",
+        "play": "Sort the lineup photographs before the array is built.",
+        "task": "Sort the lineup photographs before the array is built.",
+        "question": "Send each photograph to the bin that says whether it works as a filler.",
+        "answer": "Anything a stranger could plausibly pick from the description works. Anything that stands out narrows the array without appearing to.",
+        "why": "A lineup's protection comes from its effective size, not its nominal one. Six photographs where three could never be chosen is an array of three, and the chance that a guessing witness lands on the innocent suspect goes from one in six to one in three — with the form still saying six. What makes a filler fail is standing out from the others rather than differing from the suspect: a different background, a custody board visible at the bottom, the only one in colour, the only one photographed from slightly above. And the description is the test that matters. If the witness said clean-shaven and mid-thirties, then every filler has to be clean-shaven and mid-thirties, because a witness scanning for the description eliminates anybody outside it before making a choice at all. That elimination is invisible afterwards, which is why the array is scored when it is built rather than argued about later.",
+        "belt": {
+          "left": {
+            "name": "Works as a filler"
+          },
+          "right": {
+            "name": "Stands out"
+          },
+          "items": [
+            {
+              "name": "Matches the description",
+              "bin": "left"
+            },
+            {
+              "name": "Same background",
+              "bin": "left"
+            },
+            {
+              "name": "Lit like the",
+              "bin": "left"
+            },
+            {
+              "name": "Similar age",
+              "bin": "left"
+            },
+            {
+              "name": "Similar build",
+              "bin": "left"
+            },
+            {
+              "name": "Clean-shaven as described",
+              "bin": "left"
+            },
+            {
+              "name": "Cropped alike",
+              "bin": "left"
+            },
+            {
+              "name": "Neutral expression",
+              "bin": "left"
+            },
+            {
+              "name": "Plain shirt",
+              "bin": "left"
+            },
+            {
+              "name": "Same resolution",
+              "bin": "left"
+            },
+            {
+              "name": "Similar hairline",
+              "bin": "left"
+            },
+            {
+              "name": "Ordinary studio shot",
+              "bin": "left"
+            },
+            {
+              "name": "Custody board visible",
+              "bin": "right"
+            },
+            {
+              "name": "Bearded not described",
+              "bin": "right"
+            },
+            {
+              "name": "Different background",
+              "bin": "right"
+            },
+            {
+              "name": "In colour",
+              "bin": "right"
+            },
+            {
+              "name": "Twenty years older",
+              "bin": "right"
+            },
+            {
+              "name": "Smiling broadly",
+              "bin": "right"
+            },
+            {
+              "name": "Prison clothing",
+              "bin": "right"
+            },
+            {
+              "name": "Blurred and grainy",
+              "bin": "right"
+            },
+            {
+              "name": "Shot from above",
+              "bin": "right"
+            },
+            {
+              "name": "Indoor shot",
+              "bin": "right"
+            },
+            {
+              "name": "Visibly injured",
+              "bin": "right"
+            },
+            {
+              "name": "Different crop",
+              "bin": "right"
+            },
+            {
+              "name": "In uniform",
+              "bin": "right"
+            },
+            {
+              "name": "Name band showing",
+              "bin": "right"
+            }
+          ],
+          "need": 20,
+          "lives": 3,
+          "pass": 0.8,
+          "hint": "Ask whether somebody who never saw the offender could plausibly pick it.",
+          "commit": "Start the line"
+        }
+      },
+      "assumes": [
+        "a lineup contains one suspect and people known not to be the offender"
+      ],
+      "concept": {
+        "n": 19,
+        "c": "How a lineup is built: fillers, and the ones nobody would pick",
+        "of": 30
+      }
+    },
+    {
+      "day": 6,
       "title": "What this does and does not settle",
       "scene": "Baptiste wants the finding in the report by the end of the week. Ilori asks her to write the sentence first, because the sentence is where reviews are lost, and the room spends an hour on one line.",
       "takeaway": "A measurement can show that a procedure could not support a recognition without showing that the recognition was wrong.",
       "place": "Identification Suite",
+      "guide": "Six statements the draft could make, and three verifications. Each rests on something in the file rather than on something anybody has seen, so check the ones that would hurt most if the file were wrong. A statement can only be held once it has been verified — and two of these cannot be supported by any measurement of the corner, however carefully it was taken.",
+      "background": [
+        "What a limit on perception establishes. That the identification could not have been made the way the file says it was — a claim about the procedure and the conditions. It does not establish who was on Ferrier Street, and no measurement of light or distance can, because absence of sufficient information is not information about the answer.",
+        "Why the distinction decides the sentence. \"The conditions could not support a recognition at that distance\" is what the review has evidence for. \"Ward was not there\" is a different claim, resting on evidence nobody in this building has, and a report that slides from the first to the second loses everything the first one earned.",
+        "What retrieval adds. A recognition is reconstructed at the moment of asking rather than replayed, so a confident identification made under conditions that could not support it is exactly what the mechanism predicts. Confidence is not a check on the conditions, and a witness's certainty is not evidence that the conditions were adequate."
+      ],
       "story": "Baptiste wants the finding in the report by the end of the week. Ilori asks her to write the sentence first, because the sentence is where reviews are lost, and the room spends an hour on one line.",
       "game": {
-        "type": "CHOICE",
+        "type": "ATTEST",
         "title": "What this does and does not settle",
         "setup": "Identification Suite",
         "play": "State what the corrected distance licenses the review to say",
         "task": "State what the corrected distance licenses the review to say",
-        "question": "What is the review entitled to conclude from the corrected distance?",
-        "answer": "The sightline cannot establish recognition",
-        "why": "These measurements bound the information available to the eye. They do not observe who stood in the doorway. A witness near a visual limit can still identify correctly by chance or by information the reconstruction does not capture. The review therefore cannot infer innocence from poor viewing conditions. It can make a narrower claim about evidence. If the sightline cannot distinguish recognition from a lineup choice, the identification cannot bear more weight than the procedure can support.",
-        "rebuttals": [
-          "The reconstruction shows weak identity information, not an inability to see that a person was present.",
-          "Whether Ward was there is a claim about the event, and the sightline cannot answer it.",
-          "Even twenty-two metres leaves identification close to the bay's failure range, so the shorter figure would not settle reliability."
-        ],
-        "choices": [
-          "The sightline cannot establish recognition",
-          "Cardoza could not have seen any person leave the shop",
-          "Ward could not have been the person in the doorway",
-          "The identification would have been reliable at twenty-two metres"
-        ],
-        "correctChoice": "The sightline cannot establish recognition"
+        "question": "Which statements in the draft cannot be held, given what the review's evidence actually supports?",
+        "answer": "The two that say something about who was there. The measurements establish that the conditions could not support a recognition at that distance, and nothing about whether Ward was on Ferrier Street.",
+        "why": "The review has taken a set of measurements and read a set of documents, and both support statements about the procedure and the conditions. The illuminance was measured against a calibrated reference on site; the identification distance is on the plan and on the floor of the hall; the 2019 form has no caution line. Those are held. Two of the draft sentences go somewhere else entirely — that Ward was not the man, and that the witness was mistaken about what she saw — and no measurement of light or distance reaches either, because a limit on what could be perceived is not evidence about who was present. That is the whole discipline of the sentence. What the review can say is that the identification could not have been made the way the file says it was, which is a finding about a procedure, and it is enough to matter. The mechanism explains why the two get confused: a recognition is reconstructed at the moment of asking, so a confident identification under impossible conditions is what the theory predicts rather than a contradiction of it.",
+        "attest": {
+          "claims": [
+            {
+              "id": "lux",
+              "label": "The corner had 1.4 lux at the time of the offence",
+              "signedBy": "Bekele, on site",
+              "evidence": "Calibrated meter, method recorded, fixture inventory matched to the 2019 maintenance log",
+              "critical": true,
+              "backed": true
+            },
+            {
+              "id": "distance",
+              "label": "The identification distance was 8.4 metres",
+              "signedBy": "the hall plan and the site survey",
+              "evidence": "Measured twice on the plan and painted on the floor of the hall",
+              "critical": true,
+              "backed": true
+            },
+            {
+              "id": "form",
+              "label": "The 2019 array form carried no may-not-be-present caution",
+              "signedBy": "Ilori, from the file",
+              "evidence": "The form itself, and the two 2019 forms either side of it",
+              "backed": true
+            },
+            {
+              "id": "notthere",
+              "label": "Ward was not the man on Ferrier Street",
+              "signedBy": "the draft's third paragraph",
+              "evidence": "Rests on the perceptual limit, which says nothing about who was present",
+              "critical": true
+            },
+            {
+              "id": "mistaken",
+              "label": "The witness was mistaken about what she saw",
+              "signedBy": "the draft's fourth paragraph",
+              "evidence": "No measurement of the corner reaches what she saw, only what could be resolved from where she was",
+              "critical": true
+            },
+            {
+              "id": "confidence",
+              "label": "The witness's confidence rose after the identification",
+              "signedBy": "the 2023 re-interview transcript",
+              "evidence": "Both transcripts, with the confidence wording quoted from each",
+              "backed": true
+            }
+          ],
+          "checks": 3,
+          "moral": "Every measurement here is a fact about the corner. A fact about the corner is not a fact about who walked around it.",
+          "commit": "Close the list"
+        }
       },
       "assumes": [
-        "a limit on what could be seen is not evidence about who was there"
-      ]
+        "a limit on what could be seen is not evidence about who was there",
+        "storage and forgetting: the curve is steep at the start — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "E = I / d²",
+          "c": "illuminance falling off with the square of the distance",
+          "v": [
+            [
+              "E",
+              "illuminance on the scene, in lux"
+            ],
+            [
+              "I",
+              "the luminous intensity of the source, in candela"
+            ],
+            [
+              "d",
+              "distance from the source, in metres"
+            ]
+          ],
+          "s": "Light from one lamp spreads over an area that grows as the square of the distance, so a corner twice as far from the streetlight has a quarter of the light on it — which is the difference between a face and a shape."
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 9,
+          "c": "Storage and forgetting: the curve is steep at the start"
+        }
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Retrieval is reconstruction, not playback",
+        "of": 30,
+        "rests": [
+          "Storage and forgetting: the curve is steep at the start"
+        ]
+      }
     },
     {
-      "day": 6,
+      "day": 7,
       "title": "Change one thing",
       "scene": "The unit's rig runs twenty volunteer administrations at a time. Four features of the 2019 procedure can be switched independently. The readout is reported certainty after a choice, and the room has to isolate which feature moves it.",
       "takeaway": "Changing several things at once moves the number and names nothing; one at a time, reversed, names a cause.",
       "place": "Identification Suite",
+      "guide": "The number you are watching is the certainty volunteers report after they have chosen. Four features of the 2019 procedure can be switched independently, and twenty administrations run in a block. A response counts only if it is larger than the block-to-block scatter. Switch one feature, run a block, switch it back, and name the feature certainty follows.",
+      "background": [
+        "Why certainty is worth measuring at all. It is what a courtroom hears: a witness who says they are sure is believed more than one who hesitates. If a feature of the procedure can move certainty without changing whether the choice was right, then the procedure is manufacturing confidence, and the court has no way to tell that from the inside.",
+        "What the four features are. Whether the administrator knows which photograph is the suspect, whether the six are shown together or one at a time, whether the witness is told the man may be absent, and where the block is run. Each is a real difference between police procedures in use, and each is defensible until it is tested.",
+        "Why one at a time, and why put it back. Four features switched together give one number and no attribution. Switching back guards against the other explanation: volunteers who arrived later in the day, or a room that got noisier, drifting the number while you worked."
+      ],
       "story": "The unit's rig runs twenty volunteer administrations at a time. Four features of the 2019 procedure can be switched independently. The readout is reported certainty after a choice, and the room has to isolate which feature moves it.",
       "game": {
         "type": "CONTROL",
@@ -1258,14 +2086,25 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a feature can only be shown to matter by changing it and changing it back"
-      ]
+      ],
+      "concept": {
+        "n": 29,
+        "c": "Experimenter and investigator expectancy, and the control that removes it",
+        "of": 30
+      }
     },
     {
-      "day": 7,
+      "day": 8,
       "title": "Buy the confidence that still means something",
       "scene": "Case analyst Solomon brings four sealed record pulls to the confidence desk. Two can be authenticated before the day's board packet closes. Somewhere in them are Cardoza's words on 4 December and her certainty statement on 26 December.",
       "takeaway": "Confidence is evidence about accuracy only when its timing and the information available before it are preserved.",
       "place": "Identification Suite",
+      "guide": "Four sealed record pulls, two authentications before the packet closes. Open each and read what it would establish. Cardoza's words on 4 December and her certainty statement on 26 December are somewhere in them, and the gap between those dates is the point. Buy the records that can show what her confidence was before it had time to grow.",
+      "background": [
+        "Why the date matters more than the content. Confidence rises after an identification, especially when a witness learns that others agree or that a suspect was charged. A certainty statement taken three weeks later is a measurement of a different thing from one taken at the time.",
+        "What authenticating buys. A record's value depends on when it was made and by whom, and a sealed pull is a claim about both until somebody checks. An unauthenticated record put in front of a board carries the weight of a document and the reliability of an assertion.",
+        "Why two rather than four. The packet closes today, and the choice between them is the judgement being tested: which two records, if genuine, most change what the board can responsibly conclude."
+      ],
       "story": "Case analyst Solomon brings four sealed record pulls to the confidence desk. Two can be authenticated before the day's board packet closes. Somewhere in them are Cardoza's words on 4 December and her certainty statement on 26 December.",
       "game": {
         "type": "VALUE",
@@ -1320,14 +2159,28 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a witness's certainty can change between the identification and a later statement"
-      ]
+      ],
+      "concept": {
+        "n": 24,
+        "c": "Confidence and accuracy: a relationship that survives only at the moment",
+        "of": 30,
+        "rests": [
+          "Retrieval is reconstruction, not playback"
+        ]
+      }
     },
     {
-      "day": 8,
+      "day": 9,
       "title": "Six hundred arrays with no offender in them",
       "scene": "Ilori has six hundred synthetic cases where the offender is known to be absent, and four versions of the procedure to push them through. What comes back is a measurement of the procedure rather than of anybody's guilt.",
       "takeaway": "Running a known population through your own procedure measures the procedure, and the errors it makes are the ones your real cases contain.",
       "place": "Identification Suite",
+      "guide": "Six hundred synthetic cases with the offender known to be absent, and four versions of the procedure. Run the ones you want and watch what comes back. Every pick in these runs is a false identification by construction, so what you are measuring is the procedure's own error rate rather than anybody's guilt. Recommend the version that actually buys something.",
+      "background": [
+        "Why a known-absent population is the instrument. If the offender is not in the array, a correct procedure produces no identification. Every pick is therefore an error, and counting them measures how often this procedure would accuse an innocent person — which cannot be measured from real cases, because nobody knows the truth in those.",
+        "What the four versions differ in. Small procedural choices — sequential or simultaneous presentation, whether the administrator knows the suspect, what caution is given. Each is defensible on its own, and this is the only way to find out what each costs.",
+        "Why 'buys something' rather than 'lowest error'. A version that eliminates false identifications by making witnesses pick nobody at all has bought nothing. The comparison has to hold correct identifications up against false ones, which is what the run reports."
+      ],
       "story": "Ilori has six hundred synthetic cases where the offender is known to be absent, and four versions of the procedure to push them through. What comes back is a measurement of the procedure rather than of anybody's guilt.",
       "game": {
         "type": "INJECT",
@@ -1381,14 +2234,29 @@ export const CURRICULUM = {
       "assumes": [
         "a procedure can be run on cases whose answer is already known",
         "when the offender is absent, any pick is an error"
-      ]
+      ],
+      "concept": {
+        "n": 22,
+        "c": "Double-blind administration, and expectancy",
+        "of": 30,
+        "rests": [
+          "How a lineup is built: fillers, and the ones nobody would pick",
+          "Experimenter and investigator expectancy, and the control that removes it"
+        ]
+      }
     },
     {
-      "day": 9,
+      "day": 10,
       "title": "What the board is being asked to do",
       "scene": "Ines Baptiste has three versions of the closing sentence and has struck out two. Marcus Ilori reads the survivor at the end of the sightline. The board packet closes tonight, after seven years of a fourteen-year sentence.",
       "takeaway": "A recommendation should be no broader than the evidence chain that can still support it under challenge.",
       "place": "Identification Suite",
+      "guide": "Four recommendations, and the review has weighed one piece of evidence without reconstructing the robbery. Ask of each whether it claims more than that. One asserts innocence. One blames an individual for following the policy then in force. One waits for evidence nobody is looking for. The packet closes tonight.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Ines Baptiste has three versions of the closing sentence and has struck out two. Marcus Ilori reads the survivor at the end of the sightline. The board packet closes tonight, after seven years of a fourteen-year sentence.",
       "game": {
         "type": "CHOICE",
@@ -1413,15 +2281,36 @@ export const CURRICULUM = {
         "correctChoice": "Refer the conviction back because the identification cannot carry it alone"
       },
       "assumes": [
-        "a review recommends a course of action rather than reaching a verdict"
-      ]
+        "a review recommends a course of action rather than reaching a verdict",
+        "storage and forgetting: the curve is steep at the start — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 9,
+          "c": "Storage and forgetting: the curve is steep at the start"
+        }
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Retrieval is reconstruction, not playback",
+        "of": 30,
+        "rests": [
+          "Storage and forgetting: the curve is steep at the start"
+        ]
+      }
     },
     {
-      "day": 10,
+      "day": 11,
       "title": "Six at once — Review",
       "scene": "Ilori runs the same six photographs past a volunteer singly, with a decision required on each before the next appears. He asks the room what has actually changed.",
       "takeaway": "Sequential presentation removes the comparison, so each face has to be answered against the memory instead of against the others.",
       "place": "Identification Suite",
+      "guide": "Four things showing faces one at a time takes away. Ask of each whether it changes the question the witness is answering. A row supports a comparison, and a comparison has a winner. One at a time, the question becomes whether this face is the man, which can be answered no six times. And the cost is real: some correct picks are lost too.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Ilori runs the same six photographs past a volunteer singly, with a decision required on each before the next appears. He asks the room what has actually changed.",
       "game": {
         "type": "CHOICE",
@@ -1447,14 +2336,28 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a witness shown several faces together can compare them"
-      ]
+      ],
+      "concept": {
+        "n": 21,
+        "c": "Simultaneous against sequential presentation",
+        "of": 30,
+        "rests": [
+          "How a lineup is built: fillers, and the ones nobody would pick"
+        ]
+      }
     },
     {
-      "day": 11,
+      "day": 12,
       "title": "What the first description constrains — Review",
       "scene": "Ilori has the description form and the array side by side again. Weill asks a question nobody has asked out loud: what does the file say about how familiar those faces were to the person looking at them.",
       "takeaway": "Telling faces apart is a practised skill, and a review can only report what was measured about it.",
       "place": "Identification Suite",
+      "guide": "Four things the effect might require the review to say. Ask of each whether the file contains the information it would need. The effect is about exposure and practice rather than about attitudes, and it is large and repeated. But nothing here records how familiar such faces were to her. An unmeasured factor named honestly is worth more than one applied confidently.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Ilori has the description form and the array side by side again. Weill asks a question nobody has asked out loud: what does the file say about how familiar those faces were to the person looking at them.",
       "game": {
         "type": "CHOICE",
@@ -1480,7 +2383,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "people differ in how much experience they have of particular faces"
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "The cross-race effect in identification",
+        "of": 30,
+        "rests": [
+          "Encoding: memory is built at the moment, from what was attended to"
+        ]
+      }
     }
   ],
   "BRAIN": [
@@ -1490,6 +2401,12 @@ export const CURRICULUM = {
       "scene": "Priya Raghunathan shuts the booth door and waits ten minutes. She can then find the chart on the far wall but cannot name its colours. She wanted the room to experience that loss before reading about it.",
       "takeaway": "Sensitivity in a dark place is bought, and the price is paid in what the eye can no longer separate.",
       "place": "Dark Adaptation Booth",
+      "guide": "Four things a dark scene might take away. Ask of each whether it fits what the two receptor types do. Cones give colour and fine detail and need light. Rods pool signals, so they buy reach and lose resolution. That means a dark street does not simply dim a face. It removes some things and leaves others intact.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Priya Raghunathan shuts the booth door and waits ten minutes. She can then find the chart on the far wall but cannot name its colours. She wanted the room to experience that loss before reading about it.",
       "game": {
         "type": "CHOICE",
@@ -1514,8 +2431,23 @@ export const CURRICULUM = {
         "correctChoice": "Colour and fine central detail"
       },
       "assumes": [
-        "the retina has two kinds of light-sensing cell with different jobs"
-      ]
+        "the retina has two kinds of light-sensing cell with different jobs",
+        "illuminance, and the light a scene actually had — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 2,
+          "c": "Illuminance, and the light a scene actually had"
+        }
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Rods, cones and scotopic vision: what the dark takes away",
+        "of": 30,
+        "rests": [
+          "Illuminance, and the light a scene actually had"
+        ]
+      }
     },
     {
       "day": 2,
@@ -1523,6 +2455,12 @@ export const CURRICULUM = {
       "scene": "Priya Raghunathan has four parts of Cardoza's account on the screen. One shows detailed recall, one shows nothing, one is wrong, and one was never mentioned. She wants one mechanism that fits the whole pattern.",
       "takeaway": "Arousal does not print or erase a scene; it narrows what is taken in, so the centre is sharp and the edges were never there.",
       "place": "Physiology Bay",
+      "guide": "Four readings, and one of them is an absence. Nothing at all about the second man. Ask of each candidate whether it explains dense detail in one place and nothing in another. Two options say the account is bad throughout, which the stable broad features contradict. The pattern is structured, and a structured pattern has a mechanism.",
+      "background": [
+        "Why the unremarkable readings decide it. The salient reading is what draws attention, and it is usually consistent with several explanations at once, which is why it rarely settles anything. The readings that discriminate are the ones a candidate predicts should have moved and which have not: a normal value is a positive result against every mechanism that would have disturbed it.",
+        "How to work the candidates. Take each mechanism and predict the panel it implies before you look at the panel again — which readings it drives, in which direction, and by roughly how much. Then compare. Working that way round is what separates a diagnosis from a rationalisation, because the prediction is made before the data is consulted.",
+        "Why only one candidate survives. Several will account for part of the panel, deliberately so, and a partial fit is exactly what a confident wrong answer feels like from the inside. When two remain, look for the reading on which their predictions differ and let it decide. If no reading separates them you have not finished reading the panel."
+      ],
       "story": "Priya Raghunathan has four parts of Cardoza's account on the screen. One shows detailed recall, one shows nothing, one is wrong, and one was never mentioned. She wants one mechanism that fits the whole pattern.",
       "game": {
         "type": "DIAGNOSIS",
@@ -1589,7 +2527,16 @@ export const CURRICULUM = {
       "assumes": [
         "a threat triggers a fast alarm response before any decision is made",
         "attention narrows under threat"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Weapon focus, and what an arousing object does to a description",
+        "of": 30,
+        "rests": [
+          "Selective attention: attending is choosing, and choosing costs",
+          "Arousal and encoding: the amygdala, cortisol and the inverted U"
+        ]
+      }
     },
     {
       "day": 3,
@@ -1597,6 +2544,12 @@ export const CURRICULUM = {
       "scene": "Raghunathan is asked whether the stress of the robbery could have delayed the scar into the account. She draws the time course of the alarm response on the board: seconds, minutes, and hours.",
       "takeaway": "Every mechanism has a window it operates in, and a cause has to reach the moment it is being blamed for.",
       "place": "Physiology Bay",
+      "guide": "Four options, and the question is a window in time. Ask of each when the mechanism it names is actually acting. The alarm response works during the event and the hours after it. Five weeks is long outside that. Stress still explains uneven encoding across the scene, which is a different claim about a different part of the file.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Raghunathan is asked whether the stress of the robbery could have delayed the scar into the account. She draws the time course of the alarm response on the board: seconds, minutes, and hours.",
       "game": {
         "type": "CHOICE",
@@ -1622,7 +2575,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the stress response has a time course that can be measured"
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "The misinformation effect: what arrives after the event gets in",
+        "of": 30,
+        "rests": [
+          "Retrieval is reconstruction, not playback"
+        ]
+      }
     },
     {
       "day": 4,
@@ -1630,6 +2591,12 @@ export const CURRICULUM = {
       "scene": "Priya Raghunathan and clinical psychologist Oyelaran put the custody log beside Ward's 01:20 agreement. Baptiste wants a sentence the board can use. The panel instead asks which treatment of the admission still works if cognitive control was badly degraded.",
       "takeaway": "A decision is more robust when it still works under the pessimistic end of an uncertain psychological state.",
       "place": "Physiology Bay",
+      "guide": "Move the assumption about Ward's cognitive control to its bad end, and watch which treatments of the 01:20 admission survive. A sentence the board can use has to hold at the pessimistic end of nineteen hours, not merely at the likely one. Choose the treatment that still works there.",
+      "background": [
+        "What nineteen hours does. Sustained wakefulness degrades the ability to weigh distant consequences against immediate relief long before it affects speech or memory of ordinary facts. A person can be lucid, cooperative and articulate while being much worse at judging what agreeing now will cost later.",
+        "Why the range is the question. Nobody can measure what Ward's control was at 01:20. The evidence gives a range, and a review that picks the middle of it has made an assumption it cannot defend. Testing at the bad end is what turns an untestable claim into a decidable one.",
+        "What survives, and what does not. Treatments that rely on the admission being a considered decision fail at the pessimistic end. Treatments that use it as one item among others, weighted by the conditions it was made in, hold — which is why the answer is about how to use it rather than whether to believe it."
+      ],
       "story": "Priya Raghunathan and clinical psychologist Oyelaran put the custody log beside Ward's 01:20 agreement. Baptiste wants a sentence the board can use. The panel instead asks which treatment of the admission still works if cognitive control was badly degraded.",
       "game": {
         "type": "STRESS",
@@ -1720,7 +2687,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the ability to weigh a future consequence against a present one degrades without sleep"
-      ]
+      ],
+      "concept": {
+        "n": 17,
+        "c": "Sleep deprivation and the loss of cognitive control",
+        "of": 30,
+        "rests": [
+          "Selective attention: attending is choosing, and choosing costs"
+        ]
+      }
     },
     {
       "day": 5,
@@ -1728,32 +2703,118 @@ export const CURRICULUM = {
       "scene": "Oyelaran has been asked twice this week whether Cardoza's distress about the case supports her identification, and once whether it undermines it. He writes both questions on the board and answers neither.",
       "takeaway": "A state that both possibilities predict cannot tell them apart, however strongly it is felt.",
       "place": "Physiology Bay",
+      "guide": "Two dials, one readout. Set the arousal at encoding and the arousal now, and watch the accuracy the model predicts. Find the settings that produce the accuracy actually observed — and then keep looking, because more than one pair produces it. The second measurement on the panel is what narrows the family down.",
+      "background": [
+        "Why the curve has two sides. Moderate arousal at encoding sharpens attention on central detail and improves what is remembered about it. High arousal narrows attention further and degrades the periphery, so accuracy for anything outside the centre falls. One accuracy figure therefore fits a low arousal and a high one.",
+        "What distress now is evidence of. Distress at interview is arousal at retrieval, and it is produced by having been in a frightening event, by being told the case is important, and by being asked repeatedly — which is why it cannot separate a witness who encoded well from one who did not. Both branches of the board's question predict it.",
+        "What does separate them. Central-detail accuracy against peripheral-detail accuracy, measured separately: high arousal at encoding predicts a specific pattern — good on the weapon, poor on the face — that moderate arousal does not. That is the second measurement, and it is why the answer is a family of possibilities until it arrives."
+      ],
       "story": "Oyelaran has been asked twice this week whether Cardoza's distress about the case supports her identification, and once whether it undermines it. He writes both questions on the board and answers neither.",
       "game": {
-        "type": "CHOICE",
+        "type": "DEGENERACY",
         "title": "What being frightened is evidence of",
         "setup": "Physiology Bay",
         "play": "Settle what the witness's distress establishes",
         "task": "Settle what the witness's distress establishes",
-        "question": "What does Cardoza's distress about this case establish about her accuracy?",
-        "answer": "It establishes distress, not the direction of identification accuracy",
-        "why": "Distress is real and can be measured, but it does not point toward accuracy or error. A witness who was right can be distressed after seven years. A witness who was wrong can be distressed too. Sincerity therefore cannot be converted into identification accuracy. The assessment still has a useful purpose. It can inform whether another interview would harm Cardoza. That is a question about her present welfare, not a way to infer what happened on Ferrier Street in 2019.",
-        "rebuttals": [
-          "Later distress does not measure encoding strength and is separated from the event by seven years.",
-          "Years of pressure may affect memory, but distress alone cannot show that it did so in this case.",
-          "Whether another interview is safe requires a present clinical assessment. Distress by itself does not settle that decision."
-        ],
-        "choices": [
-          "It establishes distress, not the direction of identification accuracy",
-          "It shows the event was encoded more strongly than an ordinary memory",
-          "It shows later pressure must have changed the original identification",
-          "It proves another interview would be unsafe regardless of her current assessment"
-        ],
-        "correctChoice": "It establishes distress, not the direction of identification accuracy"
+        "question": "Find the arousal settings that produce the observed accuracy, then apply the central-peripheral split and see which survive.",
+        "answer": "Two settings fit the overall accuracy — moderate arousal at encoding, and high arousal with a narrowed focus. The central-versus-peripheral split separates them, and distress at interview does not.",
+        "why": "The relationship between arousal and encoding is an inverted U, which means the map from accuracy to arousal is not one-to-one. A middling overall accuracy is produced by moderate arousal with attention spread across the scene, and by high arousal with attention clamped on the weapon — the same number from two different states, which is what makes the board's question unanswerable as asked. Distress at interview cannot break the tie: it is arousal at retrieval, generated by the event, by being told the case matters and by being asked repeatedly, and every branch of the question predicts it. What breaks the tie is measuring central and peripheral detail separately. High arousal at encoding predicts a specific signature — accurate on the object, poor on the face and the surroundings — and moderate arousal predicts an even profile. Cardoza's account has that signature. So her distress establishes nothing about her identification, and the pattern of what she is accurate about establishes quite a lot.",
+        "degeneracy": {
+          "controls": [
+            {
+              "id": "encode",
+              "label": "Arousal at encoding",
+              "min": 0,
+              "max": 10,
+              "step": 0.5,
+              "unit": "units of the arousal scale"
+            },
+            {
+              "id": "retrieve",
+              "label": "Arousal now, at interview",
+              "min": 0,
+              "max": 10,
+              "step": 0.5,
+              "unit": "units of the arousal scale"
+            }
+          ],
+          "observable": {
+            "label": "Overall identification accuracy predicted"
+          },
+          "locus": [
+            {
+              "a": 3,
+              "b": 2
+            },
+            {
+              "a": 3.5,
+              "b": 4
+            },
+            {
+              "a": 4,
+              "b": 6
+            },
+            {
+              "a": 7.5,
+              "b": 6
+            },
+            {
+              "a": 8,
+              "b": 7.5
+            },
+            {
+              "a": 8.5,
+              "b": 9
+            }
+          ],
+          "second": {
+            "label": "Central detail accuracy minus peripheral detail accuracy",
+            "apply": "Score the weapon description and the face description separately",
+            "locus": [
+              {
+                "a": 7.5,
+                "b": 4
+              },
+              {
+                "a": 8,
+                "b": 6
+              },
+              {
+                "a": 8,
+                "b": 7.5
+              },
+              {
+                "a": 8.5,
+                "b": 9
+              }
+            ]
+          },
+          "truth": {
+            "a": 8,
+            "b": 7.5
+          },
+          "tolerance": {
+            "a": 0.6,
+            "b": 1
+          },
+          "still": [
+            "that arousal at retrieval is high, and that this says nothing about encoding",
+            "that the overall accuracy figure alone cannot place the witness on the curve"
+          ],
+          "commit": "Report it"
+        }
       },
       "assumes": [
         "distress can be assessed without assessing what caused it"
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Arousal and encoding: the amygdala, cortisol and the inverted U",
+        "of": 30,
+        "rests": [
+          "Encoding: memory is built at the moment, from what was attended to"
+        ]
+      }
     },
     {
       "day": 6,
@@ -1761,6 +2822,12 @@ export const CURRICULUM = {
       "scene": "Raghunathan asks the reverse question. Two lux takes colour and fine detail away; the room has spent a fortnight on what is lost, and she wants the other half of the list.",
       "takeaway": "A dark-adapted witness is a good instrument for movement, outline and direction, and a poor one for a face.",
       "place": "Dark Adaptation Booth",
+      "guide": "Four things a witness at two lux might get right, and the room has spent a fortnight on what is lost. Ask of each whether rods can carry it. They pool signals, which buys reach and costs resolution, and they are missing from the centre of gaze. So the useful question is which part of the account the conditions could support.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Raghunathan asks the reverse question. Two lux takes colour and fine detail away; the room has spent a fortnight on what is lost, and she wants the other half of the list.",
       "game": {
         "type": "CHOICE",
@@ -1807,7 +2874,12 @@ export const CURRICULUM = {
           ],
           "s": "Light from one lamp spreads over an area that grows as the square of the distance, so a corner twice as far from the streetlight has a quarter of the light on it — which is the difference between a face and a shape."
         }
-      ]
+      ],
+      "concept": {
+        "n": 27,
+        "c": "Reliability: the same measurement twice, and two people measuring once",
+        "of": 30
+      }
     },
     {
       "day": 7,
@@ -1815,6 +2887,12 @@ export const CURRICULUM = {
       "scene": "Cardoza has said, in three separate places, that she remembers the night like a photograph. Raghunathan is asked what follows from that, and warns the room that the answer is the opposite of what it sounds like.",
       "takeaway": "Vividness and accuracy are separately measurable, and studies that measure both find them barely related.",
       "place": "Physiology Bay",
+      "guide": "Four things a photographic feeling might indicate. Ask of each whether confidence and accuracy have been measured together. People asked the morning after a shocking event, and again years later, keep the confidence while the account measurably changes. Vividness tracks how much the event mattered and how often it has been retold, and both rise with time.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Cardoza has said, in three separate places, that she remembers the night like a photograph. Raghunathan is asked what follows from that, and warns the room that the answer is the opposite of what it sounds like.",
       "game": {
         "type": "CHOICE",
@@ -1840,7 +2918,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "people can report how clear a memory feels to them"
-      ]
+      ],
+      "concept": {
+        "n": 17,
+        "c": "Sleep deprivation and the loss of cognitive control",
+        "of": 30,
+        "rests": [
+          "Selective attention: attending is choosing, and choosing costs"
+        ]
+      }
     }
   ],
   "SOCIAL": [
@@ -1850,6 +2936,12 @@ export const CURRICULUM = {
       "scene": "Grace Ntuli stops the first meeting four minutes in. Everybody in the room came here to find bad procedure, she says, and the file has not been opened yet. She wants something written on the whiteboard before it is.",
       "takeaway": "Write down what would count against you before you look, or you will not recognise it later.",
       "place": "Deliberation Room",
+      "guide": "Four things writing the standard first might protect. Ask of each whether it is about the room or about the paperwork. Everybody here came to find bad procedure, and expectancy changes what people notice without making them invent anything. A standard written first turns a search into a comparison, and gives contrary evidence somewhere to land.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Grace Ntuli stops the first meeting four minutes in. Everybody in the room came here to find bad procedure, she says, and the file has not been opened yet. She wants something written on the whiteboard before it is.",
       "game": {
         "type": "CHOICE",
@@ -1875,7 +2967,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "people find more of what they are looking for than of what they are not"
-      ]
+      ],
+      "concept": {
+        "n": 29,
+        "c": "Experimenter and investigator expectancy, and the control that removes it",
+        "of": 30
+      }
     },
     {
       "day": 2,
@@ -1883,6 +2980,12 @@ export const CURRICULUM = {
       "scene": "Grace Ntuli plays a panel recording in the hall. A volunteer juror repeats 'she saw his face' eleven times across forty minutes. By the end, nobody in the room is asking how far away the face was.",
       "takeaway": "\"I saw his face\" bundles a distance, a light level, a duration and a recognition into one unarguable sentence.",
       "place": "Deliberation Room",
+      "guide": "Four accounts of why one phrase is hard to argue with. Ask of each whether it is about the words or about who said them. The sentence contains a distance, a light level, a duration and a recognition. Three of those can be checked without asking the witness anything. Bundled together, none of them can be examined at all.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Grace Ntuli plays a panel recording in the hall. A volunteer juror repeats 'she saw his face' eleven times across forty minutes. By the end, nobody in the room is asking how far away the face was.",
       "game": {
         "type": "CHOICE",
@@ -1908,7 +3011,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a repeated phrase becomes the thing a room is deciding about"
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Illuminance, and the light a scene actually had",
+        "of": 30
+      }
     },
     {
       "day": 3,
@@ -1916,6 +3024,7 @@ export const CURRICULUM = {
       "scene": "Grace Ntuli plays the 18 November interview in the listening room. Cardoza's husband is present throughout and agrees at eleven points. A second console can replay the same account with one feature of the room changed.",
       "takeaway": "A social effect becomes causal evidence only when the social cue changes and the rest of the room does not.",
       "place": "Deliberation Room",
+      "guide": "The number you are watching is how many details from the first account survive into the second one. Three features of the listening room can be changed, one at a time, and the same recording is replayed each time. A response counts only if it is larger than the run-to-run scatter. Change one, replay, restore it, and name the feature the surviving details follow.",
       "story": "Grace Ntuli plays the 18 November interview in the listening room. Cardoza's husband is present throughout and agrees at eleven points. A second console can replay the same account with one feature of the room changed.",
       "game": {
         "type": "CONTROL",
@@ -1956,8 +3065,24 @@ export const CURRICULUM = {
         }
       },
       "assumes": [
-        "people adjust what they say to the reaction they are getting"
-      ]
+        "people adjust what they say to the reaction they are getting",
+        "how a lineup is built: fillers, and the ones nobody would pick — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 19,
+          "c": "How a lineup is built: fillers, and the ones nobody would pick"
+        }
+      ],
+      "concept": {
+        "n": 23,
+        "c": "Post-identification feedback and confidence inflation",
+        "of": 30,
+        "rests": [
+          "How a lineup is built: fillers, and the ones nobody would pick",
+          "Confidence and accuracy: a relationship that survives only at the moment"
+        ]
+      }
     },
     {
       "day": 4,
@@ -1965,6 +3090,12 @@ export const CURRICULUM = {
       "scene": "Five items in the file point the same way. Grace Ntuli has them on the board with their derivations closed. Ines Baptiste asks why the unit is spending a morning on the part of the case nobody disputes.",
       "takeaway": "Evidence that agrees because it shares a source carries the weight of one item, not of several.",
       "place": "Deliberation Room",
+      "guide": "Open each of the five items to see what it was derived from. Keep the ones that stand on their own, untick the ones whose chain runs through a shared source, and then name that source. Four items pointing the same way is not four pieces of evidence if all four came from one.",
+      "background": [
+        "Why the undisputed part is worth a morning. A case that everybody agrees about is a case nobody has audited. The four items agree because they are derived from one another, and the agreement is what made them look unassailable.",
+        "How dependence hides. A statement quoted in a summary, then cited by a report, then relied on in a later interview, appears three times in the file and is one observation. Closing the derivations is the only way to see it.",
+        "What survives, and why it matters. Anything that came from a separate observation still stands after the shared source is removed. The case does not disappear; it becomes accurately sized, which is the difference between a review and a demolition."
+      ],
       "story": "Five items in the file point the same way. Grace Ntuli has them on the board with their derivations closed. Ines Baptiste asks why the unit is spending a morning on the part of the case nobody disputes.",
       "game": {
         "type": "TRACE",
@@ -2049,32 +3180,72 @@ export const CURRICULUM = {
       "scene": "Loomis is clear that she did not point, prompt or name anybody. Ntuli believes her and plays a recording of a volunteer administration where the same thing is true and the effect is visible anyway.",
       "takeaway": "Expectancy travels through timing and reaction, so an honest administrator transmits a belief as reliably as a dishonest one.",
       "place": "Deliberation Room",
+      "guide": "Four things differ between the administrations where the witness picked the suspect and the ones where she did not. Change one and run the volunteer session again; the readout is how often the suspect is chosen. Changing several at once tells you nothing about any of them, and putting your suspect back is what separates a cause from a coincidence.",
+      "background": [
+        "What expectancy is made of. Not prompting or pointing, which nobody here did. It is carried in latency — the half-second before \"take your time\" — in which photographs get a second look, in the pitch of an acknowledgement, and in what happens after a choice rather than before it.",
+        "Why an honest administrator transmits it. The cues are not chosen and mostly not noticed, by either party. An administrator who knows which photograph is the suspect produces them; one who does not cannot, whatever their intentions. That asymmetry is the whole argument for double-blind administration.",
+        "Why the remedy is structural. You cannot train somebody out of a behaviour they are not performing deliberately, and you cannot audit it from a transcript, because the transcript records words. Removing the knowledge removes the mechanism, which is why the rule is about who runs the array rather than about how they run it."
+      ],
       "story": "Loomis is clear that she did not point, prompt or name anybody. Ntuli believes her and plays a recording of a volunteer administration where the same thing is true and the effect is visible anyway.",
       "game": {
-        "type": "CHOICE",
+        "type": "CONTROL",
         "title": "Nobody said anything",
         "setup": "Deliberation Room",
         "play": "Work out how a belief reaches a witness without being stated",
         "task": "Work out how a belief reaches a witness without being stated",
-        "question": "How does an administrator's knowledge reach the witness when nothing is said?",
-        "answer": "Through when the pause falls and how the reaction differs between the faces",
-        "why": "Expectancy can leak through behaviour without any deliberate cue. A witness watches pauses, tone, facial reactions and timing because the administrator is the only guide to whether the task is going well. Small differences can therefore carry information. Loomis did not need to point or prompt for knowledge to matter. Blind administration removes the knowledge itself. That is more reliable than asking a well-intentioned administrator to suppress every tiny behaviour that a nervous witness might read as feedback.",
-        "rebuttals": [
-          "Layout order does matter and is fixed before the witness arrives, so it cannot carry what the administrator learns during it.",
-          "Questions during an array are discouraged and were not asked here, and the effect appears without any.",
-          "The array form was face down throughout, and the effect appears in rigs where no paperwork is present at all."
-        ],
-        "choices": [
-          "Through when the pause falls and how the reaction differs between the faces",
-          "Through the order the photographs are laid out in, which the witness reads as ranking",
-          "Through the administrator's answers to questions the witness asks during the array",
-          "Through the paperwork, which names the suspect on a page the witness can see"
-        ],
-        "correctChoice": "Through when the pause falls and how the reaction differs between the faces"
+        "question": "Which difference between the sessions is actually moving how often the suspect is picked?",
+        "answer": "Whether the administrator knows which photograph is the suspect. Blind the administrator and the suspect-pick rate falls from 62 to 31 per cent; tell them again and it comes back.",
+        "why": "Four things differed between the sessions and only one of them survives being isolated. Give the administrator the suspect's position and the volunteer picks the suspect 62 per cent of the time; withhold it and the rate falls to 31, which is close to what the array's own arithmetic predicts. Restore the knowledge and the rate comes back — a response that follows the change in both directions and six times the session-to-session noise. The other three candidates move nothing: the script, the room and the order the photographs are laid in are all fixed procedure, and varying them alone changes the rate by less than the noise. What makes this the useful finding is that the administrator is telling the truth. Nothing she did was deliberate, and the effect does not require it to have been. It travels in latency, in which photographs get a second look, and in what happens after a choice — none of which is deliberate and none of which a transcript records. That is why the fix is who runs the array, not how carefully they run it.",
+        "control": {
+          "observable": {
+            "label": "Rate at which the volunteer picks the suspect",
+            "unit": "per cent of sessions"
+          },
+          "variables": [
+            {
+              "id": "knows",
+              "label": "Whether the administrator knows which photograph is the suspect"
+            },
+            {
+              "id": "script",
+              "label": "Which wording of the instruction script is read"
+            },
+            {
+              "id": "room",
+              "label": "Which room the administration is held in"
+            },
+            {
+              "id": "order",
+              "label": "The order the six photographs are laid out in"
+            }
+          ],
+          "held": [
+            "the volunteer pool and their briefing",
+            "the photographs themselves",
+            "the recording setup",
+            "the time of day"
+          ],
+          "truth": "knows",
+          "baseline": 62,
+          "response": -31,
+          "noise": 5,
+          "hint": "The volunteer sessions can be re-run on demand. Set what you want changed, run it, and watch the rate.",
+          "run": "Run a volunteer session",
+          "commit": "Name the difference that is doing it"
+        }
       },
       "assumes": [
         "people take up small cues from somebody running a procedure they are taking part in"
-      ]
+      ],
+      "concept": {
+        "n": 22,
+        "c": "Double-blind administration, and expectancy",
+        "of": 30,
+        "rests": [
+          "How a lineup is built: fillers, and the ones nobody would pick",
+          "Experimenter and investigator expectancy, and the control that removes it"
+        ]
+      }
     },
     {
       "day": 6,
@@ -2082,32 +3253,41 @@ export const CURRICULUM = {
       "scene": "Ntuli reads the account that was put to Ward at 01:20. It describes a man who went along with something, who did not plan it, and who was not the one holding the bag.",
       "takeaway": "Minimisation lowers what an admission appears to cost, and the law does not price it the way the interview room does.",
       "place": "Deliberation Room",
+      "guide": "Work the arithmetic the room offered him. Two numbers were on the table at 01:20 — what the minimised version was presented as costing, and what holding out was presented as costing — and the expected years of the second one is the sentence times the chance of conviction he was given. One tile is the sentence the law actually attaches to the minimised account, which is the number nobody in the room said.",
+      "background": [
+        "What minimisation does. It lowers the apparent cost of admitting, by offering a version of events that sounds partial, reluctant and forgivable. Maximisation raises the apparent cost of denying, by presenting conviction as near-certain. Together they change the arithmetic a person is doing without changing anything about what they did.",
+        "Why the arithmetic is what matters and not the person's character. For an innocent person, admitting a lesser version at an apparent nine months against an apparent near-certain eight years is a rational trade at that moment, in that room, on those numbers. That is the mechanism, and it does not require anybody to be weak or confused.",
+        "Why the numbers were not real. The law does not price a minimised account the way the interview room did: going along with a robbery in which a weapon was carried attracts a sentence in the same band as planning it. So the trade offered was between a real eight years and an imaginary nine months, and only one side of it was ever going to arrive."
+      ],
       "story": "Ntuli reads the account that was put to Ward at 01:20. It describes a man who went along with something, who did not plan it, and who was not the one holding the bag.",
       "game": {
-        "type": "CHOICE",
+        "type": "BALLPARK",
         "title": "The cheap version",
         "setup": "Deliberation Room",
         "play": "Name what the officer's version of the account offered",
         "task": "Name what the officer's version of the account offered",
-        "question": "What does offering a lesser version of the act change for somebody in the room?",
-        "answer": "It makes agreeing feel cheap while the legal consequence stays the same",
-        "why": "Minimisation changes the apparent price of agreeing. A version where somebody merely went along can feel like an explanation rather than a confession. That makes agreement look like a route out of the room. The legal consequence may remain unchanged. The tactic therefore affects decision framing rather than the truth of the account. It is different from feeding facts, which contaminates content. Here the concern is that the offered story makes immediate compliance feel cheaper than continued resistance.",
-        "rebuttals": [
-          "Feeding facts is a separate fault, contamination rather than minimisation, and it makes an admission look more reliable than it is.",
-          "The caution stands throughout an interview and is unaffected by how an account is phrased.",
-          "Interviews under minimisation are often longer, and brevity is not what the tactic is for."
+        "question": "What did holding out appear to cost him, as the room presented it at 01:20?",
+        "answer": "About 7.2 years of expected sentence, against an apparent nine months for the minimised version. The real sentence for that version is six years, and nobody in the room said so.",
+        "why": "Minimisation and maximisation work on arithmetic rather than on character. At 01:20 the room presented two options with numbers attached. Hold out, and conviction was put at 90 per cent certain with a sentence of eight years: 0.90 × 8 = 7.2 expected years. Take the offered version — went along with it, did not plan it, was not holding the bag — and the implication was a matter of months. On those numbers, admitting is the rational move for a guilty person and for an innocent one alike, which is the whole point: the mechanism does not need the person to be weak, confused or unintelligent. What makes it a false-confession risk is that one of the two numbers was not real. The law does not price a minimised account the way an interview room does, and going along with a robbery where a weapon was carried attracts about six years — so the trade on the table was a genuine 7.2 against an imaginary 0.75, and the reason it looked like a good deal is that the second number was never going to be honoured.",
+        "givens": [
+          "conviction presented as 90 per cent certain, sentence eight years",
+          "the minimised version implied at about nine months"
         ],
-        "choices": [
-          "It makes agreeing feel cheap while the legal consequence stays the same",
-          "It gives the suspect facts he can use to make a false account convincing",
-          "It removes the interviewer's obligation to caution him again",
-          "It shortens the interview, which is what the tactic exists to do"
-        ],
-        "correctChoice": "It makes agreeing feel cheap while the legal consequence stays the same"
+        "relationship": "The expected cost of holding out is the chance of conviction times the sentence attached to it, and the minimised alternative is priced by the room rather than by the law.",
+        "calcKey": "SOCIAL-6"
       },
       "assumes": [
         "people admit more readily to a version that costs them less"
-      ]
+      ],
+      "concept": {
+        "n": 30,
+        "c": "False confession: minimisation, maximisation and the innocent person's arithmetic",
+        "of": 30,
+        "rests": [
+          "Suggestibility, repeated questioning and the child witness",
+          "Experimenter and investigator expectancy, and the control that removes it"
+        ]
+      }
     },
     {
       "day": 7,
@@ -2115,60 +3295,222 @@ export const CURRICULUM = {
       "scene": "Three findings sit on one page and the board has ten minutes. Grace Ntuli places the cards along the corridor from the rebuilt corner to the interview room. She asks which finding should make the reader stop first.",
       "takeaway": "Put the finding nobody can argue with first, because it is what the arguable ones are then read against.",
       "place": "Deliberation Room",
+      "guide": "Order the three by how hard each is to argue with, hardest first. The rail is not a clock — all three findings are already established and go in the same report. What separates them is whether a reader can dispute the finding itself or only what follows from it, and a finding that rests on a measurement is in a different class from one that rests on a judgement about a person.",
+      "background": [
+        "Why order is a finding of its own. A reader gives most weight to what they read first, and reads everything after it against that. The measured findings are what the arguable ones should be read against, so putting them first is not presentation — it decides what the rest of the page means.",
+        "What makes a finding hard to argue with. A number somebody can go and re-measure, taken on the ground with an instrument and a method, and reproducible by a hostile reader. The illuminance at the corner is that. A missing line on a 2019 form is nearly that: the form either has the line or it does not.",
+        "What makes one arguable. Anything resting on an inference about what a person knew, intended or transmitted. The expectancy finding is sound and it is the one a reader will contest, which is exactly why it belongs after the two that cannot be contested rather than in front of them."
+      ],
       "story": "Three findings sit on one page and the board has ten minutes. Grace Ntuli places the cards along the corridor from the rebuilt corner to the interview room. She asks which finding should make the reader stop first.",
       "game": {
-        "type": "CHOICE",
+        "type": "SEQUENCE",
         "title": "The order the board reads them in",
         "setup": "Deliberation Room",
         "play": "Rank three findings by how hard each is to argue with",
         "task": "Rank three findings by how hard each is to argue with",
-        "question": "Which finding should open the report?",
-        "answer": "The surveyed distance, which anybody can repeat with a tape",
-        "why": "A board gives early claims more attention and uses them to frame what follows. The distance finding is unusually strong because anyone can repeat it with a tape. The lease plan independently confirms it. Opening there forces the reader to confront a concrete error before reaching studies run by the unit. Mock-witness results then explain the procedure. Feedback and custody findings are more inferential. They land better after the report has established that its first reversal is physically repeatable.",
-        "rebuttals": [
-          "The functional size is the review's best experimental work and it is the unit's own volunteers, which is exactly what a sceptical reader questions first.",
-          "What feedback did is an inference from a pattern rather than a measurement of this witness, and it reads as speculation in the opening line.",
-          "The custody log is about a different half of the case, and opening on the interview invites the reader to treat the review as advocacy."
+        "question": "Order the three findings by how hard each is to argue with.",
+        "answer": "The illuminance first, the missing caution line second, the administrator's knowledge last. The first two are documents and instruments; the third is the one a reader will contest, and it should be read against the other two.",
+        "why": "A reader gives most weight to what they read first and reads everything after it in that light, so the order of three findings is itself a finding about the report. The illuminance goes first because it is a number taken on the ground with a calibrated meter and a stated method, and a hostile reader's only move is to go and measure it again. The missing caution line is nearly as hard: the 4 December 2019 form either has that line or it does not, and it does not. The administrator's knowledge is the finding that will be argued about — not because it is weak, but because it rests on an inference about what one person knew and transmitted without intending to, and inferences about people are where reviews are fought. Placed third it is read by somebody who has already accepted that the corner was dark and the caution was never given. Placed first it is the sentence the board argues about for ten minutes, and the two unarguable findings become supporting material for a contested claim.",
+        "cards": [
+          "The corner had 1.4 lux, measured on site against a calibrated meter",
+          "The 2019 array form has no line for the may-not-be-present caution",
+          "The administrator knew which photograph was the suspect"
         ],
-        "choices": [
-          "The surveyed distance, which anybody can repeat with a tape",
-          "The functional size of the array, which rests on the unit's own volunteers",
-          "The account of what feedback did to Cardoza's certainty",
-          "The custody log's account of the nineteenth hour of interview"
+        "order": [
+          0,
+          1,
+          2
         ],
-        "correctChoice": "The surveyed distance, which anybody can repeat with a tape"
+        "axis": "Order the three by how hard each is to argue with, hardest first. This is not a clock — all three are established and all three go in the report; the question is which one a reader cannot get around.",
+        "ends": [
+          "Cannot be argued with",
+          "Open to argument"
+        ]
       },
       "assumes": [
         "a reader gives most weight to what they read first"
       ],
       "equations": [
         {
-          "e": "FS = m / k",
-          "c": "functional size — how many members of a lineup were real alternatives",
+          "e": "E = I / d²",
+          "c": "illuminance falling off with the square of the distance",
           "v": [
             [
-              "FS",
-              "functional size, an effective number of members"
+              "E",
+              "illuminance on the scene, in lux"
             ],
             [
-              "m",
-              "how many mock witnesses were asked, having read only the description"
+              "I",
+              "the luminous intensity of the source, in candela"
             ],
             [
-              "k",
-              "how many of them picked the suspect without ever having seen the crime"
+              "d",
+              "distance from the source, in metres"
             ]
           ],
-          "s": "Give the description to people who were not there and see who they choose: if far more than a fair share land on the suspect, the other members were never alternatives and the lineup is smaller than it looks."
+          "s": "Light from one lamp spreads over an area that grows as the square of the distance, so a corner twice as far from the streetlight has a quarter of the light on it — which is the difference between a face and a shape."
         }
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Illuminance, and the light a scene actually had",
+        "of": 30
+      }
     },
     {
       "day": 8,
+      "title": "What the review is looking for now",
+      "scene": "The file is larger than the review has time for. Ntuli sets one question the team is answering, and changes it as the picture develops — after the array form turns up, after the lux measurement, after the confidence statements are compared.",
+      "takeaway": "The cost of a withdrawn instruction is paid by whoever is still working to it.",
+      "place": "Deliberation Room",
+      "guide": "Pull the documents the current question wants and leave the rest in the file. The question on the board changes during the day and nobody announces it. What is scored is the documents either side of a change, because they are the only ones that show whether the room is reading the board.",
+      "background": [
+        "Why a review changes its question. It starts on procedure, because procedure is checkable. Once the light measurement lands it becomes what could have been seen. Once the two confidence statements are side by side it becomes what happened to the witness after the identification, which is a different set of documents entirely.",
+        "Why the changeover costs a review. Reading time is the only resource here, and a document read under the old question is read for the wrong thing — people do not re-read a document they have already ticked off."
+      ],
+      "story": "The file is larger than the review has time for. Ntuli sets one question the team is answering, and changes it as the picture develops — after the array form turns up, after the lux measurement, after the confidence statements are compared.",
+      "game": {
+        "type": "SPOT",
+        "title": "What the review is looking for now",
+        "setup": "Deliberation Room",
+        "play": "Work the file review while the standing question changes.",
+        "task": "Work the file review while the standing question changes.",
+        "question": "Pull to the question on the board, and keep watching the board.",
+        "answer": "Read the board rather than the file. Every change leaves an hour in which the old question still looks like today's.",
+        "why": "Three questions run across the day and each wants a different part of the file. Anything about how the procedure was run, then anything about what could have been seen, then anything about what the witness was told afterwards. A document can answer two at once, which is what makes the change cost real. The panel scores the window either side of each change, because most of the file is wanted by neither question and is correctly left unread by somebody who has read nothing. And a review is the worst case for a withdrawn instruction, because nobody re-reads a document they have already been through: read under the wrong question, it is not merely unhelpful — it is ticked, and the thing it would have shown is now behind a mark that says somebody looked.",
+        "spot": {
+          "targets": [
+            {
+              "id": "d1",
+              "label": "Array form, 2019",
+              "tags": [
+                "procedure"
+              ]
+            },
+            {
+              "id": "d2",
+              "label": "Lux survey, this month",
+              "tags": [
+                "perception"
+              ]
+            },
+            {
+              "id": "d3",
+              "label": "Officer notebook, procedure",
+              "tags": [
+                "procedure"
+              ]
+            },
+            {
+              "id": "d4",
+              "label": "Confidence statement, 2023",
+              "tags": [
+                "afterwards"
+              ]
+            },
+            {
+              "id": "d5",
+              "label": "Street lighting record",
+              "tags": [
+                "perception"
+              ]
+            },
+            {
+              "id": "d6",
+              "label": "Feedback note after picking",
+              "tags": [
+                "afterwards",
+                "procedure"
+              ]
+            },
+            {
+              "id": "d7",
+              "label": "Witness eye test",
+              "tags": [
+                "perception"
+              ]
+            },
+            {
+              "id": "d8",
+              "label": "Press cutting, 2020",
+              "tags": [
+                "afterwards"
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "say": "Anything about how it was run",
+              "want": [
+                "procedure"
+              ]
+            },
+            {
+              "say": "Anything about what could be seen",
+              "want": [
+                "perception"
+              ]
+            },
+            {
+              "say": "Anything the witness met afterwards",
+              "want": [
+                "afterwards"
+              ]
+            }
+          ],
+          "duration": 40,
+          "switchEvery": 12,
+          "pass": 0.75,
+          "hint": "The question is on the board, and Ntuli changes it without an announcement.",
+          "commit": "Open the file"
+        }
+      },
+      "assumes": [
+        "a review works to a stated question that somebody can change"
+      ],
+      "equations": [
+        {
+          "e": "E = I / d²",
+          "c": "illuminance falling off with the square of the distance",
+          "v": [
+            [
+              "E",
+              "illuminance on the scene, in lux"
+            ],
+            [
+              "I",
+              "the luminous intensity of the source, in candela"
+            ],
+            [
+              "d",
+              "distance from the source, in metres"
+            ]
+          ],
+          "s": "Light from one lamp spreads over an area that grows as the square of the distance, so a corner twice as far from the streetlight has a quarter of the light on it — which is the difference between a face and a shape."
+        }
+      ],
+      "concept": {
+        "n": 23,
+        "c": "Post-identification feedback and confidence inflation",
+        "of": 30,
+        "rests": [
+          "How a lineup is built: fillers, and the ones nobody would pick",
+          "Confidence and accuracy: a relationship that survives only at the moment"
+        ]
+      }
+    },
+    {
+      "day": 9,
       "title": "What stands behind each sentence",
       "scene": "Four sentences from the draft are on the table. Ntuli asks the room to put each one beside the kind of support it actually has, and warns that one of them has none.",
       "takeaway": "Every sentence in a report is answerable in a particular way, and the ones that are not answerable at all should not be in it.",
       "place": "Deliberation Room",
+      "guide": "Four sentences from the draft, and four kinds of support. Pair them by asking who could check each one, and how. A survey can be repeated. An experiment can be rerun. A chronology sits in dated documents. And one of the four has no support here at all, which is why saying so protects the other three.",
+      "background": [
+        "Why explanations rather than labels. Naming a finding is not accounting for it, and a plausible-sounding mechanism attached to the wrong observation is the commonest way a wrong story survives. Committing an explanation to one clue means claiming it accounts for that clue specifically and not for its neighbour, which is where the two come apart.",
+        "How to use the one-each rule. The explanations are a set to be distributed, not a list to be sampled, so every join constrains the rest. Settling the two you are confident of can decide the remaining pair by elimination. Where it does not, two explanations are still competing for one clue, and that competition is the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every explanation used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Four sentences from the draft are on the table. Ntuli asks the room to put each one beside the kind of support it actually has, and warns that one of them has none.",
       "game": {
         "type": "CASEBOOK",
@@ -2224,11 +3566,17 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 9,
+      "day": 10,
       "title": "What a clean file would look like — Review",
       "scene": "Ntuli reads back the whiteboard from the first morning. The room agreed then what a sound 2019 procedure would have looked like, and she wants to know what the list is for now.",
       "takeaway": "A standard written before the reading turns the report into a comparison anybody can repeat.",
       "place": "Deliberation Room",
+      "guide": "Four things a written standard buys. Ask of each whether it helps the room or helps a reader who distrusts the room. A comparison against a written standard can be argued with in two places: the standard, or whether the file meets it. A judgement cannot be argued with at all, which is the same protection a prespecified analysis gives.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Ntuli reads back the whiteboard from the first morning. The room agreed then what a sound 2019 procedure would have looked like, and she wants to know what the list is for now.",
       "game": {
         "type": "CHOICE",
@@ -2289,6 +3637,12 @@ export const CURRICULUM = {
       "scene": "Records custodian Nell Achterberg opens the Ward file on the hall's long table. The cover says seven years served of fourteen. Every page is signed. The unit has fifteen working days, and this morning buys only three checks.",
       "takeaway": "A record is evidence that a claim was accepted, which is not evidence for the claim.",
       "place": "Records Store",
+      "guide": "Every page is signed and three checks is what the morning buys. Open each claim and read what stands behind it: an observation, a document, or another signature. Verify what the morning allows, and hold whatever the store cannot stand behind. Fifteen working days is the whole review, so what you hold now is what the rest of it works on.",
+      "background": [
+        "What a records store can and cannot attest. It can say that a document exists, when it arrived and who signed it. It cannot say the thing the document asserts is true. Those two are recorded in the same handwriting, on the same page, and a file read quickly does not distinguish them.",
+        "Why the cover matters. 'Seven years served of fourteen' is the fact that makes this urgent, and it is also a claim on a cover sheet. Whether it is backed by the custodial record or copied from an earlier summary is exactly the kind of thing three checks are for.",
+        "Why holding is not doubting. A held claim is one the review will not build on until it is verified. It may well be true. What it cannot be is load-bearing, and marking that early is what stops fourteen days of work resting on it."
+      ],
       "story": "Records custodian Nell Achterberg opens the Ward file on the hall's long table. The cover says seven years served of fourteen. Every page is signed. The unit has fifteen working days, and this morning buys only three checks.",
       "game": {
         "type": "ATTEST",
@@ -2352,7 +3706,15 @@ export const CURRICULUM = {
       "assumes": [
         "a signature records that somebody accepted a claim at the time",
         "a review has less time than a file has pages"
-      ]
+      ],
+      "concept": {
+        "n": 24,
+        "c": "Confidence and accuracy: a relationship that survives only at the moment",
+        "of": 30,
+        "rests": [
+          "Retrieval is reconstruction, not playback"
+        ]
+      }
     },
     {
       "day": 2,
@@ -2360,6 +3722,12 @@ export const CURRICULUM = {
       "scene": "Unit Director Ines Baptiste stands on the rebuilt corner beside the lux meter and the scene report. The report says only 'street lighting normal.' No night reading survives. She asks how much longer Ward should serve while the unit treats that word as data.",
       "takeaway": "A word describing a condition and a reading of that condition are different kinds of evidence, and only one can be checked.",
       "place": "Records Store",
+      "guide": "Four objections to one word. Ask of each whether it questions the officer or the record. Normal is a judgement against something unstated. It could mean the lamps looked usual, or that nothing seemed odd, or that the road was familiar. Those imply different physical conditions, and none of them gives a number anybody can go back and check.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Unit Director Ines Baptiste stands on the rebuilt corner beside the lux meter and the scene report. The report says only 'street lighting normal.' No night reading survives. She asks how much longer Ward should serve while the unit treats that word as data.",
       "game": {
         "type": "CHOICE",
@@ -2406,7 +3774,12 @@ export const CURRICULUM = {
           ],
           "s": "Light from one lamp spreads over an area that grows as the square of the distance, so a corner twice as far from the streetlight has a quarter of the light on it — which is the difference between a face and a shape."
         }
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Illuminance, and the light a scene actually had",
+        "of": 30
+      }
     },
     {
       "day": 3,
@@ -2414,6 +3787,12 @@ export const CURRICULUM = {
       "scene": "Tomas Weill lays four dates along the identification corridor: 14 November, 18 November, 19 November and 26 December. The spans almost close. Nell Achterberg has independent records for each date and one missing interval to account for.",
       "takeaway": "Chronology is only as complete as the intervals it preserves, especially when a missing interval contains a new source of information.",
       "place": "Records Store",
+      "guide": "Reading a record costs nothing, so read them all. Then count only the intervals that belong in the same ledger — the forty-two days between the first date and the last. One interval is missing, and finding where it goes is the point: the answer changes which sources the witness could have been exposed to before her certainty statement.",
+      "background": [
+        "Why the days have to close. Four dates and the spans between them should account for the whole period. If they do not, some days are unaccounted for, and unaccounted days are days when something could have happened that nobody has recorded.",
+        "What an interval means here. Not idle time. Time during which a witness may have seen a photograph in a newspaper, spoken to another witness, or been told that somebody had been charged. Each of those changes what a later identification is evidence of.",
+        "Why independent records matter. Achterberg's records were made for other purposes — custody, duty rosters, correspondence — so they were not written to support anybody's account. That is what makes them able to close a gap the case file cannot."
+      ],
       "story": "Tomas Weill lays four dates along the identification corridor: 14 November, 18 November, 19 November and 26 December. The spans almost close. Nell Achterberg has independent records for each date and one missing interval to account for.",
       "game": {
         "type": "BALANCE",
@@ -2464,8 +3843,23 @@ export const CURRICULUM = {
         }
       },
       "assumes": [
-        "a document's date can be checked against the record of when it was received"
-      ]
+        "a document's date can be checked against the record of when it was received",
+        "encoding: memory is built at the moment, from what was attended to — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 8,
+          "c": "Encoding: memory is built at the moment, from what was attended to"
+        }
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Storage and forgetting: the curve is steep at the start",
+        "of": 30,
+        "rests": [
+          "Encoding: memory is built at the moment, from what was attended to"
+        ]
+      }
     },
     {
       "day": 4,
@@ -2473,6 +3867,12 @@ export const CURRICULUM = {
       "scene": "Weill has the mock-witness result as a distribution against the band a fair six-member array would sit in. Four changes are available to the unit's recommendation and each of them costs days of drafting.",
       "takeaway": "A procedure fails on its spread as often as on its centre, and only one kind of change touches the spread.",
       "place": "Data Room",
+      "guide": "The cloud is what this procedure produces across administrations; the band is where a fair six-member array would land. Four changes are available and each costs days of drafting. They act differently — some move the cloud, some tighten it — so watch the middle and the spread separately. Apply what you would recommend, then say when the procedure is defensible.",
+      "background": [
+        "What the two shapes are. The band is a standard: run a fair array many times and this is the share of mock witnesses who land on the suspect. The cloud is this unit's own procedure measured the same way. A procedure whose cloud sits outside the band is producing identifications a fair array would not.",
+        "Moving and tightening are different fixes. Matching the fillers to the description or adding the may-not-be-present caution changes where the cloud sits. Running sequentially with an administrator who does not know the suspect, or standardising the wording and lighting, reduces how much the result varies between administrations. Only the second kind narrows the spread, and a spread wider than the band cannot be fixed by moving it.",
+        "Why 'defensible' is the word. This becomes a recommendation other units follow, and it will be read out in court. That makes the claim a claim about every administration rather than about the average one, which is why the criterion is written on the whole cloud."
+      ],
       "story": "Weill has the mock-witness result as a distribution against the band a fair six-member array would sit in. Four changes are available to the unit's recommendation and each of them costs days of drafting.",
       "game": {
         "type": "CLOUD",
@@ -2480,7 +3880,7 @@ export const CURRICULUM = {
         "setup": "Data Room",
         "play": "Bring the procedure inside the fair band",
         "task": "Bring the procedure inside the fair band",
-        "question": "Bring the recommended procedure inside the fair band, and say when it is defensible.",
+        "question": "Bring the recommended procedure inside the fair band, and say when it is defensible. Place the bars to report the mean and its one-sigma uncertainty.",
         "answer": "Use all four changes. Better fillers and the caution move the centre but still leave too many administrations outside the fair band. Blind sequential presentation and a standard script narrow the spread enough to clear it.",
         "why": "A fair procedure needs both an acceptable centre and a controlled spread. Better fillers and a may-not-be-present caution can move average performance toward the fair band. They do not remove variation between administrators and rooms. Standard scripts and blind administration reduce that spread. A recommendation should therefore ask how many real administrations remain unfair, not only where the average lands. Moving the centre can improve a mean while leaving too many individual procedures outside the acceptable region.",
         "cloud": {
@@ -2531,8 +3931,24 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a fair six-member array is picked from at about one time in six",
-        "a recommendation can propose changes to a procedure as well as criticise it"
-      ]
+        "a recommendation can propose changes to a procedure as well as criticise it",
+        "how a lineup is built: fillers, and the ones nobody would pick — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 19,
+          "c": "How a lineup is built: fillers, and the ones nobody would pick"
+        }
+      ],
+      "concept": {
+        "n": 22,
+        "c": "Double-blind administration, and expectancy",
+        "of": 30,
+        "rests": [
+          "How a lineup is built: fillers, and the ones nobody would pick",
+          "Experimenter and investigator expectancy, and the control that removes it"
+        ]
+      }
     },
     {
       "day": 5,
@@ -2540,6 +3956,12 @@ export const CURRICULUM = {
       "scene": "Bekele hooks the tape at Cardoza's repeated position and walks past the file's twenty-two-metre floor mark. The tape keeps going to 34.2 m. Tomas Weill puts the unscaled sketch and the shop lease plan beside it.",
       "takeaway": "A number that entered a file without a measurement behind it never becomes a measurement by being repeated.",
       "place": "Records Store",
+      "guide": "Five items, and two of them are independent measurements that agree with each other. Ask of each candidate how many of the five it fits. The witness places herself in the same spot in three accounts. The lease plan matches the survey. The one figure with nothing repeatable behind it traces to a sketch marked not to scale.",
+      "background": [
+        "Why the unremarkable readings decide it. The salient reading is what draws attention, and it is usually consistent with several explanations at once, which is why it rarely settles anything. The readings that discriminate are the ones a candidate predicts should have moved and which have not: a normal value is a positive result against every mechanism that would have disturbed it.",
+        "How to work the candidates. Take each mechanism and predict the panel it implies before you look at the panel again — which readings it drives, in which direction, and by roughly how much. Then compare. Working that way round is what separates a diagnosis from a rationalisation, because the prediction is made before the data is consulted.",
+        "Why only one candidate survives. Several will account for part of the panel, deliberately so, and a partial fit is exactly what a confident wrong answer feels like from the inside. When two remain, look for the reading on which their predictions differ and let it decide. If no reading separates them you have not finished reading the panel."
+      ],
       "story": "Bekele hooks the tape at Cardoza's repeated position and walks past the file's twenty-two-metre floor mark. The tape keeps going to 34.2 m. Tomas Weill puts the unscaled sketch and the shop lease plan beside it.",
       "game": {
         "type": "DIAGNOSIS",
@@ -2619,6 +4041,11 @@ export const CURRICULUM = {
       "scene": "Weill has both procedures' rates on the board. The 2019-style procedure produced more identifications than the blind sequential one, and Baptiste has already called that an argument in its favour.",
       "takeaway": "A procedure that produces more identifications may only be producing more of both kinds.",
       "place": "Data Room",
+      "guide": "Five numbers, and two of them are the raw rates rather than their standard scores. Ask of each what the measure is built from. A procedure can produce more identifications simply by making people readier to choose, which lifts hits and false alarms together. So more choices is not automatically better performance.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Weill has both procedures' rates on the board. The 2019-style procedure produced more identifications than the blind sequential one, and Baptiste has already called that an argument in its favour.",
       "game": {
         "type": "BALLPARK",
@@ -2685,7 +4112,15 @@ export const CURRICULUM = {
           "s": "A raw score says nothing on its own; subtracting the norm group's mean and dividing by its spread says how unusual it is, which is the only form in which one person's result can be compared with anybody else's.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 25,
+        "c": "Signal detection: sensitivity against where the line is set",
+        "of": 30,
+        "rests": [
+          "How a lineup is built: fillers, and the ones nobody would pick"
+        ]
+      }
     },
     {
       "day": 7,
@@ -2693,6 +4128,11 @@ export const CURRICULUM = {
       "scene": "Weill has two numbers on the board and will not put them together until the room agrees what each of them assumes. One is about Hallam and one is about the procedure.",
       "takeaway": "The same identification means one thing in a pool of twelve and another in a pool of four thousand.",
       "place": "Data Room",
+      "guide": "Five numbers, and three belong elsewhere: the multiplier for the other procedure, the size of the pool itself, and a resolution limit. Ask of each what this calculation needs. Evidence multiplies the odds you started with, so the answer depends on both assumptions. Neither of them can be left unstated.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Weill has two numbers on the board and will not put them together until the room agrees what each of them assumes. One is about Hallam and one is about the procedure.",
       "game": {
         "type": "BALLPARK",
@@ -2735,7 +4175,15 @@ export const CURRICULUM = {
           "s": "An identification multiplies the odds it starts with, so the same identification means one thing in a pool of twelve and another in a pool of four thousand — the strength of the evidence and the strength of the case are different quantities.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 26,
+        "c": "Base rates: what a match is worth depends on who is in the pool",
+        "of": 30,
+        "rests": [
+          "Signal detection: sensitivity against where the line is set"
+        ]
+      }
     },
     {
       "day": 8,
@@ -2743,6 +4191,11 @@ export const CURRICULUM = {
       "scene": "Alma Cardoza took a standard face-matching test for the unit in March and scored 42. Tomas Weill opens the age-band norms beside it: mean 51, standard deviation 7, with the rebuilt street visible through the glass.",
       "takeaway": "A standard score says how unusual a result is, which is the only form in which one person's score can be compared with anybody's.",
       "place": "Data Room",
+      "guide": "Five numbers, and two of them belong elsewhere: the highest score the test allows, and the surveyed distance. Ask of each whether this comparison needs it. A raw score means nothing without a distribution to sit in. And note the limits: the test was taken seven years later, with the pictures present.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Alma Cardoza took a standard face-matching test for the unit in March and scored 42. Tomas Weill opens the age-band norms beside it: mean 51, standard deviation 7, with the rebuilt street visible through the glass.",
       "game": {
         "type": "BALLPARK",
@@ -2761,7 +4214,8 @@ export const CURRICULUM = {
         "calcKey": "MEASURE-8"
       },
       "assumes": [
-        "a raw score has no meaning without the distribution it came from"
+        "a raw score has no meaning without the distribution it came from",
+        "reliability: the same measurement twice, and two people measuring once — taken as read"
       ],
       "equations": [
         {
@@ -2808,7 +4262,21 @@ export const CURRICULUM = {
           "s": "A raw score says nothing on its own; subtracting the norm group's mean and dividing by its spread says how unusual it is, which is the only form in which one person's result can be compared with anybody else's.",
           "computed": true
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 27,
+          "c": "Reliability: the same measurement twice, and two people measuring once"
+        }
+      ],
+      "concept": {
+        "n": 28,
+        "c": "Validity, standardization and norms: what a score is compared against",
+        "of": 30,
+        "rests": [
+          "Reliability: the same measurement twice, and two people measuring once"
+        ]
+      }
     },
     {
       "day": 9,
@@ -2816,6 +4284,12 @@ export const CURRICULUM = {
       "scene": "Achterberg hands over a page from another case. It records that a corridor was \"well lit\", that a door was \"about two metres\" from a bed, and that a lamp was \"the usual type\".",
       "takeaway": "A quantity somebody could repeat is a measurement; everything else is a description, however numerical it looks.",
       "place": "Records Store",
+      "guide": "Three entries from another file, and four options. Ask of each entry whether it says what would count as disagreement. A quantity and a unit do, even a rough one. Well lit and the usual type do not, however sincere the writer was. So the test is not whether an entry sounds precise but whether somebody else could contradict it.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Achterberg hands over a page from another case. It records that a corridor was \"well lit\", that a door was \"about two metres\" from a bed, and that a lamp was \"the usual type\".",
       "game": {
         "type": "CHOICE",
@@ -2847,6 +4321,36 @@ export const CURRICULUM = {
 };
 
 export const BALLPARK_CALCS = {
+  "IDENT-1": {
+    "prompt": "Six photographs were shown together on 4 December 2019. One was the suspect; five were fillers. There was no caution that the man might be absent.",
+    "question": "Choose the number of photographs in the array.",
+    "labels": [
+      "1  (the suspect, one of the six)",
+      "6  (photographs in the array)",
+      "5  (fillers in the array)",
+      "3  (fillers a witness would plausibly pick)",
+      "8.4  (metres from the counter to the corner)"
+    ],
+    "values": [
+      1,
+      6,
+      5,
+      3,
+      8.4
+    ],
+    "slots": 2,
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 0.167,
+    "tolerance": 0.02,
+    "units": "chance the suspect is the one picked",
+    "solution": "1 ÷ 6 ≈ 0.17 from the procedure alone, and 1 ÷ 3 ≈ 0.33 once three implausible fillers are discounted.",
+    "explanation": "The floor is set by the array, before any question about light or distance. Sequential presentation removes the comparison the floor comes from."
+  },
   "PERCEPT-1": {
     "prompt": "The case summary puts Cardoza twenty-two metres from the doorway. The gap between the eyes of an adult face is about 0.063 m.",
     "question": "Choose the size of the detail and the distance it was seen from.",
@@ -2877,7 +4381,7 @@ export const BALLPARK_CALCS = {
     "solution": "0.063 ÷ 22 ≈ 0.0029 radians, which is about 10 arc minutes.",
     "explanation": "About three milliradians, or ten arc minutes. That is enough to see a face as a face in good light, while identity depends on smaller relationships within it. The whole-face width and doorway height are plausible measurements, but neither is the detail this calculation asks about."
   },
-  "PERCEPT-3": {
+  "PERCEPT-4": {
     "prompt": "Column 4471 carries an 1,800 candela lantern and stands twelve metres from the shop doorway. Cardoza was twenty-two metres from the doorway, on the far pavement.",
     "question": "Choose the intensity of the lamp and the distance from it to what it is lighting.",
     "labels": [
@@ -2937,7 +4441,7 @@ export const BALLPARK_CALCS = {
     "solution": "40 ÷ 26 ≈ 1.5 effective members.",
     "explanation": "About 1.54 effective members. Six photographs were printed, but the mock-witness choices behaved as though only about one and a half were real alternatives. The nominal size and filler count are useful distractors because functional size is designed to test whether those printed numbers overstate the protection."
   },
-  "PERCEPT-6": {
+  "PERCEPT-7": {
     "prompt": "The survey puts the doorway 34 m from where Cardoza stood. An eye in good light resolves about one arc minute, which is 0.0003 radians.",
     "question": "Choose the eye's resolution limit and the distance it is being applied over.",
     "labels": [
@@ -2996,6 +4500,36 @@ export const BALLPARK_CALCS = {
     "units": "standard units",
     "solution": "0.52 − (−0.52) = 1.04 standard units.",
     "explanation": "About 1.04 standard units of separation. The blind sequential procedure in the same rig reaches 1.9 while producing fewer identifications. Subtracting the raw proportions gives 0.40, but that is not d-prime. Sensitivity uses standardised hit and false-alarm rates so willingness to choose does not masquerade as better discrimination."
+  },
+  "SOCIAL-6": {
+    "prompt": "At 01:20 the room put conviction at 90 per cent certain with an eight-year sentence, and implied the minimised version was worth about nine months.",
+    "question": "Choose the chance of conviction he was given and the sentence attached to it.",
+    "labels": [
+      "0.90  (chance of conviction, as presented)",
+      "8  (years, the sentence if convicted at trial)",
+      "0.75  (years, the minimised version as implied)",
+      "6  (years the law actually attaches to the minimised account)",
+      "1.2  (hours he had been in the room)"
+    ],
+    "values": [
+      0.9,
+      8,
+      0.75,
+      6,
+      1.2
+    ],
+    "slots": 2,
+    "template": "{0} × {1}",
+    "formula": "a*b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 7.2,
+    "tolerance": 0.4,
+    "units": "expected years",
+    "solution": "0.90 × 8 = 7.2 expected years against an apparent 0.75, and the real figure for the minimised account is 6.",
+    "explanation": "The trade was between a real number and an imaginary one. That is what minimisation and maximisation do to the arithmetic."
   },
   "MEASURE-7": {
     "prompt": "The review's stated pool is 4,000 men who could have been on that street fitting the description, giving prior odds of 0.00025. The mock-witness work puts the likelihood ratio for an identification from the 2019 procedure at about 15.",

@@ -14,7 +14,7 @@
 // stop matching it. src/*.js are one-line doors onto the same data, kept because
 // this game's own modules import them.
 import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
-import { MISSIONS as MISSION_DEFS } from './content/missions.js';
+import { MISSIONS as MISSION_DEFS, WARMUPS } from './content/missions.js';
 import { GROUPS as GROUP_DEFS } from './content/groups.js';
 import { ROSTER as HISTORIC_CHARACTERS, LEADERS, AVATARS } from './content/roster.js';
 import { DIAGNOSIS_PACKS } from './content/shared.js';
@@ -62,6 +62,7 @@ export default {
   content: {
     CURRICULUM, BALLPARK_CALCS, JARGON,
     MISSIONS: MISSION_DEFS,
+    WARMUPS,
     GROUPS: GROUP_DEFS,
     ROSTER: HISTORIC_CHARACTERS,
     LEADERS, AVATARS,

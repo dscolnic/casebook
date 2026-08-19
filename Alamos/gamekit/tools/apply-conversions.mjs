@@ -229,12 +229,23 @@ for(const row of rows){
     const notes = [];
     const putList = (key, dest, set) => {
       if(!Array.isArray(t[key]) || !Array.isArray(target[dest])) return;
+      // The same array on both sides means writing element i into itself. It
+      // cannot happen now the retype path clones what it installs, and it is
+      // asserted here because the symptom last time was a stack overflow inside
+      // the YAML emitter with nothing pointing back at this line.
+      if(t[key] === target[dest]) return;
       if(t[key].length !== target[dest].length){
         notes.push(`${key}: ${t[key].length} back against ${target[dest].length} in the book — skipped`);
         return;
       }
       let changed = 0;
-      t[key].forEach((v, i) => { if(set(i, v)) changed++; });
+      // A sheet writes these as plain strings and a returned sheet may send back
+      // `{ label: "…" }` — the shape the *book* uses, which is a reasonable thing
+      // for a writer to copy and produces `label: { label: … }` if taken at face
+      // value. One is unwrapped; anything else is left for `set` to refuse.
+      const flat = (v) => (v && typeof v === 'object' && !Array.isArray(v)
+        && typeof v.label === 'string' ? v.label : v);
+      t[key].forEach((v, i) => { if(set(i, flat(v))) changed++; });
       if(changed) notes.push(`${key}×${changed}`);
     };
     const same = (a, b) => String(a ?? '').replace(/\s+/g, ' ').trim()
@@ -371,14 +382,49 @@ for(const row of rows){
     // estimate on the sheet arrived as a BALLPARK with no estimate at all —
     // green in the checker, refused by the importer, and the whole file
     // reverted for it.
-    const NEW_BLOCK = { BALLPARK: ['estimate'], SEQUENCE: ['cards'],
-      SCIENCETANK: ['proposals', 'evidence'], PROTOCOL: ['scenarios', 'columns'],
-      CHOICE: [], TRIAGE: [], CASEBOOK: [], DIAGNOSIS: [] };
+    // `mapping` and `order` belong here, and leaving them out is why every
+    // PROTOCOL and SEQUENCE conversion in a nine-game pass was refused: the
+    // prose lists installed and the key that grades them did not, so the
+    // importer saw a matching with no mapping and a rail with no order. They are
+    // not "editable text" — they are the answer — but a *new* block has to bring
+    // its own, because there is no old one to keep.
+    // Each entry is everything that format's block is MADE of, not the subset a
+    // retype from CHOICE happens not to need. The short version — `CHOICE: []`,
+    // `TRIAGE: []`, PROTOCOL without `choices` — worked only because the source
+    // stop already had options to reword element by element. A BALLPARK has
+    // none, so a BALLPARK retyped to TRIAGE arrived with no options and no
+    // answer, and to PROTOCOL with four situations and nothing to match them
+    // against. Nine games, one line.
+    const NEW_BLOCK = { BALLPARK: ['estimate'], SEQUENCE: ['cards', 'order'],
+      SCIENCETANK: ['proposals', 'evidence'],
+      PROTOCOL: ['scenarios', 'columns', 'choices', 'mapping'],
+      CHOICE: ['choices', 'answer', 'rebuttals'],
+      TRIAGE: ['choices', 'answer', 'rebuttals'],
+      CASEBOOK: ['proposals', 'scenarios', 'cards', 'mapping'],
+      DIAGNOSIS: ['choices', 'answer', 'rebuttals'] };
+    // COPIED, not referenced. Installing `row.text[f]` by reference makes the
+    // book's list and the sheet's list the same object, and `applyQuestionText`
+    // runs straight afterwards and writes element i of the sheet into element i
+    // of the book — which is `c.label = c` when they are the same array. The
+    // result is a stop that contains itself, and `emitYaml` recursed on it until
+    // the stack went, on seven of the nine sheets, reporting two hundred
+    // identical frames and no key. Nothing else in this file shares structure
+    // with a row and nothing else may.
+    // A returned list may be `["…"]` or `[{ label: "…" }]` — the sheet shows
+    // both shapes, because the book uses both. `scenarios` and `cards` are plain
+    // text in the book, and installing the object form put `- label: Same speed,
+    // heavier rock` into the YAML, which `yaml-lite` reads back as a MAP because
+    // of the ": " — so the card rendered as "[object Object]". Same defect the
+    // emitter's own header records, arriving from the other direction.
+    const PLAIN_TEXT_LISTS = new Set(['scenarios', 'cards', 'columns', 'rebuttals']);
     for(const f of NEW_BLOCK[to] ?? []){
-      const v = (row.text ?? {})[f];
+      let v = (row.text ?? {})[f];
+      if(PLAIN_TEXT_LISTS.has(f) && Array.isArray(v)){
+        v = v.map(x => (x && typeof x === 'object' && typeof x.label === 'string' ? x.label : x));
+      }
       const empty = stop[f] === undefined
         || (Array.isArray(stop[f]) && !stop[f].length);
-      if(empty && v !== undefined && (!Array.isArray(v) || v.length)) stop[f] = v;
+      if(empty && v !== undefined && (!Array.isArray(v) || v.length)) stop[f] = structuredClone(v);
     }
     if(!noText) applyQuestionText(stop);
     applied++;
@@ -386,7 +432,12 @@ for(const row of rows){
     edits.push({ at, stop, label: `${row.id} ${from} -> ${to}` });
     continue;
   }
-  const data = row.data ?? row[key];
+  // `text[key]` last, and it is where a returned sheet actually puts it: the
+  // sheet shows an instrument's block nested under `text.<format>`, so that is
+  // the shape a writer copies when they author a new one. Reading only
+  // `data`/`row[key]` refused five otherwise-complete conversions across five
+  // games for being in the place the sheet had shown them.
+  const data = row.data ?? row[key] ?? (row.text ?? {})[key];
   if(!data){ console.log(`  ✗ ${row.id.padEnd(22)} ${from} -> ${to}: no data block`); refused++; continue; }
 
   let block, did = [], dropped = [], bad;

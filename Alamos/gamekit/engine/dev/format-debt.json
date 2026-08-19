@@ -1,0 +1,11 @@
+{
+  "_": [
+    "Formats over the one-third cap today, per campaign, as \"<FORMAT> <count>\".",
+    "The rule and the conversion policy are in DIVERSITY_PASS.md. Three properties:",
+    "a campaign over the cap and not listed here fails immediately; a row whose",
+    "campaign is now inside the cap fails, naming the line to delete; and a row whose",
+    "count has moved in either direction fails, naming the new number — because a",
+    "count that has improved and not been recorded reads exactly like a count nobody",
+    "has touched, and this pass converts stops a handful at a time. It only shrinks."
+  ]
+}

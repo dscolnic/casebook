@@ -10,7 +10,7 @@
 //   node tools/import-book.mjs books/deep-watch.yml deepwatch --verify
 import { site } from './site.js';
 import { GROUPS } from './content/groups.js';
-import { MISSIONS } from './content/missions.js';
+import { MISSIONS, WARMUPS } from './content/missions.js';
 import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
 import { ROSTER, LEADERS, AVATARS } from './content/roster.js';
 import { COPY } from './content/copy.js';
@@ -35,7 +35,7 @@ export default {
   site,
   start: site.spawn,
 
-  content: { GROUPS, MISSIONS, CURRICULUM, BALLPARK_CALCS, JARGON, ROSTER, LEADERS, AVATARS, COPY },
+  content: { GROUPS, MISSIONS, CURRICULUM, BALLPARK_CALCS, JARGON, ROSTER, LEADERS, AVATARS, COPY, WARMUPS },
 
   people: {
     OUTFITS,

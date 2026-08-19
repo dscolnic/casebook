@@ -116,6 +116,158 @@ export const ROSTER = [
         ]
       }
     ]
+  },
+  {
+    "id": "hand1",
+    "name": "Ines Vogel",
+    "role": "Instrument Technician",
+    "division": "G1",
+    "color": "#2980b9",
+    "bio": "<p>Keeps the field station's two instruments working, which is mostly keeping their calibrations honest and their logs current.</p><p>She distrusts anything that has been moved. A sensor that travelled in the back of a van has a zero worth checking before it has a reading worth believing.</p>",
+    "quiz": [
+      {
+        "q": "Why does Vogel check the zero on an instrument that has been moved?",
+        "a": "Transport can shift the zero without changing anything you would notice",
+        "wrong": [
+          "Moving an instrument voids its calibration certificate until an engineer re-issues it",
+          "Instruments read low after transport because they are colder than the room they arrive in",
+          "The station's insurance requires a documented check after any equipment leaves the site"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hand2",
+    "name": "Owen Brathwaite",
+    "role": "Field Observer",
+    "division": "G1",
+    "color": "#2980b9",
+    "bio": "<p>Walks the survey lines and writes down what he sees, in the order he sees it. He is the reason several of the station's odder results have a time against them.</p><p>His view is that an observation nobody recorded on the day is an opinion by the end of the week.</p>",
+    "quiz": [
+      {
+        "q": "Why does Brathwaite insist on recording an observation the same day?",
+        "a": "Memory reworks what was seen into what would make sense",
+        "wrong": [
+          "Observations lose legal standing if they are entered more than a day after the event",
+          "The survey lines are re-walked weekly, so any older note is out of date by definition",
+          "Written notes are only accepted by the records office if they carry the same day's date"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hand3",
+    "name": "Farida Osman",
+    "role": "Sample Custodian",
+    "division": "G2",
+    "color": "#27ae60",
+    "bio": "<p>Signs samples in and out, and will not release one whose history has a gap in it. The gap is the interesting part.</p><p>She has never lost an argument about a container, because the argument is always about a form somebody did not fill in.</p>",
+    "quiz": [
+      {
+        "q": "Why will Osman not release a sample with a gap in its history?",
+        "a": "Nothing measured afterwards can say what happened during the gap",
+        "wrong": [
+          "Samples degrade at a known rate, so a missing interval makes the result unusable",
+          "The custody form is a legal document and an incomplete one cannot be filed",
+          "A gap usually means the sample was frozen, which changes what it can be tested for"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hand4",
+    "name": "Petar Ilić",
+    "role": "Analyst",
+    "division": "G2",
+    "color": "#27ae60",
+    "bio": "<p>Runs the analyses that other people's decisions rest on, and reports the spread as often as he reports the number.</p><p>He thinks the most dangerous result is one that agrees with what everybody expected, because nobody asks it any questions.</p>",
+    "quiz": [
+      {
+        "q": "Why does Ilić treat an expected result as the dangerous one?",
+        "a": "Agreement stops people checking, so an error in it survives review",
+        "wrong": [
+          "Expected results are usually produced by instruments that have not been recalibrated",
+          "A result matching the prediction is statistically less likely to be reproducible",
+          "Analysts are required to repeat any run whose outcome was predicted in advance"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hand5",
+    "name": "Grace Ntuli",
+    "role": "Archivist",
+    "division": "G3",
+    "color": "#c0392b",
+    "bio": "<p>Keeps the records that outlast the people who made them, which means keeping the conditions a record was made under alongside the record.</p><p>A number with no method attached is, to her, a rumour with a decimal point in it.</p>",
+    "quiz": [
+      {
+        "q": "Why does Ntuli file the method alongside the number?",
+        "a": "Without the method nobody can tell what the number is a number about",
+        "wrong": [
+          "Archive standards require two documents per entry so that one can be destroyed safely",
+          "Methods change every few years, so the file has to show which version was current",
+          "A number filed on its own cannot be indexed by the records office search system"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hand6",
+    "name": "Callum Reyes",
+    "role": "Records Clerk",
+    "division": "G3",
+    "color": "#c0392b",
+    "bio": "<p>Enters the day's readings and queries the ones that arrive without a time, a place or a person against them.</p><p>He is the last chance any of it has to be corrected while somebody still remembers what happened.</p>",
+    "quiz": [
+      {
+        "q": "Why does Reyes query a reading that arrives with no time on it?",
+        "a": "Nothing later can reconstruct when it was taken, so it cannot be compared",
+        "wrong": [
+          "Untimed readings are automatically rejected by the records database on entry",
+          "A missing time usually means the instrument clock had failed and the value is wrong",
+          "Readings are filed in the order they arrive, so an untimed one goes to the wrong week"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hand7",
+    "name": "Naomi Adeyemi",
+    "role": "Duty Officer",
+    "division": "G4",
+    "color": "#d35400",
+    "bio": "<p>Takes the calls that come in before anybody has finished measuring anything, and decides what happens in the meantime.</p><p>She says the hardest part is that the decision has to be made at the point where the evidence is thinnest, and cannot be postponed until it is not.</p>",
+    "quiz": [
+      {
+        "q": "Why does Adeyemi say the decision comes when the evidence is thinnest?",
+        "a": "The moment a response is needed is before the measuring is finished",
+        "wrong": [
+          "Duty officers are required to respond within an hour of any call being logged",
+          "Early evidence is unreliable because the instruments have not warmed up",
+          "The response desk is only staffed before the laboratory results are released"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hand8",
+    "name": "Tobias Lindqvist",
+    "role": "Response Coordinator",
+    "division": "G4",
+    "color": "#d35400",
+    "bio": "<p>Puts people where they are needed and keeps track of who has been told what, which turns out to be the harder half.</p><p>His standing complaint is that everybody remembers being told something and nobody remembers who told them.</p>",
+    "quiz": [
+      {
+        "q": "Why does Lindqvist keep track of who has been told what?",
+        "a": "Otherwise a message everyone half-remembers is treated as confirmed",
+        "wrong": [
+          "Response procedures require a signed acknowledgement from every person contacted",
+          "People forget instructions within the hour unless they are repeated twice",
+          "The coordinator is liable for any action taken by somebody who was not informed"
+        ]
+      }
+    ]
   }
 ];
 

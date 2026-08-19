@@ -44,6 +44,82 @@ matter are few, and every one of them exists because breaking it shipped a bug:
 - **`assumes` is a list of what the stop expects the player already knows.**
   One or two short clauses. It is how "could a student answer this?" gets a
   checkable answer.
+- **A TALLY needs a `budget`.** Shots are free otherwise, the clock is stopped
+  behind a panel, and the commit button unlocks only once every pair is past
+  `minShots` — so the panel makes the judgment and the player clicks until it lets
+  them submit. A player reported exactly that. Author a finite pot of batches:
+
+  ```yaml
+  batch: 100          # shots per batch
+  minShots: 100       # the floor, which must NOT be enough on its own
+  budget: 24          # batches for the whole stop, across all pairs
+  ```
+
+  The importer refuses two things now. A floor whose scatter is already inside the
+  tolerance (`tolerance` must be no wider than 1.5σ at `minShots`, where
+  σ = √(Σ 4p(1−p)/n) ), because then the minimum *is* the answer; and a budget too
+  small for an even split to pass comfortably (`tolerance` at least 1.5σ at full
+  spend), because then a well-played stop still fails on luck. `npm run traps`
+  breaks both.
+- **`guide` and `background` are the two-paragraph card, and they are optional.**
+  A stop with a live instrument had grown to six blocks competing for the eye —
+  the scene, `assumes`, `takeaway`, a row of syllabus equation chips, a row of
+  glossary chips, and then the panel's own "what you are doing", hint and "what
+  counts as done". A player who reached Quantum's HOLDOUT could not tell which of
+  them was the instruction. Where that happens, write two paragraphs instead:
+
+  ```yaml
+  scene: >-                  # paragraph 1: what has happened, and any word the
+    …                        # question needs. Not the answer.
+  guide: >-                  # paragraph 2. On a live panel: what the player does
+    …                        # and what the numbers mean. On a board or a CHOICE:
+                             # what the options disagree about, the test that
+                             # separates them, and what the distinction costs.
+                             # Under 130 words either way, and never mechanics —
+                             # every board format already prints its own
+                             # instruction line a few pixels below.
+  rules: >-                  # optional, behind its own "Rules" button. How the
+    …                        # panel is SCORED. SCIENCETANK is what it was written
+                             # for: its spending rule is the grading, not the
+                             # reading, and it used to occupy the guide's place
+                             # while the stop's `evidence` sat collapsed inside
+                             # the panel. A stop with `rules` also makes the tank
+                             # panel drop its own "Evidence available" disclosure,
+                             # so put the evidence in `guide`. Under 130 words.
+  background:                # behind one button, as prose, in any order
+    - >-
+      …
+  ```
+
+  On a SCIENCETANK the evidence has to carry a fact bearing on **every** proposal —
+  a cost, a lead time, a measurement already taken, a reason it is on the list at
+  all. Evidence that only describes the proposals worth funding is a hint rather
+  than evidence: it turns "spread a hundred points" into "find the two paragraphs
+  that exist".
+
+  `background` takes the course material out of the way without deleting it: the
+  button holds those paragraphs, then each syllabus equation **spelled out in a
+  sentence** with its symbols named, then the glossary definitions, then `assumes`
+  and `takeaway`. Chips are only useful to somebody who already knows what they
+  say, which is not the reader who needs them.
+
+  Two consequences. A stop with a `guide` **suppresses the panel's own three
+  lines** — the guide is the instruction, and printing it twice more is what the
+  player complained about — so authoring `sweep.hint`, `holdout.goals` and the
+  rest beside a guide is refused rather than ignored. And the answer must not be
+  in either paragraph: a HOLDOUT's pass mark is checked against both, and against
+  the background, the same way a SWEEP's target is.
+- **The `Key concept` door is not authored here, and there is no key to write.**
+  The card carries a second door beside `Background` naming one syllabus concept
+  and saying what the idea is for. Which concept is derived at import — scored on
+  where in the stop the concept's keywords landed and on how rare it is across the
+  campaign — and the two sentences it opens onto are `t` on that concept in
+  `tools/syllabus.js`, written once for the course rather than once per stop. A
+  concept with no `t` yet stamps nothing and the card renders as it always did, so
+  a book needs no change either to gain the door or to go without it. What a book
+  CAN do about it is write the stop clearly: a concept named in the title or in
+  the ask beats one that only turns up in a distractor's label, which is exactly
+  the pick the scoring makes.
 - **Match the reading level to `audience.grade`.** `validateContent` notes a
   passage above it and fails one two grades over. When the vocabulary cannot be
   simplified, shorten the sentences — that is the other term in the formula.

@@ -1,0 +1,98 @@
+{
+  "_comment": "Equations on a theme's syllabus that no question computes yet. engine/dev/curriculumDelivery.mjs fails a gap that is NOT listed here, and fails a listed gap that has since been fixed — so this file only shrinks. Delete a line when a stop starts computing it; never add one to silence a new gap without saying why in the commit.",
+  "contamcity": [
+    "ΔTf = i·Kf·m",
+    "n = It ÷ (zF)",
+    "A = εlc",
+    "Kₛₚ = [Aᵃ][Bᵇ]",
+    "rate = k[A]ⁿ"
+  ],
+  "projecty": [
+    "A = λN",
+    "I ∝ 1 / r²"
+  ],
+  "deepwatch": [
+    "v = fλ",
+    "SL − 2TL + TS − NL ≥ DT",
+    "sinθ₁ / v₁ = sinθ₂ / v₂",
+    "d = ½vt"
+  ],
+  "bring_them_home": [
+    "J = FΔt = Δp",
+    "a_c = v² / r"
+  ],
+  "outbreak_riverton": [
+    "Rₑ = R₀ × S",
+    "PPV = (prev·sens) / (prev·sens + (1−prev)(1−spec))",
+    "CFR = deaths / cases",
+    "pH = pKa + log([A⁻]/[HA])"
+  ],
+  "planetary_defense": [
+    "d = baseline / parallax angle",
+    "v = √(GM / r)",
+    "Δλ / λ = v / c",
+    "λ_max T = b"
+  ],
+  "blackout": [
+    "N₁/N₂ = V₁/V₂",
+    "ΔV ≈ I(R cos φ + X sin φ)"
+  ],
+  "quantum": [
+    "Δf = 1 / (2T)",
+    "δB ∝ 1 / √N",
+    "n_phys ≈ d²  per logical qubit",
+    "R = 1 − 2h(e)"
+  ],
+  "icecore": [
+    "N(t) = N₀ e^(−t/τ)"
+  ],
+  "midway": [
+    "ΣF = ma",
+    "safety factor = capacity ÷ demand"
+  ],
+  "planetary_defense_ms": [
+    "average = total ÷ how many",
+    "KE = ½ × m × v²",
+    "momentum = weight × speed",
+    "change in speed = momentum ÷ weight",
+    "change in position = change in speed × time"
+  ],
+  "deepwatch_ms": [
+    "density = weight ÷ volume",
+    "part = whole × share",
+    "average = total ÷ how many"
+  ],
+  "aftershock_ms": [
+    "distance = speed × time"
+  ],
+  "icecore_ms": [
+    "speed = distance ÷ time",
+    "time = distance ÷ speed"
+  ],
+  "outbreak_riverton_ms": [
+    "rate = cases ÷ people",
+    "part = whole × share",
+    "average = total ÷ how many",
+    "how many times = bigger ÷ smaller",
+    "how many after n rounds = start × 2 each round"
+  ],
+  "blackout_ms": [
+    "how long = amount ÷ rate",
+    "part = whole × share",
+    "average = total ÷ how many",
+    "spare = what can be made − what is being used"
+  ],
+  "bring_them_home_ms": [
+    "speed = distance ÷ time",
+    "time = distance ÷ speed",
+    "amount = rate × time",
+    "part = whole × share",
+    "change in position = change in speed × time"
+  ],
+  "contamcity_ms": [
+    "amount = concentration × volume",
+    "average = total ÷ how many",
+    "depth lost each year = weight lost ÷ (how heavy it is × the area)",
+    "how many times = bigger ÷ smaller"
+  ]
+}

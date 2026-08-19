@@ -10,6 +10,12 @@ export const CURRICULUM = {
       "scene": "Pär Lindqvist, the drill engineer, has the hole down at two thousand metres. On the wall is a map with three abandoned sites, all of them on slopes. Vestri Dome is the high point here.",
       "takeaway": "A core is a column of what fell above it only where the ice has not travelled sideways.",
       "place": "Drill Trench",
+      "guide": "Four things a dome might buy, and three of them are about cold, thick or flat. Ask of each whether it is about where the ice came from. An ice sheet spreads out from its high points. On a slope, the ice deep down arrived from somewhere else. Domes pay for that with thin layers.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Pär Lindqvist, the drill engineer, has the hole down at two thousand metres. On the wall is a map with three abandoned sites, all of them on slopes. Vestri Dome is the high point here.",
       "game": {
         "type": "CHOICE",
@@ -35,7 +41,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "ice spreads outwards from the high points of an ice sheet"
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Counting layers is counting years, and deeper means older",
+        "of": 16,
+        "rests": [
+          "Snow that never melts piles up in layers, one year at a time"
+        ]
+      }
     },
     {
       "day": 2,
@@ -43,6 +57,12 @@ export const CURRICULUM = {
       "scene": "The barrel is at seven hundred and eighty metres, in the depth band where the ice comes up cracked. The winch, the fluid and the storage are all set for ordinary ice.",
       "takeaway": "Ice brought up badly is a shorter record, not a cheaper one.",
       "place": "Drill Trench",
+      "guide": "All five steps will happen, so ask what each one buys the next. Down in that band the bubbles are squeezed harder than the surface can hold. Ask of each step whether it softens the shock, lets the pressure ease, or saves something about to be lost. One of them throws away the depths if it comes first.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "The barrel is at seven hundred and eighty metres, in the depth band where the ice comes up cracked. The winch, the fluid and the storage are all set for ordinary ice.",
       "game": {
         "type": "SEQUENCE",
@@ -70,14 +90,93 @@ export const CURRICULUM = {
       },
       "assumes": [
         "air trapped deep in the ice is squeezed to the pressure of the ice around it"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Air trapped in bubbles is a sample of the sky from long ago",
+        "of": 16,
+        "rests": [
+          "Snow that never melts piles up in layers, one year at a time"
+        ]
+      }
     },
     {
       "day": 3,
+      "title": "The level that holds the hole open",
+      "scene": "The hole is three kilometres deep and the ice around it is trying to close it. The fluid inside holds it open. The level in the tower has to stay where it belongs while the drill runs.",
+      "takeaway": "A hole is held open by a balance, and somebody has to keep making it.",
+      "place": "Drill Tower",
+      "guide": "Hold the level inside the band on the gauge. The band gets narrower as the hole gets deeper. Each run of the winch changes the balance and keeps changing it, so set the pump to match rather than waiting for the gauge to move.",
+      "background": [
+        "Why the hole needs holding open. Ice this deep is under enough pressure to flow, and it slowly squeezes a hole shut. Fluid pushing back from inside is what stops it.",
+        "Why too much is bad too. Push too hard and the wall cracks and swallows fluid. That costs the hole and spoils the record around it."
+      ],
+      "story": "The hole is three kilometres deep and the ice around it is trying to close it. The fluid inside holds it open. The level in the tower has to stay where it belongs while the drill runs.",
+      "game": {
+        "type": "HOLD",
+        "title": "The level that holds the hole open",
+        "setup": "Drill Tower",
+        "play": "Hold the fluid level while the hole is open.",
+        "task": "Hold the fluid level while the hole is open.",
+        "question": "Hold the fluid level while the drill runs.",
+        "answer": "Inside the band for most of the run, with the pump set to answer each change rather than tapped after the level has moved.",
+        "why": "Ice three kilometres down is under enough pressure to flow, so a hole through it closes on its own. What holds it open is the fluid inside, pushing back. Too little and the walls creep in. Too much and the wall cracks and swallows fluid, which costs the hole and spoils the record near it. Everything the drilling does upsets that balance and keeps upsetting it. Pulling the drill up takes away what it was displacing, for as long as the winch runs. Chips come up with fluid on them. Cold fluid off the reel is heavier than what is in the hole and keeps sinking into it. So the pump is set to match, not tapped. The band gets narrower with depth because the gap between closing the hole and cracking it gets smaller the deeper you go.",
+        "hold": {
+          "quantity": "Fluid level against the balance point",
+          "control": "Tank pump",
+          "unit": "m",
+          "hold": 0,
+          "band": 0.4,
+          "narrowTo": 0.2,
+          "duration": 45,
+          "authority": 0.1,
+          "pass": 0.8,
+          "direction": "raise",
+          "disturbances": [
+            {
+              "label": "Drill comes up",
+              "at": 4,
+              "amount": -0.03
+            },
+            {
+              "label": "Chips return with fluid",
+              "at": 20,
+              "amount": 0.05
+            },
+            {
+              "label": "Cold fluid goes down",
+              "at": 38,
+              "amount": -0.045
+            }
+          ],
+          "hint": "Each winch run keeps changing the balance. Set the pump to match it.",
+          "commit": "Report the run"
+        }
+      },
+      "assumes": [
+        "a column of liquid pushes harder the deeper it is"
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Rates: how fast something builds up, and how long a job will take",
+        "of": 16,
+        "rests": [
+          "Reading a graph: what the axes say, and what the wiggles mean"
+        ]
+      }
+    },
+    {
+      "day": 4,
       "title": "From snowfall to sealed bubble",
       "scene": "Lindqvist has the borehole's own record on the wall. Five stages, from a snowflake landing to air being shut away, with a measurement against each.",
       "takeaway": "In a chain of stages, one of them sets the answer and the rest follow it.",
       "place": "Drill Trench",
+      "guide": "Put the five stages in the order a snowflake really goes through them, from landing to being shut away. Then name the stage that decides how much older the ice is than the air inside it. Each stage has a measurement against it, so read those instead of picking the stage that sounds most important.",
+      "background": [
+        "Why the ice and its air are different ages. New snow is open to the air above it, and it stays open while it squashes down. Air keeps moving in and out of that layer for a very long time. Only when the tiny gaps finally pinch shut is the air trapped — and by then the ice around it has been buried for a long time.",
+        "What decides how big the gap is. How deep the gaps pinch shut, and how long the snow takes to get there. Both depend on how cold it is and how much snow falls each year. A cold, dry place has a gap of hundreds of years. A warmer, snowier place has much less.",
+        "Why it matters. Every comparison between the air record and the ice record has this gap in it. Ignore it and you can get the order of two events wrong, and the order is what tells you which one caused the other."
+      ],
       "story": "Lindqvist has the borehole's own record on the wall. Five stages, from a snowflake landing to air being shut away, with a measurement against each.",
       "game": {
         "type": "CHAIN",
@@ -92,28 +191,33 @@ export const CURRICULUM = {
           "links": [
             {
               "id": "snowfall",
-              "label": "Snow lands on the surface",
-              "transfers": "New mass, carrying the isotopes of the air it condensed from"
+              "label": "Snow falls on the surface",
+              "transfers": "New mass and its isotopes",
+              "reading": "0.32 m of new snow a year"
             },
             {
               "id": "burial",
-              "label": "The layer is buried and begins to compact",
-              "transfers": "Load from everything above it, squeezing the pore space smaller"
+              "label": "The layer is buried",
+              "transfers": "Load from everything above, squeezing the pores smaller",
+              "reading": "Density rising from 340 to 550 kg per cubic metre"
             },
             {
               "id": "mixing",
               "label": "Air moves through the open pores",
-              "transfers": "Atmospheric composition, exchanged with the surface"
+              "transfers": "Atmospheric composition, exchanged with the surface",
+              "reading": "Mixes to within a decade of the surface air"
             },
             {
               "id": "closeoff",
-              "label": "The pores seal into separate bubbles",
-              "transfers": "The atmosphere of that moment, locked into the ice"
+              "label": "The pores seal off",
+              "transfers": "The air of that moment, locked in",
+              "reading": "Complete by 88 m"
             },
             {
               "id": "compression",
-              "label": "Bubbles compress and eventually become clathrate",
-              "transfers": "Pressure into the trapped gas, then into the crystal structure"
+              "label": "Bubbles become clathrate",
+              "transfers": "Pressure into the trapped gas and the crystal",
+              "reading": "Bubbles gone below about 1,200 m"
             }
           ],
           "order": [
@@ -131,14 +235,28 @@ export const CURRICULUM = {
       },
       "assumes": [
         "something that passes through several stages is limited by one of them"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Air trapped in bubbles is a sample of the sky from long ago",
+        "of": 16,
+        "rests": [
+          "Snow that never melts piles up in layers, one year at a time"
+        ]
+      }
     },
     {
-      "day": 4,
+      "day": 5,
       "title": "What comes back first",
       "scene": "Power is back on one generator. Three teams each want their own system first, and Lindqvist is arguing hardest. One generator will not carry them all.",
       "takeaway": "Restart in the order of what is still being lost, not in the order of who asked.",
       "place": "Drill Trench",
+      "guide": "Four systems, and three of them are waiting. Ask of each whether the delay costs time or costs evidence. Warm ice starts losing gas out of its cut faces, and nothing gets it back. A lost drilling day is a day. Queued samples are as good tomorrow. Sort by what is still being lost.",
+      "background": [
+        "Why first is a different question from best. When there is more than one call on the same hour, the value of doing something now is not how much it matters. It is how much is lost by doing it later. Something important that will be just as fixable in an hour can wait. Something small that will not be fixable can not.",
+        "What to look for in the options. Ask which one changes if you wait — a reading that is still moving, a person who is getting worse, a window that closes. Then ask which ones can only be done after something else. Those two questions usually leave one option standing.",
+        "Why only one answer is marked. Real shifts do all of these, in some order. The stop asks for the front of that order because that is the only part where the reasoning shows. Read the verdict afterwards even when you are right — it says what the others were waiting on, which is the rest of the answer."
+      ],
       "story": "Power is back on one generator. Three teams each want their own system first, and Lindqvist is arguing hardest. One generator will not carry them all.",
       "game": {
         "type": "TRIAGE",
@@ -164,7 +282,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "something already being lost is different from something merely waiting"
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Cold, power and daylight are the limits a polar camp works inside",
+        "of": 16,
+        "rests": [
+          "Rates: how fast something builds up, and how long a job will take"
+        ]
+      }
     }
   ],
   "CORE": [
@@ -174,6 +300,12 @@ export const CURRICULUM = {
       "scene": "A metre of core from sixty metres down is on the light table. Ines Okonkwo, the chronology lead, has four things marked on it and wants each one explained before it is cut.",
       "takeaway": "A year is counted from several signals that agree, not from one that looks convincing.",
       "place": "Core Line",
+      "guide": "Four things marked on one metre of core, and four things that made them. Pair them by asking what each is made of. Crystals? Acid? Dust grains? Bubbles? Then ask which season it belongs to. No one marker lasts the whole core, so a year is where several signals agree.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If three lines are right, the fourth response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
       "story": "A metre of core from sixty metres down is on the light table. Ines Okonkwo, the chronology lead, has four things marked on it and wants each one explained before it is cut.",
       "game": {
         "type": "PROTOCOL",
@@ -214,7 +346,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "snow that falls in summer sits in different conditions from snow that falls in winter"
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Counting layers is counting years, and deeper means older",
+        "of": 16,
+        "rests": [
+          "Snow that never melts piles up in layers, one year at a time"
+        ]
+      }
     },
     {
       "day": 2,
@@ -222,6 +362,12 @@ export const CURRICULUM = {
       "scene": "A section has come to the line with its depth mark broken. Holt can place it to within about four metres from the run sheet. The isotope team has asked for it.",
       "takeaway": "A sample with no depth is a measurement of nothing in particular.",
       "place": "Core Line",
+      "guide": "Four options for a section nobody can place better than four metres. Ask of each what the depth is for. It is what turns a measurement into a statement about a year, and four metres here is about thirty years. Some work never uses depth at all. And the doubt has to stay with the sample, or somebody later will not know.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "A section has come to the line with its depth mark broken. Holt can place it to within about four metres from the run sheet. The isotope team has asked for it.",
       "game": {
         "type": "CHOICE",
@@ -247,15 +393,376 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a measurement belongs to the depth it came from, and to no other"
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Keeping a record somebody else can use",
+        "of": 16,
+        "rests": [
+          "What a measurement can honestly say, and what it cannot"
+        ]
+      }
     },
     {
       "day": 3,
+      "title": "A year, or a summer that melted",
+      "scene": "Sections come out faster than they can be logged. A layer made over a year looks one way on the light table. A layer where the surface melted and froze again looks another.",
+      "takeaway": "A layer counted wrong shifts every date below it, in the same direction.",
+      "place": "Core Processing Trench",
+      "guide": "Two bins. A year of snow has coarse summer grains, fine winter snow, and bubbles all through it. A melt layer is clear and heavy with almost no bubbles, because water filled the spaces before it froze.",
+      "background": [
+        "Why it matters so much. Counting layers is how the core is dated. A melt layer counted as a year makes everything below it too old, all the way down.",
+        "What melt does as well. Water running down carries the chemistry with it, so a melt layer smudges the record on both sides of itself."
+      ],
+      "story": "Sections come out faster than they can be logged. A layer made over a year looks one way on the light table. A layer where the surface melted and froze again looks another.",
+      "game": {
+        "type": "BELT",
+        "title": "A year, or a summer that melted",
+        "setup": "Core Processing Trench",
+        "play": "Log the sections before the light goes.",
+        "task": "Log the sections before the light goes.",
+        "question": "Send each section to the bin that says what made the layer.",
+        "answer": "Coarse over fine with bubbles is a year. Clear and heavy with no bubbles is melt, and counting it as a year ages everything below.",
+        "why": "A year of snow leaves a pattern. Coarse crystals from the summer sun, fine packed snow through the winter, and air trapped as bubbles all through it. Melt leaves something different. The surface thaws, the water runs down into the spaces and freezes there, so the ice comes out clear, heavy and almost free of bubbles. Both are stripes in a core and only one of them is a year. Counting matters because it is the clock. A melt layer counted as a year makes every date below it too old. A year missed makes every date too young. And melt does something worse than miscount, since the water carries chemicals down with it and smudges the record either side. That is why a drilling site is chosen for how rarely it melts, not for how much snow it gets.",
+        "belt": {
+          "left": {
+            "name": "A year"
+          },
+          "right": {
+            "name": "Melt"
+          },
+          "items": [
+            {
+              "name": "Coarse over fine",
+              "bin": "left"
+            },
+            {
+              "name": "Bubbles all through",
+              "bin": "left"
+            },
+            {
+              "name": "Summer crystals",
+              "bin": "left"
+            },
+            {
+              "name": "Wind crust pair",
+              "bin": "left"
+            },
+            {
+              "name": "Loose deep layer",
+              "bin": "left"
+            },
+            {
+              "name": "Fine winter snow",
+              "bin": "left"
+            },
+            {
+              "name": "Even spacing",
+              "bin": "left"
+            },
+            {
+              "name": "Paired isotope peak",
+              "bin": "left"
+            },
+            {
+              "name": "Dust band",
+              "bin": "left"
+            },
+            {
+              "name": "Grain size cycle",
+              "bin": "left"
+            },
+            {
+              "name": "Bubble-rich stripe",
+              "bin": "left"
+            },
+            {
+              "name": "Winter sea salt",
+              "bin": "left"
+            },
+            {
+              "name": "Clear glassy band",
+              "bin": "right"
+            },
+            {
+              "name": "Few bubbles",
+              "bin": "right"
+            },
+            {
+              "name": "Heavy refrozen ice",
+              "bin": "right"
+            },
+            {
+              "name": "Water ran down",
+              "bin": "right"
+            },
+            {
+              "name": "Smudged isotopes",
+              "bin": "right"
+            },
+            {
+              "name": "Washed-down peak",
+              "bin": "right"
+            },
+            {
+              "name": "Finger of ice",
+              "bin": "right"
+            },
+            {
+              "name": "Surface glaze",
+              "bin": "right"
+            },
+            {
+              "name": "Ice lens",
+              "bin": "right"
+            },
+            {
+              "name": "Refrozen crust",
+              "bin": "right"
+            },
+            {
+              "name": "Trapped meltwater",
+              "bin": "right"
+            },
+            {
+              "name": "Bubble-free layer",
+              "bin": "right"
+            },
+            {
+              "name": "Vertical pipe",
+              "bin": "right"
+            },
+            {
+              "name": "Melted grains",
+              "bin": "right"
+            }
+          ],
+          "need": 20,
+          "lives": 3,
+          "pass": 0.8,
+          "hint": "Look for bubbles. Water fills the spaces air would have kept.",
+          "commit": "Start the line"
+        }
+      },
+      "assumes": [
+        "snow builds up in layers and can melt and freeze again"
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Counting layers is counting years, and deeper means older",
+        "of": 16,
+        "rests": [
+          "Snow that never melts piles up in layers, one year at a time"
+        ]
+      }
+    },
+    {
+      "day": 4,
+      "title": "Why the gas record has no sharp edges",
+      "scene": "Okonkwo has both records from the same depths on one plot. The ice record has features a few years wide. The gas record has nothing in it narrower than a few decades.",
+      "takeaway": "A record made by averaging cannot show a change faster than the averaging.",
+      "place": "Core Line",
+      "guide": "Four explanations for a record with no sharp edges. Ask of each whether it is about this place or about the laboratory. Cutting smaller pieces would help one of them a little. The spaces do not all seal at once, so the air trapped in one layer is a mixture of many years.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
+      "story": "Okonkwo has both records from the same depths on one plot. The ice record has features a few years wide. The gas record has nothing in it narrower than a few decades.",
+      "game": {
+        "type": "CHOICE",
+        "title": "Why the gas record has no sharp edges",
+        "setup": "Core Line",
+        "play": "Say why the gas record is smoother than the ice record.",
+        "task": "Say why the gas record is smoother than the ice record.",
+        "question": "Why is the gas record smoother than the ice record from the same depths?",
+        "answer": "The air mixed through the whole open snow column before it was sealed. So each bubble holds decades of sky, not one year of it.",
+        "why": "Air stays in touch with the sky all the way through the open snow, and the spaces do not all close at once. They close across a stretch of depth, so the bubbles sealed in one layer hold a mixture covering every year that stretch represents. That smoothing belongs to the site. Somewhere with heavy snowfall seals in a decade and keeps sharp features. Here it takes several. Cutting smaller samples cannot undo it.",
+        "rebuttals": [
+          "Sample size is a choice and could be made smaller. The mixing in the snow is fixed by the site.",
+          "Some changes in the air really are fast, and this record could not show those either.",
+          "Bubbles are sealed, and they do not swap with each other on any timescale that matters here."
+        ],
+        "choices": [
+          "Each bubble holds air mixed over decades.",
+          "Gas samples are bigger, so they average more ice.",
+          "Carbon dioxide changes more slowly in the air than temperature does.",
+          "Bubbles leak slowly into each other over thousands of years."
+        ],
+        "correctChoice": "Each bubble holds air mixed over decades."
+      },
+      "assumes": [
+        "a measurement that averages over a stretch cannot show anything shorter than it"
+      ],
+      "equations": [
+        {
+          "e": "average = total ÷ how many",
+          "c": "the mean of several years, or several samples",
+          "v": [
+            [
+              "average",
+              "the mean"
+            ],
+            [
+              "total",
+              "the values added up"
+            ],
+            [
+              "how many",
+              "the number of them"
+            ]
+          ],
+          "s": "One year is noise. An average over many years is a climate."
+        }
+      ],
+      "concept": {
+        "n": 8,
+        "c": "The trapped air is younger than the ice around it",
+        "of": 16,
+        "rests": [
+          "Air trapped in bubbles is a sample of the sky from long ago",
+          "Deeper layers are squashed thinner, so depth is not the same as age"
+        ]
+      }
+    },
+    {
+      "day": 5,
+      "title": "The spike at 1,642 metres",
+      "scene": "The chemistry has found sulphate, which is volcanic sulphur laid down in a thin band within a year or two of an eruption. Two eruptions are of about the same age. Glass fragments came from the same centimetre. Okonkwo has the layer count.",
+      "takeaway": "A layer is identified by what is in it, not by the date that would be convenient.",
+      "place": "Core Line",
+      "guide": "Five readings, and only one of them owes nothing to the clock. Ask of each whether it could tell two eruptions of nearly the same age apart. The modelled age cannot: its own doubt is wider than the gap. Sea salt does not arrive with volcanic glass. And the layer count stopped far higher up.",
+      "background": [
+        "Why the quiet readings matter. It is easy to build a story around the number that is out of range. But most wrong explanations fail on something that did not move. If a cause would have pushed a second reading up and that reading is where it should be, the cause is not what happened, however well it explains the first one.",
+        "How to use the candidates. Take each one and ask what the panel would look like if it were true. Then compare that with the panel in front of you. Doing it in that order stops you fitting the story to the numbers, which is easy to do without noticing.",
+        "Why there is only one answer. More than one candidate will fit part of the panel, and that is on purpose. Only one fits every part of it. If two still look possible, find the reading they disagree about and let that reading choose."
+      ],
+      "story": "The chemistry has found sulphate, which is volcanic sulphur laid down in a thin band within a year or two of an eruption. Two eruptions are of about the same age. Glass fragments came from the same centimetre. Okonkwo has the layer count.",
+      "game": {
+        "type": "DIAGNOSIS",
+        "title": "The spike at 1,642 metres",
+        "setup": "Core Line",
+        "play": "Name which eruption the layer came from.",
+        "task": "Name which eruption the layer came from.",
+        "question": "Name which eruption the layer came from.",
+        "answer": "The northern eruption. The glass chemistry is the one reading that owes nothing to the timescale, and it matches.",
+        "why": "The glass chemistry is the only reading here that does not depend on the timescale. It is also the one that tells the two apart, because glass carries the fingerprint of the magma it came from. The modelled age cannot choose between two eruptions ninety years apart. Its own doubt is wider than that. Sea salt does not arrive with volcanic glass. And the layer count stopped far above this.",
+        "headline": "A sulphur spike at 1,642 m, with glass fragments, and two eruptions within a century of each other.",
+        "readings": [
+          {
+            "zone": "Sulphate",
+            "label": "Peak height",
+            "value": "8× background",
+            "status": "alarm"
+          },
+          {
+            "zone": "Glass shards",
+            "label": "Composition",
+            "value": "high-potassium, matches the northern candidate",
+            "status": "alarm"
+          },
+          {
+            "zone": "Layer count",
+            "label": "Age at this depth",
+            "value": "stopped 460 m above",
+            "status": "low"
+          },
+          {
+            "zone": "Flow model",
+            "label": "Modelled age",
+            "value": "within 90 years of both candidates",
+            "status": "normal"
+          },
+          {
+            "zone": "Replicate core",
+            "label": "Same spike",
+            "value": "present, 1.1 m shallower",
+            "status": "normal",
+            "note": "the 2 holes are 400 m apart"
+          }
+        ],
+        "choices": [
+          {
+            "label": "The northern eruption, named by the glass chemistry.",
+            "mechanism": "Glass chemistry belongs to one volcano, and it does not depend on the timescale at all."
+          },
+          {
+            "label": "The southern eruption, since the modelled age fits it a little better.",
+            "mechanism": "The model puts this depth slightly nearer the southern date."
+          },
+          {
+            "label": "Neither. The spike is sea salt.",
+            "mechanism": "Sulphur from the sea can make peaks with no volcano involved."
+          },
+          {
+            "label": "Cannot be settled until the layer count reaches down to it.",
+            "mechanism": "Nothing can be dated without a count that reaches it."
+          }
+        ],
+        "correctChoice": "The northern eruption, named by the glass chemistry."
+      },
+      "assumes": [
+        "volcanic glass carries the chemistry of the volcano that threw it out"
+      ],
+      "concept": {
+        "n": 4,
+        "c": "A marker found in many places lets separate records be lined up",
+        "of": 16,
+        "rests": [
+          "Counting layers is counting years, and deeper means older"
+        ]
+      }
+    },
+    {
+      "day": 6,
+      "title": "The clock that does not need layers",
+      "scene": "Okonkwo has a sample from the deep section. A quarter of the radioactive atoms are left, and the half-life is written on the bench.",
+      "takeaway": "Where counting has run out, a clock that runs on its own is the only date left.",
+      "place": "Core Line",
+      "guide": "Four numbers, and two of them are counts of halvings. Only one of those is right for a quarter left. Ask of each what it counts. Each halving takes the same length of time, so the question is how many of them have gone by. The ice thickness has nothing to do with it.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
+      "story": "Okonkwo has a sample from the deep section. A quarter of the radioactive atoms are left, and the half-life is written on the bench.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "The clock that does not need layers",
+        "setup": "Core Line",
+        "play": "Date ice the counting cannot reach.",
+        "task": "Date ice the counting cannot reach.",
+        "question": "How old is the sample?",
+        "answer": "About eleven and a half thousand years. Two halvings, at 5,730 years each.",
+        "why": "A radioactive atom decays at a rate nothing in the ice can change. Not temperature. Not pressure. Not flow. Every half-life, half of what is left goes. So a quarter left means two halvings have gone by, which is two half-lives of time. That is a date owing nothing to the flow model, which is what makes it worth having down here.",
+        "givens": [],
+        "relationship": "Age = the half-life × how many halvings have gone by.",
+        "calcKey": "CORE-6"
+      },
+      "assumes": [
+        "a radioactive atom halves in amount every half-life, whatever else happens to it"
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Something measured today can stand in for something nobody measured then",
+        "of": 16,
+        "rests": [
+          "Reading a graph: what the axes say, and what the wiggles mean"
+        ]
+      }
+    },
+    {
+      "day": 7,
       "title": "The depth the counting runs out",
-      "scene": "The layer-thickness log runs from the surface to the bottom of the core. The line can tell apart two bands three millimetres apart and no closer. Okonkwo needs to know where the ice crosses that.",
+      "scene": "Snow piles on snow. Each year makes a layer. The weight above squashes the older layers thinner. The scanner can tell two bands apart if they are three millimetres apart. Any closer and it sees one band. Okonkwo needs the depth where a year gets that thin, because past it nobody can count years.",
       "takeaway": "A count ends where the instrument stops telling one year from the next.",
       "place": "Core Line",
-      "story": "The layer-thickness log runs from the surface to the bottom of the core. The line can tell apart two bands three millimetres apart and no closer. Okonkwo needs to know where the ice crosses that.",
+      "guide": "Drag the depth. The readout is how thick one year of ice is there, in millimetres. Only the depths you stop at get drawn. You are not looking for a high point. You want the depth where the thickness drops to three millimetres, which is the scanner's limit. Find that depth, mark it, and commit.",
+      "background": [
+        "Why the layers get thinner. Ice is heavy. The ice above presses down on the ice below, and an ice sheet also spreads out sideways under its own weight. Both of those stretch a buried layer thinner. Near the top, one year is a few centimetres of ice. Two kilometres down, the same snowfall may be a few millimetres.",
+        "What is lost below the limit. Above the crossing, one year is a band you can point at, and the age of the ice is a count. Below it, two years land inside one scanner width, and the count stops. Ages then come from a model of how the ice flows. A model is a good guess with an error bar, not a tally.",
+        "Why this depth is measured in every core. How fast the layers thin depends on how the ice flows there, and no two places flow the same. So the limit sits at a different depth in every core, and it has to be found again each time before anybody publishes an age."
+      ],
+      "story": "Snow piles on snow. Each year makes a layer. The weight above squashes the older layers thinner. The scanner can tell two bands apart if they are three millimetres apart. Any closer and it sees one band. Okonkwo needs the depth where a year gets that thin, because past it nobody can count years.",
       "game": {
         "type": "SWEEP",
         "title": "The depth the counting runs out",
@@ -433,138 +940,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "layers are stretched thinner as the ice underneath them spreads outwards"
-      ]
-    },
-    {
-      "day": 4,
-      "title": "Why the gas record has no sharp edges",
-      "scene": "Okonkwo has both records from the same depths on one plot. The ice record has features a few years wide. The gas record has nothing in it narrower than a few decades.",
-      "takeaway": "A record made by averaging cannot show a change faster than the averaging.",
-      "place": "Core Line",
-      "story": "Okonkwo has both records from the same depths on one plot. The ice record has features a few years wide. The gas record has nothing in it narrower than a few decades.",
-      "game": {
-        "type": "CHOICE",
-        "title": "Why the gas record has no sharp edges",
-        "setup": "Core Line",
-        "play": "Say why the gas record is smoother than the ice record.",
-        "task": "Say why the gas record is smoother than the ice record.",
-        "question": "Why is the gas record smoother than the ice record from the same depths?",
-        "answer": "The air mixed through the whole open snow column before it was sealed. So each bubble holds decades of sky, not one year of it.",
-        "why": "Air stays in touch with the sky all the way through the open snow, and the spaces do not all close at once. They close across a stretch of depth, so the bubbles sealed in one layer hold a mixture covering every year that stretch represents. That smoothing belongs to the site. Somewhere with heavy snowfall seals in a decade and keeps sharp features. Here it takes several. Cutting smaller samples cannot undo it.",
-        "rebuttals": [
-          "Sample size is a choice and could be made smaller. The mixing in the snow is fixed by the site.",
-          "Some changes in the air really are fast, and this record could not show those either.",
-          "Bubbles are sealed, and they do not swap with each other on any timescale that matters here."
-        ],
-        "choices": [
-          "Each bubble holds air mixed over decades.",
-          "Gas samples are bigger, so they average more ice.",
-          "Carbon dioxide changes more slowly in the air than temperature does.",
-          "Bubbles leak slowly into each other over thousands of years."
-        ],
-        "correctChoice": "Each bubble holds air mixed over decades."
-      },
-      "assumes": [
-        "a measurement that averages over a stretch cannot show anything shorter than it"
-      ]
-    },
-    {
-      "day": 5,
-      "title": "The spike at 1,642 metres",
-      "scene": "The chemistry has found sulphate, which is volcanic sulphur laid down in a thin band within a year or two of an eruption. Two eruptions are of about the same age. Glass fragments came from the same centimetre. Okonkwo has the layer count.",
-      "takeaway": "A layer is identified by what is in it, not by the date that would be convenient.",
-      "place": "Core Line",
-      "story": "The chemistry has found sulphate, which is volcanic sulphur laid down in a thin band within a year or two of an eruption. Two eruptions are of about the same age. Glass fragments came from the same centimetre. Okonkwo has the layer count.",
-      "game": {
-        "type": "DIAGNOSIS",
-        "title": "The spike at 1,642 metres",
-        "setup": "Core Line",
-        "play": "Name which eruption the layer came from.",
-        "task": "Name which eruption the layer came from.",
-        "question": "Name which eruption the layer came from.",
-        "answer": "The northern eruption. The glass chemistry is the one reading that owes nothing to the timescale, and it matches.",
-        "why": "The glass chemistry is the only reading here that does not depend on the timescale. It is also the one that tells the two apart, because glass carries the fingerprint of the magma it came from. The modelled age cannot choose between two eruptions ninety years apart. Its own doubt is wider than that. Sea salt does not arrive with volcanic glass. And the layer count stopped far above this.",
-        "headline": "A sulphur spike at 1,642 m, with glass fragments, and two eruptions within a century of each other.",
-        "readings": [
-          {
-            "zone": "Sulphate",
-            "label": "Peak height",
-            "value": "8× background",
-            "status": "alarm"
-          },
-          {
-            "zone": "Glass shards",
-            "label": "Composition",
-            "value": "high-potassium, matches the northern candidate",
-            "status": "alarm"
-          },
-          {
-            "zone": "Layer count",
-            "label": "Age at this depth",
-            "value": "stopped 460 m above",
-            "status": "low"
-          },
-          {
-            "zone": "Flow model",
-            "label": "Modelled age",
-            "value": "within 90 years of both candidates",
-            "status": "normal"
-          },
-          {
-            "zone": "Replicate core",
-            "label": "Same spike",
-            "value": "present, 1.1 m shallower",
-            "status": "normal",
-            "note": "the 2 holes are 400 m apart"
-          }
-        ],
-        "choices": [
-          {
-            "label": "The northern eruption, named by the glass chemistry.",
-            "mechanism": "Glass chemistry belongs to one volcano, and it does not depend on the timescale at all."
-          },
-          {
-            "label": "The southern eruption, since the modelled age fits it a little better.",
-            "mechanism": "The model puts this depth slightly nearer the southern date."
-          },
-          {
-            "label": "Neither. The spike is sea salt.",
-            "mechanism": "Sulphur from the sea can make peaks with no volcano involved."
-          },
-          {
-            "label": "Cannot be settled until the layer count reaches down to it.",
-            "mechanism": "Nothing can be dated without a count that reaches it."
-          }
-        ],
-        "correctChoice": "The northern eruption, named by the glass chemistry."
-      },
-      "assumes": [
-        "volcanic glass carries the chemistry of the volcano that threw it out"
-      ]
-    },
-    {
-      "day": 6,
-      "title": "The clock that does not need layers",
-      "scene": "Okonkwo has a sample from the deep section. A quarter of the radioactive atoms are left, and the half-life is written on the bench.",
-      "takeaway": "Where counting has run out, a clock that runs on its own is the only date left.",
-      "place": "Core Line",
-      "story": "Okonkwo has a sample from the deep section. A quarter of the radioactive atoms are left, and the half-life is written on the bench.",
-      "game": {
-        "type": "BALLPARK",
-        "title": "The clock that does not need layers",
-        "setup": "Core Line",
-        "play": "Date ice the counting cannot reach.",
-        "task": "Date ice the counting cannot reach.",
-        "question": "How old is the sample?",
-        "answer": "About eleven and a half thousand years. Two halvings, at 5,730 years each.",
-        "why": "A radioactive atom decays at a rate nothing in the ice can change. Not temperature. Not pressure. Not flow. Every half-life, half of what is left goes. So a quarter left means two halvings have gone by, which is two half-lives of time. That is a date owing nothing to the flow model, which is what makes it worth having down here.",
-        "givens": [],
-        "relationship": "Age = the half-life × how many halvings have gone by.",
-        "calcKey": "CORE-6"
-      },
-      "assumes": [
-        "a radioactive atom halves in amount every half-life, whatever else happens to it"
-      ]
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Deeper layers are squashed thinner, so depth is not the same as age",
+        "of": 16,
+        "rests": [
+          "Counting layers is counting years, and deeper means older"
+        ]
+      }
     }
   ],
   "COLD": [
@@ -574,6 +958,12 @@ export const CURRICULUM = {
       "scene": "Elena Cruz has a salt result four times the run before it. The blank run before it was clean, and the blank after it is high. The outer centimetre was trimmed off as it should be, and the same year in the second core is ordinary.",
       "takeaway": "A blank measures the process, so anything it shows was never evidence about the ice.",
       "place": "Cold Laboratory",
+      "guide": "Four options, and the clean readings do the work. The blank before was fine and the blank after is high. The trim was done properly. The same year in the second core is ordinary. Ask of each option how many of those it fits. What names the source is not the loud number but which quiet ones stayed quiet.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Elena Cruz has a salt result four times the run before it. The blank run before it was clean, and the blank after it is high. The outer centimetre was trimmed off as it should be, and the same year in the second core is ordinary.",
       "game": {
         "type": "CHOICE",
@@ -599,7 +989,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a blank goes through the whole process with no sample in it, so it measures the process"
-      ]
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Contamination: a sample that has been got at tells you about the getting",
+        "of": 16,
+        "rests": [
+          "Air trapped in bubbles is a sample of the sky from long ago"
+        ]
+      }
     },
     {
       "day": 2,
@@ -607,6 +1005,12 @@ export const CURRICULUM = {
       "scene": "Yuki Tanabe has four yearly signals measured on the same stretch of core, at fourteen hundred metres. A year down there is about twenty-six millimetres thick.",
       "takeaway": "A signal is only useful for counting while it is still sharper than the layer it marks.",
       "place": "Cold Laboratory",
+      "guide": "Four yearly signals, and a year down there is thinner than a fingernail. Ask of each whether the thing being measured can move through the snow. Water moves through the spaces for decades, and that blurs anything too thin. Salt and dust grains do not move. Two of these fade for other reasons.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Yuki Tanabe has four yearly signals measured on the same stretch of core, at fourteen hundred metres. A year down there is about twenty-six millimetres thick.",
       "game": {
         "type": "CHOICE",
@@ -632,7 +1036,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "water can move slowly through the connected air spaces in packed snow"
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "A marker found in many places lets separate records be lined up",
+        "of": 16,
+        "rests": [
+          "Counting layers is counting years, and deeper means older"
+        ]
+      }
     },
     {
       "day": 3,
@@ -640,6 +1052,11 @@ export const CURRICULUM = {
       "scene": "Tanabe has the isotope readings against depth. The stretch covering the last cold spell sits 1.8 units below today's value. The conversion figure is on the board.",
       "takeaway": "A conversion figure turns a measurement into a claim, and it is measured rather than assumed.",
       "place": "Cold Laboratory",
+      "guide": "Four numbers, and two belong elsewhere. One is a figure for a different measurement. One is the years overlapping the mast. Ask of each whether this conversion uses it. And note where the site figure comes from. It is not a law of nature but a fit to this place's own weather.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Tanabe has the isotope readings against depth. The stretch covering the last cold spell sits 1.8 units below today's value. The conversion figure is on the board.",
       "game": {
         "type": "BALLPARK",
@@ -656,14 +1073,150 @@ export const CURRICULUM = {
       },
       "assumes": [
         "colder air drops its heavier water first, so the snow that falls last is lighter"
-      ]
+      ],
+      "concept": {
+        "n": 6,
+        "c": "A ratio can be turned into a temperature using a known relationship",
+        "of": 16,
+        "rests": [
+          "Something measured today can stand in for something nobody measured then"
+        ]
+      }
     },
     {
       "day": 4,
+      "title": "What the saw is cutting for",
+      "scene": "Sections come to the saw with a cutting list. The list is set by whichever job has priority, and that changes as the season goes on.",
+      "takeaway": "A rule that has changed costs most where the work cannot be done again.",
+      "place": "Cold Laboratory",
+      "guide": "Cut what the list asks for and leave the rest in the rack. The priority on the board changes during the day and nobody says so. What counts is the sections either side of a change, because a section cut for the wrong job cannot be uncut.",
+      "background": [
+        "Why the priority changes. Early the season is about dating the core. When the gas laboratory books its slot it becomes anything for gas. Before the aircraft it becomes anything that has to fly out.",
+        "Why this one cannot be repeated. Almost everything else here can be done again with more time. A cut cannot. The ice at that depth cannot be drilled twice."
+      ],
+      "story": "Sections come to the saw with a cutting list. The list is set by whichever job has priority, and that changes as the season goes on.",
+      "game": {
+        "type": "SPOT",
+        "title": "What the saw is cutting for",
+        "setup": "Cold Laboratory",
+        "play": "Cut the sections the list asks for.",
+        "task": "Cut the sections the list asks for.",
+        "question": "Cut to the priority on the board, and keep checking the board.",
+        "answer": "Read the board, not the rack. Every change leaves a few minutes when the old list still looks like today's.",
+        "why": "Three priorities run across the day and each wants different sections. Anything for the dating work, then anything for gas, then anything leaving on the aircraft. A section can match two at once, which is what makes a change cost something. What the panel scores is the sections either side of a change. Most of the rack is wanted by neither priority, so leaving those alone proves nothing. This is the sharpest case in the camp, because a cut cannot be undone. Everything else can be repeated with more fuel or more time. A section cut for isotopes is gone from the gas laboratory for good, and nobody is drilling that depth again this season.",
+        "spot": {
+          "targets": [
+            {
+              "id": "x1",
+              "label": "Dating section, brittle",
+              "tags": [
+                "dating"
+              ]
+            },
+            {
+              "id": "x2",
+              "label": "Gas section, centre",
+              "tags": [
+                "gas"
+              ]
+            },
+            {
+              "id": "x3",
+              "label": "Dating, flying out",
+              "tags": [
+                "dating",
+                "flying"
+              ]
+            },
+            {
+              "id": "x4",
+              "label": "Gas, flying out",
+              "tags": [
+                "gas",
+                "flying"
+              ]
+            },
+            {
+              "id": "x5",
+              "label": "Isotope section, archive",
+              "tags": [
+                "archive"
+              ]
+            },
+            {
+              "id": "x6",
+              "label": "Chemistry section, archive",
+              "tags": [
+                "archive"
+              ]
+            },
+            {
+              "id": "x7",
+              "label": "Dust section, flying",
+              "tags": [
+                "flying"
+              ]
+            },
+            {
+              "id": "x8",
+              "label": "Dating section, archive",
+              "tags": [
+                "dating",
+                "archive"
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "say": "Anything for the dating work",
+              "want": [
+                "dating"
+              ]
+            },
+            {
+              "say": "Anything for gas",
+              "want": [
+                "gas"
+              ]
+            },
+            {
+              "say": "Anything leaving on the aircraft",
+              "want": [
+                "flying"
+              ]
+            }
+          ],
+          "duration": 40,
+          "switchEvery": 12,
+          "pass": 0.75,
+          "hint": "The cutting priority is on the board and changes without warning.",
+          "commit": "Open the list"
+        }
+      },
+      "assumes": [
+        "a core section can only be cut up once"
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Keeping a record somebody else can use",
+        "of": 16,
+        "rests": [
+          "What a measurement can honestly say, and what it cannot"
+        ]
+      }
+    },
+    {
+      "day": 5,
       "title": "Half a unit, in degrees",
       "scene": "The two records differ by about half a unit through the cold spell. Tanabe has the site's own figure, and a draft that calls that difference a different climate.",
       "takeaway": "A difference has to be put into the units of the claim before anybody can judge it.",
       "place": "Cold Laboratory",
+      "guide": "Four readings of half a unit, and one refuses to convert at all. Ask of each whether it uses this site's own figure, and which way round. Multiplying where you should divide gives an answer far too big. And note why converting matters. In units it sounds like rounding. In degrees it is a quarter of the headline.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The two records differ by about half a unit through the cold spell. Tanabe has the site's own figure, and a draft that calls that difference a different climate.",
       "game": {
         "type": "CHOICE",
@@ -689,14 +1242,28 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a difference in units becomes a difference in degrees through the site's own figure"
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Cold, power and daylight are the limits a polar camp works inside",
+        "of": 16,
+        "rests": [
+          "Rates: how fast something builds up, and how long a job will take"
+        ]
+      }
     },
     {
-      "day": 5,
+      "day": 6,
       "title": "Six signatures and two hours",
       "scene": "Six lines on the night sheet, all signed. Tanabe has two hours before the flight list closes, and can properly check two of them.",
       "takeaway": "A signed record is evidence that a claim was made, not evidence that it was true.",
       "place": "Cold Laboratory",
+      "guide": "Four signed lines, two hours, and two of them can be checked properly. Open each claim and read what backs it now. A signature says somebody took responsibility, not that anybody went and looked. Hold what the evidence does not support, and spend the two hours where being wrong would matter after the flight has gone.",
+      "background": [
+        "Why the deadline is the pressure. Once the flight list closes, anything unchecked stays unchecked until next year, and the samples are already off the ice. A check next season is a check on something nobody can go back to.",
+        "What a night sheet is. A record of what was done on shift, signed at the end of it. It is written by tired people at the end of a working night, and it is meant to pass on what happened rather than to prove it. That is why some lines are firmer than others.",
+        "How to choose between two doubtful lines. Not by which is least likely to be true. By which one, if it is wrong, changes what somebody does with the material later."
+      ],
       "story": "Six lines on the night sheet, all signed. Tanabe has two hours before the flight list closes, and can properly check two of them.",
       "game": {
         "type": "ATTEST",
@@ -724,13 +1291,6 @@ export const CURRICULUM = {
               "critical": true
             },
             {
-              "id": "drill",
-              "label": "Drill fluid tank heater running",
-              "signedBy": "Lindqvist",
-              "evidence": "independent tank thermistor logged to a separate recorder all night",
-              "backed": true
-            },
-            {
               "id": "mast",
               "label": "Mast instruments powered from the second circuit",
               "signedBy": "Brandt",
@@ -743,13 +1303,6 @@ export const CURRICULUM = {
               "label": "Food store above freezing",
               "signedBy": "de Vries",
               "evidence": "nobody has looked since the power came back"
-            },
-            {
-              "id": "fuel",
-              "label": "Day tank filled at 2200",
-              "signedBy": "de Vries",
-              "evidence": "level gauge reading logged before and after",
-              "backed": true
             }
           ],
           "checks": 2,
@@ -759,14 +1312,27 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a signature records that somebody believed something when they signed"
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Cold, power and daylight are the limits a polar camp works inside",
+        "of": 16,
+        "rests": [
+          "Rates: how fast something builds up, and how long a job will take"
+        ]
+      }
     },
     {
-      "day": 6,
+      "day": 7,
       "title": "The shortest thing this ice can show",
       "scene": "Tanabe has how far water moves through the snow before it seals, and the thickness of a year at the surface. The next team wants to know whether one warm summer could ever be found here.",
       "takeaway": "A record has a shortest event it can show, and the site sets it rather than the instrument.",
       "place": "Cold Laboratory",
+      "guide": "Four numbers, and one of them is a year deep down rather than at the surface. Ask which thickness the question is about. Water moving through the snow blurs the layers together, and the answer is how many years fit inside that blur. Up here it is barely more than one.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Tanabe has how far water moves through the snow before it seals, and the thickness of a year at the surface. The next team wants to know whether one warm summer could ever be found here.",
       "game": {
         "type": "BALLPARK",
@@ -779,7 +1345,7 @@ export const CURRICULUM = {
         "why": "Water keeps moving between the grains until the snow seals, and it carries the isotope signal along with it. So anything thinner than the distance it travels gets averaged into its neighbours. Here that distance is about sixteen centimetres of ice, and a year is twelve. So the shortest thing this record can show is a bit over a year. One hot summer sits right at the edge. Deeper down, where a year is millimetres, it has no chance at all.",
         "givens": [],
         "relationship": "Years blurred together = how much gets blurred ÷ the thickness of one year.",
-        "calcKey": "COLD-6"
+        "calcKey": "COLD-7"
       },
       "assumes": [
         "water moving through the snow blurs nearby layers into each other"
@@ -824,7 +1390,15 @@ export const CURRICULUM = {
           ],
           "s": "One year is noise. An average over many years is a climate."
         }
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Averages, and why one year proves nothing on its own",
+        "of": 16,
+        "rests": [
+          "Reading a graph: what the axes say, and what the wiggles mean"
+        ]
+      }
     }
   ],
   "GAS": [
@@ -834,6 +1408,11 @@ export const CURRICULUM = {
       "scene": "The spaces between the grains seal at eighty-eight metres here. Above that, air moves freely up to the surface. Adeyemi has the yearly build-up on the board beside it.",
       "takeaway": "A bubble is sealed at a depth, and the ice around it arrived at that depth long before.",
       "place": "Gas Laboratory",
+      "guide": "Four numbers, and one of them is the same year written as snow rather than as ice. Ask of each whether the units match the others. The air keeps mixing with the sky until the spaces seal. So the bubble is as old as the sealing, and the ice is as old as the snow. Get it wrong and the gas is plotted centuries too early.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The spaces between the grains seal at eighty-eight metres here. Above that, air moves freely up to the surface. Adeyemi has the yearly build-up on the board beside it.",
       "game": {
         "type": "BALLPARK",
@@ -850,7 +1429,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "air moves through the connected spaces in the snow until they close off"
-      ]
+      ],
+      "concept": {
+        "n": 8,
+        "c": "The trapped air is younger than the ice around it",
+        "of": 16,
+        "rests": [
+          "Air trapped in bubbles is a sample of the sky from long ago",
+          "Deeper layers are squashed thinner, so depth is not the same as age"
+        ]
+      }
     },
     {
       "day": 2,
@@ -858,6 +1446,12 @@ export const CURRICULUM = {
       "scene": "Adeyemi has the eruption's date, the depth it sits at, and the carbon dioxide measured from the bubbles in the same piece of core.",
       "takeaway": "A dated layer dates the material it is in, and anything else has to be worked out.",
       "place": "Gas Laboratory",
+      "guide": "Four things a dated ash layer might fix. Ask of each which of the two clocks in the core it belongs to. Ash lands on the surface and is buried with the snow. The air beside it was sealed much later, further down. So the layer fixes one clock and leaves the other to a sum.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Adeyemi has the eruption's date, the depth it sits at, and the carbon dioxide measured from the bubbles in the same piece of core.",
       "game": {
         "type": "CHOICE",
@@ -904,7 +1498,15 @@ export const CURRICULUM = {
           ],
           "s": "A rate is an amount divided by the time it took, whether the amount is metres of ice or years of snow."
         }
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "A marker found in many places lets separate records be lined up",
+        "of": 16,
+        "rests": [
+          "Counting layers is counting years, and deeper means older"
+        ]
+      }
     },
     {
       "day": 3,
@@ -912,6 +1514,11 @@ export const CURRICULUM = {
       "scene": "Adeyemi has carbon dioxide at 190 parts per million through the cold spell, and 280 at the top of the core. The station wants the change stated plainly.",
       "takeaway": "A rise means most when it is stated against what it started from.",
       "place": "Gas Laboratory",
+      "guide": "Four numbers here, and one of them belongs to a different measurement. Another is the gap between the two, worked out for you already. Ask which number a percentage is measured against. It is always the value you started from. Pick the other one and the answer comes out too small, and it still looks fine.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Adeyemi has carbon dioxide at 190 parts per million through the cold spell, and 280 at the top of the core. The station wants the change stated plainly.",
       "game": {
         "type": "BALLPARK",
@@ -950,7 +1557,15 @@ export const CURRICULUM = {
           "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Air trapped in bubbles is a sample of the sky from long ago",
+        "of": 16,
+        "rests": [
+          "Snow that never melts piles up in layers, one year at a time"
+        ]
+      }
     },
     {
       "day": 4,
@@ -958,6 +1573,12 @@ export const CURRICULUM = {
       "scene": "Adeyemi has the age gap for both sites, and the means to re-plot both gas records on their own clocks. The ash layer is dated by neither calculation.",
       "takeaway": "A prediction made before the correction is the only thing that can test it.",
       "place": "Gas Laboratory",
+      "guide": "Write down what you expect the difference to become once both gas records are on their own clocks. Then re-plot them and see. The ash layer is dated by neither calculation, so it is the check that can tell you whether the correction did what you predicted rather than what you hoped.",
+      "background": [
+        "What the correction does. At each site the trapped air is younger than the ice around it, and by a different amount at each. Putting each gas record on its own clock takes that difference out. Whatever is left is a real difference between the two places.",
+        "Why write the prediction first. If you re-plot and then decide what you expected, anything left over can be explained away afterwards. Committing to a number first is what lets the result surprise you, and being able to be surprised is what makes it evidence.",
+        "Why the ash layer works as a check. Ash from one eruption lands at both sites within days of each other, and its date does not come from either calculation. If the correction is right, the ash lines up in both records. If it does not, something in the correction is wrong."
+      ],
       "story": "Adeyemi has the age gap for both sites, and the means to re-plot both gas records on their own clocks. The ash layer is dated by neither calculation.",
       "game": {
         "type": "VERIFY",
@@ -1023,7 +1644,12 @@ export const CURRICULUM = {
           ],
           "s": "A rate is an amount divided by the time it took, whether the amount is metres of ice or years of snow."
         }
-      ]
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Reading a graph: what the axes say, and what the wiggles mean",
+        "of": 16
+      }
     }
   ],
   "FIELD": [
@@ -1033,6 +1659,11 @@ export const CURRICULUM = {
       "scene": "Brandt has the pit wall photographed. Last summer's surface is marked thirty-two centimetres down. The snow above it weighs about a third of what solid ice would.",
       "takeaway": "A year's snowfall means nothing until it is written as the ice it will become.",
       "place": "Snow Study Hut",
+      "guide": "Five numbers, and two of them belong elsewhere. How heavy water is, and the days of stake readings. Ask of each whether this sum needs it. Snow and ice are the same stuff at different weights, so a thickness of snow is not a thickness of record. Only ice lets two sites be compared. This one gets about a tenth of what the coast gets.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Brandt has the pit wall photographed. Last summer's surface is marked thirty-two centimetres down. The snow above it weighs about a third of what solid ice would.",
       "game": {
         "type": "BALLPARK",
@@ -1050,7 +1681,12 @@ export const CURRICULUM = {
       "assumes": [
         "snow turns into ice by being squashed under the snow that falls on top of it",
         "density is how much a given amount of something weighs"
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Snow that never melts piles up in layers, one year at a time",
+        "of": 16
+      }
     },
     {
       "day": 2,
@@ -1058,6 +1694,11 @@ export const CURRICULUM = {
       "scene": "Brandt has the temperature string reading down to eighty-eight metres, which is where the spaces between the grains seal here. The surface adds about a third of a metre of snow a year.",
       "takeaway": "A depth becomes an age only through the rate that filled it.",
       "place": "Snow Study Hut",
+      "guide": "Four numbers, and two belong to other questions. The ice figure, and how heavy solid ice is. Ask of each whether it describes snow as it lies now. Up here the layers have not been squashed thinner by the flow, so this is one simple division. Deeper down the same sum has to be done bit by bit.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Brandt has the temperature string reading down to eighty-eight metres, which is where the spaces between the grains seal here. The surface adds about a third of a metre of snow a year.",
       "game": {
         "type": "BALLPARK",
@@ -1074,7 +1715,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a depth divided by what one year adds gives a number of years"
-      ]
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Deeper layers are squashed thinner, so depth is not the same as age",
+        "of": 16,
+        "rests": [
+          "Counting layers is counting years, and deeper means older"
+        ]
+      }
     },
     {
       "day": 3,
@@ -1082,6 +1731,12 @@ export const CURRICULUM = {
       "scene": "Brandt has the mast record, the years that overlap it, and the scatter around the fitted line. The season summary needs a statement about that cold spell.",
       "takeaway": "Moving the middle and narrowing the spread are different actions, with different evidence behind them.",
       "place": "Snow Study Hut",
+      "guide": "The band is the cooling worked out from the core, with the uncertainty of the calibration on it. The summary wants to say the spell was more than two degrees colder. Two pieces of work are ready, and they do different things to the band: one moves it, one makes it narrower. Apply what you would fund, watching the middle and the width, then say whether the claim is cleared.",
+      "background": [
+        "Where the width comes from. Nobody measured the temperature. It is worked out using a relationship, and that relationship is calibrated on the years where the mast record and the core overlap. The scatter of those years around the fitted line is the uncertainty, and it comes along with every temperature the relationship gives.",
+        "Moving the band is not narrowing it. Changing the correction slides the whole band sideways. It is just as wide as it was. More overlap years make the calibration tighter, and that is the only thing that makes the band narrower. If the edge of the band is what crosses two degrees, only the second kind of work can clear the claim.",
+        "Why the claim has a number in it. 'Colder than now' cannot be checked. 'More than two degrees colder' can. And it means the whole band has to sit past two degrees, not just its middle."
+      ],
       "story": "Brandt has the mast record, the years that overlap it, and the scatter around the fitted line. The season summary needs a statement about that cold spell.",
       "game": {
         "type": "CLOUD",
@@ -1089,7 +1744,7 @@ export const CURRICULUM = {
         "setup": "Snow Study Hut",
         "play": "State the cooling with the doubt around it.",
         "task": "State the cooling with the doubt around it.",
-        "question": "Which work would let the summary say the spell was more than two degrees colder?",
+        "question": "Which work would let the summary say the spell was more than two degrees colder? Move the bars to show the middle and one sigma either side.",
         "answer": "More overlap with the mast. That narrows the spread, which is what the claim needs. Moving the middle makes the estimate different, not surer.",
         "why": "The answer is a spread, not a number. The line was fitted through eleven years of overlap, and it carries the scatter of those eleven years. Saying the spell was more than two degrees colder is a claim about where the whole spread sits. So it is won by making the spread narrower. More overlap years is the only thing here that adds information. The correction moves the middle and leaves the spread as wide as it was.",
         "cloud": {
@@ -1124,7 +1779,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a line fitted through measurements carries a spread as well as a middle"
-      ]
+      ],
+      "concept": {
+        "n": 6,
+        "c": "A ratio can be turned into a temperature using a known relationship",
+        "of": 16,
+        "rests": [
+          "Something measured today can stand in for something nobody measured then"
+        ]
+      }
     },
     {
       "day": 4,
@@ -1132,6 +1795,12 @@ export const CURRICULUM = {
       "scene": "Brandt has a forecast with one clear day in it and then four of blowing snow. Three jobs are outstanding, and each takes most of a day.",
       "takeaway": "Order the work by what becomes impossible, not by what feels most important.",
       "place": "Snow Study Hut",
+      "guide": "Four jobs, each a day's work. Ask of each whether it could be done in four days of blowing snow. Then ask whether the storm changes what it measures. The pit is by the hut and the mast is on a fixed line. One of these runs two kilometres out, and drifting snow rearranges the very thing it measures.",
+      "background": [
+        "Why first is a different question from best. When there is more than one call on the same hour, the value of doing something now is not how much it matters. It is how much is lost by doing it later. Something important that will be just as fixable in an hour can wait. Something small that will not be fixable can not.",
+        "What to look for in the options. Ask which one changes if you wait — a reading that is still moving, a person who is getting worse, a window that closes. Then ask which ones can only be done after something else. Those two questions usually leave one option standing.",
+        "Why only one answer is marked. Real shifts do all of these, in some order. The stop asks for the front of that order because that is the only part where the reasoning shows. Read the verdict afterwards even when you are right — it says what the others were waiting on, which is the rest of the answer."
+      ],
       "story": "Brandt has a forecast with one clear day in it and then four of blowing snow. Three jobs are outstanding, and each takes most of a day.",
       "game": {
         "type": "TRIAGE",
@@ -1157,7 +1826,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a measurement that cannot be repeated should be taken while it can be"
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Rates: how fast something builds up, and how long a job will take",
+        "of": 16,
+        "rests": [
+          "Reading a graph: what the axes say, and what the wiggles mean"
+        ]
+      }
     },
     {
       "day": 5,
@@ -1165,6 +1842,12 @@ export const CURRICULUM = {
       "scene": "Brandt has the season's four headline numbers up on the hut wall. Beside each one is an empty column. Nobody has filled any of it in.",
       "takeaway": "Every number in a record of the past belongs to a class, and the class is part of the number.",
       "place": "Snow Study Hut",
+      "guide": "Four headline numbers, and four descriptions of where each came from. Pair them by asking how many steps sit between the instrument and the number. One is measured at the surface and checkable next year. One goes through a line fitted to eleven years. One is counted, then modelled. And one is solid, attached to a modelled date.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If three lines are right, the fourth response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
       "story": "Brandt has the season's four headline numbers up on the hut wall. Beside each one is an empty column. Nobody has filled any of it in.",
       "game": {
         "type": "PROTOCOL",
@@ -1226,16 +1909,89 @@ export const CURRICULUM = {
           ],
           "s": "If each year leaves the same thickness, dividing depth by it gives an age — and the thickness shrinks with depth, which is why deep ice needs more care."
         }
-      ]
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Something measured today can stand in for something nobody measured then",
+        "of": 16,
+        "rests": [
+          "Reading a graph: what the axes say, and what the wiggles mean"
+        ]
+      }
     }
   ],
   "DATA": [
     {
       "day": 1,
+      "title": "One year proves nothing",
+      "scene": "There are thirty years of yearly temperatures from the top of the core. The summary wants one number, and one year can swing more than a degree either way.",
+      "takeaway": "One year is weather. An average of many years is closer to a climate.",
+      "place": "Science Module",
+      "guide": "Four numbers, and two belong to other questions. How much one year swings, and the years overlapping the mast. Ask which two an average needs. And note what an average does not do. It does not make one year's swing go away. It only says where the middle of thirty of them sits.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
+      "story": "There are thirty years of yearly temperatures from the top of the core. The summary wants one number, and one year can swing more than a degree either way.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "One year proves nothing",
+        "setup": "Science Module",
+        "play": "Turn thirty years of readings into one number for the period.",
+        "task": "Turn thirty years of readings into one number for the period.",
+        "question": "What is the average temperature across the thirty years?",
+        "answer": "Minus 1.8 degrees. That is the climate of the period, and any one year in it can sit more than a degree either side.",
+        "why": "Every year comes out a little warmer or colder than the run of them, because weather is noisy. Add thirty years and divide by thirty, and those swings cancel out. What is left is much closer to the climate of the period than any one year is. It is also why nobody should read a single warm year as a change. One year here swings more than the difference being argued about.",
+        "givens": [],
+        "relationship": "Average = the total ÷ how many.",
+        "calcKey": "DATA-1"
+      },
+      "assumes": [
+        "averaging many years lets the random part of each one cancel out"
+      ],
+      "equations": [
+        {
+          "e": "average = total ÷ how many",
+          "c": "the mean of several years, or several samples",
+          "v": [
+            [
+              "average",
+              "the mean"
+            ],
+            [
+              "total",
+              "the values added up"
+            ],
+            [
+              "how many",
+              "the number of them"
+            ]
+          ],
+          "s": "One year is noise. An average over many years is a climate.",
+          "computed": true
+        }
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Averages, and why one year proves nothing on its own",
+        "of": 16,
+        "rests": [
+          "Reading a graph: what the axes say, and what the wiggles mean"
+        ]
+      }
+    },
+    {
+      "day": 2,
       "title": "The temperature of what, and where",
       "scene": "Jonas Aalto, who keeps the records, is drafting the summary. He has written that the isotopes give the temperature of the last cold spell. The drilling lead wants that narrowed before it goes out.",
       "takeaway": "A stand-in measures one specific thing, and the sentence has to say which.",
       "place": "Science Module",
+      "guide": "Four things the isotope record might be about. Ask of each where and when the reading is actually set. It is fixed as the snow forms, up in the cloud, in the seasons that bring most of the snow. Getting from there to a ground temperature takes another step. Two of these options are separate measurements entirely.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Jonas Aalto, who keeps the records, is drafting the summary. He has written that the isotopes give the temperature of the last cold spell. The drilling lead wants that narrowed before it goes out.",
       "game": {
         "type": "CHOICE",
@@ -1261,14 +2017,49 @@ export const CURRICULUM = {
       },
       "assumes": [
         "snow forms in a cloud and falls to the ground some way below it"
-      ]
+      ],
+      "equations": [
+        {
+          "e": "average = total ÷ how many",
+          "c": "the mean of several years, or several samples",
+          "v": [
+            [
+              "average",
+              "the mean"
+            ],
+            [
+              "total",
+              "the values added up"
+            ],
+            [
+              "how many",
+              "the number of them"
+            ]
+          ],
+          "s": "One year is noise. An average over many years is a climate."
+        }
+      ],
+      "concept": {
+        "n": 6,
+        "c": "A ratio can be turned into a temperature using a known relationship",
+        "of": 16,
+        "rests": [
+          "Something measured today can stand in for something nobody measured then"
+        ]
+      }
     },
     {
-      "day": 2,
+      "day": 3,
       "title": "What both records rest on",
       "scene": "Five pieces of the comparison are on Aalto's screen, each worked out from something else. The chronology team wants to know which would still stand if the flow model were wrong.",
       "takeaway": "Two numbers that agree because they came through the same step have not checked each other.",
       "place": "Science Module",
+      "guide": "Open each piece of the comparison to see what it was worked out from. Keep the ones that would still stand if the flow model were wrong, and untick the ones that go through it. Then name what those share. A piece that survives is worth more than its number suggests.",
+      "background": [
+        "What the flow model does. It turns a depth in the ice into an age, by describing how the ice has squashed and moved since it fell. Nearly every dated quantity has been through it, which makes it the most important assumption in the building.",
+        "Why some things survive it. Anything measured against a fixed marker — an ash layer, a known event, a layer somebody counted directly — is a fact about the ice rather than about the model. Those hold whatever the model does, and they are how the model gets tested.",
+        "Why ask it this way round. Nobody thinks the flow model is simply wrong. The question is which conclusions depend on it, so that when it is revised the team knows exactly what has to be done again."
+      ],
       "story": "Five pieces of the comparison are on Aalto's screen, each worked out from something else. The chronology team wants to know which would still stand if the flow model were wrong.",
       "game": {
         "type": "TRACE",
@@ -1285,14 +2076,6 @@ export const CURRICULUM = {
               "id": "ourdeep",
               "label": "Our ages below 1,600 m",
               "reading": "18,400 yr at 2,100 m",
-              "depends": [
-                "flow"
-              ]
-            },
-            {
-              "id": "skarvdeep",
-              "label": "Skarv ages below their count",
-              "reading": "18,050 yr at their 1,940 m",
               "depends": [
                 "flow"
               ]
@@ -1340,14 +2123,29 @@ export const CURRICULUM = {
       },
       "assumes": [
         "two results worked out from one assumption fail together if that assumption fails"
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Two records that agree are stronger than one that is longer",
+        "of": 16,
+        "rests": [
+          "Averages, and why one year proves nothing on its own",
+          "A marker found in many places lets separate records be lined up"
+        ]
+      }
     },
     {
-      "day": 3,
+      "day": 4,
       "title": "What is left to disagree about",
       "scene": "Both records are re-plotted, the ash layer lines up in both, and 0.15 of a unit of difference is left. Both teams quote doubt bigger than that.",
       "takeaway": "Explaining a disagreement away is a result, and it is the result that gets published.",
       "place": "Science Module",
+      "guide": "Four readings of what is left after the correction. Ask of each whether the difference left over is bigger or smaller than the doubt each team quotes. Then ask what a correction does to a result. This one was worked out before it was applied, and checked against a date from neither team. Both records were on the wrong clock.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Both records are re-plotted, the ash layer lines up in both, and 0.15 of a unit of difference is left. Both teams quote doubt bigger than that.",
       "game": {
         "type": "CHOICE",
@@ -1373,53 +2171,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a difference smaller than the doubt on either measurement is not a measured difference"
-      ]
-    },
-    {
-      "day": 4,
-      "title": "One year proves nothing",
-      "scene": "There are thirty years of yearly temperatures from the top of the core. The summary wants one number, and one year can swing more than a degree either way.",
-      "takeaway": "One year is weather. An average of many years is closer to a climate.",
-      "place": "Science Module",
-      "story": "There are thirty years of yearly temperatures from the top of the core. The summary wants one number, and one year can swing more than a degree either way.",
-      "game": {
-        "type": "BALLPARK",
-        "title": "One year proves nothing",
-        "setup": "Science Module",
-        "play": "Turn thirty years of readings into one number for the period.",
-        "task": "Turn thirty years of readings into one number for the period.",
-        "question": "What is the average temperature across the thirty years?",
-        "answer": "Minus 1.8 degrees. That is the climate of the period, and any one year in it can sit more than a degree either side.",
-        "why": "Every year comes out a little warmer or colder than the run of them, because weather is noisy. Add thirty years and divide by thirty, and those swings cancel out. What is left is much closer to the climate of the period than any one year is. It is also why nobody should read a single warm year as a change. One year here swings more than the difference being argued about.",
-        "givens": [],
-        "relationship": "Average = the total ÷ how many.",
-        "calcKey": "DATA-4"
-      },
-      "assumes": [
-        "averaging many years lets the random part of each one cancel out"
       ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of several years, or several samples",
-          "v": [
-            [
-              "average",
-              "the mean"
-            ],
-            [
-              "total",
-              "the values added up"
-            ],
-            [
-              "how many",
-              "the number of them"
-            ]
-          ],
-          "s": "One year is noise. An average over many years is a climate.",
-          "computed": true
-        }
-      ]
+      "concept": {
+        "n": 12,
+        "c": "Two records that agree are stronger than one that is longer",
+        "of": 16,
+        "rests": [
+          "Averages, and why one year proves nothing on its own",
+          "A marker found in many places lets separate records be lined up"
+        ]
+      }
     },
     {
       "day": 5,
@@ -1427,6 +2188,12 @@ export const CURRICULUM = {
       "scene": "Four versions of the season's headline claim are on Aalto's screen. All of them are true in some sense. One of them is what the evidence actually reaches.",
       "takeaway": "An honest claim says what was measured, over what period, and with how much doubt.",
       "place": "Science Module",
+      "guide": "Four sentences, all true in some way. Ask of each what it claims beyond what was measured here. One calls the two records independent, and below the counts they share a model. One rounds until the doubt vanishes. One is a claim about every record at this latitude, and nobody here has read them all.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Four versions of the season's headline claim are on Aalto's screen. All of them are true in some sense. One of them is what the evidence actually reaches.",
       "game": {
         "type": "CHOICE",
@@ -1452,7 +2219,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a claim is supported when the evidence would have come out differently if it were false"
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Cold, power and daylight are the limits a polar camp works inside",
+        "of": 16,
+        "rests": [
+          "Rates: how fast something builds up, and how long a job will take"
+        ]
+      }
     }
   ]
 };
@@ -1488,6 +2263,34 @@ export const BALLPARK_CALCS = {
     "units": "m ice equivalent per year",
     "solution": "0.32 × 340 ÷ 917 is about 0.12 metres of ice.",
     "explanation": "The water tile does not belong. This is snow turning into ice, and liquid water is never part of the record."
+  },
+  "DATA-1": {
+    "prompt": "The thirty yearly values add up to minus fifty-four degrees, and there are thirty of them.",
+    "question": "What is the average temperature across the thirty years?",
+    "labels": [
+      "−54.0 °C (all thirty years added up)",
+      "30 (years)",
+      "1.4 °C (how much one year swings)",
+      "11 (years overlapping the mast)"
+    ],
+    "values": [
+      -54,
+      30,
+      1.4,
+      11
+    ],
+    "slots": 2,
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": -1.8,
+    "tolerance": 0.2,
+    "units": "°C",
+    "solution": "Minus fifty-four divided by thirty is minus 1.8 degrees.",
+    "explanation": "One year is not the answer. A single year swings more than a degree either side, which is why the summary quotes thirty of them."
   },
   "FIELD-2": {
     "prompt": "The spaces seal at eighty-eight metres. The surface adds about 0.32 metres of snow a year, and this snow has not been squashed thinner yet.",
@@ -1630,35 +2433,7 @@ export const BALLPARK_CALCS = {
     "solution": "5,730 × 2 is 11,460 years.",
     "explanation": "One halving leaves a half. Two leave a quarter. Count one instead of two and the answer comes out half as old."
   },
-  "DATA-4": {
-    "prompt": "The thirty yearly values add up to minus fifty-four degrees, and there are thirty of them.",
-    "question": "What is the average temperature across the thirty years?",
-    "labels": [
-      "−54.0 °C (all thirty years added up)",
-      "30 (years)",
-      "1.4 °C (how much one year swings)",
-      "11 (years overlapping the mast)"
-    ],
-    "values": [
-      -54,
-      30,
-      1.4,
-      11
-    ],
-    "slots": 2,
-    "template": "{0} ÷ {1}",
-    "formula": "a/b",
-    "correct": [
-      0,
-      1
-    ],
-    "target": -1.8,
-    "tolerance": 0.2,
-    "units": "°C",
-    "solution": "Minus fifty-four divided by thirty is minus 1.8 degrees.",
-    "explanation": "One year is not the answer. A single year swings more than a degree either side, which is why the summary quotes thirty of them."
-  },
-  "COLD-6": {
+  "COLD-7": {
     "prompt": "Moving water blurs about sixteen centimetres of ice together. One year at the surface is about twelve centimetres of ice.",
     "question": "How many years get blurred together here?",
     "labels": [

@@ -9,7 +9,15 @@
 > npm run traps                     # break every trap; the importer must refuse all 35
 > npm run drive instruments         # open every panel in Chrome, answer it right and wrong
 > THEME=instruments npm run dev     # then /engine/dev/instruments.html
+> npm run lessons                   # then /engine/dev/lessons.html — two authored stops of
+>                                   # every format, from two games, answerable
 > ```
+>
+> The last one is the one to open to *judge* a format rather than test it: the
+> panel inside the card the player actually meets, with that game's person asking,
+> graded by the engine's own grading, and the verdict it gives when you are wrong.
+> It is also the only place all 35 can be compared side by side, since most of them
+> are authored in one game each.
 >
 > `npm run drive` is the one that matters. These formats are interactive, so a
 > panel can render perfectly, print its question, expose its commit button, and
@@ -90,6 +98,63 @@ Twelve formats, all validated on import in `tools/import-book.mjs`.
 | `RESIDUAL` | Compares residual fields and refuses the lowest RMS | Meridian 1 |
 | `INJECT` | Runs a known population through the pipeline and funds by warning time | Meridian 1 |
 | `ROUTE` | Learns a route lit, rebuilds it dark, and recovers after a blocked door | Meridian 1 |
+| `BELT` | Sorts a binary category against a line that speeds up | Meridian 1 |
+| `TRIAL` | Drives the theme's own world through gates, graded on the order | Meridian 1 |
+| `HOLD` | Holds one quantity inside a closing band while loads push it out | Meridian 1 |
+| `SPOT` | Takes what the standing instruction wants, and it is replaced mid-run | Meridian 1 |
+| `STACK` | Answers a rail while a well fills; a wrong answer packs a row | **suspended** |
+| `LOB` | Sets angle and charge against a mark, with the launch speed withheld | Meridian 1 |
+| `GREET` | Gets round a list of people before the hour is out | Meridian 1 |
+| `FOLLOW` | Stays inside a band behind somebody who will not wait | Meridian 1 |
+| `HUNT` | Finds enough of the same thing, and decides what to leave | Meridian 1 |
+| `CANVASS` | Asks a yes-or-no question until the sample can answer it | Meridian 1 |
+| `EVADE` | Holds a clear radius for a stretch of time, using the ground | Meridian 1 |
+| `TAG` | Closes on somebody walking away, which a straight line cannot do | Meridian 1 |
+
+**`STACK` is suspended.** It was reported broken in play, so `SUSPENDED_FORMATS` in
+`engine/content/normalize.js` now refuses it: `import-book.mjs` fails a book that authors
+one and `validateContent` fails a theme that ships one. The panel, the METHOD line and the
+four traps all stay where they are, and `books/instruments.yml` keeps its stop commented
+out rather than deleted — the fix is meant to arrive, and rewriting the bank to lift a
+suspension is the wrong price. `npm run traps` skips its four and says so. Deleting the
+line in `SUSPENDED_FORMATS` lifts it; nothing else has to change.
+
+`BELT`, `TRIAL`, `HOLD`, `SPOT`, `STACK`, `LOB`, `GREET`, `FOLLOW`, `HUNT`, `CANVASS`,
+`EVADE` and `TAG` are the odd ones out and belong to a
+different argument: they did not come from the six documents, and the move they render is
+the **player's** rather than the scientist's. It carries one bit of subject matter — a binary category — at a
+speed that leaves no room to reason it out, and it exists because a game a child
+replays is worth as much as a format a specification asked for. `ARCADE.md` is
+that argument, along with the six others planned on the same footing, and the
+reason all of them are entries in this registry rather than a second one.
+
+**Seven of them are graded against the place rather than against a board.** `TRIAL`
+was the first and `GREET`, `FOLLOW`, `HUNT`, `CANVASS`, `EVADE` and `TAG` followed: the panel
+is a briefing, pressing the button suspends it, and the player is handed back to the
+site with the run going on around them. They share one lifecycle in
+`engine/world/worldFormats.js` — teleport to the spawn, hang something in the scene,
+run a clock, watch a distance, tear it all down — and one trap written five ways: *a
+run whose goal is reached by standing still, or by walking to whatever is nearest, is a
+run that asks nothing*. Their traps are the only ones besides `TRIAL`'s that read a
+theme's own `site.js`, and `engine/dev/worldFormats.mjs --selftest` measures the half a
+browser driver cannot reach, because it plays all six through a stub world. `ARCADE.md`
+§17 is the whole of it.
+
+The line they must not cross is instrument rule 3, *difficulty is judgment, never
+dexterity*. Five of the six do not cross it because **speed is the pressure and
+accuracy is the grade**: `ctx.commit(ok)` is called on the fraction sorted
+correctly, never on the score, so a slow player who sorts twenty items right
+passes.
+
+**`SPOT` is the exception, and it is an argued one rather than a slip.** Its
+subject is the cost of a withdrawn instruction, and that cost is measured in
+seconds; a version with no clock is a sorting exercise everybody gets right. What
+it refuses to grade is reaction *speed* — items sit on the board for the better
+part of two seconds and nothing needs a three-pixel target. What it weights is
+the few seconds either side of a change, so a uniformly slow, uniformly attentive
+player passes and a quick one still working to the old instruction does not. For
+Sightline that is the AP Psychology syllabus rather than flavour. Any further
+format that wants the clock has to make that case in as much detail.
 
 Twelve of these were the read-and-answer engine as it stood; **nineteen are the
 designs below, and all of them are now built.** `books/instruments.yml` — the
@@ -125,9 +190,70 @@ the number is the same decision.
 - AS M09 — cordon segments released on a measurable condition, never on a date
 - AS M15 — owner, deadline and evidence of closure, because recording the item had already failed
 
+**One rule to a board, and the importer refuses a second.** It shipped as two and
+three stages, because the interaction documents describe response boards with
+staged actions and that is what a real one looks like. What that produced was a
+scheduling exercise sitting on top of the idea: three lead times, three windows,
+two axes and a hidden stream, all at once. A player with a doctorate in
+astrophysics could not follow it, and every fix that made the card clearer also
+made it longer. The idea itself — decide now at what reading you would act, far
+enough ahead that the action can still happen — is entire in one rule. A stop
+that wants a second action wants a second stop. All fourteen boards were rewritten
+to the single stage that carried the most of the lesson, and `import-book`,
+`validateContent` and `smokeCampaign` all fail anything else.
+
 **Trap the importer must refuse:** a rule set where every rule fires the same
 way on the scripted stream. If the data never crosses a threshold the player
 wrote, they were never held to anything.
+
+**What the panel prints before release, and why.** A player reported the board
+as unplayable rather than hard, and they were right: three sliders on a bare
+scale, with no way to tell whether 0.35 or 1.2 was even the right order of
+magnitude. Committing before the data is the format; committing with nothing to
+commit *against* is a guess. So the panel now prints the schedule — every update
+with its `at` and its `hoursLeft`, the readings blanked — which is not the answer
+(the values are) and which turns "pick a number" into "decide which update this
+stage should fire on". Each row carries the deadline that follows from its own
+lead time ("in time only up to Tuesday 20:00"), lead times are given in days once
+they pass two of them, and the goal block says the stages are graded together.
+All of it is derived from data the board already had.
+
+**And that was still not enough, which is the more useful finding.** All of the
+above is text beside three sliders, and a player with a doctorate in astrophysics
+could not follow the board. The reason is structural rather than editorial: the
+player sets a number on the **value** axis and is graded on where that number
+lands on the **time** axis — which update crosses it first, and whether that
+update still leaves the action its lead time. A mapping between two axes is a
+plot, and no paragraph is a substitute for one. Three rounds of clearer prose had
+each made the same card longer and no easier.
+
+So the panel is a plot now. Time along the bottom with every update's position on
+it, the scale up the side, and one horizontal line per stage at the number that
+stage is set to — solid while that line would still be in time, dashed from the
+point its own lead time has run out. The sliders stay: they are the input, they
+are keyboard-reachable, and `instrumentDrive` drives them. Release draws tonight's
+readings on the same axes, with a mark where each rule fired and a dropped line to
+the hour it fired at. Nothing animates and nothing runs a frame loop — the SVG is
+rebuilt on each slider input — because a panel with its own clock is what put the
+driver in the business of counting frames once already.
+
+`rehearsal` is the other half, and it is what makes the first number choosable:
+`{ note, stream: [{ value, hoursLeft }] }`, a **past** campaign of the same
+quantity, drawn behind the axes in dashed grey. A bare scale from 0 to 2.4 says
+nothing about what 1.2 would mean or how fast the quantity moves; a trace from
+last February says both, without saying anything about tonight. The importer
+refuses a rehearsal that is this campaign's own readings — that is the answer,
+drawn in grey, before the player has touched a slider — and one whose points fall
+outside the campaign's own time span, since the plot's x axis is drawn from the
+live stream.
+
+The one authored addition is `scale.anchors` — two to four `{ at, means }` pairs
+saying what a reading on this scale would *do*. A rate scale is not meaningful on
+its own: "1.2 m a day" is a number until somebody says the crest is three days
+away at it, and then the lead times are arithmetic instead of atmosphere. Optional,
+because a probability scale needs no such thing; refused rather than trimmed when
+an anchor falls outside its own scale, since it is a sentence the player is asked
+to reason from.
 
 ### 2. `VALUE` — what would this measurement change?
 **8 instances · 4 games.** Scarcity, orthogonality and irreversibility in one.
@@ -155,6 +281,19 @@ set of options all on one evidence axis. Any of the three and the choice is free
 Not a number with error bars printed on a card: a visible spread against a
 limit. Moving the nominal drags the cloud with it; only information narrows it.
 
+**The mean and the uncertainty are reported by placing them.** Three bars over
+the scatter — the middle, and ±1σ either side — dragged on the plot or driven from
+the two sliders under it, and the panel counts what falls where as they move:
+points below the middle, points above it, points between the σ bars. A pair
+placed right halves the cloud and holds about 68% of it, which is what one sigma
+means; the panel prints no true centre and no true spread, and the bell drawn on
+the plot is the player's own report rather than the truth. An action redraws the
+cloud, so the report goes stale and both bars have to be placed again — the strip
+under the plot says which is outstanding rather than greying the button silently.
+Graded on the report against the cloud on screen, and on the reported band's share
+inside the corridor. `report: { centreTol, spreadTol }` is the placement slack,
+0.3 of the finishing spread when it is left out, and never printed.
+
 - BTH M11 — the 5.3°–7.7° corridor; "you moved the dot, the cloud came with it"
 - BTH M03 — burn now or measure first, when the correction is the size of the uncertainty
 - CC M14 — nine plus or minus two against a limit of ten
@@ -164,7 +303,8 @@ limit. Moving the nominal drags the cloud with it; only information narrows it.
 - AS M07 — the Omori fit with a band, and simulated sequences that scatter around it
 
 **Trap:** a book where recentring the nominal passes. Structurally the same
-check `HOLDOUT` already makes.
+check `HOLDOUT` already makes. And a placement tolerance wider than half the
+spread the player finishes with, which passes a bar put anywhere near the cloud.
 
 ### 4. `ALLOCATE` — a finite pool across competing claims
 **8 instances · 4 games.**
@@ -290,6 +430,14 @@ topology: unlike `PROBE`, there are no readings to average.
 documents name this failure independently — "the largest component must be the
 weak one" is the distractor, not the answer.
 
+Every link takes a **`reading`** — its observed state, printed on the rail once
+the link is placed. It is not decoration: it is the only evidence the player has
+for naming the governing link, so a chain without readings is a chain answered
+by guessing. `capacity`/`unit`/`evidence` are refused by the importer; they are
+the three names this field was authored under while none of them rendered.
+The bank prints each card's name **and** what it transfers, and a placed link can
+be taken back off the rail one at a time.
+
 ### 11. `BALANCE` — close the ledger, find the hidden term
 **4 instances · 3 games.**
 
@@ -328,6 +476,19 @@ is the trap.
 PD M09 (mass, density, velocity into kinetic energy) · PD M13 (each error source
 assigned to the subsystem that can reduce it) · BTH M14 (navigation error against
 burn execution uncertainty) · CC M14.
+**Trap:** the largest exponent is also the dominant term, which makes the
+shortcut this format exists to break give the right answer. And the ledger:
+`budget`, in the stop's own `costUnit`, must afford measuring the dominant term,
+must *not* afford it together with the cheapest decoy — or buying everything wins
+— and must leave at least two candidates inside it, or affordability names the
+answer before the arithmetic does.
+**The costs were decoration for four instances.** Every button printed a price,
+the panel said "one of these is affordable", and no budget existed in the engine,
+the importer or any book: cost entered neither the disabled state nor the grade.
+The buttons also never named the input row they improve — the label is the work
+("layer-count the replicate core"), not the term — so the pairing was discoverable
+only by spending, which is the one move that cannot be taken back. Each button now
+leads with its row's name and lights that row on hover.
 
 ### 14. `STRESS` — the choice that survives being wrong
 **3 instances · 3 games.** Candidates across a table, one assumption moved
@@ -350,6 +511,12 @@ are explicit that difficulty must not come from dexterity.
 BTH M04 ("you stopped accelerating at ninety, you did not stop rotating") ·
 CC M09 (staged dosing with hold points and an overshoot trigger) · BTH M03.
 **Trap:** a target reachable with one command at full magnitude.
+**Fly it as often as you like.** The panel shipped disabling its Run button and
+both sliders after a single click, against its own docstring, so the player
+found out where the target was and then could not aim at it. One run teaches
+that you overshot; the second teaches *how far the brake has to lead*, which is
+the entire format. Earlier attempts stay on the plot as ghosts, because the
+lesson is the difference between them, and only committing freezes the plan.
 
 ### 17. `RESIDUAL` — structure in what is left over
 **2 instances · 2 games.** A low RMS with a pattern in it is worse than one

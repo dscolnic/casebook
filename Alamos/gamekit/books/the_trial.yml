@@ -407,11 +407,38 @@ missions:
       - group: RAND
         task: Work out which protection site 7 has lost
         title: Concealment is not the same as blinding
+        concept: "Allocation concealment: protecting the moment of entry"
         place: Kit Warehouse & Cold Room
         scene: >
           Farida Diouf has a note from site 7. Their pharmacy diary lists kit numbers beside the arm
           each one contains, and the research nurse can see the next entry before she decides whether
           to enter a patient.
+        guide: >-
+          All four options are real costs of a readable diary. Ask of each whether it
+          acts at the moment of entry, or afterwards. A nurse who can see the next slot
+          can wait a day for a patient she thinks will do well. Nobody has to be
+          dishonest for that to wreck the comparison. Concealment protects entry;
+          blinding protects everything after, and they fail separately.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
         assumes:
           - participants are assigned to arms by chance rather than by choice
         takeaway: If the next assignment can be seen in advance, chance is no longer the only thing choosing.
@@ -437,41 +464,106 @@ missions:
       - group: ENDP
         task: Separate what the trial counts from what it also collects
         title: One outcome, named in advance
+        concept: The primary endpoint, named in advance, and everything else
         place: Adjudication Room
         scene: >
           Kwame Ansah has four measurements from the same participant on his screen and a definition
           agreed four years ago. A journalist has asked the sponsor which of the 4 CLARION-3 is
           actually about.
+        guide: >-
+          Four candidate primary endpoints, scored on two things the sponsor cares about. The
+          slider is the event rate the trial actually gets, which nobody knows in advance —
+          slide it to the pessimistic end and see which endpoint still answers the question
+          there. The one that looks best at the expected rate is not necessarily the one that
+          survives being wrong about it.
+        background:
+          - >-
+              What a primary endpoint is. The one question the trial was built to answer, named
+              before the first participant was randomised and used to set the sample size. It also
+              fixes how the result will be reported: an absolute risk reduction in percentage points,
+              with the relative figure beside it. Everything else on Ansah's screen is collected —
+              worth having, worth reporting, and not what the trial promised.
+          - >-
+              Why naming it in advance matters. With four measurements per participant, somebody
+              choosing afterwards has four chances to find a difference, and the reported result
+              would be the best of four rather than the answer to one question. That is the whole of
+              why the definition is four years old.
+          - >-
+              Why the event rate is the assumption that bites. Every endpoint's power depends on how
+              often its event happens. A rare, hard endpoint is unimpeachable and may never
+              accumulate enough events to say anything; a composite happens more often and answers a
+              blurrier question. That trade is what the slider makes visible.
         assumes:
           - a trial collects more than one measurement from each participant
         takeaway: The primary endpoint is the one question the trial was built to answer; the rest are collected, not promised.
-        format: CHOICE
-        question: Why does CLARION-3 name 1 of its outcomes as primary before it starts?
-        choices:
-          - It fixes which comparison the error budget covers
-          - It tells sites which measurement to take most carefully at every visit
-          - It marks the outcome that matters most to participants
-          - It is the outcome the drug was most likely to change
-        answer: It fixes which comparison the error budget covers
-        why: >
-          A trial accepts a small chance of calling a difference real when there is none. That budget
-          was set for one comparison. Collect 12 outcomes and read whichever comes out best, and
-          the chance of an impressive-looking result rises with every 1, because ordinary variation
-          gets 12 opportunities instead of 1. Naming the endpoint in advance is what stops the
-          trial choosing its own question after seeing the answers. The others are still collected,
-          still reported, and carry no such protection.
-        rebuttals:
-          - Sites take every trial measurement to protocol; care is not rationed by which one is primary.
-          - Importance to participants is why an endpoint is chosen, not what naming it in advance does.
-          - Being most likely to move is an argument for choosing it, not a reason to fix it beforehand.
+        format: STRESS
+        question: Which primary endpoint still answers the question if the event rate comes in lower than anyone expected?
+        answerText: The composite of death, stroke or hospitalisation. Cardiovascular death alone is the cleanest question in the protocol and needs an event rate the trial has not got.
+        why: Naming the endpoint in advance fixes how the answer gets reported. It comes out as an absolute risk reduction in percentage points, with the relative figure beside it. Every endpoint here is defensible. They fail differently when the assumption behind them turns out to be wrong. Cardiovascular death alone asks the crispest question and needs the most events. At 3.5 per cent a year it is decisive. At 1.6 per cent the trial never accumulates enough, and reports an interval that includes everything. The composite of death, stroke or hospitalisation happens often enough to answer even at the low end. The cost is that it blurs what "the treatment worked" means. The walk distance would give a number at any event rate. It answers a different question — how people felt, not what happened to them. So choosing well costs something. The composite is not the sharpest question on the list. It is the one still being asked when the trial's central assumption misses.
+        stress:
+          assumption:
+            label: Annual event rate the trial actually achieves in the control arm
+            unit: '% a year'
+            min: 1.6
+            max: 4.2
+            nominal: 3.0
+            step: 0.1
+          criteria:
+            - key: blur
+              label: How much the endpoint blurs what the treatment did
+              unit: score of 10
+            - key: answers
+              label: Event rates across the range at which it still answers
+              unit: of 5
+          candidates:
+            - id: death
+              label: Cardiovascular death alone
+            - id: composite
+              label: Death, stroke or hospitalisation for heart failure
+            - id: symptom
+              label: Change in the six-minute walk distance
+          scores:
+            death:
+              blur: 1
+              answers: 2
+            composite:
+              blur: 4
+              answers: 5
+            symptom:
+              blur: 8
+              answers: 4
+          feasible:
+            death: 2.9
+            composite: 1.6
+            symptom: 1.9
+          optimiseOn: blur
+          robust: composite
       - group: STAT
         task: Work out what the trial is waiting for
         title: A trial ends at a number of events
+        concept: Event-driven trials, and information fraction as progress
         place: Statistics & Analysis
         scene: >
           Balogun wants to know when CLARION-3 will be finished and has been told, twice, that
           nobody can say. Feldman writes three quantities on the whiteboard and asks him to estimate
           it himself.
+        guide: >-
+          Five numbers, and three belong to other questions: the events adjudicated so
+          far, the hospitals recruiting, and one of the two rates. Ask of each whether
+          this schedule depends on it. A trial learns from events, not from people. So
+          the duration is not a decision anybody makes. It is what the rate produces,
+          and the rate belongs to the participants.
+        background:
+          - >-
+              Why an estimate rather than a calculation. Every quantity on this board is
+              already measured or stated, so nothing here has to be derived. What is being
+              tested is whether you can pick the quantities the relationship actually needs,
+              and whether the size of the answer looks right once they are in place.
+          - >-
+              Why the tiles carry labels. A bare number cannot be checked against the
+              relationship it is going into. Reading the label is how a unit mismatch, or a
+              quantity belonging to a different part of the problem, is caught before it is
+              placed — which is the habit this format exists to build.
         assumes:
           - the trial compares how often an event happens in two arms
           - events accumulate over time, at some rate per participant per year
@@ -541,6 +633,31 @@ missions:
         title: A number can be precise and still be the wrong outcome
         place: Adjudication Room
         scene: Kwame Ansah has 4 CLARION-3 measurements on his table. One comes from a national register, one from blinded readers, one from a treating doctor, and one from a central laboratory. Doyle wants to know what can go wrong with each.
+        guide: >-
+          Four measurements and four weaknesses. Pair them by asking how much trial
+          judgement each measurement passes through. A death in a national register goes
+          through almost none. A borderline admission goes through a definition. A
+          symptom score goes through a person who may believe something. And one of them
+          can be measured perfectly and still stand in for the wrong thing.
+        background:
+          - >-
+              Why this is a matching board and not four separate questions. Responses on
+              boards like this are written to be plausible for more than one situation, so
+              choosing them one at a time lets a nearly-right answer through unexamined.
+              Having to place all of them forces the comparison — not "is this reasonable
+              here", but "is it more right here than there".
+          - >-
+              How to use the one-each rule. Because the responses are a set to be
+              distributed rather than a list to be sampled, every join you make constrains
+              the rest. Settling the two you are confident of can leave the remaining pair
+              decided by elimination. Where it does not, two responses are still competing
+              for one situation, and that is exactly the distinction the stop is testing.
+          - >-
+              Why you cannot be wrong about exactly one. With every response used once,
+              three correct joins leave the fourth with only one place to go. Any error
+              therefore involves at least two joins. That is worth remembering when the last
+              pair looks forced: the fault is usually not in the join you are struggling
+              with, but in one you made early and stopped questioning.
         assumes:
           - a measurement can be precise without being clinically important
           - a surrogate outcome is a measure used to stand in for a clinical outcome
@@ -568,6 +685,32 @@ missions:
         scene: >
           Lucia Marchetti has four things sites did this month that were not what the protocol says.
           None of them harmed anybody. Site 12 has asked which of them are worth the paperwork.
+        guide: >-
+          All four are real deviations and none harmed anybody. Ask of each whether it
+          lands on both arms equally. A late blood test and a late form are untidy in
+          both arms. A different pump delivers the same drug. Only one of these changes
+          who is in the trial. It matters because those entries need not be spread
+          evenly across the arms.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
         assumes:
           - the protocol states what should happen at each visit
         takeaway: A deviation is recorded for what it does to the comparison, not for how bad it looks.
@@ -598,6 +741,30 @@ missions:
           Nkechi Umeh has four versions of the analysis plan, each dated. Feldman wants to know which
           1 governs the interim in 20 days, and the sponsor's lawyer wants to know how anybody
           could prove it.
+        guide: >-
+          All four steps will happen, so ask what order makes the claim provable.
+          Prespecification is a claim about time: this analysis was chosen before
+          anybody could see what it would give. The only support for that afterwards is
+          a dated public record made before the data existed. Reverse any two of these
+          and the arithmetic is still right about a question chosen after the fact.
+        background:
+          - >-
+              Why the order is graded whole. A sequence is a claim about dependency: each
+              step is here because the one before it has already happened, or has to have.
+              One transposed pair falsifies that claim wherever it sits, so partial credit
+              would be credit for a sequence that does not work.
+          - >-
+              Why the ends are the place to start. The first and last cards are constrained
+              by having nothing before or after them, which usually makes them the two you
+              can settle from the scene alone. Pinning them collapses the remaining
+              arrangements sharply, and what is left in the middle is where the actual
+              judgement lives.
+          - >-
+              What the rail can be ordered on. Time is the usual axis, but it is not the
+              only one. An order can run on cost, on risk, or on reversibility — every
+              observation that leaves the sample as it was, before any that consumes it. On
+              those boards a chronological reading finds nothing, because none of the steps
+              has to happen at a particular hour.
         assumes:
           - a trial's plan can be amended while it is running
         takeaway: A result is worth more when the plan that produced it can be dated.
@@ -635,6 +802,32 @@ missions:
         title: The clock that is not the analysis clock
         place: Monitoring Board Room
         scene: The second admission arrived 18 minutes ago. 1 patient is still on the ward, and the 2 sites are 400 kilometres apart. Vogt is reachable this afternoon. The next board meeting is 19 days away.
+        guide: >-
+          Four options, and two clocks are running. One patient is still on the ward and
+          the board meets in nineteen days. Ask of each option which clock it obeys. A
+          serious unexpected event may change treatment tomorrow. Whether it also counts
+          as an endpoint is a separate path, and the same event can travel both at once.
+        background:
+          - >-
+              Why first is a different question from most important. When several calls
+              compete for the same hour, what a choice is worth is not its own importance
+              but the difference between doing it now and doing it later. A serious problem
+              that will be no worse in an hour costs nothing to defer. A smaller one that
+              closes a door costs everything behind that door.
+          - >-
+              What to look for in the options. Two things separate them: which is still
+              changing, and which is a precondition for the others. A situation that is
+              deteriorating has a cost per hour attached to it, and a step that unblocks the
+              rest multiplies the value of the hours after it. Everything else is a
+              preference about where to start.
+          - >-
+              Why only one answer is marked. In the situation these options describe all of
+              them eventually happen; what is being tested is the head of the queue, because
+              that is where the reasoning is visible. The verdict names what each of the
+              others was waiting on, which is worth reading even when the choice was right —
+              the ordering behind the first place is the rest of the answer.
+        takesAsRead:
+          - Hard endpoints against judged ones, and blinded adjudication
         assumes:
           - serious harm during a trial is reported whether or not the drug is thought to have caused it
         takeaway: A safety report does not wait for the analysis it might belong to.
@@ -656,6 +849,29 @@ missions:
         title: Ten minutes on each case
         place: Monitors' Room
         scene: Lucia Marchetti has ten minutes with each site before the reports go to Vogt. One coordinator is at a bedside. Five useful questions are on her screen, but asking all of them would take longer than either call.
+        guide: >-
+          Ten minutes with each site, five useful questions, and no time for all of
+          them. Open each question and ask what its answer would change before the
+          reports go to Vogt. One coordinator is at a bedside, so the call has to be
+          short and worth having. Spend the ten minutes on what the reports cannot
+          already tell you.
+        background:
+          - >-
+              Why some questions are wasted on a call. Anything the site has already entered
+              in the system is in the reports. A call is the only way to get at what has not
+              been written down: why a visit slipped, what the coordinator is worried about,
+              whether a protocol step is being interpreted differently.
+          - >-
+              Why 'before the reports leave' is the constraint. Once the report is out, a
+              correction is a deviation and a conversation. Something learned now changes
+              what the report says; the same thing learned tomorrow changes what has to be
+              explained.
+          - >-
+              What a coordinator at a bedside can actually do. Answer one or two things from
+              memory. A call that asks five questions gets three rushed answers, and the
+              rushed ones are the least reliable data in the trial.
+        takesAsRead:
+          - Eligibility criteria, and what widening them changes
         assumes:
           - a safety pattern depends on whether cases share timing and clinical features
           - a VALUE board charges time for each piece of evidence
@@ -708,6 +924,33 @@ missions:
         scene: >
           Umeh has a wall calendar with two windows marked on it in red and a stack of four events
           from this month. She has to sort them before Friday.
+        guide: >-
+          Four events and four obligations. Pair them by asking three things of each: is
+          it serious, was it unexpected, and could it be related? The combination sets
+          the clock, not how dramatic it sounds. A death nobody thinks is related is
+          still serious. And an admission for the trial's own condition is the thing
+          being counted rather than a safety report.
+        background:
+          - >-
+              Why this is a matching board and not four separate questions. Responses on
+              boards like this are written to be plausible for more than one situation, so
+              choosing them one at a time lets a nearly-right answer through unexamined.
+              Having to place all of them forces the comparison — not "is this reasonable
+              here", but "is it more right here than there".
+          - >-
+              How to use the one-each rule. Because the responses are a set to be
+              distributed rather than a list to be sampled, every join you make constrains
+              the rest. Settling the two you are confident of can leave the remaining pair
+              decided by elimination. Where it does not, two responses are still competing
+              for one situation, and that is exactly the distinction the stop is testing.
+          - >-
+              Why you cannot be wrong about exactly one. With every response used once,
+              three correct joins leave the fourth with only one place to go. Any error
+              therefore involves at least two joins. That is worth remembering when the last
+              pair looks forced: the fault is usually not in the join you are struggling
+              with, but in one you made early and stopped questioning.
+        takesAsRead:
+          - Hard endpoints against judged ones, and blinded adjudication
         assumes:
           - regulators set deadlines for reporting harm during a trial
         takeaway: Expedited reporting is decided by what the event is, not by what anybody thinks caused it.
@@ -751,29 +994,92 @@ missions:
         title: What an extra look spends
         place: Statistics & Analysis
         scene: The medical director wants one unplanned endpoint summary before noon and has already drafted the email asking for it. Feldman has the two planned looks on the whiteboard and an empty box where this new request would sit.
+        guide: >-
+          Add up what the planned looks already spend, and compare it with what the trial has
+          to spend in total. Each look has a boundary, and the error rate it uses is the price
+          of that look. Pick the three planned amounts. The unplanned look's price is on the
+          board too, and it is what the sum has no room for.
+        background:
+          - >-
+              What is being spent. A five per cent error rate is a promise about the whole trial,
+              not about any one test. Every look at the accumulated data is another chance to catch
+              a wandering difference at its most flattering moment, so each look consumes part of
+              that budget and the budget does not refill.
+          - >-
+              How planned looks are paid for. The boundaries at the planned looks are made harder —
+              an interim result has to be more extreme than the final one to stop the trial — and
+              the amounts add up to no more than the total. That is the whole of the arithmetic:
+              the spending plan is written before any data arrive.
+          - >-
+              Why an unplanned look is different in kind. It has no boundary and no allowance, so
+              whatever it spends comes out of the final analysis. A trial that has spent more than
+              its budget can no longer say what its error rate is, which is a worse position than
+              not having looked.
+        takesAsRead:
+          - Type I and type II error, and what α and β are for
         assumes:
           - a trial accepts a small chance of calling a difference real when there is none
         takeaway: A trial's tolerance for error is spent by testing, and it does not refill.
-        format: CHOICE
-        question: Why does an unplanned look at the endpoint threaten the trial's error rate?
-        why: |-
-          A 5% error rate is a promise about the whole trial, not about one test. Data wander as they accumulate; a difference that looks convincing at one moment can be gone a month later. Each time somebody tests the accumulated data, the trial gets another opportunity to catch that wandering at its most flattering point. Two planned looks are affordable because the boundary at each was made harder to compensate. An unplanned look has no such correction, so it spends error rate the trial never budgeted for.
-        choices:
-          - Every look is another chance to cross the line by luck alone
-          - Looking early reduces the number of events the trial will finally collect
-          - The people who see the summary cannot go back to being blinded
-          - An extra analysis has to be repeated after the database is locked
-        answer: Every look is another chance to cross the line by luck alone
-        rebuttals:
-          - The events keep arriving whether or not anybody looks; looking does not consume them.
-          - Losing the blind is a serious separate harm, and the error rate would rise even if nobody remembered what they saw.
-          - Repeating the analysis later is routine and is not what makes the early look expensive.
+        format: BALLPARK
+        question: What do the planned looks already spend of the trial's error budget?
+        answerText: Exactly 0.025 — the whole of it. The unplanned look would add 0.015 on top, taking the trial to 0.040 with no boundary and no allowance for it.
+        why: "The rule is Σ α_spent ≤ α. This trial is run one-sided at 0.025, and the spending plan puts 0.001 at the first interim, 0.004 at the second and 0.020 at the final analysis: 0.001 + 0.004 + 0.020 = 0.025, which is the whole budget and exactly what the plan is allowed to be. That is why the interim boundaries are so hard to cross — an early look is cheap precisely because it demands an extreme result. An unplanned look priced at 0.015 takes the total to 0.040, and the trial can no longer state its own error rate: 4 per cent of trials with no real effect would report one. Nothing about the data changes when somebody looks, which is what makes this counter-intuitive. What changes is the number of chances the trial has taken to be fooled, and that number is in the denominator of every claim it goes on to make."
+        estimate:
+          prompt: The spending plan puts 0.001 at the first interim, 0.004 at the second, and 0.020 at the final analysis. The trial is run one-sided at 0.025.
+          question: Choose the three planned amounts.
+          labels:
+            - 0.001  (spent at the first interim)
+            - 0.004  (spent at the second interim)
+            - 0.020  (spent at the final analysis)
+            - 0.015  (what the unplanned look would cost)
+            - 0.025  (the trial's total budget)
+          values: [0.001, 0.004, 0.020, 0.015, 0.025]
+          slots: 3
+          template: '{0} + {1} + {2}'
+          formula: a+b+c
+          correct: [0, 1, 2]
+          target: 0.025
+          tolerance: 0.001
+          units: of error rate spent
+          solution: 0.001 + 0.004 + 0.020 = 0.025, the whole budget. The unplanned look would take it to 0.040.
+          explanation: The plan spends exactly what it has. An extra look has no boundary and no allowance, so it spends out of the final analysis.
+          givens:
+            - planned spending 0.001, 0.004 and 0.020
+            - the trial's total budget is 0.025, one-sided
+            - three unadjusted looks would give P(at least one false positive) = 1 − (1 − 0.025)³ = 1 − 0.9268 = 0.073
+          relationship: Unadjusted, k looks give P(at least one false positive) = 1 − (1 − α)^k. Alpha spending answers that, obeying Σ α_spent ≤ α against one budget.
       - group: SAFE
         task: Decide who is entitled to see what
         title: Why the board looks and the team does not
         place: Monitoring Board Room
         scene: |-
           Vogt is in the building for an hour. Petrescu's closed report is on the table, face down. The medical director is copied on everything the trial team writes and on nothing the board writes.
+        guide: >-
+          Four options, and somebody has to see the arms or a harmful treatment
+          continues unnoticed. Ask of each whether it names a route from knowledge into
+          the trial's own conduct. The board does not recruit, treat or score. The team
+          does all three. Confidentiality cannot close those routes, and being advisory
+          does not either.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
         assumes:
           - the trial team recruits, treats and measures while the trial runs
         takeaway: The people who could act on an early result are the people kept from seeing it.
@@ -794,33 +1100,51 @@ missions:
       - group: RAND
         task: Rule on a request to break one participant's code
         title: When the blind is opened for one person
+        concept: Unblinding an individual for their own care
         place: Kit Warehouse & Cold Room
         scene: >
-          Diouf has a call from an intensive care registrar at three in the morning, on speaker.
-          A CLARION-3 participant is in front of him and the treatment he is considering depends on
+          Diouf has a call from an intensive care registrar at three in the morning, on speaker. A
+          CLARION-3 participant is in front of him and the treatment he is considering depends on
           what she has been receiving.
+        guide: >-
+          Four steps, and the rail is not a clock — every one of them could be done in the next
+          ten minutes. Order them by what each one protects: the thing that cannot be recovered
+          if it is skipped goes first, and the thing that can be done afterwards without
+          costing anybody anything goes last.
+        axis: Order the four by what is lost if the step is skipped, most irrecoverable first. This is not a clock — all four are available right now, and the question is which omissions cannot be repaired afterwards.
+        ends: [Cannot be recovered, Can wait until morning]
+        background:
+          - >-
+              Why the blind exists. It protects the comparison, not the participant. Every person who
+              knows an assignment is a person whose judgement can drift with it — the treating team,
+              the assessor, the participant. The trial's answer depends on that ignorance being
+              intact across four hundred people, and one code being opened costs one of them.
+          - >-
+              Why the clinical decision comes first anyway. The blind is a research instrument and
+              this is a patient in front of a registrar at three in the morning. If knowing the
+              assignment changes what is safe to give her, the code is opened; the trial can lose a
+              participant from the blinded analysis and cannot lose her.
+          - >-
+              What has to be written down and why the order matters. The reason, the time and who
+              authorised it, recorded before the envelope is opened rather than reconstructed
+              afterwards — because once the assignment is known, nobody can prove the request was
+              made on clinical grounds. Telling the monitoring committee can wait; telling the site
+              file cannot.
+        takesAsRead:
+          - Blinding, and the several people it can fail for separately
         assumes:
           - each participant's assignment is held in a sealed record that can be opened
         takeaway: The blind exists for the trial; it is opened when a decision for one person needs it.
-        format: CHOICE
-        question: What makes this an occasion to open the code?
-        choices:
-          - Knowing the arm would change what the registrar does for her tonight
-          - The participant has asked to know which arm she is on
-          - The event is serious enough to be reported to the regulator
-          - The trial is close to its interim and the case may be relevant to it
-        answer: Knowing the arm would change what the registrar does for her tonight
-        why: >
-          A code break is judged on one question: is there a decision for this person, now, that
-          turns on the answer? If there is, the blind loses and the participant wins, which is why
-          the envelope exists and why nobody has to ask permission to open it. If there is not, then
-          opening it takes a participant out of the analysis it belongs to and tells the site
-          something it will not be able to unlearn. Every break is logged, and two in four years is
-          the sort of number a well-run trial has.
-        rebuttals:
-          - A participant's wish to know is taken seriously and is usually answered at the end of the trial.
-          - Reportability is about what the regulator is told and does not require anybody at the site to know the arm.
-          - Relevance to the interim is a reason for the board to look, not for the pharmacy to open an envelope.
+        format: SEQUENCE
+        question: Order the four steps by what is lost if the step is skipped.
+        cards:
+          - Establish that the clinical decision actually turns on the assignment
+          - Record the reason, the time and the authorising name before the code is opened
+          - Open that participant's code and tell the treating registrar
+          - Enter the participant on the monitoring committee's unblinding log
+        order: [0, 1, 2, 3]
+        answerText: Establish that the decision turns on it, write down why before opening, open it, then enter it on the committee's log. The first two cannot be reconstructed afterwards; the last can be done in the morning.
+        why: The first step cannot be recovered, because it cannot be established after the fact. Once the registrar knows the assignment, nobody can show the request rested on clinical need rather than curiosity. The written reason is the same problem in another form. A note made before the envelope is opened is evidence. One made afterwards is an account. Only then is the code opened, and the participant treated on what is known. Notifying the committee and flagging her in the analysis plan matters, and costs nothing by waiting until morning. That is why it is last rather than unimportant. The blind protects the comparison across four hundred people. It is opened for one of them when a decision for that person turns on it. The price is paid in the analysis, not argued about at three in the morning.
 
   # ---------------------------------------------------------------- day 5
   - title: The site that is faster than everybody
@@ -841,6 +1165,34 @@ missions:
         title: What a short screening log says
         place: Monitors' Room
         scene: 31 screening logs on 1 page. Most sites screen four and enter one. Site 12 screens 11 and enters 9, and its consent rate is the highest in the trial.
+        guide: >-
+          Four explanations for a short screening log. Ask of each what the log would
+          look like if it were true. The high entry rate is not the strongest clue. The
+          nearly empty reasons column is. Eleven screened and nine entered should still
+          record why two were not, and a year should show many who failed before
+          consent.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
+        takesAsRead:
+          - Eligibility criteria, and what widening them changes
         assumes:
           - sites record everybody they assess as well as everybody they enter
         takeaway: Recruitment figures describe a funnel, and an empty log hides the top of it.
@@ -884,11 +1236,38 @@ missions:
       - group: RAND
         task: Check how the assignments have landed at site 12
         title: Balance is bought in blocks
+        concept: "Randomisation: what chance assignment buys, and what it cannot buy"
         place: Kit Warehouse & Cold Room
         scene: >
           Diouf pulls site 12's kit records. The site has entered 94 participants, 49
           to 1 arm and 45 to the other, in a sequence that never runs more than 4 the
           same way.
+        guide: >-
+          Four purposes for a short block. Ask of each whether it is bought or paid for.
+          Chance is fine over two thousand people and unreliable over ninety. Blocks
+          force the counts to catch up every few entries. Predictability is the price
+          rather than the point, which is why the block length varies and nobody at the
+          site is told it.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
         assumes:
           - assignment is by chance, in a sequence prepared before the trial opened
         takeaway: Chance alone is unreliable in small numbers, which is why the sequence is constrained.
@@ -916,6 +1295,32 @@ missions:
         title: Make the three-point offset move
         place: Adjudication Room
         scene: Kwame Ansah has matched visit records from site 12 and 3 comparison sites. The symptom score sits about 3 points higher at site 12. A re-scoring console can change one feature of the setup for the same records.
+        guide: >-
+          The number you are watching is the offset in symptom score between site 12 and
+          the comparison sites, currently about three points. The console can change one
+          feature of how the same records were produced, and the run-to-run noise is
+          about half a point, so anything smaller than that is not a response. Change
+          one, run it, restore it, and name the feature the offset follows.
+        background:
+          - >-
+              Why the records are held fixed. Nothing about the patients changes in this
+              console: the same visits, the same people, the same dates. Only a feature of
+              how the score was produced changes. That is what makes it a controlled
+              comparison rather than a new study, and it is why a response points at the
+              procedure rather than at the disease.
+          - >-
+              What the three candidates are for. Who does the scoring, how visit days were
+              matched, and what mix of cases each site saw are three ordinary ways a site
+              can look different without being different. Each is a real explanation
+              somebody at the meeting will offer, and only one of them survives being
+              switched.
+          - >-
+              Why half a point is the floor. Rescoring the same records twice does not give
+              the same number twice — scales have judgement in them. That scatter is the
+              yardstick every response has to beat, and a difference under it is a
+              measurement of the yardstick rather than of the site.
+        takesAsRead:
+          - Hard endpoints against judged ones, and blinded adjudication
         assumes:
           - a systematic offset is a repeated shift rather than random scatter
           - a control test changes one factor while holding the rest fixed
@@ -944,6 +1349,68 @@ missions:
         answerText: "Changing the reader removes the offset: it falls from about 3.0 points to 0.2, a 2.8-point shift. Restoring the site reader brings it back to about 3.1, while the other changes stay inside the noise threshold."
         why: A site-wide offset can come from the patients, the timing of visits or the person applying the scale. The hard endpoint already argues against a healthier site 12 population. The control test goes further. It keeps the same records and changes one candidate cause at a time. Only the reader change moves the score by far more than the background noise. When the original reader is restored, the offset returns. That reversal is much stronger evidence than a correlation between site and score.
   # ---------------------------------------------------------------- day 6
+      - group: SITE
+        task: Hold the recruitment rate while the sites vary.
+        title: Eleven a week, through the summer
+        takesAsRead:
+          - "Eligibility criteria, and what widening them changes"
+        concept: "The recruitment funnel: screened, eligible, consented, entered"
+        place: Site Office
+        scene: The trial needs eleven entries a week to finish on time. Sites go on holiday, a competing trial opens at the largest one, and the only lever the office has is where it puts its monitors and its money.
+        guide: >-
+          Hold the entry rate inside the band on the tracker. The band narrows as the summer
+          goes on, because the shortfall that could be made up in September cannot be made up
+          in November. Site support is your control, and every change at a site keeps costing
+          entries until the support answers it.
+        background:
+          - >-
+              Why a rate rather than a total. Recruitment is a funnel — screened, eligible,
+              consented, entered — and each stage has its own losses. A site that stops screening
+              does not lose one patient; it loses its share of every week that follows.
+          - >-
+              Why a shortfall compounds. The trial ends when its events accumulate, and events
+              accumulate from patients already in it. A patient not entered in July is not
+              contributing follow-up in August either, so a week's shortfall costs more than a
+              week.
+          - >-
+              Why the band tightens. Early in the summer there is time to recover; by the end there
+              is not. The same rate below target is a larger fraction of what remains recoverable
+              with every week that passes.
+        assumes:
+          - a trial enters patients at some rate over time
+        takeaway: A shortfall in a rate is not made up by a good week later.
+        format: HOLD
+        question: Hold the entry rate at eleven a week through the summer.
+        answerText: Inside the band for most of the summer, with support moved to answer each site's problem rather than added after the tracker has already fallen.
+        why: >-
+          Recruitment is a rate and every disturbance to it is a rate too. A site's principal
+          investigator going on leave does not cost one patient; it costs that site's weekly
+          share for as long as the leave lasts. A competing trial at the largest site takes a
+          fraction of every week's screening from then on. A new site opening adds a fraction
+          the same way. None of them is a step, which is why moving a monitor for one week and
+          moving them back changes nothing that lasts. And the shortfall compounds in a way a
+          simple total would not show: an event-driven trial finishes when its events
+          accumulate, and events come from patients already enrolled, so a patient not entered
+          in July is also not contributing follow-up in August. That is why the band narrows
+          through the summer. The same rate below target is recoverable in June and is the
+          trial's timeline in September.
+        hold:
+          quantity: Entries a week
+          unit: patients
+          control: Site support
+          hold: 11
+          band: 0.4
+          narrowTo: 0.2
+          duration: 45
+          direction: raise
+          authority: 0.1
+          pass: 0.8
+          hint: Each site problem keeps costing entries. Move support to answer it rather than reacting to the tracker.
+          disturbances:
+            - { label: The lead investigator goes on leave, at: 4, amount: -0.03 }
+            - { label: Two new sites come on line, at: 20, amount: 0.05 }
+            - { label: Competing trial opens at the largest site, at: 38, amount: -0.045 }
+          commit: Report the summer
   - title: The amendment comes back
     objective: Find out what widening the entry criteria has done to the trial.
     briefing: Recruitment recovered. The event rate did not.
@@ -960,11 +1427,29 @@ missions:
       - group: STAT
         task: Work out how far through the trial really is
         title: How much of the trial has happened
+        concept: Sample size and statistical power
         place: Statistics & Analysis
         scene: >
           Feldman has two numbers on the board: the events CLARION-3 was designed to need, and the
           events adjudicated so far. Balogun has a third, the months elapsed, and thinks it tells
           the same story.
+        guide: >-
+          Five numbers, and three of them measure calendar time or people: the months
+          elapsed, the months planned, and the number randomised. Ask of each whether an
+          interim boundary depends on it. A trial three quarters through its years can
+          hold half its events. That is why the meeting moves when the event curve
+          flattens, and the date does not.
+        background:
+          - >-
+              Why an estimate rather than a calculation. Every quantity on this board is
+              already measured or stated, so nothing here has to be derived. What is being
+              tested is whether you can pick the quantities the relationship actually needs,
+              and whether the size of the answer looks right once they are in place.
+          - >-
+              Why the tiles carry labels. A bare number cannot be checked against the
+              relationship it is going into. Reading the label is how a unit mismatch, or a
+              quantity belonging to a different part of the problem, is caught before it is
+              placed — which is the habit this format exists to build.
         assumes:
           - the trial is powered on a number of events rather than a number of people
         takeaway: The share of the planned events already collected is what says how far through a trial is.
@@ -1017,30 +1502,60 @@ missions:
         place: Monitors' Room
         scene: >
           Marchetti has the entry criteria as they were and as they are, with the participants
-          recruited under each. Balogun wants to know whether the amendment cost anything he should
-          have seen coming.
+          recruited under each. Balogun wants to know whether the amendment cost anything he
+          should have seen coming.
+        guide: >-
+          The amendment brought in people at lower risk, so the hazard ratio the trial can
+          expect moved from 0.75 toward 0.85. Work out how many events the trial now needs to
+          answer its question at the same power. The numerator is the same for both; what
+          changes is the squared logarithm underneath. One tile is that term for the original
+          criteria, which is the comparison rather than the answer.
+        background:
+          - >-
+              Why events and not people. An event-driven trial is powered by how many events it
+              observes, not by how many participants it enrols. Recruiting lower-risk people adds
+              participants who contribute little to that count, which is why a wider door can grow
+              the trial and slow it down at the same time.
+          - >-
+              Why the effect size is squared underneath. The number of events needed goes as one
+              over the square of the log hazard ratio, so a treatment effect that dilutes a little
+              costs a lot. Moving from 0.75 to 0.85 roughly triples the events required, which is
+              the amendment's real price.
+          - >-
+              What the amendment did not do. It did not make the treatment work less well. It
+              changed who is in the trial, and therefore the average effect the trial is measuring
+              and how often its event happens. Both belong in the sentence, and only one of them
+              is usually said out loud.
         assumes:
           - entry criteria decide who may be randomised
         takeaway: Widening entry changes who is in the trial, and therefore how often the trial's event happens.
-        format: CHOICE
-        question: Why has the event rate fallen since the amendment?
-        choices:
-          - The trial now includes people at lower risk of the event
-          - The drug has begun to work better than it did in the first years
-          - Sites have become slower at reporting events to the database
-          - Later participants have been followed for a shorter time each
-        answer: The trial now includes people at lower risk of the event
-        why: >
-          Entry criteria are a statement about risk. Loosening them admits people whose baseline
-          chance of the event is lower, and a trial made of lower-risk people produces events more
-          slowly whatever the drug does. Both arms are affected equally, so the comparison is still
-          fair — but it takes longer to arrive, and a fixed number of events now needs more
-          person-years to reach. Shorter follow-up on late recruits is real and separate, and it
-          slows the count without changing who is in the trial.
-        rebuttals:
-          - A drug effect would separate the arms rather than lower the rate in both of them.
-          - Reporting delays move events between months and do not reduce the total.
-          - Shorter follow-up on recent recruits also slows the count, and it does not change the population.
+        format: BALLPARK
+        question: How many events does the trial need now the wider criteria have diluted the expected effect?
+        answerText: About 1,190 events, against 380 under the original criteria. The amendment tripled the trial's information requirement without anybody changing the power or the threshold.
+        why: "The event requirement is events ≈ 4 (z_{α/2} + z_β)² / (ln HR)². At 5 per cent two-sided and 80 per cent power the z terms are 1.96 and 0.84, so the numerator is 4 × 2.80² ≈ 31.4 and it does not change. Under the original criteria the expected hazard ratio was 0.75, so (ln 0.75)² = 0.0828 and the trial needed 31.4 ÷ 0.0828 ≈ 380 events. The amendment admitted lower-risk participants whose expected benefit is smaller, moving the trial-wide hazard ratio to about 0.85: (ln 0.85)² = 0.0264, and 31.4 ÷ 0.0264 ≈ 1,190 events. Three times the information for the same question, because the effect size sits squared in the denominator. And the second cost compounds it: lower-risk participants have events less often, so each new enrolment contributes less to the count the trial is waiting for. The amendment grew the trial and slowed it down, and neither effect was on the form that authorised it."
+        estimate:
+          prompt: At 5 per cent two-sided and 80 per cent power the numerator is 4 × (1.96 + 0.84)² ≈ 31.4. The diluted hazard ratio is 0.85, so (ln 0.85)² ≈ 0.0264.
+          question: Choose the numerator and the squared log hazard ratio for the wider criteria.
+          labels:
+            - 31.4  (4 × (z + z)² at 80 per cent power)
+            - 0.0264  ((ln 0.85)², the diluted effect)
+            - 0.0828  ((ln 0.75)², the original effect)
+            - 0.85  (the diluted hazard ratio itself)
+            - 380  (events needed under the original criteria)
+          values: [31.4, 0.0264, 0.0828, 0.85, 380]
+          slots: 2
+          template: '{0} ÷ {1}'
+          formula: a/b
+          correct: [0, 1]
+          target: 1189
+          tolerance: 80
+          units: events needed
+          solution: 31.4 ÷ 0.0264 ≈ 1,190 events, against 31.4 ÷ 0.0828 ≈ 380 before the amendment.
+          explanation: The effect size is squared in the denominator, so a small dilution triples the events the trial has to see.
+          givens:
+            - numerator 31.4 at 5 per cent two-sided and 80 per cent power
+            - hazard ratio diluted from 0.75 to 0.85 by the wider criteria
+          relationship: The trial needs events ≈ 4 (z_{α/2} + z_β)² / (ln HR)² — so the events needed to detect an effect rise as the square of the effect shrinks.
       - group: REG
         task: Establish what the amendment obliged the trial to do
         title: Changing the plan, on the record
@@ -1048,6 +1563,30 @@ missions:
         scene: >
           Umeh has the amendment file open: the change, the approvals, the registry update and the
           date each happened. One of the four is a fortnight later than it should be.
+        guide: >-
+          All four steps will happen, and one of them is a fortnight late. Ask of each
+          what order makes the change defensible. Approved by outsiders, published
+          before use, then handed to sites. That sequence shows the change was not
+          chosen after seeing what it would do. Enrol first and register after, and
+          nothing can ever show the two were independent.
+        background:
+          - >-
+              Why the order is graded whole. A sequence is a claim about dependency: each
+              step is here because the one before it has already happened, or has to have.
+              One transposed pair falsifies that claim wherever it sits, so partial credit
+              would be credit for a sequence that does not work.
+          - >-
+              Why the ends are the place to start. The first and last cards are constrained
+              by having nothing before or after them, which usually makes them the two you
+              can settle from the scene alone. Pinning them collapses the remaining
+              arrangements sharply, and what is left in the middle is where the actual
+              judgement lives.
+          - >-
+              What the rail can be ordered on. Time is the usual axis, but it is not the
+              only one. An order can run on cost, on risk, or on reversibility — every
+              observation that leaves the sample as it was, before any that consumes it. On
+              those boards a chronological reading finds nothing, because none of the steps
+              has to happen at a particular hour.
         assumes:
           - the entry criteria are part of the protocol and can be amended
         takeaway: An amendment is judged by whether it was recorded before it was used, not by whether it was sensible.
@@ -1066,6 +1605,78 @@ missions:
           afterwards and there is no way, ever, to show the two were independent. The audit does not
           ask whether widening was wise — it asks whether the record was made before it mattered.
   # ---------------------------------------------------------------- day 7
+      - group: SITE
+        task: Sort the screening log before the meeting.
+        title: Eligible, or nearly
+        concept: "Eligibility criteria, and what widening them changes"
+        place: Monitors' Room
+        scene: The screening log has more entries than the meeting has time for. Some of these people meet the protocol as written. The rest are close, and close is not a category the protocol has.
+        guide: >-
+          Two bins. Somebody is eligible if every criterion in the protocol is satisfied as it
+          is written. Anything that requires reading a criterion generously is not eligible,
+          however sensible the generosity looks. Sort on the protocol, not on the patient.
+        background:
+          - >-
+              Why the line is where it is. Every criterion was written to make the trial's population
+              the one the question is about. A patient admitted by a generous reading is in the
+              analysis but not in the population, and nothing downstream can separate them again.
+          - >-
+              Why "nearly" is the dangerous pile. Nobody enrols somebody wildly ineligible. Trials
+              are damaged by a hundred small generosities, each defensible on its own, which together
+              make a population nobody planned and no protocol describes.
+        assumes:
+          - a protocol states who may be entered into a trial
+        takeaway: A criterion read generously is a criterion the trial no longer has.
+        format: BELT
+        question: Send each screening entry to the bin that says whether the protocol admits them.
+        answerText: Anything that satisfies every criterion as written is eligible. Anything needing a generous reading is not, however reasonable the generosity looks.
+        why: >-
+          Eligibility criteria are what make a trial's population the population its question is
+          about, and they only work if they are applied as written. The dangerous entries are
+          never the obviously ineligible ones — nobody enrols a patient twenty years outside the
+          age range. They are the ones a sensible person would let through: an eGFR of 29
+          against a limit of 30, an ejection fraction measured six weeks ago instead of four, a
+          diagnosis made clinically rather than by the stated test. Each is defensible alone.
+          A hundred of them together produce a trial population nobody planned, whose result
+          applies to nobody in particular, and the analysis cannot separate them out afterwards
+          because the log records that they were eligible. That is why the honest handling of
+          a near-miss is a protocol amendment, prospectively, with the reason written down —
+          and not a decision at the screening desk on a Thursday.
+        belt:
+          left: { name: Eligible as written }
+          right: { name: Needs a stretch }
+          need: 20
+          lives: 3
+          pass: 0.8
+          hint: Ask whether any criterion has to be read generously.
+          items:
+            - { name: All criteria met, bin: left }
+            - { name: Age within range, bin: left }
+            - { name: Consent documented, bin: left }
+            - { name: Echo within window, bin: left }
+            - { name: Bloods in range, bin: left }
+            - { name: Diagnosis by protocol, bin: left }
+            - { name: Washout complete, bin: left }
+            - { name: No excluded drug, bin: left }
+            - { name: Both readings agree, bin: left }
+            - { name: Enrolled at site, bin: left }
+            - { name: Follow-up feasible, bin: left }
+            - { name: Screening within window, bin: left }
+            - { name: eGFR just under, bin: right }
+            - { name: Echo six weeks, bin: right }
+            - { name: Diagnosis made clinically, bin: right }
+            - { name: Washout days short, bin: right }
+            - { name: A year over, bin: right }
+            - { name: Consent taken late, bin: right }
+            - { name: Excluded drug stopped, bin: right }
+            - { name: One reading only, bin: right }
+            - { name: Screening window missed, bin: right }
+            - { name: Outside-lab bloods, bin: right }
+            - { name: Verbal consent first, bin: right }
+            - { name: Criterion waived once, bin: right }
+            - { name: Site-specific exception, bin: right }
+            - { name: Investigator judgement, bin: right }
+          commit: Start the line
   - title: Who is missing
     objective: Decide what to do about the participants the trial has lost track of.
     briefing: 91 people have no outcome recorded, and they are not a random 91.
@@ -1085,6 +1696,31 @@ missions:
         title: Missing is not one thing
         place: Adjudication Room
         scene: Friday’s database lock is now on the wall clock. Four kinds of missing record are still in the queue, each with a count beside it. Renner wants one rule for all of them before the next site call starts.
+        guide: >-
+          Four gaps and four consequences. Pair them by asking whether the reason for
+          the gap is connected to how the person was doing. A move abroad is not.
+          Stopping attendance after worsening is. A lost fax batch is recoverable. And
+          one of them closes the door permanently, which is a different problem from
+          either.
+        background:
+          - >-
+              Why this is a matching board and not four separate questions. Responses on
+              boards like this are written to be plausible for more than one situation, so
+              choosing them one at a time lets a nearly-right answer through unexamined.
+              Having to place all of them forces the comparison — not "is this reasonable
+              here", but "is it more right here than there".
+          - >-
+              How to use the one-each rule. Because the responses are a set to be
+              distributed rather than a list to be sampled, every join you make constrains
+              the rest. Settling the two you are confident of can leave the remaining pair
+              decided by elimination. Where it does not, two responses are still competing
+              for one situation, and that is exactly the distinction the stop is testing.
+          - >-
+              Why you cannot be wrong about exactly one. With every response used once,
+              three correct joins leave the fourth with only one place to go. Any error
+              therefore involves at least two joins. That is worth remembering when the last
+              pair looks forced: the fault is usually not in the join you are struggling
+              with, but in one you made early and stopped questioning.
         assumes:
           - an outcome can be absent for reasons connected to the outcome itself
         takeaway: A gap that depends on what happened is not the same as a gap that does not.
@@ -1107,38 +1743,87 @@ missions:
       - group: STAT
         task: Choose which population the board is shown
         title: Everyone as assigned
+        concept: Intention to treat against per-protocol
         place: Statistics & Analysis
         scene: >
           Two analyses are on Feldman's desk. One counts everybody in the arm they were assigned.
           The other counts only those who completed treatment, and it shows a bigger effect.
+        guide: >-
+          Work the relative risk out for the analysis the board is shown — everybody in the arm
+          they were assigned to, whatever they went on to do. Pick the event rate in the
+          treatment arm and the event rate in the control arm and divide. Two of the tiles are
+          the per-protocol rates, which is the other analysis and the other answer.
+        background:
+          - >-
+              What relative risk is. The event rate in the treatment arm divided by the event rate
+              in the control arm. Below one means fewer events on treatment. It says nothing about
+              how many people that is — a relative risk of 0.7 can be six fewer events per hundred
+              or six per hundred thousand, which is why it needs the absolute difference beside it.
+          - >-
+              Why as-assigned is the analysis of record. Randomisation made the arms alike in
+              everything, including what nobody measured, and that balance belongs to the groups as
+              assigned. Remove people for something that happened afterwards — stopping the drug,
+              missing visits — and they are removed for a reason connected to how they were doing.
+          - >-
+              Why the smaller effect is the honest one. As-assigned usually shows less benefit, and
+              that is not a defect of the method. It is the effect of being offered the treatment,
+              which is the decision a doctor actually faces in a clinic where some patients will
+              not finish the course.
         assumes:
           - some participants do not take the treatment they were assigned
         takeaway: Analysing people as assigned keeps the balance that randomisation bought.
-        format: CHOICE
-        question: Why is the analysis by assigned arm the one the board is shown?
-        choices:
-          - Dropping people who stopped treatment breaks the balance
-          - It gives the larger and more convincing estimate of the effect
-          - It is easier to compute from a database with missing fields in it
-          - It counts every participant, so the trial keeps its statistical power
-        answer: Dropping people who stopped treatment breaks the balance
-        why: >
-          Randomisation makes the arms alike in everything, including things nobody thought to
-          measure. That balance belongs to the groups as assigned. The moment people are removed for
-          something that happened afterwards — stopping the drug, missing visits, not completing —
-          they are removed for a reason that is itself connected to how they were doing, and the
-          two groups stop being comparable. The as-assigned analysis usually gives a smaller effect,
-          and that is not a flaw in it: it is the effect of being offered the treatment, which is
-          the decision a doctor actually faces.
-        rebuttals:
-          - Analysing as assigned normally shrinks the estimate rather than enlarging it.
-          - Both analyses are computable; the choice is about validity, not convenience.
-          - Keeping everybody does preserve power, and power is not why the balance argument decides it.
+        format: BALLPARK
+        question: What is the relative risk in the analysis by assigned arm?
+        answerText: 0.70 — a 30 per cent relative reduction. The per-protocol analysis gives 0.60, and the difference between those two numbers is the people it removed.
+        why: "Relative risk is RR = p_treatment / p_control. As assigned, 84 of 600 on treatment had the event and 120 of 600 on control did, so the rates are 0.140 and 0.200 and RR = 0.70 — a 30 per cent relative reduction. Counting only those who completed gives 0.121 against 0.201 and RR = 0.60, which looks better and is not the same question. The people dropped from that second analysis stopped treatment, and stopping is connected to how they were doing, so the two arms are no longer alike in the way randomisation made them. The as-assigned figure is the effect of being offered the treatment, which is what a clinic faces. And note what neither number says: a relative risk hides how big the effect is. The absolute difference here is six events per hundred, so about 17 people have to be treated to prevent one — the honest headline, and it is not in the ratio."
+        estimate:
+          prompt: As assigned, 84 of 600 on treatment had the event and 120 of 600 on control did. Counting completers only gives 0.121 and 0.201.
+          question: Choose the treatment-arm event rate and the control-arm event rate, as assigned.
+          labels:
+            - 0.140  (84 of 600 on treatment, as assigned)
+            - 0.200  (120 of 600 on control, as assigned)
+            - 0.121  (treatment rate among completers only)
+            - 0.201  (control rate among completers only)
+            - 600  (participants in each arm)
+          values: [0.140, 0.200, 0.121, 0.201, 600]
+          slots: 2
+          template: '{0} ÷ {1}'
+          formula: a/b
+          correct: [0, 1]
+          target: 0.70
+          tolerance: 0.03
+          units: relative risk
+          solution: 0.140 ÷ 0.200 = 0.70 as assigned, against 0.121 ÷ 0.201 = 0.60 among completers.
+          explanation: 0.70 is the effect of being offered the treatment. The 0.60 is what the trial looks like once the people who stopped are removed.
+          givens:
+            - 84 of 600 events on treatment and 120 of 600 on control, as assigned
+            - completers only give 0.121 and 0.201
+          relationship: The relative risk is RR = p_treatment / p_control — the event rate on treatment over the event rate on control.
       - group: SITE
         task: Allocate the monitoring time so the required questions can still be answered before the file is frozen.
         title: 40 hours before the lock
         place: Monitors' Room
         scene: Lucia Marchetti has a fortnight, 31 sites and 40 monitoring hours she can still deploy. Four recoverable gaps compete for that time. 14 people who withdrew consent are locked out of the plan and cannot be contacted again.
+        guide: >-
+          Forty monitoring hours, four recoverable gaps, and a fortnight before the
+          lock. Watch the questions list rather than the site map: it shows what the
+          interim analysis can still answer under your plan. The fourteen who withdrew
+          consent are locked out and cannot be contacted, so no plan recovers them —
+          spend the hours on what is still recoverable.
+        background:
+          - >-
+              What makes a gap recoverable. A missing form that exists on paper, a visit
+              whose data was never entered, a query nobody answered. Those can be closed by
+              somebody going to look. A withdrawal cannot, because the data no longer
+              belongs to the trial.
+          - >-
+              Why the interim analysis defines value. Not every gap affects it. A missing
+              secondary endpoint at a small site may not move anything, while a handful of
+              missing primary events at a large one can decide whether the trial continues.
+          - >-
+              Why hours rather than sites. Monitoring time is the resource, and sites differ
+              enormously in how long a gap takes to close. Four hours at a well-run site can
+              recover more than a day at one in difficulty.
         assumes:
           - missing outcomes are most dangerous when the reason for missingness is tied to the outcome
           - withdrawal of consent prevents further contact
@@ -1205,6 +1890,32 @@ missions:
         title: Kit that cannot be vouched for
         place: Kit Warehouse & Cold Room
         scene: Site 19 has already dispensed 11 boxes from the warm fridge to 9 participants. Farida Diouf has the logger trace, dispensing list and stability sheets open. A replacement shipment will not reach the site until morning.
+        guide: >-
+          Four readings of a warm fridge. Ask of each whether the fault can act on both
+          arms equally. Identical boxes can hold different contents, and heat has
+          nothing to damage in a comparator. So the direction of the error is not
+          symmetric. Eleven boxes is a question about size, which is separate from the
+          question about direction.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
         assumes:
           - both arms receive kit that looks identical
         takeaway: A storage failure damages one arm's material and leaves the other untouched.
@@ -1252,6 +1963,33 @@ missions:
         scene: >
           Nine people received kit from that fridge. Marchetti has to tell site 19 what to say to
           them, and Doyle has asked to see the wording before it goes.
+        guide: >-
+          Four things to tell nine people, and two duties pulling opposite ways. Ask of
+          each whether it can be said to all nine equally without saying what is in the
+          box. Saying they may have been under-treated says the drug is theirs. Saying
+          nothing because the arms are unknown puts the blind above the person, which is
+          the inversion the whole trial exists to avoid.
+        background:
+          - >-
+              Why first is a different question from most important. When several calls
+              compete for the same hour, what a choice is worth is not its own importance
+              but the difference between doing it now and doing it later. A serious problem
+              that will be no worse in an hour costs nothing to defer. A smaller one that
+              closes a door costs everything behind that door.
+          - >-
+              What to look for in the options. Two things separate them: which is still
+              changing, and which is a precondition for the others. A situation that is
+              deteriorating has a cost per hour attached to it, and a step that unblocks the
+              rest multiplies the value of the hours after it. Everything else is a
+              preference about where to start.
+          - >-
+              Why only one answer is marked. In the situation these options describe all of
+              them eventually happen; what is being tested is the head of the queue, because
+              that is where the reasoning is visible. The verdict names what each of the
+              others was waiting on, which is worth reading even when the choice was right —
+              the ordering behind the first place is the rest of the answer.
+        takesAsRead:
+          - "Allocation concealment: protecting the moment of entry"
         assumes:
           - participants are told about problems that affect their own treatment
         takeaway: A participant is owed what affects them, said in a way that does not tell them their arm.
@@ -1279,6 +2017,28 @@ missions:
         title: What the excursion record can actually prove
         place: Regulatory & Registry
         scene: Nkechi Umeh has the site 19 excursion form, the logger trace, dispensing records and an inventory statement. Four claims on the form are signed. She has time to verify only two before the deviation file closes.
+        guide: >-
+          Four signed claims on the excursion form, and time to verify two. Open each
+          and read what backs it: the logger trace, the dispensing records, the
+          inventory statement, or the form itself. Hold what the evidence does not
+          support, and verify where a wrong claim would most damage somebody's later
+          judgement about whether the drug was fit to use.
+        background:
+          - >-
+              What an excursion record is for. It documents a period when storage went
+              outside its specified range, so that somebody later can decide whether the
+              product was affected. It is written to be read by a person who was not there,
+              which is exactly why the backing matters more than the wording.
+          - >-
+              Why the logger trace is not automatically the strongest evidence. It records
+              what the logger saw at its position. Whether that position represents the
+              product, whether the logger was calibrated, and whether the affected stock was
+              in that location at that time are separate claims — and they are the ones
+              usually signed rather than checked.
+          - >-
+              Why two checks and not four. The deviation file closes, and after that the
+              record is what a reviewer sees. A claim held as unverified is honest; a claim
+              verified after the file closes is a second deviation.
         assumes:
           - a deviation record is evidence for later review
           - a signed statement records what someone asserts, not necessarily what the underlying records show
@@ -1330,6 +2090,32 @@ missions:
         title: The blind that had already gone
         place: Adjudication Room
         scene: At the annual visit, investigators and participants guessed each person's arm. Investigators were correct 71% across 1,180 guesses. The case packet also contains first-fortnight symptom logs, the allocation audit and the adjudicated outcome summary.
+        guide: >-
+          Four explanations for guessing right 71 per cent of the time. Ask of each
+          whether it accounts for both investigators and participants guessing well. A
+          leaked list would not. A treatment effect big enough to be visible in
+          improvement is not in the event data. And chance across 1,180 guesses does not
+          reach anywhere near 71.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
         assumes:
           - blinding is meant to keep the person measuring from knowing the arm
         takeaway: When a treatment announces itself, the people measuring stop being blind whatever the protocol says.
@@ -1375,6 +2161,27 @@ missions:
         title: Which measurements share the leak
         place: Statistics & Analysis
         scene: Feldman has 4 CLARION-3 measurements on the wall. The guessing survey says the blind has leaked. Each measurement came through a different path, and the sponsor wants to know which evidence still stands on its own.
+        guide: >-
+          Open each of the four measurements to see what it came through. Keep the ones
+          that would still stand if the blind has leaked, and untick the rest. Then name
+          the source the compromised ones share. A leak does not spoil everything
+          equally, and the sponsor needs to know exactly what survives.
+        background:
+          - >-
+              What a blind is protecting. If people know which arm a patient is in, that
+              knowledge can reach the measurement: through how symptoms are elicited, how
+              ambiguous events are coded, how closely anybody is followed up. Blinding is
+              what stops the treatment assignment influencing the record of what happened.
+          - >-
+              Why the guessing survey matters. Asking staff to guess the assignment measures
+              whether the blind held. Guesses much better than chance mean it did not, which
+              puts every measurement that passed through a person who knew under suspicion —
+              and leaves the automated ones alone.
+          - >-
+              Why withdrawing everything is the wrong response. It discards measurements the
+              leak could not have touched, and it tells a data monitoring committee that
+              nothing is known. Naming what is compromised is what lets the trial continue
+              honestly.
         assumes:
           - the visible flush can reveal treatment assignment
           - adjudication removes the arm and site before the committee rules
@@ -1431,22 +2238,46 @@ missions:
         title: Telling the board what it does not yet know
         place: Monitoring Board Room
         scene: Vogt reads the interim pack in 11 days, and the PDF is queued for sign-off tonight. The guessing survey is absent because nobody expected it to matter. Balogun wants to leave it for the annual report.
+        guide: >-
+          Four things about the trial's condition, and four ways a pack can carry them. Match
+          each to the treatment that lets the board weigh it — some belong in the results
+          section, one belongs in a limitations paragraph the board reads before the numbers,
+          and one is genuinely an annual-report item. What decides the match is whether the
+          board's next decision turns on it.
+        background:
+          - >-
+              What the board is for. It is the only body that sees the arms separated, and it
+              decides whether the trial continues. Everything it decides rests on the pack in front
+              of it, so a weakness the pack does not mention is a weakness that cannot enter the
+              decision.
+          - >-
+              Why a limitation is not an admission. A blinding survey suggesting the assignment may
+              be guessable changes how much weight the effect estimate carries. Reported beside the
+              estimate, it is information. Held for the annual report, it becomes something the
+              board was not told before it decided, which is a different document to have to write.
+          - >-
+              What genuinely can wait. Enrolment running two months behind is a management problem
+              with no bearing on whether the accumulated data support continuing. The test is not
+              importance in general — it is whether this board's next decision turns on it.
         assumes:
           - the board decides whether the trial continues
         takeaway: A board cannot weigh a result whose weakness it has not been shown.
-        format: CHOICE
-        question: What does the board most need in the pack because of the guessing survey?
-        why: The board has to see both evidence and the weaknesses attached to it. The guessing survey changes how the symptom score should be read, so leaving it out makes that score look cleaner than it is. The adjudicated endpoint still has a protected path and should remain separate. Stopping the whole trial would throw away evidence that survived the leak. Trying to re-blind people after a visible flush cannot repair measurements already made. The pack should show the problem and exactly which results it reaches.
+        format: PROTOCOL
+        question: Match each fact about the trial's condition to the way tonight's pack should carry it.
+        scenarios:
+          - A blinding survey suggests treating teams may be guessing the assignment above chance.
+          - Two sites have deviation rates four times the study average.
+          - The interim effect estimate is based on 246 of the 380 planned events.
+          - Enrolment is running two months behind the recruitment curve.
         choices:
-          - The survey, and the two outcomes reported separately
-          - The survey, with a recommendation to stop the trial for unreliability
-          - Nothing yet, since the survey does not change the adjudicated events
-          - A plan to re-blind the trial by changing how the drug is given
-        answer: The survey, and the two outcomes reported separately
-        rebuttals:
-          - The adjudicated events survive, and the board still has to be told which result is which.
-          - Stopping discards a protected endpoint because a different one was damaged.
-          - Changing administration now does nothing about the participants already assessed.
+          - A limitations paragraph placed before the efficacy tables, so it is read before the estimate it qualifies.
+          - A per-site table in the body, since the comparison is only as good as the sites feeding it.
+          - Stated as an information fraction beside every estimate, because it fixes how much any of them can settle.
+          - A line in the operational annexe, which is where a management problem belongs.
+        mapping: [0, 1, 2, 3]
+        answerText: The blinding survey goes in a limitations paragraph before the tables, the deviation rates in a per-site table, the event count beside every estimate as an information fraction, and the recruitment shortfall in the operational annexe.
+        why: A monitoring board's decision is made out of the pack, so the placement of a fact is not presentation — it decides whether the fact enters the decision at all. The blinding survey qualifies every efficacy number in the document, which is why it goes before them rather than after: a board that reads an estimate and then learns the blind may have leaked has already formed a view. Deviation rates belong site by site in the body, because a comparison is only as good as the sites feeding it and an average hides the two that are the problem. The event count is not a footnote either — 246 of 380 is the information fraction, and it fixes how much any estimate in the pack can settle. Recruitment running behind is real and belongs in the annexe, because nothing the board decides tonight turns on it. What makes the survey the hard case is that leaving it out is defensible one item at a time and indefensible as a decision: the board cannot weigh a weakness it has not been shown.
+
   # ---------------------------------------------------------------- day 10
   - title: What survives
     objective: Re-read the trial on the outcome the unblinding could not reach.
@@ -1467,27 +2298,91 @@ missions:
         place: Adjudication Room
         scene: |-
           The committee has re-read 400 files. Ansah is asked whether a second reading by the same three people, who now know a guessing survey exists, can be trusted at all.
+        guide: >-
+          The cloud is the 400 files, each plotted as the difference between its first and
+          second reading. Place the middle bar and the two sigma bars to report where the
+          differences centre and how widely they scatter, then buy what the committee can
+          actually do to tighten the agreement. The band drawn across the plot is how much
+          drift the endpoint definition tolerates.
+        background:
+          - >-
+              What a difference of zero would mean. That the rule decided the reading, not the
+              reader. A centre away from zero is drift — the second pass systematically scoring
+              differently from the first — and a wide scatter is inconsistency, which is a different
+              defect with a different fix.
+          - >-
+              Why the two are not the same problem. Re-centring a drifted committee is a
+              recalibration: restate the rule, define the ambiguous case, and the middle moves. Only
+              a sharper rule narrows the spread, and no amount of re-centring does it, which is what
+              this panel is really about.
+          - >-
+              Why knowing the survey exists is dangerous. Three people who now expect the blind may
+              have leaked are three people with a reason to read the ambiguous files differently, and
+              their agreement with each other would not show it. Consistency between two readings
+              comes from the rule, not from memory of what they decided last time.
+        takesAsRead:
+          - Hard endpoints against judged ones, and blinded adjudication
         assumes:
           - the adjudication committee never sees the arm
         takeaway: Consistency between two readings comes from the rule, not from memory.
-        format: CHOICE
-        question: What keeps the second reading from drifting?
-        why: A second reading is useful only if it is anchored to the same rule as the first. Memory is not enough, especially after readers learn that blinding may have failed elsewhere. The committee therefore reopens the written definition, not the previous verdict. Borderline files are scored against explicit criteria and disagreements are recorded. If the second pass moves only because readers now expect a problem, that is drift. If it moves because the same rule is applied more consistently, the change is evidence about the original measurement process.
-        choices:
-          - The definition was agreed before any file was read
-          - The readers do not remember their first rulings
-          - Each file is read by a different member the second time
-          - The committee is told the trial's overall result first
-        answer: The definition was agreed before any file was read
-        rebuttals:
-          - Readers remember hard cases, which is why the definition rather than forgetting is the safeguard.
-          - Rotating readers helps consistency and does not stop a shared definition from being applied loosely.
-          - Telling the committee the overall result is precisely what would let a ruling drift toward it.
+        format: CLOUD
+        question: Report where the first-to-second-reading differences centre and how far they scatter, and get the spread inside what the definition tolerates.
+        answerText: Centred near 0.2 events per hundred files with a spread of about 1.6 once the ambiguous case is defined and a fourth reader added. Re-centring alone never gets there — only a sharper rule narrows the scatter.
+        why: A re-read is worth something only if the rule did the deciding. Plotted as first reading minus second, 400 files scatter around a centre near 0.6 events per hundred, with a spread of about 2.9. That is a committee both slightly drifted and quite inconsistent. Those are two defects, and they have different repairs. Restating the definition moves the centre and leaves the width alone. Defining the one ambiguous case narrows it. A fourth reader who has never seen these files narrows it again. Apply every re-centring and no rule change, and the spread sits exactly where it was. That is the lesson. Agreement between two readings by the same people can be manufactured by memory. Only a rule that decides the ambiguous case the same way twice makes it evidence. The guessing survey matters for that reason. Three readers who suspect the blind has leaked have a reason to read the ambiguous files differently, and agreeing with each other would never reveal it.
+        cloud:
+          unit: events per hundred files
+          hint: Place the middle bar and the sigma bars from the points, then buy what the committee can do and place them again.
+          bounds:
+            min: -2
+            max: 2
+          centre: 0.6
+          spread: 2.9
+          pass: 0.75
+          actions:
+            - id: restate
+              label: Restate the endpoint definition at the start of the session
+              effect: shift
+              amount: 0.4
+              cost: 1
+            - id: ambiguous
+              label: Define the ambiguous case that accounts for most disagreements
+              effect: narrow
+              amount: 0.68
+              cost: 2
+            - id: fourth
+              label: Add a fourth reader who has never seen these files
+              effect: narrow
+              amount: 0.82
+              cost: 2
+          costUnit: committee sessions
+          report:
+            centreTol: 0.5
+            spreadTol: 0.7
+          commit: Report the drift and the scatter
       - group: STAT
         task: Translate the effect into NNT, then put a number on the sampling noise behind one arm rate.
         title: How big, and how wide
         place: Statistics & Analysis
         scene: The press office has lifted “4.2 percentage points” into a draft briefing. Feldman circles the interval beside it. Before the number leaves the room, she wants the team to put both clinical size and sampling noise on the result.
+        guide: >-
+          Five numbers, and two of them are answers to other questions: the risk ratio,
+          and the risk difference already worked out. Ask of each what this calculation
+          needs. The number needed to treat is built from the absolute difference, not
+          the ratio. And precision is a separate question from size, which is why the
+          interval is circled beside the headline.
+        background:
+          - >-
+              Why an estimate rather than a calculation. Every quantity on this board is
+              already measured or stated, so nothing here has to be derived. What is being
+              tested is whether you can pick the quantities the relationship actually needs,
+              and whether the size of the answer looks right once they are in place.
+          - >-
+              Why the tiles carry labels. A bare number cannot be checked against the
+              relationship it is going into. Reading the label is how a unit mismatch, or a
+              quantity belonging to a different part of the problem, is caught before it is
+              placed — which is the habit this format exists to build.
+        takesAsRead:
+          - "Effect measures: relative risk, absolute risk reduction, number needed to treat"
         assumes:
           - the 2,400 participants are allocated about equally between 2 arms
           - a proportion estimated from a sample has sampling error
@@ -1526,6 +2421,33 @@ missions:
         scene: >
           600 participants are still in follow-up and the flush has not stopped happening.
           Diouf has been asked whether there is anything the pharmacy can do about it at this stage.
+        guide: >-
+          Four options for a blind that has already leaked. Ask of each what it could
+          still protect. Nothing recovers the blind for anybody who saw the first
+          fortnight. What can be protected is the route from belief into the number.
+          Matching the comparator is the right design, four years too late. And a
+          limitation paragraph fixes nothing while six hundred people are still being
+          scored.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
         assumes:
           - the drug produces an early visible effect that the comparator does not
         takeaway: When a treatment cannot be hidden, protect the measurement instead of pretending the blind holds.
@@ -1569,6 +2491,32 @@ missions:
         title: Freezing something that was moving
         place: Regulatory & Registry
         scene: "The database-lock checklist is projected on the wall and the cut is three days away. Umeh has one question from the sponsor and another from Renner: once the file freezes, what exactly would justify opening it again?"
+        guide: >-
+          Four things a lock might buy. Ask of each whether a frozen file could deliver
+          it. It cannot make the data correct, and it cannot stop collection. What it
+          does is put a visible boundary around what the analysis used, so anybody can
+          rerun it. Reopening is possible and creates a new version of the evidence,
+          which is why it needs a reason.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
         assumes:
           - data arrive from sites continuously while a trial runs
         takeaway: Locking fixes what the analysis was run on, so the result can be checked later.
@@ -1590,6 +2538,27 @@ missions:
         title: 3 days, 41 queries
         place: Monitors' Room
         scene: 41 queries remain and the interim file locks in 3 working days. 1 concerns a primary-event date, 1 a duplicated visit, and 39 are contact-field corrections. Renner has two people available, and you can keep only one problem yourself.
+        guide: >-
+          Forty-one queries, three working days, two people, and one problem you keep
+          yourself. For each thing you hand over, name the owner, the first action, and
+          what brings it back to you. Thirty-nine of the queries are contact-field
+          corrections, which is a volume problem. The other two are not.
+        background:
+          - >-
+              Why volume and judgement are different work. Thirty-nine identical corrections
+              need somebody methodical with a clear rule for the ambiguous ones. A
+              primary-event date and a duplicated visit each need somebody who understands
+              what the field means, because getting them wrong changes the analysis rather
+              than the tidiness of the file.
+          - >-
+              Which to keep. The primary-event date is the one that feeds the interim
+              analysis directly. A wrong date can move an event across the analysis
+              boundary, which is the one error in this list that changes a result rather
+              than a record.
+          - >-
+              What a return condition looks like here. Not 'come back if stuck'. A rule: any
+              correction that would change a date, or any duplicate that cannot be resolved
+              from the source document, comes back to you rather than being decided.
         assumes:
           - an event outside the cut is absent from this interim analysis
           - delegation needs an owner, a first action and a condition for returning the problem
@@ -1646,11 +2615,38 @@ missions:
       - group: ENDP
         task: Decide what the committee still owes before the lock
         title: Nothing left in the tray
+        concept: Hard endpoints against judged ones, and blinded adjudication
         place: Adjudication Room
         scene: >
           Ansah has 19 files still under adjudication and 3 days. 2 of the 19 are
           from participants recruited in the first year and have been waiting on 1 missing
           discharge summary each.
+        guide: >-
+          Four reasons the tray has to be empty. Ask of each what an unadjudicated file
+          actually is in the analysis. Adjudication is what turns something that
+          happened into a countable event, so nineteen files in a tray are nineteen
+          events nobody had. And files wait longest where the evidence is thinnest,
+          which is not evenly spread across the arms.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
         assumes:
           - an event is only counted once the committee has ruled on it
         takeaway: An unadjudicated event is invisible to the analysis, whatever the notes say.
@@ -1690,39 +2686,93 @@ missions:
       - group: STAT
         task: Say what a subgroup crossing its line is worth
         title: The subgroup that crossed
+        concept: Subgroup analysis, and why a subgroup finding is a hypothesis
         place: Statistics & Analysis
         scene: >
-          Participants over 70 show a difference that clears the line on its own. Feldman asks
-          which of 14 prespecified subgroups this is, and whether anybody has looked at the
-          other 13 yet.
+          Participants over 70 show a difference that clears the line on its own. Feldman asks which
+          of 14 prespecified subgroups this is, and whether anybody has looked at the other 13 yet.
+        guide: >-
+          Put an interval around the over-70 result before deciding what it is worth. The
+          interval is the estimate plus and minus about two standard errors, so pick the
+          multiplier and the standard error and work out the half-width. One tile is the
+          standard error of the whole trial, which is the number this subgroup does not have.
+        background:
+          - >-
+              What the width says. A confidence interval is the estimate give or take about two
+              standard errors, and the standard error grows as the group shrinks. A subgroup of a
+              few hundred therefore carries an interval several times wider than the trial's, which
+              is why subgroup estimates swing so far from the overall result.
+          - >-
+              Why 14 subgroups is the other half of the problem. Testing fourteen slices at the
+              usual threshold gives about a one-in-two chance that at least one clears the line by
+              luck alone. A subgroup that crossed is therefore what an honest trial expects to see,
+              not evidence that something is different about people over 70.
+          - >-
+              What the over-70 result is for. It is a hypothesis somebody could test in a trial
+              designed to test it. Stated as a finding it becomes a treatment recommendation for a
+              group whose interval, once you draw it, includes no benefit at all.
         assumes:
           - a subgroup is a slice of the participants analysed on its own
         takeaway: A subgroup result is one of many results, and it has to be judged as one of many.
-        format: CHOICE
-        question: What is the first thing to establish about the over-seventies result?
-        choices:
-          - How many subgroups were examined
-          - Whether the biology makes sense in older participants
-          - Whether the other 13 subgroups point the same way
-          - How large the over-seventy group is
-        answer: How many subgroups were examined
-        why: >
-          Every subgroup is another test. Test enough of them and one will look impressive whatever
-          the drug does. 14 slices at the usual threshold give better than even odds that at
-          least 1 clears the line by luck. So the count comes first. It decides what the result
-          means, before anybody argues about mechanism. Group size matters. So does the direction of
-          the other slices, and so does the biology. All three are read differently once you know
-          whether this was the only question asked, or the fourteenth.
-        rebuttals:
-          - Plausibility can be constructed for almost any subgroup after the fact, which is why it is not first.
-          - Consistency across slices is genuine evidence, and it means little until the number of looks is known.
-          - Size matters for precision and does not say how many chances the result had to appear.
+        format: BALLPARK
+        question: How wide is the interval around the over-70 result, either side of the estimate?
+        answerText: About 6.7 percentage points either side of a 6.0-point estimate — so the interval runs from about −0.7 to 12.7 and includes no benefit at all.
+        why: "A confidence interval is CI ≈ estimate ± 1.96 × SE. The over-70 subgroup's absolute risk reduction is 6.0 percentage points with a standard error of 3.4, so the half-width is 1.96 × 3.4 ≈ 6.7 and the interval runs from about −0.7 to 12.7 points. It includes zero, which is the whole answer: the subgroup that 'crossed its line' has an interval that does not exclude no effect once it is drawn properly. The trial as a whole has a standard error of 1.5, so its interval is less than half as wide — precision improves with the square root of the sample, and a subgroup is a smaller sample by construction. Then there is the second problem: with fourteen prespecified subgroups, the chance that at least one clears the usual threshold by luck alone is about one in two. So this result is what a well-run trial expects to produce, and the honest sentence calls it a hypothesis rather than a finding."
+        estimate:
+          prompt: The over-70 subgroup shows an absolute risk reduction of 6.0 percentage points with a standard error of 3.4. The whole trial's standard error is 1.5.
+          question: Choose the multiplier for a 95 per cent interval and the subgroup's standard error.
+          labels:
+            - 1.96  (multiplier for a 95 per cent interval)
+            - 3.4  (SE of the over-70 subgroup, in percentage points)
+            - 1.5  (SE of the whole trial, in percentage points)
+            - 6.0  (the subgroup's estimated risk reduction)
+            - 14  (prespecified subgroups)
+          values: [1.96, 3.4, 1.5, 6.0, 14]
+          slots: 2
+          template: '{0} × {1}'
+          formula: a*b
+          correct: [0, 1]
+          target: 6.66
+          tolerance: 0.5
+          units: percentage points either side
+          solution: 1.96 × 3.4 ≈ 6.7 points, so 6.0 ± 6.7 runs from −0.7 to 12.7 and includes zero.
+          explanation: Drawn properly, the interval around the subgroup that crossed does not exclude no effect.
+          givens:
+            - subgroup risk reduction 6.0 points, standard error 3.4
+            - 14 prespecified subgroups were planned
+          relationship: A confidence interval is CI ≈ estimate ± 1.96 × SE, and the width of the interval grows as the group gets smaller.
       - group: SAFE
         task: Assemble the safety update the regulator has asked for
         title: The update that is due Friday
         place: Monitoring Board Room
         scene: |-
           The regulator wants the liver cases written up by Friday. There are now four, not two. Vogt has seen all four by arm; nobody else in the building has.
+        guide: >-
+          Four versions of Friday's update. Ask of each whether a reader could work out
+          how common the problem is. Four cases among forty exposed people is a
+          different thing from four among twelve hundred. So a numerator without a
+          denominator is not a rate. Causality opinions can go in and do not replace the
+          counts, and efficacy belongs to a closed review.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
         assumes:
           - serious events are reported to regulators on a stated schedule
         takeaway: A safety update reports the events and the denominator, not a conclusion about them.
@@ -1745,6 +2795,26 @@ missions:
         title: What the Lyon paper is worth tonight
         place: Regulatory & Registry
         scene: The Lyon trial published a large benefit at 6:10 this morning. By lunch, Balogun wants CLARION-3 to respond. Nkechi Umeh has the paper, its supplement and four review hours before she must state the trial’s position.
+        guide: >-
+          Four review hours before a position has to be stated, and a paper published
+          this morning. Open each piece of the Lyon evidence and ask what would change
+          about CLARION-3's position depending on how it comes out. Buy what could
+          change the position, not what would explain the headline more thoroughly.
+        background:
+          - >-
+              Why the headline is rarely the useful part. A large benefit in another trial
+              matters to this one only through specifics: the population, the endpoint
+              definition, the comparator, whether the effect is plausible in the patients
+              CLARION-3 enrolled. Those live in the supplement rather than the abstract.
+          - >-
+              What a position actually has to survive. Balogun will be asked whether
+              CLARION-3 should continue, and the answer has to hold whether the Lyon result
+              replicates or not. Evidence that would only be reassuring if Lyon is right is
+              not worth an hour.
+          - >-
+              Why four hours is the whole point. There is time to read some of it properly
+              or all of it badly. Choosing which parts is the same judgement every VALUE
+              stop asks for, on the day it is least comfortable to make.
         assumes:
           - a related trial can change the uncertainty that makes continued randomisation defensible
           - an outside result does not rewrite a prespecified analysis plan
@@ -1791,6 +2861,83 @@ missions:
         answerText: Read the endpoint definition, event count and confidence interval first, then the randomisation methods if time remains. Those tell you whether Lyon is both comparable and credible enough to change what the board weighs; the analysis plan itself stays unchanged.
         why: A striking outside result is neither ignored nor copied into the current trial. First ask whether it measured the same kind of outcome, on enough events, with uncertainty narrow enough to matter. Then ask whether its randomisation protected the comparison. Those features determine how much the paper should change the board's uncertainty. A plausible mechanism or an impressive subgroup can support interpretation, but they cannot rescue an incomparable endpoint. The result belongs in the board's discussion, while CLARION-3's registered analysis remains fixed.
   # ---------------------------------------------------------------- day 13
+      - group: SAFE
+        task: Work the safety queue while the reporting rule changes.
+        title: What has to go out today
+        concept: "Causality assessment, and why reporting does not wait for it"
+        place: Safety Desk
+        scene: Adverse event reports queue on the safety desk faster than they can all be assessed. The rule about which go out today is set by the safety physician, and it changes as the picture does — after the second case, after the regulator writes, after the board meets.
+        guide: >-
+          Send out what the current rule requires and hold the rest for assessment. The rule
+          on the desk changes during the day and nobody announces it. What is scored is the
+          reports either side of a change, because they are the only ones that show whether
+          the desk is reading the rule.
+        background:
+          - >-
+              Why the rule moves at all. Ordinarily what goes out today is anything serious and
+              unexpected. Once a second case of the same thing appears, the rule becomes anything
+              resembling it, whether or not it is serious. After a regulator asks, it is anything
+              they have asked about, on their timetable rather than the trial's.
+          - >-
+              Why late is not a small failure. Expedited reporting exists so that somebody outside
+              the trial can see a pattern the trial cannot. A report held for assessment is a report
+              that is not in that view, and assessment is exactly what the recipient is supposed to
+              do independently.
+        assumes:
+          - a trial reports certain events without waiting to decide what caused them
+        takeaway: The cost of a withdrawn instruction is paid by whoever is still working to it.
+        format: SPOT
+        question: Report to the rule in force, and keep watching the rule.
+        answerText: Read the rule rather than the report. Every change leaves an hour in which the old rule still looks like today's.
+        why: >-
+          Three rules run across the day and each wants a different part of the queue. Anything
+          serious and unexpected, then anything resembling the cluster, then anything the
+          regulator has asked about. A report can answer two at once, which is what makes the
+          change cost real rather than notional. The panel scores the window either side of
+          each change, because most of the queue is wanted by neither rule and is correctly
+          held for assessment by somebody who has read nothing. The desk's own version is the
+          hour after a second case appears: the rule has changed to anything resembling it, and
+          the reports going out are still the ones that were serious-and-unexpected when the
+          morning started — which is precisely the hour in which the pattern was visible and
+          nobody outside the trial could see it.
+        spot:
+          duration: 40
+          switchEvery: 12
+          pass: 0.75
+          hint: The reporting rule is on the desk, and the safety physician changes it without announcing it.
+          targets:
+            - id: e1
+              label: Serious, unexpected
+              tags: [serious]
+            - id: e2
+              label: Mild rash, third case
+              tags: [cluster]
+            - id: e3
+              label: Serious, matches cluster
+              tags: [serious, cluster]
+            - id: e4
+              label: Regulator asked about it
+              tags: [asked]
+            - id: e5
+              label: Expected, non-serious
+              tags: [routine]
+            - id: e6
+              label: Asked about, cluster
+              tags: [asked, cluster]
+            - id: e7
+              label: Serious, expected
+              tags: [routine]
+            - id: e8
+              label: Hospitalisation, unexpected
+              tags: [serious]
+          rules:
+            - say: Anything serious and unexpected
+              want: [serious]
+            - say: Anything resembling the cluster
+              want: [cluster]
+            - say: Anything the regulator asked about
+              want: [asked]
+          commit: Open the desk
   - title: 1 of 14
     objective: Work out what the over-seventies result would have cost if it had been believed.
     briefing: Feldman has the list of every subgroup the plan named.
@@ -1807,11 +2954,29 @@ missions:
       - group: STAT
         task: Put a number on 14 looks
         title: How often something clears the line by luck
+        concept: Type I and type II error, and what α and β are for
         place: Statistics & Analysis
         scene: >
           14 prespecified subgroups, each tested at the usual 5%. Feldman writes
           the arithmetic on the board and asks what the chance is that at least one clears the line
           with no real difference anywhere.
+        guide: >-
+          Five numbers, and two of them belong elsewhere: the number randomised, and the
+          one that stands for certainty. Ask of each whether this stacking depends on
+          it. Each test carries its own small chance of misfiring, and those chances
+          multiply rather than staying small. Real subgroups overlap, which softens the
+          number without changing what it says.
+        background:
+          - >-
+              Why an estimate rather than a calculation. Every quantity on this board is
+              already measured or stated, so nothing here has to be derived. What is being
+              tested is whether you can pick the quantities the relationship actually needs,
+              and whether the size of the answer looks right once they are in place.
+          - >-
+              Why the tiles carry labels. A bare number cannot be checked against the
+              relationship it is going into. Reading the label is how a unit mismatch, or a
+              quantity belonging to a different part of the problem, is caught before it is
+              placed — which is the habit this format exists to build.
         assumes:
           - each test has a 5% chance of a false positive on its own
         takeaway: The chance of at least one false positive rises fast with the number of tests.
@@ -1863,6 +3028,32 @@ missions:
         place: Adjudication Room
         scene: |-
           The over-seventies result is on the symptom score rather than the adjudicated event. Ansah points out that this is the outcome the guessing survey landed on, and that older participants attend most often.
+        guide: >-
+          Four accounts of what the subgroup result rests on. Ask of each whether the
+          outcome named is the protected one or the leaky one. Two weaknesses compound
+          here: one of fourteen looks, measured on the score the guessing survey
+          reached. Older participants attend more often, so there are more scored visits
+          for a small bias to enter.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
         assumes:
           - the symptom score is written by the treating doctor and the event is adjudicated
         takeaway: A subgroup finding inherits every weakness of the outcome it was measured with.
@@ -1886,6 +3077,32 @@ missions:
         scene: >
           Vogt will see the over-seventies table whatever the pack says about it. What the pack can
           do is tell her what she is looking at before she looks at it.
+        guide: >-
+          Four ways to present one slice, and the board will see the table whatever the
+          pack says. Ask of each what reaction the layout invites. A striking slice
+          alone invites the reader to treat it as the finding. The eleventh row of
+          fourteen invites them to count. And filtering what looks unlikely starts
+          making the board's decision for it.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
         assumes:
           - the board sees the trial's subgroup tables in closed session
         takeaway: A subgroup table is reported with the number of looks that produced it.
@@ -1928,6 +3145,33 @@ missions:
         title: Three things the board can say
         place: Monitoring Board Room
         scene: Vogt’s board meets behind a closed door in 40 minutes. The adjudicated effect is modest, the stopping boundary is not crossed, and four liver cases remain unexplained. Three recommendations are printed on separate cards in front of her.
+        guide: >-
+          Three recommendations and four costs, and none of the choices is free. Pair
+          them by asking what each one gives up: precision, a real benefit, another year
+          of exposure, or comparability with the registered plan. Early stops overstate
+          effects. And even changing what gets reported has a cost, unless the change is
+          recorded before it is used.
+        background:
+          - >-
+              Why this is a matching board and not four separate questions. Responses on
+              boards like this are written to be plausible for more than one situation, so
+              choosing them one at a time lets a nearly-right answer through unexamined.
+              Having to place all of them forces the comparison — not "is this reasonable
+              here", but "is it more right here than there".
+          - >-
+              How to use the one-each rule. Because the responses are a set to be
+              distributed rather than a list to be sampled, every join you make constrains
+              the rest. Settling the two you are confident of can leave the remaining pair
+              decided by elimination. Where it does not, two responses are still competing
+              for one situation, and that is exactly the distinction the stop is testing.
+          - >-
+              Why you cannot be wrong about exactly one. With every response used once,
+              three correct joins leave the fourth with only one place to go. Any error
+              therefore involves at least two joins. That is worth remembering when the last
+              pair looks forced: the fault is usually not in the join you are struggling
+              with, but in one you made early and stopped questioning.
+        takesAsRead:
+          - Sample size and statistical power
         assumes:
           - a monitoring board recommends and the sponsor decides
         takeaway: Each way of ending a trial buys something and gives something up.
@@ -1953,28 +3197,90 @@ missions:
         place: Statistics & Analysis
         scene: |-
           Feldman has computed what the trial would most likely conclude if it ran to 380 events, given the 246 in hand. Balogun asks the obvious question: if it is going to end positive, why wait.
+        guide: >-
+          The forecast rests on one number: how extreme the remaining events would have to be
+          for the final analysis to clear its boundary. Work out the information fraction
+          first — events in hand over events planned — and the verdict turns that into the
+          conditional power. One tile is the events still to come, which is not the fraction.
+        background:
+          - >-
+              What the information fraction is. Events observed over events planned. It is how far
+              through an event-driven trial actually is, and it is not the same as how far through
+              its calendar or its recruitment — 246 of 380 events is about two thirds of the
+              information, whatever the enrolment log says.
+          - >-
+              What conditional power is. The probability that the trial is significant at the end,
+              given the data so far and assuming the effect really is what the protocol assumed. It
+              is a forecast about a study: it answers "will this trial clear its boundary", and not
+              "does this treatment work".
+          - >-
+              Why a high forecast is not a reason to stop. Stopping early converts a forecast into a
+              conclusion and spends error rate that was budgeted for the final look. The trial was
+              designed to answer the question at 380 events because that is how much information the
+              question needs, and a probable answer is not one.
+        takesAsRead:
+          - Sample size and statistical power
         assumes:
           - the trial has collected about two thirds of its planned events
         takeaway: A forecast about a study is not a statement about the treatment.
-        format: CHOICE
-        question: What does a conditional power of 78% tell the board?
-        answerText: A conditional power of 78% is a forecast under an assumption about the remaining data. About 78% of comparable continuations would finish significant. It is not the probability that the treatment works.
-        why: Conditional power forecasts the trial under an assumption about what happens next. It starts with the data already collected and asks how often the final test would cross its line if the remaining events behave as assumed. A value of 78% argues against stopping for futility. It does not say there is a 78% chance the treatment works. It also does not say the current result is significant. The stopping boundary answers that separate question.
-        choices:
-          - Under the stated future-data assumption, about 78% of comparable continuations would finish significant
-          - Given the current data, the probability that the treatment truly has a benefit is 78%
-          - 78% of the information needed for the final analysis has already been collected
-          - The current interim result has a 78% chance of crossing today's stopping boundary
-        answer: Under the stated future-data assumption, about 78% of comparable continuations would finish significant
-        rebuttals:
-          - That would be a probability about the treatment itself and requires a different framework and assumptions.
-          - Information fraction is events observed divided by events planned; here it is about two thirds.
-          - Today's boundary is evaluated with today's statistic. Conditional power forecasts a future final analysis.
+        format: BALLPARK
+        question: How far through its information is the trial, and what does that make of the forecast?
+        answerText: 0.65 of the information, and a conditional power of about 0.82 — a forecast that the trial will probably clear its boundary, which is a statement about the trial and not about the drug.
+        why: "The information fraction is t = events observed / events planned, so 246 ÷ 380 = 0.65: about two thirds of the way through, whatever the calendar says. That fraction is what the forecast is built on. Conditional power = P(significant at the end | data so far), and with the interim z-score at 1.42, a final boundary of 1.96 and 35 per cent of the information still to come, the remaining events would have to be mildly favourable rather than dramatic — which comes out at roughly 0.82. Two things follow. It is a forecast about a study, not a statement about the treatment: it assumes the effect is what the protocol assumed and asks whether this trial will clear its line. And a probable answer is not an answer — stopping now converts the forecast into a conclusion and spends error rate that was budgeted for 380 events. The mirror case is the one the format exists for: a conditional power of 0.05 is a futility signal, and it is still a statement about the trial rather than proof the treatment does nothing."
+        estimate:
+          prompt: The trial has 246 events in hand of the 380 it was designed for. The interim z-score is 1.42 against a final boundary of 1.96.
+          question: Choose the events observed and the events planned.
+          labels:
+            - 246  (events in hand)
+            - 380  (events the trial was designed for)
+            - 134  (events still to come)
+            - 1.42  (the interim z-score)
+            - 1.96  (the final boundary)
+          values: [246, 380, 134, 1.42, 1.96]
+          slots: 2
+          template: '{0} ÷ {1}'
+          formula: a/b
+          correct: [0, 1]
+          target: 0.647
+          tolerance: 0.03
+          units: of the planned information
+          solution: 246 ÷ 380 = 0.65 of the information, which with z = 1.42 gives a conditional power of about 0.82.
+          explanation: Two thirds of the information, and a probable result. Neither is a conclusion, and stopping early spends error rate budgeted for the final look.
+          givens:
+            - 246 events in hand of 380 planned
+            - interim z-score 1.42, final boundary 1.96
+          relationship: The information fraction is t = events observed / events planned, and the conditional power = P(significant at the end | data so far) is read from it with the interim z-score.
       - group: REG
         task: Order what has to happen if the board recommends stopping tomorrow.
         title: What a stop obliges
         place: Regulatory & Registry
         scene: Umeh has the registry entry, protocol and publication policy open before the board call. One participant is due an infusion on Monday. Doyle asks what happens, in what order, if the board recommends stopping tomorrow.
+        guide: >-
+          All four steps will happen, so ask who learns what, and when. The board
+          recommends and the sponsor decides. Somebody is due an infusion on Monday. A
+          registered trial that quietly disappears is how the literature acquires
+          missing arms. And a trial stopped early still owes its results, with the
+          shortened follow-up stated plainly.
+        background:
+          - >-
+              Why the order is graded whole. A sequence is a claim about dependency: each
+              step is here because the one before it has already happened, or has to have.
+              One transposed pair falsifies that claim wherever it sits, so partial credit
+              would be credit for a sequence that does not work.
+          - >-
+              Why the ends are the place to start. The first and last cards are constrained
+              by having nothing before or after them, which usually makes them the two you
+              can settle from the scene alone. Pinning them collapses the remaining
+              arrangements sharply, and what is left in the middle is where the actual
+              judgement lives.
+          - >-
+              What the rail can be ordered on. Time is the usual axis, but it is not the
+              only one. An order can run on cost, on risk, or on reversibility — every
+              observation that leaves the sample as it was, before any that consumes it. On
+              those boards a chronological reading finds nothing, because none of the steps
+              has to happen at a particular hour.
+        takesAsRead:
+          - "Allocation concealment: protecting the moment of entry"
         assumes:
           - a trial's commitments continue after recruitment ends
         takeaway: Ending recruitment does not end the trial's obligations to the people in it.
@@ -2006,6 +3312,27 @@ missions:
         title: One relative risk, many absolute effects
         place: Regulatory & Registry
         scene: 2 lines for the board chair’s closed briefing describe the same CLARION-3 result. 1 says risk fell about 22%; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.
+        guide: >-
+          Two controls slide the two arm risks along a family of pairs that all give the
+          same relative result. Find out how wide that family is before choosing a line
+          for the briefing. Then bring in the second measurement, which fixes one arm
+          rather than the ratio, and watch the family collapse to a single pair.
+        background:
+          - >-
+              Why a relative risk does not pin the arms. A 22% reduction is a ratio. Twenty
+              per cent against sixteen has it; two per cent against one and a half has it
+              too. The ratio is the same and the number of people helped differs by an order
+              of magnitude.
+          - >-
+              What the absolute figure adds. Four events prevented per hundred people is a
+              statement about how common the outcome is, which the ratio deliberately hides.
+              Both sentences are true of the same result, and only one of them tells the
+              chair what the trial would do for a patient.
+          - >-
+              Why boards are shown both. A relative figure travels well between populations
+              and exaggerates importance in rare outcomes. An absolute figure is honest
+              about scale and does not transfer to a population with a different baseline.
+              Presenting one alone is the most common way a true result misleads.
         assumes:
           - relative risk is treatment risk divided by control risk
           - absolute risk reduction is control risk minus treatment risk
@@ -2061,6 +3388,32 @@ missions:
         place: Adjudication Room
         scene: |-
           Ansah is asked to write one sentence about the adjudicated endpoint for the board's minutes. He has the effect, the interval, and the fact that the trial has not finished.
+        guide: >-
+          Four sentences for the minutes. Ask of each what it claims beyond the estimate
+          and its interval. One refuses to say anything until the target is reached,
+          which throws away information already collected. One imports a fragile
+          subgroup. One argues the trial should have stopped, which is the question the
+          boundary already answered.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
         assumes:
           - the interval around an estimate says what the data are compatible with
         takeaway: An honest claim carries its uncertainty and the conditions it was measured under.
@@ -2083,6 +3436,34 @@ missions:
         title: What happens to the people in it
         place: Monitors' Room
         scene: The board has said continue. At 8 Monday morning, 31 sites will open their phones and 2,400 participants will still be enrolled. Marchetti has one letter to tell every site what changes, and what does not.
+        guide: >-
+          Four things participants might be owed. Ask of each whether it could travel
+          back into the trial through them. Consent is a continuing decision, not a
+          signature from four years ago, so saying nothing fails an obligation. But
+          releasing the interim numbers or somebody's own arm lets treatment knowledge
+          spread back through the sites still scoring outcomes.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
+        takesAsRead:
+          - "Allocation concealment: protecting the moment of entry"
         assumes:
           - participants continue treatment and follow-up until the trial ends
         takeaway: Consent is maintained, not collected once.
@@ -2167,6 +3548,56 @@ interiors:
         - { label: Amendments, value: 4, status: normal }
         - { label: Registry updated, value: 11 days ago, status: normal }
         - { label: Safety update due, value: Friday, status: alarm }
+
+# --------------------------------------------------------------- the warm-ups
+warmups:
+  greet:
+    title: One floor, four functions, and none of them may tell the others everything
+    why: >-
+      The coordinating centre is one long floor: statistics at one end, the monitors in the
+      middle, safety and the sites at the other. Feldman, the trial statistician, wants you
+      known to as many of them as you can before the first interim, because the firewall means
+      the person you have to ask is often the one person who cannot tell you why they are asking
+      back.
+  trial-near:
+    title: Walk the floor, statistics to sites
+    why: >-
+      The distance down this floor is distance from the patient, and it is the whole geography
+      of the trial. Walk it once. A query that starts at the site desk and ends in statistics
+      passes four rooms, and knowing which room is which is how you avoid sending a question to
+      the only people who must not see the answer.
+  follow:
+    title: A monitoring visit, walked once at the pace it happens
+    why: >-
+      Source data verification is not reading a file — it is standing beside somebody while they
+      find the original, and the visit has a rhythm. Stay with the monitor. The pauses are where
+      the discrepancies get noticed, and somebody hurrying the visit finds nothing.
+  hunt:
+    title: Six unblinding envelopes, and the safe holds four
+    item: { name: envelope, plural: envelopes }
+    why: >-
+      Every unblinding envelope has to be accounted for before the committee meets, and two are
+      not in the safe. An envelope somebody could have opened is a broken blind whether or not
+      anybody opened it, and the trial is defended on the record rather than on goodwill.
+  canvass:
+    title: Whether the sites are actually using the new consent form
+    why: >-
+      The amendment went out three weeks ago and the analysis assumes it is in use. Ask round
+      the sites until enough answers have come back to say whether they switched, because a
+      trial half-consented under two versions has a problem nobody can fix retrospectively.
+  evade:
+    title: The sponsor's medical director wants a number before the board sees it
+    why: >-
+      He has been outside statistics since eight wanting the interim effect size, and he is not
+      on the list of people who may have it. Keep clear of him until the board has read the
+      pack. A number that leaks before the committee sees it cannot be un-leaked.
+  tag:
+    title: Catch Ansah before the adjudication committee sits
+    why: >-
+      Ansah, the endpoint adjudication chair, has the four re-read files that changed
+      classification, and once the committee is in session the door shuts for three hours.
+      Whether those four moved is the difference between a signal and a rounding error in this
+      afternoon's summary.
 
 copy:
   RAND: <p>The kit warehouse and the cold room. 4000 boxes in numbered order, identical but for the number, and a fridge with a logger on the door.</p>

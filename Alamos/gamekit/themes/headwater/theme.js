@@ -13,7 +13,7 @@
 import { plan } from './plan.js';
 import { OUTFITS, roleToOutfit } from './outfits.js';
 import { GROUPS } from './content/groups.js';
-import { MISSIONS } from './content/missions.js';
+import { MISSIONS, WARMUPS } from './content/missions.js';
 // tools/import-book.mjs writes all of these. BALLPARK_CALCS and JARGON must be
 // imported or the estimates render un-answerable and no term is clickable.
 import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
@@ -50,7 +50,7 @@ export default {
   // the fall — on the right.
   start: { x: 0, z: 52, yaw: 0 },
 
-  content: { GROUPS, MISSIONS, CURRICULUM, BALLPARK_CALCS, JARGON, ROSTER, LEADERS, AVATARS, COPY },
+  content: { GROUPS, MISSIONS, CURRICULUM, BALLPARK_CALCS, JARGON, ROSTER, LEADERS, AVATARS, COPY, WARMUPS },
 
   people: {
     OUTFITS,

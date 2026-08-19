@@ -1,0 +1,366 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Wellmere — Conversion Plan</title>
+<style>
+  @page { size: A4; margin: 15mm 14mm 16mm; }
+  :root {
+    --ink:#15171a; --ink2:#4c5158; --muted:#868b92; --rule:#dcded9; --sunk:#f2f3ef;
+    --acc:#4f6c56; --acc-soft:#7fae8a;
+    --s:#2c7a4b; --m:#9a6f14; --d:#767b70; --r:#a4453a;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; color:var(--ink); background:#fff;
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif; font-size:9.6pt; line-height:1.5; }
+  .mono,.k,code { font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; }
+  code,.k { font-size:.9em; background:var(--sunk); padding:0 3px; border-radius:2px; }
+  em { font-style:normal; font-weight:640; }
+  strong { font-weight:680; }
+
+  header { border-bottom:2.5pt solid var(--acc); padding-bottom:7pt; margin-bottom:12pt; }
+  .eyebrow { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--acc); }
+  h1 { margin:2pt 0 3pt; font-size:24pt; line-height:1.02; letter-spacing:-.02em; font-weight:660; }
+  .sub { color:var(--ink2); font-size:9.6pt; max-width:150mm; }
+  .place { color:var(--muted); font-size:8.4pt; font-style:italic; margin-top:2pt; }
+
+  .facts { display:flex; gap:0; border:.6pt solid var(--rule); margin-top:8pt; }
+  .fact { flex:1; padding:4pt 7pt 5pt; border-right:.6pt solid var(--rule); }
+  .fact:last-child { border-right:none; }
+  .fact b { display:block; font-family:ui-monospace,Menlo,monospace; font-size:14pt; font-weight:640; letter-spacing:-.02em; }
+  .fact span { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); }
+
+  h2 { font-size:12pt; margin:15pt 0 4pt; font-weight:660; letter-spacing:-.01em;
+    border-bottom:.6pt solid var(--ink); padding-bottom:3pt; break-after:avoid; }
+  h2 .ph { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--acc); margin-right:6pt; }
+  p { margin:6pt 0; max-width:170mm; }
+
+  table { border-collapse:collapse; width:100%; font-size:8.4pt; margin:6pt 0; }
+  th,td { text-align:left; padding:3pt 6pt 3pt 0; border-bottom:.5pt solid var(--rule); vertical-align:top; }
+  thead th { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--muted); font-weight:500; border-bottom:.7pt solid var(--ink); }
+  td.n,th.n { text-align:right; padding-right:8pt; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .flag { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.06em;
+    border:.5pt solid currentColor; padding:0 3pt; border-radius:2pt; white-space:nowrap; }
+  .flag.sus { color:var(--m); } .flag.real { color:var(--r); }
+
+  .mixbar { display:flex; height:9pt; border:.6pt solid var(--rule); margin:5pt 0 3pt; }
+  .mixbar i { display:block; }
+  .mixkey { font-family:ui-monospace,Menlo,monospace; font-size:6.6pt; color:var(--ink2);
+    display:flex; flex-wrap:wrap; gap:2pt 9pt; }
+
+  .callout { border-left:2pt solid var(--acc); background:var(--sunk); padding:6pt 9pt; margin:8pt 0;
+    break-inside:avoid; }
+  .callout p { margin:3pt 0; }
+  .callout .tag { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--acc); display:block; margin-bottom:3pt; }
+  .callout.warn { border-left-color:var(--r); }
+  .callout.warn .tag { color:var(--r); }
+
+  .card { border-left:2pt solid var(--d); padding:5pt 0 6pt 8pt; margin:7pt 0; break-inside:avoid; }
+  .card.v-s { border-left-color:var(--s); } .card.v-m { border-left-color:var(--m); }
+  .card.v-d { border-left-color:var(--d); } .card.v-r { border-left-color:var(--r); }
+  .card .top { display:flex; align-items:baseline; gap:7pt; }
+  .card h4 { margin:0; font-family:ui-monospace,Menlo,monospace; font-size:9.6pt; font-weight:660; letter-spacing:.03em; }
+  .vd { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.12em;
+    text-transform:uppercase; border:.5pt solid currentColor; padding:0 3pt; border-radius:2pt; }
+  .v-s .vd { color:var(--s); } .v-m .vd { color:var(--m); }
+  .v-d .vd { color:var(--d); } .v-r .vd { color:var(--r); }
+  .card .at { margin-left:auto; color:var(--muted); font-size:7.4pt; }
+  .card p { margin:3pt 0 0; font-size:9pt; }
+  .card dl { margin:3pt 0 0; font-size:8pt; color:var(--ink2); }
+  .card dt { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); display:inline; }
+  .card dd { display:inline; margin:0; }
+  .card dd::after { content:""; display:block; }
+
+  .slate { border:.6pt solid var(--rule); padding:6pt 8pt 7pt; margin:7pt 0; break-inside:avoid; }
+  .slate .sh { display:flex; align-items:baseline; gap:8pt; border-bottom:.6pt solid var(--rule); padding-bottom:3pt; }
+  .slate h4 { margin:0; font-size:10.5pt; font-weight:660; }
+  .slate .n2 { font-family:ui-monospace,Menlo,monospace; font-size:6.6pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); }
+  table.mini { font-size:8pt; margin:4pt 0 5pt; }
+  table.mini td { border-bottom:.4pt solid var(--sunk); padding:2pt 6pt 2pt 0; }
+  table.mini .dy,.gp { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; color:var(--muted); white-space:nowrap; }
+  table.mini .fm { font-family:ui-monospace,Menlo,monospace; font-size:7.2pt; white-space:nowrap; }
+  table.mini .was { color:var(--muted); } .ar { color:var(--muted); }
+  table.mini .ti { color:var(--ink2); }
+  table.mini .nt { display:block; color:var(--muted); font-size:7.2pt; }
+  .out { border-top:.6pt solid var(--rule); padding-top:4pt; font-size:7.8pt; color:var(--ink2); }
+  .out b { color:var(--ink); font-variant-numeric:tabular-nums; }
+
+  footer { margin-top:14pt; padding-top:5pt; border-top:.6pt solid var(--rule);
+    color:var(--muted); font-size:7pt; }
+  .avoid { break-inside:avoid; }
+</style></head><body>
+
+<header>
+  <div class="eyebrow">Alamos · conversion plan · Biology · grade 9–12</div>
+  <h1>Wellmere</h1>
+  <div class="sub">AP Biology · heredity</div>
+  <div class="place">A breeding station on a headland, ringed by isolation distance. Sea on three sides and one causeway in.</div>
+  <div class="facts">
+    <div class="fact"><b>45</b><span>stops</span></div>
+    <div class="fact"><b>29</b><span>choice (64%)</span></div>
+    <div class="fact"><b>2.3</b><span>effective formats</span></div>
+    <div class="fact"><b>3/6</b><span>equations computed</span></div>
+    <div class="fact"><b>7</b><span>select-only concepts</span></div>
+    <div class="fact"><b>31·12·2</b><span>select·construct·operate</span></div>
+  </div>
+</header>
+
+<h2><span class="ph">Reading</span>Where this campaign stands</h2>
+<p>The worst mix in the catalogue — 29 of 45 stops are CHOICE — on a syllabus whose
+      centrepiece nothing computes. Phase 0 will clear two of the four gaps (the recombination
+      fraction is computed on a DEGENERACY board; Nₑ is computed on a BALLPARK whose relationship
+      the keyword list cannot see), leaving <strong>two real gaps, both ratios, both on one
+      stop</strong>. Seven select-only concepts, five of them mechanisms.</p>
+
+
+<div class="avoid">
+<h2><span class="ph">Now</span>The mix as it ships</h2>
+<div class="mixbar"><i style="flex:29;background:#c9ccc4"></i><i style="flex:3;background:#e2e4de"></i><i style="flex:2;background:#e2e4de"></i><i style="flex:1;background:#7fae8a"></i><i style="flex:1;background:#7fae8a"></i><i style="flex:1;background:#7fae8a"></i><i style="flex:1;background:#7fae8a"></i><i style="flex:1;background:#7fae8a"></i><i style="flex:1;background:#7fae8a"></i><i style="flex:1;background:#e2e4de"></i><i style="flex:1;background:#7fae8a"></i><i style="flex:1;background:#7fae8a"></i><i style="flex:1;background:#e2e4de"></i><i style="flex:1;background:#7fae8a"></i></div>
+<div class="mixkey"><span>CHOICE 29</span><span>BALLPARK 3</span><span>SEQUENCE 2</span><span>DEGENERACY 1</span><span>CONTROL 1</span><span>HOLDOUT 1</span><span>TRIGGER 1</span><span>BALANCE 1</span><span>TRACE 1</span><span>SCIENCETANK 1</span><span>DELEGATE 1</span><span>VALUE 1</span><span>DIAGNOSIS 1</span><span>ALLOCATE 1</span></div>
+</div>
+
+<h2><span class="ph">Curriculum</span>What the syllabus is not getting</h2>
+<table><thead><tr><th>Equation the course owes</th><th>What it carries</th><th>Mentioned at</th><th class="n">Status</th></tr></thead><tbody>
+<tr>
+  <td class="k">3 : 1</td><td>the monohybrid ratio, and what a count of a whole generation is evidence for</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">4·CHOICE</td>
+  <td class="n"><span class="flag real">real gap</span></td>
+</tr><tr>
+  <td class="k">15 : 1</td><td>two genes acting either-way, and the ratio that separates it from one</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">4·CHOICE  5·DEGENERACY</td>
+  <td class="n"><span class="flag sus">verify first</span></td>
+</tr><tr>
+  <td class="k">recombination frequency ≈ map distance in cM</td><td>linkage: how often a marker and a gene come apart</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">5·DEGENERACY  42·CHOICE</td>
+  <td class="n"><span class="flag sus">verify first</span></td>
+</tr></tbody></table>
+<p style="font-size:8.4pt;color:var(--ink2)">2 of 3 sit on an instrument stop, whose
+board arithmetic the coverage check cannot yet read — expect Phase 0 to clear those. <strong>1</strong>
+is unaffected by it.</p>
+
+<div class="avoid">
+<h2><span class="ph">Tier</span>Concepts the player only ever picks from a list</h2>
+<table><thead><tr><th class="n">#</th><th>Mechanism concept</th><th class="n">Stops</th></tr></thead><tbody>
+<tr><td class="n">2</td><td>Why cold and dry both work, and that they multiply</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">1</td></tr><tr><td class="n">3</td><td>Meiosis and segregation: one copy of each gene into each gamete</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">2, 4</td></tr><tr><td class="n">15</td><td>Photosynthesis as where a crop’s dry mass comes from</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">6, 12, 15</td></tr><tr><td class="n">16</td><td>Where water and mineral nutrients do and do not go</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">6, 12</td></tr><tr><td class="n">17</td><td>Resource allocation: defence, growth and yield out of one budget</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">12, 13, 15, 38</td></tr><tr><td class="n">21</td><td>Genotype by environment: a result belongs to its conditions</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">11, 38, 44</td></tr><tr><td class="n">26</td><td>In situ against ex situ conservation, and what each preserves</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">2, 13, 20, 23, 27, 28, 36, 39</td></tr>
+</tbody></table>
+<p style="font-size:8.4pt;color:var(--ink2)">Reported, never failed. Select-tier can be exactly right;
+these are the candidates, not the defects.</p></div>
+
+<h2><span class="ph">Fun</span>What this subject and this place can carry</h2>
+<div class="card v-s">
+  <div class="top"><h4>TALLY</h4><span class="vd">strong</span><span class="at">stop 4 · CROSS · day 2</span></div>
+  <p>Score plants in batches and watch the ratio settle. The format’s own subject — when is
+          there enough data to report — is exactly the syllabus item, "reading a count as evidence
+          for a mechanism". A first tray that wobbles past 3 : 1 and then holds is the lesson; a
+          second that lands near 15 : 1 refuses to fit one gene.</p>
+  <dl><dt>serves</dt> <dd>3 : 1 and 15 : 1 computed · concepts 3, 4, 5</dd></dl>
+  <dl><dt>needs</dt> <dd>authored bins, an unprinted pass mark, and the honest-number rule</dd></dl>
+  
+</div><div class="card v-s">
+  <div class="top"><h4>SPOT</h4><span class="vd">strong</span><span class="at">stop 39 · POP · day 13</span></div>
+  <p>The stop already exists: "leave part of it unsprayed and mark the plants that stay
+          clean." A rogueing crew whose criterion changes from <em>pull anything flowering early</em>
+          to <em>pull anything with rust</em> is what happens when the season turns.</p>
+  <dl><dt>serves</dt> <dd>concept 21 (G×E) off the select-only list · concept 13</dd></dl>
+  
+  <dl><dt>risk</dt> <dd>score only the discriminating items</dd></dl>
+</div><div class="card v-s">
+  <div class="top"><h4>CHAIN</h4><span class="vd">strong</span><span class="at">stop 12 · DRY · day 4</span></div>
+  <p>The opening a leaf takes carbon in through is the opening it loses water through — a
+          transfer path with one governing link, which is what CHAIN is. The best CHAIN available in
+          this game, and it lands on a select-only concept.</p>
+  <dl><dt>serves</dt> <dd>concepts 15, 16, 17</dd></dl>
+  <dl><dt>needs</dt> <dd>a per-link reading on every link — the field the importer refuses under any other name</dd></dl>
+  
+</div><div class="card v-s">
+  <div class="top"><h4>TRIAL</h4><span class="vd">strong</span><span class="at">stop 27 · VAULT · day 9</span></div>
+  <p>The rings exist because of isolation distance and contamination direction, and stop 27’s
+          takeaway is already "the loss happened in the field, on the way back in." Drive the
+          inspection route: clean nursery before infected plots, vault before field, never the
+          reverse.</p>
+  <dl><dt>serves</dt> <dd>concepts 1, 12, 26 — and the place stops being scenery</dd></dl>
+  
+  <dl><dt>risk</dt> <dd>gates stood off each door by d/2 + 10, or they render under the floor</dd></dl>
+</div><div class="card v-s">
+  <div class="top"><h4>SWEEP</h4><span class="vd">strong</span><span class="at">stop 22 or 24 · TRIAL</span></div>
+  <p>Drag selection intensity against realised gain and the curve bends over: select harder
+          on a noisy trial and you buy scatter, not response. R = h²·S is already computed here —
+          this makes the h² visible instead of given.</p>
+  <dl><dt>serves</dt> <dd>concept 20, regression to the mean, onto OPERATE</dd></dl>
+  
+  
+</div><div class="card v-m">
+  <div class="top"><h4>BELT</h4><span class="vd">medium</span><span class="at">the threshing floor</span></div>
+  <p>A literal threshing floor and a processing hall. The honest bit of subject matter is
+          bagged versus open-pollinated heads — a real sort, done at speed, carrying concept 24.</p>
+  <dl><dt>serves</dt> <dd>concept 24 · and the most grade-6-friendly item here</dd></dl>
+  
+  <dl><dt>risk</dt> <dd>decidable at a glance, or it is dexterity</dd></dl>
+</div><div class="card v-m">
+  <div class="top"><h4>HOLD</h4><span class="vd">medium</span><span class="at">stop 1 or a DRY stop</span></div>
+  <p>Concept 2 — cold and dry both work, and they multiply — is a product, and HOLD is the
+          only format that makes a player feel one: hold seed moisture in a band while wet lots keep
+          arriving.</p>
+  
+  
+  <dl><dt>risk</dt> <dd>HOLD’s own subject is control engineering. It teaches the biology only if the band closes from the moisture–temperature product. On stop 1 it is also the first thing a player ever does.</dd></dl>
+</div><div class="card v-d">
+  <div class="top"><h4>PROBE</h4><span class="vd">defer</span><span class="at">VAULT</span></div>
+  <p>Germination shelf by shelf, finding where the pattern breaks. Fun, and concept 1 is
+          already the best-served in the game at CONSTRUCT across seven stops. Buys engagement and
+          no curriculum.</p>
+  
+  
+  
+</div><div class="card v-r">
+  <div class="top"><h4>LOB</h4><span class="vd">reject</span><span class="at">the rings</span></div>
+  <p>The rings are painted isolation distances, so this is the best physical fit in the
+          catalogue — and LOB withholds the launch speed <em>so it cannot be computed</em>, which
+          would teach that isolation distance is a feel. Isolation distances are set from measured
+          data. The fun is real and the lesson is backwards.</p>
+  
+  
+  
+</div>
+
+<h2><span class="ph">Slates</span>Three appetites — the campaign is zero-sum</h2>
+<p style="font-size:8.8pt">No conversion adds a stop. Each changes what an existing stop <em>does</em>
+while leaving what it <em>teaches</em> alone. Snapshot before, diff after:
+<code>curriculumDelivery.mjs seedbank --snapshot before.json</code>, then <code>--against before.json</code>.</p>
+<div class="slate">
+    <div class="sh"><h4>Minimum honest</h4><span class="n2">3 stops · one sitting</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">4</td><td class="dy">d2</td><td class="gp">CROSS</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>TALLY</b></td>
+      <td class="ti">Counting a generation<span class="nt">the generation counted, so both ratios are computed</span></td>
+    </tr><tr>
+      <td class="n">12</td><td class="dy">d4</td><td class="gp">DRY</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>CHAIN</b></td>
+      <td class="ti">What the crop cannot do without water<span class="nt">one opening, two flows, and the link that governs</span></td>
+    </tr><tr>
+      <td class="n">39</td><td class="dy">d13</td><td class="gp">POP</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>SPOT</b></td>
+      <td class="ti">An outbreak in the right place<span class="nt">a rogueing criterion that changes when the season turns</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>29 → 26</b> (58%) ·
+      moves <b>31·12·2 → 28·13·4</b> ·
+      effective formats <b>2.3 → 2.9</b> · <b>2</b> new operate stops, 1 of them arcade
+    </div>
+  </div>
+<div class="slate">
+    <div class="sh"><h4>Balanced</h4><span class="n2">7 stops · the recommendation</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">4</td><td class="dy">d2</td><td class="gp">CROSS</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>TALLY</b></td>
+      <td class="ti">Counting a generation</td>
+    </tr><tr>
+      <td class="n">12</td><td class="dy">d4</td><td class="gp">DRY</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>CHAIN</b></td>
+      <td class="ti">What the crop cannot do without water</td>
+    </tr><tr>
+      <td class="n">39</td><td class="dy">d13</td><td class="gp">POP</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>SPOT</b></td>
+      <td class="ti">An outbreak in the right place</td>
+    </tr><tr>
+      <td class="n">6</td><td class="dy">d2</td><td class="gp">DRY</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>BALLPARK</b></td>
+      <td class="ti">Where a tonne of grain comes from<span class="nt">where a tonne of grain comes from — closed as a ledger</span></td>
+    </tr><tr>
+      <td class="n">15</td><td class="dy">d5</td><td class="gp">DRY</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>ALLOCATE</b></td>
+      <td class="ti">Short is not simply worse<span class="nt">harvest index as one finite budget</span></td>
+    </tr><tr>
+      <td class="n">22</td><td class="dy">d8</td><td class="gp">TRIAL</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>SWEEP</b></td>
+      <td class="ti">What one round returns<span class="nt">selection intensity against realised gain</span></td>
+    </tr><tr>
+      <td class="n">1</td><td class="dy">d1</td><td class="gp">VAULT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>HOLD</b></td>
+      <td class="ti">Why the vault is cold<span class="nt">cold and dry, as a product you hold — only if the band closes from it</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>29 → 23</b> (51%) ·
+      moves <b>31·12·2 → 25·14·6</b> ·
+      effective formats <b>2.3 → 3.6</b> · <b>4</b> new operate stops, 2 of them arcade
+    </div>
+  </div>
+<div class="slate">
+    <div class="sh"><h4>Ambitious</h4><span class="n2">10 stops · adds world work</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">4</td><td class="dy">d2</td><td class="gp">CROSS</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>TALLY</b></td>
+      <td class="ti">Counting a generation</td>
+    </tr><tr>
+      <td class="n">12</td><td class="dy">d4</td><td class="gp">DRY</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>CHAIN</b></td>
+      <td class="ti">What the crop cannot do without water</td>
+    </tr><tr>
+      <td class="n">39</td><td class="dy">d13</td><td class="gp">POP</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>SPOT</b></td>
+      <td class="ti">An outbreak in the right place</td>
+    </tr><tr>
+      <td class="n">6</td><td class="dy">d2</td><td class="gp">DRY</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>BALLPARK</b></td>
+      <td class="ti">Where a tonne of grain comes from</td>
+    </tr><tr>
+      <td class="n">15</td><td class="dy">d5</td><td class="gp">DRY</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>ALLOCATE</b></td>
+      <td class="ti">Short is not simply worse</td>
+    </tr><tr>
+      <td class="n">22</td><td class="dy">d8</td><td class="gp">TRIAL</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>SWEEP</b></td>
+      <td class="ti">What one round returns</td>
+    </tr><tr>
+      <td class="n">1</td><td class="dy">d1</td><td class="gp">VAULT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>HOLD</b></td>
+      <td class="ti">Why the vault is cold</td>
+    </tr><tr>
+      <td class="n">27</td><td class="dy">d9</td><td class="gp">VAULT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>TRIAL</b></td>
+      <td class="ti">What the store did right<span class="nt">the inspection route, driven</span></td>
+    </tr><tr>
+      <td class="n">33</td><td class="dy">d11</td><td class="gp">CROSS</td>
+      <td class="fm"><span class="was">SEQUENCE</span> <span class="ar">→</span> <b>BELT</b></td>
+      <td class="ti">The fortnight when it is possible<span class="nt">bagged versus open heads, at threshing-floor speed</span></td>
+    </tr><tr>
+      <td class="n">43</td><td class="dy">d15</td><td class="gp">VAULT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>ATTEST</b></td>
+      <td class="ti">What the catalogue says and what is there<span class="nt">what the catalogue says and what is there — the format’s own sentence</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>29 → 21</b> (47%) ·
+      moves <b>31·12·2 → 23·14·8</b> ·
+      effective formats <b>2.3 → 4.3</b> · <b>6</b> new operate stops, 4 of them arcade
+    </div>
+  </div>
+
+<div class="callout"><span class="tag">The order of work</span>
+<p><strong>1.</strong> Phase 0 — teach the coverage check to read an instrument’s own board, and
+re-baseline <code>curriculum-debt.json</code>. Rewriting a stop that already teaches the thing is the
+exact failure the check exists to prevent.
+<strong>2.</strong> Snapshot. <strong>3.</strong> Edit the book, never the generated content —
+<code>tools/import-book.mjs books/seedbank.yml seedbank --verify</code>.
+<strong>4.</strong> <code>npm run traps</code>: every instrument’s trap must fire.
+<strong>5.</strong> <code>npm run check seedbank</code> and <code>npm run drive seedbank</code>, right
+answer and wrong — ask what a player who understood nothing would score before believing any pass mark.
+<strong>6.</strong> <code>--against</code> the snapshot. A changed format is reported; a changed
+objective fails.</p></div>
+
+<footer>
+  Counts computed from <code>themes/seedbank/content/</code> via <code>engine/dev/curriculumDelivery.mjs</code>;
+  concept and equation lists authored in <code>tools/syllabus.js</code>. Format verdicts and slates are
+  editorial. Run it with <code>THEME=seedbank npm run dev</code>.
+</footer>
+</body></html>

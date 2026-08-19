@@ -55,8 +55,24 @@ const isFlowable = (v) => Array.isArray(v) && v.length > 0
   && v.every(x => typeof x === 'number' && Number.isFinite(x) || typeof x === 'boolean');
 const flow = (v) => `[${v.map(x => (typeof x === 'boolean' ? (x ? 'true' : 'false') : String(x))).join(', ')}]`;
 
-function emitValue(value, indent, out){
+/**
+ * Every container on the path down to the value being emitted.
+ *
+ * A value that contains itself recurses until the stack goes, and the report is
+ * two hundred identical frames of `emitValue` and no clue which key did it —
+ * which is what nine conversion sheets produced, on seven different games, for
+ * a defect that turned out to be one line in the caller. The guard costs a Set
+ * add per node and turns that into a sentence naming the key.
+ */
+function emitValue(value, indent, out, seen = new Set(), path = ''){
   const pad = ' '.repeat(indent);
+  if(value !== null && typeof value === 'object'){
+    if(seen.has(value)){
+      throw new Error(`yaml-emit: \`${path || '<root>'}\` contains itself — a cycle cannot be`
+        + ' written as YAML, and the value handed in is the bug rather than this');
+    }
+    seen = new Set(seen).add(value);
+  }
   if(Array.isArray(value)){
     if(!value.length){ out[out.length - 1] += ' []'; return; }
     for(const item of value){
@@ -65,7 +81,7 @@ function emitValue(value, indent, out){
         out.push(`${pad}-`);
         const at = out.length - 1;
         const inner = [];
-        emitValue(item, indent + 2, inner);
+        emitValue(item, indent + 2, inner, seen, `${path}[${value.indexOf(item)}]`);
         // hoist the first line onto the dash, which is how the reader expects it
         // — including a nested list, which becomes `- - first`.
         const first = inner.shift() ?? '';
@@ -86,11 +102,11 @@ function emitValue(value, indent, out){
         if(!v.length){ out.push(`${pad}${k}: []`); continue; }
         if(isFlowable(v)){ out.push(`${pad}${k}: ${flow(v)}`); continue; }
         out.push(`${pad}${k}:`);
-        emitValue(v, indent + 2, out);
+        emitValue(v, indent + 2, out, seen, path ? `${path}.${k}` : k);
       } else if(isPlainObject(v)){
         if(!Object.keys(v).length){ out.push(`${pad}${k}: {}`); continue; }
         out.push(`${pad}${k}:`);
-        emitValue(v, indent + 2, out);
+        emitValue(v, indent + 2, out, seen, path ? `${path}.${k}` : k);
       } else {
         const s = scalar(v);
         if(s === null) out.push(`${pad}${k}: ${block(v, indent + 2)}`);
@@ -113,11 +129,11 @@ export function emitYaml(doc, comments = {}){
       if(!v.length){ out.push(`${k}: []`); continue; }
       if(isFlowable(v)){ out.push(`${k}: ${flow(v)}`); continue; }
       out.push(`${k}:`);
-      emitValue(v, 2, out);
+      emitValue(v, 2, out, new Set([doc]), k);
     } else if(isPlainObject(v)){
       if(!Object.keys(v).length){ out.push(`${k}: {}`); continue; }
       out.push(`${k}:`);
-      emitValue(v, 2, out);
+      emitValue(v, 2, out, new Set([doc]), k);
     } else {
       const s = scalar(v);
       out.push(s === null ? `${k}: ${block(v, 2)}` : `${k}: ${s}`);

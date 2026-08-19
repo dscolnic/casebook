@@ -342,6 +342,28 @@ missions:
         title: Real object, or camera fault?
         place: Survey Telescope Control
         scene: Three survey pictures show the same faint dot in three different places. The background stars have not moved. A telescope on another mountain has just found the dot too.
+        guide: >-
+          Four options, and the test is whether the thing moved in the sky or on the
+          chip. Ask of each what it would leave behind. A cosmic ray arrives once. A hot
+          pixel stays on its own pixel. Lining the pictures up wrongly would move the
+          stars too. And another mountain has just found the same dot.
+        background:
+          - >-
+              Why the wrong answers are worth reading. Each one is written to look right to
+              somebody who made a particular mistake. Working out which mistake each one
+              belongs to is most of the learning in this format — more than getting the
+              right one, which you can sometimes do by feel.
+          - >-
+              Why sounding careful is not the same as being right. A long answer with a lot
+              of detail in it feels safer, and it is easy to write one that is still wrong.
+              The check that builds these questions measures option length across the whole
+              game so the longest one is not the answer more often than chance. Reading is
+              the only way through.
+          - >-
+              What the verdict adds. After you answer, the verdict says why each wrong
+              option is wrong, in its own words. That is written for the reader who picked
+              it. Read it even when you were right, because being right for a shaky reason
+              is the thing that catches up with you two stops later.
         assumes:
           - a detector is the chip inside the camera, and its faults stay in one spot on the chip
         takeaway: Something real moves against the stars, and a camera fault stays where the camera put it.
@@ -392,8 +414,30 @@ missions:
       - group: DISC
         task: Put the four steps in the order they have to be done.
         title: Check it before you send it
+        concept: Telling a real object from an artefact, by repeating the observation
         place: Image Processing Lab
         scene: Forty thousand stars, two satellite streaks and a bad column of pixels share the pictures with the moving dot. The camera's calibration is the check against known stars that says what its numbers mean. The discovery notice goes out at dawn.
+        guide: >-
+          All four steps happen before dawn, so ask what each one rules out. The
+          pictures are crowded with things that are not the dot: stars, streaks and a
+          bad column. Ask of each step whether it separates the dot from the camera, or
+          from something already known. And the last one spends somebody else's night.
+        background:
+          - >-
+              Why the order is graded whole. A sequence is a claim that each step needs the
+              one before it to have happened. Get one pair the wrong way round and the claim
+              is wrong, even if everything else lines up. That is why there is no part
+              credit.
+          - >-
+              Why the ends are the place to start. The first and last steps are usually the
+              easiest to be sure of, because one has nothing before it and the other has
+              nothing after it. Fixing those two leaves fewer ways for the middle to go, and
+              the middle is where the real question usually is.
+          - >-
+              What the rail can be ordered on. Often it is time. It can also be cost, or
+              risk, or what you can still undo afterwards — do the steps that change nothing
+              before the ones that change something for good. A step that destroys the
+              sample can only be last.
         assumes:
           - a prediction other people can test is what makes a claim checkable
         takeaway: A claim is worth sending out once somebody else can test it.
@@ -415,6 +459,22 @@ missions:
         title: How fast is it moving?
         place: Minor-Planet Operations Desk
         scene: The dot shifted between two pictures taken twenty minutes apart. The next telescope has to be told where to point. Nobody has turned that shift into a rate yet.
+        guide: >-
+          Five numbers, and two of them are the same gap written in different units.
+          Another is the number of exposures. Ask of each whether this rate needs it.
+          And note what the answer is for. It tells the next telescope where to point.
+          It does not say how fast the rock is really going.
+        background:
+          - >-
+              Why an estimate rather than a calculation. Every quantity on this board is
+              already measured or stated, so nothing here has to be derived. What is being
+              tested is whether you can pick the quantities the relationship actually needs,
+              and whether the size of the answer looks right once they are in place.
+          - >-
+              Why the tiles carry labels. A bare number cannot be checked against the
+              relationship it is going into. Reading the label is how a unit mismatch, or a
+              quantity belonging to a different part of the problem, is caught before it is
+              placed — which is the habit this format exists to build.
         assumes:
           - a rate is an amount divided by the time it took
         takeaway: Two pictures and a clock turn movement into a rate you can point with.
@@ -452,6 +512,28 @@ missions:
         title: Why do the positions disagree?
         place: Follow-Up Telescope Network
         scene: One wide camera's positions bend away from the orbit near one edge of its chip. The clock checks out. A second telescope, watching the same object, shows nothing odd.
+        guide: >-
+          Four options, and the misses appear at one edge of one chip. Ask of each
+          whether it would show up everywhere or only there. A rock speeding up would
+          look the same from every telescope. Wrong times would too. A wrong star list
+          would spoil every camera. What is left belongs to this camera alone.
+        background:
+          - >-
+              Why the wrong answers are worth reading. Each one is written to look right to
+              somebody who made a particular mistake. Working out which mistake each one
+              belongs to is most of the learning in this format — more than getting the
+              right one, which you can sometimes do by feel.
+          - >-
+              Why sounding careful is not the same as being right. A long answer with a lot
+              of detail in it feels safer, and it is easy to write one that is still wrong.
+              The check that builds these questions measures option length across the whole
+              game so the longest one is not the answer more often than chance. Reading is
+              the only way through.
+          - >-
+              What the verdict adds. After you answer, the verdict says why each wrong
+              option is wrong, in its own words. That is written for the reader who picked
+              it. Read it even when you were right, because being right for a shaky reason
+              is the thing that catches up with you two stops later.
         assumes:
           - the reference stars in a picture are a check on the picture itself, because they do not move
         takeaway: An error that follows the equipment is telling you about the equipment.
@@ -502,8 +584,30 @@ missions:
       - group: ORBIT
         task: Put the four steps in the order they have to be done.
         title: Build the arc
+        concept: "Position, time and speed: how fast something moves across the sky"
         place: Astrometry Lab
         scene: Six observatories have sent positions. Two used a different time standard, and one sent no pointing solution at all. Together they cover four hours.
+        guide: >-
+          All four steps will happen. Six observatories have sent positions, two on a
+          different clock and one with no pointing solution. Ask of each step what the
+          next one would mean without it. And note what the goal is. Not more numbers,
+          but numbers that would tell two possible paths apart.
+        background:
+          - >-
+              Why the order is graded whole. A sequence is a claim that each step needs the
+              one before it to have happened. Get one pair the wrong way round and the claim
+              is wrong, even if everything else lines up. That is why there is no part
+              credit.
+          - >-
+              Why the ends are the place to start. The first and last steps are usually the
+              easiest to be sure of, because one has nothing before it and the other has
+              nothing after it. Fixing those two leaves fewer ways for the middle to go, and
+              the middle is where the real question usually is.
+          - >-
+              What the rail can be ordered on. Often it is time. It can also be cost, or
+              risk, or what you can still undo afterwards — do the steps that change nothing
+              before the ones that change something for good. A step that destroys the
+              sample can only be last.
         assumes:
           - an arc is the stretch of time your measurements cover
         takeaway: A path is tested by where the object turns up next, not by how well it fits the past.
@@ -523,8 +627,32 @@ missions:
       - group: OPS
         task: Spend the one booking on the observation that changes next week's prediction most.
         title: Why waiting helps
+        concept: Repeated measurements and their average
         place: Time Standards Room
         scene: Four hours of spare time on a two-metre telescope, and the object sets soon after dusk. Two possible paths fit tonight's measurements equally well. The same patch of sky comes back in six nights.
+        guide: >-
+          Four options, and two paths fit tonight equally well. Ask of each what it
+          would change about that. A sharper picture tonight measures the same moment
+          more precisely. So does a bigger telescope, and so does taking more pictures
+          in a row. What tells two paths apart is letting them drift away from each
+          other.
+        background:
+          - >-
+              Why the wrong answers are worth reading. Each one is written to look right to
+              somebody who made a particular mistake. Working out which mistake each one
+              belongs to is most of the learning in this format — more than getting the
+              right one, which you can sometimes do by feel.
+          - >-
+              Why sounding careful is not the same as being right. A long answer with a lot
+              of detail in it feels safer, and it is easy to write one that is still wrong.
+              The check that builds these questions measures option length across the whole
+              game so the longest one is not the answer more often than chance. Reading is
+              the only way through.
+          - >-
+              What the verdict adds. After you answer, the verdict says why each wrong
+              option is wrong, in its own words. That is written for the reader who picked
+              it. Read it even when you were right, because being right for a shaky reason
+              is the thing that catches up with you two stops later.
         assumes:
           - two paths that agree tonight can disagree later
         takeaway: Two paths that agree today drift apart with time, so a later look separates them better than a sharper look now.
@@ -547,14 +675,39 @@ missions:
       - group: IMPACT
         task: Move and narrow the cloud of paths until all of it clears Earth.
         title: Read the risk correctly
+        concept: Uncertainty as a range, not a mistake
         place: Impact Monitoring Center
         scene: The best-guess path misses Earth, and the cloud of possible paths around it still touches the impact line. Dr. Marco Rossi, the orbit lead, wants one sentence before the briefing.
+        guide: >-
+          The cloud on screen is every path the observations still allow. Its middle
+          misses Earth. Its edge still touches the impact line, so this is not a
+          stand-down yet. Two improvements are ready, and they do different things to
+          the cloud: one moves it, one makes it smaller. Apply what you would authorise,
+          then say what the briefing can state.
+        background:
+          - >-
+              What the cloud is. The path is worked out from observations, and the
+              observations allow a range of paths rather than one. Drawn on the encounter
+              plane, that range is a cloud. The impact line is drawn on the same plane.
+              Saying the best-guess path misses Earth is a statement about the middle of the
+              cloud only.
+          - >-
+              Moving it and shrinking it are different jobs. Fixing an error in the
+              best-guess path slides the whole cloud across without changing its size. The
+              uncertainty is the same, just somewhere else. A new, well-placed observation
+              adds information and makes the cloud smaller. Only that can clear Earth if it
+              is the width that reaches the line.
+          - >-
+              Why the sentence matters. People hear safe or not safe. A stand-down that gets
+              taken back costs the trust the next warning needs. So the briefing has to be
+              about the whole cloud, and this is where you find out whether you can say that
+              yet.
         assumes:
           - an orbit fit gives a spread of possible paths, not one path
           - the middle of a spread can move without the spread getting any thinner
         takeaway: Risk lives in the whole spread, not in the middle of it.
         format: CLOUD
-        question: What has to change before the whole cloud of paths clears Earth?
+        question: What has to change before the whole cloud of paths clears Earth? Move the bars to show the middle and one sigma either side.
         cloud:
           hint: The center is the nominal miss and the width is the current uncertainty. Try the two authored improvements separately before combining them; clearance requires the whole displayed band to remain outside the Earth-limb boundary.
           actions:
@@ -579,8 +732,25 @@ missions:
       - group: ORBIT
         task: Turn the count of paths that hit into a chance anybody can quote.
         title: Thirty-seven paths in a hundred thousand
+        concept: Uncertainty as a range, not a mistake
         place: Statistical Orbit Lab
         scene: The computer has finished flying every path that fits the measurements. What came back is a count. The number that leaves this room will be quoted in public for years.
+        guide: >-
+          Four numbers, and two belong to other things. The first quick run, and the
+          years to the encounter. Ask of each whether this share needs it. And note what
+          the answer means. It is the share of the paths that still fit, and one new
+          measurement can change it a lot.
+        background:
+          - >-
+              Why an estimate rather than a calculation. Every quantity on this board is
+              already measured or stated, so nothing here has to be derived. What is being
+              tested is whether you can pick the quantities the relationship actually needs,
+              and whether the size of the answer looks right once they are in place.
+          - >-
+              Why the tiles carry labels. A bare number cannot be checked against the
+              relationship it is going into. Reading the label is how a unit mismatch, or a
+              quantity belonging to a different part of the problem, is caught before it is
+              placed — which is the habit this format exists to build.
         assumes:
           - a chance can be worked out by counting how often something happens out of all the tries
         takeaway: A very small chance can only be measured by trying a very large number of times.
@@ -609,8 +779,32 @@ missions:
       - group: OPS
         task: A thin set of paths still hits Earth. Say where the telescope should point next week.
         title: Point where the answers disagree
+        concept: Choosing the measurement that tells two explanations apart
         place: Planetary Defense Coordination Office
         scene: The best guess misses by four Earth radii, and about one path in six hundred still hits. Next Tuesday the two sets of paths sit eight arcseconds apart. After that they close up again.
+        guide: >-
+          Four places to point, and a measurement only helps where the answers disagree.
+          Ask of each option whether the hitting paths and the missing paths point
+          somewhere different there. Before and after Tuesday they agree. Looking then
+          confirms what nobody was arguing about. Brightness is not what decides this. A
+          date is.
+        background:
+          - >-
+              Why the wrong answers are worth reading. Each one is written to look right to
+              somebody who made a particular mistake. Working out which mistake each one
+              belongs to is most of the learning in this format — more than getting the
+              right one, which you can sometimes do by feel.
+          - >-
+              Why sounding careful is not the same as being right. A long answer with a lot
+              of detail in it feels safer, and it is easy to write one that is still wrong.
+              The check that builds these questions measures option length across the whole
+              game so the longest one is not the answer more often than chance. Reading is
+              the only way through.
+          - >-
+              What the verdict adds. After you answer, the verdict says why each wrong
+              option is wrong, in its own words. That is written for the reader who picked
+              it. Read it even when you were right, because being right for a shaky reason
+              is the thing that catches up with you two stops later.
         assumes:
           - a measurement teaches you something where the possible answers disagree
         takeaway: The best measurement is the one whose result the rival answers would disagree about.
@@ -627,6 +821,77 @@ missions:
           - The brightest night is the easiest measurement and the least useful one. Every path already agrees about where it will be.
           - Better calibration helps every measurement a little, and tells the two sets apart not at all.
           - Another program checks the arithmetic rather than the sky. Worth doing, and it adds no measurement.
+      - group: DISC
+        task: Sort the night's detections before the report.
+        title: Moving with the sky, or not moving at all
+        concept: "Telling a real object from an artefact, by repeating the observation"
+        place: Survey Dome
+        scene: The survey found four hundred things last night and the report goes at dawn. Most of them are not objects. What tells them apart is how they move between the pictures.
+        guide: >-
+          Two bins. A real object out there moves against the stars, the same way and the
+          same amount in each picture. Everything else either does not move at all, or moves
+          in a way nothing in space does.
+        background:
+          - >-
+              Why movement is the test. The stars stay put across one night. Anything in the solar
+              system moves against them. Something in the same place in all four pictures is a star,
+              a bad pixel or a reflection.
+          - >-
+              What the false ones look like. A cosmic ray shows up in one picture and never again. A
+              satellite crosses so fast it draws a line. Reflections sit at a fixed place in the
+              camera and move when the telescope moves, not when the sky does.
+        assumes:
+          - the stars stay in the same places across one night
+        takeaway: What makes a detection an object is how it moves, not how bright it is.
+        format: BELT
+        question: Send each detection to the bin that says whether something is really out there.
+        answerText: Steady movement across the pictures means it is real. One picture only, a streak, or no movement at all means it is the camera or the sky.
+        why: >-
+          A survey does not find objects. It finds differences between pictures, and the work
+          is deciding which differences are things. A real object moves against the stars, the
+          same direction and the same amount each time, which is why four pictures are taken
+          rather than two. Three points can line up by chance and four almost never do.
+          Everything else fails that test in its own way. A cosmic ray hits the camera once and
+          is gone. A satellite crosses so fast it draws a line in a single picture. Hot pixels
+          and reflections sit in fixed places in the camera, so they move when the telescope is
+          nudged and stay put when the sky turns. None of this is about brightness, which is
+          why a bright convincing blob is exactly the thing that wastes a follow-up night — and
+          follow-up nights are what this survey has least of.
+        belt:
+          left: { name: Really out there }
+          right: { name: Camera or sky }
+          need: 20
+          lives: 3
+          pass: 0.8
+          hint: Watch how it moves across the four pictures.
+          items:
+            - { name: Steady slow drift, bin: left }
+            - { name: Straight-line motion, bin: left }
+            - { name: Seen in four, bin: left }
+            - { name: Same rate each, bin: left }
+            - { name: Backwards track, bin: left }
+            - { name: Slow near opposition, bin: left }
+            - { name: Faint but steady, bin: left }
+            - { name: Crosses two chips, bin: left }
+            - { name: Found where predicted, bin: left }
+            - { name: Matches a known, bin: left }
+            - { name: Steady in moonlight, bin: left }
+            - { name: Tracks through cloud, bin: left }
+            - { name: One picture only, bin: right }
+            - { name: Hot pixel, bin: right }
+            - { name: Spike off a, bin: right }
+            - { name: Reflection inside, bin: right }
+            - { name: Satellite line, bin: right }
+            - { name: Aircraft light, bin: right }
+            - { name: Cosmic ray, bin: right }
+            - { name: Ghost of Vega, bin: right }
+            - { name: Bleeding column, bin: right }
+            - { name: Dead pixel edge, bin: right }
+            - { name: Turning field mark, bin: right }
+            - { name: Dome shadow, bin: right }
+            - { name: Star not moving, bin: right }
+            - { name: Cable shadow, bin: right }
+          commit: Start the line
   - title: How Large Is It?
     objective: Produce a diameter range rather than a single unsupported value.
     briefing: The object’s brightness is known, but size depends strongly on reflectivity. The player must combine brightness, albedo, and thermal evidence to bound diameter.
@@ -638,6 +903,28 @@ missions:
         title: What makes it look bright?
         place: Photometry Lab
         scene: The object was bright enough for the survey to spot it, and people across the room are reading that one number as a size. Four things that change brightness are on the board.
+        guide: >-
+          Four changes, and four things they do to the brightness. Pair them by asking
+          where in the journey each one acts. How much sunlight arrives? How much is
+          sent back? Or how much of that reaches us? Brightness is all of them together,
+          which is why one number cannot give a size.
+        background:
+          - >-
+              Why you match instead of choosing. A response that is right for one situation
+              is often nearly right for the next one. Picking from a list lets you take the
+              nearly-right answer and never notice. Matching makes you say which situation
+              it fits best, and that comparison is the whole point.
+          - >-
+              How to use the one-each rule. Every response goes somewhere, and nowhere
+              twice. So the situations you are sure about are worth more than themselves:
+              each one you settle leaves fewer responses for the ones you are not sure
+              about. Two lines you trust can decide the other two for you.
+          - >-
+              Why one wrong line is impossible. If three lines are right, the fourth
+              response has nowhere else to go, so it is right too. Being wrong always means
+              at least two are wrong at once. If a join feels forced, the mistake is
+              probably not in that join — it is in one you already made and stopped
+              questioning.
         assumes:
           - light spreads out as it travels, so the same lamp looks fainter from further away
         takeaway: A bright asteroid is not always a big one.
@@ -665,8 +952,26 @@ missions:
       - group: OPS
         task: Work out how the widths compare when two rocks look equally bright.
         title: Same brightness, different size
+        concept: "Size and albedo: two explanations for one brightness"
         place: Infrared Telescope Team
         scene: Two rocks look just as bright as each other. One reflects four times as well. The infrared team wants the sizes compared before anybody says a number out loud.
+        guide: >-
+          Five numbers, and three of them are wrong ways to use the reflectivity. Its
+          square. One divided by it. And the brightness itself. Ask of each whether it
+          respects the two steps. Four times the reflectivity needs a quarter of the
+          area. And width is the square root of area, so a quarter of the area is half
+          the width.
+        background:
+          - >-
+              Why an estimate rather than a calculation. Every quantity on this board is
+              already measured or stated, so nothing here has to be derived. What is being
+              tested is whether you can pick the quantities the relationship actually needs,
+              and whether the size of the answer looks right once they are in place.
+          - >-
+              Why the tiles carry labels. A bare number cannot be checked against the
+              relationship it is going into. Reading the label is how a unit mismatch, or a
+              quantity belonging to a different part of the problem, is caught before it is
+              placed — which is the habit this format exists to build.
         assumes:
           - albedo is how well a surface reflects the light that lands on it
           - the area of a circle grows as the square of its width
@@ -699,6 +1004,26 @@ missions:
         title: Settle the size
         place: Physical Characterization Group
         scene: Reflected light alone puts the rock somewhere between one hundred and twenty and six hundred metres across. The heat team now has an infrared reading from the same night.
+        guide: >-
+          Two controls slide the size and the surface brightness along a whole family of
+          pairs that all match the reflected light. See how wide that family is first.
+          Then bring in the heat reading, which depends on the same two things in a
+          different way, and watch the family shrink to one pair.
+        background:
+          - >-
+              Why reflected light alone cannot settle it. What you measure is how much
+              sunlight comes back. That depends on how big the rock is and how shiny it is,
+              multiplied together. A small shiny rock and a big dark one send back the same
+              light.
+          - >-
+              What the heat reading adds. Sunlight that is not reflected is absorbed and
+              comes back out as heat. So the heat depends on the size and on how much is
+              absorbed, which is a different mix of the same two unknowns. Put the two
+              together and both are fixed.
+          - >-
+              Why the size is the number everybody wants. The energy of an impact goes as
+              the size cubed. A rock five times wider carries more than a hundred times the
+              energy, which is the difference between one region and a continent.
         assumes:
           - a warm object glows in infrared light, which our eyes cannot see
           - reflected brightness depends on the size and the surface together
@@ -767,6 +1092,27 @@ missions:
         title: Whose dip is it?
         place: Spectroscopy Observatory
         scene: A wide dip has turned up in the spectrum, which is the rock's brightness measured colour by colour. It would change what the rock is made of. The room has a standard star, an air record, and a spectrum taken from space.
+        guide: >-
+          Open each piece of evidence to see what the spectrum depended on. Keep what
+          would still stand if the air were at fault, and untick the rest. Then name
+          what the failing ones share. The dip would change what the rock is made of, so
+          both halves count: keeping a false dip and throwing away a real one are
+          equally wrong.
+        background:
+          - >-
+              Why the air is the first suspect. Water vapour in Earth's air absorbs light at
+              particular colours, and one of them is right where this dip is. Every ground
+              telescope looks through that air, so every ground spectrum is the rock's
+              spectrum multiplied by the air's.
+          - >-
+              What looking through more air tells you. If the dip gets deeper when the
+              telescope looks through more atmosphere, the air is making it. If it stays the
+              same, the air is not.
+          - >-
+              Why the space spectrum settles it. Above the atmosphere there is no water
+              vapour in the way at all. It is the one measurement that does not go through
+              the suspect step, which makes it worth more than any number of careful ground
+              measurements.
         assumes:
           - a spectrum is brightness measured colour by colour
           - air can leave marks of its own in a spectrum taken from the ground
@@ -785,13 +1131,6 @@ missions:
                 - surface
                 - telluric
                 - detector
-            - id: standard
-              label: Night standard spectrum
-              reading: dip at the same wavelength (expected smooth intrinsic continuum expected here)
-              depends:
-                - standard_star_spectrum
-                - telluric
-                - detector
             - id: path
               label: Path-length comparison
               reading: dip deepens at larger airmass (expected feature would be stable if intrinsic to the target over these exposures)
@@ -800,18 +1139,14 @@ missions:
                 - airmass_geometry
             - id: flat
               label: Flat-field check
-              independent: true
               reading: stable response with no matching feature (expected detector calibration stable)
               depends:
                 - detector
-                - flat_field_calibration
             - id: space
               label: Space comparison spectrum
-              independent: true
               reading: feature absent (expected same target observed without a terrestrial path)
               depends:
                 - surface
-                - space_instrument
           resources:
             - id: telluric
               label: Terrestrial atmosphere
@@ -819,18 +1154,12 @@ missions:
               label: Spectrograph response
             - id: surface
               label: Asteroid surface
-            - id: standard_star_spectrum
-              label: standard-star spectrum
             - id: airmass_geometry
               label: airmass geometry
-            - id: flat_field_calibration
-              label: the flat-field calibration, which is the check that evens out the camera
-            - id: space_instrument
-              label: space instrument
           independent:
             - space
             - flat
-        answerText: Treat the dip as air, not rock. The target, the standard star and the airmass pattern all share Earth's atmosphere. The spectrum from space has no dip, and the flat field says the camera is fine.
+        answerText: Treat the dip as air, not rock. The ground spectrum and the airmass comparison both look through Earth's atmosphere, and the dip deepens the longer the path through it. The spectrum from space has no dip at all, and the flat field says the camera is fine.
         why: Three ground displays can agree because all three looked through the same air. The standard star has the dip too. The dip gets deeper when the light came through more air. The flat field is steady, so the camera is not adding it. And the spectrum taken from above the air has no dip at all. Agreement proves nothing when everything agrees for one shared reason.
         headline: A spectrum seems to show a broad absorption feature that could change the inferred surface composition.
       - group: OPS
@@ -838,6 +1167,28 @@ missions:
         title: From light to what it is made of
         place: Meteorite Comparison Lab
         scene: The spectrum has two dips and a slope. Three different mineral mixes match it just as well as each other. A draft notice naming one of them is already being typed.
+        guide: >-
+          All four steps will happen, and three mineral mixes fit just as well. Ask of
+          each step what would be meaningless without it. The Sun, the air and the
+          instrument all added something to what was recorded. A feature named before
+          those come out could belong to any of them. And trying several mixes is what
+          stops one being named too early.
+        background:
+          - >-
+              Why the order is graded whole. A sequence is a claim that each step needs the
+              one before it to have happened. Get one pair the wrong way round and the claim
+              is wrong, even if everything else lines up. That is why there is no part
+              credit.
+          - >-
+              Why the ends are the place to start. The first and last steps are usually the
+              easiest to be sure of, because one has nothing before it and the other has
+              nothing after it. Fixing those two leaves fewer ways for the middle to go, and
+              the middle is where the real question usually is.
+          - >-
+              What the rail can be ordered on. Often it is time. It can also be cost, or
+              risk, or what you can still undo afterwards — do the steps that change nothing
+              before the ones that change something for good. A step that destroys the
+              sample can only be last.
         assumes:
           - what a telescope records includes everything the light passed through on the way
         takeaway: A good answer about what something is made of keeps the other answers that still fit.
@@ -859,6 +1210,29 @@ missions:
         title: Make the claim stronger
         place: Composition Review Room
         scene: The draft notice names what the rock is made of. One spectrum backs it. Next door the deflection team is sizing a spacecraft from the weight that class implies.
+        guide: >-
+          Four options, and there is one spectrum, taken at one angle, at one point in
+          the spin. Ask of each whether it repeats what has been done or brings
+          something new. Another spectrum the same way can repeat the same mistake. Next
+          door somebody is sizing a spacecraft from this, so what is wanted is something
+          that could rule a mix out.
+        background:
+          - >-
+              Why the wrong answers are worth reading. Each one is written to look right to
+              somebody who made a particular mistake. Working out which mistake each one
+              belongs to is most of the learning in this format — more than getting the
+              right one, which you can sometimes do by feel.
+          - >-
+              Why sounding careful is not the same as being right. A long answer with a lot
+              of detail in it feels safer, and it is easy to write one that is still wrong.
+              The check that builds these questions measures option length across the whole
+              game so the longest one is not the answer more often than chance. Reading is
+              the only way through.
+          - >-
+              What the verdict adds. After you answer, the verdict says why each wrong
+              option is wrong, in its own words. That is written for the reader who picked
+              it. Read it even when you were right, because being right for a shaky reason
+              is the thing that catches up with you two stops later.
         assumes:
           - a measurement made one way can be wrong in the same way every time
         takeaway: Ask for evidence that could disagree with you, not for a firmer label.
@@ -886,6 +1260,28 @@ missions:
         title: What does radar measure?
         place: Planetary Radar Facility
         scene: The radar room has its first clean run of echoes. Delay, pitch shift and echo width are up on one screen. The orbit team is waiting to hear which reading to use.
+        guide: >-
+          Four things we want to know, and four radar readings. Pair them by asking what
+          each reading really is. A time? A spread of pitch? A pattern of when the echo
+          comes back? Or a set of pictures? One of them only exists after you have taken
+          the others many times.
+        background:
+          - >-
+              Why you match instead of choosing. A response that is right for one situation
+              is often nearly right for the next one. Picking from a list lets you take the
+              nearly-right answer and never notice. Matching makes you say which situation
+              it fits best, and that comparison is the whole point.
+          - >-
+              How to use the one-each rule. Every response goes somewhere, and nowhere
+              twice. So the situations you are sure about are worth more than themselves:
+              each one you settle leaves fewer responses for the ones you are not sure
+              about. Two lines you trust can decide the other two for you.
+          - >-
+              Why one wrong line is impossible. If three lines are right, the fourth
+              response has nowhere else to go, so it is right too. Being wrong always means
+              at least two are wrong at once. If a join feels forced, the mistake is
+              probably not in that join — it is in one you already made and stopped
+              questioning.
         assumes:
           - radar sends a radio pulse out and listens for what comes back
           - a shift in the pitch of an echo tells you how fast something moves toward or away
@@ -914,8 +1310,25 @@ missions:
       - group: OPS
         task: Turn the echo time into a distance the orbit team can use.
         title: How far away, from the echo?
+        concept: "Radar: distance from an echo, using speed and time"
         place: Coordination Office
         scene: The dish sent a pulse, and the echo came back four seconds later. The characterisation team needs a distance before the next run starts.
+        guide: >-
+          Five numbers, and two belong to other questions. The years to the encounter,
+          and that night's seeing. Ask of each whether this distance needs it. And note
+          the two in the sum. The pulse went out and came back, so the time covers the
+          trip twice. Forgetting that doubles the answer.
+        background:
+          - >-
+              Why an estimate rather than a calculation. Every quantity on this board is
+              already measured or stated, so nothing here has to be derived. What is being
+              tested is whether you can pick the quantities the relationship actually needs,
+              and whether the size of the answer looks right once they are in place.
+          - >-
+              Why the tiles carry labels. A bare number cannot be checked against the
+              relationship it is going into. Reading the label is how a unit mismatch, or a
+              quantity belonging to a different part of the problem, is caught before it is
+              placed — which is the habit this format exists to build.
         assumes:
           - radio waves travel at a fixed speed, three hundred thousand kilometres every second
         takeaway: An echo becomes a distance once you know the speed and the time.
@@ -947,6 +1360,29 @@ missions:
         title: What this pass does to the next one
         place: Orbit Determination
         scene: "Radar has pinned this pass at 2.4 Earth radii and the room starts to relax. Then the return solution flashes up on the board: eleven years."
+        guide: >-
+          Four options, and radar has settled this pass. Ask of each whether it says
+          anything about the one in eleven years. Passing that close lets Earth's pull
+          change the rock's path, so the orbit that comes back is not the one that
+          arrived. Fresh measurements afterwards check that working out. They do not
+          replace it.
+        background:
+          - >-
+              Why the wrong answers are worth reading. Each one is written to look right to
+              somebody who made a particular mistake. Working out which mistake each one
+              belongs to is most of the learning in this format — more than getting the
+              right one, which you can sometimes do by feel.
+          - >-
+              Why sounding careful is not the same as being right. A long answer with a lot
+              of detail in it feels safer, and it is easy to write one that is still wrong.
+              The check that builds these questions measures option length across the whole
+              game so the longest one is not the answer more often than chance. Reading is
+              the only way through.
+          - >-
+              What the verdict adds. After you answer, the verdict says why each wrong
+              option is wrong, in its own words. That is written for the reader who picked
+              it. Read it even when you were right, because being right for a shaky reason
+              is the thing that catches up with you two stops later.
         assumes:
           - a planet's gravity bends the path of anything that passes close to it
         takeaway: A close pass rewrites the path it happens on, so safety is a claim about the passes after it.
@@ -963,6 +1399,56 @@ missions:
           - A measured miss settles this pass and says nothing about the path the pass creates.
           - Size is worth knowing, and it does not say where the rock will be in eleven years.
           - A fresh arc is needed and is not enough. Without carrying the orbit through the pass there is nothing to compare it with.
+      - group: RADAR
+        task: Hold the dish on the object.
+        title: On target, while the wind gets up
+        concept: "Radar: distance from an echo, using speed and time"
+        place: Radar Dish
+        scene: The object is faint and the pass lasts eleven minutes. The dish has to stay pointed at it while wind comes down the ridge and pushes the dish about.
+        guide: >-
+          Hold the pointing error inside the band on the console. The band narrows through the
+          pass, because the object gets closer and the beam needs to be more exactly on it.
+          Each gust keeps pushing for as long as it lasts, so hold the drive against it.
+        background:
+          - >-
+              Why pointing decides everything. The signal is strongest in the middle of the beam and
+              falls away quickly. A dish half a beam off is not getting a slightly worse
+              measurement. It is getting noise.
+          - >-
+              Why a gust is not one push. Wind loads the dish for as long as it blows. The drive has
+              to hold against it, not correct once and let go.
+        assumes:
+          - a dish has to be pointed at something to receive from it
+        takeaway: A push that lasts is answered by holding, not by a nudge.
+        format: HOLD
+        question: Hold the dish on the object through the pass.
+        answerText: Inside the band for most of the pass, with the drive held against each gust rather than corrected once the pointing has already slipped.
+        why: >-
+          The signal falls away from the middle of the beam, so pointing is not a detail. It is
+          the difference between a measurement and eleven minutes of nothing. Every push here
+          lasts. A gust off the ridge loads the dish while it blows, and a dish left alone is
+          pushed off and stays off, so the drive has to hold against it rather than correct and
+          let go. The band narrows because the object is getting closer through the pass and the
+          measurement gets fussier about where the dish is looking. And there is no second try
+          tonight. The pass is the pass. The next one is when the object comes round again,
+          which for this one is years away.
+        hold:
+          quantity: Pointing error
+          unit: beam widths
+          control: Trim drive
+          hold: 0
+          band: 0.4
+          narrowTo: 0.2
+          duration: 45
+          direction: raise
+          authority: 0.1
+          pass: 0.8
+          hint: A gust lasts. Hold the drive against it.
+          disturbances:
+            - { label: Gust down the ridge, at: 4, amount: -0.03 }
+            - { label: Wind drops as the dish turns, at: 20, amount: 0.05 }
+            - { label: Second gust, at: 38, amount: -0.045 }
+          commit: Report the pass
   - title: Impact Energy
     objective: Provide low, central, and high impact-energy scenarios with transparent assumptions.
     briefing: The latest size and speed estimates imply regional consequences, but uncertainty in diameter, density, and velocity spans a wide range. The player must compute scales without presenting a false point estimate.
@@ -972,8 +1458,25 @@ missions:
       - group: IMPACT
         task: Work the weight and the arrival speed into an energy figure.
         title: How much energy does it carry?
+        concept: "Impact energy: mass and speed, and why speed matters more"
         place: Impact Physics Group
         scene: Civil defence will not call anyone in without an energy figure. The impact group has a weight for the rock. It also has the speed the rock would arrive at.
+        guide: >-
+          Four numbers, and two of them belong to other questions. How wide it is, and
+          how many joules make a megaton. Ask of each whether this energy needs it. The
+          weight and the speed are what the sum uses. And the speed goes in twice over,
+          which is why speed matters more than weight.
+        background:
+          - >-
+              Why an estimate rather than a calculation. Every quantity on this board is
+              already measured or stated, so nothing here has to be derived. What is being
+              tested is whether you can pick the quantities the relationship actually needs,
+              and whether the size of the answer looks right once they are in place.
+          - >-
+              Why the tiles carry labels. A bare number cannot be checked against the
+              relationship it is going into. Reading the label is how a unit mismatch, or a
+              quantity belonging to a different part of the problem, is caught before it is
+              placed — which is the habit this format exists to build.
         assumes:
           - the energy of a moving thing depends on how heavy it is and how fast it goes
         takeaway: Speed counts twice over in energy, so it is the number worth measuring best.
@@ -1004,6 +1507,28 @@ missions:
         title: Twice as fast
         place: Coordination Office
         scene: The arrival speed in the briefing has just doubled after a new tracking run. The energy in that briefing came from the old speed, and it is read out in an hour.
+        guide: >-
+          Four options, and only the speed has changed. Ask of each how many times the
+          speed enters the energy. Twice the speed gives twice the momentum and more
+          than twice the energy. One option talks about the air, and one about the
+          crater. Neither of those is the question. The briefing goes out in an hour.
+        background:
+          - >-
+              Why the wrong answers are worth reading. Each one is written to look right to
+              somebody who made a particular mistake. Working out which mistake each one
+              belongs to is most of the learning in this format — more than getting the
+              right one, which you can sometimes do by feel.
+          - >-
+              Why sounding careful is not the same as being right. A long answer with a lot
+              of detail in it feels safer, and it is easy to write one that is still wrong.
+              The check that builds these questions measures option length across the whole
+              game so the longest one is not the answer more often than chance. Reading is
+              the only way through.
+          - >-
+              What the verdict adds. After you answer, the verdict says why each wrong
+              option is wrong, in its own words. That is written for the reader who picked
+              it. Read it even when you were right, because being right for a shaky reason
+              is the thing that catches up with you two stops later.
         assumes:
           - the energy of a moving thing uses its speed twice over
         takeaway: A quantity that appears twice in a rule moves the answer much further than one that appears once.
@@ -1046,6 +1571,28 @@ missions:
         title: Which measurement is worth the most?
         place: Emergency Planning Office
         scene: The range of harm runs from one region to a whole continent. Every part of that range comes from a measurement. There is time to improve one of them.
+        guide: >-
+          Four options, and every part of that range came from a measurement. Ask of
+          each how strongly it feeds the energy. Weight grows with width three times
+          over, so a small error in width is a big error in weight. The speed goes in
+          twice. And one option refuses to narrow anything at all.
+        background:
+          - >-
+              Why the wrong answers are worth reading. Each one is written to look right to
+              somebody who made a particular mistake. Working out which mistake each one
+              belongs to is most of the learning in this format — more than getting the
+              right one, which you can sometimes do by feel.
+          - >-
+              Why sounding careful is not the same as being right. A long answer with a lot
+              of detail in it feels safer, and it is easy to write one that is still wrong.
+              The check that builds these questions measures option length across the whole
+              game so the longest one is not the answer more often than chance. Reading is
+              the only way through.
+          - >-
+              What the verdict adds. After you answer, the verdict says why each wrong
+              option is wrong, in its own words. That is written for the reader who picked
+              it. Read it even when you were right, because being right for a shaky reason
+              is the thing that catches up with you two stops later.
         assumes:
           - a number that is multiplied in three times spreads any error three times as wide
         takeaway: Improve the measurement that carries the most error into the answer, not the one that is easiest to repeat.
@@ -1071,8 +1618,25 @@ missions:
       - group: IMPACT
         task: Work the craft's push into a change in the rock's speed.
         title: How much does the push move it?
+        concept: Changing motion with a push, and why an early push does more
         place: Deflection Physics Lab
         scene: The deflection lab is sizing a spacecraft. It knows the craft's weight and how fast it would close, and the rock's weight to within a factor of a few.
+        guide: >-
+          Four numbers, and two of them belong to an earlier step. The millimetres a
+          second, and the extra push from thrown-off material, were used to get the
+          yearly figure. Ask which two this sum needs. And note why a tiny nudge works
+          at all. It gets multiplied by every year that is left.
+        background:
+          - >-
+              Why an estimate rather than a calculation. Every quantity on this board is
+              already measured or stated, so nothing here has to be derived. What is being
+              tested is whether you can pick the quantities the relationship actually needs,
+              and whether the size of the answer looks right once they are in place.
+          - >-
+              Why the tiles carry labels. A bare number cannot be checked against the
+              relationship it is going into. Reading the label is how a unit mismatch, or a
+              quantity belonging to a different part of the problem, is caught before it is
+              placed — which is the habit this format exists to build.
         assumes:
           - momentum is weight multiplied by speed, and a collision passes it on
           - the same push shared over more weight makes less change in speed
@@ -1104,6 +1668,28 @@ missions:
         title: What makes a deflection work?
         place: Mission Engineering Center
         scene: The impactor plan is up on the mission board. Beside it sit the weight estimate and the tracking plan. The director wants it all sorted before the review.
+        guide: >-
+          Four items on the board, and four effects. Pair them by asking which part each
+          one changes. The push that lands? How much that push moves the rock? Or how
+          far the rock has gone by the time it arrives? One of the four is not a
+          prediction at all. It is a measurement, taken afterwards.
+        background:
+          - >-
+              Why you match instead of choosing. A response that is right for one situation
+              is often nearly right for the next one. Picking from a list lets you take the
+              nearly-right answer and never notice. Matching makes you say which situation
+              it fits best, and that comparison is the whole point.
+          - >-
+              How to use the one-each rule. Every response goes somewhere, and nowhere
+              twice. So the situations you are sure about are worth more than themselves:
+              each one you settle leaves fewer responses for the ones you are not sure
+              about. Two lines you trust can decide the other two for you.
+          - >-
+              Why one wrong line is impossible. If three lines are right, the fourth
+              response has nowhere else to go, so it is right too. Being wrong always means
+              at least two are wrong at once. If a join feels forced, the mistake is
+              probably not in that join — it is in one you already made and stopped
+              questioning.
         assumes:
           - a tiny change in speed adds up to a large change in position over years
         takeaway: A deflection is an experiment, and the thing it changes is the orbit.
@@ -1133,6 +1719,26 @@ missions:
         title: Say what you expect, then measure it
         place: Orbit Monitoring Room
         scene: The impactor has hit and the control room is cheering. Nobody has measured the orbit yet. One tracking campaign is left in the budget.
+        guide: >-
+          Write down the change you expected before the impact, and lock it. Then run
+          the tracking campaign and read what the orbit actually did. The cheering is
+          not the result. One campaign is left in the budget, so this is the only chance
+          to find out.
+        background:
+          - >-
+              Why hitting it is not the same as moving it. The spacecraft changes the rock's
+              speed by a few millimetres a second. How much depends mostly on the rubble
+              thrown off the surface when it hits, and nobody knows what that surface is
+              made of. So the size of the push has to be measured, not assumed.
+          - >-
+              What the campaign measures. Where the rock was going before, and where it is
+              going now, watched long enough that the difference is bigger than the
+              measurement error. That is what turns 'we hit it' into 'we moved it this
+              much'.
+          - >-
+              Why the prediction is written first. If the number is written after the
+              measurement, it becomes whatever makes the mission look right. Then the one
+              thing this whole mission existed to find out is lost.
         assumes:
           - the momentum sum gives the smallest change in speed to expect
           - material thrown off the surface can add to the push
@@ -1174,6 +1780,29 @@ missions:
         title: Match what you do to what you know
         place: Risk Communication Center
         scene: The regional team is round one table. The wall shows the newest corridor, the likely damage area and the time left. Today they choose what to do.
+        guide: >-
+          Four states of the evidence, and four things to do. Pair them by asking three
+          questions. How bad would it be? How long is left? And can the action be
+          undone? Cheap, undoable things suit a long wait. Ordering people to move suits
+          having run out of time. And saying so in public is what makes the next warning
+          believed.
+        background:
+          - >-
+              Why you match instead of choosing. A response that is right for one situation
+              is often nearly right for the next one. Picking from a list lets you take the
+              nearly-right answer and never notice. Matching makes you say which situation
+              it fits best, and that comparison is the whole point.
+          - >-
+              How to use the one-each rule. Every response goes somewhere, and nowhere
+              twice. So the situations you are sure about are worth more than themselves:
+              each one you settle leaves fewer responses for the ones you are not sure
+              about. Two lines you trust can decide the other two for you.
+          - >-
+              Why one wrong line is impossible. If three lines are right, the fourth
+              response has nowhere else to go, so it is right too. Being wrong always means
+              at least two are wrong at once. If a join feels forced, the mistake is
+              probably not in that join — it is in one you already made and stopped
+              questioning.
         assumes:
           - a reversible action can be undone afterwards; an irreversible one cannot
         takeaway: You can prepare in stages without ever claiming to be certain.
@@ -1201,8 +1830,25 @@ missions:
       - group: OPS
         task: Turn the chance and the population into a number the office can plan against.
         title: How many people is that share?
+        concept: Ratios and unit rates in a measurement
         place: Emergency Management Office
         scene: The emergency office needs a number to plan against. It has the people living inside the corridor. It has today's chance of impact. And it has a form to fill in.
+        guide: >-
+          Five numbers, and three belong to other sums. The biggest city, the earlier
+          chance, and the paths that hit. Ask of each whether this one needs it. A share
+          of a whole means multiplying, once the share is written as a decimal. What
+          comes out is a planning figure, not a number of people who will really move.
+        background:
+          - >-
+              Why an estimate rather than a calculation. Every quantity on this board is
+              already measured or stated, so nothing here has to be derived. What is being
+              tested is whether you can pick the quantities the relationship actually needs,
+              and whether the size of the answer looks right once they are in place.
+          - >-
+              Why the tiles carry labels. A bare number cannot be checked against the
+              relationship it is going into. Reading the label is how a unit mismatch, or a
+              quantity belonging to a different part of the problem, is caught before it is
+              placed — which is the habit this format exists to build.
         assumes:
           - a percentage is a share out of one hundred
         takeaway: A small share of a very large number is still a number somebody has to plan for.
@@ -1230,23 +1876,51 @@ missions:
           solution: Nine million × 0.005 is forty-five thousand people.
           explanation: Half of one per cent is 0.005, not 0.5. Put the percentage straight in without converting it and the answer is a hundred times too big.
       - group: OPS
-        task: Set the threshold for each stage before the updates arrive, then release the stream.
+        task: Set the threshold before the updates arrive, then release the stream.
         title: Prepare without panic
+        concept: Deciding what to tell people, and when
         place: Scientific Advisory Board
         scene: Five orbit updates are queued. Planners can still prepare without moving anybody. Both planning and supplies take time, and the thresholds have to be set before the stream starts.
+        guide: >-
+          One rule, written before the next updates arrive. Once the board is released the number
+          cannot change. Starting the planning cell takes two days from the moment it is called, and
+          the last update arrives with no time left at all. So your line has to be crossed early
+          enough for those two days to fit — and not so early that a cell is started for an object
+          that was never going to matter.
+        background:
+          - >-
+              Why set the rules first. The updates arrive one after another, each one
+              changing the odds a little. A threshold changed while they come in is just a
+              description of what somebody already decided, and it cannot be explained
+              afterwards to the people who acted on it.
+          - >-
+              Why two numbers rather than one. Writing a plan takes weeks. Moving supplies
+              takes days, and needs the plan to exist first. One threshold set for the slow
+              job fires far too early for the fast one, and set for the fast one leaves no
+              time to plan.
+          - >-
+              What preparing without panic buys. Preparation can be undone cheaply.
+              Evacuating people cannot. Good thresholds keep the cheap actions available
+              long enough that the expensive one never becomes the only one left.
         assumes:
           - the chance of impact moves as new measurements arrive
           - preparations take time to set up, and some of them can be undone
         takeaway: A rule written before the numbers arrive is the only rule the numbers cannot bend.
         format: TRIGGER
-        question: Which thresholds still leave enough time for planning and for moving supplies?
+        question: >-
+          At what impact probability do you start up the regional planning cell, when it takes two days?
         trigger:
-          hint: Write both action thresholds before releasing the next orbit updates. The first action needs two days of lead time; the second needs one. A rule that triggers after its operational lead time is gone does not count as a successful plan.
+          hint: >-
+            Write the threshold before releasing the updates. The cell takes two days to start, so a
+            rule firing with less than that has called something that cannot happen.
           scale:
             min: 0
             max: 2
-            unit: "% impact probability"
-            label: Campaign impact-probability update
+            unit: "%"
+            label: Impact probability
+            anchors:
+              - { at: 0.11, means: 'about one chance in 900 — the quiet end of the list' }
+              - { at: 1.4, means: 'one chance in 70, and the corridor crosses where people live' }
           stream:
             - t: 0
               value: 0.11
@@ -1273,19 +1947,98 @@ missions:
               hoursLeft: 0
               at: day 7
               update: 1.4 % impact probability
-          failureBoundary:
-            value: 1.4
-            unit: "%"
-            label: Authored late-decision boundary at day 7
+          objective: >-
+            The planning cell is running while there is still time to use it.
+          rehearsal:
+            note: the last object watched at this range
+            stream:
+              - { value: 0.09, hoursLeft: 168 }
+              - { value: 0.14, hoursLeft: 120 }
+              - { value: 0.22, hoursLeft: 72 }
+              - { value: 0.15, hoursLeft: 24 }
+              - { value: 0.05, hoursLeft: 0 }
           conditions:
             - id: planning
               label: Activate regional planning cell
               leadHours: 48
-            - id: preposition
-              label: Pre-position transport and medical resources
-              leadHours: 24
-        answerText: Set planning near 0.25 per cent and supplies near 0.75 per cent, before the stream runs. Both then fire with time still in hand. Waiting for the last update at 1.4 per cent leaves none.
+              window: { min: 0.15, max: 0.4 }
+        answerText: >-
+          Start it near 0.2 per cent. It fires on the 0.35 per cent update with 72 hours left, which
+          covers the two days the cell needs. The 0.8 per cent update arrives with 24 hours and the
+          last one with none.
         why: A threshold is a decision made before the next number lands. Preparation takes time, so an action that is right can still be useless if it starts too late. Setting the rule first also stops every new number being judged by a new standard. Early thresholds go on things that can be undone. Later ones go on the things that cost more. None of it pretends the chance is certain.
+      - group: OPS
+        task: Observe what the priority asks for.
+        title: What the telescope is chasing tonight
+        concept: "Deciding what to tell people, and when"
+        place: Operations Hut
+        scene: The target list runs all night. One priority says which to observe, and whoever has the desk changes it as the night goes on.
+        guide: >-
+          Observe what the priority asks for and leave the rest on the list. The board
+          changes during the night and nobody announces it. What counts is the targets either
+          side of a change, because a target that has set cannot be brought back.
+        background:
+          - >-
+              Why the priority changes. A new object nobody has tracked yet is the most urgent thing
+              on any night, until enough measurements exist to predict where it goes. Then it becomes
+              whatever is setting soonest, because a target below the horizon cannot be observed at
+              all.
+          - >-
+              Why a missed target is different from other mistakes. Most work can be done tomorrow. An
+              object low in the sky is up for an hour a night for two weeks, and then not for a year.
+        assumes:
+          - an object can only be observed when it is above the horizon
+        takeaway: A rule that has changed costs most when the chance does not come back.
+        format: SPOT
+        question: Observe to the priority on the board, and keep checking the board.
+        answerText: Read the board, not the list. Every change leaves a few minutes when the old priority still looks like tonight's.
+        why: >-
+          Three priorities run across the night and each wants different targets. Anything
+          nobody has tracked yet, then anything setting soon, then anything with a deadline. A
+          target can match two at once, and that is what makes a change cost something. What the
+          panel scores is the targets either side of a change. Most of the list is wanted by
+          neither priority, so leaving those alone proves nothing. This is the case where the
+          cost is highest, because the sky does not wait. An object low in the west is up for
+          an hour a night for a fortnight, and a telescope spent on the last hour's priority
+          adds a year to somebody's orbit.
+        spot:
+          duration: 40
+          switchEvery: 12
+          pass: 0.75
+          hint: The priority is on the desk board and changes without warning.
+          targets:
+            - id: o1
+              label: New object, few points
+              tags: [new]
+            - id: o2
+              label: Setting within the hour
+              tags: [setting]
+            - id: o3
+              label: New object, setting soon
+              tags: [new, setting]
+            - id: o4
+              label: Due by Friday
+              tags: [deadline]
+            - id: o5
+              label: Well known, high up
+              tags: [routine]
+            - id: o6
+              label: Deadline, setting soon
+              tags: [deadline, setting]
+            - id: o7
+              label: Routine measurement
+              tags: [routine]
+            - id: o8
+              label: New object, deadline
+              tags: [new, deadline]
+          rules:
+            - say: Anything nobody has tracked yet
+              want: [new]
+            - say: Anything setting soon
+              want: [setting]
+            - say: Anything with a deadline
+              want: [deadline]
+          commit: Open the list
   - title: The Final Defense Review
     objective: Produce a claim-by-claim planetary-defense decision package and preserve monitoring after the immediate threat passes.
     briefing: The international board must decide whether the object is sufficiently characterized, whether the deflection worked, and which civil preparations remain necessary.
@@ -1295,8 +2048,31 @@ missions:
       - group: OPS
         task: Match each claim to what the evidence under it justifies doing.
         title: What each claim has earned
+        concept: "Independent checks: a second method that could disagree"
         place: International Review Hall
         scene: The board has to publish one account of an eight-year campaign. The four claims in front of it rest on very different evidence. Whoever runs the next one will read it.
+        guide: >-
+          Four claims and four things to do about them. Pair them by asking what state
+          each claim is in. Settled? Still open? Out of date? Or bigger than this rock?
+          Giving four different states the same confidence is how a report stops being
+          trusted. Whoever runs the next campaign reads this one.
+        background:
+          - >-
+              Why you match instead of choosing. A response that is right for one situation
+              is often nearly right for the next one. Picking from a list lets you take the
+              nearly-right answer and never notice. Matching makes you say which situation
+              it fits best, and that comparison is the whole point.
+          - >-
+              How to use the one-each rule. Every response goes somewhere, and nowhere
+              twice. So the situations you are sure about are worth more than themselves:
+              each one you settle leaves fewer responses for the ones you are not sure
+              about. Two lines you trust can decide the other two for you.
+          - >-
+              Why one wrong line is impossible. If three lines are right, the fourth
+              response has nowhere else to go, so it is right too. Being wrong always means
+              at least two are wrong at once. If a join feels forced, the mistake is
+              probably not in that join — it is in one you already made and stopped
+              questioning.
         assumes:
           - a conclusion is only as strong as the evidence under it
         takeaway: Different claims in one document have earned different amounts of confidence.
@@ -1326,6 +2102,23 @@ missions:
         title: Signed is not checked
         place: Orbit Monitoring Center
         scene: Two independent checks are left before the record goes public tonight. Every claim in it is signed. Some of them would change the conclusion if they were wrong.
+        guide: >-
+          Two checks left, and the record goes out tonight. Open each signed claim and
+          read what actually backs it. Hold the ones the evidence does not support, and
+          spend the checks where a wrong claim would do the most damage — because what
+          goes out tonight is where the next team starts.
+        background:
+          - >-
+              Why signed is not checked. A signature says somebody took responsibility for a
+              sentence. It does not say anybody went and looked. Under a deadline, a guess
+              and an observation end up written the same way on the same page.
+          - >-
+              Why a public record is harder to fix than to write. People will read it who
+              cannot see the evidence, and quote it who were not there. A correction
+              afterwards never travels as far as the original did.
+          - >-
+              How to pick two out of several. Not the shakiest. The one that would send the
+              next team in the wrong direction if it were wrong.
         assumes:
           - a signature records that somebody approved something
           - checking costs time, and there is not enough of it for everything
@@ -1350,11 +2143,6 @@ missions:
               critical: true
               backed: false
               evidence: independent reprocessing reproduces the approximately 180 m size scale and the stated consequence envelope
-            - id: discovery
-              label: Discovery images, timestamps and provenance are archived
-              critical: false
-              backed: true
-              evidence: archive checksum and provenance audit already completed
             - id: wording
               label: The public summary has final communications approval
               critical: false
@@ -1368,6 +2156,28 @@ missions:
         title: What survives the success
         place: Mission Operations
         scene: The threat is gone, and so is most of the budget. The search still misses parts of the sky, and two follow-up sites lose their funding at the end of the year.
+        guide: >-
+          Four options, and the threat is gone along with most of the money. Ask of each
+          what it does to warning time. Finding a rock earlier buys nights for the path,
+          time for the size, and years for a small nudge to work. Nothing later can give
+          back time that was never bought.
+        background:
+          - >-
+              Why the wrong answers are worth reading. Each one is written to look right to
+              somebody who made a particular mistake. Working out which mistake each one
+              belongs to is most of the learning in this format — more than getting the
+              right one, which you can sometimes do by feel.
+          - >-
+              Why sounding careful is not the same as being right. A long answer with a lot
+              of detail in it feels safer, and it is easy to write one that is still wrong.
+              The check that builds these questions measures option length across the whole
+              game so the longest one is not the answer more often than chance. Reading is
+              the only way through.
+          - >-
+              What the verdict adds. After you answer, the verdict says why each wrong
+              option is wrong, in its own words. That is written for the reader who picked
+              it. Read it even when you were right, because being right for a shaky reason
+              is the thing that catches up with you two stops later.
         assumes:
           - warning time comes from finding things early, not from planning for them
         takeaway: The lasting defence is a system that can find, learn, decide and act again.
@@ -1385,6 +2195,58 @@ missions:
           - Readiness turns a warning into action. It cannot make a warning if nothing finds the rock in the first place.
           - This campaign is the evidence against that. The gaps, the viewing angles and the follow-up were all short.
 # What each place says when the player reads it.
+# --------------------------------------------------------------- the warm-ups
+warmups:
+  trial-near:
+    title: Walk the camp while it is still light
+    why: >-
+      Everything here happens in the dark, and the camp is seven buildings on a ridge with no
+      street lights. Walk it once in daylight, because a route learned in the light is one you
+      can take at two in the morning with a red torch.
+  greet:
+    title: Two shifts that barely meet, and you are on both
+    why: >-
+      The day crew work up what the night crew found, and the two hand over in eleven minutes at
+      dawn. Put a name to most of them before your first handover. The survey runs on trusting a
+      measurement somebody else took.
+  trial-far:
+    title: The outstations open tonight, and the keys come out
+    why: >-
+      The dish and the two outstations are a long way down the ridge road, and nothing out there
+      has been called this week. From tonight it is, and the vehicle is signed out. Drive it once
+      before you drive it in the dark.
+  follow:
+    title: Fischer walks the cable run once
+    why: >-
+      The dish's timing cable runs from the hut to the pad along a route nobody drew. Fischer,
+      the radar dynamics lead, knows where it crosses the road. Stay with her, because where she
+      stops is where the cable is buried shallow.
+  hunt:
+    title: Six lamps, and four are where the log says
+    item: { name: lamp, plural: lamps }
+    why: >-
+      Every telescope here is checked against portable lamps, and two went out with somebody
+      last week. Until all six are found, nobody can say the brightness measurements are on one
+      scale. Two scales invent objects that are not there.
+  canvass:
+    title: Who saw the bright thing on Tuesday
+    why: >-
+      Half the valley reported something bright on Tuesday night. The office has to say whether
+      it was the re-entry everybody assumes. Ask around until enough accounts have come back to
+      separate one bright thing from two.
+  evade:
+    title: The visitor who wants a look through the telescope
+    why: >-
+      A guest has been in the dome since dusk wanting to be shown something. Every minute the
+      telescope is off target is sky nobody covers tonight. Keep out of his way and get your
+      round done.
+  tag:
+    title: Catch Rossi before the fit starts
+    why: >-
+      Rossi, the orbit determination lead, has two extra measurements from Monday that never
+      went into the file. Once the orbit fit is running it takes two hours and he will not stop
+      it. Two points change where this object is predicted to be.
+
 copy:
   DISC: <p>The survey dome and its image processing room. Everything this campaign knows started as photons here.</p>
   ORBIT: <p>Orbit determination. Where a set of angles becomes a family of possible futures.</p>

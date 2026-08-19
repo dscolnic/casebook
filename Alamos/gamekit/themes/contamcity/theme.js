@@ -12,7 +12,7 @@
 import { site } from './site.js';
 import { OUTFITS, roleToOutfit } from './outfits.js';
 import { GROUPS } from './content/groups.js';
-import { MISSIONS } from './content/missions.js';
+import { MISSIONS, WARMUPS } from './content/missions.js';
 import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
 import { ROSTER, LEADERS, AVATARS } from './content/roster.js';
 import { COPY } from './content/copy.js';
@@ -36,7 +36,7 @@ export default {
 
   site,
 
-  content: { GROUPS, MISSIONS, CURRICULUM, ROSTER, COPY, BALLPARK_CALCS, JARGON, LEADERS, AVATARS },
+  content: { GROUPS, MISSIONS, CURRICULUM, ROSTER, COPY, BALLPARK_CALCS, JARGON, LEADERS, AVATARS, WARMUPS },
 
   // What is inside each laboratory. The engine builds the room; this says what
   // the instrument in it reads. Omit it and the doors stay as they were.

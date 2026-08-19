@@ -564,8 +564,34 @@ missions:
       - group: EQUIL
         task: Match each change to the loop with what it does to the methane at equilibrium.
         title: What the loop settles at
+        concept: Equilibrium as a balance still running both ways
         place: Reactor Hall
         scene: The loading projection is still 2,700 kilograms short. Herrera has stopped accepting slogans like ‘run it hotter.’ Four proposed changes are on the reactor board. He wants each effect agreed before anyone touches the loop.
+        guide: >-
+          Four changes to the loop, and four effects. Pair them by asking what each
+          change actually touches. The number of gas molecules on each side? The heat,
+          which is one of the products here? A partial pressure of something taking
+          part? Or nothing at all? One of these raises the total pressure and no partial
+          pressure, so the mixture never notices it.
+        background:
+          - >-
+              Why this is a matching board and not four separate questions. Responses on
+              boards like this are written to be plausible for more than one situation, so
+              choosing them one at a time lets a nearly-right answer through unexamined.
+              Having to place all of them forces the comparison — not "is this reasonable
+              here", but "is it more right here than there".
+          - >-
+              How to use the one-each rule. Because the responses are a set to be
+              distributed rather than a list to be sampled, every join you make constrains
+              the rest. Settling the two you are confident of can leave the remaining pair
+              decided by elimination. Where it does not, two responses are still competing
+              for one situation, and that is exactly the distinction the stop is testing.
+          - >-
+              Why you cannot be wrong about exactly one. With every response used once,
+              three correct joins leave the fourth with only one place to go. Any error
+              therefore involves at least two joins. That is worth remembering when the last
+              pair looks forced: the fault is usually not in the join you are struggling
+              with, but in one you made early and stopped questioning.
         assumes:
           - a reaction at equilibrium is still running in both directions
           - pressure and temperature are the two settings on a gas-phase reactor
@@ -586,8 +612,35 @@ missions:
       - group: KINET
         task: Say what 40 degrees actually buys
         title: Rate is not yield
+        concept: "Le Châtelier: pressure, temperature and taking a product away"
         place: Catalyst Bay
         scene: Sundqvist wants the bed at 320 °C tonight, up from 280. Ravneet Kaur, the catalysis engineer, has the temperature profile and the production projection side by side. One setting may rescue the schedule or deepen the shortfall.
+        guide: >-
+          Four options, and temperature moves two different quantities. Ask of each
+          whether it keeps them separate. The rate constant rises because more
+          collisions clear the barrier. The equilibrium constant of a heat-releasing
+          reaction falls. So a hotter bed can reach a lower ceiling faster, and two of
+          these options treat speed and yield as one thing.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
         assumes:
           - heating a reaction makes it go faster
           - an exothermic reaction gives out heat as it proceeds
@@ -611,6 +664,34 @@ missions:
         place: Cold End
         scene: |-
           The cold line takes the product stream from 10 degrees down to 115 kelvin in 1 run of pipe. Mei-Ling Cho, the cryogenics engineer, will not accept a stream that has skipped the drier.
+        guide: >-
+          Four reasons to clean the stream first. Ask of each whether it names a
+          temperature at which something leaves the gas. Water goes near 273 K and
+          carbon dioxide near 195 K, both of which the line passes through on its way
+          down. Solid on an exchanger surface narrows the passage, and from outside that
+          looks like a valve or a refrigeration fault.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
+        takesAsRead:
+          - Intermolecular forces, and why they set a boiling point
         assumes:
           - a substance leaves the gas phase at a temperature that depends on the pressure
           - liquid methane needs about 112 K at loop pressure
@@ -649,6 +730,26 @@ missions:
         place: Catalyst Bay
         scene: |-
           Kaur wants the contact time worked out at the new flow before anything else is changed. The bed holds 340 litres of packed catalyst and the loop is passing 85 litres a minute through it.
+        guide: >-
+          Five numbers, and three of them describe the conditions rather than the
+          geometry: the pressure, the temperature, and the feed ratio. Ask of each
+          whether this time depends on it. Residence time is how long the gas stays with
+          the catalyst. Push more gas through the same bed and that contact shortens, so
+          flow and conversion move against each other.
+        background:
+          - >-
+              Why an estimate rather than a calculation. Every quantity on this board is
+              already measured or stated, so nothing here has to be derived. What is being
+              tested is whether you can pick the quantities the relationship actually needs,
+              and whether the size of the answer looks right once they are in place.
+          - >-
+              Why the tiles carry labels. A bare number cannot be checked against the
+              relationship it is going into. Reading the label is how a unit mismatch, or a
+              quantity belonging to a different part of the problem, is caught before it is
+              placed — which is the habit this format exists to build.
+        takesAsRead:
+          - Rate constants, and how steeply they climb with temperature
+          - "Stoichiometry as a feed rate: turning a production target into kilograms in"
         assumes:
           - a flow quoted in litres a minute is a volume passing each minute
           - gas volumes depend on the pressure and temperature they are quoted at
@@ -682,6 +783,33 @@ missions:
         place: Electrolysis Hall
         scene: |-
           The hall runs two kinds of cell: 1 splits water, the other splits carbon dioxide at 800 degrees. Rosalind Achebe, the power and electrolysis engineer, has the four parts listed on the board.
+        guide: >-
+          Four parts of the cell, and four jobs. Pair them by asking which way the
+          electrons go. In means reduction; out means oxidation. Then ask what the
+          electrolyte is for: it carries ions and refuses electrons, which is what
+          forces the circuit through the wire. And one item on the list decides an
+          amount rather than a direction.
+        background:
+          - >-
+              Why this is a matching board and not four separate questions. Responses on
+              boards like this are written to be plausible for more than one situation, so
+              choosing them one at a time lets a nearly-right answer through unexamined.
+              Having to place all of them forces the comparison — not "is this reasonable
+              here", but "is it more right here than there".
+          - >-
+              How to use the one-each rule. Because the responses are a set to be
+              distributed rather than a list to be sampled, every join you make constrains
+              the rest. Settling the two you are confident of can leave the remaining pair
+              decided by elimination. Where it does not, two responses are still competing
+              for one situation, and that is exactly the distinction the stop is testing.
+          - >-
+              Why you cannot be wrong about exactly one. With every response used once,
+              three correct joins leave the fourth with only one place to go. Any error
+              therefore involves at least two joins. That is worth remembering when the last
+              pair looks forced: the fault is usually not in the join you are struggling
+              with, but in one you made early and stopped questioning.
+        takesAsRead:
+          - "Stoichiometry as a feed rate: turning a production target into kilograms in"
         assumes:
           - oxidation is loss of electrons and reduction is gain of electrons
           - a current is a flow of charge
@@ -702,26 +830,137 @@ missions:
       - group: GIBBS
         task: State which of the plant's steps have a bill
         title: What has to be paid for
+        concept: Exothermic and endothermic, and heat as something on one side of the equation
         place: Plant Control
         scene: Demir has the sol’s energy ledger open on the desk. The reactor releases heat while it runs, while electrolysis takes most of the array output. He wants the difference stated plainly in the log.
+        guide: >-
+          Put a number on the direction. Water splitting has a known enthalpy change and a
+          known entropy change, and the free-energy change at the cell's working temperature
+          is what says whether it runs on its own. Watch the units: the entropy term is in
+          joules per kelvin per mole and the enthalpy in kilojoules per mole, so one of the
+          tiles is there to be converted rather than added.
+        background:
+          - >-
+              What the two terms are doing. The enthalpy term is the heat the change takes in or
+              gives out. The entropy term is how much more, or less, spread out the matter and
+              its energy end up, and it is multiplied by the temperature — which is why heating
+              something can turn a change that does not run into one that does.
+          - >-
+              Why a positive answer means a bill. A positive free-energy change means the
+              products sit above the reactants, so the energy has to come from somewhere
+              outside the reaction. In this plant it comes from the array, through the cell, at
+              a price in kilowatt-hours that the ledger on Demir's desk has to carry.
+          - >-
+              Why the reverse is free. Methane assembly is water splitting run backwards, and it
+              gives out what the splitting takes in. That is one number with two signs, not two
+              independent facts, and it is why the plant can run one step on its own and never
+              the other.
         assumes:
           - some reactions give out heat and others take it in
           - electrical energy can be counted in kilowatt-hours
         takeaway: Whether a change runs on its own and how fast it goes are two separate questions, and one of them has a bill.
-        format: CHOICE
-        question: Why does splitting water need a power supply while the methane assembly does not?
-        why: "Direction is set by the free-energy change, which weighs the heat given out against the change in how spread out the matter is. Assembling methane from carbon dioxide and hydrogen gives out a great deal of heat and runs downhill. Splitting water is that same reaction backwards: it takes the energy in, and no arrangement of equipment gets out of paying it. Electricity is how the plant pays. A catalyst can make a downhill change fast, and cannot make an uphill change run."
-        choices:
-          - Splitting water raises the free energy of what comes out, and that has to be supplied.
-          - Splitting water is the slower of the two, and a slow reaction needs power to keep it going.
-          - Water is a liquid, and turning a liquid into two gases is what the electricity pays for.
-          - The assembly has a catalyst, and a catalyst supplies the energy a reaction would need.
-        answer: Splitting water raises the free energy of what comes out, and that has to be supplied.
-        rebuttals:
-          - Speed and direction are different properties, and a fast uphill reaction still has to be driven.
-          - Boiling the water would cost far less than splitting it, and the plant is not boiling anything.
-          - A catalyst opens an easier path and puts no energy in; it leaves the free-energy change exactly where it was.
+        format: BALLPARK
+        question: What is the free-energy change for splitting a mole of water at the cell's working temperature?
+        answerText: About +237 kJ per mole. It is positive, so the change does not run on its own at any temperature the cell can reach, and the array has to pay for it.
+        why: "Direction is set by the free-energy change: ΔG = ΔH − TΔS. Splitting a mole of liquid water takes in 286 kJ, and the products are two gases from a liquid, so the entropy change is positive at +163 J per kelvin per mole. At the cell's 298 K the entropy term is 298 × 0.163 = 48.6 kJ per mole, which leaves ΔG = 286 − 48.6 ≈ +237 kJ per mole. Positive means the products sit above the reactants and nothing about the equipment changes that — the energy has to arrive from outside, which is what the array is for. Methane assembly is the same number with the opposite sign, which is why one step runs on its own and the other never will. And note what the entropy term does not do here: it is nowhere near large enough to turn this one spontaneous, even at the highest temperature the cell could survive."
+        estimate:
+          prompt: Splitting a mole of liquid water takes in 286 kJ and raises entropy by 163 J per kelvin per mole. The cell works at 298 K.
+          question: Choose the enthalpy change, the temperature, and the entropy change in the same units as the enthalpy.
+          labels:
+            - 286  (ΔH, kJ per mole taken in)
+            - 298  (T, the cell's working temperature in K)
+            - 0.163  (ΔS in kJ per kelvin per mole)
+            - 163  (ΔS in J per kelvin per mole, before conversion)
+            - 237  (the answer, if you already knew it)
+          values: [286, 298, 0.163, 163, 237]
+          slots: 3
+          template: '{0} − {1} × {2}'
+          formula: a-b*c
+          correct: [0, 1, 2]
+          target: 237.4
+          tolerance: 6
+          units: kJ per mole
+          solution: 286 − 298 × 0.163 ≈ 237 kJ per mole, and positive means it has to be paid for.
+          explanation: A positive free-energy change is a bill. The reverse reaction is the same number with the other sign, which is why the reactor runs on its own.
+          givens:
+            - ΔH = +286 kJ per mole and ΔS = +163 J per kelvin per mole
+            - the cell works at 298 K
+          relationship: ΔG = ΔH − TΔS. A positive free energy means the change does not run on its own and has to be paid for.
+
   # ---------------------------------------------------------------- sol 293
+      - group: SOIL
+        task: Sort the regolith samples before the hopper is charged.
+        title: Worth digging, or worth leaving
+        takesAsRead:
+          - "Intermolecular forces, and why they set a boiling point"
+        concept: "Phase changes, and that every substance has its own temperature for one"
+        place: Regolith Yard
+        scene: The hopper takes one charge at a time and the digging arm has brought in more than it can process. Some of what is out there gives up water when it is heated. The rest costs the same power and returns nothing.
+        guide: >-
+          Two bins. What matters is whether the material holds water that heat can drive off
+          — hydrated minerals and buried ice do, and dry basaltic dust does not, however
+          promising it looks. Sort on what the sample gives up, not on where it came from.
+        background:
+          - >-
+              Why this is the plant's first decision. Every charge costs the same heating energy
+              whatever is in it, and energy is the thing this station has least of. A hopper charged
+              with dry dust has spent a sol's margin on nothing.
+          - >-
+              What holds water on Mars. Hydrated sulphates and clays hold it chemically, and it comes
+              off at a few hundred degrees. Buried ice holds it as ice. Weathered basalt, glass and
+              windblown fines hold almost none, and they are the majority of what the arm reaches.
+        assumes:
+          - some minerals hold water that heating can drive off
+        takeaway: Every charge costs the same energy, so what is in it is the whole decision.
+        format: BELT
+        question: Send each sample to the bin that says whether heating it returns water.
+        answerText: Hydrated minerals and buried ice go left and pay for their heat. Dry fines and glass go right, and heating them spends the sol's margin on nothing.
+        why: >-
+          Water is the input the whole plant runs on, and heating is how it is recovered, so
+          the only question worth asking of a sample is whether heat gets water out of it.
+          Hydrated sulphates and clays do: the water is held in the mineral structure and comes
+          off at a few hundred degrees. Buried ice does, obviously and at far lower cost.
+          Weathered basalt, volcanic glass and the windblown fines that cover most of the site
+          hold almost nothing, and they look exactly like the material that does — which is
+          why the sorting happens at the yard rather than at the hopper. The cost of getting it
+          wrong is not the sample. It is the charge: the heater draws the same power whatever
+          is in it, energy is the scarcest thing on this station, and a hopper of dry dust has
+          spent a sol's margin to produce steam that was never there.
+        belt:
+          left: { name: Returns water }
+          right: { name: Returns nothing }
+          need: 20
+          lives: 3
+          pass: 0.8
+          hint: Ask what the heater gets out of it, not where the arm found it.
+          items:
+            - { name: Buried ice lens, bin: left }
+            - { name: Hydrated sulphate, bin: left }
+            - { name: Gypsum vein, bin: left }
+            - { name: Clay-rich mudstone, bin: left }
+            - { name: Jarosite crust, bin: left }
+            - { name: Polygon-crack fill, bin: left }
+            - { name: Frost-cemented soil, bin: left }
+            - { name: Perchlorate brine, bin: left }
+            - { name: Smectite layer, bin: left }
+            - { name: Ice-cemented breccia, bin: left }
+            - { name: Hydrated silica, bin: left }
+            - { name: Subsurface clay, bin: left }
+            - { name: Windblown fines, bin: right }
+            - { name: Volcanic glass, bin: right }
+            - { name: Weathered basalt, bin: right }
+            - { name: Dune sand, bin: right }
+            - { name: Anhydrous olivine, bin: right }
+            - { name: Iron oxide dust, bin: right }
+            - { name: Ejecta gravel, bin: right }
+            - { name: Duricrust chips, bin: right }
+            - { name: Rover track spoil, bin: right }
+            - { name: Pyroxene sand, bin: right }
+            - { name: Slope talus, bin: right }
+            - { name: Crater rim rubble, bin: right }
+            - { name: Baked hopper residue, bin: right }
+            - { name: Ridge cap rock, bin: right }
+          commit: Start the line
   - title: The line that stopped passing gas
     objective: Find what closed the cold line, and what the hot run has to do with it.
     briefing: The cold end stopped delivering liquid three hours into the hot run.
@@ -744,6 +983,33 @@ missions:
           Five readings are up on the cold end panel. Two of them are alarming, three are entirely
           ordinary, and Cho says the ordinary ones are the reason most of the obvious answers do
           not survive.
+        guide: >-
+          Five readings, and the quiet ones do the work. A cold head at its set point
+          has not lost capacity. A steady jacket pressure is intact insulation. Ask of
+          each candidate how many of the five it fits. And note the shape of the flow
+          trace: a shut valve stops flow in a second, while ice takes hours.
+        background:
+          - >-
+              Why the unremarkable readings decide it. The salient reading is what draws
+              attention, and it is usually consistent with several explanations at once,
+              which is why it rarely settles anything. The readings that discriminate are
+              the ones a candidate predicts should have moved and which have not: a normal
+              value is a positive result against every mechanism that would have disturbed
+              it.
+          - >-
+              How to work the candidates. Take each mechanism and predict the panel it
+              implies before you look at the panel again — which readings it drives, in
+              which direction, and by roughly how much. Then compare. Working that way round
+              is what separates a diagnosis from a rationalisation, because the prediction
+              is made before the data is consulted.
+          - >-
+              Why only one candidate survives. Several will account for part of the panel,
+              deliberately so, and a partial fit is exactly what a confident wrong answer
+              feels like from the inside. When two remain, look for the reading on which
+              their predictions differ and let it decide. If no reading separates them you
+              have not finished reading the panel.
+        takesAsRead:
+          - "Stoichiometry as a feed rate: turning a production target into kilograms in"
         assumes:
           - a refrigerator that has reached its set point is doing its job
           - water freezes at a far higher temperature than methane condenses at
@@ -772,30 +1038,94 @@ missions:
       - group: EQUIL
         task: Separate the thermodynamic temperature effect from the flow change in the hot run.
         title: Why the hotter pass gave less
+        concept: The equilibrium constant, and that temperature is what moves it
         place: Reactor Hall
         scene: The hot run’s assay is on Herrera’s desk. Conversion per pass fell from 71% to 64% while throughput rose. He wants the reason written down before anyone argues for another temperature increase.
+        guide: >-
+          The assay gives the outlet partial pressures, so the reaction quotient can be
+          computed rather than argued about. Build Q from the four partial pressures, each
+          raised to its own coefficient, and then compare it with the equilibrium constant at
+          each of the two temperatures. Two of the tiles are the same pressures without their
+          exponents applied.
+        background:
+          - >-
+              What Q is, and what it is not. Q has the same form as K and is evaluated wherever
+              the mixture happens to be, so it is a description of the present rather than a
+              constant. Comparing the two says which way the reaction still has to go, and
+              nothing about how fast it will get there.
+          - >-
+              Why the exponents are not decoration. Every partial pressure enters raised to its
+              coefficient in the balanced equation, and hydrogen's is four. Leaving it out
+              changes Q by two orders of magnitude here, which is the difference between a
+              mixture that is past its ceiling and one that is nowhere near it.
+          - >-
+              Why the hot run had two things wrong with it. Temperature moved the ceiling and
+              throughput moved the residence time, and the assay alone cannot separate them.
+              What it can settle is the ceiling: K at the hotter temperature is smaller, and the
+              outlet mixture is already above it.
         assumes:
           - the equilibrium constant is fixed at a given temperature
           - the Sabatier reaction gives out heat
         takeaway: Heating an exothermic reaction lowers its equilibrium product yield, while the observed reactor conversion can also depend on kinetics and residence time.
-        format: CHOICE
-        question: What happened to the equilibrium methane ceiling when temperature rose, even though the observed conversion may also reflect shorter residence time?
-        why: "The hot run changed two things at once: temperature rose and throughput increased. Those changes should not be collapsed into one explanation. Thermodynamically, the higher temperature lowers the equilibrium constant for this exothermic reaction and therefore lowers the methane ceiling. Kinetically, the hotter catalyst reacts faster, while the higher flow shortens residence time. The observed 64% conversion can contain both effects. A later controlled flow test can separate them by changing residence time while holding temperature and pressure fixed."
-        choices:
-          - The equilibrium methane ceiling is lower at the higher temperature, even though the rate constant is larger.
-          - The equilibrium ceiling is higher because hotter molecules collide more often and reach products more easily.
-          - Temperature leaves equilibrium unchanged; only the shorter residence time can lower conversion.
-          - The catalyst changes the equilibrium constant when it becomes hotter, so the balance follows catalyst activity.
-        answer: The equilibrium methane ceiling is lower at the higher temperature, even though the rate constant is larger.
-        rebuttals:
-          - Collision frequency and activation energy affect rate, not the direction in which an exothermic equilibrium shifts with temperature.
-          - Residence time can affect the measured conversion, but the equilibrium constant also changes with temperature.
-          - A catalyst changes how fast equilibrium is reached and does not set the equilibrium constant.
+        format: BALLPARK
+        question: Compute the reaction quotient at the hot run's outlet, and say which way that mixture still has to go.
+        answerText: Q ≈ 283. K is 190 at the hot temperature and about 1,050 at the cooler one, so the outlet is past the hot ceiling and would run backwards there, while the same mixture is well short of the cooler ceiling.
+        why: "The Sabatier reaction is CO₂ + 4H₂ → CH₄ + 2H₂O, so Q = p(CH₄) × p(H₂O)² ÷ (p(CO₂) × p(H₂)⁴). At the hot outlet that is 0.42 × 0.7056 ÷ (0.10 × 0.0105) ≈ 283. K is 190 at 573 K and about 1,050 at 533 K, because the reaction gives out heat and heating an exothermic equilibrium lowers its constant. So the same outlet mixture is above the ceiling at the hot setting — Q exceeds K, and the reactor would run backwards to reach balance — and comfortably below it at the cooler setting. That settles the thermodynamic half of Herrera's question without settling the kinetic half: the higher throughput also shortened residence time, and only a flow test at fixed temperature and pressure separates those two."
+        estimate:
+          prompt: "Outlet partial pressures from the hot-run assay, in bar: methane 0.42, water vapour 0.84, carbon dioxide 0.10, hydrogen 0.32. The balanced reaction is CO₂ + 4H₂ → CH₄ + 2H₂O."
+          question: Choose the methane pressure, the squared water pressure, the carbon dioxide pressure and the fourth power of the hydrogen pressure.
+          labels:
+            - 0.42  (p(CH₄), methane at the outlet)
+            - 0.7056  (p(H₂O)², water vapour squared)
+            - 0.10  (p(CO₂), carbon dioxide at the outlet)
+            - 0.0105  (p(H₂)⁴, hydrogen to the fourth)
+            - 0.84  (p(H₂O), water vapour with no exponent applied)
+            - 0.32  (p(H₂), hydrogen with no exponent applied)
+          values: [0.42, 0.7056, 0.10, 0.0105, 0.84, 0.32]
+          slots: 4
+          template: '{0} × {1} ÷ ({2} × {3})'
+          formula: a*b/(c*d)
+          correct: [0, 1, 2, 3]
+          target: 283
+          tolerance: 25
+          units: bar⁻²
+          solution: 0.42 × 0.7056 ÷ (0.10 × 0.0105) ≈ 283, against K = 190 hot and about 1,050 cool.
+          explanation: Q compared with K says which way the mixture has to go — past the ceiling at the hot setting, short of it at the cool one.
+          givens:
+            - outlet partial pressures 0.42, 0.84, 0.10 and 0.32 bar
+            - K = 190 at 573 K and about 1,050 at 533 K
+          relationship: The reaction quotient Q = p(CH₄) × p(H₂O)² ÷ (p(CO₂) × p(H₂)⁴), compared with the equilibrium constant K, gives the direction the reaction still has to run.
       - group: SOIL
         task: Order the steps the water plant runs in.
         title: Getting water out of frozen ground
         place: Water Plant
         scene: Femi Abiola, the regolith and water lead, has the plant’s four steps written on cards. The morning crew disagreed about where the extra water appeared. He wants the cards restored to process order.
+        guide: >-
+          All four steps will happen, so ask what each one needs from the step above it.
+          Ice that melts in the bucket runs into the ground. Vapour released outside a
+          sealed vessel goes into an atmosphere at six millibars. And an ion-exchange
+          bed can only be fed liquid water. Out of order, each step has nothing to work
+          on.
+        background:
+          - >-
+              Why the order is graded whole. A sequence is a claim about dependency: each
+              step is here because the one before it has already happened, or has to have.
+              One transposed pair falsifies that claim wherever it sits, so partial credit
+              would be credit for a sequence that does not work.
+          - >-
+              Why the ends are the place to start. The first and last cards are constrained
+              by having nothing before or after them, which usually makes them the two you
+              can settle from the scene alone. Pinning them collapses the remaining
+              arrangements sharply, and what is left in the middle is where the actual
+              judgement lives.
+          - >-
+              What the rail can be ordered on. Time is the usual axis, but it is not the
+              only one. An order can run on cost, on risk, or on reversibility — every
+              observation that leaves the sample as it was, before any that consumes it. On
+              those boards a chronological reading finds nothing, because none of the steps
+              has to happen at a particular hour.
+        takesAsRead:
+          - Intermolecular forces, and why they set a boiling point
         assumes:
           - warming ice-bearing soil releases water as vapour at low pressure
           - dissolved salts stay behind when water evaporates
@@ -826,9 +1156,27 @@ missions:
       - group: EQUIL
         task: Size the carbon dioxide the bed needs each sol
         title: How much gas the bed has to be fed
+        concept: "Stoichiometry as a feed rate: turning a production target into kilograms in"
         place: Reactor Hall
         scene: |-
           The plant has to average 13.8 kilograms of methane a sol from here to the window. Herrera wants the carbon dioxide that implies before the intake compressors are asked for anything.
+        guide: >-
+          Five numbers, and two of them belong to other parts of the equation: the
+          hydrogen ratio, and the water produced. Ask of each whether this carbon
+          bookkeeping needs it. One carbon atom goes from each carbon dioxide into one
+          methane. So the mole ratio is one to one and the mass ratio is not, because
+          the molar masses differ.
+        background:
+          - >-
+              Why an estimate rather than a calculation. Every quantity on this board is
+              already measured or stated, so nothing here has to be derived. What is being
+              tested is whether you can pick the quantities the relationship actually needs,
+              and whether the size of the answer looks right once they are in place.
+          - >-
+              Why the tiles carry labels. A bare number cannot be checked against the
+              relationship it is going into. Reading the label is how a unit mismatch, or a
+              quantity belonging to a different part of the problem, is caught before it is
+              placed — which is the habit this format exists to build.
         assumes:
           - one mole of carbon dioxide yields one mole of methane in this reaction
           - a molar mass converts moles to kilograms
@@ -859,8 +1207,31 @@ missions:
       - group: ELEC
         task: Close the hydrogen-equivalent charge ledger and identify the part of the current that did not become collected hydrogen.
         title: Where 8% of the charge went
+        concept: "Current efficiency: the gap between charge passed and product collected"
         place: Electrolysis Hall
         scene: The cell held 640 amps for a full sol. Faraday’s law predicts about 594 grams of hydrogen, but the separator collected only 546. Achebe has already checked the collection-line pressure and the hydrogen inventory downstream.
+        guide: >-
+          Read every stream, then count only what belongs in the charge ledger.
+          Faraday's law says 640 amps for a sol should give about 594 grams of hydrogen
+          and the separator collected 546. Achebe has already cleared the collection
+          line and the downstream inventory, so the missing 8% is a term the ledger does
+          not yet have.
+        background:
+          - >-
+              What Faraday's law is claiming. Every electron that crosses the cell makes a
+              fixed amount of hydrogen. So the predicted mass is arithmetic on the charge,
+              and it is an upper bound: it assumes every electron did the intended reaction.
+          - >-
+              Why the gap is a measurement rather than an error. Electrons that did
+              something else — a side reaction, a shuttle current, recombination inside the
+              cell — still crossed and still counted as charge. The shortfall is therefore a
+              measurement of how much of the current did useful work, which is the cell's
+              current efficiency.
+          - >-
+              Why checking the line first was right. A leak or unmeasured inventory
+              downstream would explain the gap without saying anything about the cell.
+              Ruling those out is what turns a discrepancy into evidence about the
+              electrochemistry.
         assumes:
           - Faraday’s law converts charge into a theoretical amount of product
           - current efficiency is collected product divided by theoretical product from charge
@@ -900,6 +1271,32 @@ missions:
         place: Water Plant
         scene: |-
           The holding tank's analysis is on Abiola's bench: four dissolved species, none of them water. Each one has somewhere downstream that it matters, and the plant has one polishing column between them and everything else.
+        guide: >-
+          Four dissolved species and four consequences. Pair them by asking what surface
+          or process each one reaches downstream. One binds to nickel. One deposits on
+          hot faces. One fouls mechanically. And one is already handled as a process
+          gas, which is why not every impurity is equally dangerous.
+        background:
+          - >-
+              Why this is a matching board and not four separate questions. Responses on
+              boards like this are written to be plausible for more than one situation, so
+              choosing them one at a time lets a nearly-right answer through unexamined.
+              Having to place all of them forces the comparison — not "is this reasonable
+              here", but "is it more right here than there".
+          - >-
+              How to use the one-each rule. Because the responses are a set to be
+              distributed rather than a list to be sampled, every join you make constrains
+              the rest. Settling the two you are confident of can leave the remaining pair
+              decided by elimination. Where it does not, two responses are still competing
+              for one situation, and that is exactly the distinction the stop is testing.
+          - >-
+              Why you cannot be wrong about exactly one. With every response used once,
+              three correct joins leave the fourth with only one place to go. Any error
+              therefore involves at least two joins. That is worth remembering when the last
+              pair looks forced: the fault is usually not in the join you are struggling
+              with, but in one you made early and stopped questioning.
+        takesAsRead:
+          - Intermolecular forces, and why they set a boiling point
         assumes:
           - salts dissolve into ions in water
           - an electrolysis cell and a catalyst bed both have surfaces that can be fouled
@@ -918,6 +1315,61 @@ missions:
           - Adds acidity and nothing else; the reactor is fed the same gas anyway.
         mapping: [0, 1, 2, 3]
   # ---------------------------------------------------------------- sol 295
+      - group: EQUIL
+        task: Hold the reactor while the feed varies.
+        title: Three hundred degrees, while the feed wanders
+        concept: "The equilibrium constant, and that temperature is what moves it"
+        place: Reactor Hall
+        scene: The Sabatier bed has to sit at its working temperature while the electrolysis stacks feed it. The stacks follow the array, the array follows the sun, and the bed heats itself whenever it is making methane.
+        guide: >-
+          Hold the bed at its working temperature inside the band on the panel. The band
+          narrows as the sol goes on, because the tank has to be filled at a stated rate and
+          a bed wandering by ten degrees is not making the rate anybody planned. The cooling
+          loop valve is your control.
+        background:
+          - >-
+              Why the bed heats itself. Assembling methane gives out heat, so a bed that is working
+              is a bed that is warming, and a bed that warms converts less per pass because the
+              ceiling falls with temperature. The reaction and the cooling are in a loop with each
+              other.
+          - >-
+              Why the feed will not sit still. The stacks run on array power and the array follows the
+              sun and the dust. More hydrogen arriving is more reaction, which is more heat, and it
+              arrives as a rate rather than as a step.
+        assumes:
+          - a reaction that gives out heat warms what it is running in
+        takeaway: A process that heats itself is held by whoever is watching the cooling.
+        format: HOLD
+        question: Hold the bed at its working temperature through the sol.
+        answerText: Inside the band for most of the sol, with the cooling valve set to answer each change in feed rather than nudged after the bed has already climbed.
+        why: >-
+          The Sabatier reaction gives out heat, so the bed warms whenever it is working, and a
+          warmer bed has a lower equilibrium ceiling — which is the whole reason this plant
+          cares about temperature rather than treating it as a comfort setting. Every
+          disturbance here is a rate. The stacks pushing more hydrogen do not raise the bed by
+          five degrees and stop; they raise the reaction rate, which raises the heat output,
+          which goes on raising the bed until the cooling is set to carry it away. So the valve
+          is moved to a new position and left there. The band narrows because the tank has a
+          filling schedule and the ascent vehicle has a launch window: a bed wandering ten
+          degrees either way is not making the rate the plan was built on, and by late sol
+          there is no margin left to make it up in.
+        hold:
+          quantity: Reactor bed temperature
+          unit: °C
+          control: Cooling loop valve
+          hold: 300
+          band: 0.4
+          narrowTo: 0.2
+          duration: 45
+          direction: lower
+          authority: 0.1
+          pass: 0.8
+          hint: Each change in feed keeps pushing. Set the valve to answer the feed, not the reading.
+          disturbances:
+            - { label: Stacks step up as the array clears dust, at: 4, amount: 0.03 }
+            - { label: Recycle loop returns cooler gas, at: 20, amount: -0.05 }
+            - { label: Second stack comes on line, at: 38, amount: 0.045 }
+          commit: Report the sol
   - title: The ceiling on running hotter
     objective: Put a number on how far the temperature argument can be taken.
     briefing: Sundqvist has asked for another 40 degrees, and this time the question has an arithmetic answer.
@@ -935,8 +1387,26 @@ missions:
       - group: GIBBS
         task: Work out the free-energy change at the bed's temperature
         title: The temperature the reaction stops wanting to run
+        concept: The temperature at which a spontaneous reaction stops being one
         place: Plant Control
         scene: Demir has thermodynamic data for the Sabatier reaction on the desk. The sheet lists its enthalpy and entropy changes per mole of methane. He wants ΔG evaluated at the present bed temperature.
+        guide: >-
+          Five numbers, and two of them belong elsewhere: the gas constant, and room
+          temperature. Ask of each whether this calculation needs it. The two terms
+          oppose each other, and the temperature multiplies only one of them. So the
+          balance between them shifts as the bed gets hotter, and somewhere it changes
+          sign.
+        background:
+          - >-
+              Why an estimate rather than a calculation. Every quantity on this board is
+              already measured or stated, so nothing here has to be derived. What is being
+              tested is whether you can pick the quantities the relationship actually needs,
+              and whether the size of the answer looks right once they are in place.
+          - >-
+              Why the tiles carry labels. A bare number cannot be checked against the
+              relationship it is going into. Reading the label is how a unit mismatch, or a
+              quantity belonging to a different part of the problem, is caught before it is
+              placed — which is the habit this format exists to build.
         assumes:
           - free energy combines the heat of a reaction with its entropy change
           - a negative free-energy change means the reaction can run on its own
@@ -967,11 +1437,38 @@ missions:
       - group: KINET
         task: Say what the catalyst is and is not doing
         title: What a catalyst cannot do
+        concept: What a catalyst does, and the two things it cannot do
         place: Catalyst Bay
         scene: >
           Kaur has two charges on the bench: the spent 1 from sol 288 and a fresh 1 still in its
           sealed can. Sundqvist's proposal assumes a better catalyst would raise the methane a pass
           can give.
+        guide: >-
+          Four accounts of what a better catalyst buys. Ask of each whether the catalyst
+          could deliver it. It lowers the barrier by the same amount in both directions,
+          so their ratio is untouched, and that ratio is the equilibrium constant. Nor
+          does the route change how much heat comes out. What it buys is time, which a
+          fixed number of sols makes valuable.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
         assumes:
           - a catalyst offers a reaction an easier path
           - equilibrium is where the forward and reverse rates match
@@ -1001,6 +1498,32 @@ missions:
         place: Cold End
         scene: |-
           Cho is rebuilding the cold end's written procedure after the blockage, and wants the four stages back in the order the stream meets them. 2 of the 4 exist because of what happened on sol 293.
+        guide: >-
+          All four stages exist in the plant, so the order is about what each removes
+          before the next. Ask of each what would foul the colder stage after it. Water
+          freezing in an exchanger. Carbon dioxide depositing as a solid. And
+          compression is different in kind: it raises the temperature at which
+          everything below condenses.
+        background:
+          - >-
+              Why the order is graded whole. A sequence is a claim about dependency: each
+              step is here because the one before it has already happened, or has to have.
+              One transposed pair falsifies that claim wherever it sits, so partial credit
+              would be credit for a sequence that does not work.
+          - >-
+              Why the ends are the place to start. The first and last cards are constrained
+              by having nothing before or after them, which usually makes them the two you
+              can settle from the scene alone. Pinning them collapses the remaining
+              arrangements sharply, and what is left in the middle is where the actual
+              judgement lives.
+          - >-
+              What the rail can be ordered on. Time is the usual axis, but it is not the
+              only one. An order can run on cost, on risk, or on reversibility — every
+              observation that leaves the sample as it was, before any that consumes it. On
+              those boards a chronological reading finds nothing, because none of the steps
+              has to happen at a particular hour.
+        takesAsRead:
+          - Vapour pressure, and reading a cryogenic tank by it
         assumes:
           - a substance condenses at a temperature that rises with pressure
           - carbon dioxide turns to solid near 195 K at these pressures
@@ -1036,6 +1559,23 @@ missions:
         place: Water Plant
         scene: |-
           The holding tank sat at minus 40 overnight and drained as a liquid this morning. Abiola has the analysis: magnesium perchlorate, and a great deal of it. He wants the freezing point that concentration implies.
+        guide: >-
+          Five numbers, and two of them belong to other questions: the boiling-point
+          constant, and a molar mass. Ask of each whether this shift depends on it. What
+          matters is how many particles a formula unit releases, not how heavy it is.
+          And note the limit: at eight molal the ideal answer is a magnitude rather than
+          a value.
+        background:
+          - >-
+              Why an estimate rather than a calculation. Every quantity on this board is
+              already measured or stated, so nothing here has to be derived. What is being
+              tested is whether you can pick the quantities the relationship actually needs,
+              and whether the size of the answer looks right once they are in place.
+          - >-
+              Why the tiles carry labels. A bare number cannot be checked against the
+              relationship it is going into. Reading the label is how a unit mismatch, or a
+              quantity belonging to a different part of the problem, is caught before it is
+              placed — which is the habit this format exists to build.
         assumes:
           - a dissolved salt separates into ions in water
           - the freezing point of pure water is 273 K
@@ -1069,6 +1609,32 @@ missions:
         place: Electrolysis Hall
         scene: |-
           The water stack needs 1.23 volts a cell in principle and Achebe runs it at 1.75. The difference is half a kilowatt across the stack, and Demir wants to know whether that energy ends up in the hydrogen.
+        guide: >-
+          Four accounts of where the extra half-volt goes. Ask of each whether it
+          changes the product or the cost. The minimum voltage pays for the free-energy
+          change. Anything above it is the price of driving current through real
+          electrodes. Hydrogen made at 1.75 volts is the same hydrogen, and the
+          difference has to end up somewhere.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
         assumes:
           - a cell has a minimum voltage set by the thermodynamics of the reaction
           - electrical power is current times voltage
@@ -1091,6 +1657,23 @@ missions:
         title: Compute which way it runs
         place: Reactor Hall
         scene: Herrera freezes the 09:40 gas-analyser screen before the loop has settled. 4 partial pressures sit beside the equilibrium constant for 593 K. He wants the direction called before anyone changes a valve.
+        guide: >-
+          Six numbers, and two of them are not partial pressures: the total loop
+          pressure, and the constant the answer is compared against. Ask of each whether
+          the quotient uses it. The expression is the same shape as the constant,
+          applied to the mixture that exists now. And note what the comparison gives: a
+          direction, not a speed.
+        background:
+          - >-
+              Why an estimate rather than a calculation. Every quantity on this board is
+              already measured or stated, so nothing here has to be derived. What is being
+              tested is whether you can pick the quantities the relationship actually needs,
+              and whether the size of the answer looks right once they are in place.
+          - >-
+              Why the tiles carry labels. A bare number cannot be checked against the
+              relationship it is going into. Reading the label is how a unit mismatch, or a
+              quantity belonging to a different part of the problem, is caught before it is
+              placed — which is the habit this format exists to build.
         assumes:
           - for CO₂ + 4H₂ ⇌ CH₄ + 2H₂O, Qp = PCH₄(PH₂O)² / [PCO₂(PH₂)⁴]
           - Kp is 0.14 at this bed temperature
@@ -1157,6 +1740,24 @@ missions:
         place: Cold End
         scene: |-
           Moreau's log shows the oxygen tank losing liquid on sols when nothing is drawn from it. The tank's insulation lets about 30 watts through, and she wants that expressed in kilograms rather than in watts.
+        guide: >-
+          Five numbers, and two belong to other questions: the boiling point, and the
+          molar mass. Ask of each whether this loss depends on it. A liquid sitting at
+          its boiling point spends incoming heat on vaporising rather than warming.
+          Thirty watts sounds small and acts every second of the sol.
+        background:
+          - >-
+              Why an estimate rather than a calculation. Every quantity on this board is
+              already measured or stated, so nothing here has to be derived. What is being
+              tested is whether you can pick the quantities the relationship actually needs,
+              and whether the size of the answer looks right once they are in place.
+          - >-
+              Why the tiles carry labels. A bare number cannot be checked against the
+              relationship it is going into. Reading the label is how a unit mismatch, or a
+              quantity belonging to a different part of the problem, is caught before it is
+              placed — which is the habit this format exists to build.
+        takesAsRead:
+          - Vapour pressure, and reading a cryogenic tank by it
         assumes:
           - a boiling liquid takes in heat without rising in temperature
           - a sol is about 88,800 seconds long
@@ -1189,6 +1790,34 @@ missions:
         title: The reaction that likes being hot
         place: Plant Control
         scene: Dana Stern, the analytical chemist, has carbon monoxide rising in the assay each time the reactor set point is raised. Methane falls by almost the same carbon amount. Kaur has the two candidate reactions on the board and wants the temperature effect explained.
+        guide: >-
+          Four accounts of why the hotter bed makes more carbon monoxide. Ask of each
+          whether it treats the two reactions separately. One releases heat and one
+          takes it in, so their constants move in opposite directions when the bed is
+          warmed. Both may also get faster. What changes is not only conversion but how
+          the carbon is divided.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
+        takesAsRead:
+          - Rate constants, and how steeply they climb with temperature
         assumes:
           - free energy combines an enthalpy term with a temperature times an entropy term
           - a reaction that takes in heat has a positive enthalpy change
@@ -1214,6 +1843,32 @@ missions:
           Nine sols of profiles are pinned along the wall in order. The hot spot starts 4
           centimetres into the bed on the first and sits at 34 on the last, with about the
           same peak temperature on every 1.
+        guide: >-
+          Five readings, and the unchanged ones do the work. The peak temperature is the
+          same, so wherever the reaction happens it is going as hard as ever. Pressure
+          drop is unchanged, which rules out packing and fouling. The feed is unchanged.
+          Ask of each candidate how many of the five it fits, and note which end of a
+          bed sees the strongest feed.
+        background:
+          - >-
+              Why the unremarkable readings decide it. The salient reading is what draws
+              attention, and it is usually consistent with several explanations at once,
+              which is why it rarely settles anything. The readings that discriminate are
+              the ones a candidate predicts should have moved and which have not: a normal
+              value is a positive result against every mechanism that would have disturbed
+              it.
+          - >-
+              How to work the candidates. Take each mechanism and predict the panel it
+              implies before you look at the panel again — which readings it drives, in
+              which direction, and by roughly how much. Then compare. Working that way round
+              is what separates a diagnosis from a rationalisation, because the prediction
+              is made before the data is consulted.
+          - >-
+              Why only one candidate survives. Several will account for part of the panel,
+              deliberately so, and a partial fit is exactly what a confident wrong answer
+              feels like from the inside. When two remain, look for the reading on which
+              their predictions differ and let it decide. If no reading separates them you
+              have not finished reading the panel.
         assumes:
           - a reaction gives out its heat where it is happening
           - a bed can lose activity in one part and keep it in another
@@ -1262,6 +1917,25 @@ missions:
         place: Electrolysis Hall
         scene: |-
           1 cell in the water stack carried 640 amps for the whole sol. Achebe wants the hydrogen that represents, worked out from the charge rather than from what the collection line reported.
+        guide: >-
+          Five numbers, and one of them is the cell voltage, which belongs to the energy
+          bill rather than to the amount. Ask of each whether this mass depends on it.
+          Charge divided by the charge per mole gives moles. And note what the answer
+        takesAsRead:
+          - "Stoichiometry as a feed rate: turning a production target into kilograms in"
+          assumes: every electron doing the intended job, which is why the real figure
+          is lower.
+        background:
+          - >-
+              Why an estimate rather than a calculation. Every quantity on this board is
+              already measured or stated, so nothing here has to be derived. What is being
+              tested is whether you can pick the quantities the relationship actually needs,
+              and whether the size of the answer looks right once they are in place.
+          - >-
+              Why the tiles carry labels. A bare number cannot be checked against the
+              relationship it is going into. Reading the label is how a unit mismatch, or a
+              quantity belonging to a different part of the problem, is caught before it is
+              placed — which is the habit this format exists to build.
         assumes:
           - 1 mole of electrons carries 96,485 coulombs
           - splitting water to hydrogen takes two electrons per molecule
@@ -1294,6 +1968,33 @@ missions:
         title: Four lines off the assay bench
         place: Reactor Hall
         scene: Stern's assay of the product stream has four lines on it. Herrera wants each one matched to what it implies about the loop before anybody argues about a set point again.
+        guide: >-
+          Four assay lines and four meanings. Pair them by asking which part of the
+          plant each line reports on. The headline figure is the least informative. One
+          line is evidence of a second reaction on the same bed. One is the recycle
+          working as designed. And one is a maintenance item that becomes an emergency
+          two hundred metres downstream.
+        background:
+          - >-
+              Why this is a matching board and not four separate questions. Responses on
+              boards like this are written to be plausible for more than one situation, so
+              choosing them one at a time lets a nearly-right answer through unexamined.
+              Having to place all of them forces the comparison — not "is this reasonable
+              here", but "is it more right here than there".
+          - >-
+              How to use the one-each rule. Because the responses are a set to be
+              distributed rather than a list to be sampled, every join you make constrains
+              the rest. Settling the two you are confident of can leave the remaining pair
+              decided by elimination. Where it does not, two responses are still competing
+              for one situation, and that is exactly the distinction the stop is testing.
+          - >-
+              Why you cannot be wrong about exactly one. With every response used once,
+              three correct joins leave the fourth with only one place to go. Any error
+              therefore involves at least two joins. That is worth remembering when the last
+              pair looks forced: the fault is usually not in the join you are struggling
+              with, but in one you made early and stopped questioning.
+        takesAsRead:
+          - "Stoichiometry as a feed rate: turning a production target into kilograms in"
         assumes:
           - the loop returns unreacted gas to the reactor inlet
           - the product stream is dried before it is cooled
@@ -1317,6 +2018,35 @@ missions:
         place: Water Plant
         scene: |-
           The polishing column is a packed bed of ion-exchange resin with a fixed number of sites in it. Abiola has been asked how the plant would know the column was full, and he says the honest answer is that it would not.
+        guide: >-
+          Four accounts of what the outlet does. Ask of each whether it fits a bed with
+          a finite number of sites. The sites fill from the inlet end, so a front moves
+          through the resin. Two of these options have the outlet degrading or improving
+          gradually, which is not what a moving front produces. And the outlet is the
+          only place the warning appears.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
+        takesAsRead:
+          - Rate constants, and how steeply they climb with temperature
+          - "Stoichiometry as a feed rate: turning a production target into kilograms in"
         assumes:
           - an ion-exchange bed swaps unwanted ions for harmless ones
           - a packed bed holds a finite number of ions
@@ -1355,6 +2085,32 @@ missions:
         title: One line off the spent charge
         place: Catalyst Bay
         scene: "The spent charge was assayed in three sections: the first 20 millimetres, the middle, and the outlet end. Kaur has the five findings on the board and is no longer sure of her own explanation."
+        guide: >-
+          Four explanations for a dead front section. Ask of each what the material
+          evidence would look like. Heat-driven coarsening changes particle size, and
+          the particles match fresh material. Heavy coking leaves carbon, and only
+          traces are there. A faulty charge would be weak throughout, and the outlet
+          still works. So the pattern is something arriving with the feed.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
         assumes:
           - a catalyst can lose activity by heat or by a substance binding to it
           - heat makes small metal particles merge into larger ones
@@ -1400,6 +2156,34 @@ missions:
         place: Water Plant
         scene: |-
           The conductivity of the water leaving the polishing column is logged every sol. The trace runs flat for 260 sols, steps up over about 4, and runs flat and high from there to this morning.
+        guide: >-
+          Four readings of one trace, and the shape carries the history. Ask of each
+          what the inlet record would have to show. A saltier feed would appear there,
+          and it is flat. A sensor reset would give a step rather than a rise. What a
+          filling bed produces is low, then rising toward the inlet value, then staying
+          high.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
+        takesAsRead:
+          - "Stoichiometry as a feed rate: turning a production target into kilograms in"
         assumes:
           - conductivity rises with the ions dissolved in water
           - an exchange bed holds a fixed number of ions
@@ -1422,6 +2206,33 @@ missions:
         title: Change the time, not the ceiling
         place: Reactor Hall
         scene: Herrera and Sundqvist have argued for a fortnight about whether the hot reactor is at equilibrium or simply short of reaction time. Stern gives them one controlled run before the production schedule resumes.
+        guide: >-
+          The number you are watching is conversion — how much of the gas that went in
+          came out as product. Three settings can be changed, and only one of them
+          separates the two explanations on the table: too little time in the reactor,
+          or a ceiling set by the equilibrium itself. A response counts only if it beats
+          the assay's own scatter. Change one, run it, restore it, and name the setting
+          conversion follows.
+        background:
+          - >-
+              What the argument is about. A reaction that has not finished and a reaction
+              that has reached its limit both give conversion below the ideal, and they read
+              the same on a single measurement. The difference is what they respond to: more
+              time helps the first and does nothing for the second.
+          - >-
+              What each setting does. Gas flow sets how long the gas spends over the bed, so
+              it changes the time available without changing what the reaction is allowed to
+              reach. Temperature and pressure both move the equilibrium ceiling itself. That
+              is why one of the three answers this question and the others answer a
+              different one.
+          - >-
+              Why the reversal matters on a plant. A bed that is ageing, a heater drifting,
+              a feed composition changing — all of them move conversion slowly while you
+              work. Putting the setting back and watching conversion return is how you tell
+              your own change from the plant's own drift.
+        takesAsRead:
+          - Rate constants, and how steeply they climb with temperature
+          - "Stoichiometry as a feed rate: turning a production target into kilograms in"
         assumes:
           - equilibrium is a ceiling that depends on temperature and pressure
           - conversion also depends on how long the gas spends in the bed
@@ -1464,9 +2275,34 @@ missions:
       - group: KINET
         task: Order the four operations for bringing the charge into service.
         title: Bringing a charge into service
+        concept: What a catalyst does, and the two things it cannot do
         place: Catalyst Bay
         scene: |-
           The fresh charge arrives as nickel oxide on alumina, which is not a catalyst yet. Kaur has four operations written out and wants them in an order she can hand to a technician at three in the morning.
+        guide: >-
+          All four operations will happen, so ask what each one makes possible or safe.
+          Hot hydrogen entering a reactor with oxygen still in it is the reason one step
+          comes first. The oxide has to become metal before anything is active. And a
+          low-flow check happens before production feed is committed to an unknown
+          charge.
+        background:
+          - >-
+              Why the order is graded whole. A sequence is a claim about dependency: each
+              step is here because the one before it has already happened, or has to have.
+              One transposed pair falsifies that claim wherever it sits, so partial credit
+              would be credit for a sequence that does not work.
+          - >-
+              Why the ends are the place to start. The first and last cards are constrained
+              by having nothing before or after them, which usually makes them the two you
+              can settle from the scene alone. Pinning them collapses the remaining
+              arrangements sharply, and what is left in the middle is where the actual
+              judgement lives.
+          - >-
+              What the rail can be ordered on. Time is the usual axis, but it is not the
+              only one. An order can run on cost, on risk, or on reversibility — every
+              observation that leaves the sample as it was, before any that consumes it. On
+              those boards a chronological reading finds nothing, because none of the steps
+              has to happen at a particular hour.
         assumes:
           - nickel oxide has to be reduced to nickel metal before it is active
           - hydrogen at temperature will reduce a metal oxide
@@ -1484,6 +2320,41 @@ missions:
         title: One improvement, four candidates
         place: Electrolysis Hall
         scene: The station has parts and crew time for one improvement. One catalyst charge is already lost, and there is no spare after the new one. Achebe puts four candidates on the board before anyone starts cutting pipe.
+        guide: >-
+          The plant ran 38 sols on water no column was polishing, and lost a catalyst
+          charge to it. Conductivity was logged on every one of those sols and read by
+          nobody. The array has not been the limit on any sol this season. There are
+          already four probes in the catalyst bed. A second column in series lets the
+          lead bed be changed at breakthrough, and needs pipe and a shutdown to fit. One
+          catalyst charge is left, and there is no spare after it.
+        rules: >-
+          Spread the hundred points across the 4 proposals. At least 80 of them have to
+          be committed, because a panel that funds almost nothing has not decided
+          anything. Your largest single allocation must be 35 or more, and it has to
+          land on what the evidence supports most. Keep the total sitting on proposals
+          the evidence does not support under fifteen. And a proposal it does support
+          should not be left under twenty.
+        background:
+          - >-
+              Why the whole spread is graded. Funding is not a vote for one idea. A
+              portfolio says what you think is likely, what is worth hedging against, and
+              what is not worth pursuing at all — and the last two are where most of the
+              information is. Backing the right proposal while quietly funding a bad one is
+              a worse answer than it looks. That is why the small numbers count as much as
+              the big one.
+          - >-
+              What the three numbers are for. Thirty-five is what makes a lead a lead: below
+              it you have hedged rather than chosen. Fifteen is the most that can sit on
+              unsupported work before it stops being a rounding error. Past that it is a
+              second opinion nobody argued for. Twenty is the floor under a line of work you
+              have already called strong, because funding it too thin to finish spends the
+              money and buys nothing.
+          - >-
+              Why there is a floor on the total. Points held back are not caution; they are
+              a decision not to decide, taken with somebody else's money and somebody else's
+              deadline. The floor is what forces the panel to say something.
+        takesAsRead:
+          - "Stoichiometry as a feed rate: turning a production target into kilograms in"
         assumes:
           - the polishing column gives no warning as it fills
           - the plant has no spare catalyst charge after this one
@@ -1503,16 +2374,38 @@ missions:
         recommended:
           A: 45
           B: 35
-        evidence: |-
-          The plant ran for 38 sols on water no column was polishing, and lost a catalyst
-          charge to it. The conductivity was logged the whole time and read by nobody. The array has
-          not been the limit on any sol this season, and there are four probes in the bed already.
       - group: PHASE
         task: Decide whether a rising pressure is a leak
         title: The tank pressure that is not a leak
         place: Cold End
         scene: |-
           The methane tank has climbed about 0.3 bar a sol for 4 sols. The mass in the tank is unchanged across the same four sols, and Moreau is being asked whether to vent it.
+        guide: >-
+          Four readings of rising pressure at constant mass. Ask of each whether the
+          inventory supports it. A leak or sustained venting takes mass out, and four
+          sols show none gone. A tank holding liquid and vapour sits near the vapour
+          pressure set by its temperature, so pressure is a sensitive thermometer. The
+          response is to find the heat rather than to vent.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
         assumes:
           - a liquid in a closed tank sits under the pressure of its own vapour
           - vapour pressure rises steeply with temperature
@@ -1550,6 +2443,23 @@ missions:
         title: The bill for a kilogram of hydrogen
         place: Plant Control
         scene: Demir is closing the sol’s energy ledger. The stacks made 6.9 kg of hydrogen. He wants their electrical energy use written beside the array output before he signs the sheet.
+        guide: >-
+          Five numbers, and two of them are traps. One is the energy stored in a
+          kilogram of hydrogen, which is not what the stack spent. One is the cell
+          voltage. Ask of each what the bill depends on. Real cells run above the
+          reversible voltage, and the difference becomes heat. Using the stored figure
+          understates the electricity badly.
+        background:
+          - >-
+              Why an estimate rather than a calculation. Every quantity on this board is
+              already measured or stated, so nothing here has to be derived. What is being
+              tested is whether you can pick the quantities the relationship actually needs,
+              and whether the size of the answer looks right once they are in place.
+          - >-
+              Why the tiles carry labels. A bare number cannot be checked against the
+              relationship it is going into. Reading the label is how a unit mismatch, or a
+              quantity belonging to a different part of the problem, is caught before it is
+              placed — which is the habit this format exists to build.
         assumes:
           - electrical energy can be counted in kilowatt-hours
           - a stack costs more energy per kilogram than the hydrogen itself carries
@@ -1583,6 +2493,32 @@ missions:
         place: Cold End
         scene: |-
           Bhatt's loading procedure stops the methane tank at 95% by volume. Moreau has been asked why the remaining 5% is not simply more propellant, with the window as close as it is.
+        guide: >-
+          Four reasons to leave a gas space. Ask of each whether it is about the liquid
+          or about the vapour. Heat keeps entering, so vapour keeps forming, and it
+          needs somewhere to go before the relief setting is reached. Fill the tank and
+          a small heat input becomes a venting event before the vehicle has used any
+          fuel.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
         assumes:
           - a liquid at its boiling point turns to vapour when heat reaches it
           - a closed vessel has a pressure it is rated to
@@ -1605,6 +2541,28 @@ missions:
         title: Close the carbon pass
         place: Reactor Hall
         scene: "Herrera pins one pass of the carbon assay to the board: 100 moles of carbon dioxide entered. Methane and carbon monoxide are measured at the outlet, and the recycle meter records the unreacted return stream."
+        guide: >-
+          Read every stream, then count only the carbon that belongs in this pass's
+          ledger. A hundred moles went in; methane and carbon monoxide are measured at
+          the outlet and the recycle meter records what came back unreacted. Whatever
+          the counted streams do not account for is missing, and where it went decides
+          what repeated recycle can achieve.
+        background:
+          - >-
+              Why one pass is not the yield. A single pass through the reactor converts part
+              of the feed. The rest returns and goes round again, so the overall yield after
+              many passes can be far higher than the single-pass conversion — as long as
+              nothing is lost on each circuit.
+          - >-
+              What counting a stream claims. Reading is free. Counting says this carbon
+              belongs to the same hundred moles that went in. Carbon monoxide and methane
+              are both products; unreacted feed is not a product but is still carbon that
+              must appear somewhere.
+          - >-
+              Why a gap changes the plan. Carbon that leaves the loop each pass — deposited
+              on the catalyst, vented, or dissolved — is carbon the recycle can never
+              recover. A small per-pass loss compounds into a hard ceiling on overall yield,
+              which is the number the ascent vehicle's schedule depends on.
         assumes:
           - the recycle loop returns unreacted gas to the inlet
           - every carbon atom entering the bed leaves it in something
@@ -1659,6 +2617,25 @@ missions:
         place: Electrolysis Hall
         scene: |-
           Petrov has the optical depth from the station's own sun sensor: 2.4, against 0.4 on a clear sol. Above the dust the beam would deliver 490 watts to each square metre of panel.
+        guide: >-
+          Five numbers, and three of them belong to the array rather than to the beam:
+          the efficiency, the area, and the clear-sol depth. Ask of each whether this
+          transmission needs it. Each unit of depth divides the beam again, so the
+          effect is multiplicative rather than subtractive. And note the limit: this is
+          the direct beam, not the array's output.
+        background:
+          - >-
+              Why an estimate rather than a calculation. Every quantity on this board is
+              already measured or stated, so nothing here has to be derived. What is being
+              tested is whether you can pick the quantities the relationship actually needs,
+              and whether the size of the answer looks right once they are in place.
+          - >-
+              Why the tiles carry labels. A bare number cannot be checked against the
+              relationship it is going into. Reading the label is how a unit mismatch, or a
+              quantity belonging to a different part of the problem, is caught before it is
+              placed — which is the habit this format exists to build.
+        takesAsRead:
+          - "Stoichiometry as a feed rate: turning a production target into kilograms in"
         assumes:
           - each unit of optical depth cuts a beam by a further factor
           - a beam is attenuated as an exponential of the depth it passes through
@@ -1691,6 +2668,28 @@ missions:
         title: What the station stops doing
         place: Plant Control
         scene: The dust storm has cut the sol from about 2,000 kilowatt-hours to 430. Tank refrigeration is already drawing power, and six other demands are queued. Demir and Wells want the sacrifices written down before breakers are opened.
+        guide: >-
+          Four hundred and thirty kilowatt-hours for the whole sol, against about two
+          thousand on a clear one. Watch the answers list rather than the equipment: it
+          shows what the station can still say at the end of the sol under your plan.
+          Tank refrigeration is already drawing, so the sacrifices have to come from the
+          six demands queued behind it.
+        background:
+          - >-
+              Why refrigeration is not negotiable first. Liquid oxygen already made is
+              stored energy the station cannot remake cheaply. Letting it boil off spends
+              propellant that took sols of power to produce, so cutting refrigeration to
+              save power usually loses more power than it saves.
+          - >-
+              What the answers list is for. Each demand buys the ability to make a
+              particular claim at the end of the sol — that the tank is full, that the assay
+              is current, that the soil work is on schedule. A plan is a choice of which
+              claims survive the storm.
+          - >-
+              Why writing the sacrifices down matters. Breakers opened without a record
+              become an argument afterwards about what was agreed. Demir and Wells are
+              asking for the list because the storm will last longer than anybody's memory
+              of the reasoning.
         assumes:
           - stopping a process can be reversible or costly to reverse
           - a cryogenic tank warms up when its refrigerator stops
@@ -1750,8 +2749,35 @@ missions:
       - group: SOIL
         task: Decide what the water plant does with no drill
         title: Running the plant with no digging
+        concept: Per-pass conversion against overall conversion, and what a recycle loop buys
         place: Water Plant
         scene: The drill is off and the hopper is empty. The holding tank still contains 1,100 litres, while the reactor draws about 60 litres per sol. Abiola is asked whether the whole water plant must stop.
+        guide: >-
+          Four candidates for what keeps the reactor running. Ask of each whether it
+          stores water or makes it. Eleven hundred litres at sixty a sol is about
+          eighteen sols, which is longer than the storms recorded here. And the reaction
+          itself produces water that the plant condenses and returns. Buffers between
+          steps are what make a plant survive a stopped machine.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
         assumes:
           - the reactor's water demand is met from a holding tank rather than from the drill directly
           - the Sabatier reaction makes water as well as methane
@@ -1787,8 +2813,30 @@ missions:
       - group: PHASE
         task: Build the refrigerator heat path in order and identify the transfer that dust has made limiting.
         title: Follow the heat to the sky
+        concept: "Boil-off: heat into a boiling liquid is a mass, not a temperature"
         place: Cold End
         scene: Oxygen boil-off has jumped from 12 to 26 kilograms a sol since the storm. Moreau opens the refrigeration schematic beside the tank. Jacket pressure is normal, while the compressor is already at its current limit.
+        guide: >-
+          Put the stages in the order the heat actually travels, from the liquid oxygen
+          out to its final sink. Then name the required transfer that is now governing
+          the loss. Jacket pressure is normal and the compressor is already at its
+          limit, so read those as evidence about which link is and is not the problem.
+        background:
+          - >-
+              Why boil-off is a heat measurement. Liquid oxygen sits at its boiling point,
+              so every joule that reaches it turns some into gas. Twelve kilograms a sol
+              becoming twenty-six means heat is arriving roughly twice as fast, and the tank
+              itself has not changed.
+          - >-
+              What a compressor at its limit means. The refrigeration chain can only reject
+              as much heat as its weakest stage carries. A compressor already at maximum is
+              not the cause of extra heat arriving; it is the reason none of the extra can
+              be removed.
+          - >-
+              What the storm changed. Dust reduces the radiator's ability to reject heat to
+              the sky and coats surfaces that were reflecting sunlight. Both push more heat
+              into the same chain, which is why the governing link can move without any
+              component failing.
         assumes:
           - a refrigerator has to reject its heat somewhere
           - dust settles on any surface left out in a storm
@@ -1804,20 +2852,19 @@ missions:
             - id: compressor
               label: Compressor work on refrigerant
               transfers: raises refrigerant pressure and temperature so heat can be rejected
+              reading: at current limit
             - id: condenser
               label: Hot refrigerant → radiator plate
               transfers: moves heat out of the refrigerant
             - id: radiator_sky
               label: Radiator plate → cold sky
               transfers: radiates the heat away from the station
+              reading: dust-covered after the storm
             - id: vacuum_jacket
               label: Outside structure → tank through insulation
               transfers: parasitic heat leak into the tank
+              reading: pressure normal
           distractor: compressor
-          evidence:
-            vacuum_jacket: pressure normal
-            compressor: at current limit
-            radiator: dust-covered after storm
           order:
             - evaporator
             - compressor
@@ -1832,6 +2879,34 @@ missions:
         place: Catalyst Bay
         scene: |-
           Kaur wants the new charge compared against the sol-270 run before it is trusted with the rest of the season. The plant is at a different temperature, flow and pressure than it was on sol 270.
+        guide: >-
+          Four conditions for a fair comparison. Ask of each whether it removes the
+          alternative explanations or adds one. Temperature, pressure and flow are
+          settings; the catalyst is the thing being compared. Running each at its own
+          best condition answers a different question and gives two numbers that cannot
+          be subtracted.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
+        takesAsRead:
+          - "Stoichiometry as a feed rate: turning a production target into kilograms in"
         assumes:
           - conversion depends on temperature, pressure, flow and the catalyst together
           - a comparison is only about the variable that was deliberately changed
@@ -1856,6 +2931,31 @@ missions:
         scene: >
           The three problems are on the board with the power to fix one of them today. Wells wants
           the order and the grounds for it in the log before anybody starts work.
+        guide: >-
+          Three jobs and four options. Ask of each whether the delay costs time or costs
+          a thing already made. Batteries recharge on the next clear sol. Information
+          waits at no cost while the bed is watched. Fourteen extra kilograms a sol is
+          propellant that has already been produced and does not come back.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
         assumes:
           - propellant vented from a tank cannot be recovered
           - a comparison run and a battery charge can both be done later
@@ -1880,6 +2980,81 @@ missions:
           - Choosing by what fits in a sol ranks by convenience and ignores what each delay is costing.
 
   # ---------------------------------------------------------------- sol 304
+      - group: GIBBS
+        task: Work the load board while the power rule changes.
+        title: What the plant is protecting now
+        concept: "An energy ledger: what a station spends and what it collects"
+        place: Plant Control
+        scene: Loads come up on the board through the sol. The station runs to one power rule, and Demir changes it as the sol does — after the dust thickens, after the tank pressure rises, after the window gets closer.
+        guide: >-
+          Keep the loads the current rule protects and let the rest drop. The rule at the top
+          of the board is changed during the sol and nobody announces it. What is scored is
+          the loads either side of a change, because they are the only ones that show whether
+          the desk is reading the rule or running yesterday's plan.
+        background:
+          - >-
+              Why the rule changes at all. On a clear sol the plant is protecting production, because
+              the tank has a schedule. In a storm it is protecting the crew and the propellant
+              already made, because neither can be remade. Close to the window it is protecting
+              anything the launch depends on, which is a third list.
+          - >-
+              Why the changeover costs. A desk running the production rule through the first hour of
+              a storm keeps the stacks alive and lets the liquefier go, and the propellant that boils
+              off is propellant that has to be made again from the beginning.
+        assumes:
+          - a station with limited power keeps some loads and drops others
+        takeaway: The cost of a withdrawn instruction is paid by whoever is still working to it.
+        format: SPOT
+        question: Protect what the current rule protects, and keep watching the rule.
+        answerText: Read the rule rather than the load list. Every change leaves a few minutes in which the old rule still looks like the right one.
+        why: >-
+          Three rules run across the sol and each protects a different part of the board.
+          Production, then anything that cannot be remade, then anything the launch window
+          depends on. A load can answer two at once, which is what makes the switch cost real
+          rather than notional, and what the panel scores is the window either side of each
+          change. Everything else on the board is protected by neither rule and is correctly
+          dropped by somebody who has read nothing. The station's own version is the first
+          hour of a dust storm: the rule has changed to protecting what cannot be remade, and a
+          desk still running the production rule keeps the stacks warm while the liquefier
+          goes off — which boils away propellant that took forty sols of array output to make.
+        spot:
+          duration: 40
+          switchEvery: 12
+          pass: 0.75
+          hint: The power rule is at the top of the board, and it changes without an announcement.
+          targets:
+            - id: l1
+              label: Electrolysis stacks
+              tags: [production]
+            - id: l2
+              label: Liquefier refrigeration
+              tags: [irreplaceable]
+            - id: l3
+              label: Habitat heat
+              tags: [irreplaceable, crew]
+            - id: l4
+              label: Reactor bed heating
+              tags: [production]
+            - id: l5
+              label: Ascent vehicle avionics
+              tags: [launch]
+            - id: l6
+              label: Tank pressurisation
+              tags: [launch, irreplaceable]
+            - id: l7
+              label: Drill and hopper
+              tags: [production]
+            - id: l8
+              label: Downlink home
+              tags: [crew]
+          rules:
+            - say: Protect production
+              want: [production]
+            - say: Protect what cannot be remade
+              want: [irreplaceable]
+            - say: Protect the launch
+              want: [launch]
+          commit: Open the board
   - title: Loading is one way
     objective: Decide whether this batch goes into the vehicle.
     briefing: The batch is made, the assay is back, and one line of it is outside the specification.
@@ -1899,6 +3074,33 @@ missions:
         title: The line that fails
         place: Reactor Hall
         scene: The loading crew is waiting at the methane umbilical. Bhatt has four assay lines beside four flight limits. Three are inside specification; one is not. Herrera wants the consequence named before the transfer valve opens.
+        guide: >-
+          Four assay lines and four consequences. Pair them by asking where each
+          substance would end up as the stream gets colder, and whether that place has
+          moving parts. A specification is not one purity score. Only one of these is
+          outside its own limit, and where it freezes is what makes it the failure
+          rather than ballast.
+        background:
+          - >-
+              Why this is a matching board and not four separate questions. Responses on
+              boards like this are written to be plausible for more than one situation, so
+              choosing them one at a time lets a nearly-right answer through unexamined.
+              Having to place all of them forces the comparison — not "is this reasonable
+              here", but "is it more right here than there".
+          - >-
+              How to use the one-each rule. Because the responses are a set to be
+              distributed rather than a list to be sampled, every join you make constrains
+              the rest. Settling the two you are confident of can leave the remaining pair
+              decided by elimination. Where it does not, two responses are still competing
+              for one situation, and that is exactly the distinction the stop is testing.
+          - >-
+              Why you cannot be wrong about exactly one. With every response used once,
+              three correct joins leave the fourth with only one place to go. Any error
+              therefore involves at least two joins. That is worth remembering when the last
+              pair looks forced: the fault is usually not in the join you are struggling
+              with, but in one you made early and stopped questioning.
+        takesAsRead:
+          - "Stoichiometry as a feed rate: turning a production target into kilograms in"
         assumes:
           - water freezes at a temperature the vehicle's valves reach in use
           - carbon monoxide does not burn to give the energy methane does
@@ -1922,6 +3124,23 @@ missions:
         place: Cold End
         scene: |-
           Bhatt wants the oxygen mass checked independently before the loading order is written. Methane burns with oxygen 2 moles to 1, and the vehicle carries 6.6 tonnes of fuel.
+        guide: >-
+          Five numbers, and two of them belong elsewhere: the methane the vehicle
+          carries, and the molar mass of carbon dioxide. Ask of each whether this ratio
+          needs it. A balanced equation gives moles and tanks are filled by mass, so the
+          molar masses do the converting. And note that an engine may deliberately run
+          away from this ratio.
+        background:
+          - >-
+              Why an estimate rather than a calculation. Every quantity on this board is
+              already measured or stated, so nothing here has to be derived. What is being
+              tested is whether you can pick the quantities the relationship actually needs,
+              and whether the size of the answer looks right once they are in place.
+          - >-
+              Why the tiles carry labels. A bare number cannot be checked against the
+              relationship it is going into. Reading the label is how a unit mismatch, or a
+              quantity belonging to a different part of the problem, is caught before it is
+              placed — which is the habit this format exists to build.
         assumes:
           - a balanced equation gives the mole ratio for a reaction
           - a molar mass converts a number of moles into a mass
@@ -1952,10 +3171,37 @@ missions:
       - group: ELEC
         task: Say whether the stacks can be pushed harder
         title: What limits the current
+        concept: "Overpotential: the voltage above the minimum, and where it goes"
         place: Electrolysis Hall
         scene: >
           Sundqvist wants the stacks run 20% above their rated current for the sols that
           remain. Achebe has the cooling loop's capacity written on the board beside the request.
+        guide: >-
+          Four candidates for the ceiling on current. Ask of each whether it actually
+          rises with current. Faraday's law puts no ceiling on it at all: more charge is
+          simply more product. What rises is the wasted voltage. Resistance and slow
+          electrode steps both cost more when the cell is driven harder, and that
+          becomes heat inside the stack.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
         assumes:
           - the product a cell makes is proportional to the charge it passes
           - the voltage above the minimum leaves the cell as heat
@@ -2000,6 +3246,39 @@ missions:
         title: What to leave running
         place: Plant Control
         scene: Only 2 improvements can be left in place for the crew arriving 300 sols from now. Wells and Demir have four candidates on the final board. The failed catalyst charge is on the floor beside them.
+        guide: >-
+          This season lost 38 sols of production to a measurement taken every sol,
+          logged every sol, and read by nobody. The bed already carries four
+          thermocouples. The array has one sun sensor, and it has never disagreed with
+          the sky. The next crew arrives 300 sols from now and will not have met anybody
+          who was here. An alarm reaches somebody without being looked for. A written
+          order tells whoever hears it what to do next.
+        rules: >-
+          Spread the hundred points across the 4 proposals. At least 80 of them have to
+          be committed, because a panel that funds almost nothing has not decided
+          anything. Your largest single allocation must be 35 or more, and it has to
+          land on what the evidence supports most. Keep the total sitting on proposals
+          the evidence does not support under fifteen. And a proposal it does support
+          should not be left under twenty.
+        background:
+          - >-
+              Why the whole spread is graded. Funding is not a vote for one idea. A
+              portfolio says what you think is likely, what is worth hedging against, and
+              what is not worth pursuing at all — and the last two are where most of the
+              information is. Backing the right proposal while quietly funding a bad one is
+              a worse answer than it looks. That is why the small numbers count as much as
+              the big one.
+          - >-
+              What the three numbers are for. Thirty-five is what makes a lead a lead: below
+              it you have hedged rather than chosen. Fifteen is the most that can sit on
+              unsupported work before it stops being a rounding error. Past that it is a
+              second opinion nobody argued for. Twenty is the floor under a line of work you
+              have already called strong, because funding it too thin to finish spends the
+              money and buys nothing.
+          - >-
+              Why there is a floor on the total. Points held back are not caution; they are
+              a decision not to decide, taken with somebody else's money and somebody else's
+              deadline. The floor is what forces the panel to say something.
         assumes:
           - the fault that cost this season went undetected because nothing measured it
           - the next crew arrives without anybody from this one
@@ -2019,37 +3298,74 @@ missions:
         recommended:
           A: 45
           B: 35
-        evidence: |-
-          This season lost 38 sols of production to a measurement that was taken every sol,
-          logged every sol, and read by nobody. The bed already carries four thermocouples and the
-          array has one sun sensor that has never disagreed with the sky.
       - group: SOIL
         task: Set the warning and column-swap thresholds, then replay the historic conductivity rise without changing them.
         title: Write the rule before the trace moves
         place: Water Plant
         scene: Abiola is writing a rule for a crew he will never meet. He loads last season’s conductivity trace into the alarm simulator. Once the replay starts, the thresholds are locked and the values run forward.
+        guide: >-
+          One rule, written before the trace moves and fixed once you release it. The changeover takes
+          one update from the moment it is called, and past 3 × baseline the feed water is outside
+          the accepted range. So the line goes back from 3 by however far the trace climbs in that
+          update — and not so far back that a clean bed is swapped out for a reading which meant
+          nothing.
+        background:
+          - >-
+              Why conductivity is the signal. It rises as the column loses capacity and lets
+              ions through, so it is an early indicator of exhaustion rather than a
+              measurement of failure. The trace moves before the water is out of
+              specification, which is what makes a rule possible at all.
+          - >-
+              Why two thresholds. A warning gives somebody time to prepare the fresh column;
+              the changeover commits the swap. One threshold doing both means the
+              preparation starts at the moment the swap should already have happened.
+          - >-
+              What writing for an absent crew changes. No judgement is available at the
+              moment it fires, so the rule has to hold for a trace nobody has seen,
+              including a fast rise. That is why the margin is set against the slowest case
+              rather than the typical one.
         assumes:
           - an exchange bed reaches breakthrough without warning
           - a lead and lag pair lets one bed be changed while the other works
         takeaway: A breakthrough threshold must be written before the rise and early enough to cover the action’s lead time.
         format: TRIGGER
-        question: Where should warning and changeover trigger so the fresh column is in service before feed water leaves the accepted range?
+        question: >-
+          At what conductivity do you move the lag column into lead service, given the changeover
+          takes one update to complete?
         trigger:
-          hint: Set both rules before release. The swap takes one update to complete. The accepted-water limit on this normalized replay is 3.0 times the clean baseline.
+          hint: >-
+            Set the rule before release. The swap takes one update to complete, and the accepted-water
+            limit on this normalised replay is 3.0 times the clean baseline.
           direction: rising
           scale:
+            label: Conductivity of the treated water
             min: 1
             max: 6
             step: 0.1
-            unit: × clean-baseline conductivity
-          limit: 3
+            unit: × clean baseline
+            anchors:
+              - { at: 1.0, means: 'the bed is clean and nothing is passing through it' }
+              - { at: 4.5, means: 'well outside specification, with the electrolyser taking whatever the bed let through' }
+          objective: >-
+            The fresh bed is in lead service before the trace crosses 3 × baseline.
+          consequenceLimit: 3
+          rehearsal:
+            note: the bed that was changed out last quarter
+            stream:
+              - { value: 1.0, hoursLeft: 8 }
+              - { value: 1.05, hoursLeft: 7 }
+              - { value: 1.2, hoursLeft: 6 }
+              - { value: 1.7, hoursLeft: 5 }
+              - { value: 2.4, hoursLeft: 4 }
+              - { value: 3.6, hoursLeft: 3 }
+              - { value: 4.8, hoursLeft: 2 }
+              - { value: 5.6, hoursLeft: 1 }
+              - { value: 5.9, hoursLeft: 0 }
           conditions:
-            - id: warn
-              label: Call the breakthrough warning
-              leadHours: 2
             - id: swap
               label: Move lag column into lead service
               leadHours: 1
+              window: { min: 1.6, max: 2 }
           stream:
             - step: 0
               value: 1
@@ -2096,13 +3412,42 @@ missions:
               hoursLeft: 0
               at: update 8
               update: 4.5 × clean-baseline conductivity
-        answerText: Warn near 1.6× clean-baseline conductivity and start the lead/lag swap at 2.0×. With one-update lead time, the fresh bed is online before the replay crosses the 3.0× limit.
+        answerText: >-
+          Swap at about 1.7 × baseline. It fires with the update the changeover needs, and the trace
+          does not reach 3 × baseline until two updates later.
         why: The outlet can remain near baseline while the exchange front is still inside the bed, then rise quickly as the front reaches the end. A threshold is useful only if the response can finish before the water leaves specification. Here changeover takes one update. Triggering at twice baseline completes the swap while the next point is still 2.6 times baseline. Waiting for 2.6 completes it after the trace has crossed the 3.0 limit. Precommitting the rule prevents the next crew from turning hindsight into policy.
       - group: KINET
         task: State what is known about the catalyst and what is not
         title: The honest claim about the bed
         place: Catalyst Bay
         scene: Kaur is writing the final catalyst handover. The bed has run for five sols at one set of conditions using water from a fresh polishing column. It is the last charge available on the station.
+        guide: >-
+          Four claims about one charge. Ask of each whether the five sols support it.
+          One set point on clean water says something narrow about that window. It says
+          nothing about other temperatures or flows. And it cannot test chloride
+          resistance, because chloride was deliberately absent after the column change.
+        background:
+          - >-
+              Why the wrong options are the interesting ones. Each distractor is written to
+              be the answer under one specific misreading — a step skipped, a quantity
+              confused with a rate, a correlation taken for a cause. Identifying which
+              misreading each belongs to is where the learning is; the right answer alone
+              can be reached on instinct and teach nothing.
+          - >-
+              Why the shape of an option tells you nothing. A correct answer collects the
+              qualifying clause and the unit. So across a whole game the key used to be the
+              longest option far more often than chance — 88 per cent of passage quizzes
+              here, before it was fixed. It is now checked per game as a binomial tail, so
+              length, hedging and specificity have had the signal taken out of them
+              deliberately.
+          - >-
+              What the verdict adds. Every wrong option carries its own rebuttal, and the
+              verdict prints them — the reason that option fails, not a restatement of the
+              right one. They are worth reading after a correct answer as well: a right
+              choice made for an approximate reason is indistinguishable from a sound one
+              until the day the approximation is what is being tested.
+        takesAsRead:
+          - Rate constants, and how steeply they climb with temperature
         assumes:
           - a claim is limited by the conditions it was tested under
           - a poison accumulates over time rather than acting at once
@@ -2133,6 +3478,31 @@ lessons:
     scene: >
       A second reactor on the station makes ammonia for the greenhouse, from nitrogen and hydrogen,
       and it also gives out heat and ends with fewer gas molecules. Four changes are proposed to it.
+    guide: >-
+      Four changes and four effects, in a reactor making something else entirely.
+      Pair them the same way. Count the gas molecules on each side for pressure. Ask
+      which side the heat is on for temperature. Ask whether anything taking part
+      was added or removed. And a catalyst changes the time rather than the
+      destination.
+    background:
+      - >-
+          Why this is a matching board and not four separate questions. Responses on
+          boards like this are written to be plausible for more than one situation, so
+          choosing them one at a time lets a nearly-right answer through unexamined.
+          Having to place all of them forces the comparison — not "is this reasonable
+          here", but "is it more right here than there".
+      - >-
+          How to use the one-each rule. Because the responses are a set to be
+          distributed rather than a list to be sampled, every join you make constrains
+          the rest. Settling the two you are confident of can leave the remaining pair
+          decided by elimination. Where it does not, two responses are still competing
+          for one situation, and that is exactly the distinction the stop is testing.
+      - >-
+          Why you cannot be wrong about exactly one. With every response used once,
+          three correct joins leave the fourth with only one place to go. Any error
+          therefore involves at least two joins. That is worth remembering when the last
+          pair looks forced: the fault is usually not in the join you are struggling
+          with, but in one you made early and stopped questioning.
     assumes:
       - a reaction that gives out heat has its balance pushed back by heating
       - fewer gas molecules on one side makes that side favoured by pressure
@@ -2164,6 +3534,32 @@ lessons:
     scene: >
       The greenhouse reactor is running cold and slow. Its operator proposes 40 degrees more, and
       the same argument that ran through the propellant plant a fortnight ago starts again.
+    guide: >-
+      Four pairs of statements, and each pair makes two claims. Ask of each whether
+      the two halves are allowed to disagree. Temperature is carried by two
+      quantities that move in opposite directions for a heat-releasing reaction. So
+      the pair that has them both rising cannot be right, and neither can the pair
+      that has neither moving.
+    background:
+      - >-
+          Why the wrong options are the interesting ones. Each distractor is written to
+          be the answer under one specific misreading — a step skipped, a quantity
+          confused with a rate, a correlation taken for a cause. Identifying which
+          misreading each belongs to is where the learning is; the right answer alone
+          can be reached on instinct and teach nothing.
+      - >-
+          Why the shape of an option tells you nothing. A correct answer collects the
+          qualifying clause and the unit. So across a whole game the key used to be the
+          longest option far more often than chance — 88 per cent of passage quizzes
+          here, before it was fixed. It is now checked per game as a binomial tail, so
+          length, hedging and specificity have had the signal taken out of them
+          deliberately.
+      - >-
+          What the verdict adds. Every wrong option carries its own rebuttal, and the
+          verdict prints them — the reason that option fails, not a restatement of the
+          right one. They are worth reading after a correct answer as well: a right
+          choice made for an approximate reason is indistinguishable from a sound one
+          until the day the approximation is what is being tested.
     assumes:
       - heating raises the fraction of collisions that clear the barrier
       - an exothermic reaction's balance is pushed back by heating
@@ -2193,6 +3589,30 @@ lessons:
     scene: >
       A different stream comes off the greenhouse: mostly nitrogen, with water vapour, some carbon
       dioxide and a little argon. It is being cooled to recover the argon as a liquid.
+    guide: >-
+      All four substances are in the stream together, so nothing here happens before
+      anything else. What orders them is how strongly their molecules hold on to one
+      another. Ask of each what kind of attraction it has: hydrogen bonds, weaker
+      forces between molecules, or only the fleeting pull between electron clouds.
+      One of them is a single atom.
+    background:
+      - >-
+          Why the order is graded whole. A sequence is a claim about dependency: each
+          step is here because the one before it has already happened, or has to have.
+          One transposed pair falsifies that claim wherever it sits, so partial credit
+          would be credit for a sequence that does not work.
+      - >-
+          Why the ends are the place to start. The first and last cards are constrained
+          by having nothing before or after them, which usually makes them the two you
+          can settle from the scene alone. Pinning them collapses the remaining
+          arrangements sharply, and what is left in the middle is where the actual
+          judgement lives.
+      - >-
+          What the rail can be ordered on. Time is the usual axis, but it is not the
+          only one. An order can run on cost, on risk, or on reversibility — every
+          observation that leaves the sample as it was, before any that consumes it. On
+          those boards a chronological reading finds nothing, because none of the steps
+          has to happen at a particular hour.
     assumes:
       - each substance leaves the gas phase at its own temperature
       - stronger attractions between molecules mean a higher condensation temperature
@@ -2221,6 +3641,31 @@ lessons:
     scene: >
       The station's oxygen generator splits water in a low-temperature cell rather than a hot one.
       Achebe wants it read the same way as the hot stacks, part by part.
+    guide: >-
+      Four parts of a cell and four things that happen. Pair them by asking which
+      way the electrons are pushed. In means reduction, and hydrogen appears there
+      in any water-splitting cell, hot or cold. Out means oxidation. The separator
+      carries one ion and keeps the gases apart. And one item is a threshold rather
+      than a place.
+    background:
+      - >-
+          Why this is a matching board and not four separate questions. Responses on
+          boards like this are written to be plausible for more than one situation, so
+          choosing them one at a time lets a nearly-right answer through unexamined.
+          Having to place all of them forces the comparison — not "is this reasonable
+          here", but "is it more right here than there".
+      - >-
+          How to use the one-each rule. Because the responses are a set to be
+          distributed rather than a list to be sampled, every join you make constrains
+          the rest. Settling the two you are confident of can leave the remaining pair
+          decided by elimination. Where it does not, two responses are still competing
+          for one situation, and that is exactly the distinction the stop is testing.
+      - >-
+          Why you cannot be wrong about exactly one. With every response used once,
+          three correct joins leave the fourth with only one place to go. Any error
+          therefore involves at least two joins. That is worth remembering when the last
+          pair looks forced: the fault is usually not in the join you are struggling
+          with, but in one you made early and stopped questioning.
     assumes:
       - reduction happens where electrons are pushed in
       - the electrolyte carries ions and not electrons
@@ -2252,6 +3697,31 @@ lessons:
     scene: >
       Demir has four of the station's processes on the board and wants them sorted before the
       quarterly energy plan is written. Two of them run downhill and two have to be pushed.
+    guide: >-
+      Four processes and four demands. Pair them by asking two things of each: does
+      it run downhill or uphill, and is the bill chemical or physical? Only
+      direction decides whether there is a bill at all. Boiling runs downhill, which
+      is why stopping it costs work. And compression is uphill and paid for at the
+      compressor.
+    background:
+      - >-
+          Why explanations rather than labels. Naming a finding is not accounting for
+          it, and a plausible-sounding mechanism attached to the wrong observation is
+          the commonest way a wrong story survives. Committing an explanation to one
+          clue means claiming it accounts for that clue specifically and not for its
+          neighbour, which is where the two come apart.
+      - >-
+          How to use the one-each rule. The explanations are a set to be distributed,
+          not a list to be sampled, so every join constrains the rest. Settling the two
+          you are confident of can decide the remaining pair by elimination. Where it
+          does not, two explanations are still competing for one clue, and that
+          competition is the distinction the stop is testing.
+      - >-
+          Why you cannot be wrong about exactly one. With every explanation used once,
+          three correct joins leave the fourth with only one place to go. Any error
+          therefore involves at least two. That is worth remembering when the last pair
+          looks forced: the fault is usually not in the join you are struggling with,
+          but in one you made early and stopped questioning.
     assumes:
       - a negative free-energy change means a process can run on its own
       - running on its own says nothing about how fast a process goes
@@ -2283,6 +3753,29 @@ lessons:
     scene: >
       A load has come in at 3% water instead of eight, and the same four operations have
       to run on it. Nakagawa wants the order confirmed before the hopper is sealed.
+    guide: >-
+      All four operations will happen, and this load is lean. Ask of each what would
+      be indistinguishable without it. Without a figure to expect, a poor yield and
+      a plant fault look the same. And the warming has a ceiling as well as a floor,
+      because perchlorate salts break down when they are heated hard.
+    background:
+      - >-
+          Why the order is graded whole. A sequence is a claim about dependency: each
+          step is here because the one before it has already happened, or has to have.
+          One transposed pair falsifies that claim wherever it sits, so partial credit
+          would be credit for a sequence that does not work.
+      - >-
+          Why the ends are the place to start. The first and last cards are constrained
+          by having nothing before or after them, which usually makes them the two you
+          can settle from the scene alone. Pinning them collapses the remaining
+          arrangements sharply, and what is left in the middle is where the actual
+          judgement lives.
+      - >-
+          What the rail can be ordered on. Time is the usual axis, but it is not the
+          only one. An order can run on cost, on risk, or on reversibility — every
+          observation that leaves the sample as it was, before any that consumes it. On
+          those boards a chronological reading finds nothing, because none of the steps
+          has to happen at a particular hour.
     assumes:
       - warming ice-bearing soil releases water as vapour at low pressure
       - a leaner load carries the same salts in less water
@@ -2309,6 +3802,32 @@ lessons:
     scene: >
       Herrera has the equilibrium constant for the methane assembly at four temperatures: 500 K,
       550 K, 600 K and 650 K. It falls by more than a factor of 10 across that range.
+    guide: >-
+      Four readings of a constant that falls with temperature. Ask of each whether
+      it explains the direction. Falling means heat behaves as one of the products,
+      which is what exothermic means read off a table. Two of these options blame
+      the catalyst or the pressure instead. And the consequence is the plant's whole
+      design problem.
+    background:
+      - >-
+          Why the wrong options are the interesting ones. Each distractor is written to
+          be the answer under one specific misreading — a step skipped, a quantity
+          confused with a rate, a correlation taken for a cause. Identifying which
+          misreading each belongs to is where the learning is; the right answer alone
+          can be reached on instinct and teach nothing.
+      - >-
+          Why the shape of an option tells you nothing. A correct answer collects the
+          qualifying clause and the unit. So across a whole game the key used to be the
+          longest option far more often than chance — 88 per cent of passage quizzes
+          here, before it was fixed. It is now checked per game as a binomial tail, so
+          length, hedging and specificity have had the signal taken out of them
+          deliberately.
+      - >-
+          What the verdict adds. Every wrong option carries its own rebuttal, and the
+          verdict prints them — the reason that option fails, not a restatement of the
+          right one. They are worth reading after a correct answer as well: a right
+          choice made for an approximate reason is indistinguishable from a sound one
+          until the day the approximation is what is being tested.
     assumes:
       - the equilibrium constant depends on temperature and on nothing else
       - this reaction gives out heat
@@ -2339,6 +3858,31 @@ lessons:
     scene: >
       A line on the oxygen side has slowed over two sols. Cho has four readings from around it, and
       the plant needs to know whether to warm the line out or open it up.
+    guide: >-
+      Five readings, and three of them rule things out. A cold head at its set
+      point. A steady jacket pressure. A flow falling over two sols rather than in a
+      minute. Ask of each candidate how many of the five it fits. And note why the
+      material matters: one of them clears itself when the line is warmed.
+    background:
+      - >-
+          Why the unremarkable readings decide it. The salient reading is what draws
+          attention, and it is usually consistent with several explanations at once,
+          which is why it rarely settles anything. The readings that discriminate are
+          the ones a candidate predicts should have moved and which have not: a normal
+          value is a positive result against every mechanism that would have disturbed
+          it.
+      - >-
+          How to work the candidates. Take each mechanism and predict the panel it
+          implies before you look at the panel again — which readings it drives, in
+          which direction, and by roughly how much. Then compare. Working that way round
+          is what separates a diagnosis from a rationalisation, because the prediction
+          is made before the data is consulted.
+      - >-
+          Why only one candidate survives. Several will account for part of the panel,
+          deliberately so, and a partial fit is exactly what a confident wrong answer
+          feels like from the inside. When two remain, look for the reading on which
+          their predictions differ and let it decide. If no reading separates them you
+          have not finished reading the panel.
     assumes:
       - a refrigerator at its set point is doing its job
       - carbon dioxide deposits as a solid near 195 K
@@ -2437,6 +3981,57 @@ interiors:
         - { label: Column in service since, value: sol 190, status: high }
 
 # What each place says when the player reads its sign.
+# --------------------------------------------------------------- the warm-ups
+warmups:
+  greet:
+    title: Six people, and the next crew is eighteen months away
+    why: >-
+      There are six of you and no relief. Sundqvist, the plant production lead, wants you known
+      to as many of them as you can before the first sol of production, because a disagreement
+      here is not settled by anybody leaving the room — there is nowhere to go, and the transfer
+      window is 486 sols out.
+  trial-near:
+    title: Walk the plant while your suit is fresh
+    why: >-
+      Nine modules buried to the eaves along one track, and an ascent vehicle four hundred
+      metres past the last of them. Walk the whole line once early, on a clear sol, because the
+      next time you do it will be in a dust storm on a suit that has been out for three hours
+      already.
+  follow:
+    title: Cho walks the cold end once
+    why: >-
+      The liquefier's cold end is the part of the plant nobody has a diagram of at the level
+      that matters — which joint frosts first, which line ticks when it is cooling. Cho, the
+      cryogenics engineer, walks it once. Stay with her and keep off the lines; a boot on a cold
+      transfer line is a leak you cannot weld out here.
+  hunt:
+    title: Six regolith bins, and the tally says four
+    item: { name: regolith bin, plural: regolith bins }
+    why: >-
+      The feedstock tally is what the whole propellant schedule is planned against, and two bins
+      are not where it says they are. A bin nobody can find is either full and idle or empty and
+      counted, and those two mean very different launch dates.
+  canvass:
+    title: Who has actually seen the seal on module four
+    why: >-
+      The habitat's leak rate went up on sol 9 and the log blames a seal nobody has inspected
+      since landing. Ask round the crew until enough of them have said what they have actually
+      seen rather than what the log says, because six people is a small enough sample that one
+      assumption becomes a fact.
+  evade:
+    title: Earth wants a call and the window is closing
+    why: >-
+      There is a downlink slot in twenty minutes and the flight surgeon wants a personal medical
+      conference that will take all of it. The tank pressure survey has to go this window or
+      wait a sol. Keep out of the way until the data is queued.
+  tag:
+    title: Catch Achebe before the array goes into storm mode
+    why: >-
+      Achebe, the power and electrolysis engineer, has the only measurement of what the array
+      actually delivered before the dust thickened, and once it folds into storm mode the
+      sensors read nothing useful for days. Every power decision this week is against that
+      number.
+
 copy:
   KINET: <p>Catalyst Bay. Nickel on alumina, in a bed the size of a kitchen bin, doing the one job in this plant that nothing else can do.</p>
   EQUIL: <p>The reactor hall. Carbon dioxide and hydrogen go in, methane and water come out, and the argument is about how much.</p>

@@ -49,7 +49,7 @@ const INSTRUMENT_GRADEABLE = (kind, ch) => {
   const b = ch[String(kind).toLowerCase()];
   if(!b) return false;
   switch(kind){
-    case 'TRIGGER':     return (b.conditions ?? []).length >= 2 && (b.stream ?? []).length >= 3;
+    case 'TRIGGER':     return (b.conditions ?? []).length === 1 && (b.stream ?? []).length >= 3;
     case 'VALUE':       return (b.options ?? []).some(o => o.decisive) && +b.budget?.amount > 0;
     case 'CLOUD':       return Number.isFinite(+b.pass) && +b.spread > 0
                                 && (b.actions ?? []).some(a => a.effect === 'narrow');
@@ -87,6 +87,48 @@ const INSTRUMENT_GRADEABLE = (kind, ch) => {
                                 && (b.fits ?? []).length >= 2;
     case 'INJECT':      return (b.configs ?? []).some(c => String(c.id) === String(b.best))
                                 && (b.configs ?? []).length >= 3;
+    // The bank is shuffled and only `need` of it is played, so a bank shorter
+    // than the run is a run that ends early with nothing said about it.
+    case 'BELT':        return (b.items ?? []).length >= (+b.need || 20)
+                                && (b.items ?? []).every(x => ['left', 'right'].includes(String(x.bin)))
+                                && !!b.left?.name && !!b.right?.name;
+    // Every gate placed, and an order that is a permutation of them.
+    case 'TRIAL':       return (b.gates ?? []).length >= 4
+                                && (b.order ?? []).length === (b.gates ?? []).length
+                                && (b.gates ?? []).every(g => Number.isFinite(+g.x) && Number.isFinite(+g.z));
+    // A band, a control with some authority, and something that pushes.
+    case 'HOLD':        return Number.isFinite(+b.hold) && +b.band > 0
+                                && (b.disturbances ?? []).length >= 1 && +b.authority > 0;
+    // Two instructions at least, and items for them to disagree about.
+    case 'SPOT':        return (b.targets ?? []).length >= 6 && (b.rules ?? []).length >= 2
+                                && (b.rules ?? []).every(r => (r.want ?? []).length);
+    // A bank at least as long as the run, and a key that indexes into it.
+    case 'STACK':       return (b.questions ?? []).length >= (+b.need || 8)
+                                && (b.questions ?? []).every(q => (q.a ?? []).length === 4
+                                     && +q.correct >= 0 && +q.correct < 4);
+    // Marks with a size, and a launcher with something to launch with.
+    case 'LOB':         return (b.targets ?? []).length >= 2 && +b.maxSpeed > 0
+                                && (b.targets ?? []).every(m => +m.distance > 0 && +m.radius > 0);
+    // The world-graded five. What makes each reachable is that the run has
+    // something to reach: a list longer than the target, a route to walk, items
+    // to find, a population to ask, and somebody to keep away from. Whether the
+    // goal can be met by standing still is the importer's trap, not this.
+    case 'GREET':       return (b.roster ?? []).length > (+b.target || 0)
+                                && +b.target >= 3 && +b.minutes > 0;
+    case 'FOLLOW':      return (b.path ?? []).length >= 3 && +b.band?.far > +b.band?.near
+                                && +b.speed > 0 && +b.seconds > 0 && +b.pass > 0;
+    case 'HUNT':        return (b.at ?? []).length > (+b.target || 0)
+                                && +b.target >= 3 && +b.minutes > 0
+                                && (b.at ?? []).every(p => Number.isFinite(+p.x) && Number.isFinite(+p.z));
+    // Graded on the call the player makes, so what it needs is an answer and a
+    // population that actually says it.
+    case 'CANVASS':     return (b.population ?? []).length >= 8 && typeof b.answer === 'boolean'
+                                && ((b.population ?? []).filter(p => p.says).length
+                                    > (b.population ?? []).length / 2) === !!b.answer;
+    case 'EVADE':       return +b.distance > 0 && +b.seconds > 0 && +b.speed > 0
+                                && !!String(b.pursuer ?? '').trim();
+    case 'TAG':         return +b.reach > 0 && +b.seconds > 0 && +b.speed > 0
+                                && !!String(b.quarry ?? '').trim();
     case 'ROUTE':       return (b.stops ?? []).length >= 5
                                 && (b.order ?? []).length === (b.stops ?? []).length
                                 && (b.stops ?? []).some(x => String(x.id) === String(b.resumeAt));
@@ -200,7 +242,14 @@ function diagnosisAnswerable(ch){
         // here re-checks the trap, which is validateContent's job.
         INSTRUMENT_GRADEABLE(kind, ch) ||
         (kind === 'DIAGNOSIS' && ch.choices?.length >= 4 && diagnosisAnswerable(ch)) ||
-        (kind === 'TRIAGE' && ch.choices?.length >= 2 && ch.choices.includes(ch.correctChoice)) ||
+        // By label, like the CHOICE line under it. A raw `includes` reported
+        // seven perfectly gradeable stops as ungradeable the first time a book
+        // authored TRIAGE choices as `{ label, mechanism }` — which was the
+        // right verdict by accident, because the renderer could not read them
+        // either, and would have been a false alarm the moment that was fixed.
+        (kind === 'TRIAGE' && ch.choices?.length >= 2 &&
+          ch.choices.map(c => (typeof c === 'string' ? c : c.label))
+            .includes(ch.correctChoice ?? ch.answer)) ||
         (kind === 'CHOICE' && ch.choices?.length >= 3 &&
           ch.choices.map(c => (typeof c === 'string' ? c : c.label)).includes(ch.correctChoice ?? ch.answer)) ||
         (kind === 'CASEBOOK' && (

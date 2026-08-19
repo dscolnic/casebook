@@ -314,6 +314,34 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .btn.priced small{font:800 .72rem/1 Inter,system-ui;opacity:.72;font-variant-numeric:tabular-nums}
 .btn.priced[disabled]{opacity:.45;cursor:not-allowed}
 
+/* ——— The verdict, inside whatever card the shell puts up ——————————
+   The overlay and the card itself belong to the page (index.html); everything
+   questionUI writes into it is here, so that a second shell — the standalone
+   gallery in engine/dev/lessons.html — draws the same verdict rather than a
+   description of it. `--vc` is set on the card by the caller. */
+.verdictHead{padding:20px 24px 16px;border-bottom:1px solid var(--line);
+  border-top:6px solid var(--vc,#0ca30c);border-radius:16px 16px 0 0}
+.verdictKicker{font:800 .68rem/1 Inter,system-ui;letter-spacing:.14em;text-transform:uppercase;color:var(--vc)}
+.verdictTitle{font:800 1.9rem/1.1 Georgia,serif;margin:8px 0 0;color:var(--ink)}
+.verdictStake{font:500 .88rem/1.45 Inter,system-ui;color:var(--muted);margin-top:8px}
+
+.verdictLedger{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1px;
+  background:var(--line);border-bottom:1px solid var(--line)}
+.ledgerCell{background:var(--panel);padding:12px 14px}
+.ledgerLabel{font:700 .62rem/1 Inter,system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.ledgerValue{font:800 1.15rem/1.2 Inter,system-ui;margin-top:5px;font-variant-numeric:tabular-nums}
+.ledgerNote{font:400 .7rem/1.3 Inter,system-ui;color:var(--muted);margin-top:3px}
+.ledgerValue.gain{color:#0a8a0a}
+.ledgerValue.cost{color:#c0392b}
+
+.verdictBody{padding:16px 24px}
+.verdictBody .answerCompareBox{margin-bottom:10px}
+.verdictWhy{font:400 .88rem/1.55 Inter,system-ui;color:#33363a}
+.verdictDetail{margin-top:12px}
+.verdictDetail summary{cursor:pointer;font:700 .8rem/1 Inter,system-ui;color:var(--accent);padding:6px 0}
+.verdictActions{position:sticky;bottom:0;background:var(--panel);display:flex;justify-content:flex-end;
+  gap:8px;padding:14px 24px;border-top:1px solid var(--line);flex-wrap:wrap;border-radius:0 0 16px 16px}
+
 /* ——— Someone's passage, and the question about it ———————————————— */
 .passageHead{display:flex;flex-direction:column;gap:2px;margin-bottom:8px}
 .passageHead b{font:800 1.1rem/1.2 Georgia,serif}
@@ -563,6 +591,37 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 /* What the question takes as read, and what it is about, before it is asked.
    Quiet and small: this is orientation for somebody who is stuck, and it must
    not compete with the situation above it or the question below. */
+/* Two paragraphs and a door. The second one — what to do — was set a shade heavier
+   than the situation above it, on the argument that it is the only thing on the card
+   the player has to act on. Read side by side it looked like a different font, which
+   is worse than the emphasis was worth: two paragraphs of one brief should be one
+   voice. Only the gap between them remains. `askMore` is everything true but not
+   urgent: assumptions, the principle, the course equations in prose, the glossary. */
+.askGuide{margin-top:10px}
+.askMore{margin:10px 0 0}
+/* The doors, side by side. A closed one is a pill and sits in the row; an open one
+   takes the whole width, because a details body squeezed into a flex column is a
+   paragraph two words wide. Wrapping means three pills never run off the card. */
+.askDoors{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;margin:10px 0 0}
+.askDoors > .askMore{margin:0;flex:0 0 auto}
+.askDoors > .askMore[open]{flex:1 1 100%}
+.askConceptName{margin:0 0 6px;font:700 .86rem/1.45 Georgia,serif;color:#2f3f49}
+.askMore > summary{cursor:pointer;display:inline-block;padding:5px 11px;border-radius:999px;
+  border:1px solid #cfd8dd;background:#f4f7f9;list-style:none;
+  font:700 .74rem/1.3 Inter,system-ui;color:#3d6b8a}
+.askMore > summary::-webkit-details-marker{display:none}
+.askMore > summary::before{content:'+ ';font-weight:900}
+.askMore[open] > summary::before{content:'– '}
+.askMore > summary:hover{background:#eaf1f6}
+.askMoreBody{margin:9px 0 0;padding:11px 13px;border-left:2px solid #cfd8dd;background:#f7f9fa;
+  border-radius:0 6px 6px 0}
+.askMoreBody > p{margin:0 0 8px;font:400 .84rem/1.6 Inter,system-ui;color:#41505a}
+.askMoreBody h4{margin:12px 0 5px;font:800 .62rem/1.2 Inter,system-ui;letter-spacing:.07em;
+  text-transform:uppercase;color:#8a97a0}
+.askEq{margin:0 0 6px;font:400 .82rem/1.55 Inter,system-ui;color:#41505a}
+.askEq code{font:700 .82rem/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;color:#14324f;
+  background:#eef3f7;padding:1px 5px;border-radius:4px}
+
 .askContext{margin:8px 0 0;padding:7px 10px;border-left:2px solid #cfd8dd;background:#f7f9fa;border-radius:0 5px 5px 0}
 .askContext p{margin:0;font:500 .74rem/1.5 Inter,system-ui;color:#5b6a72}
 .askContext p + p{margin-top:4px}
@@ -616,13 +675,24 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
    gets frozen between them. The tabs are a state display, not a control: the
    player cannot look at the held-out set until they have committed to a line. */
 .holdoutPanel{margin:10px auto 0;max-width:480px}
+.sweepAxisNote{margin:4px 0 2px;font:500 .7rem/1.45 Inter,system-ui;color:#8a97a0}
 .holdoutTabs{display:flex;gap:6px;margin:0 0 8px}
 .holdoutTab{flex:1;text-align:center;padding:5px 8px;border-radius:6px;
   font:800 .6rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;
   background:#eef2f4;color:#9aa7ae;border:1px solid transparent}
 .holdoutTab.on{background:#fff;color:#2f4652;border-color:#cfd8dd}
+/* What each batch IS, and why the second one has no number yet. Sentence case and
+   not uppercase: the tab above it is a label, these two are prose. */
+.holdoutTabNote,.holdoutLock{display:block;margin-top:3px;text-transform:none;letter-spacing:0;
+  font:500 .66rem/1.35 Inter,system-ui;color:#8a97a0}
+.holdoutLock{font-style:italic}
 
 /* TALLY — counts accumulating in bins, and a statistic assembled out of them. */
+.tallyBudget{display:flex;align-items:baseline;gap:8px;margin:6px 0 2px;flex-wrap:wrap}
+.tallyBudget span{font:800 .6rem/1 Inter,system-ui;letter-spacing:.07em;text-transform:uppercase;
+  color:#8a97a0}
+.tallyBudget b{font:800 1.05rem/1 Inter,system-ui;font-variant-numeric:tabular-nums;color:#2f4652}
+.tallyBudget em{font:500 .7rem/1.4 Inter,system-ui;font-style:normal;color:#8a97a0}
 .tallyPanel{margin:10px auto 0;max-width:560px}
 .tallyTable{width:100%;border-collapse:collapse;margin:2px 0 10px}
 .tallyTable th{font:800 .58rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;
@@ -642,6 +712,20 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .tallyCombo b{margin-left:auto;font:800 1.1rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;
   color:#2f4652;font-variant-numeric:tabular-nums}
 .tallyNote{font:600 .68rem/1.35 Inter,system-ui;color:#8a97a0;margin:6px 0 0}
+/* The convergence plot. TALLY's whole subject is when a statistic has enough data
+   behind it, and a column of counts cannot show a number settling. The trace is
+   redrawn as the batches arrive; before there are two points the box says what will
+   appear, because an empty plot reads as a broken panel. */
+.tallyPlot{margin:6px 0 8px}
+.tallyPlot svg{display:block;width:100%;height:auto;max-width:520px;margin:0 auto}
+.tallyPlotWait{font:600 .7rem/1.4 Inter,system-ui;color:#8a97a0;margin:0;padding:16px 10px;
+  border:1px dashed var(--line);border-radius:8px;text-align:center}
+.tallySigmaCell{color:#8a97a0}
+/* A lower-case sigma is the name of the quantity, and the header row's
+   text-transform turned it into a capital. */
+.tallyTable th.tallySpreadHead{text-transform:none;letter-spacing:.02em}
+.tallyCombo em{font:700 .7rem/1.2 Inter,system-ui;font-style:normal;color:#8a97a0;
+  font-variant-numeric:tabular-nums}
 
 /* PROBE — a chain of stations that start blank. Reading one is a decision, so the
    button is the affordance and the values arrive where the blank was. */
@@ -687,6 +771,31 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .instMiss{color:#c0392b;font-style:italic}
 
 /* --- TRIGGER: a blank board, then the updates arrive. */
+/* The schedule, with the readings blanked, and what a reading on the scale means.
+   Both exist because the board asked for a number on a bare scale and told the
+   player nothing to choose it against. */
+.trigAnchors{margin:8px 0 0;padding:8px 10px;border:1px dashed var(--line);
+  border-radius:9px;background:#fbfcfd}
+/* The board as a picture. The player sets a number on the value axis and is graded
+   on where it lands on the time axis, which is a mapping no paragraph can carry. */
+.trigPlotBox{margin:8px 0 0}
+.trigPlot svg{width:100%;height:auto;display:block;background:#fff;border:1px solid var(--line);
+  border-radius:9px}
+.trigPlotTick{font:700 9px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#8a97a0}
+.trigPlotTick.dim{fill:#b6c0c7}
+.trigPlotName{font:800 10px Inter,system-ui}
+.trigPlotFoot{display:flex;justify-content:space-between;gap:10px;margin-top:4px;
+  font:600 .62rem/1.3 Inter,system-ui;color:#8a97a0}
+.trigWhenHead{font:800 .58rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;
+  color:#8a97a0;margin-bottom:6px}
+.trigAnchor{display:grid;grid-template-columns:auto 1fr;gap:9px;padding:3px 0;
+  font:600 .7rem/1.35 Inter,system-ui;color:#6b7780}
+.trigAnchor b{font:800 .72rem/1.35 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652;
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+.trigBy{font:600 .68rem/1.35 Inter,system-ui;color:#b06a2a;margin-top:5px}
+.trigBy.plain{color:#8a97a0}
+.trigScale{font:600 .7rem/1.35 Inter,system-ui;color:#6b7780}
+.trigScale b{color:#2f4652}
 .trigRows{display:grid;gap:8px;margin:8px 0 0}
 .trigRow{padding:9px 11px;border:1px solid var(--line);border-radius:9px;background:#fff}
 .trigHead{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
@@ -703,6 +812,7 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .trigResult.good{color:#3f8f56}
 .trigResult.late{color:#b06a2a}
 .trigResult.never{color:#c0392b}
+.trigResult.rehearse{color:#8a97a0;font-style:italic}
 .trigStream{margin:10px 0 0}
 .trigStreamHead{font:800 .58rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;
   color:#8a97a0;margin-bottom:4px}
@@ -747,6 +857,25 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .cloudActs .btn{padding:4px 11px;font-size:.74rem;display:inline-flex;gap:7px;align-items:baseline}
 .cloudActs .btn.used{opacity:1;background:#eef2f4;color:#9aa7ae}
 .cloudCost{font:700 .66rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#b06a2a}
+/* The bars are dragged, so the plot must not scroll the card under a thumb. */
+.cloudPlot{touch-action:none}
+.cloudRepBand{fill:#f3e6d3;opacity:.75}
+.cloudHandle line{stroke:#b06a2a;stroke-width:2;cursor:ew-resize}
+.cloudHandle.cloudMid line{stroke:#2f4652;stroke-width:2.5}
+.cloudHandle text{font:800 7px/1 Inter,system-ui;fill:#8a6a3a;text-anchor:middle;
+  pointer-events:none;user-select:none}
+/* The σ captions sit outside their own bars, so a narrow band does not print
+   three overlapping words in the same six pixels. */
+.cloudHandle[data-h="lo"] text{text-anchor:end}
+.cloudHandle[data-h="hi"] text{text-anchor:start}
+.cloudHandle.cloudMid text{fill:#2f4652}
+.cloudSliders{display:flex;flex-wrap:wrap;gap:6px 18px;margin:2px 0 6px}
+.cloudSlide{flex:1 1 180px;display:flex;align-items:center;gap:8px}
+.cloudSlide span{font:800 .56rem/1.2 Inter,system-ui;letter-spacing:.06em;
+  text-transform:uppercase;color:#8a97a0;white-space:nowrap}
+.cloudSlide .cloudRange{flex:1;accent-color:#b06a2a}
+.cloudGate{font:600 .72rem/1.45 Inter,system-ui;color:#4e4a43;margin:8px 0 0}
+.cloudGate.waiting{color:#b06a2a;font-weight:700}
 
 /* --- ALLOCATE: the answers panel is the format. It never says whether the
    plan is good, only what it can settle. */
@@ -775,6 +904,15 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 
 /* --- TRACE: dependencies are hidden until opened, the way a probe's
    readings are. Handing over the graph makes it a reading exercise. */
+/* TRACE's correction is a given, not a row: the reference turned out to be
+   something else, and every dependent channel below inherits it. */
+.traceFix{margin:8px 0 0;padding:8px 10px;border:1px solid #d8c9a6;border-left:3px solid #b8912f;
+  border-radius:6px;background:#fdf9ef}
+.traceFixHead{font:800 .58rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;
+  color:#8a7433;margin-bottom:4px}
+.traceFixLine{font:600 .76rem/1.45 Inter,system-ui;color:#4e4a43;display:flex;gap:7px}
+.traceFixLine span{flex:0 0 7.4em;white-space:nowrap;font:800 .62rem/1.85 Inter,system-ui;
+  letter-spacing:.04em;text-transform:uppercase;color:#9a8a63}
 .traceRows{display:grid;gap:6px;margin:8px 0 0}
 .traceRow{display:flex;align-items:flex-start;gap:10px;padding:7px 9px;border:1px solid var(--line);
   border-radius:8px;background:#fff}
@@ -852,18 +990,38 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 /* --- CHAIN: the rail refuses to close while an interface is missing. */
 .chainRail{display:grid;gap:5px;margin:8px 0 0;min-height:44px}
 .chainLink{display:flex;align-items:center;gap:10px;padding:7px 10px;border:1px solid var(--line);
-  border-radius:8px;background:#fff;cursor:pointer}
+  border-radius:8px;background:#fff;cursor:default}
+.chainLink.pickable{cursor:pointer}
 .chainLink.gov{border-color:#b06a2a;box-shadow:inset 0 0 0 1px #b06a2a}
+.chainDrop{margin-left:auto;flex:none;width:22px;height:22px;border-radius:50%;cursor:pointer;
+  border:1px solid var(--line);background:#f4f6f7;color:#6d7c85;
+  font:700 .82rem/1 Inter,system-ui;display:grid;place-items:center}
+.chainPick + .chainDrop{margin-left:8px}
+.chainDrop:hover{border-color:#b06a2a;color:#b06a2a}
 .chainNum{width:20px;height:20px;border-radius:50%;background:#2f4652;color:#fff;flex:none;
   display:grid;place-items:center;font:800 .68rem/1 Inter,system-ui}
 .chainLink b{display:block;font:700 .8rem/1.3 Inter,system-ui;color:#2f4652}
 .chainLink em{font-style:normal;font:600 .68rem/1.35 Inter,system-ui;color:#8a97a0}
+/* What this link is actually doing right now — the evidence the governing pick
+   is made from. Mono, so a number reads as a number and not as more prose. */
+.chainRead{display:block;margin-top:2px;font:600 .68rem/1.35 ui-monospace,SFMono-Regular,Menlo,monospace;
+  color:#2f6f8f}
 .chainPick{margin-left:auto;font:800 .56rem/1.2 Inter,system-ui;letter-spacing:.06em;
-  text-transform:uppercase;color:#b06a2a;white-space:nowrap}
+  text-transform:uppercase;color:#b06a2a;white-space:nowrap;visibility:hidden}
+/* Only the row under the cursor offers itself, and the chosen one keeps saying
+   so. Printed on all of them at once it read as five instructions. */
+.chainLink:hover .chainPick,.chainLink.gov .chainPick{visibility:visible}
+.chainPrompt{margin:8px 0 0;font:700 .74rem/1.4 Inter,system-ui;color:#b06a2a}
 .chainBankHead{font:800 .58rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;
   color:#8a97a0;margin:12px 0 4px}
 .chainBank{display:flex;flex-wrap:wrap;gap:6px}
-.chainBank .btn{padding:4px 11px;font-size:.74rem}
+/* Two lines: the name, and what it carries. Ordering a path off the names alone
+   is a guess, which is what the one-line version asked for. */
+.chainBank .btn{padding:5px 11px;font-size:.74rem;text-align:left;display:block;max-width:100%}
+.chainAdd b{display:block;font:700 .78rem/1.3 Inter,system-ui}
+.chainAdd em{display:block;font-style:normal;font:600 .66rem/1.35 Inter,system-ui;
+  color:#7a8890;white-space:normal}
+.chainAdd:hover em{color:inherit}
 .chainEmpty{font:600 .72rem/1.4 Inter,system-ui;color:#b3bec4;font-style:italic}
 
 /* --- DERIVE: the rail is what the player has built, one line at a time. The
@@ -953,12 +1111,23 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .propShare{display:inline-block;width:40px;text-align:right;color:#5b6a72;
   vertical-align:middle;padding-left:6px}
 .propBuysHead{font:800 .58rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;
-  color:#8a97a0;margin:12px 0 4px}
+  color:#8a97a0;margin:12px 0 4px;display:flex;justify-content:space-between;
+  align-items:baseline;gap:10px}
+.propLeft{font:800 .72rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652;
+  letter-spacing:0;text-transform:none;font-variant-numeric:tabular-nums;white-space:nowrap}
 .propBuys{display:flex;flex-wrap:wrap;gap:6px}
 .propBuys .btn{padding:5px 12px;font-size:.74rem;display:inline-flex;flex-direction:column;
   align-items:flex-start;gap:1px}
 .propBuys .btn.bought{border-color:#3f8f56;box-shadow:inset 0 0 0 1px #3f8f56}
+/* The button names the row it moves. Without it the pairing was discoverable only
+   by spending, which is the one thing that cannot be taken back. */
+.propTarget{font:800 .58rem/1.2 Inter,system-ui;letter-spacing:.05em;text-transform:uppercase;
+  color:#2f6f8f}
+.propWhat{font:600 .74rem/1.25 Inter,system-ui;text-align:left}
 .propCost{font:700 .62rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;color:#b06a2a}
+.propTable tr.propRowLit{background:#eaf2f6}
+.propTable tr.propRowLit .propName{color:#2f6f8f}
+.propTable tr.propRowBought .propSigma{color:#3f8f56}
 
 /* --- STRESS: rows go dark as the assumption moves. That is the format; a table
    of static numbers is a CHOICE. */
@@ -1072,3 +1241,207 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
   font:600 .76rem/1.5 Inter,system-ui;color:#3d5763}
 .instMethod span{display:block;font:800 .56rem/1.2 Inter,system-ui;letter-spacing:.07em;
   text-transform:uppercase;color:#7d919c;margin-bottom:3px}
+
+/* What counts as done — the constraint the plan is written against, printed
+   before the player acts. Green rather than the method block's blue, because it
+   is the thing being aimed at and the panels already draw their target lines in
+   this ink. It is never the answer; see `goal()` in instruments.js. */
+.instGoal{margin:0 0 8px;padding:8px 11px;border-left:3px solid #3f8f56;
+  background:#f1f7f2;border-radius:0 8px 8px 0}
+.instGoal span{display:block;font:800 .56rem/1.2 Inter,system-ui;letter-spacing:.07em;
+  text-transform:uppercase;color:#6f9179;margin-bottom:4px}
+.instGoal ul{margin:0;padding:0 0 0 15px}
+.instGoal li{font:600 .74rem/1.45 Inter,system-ui;color:#3a5844;margin:1px 0}
+
+/* FLY's attempt counter, under the readouts. */
+.flyRuns{font:600 .68rem/1.4 Inter,system-ui;color:#8a97a0;margin:6px 0 0;text-align:center}
+
+/* CONTROL's outstanding-steps strip. Each line is about the machine the player
+   has named, so it can say what is missing without saying which machine. */
+.ctrlNeeds{display:flex;flex-wrap:wrap;gap:5px 14px;margin:8px 0 2px}
+.ctrlNeed{display:inline-flex;align-items:center;gap:5px;
+  font:600 .69rem/1.4 Inter,system-ui;color:#8a97a0}
+.ctrlNeed.got{color:#3d7350}
+
+/* ===================================================================
+   BELT — engine/core/instruments.js, the first of the formats that
+   are fun first. See ARCADE.md.
+
+   The canvas is sized in CSS and drawn in device pixels by
+   playSurface.js, so nothing here sets width/height attributes: the
+   surface reads clientWidth every frame and rebuilds its backing
+   store when the panel is resized or the tab is zoomed.
+   =================================================================== */
+
+.beltPanel{max-width:640px}
+.beltCanvas{display:block;width:100%;height:260px;margin:6px 0 0;border-radius:10px;
+  background:#1b1e21;touch-action:none;cursor:pointer}
+/* touch-action:none, or a swipe up on the belt scrolls the modal instead of
+   sorting the item — the panel's own gestures have to win over the page's. */
+.beltStrip{display:flex;justify-content:space-between;align-items:center;
+  margin:7px 2px 0;font:600 .72rem/1.4 Inter,system-ui;color:#8a97a0}
+.beltStrip #beltLives{letter-spacing:.18em;color:#c0392b}
+
+/* ===================================================================
+   TRIAL — the format that is graded against the place. The panel is a
+   briefing; the run happens in the world with the panel suspended.
+   =================================================================== */
+
+.trialPanel{max-width:520px}
+/* The gates, unordered. `list-style:none` on purpose: a numbered list of
+   gates would print the answer, which is the order. */
+ol.trialGates{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px}
+.trialGate{padding:8px 11px;border:1px solid var(--line);border-radius:8px;
+  background:#fbfaf7;font:600 .82rem/1.35 Inter,system-ui;color:#3f3b34}
+.trialGate span{display:block;font-weight:600;font-size:.72rem;color:#8a97a0;margin-top:2px}
+/* The run just taken, which IS ordered — it is what the player did. */
+ol.trialTaken{margin:8px 0 0;padding:0 0 0 20px;display:grid;gap:4px}
+ol.trialTaken li{font:600 .82rem/1.4 Inter,system-ui;color:#3f3b34}
+.trialNoWorld{margin:8px 0 0;padding:8px 11px;border-left:3px solid #b8935a;
+  background:#faf5ec;border-radius:0 8px 8px 0;
+  font:600 .74rem/1.45 Inter,system-ui;color:#7a6437}
+
+/* The HUD, during a run. Fixed, small, top-centre — it must not sit where the
+   thumbstick is (bottom left) or where the prompt is (bottom centre). */
+#trialHUD{position:fixed;top:70px;left:50%;transform:translateX(-50%);z-index:60;
+  display:flex;align-items:center;gap:14px;padding:8px 16px;border-radius:999px;
+  background:rgba(20,24,28,.82);color:#f2efe8;pointer-events:none;
+  font:700 .84rem/1.2 Inter,system-ui;letter-spacing:.01em}
+#trialHUD .trialClock{font-variant-numeric:tabular-nums;font-size:1.02rem}
+/* The last fifteen seconds. A countdown nobody notices running out is a
+   stopwatch with extra steps, which is what this replaced. */
+#trialHUD .trialClock.low{color:#f2b8b0}
+#trialHUD .trialGates{color:#8fd0e6;font-weight:700}
+#trialHUD .trialNote{font-weight:600;font-size:.68rem;color:#9aa6ad}
+
+/* ===================================================================
+   HOLD — one number, one control, and something that keeps pushing.
+   The corridor is a goal and is drawn; the pass fraction is grading
+   slack and is not. See instruments.js.
+   =================================================================== */
+
+.holdPanel{max-width:640px}
+.holdCanvas{display:block;width:100%;height:240px;border-radius:10px;
+  background:#1b1e21;touch-action:none;margin:8px 0 0}
+.holdStrip{display:flex;justify-content:space-between;align-items:center;
+  margin:7px 2px 0;font:700 .84rem/1.4 Inter,system-ui;color:#4e4a43}
+.holdStrip .holdNow{font-variant-numeric:tabular-nums;font-size:1.05rem}
+.holdStrip .holdLeft{color:#8a97a0;font-weight:600}
+/* The disturbance's own name, when one arrives. Not printed in advance: a step
+   you can see coming is a plan, and this format is about the answer to one you
+   cannot. */
+.holdStrip .holdEvent{color:#8a97a0;font-weight:600;font-size:.74rem;opacity:0;
+  transition:opacity .18s}
+.holdStrip .holdEvent.live{opacity:1;color:#c0392b}
+.holdCtl{display:block;margin:10px 0 0}
+.holdCtl span{display:block;font:800 .58rem/1.2 Inter,system-ui;letter-spacing:.07em;
+  text-transform:uppercase;color:#8a97a0;margin-bottom:4px}
+/* `margin:0` and border-box, or the input's own UA margin pushes it past the
+   panel — which `npm run drive` reports as an overflow and a player sees as a
+   slider whose right-hand end is under the card edge. */
+.holdRange{width:100%;margin:0;box-sizing:border-box}
+
+/* ===================================================================
+   SPOT — items arrive, an instruction says which to take, and the
+   instruction is replaced without announcement. The board is DOM
+   rather than canvas: real buttons mean touch and the keyboard work
+   without being reimplemented, and `npm run drive` can click them.
+   =================================================================== */
+
+.spotPanel{max-width:640px}
+.spotRuleBar{display:flex;align-items:baseline;gap:10px;margin:8px 0 0;
+  padding:8px 12px;border-left:3px solid #2f5d86;background:#eef3f7;border-radius:0 8px 8px 0}
+.spotRuleBar span{font:800 .56rem/1.2 Inter,system-ui;letter-spacing:.07em;
+  text-transform:uppercase;color:#6e8ba6}
+/* No transition and no highlight on change. The whole subject is whether the
+   player notices, so drawing attention to it would answer the question. */
+.spotRule{font:800 1.02rem/1.3 Inter,system-ui;color:#24435f}
+.spotBoard{position:relative;height:260px;margin:8px 0 0;border-radius:10px;
+  background:#1b1e21;overflow:hidden;touch-action:manipulation}
+.spotTarget{position:absolute;transform:translate(-50%,-50%);
+  padding:8px 12px;border-radius:8px;border:1px solid #c9c4b8;background:#f2efe8;
+  font:600 .8rem/1.2 Inter,system-ui;color:#1a1a17;cursor:pointer;white-space:nowrap;
+  animation:spotIn .16s ease-out}
+.spotTarget:hover{border-color:#8a97a0}
+@keyframes spotIn{from{opacity:0;transform:translate(-50%,-50%) scale(.94)}
+  to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+.spotStrip{display:flex;justify-content:space-between;align-items:center;
+  margin:7px 2px 0;font:600 .74rem/1.4 Inter,system-ui;color:#8a97a0}
+
+/* ===================================================================
+   STACK — the spectrum_stack port: a well on the left, a question
+   rail on the right. Only the well is painted; the options are DOM
+   buttons, so touch works and `npm run drive` can click them.
+   =================================================================== */
+
+.stackPanel{max-width:640px}
+.stackWell{display:flex;gap:14px;margin:8px 0 0;align-items:flex-start}
+.stackCanvas{display:block;width:220px;height:352px;border-radius:8px;
+  background:#15181b;flex:0 0 auto;touch-action:none}
+.stackSide{flex:1 1 auto;min-width:0}
+.stackQ{font:600 .88rem/1.4 Inter,system-ui;color:#1a1a17;min-height:3.2em}
+.stackOpts{display:grid;gap:6px;margin:8px 0 0}
+.stackOpt{display:flex;align-items:baseline;gap:8px;text-align:left;
+  padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:#fbfaf7;
+  font:600 .78rem/1.35 Inter,system-ui;color:#3f3b34;cursor:pointer}
+.stackOpt:hover{border-color:#8a97a0}
+.stackOpt b{flex:0 0 auto;color:#8a97a0;font-weight:800;font-size:.7rem}
+.stackStrip{display:flex;justify-content:space-between;margin:8px 2px 0;
+  font:600 .72rem/1.4 Inter,system-ui;color:#8a97a0}
+/* Narrow screens: the well and the rail stop being side by side long before
+   the panel does, because 220px of well leaves nothing for four options. */
+@media (max-width:520px){
+  .stackWell{flex-direction:column;align-items:stretch}
+  .stackCanvas{width:100%;max-width:260px;height:auto;aspect-ratio:10 / 16;margin:0 auto}
+}
+
+/* ===================================================================
+   LOB — a side-on flight, two dials and a mark. The ranges are on the
+   flags because they are a goal; the launch speed is nowhere, because
+   printing it turns this into arithmetic. See instruments.js.
+   =================================================================== */
+
+.lobPanel{max-width:640px}
+.lobCanvas{display:block;width:100%;height:300px;border-radius:10px;
+  background:#1b1e21;touch-action:none;margin:8px 0 0}
+.lobStrip{display:flex;justify-content:space-between;align-items:center;
+  margin:7px 2px 0;font:700 .8rem/1.4 Inter,system-ui;color:#4e4a43}
+.lobStrip .lobWind,.lobStrip .lobLeft{font-weight:600;font-size:.72rem;color:#8a97a0}
+.lobCtl{display:block;margin:8px 0 0}
+.lobCtl span{display:block;font:800 .58rem/1.2 Inter,system-ui;letter-spacing:.07em;
+  text-transform:uppercase;color:#8a97a0;margin-bottom:3px}
+.lobAngle,.lobPower{width:100%;margin:0;box-sizing:border-box}
+
+/* ===================================================================
+   The world-graded five — GREET, FOLLOW, HUNT, CANVASS, EVADE.
+   They borrow TRIAL's briefing panel wholesale (`.trialPanel`,
+   `.trialGates`, `.trialNoWorld`), because a briefing with a list and
+   one button is what all six are. What is here is the run HUD, which
+   TRIAL's own predates and which is now shared, and the two blocks
+   only a canvass has.
+   =================================================================== */
+
+#worldHUD{position:fixed;top:70px;left:50%;transform:translateX(-50%);z-index:60;
+  display:flex;align-items:center;gap:14px;padding:8px 16px;border-radius:999px;
+  background:rgba(20,24,28,.82);color:#f2efe8;pointer-events:none;
+  font:700 .84rem/1.2 Inter,system-ui;letter-spacing:.01em}
+#worldHUD .worldClock{font-variant-numeric:tabular-nums;font-size:1.02rem}
+#worldHUD .worldTally{color:#8fd0e6;font-weight:700}
+#worldHUD .worldNote{font-weight:600;font-size:.68rem;color:#9aa6ad}
+/* Both run HUDs used to sit at top:14px, which is inside the stat bar — the
+   clock pill covered the FUNDS figure. 70px clears it, and the objective banner
+   that would otherwise be alongside is down for the length of a run. */
+
+/* The claim under test, printed above the sample and again beside it when the
+   round comes back — a yes-or-no question you have stopped being able to see is
+   a question you answer from the tally instead of from the claim. */
+.canvassClaim{margin:8px 0 2px;padding:9px 12px;border-radius:9px;
+  background:#eef2f6;border-left:3px solid #7aa7d8;
+  font:700 .92rem/1.45 Inter,system-ui;color:#26303a}
+.canvassSample{max-height:210px;overflow-y:auto}
+
+/* The card after an orientation run: what happened, in one line, before the
+   morning carries on. See app.js — a run that ends into silence reads as the
+   game ignoring the thing the player was just doing. */
+.lapOutcome{margin:2px 0 0;font:600 1.02rem/1.5 Inter,system-ui;color:#26303a}
+.lapOutcome.dim{margin-top:8px;font-size:.92rem;font-weight:500;color:#6b7680}

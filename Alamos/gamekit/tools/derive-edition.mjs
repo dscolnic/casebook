@@ -199,7 +199,34 @@ for(const s of sections){
   const text = slice(s.from, s.to).replace(/\n+$/, '');
   parts.push(s.key === 'theme' ? patchTheme(text) : text);
 }
-const outBook = parts.join('\n') + '\n';
+// CLAIMS DO NOT SURVIVE A CHANGE OF SYLLABUS.
+//
+// The book is sliced rather than re-emitted, so every line of a kept day comes across
+// verbatim — including `concept:` and `takesAsRead:`, which name concepts on the BASE
+// theme's syllabus. A junior edition has its own list, written for an eleven-year-old,
+// and the overlap with the senior titles is exactly zero: Blackout's sixteen junior
+// concepts share no title with its thirty-two senior ones, by design. Carried across,
+// every one of those lines is a title the importer will refuse — correctly, and after
+// the edition has been written to disk.
+//
+// So they are stripped here, and the count is printed as work rather than hidden. The
+// junior edition needs its own claims against its own list, which is a smaller job
+// than it sounds: sixteen concepts, and `conceptOrder` is silent until the junior
+// syllabus carries `needs` of its own.
+const CLAIM_KEYS = /^ {8}(concept|takesAsRead):/;
+let stripped = 0;
+const outBook = parts.join('\n').split('\n').filter((line, i, all) => {
+  if(CLAIM_KEYS.test(line)){ stripped++; return false; }
+  // a declaration's list items, which are indented under `takesAsRead:`
+  if(/^ {10}- /.test(line)){
+    for(let k = i - 1; k >= 0; k--){
+      if(/^ {10}- /.test(all[k])) continue;
+      if(/^ {8}takesAsRead:/.test(all[k])){ stripped++; return false; }
+      break;
+    }
+  }
+  return true;
+}).join('\n') + '\n';
 const bookOutName = `${edition.replace(/_/g, '-')}.yml`;
 const bookOutPath = resolve(bookDir, bookOutName);
 
@@ -251,6 +278,22 @@ if(dry){
 ${shims.map(([f]) => `  themes/${edition}/${f}`).join('\n')}
   themes/${edition}/content/           (via import-book)
   themes.json                          + ${edition}\n`);
+} else if(existsSync(bookOutPath) && !flags.includes('--force')){
+  // IT WILL OVERWRITE A SHIPPING EDITION WITHOUT SAYING SO, AND IT DID.
+  //
+  // There is a `--dry`, and the tool reads as if it were for scaffolding something new,
+  // so it was run on `blackout` to check one line of its output — and it rewrote the
+  // nine days it had been given over the ten that ship, book and generated content
+  // both. Nothing failed: a nine-day campaign is a valid campaign, `npm run check`
+  // passed on it, and the only evidence was a mission count in a file nobody was
+  // reading. This is house rule 14's shape — a save belongs to the theme that wrote
+  // it — one directory over.
+  console.error(`\n✗ books/${bookOutName} already exists, and ${edition} ships ${
+    (readFileSync(bookOutPath, 'utf8').match(/^  - title: /gm) ?? []).length} day(s).
+  Deriving again would replace that edition's book and regenerate its content from
+  whatever --days you passed, which is how a shipping campaign quietly loses days.
+  Use --dry to see what it would write, or --force if replacing it is the intent.\n`);
+  process.exit(1);
 } else {
   writeFileSync(bookOutPath, outBook);
   mkdirSync(themeOut, { recursive: true });
@@ -293,6 +336,8 @@ const mean = graded.length ? graded.reduce((n, p) => n + p.fk, 0) / graded.lengt
 console.log(`
 ${edition}: ${kept.length} days, ${kept.reduce((n, d) => n + (missions[d - 1].stops ?? []).length, 0)} stops.
 
+  claims stripped        ${stripped} \`concept\`/\`takesAsRead\` line(s) — they named the base
+                         theme's syllabus, and this edition has its own list
   reading level now      ${mean.toFixed(1)} mean, against a target of ${GRADE}
   passages to rewrite    ${over.length} of ${graded.length} above grade ${GRADE}, ${hard.length} of them hard failures
 

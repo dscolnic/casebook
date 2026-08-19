@@ -10,6 +10,12 @@ export const CURRICULUM = {
       "scene": "The onboard computer has restarted and the tracking comes and goes. The room has to rebuild where the spacecraft is from whatever can still be measured, and say what each measurement buys.",
       "takeaway": "No single measurement gives a position. Each one gives a piece, and the pieces are different shapes.",
       "place": "Deep-Space Tracking Station",
+      "guide": "Four things you need to know, and four ways to measure. Pair them by asking what each measurement actually notices. An angle? A time? A change of pitch? Or the difference between two earlier answers? One of the four is built out of the others, which is why it is the roughest of them.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If three lines are right, the fourth response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
       "story": "The onboard computer has restarted and the tracking comes and goes. The room has to rebuild where the spacecraft is from whatever can still be measured, and say what each measurement buys.",
       "game": {
         "type": "PROTOCOL",
@@ -51,7 +57,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "saying where something is and how it is moving takes more than one number"
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Signals take time to travel, and distance costs strength",
+        "of": 16,
+        "rests": [
+          "Speed, distance and time, and how they give each other"
+        ]
+      }
     },
     {
       "day": 2,
@@ -59,6 +73,12 @@ export const CURRICULUM = {
       "scene": "The computer restarted and lost its bearings. A distance, two angles and a pitch trace remain, recorded on different clocks. The next tracking pass will test whatever the room reconstructs.",
       "takeaway": "A useful answer predicts the next measurement, and says how sure it is.",
       "place": "Guidance Room",
+      "guide": "All four steps will happen. Ask of each what has to be sorted out first. Measurements on different clocks cannot be fitted together until they are on one clock. A fit cannot be judged until you look at what it missed. And the burn happens at a set time, not now.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "The computer restarted and lost its bearings. A distance, two angles and a pitch trace remain, recorded on different clocks. The next tracking pass will test whatever the room reconstructs.",
       "game": {
         "type": "SEQUENCE",
@@ -90,7 +110,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "measurements only combine when they are on the same map and the same clock"
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Speed, distance and time, and how they give each other",
+        "of": 16
+      }
     },
     {
       "day": 3,
@@ -98,6 +123,12 @@ export const CURRICULUM = {
       "scene": "The return path swings the spacecraft round the Moon at two and a half thousand kilometres up. Somebody on the loop has asked why it does not simply fall onto the surface.",
       "takeaway": "An orbit is falling, with enough sideways speed that the ground keeps curving away.",
       "place": "Guidance Computer Room",
+      "guide": "All four options offer something holding the spacecraft up. Ask of each whether it names a real push. Two of them invent one. There is nothing out there for a wing to push against. Gravity is the only force here, and it points inward. So ask what the sideways speed does to something that is already falling.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The return path swings the spacecraft round the Moon at two and a half thousand kilometres up. Somebody on the loop has asked why it does not simply fall onto the surface.",
       "game": {
         "type": "CHOICE",
@@ -123,7 +154,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "something moving in a circle is being pulled toward the middle, even at a steady speed"
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Something moving in space keeps going until something pushes it",
+        "of": 16
+      }
     },
     {
       "day": 4,
@@ -131,6 +167,11 @@ export const CURRICULUM = {
       "scene": "A thruster pushes with two hundred newtons, three metres out from the middle of the spacecraft. The crew needs the turning effect before it can predict how fast the turn starts.",
       "takeaway": "Where a push is applied matters as much as how hard it pushes.",
       "place": "Guidance Console",
+      "guide": "Five numbers, and three belong elsewhere. The weight of the spacecraft, the docking ring, and a half. Ask of each whether the turning depends on it. Then note what the crew can change. Picking a different thruster changes how far out the push acts, without changing the thruster at all.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A thruster pushes with two hundred newtons, three metres out from the middle of the spacecraft. The crew needs the turning effect before it can predict how fast the turn starts.",
       "game": {
         "type": "BALLPARK",
@@ -147,7 +188,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the same push further from the middle turns something harder"
-      ]
+      ],
+      "concept": {
+        "n": 3,
+        "c": "A push changes motion, and a bigger push changes it faster",
+        "of": 16,
+        "rests": [
+          "Something moving in space keeps going until something pushes it"
+        ]
+      }
     },
     {
       "day": 5,
@@ -155,6 +204,12 @@ export const CURRICULUM = {
       "scene": "Several ground measurements suddenly put the spacecraft ahead of where it should be. They agree with each other. A star camera and the clock records are both available.",
       "takeaway": "When measurements agree, ask whether they agree separately or share a part.",
       "place": "Global Tracking Network",
+      "guide": "Open each measurement to see what it depended on. Keep the ones that would still stand if one clock were wrong, and untick the rest. Then name what the others share. Two ground measurements agreeing is not two pieces of evidence if both were timed by the same clock.",
+      "background": [
+        "Why agreeing is not the same as independent. Both ground measurements work out where the spacecraft is from how long a signal took. If the clock they both use is wrong, both answers move the same way at the same moment. They will agree beautifully and both be wrong.",
+        "What the star camera is doing on the board. It works out where the spacecraft is by looking at stars, with no clock involved. So it either confirms the two ground answers or it does not, and either way it is telling you something they cannot.",
+        "Why this matters before anybody acts. Correcting a course that is not wrong makes it wrong, and spends fuel doing it. Finding out which measurements moved on their own is what stops that."
+      ],
       "story": "Several ground measurements suddenly put the spacecraft ahead of where it should be. They agree with each other. A star camera and the clock records are both available.",
       "game": {
         "type": "TRACE",
@@ -207,14 +262,6 @@ export const CURRICULUM = {
                 "path",
                 "star_field"
               ]
-            },
-            {
-              "id": "onboard",
-              "label": "Onboard motion sensors",
-              "reading": "no push at all",
-              "depends": [
-                "onboard"
-              ]
             }
           ],
           "resources": [
@@ -229,15 +276,10 @@ export const CURRICULUM = {
             {
               "id": "star_field",
               "label": "The stars"
-            },
-            {
-              "id": "onboard",
-              "label": "The spacecraft's own sensors"
             }
           ],
           "independent": [
-            "star",
-            "onboard"
+            "star"
           ],
           "target": "ground_clock",
           "hint": "Open each measurement to see what it is built from. Keep the ones that do not pass through the suspect clock.",
@@ -246,7 +288,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "several instruments can be wrong together if they share a part"
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Something moving in space keeps going until something pushes it",
+        "of": 16
+      }
     },
     {
       "day": 6,
@@ -254,6 +301,11 @@ export const CURRICULUM = {
       "scene": "The entry corridor is forty kilometres wide. The circle of doubt around the spacecraft's position is ten kilometres across. Sandoval needs a margin before the burn is called.",
       "takeaway": "A route is planned against the doubt, not against the line drawn through the middle of it.",
       "place": "Navigation Covariance Room",
+      "guide": "Three numbers, and one of them is a single one of the two errors. That was used earlier to work out the circle of doubt. Ask which two this needs. The doubt sits around the middle, so it uses up room on both sides at once. That is why the answer is not the corridor minus the doubt.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The entry corridor is forty kilometres wide. The circle of doubt around the spacecraft's position is ten kilometres across. Sandoval needs a margin before the burn is called.",
       "game": {
         "type": "BALLPARK",
@@ -270,7 +322,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a position is the middle of a circle of doubt, not a fact"
-      ]
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Rates: how fast something is used up, and how long it lasts",
+        "of": 16,
+        "rests": [
+          "Speed, distance and time, and how they give each other"
+        ]
+      }
     },
     {
       "day": 7,
@@ -278,6 +338,12 @@ export const CURRICULUM = {
       "scene": "The crew is aboard the recovery ship and the review board meets Monday. Four proposals compete for three funded places.",
       "takeaway": "Fixing what caused it outlasts getting better at coping with it.",
       "place": "Entry Tracking Network",
+      "guide": "All four proposals are worth money, and there are three places. Ask of each whether it removes a cause, or helps you cope with one. The same weakness turned up twice on this flight. Several readings on one circuit, and several measurements on one clock. Both times, things agreeing looked stronger than it was.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The crew is aboard the recovery ship and the review board meets Monday. Four proposals compete for three funded places.",
       "game": {
         "type": "CHOICE",
@@ -303,7 +369,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a fix that removes a cause outlasts a fix that improves the response"
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Ordering work when several things are wrong at once",
+        "of": 16,
+        "rests": [
+          "A budget: a finite store shared between competing demands",
+          "Deciding with a deadline that does not move"
+        ]
+      }
     }
   ],
   "ELEC": [
@@ -313,6 +388,11 @@ export const CURRICULUM = {
       "scene": "The fuel cells are gone, and the crew is on the entry batteries days earlier than any plan allowed. The flight doctor, who watches the crew's health from the ground, wants a number of hours before the next decision about switching things off.",
       "takeaway": "An amount divided by a rate is a time, and that time is what every other decision gets argued against.",
       "place": "Electrical Systems Room",
+      "guide": "Five numbers, and three belong to other questions. The voltage, the brief peak, and the time to the next burn. Ask of each whether it is an amount stored, or a rate of use. An amount divided by a rate leaves a time. And note what the answer assumes: nothing switching on, and every last bit usable.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The fuel cells are gone, and the crew is on the entry batteries days earlier than any plan allowed. The flight doctor, who watches the crew's health from the ground, wants a number of hours before the next decision about switching things off.",
       "game": {
         "type": "BALLPARK",
@@ -351,7 +431,15 @@ export const CURRICULUM = {
           "s": "A store divided by the rate it is being drawn at gives the hours before it is empty.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Circuits: a break, a short, and why a battery has limits",
+        "of": 16,
+        "rests": [
+          "Rates: how fast something is used up, and how long it lasts"
+        ]
+      }
     }
   ],
   "THERM": [
@@ -361,6 +449,11 @@ export const CURRICULUM = {
       "scene": "With most things switched off, the cabin is losing about a kilowatt more heat than it makes. The flight doctor wants to know how long the crew has before the cold becomes a medical problem.",
       "takeaway": "Big things change temperature slowly, and that slowness is time to think.",
       "place": "Thermal Control Lab",
+      "guide": "Four numbers, and two of them belong elsewhere. The temperature now, and the hours, are not in this sum. Ask of each whether it is energy lost, or energy for one degree. And note what the answer means. The cabin cools slowly, which buys hours now and costs the same energy to warm back up.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "With most things switched off, the cabin is losing about a kilowatt more heat than it makes. The flight doctor wants to know how long the crew has before the cold becomes a medical problem.",
       "game": {
         "type": "BALLPARK",
@@ -399,7 +492,12 @@ export const CURRICULUM = {
           "s": "Heavy things need a lot of energy per degree, which is why they cool slowly.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Energy moves from hot to cold, and insulation slows it down",
+        "of": 16
+      }
     },
     {
       "day": 2,
@@ -407,6 +505,12 @@ export const CURRICULUM = {
       "scene": "The cabin is cooling and the crew wants to do something about it. What they can do depends on how the heat is actually leaving, so the room names the route first.",
       "takeaway": "Naming the route is what tells you which fix would work at all.",
       "place": "Cabin Environment Console",
+      "guide": "Four things happening in the cabin, and four ways heat moves. Pair them by asking what is carrying the warmth. Touching? Moving air? Or nothing at all? One of these needs nothing in between. The pairing decides what a fix looks like, because wrapping, fans and shiny surfaces each work on a different route.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If three lines are right, the fourth response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
       "story": "The cabin is cooling and the crew wants to do something about it. What they can do depends on how the heat is actually leaving, so the room names the route first.",
       "game": {
         "type": "PROTOCOL",
@@ -469,14 +573,86 @@ export const CURRICULUM = {
           ],
           "s": "A store divided by the rate it is being drawn at gives the hours before it is empty."
         }
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Energy moves from hot to cold, and insulation slows it down",
+        "of": 16
+      }
     },
     {
       "day": 3,
+      "title": "Cabin pressure, through the work period",
+      "scene": "The crew are working in the middle module and the cabin has to hold its pressure while they do. An airlock cycles, the air cleaner comes on, and the small leak on the log is still there.",
+      "takeaway": "A leak is a rate, so it is answered by a setting rather than a correction.",
+      "place": "Environmental Console",
+      "guide": "Hold the cabin pressure inside the band on the console. The band narrows later, because the crew move towards the module with the suspect seal. A leak keeps leaking, so set the makeup valve to match it rather than opening it after the gauge has fallen.",
+      "background": [
+        "Why a leak is not one drop. Gas escapes for as long as the hole is open, so the pressure keeps falling. Opening a valve once buys a few minutes and changes nothing.",
+        "Why the airlock is different. Cycling it takes a fixed amount of gas out, once. That wants a correction rather than a new setting, and both show on the same gauge."
+      ],
+      "story": "The crew are working in the middle module and the cabin has to hold its pressure while they do. An airlock cycles, the air cleaner comes on, and the small leak on the log is still there.",
+      "game": {
+        "type": "HOLD",
+        "title": "Cabin pressure, through the work period",
+        "setup": "Environmental Console",
+        "play": "Hold the cabin while the crew work.",
+        "task": "Hold the cabin while the crew work.",
+        "question": "Hold the cabin inside the band through the work period.",
+        "answer": "Inside the band for most of the period, with the valve set to match the leak rather than opened after the pressure has dropped.",
+        "why": "A leak is a rate, and everything else follows from that. Gas escapes for as long as the hole is open, so the pressure keeps falling and never settles. A valve opened once and shut again buys a few minutes. What works is setting the makeup flow to match the loss and leaving it. That also measures the leak: the flow you need to hold steady is the leak rate, and that is the number the ground needs to decide whether the module can keep being used. The airlock is the opposite. Cycling it takes a fixed amount of gas out, once, so it wants a correction rather than a new setting. Telling those two apart on one gauge is the skill. The band narrows because the crew are moving towards the module with the suspect seal, where the same drop matters more.",
+        "hold": {
+          "quantity": "Cabin pressure",
+          "control": "Makeup valve",
+          "unit": "kPa",
+          "hold": 101,
+          "band": 0.4,
+          "narrowTo": 0.2,
+          "duration": 45,
+          "authority": 0.1,
+          "pass": 0.8,
+          "direction": "raise",
+          "disturbances": [
+            {
+              "label": "The suspect seal opens up",
+              "at": 4,
+              "amount": -0.03
+            },
+            {
+              "label": "The air cleaner comes on",
+              "at": 20,
+              "amount": 0.05
+            },
+            {
+              "label": "Airlock cycles",
+              "at": 38,
+              "amount": -0.045
+            }
+          ],
+          "hint": "A leak keeps leaking. Set the valve to match it.",
+          "commit": "Report the period"
+        }
+      },
+      "assumes": [
+        "a sealed space loses pressure if gas escapes"
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Air is a mixture, and the share of each gas has to stay in range",
+        "of": 16
+      }
+    },
+    {
+      "day": 4,
       "title": "How much they breathe out",
       "scene": "Three crew, each breathing out about twenty litres of carbon dioxide an hour. The workshop needs to know what a home-made scrubber has to keep up with over the next six hours.",
       "takeaway": "The rate something arrives at sets the smallest rate that can remove it.",
       "place": "Cabin Air Console",
+      "guide": "Five numbers, and two belong to a different question. A whole day, and a figure by weight rather than by volume. Ask of each whether it is a rate, a count, or a length of time. What comes out is the least a scrubber has to keep up with. Anything slower only slows the rise.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Three crew, each breathing out about twenty litres of carbon dioxide an hour. The workshop needs to know what a home-made scrubber has to keep up with over the next six hours.",
       "game": {
         "type": "BALLPARK",
@@ -489,11 +665,16 @@ export const CURRICULUM = {
         "why": "Three people at twenty litres an hour make sixty litres an hour between them. Six hours of that is three hundred and sixty. That number is the bar. Anything that removes carbon dioxide more slowly than the crew makes it does not hold the level steady. It only makes the rise slower. The workshop does not need this precise. It needs to know whether what they can build is big enough to matter at all.",
         "givens": [],
         "relationship": "Total = what one person makes an hour × how many people × how many hours.",
-        "calcKey": "THERM-3"
+        "calcKey": "THERM-4"
       },
       "assumes": [
         "a rate multiplied by a time gives a total"
-      ]
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Air is a mixture, and the share of each gas has to stay in range",
+        "of": 16
+      }
     }
   ],
   "COMMS": [
@@ -503,6 +684,12 @@ export const CURRICULUM = {
       "scene": "Voice and data have gone weak at two ground stations at once. A ground station is a dish antenna on Earth, and these two are on opposite sides of the world. The spacecraft's transmitter is putting out what it should. Three things can be swapped without risking anything.",
       "takeaway": "A cause is proved when the effect follows the change both ways.",
       "place": "Deep-Space Antenna",
+      "guide": "The number you watch is how strong the signal is. Right now it is about twelve decibels low at both dishes. Each test changes one part of the path and can be undone. A change counts only if the number moves more than it wanders on its own. Both dishes are weak at once, which already tells you the cause has to be something they share. Change one thing, undo it, and name the part the fade follows.",
+      "background": [
+        "Why two dishes at once is a clue. The two ground stations sit on opposite sides of the Earth. They have their own receivers, their own crews and their own weather. A fault in one cannot make the other weak. So the cause has to be something both of them share, which means the spacecraft end or the aim.",
+        "What decibels are. A decibel is a way of writing a ratio. Three decibels is about half the power. Ten decibels is a tenth of it. Twelve decibels is about one sixteenth. That is the difference between a voice you can work with and one you cannot.",
+        "Why every test can be undone. There are people aboard the spacecraft. A change you cannot undo is a decision, not a test. All three of these can be tried and put back, which is what lets you check that the fade follows the change both ways."
+      ],
       "story": "Voice and data have gone weak at two ground stations at once. A ground station is a dish antenna on Earth, and these two are on opposite sides of the world. The spacecraft's transmitter is putting out what it should. Three things can be swapped without risking anything.",
       "game": {
         "type": "CONTROL",
@@ -544,7 +731,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a fair test changes one thing and leaves the rest alone"
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Signals take time to travel, and distance costs strength",
+        "of": 16,
+        "rests": [
+          "Speed, distance and time, and how they give each other"
+        ]
+      }
     },
     {
       "day": 2,
@@ -552,6 +747,11 @@ export const CURRICULUM = {
       "scene": "The link is fading, and the antenna team needs the length of one wave for its pointing model. The spacecraft transmits two billion waves a second.",
       "takeaway": "How long a wave is decides how fussy the aiming has to be.",
       "place": "Communications Analysis Room",
+      "guide": "Four numbers, and two of them are traps. One is the same figure misread as millions rather than billions. One is the speed of sound, which has nothing to do with radio. Ask of each whether it belongs to this wave. And note what the answer is for: it sets how carefully the dish has to be aimed.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The link is fading, and the antenna team needs the length of one wave for its pointing model. The spacecraft transmits two billion waves a second.",
       "game": {
         "type": "BALLPARK",
@@ -590,7 +790,137 @@ export const CURRICULUM = {
           "s": "Short waves make a narrow beam, which is why the aiming has to be exact.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Signals take time to travel, and distance costs strength",
+        "of": 16,
+        "rests": [
+          "Speed, distance and time, and how they give each other"
+        ]
+      }
+    },
+    {
+      "day": 3,
+      "title": "What the room is answering now",
+      "scene": "Calls come in faster than they can all be answered. One rule says which get answered first, and it changes as the situation does.",
+      "takeaway": "The cost of a rule that has changed is paid by whoever is still using the old one.",
+      "place": "Flight Director's Console",
+      "guide": "Answer what the rule asks for and hold the rest. The rule is said once and then it stands. What counts is the calls either side of a change, because they show whether the room is working to this rule or the last one.",
+      "background": [
+        "Why the rule changes. Before a burn everything waits for the burn. Once a leak is confirmed everything waits for the leak. When the crew are asleep it changes again, because waking them costs something.",
+        "Why the change is the dangerous part. Two more minutes on the old rule gives the loop to a call that no longer matters, while the one that does waits behind it."
+      ],
+      "story": "Calls come in faster than they can all be answered. One rule says which get answered first, and it changes as the situation does.",
+      "game": {
+        "type": "SPOT",
+        "title": "What the room is answering now",
+        "setup": "Flight Director's Console",
+        "play": "Answer the calls the rule asks for.",
+        "task": "Answer the calls the rule asks for.",
+        "question": "Answer to the rule in force, and keep listening for the rule.",
+        "answer": "Work the rule, not the loudest call. Every change leaves a couple of minutes when the old rule still sounds right.",
+        "why": "Three rules run across the shift and each wants different calls. Anything about the burn, then anything about the leak, then anything that would wake the crew. A call can match two at once, and that is what makes a change cost something. What the panel scores is the calls either side of a change. Most of what comes in is wanted by neither rule, so holding those proves nothing. The room's own version is the two minutes after a leak is confirmed. The rule has changed, and the loop is still going to the people who had it a moment ago.",
+        "spot": {
+          "targets": [
+            {
+              "id": "k1",
+              "label": "Burn attitude question",
+              "tags": [
+                "burn"
+              ]
+            },
+            {
+              "id": "k2",
+              "label": "Leak rate update",
+              "tags": [
+                "leak"
+              ]
+            },
+            {
+              "id": "k3",
+              "label": "Burn timing, leak affected",
+              "tags": [
+                "burn",
+                "leak"
+              ]
+            },
+            {
+              "id": "k4",
+              "label": "Crew sleep request",
+              "tags": [
+                "crew"
+              ]
+            },
+            {
+              "id": "k5",
+              "label": "Ground station swap",
+              "tags": [
+                "routine"
+              ]
+            },
+            {
+              "id": "k6",
+              "label": "Leak fix needs crew",
+              "tags": [
+                "leak",
+                "crew"
+              ]
+            },
+            {
+              "id": "k7",
+              "label": "Supplies report",
+              "tags": [
+                "routine"
+              ]
+            },
+            {
+              "id": "k8",
+              "label": "Burn cut-off check",
+              "tags": [
+                "burn"
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "say": "Anything about the burn",
+              "want": [
+                "burn"
+              ]
+            },
+            {
+              "say": "Anything about the leak",
+              "want": [
+                "leak"
+              ]
+            },
+            {
+              "say": "Anything that wakes the crew",
+              "want": [
+                "crew"
+              ]
+            }
+          ],
+          "duration": 40,
+          "switchEvery": 12,
+          "pass": 0.75,
+          "hint": "The rule is said once on the loop and then it stands.",
+          "commit": "Open the loop"
+        }
+      },
+      "assumes": [
+        "a control room answers calls in an order somebody sets"
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Ordering work when several things are wrong at once",
+        "of": 16,
+        "rests": [
+          "A budget: a finite store shared between competing demands",
+          "Deciding with a deadline that does not move"
+        ]
+      }
     }
   ],
   "STRUCT": [
@@ -600,6 +930,12 @@ export const CURRICULUM = {
       "scene": "The guidance computer is out and the crew is about to fly by hand. Before anybody touches a thruster, the room says plainly what each change does.",
       "takeaway": "Turning follows the same rules as moving. It is just harder to see them.",
       "place": "Attitude Dynamics Lab",
+      "guide": "Four changes on the left, four results on the right. Pair them by asking what each change does to two things. How hard is it being turned? And how hard is it to turn? One of the four has nothing pushing from outside at all, which is what makes it the odd one. The crew will feel every one of these.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If three lines are right, the fourth response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
       "story": "The guidance computer is out and the crew is about to fly by hand. Before anybody touches a thruster, the room says plainly what each change does.",
       "game": {
         "type": "PROTOCOL",
@@ -641,7 +977,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a push off to one side is what makes something start or stop turning"
-      ]
+      ],
+      "concept": {
+        "n": 3,
+        "c": "A push changes motion, and a bigger push changes it faster",
+        "of": 16,
+        "rests": [
+          "Something moving in space keeps going until something pushes it"
+        ]
+      }
     },
     {
       "day": 2,
@@ -649,6 +993,12 @@ export const CURRICULUM = {
       "scene": "The signal is weak and drifting. The crew is answering calls it can barely hear. The next navigation update depends on getting the link back.",
       "takeaway": "Do the biggest and cheapest thing first, and let each move buy the next.",
       "place": "Spacecraft Attitude Console",
+      "guide": "All four moves will be made, so ask which buys most for least. Where the spacecraft points is the biggest thing in the whole link, and it costs nothing to check. Slowing the message down buys clarity without touching the spacecraft. And one of these four is not a repair at all. It is what the repair is for.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "The signal is weak and drifting. The crew is answering calls it can barely hear. The next navigation update depends on getting the link back.",
       "game": {
         "type": "SEQUENCE",
@@ -680,7 +1030,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a slower message needs less signal to be read"
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Ordering work when several things are wrong at once",
+        "of": 16,
+        "rests": [
+          "A budget: a finite store shared between competing demands",
+          "Deciding with a deadline that does not move"
+        ]
+      }
     },
     {
       "day": 3,
@@ -688,6 +1047,11 @@ export const CURRICULUM = {
       "scene": "The bad band runs from three thousand one hundred to three thousand three hundred turns a minute. The rule is to stay two hundred clear of it, and the pump still has to run.",
       "takeaway": "Avoiding a resonance is arithmetic on the band, not a matter of running gently.",
       "place": "Spacecraft Vibration Console",
+      "guide": "Four numbers, and two of them are the top of the band and the worst point in it. Those belong to the other side of the problem. Ask which two the question needs. Below the band means below its bottom edge, with the clearance taken off. Going the wrong way puts the pump inside the band.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The bad band runs from three thousand one hundred to three thousand three hundred turns a minute. The rule is to stay two hundred clear of it, and the pump still has to run.",
       "game": {
         "type": "BALLPARK",
@@ -704,7 +1068,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a shaking problem has a band of speeds, with room either side"
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Speed, distance and time, and how they give each other",
+        "of": 16
+      }
     }
   ],
   "INTEG": [
@@ -714,6 +1083,12 @@ export const CURRICULUM = {
       "scene": "Nine minutes after the bang, three cabin pressure readings fall in the same second. Cabin pressure is how hard the air inside is pushing on the walls, and it drops when air leaks out. The dial gauge beside them, which is a needle on a spring rather than anything electrical, has not moved.",
       "takeaway": "Three readings that fall together are one event. What they share is where to look first.",
       "place": "Mission Control",
+      "guide": "Four options, and two facts have to be explained together. Three readings fell in the same second. The dial gauge did not move at all. Ask of each option how both of those could be true. The dial is a needle on a spring, so it shares nothing electrical with the other three. Three holes appearing at once is a lot to ask.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Nine minutes after the bang, three cabin pressure readings fall in the same second. Cabin pressure is how hard the air inside is pushing on the walls, and it drops when air leaks out. The dial gauge beside them, which is a needle on a spring rather than anything electrical, has not moved.",
       "game": {
         "type": "CHOICE",
@@ -739,7 +1114,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "several instruments can run off one shared circuit"
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "What a measurement can honestly say, and what it cannot",
+        "of": 16,
+        "rests": [
+          "Repeats and averages, and what one reading is worth"
+        ]
+      }
     },
     {
       "day": 2,
@@ -747,6 +1130,12 @@ export const CURRICULUM = {
       "scene": "Three consoles hold numbers that disagree. One of the two main power lines reads zero. The guidance computer, which keeps track of where the spacecraft is and which way it points, has restarted with no memory of what it saw. Nothing has been written down yet.",
       "takeaway": "An answer built to survive being wrong has to be built in a particular order.",
       "place": "Telemetry Analysis Room",
+      "guide": "All four steps will be done, so ask what each one needs to be true first. The recordings are wiped over within minutes. A neat answer worked out from two different clocks is still a wrong answer. And a command is only worth sending once you know how uncertain the picture is.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Three consoles hold numbers that disagree. One of the two main power lines reads zero. The guidance computer, which keeps track of where the spacecraft is and which way it points, has restarted with no memory of what it saw. Nothing has been written down yet.",
       "game": {
         "type": "SEQUENCE",
@@ -778,7 +1167,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a number without its units and its time is not a measurement"
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Ordering work when several things are wrong at once",
+        "of": 16,
+        "rests": [
+          "A budget: a finite store shared between competing demands",
+          "Deciding with a deadline that does not move"
+        ]
+      }
     },
     {
       "day": 3,
@@ -786,6 +1184,12 @@ export const CURRICULUM = {
       "scene": "Four screens are showing four problems at once. Camila Reyes wants to know which one the room should watch while the tracking pass — the few minutes when a dish on Earth can measure the spacecraft — comes round.",
       "takeaway": "Air runs out in minutes. Warmth and power run out in hours, so the air is watched first.",
       "place": "Spacecraft Systems Console",
+      "guide": "All four readings matter and all four are being watched. Ask of each how fast it changes, and what happens to the crew if it goes wrong. Some of these get worse over hours. One of them gets worse in minutes, and there is nothing the crew can do without it. That is the difference being graded.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Four screens are showing four problems at once. Camila Reyes wants to know which one the room should watch while the tracking pass — the few minutes when a dish on Earth can measure the spacecraft — comes round.",
       "game": {
         "type": "CHOICE",
@@ -811,7 +1215,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "people need air, warmth and power, and they need them on different clocks"
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Ordering work when several things are wrong at once",
+        "of": 16,
+        "rests": [
+          "A budget: a finite store shared between competing demands",
+          "Deciding with a deadline that does not move"
+        ]
+      }
     },
     {
       "day": 4,
@@ -819,6 +1232,12 @@ export const CURRICULUM = {
       "scene": "The guidance computer is off. The crew has to turn the spacecraft ninety degrees using two thruster pairs and a mark on the window. Every extra correction spends fuel meant for the return.",
       "takeaway": "Stopping the push does not stop the motion, so the braking has to start early.",
       "place": "Crew Procedures Room",
+      "guide": "You set two things: how hard to start the turn, and where to start braking. Then the plan runs and you watch it. Nothing slows this turn down by itself, so whatever you start you have to stop on purpose. The braking has to come early rather than at the mark, and every extra correction spends fuel.",
+      "background": [
+        "Why the brake has to come early. There is no air and no friction in space, so a spacecraft that starts turning keeps turning at the same rate. It stops only when you push it the other way by the same amount. Firing at the mark means arriving still turning, and then having to fix it.",
+        "What the window mark tells you. It shows which way the spacecraft is pointing. It does not show how fast it is turning, so you have to judge that from how quickly the view slides past. That is why a gentle start is easier to fly than a hard one, even though it takes longer.",
+        "Why the fuel matters more than the minutes. The fuel being spent is what the return needs later. A fast turn with three corrections can cost more than the time it saved is worth, and there is no way to get it back."
+      ],
       "story": "The guidance computer is off. The crew has to turn the spacecraft ninety degrees using two thruster pairs and a mark on the window. Every extra correction spends fuel meant for the return.",
       "game": {
         "type": "FLY",
@@ -887,14 +1306,182 @@ export const CURRICULUM = {
           ],
           "s": "Speed is how much ground is covered divided by how long it took."
         }
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Spinning things keep spinning, and a nudge takes a while to show",
+        "of": 16,
+        "rests": [
+          "Something moving in space keeps going until something pushes it",
+          "A push changes motion, and a bigger push changes it faster"
+        ]
+      }
     },
     {
       "day": 5,
+      "title": "The spacecraft, or the sensor",
+      "scene": "The console has flagged more numbers than the team can look at before handover. Some of them are the spacecraft doing something. The rest are the sensor going wrong, and both are just numbers on a list.",
+      "takeaway": "The spacecraft and the sensor go wrong in different ways.",
+      "place": "Telemetry Room",
+      "guide": "Two bins. Ask whether anything else on board agrees. A real change shows up in more than one place and happens at a speed that is possible. A broken sensor jumps instantly, goes off the end of its scale, or sits still while everything else moves.",
+      "background": [
+        "Why this comes first. The answer to the spacecraft misbehaving is to do something. The answer to a sensor misbehaving is to stop trusting the number. Getting it the wrong way round spends fuel on a problem that is not there.",
+        "What a broken sensor looks like. A jump nothing could really do. A reading past the end of the scale. A number that has not moved in an hour while everything near it has."
+      ],
+      "story": "The console has flagged more numbers than the team can look at before handover. Some of them are the spacecraft doing something. The rest are the sensor going wrong, and both are just numbers on a list.",
+      "game": {
+        "type": "BELT",
+        "title": "The spacecraft, or the sensor",
+        "setup": "Telemetry Room",
+        "play": "Sort the flags before the handover.",
+        "task": "Sort the flags before the handover.",
+        "question": "Send each flag to the bin that says what the problem is.",
+        "answer": "Anything possible and backed up by other readings is the spacecraft. Anything instant, off the scale, stuck or on its own is the sensor.",
+        "why": "Every flag is a number that moved. A number is not the thing itself. When the spacecraft really is warming up, it shows in more than one place. The structure warms. The radiator warms. The power draw agrees. And it all happens at a speed heating can manage. A broken sensor does none of that. It jumps all at once. Or it parks past the end of its range. Or it freezes while everything near it changes. Or it disagrees with two other sensors measuring the same thing. So the test is whether anything else agrees, not whether the number looks sensible. A broken sensor can give a very sensible number. The cost runs both ways. Chasing a broken sensor wastes fuel on a problem nobody has. Calling a real problem a bad reading is worse.",
+        "belt": {
+          "left": {
+            "name": "The spacecraft"
+          },
+          "right": {
+            "name": "The sensor"
+          },
+          "items": [
+            {
+              "name": "Slow warming",
+              "bin": "left"
+            },
+            {
+              "name": "Power draw rising",
+              "bin": "left"
+            },
+            {
+              "name": "Radiator warmer too",
+              "bin": "left"
+            },
+            {
+              "name": "Pressure falling steadily",
+              "bin": "left"
+            },
+            {
+              "name": "Drifting slowly round",
+              "bin": "left"
+            },
+            {
+              "name": "Battery falling",
+              "bin": "left"
+            },
+            {
+              "name": "Two sensors agree",
+              "bin": "left"
+            },
+            {
+              "name": "A possible speed",
+              "bin": "left"
+            },
+            {
+              "name": "Follows the burn",
+              "bin": "left"
+            },
+            {
+              "name": "Follows sun angle",
+              "bin": "left"
+            },
+            {
+              "name": "Matches the model",
+              "bin": "left"
+            },
+            {
+              "name": "Crew confirms it",
+              "bin": "left"
+            },
+            {
+              "name": "Instant jump",
+              "bin": "right"
+            },
+            {
+              "name": "Past the scale",
+              "bin": "right"
+            },
+            {
+              "name": "Frozen an hour",
+              "bin": "right"
+            },
+            {
+              "name": "Exactly zero",
+              "bin": "right"
+            },
+            {
+              "name": "Two others disagree",
+              "bin": "right"
+            },
+            {
+              "name": "An impossible speed",
+              "bin": "right"
+            },
+            {
+              "name": "Flicking every second",
+              "bin": "right"
+            },
+            {
+              "name": "Negative temperature",
+              "bin": "right"
+            },
+            {
+              "name": "Changed with reset",
+              "bin": "right"
+            },
+            {
+              "name": "One string only",
+              "bin": "right"
+            },
+            {
+              "name": "Noise gone entirely",
+              "bin": "right"
+            },
+            {
+              "name": "Off the scale",
+              "bin": "right"
+            },
+            {
+              "name": "Stuck at maximum",
+              "bin": "right"
+            },
+            {
+              "name": "Nothing else agrees",
+              "bin": "right"
+            }
+          ],
+          "need": 20,
+          "lives": 3,
+          "pass": 0.8,
+          "hint": "Ask whether anything else on board agrees.",
+          "commit": "Start the line"
+        }
+      },
+      "assumes": [
+        "a number comes from a sensor, and a sensor can break"
+      ],
+      "concept": {
+        "n": 15,
+        "c": "What a measurement can honestly say, and what it cannot",
+        "of": 16,
+        "rests": [
+          "Repeats and averages, and what one reading is worth"
+        ]
+      }
+    },
+    {
+      "day": 6,
       "title": "Why is the voltage sagging?",
       "scene": "A main power line is sagging at twenty-four volts instead of twenty-eight, while the current drawn from it sits where it was planned to be. Engineers want to start pulling equipment off.",
       "takeaway": "Voltage, current and heat are three views of one fault, and one view is not enough.",
       "place": "Spacecraft Load Panel",
+      "guide": "Four options, and three facts have to fit together. The supply is fine. The current is where it was planned. Something is hot. Ask of each option how many of those it covers. A hidden extra load would show in the current. A wrong meter would not warm anything up. Equipment is about to be pulled off on this answer.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "A main power line is sagging at twenty-four volts instead of twenty-eight, while the current drawn from it sits where it was planned to be. Engineers want to start pulling equipment off.",
       "game": {
         "type": "CHOICE",
@@ -932,14 +1519,28 @@ export const CURRICULUM = {
       },
       "assumes": [
         "current pushing through something that resists it drops the voltage and makes heat"
-      ]
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Circuits: a break, a short, and why a battery has limits",
+        "of": 16,
+        "rests": [
+          "Rates: how fast something is used up, and how long it lasts"
+        ]
+      }
     },
     {
-      "day": 6,
+      "day": 7,
       "title": "Switch things off without losing the mission",
       "scene": "Forty-one amp-hours left, and sixty-two hours to fly. An amp-hour is one hour of giving one amp, so forty-one of them is not much. Guidance, radio, heating and life support all want power. Something has to be turned down within minutes.",
       "takeaway": "A power budget is not a ranking of what matters. It is hours multiplied by draw, and the total is fixed.",
       "place": "Mission Planning Desk",
+      "guide": "Forty-one amp-hours, sixty-two hours to fly, and everything switched on uses more than that. Watch the list of questions rather than the loads: it shows what the spacecraft can still do with your plan. Every hour you give one thing is an hour taken from another, and something has to come down within minutes.",
+      "background": [
+        "How little there is. At the current draw the whole reserve lasts under ten hours, and there are sixty-two to fly. So this is not a matter of trimming a bit. The draw has to come down by several times over and stay down.",
+        "Why the loads are not equal. The radio and the guidance computer can be switched on for a while and off again. Heating changes slowly, so it can be cycled. Life support cannot be interrupted at all. That is what makes a plan possible.",
+        "Why the first cut cannot wait. Power is being used at the current rate while you decide, so a slow decision has already spent some of what it was deciding about. Cutting something early buys the time to plan the rest properly."
+      ],
       "story": "Forty-one amp-hours left, and sixty-two hours to fly. An amp-hour is one hour of giving one amp, so forty-one of them is not much. Guidance, radio, heating and life support all want power. Something has to be turned down within minutes.",
       "game": {
         "type": "ALLOCATE",
@@ -1029,14 +1630,28 @@ export const CURRICULUM = {
           ],
           "s": "A store divided by the rate it is being drawn at gives the hours before it is empty."
         }
-      ]
+      ],
+      "concept": {
+        "n": 6,
+        "c": "A budget: a finite store shared between competing demands",
+        "of": 16,
+        "rests": [
+          "Rates: how fast something is used up, and how long it lasts"
+        ]
+      }
     },
     {
-      "day": 7,
+      "day": 8,
       "title": "Keep the cabin survivable",
       "scene": "The cabin is at four degrees and falling. Water is beading on the walls and the crew is sleeping in their suits. Heating all of it is not affordable on what is left.",
       "takeaway": "Slowing a loss keeps paying. Replacing it has to be paid again every time.",
       "place": "Materials and Insulation Shop",
+      "guide": "All four options spend the same fixed energy. Ask of each whether it slows the loss, or puts back heat that has already gone. Wrapping does the first and cannot do the second. Then ask where cold costs most. Cold batteries give less, so a cold problem turns into a power problem.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The cabin is at four degrees and falling. Water is beading on the walls and the crew is sleeping in their suits. Heating all of it is not affordable on what is left.",
       "game": {
         "type": "CHOICE",
@@ -1062,14 +1677,25 @@ export const CURRICULUM = {
       },
       "assumes": [
         "slowing a loss and replacing it are different things"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Energy moves from hot to cold, and insulation slows it down",
+        "of": 16
+      }
     },
     {
-      "day": 8,
+      "day": 9,
       "title": "Follow the air",
       "scene": "Carbon dioxide keeps climbing. The scrubber, which is the machine that takes that gas back out of the air, has a fan that sounds normal and draws its usual current. The airflow through it is low. There are pressure readings on both sides of the filter.",
       "takeaway": "A chain moves at the rate of its most restricted link, not the rate of its noisiest one.",
       "place": "Life-Support Laboratory",
+      "guide": "Build the path the air takes, in order, then name the link where it becomes the problem. The fan sounds normal and draws its usual current, which tells you the fan is fine. The pressure readings on both sides of the filter are what show you where the blockage is, so read those instead of trusting the sound.",
+      "background": [
+        "Why a working fan and low airflow means a blockage. A fan uses more current the more air it moves. Meeting a blockage, it moves less air, works less hard, and sounds completely normal. So the current reading is evidence about the fan, not about the system.",
+        "What a pressure difference tells you. Pushing air through a blockage costs pressure. A big drop across the filter and a small one across the scrubber says the filter is blocked. The other way round says the scrubber is. Those need different repairs.",
+        "Why the carbon dioxide is the clock. It climbs whenever the scrubber removes it more slowly than the crew makes it, and people get slow and confused well before the level is dangerous. The problem has to be found while everybody can still think clearly."
+      ],
       "story": "Carbon dioxide keeps climbing. The scrubber, which is the machine that takes that gas back out of the air, has a fan that sounds normal and draws its usual current. The airflow through it is low. There are pressure readings on both sides of the filter.",
       "game": {
         "type": "CHAIN",
@@ -1085,27 +1711,32 @@ export const CURRICULUM = {
             {
               "id": "intake",
               "label": "Cabin intake",
-              "transfers": "cabin air into the loop"
+              "transfers": "cabin air into the loop",
+              "reading": "intake open"
             },
             {
               "id": "fan",
               "label": "Scrubber fan",
-              "transfers": "pressure rise to the moving air"
+              "transfers": "pressure rise to the moving air",
+              "reading": "normal current and sound"
             },
             {
               "id": "filter",
               "label": "Filter section",
-              "transfers": "air through the particulate barrier"
+              "transfers": "air through the particulate barrier",
+              "reading": "large pressure drop across this section"
             },
             {
               "id": "sorbent",
               "label": "CO2 sorbent bed",
-              "transfers": "carbon dioxide from air into sorbent"
+              "transfers": "carbon dioxide from air into sorbent",
+              "reading": "bed installed"
             },
             {
               "id": "return",
               "label": "Return duct",
-              "transfers": "treated air back to the cabin"
+              "transfers": "treated air back to the cabin",
+              "reading": "duct open"
             }
           ],
           "order": [
@@ -1145,14 +1776,25 @@ export const CURRICULUM = {
           ],
           "s": "Anything drawn at a steady rate adds up in proportion to how long it is drawn for."
         }
-      ]
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Air is a mixture, and the share of each gas has to stay in range",
+        "of": 16
+      }
     },
     {
-      "day": 9,
+      "day": 10,
       "title": "Make the air breathable",
       "scene": "Carbon dioxide is close to the limit and still climbing. The spare canisters are square, the socket is round, and there is tape, a suit hose, a sock and a plastic cover.",
       "takeaway": "Nothing gets cleaned unless it goes through the thing that cleans it.",
       "place": "Crew Hardware Workshop",
+      "guide": "All four options describe something the fix could be judged on. Ask of each whether it changes how much air really goes through the canister. Air that slips round the edge comes out unchanged. A big canister with a gap does worse than a small one taped tight. The fan sounds the same either way.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Carbon dioxide is close to the limit and still climbing. The spare canisters are square, the socket is round, and there is tape, a suit hose, a sock and a plastic cover.",
       "game": {
         "type": "CHOICE",
@@ -1178,14 +1820,25 @@ export const CURRICULUM = {
       },
       "assumes": [
         "air, like water, goes the easiest way it is offered"
-      ]
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Air is a mixture, and the share of each gas has to stay in range",
+        "of": 16
+      }
     },
     {
-      "day": 10,
+      "day": 11,
       "title": "What is shaking it?",
       "scene": "A bad vibration only appears when the wheel runs near one speed. Above and below that it dies away. Two sensors on different parts of the structure see the same narrow band.",
       "takeaway": "What matters is not how hard it shakes, but what is shaking it, and how fast.",
       "place": "Structural Dynamics Lab",
+      "guide": "Four options, and three facts have to fit. It only happens near one speed. It dies away either side. Two sensors on different parts see the same thing. Ask of each option how many of those it explains. A loose sensor would not be backed up by a second one. Something hitting it happens once.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "A bad vibration only appears when the wheel runs near one speed. Above and below that it dies away. Two sensors on different parts of the structure see the same narrow band.",
       "game": {
         "type": "CHOICE",
@@ -1223,14 +1876,29 @@ export const CURRICULUM = {
       },
       "assumes": [
         "everything has speeds at which it prefers to shake"
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Spinning things keep spinning, and a nudge takes a while to show",
+        "of": 16,
+        "rests": [
+          "Something moving in space keeps going until something pushes it",
+          "A push changes motion, and a bigger push changes it faster"
+        ]
+      }
     },
     {
-      "day": 11,
+      "day": 12,
       "title": "Stop the shaking",
       "scene": "A panel shakes whenever the pump runs near one speed, and it has grown worse over three cycles. The pump is needed, and its speed can still be changed from the panel.",
       "takeaway": "Change what is pushing, when you cannot change what is being pushed.",
       "place": "Operations Planning Room",
+      "guide": "Shaking like this needs two things. A structure with its own rhythm, and something pushing in time with it. All four options act on one of those, or on neither. Ask which, and how fast the crew could do it. It has already grown worse over three cycles. So one option's bet, that it holds together on the way through, is not safe.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "A panel shakes whenever the pump runs near one speed, and it has grown worse over three cycles. The pump is needed, and its speed can still be changed from the panel.",
       "game": {
         "type": "CHOICE",
@@ -1256,14 +1924,28 @@ export const CURRICULUM = {
       },
       "assumes": [
         "shaking like this needs a structure and something pushing it in time"
-      ]
+      ],
+      "concept": {
+        "n": 3,
+        "c": "A push changes motion, and a bigger push changes it faster",
+        "of": 16,
+        "rests": [
+          "Something moving in space keeps going until something pushes it"
+        ]
+      }
     },
     {
-      "day": 12,
+      "day": 13,
       "title": "Say it before you do it",
       "scene": "The correction burn is ready. It adds 3 metres a second, 12 hours before the spacecraft reaches the air. Carter wants the prediction written down first.",
       "takeaway": "A burn that happened is not a burn that worked. Only the measurement afterwards says so.",
       "place": "Flight Director Console",
+      "guide": "Write down how far you expect the burn to move the landing point, before it is fired. Once written it cannot be changed. Then fire the burn, and then decide whether to spend what it costs to measure where the landing point actually went. Not measuring is an answer too, and a poor one.",
+      "background": [
+        "Why a small burn moves the landing point so much. Three metres a second, twelve hours out, is applied to a spacecraft travelling thousands of metres a second. It barely changes the speed. What it changes is the path, and twelve hours of flying turns a small change of path into a large change of where it arrives.",
+        "Why the prediction goes first. A number written after the measurement is not a prediction. With the answer in front of you it is genuinely hard to remember what you expected, which is why the order is enforced rather than suggested.",
+        "What is lost by not measuring. A prediction nobody checks can never be wrong, which is what makes it worthless. Checking is also the only way to find out whether the model used to make it can be trusted for the next burn."
+      ],
       "story": "The correction burn is ready. It adds 3 metres a second, 12 hours before the spacecraft reaches the air. Carter wants the prediction written down first.",
       "game": {
         "type": "VERIFY",
@@ -1330,14 +2012,28 @@ export const CURRICULUM = {
           ],
           "s": "A tiny change in speed moves a spacecraft hardly at all in an hour and a long way in a day."
         }
-      ]
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Repeats and averages, and what one reading is worth",
+        "of": 16,
+        "rests": [
+          "Reading a graph and spotting what changed at the moment it changed"
+        ]
+      }
     },
     {
-      "day": 13,
+      "day": 14,
       "title": "Four minutes of silence",
       "scene": "For four minutes in the middle of entry there is no radio at all. The room knows it is coming, and Carter still wants somebody to say why it happens.",
       "takeaway": "Some silences are physics rather than faults, and nothing on the ground can shorten one.",
       "place": "Integrated Flight Room",
+      "guide": "Four options, and three of them blame equipment or geometry. Ask of each whether it would give exactly four minutes, every time, in the same part of entry. Something breaking would not. Being behind the Moon does not happen here. What happens instead is that the capsule makes the air around itself glow.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "For four minutes in the middle of entry there is no radio at all. The room knows it is coming, and Carter still wants somebody to say why it happens.",
       "game": {
         "type": "CHOICE",
@@ -1364,14 +2060,28 @@ export const CURRICULUM = {
       "assumes": [
         "rubbing something hard makes it hot",
         "radio waves travel through air but not through everything"
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Signals take time to travel, and distance costs strength",
+        "of": 16,
+        "rests": [
+          "Speed, distance and time, and how they give each other"
+        ]
+      }
     },
     {
-      "day": 14,
+      "day": 15,
       "title": "The order the silence forces",
       "scene": "Everything now depends on eleven minutes, and four of them have no radio at all. Anything that needs the ground has to happen before the silence starts.",
       "takeaway": "When part of a plan cannot be changed, everything that might need changing goes before it.",
       "place": "Crew Capsule",
+      "guide": "Four minutes with no radio is what puts these in order. Ask of each step whether it needs the ground, and whether it could be done after the silence starts. Anything the ground must agree to happens first. Anything compared with a prediction can only happen once entry has begun.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Everything now depends on eleven minutes, and four of them have no radio at all. Anything that needs the ground has to happen before the silence starts.",
       "game": {
         "type": "SEQUENCE",
@@ -1403,7 +2113,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "nothing can be fixed from the ground while the radio is quiet"
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Deciding with a deadline that does not move",
+        "of": 16,
+        "rests": [
+          "A budget: a finite store shared between competing demands"
+        ]
+      }
     }
   ]
 };
@@ -1497,7 +2215,7 @@ export const BALLPARK_CALCS = {
     "solution": "Eleven million shared out at twelve million for each degree is a bit under one degree.",
     "explanation": "Both numbers are energies, so they divide straight into a number of degrees. The 4 °C is where the cabin is now, not how far it moves, and the three hours are already inside the eleven million."
   },
-  "THERM-3": {
+  "THERM-4": {
     "prompt": "Three crew each breathe out about twenty litres of carbon dioxide an hour, and the scrubber has to keep up for six hours.",
     "question": "How much carbon dioxide do they make in six hours?",
     "labels": [

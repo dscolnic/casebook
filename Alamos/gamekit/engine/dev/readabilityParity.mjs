@@ -25,6 +25,13 @@ import { readingStats, normaliseNumerals } from '../../tools/readability.js';
 
 // Each pair is [spelled, digits] and must measure the same.
 const PAIRS = [
+  // A sentence ENDING in a spelled number, followed by one that starts with
+  // another. The number-run swallower crossed the full stop between them and
+  // merged both into one token, so the two sentences were counted as one: 38
+  // words per sentence where the text has 18. Found by a guide that measured
+  // over the 28-word cap while containing no sentence longer than 22.
+  ['The account survives into the second one. Three features of the room can be changed, one at a time, and the recording is replayed each time.',
+   'The account survives into the second 1. 3 features of the room can be changed, 1 at a time, and the recording is replayed each time.'],
   ['The bed made eleven point four kilograms of methane against nine point seven the sol before, and the loop took back most of what the pass gave away.',
    'The bed made 11.4 kilograms of methane against 9.7 the sol before, and the loop took back most of what the pass gave away.'],
   ['The transfer window opens one hundred and ninety-five sols from now, and the tanks hold three point nine tonnes against the six point six they need.',
@@ -35,6 +42,20 @@ const PAIRS = [
 
 let failed = 0;
 const near = (a, b) => Math.abs(a - b) < 0.05;
+
+// The parity above cannot see a boundary that both forms lose in the same way, so
+// this asserts the sentence count directly on the case that found the bug.
+{
+  const t = 'The account survives into the second one. Three features can be changed.';
+  const st = readingStats(t);
+  if(st.sentences !== 2){
+    console.log(`✗ a sentence ending in a spelled number lost its boundary:`
+      + ` ${st.sentences} sentence(s) counted in a two-sentence line`);
+    process.exitCode = 1;
+  } else {
+    console.log('✓ a spelled number at the end of a sentence keeps the full stop after it');
+  }
+}
 
 for(const [i, [spelled, digits]] of PAIRS.entries()){
   const a = readingStats(spelled), b = readingStats(digits);

@@ -10,6 +10,12 @@ export const CURRICULUM = {
       "scene": "Field-instruments specialist Mira Halvorsen has the reference mill open on the bench, its shutter turning over the plate. On the wall, all four mills read about −1.2 kV/m, and fair-weather readings carry the same negative sign.",
       "takeaway": "A single field measurement constrains only the quantities that enter the field relation; unmeasured geometry can remain free.",
       "place": "Field Station",
+      "guide": "All four options are things somebody might want from a mill. Ask of each whether one reading at the ground could contain it. The field under a wide charged sheet does not depend on how high the sheet is. So height drops out, and with it anything that needs height or area. Timing needs a history rather than a reading. That is a limit, not a fault.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Field-instruments specialist Mira Halvorsen has the reference mill open on the bench, its shutter turning over the plate. On the wall, all four mills read about −1.2 kV/m, and fair-weather readings carry the same negative sign.",
       "game": {
         "type": "CHOICE",
@@ -35,7 +41,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a field is a vector and has a direction as well as a size"
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Charge, and where it sits on a conductor",
+        "of": 30
+      }
     },
     {
       "day": 2,
@@ -43,6 +54,12 @@ export const CURRICULUM = {
       "scene": "Field-instruments specialist Mira Halvorsen has 4.5 kV/m on the board. Station lead Adeyinka Vero wants coulombs per square metre. The charge sits near cloud base, spread over an area far wider than its height above the flat.",
       "takeaway": "A wide sheet of charge produces a field that does not depend on distance, which is why a reading at the ground fixes it.",
       "place": "Field Station",
+      "guide": "You build the working a line at a time. At each step you choose the expression the line above actually gives you. Every wrong branch is legal algebra, so the malformed-line trick will not help. Start from Gauss's law and choose a surface the geometry makes easy. The layer is far wider than it is high, so a pillbox straddling it is the surface that pays.",
+      "background": [
+        "Why a pillbox. Gauss's law is true for any closed surface and useful only for one that matches the symmetry. A charged layer much wider than its height looks locally like an infinite sheet. A short flat box through it therefore has field passing through one face and nothing through the sides.",
+        "Where the factor of two goes. An isolated sheet drives field out of both faces, giving E = σ/2ε₀. A layer above ground with a conducting flat beneath it has the field on one side only, so the same charge gives twice the field. Which case you are in is a physical question, not an algebraic one.",
+        "Why Vero wants coulombs per square metre. A field in kilovolts per metre is what the mill reports. A charge density is what can be compared with other cells, other days and the literature. Converting the reading into the quantity that caused it is the whole point of having a model of the cloud at all."
+      ],
       "story": "Field-instruments specialist Mira Halvorsen has 4.5 kV/m on the board. Station lead Adeyinka Vero wants coulombs per square metre. The charge sits near cloud base, spread over an area far wider than its height above the flat.",
       "game": {
         "type": "DERIVE",
@@ -224,7 +241,15 @@ export const CURRICULUM = {
           "s": "A sheet of charge produces the same field however far away you stand, which is why a cloud base a kilometre up can be read from a meter on the ground and why the reading says nothing about the height.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Gauss's law, and choosing a surface it can be used on",
+        "of": 30,
+        "rests": [
+          "The electric field as a vector field, and field lines"
+        ]
+      }
     },
     {
       "day": 3,
@@ -232,6 +257,12 @@ export const CURRICULUM = {
       "scene": "The field under yesterday's cell was 4.5 kV/m, near enough uniform, and the cloud base was 1.2 km up on the radar. Vero wants the potential difference between the base and the flat.",
       "takeaway": "With a uniform field the integral is a product, and the minus sign is the physics rather than the bookkeeping.",
       "place": "Field Station",
+      "guide": "Build it a line at a time. Potential difference is the line integral of the field along a path, with a minus sign in front. The field here is near enough uniform, so the integral collapses to a product. The sign is the part that catches people, so decide which way your path runs before you evaluate anything.",
+      "background": [
+        "What the minus sign is doing. Moving against the field costs energy, and potential is energy per unit charge. So a path that runs upward through a downward-pointing field arrives at a higher potential. The sign in the definition is what encodes that, and dropping it gives a cloud base below ground potential.",
+        "Why uniform matters. A line integral over a changing field needs the field as a function of position. Here the mills say the field is near enough constant from the flat to cloud base, so the integral is field times distance. That approximation is worth stating, because the real field is not uniform near the mast.",
+        "How big the answer is. A kilometre of a few kilovolts per metre gives megavolts. That number is why a rocket trailing a wire can trigger a strike, and why the station's whole safety case is written around the field at the flat rather than around the potential aloft."
+      ],
       "story": "The field under yesterday's cell was 4.5 kV/m, near enough uniform, and the cloud base was 1.2 km up on the radar. Vero wants the potential difference between the base and the flat.",
       "game": {
         "type": "DERIVE",
@@ -363,7 +394,15 @@ export const CURRICULUM = {
           "s": "Voltage is not a property of a point but of a pair of points and the field between them, and the integral is what turns a field in volts per metre into the volts an instrument reads.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Electric potential as a line integral of the field",
+        "of": 30,
+        "rests": [
+          "The electric field as a vector field, and field lines"
+        ]
+      }
     },
     {
       "day": 4,
@@ -371,6 +410,12 @@ export const CURRICULUM = {
       "scene": "Halvorsen has two mills to compare: the one at the mast base and the reference one four hundred metres out. Under the same cell the base mill reads consistently lower, and it has done all season.",
       "takeaway": "A local electric-field sensor can be biased by nearby space charge even when the larger storm field has not changed.",
       "place": "Field Station",
+      "guide": "Four explanations for a mill that reads low, all season, under the same cell. Ask of each whether it would produce a steady difference or an occasional one. Two of them are about earthing and screening, which do not change what the instrument is exposed to. And note which mill people are most tempted to trust: the nearest one.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Halvorsen has two mills to compare: the one at the mast base and the reference one four hundred metres out. Under the same cell the base mill reads consistently lower, and it has done all season.",
       "game": {
         "type": "CHOICE",
@@ -396,7 +441,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "air that has broken down carries charge"
-      ]
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Field enhancement at a point, and why height and radius both matter",
+        "of": 30,
+        "rests": [
+          "Field of a charged sheet, line and sphere",
+          "Field inside a conductor, and shielding"
+        ]
+      }
     },
     {
       "day": 5,
@@ -404,6 +458,12 @@ export const CURRICULUM = {
       "scene": "Vero stands at the rack with the six-metre bond marked on the drawing. The rack, mills and trailer each have their own connection sketches. She wants one site rule the crew can apply before the next installation is built.",
       "takeaway": "Fast-transient bonding depends on geometry and shared reference paths, not only on low DC resistance.",
       "place": "Field Station",
+      "guide": "Four bonding rules. Ask of each what term it acts on. Cross-section moves resistance far more than it moves inductance, and inductance is what the fast front sees. Length and loop area are what inductance depends on. Two of the options would create differences between separate earths rather than remove them. The rule has to be usable before the next installation is built.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Vero stands at the rack with the six-metre bond marked on the drawing. The rack, mills and trailer each have their own connection sketches. She wants one site rule the crew can apply before the next installation is built.",
       "game": {
         "type": "CHOICE",
@@ -429,7 +489,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "inductance grows with the length of the conductor"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Electric potential as a line integral of the field",
+        "of": 30,
+        "rests": [
+          "The electric field as a vector field, and field lines"
+        ]
+      }
     },
     {
       "day": 6,
@@ -437,6 +505,11 @@ export const CURRICULUM = {
       "scene": "Halvorsen has the layer's charge density from day two and the cell's area off the radar. Vero wants the total in the season log, next to the strokes it produced.",
       "takeaway": "A charge density is a local quantity and a total needs an area, which is the thing a single instrument can never supply.",
       "place": "Field Station",
+      "guide": "Five numbers, and three of them belong to other questions. The height of the base. The field at the ground. The charge in the August stroke. Ask of each whether this total depends on it. And note what comes out. It is less than one stroke moved, which is not a contradiction: charge separation continues while the storm runs.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Halvorsen has the layer's charge density from day two and the cell's area off the radar. Vero wants the total in the season log, next to the strokes it produced.",
       "game": {
         "type": "BALLPARK",
@@ -456,14 +529,147 @@ export const CURRICULUM = {
       },
       "assumes": [
         "charge per unit area multiplied by area is charge"
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Charge, and where it sits on a conductor",
+        "of": 30
+      }
     },
     {
       "day": 7,
+      "title": "What the round is doing in a storm",
+      "scene": "One standing rule governs work on the mast. The safety officer changes it as the storm comes in. The field mill rises, then a strike lands within ten kilometres, then the all-clear.",
+      "takeaway": "The cost of a withdrawn instruction is paid by whoever is still working to it.",
+      "place": "Mast Base",
+      "guide": "Do the jobs the current rule allows and leave the rest. The rule is on the board at the mast base and it changes without an announcement. What is scored is the jobs either side of a change, because they are the only ones that show whether the crew is reading the board.",
+      "background": [
+        "Why the rule changes with the field. A rising field mill means charge is building overhead and the mast is the tallest thing on a salt flat. The rule tightens in stages rather than all at once, because stopping all work at the first cloud would mean no work in a storm season.",
+        "Why the changeover is where somebody gets hurt. A crew working to the last rule is a crew on the mast after the rule said come down, and nothing about being three quarters of the way through a job makes the field any lower."
+      ],
+      "story": "One standing rule governs work on the mast. The safety officer changes it as the storm comes in. The field mill rises, then a strike lands within ten kilometres, then the all-clear.",
+      "game": {
+        "type": "SPOT",
+        "title": "What the round is doing in a storm",
+        "setup": "Mast Base",
+        "play": "Work the mast round while the storm rule changes.",
+        "task": "Work the mast round while the storm rule changes.",
+        "question": "Work to the rule on the board, and keep watching the board.",
+        "answer": "Read the board rather than the job list. Every change leaves a few minutes in which the old rule still looks like the one in force.",
+        "why": "Three rules run across the storm and each allows a different part of the round. Anything at all, then ground-level work only, then nothing outside at all. A job can be allowed under two of them, which is what makes the change cost real rather than notional, and the panel scores the window either side of each change. Most of the list is allowed by neither rule or by both, and is handled correctly by somebody who has read nothing. The mast's own version of this is the two minutes after the field mill crosses its threshold: the rule has changed to ground level only, and there is somebody at forty metres who is nearly finished. Being nearly finished has never lowered a field, and the whole point of the staged rules is that they change before the strike rather than after it.",
+        "spot": {
+          "targets": [
+            {
+              "id": "m1",
+              "label": "Climb to forty metres",
+              "tags": [
+                "climbing"
+              ]
+            },
+            {
+              "id": "m2",
+              "label": "Ground-level cable check",
+              "tags": [
+                "ground"
+              ]
+            },
+            {
+              "id": "m3",
+              "label": "Climb, cable at height",
+              "tags": [
+                "climbing",
+                "cable"
+              ]
+            },
+            {
+              "id": "m4",
+              "label": "Indoor logger download",
+              "tags": [
+                "indoor"
+              ]
+            },
+            {
+              "id": "m5",
+              "label": "Earth rod resistance",
+              "tags": [
+                "ground"
+              ]
+            },
+            {
+              "id": "m6",
+              "label": "Cable trench, outdoors",
+              "tags": [
+                "ground",
+                "cable"
+              ]
+            },
+            {
+              "id": "m7",
+              "label": "Instrument hut work",
+              "tags": [
+                "indoor"
+              ]
+            },
+            {
+              "id": "m8",
+              "label": "Guy tension at height",
+              "tags": [
+                "climbing"
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "say": "Climbing work is allowed",
+              "want": [
+                "climbing"
+              ]
+            },
+            {
+              "say": "Ground level only",
+              "want": [
+                "ground"
+              ]
+            },
+            {
+              "say": "Indoors only",
+              "want": [
+                "indoor"
+              ]
+            }
+          ],
+          "duration": 40,
+          "switchEvery": 12,
+          "pass": 0.75,
+          "hint": "The rule is on the board at the mast base, and the safety officer changes it without calling out.",
+          "commit": "Open the round"
+        }
+      },
+      "assumes": [
+        "work near a tall mast in a storm is governed by rules that change"
+      ],
+      "concept": {
+        "n": 29,
+        "c": "Energy in the magnetic field, and where a strike puts it",
+        "of": 30,
+        "rests": [
+          "Self-inductance, and why a straight wire has it",
+          "Energy stored in a capacitor, and where the half comes from"
+        ]
+      }
+    },
+    {
+      "day": 8,
       "title": "The dip after the stroke",
       "scene": "All four mills show the same thing: no feature at all during the stroke, then a smooth recovery over the following few seconds. Kaya has to write a caption for the plot in the season report.",
       "takeaway": "A slow instrument is evidence about slow things, and its silence during a fast event is not a measurement of the event.",
       "place": "Field Station",
+      "guide": "Four captions for the same plot. Ask of each which timescale it claims. The mill responds in milliseconds, so a microsecond front was averaged away before anything recorded it. What the mill does resolve is the step before and against after, which lasts seconds. Calling the instrument useless is as wrong as claiming it saw the front.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "All four mills show the same thing: no feature at all during the stroke, then a smooth recovery over the following few seconds. Kaya has to write a caption for the plot in the season report.",
       "game": {
         "type": "CHOICE",
@@ -489,7 +695,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an instrument reports an average over its own response time"
-      ]
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Instrument bandwidth: what a slow instrument cannot see",
+        "of": 30,
+        "rests": [
+          "The RC circuit, and what a time constant means"
+        ]
+      }
     }
   ],
   "BANK": [
@@ -499,6 +713,12 @@ export const CURRICULUM = {
       "scene": "High-voltage engineer Strand has two plates a metre apart with equal and opposite surface charge. Beside them is the one-sheet model from yesterday. The two setups use the same σ, and he asks why the field between the plates is different.",
       "takeaway": "Electric fields from separate sources add as vectors, so geometry decides whether their contributions reinforce or cancel.",
       "place": "Impulse Hall",
+      "guide": "Four explanations for a factor of two. Ask of each whether it changes the law or adds a source. Both setups use the same charge per unit area, so nothing about the charge has doubled. What has changed is how many sheets contribute in the gap. And note what happens outside the pair, where the two contributions point opposite ways.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "High-voltage engineer Strand has two plates a metre apart with equal and opposite surface charge. Beside them is the one-sheet model from yesterday. The two setups use the same σ, and he asks why the field between the plates is different.",
       "game": {
         "type": "CHOICE",
@@ -545,7 +765,15 @@ export const CURRICULUM = {
           ],
           "s": "A sheet of charge produces the same field however far away you stand, which is why a cloud base a kilometre up can be read from a meter on the ground and why the reading says nothing about the height."
         }
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Field of a charged sheet, line and sphere",
+        "of": 30,
+        "rests": [
+          "Gauss's law, and choosing a surface it can be used on"
+        ]
+      }
     },
     {
       "day": 2,
@@ -553,6 +781,12 @@ export const CURRICULUM = {
       "scene": "Strand puts the cell on the board as one plate. Ten square kilometres of charged base sit twelve hundred metres above a flat that conducts well enough to serve as the other plate.",
       "takeaway": "Capacitance depends only on the shape and spacing of the conductors, which is why it can be computed before anything is charged.",
       "place": "Impulse Hall",
+      "guide": "Build it a line at a time. Capacitance is charge over potential difference, so the route runs through the field: put charge on the plate, get the field between them, integrate the field to get the voltage, then divide. Every step follows from the one above, and each wrong branch is legal algebra.",
+      "background": [
+        "Why a cloud and the ground make a capacitor. Two conductors with charge on one and an equal opposite charge on the other, separated by an insulator, is what a capacitor is. The flat conducts well enough to serve as the second plate. Whether the geometry is a parallel plate is then a question about area against separation.",
+        "Why ten square kilometres over 1.2 kilometres is close enough. Fringing at the edges matters when the separation is comparable with the plate size. Here the plate is about three kilometres across and the gap is 1.2 kilometres, so the parallel-plate result is an estimate with real error rather than an exact answer. Saying which it is matters more than the digits.",
+        "What the number is for. Capacitance times voltage is the charge available, and half of C times V squared is the energy. Those set what a strike can deliver, which is what everything downstream of this stop is trying to survive."
+      ],
       "story": "Strand puts the cell on the board as one plate. Ten square kilometres of charged base sit twelve hundred metres above a flat that conducts well enough to serve as the other plate.",
       "game": {
         "type": "DERIVE",
@@ -688,7 +922,16 @@ export const CURRICULUM = {
           "s": "Gauss gives the field between two charged plates and the line integral turns it into volts, and the ratio of charge to those volts is a number that depends only on the geometry.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Parallel plates: capacitance from the field between them",
+        "of": 30,
+        "rests": [
+          "Field of a charged sheet, line and sphere",
+          "Capacitance as a ratio, before it is a formula"
+        ]
+      }
     },
     {
       "day": 3,
@@ -696,6 +939,12 @@ export const CURRICULUM = {
       "scene": "Impulse-hall technician Ruiz sets one stage on the bench: 100 nF charged to 50 kV. The bank placard says 1,500 J for twelve stages, and Strand wants the number derived rather than trusted.",
       "takeaway": "Charging is done against a voltage that grows as you go, so the work is an integral and not a product.",
       "place": "Impulse Hall",
+      "guide": "Build it a line at a time. Energy stored is the work done charging the capacitor, and the work of moving each increment of charge is V dq. The voltage rises as the charge accumulates, so this is an integral rather than a product. Finish with joules for one stage, so the placard can be checked.",
+      "background": [
+        "Why not simply QV. Pushing the last coulomb on costs the full final voltage; the first one costs almost nothing. Integrating V dq with V = q/C gives half of QV, and the missing half is the reason a placard that quotes QV is out by a factor of two.",
+        "Where the placard number comes from. Twelve stages at the derived energy each gives the total. If that does not match the printed 1,500 joules, either the placard is quoting a different charging voltage or somebody used the wrong formula. Deriving it is how you find out which.",
+        "Why it matters on the bench. The energy in one stage is what a person standing beside it would receive if it discharged through them. A factor of two on that number is the difference between two safety categories, which is why Strand wants it derived rather than trusted."
+      ],
       "story": "Impulse-hall technician Ruiz sets one stage on the bench: 100 nF charged to 50 kV. The bank placard says 1,500 J for twelve stages, and Strand wants the number derived rather than trusted.",
       "game": {
         "type": "DERIVE",
@@ -827,7 +1076,16 @@ export const CURRICULUM = {
           "s": "Each extra charge has to be pushed against the voltage already there, so the work is the integral of q/C dq rather than QV — and the half is the whole difference between a bank that is safe to work on and one that is not.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Energy stored in a capacitor, and where the half comes from",
+        "of": 30,
+        "rests": [
+          "Capacitance as a ratio, before it is a formula",
+          "Parallel plates: capacitance from the field between them"
+        ]
+      }
     },
     {
       "day": 4,
@@ -835,6 +1093,11 @@ export const CURRICULUM = {
       "scene": "Strand wants the August stroke written in coulombs as well as kiloamps. The clamp recorded a 30 kA peak and the current stayed near that scale for about 100 microseconds. The hall comparison is waiting on the number.",
       "takeaway": "Peak current, delivered charge and rise time describe different parts of a pulse, so matching one does not match the whole event.",
       "place": "Impulse Hall",
+      "guide": "Five numbers, and three of them belong to other parts of the event. The rise time of the front. The earth resistance. The energy in the impulse store. Ask of each whether charge depends on it. Peak current, total charge and rise time describe different things. The front controls induced voltage. The duration controls how much charge moves.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Strand wants the August stroke written in coulombs as well as kiloamps. The clamp recorded a 30 kA peak and the current stayed near that scale for about 100 microseconds. The hall comparison is waiting on the number.",
       "game": {
         "type": "BALLPARK",
@@ -854,36 +1117,138 @@ export const CURRICULUM = {
       },
       "assumes": [
         "charge is current multiplied by the time it flows for"
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Charge, and where it sits on a conductor",
+        "of": 30
+      }
     },
     {
       "day": 5,
+      "title": "The charge, while the hall waits",
+      "scene": "The bank has to sit at its charging voltage while the crew finish in the hall and the trigger is armed. The bleed resistors are draining it the whole time, and the charging set is the only thing putting it back.",
+      "takeaway": "A store that is always leaking is held by matching the leak, not by topping it up.",
+      "place": "Impulse Hall",
+      "guide": "Hold the bank voltage inside the band on the console. The band narrows as the shot approaches, because the peak current depends on where the bank sits when the trigger fires, and a shot fired off-voltage is a shot nobody can compare with the others. The charging set is your control.",
+      "background": [
+        "Why a bank drains at all. The bleed resistors are a safety feature, not a fault: they are what makes the bank safe to approach after a shot, and they work all the time, including now.",
+        "Why that is a rate. The bank loses charge continuously through the bleed path, so the voltage falls and keeps falling. A charging set switched on and off leaves the bank somewhere it did not intend to be.",
+        "Why the margin tightens near the shot. The energy stored is proportional to the square of the voltage, so a few per cent of voltage is a larger error in energy — and the whole point of the shot is comparison with the others in the series."
+      ],
+      "story": "The bank has to sit at its charging voltage while the crew finish in the hall and the trigger is armed. The bleed resistors are draining it the whole time, and the charging set is the only thing putting it back.",
+      "game": {
+        "type": "HOLD",
+        "title": "The charge, while the hall waits",
+        "setup": "Impulse Hall",
+        "play": "Hold the bank voltage while the shot is prepared.",
+        "task": "Hold the bank voltage while the shot is prepared.",
+        "question": "Hold the bank at its charging voltage until the shot fires.",
+        "answer": "Inside the band until the trigger, with the charging set matched to the bleed rather than switched on after the voltage has already sagged.",
+        "why": "The bleed resistors are draining the bank the entire time it is charged, which is exactly what they are for — they are the reason anybody can walk into the hall after a shot. But they do not wait for the shot, so the bank is losing charge continuously while the crew finish and the trigger is armed. That makes the charging set a rate to be matched rather than a switch to be flicked: set it to replace what the bleed takes, and the voltage sits still. The band narrows because the stored energy goes as the square of the voltage, so a small sag near the trigger is a larger error in the energy delivered, and the value of this shot is that it can be compared with the others in the series. A shot fired two per cent low is not a slightly smaller shot; it is a point nobody can plot.",
+        "hold": {
+          "quantity": "Bank voltage",
+          "control": "Charging set",
+          "unit": "kV",
+          "hold": 50,
+          "band": 0.4,
+          "narrowTo": 0.2,
+          "duration": 45,
+          "authority": 0.1,
+          "pass": 0.8,
+          "direction": "raise",
+          "disturbances": [
+            {
+              "label": "Bleed resistors draining the bank",
+              "at": 4,
+              "amount": -0.03
+            },
+            {
+              "label": "Second string switched in",
+              "at": 20,
+              "amount": 0.05
+            },
+            {
+              "label": "Hall warms and the bleed rises",
+              "at": 38,
+              "amount": -0.045
+            }
+          ],
+          "hint": "The bleed never stops. Match it rather than topping the bank up after it sags.",
+          "commit": "Report the charge"
+        }
+      },
+      "assumes": [
+        "a charged bank stores energy and can lose it through a resistor"
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Capacitance as a ratio, before it is a formula",
+        "of": 30,
+        "rests": [
+          "Electric potential as a line integral of the field"
+        ]
+      }
+    },
+    {
+      "day": 6,
       "title": "Making a microsecond on purpose",
       "scene": "Strand can fire the bank into the mast base with a front chosen from 100 microseconds down to about half a microsecond. Ruiz has one afternoon of hall time and asks which setting would actually test the claim.",
       "takeaway": "A causal test changes the variable that separates competing models while holding confounding variables fixed.",
       "place": "Impulse Hall",
+      "guide": "One afternoon, one variable. The front time is what separates the two explanations of the placard voltage, so change that and hold everything else — same bank, same electrode, same earth. Run it, and if the reading follows the front time both ways you have the answer; if you changed the electrode as well, you have a story.",
+      "background": [
+        "What the two explanations are. The voltage across the earth path is the resistive term plus the inductive one: IR while the current is steady, and L dI/dt while it is changing. A slow front makes the second term small, and a fast one makes it dominate.",
+        "Why the front time is the discriminating variable. Twenty-five ohms into thirty kiloamps is the same 750 kV whichever front you choose. What changes with the front is the inductive contribution, so a reading that rises as the front shortens is the inductive term and nothing else.",
+        "Why one variable at a time is the whole afternoon. Changing the front and the electrode together produces a number that is consistent with either explanation, and the hall is booked once. Reversing the change is what separates a cause from a coincidence."
+      ],
       "story": "Strand can fire the bank into the mast base with a front chosen from 100 microseconds down to about half a microsecond. Ruiz has one afternoon of hall time and asks which setting would actually test the claim.",
       "game": {
-        "type": "CHOICE",
+        "type": "CONTROL",
         "title": "Making a microsecond on purpose",
         "setup": "Impulse Hall",
         "play": "Work out how to test the finding in the hall",
         "task": "Work out how to test the finding in the hall",
-        "question": "What should the hall vary to test the inductive-voltage finding?",
-        "answer": "The rise time, at constant peak current",
-        "why": "To test V = L·dI/dt, change the rise time while holding the peak current fixed. Halving the front doubles dI/dt, so the inductive voltage should double. The resistive term depends on current itself and should stay nearly unchanged. Raising the peak instead moves both terms together and cannot separate them. The hall is valuable here because the front can be chosen rather than awaited. A controlled change turns the proposed mechanism into a prediction that can fail.",
-        "rebuttals": [
-          "Raising the peak moves the resistive and inductive terms together and distinguishes neither.",
-          "Charge is a third quantity again, and it says nothing about the front.",
-          "Wetting the grid changes the soil, which is the part of the argument nobody disputes."
-        ],
-        "choices": [
-          "The rise time, at constant peak current",
-          "The peak current, at constant rise time",
-          "The charge delivered, by adding stages",
-          "The earth resistance, by wetting the grid"
-        ],
-        "correctChoice": "The rise time, at constant peak current"
+        "question": "Which variable, changed on its own, separates the inductive explanation from the resistive one?",
+        "answer": "The front time. Take it from 100 microseconds to half a microsecond with the same bank, electrode and earth, and the peak voltage nearly triples — put the slow front back and it drops again.",
+        "why": "The placard voltage has two candidate sources and one afternoon to separate them. Across the earth path an inductive volt and a resistive volt add: IR + L dI/dt, where L over R sets the time the inductive part matters for. Impedance at a microsecond is not the same as resistance, and the resistive part does not care how fast the current arrives — 30 kA through 25 ohms is 750 kV at any front time. The inductive part cares about nothing else. So the front time is the one variable whose change moves one explanation and not the other, and the test is to move it alone: same bank charge, same electrode geometry, same earth connection. At a 100 microsecond front the measured peak sits near the resistive figure; at half a microsecond it rises to roughly 2.7 times it, and restoring the slow front brings it back down. That reversal is what makes it a finding rather than a coincidence that happened during the same afternoon. Change the electrode at the same time and the number is consistent with both models, and the hall is booked once.",
+        "control": {
+          "observable": {
+            "label": "Peak voltage across the earth path",
+            "unit": "kV"
+          },
+          "variables": [
+            {
+              "id": "front",
+              "label": "Front time of the impulse, 100 µs down to 0.5 µs"
+            },
+            {
+              "id": "electrode",
+              "label": "Electrode geometry at the mast base"
+            },
+            {
+              "id": "charge",
+              "label": "Bank charging voltage"
+            },
+            {
+              "id": "earth",
+              "label": "Which earth conductor the return uses"
+            }
+          ],
+          "held": [
+            "bank charge and peak current",
+            "soil moisture in the test bay",
+            "probe position and bandwidth",
+            "ambient temperature"
+          ],
+          "truth": "front",
+          "baseline": 750,
+          "response": 1280,
+          "noise": 90,
+          "hint": "The hall fires on command. Set what you want changed, run it, and watch whether the peak follows.",
+          "run": "Fire the bank",
+          "commit": "Name the variable that separates the models"
+        }
       },
       "assumes": [
         "a laboratory impulse can be given a chosen rise time"
@@ -908,14 +1273,29 @@ export const CURRICULUM = {
           ],
           "s": "A conductor links flux to its own current, so a rising current puts volts across a piece of wire that has almost no resistance at all — at a microsecond rise time this term is what a ground lead actually does, and the resistance measured at DC is not."
         }
-      ]
+      ],
+      "concept": {
+        "n": 28,
+        "c": "The LR transient, and inductive volts against resistive volts",
+        "of": 30,
+        "rests": [
+          "Self-inductance, and why a straight wire has it",
+          "Kirchhoff's rules on a real network"
+        ]
+      }
     },
     {
-      "day": 6,
+      "day": 7,
       "title": "What survives a shorter season",
       "scene": "A strike has taken the outstation trailer out for the season. Nobody was inside. The mast, shunts and grid still work, while the impulse hall remains available. Vero and Brenner need a plan before the next storm window opens.",
       "takeaway": "A robust plan is one that still meets its essential constraints when the scarce resource arrives at the pessimistic end.",
       "place": "Impulse Hall",
+      "guide": "Slide the usable storm days down to five and watch which plans go dark. A plan has to keep safe field measurements possible and fit inside the season that is left. The trailer is gone for the year, so anything that depends on it is not a plan. Choose the one that still stands at the pessimistic end of the range.",
+      "background": [
+        "Why the pessimistic end rather than the middle. The number of usable storm days is a forecast with a wide spread, and a plan chosen at the expected value fails half the time. Testing at the low end costs nothing now and is the only version of the choice that survives a poor season.",
+        "What the strike actually removed. The outstation trailer is out and nobody was inside it. So the loss is instrumentation coverage rather than people, and the plans that leaned on remote measurements have lost their instrument. The mast, the shunts and the grid still work.",
+        "Why the impulse hall changes the answer. Bench work does not need storm days at all. A plan that shifts weight onto the hall is a plan whose progress does not depend on the weather, which is exactly what a shortened season rewards."
+      ],
       "story": "A strike has taken the outstation trailer out for the season. Nobody was inside. The mast, shunts and grid still work, while the impulse hall remains available. Vero and Brenner need a plan before the next storm window opens.",
       "game": {
         "type": "STRESS",
@@ -1006,14 +1386,29 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a station has a fixed amount of time and more than one way to spend it"
-      ]
+      ],
+      "concept": {
+        "n": 30,
+        "c": "Measurement in the right regime: shunts, dividers and what they load",
+        "of": 30,
+        "rests": [
+          "Resistance, resistivity and the ground as a resistor",
+          "Instrument bandwidth: what a slow instrument cannot see"
+        ]
+      }
     },
     {
-      "day": 7,
+      "day": 8,
       "title": "In parallel to charge, in series to fire",
       "scene": "Twelve stages, each a hundred nanofarads, all charged side by side to fifty kilovolts. When the gaps break down they are in a chain instead. Ruiz wants the output written before the setting is agreed.",
       "takeaway": "Switching from parallel to series multiplies the voltage by the number of stages and divides the capacitance by it, and the energy does neither.",
       "place": "Impulse Hall",
+      "guide": "Build it a line at a time. The stages charge side by side and fire in a chain, so the charging voltage and the output voltage are different questions. Work out what the chain delivers, then the series capacitance, then check the stored energy against the parallel case. The energy has to agree, and that check is the point.",
+      "background": [
+        "Why parallel to charge and series to fire. In parallel every stage sees the same supply, so a modest supply can charge all twelve. When the gaps break down the stages are connected end to end, so their voltages add. That is a Marx generator, and it is how a fifty-kilovolt supply produces six hundred kilovolts.",
+        "What happens to the capacitance. Capacitors in series combine reciprocally, so twelve hundred-nanofarad stages in a chain behave as one stage of about eight nanofarads. Voltage up by twelve, capacitance down by twelve.",
+        "Why the energy check is the real answer. Half C V squared with the series values gives the same total as twelve individual stages did while charging, because nothing has been created. Any answer where the energy grows has an arithmetic error in it, and the check will find it before the setting is agreed."
+      ],
       "story": "Twelve stages, each a hundred nanofarads, all charged side by side to fifty kilovolts. When the gaps break down they are in a chain instead. Ruiz wants the output written before the setting is agreed.",
       "game": {
         "type": "DERIVE",
@@ -1123,7 +1518,15 @@ export const CURRICULUM = {
       "assumes": [
         "capacitors in series carry the same charge and their voltages add",
         "the reciprocals of series capacitances add"
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Capacitors in series and parallel",
+        "of": 30,
+        "rests": [
+          "Capacitance as a ratio, before it is a formula"
+        ]
+      }
     }
   ],
   "MAST": [
@@ -1133,32 +1536,72 @@ export const CURRICULUM = {
       "scene": "Rigger and mast supervisor Owen Tate closes the screened-room door. The instrument on the bench inside drops to zero while the flat outside remains near 4 kV/m. Nothing on the instrument rack has been switched off.",
       "takeaway": "Electrostatic shielding is a consequence of how conductors reach equilibrium in an applied field.",
       "place": "Screened Room",
+      "guide": "Say what the probe inside will read once the door is shut, then shut it and read the probe. The prediction is the part that matters: a number written before the door closes is a claim about how conductors reach equilibrium, and one written afterwards is a description of a display.",
+      "background": [
+        "What equilibrium does. Charge in a conductor is free to move, and it moves until the field inside the metal is zero — because any residual field would still be pushing it. The charge ends up arranged on the surfaces, and what a probe inside the enclosure sees is what is left after that rearrangement.",
+        "Why it is not perfect. The door seam, the cable entries and the ventilation mesh are apertures, and an aperture lets through a field that scales with its size relative to the wavelengths involved. So the honest prediction is not zero but small — tens of volts per metre against four thousand outside.",
+        "Why measuring is the point. The shielding argument is sound and the number it gives depends on hardware nobody derived: how well the door seats, whether the mesh is bonded all round, what the cable glands do. Predicting and then measuring is the only way to find out which of those the enclosure actually has."
+      ],
       "story": "Rigger and mast supervisor Owen Tate closes the screened-room door. The instrument on the bench inside drops to zero while the flat outside remains near 4 kV/m. Nothing on the instrument rack has been switched off.",
       "game": {
-        "type": "CHOICE",
+        "type": "VERIFY",
         "title": "Inside the sheet",
         "setup": "Screened Room",
         "play": "Work out what the screened room does to a field",
         "task": "Work out what the screened room does to a field",
-        "question": "Why does the field inside the screened room fall to zero?",
-        "answer": "Charge on the shell moves until it cancels the outside field",
-        "why": "Place a conductor in an external electric field and its free charge begins to move. The redistribution continues until the induced field cancels the applied field inside the conducting material. That is the electrostatic equilibrium condition. A cavity fully enclosed by the conductor is then shielded from the outside static field. Earthing can fix the shell's potential, but it is not what creates the shielding. The shielding comes from mobile charge rearranging itself on the conductor's surfaces.",
-        "rebuttals": [
-          "Nothing is absorbed and the sheet does not warm; the charge simply moves and then stops.",
-          "Earthing sets the potential of the shell and a shell that is not earthed shields just as well.",
-          "Reflection is a wave idea and the field here is not oscillating."
-        ],
-        "choices": [
-          "Charge on the shell moves until it cancels the outside field",
-          "The steel absorbs the field and turns it into heat in the sheet",
-          "The room is earthed, and earthing removes any field present in it",
-          "The sheet reflects the field back the way it came"
-        ],
-        "correctChoice": "Charge on the shell moves until it cancels the outside field"
+        "question": "Predict what the bench probe reads with the door shut, then shut it and measure.",
+        "answer": "About 40 V/m — not zero. The field outside is 4 kV/m, so the enclosure is attenuating by a factor of about a hundred, and the residue arrives through the door seam and the cable entries.",
+        "why": "Charge in a conductor moves until the field inside the metal is zero, because any field that remained would still be pushing it. That is the whole of electrostatic shielding — not a material property but a consequence of equilibrium, and it is why the probe drops the moment the door seats. What it does not give is exactly zero. The seam, the ventilation mesh and the cable glands are apertures, and each lets a fraction through: measured, the bench reads about 40 V/m against 4 kV/m outside, an attenuation of roughly a hundred. Predicting zero is the right physics and the wrong number, and the gap between them is the hardware. That is why this stop asks for the prediction first and then for the measurement: the argument tells you the field inside a closed conductor is zero, and only the probe tells you what your enclosure is.",
+        "verify": {
+          "prediction": {
+            "label": "Field at the bench probe with the door shut",
+            "unit": "V/m",
+            "min": 0,
+            "max": 400,
+            "step": 5
+          },
+          "truth": 40,
+          "passRatio": [
+            0.5,
+            2
+          ],
+          "intervention": {
+            "label": "Close and dog the screened-room door",
+            "note": "nothing on the instrument rack is switched off, and the flat outside stays near 4 kV/m",
+            "outcome": "The door seats and the bench probe falls immediately, settling within a second."
+          },
+          "measurement": {
+            "label": "Read the bench probe",
+            "note": "calibrated field mill on the bench, 1 V/m resolution",
+            "cost": 1,
+            "costUnit": "minutes of hall time"
+          },
+          "unmeasuredMoral": "A prediction that the field goes to zero is the right argument about a closed conductor and tells you nothing about your door seam. Reporting it without reading the probe is reporting the theory as the measurement.",
+          "lock": "Lock the prediction",
+          "run": "Commit it",
+          "measure": "Take the measurement",
+          "commit": "Report"
+        }
       },
       "assumes": [
-        "charge in a conductor is free to move"
-      ]
+        "charge in a conductor is free to move",
+        "gauss's law, and choosing a surface it can be used on — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 3,
+          "c": "Gauss's law, and choosing a surface it can be used on"
+        }
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Field inside a conductor, and shielding",
+        "of": 30,
+        "rests": [
+          "The electric field as a vector field, and field lines",
+          "Gauss's law, and choosing a surface it can be used on"
+        ]
+      }
     },
     {
       "day": 2,
@@ -1166,6 +1609,12 @@ export const CURRICULUM = {
       "scene": "The flat is at 4.5 kV/m and the mast is earthed. Its whole length therefore sits at ground potential in air that is not. Tate has the tip radius on the drawing: twenty millimetres.",
       "takeaway": "The field at a conductor's surface is its potential difference from its surroundings divided by its radius of curvature, so sharpness costs more than height.",
       "place": "Mast Base",
+      "guide": "Build it a line at a time. The mast is earthed, so its whole length sits at ground potential while the air around it does not. Treat the tip as a small sphere: the undisturbed potential at that height tells you the charge, and the same charge gives the field at the tip's own radius. Then say what the air does about it.",
+      "background": [
+        "Why the tip concentrates the field. For a sphere, potential goes as one over r and field as one over r squared. So the ratio of field to potential goes as one over r, and a small radius at a given potential difference means a large field. Sixty metres of potential difference collapsed onto a twenty-millimetre tip is what makes a mast a lightning terminal.",
+        "What the air does. Dry air breaks down at about three megavolts per metre. A tip field above that ionises the air around it, which bleeds charge into the atmosphere as corona and puts the mast's tip current on the station's instruments. The mast is not passive; it is doing something continuously.",
+        "Why the sphere is a fair model. A rounded tip on a long conductor is locally spherical, and the field at its surface is set by its own radius rather than by the mast's length. The length enters only through the potential the tip is held away from."
+      ],
       "story": "The flat is at 4.5 kV/m and the mast is earthed. Its whole length therefore sits at ground potential in air that is not. Tate has the tip radius on the drawing: twenty millimetres.",
       "game": {
         "type": "DERIVE",
@@ -1275,7 +1724,16 @@ export const CURRICULUM = {
       "assumes": [
         "an earthed conductor is all at one potential",
         "the potential of the undisturbed air rises with height above the ground"
-      ]
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Field enhancement at a point, and why height and radius both matter",
+        "of": 30,
+        "rests": [
+          "Field of a charged sheet, line and sphere",
+          "Field inside a conductor, and shielding"
+        ]
+      }
     },
     {
       "day": 3,
@@ -1283,32 +1741,96 @@ export const CURRICULUM = {
       "scene": "Ruiz keeps the barrier closed even after the supply is off and the meter reads zero. The earthing stick must be connected to the bank and visibly left in place before anyone enters the hall.",
       "takeaway": "Stored electrical energy can remain after its source is removed, so a safe state requires a controlled discharge path.",
       "place": "Mast Base",
+      "guide": "Five signed statements about the state of the hall, and two verifications. Each one is somebody's record rather than a condition you have seen, so decide which would hurt most if the paper were wrong and check those. A claim can only be held once it has been verified, and holding everything critical is not caution here.",
+      "background": [
+        "Why a meter reading zero is not a discharged bank. A panel meter reads what its own circuit sees, and a bank whose bleed path has failed can sit at full charge behind an open contactor with nothing on the front panel to say so. The stored energy is ½CV², and it does not decay because the supply was switched off.",
+        "What the stick actually provides. A visible, mechanically held connection between the bank terminal and earth — the discharge path itself, not a statement about one. Its whole point is that it can be seen from the door by somebody who read no paperwork.",
+        "Why the switch position is the weakest kind of evidence. An isolator handle records what somebody moved, and a contactor that has welded shut moves nothing while showing the same handle position. The condition and the record come apart exactly there."
+      ],
       "story": "Ruiz keeps the barrier closed even after the supply is off and the meter reads zero. The earthing stick must be connected to the bank and visibly left in place before anyone enters the hall.",
       "game": {
-        "type": "CHOICE",
+        "type": "ATTEST",
         "title": "Charge that is still there",
         "setup": "Mast Base",
         "play": "Say what the earthing stick is for",
         "task": "Say what the earthing stick is for",
-        "question": "Why is switching the supply off not enough before entering the hall?",
-        "answer": "Charge remains on the stages until a discharge path is provided",
-        "why": "A capacitor can remain charged after its supply is disconnected. The dielectric blocks a steady discharge path, so stored charge can persist even when the source is off. The earthing stick gives that charge a deliberate path away from the bank. Leaving the stick visibly in place also makes the safe state observable from outside the barrier. A voltmeter reading alone is not the whole safety case. Dielectric absorption can even let some voltage recover after a brief discharge.",
-        "rebuttals": [
-          "The meter can read zero for several reasons, but the core issue is stored charge on the capacitors themselves.",
-          "Isolating the supply prevents new charging; it does not provide the path that removes existing charge.",
-          "Slow leakage is real, but waiting for an uncertain leakage time is not the controlled safe state the procedure requires."
-        ],
-        "choices": [
-          "Charge remains on the stages until a discharge path is provided",
-          "A zero meter reading proves only the divider circuit is unloaded",
-          "The supply contactor can isolate power without discharging every stage",
-          "Leakage through the dielectric removes charge too slowly to define a safe time"
-        ],
-        "correctChoice": "Charge remains on the stages until a discharge path is provided"
+        "question": "Which of these signed claims about the hall cannot be held, given what the evidence actually supports?",
+        "answer": "The bleed-resistor claim and the isolator claim. Neither has been verified against the bank's own terminals, and both are what the earthing stick exists to make unnecessary.",
+        "why": "The hall is safe when there is a discharge path somebody can see, not when the paperwork says the supply is off. Two of these claims are critical and unbacked. The bleed resistor is signed off on a 2019 commissioning sheet, and a bleed path that has failed open leaves the bank at full charge with a panel meter reading zero — the meter's circuit and the bank's terminals are not the same node. The isolator claim records a handle position, and a welded contactor holds the same handle while passing current. Two others are critical and genuinely backed: the earthing stick is visible from the door, which is the point of it, and the terminal voltage was measured directly this morning at the bank rather than inferred from the panel. The stored energy is ½CV² and nothing about switching the supply off removes it. That is why the safe state is a connection you can see and not a signature you can read.",
+        "attest": {
+          "claims": [
+            {
+              "id": "stick",
+              "label": "The earthing stick is connected to the bank terminal and left in place",
+              "signedBy": "Tate, rigger",
+              "evidence": "Visible from the door, mechanically clamped, tag attached",
+              "critical": true,
+              "backed": true
+            },
+            {
+              "id": "terminal",
+              "label": "The bank terminals read under 5 V",
+              "signedBy": "Ruiz, this morning",
+              "evidence": "Measured at the terminals with a calibrated probe at 08:40 today",
+              "critical": true,
+              "backed": true
+            },
+            {
+              "id": "bleed",
+              "label": "The bleed resistors discharge the bank within 90 seconds",
+              "signedBy": "commissioning sheet, 2019",
+              "evidence": "No test since installation; a failed bleed path is open-circuit and silent",
+              "critical": true
+            },
+            {
+              "id": "isolator",
+              "label": "The supply isolator is open and locked",
+              "signedBy": "shift log",
+              "evidence": "Records a handle position; a welded contactor holds the same position",
+              "critical": true
+            },
+            {
+              "id": "meter",
+              "label": "The panel meter reads zero",
+              "signedBy": "control desk",
+              "evidence": "Reads its own circuit, which is not the bank terminals",
+              "backed": true
+            }
+          ],
+          "checks": 2,
+          "moral": "A signature records who is answerable. The earthing stick is the only item on this list that is a condition rather than a claim about one.",
+          "commit": "Close the list"
+        }
       },
       "assumes": [
         "a capacitor holds its charge once the supply is removed"
-      ]
+      ],
+      "equations": [
+        {
+          "e": "U = ½CV²",
+          "c": "the energy it took to charge it, and where the half comes from",
+          "v": [
+            [
+              "U",
+              "energy stored, in joules"
+            ],
+            [
+              "C",
+              "capacitance, in farads"
+            ],
+            [
+              "V",
+              "the final voltage across it"
+            ]
+          ],
+          "s": "Each extra charge has to be pushed against the voltage already there, so the work is the integral of q/C dq rather than QV — and the half is the whole difference between a bank that is safe to work on and one that is not."
+        }
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Charge, and where it sits on a conductor",
+        "of": 30
+      }
     },
     {
       "day": 4,
@@ -1316,6 +1838,12 @@ export const CURRICULUM = {
       "scene": "Five records exist of strike S-114. Four of them give a peak current and the fifth gives a stroke count. Nakata has their derivations closed and wants the shared piece named before anybody quotes the average.",
       "takeaway": "A number quoted three times from one reference is one number, however many instruments produced it.",
       "place": "Mast Base",
+      "guide": "Open a channel and the panel shows what its reading was referred to. Tick the ones that would still stand if a shared reference were wrong, and untick the rest. Then name the piece they have in common. Four records agreeing is not four independent measurements, and both halves of this are graded.",
+      "background": [
+        "Why agreement is not independence. Four peak currents computed through the same rod reference will agree with each other whatever that reference does, because the error is common to all of them. Averaging them narrows the scatter and does nothing about the bias, which is the most convincing way to be wrong.",
+        "What the fifth record is doing. A stroke count is not a current, so it cannot be averaged with the others. It is on the board because it does not pass through the suspect step, which makes it worth more than any of the four for this particular question.",
+        "Why naming the shared piece is the answer. Once the common reference is identified it can be corrected, and every dependent record moves together. Withdrawing the average instead leaves the same error in place and tells the review that nothing is known."
+      ],
       "story": "Five records exist of strike S-114. Four of them give a peak current and the fifth gives a stroke count. Nakata has their derivations closed and wants the shared piece named before anybody quotes the average.",
       "game": {
         "type": "TRACE",
@@ -1387,8 +1915,23 @@ export const CURRICULUM = {
         }
       },
       "assumes": [
-        "a measurement is made against something, and that something can be wrong"
-      ]
+        "a measurement is made against something, and that something can be wrong",
+        "current as a flow, and current density — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 15,
+          "c": "Current as a flow, and current density"
+        }
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Magnetic field of a current, and Ampère's law",
+        "of": 30,
+        "rests": [
+          "Current as a flow, and current density"
+        ]
+      }
     },
     {
       "day": 5,
@@ -1396,6 +1939,12 @@ export const CURRICULUM = {
       "scene": "Thirty kiloamps down a single vertical conductor, and a steel cabinet two metres from it. Tate wants the field at the cabinet in a unit he can compare with something.",
       "takeaway": "Choosing a path the field is constant along is what turns Ampère's law from a statement into a number.",
       "place": "Mast Base",
+      "guide": "Build it a line at a time. Ampère's law relates the field around a closed loop to the current through it. Choose a circle centred on the conductor and the symmetry makes the integral trivial. Evaluate at two metres and give the answer in tesla, so it can be compared with something familiar.",
+      "background": [
+        "Why a circle. The field around a long straight conductor circles it, with the same magnitude everywhere at a given radius. So the line integral around a concentric circle is the field times the circumference, and Ampère's law hands you the field in one step. Any other loop gives the same physics and much worse algebra.",
+        "What to compare it with. The Earth's field is about fifty microtesla. A steel cabinet two metres from thirty kiloamps sits in something far larger for a few microseconds, which is why the cabinet's contents care and why the comparison is the useful part of the answer.",
+        "Why the peak matters rather than the average. The field follows the current instant by instant, so the number worth quoting is at the peak. It is also the moment the induced voltages downstream are largest, which is the subject of the trench-loop stop later in the fortnight."
+      ],
       "story": "Thirty kiloamps down a single vertical conductor, and a steel cabinet two metres from it. Tate wants the field at the cabinet in a unit he can compare with something.",
       "game": {
         "type": "DERIVE",
@@ -1504,7 +2053,8 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the circulation of the magnetic field around a closed path counts the current through it",
-        "the field of a long straight conductor circles it"
+        "the field of a long straight conductor circles it",
+        "current as a flow, and current density — taken as read"
       ],
       "equations": [
         {
@@ -1555,7 +2105,21 @@ export const CURRICULUM = {
           "s": "The field circles the conductor and falls off as one over the distance, so the thirty kiloamps in a down-conductor are still millitesla two metres away — which is what everything parked near it has to live in.",
           "computed": true
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 15,
+          "c": "Current as a flow, and current density"
+        }
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Magnetic field of a current, and Ampère's law",
+        "of": 30,
+        "rests": [
+          "Current as a flow, and current density"
+        ]
+      }
     },
     {
       "day": 6,
@@ -1563,6 +2127,12 @@ export const CURRICULUM = {
       "scene": "Four devices were on the outstation loop in August. EMC engineer Lauwers has each device's operating state and post-strike condition on separate cards. She wants one explanation that fits all four without changing the facts between cards.",
       "takeaway": "A good failure explanation must fit both the damaged equipment and the nearby equipment that survived.",
       "place": "Screened Room",
+      "guide": "Four observations, and the two survivors are as informative as the casualties. The cable insulation still holds its test voltage. A battery logger three metres away is untouched. Ask of each candidate how many of the four it covers. What differs between the damaged pair and the logger is not the storm. It is how much area the circuit encloses.",
+      "background": [
+        "Why the unremarkable readings decide it. The salient reading is what draws attention, and it is usually consistent with several explanations at once, which is why it rarely settles anything. The readings that discriminate are the ones a candidate predicts should have moved and which have not: a normal value is a positive result against every mechanism that would have disturbed it.",
+        "How to work the candidates. Take each mechanism and predict the panel it implies before you look at the panel again — which readings it drives, in which direction, and by roughly how much. Then compare. Working that way round is what separates a diagnosis from a rationalisation, because the prediction is made before the data is consulted.",
+        "Why only one candidate survives. Several will account for part of the panel, deliberately so, and a partial fit is exactly what a confident wrong answer feels like from the inside. When two remain, look for the reading on which their predictions differ and let it decide. If no reading separates them you have not finished reading the panel."
+      ],
       "story": "Four devices were on the outstation loop in August. EMC engineer Lauwers has each device's operating state and post-strike condition on separate cards. She wants one explanation that fits all four without changing the facts between cards.",
       "game": {
         "type": "DIAGNOSIS",
@@ -1628,15 +2198,30 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a loop's induced voltage grows with the area it encloses"
-      ]
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Field inside a conductor, and shielding",
+        "of": 30,
+        "rests": [
+          "The electric field as a vector field, and field lines",
+          "Gauss's law, and choosing a surface it can be used on"
+        ]
+      }
     },
     {
       "day": 7,
       "title": "Down the conductor, one station at a time",
-      "scene": "Current-measurement lead Nakata has seven measuring points from mast tip to soil. He has deliberately not read them in order. The top channel says about 30 kA, and he wants the break located before anyone explains it.",
+      "scene": "Thirty kiloamps entered the mast tip on the last stroke. Current that enters a conductor leaves it somewhere, so the same thirty should appear at every shunt down the conductor unless something is taking a share. Nakata has seven measuring points from tip to soil, deliberately not read in order, and wants the break located before anybody starts explaining it.",
       "takeaway": "Current is conserved, so a shortfall between two stations is not an error but a route.",
       "place": "Mast Base",
-      "story": "Current-measurement lead Nakata has seven measuring points from mast tip to soil. He has deliberately not read them in order. The top channel says about 30 kA, and he wants the break located before anyone explains it.",
+      "guide": "Nothing is read for you. Press Read on any station and it reports what that station measured on the stroke, and what the station above it implies should have arrived. Take at least three. A shortfall between two stations is not an instrument error — it is a route the current took instead. Then click the station where the current stops being where it should be, and commit.",
+      "background": [
+        "Why a shortfall is a route. Charge is conserved, so current does not go missing. If 29 kiloamps pass one shunt and 18 pass the next, then 11 left the conductor between them, and the only question is through what. On a mast that is usually a bond nobody drew on the diagram: a conduit, a cable tray, a ladder, an instrument earth.",
+        "What a shunt actually measures. Each station is a low-value resistor in the path with the voltage across it recorded, so the reading is the current through that station and nothing else. It cannot tell you where current went, only that it is no longer here — which is why the answer is a section between two stations rather than a component.",
+        "Why the order of reading does not matter and the pairs do. Every reading is of the same stroke, so they can be taken in any sequence. What carries information is the difference between two of them, which means a reading is worth little on its own and a pair either side of the suspect section is worth the trip."
+      ],
+      "story": "Thirty kiloamps entered the mast tip on the last stroke. Current that enters a conductor leaves it somewhere, so the same thirty should appear at every shunt down the conductor unless something is taking a share. Nakata has seven measuring points from tip to soil, deliberately not read in order, and wants the break located before anybody starts explaining it.",
       "game": {
         "type": "PROBE",
         "title": "Down the conductor, one station at a time",
@@ -1701,14 +2286,21 @@ export const CURRICULUM = {
           "target": "BASE",
           "chainLabel": "Station",
           "minReadings": 3,
-          "commit": "Name the stage",
-          "hint": "Each station reports what it measured on the last stroke and what the station above it implies. Read as few or as many as you like."
+          "commit": "Name the stage"
         }
       },
       "assumes": [
         "current entering a conductor leaves it somewhere",
         "two conductors bonded together share whatever current is offered to them"
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Current as a flow, and current density",
+        "of": 30,
+        "rests": [
+          "Charge, and where it sits on a conductor"
+        ]
+      }
     },
     {
       "day": 8,
@@ -1716,61 +2308,111 @@ export const CURRICULUM = {
       "scene": "Nakata has four instruments in the cabinet and a request from the review for the rise time of the next stroke. Each one has a response time written on its case.",
       "takeaway": "Choosing an instrument is choosing a band, and a measurement outside it is wrong rather than merely imprecise.",
       "place": "Screened Room",
+      "guide": "A fixed afternoon of installation time, and a list of instruments that wants more of it than there is. Buy the ones that can actually see a microsecond front, and read off what your choice stops the station being able to report. Everything here measures something real; what the plan cannot answer is the price of what it can.",
+      "background": [
+        "What a response time does. An instrument reports honestly inside its own band and produces a number outside it — a smoothed, late, smaller version of what happened. That number is wrong rather than merely imprecise, and nothing in the record says so.",
+        "Why a microsecond front is the hard case. To resolve a rise you need a response several times faster than the rise itself. A 20-millisecond instrument facing a 2-microsecond front reports a broad low bump: the peak is understated by a factor of ten and the front is invisible.",
+        "What the slow instruments are still for. Charge transferred, continuing current and the hour-scale field are all real quantities that the fast channels do not capture, and the review is not the only reader of this record. The plan is a choice about which questions the station can answer next season, not about which instruments are good."
+      ],
       "story": "Nakata has four instruments in the cabinet and a request from the review for the rise time of the next stroke. Each one has a response time written on its case.",
       "game": {
-        "type": "CHOICE",
+        "type": "ALLOCATE",
         "title": "What to put on a microsecond",
         "setup": "Screened Room",
         "play": "Choose the right instrument for the front",
         "task": "Choose the right instrument for the front",
-        "question": "Which instrument can report the rise time of a stroke front?",
-        "answer": "The clamp, whose response is tens of nanoseconds",
-        "why": "A one-microsecond front requires an instrument whose own response is much faster than one microsecond. The clamp meets that condition by roughly a factor of fifty. The other listed instruments do not. Averaging more samples cannot rescue a slow response because the front was never resolved in the first place. Increasing the electrometer's input resistance also makes its RC time constant longer. The correct instrument is therefore the one with genuine bandwidth, not the one whose slow signal can be averaged most neatly.",
-        "rebuttals": [
-          "More samples can reduce noise but cannot restore a one-microsecond feature that each sample already averages away.",
-          "A hundred-hertz instrument is slower still and is designed for a different regime.",
-          "Increasing input resistance lengthens RC, so the electrometer becomes slower rather than faster."
-        ],
-        "choices": [
-          "The clamp, whose response is tens of nanoseconds",
-          "The field mill, after averaging more one-millisecond samples",
-          "The earth tester, using its one-hundred-hertz measurement cycle",
-          "The electrometer, after increasing its input resistance"
-        ],
-        "correctChoice": "The clamp, whose response is tens of nanoseconds"
+        "question": "One afternoon of installation time. Fit the channels, and know what the fit stops the station reporting.",
+        "answer": "The 10 ns current transformer and the fast field mill are the only channels that can see the front at all. Fitting them costs the charge-transfer integrator, and the station cannot then report total charge for the season.",
+        "why": "An instrument's response time decides which questions it can answer, and a front of about two microseconds needs a channel several times faster than that. The 10 nanosecond current transformer and the 100 nanosecond field mill can both resolve it. The 20 millisecond electrometer and the hour-scale field logger cannot, and they will not fail visibly — they will report a smooth low bump with the peak understated by a factor of ten and no flag anywhere in the record. That is what makes an out-of-band measurement worse than a missing one. But the slow channels measure real quantities the fast ones cannot: charge transferred, continuing current, the diurnal field. The afternoon does not stretch to everything, so the plan is a decision about which questions the station can answer next season — and the honest version of it says out loud that total charge is not one of them.",
+        "allocate": {
+          "pool": {
+            "amount": 6,
+            "unit": "hours of installation time",
+            "mode": "scalar"
+          },
+          "items": [
+            {
+              "id": "mains",
+              "label": "Bond and earth the instrument cabinet",
+              "cost": 1.5,
+              "protected": true,
+              "note": "nothing else in the cabinet is trustworthy without it"
+            },
+            {
+              "id": "ct",
+              "label": "10 ns current transformer on the down-conductor",
+              "cost": 2,
+              "note": "the only channel that resolves the front"
+            },
+            {
+              "id": "mill",
+              "label": "100 ns field mill on the mast platform",
+              "cost": 1.5
+            },
+            {
+              "id": "integrator",
+              "label": "20 ms charge-transfer integrator",
+              "cost": 1.5
+            },
+            {
+              "id": "logger",
+              "label": "Hour-scale field logger for the season record",
+              "cost": 1
+            },
+            {
+              "id": "trigger",
+              "label": "Common trigger and timestamp distribution",
+              "cost": 1
+            }
+          ],
+          "answers": [
+            {
+              "question": "Can the station report the rise time of the next stroke?",
+              "requires": [
+                "ct"
+              ],
+              "required": true
+            },
+            {
+              "question": "Can two channels be lined up on one time base?",
+              "requires": [
+                "trigger"
+              ]
+            },
+            {
+              "question": "Can the field at the platform be resolved during the stroke?",
+              "requires": [
+                "mill"
+              ]
+            },
+            {
+              "question": "Can total charge transferred be reported for the season?",
+              "requires": [
+                "integrator"
+              ]
+            },
+            {
+              "question": "Is the diurnal field record continued?",
+              "requires": [
+                "logger"
+              ]
+            }
+          ],
+          "hint": "Nothing on this list is a wrong thing to fit. What the record cannot answer is the price of what it can.",
+          "commit": "Commit the afternoon's fit"
+        }
       },
       "assumes": [
         "an instrument reports honestly only within its own band"
       ],
-      "equations": [
-        {
-          "e": "q(t) = Q·e^(−t/RC)",
-          "c": "the RC discharge, and the time constant that comes out of it",
-          "v": [
-            [
-              "q(t)",
-              "the charge left on the capacitor at time t"
-            ],
-            [
-              "Q",
-              "the charge it started with"
-            ],
-            [
-              "R",
-              "the resistance it discharges through, in ohms"
-            ],
-            [
-              "C",
-              "its capacitance, in farads"
-            ],
-            [
-              "RC",
-              "the time constant, in seconds"
-            ]
-          ],
-          "s": "The loop rule gives dq/dt = −q/RC, whose solution is an exponential, and the product RC is the time the circuit needs before it has responded to anything — which is what decides whether an instrument can see an event at all."
-        }
-      ]
+      "concept": {
+        "n": 19,
+        "c": "Instrument bandwidth: what a slow instrument cannot see",
+        "of": 30,
+        "rests": [
+          "The RC circuit, and what a time constant means"
+        ]
+      }
     },
     {
       "day": 9,
@@ -1778,6 +2420,12 @@ export const CURRICULUM = {
       "scene": "The funding-review copy locks tonight. Nakata has one line left under “Unresolved.” Four candidates are on the screen. Kaya wants the line that names a physical claim the season still cannot support with a direct measurement.",
       "takeaway": "Naming what is unresolved is what makes the rest of a report usable, and it is the sentence a review reads first.",
       "place": "Mast Base",
+      "guide": "Four candidates for the unresolved line. Ask of each whether it names a physical claim that a measurement could settle. One of them is scheduled work. One is a design preference about instruments that are deliberately slow. One is a charge budget that does not control the mitigation. The season computed a voltage it never measured, and the copy locks tonight.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The funding-review copy locks tonight. Nakata has one line left under “Unresolved.” Four candidates are on the screen. Kaya wants the line that names a physical claim the season still cannot support with a direct measurement.",
       "game": {
         "type": "CHOICE",
@@ -1803,7 +2451,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a season produces limits as well as results"
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Charge, and where it sits on a conductor",
+        "of": 30
+      }
     }
   ],
   "EARTH": [
@@ -1813,6 +2466,12 @@ export const CURRICULUM = {
       "scene": "Earthing engineer Ana Sifuentes sets the April certificate on the bench: 25 ohms, instrument named, operator signed. She wants the measured quantity stated exactly before anyone uses the number to make a claim about the storm season.",
       "takeaway": "A measurement carries the conditions it was made under, and a number quoted without them is a number about nothing in particular.",
       "place": "Earthing Compound",
+      "guide": "Four readings of the same certificate. Ask of each what the tester actually did: it pushed a small steady current into the soil and measured the voltage. So the number belongs to steady current. A strike changes by tens of kiloamps in a microsecond, which is a different regime. Nothing on the certificate is wrong. The error would be treating it as the whole story.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Earthing engineer Ana Sifuentes sets the April certificate on the bench: 25 ohms, instrument named, operator signed. She wants the measured quantity stated exactly before anyone uses the number to make a claim about the storm season.",
       "game": {
         "type": "CHOICE",
@@ -1837,8 +2496,29 @@ export const CURRICULUM = {
         "correctChoice": "How the grid opposes a steady current in the soil"
       },
       "assumes": [
-        "an instrument measures under the conditions it applies, not the ones you care about"
-      ]
+        "an instrument measures under the conditions it applies, not the ones you care about",
+        "current as a flow, and current density — taken as read",
+        "electric potential as a line integral of the field — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 15,
+          "c": "Current as a flow, and current density"
+        },
+        {
+          "n": 7,
+          "c": "Electric potential as a line integral of the field"
+        }
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Resistance, resistivity and the ground as a resistor",
+        "of": 30,
+        "rests": [
+          "Current as a flow, and current density",
+          "Electric potential as a line integral of the field"
+        ]
+      }
     },
     {
       "day": 2,
@@ -1846,32 +2526,40 @@ export const CURRICULUM = {
       "scene": "The armoured signal cable and bare copper earth conductor run side by side for two hundred metres, forty centimetres apart. Neither is connected to the other. Lauwers wants the pair treated as two conductors before anyone calls the trench electrically quiet.",
       "takeaway": "Conductors can exchange transient electrical influence without a direct metallic connection.",
       "place": "Cable Trench",
+      "guide": "Treat the pair as what it is and put a number on it. Capacitance is charge divided by the voltage that charge produces, so pick the charge the injection test moved onto the earth conductor and the voltage it reached. One tile is the length of the run, which is what the answer scales with rather than part of the ratio.",
+      "background": [
+        "Why a ratio and not a formula. Capacitance is defined as charge over potential difference, whatever the shape of the conductors. The geometry formulas for parallel plates and coaxial cables are consequences of that definition for particular shapes, and a trench is neither of those shapes.",
+        "What it means for the trench. Two conductors with a capacitance between them exchange current whenever the voltage between them changes, and a strike changes it in microseconds. No metallic connection is required, and none of the continuity tests anybody runs would find the path.",
+        "Why the length matters. Capacitance per metre is set by the spacing and the material between; the total is that figure times the run. Two hundred metres of trench is a couplant nobody drew on the schematic, and shortening the parallel run is the only intervention that reduces it."
+      ],
       "story": "The armoured signal cable and bare copper earth conductor run side by side for two hundred metres, forty centimetres apart. Neither is connected to the other. Lauwers wants the pair treated as two conductors before anyone calls the trench electrically quiet.",
       "game": {
-        "type": "CHOICE",
+        "type": "BALLPARK",
         "title": "Two conductors, two hundred metres",
         "setup": "Cable Trench",
         "play": "Work out what the trench pair does",
         "task": "Work out what the trench pair does",
-        "question": "What follows from the two trench conductors having a capacitance between them?",
-        "answer": "A fast change on one drives current into the other",
-        "why": "Capacitance carries current whenever the voltage across it changes. Faster voltage change drives more displacement current through the same capacitance. During a strike, even a small capacitance between nearby conductors can therefore become an important path. At steady voltage, that same capacitance carries no current. The trench can look perfectly quiet for hours and then matter during one microsecond. That contrast is why cable geometry matters even when the two conductors have no direct metallic connection.",
-        "rebuttals": [
-          "Nothing is exchanged at a steady voltage, which is why the pair sits quietly between storms.",
-          "Return current follows whatever path is available and is a question about the network rather than the capacitance.",
-          "The stored energy at ordinary signal voltages is minute; the hazard is the transient it passes."
+        "question": "What is the capacitance between the two conductors in the trench?",
+        "answer": "About 2.4 nanofarads over the 200 m run — small until you notice that a strike changes the voltage across it in microseconds, which is when it starts passing amps.",
+        "why": "Capacitance is C = Q / V, a ratio before it is a formula. The injection test pushed 1.2 microcoulombs onto the earth conductor and the pair reached 500 V, so C = 1.2 × 10⁻⁶ ÷ 500 = 2.4 nF over the whole 200 m run — about 12 picofarads a metre, which is what the spacing and the soil between them give. Two things follow. Nothing is connected, so no continuity test finds this path, and it is the path anyway: the current through a capacitance is C dV/dt, and a strike changes the voltage between these conductors by tens of kilovolts in a couple of microseconds. Put those numbers together and the trench passes tens of amps into a signal cable that nobody wired to anything. And the length is the lever — the capacitance is per metre, so the only intervention that reduces it is running less of the pair in parallel.",
+        "givens": [
+          "1.2 microcoulombs moved, 500 V reached",
+          "200 m of parallel run at 0.4 m spacing"
         ],
-        "choices": [
-          "A fast change on one drives current into the other",
-          "The two will slowly charge each other until they reach the same potential",
-          "Current in the earth conductor is forced to return along the signal cable",
-          "The pair stores enough energy to be a hazard to anybody opening the trench"
-        ],
-        "correctChoice": "A fast change on one drives current into the other"
+        "relationship": "Capacitance is the ratio C = Q / V — the charge moved divided by the potential difference it produces, before any geometry formula.",
+        "calcKey": "EARTH-2"
       },
       "assumes": [
         "any two conductors separated by an insulator have a capacitance between them"
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Capacitance as a ratio, before it is a formula",
+        "of": 30,
+        "rests": [
+          "Electric potential as a line integral of the field"
+        ]
+      }
     },
     {
       "day": 3,
@@ -1879,6 +2567,12 @@ export const CURRICULUM = {
       "scene": "Sifuentes draws the rod as a resistor rather than as a symbol. Thirty kiloamps into twenty-five ohms puts the whole compound somewhere, and every instrument in the rack calls that somewhere zero.",
       "takeaway": "An electrical reference is only a chosen zero; real resistance can make that reference move when large current flows.",
       "place": "Earthing Compound",
+      "guide": "Four readings of what the rod does during a strike. Ask of each whether the earth is being treated as a conductor with resistance, or as a fixed zero. Push current through a resistance and a potential difference appears, for as long as it lasts. Everything on the site calls that potential zero. Whether that matters depends on how many places are earthed.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Sifuentes draws the rod as a resistor rather than as a symbol. Thirty kiloamps into twenty-five ohms puts the whole compound somewhere, and every instrument in the rack calls that somewhere zero.",
       "game": {
         "type": "CHOICE",
@@ -1903,8 +2597,24 @@ export const CURRICULUM = {
         "correctChoice": "It rises with the current, and so does the rack"
       },
       "assumes": [
-        "a resistance carrying current has a voltage across it"
-      ]
+        "a resistance carrying current has a voltage across it",
+        "current as a flow, and current density — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 15,
+          "c": "Current as a flow, and current density"
+        }
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Resistance, resistivity and the ground as a resistor",
+        "of": 30,
+        "rests": [
+          "Current as a flow, and current density",
+          "Electric potential as a line integral of the field"
+        ]
+      }
     },
     {
       "day": 4,
@@ -1912,6 +2622,12 @@ export const CURRICULUM = {
       "scene": "Six metres of 70 mm² copper run from the rack earth bar to the grid. Its measured resistance is 0.3 mΩ. Sifuentes places the April certificate beside the drawing while the strike's 1 µs rise time goes on the board.",
       "takeaway": "The same wire can be resistance-dominated at steady current and inductance-dominated during a fast transient.",
       "place": "Earthing Compound",
+      "guide": "Build it a line at a time. The same six metres of copper has two voltages across it: one from its resistance and one from its inductance. Work out both — Ohm's law for the steady case, and the inductive voltage for the front of the strike. Then compare them, because the comparison is the answer rather than either number.",
+      "background": [
+        "Why one lead has two answers. Resistance responds to how much current is flowing. Inductance responds to how fast it is changing. At direct current the second term is zero, so the certificate measured only the first. During a one-microsecond front, thirty kiloamps arrive at 3 × 10¹⁰ amps a second, and the inductive term is thousands of times larger.",
+        "Why the April certificate is not wrong. It measured what it claimed: 0.3 milliohms of resistance, correctly, at direct current. The error is in reading it as a statement about what the lead does during a strike. A certificate is only a claim about the conditions it was measured under.",
+        "What the number means for the rack. Kilovolts across a bonding lead appear between the rack earth and the grid, which is a difference no equipment inside was designed for. That is why lightning protection is about inductance and geometry rather than about conductor size, and why a fatter cable does not fix it."
+      ],
       "story": "Six metres of 70 mm² copper run from the rack earth bar to the grid. Its measured resistance is 0.3 mΩ. Sifuentes places the April certificate beside the drawing while the strike's 1 µs rise time goes on the board.",
       "game": {
         "type": "DERIVE",
@@ -2069,7 +2785,16 @@ export const CURRICULUM = {
           "s": "A conductor links flux to its own current, so a rising current puts volts across a piece of wire that has almost no resistance at all — at a microsecond rise time this term is what a ground lead actually does, and the resistance measured at DC is not.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 27,
+        "c": "Self-inductance, and why a straight wire has it",
+        "of": 30,
+        "rests": [
+          "Faraday's law: an EMF from a changing flux",
+          "Magnetic field of a current, and Ampère's law"
+        ]
+      }
     },
     {
       "day": 5,
@@ -2077,6 +2802,12 @@ export const CURRICULUM = {
       "scene": "The trailer rod carried 200 A during a stroke that never touched it. Ana Sifuentes has the network map open beside the log. Four follow-up checks are possible before the next cell, but field access allows only two credits.",
       "takeaway": "When several mechanisms fit one reading, the best follow-up is the measurement whose possible outcomes separate them.",
       "place": "Earthing Compound",
+      "guide": "Two credits, four checks, and one puzzle: the trailer rod carried 200 amps during a stroke that never touched it. Open each check and ask what result would separate ordinary soil conduction from a different path. Buy the two that can tell those apart, not the two that would measure the current more precisely.",
+      "background": [
+        "What the two explanations are. Current spreading through soil from a distant strike falls off in a predictable way with distance, so 200 amps at the trailer would imply a whole pattern across the network. A different path — a buried service, a cable screen, a fence line — delivers current to one place without that pattern.",
+        "Why precision does not help. Measuring the 200 amps again to three figures leaves both explanations standing. The check worth buying is one whose two possible results point at different explanations, which is the same argument every VALUE stop makes.",
+        "Why the answer matters before the next cell. If it is soil conduction, the network map is right and the number is expected. If it is a path nobody drew, then equipment on that path saw current it was not designed for, and the same thing will happen in the next storm."
+      ],
       "story": "The trailer rod carried 200 A during a stroke that never touched it. Ana Sifuentes has the network map open beside the log. Four follow-up checks are possible before the next cell, but field access allows only two credits.",
       "game": {
         "type": "VALUE",
@@ -2130,7 +2861,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "soil conducts, and current spreads through whatever is available"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Electric potential as a line integral of the field",
+        "of": 30,
+        "rests": [
+          "The electric field as a vector field, and field lines"
+        ]
+      }
     },
     {
       "day": 6,
@@ -2138,6 +2877,12 @@ export const CURRICULUM = {
       "scene": "The field mill's input is 10 MΩ across about 100 pF. Halvorsen puts the two numbers beside a one-microsecond stroke front. The question is whether the instrument can follow that event or only what remains after it.",
       "takeaway": "The exponential is not assumed; it is what comes out of the loop rule when the current is the derivative of the charge.",
       "place": "Field Station",
+      "guide": "Build it a line at a time. The loop equation gives a differential equation in the charge, and the current out of the capacitor is minus dq/dt. Separate and integrate to get the charge as a function of time, then read off the time constant. Finish by comparing it with a one-microsecond stroke front.",
+      "background": [
+        "Why this is the same equation as the river. Charge leaving in proportion to how much is there gives an exponential decay, which is the recession curve, the cooling cup and the decaying nucleus. Recognising the form is most of the work, and the constant that comes out has units of time.",
+        "What the time constant tells you. R times C is the time to fall to about a third. Ten megohms across a hundred picofarads gives a millisecond, which is a thousand times longer than the microsecond front of a stroke.",
+        "What that means for the instrument. The electrometer cannot follow the front at all; it reports what remains once the fast part is over. So the mill's record is a statement about the slowly varying field, and reading a stroke's peak off it is reading something the circuit never saw."
+      ],
       "story": "The field mill's input is 10 MΩ across about 100 pF. Halvorsen puts the two numbers beside a one-microsecond stroke front. The question is whether the instrument can follow that event or only what remains after it.",
       "game": {
         "type": "DERIVE",
@@ -2303,7 +3048,17 @@ export const CURRICULUM = {
           "s": "The loop rule gives dq/dt = −q/RC, whose solution is an exponential, and the product RC is the time the circuit needs before it has responded to anything — which is what decides whether an instrument can see an event at all.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "The RC circuit, and what a time constant means",
+        "of": 30,
+        "rests": [
+          "Capacitance as a ratio, before it is a formula",
+          "Resistance, resistivity and the ground as a resistor",
+          "Kirchhoff's rules on a real network"
+        ]
+      }
     },
     {
       "day": 7,
@@ -2311,6 +3066,12 @@ export const CURRICULUM = {
       "scene": "The funding-review copy closes tonight. Four headline claims are already written and signed. Two have direct backing, while two depend on steps the station has not physically verified. Kaya has time to trace only two claims before the report locks.",
       "takeaway": "A signed claim is not stronger than the weakest unverified step needed to support it.",
       "place": "Earthing Compound",
+      "guide": "Four headline claims, all signed, and two checks before the report locks tonight. Open each claim and read what already backs it. Two rest on direct evidence and two rest on steps nobody has physically verified. Hold what the backing does not support, and spend the checks where a wrong claim in a funding review would cost most.",
+      "background": [
+        "What a signature is worth here. It records that somebody took responsibility for a sentence. It does not record that the condition was observed. A claim can be signed, believed and true, and still have nothing behind it that a reviewer could inspect.",
+        "Why the funding review changes the stakes. This copy goes to people deciding whether the station continues. A claim that turns out to be unbacked costs more than one that was never made, because it puts every other claim in the document in doubt.",
+        "How to choose between two unbacked claims. Not by which is least likely — by which does more damage if it is wrong. That is consequence rather than probability, and it is the judgement the two checks are for."
+      ],
       "story": "The funding-review copy closes tonight. Four headline claims are already written and signed. Two have direct backing, while two depend on steps the station has not physically verified. Kaya has time to trace only two claims before the report locks.",
       "game": {
         "type": "ATTEST",
@@ -2361,7 +3122,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "claims of different kinds are defended in different ways"
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Current as a flow, and current density",
+        "of": 30,
+        "rests": [
+          "Charge, and where it sits on a conductor"
+        ]
+      }
     }
   ],
   "COUPLE": [
@@ -2371,32 +3140,47 @@ export const CURRICULUM = {
       "scene": "EMC engineer Lauwers has the injection-test map on the trailer wall. Rings of equal potential spread from the mast base, crowded near it and widely spaced farther out. She asks where one ordinary stride crosses the largest voltage difference.",
       "takeaway": "What hurts somebody standing on the ground is the difference between where their feet are, not the potential of the ground itself.",
       "place": "Outstation",
+      "guide": "Work out the voltage between one foot and the other where the rings are most crowded. The step voltage is the potential gradient there multiplied by the length of a stride. Two tiles are the ground's own potential at those radii, which is a large number and not the one that matters — a bird on a wire sits at kilovolts and is unharmed.",
+      "background": [
+        "What the rings mean. Each is a set of points at the same potential, so walking along one costs nothing and crossing them costs the difference. Current spreading from the mast base falls off with distance, which is why the rings crowd near the rod and open out further away.",
+        "Why the gradient is the whole answer. What passes through a person is decided by the difference between their feet, not by the potential of the ground under them. Near the rod that difference over one stride is thousands of volts; out at forty metres the same stride crosses a few tens.",
+        "What follows for the site. It is the reason the working rule is to stand still or shuffle during a storm rather than stride, and the reason a buried grading ring is worth its copper: flattening the gradient near the rod is the only way to make the same current survivable to walk near."
+      ],
       "story": "EMC engineer Lauwers has the injection-test map on the trailer wall. Rings of equal potential spread from the mast base, crowded near it and widely spaced farther out. She asks where one ordinary stride crosses the largest voltage difference.",
       "game": {
-        "type": "CHOICE",
+        "type": "BALLPARK",
         "title": "One foot and the other",
         "setup": "Outstation",
         "play": "Say what an equipotential means for somebody standing on it",
         "task": "Say what an equipotential means for somebody standing on it",
-        "question": "Where on the flat is the step potential largest during a strike?",
-        "answer": "Close to the mast, where the rings are packed tightest together",
-        "why": "Step potential is the voltage difference between two points a stride apart, not the absolute potential of either point. Near the injection point, the current crosses a small area of soil. The potential therefore changes rapidly with distance, and closely spaced equipotential rings mark a large field. Farther out, the same current spreads through more soil. The rings separate and one stride crosses a smaller voltage difference, even if the ground there is still far from zero.",
-        "rebuttals": [
-          "Distance from the grid lowers the potential and flattens it, which is the opposite of the danger.",
-          "Dry soil raises the resistance and therefore the potential difference; it does not stop current.",
-          "The trench carries current in a conductor, which is what keeps it out of the soil there."
+        "question": "What voltage appears between one foot and the other at the crowded rings, one metre from the rod?",
+        "answer": "About 3,400 volts across a single 0.9 m stride. The ground there is at 14 kV, and that number is not what hurts anybody — the difference between the feet is.",
+        "why": "The step voltage is the potential gradient times the stride: V_step = (dV/dr) × d. One metre from the rod the injection test measures a gradient of about 3,800 volts per metre, so an ordinary 0.9 m stride crosses roughly 3,400 V. At forty metres out the gradient has fallen to about 30 V/m and the same stride crosses 27 V. The ground's own potential is a much larger number in both places — 14 kV at one metre — and it is the wrong one to quote, for the same reason a bird on a transmission line is unharmed at hundreds of kilovolts: nothing passes through a body held at one potential. What passes through a person is decided by the difference between contact points. That is why the site rule during a storm is to stand still or shuffle rather than stride, and why a buried grading ring earns its copper: it cannot reduce the current, and it can flatten the gradient the current produces.",
+        "givens": [
+          "gradient 3,800 V/m at one metre, 30 V/m at forty metres",
+          "an ordinary stride is 0.9 m"
         ],
-        "choices": [
-          "Close to the mast, where the rings are packed tightest together",
-          "Out at the trailer, where the ground is furthest from the earth grid",
-          "Anywhere the soil is driest, since dry sand carries no current",
-          "Along the cable trench, which carries current away from the mast"
-        ],
-        "correctChoice": "Close to the mast, where the rings are packed tightest together"
+        "relationship": "The step voltage is the potential gradient times the stride — V_step = (dV/dr) × d, which is the line integral of the field over the distance between the feet.",
+        "calcKey": "COUPLE-1"
       },
       "assumes": [
-        "current spreading through soil produces a potential that falls with distance"
-      ]
+        "current spreading through soil produces a potential that falls with distance",
+        "electric potential as a line integral of the field — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 7,
+          "c": "Electric potential as a line integral of the field"
+        }
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Equipotentials, and what they mean on the ground",
+        "of": 30,
+        "rests": [
+          "Electric potential as a line integral of the field"
+        ]
+      }
     },
     {
       "day": 2,
@@ -2404,6 +3188,12 @@ export const CURRICULUM = {
       "scene": "Lauwers has two identical cable samples on the bench. One is insulated with air and one with polyethylene, and the polyethylene one measures more than twice the capacitance per metre.",
       "takeaway": "The material between conductors changes the relationship between stored charge and voltage.",
       "place": "Outstation",
+      "guide": "Four explanations for more than double the capacitance. Ask of each whether it changes the charge, the geometry, or the voltage. The two samples are identical apart from what fills the gap. So nothing about spacing or area has moved. What the material does is shift its own bound charge against the applied field, and that lowers the volts for the same charge.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Lauwers has two identical cable samples on the bench. One is insulated with air and one with polyethylene, and the polyethylene one measures more than twice the capacitance per metre.",
       "game": {
         "type": "CHOICE",
@@ -2429,7 +3219,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an insulator contains charge that can shift slightly without leaving its molecules"
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Dielectrics, dielectric strength and breakdown",
+        "of": 30,
+        "rests": [
+          "Parallel plates: capacitance from the field between them"
+        ]
+      }
     },
     {
       "day": 3,
@@ -2437,32 +3235,62 @@ export const CURRICULUM = {
       "scene": "Lauwers is unbothered by three millitesla as a number and very bothered by how fast it arrives. Inside the cabinet there are half a dozen circuits, each of them a loop of some area.",
       "takeaway": "A changing electromagnetic field can drive voltage in a nearby circuit without any direct electrical contact.",
       "place": "Outstation",
+      "guide": "Work out the field the down-conductor puts at the cabinet, from the current in it and the distance to it. A long straight conductor gives a field that falls as one over the distance, so pick the current, the distance and the constant. One tile is the cabinet's own loop area, which belongs to the next step rather than this one.",
+      "background": [
+        "Where the field comes from. A long straight conductor carrying current produces a circulating field of magnitude μ₀I / 2πr — the form the Biot–Savart integral takes for a straight wire, and the one worth remembering because most conductors on a mast are straight over the distances that matter.",
+        "Why the rate matters more than the number. Three millitesla is unremarkable. Arriving in two microseconds is not: the voltage driven around a loop is the area times the rate of change of the field through it, so the same field arriving a thousand times faster drives a thousand times the volts.",
+        "What that does inside the cabinet. Every circuit in there encloses some area, and none of them was drawn as an antenna. A loop of a tenth of a square metre in a field changing at fifteen hundred tesla a second sees a hundred and fifty volts around it, which is what nobody wired and everybody has to live with."
+      ],
       "story": "Lauwers is unbothered by three millitesla as a number and very bothered by how fast it arrives. Inside the cabinet there are half a dozen circuits, each of them a loop of some area.",
       "game": {
-        "type": "CHOICE",
+        "type": "BALLPARK",
         "title": "The cabinet is a loop",
         "setup": "Outstation",
         "play": "Say what the field at the cabinet does to what is inside it",
         "task": "Say what the field at the cabinet does to what is inside it",
-        "question": "Why does the rise time matter more than the peak field for the cabinet's circuits?",
-        "answer": "The induced voltage follows how fast the flux changes",
-        "why": "A loop responds to how fast the flux through it changes. Three millitesla arriving over a second would do nothing at all. The same three millitesla arriving in a microsecond puts volts around every loop in the cabinet, in proportion to its area. That is why one installation survives a switching surge and dies in a strike. It is also why the useful fixes are geometric — smaller loops, tighter twists, cables run together rather than apart — rather than a matter of insulation. Two more consequences sit in the same field. There is energy in it, half L I squared, stored in the inductance of the path while the current flows, which is where a good part of the joules in a strike are during it. And the force on a current in a field, F = IℓB, is what makes two conductors carrying a stroke repel each other hard enough that a bus bar has to be braced.",
-        "rebuttals": [
-          "Energy depends on the current and the time, and a fast pulse of the same peak carries less rather than more.",
-          "Conducting enclosures shield fast changes better than slow ones, which is the opposite way round.",
-          "The front is where the rate is highest, so the induced volts peak early rather than late."
+        "question": "What magnetic field does the down-conductor put at the cabinet during the stroke?",
+        "answer": "About 3 millitesla at 2 m from a 30 kA stroke — and because it arrives in two microseconds, a tenth of a square metre of circuit inside the cabinet sees around 150 volts.",
+        "why": "For a long straight conductor the field is B = μ₀I / 2πr. With a 30 kA stroke down a conductor 2 m from the cabinet, B = (4π × 10⁻⁷ × 30,000) ÷ (2π × 2) ≈ 3.0 × 10⁻³ T, which is the three millitesla on the sheet. That number on its own is harmless. What matters is that the stroke delivers it in about two microseconds, so dB/dt is roughly 1,500 tesla per second, and the voltage driven around a loop is the flux rate through it: EMF = A dB/dt. Every circuit in the cabinet encloses some area, and a tenth of a square metre gives about 150 V around a loop nobody drew as an antenna. No connection to the down-conductor is needed for any of this. That is why the fix is loop area rather than insulation — twisted pairs, tight returns, and cable routes that do not enclose the cabinet's own volume. The same field acts on the conductors carrying it: the force on a current in a field is IlB, so two parallel bus bars in a stroke repel hard enough to need a brace. And the energy stored in the inductance — half L I squared, tens of kilojoules in the strike — has to go somewhere when the current stops.",
+        "givens": [
+          "30 kA stroke, 2 m from the cabinet",
+          "the field arrives in about two microseconds, so dB/dt ≈ 1,500 T/s"
         ],
-        "choices": [
-          "The induced voltage follows how fast the flux changes",
-          "A faster pulse contains more energy than a slow one of the same peak",
-          "Steel enclosures screen slow fields better than fast ones",
-          "The peak field is only reached after the circuits have already failed"
-        ],
-        "correctChoice": "The induced voltage follows how fast the flux changes"
+        "relationship": "For a long straight conductor Biot–Savart gives B = μ₀I / 2πr, and the voltage around a loop is then EMF = A dB/dt.",
+        "calcKey": "COUPLE-3"
       },
       "assumes": [
         "a changing magnetic field through a loop drives a voltage around it"
-      ]
+      ],
+      "equations": [
+        {
+          "e": "U = ½CV²",
+          "c": "the energy it took to charge it, and where the half comes from",
+          "v": [
+            [
+              "U",
+              "energy stored, in joules"
+            ],
+            [
+              "C",
+              "capacitance, in farads"
+            ],
+            [
+              "V",
+              "the final voltage across it"
+            ]
+          ],
+          "s": "Each extra charge has to be pushed against the voltage already there, so the work is the integral of q/C dq rather than QV — and the half is the whole difference between a bank that is safe to work on and one that is not."
+        }
+      ],
+      "concept": {
+        "n": 23,
+        "c": "Magnetic flux through a surface",
+        "of": 30,
+        "rests": [
+          "The electric field as a vector field, and field lines",
+          "Magnetic field of a current, and Ampère's law"
+        ]
+      }
     },
     {
       "day": 4,
@@ -2470,6 +3298,12 @@ export const CURRICULUM = {
       "scene": "Instrumentation specialist Sam Abioye has the outstation trench route on the wall. For forty metres, the signal pair runs beside the down-conductor. Its near side is 1.5 m away; the far side is 3.5 m away.",
       "takeaway": "The field across the loop is not uniform, so the flux is an integral, and it comes out as a logarithm of the two distances.",
       "place": "Cable Trench",
+      "guide": "Build it a line at a time. The field from the down-conductor falls as one over the distance, so the flux through the trench loop needs an integral across it, from the near side to the far side. Then Faraday's law turns the changing flux into a voltage. Evaluate it at the front of the August stroke.",
+      "background": [
+        "Why an integral rather than a product. The field is not uniform across the loop: at 1.5 metres it is more than twice what it is at 3.5. Flux is the field integrated over the area, and with B going as one over r the integral gives a logarithm of the ratio of the two distances.",
+        "Why the ratio is what matters. Only b over a appears, so moving both sides of the pair further out changes the answer far less than separating them does. A signal pair run tight together in the same trench sees very little; the same pair split by two metres sees a great deal.",
+        "What the voltage does. It appears in series with the signal, so the instrument at the far end cannot distinguish it from the measurement. That is the mechanism behind most of the station's unexplained records, and it is why the trench route on the wall is a wiring diagram and a physics problem at once."
+      ],
       "story": "Instrumentation specialist Sam Abioye has the outstation trench route on the wall. For forty metres, the signal pair runs beside the down-conductor. Its near side is 1.5 m away; the far side is 3.5 m away.",
       "game": {
         "type": "DERIVE",
@@ -2680,7 +3514,15 @@ export const CURRICULUM = {
           "computed": true,
           "card": false
         }
-      ]
+      ],
+      "concept": {
+        "n": 24,
+        "c": "Faraday's law: an EMF from a changing flux",
+        "of": 30,
+        "rests": [
+          "Magnetic flux through a surface"
+        ]
+      }
     },
     {
       "day": 5,
@@ -2688,6 +3530,12 @@ export const CURRICULUM = {
       "scene": "At 2:00 the second cell is thirty kilometres out. By 2:20 it is eleven kilometres away. The crew door closes at 2:25. At 2:30 the first natural strike flashes and the outstation telemetry disappears from the wall.",
       "takeaway": "A lead-time rule must survive real variation in the process it is trying to outrun.",
       "place": "Outstation",
+      "guide": "Four candidates for what failed, and everybody did what they were told. Ask of each whether the evidence supports it. The rule was followed. The crew were inside. The second cell was tracked the whole way. What was left was five minutes, where the projection had allowed more. Something in the plan was wrong, and it was not the people.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "At 2:00 the second cell is thirty kilometres out. By 2:20 it is eleven kilometres away. The crew door closes at 2:25. At 2:30 the first natural strike flashes and the outstation telemetry disappears from the wall.",
       "game": {
         "type": "CHOICE",
@@ -2721,6 +3569,12 @@ export const CURRICULUM = {
       "scene": "Lauwers has to write a paragraph the review will read as a recommendation. Three mitigations are on the table and only one of them is supported by this season's measurements.",
       "takeaway": "A recommendation should target a variable that the season's evidence shows actually controls the measured mechanism.",
       "place": "Outstation",
+      "guide": "Four mitigations, and all four are sensible engineering. Ask of each whether this season measured what it buys. The coupling depends on the length of the parallel run and on how close it gets to the conductor. Better earthing acts on a different path. And the trailer was already distant. Forty metres of its cable was not.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Lauwers has to write a paragraph the review will read as a recommendation. Three mitigations are on the table and only one of them is supported by this season's measurements.",
       "game": {
         "type": "CHOICE",
@@ -2746,25 +3600,39 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a recommendation is only as good as the measurement behind it"
-      ]
+      ],
+      "concept": {
+        "n": 26,
+        "c": "Mutual inductance: one circuit talking to another",
+        "of": 30,
+        "rests": [
+          "Faraday's law: an EMF from a changing flux"
+        ]
+      }
     }
   ],
   "SHOT": [
     {
       "day": 1,
-      "title": "Three stages and a cell coming in",
+      "title": "One call, and a cell coming in",
       "scene": "Operations and Safety lead Hal Brenner has the afternoon cell on radar and the four field mills on the wall. Three actions must finish before a rocket leaves the rail, and the cell is already moving toward the flat.",
       "takeaway": "A threshold is only useful if the action it triggers can still be finished before the sky arrives.",
       "place": "Launch Control",
+      "guide": "One rule, written before the cell arrives and held to once the board is released. The walkback takes half an hour from the moment it is called, and by the time the field is at strike conditions everybody has to be behind the bunker already. So the line goes back from strike conditions by that half hour — and not so far back that the pad is cleared for a cell which never built.",
+      "background": [
+        "Why the field rather than the radar. The mills report the electric field at the flat, which is what actually determines whether a rocket trailing a wire will trigger a strike. Radar tells you a cell is coming; the field tells you the flat is ready. Only one of those is the launch condition.",
+        "What lead time means for each stage. Clearing personnel, arming and launching all have durations, and they are not the same. A threshold set for the longest action is too early for the shortest, which is why there are three numbers to write rather than one.",
+        "Why the board is signed first. A threshold adjusted while the cell comes in is not a rule; it is a description of what somebody already decided to do. Committing beforehand is what makes the afternoon attributable to a plan."
+      ],
       "story": "Operations and Safety lead Hal Brenner has the afternoon cell on radar and the four field mills on the wall. Three actions must finish before a rocket leaves the rail, and the cell is already moving toward the flat.",
       "game": {
         "type": "TRIGGER",
-        "title": "Three stages and a cell coming in",
+        "title": "One call, and a cell coming in",
         "setup": "Launch Control",
         "play": "Write the launch rule before the field moves",
         "task": "Write the launch rule before the field moves",
-        "question": "Set the field at which each stage of the launch is called, and hold to it as the cell comes in.",
-        "answer": "Clear at about 3 kV/m, arm at about 5 kV/m, and fire at about 6.4 kV/m. Each call must leave its own lead time. A thirty-minute walkback means calling the crew in well before the field reaches the final firing condition.",
+        "question": "At what surface field do you clear the pad and walk the crew back to the bunker?",
+        "answer": "Call the walkback around 3 kV/m. It fires with the half hour the walk needs still on the clock; every reading after that arrives with less.",
         "why": "A launch rule is a set of promises about time, not about field strength. The field is only the clock face. Each threshold must start an action early enough to finish before the sky becomes dangerous. Setting thresholds late is the natural error. Early calls look wasteful in hindsight, while late calls look acceptable until the one afternoon they fail. Writing the numbers first makes the decision reviewable and separates a criterion from a preference.",
         "trigger": {
           "scale": {
@@ -2772,29 +3640,30 @@ export const CURRICULUM = {
             "unit": "kV/m",
             "min": 0,
             "max": 9,
-            "step": 0.1
+            "step": 0.1,
+            "anchors": [
+              {
+                "at": 1.2,
+                "means": "a cell building somewhere over the flats, nothing overhead yet"
+              },
+              {
+                "at": 7,
+                "means": "strike conditions — the mast is the tallest thing for twenty kilometres"
+              }
+            ]
           },
+          "direction": "rising",
           "conditions": [
             {
               "id": "clear",
               "label": "Clear the pad and walk the crew back to the bunker",
               "leadHours": 0.5,
+              "window": {
+                "min": 2,
+                "max": 4
+              },
               "owner": "Brenner",
               "action": "nobody left on the flat"
-            },
-            {
-              "id": "arm",
-              "label": "Arm the rocket and connect the trailing wire",
-              "leadHours": 0.25,
-              "owner": "Tate",
-              "action": "pad live"
-            },
-            {
-              "id": "fire",
-              "label": "Launch",
-              "leadHours": 0.05,
-              "owner": "Vero",
-              "action": "rocket away"
             }
           ],
           "stream": [
@@ -2829,15 +3698,56 @@ export const CURRICULUM = {
               "hoursLeft": 0.05
             }
           ],
-          "hint": "Each stage takes as long as it takes. Set the field where you want it called and the afternoon will tell you whether you left yourself the time.",
+          "rehearsal": {
+            "note": "the cell that passed over on Tuesday",
+            "stream": [
+              {
+                "value": 0.9,
+                "hoursLeft": 1.5
+              },
+              {
+                "value": 2.2,
+                "hoursLeft": 1
+              },
+              {
+                "value": 3.4,
+                "hoursLeft": 0.5
+              },
+              {
+                "value": 3,
+                "hoursLeft": 0.2
+              },
+              {
+                "value": 2.1,
+                "hoursLeft": 0.05
+              }
+            ]
+          },
+          "objective": "The crew are behind the bunker before the field reaches strike conditions.",
+          "hint": "The walkback takes as long as it takes. Set the field where you want it called, and the afternoon will tell you whether you left yourself the time.",
           "release": "Hold the rule",
           "commit": "Commit the rule"
         }
       },
       "assumes": [
         "a crew on an open flat has to be walked back before a strike is likely",
-        "a forecast of where a cell will be is not a promise"
-      ]
+        "a forecast of where a cell will be is not a promise",
+        "charge, and where it sits on a conductor — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Charge, and where it sits on a conductor"
+        }
+      ],
+      "concept": {
+        "n": 2,
+        "c": "The electric field as a vector field, and field lines",
+        "of": 30,
+        "rests": [
+          "Charge, and where it sits on a conductor"
+        ]
+      }
     },
     {
       "day": 2,
@@ -2845,6 +3755,12 @@ export const CURRICULUM = {
       "scene": "Records lead Yusuf Kaya has three shots from last season with no criterion recorded. The mill logs preserve every launch field, but nobody can reconstruct what threshold the team had committed to before seeing how each afternoon ended.",
       "takeaway": "A criterion is evidence about a decision only if it exists before the outcome does.",
       "place": "Launch Control",
+      "guide": "All four options are claims about when a rule is worth writing. Ask of each whether it depends on knowing how the afternoon ended. Two of them argue that a larger sample is better, which is true of data and not of criteria. A clean shot makes its threshold look reasonable afterwards. So does a cautious hold followed by nothing.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Records lead Yusuf Kaya has three shots from last season with no criterion recorded. The mill logs preserve every launch field, but nobody can reconstruct what threshold the team had committed to before seeing how each afternoon ended.",
       "game": {
         "type": "CHOICE",
@@ -2878,6 +3794,12 @@ export const CURRICULUM = {
       "scene": "Brenner checks the launch board twice, then radios that the flat is clear. The incoming cell is smaller than yesterday's and the mills are climbing steadily. Vero looks from the written rule to the rail and asks for the launch call.",
       "takeaway": "A precommitted operating rule should be applied consistently on marginal cases unless new evidence shows the rule itself is inadequate.",
       "place": "Launch Control",
+      "guide": "All four options describe something true of this afternoon. Ask of each whether it appears in the rule that was written before the season. Two of them compare today with yesterday, which the rule does not do. A criterion nobody uses is not an operating rule, and this is the first cell where it says go.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Brenner checks the launch board twice, then radios that the flat is clear. The incoming cell is smaller than yesterday's and the mills are climbing steadily. Vero looks from the written rule to the rail and asks for the launch call.",
       "game": {
         "type": "CHOICE",
@@ -2911,6 +3833,12 @@ export const CURRICULUM = {
       "scene": "Strand can fire the bank into the mast on any afternoon, with a rise time he chooses. Vero would rather wait for a cell. Kaya has to write down which of the two the season's waveform library is built from.",
       "takeaway": "Calibration data and natural-event data answer different questions: repeatability versus real-world variation.",
       "place": "Launch Control",
+      "guide": "Four things the hall might offer that a natural stroke cannot. Ask of each whether the hall's advantage is control or magnitude. The hall chooses the moment and the shape, every time. A natural stroke varies from event to event, and that variation is what the station exists to measure. So the library needs both kinds labelled, or calibration data pass as weather.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Strand can fire the bank into the mast on any afternoon, with a rise time he chooses. Vero would rather wait for a cell. Kaya has to write down which of the two the season's waveform library is built from.",
       "game": {
         "type": "CHOICE",
@@ -2936,7 +3864,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an instrument is calibrated against a signal whose shape is known"
-      ]
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Instrument bandwidth: what a slow instrument cannot see",
+        "of": 30,
+        "rests": [
+          "The RC circuit, and what a time constant means"
+        ]
+      }
     },
     {
       "day": 5,
@@ -2944,6 +3880,12 @@ export const CURRICULUM = {
       "scene": "Yusuf Kaya has three rod-referenced shunt peaks at 28, 29 and 31 kA, plus a 30 kA clamp reading. The review wants one peak, but the three shunts still share the same moving earth reference.",
       "takeaway": "A shared reference can trade off against the true signal; an independent measurement can collapse that ambiguity.",
       "place": "Launch Control",
+      "guide": "Two controls slide along a family of solutions that fit the shunt mean equally well. Find out how wide that family is before deciding anything. Then bring in the clamp reading, which does not share the shunts' earth reference, and watch what it does to the family. Report the peak when the data supports one rather than several.",
+      "background": [
+        "Why three shunts do not settle it. All three are referenced to the same moving earth, so a shift in that reference moves all three together. The mean of 28, 29 and 31 is therefore consistent with a range of true peaks paired with a range of offsets — one equation, two unknowns.",
+        "What the clamp brings. It measures the current a different way, without the rod reference. So it constrains the same true peak through a different combination of unknowns, and where the two constraints cross is the answer. That is why one independent measurement is worth more than three more shunts.",
+        "Why saying 'several' is a legitimate answer for a while. Reporting a single peak from the shunts alone would be reporting a number the data does not contain. The honest intermediate answer is the family, and the professional move is to go and get the measurement that collapses it."
+      ],
       "story": "Yusuf Kaya has three rod-referenced shunt peaks at 28, 29 and 31 kA, plus a 30 kA clamp reading. The review wants one peak, but the three shunts still share the same moving earth reference.",
       "game": {
         "type": "DEGENERACY",
@@ -3030,7 +3972,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an average of several readings is only better than one if they are independent"
-      ]
+      ],
+      "concept": {
+        "n": 30,
+        "c": "Measurement in the right regime: shunts, dividers and what they load",
+        "of": 30,
+        "rests": [
+          "Resistance, resistivity and the ground as a resistor",
+          "Instrument bandwidth: what a slow instrument cannot see"
+        ]
+      }
     },
     {
       "day": 6,
@@ -3038,6 +3989,12 @@ export const CURRICULUM = {
       "scene": "Hal Brenner points at the trench drawing. If the coupling is geometric, every remaining shot is also a test of that geometry. Adeyinka Vero asks the harder question: does knowing the mechanism argue for firing more, or stopping sooner?",
       "takeaway": "Once a mechanism makes numerical predictions, the next event can test the mechanism rather than merely repeat the observation.",
       "place": "Launch Control",
+      "guide": "Four readings of what the finding does to the remaining shots. Ask of each whether it treats the mechanism as an explanation or as a prediction. A formula can be computed before the next stroke and then compared with it. One option would remove the configuration the prediction needs. That is the real argument in the room, and it is not about who suspected what.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Hal Brenner points at the trench drawing. If the coupling is geometric, every remaining shot is also a test of that geometry. Adeyinka Vero asks the harder question: does knowing the mechanism argue for firing more, or stopping sooner?",
       "game": {
         "type": "CHOICE",
@@ -3063,7 +4020,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a mechanism that is understood can be measured deliberately"
-      ]
+      ],
+      "concept": {
+        "n": 26,
+        "c": "Mutual inductance: one circuit talking to another",
+        "of": 30,
+        "rests": [
+          "Faraday's law: an EMF from a changing flux"
+        ]
+      }
     },
     {
       "day": 7,
@@ -3071,6 +4036,12 @@ export const CURRICULUM = {
       "scene": "The board has a space for a predicted peak current and Vero wants it filled before the rocket leaves the rail. The clamp will give the answer forty minutes later, if anybody goes out and reads it.",
       "takeaway": "Predicting and measuring are two separate acts, and skipping the second one is its own kind of failure.",
       "place": "Launch Control",
+      "guide": "Lock a predicted peak current before the rocket flies. It cannot be edited afterwards, which is the point. The rocket goes up whatever you write. Then decide whether to spend half an hour of a storm afternoon walking out to read the clamp. Not measuring is an answer too, and a poor one.",
+      "background": [
+        "Why the prediction is locked. A number written after the event is not a prediction. The failure is not dishonesty but memory: with the clamp reading in front of you, it is genuinely hard to recall how confident you were. Committing first is a procedure that protects you from yourself.",
+        "What the walk actually costs. Forty minutes, on an afternoon with a cell coming in, is time not spent on the mills or the launch rail. That is a real cost, and it is why the panel makes you decide rather than assuming somebody will go.",
+        "What is lost by not going. An unmeasured prediction can never be wrong, which is exactly what makes it worthless. A station that predicts and never checks accumulates confidence rather than calibration, and the review has no way to tell the two apart."
+      ],
       "story": "The board has a space for a predicted peak current and Vero wants it filled before the rocket leaves the rail. The clamp will give the answer forty minutes later, if anybody goes out and reads it.",
       "game": {
         "type": "VERIFY",
@@ -3116,47 +4087,256 @@ export const CURRICULUM = {
       "assumes": [
         "a prediction is only a prediction if it is recorded before the outcome",
         "reading an instrument after the event is a decision with a cost"
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Current as a flow, and current density",
+        "of": 30,
+        "rests": [
+          "Charge, and where it sits on a conductor"
+        ]
+      }
     },
     {
       "day": 8,
+      "title": "A strike, or the instrument",
+      "scene": "The night produced more triggers than the log can carry. Some of them are current going down the mast. The rest are the recording chain reacting to the same storm, and both arrive as a trace with a rise time.",
+      "takeaway": "A trace faster than the instrument was not made by the weather.",
+      "place": "Launch Control",
+      "guide": "Two bins. A real stroke arrives on every channel that should see it, with the timing the geometry allows, and with a rise the instrument can actually resolve. A chain artifact appears on one channel, or arrives before the trigger, or has a rise faster than any sensor on the site can report.",
+      "background": [
+        "Why bandwidth is the test. An instrument cannot report a rise faster than its own response time, so a trace that rises faster than the sensor allows was made after the sensor — in the cable, the digitiser or the trigger.",
+        "Why coincidence matters. A strike is one event and the site has several instruments. If the field mill, the current transformer and the two remote stations disagree about whether anything happened, the thing that happened was in one box."
+      ],
+      "story": "The night produced more triggers than the log can carry. Some of them are current going down the mast. The rest are the recording chain reacting to the same storm, and both arrive as a trace with a rise time.",
+      "game": {
+        "type": "BELT",
+        "title": "A strike, or the instrument",
+        "setup": "Launch Control",
+        "play": "Sort the night's returns before the log closes.",
+        "task": "Sort the night's returns before the log closes.",
+        "question": "Send each trigger to the bin that says whether the storm or the chain made it.",
+        "answer": "Anything coincident across channels with a resolvable rise is a strike. Anything single-channel, pre-trigger or faster than the sensor is the chain.",
+        "why": "Everything in this log has been through a sensor, a cable and a digitiser, and each of those can produce a trace. The two tests that separate them are bandwidth and coincidence. No instrument can report a rise faster than its own response time, so a front that rises in twenty nanoseconds on a channel whose sensor takes a microsecond was manufactured after the sensor — in the cable, the amplifier or the trigger. And a strike is a single event seen by a site full of instruments: if the field mill, the current transformer and the two remote stations do not agree that something happened, then what happened was inside one box. That is why the honest log records both the coincidence and the rise time rather than the peak, and it is why a night that produced four hundred triggers can contain nine strikes.",
+        "belt": {
+          "left": {
+            "name": "A real stroke"
+          },
+          "right": {
+            "name": "The chain"
+          },
+          "items": [
+            {
+              "name": "Coincident on four",
+              "bin": "left"
+            },
+            {
+              "name": "Field mill agrees",
+              "bin": "left"
+            },
+            {
+              "name": "Rise within bandwidth",
+              "bin": "left"
+            },
+            {
+              "name": "Remote station agrees",
+              "bin": "left"
+            },
+            {
+              "name": "Timing fits geometry",
+              "bin": "left"
+            },
+            {
+              "name": "Thunder at the",
+              "bin": "left"
+            },
+            {
+              "name": "Current and field",
+              "bin": "left"
+            },
+            {
+              "name": "Multiple strokes spaced",
+              "bin": "left"
+            },
+            {
+              "name": "Continuing current tail",
+              "bin": "left"
+            },
+            {
+              "name": "Polarity as expected",
+              "bin": "left"
+            },
+            {
+              "name": "Charge moved measured",
+              "bin": "left"
+            },
+            {
+              "name": "Damage found after",
+              "bin": "left"
+            },
+            {
+              "name": "One channel only",
+              "bin": "right"
+            },
+            {
+              "name": "Before the trigger",
+              "bin": "right"
+            },
+            {
+              "name": "Faster than sensor",
+              "bin": "right"
+            },
+            {
+              "name": "Cable-length ringing",
+              "bin": "right"
+            },
+            {
+              "name": "Digitiser full scale",
+              "bin": "right"
+            },
+            {
+              "name": "Mains frequency ripple",
+              "bin": "right"
+            },
+            {
+              "name": "Trigger on noise",
+              "bin": "right"
+            },
+            {
+              "name": "Ground loop transient",
+              "bin": "right"
+            },
+            {
+              "name": "Amplifier recovery",
+              "bin": "right"
+            },
+            {
+              "name": "Clock glitch",
+              "bin": "right"
+            },
+            {
+              "name": "Repeats hourly",
+              "bin": "right"
+            },
+            {
+              "name": "Input disconnected",
+              "bin": "right"
+            },
+            {
+              "name": "Same shape every",
+              "bin": "right"
+            },
+            {
+              "name": "Only after maintenance",
+              "bin": "right"
+            }
+          ],
+          "need": 20,
+          "lives": 3,
+          "pass": 0.8,
+          "hint": "Ask whether anything else saw it, and whether the sensor was fast enough to.",
+          "commit": "Start the line"
+        }
+      },
+      "assumes": [
+        "an instrument can only report what it is fast enough to see"
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Instrument bandwidth: what a slow instrument cannot see",
+        "of": 30,
+        "rests": [
+          "The RC circuit, and what a time constant means"
+        ]
+      }
+    },
+    {
+      "day": 9,
       "title": "Repeat the placard, or test the number",
       "scene": "One shot left in the hall and two proposals for it. Strand's runs the standard setting and confirms the bank. Lauwers's halves the front at the same peak and predicts a specific voltage on the bench loop.",
       "takeaway": "The most informative test is the one whose possible outcomes can falsify an important model.",
       "place": "Launch Control",
+      "guide": "One shot, and a list of things it could be spent on that costs more than one shot. Buy what would change the station's next decision rather than what would be reassuring to have. Two of these confirm something already known to two significant figures, which is worth exactly nothing to the review.",
+      "background": [
+        "What makes a test worth firing. Not how precise it is and not how likely it is to succeed — whether its possible outcomes point to different decisions. A shot whose two outcomes both leave the placard where it is has told the station nothing it can act on.",
+        "Why a prediction with a number is the strong form. Lauwers's proposal names the voltage the bench loop should reach if the inductive account is right. It can come out wrong, and a test that cannot come out wrong is a demonstration.",
+        "What the repeat is actually for. Confirming the bank at the standard setting is defensible when the bank is the thing in doubt. It is not, and it has been fired at that setting eleven times this season, so the eleventh confirmation buys the same axis again."
+      ],
       "story": "One shot left in the hall and two proposals for it. Strand's runs the standard setting and confirms the bank. Lauwers's halves the front at the same peak and predicts a specific voltage on the bench loop.",
       "game": {
-        "type": "CHOICE",
+        "type": "VALUE",
         "title": "Repeat the placard, or test the number",
         "setup": "Launch Control",
         "play": "Decide what the final shot is for",
         "task": "Decide what the final shot is for",
-        "question": "Which shot should the hall fire tomorrow?",
-        "answer": "The shortened front, which the coupling number predicts",
-        "why": "The standard shot has already been repeated many times, so another one mainly confirms the apparatus. The shortened front puts the coupling model at risk. Hold the peak current fixed and halve the rise time; the model predicts roughly twice the induced voltage on the bench loop. If that doubling does not appear, the explanation for the outstation failure is incomplete. Only one serviced shot remains. Using it on the prediction produces new evidence; using it on the standard setting mostly repeats reassurance.",
-        "rebuttals": [
-          "The bank was confirmed six days ago and nothing has been changed since.",
-          "Peak voltage is the outcome being predicted rather than a criterion for choosing the test.",
-          "There is one gap service left, so the second shot would be fired on gaps nobody has reset."
-        ],
-        "choices": [
-          "The shortened front, which the coupling number predicts",
-          "The standard setting, because the bank must be confirmed before the review",
-          "Whichever produces the higher peak voltage on the bench loop",
-          "Both, by firing the standard setting and then the shortened one"
-        ],
-        "correctChoice": "The shortened front, which the coupling number predicts"
+        "question": "One shot in the hall. What is it worth spending on?",
+        "answer": "The halved front with a predicted bench voltage. It is the only proposal whose outcome could come out wrong, and either result changes what the placard says.",
+        "why": "A test earns its shot by changing a decision. Lauwers's proposal halves the front at the same peak current and names the voltage the bench loop should reach if the inductive account of the placard number is right — a prediction that can fail, which is what makes the shot informative either way. If the bench reads what she says, the placard is revised on the inductive term. If it does not, the resistive account survives and the mast keeps its current figure with a documented reason. Strand's repeat at the standard setting confirms a bank that has already been fired there eleven times this season, and the twelfth confirmation is the same axis again. The two calibration items are real work and belong in a maintenance window, not in the last shot of an afternoon: they improve numbers nobody's next decision turns on. And the shot itself is irreversible — the hall is booked once, so the choice is not which test is best in general but which one this station cannot answer any other way.",
+        "value": {
+          "budget": {
+            "amount": 1,
+            "unit": "shots in the hall"
+          },
+          "decision": "whether the placard voltage is revised on the inductive term",
+          "options": [
+            {
+              "id": "fast",
+              "label": "Halve the front at the same peak, with the bench voltage predicted in advance",
+              "cost": 1,
+              "axis": "front time and the inductive term",
+              "reveals": "whether the inductive account predicts the bench reading, or fails to",
+              "decisive": true,
+              "irreversible": true
+            },
+            {
+              "id": "repeat",
+              "label": "Repeat the standard setting to confirm the bank",
+              "cost": 1,
+              "axis": "bank repeatability",
+              "reveals": "the same peak current the bank has produced eleven times this season"
+            },
+            {
+              "id": "probe",
+              "label": "Recalibrate the bench probe against the reference divider",
+              "cost": 1,
+              "axis": "instrument calibration",
+              "reveals": "a correction of a per cent or two on every number in the record"
+            },
+            {
+              "id": "earth",
+              "label": "Re-measure the earth resistance at the test bay",
+              "cost": 1,
+              "axis": "instrument calibration",
+              "reveals": "a figure last measured in March, in wetter soil"
+            }
+          ],
+          "commit": "Commit the shot"
+        }
       },
       "assumes": [
         "a test is worth what it could change"
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Capacitors in series and parallel",
+        "of": 30,
+        "rests": [
+          "Capacitance as a ratio, before it is a formula"
+        ]
+      }
     },
     {
-      "day": 9,
+      "day": 10,
       "title": "Earlier, or more certain",
       "scene": "Twenty-two minutes is the lead time the station actually achieved this season, against the thirty the rule assumes. Four changes are available and each of them costs something the station has little of.",
       "takeaway": "A rule fails on its spread as often as on its average, and only some changes touch the spread.",
       "place": "Launch Control",
+      "guide": "The cloud is the lead time this station actually achieved across the season — twenty-two minutes on average against the thirty the rule assumes. The band is what the rule needs. Four changes are available, each costing something the station has little of, and they act differently: some move the average, some make the season more consistent. Apply what you would buy, then say when next season is defensible.",
+      "background": [
+        "Why an average is not the claim. The rule is about every strike, not the mean one: a season that averages thirty minutes with a wide spread still contains days when the crew had ten. The cloud is the distribution of what actually happened, and the criterion is written on the fraction of it that clears the rule.",
+        "Moving and tightening. Calling the clear a mill-step earlier, or moving the shelter closer, adds minutes to every day — the cloud slides. A second radar feed with a nowcast, or a written and drilled call-out sequence, removes the days that went badly — the cloud tightens. Both buy lead time; only one of them removes the tail the rule is about.",
+        "What the tail costs. The days in the low tail are the days with people still on the flat when the first strike lands, and they are the days that end up in an incident report. That is why a plan is judged on its worst days rather than its typical one."
+      ],
       "story": "Twenty-two minutes is the lead time the station actually achieved this season, against the thirty the rule assumes. Four changes are available and each of them costs something the station has little of.",
       "game": {
         "type": "CLOUD",
@@ -3164,7 +4344,7 @@ export const CURRICULUM = {
         "setup": "Launch Control",
         "play": "Set the criterion the station will work to",
         "task": "Set the criterion the station will work to",
-        "question": "Bring next season's lead time inside what the rule needs, and say when it is defensible.",
+        "question": "Bring next season's lead time inside what the rule needs, and say when it is defensible. Place the bars to report the mean and its one-sigma uncertainty.",
         "answer": "Moving the average earlier is not enough. Calling earlier and shortening the walk shift the center, but the low tail still misses the rule. The radar feed and drilled call-out sequence narrow the spread, which is what finally clears the pass mark.",
         "why": "Calling earlier shifts the center of the lead-time distribution but does not make one afternoon resemble another. Shortening the walk does the same. The rule must survive the low end of the distribution, not only its average. A second radar feed reduces uncertainty in cell motion. A drilled call-out sequence reduces variation between shifts. Those changes narrow the spread itself. The final criterion is defensible only when both the center and the spread keep the required walk time inside the accepted band.",
         "cloud": {
@@ -3216,12 +4396,81 @@ export const CURRICULUM = {
       "assumes": [
         "a rule has to work across every administration of it, not on a good afternoon",
         "lead time varies from cell to cell as well as having an average"
-      ]
+      ],
+      "concept": {
+        "n": 30,
+        "c": "Measurement in the right regime: shunts, dividers and what they load",
+        "of": 30,
+        "rests": [
+          "Resistance, resistivity and the ground as a resistor",
+          "Instrument bandwidth: what a slow instrument cannot see"
+        ]
+      }
     }
   ]
 };
 
 export const BALLPARK_CALCS = {
+  "COUPLE-1": {
+    "prompt": "One metre from the rod the injection test measures a potential gradient of about 3,800 V/m. An ordinary stride is 0.9 m. The ground there sits at 14 kV.",
+    "question": "Choose the potential gradient at the crowded rings and the length of one stride.",
+    "labels": [
+      "3800  (potential gradient at 1 m, in V/m)",
+      "0.9  (one ordinary stride, in m)",
+      "14000  (the ground's own potential at 1 m, in V)",
+      "30  (the gradient 40 m out, in V/m)",
+      "25  (the rod's resistance, in ohms)"
+    ],
+    "values": [
+      3800,
+      0.9,
+      14000,
+      30,
+      25
+    ],
+    "slots": 2,
+    "template": "{0} × {1}",
+    "formula": "a*b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 3420,
+    "tolerance": 200,
+    "units": "volts between the feet",
+    "solution": "3,800 × 0.9 ≈ 3,400 V across one stride at a metre, against 30 × 0.9 = 27 V at forty metres.",
+    "explanation": "The difference between the feet is what passes through a person. The 14 kV the ground sits at does nothing on its own."
+  },
+  "EARTH-2": {
+    "prompt": "The injection test moved 1.2 microcoulombs onto the earth conductor, and the pair reached 500 V. The parallel run is 200 m.",
+    "question": "Choose the charge moved and the voltage it produced.",
+    "labels": [
+      "1.2e-6  (Q, the charge moved, in coulombs)",
+      "500  (V, the voltage the pair reached)",
+      "200  (the length of the parallel run, in m)",
+      "0.4  (the spacing between the conductors, in m)",
+      "25  (the rod's resistance, in ohms)"
+    ],
+    "values": [
+      0.0000012,
+      500,
+      200,
+      0.4,
+      25
+    ],
+    "slots": 2,
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 2.4e-9,
+    "tolerance": 2e-10,
+    "units": "farads (about 2.4 nF)",
+    "solution": "1.2 × 10⁻⁶ ÷ 500 = 2.4 × 10⁻⁹ F, which is 2.4 nF over 200 m, or about 12 pF a metre.",
+    "explanation": "A capacitance nobody wired. The current through it is C dV/dt, and a strike supplies the dV/dt."
+  },
   "BANK-4": {
     "prompt": "The clamp puts the August stroke at 30 kA peak, and the current stayed within a factor of two of that for about 100 microseconds.",
     "question": "Choose the current and the time it flowed for.",
@@ -3251,6 +4500,37 @@ export const BALLPARK_CALCS = {
     "units": "coulombs",
     "solution": "30,000 × 100 × 10⁻⁶ = 3 C.",
     "explanation": "About three coulombs. The rise time is a much shorter interval and belongs to a different question — it is what decides induced voltages rather than delivered charge, and using it here gives three hundredths of a coulomb, which is a hundred times light."
+  },
+  "COUPLE-3": {
+    "prompt": "The stroke is 30 kA down a conductor 2 m from the cabinet. μ₀ / 2π is 2 × 10⁻⁷ T·m/A.",
+    "question": "Choose the constant, the current, and the distance.",
+    "labels": [
+      "2e-7  (μ₀ / 2π, in T·m/A)",
+      "30000  (I, the stroke current in A)",
+      "2  (r, the distance to the cabinet in m)",
+      "0.1  (the loop area inside the cabinet, in m²)",
+      "1500  (dB/dt during the stroke, in T/s)"
+    ],
+    "values": [
+      2e-7,
+      30000,
+      2,
+      0.1,
+      1500
+    ],
+    "slots": 3,
+    "template": "{0} × {1} ÷ {2}",
+    "formula": "a*b/c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 0.003,
+    "tolerance": 0.0003,
+    "units": "tesla (about 3 mT)",
+    "solution": "2 × 10⁻⁷ × 30,000 ÷ 2 = 3.0 × 10⁻³ T, and at 1,500 T/s a 0.1 m² loop sees about 150 V.",
+    "explanation": "The field is unremarkable and its rate of change is not. Loop area is the lever, not insulation."
   },
   "FIELD-6": {
     "prompt": "The layer carries 8.0 × 10⁻⁸ C/m² from the mill reading, and the radar puts the charged base at about 1.0 × 10⁷ m².",

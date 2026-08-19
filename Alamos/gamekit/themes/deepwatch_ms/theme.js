@@ -13,7 +13,7 @@
 // theme — this directory's site.js is a re-export and no regex can read it.
 import { site } from '../deepwatch/site.js';
 import { GROUPS } from './content/groups.js';
-import { MISSIONS } from './content/missions.js';
+import { MISSIONS, WARMUPS } from './content/missions.js';
 import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
 import { ROSTER, LEADERS, AVATARS } from './content/roster.js';
 import { COPY } from './content/copy.js';
@@ -38,7 +38,7 @@ export default {
   site,
   start: site.spawn,
 
-  content: { GROUPS, MISSIONS, CURRICULUM, BALLPARK_CALCS, JARGON, ROSTER, LEADERS, AVATARS, COPY },
+  content: { GROUPS, MISSIONS, CURRICULUM, BALLPARK_CALCS, JARGON, ROSTER, LEADERS, AVATARS, COPY, WARMUPS },
 
   people: {
     OUTFITS,

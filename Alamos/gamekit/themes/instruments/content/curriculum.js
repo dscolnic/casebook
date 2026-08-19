@@ -10,6 +10,12 @@ export const CURRICULUM = {
       "scene": "Four of Halden's five numbers agree to within a few percent. The fifth, a mechanical gauge nobody has touched in a year, does not. Merrick has the derivation sheets and is waiting.",
       "takeaway": "Independence is a property of the measurement chain, not of how many displays report it.",
       "place": "Field Station",
+      "guide": "Open each of the five numbers to see what it was computed from. Keep the ones that stand on their own measurement, untick the ones whose chain runs through a shared step, and name that step. Four agreeing and one disagreeing is not four against one: if the four share a denominator, they are one number quoted four times.",
+      "background": [
+        "Why agreement is weak evidence. Numbers derived through a common quantity move together whatever that quantity does. The agreement is then a property of the arithmetic rather than of the world, and it is the most convincing form a systematic error takes.",
+        "Why the untouched gauge is worth attention. A mechanical gauge with no shared electronics, no shared calibration and no shared denominator is independent by construction. Being the odd one out makes it suspect; being independent makes it valuable. Those are different facts about the same instrument.",
+        "What naming the source buys. Once the shared step is identified it can be corrected, and every dependent number moves together in a known direction. Discarding the disagreeing gauge instead leaves the error in place and removes the only thing that could have found it."
+      ],
       "story": "Four of Halden's five numbers agree to within a few percent. The fifth, a mechanical gauge nobody has touched in a year, does not. Merrick has the derivation sheets and is waiting.",
       "game": {
         "type": "TRACE",
@@ -25,7 +31,7 @@ export const CURRICULUM = {
             {
               "id": "ratioA",
               "label": "Halden site ratio",
-              "reading": "3.0",
+              "reading": "3.0 amplitude ratio, dimensionless",
               "depends": [
                 "vault"
               ]
@@ -33,7 +39,7 @@ export const CURRICULUM = {
             {
               "id": "ratioB",
               "label": "Harbour site ratio",
-              "reading": "2.1",
+              "reading": "2.1 amplitude ratio, dimensionless",
               "depends": [
                 "vault"
               ]
@@ -41,7 +47,7 @@ export const CURRICULUM = {
             {
               "id": "driftC",
               "label": "Fortnight drift estimate",
-              "reading": "4 mm",
+              "reading": "4 mm of horizontal drift",
               "depends": [
                 "vault"
               ]
@@ -49,13 +55,13 @@ export const CURRICULUM = {
             {
               "id": "gauge",
               "label": "Mechanical gauge",
-              "reading": "0.31 units",
+              "reading": "0.31 bar, read off the dial",
               "depends": []
             },
             {
               "id": "counts",
               "label": "Overnight event counts",
-              "reading": "61",
+              "reading": "61 events",
               "depends": []
             }
           ],
@@ -74,6 +80,13 @@ export const CURRICULUM = {
             "counts"
           ],
           "target": "vault",
+          "correction": {
+            "what": "Site response of the old vault, the competent-rock reference",
+            "was": "1.0x - assumed to be founded on competent rock",
+            "now": "1.6x in the working band, measured against a rock station alongside",
+            "corrected": "The Halden ratio of 3.0 becomes about 4.8 and the Harbour ratio of 2.1 about 3.4, both relative to competent rock; the drift estimate moves with them.",
+            "effect": "Every quantity divided by this station is low by that factor."
+          },
           "hint": "Open a channel to see what it was computed from. Tick the ones whose evidence still stands on its own, then name the source.",
           "commit": "Correct it"
         }
@@ -89,6 +102,12 @@ export const CURRICULUM = {
       "scene": "A new tone appeared on the array overnight at 214 hertz. Four machines changed state in the same hour. Achterberg has the plant log and the sonar operator is waiting.",
       "takeaway": "A relationship is causal when it reverses, not when it coincides.",
       "place": "Field Station",
+      "guide": "The number you are watching is the strength of the 214-hertz tone on the array. Four machines changed state in the hour it appeared, which makes four suspects and no evidence. Switching a machine asks whether the tone depends on it; a machine that is innocent leaves the tone where it was. Change one, run the measurement, put it back, then name the machine the tone follows.",
+      "background": [
+        "Why the log is a list of suspects and not an answer. Four state changes in one hour is ordinary in a working plant, and the tone had to appear during somebody's hour. A record of what changed tells you where to look, and every one of the four would sound equally guilty written down in a report.",
+        "What switching actually tests. Stopping a machine removes its contribution and leaves everything else running, so the change in the tone is that machine's own share of it. Two machines stopped together answer a vaguer question — whether either mattered — and that answer will not survive the meeting.",
+        "Why the tone comes back. A cause is a thing the effect depends on, in both directions. Restarting the machine and watching the tone return rules out the ordinary alternative: that something else was drifting, settling or being switched somewhere else while you worked."
+      ],
       "story": "A new tone appeared on the array overnight at 214 hertz. Four machines changed state in the same hour. Achterberg has the plant log and the sonar operator is waiting.",
       "game": {
         "type": "CONTROL",
@@ -148,6 +167,12 @@ export const CURRICULUM = {
       "scene": "Three stations, three arrival separations, and a regional map. The ridge station's clock has been drifting since the spring and there is a correction sheet for it on the bench.",
       "takeaway": "One station gives a distance, three give a region, and a timing error moves the whole region.",
       "place": "Field Station",
+      "guide": "Switching a station in draws the region its own measurement permits — a ring, not a point, because an arrival separation fixes a distance and says nothing about direction. Two rings cross in two places; three settle it. One station's clock has been drifting, and there is a correction sheet for it on the bench, so decide what to do about that before you commit. Then click the map where you think the source is.",
+      "background": [
+        "Why one station gives a ring. What is measured is when the signal arrived relative to another station, which fixes how much further it travelled — a distance, with no information about bearing. Every point at that distance is equally consistent, and that set of points is the ring you see drawn.",
+        "Why the third station matters. Two rings intersect in two places, and both are consistent with everything measured so far. A third ring picks one of them, and the size of the region where all three overlap is the position uncertainty. That region, not its centre, is what a report should describe.",
+        "What a systematic does, and why it is not noise. A drifting clock offsets one station's arrival time by the same amount every time, so its ring is drawn in the wrong place — consistently. More measurements from that station will not average it away; only the correction will. That is the difference between an error you can beat with statistics and one you have to know about."
+      ],
       "story": "Three stations, three arrival separations, and a regional map. The ridge station's clock has been drifting since the spring and there is a correction sheet for it on the bench.",
       "game": {
         "type": "TRIANGULATE",
@@ -212,6 +237,12 @@ export const CURRICULUM = {
       "scene": "The energy figure is on the board to three significant figures. Merrick has the three inputs it was built from beside it, each with what it is actually known to, and one measurement slot left in the day.",
       "takeaway": "A term's contribution is its own width times its exponent, so a badly known number with no power over it can dominate a well-known one cubed.",
       "place": "Field Station",
+      "guide": "The number to hold is the room's temperature, and the trim heater is the only thing you can push with. Nothing tells you which way it pushes or how hard, so find that out early — while the band you have to stay inside is still wide. It narrows as the run goes on, and the disturbances arrive whether or not you are ready. Keep the room inside the band for the quarter of an hour.",
+      "background": [
+        "Why the band narrows. A mass comparison gets more sensitive as it settles, so the same temperature error matters more at the end than at the beginning. The band is the tolerance the comparison can absorb at that moment, which is why a run can be comfortable for ten minutes and unrecoverable in the last two.",
+        "Why you should learn the control before you need it. A heater has a delay: it changes the rate at which the room warms, not the temperature itself, so a correction applied when you are already outside the band arrives late. Nudging it once early, and watching what happens, converts an unknown control into a known one at the cheapest moment.",
+        "What the propped door is doing there. Every disturbance in this run is something ordinary in a working building — a door, a lamp, somebody in the corridor. None of them announce themselves, and none of them wait. Holding a quantity steady in a room full of other people's work is the actual job."
+      ],
       "story": "The energy figure is on the board to three significant figures. Merrick has the three inputs it was built from beside it, each with what it is actually known to, and one measurement slot left in the day.",
       "game": {
         "type": "PROPAGATE",
@@ -275,6 +306,7 @@ export const CURRICULUM = {
           ],
           "dominant": "density",
           "costUnit": "h",
+          "budget": 2,
           "hint": "Each term contributes its own width times the power it is raised to. The bar is that contribution.",
           "commit": "Report the range"
         }
@@ -290,6 +322,12 @@ export const CURRICULUM = {
       "scene": "The survey trolley runs on a rail in the flooded gallery, where nothing slows it down. Ben Achterberg has the last operator's trace, which shows the motor cut at the mark and the trolley 18 metres past it.",
       "takeaway": "With nothing to damp it, the braking impulse has to begin before the target, by exactly as far as the acceleration carried it.",
       "place": "Field Station",
+      "guide": "The panel shows an error budget: each input's own width, multiplied by the power it carries in the formula, contributes a bar. Read the bars rather than the inputs. One measurement is affordable, so buy the one that shortens the tallest bar — a large exponent on a well-measured quantity can matter less than a modest one measured badly.",
+      "background": [
+        "How the widths combine. For a product of powers, the fractional uncertainties add in quadrature, each weighted by its exponent. That is why the answer is a sum of contributions rather than 'the worst input', and why the bars are the honest display.",
+        "Why three significant figures is a claim. Quoting an energy to three figures asserts a fractional uncertainty below about a per cent. If no combination of the inputs supports that, the figure is a statement the measurement cannot back — before anybody argues about which input to improve.",
+        "What to do if the tallest bar cannot be improved. Say so, and quote fewer figures. A budget that identifies an irreducible term has still done its job: it turns an indefensible number into a defensible one."
+      ],
       "story": "The survey trolley runs on a rail in the flooded gallery, where nothing slows it down. Ben Achterberg has the last operator's trace, which shows the motor cut at the mark and the trolley 18 metres past it.",
       "game": {
         "type": "FLY",
@@ -345,6 +383,12 @@ export const CURRICULUM = {
       "scene": "The gate is winding open at a steady rate and the head above the sill is 2.0 metres. Ada Merrick needs the discharge rate written down before the shift changes, and the gauge downstream only reports what has already arrived.",
       "takeaway": "A rate on the left needs every factor the right-hand side's own change brings with it.",
       "place": "Field Station",
+      "guide": "You set two things: the size of the pulse and the distance at which braking starts. Then the run happens and you watch it. Nothing on this rail slows the trolley down, so cutting the motor is not stopping — whatever you put in has to be taken out deliberately, and the braking has to lead the mark.",
+      "background": [
+        "What the last operator's trace shows. Motor cut at the mark, trolley eighteen metres past it. That is not a mistake about where the mark was; it is a mistake about what cutting power does. On a level rail with little friction, removing the drive leaves the speed almost unchanged.",
+        "Why braking has to start early. The distance needed to stop depends on the speed and on how hard you can brake. Both are known before the run, so the braking point is calculable rather than something to be judged as the mark approaches.",
+        "Why a smaller pulse is easier to fly. A gentle start takes longer and asks less of the braking, so an error in the braking point costs less. Speed is not being scored here; arriving at the mark at rest is."
+      ],
       "story": "The gate is winding open at a steady rate and the head above the sill is 2.0 metres. Ada Merrick needs the discharge rate written down before the shift changes, and the gauge downstream only reports what has already arrived.",
       "game": {
         "type": "DERIVE",
@@ -422,6 +466,364 @@ export const CURRICULUM = {
         "the discharge over a weir depends on the head raised to a power",
         "a quantity that changes because another one changes needs the chain rule"
       ]
+    },
+    {
+      "day": 7,
+      "title": "Which kind of error is it",
+      "scene": "The fortnight's error notes have to go to the courier in ten minutes, sorted. One pile can be corrected after the fact. The other can only be averaged down.",
+      "takeaway": "A systematic error can be corrected after the fact; a random one can only be averaged down.",
+      "place": "Field Station",
+      "guide": "Two bins. A systematic error pushes every reading the same way, so it can be found and taken out afterwards. A random error scatters readings either side of the truth, so it cannot be removed from a single reading and shrinks only when you take more of them. Sort on that, not on how the note is worded.",
+      "background": [
+        "Why the two piles are treated so differently. A systematic error has a sign. Find it and every affected reading can be corrected by the same amount, years later if necessary. A random error has no sign to find, so the only remedy is more readings — and the scatter falls as the square root of how many.",
+        "Why the wording will not help you. Both piles contain drifts, both contain noises and both contain things that sound mechanical. The word is not the category, and a belt that could be sorted by the word would be measuring whether you can read."
+      ],
+      "story": "The fortnight's error notes have to go to the courier in ten minutes, sorted. One pile can be corrected after the fact. The other can only be averaged down.",
+      "game": {
+        "type": "BELT",
+        "title": "Which kind of error is it",
+        "setup": "Field Station",
+        "play": "Sort the fortnight's error notes before the courier goes.",
+        "task": "Sort the fortnight's error notes before the courier goes.",
+        "question": "Sort each note into the pile that says how it can be dealt with.",
+        "answer": "Anything that pushes every reading the same way goes left and is correctable. Anything that scatters them goes right and only averages down.",
+        "why": "The two piles are not degrees of the same thing. A systematic error has a direction: a thermal drift, a stale calibration, a scale that reads 0.4 high all afternoon. Once it is identified every reading it touched can be corrected by the same amount, which is why old data can be rescued years later. A random error has no direction to find. Vibration from traffic, a flickering last digit, the operator's timing — each one moves a reading either way, so no correction can be applied to a single number and the only remedy is to take more of them and let the scatter fall as the square root of the count. That is the whole of why the courier gets two piles rather than one list. And the wording is deliberately no help: there are drifts on both sides and noises on both.",
+        "belt": {
+          "left": {
+            "name": "Correctable afterwards"
+          },
+          "right": {
+            "name": "Only averages down"
+          },
+          "items": [
+            {
+              "name": "Thermal drift",
+              "bin": "left"
+            },
+            {
+              "name": "Parallax habit",
+              "bin": "left"
+            },
+            {
+              "name": "Stale calibration",
+              "bin": "left"
+            },
+            {
+              "name": "Cable resistance",
+              "bin": "left"
+            },
+            {
+              "name": "Buoyancy ignored",
+              "bin": "left"
+            },
+            {
+              "name": "Zero offset",
+              "bin": "left"
+            },
+            {
+              "name": "Meniscus read high",
+              "bin": "left"
+            },
+            {
+              "name": "Clock running slow",
+              "bin": "left"
+            },
+            {
+              "name": "Unlevelled tripod",
+              "bin": "left"
+            },
+            {
+              "name": "Wrong reference block",
+              "bin": "left"
+            },
+            {
+              "name": "Noise floor uncorrected",
+              "bin": "left"
+            },
+            {
+              "name": "Heater cycling",
+              "bin": "left"
+            },
+            {
+              "name": "Balance untrued",
+              "bin": "left"
+            },
+            {
+              "name": "Reading noise",
+              "bin": "right"
+            },
+            {
+              "name": "Draught on balance",
+              "bin": "right"
+            },
+            {
+              "name": "Vibration from traffic",
+              "bin": "right"
+            },
+            {
+              "name": "Last digit flicker",
+              "bin": "right"
+            },
+            {
+              "name": "Operator timing",
+              "bin": "right"
+            },
+            {
+              "name": "Mains ripple",
+              "bin": "right"
+            },
+            {
+              "name": "Static charge",
+              "bin": "right"
+            },
+            {
+              "name": "Turbulent flow",
+              "bin": "right"
+            },
+            {
+              "name": "Thermal noise",
+              "bin": "right"
+            },
+            {
+              "name": "Hand tremor",
+              "bin": "right"
+            },
+            {
+              "name": "Sample inhomogeneity",
+              "bin": "right"
+            },
+            {
+              "name": "Drift between samples",
+              "bin": "right"
+            },
+            {
+              "name": "Counting statistics",
+              "bin": "right"
+            }
+          ],
+          "need": 20,
+          "lives": 3,
+          "pass": 0.8,
+          "hint": "One pile can be corrected later. The other one only gets smaller if you take more readings.",
+          "commit": "Start the line"
+        }
+      },
+      "assumes": [
+        "a measurement can be wrong in a way that repeats, or wrong in a way that scatters"
+      ]
+    },
+    {
+      "day": 8,
+      "title": "The line across the river",
+      "scene": "The staff gauge is on the far bank and the bridge is four miles round. The line has to go across before the level can be read, and the throwing arm has an angle and a charge and no readout of what it is about to do.",
+      "takeaway": "Some quantities are measured, and a few are learned by trying them.",
+      "place": "Field Station",
+      "guide": "Set the angle and the charge, and throw. Three marks, working outward. The arm does not tell you the speed it will give the line, so the only way to find it is to throw and watch — which is what the second shot at each mark is for.",
+      "background": [
+        "Why there is no number to work from. The arm's spring is old and its charge dial is relative, so nobody can tell you the launch speed. Everything else in this office is a measurement; this is a knack, and pretending otherwise would put a calculation in front of something that is genuinely learned by throwing.",
+        "What the shape of the flight does tell you. A steeper throw spends longer in the air and lands shorter, a shallower one flies flatter and further, and past a point the extra charge is spent on height rather than distance. Two throws at a mark are enough to bracket it."
+      ],
+      "story": "The staff gauge is on the far bank and the bridge is four miles round. The line has to go across before the level can be read, and the throwing arm has an angle and a charge and no readout of what it is about to do.",
+      "game": {
+        "type": "LOB",
+        "title": "The line across the river",
+        "setup": "Field Station",
+        "play": "Get the messenger line across to the far gauge.",
+        "task": "Get the messenger line across to the far gauge.",
+        "question": "Land the messenger line on each mark, working outward.",
+        "answer": "Bracket each mark with two throws and correct on the third. The far ladder needs a flatter throw than it looks, because the extra charge is going into height.",
+        "why": "Three marks at three distances, and the arm gives you no number to start from. What the flight gives you instead is a bracket: a throw that lands short and a throw that lands long put the mark between two settings you have actually seen, and the third throw goes between them. That is a real method, and it is the one used when a quantity cannot be read off anything. The far ladder is the mark that teaches the rest of it. Aiming higher for a longer throw stops working past forty-five degrees, because the extra charge goes into height rather than distance — so the ladder wants a flatter throw than the bollard did, not a harder one.",
+        "lob": {
+          "targets": [
+            {
+              "label": "Near bollard",
+              "distance": 55,
+              "radius": 3.5
+            },
+            {
+              "label": "Gauge post",
+              "distance": 108,
+              "radius": 3
+            },
+            {
+              "label": "Far ladder",
+              "distance": 152,
+              "radius": 2.5
+            }
+          ],
+          "shots": 3,
+          "gravity": 9.81,
+          "maxSpeed": 40,
+          "height": 1.5,
+          "hint": "Two throws bracket a mark. The third one goes between them.",
+          "commit": "Report the throws"
+        }
+      },
+      "assumes": [
+        "a thrown object rises and falls, and both angle and effort change where it lands"
+      ]
+    },
+    {
+      "day": 9,
+      "title": "Getting round them all",
+      "scene": "Monday's audit has to be told to everyone on site, in person, before the morning is out. Fourteen people work here, spread across four buildings, and none of them stays put.",
+      "takeaway": "A round is a route, and who you reach is decided by the order before it is decided by the walking.",
+      "place": "Field Station",
+      "guide": "Ten of the fourteen have to hear it from you. Get to somebody and press Use to tell them; the rings on the ground are the people still to hear it. Which ten you reach is settled before you set off, by the order you choose to walk them in.",
+      "background": [
+        "Why ten of fourteen rather than all of them. A round with no choice in it is a route somebody else planned. Four buildings hold the fourteen unevenly, so the question is which cluster to spend the walk on and which to leave.",
+        "Why an hour. At walking pace the four buildings are about forty minutes apart in the best order and considerably more in the worst, so the hour is tight enough that the order decides the outcome and loose enough that a sensible one arrives."
+      ],
+      "story": "Monday's audit has to be told to everyone on site, in person, before the morning is out. Fourteen people work here, spread across four buildings, and none of them stays put.",
+      "game": {
+        "type": "GREET",
+        "title": "Getting round them all",
+        "setup": "Field Station",
+        "play": "Tell the station about Monday before the morning goes.",
+        "task": "Tell the station about Monday before the morning goes.",
+        "question": "Tell ten of the fourteen about Monday before the hour is out.",
+        "answer": "Ten of the fourteen, taken in an order that spends the hour on the clusters rather than on the ground between them.",
+        "why": "The people are not evenly spread and that is the whole of it. Four of them stand at the field station, four at the sample room, three at records and three at the desk, so the cost of the round is almost entirely the walking between buildings rather than the talking. A route that takes the two nearest clusters and then the third reaches ten inside the hour; one that crosses the site twice does not, and the four people you never reach are decided by a choice you made in the first two minutes. That is what a round is, and it is why the list is longer than the number that has to hear it.",
+        "greet": {
+          "roster": [
+            {
+              "id": "lead1",
+              "name": "Ada Merrick",
+              "where": "Field Station"
+            },
+            {
+              "id": "helper1",
+              "name": "Ben Achterberg",
+              "where": "Field Station"
+            },
+            {
+              "id": "hand1",
+              "name": "Ines Vogel",
+              "where": "Field Station"
+            },
+            {
+              "id": "hand2",
+              "name": "Owen Brathwaite",
+              "where": "Field Station"
+            },
+            {
+              "id": "lead2",
+              "name": "Tomas Oyelaran",
+              "where": "Sample Room"
+            },
+            {
+              "id": "helper2",
+              "name": "Kit Sorensen",
+              "where": "Sample Room"
+            },
+            {
+              "id": "hand3",
+              "name": "Farida Osman",
+              "where": "Sample Room"
+            },
+            {
+              "id": "hand4",
+              "name": "Petar Ilić",
+              "where": "Sample Room"
+            },
+            {
+              "id": "lead3",
+              "name": "Priya Naidoo",
+              "where": "Records Office"
+            },
+            {
+              "id": "hand5",
+              "name": "Grace Ntuli",
+              "where": "Records Office"
+            },
+            {
+              "id": "hand6",
+              "name": "Callum Reyes",
+              "where": "Records Office"
+            },
+            {
+              "id": "lead4",
+              "name": "Ruth Calderón",
+              "where": "Response Desk"
+            },
+            {
+              "id": "hand7",
+              "name": "Naomi Adeyemi",
+              "where": "Response Desk"
+            },
+            {
+              "id": "hand8",
+              "name": "Tobias Lindqvist",
+              "where": "Response Desk"
+            }
+          ],
+          "target": 10,
+          "minutes": 60,
+          "hint": "They walk about. The rings are the people who still have to hear it.",
+          "moral": "A round is a route. Who you reach is decided by the order you set off in, not by how fast you walk.",
+          "go": "Start the round",
+          "commit": "Report the round"
+        }
+      },
+      "assumes": [
+        "a place has a shape, and walking it costs time in proportion"
+      ]
+    },
+    {
+      "day": 10,
+      "title": "Staying with her",
+      "scene": "Merrick walks the sampling route once a fortnight and will not wait for anybody. She stops at each point long enough to look, and says nothing when she moves off again.",
+      "takeaway": "Following is a band rather than a line, and both edges of it are a way of losing somebody.",
+      "place": "Field Station",
+      "guide": "Stay between three and fourteen metres of her for the whole walk. Closer than three and you are in front of her the moment she stops; further than fourteen and you are guessing which way she went at the last corner. She pauses at each sampling point.",
+      "background": [
+        "Why there is a near limit at all. Following somebody is not chasing them. A person who is being walked into stops explaining what they are looking at, and somebody who is ahead of the walk is no longer being shown anything.",
+        "Why the pauses matter more than the pace. She walks slower than you can, so nothing here is a race. The failures all happen where she stops or turns, which is exactly where somebody treating it as a race overshoots."
+      ],
+      "story": "Merrick walks the sampling route once a fortnight and will not wait for anybody. She stops at each point long enough to look, and says nothing when she moves off again.",
+      "game": {
+        "type": "FOLLOW",
+        "title": "Staying with her",
+        "setup": "Field Station",
+        "play": "Walk the sampling route with Merrick without being led.",
+        "task": "Walk the sampling route with Merrick without being led.",
+        "question": "Stay with her from the station to the last sampling point.",
+        "answer": "Inside the band for the whole route, including the stops — which is where the band is actually hard to hold.",
+        "why": "A band has two edges and only one of them feels like failure. Dropping behind is obvious: you lose sight of her at a corner and have to guess. Getting too close is not, because it feels like doing the task well, and it is the one that ruins the walk — she stops at each point to look at something, and somebody four paces from her shoulder arrives in front of the thing being looked at. She walks at about two thirds of your pace, so nothing here rewards speed. What it rewards is noticing that she has stopped before you have walked past her, which is the whole difference between being shown a route and merely arriving at the end of one.",
+        "follow": {
+          "guide": "lead1",
+          "speed": 2.6,
+          "seconds": 60,
+          "pass": 0.8,
+          "band": {
+            "near": 3,
+            "far": 14
+          },
+          "path": [
+            {
+              "x": -20,
+              "z": 10,
+              "pause": 3
+            },
+            {
+              "x": 10,
+              "z": -15,
+              "pause": 3
+            },
+            {
+              "x": 35,
+              "z": -30
+            }
+          ],
+          "hint": "She will not wait, and she stops without saying so.",
+          "moral": "Both edges of a band are a way of losing somebody. The near one is the edge that feels like doing well.",
+          "go": "Set off with her",
+          "commit": "Report the walk"
+        }
+      },
+      "assumes": [
+        "a distance can be too small as well as too large"
+      ]
     }
   ],
   "G2": [
@@ -431,6 +833,12 @@ export const CURRICULUM = {
       "scene": "The bilge is up eight centimetres in a minute over four square metres of deck. The drain pump has been running the whole time. Tomas Oyelaran wants the leak rate, not the rise.",
       "takeaway": "An accumulation rate is the inflow minus everything already being removed from it.",
       "place": "Sample Room",
+      "guide": "Reading a stream costs nothing, so read them all. Then count only what belongs in the total Oyelaran asked for: the water entering at the hull, before the pump takes any out. Eight centimetres over four square metres in a minute is the rise, and the pump has been running for that whole minute.",
+      "background": [
+        "Why the rise is not the leak. What accumulates is what came in minus what has been removed. The pump was working throughout the measurement, so its contribution has already been subtracted from what you can see. Adding it back gives the inflow.",
+        "How the geometry enters. A depth in centimetres becomes a volume only through the area it sits on, and a volume becomes a rate only through the time it took. Four square metres and one minute are both part of the measurement, not context.",
+        "Why the leak rate rather than the level. The level says how bad it is now. The leak rate says whether the pumps can win and how long there is, which is what any decision after this one depends on."
+      ],
       "story": "The bilge is up eight centimetres in a minute over four square metres of deck. The drain pump has been running the whole time. Tomas Oyelaran wants the leak rate, not the rise.",
       "game": {
         "type": "BALANCE",
@@ -485,6 +893,12 @@ export const CURRICULUM = {
       "scene": "One brightness measurement, and a model with two knobs in it. Kit Sorensen has the thermal data on a second screen and has not brought it over yet.",
       "takeaway": "One observable across two unknowns fixes a family of solutions, not a solution.",
       "place": "Sample Room",
+      "guide": "Two knobs, one brightness measurement, and a family of settings that all match it. Slide along the family and see how wide it is before saying anything about size. The thermal data is on a second screen and has not been brought over — until it is, the honest answer is a range rather than a number.",
+      "background": [
+        "Why one measurement cannot fix two unknowns. Brightness is the area times how reflective the surface is. Halve the reflectivity and double the area and the measurement is unchanged. That trade is the family, and it spans a factor of several in diameter.",
+        "What the thermal data does. Whatever is not reflected is absorbed and re-emitted as heat, so the infrared brightness depends on the same two quantities in a different combination. Where the two constraints cross is the answer.",
+        "Why reporting the family is not a failure. A single number derived from one measurement is a number the data does not contain. Saying what range fits, and what would narrow it, is the professional answer at that moment."
+      ],
       "story": "One brightness measurement, and a model with two knobs in it. Kit Sorensen has the thermal data on a second screen and has not brought it over yet.",
       "game": {
         "type": "DEGENERACY",
@@ -588,6 +1002,12 @@ export const CURRICULUM = {
       "scene": "The corridor runs 5.3 to 7.7 degrees. The current solution sits at 6.9 with 9 tenths of a degree on it, and a fifth of the trajectories are outside.",
       "takeaway": "Re-centring moves the whole distribution; only new information makes it narrower.",
       "place": "Sample Room",
+      "guide": "You drive the round yourself. Every gate is lit and none is marked as next, because the order is the answer: work out which step has to come before which, and drive them in that sequence. The clock is only a clock — what is graded is the order you took, not how fast you took it. Take the gates in the order the sample actually has to move through them.",
+      "background": [
+        "Why an order exists at all. Each station either changes the sample or measures it, and a measurement is only meaningful on a sample that has had everything before it done and nothing after it. Weigh it after drying and the number means one thing; weigh it before and it means another. So the sequence is not a convention — it is what makes each number interpretable.",
+        "Why nothing marks the next gate. A route that lights up in order tests whether you can follow instructions. This one tests whether you know why the order is what it is, which is the thing that survives a day when the instructions are missing or wrong.",
+        "Why the clock is not the grade. Driving fast in the wrong order arrives with the work undone, and a laboratory that rewards speed over sequence produces numbers nobody can use. The time is there because a round has to fit in an afternoon, not because it is being scored."
+      ],
       "story": "The corridor runs 5.3 to 7.7 degrees. The current solution sits at 6.9 with 9 tenths of a degree on it, and a fifth of the trajectories are outside.",
       "game": {
         "type": "CLOUD",
@@ -595,7 +1015,7 @@ export const CURRICULUM = {
         "setup": "Sample Room",
         "play": "Get the distribution inside the corridor",
         "task": "Get the distribution inside the corridor",
-        "question": "Bring the entry solution inside the corridor, and say when it is ready.",
+        "question": "Bring the entry solution inside the corridor, place the bars to report the middle and its one-sigma uncertainty, and say when it is ready.",
         "answer": "Both tracking passes. Re-centring alone leaves better than 1 trajectory in 20 outside the corridor; narrowing the spread is the only thing that moves that number.",
         "why": "The nominal angle is the one place the vehicle is least likely to be. Re-targeting it slides the whole distribution across without changing its width. The fraction outside the corridor barely moves; the trajectories that were long become shallow instead. What is being asked is not where to aim but how much the measurements permit, and only new tracking reduces that. It costs hours the day would rather spend elsewhere. That is the real decision, because the corridor is a survivability limit and does not negotiate.\n",
         "cloud": {
@@ -655,6 +1075,12 @@ export const CURRICULUM = {
       "scene": "Four remediation options are ranked on the board, all at one figure for how long the containment holds. Tomas Oyelaran has the range that figure actually came with and has said nothing about it.",
       "takeaway": "A choice that is only best at the nominal is a choice that has not been tested.",
       "place": "Sample Room",
+      "guide": "The band is every entry angle the tracking permits — a fifth of it currently outside the corridor. Four actions are available, and they do two different kinds of thing to the band: some move it, some change how wide it is. Try them and watch the centre and the width separately. Then say when the solution is ready, which is a claim about the whole band rather than its middle.",
+      "background": [
+        "What the band is, exactly. It is not a probability of being right about one number: it is the set of trajectories the measurements cannot rule out. Everything inside it is a trajectory this vehicle might actually fly, which is why a criterion is written as a fraction of the band inside the corridor rather than as a best estimate.",
+        "Two kinds of action. Retargeting and trimming move where the band sits. A tracking pass adds information and narrows it. A band whose width is wider than the corridor cannot be rescued by moving it, however good the centre looks — and a display that reports only the centre will show that rescue happening.",
+        "Why readiness is part of the answer. Actions cost, and there is no configuration in which the band is a point. So the decision has two halves: which work to buy, and when what you have is inside the corridor by enough to commit."
+      ],
       "story": "Four remediation options are ranked on the board, all at one figure for how long the containment holds. Tomas Oyelaran has the range that figure actually came with and has said nothing about it.",
       "game": {
         "type": "STRESS",
@@ -754,6 +1180,12 @@ export const CURRICULUM = {
       "scene": "5000 synthetic events with known times and sizes, ready to push through the monitoring network exactly as a real 1 would go. Kit Sorensen has the recovery display up and nothing on it yet.",
       "takeaway": "Injecting a population whose truth you know measures the pipeline rather than the world, and what never comes back is not absent.",
       "place": "Sample Room",
+      "guide": "Move the endurance figure through the range it actually came with, and watch which options go dark. All four are ranked at one number, which is why they look separable. Commit to the one that still works at the pessimistic end, not the one that wins in the middle.",
+      "background": [
+        "Why a single figure hides the decision. Ranking four options at one endurance value produces a clean ordering and conceals that the ordering changes across the range. An option best at the nominal and worst at the low end is not the best option; it is the most fragile one.",
+        "What the range represents. Not disagreement between people — the honest spread of what is known. Choosing at its middle accepts a real chance of being on the wrong side, and containment failures are not the kind of error that can be corrected afterwards.",
+        "Why Oyelaran has said nothing. The board as presented is defensible and incomplete, which is the ordinary way a decision gets made badly. Being the person who asks for the range is most of the job."
+      ],
       "story": "5000 synthetic events with known times and sizes, ready to push through the monitoring network exactly as a real 1 would go. Kit Sorensen has the recovery display up and nothing on it yet.",
       "game": {
         "type": "INJECT",
@@ -815,6 +1247,12 @@ export const CURRICULUM = {
       "scene": "Four findings from the fortnight, and four different kinds of evidence underneath them. Tomas Oyelaran wants them paired before anything is filed.",
       "takeaway": "A claim is only as strong as the kind of evidence under it, and the two are easy to swap.",
       "place": "Sample Room",
+      "guide": "Four findings and four kinds of evidence. Pair them by asking what makes each one strong. A direct measurement? One variable changed and put back? Two instruments answering through different physics? Or a record contradicted by an inspection? All four are strong. Confusing which is which is how a bounded claim becomes a general one downstream.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Four findings from the fortnight, and four different kinds of evidence underneath them. Tomas Oyelaran wants them paired before anything is filed.",
       "game": {
         "type": "PROTOCOL",
@@ -847,6 +1285,178 @@ export const CURRICULUM = {
       "assumes": [
         "different kinds of evidence support different kinds of claim"
       ]
+    },
+    {
+      "day": 7,
+      "title": "Twenty degrees, for three quarters of a minute",
+      "scene": "The reference cell needs the calibration bath at twenty degrees while it settles. The door to the corridor is propped, a heater on the next bench cycles, and the fan comes on when the room warms.",
+      "takeaway": "A disturbance you do nothing about is not a disturbance that goes away.",
+      "place": "Sample Room",
+      "guide": "Hold the bath at twenty degrees. The band is drawn on the dial and it narrows as the cell settles, because a cell that has nearly settled is disturbed by less. The trim wheel is the only control you have, and finding out which way it moves the temperature is part of the job.",
+      "background": [
+        "Why the band narrows. Early on the cell is still coming to temperature and a tenth of a degree either way changes nothing. As it settles the same tenth of a degree becomes the difference between a usable calibration and one that has to be repeated.",
+        "What is actually pushing it. Three things, at known times: the corridor door, the heater on the next bench cycling, and the fan. None of them is large. All of them are steps in the RATE, so a bath left alone does not sit still — it keeps going."
+      ],
+      "story": "The reference cell needs the calibration bath at twenty degrees while it settles. The door to the corridor is propped, a heater on the next bench cycles, and the fan comes on when the room warms.",
+      "game": {
+        "type": "HOLD",
+        "title": "Twenty degrees, for three quarters of a minute",
+        "setup": "Sample Room",
+        "play": "Hold the bath while the reference cell settles.",
+        "task": "Hold the bath while the reference cell settles.",
+        "question": "Hold the bath inside the band while the cell settles.",
+        "answer": "Inside the band for most of the run, with the trim wheel answering each step rather than chasing the needle after it has left.",
+        "why": "Each disturbance here is a step in the rate rather than a step in the temperature. The corridor door does not drop the bath by three hundredths of a degree; it makes the bath lose three hundredths a second, and it goes on losing until something answers it. That is why a bath left alone leaves the band and keeps going, and why the trim wheel has to be moved to a new position rather than nudged and released. The second half of the job is the band narrowing. A correction that was comfortably good enough while the cell was coming to temperature is not good enough once it has nearly settled, so the same wheel has to be held closer as the run goes on.",
+        "hold": {
+          "quantity": "Calibration bath temperature",
+          "control": "Trim wheel",
+          "unit": "°C",
+          "hold": 20,
+          "band": 0.4,
+          "narrowTo": 0.2,
+          "duration": 45,
+          "authority": 0.05,
+          "pass": 0.8,
+          "direction": "raise",
+          "disturbances": [
+            {
+              "label": "Corridor door propped open",
+              "at": 4,
+              "amount": -0.03
+            },
+            {
+              "label": "Heater on the next bench cycles on",
+              "at": 20,
+              "amount": 0.05
+            },
+            {
+              "label": "Fan comes on as the room warms",
+              "at": 38,
+              "amount": -0.045
+            }
+          ],
+          "hint": "The wheel moves the temperature. Which way is for you to find out, and each step needs answering rather than waiting out.",
+          "commit": "Report the hold"
+        }
+      },
+      "assumes": [
+        "a control can move a quantity up or down, and takes time to do it"
+      ]
+    },
+    {
+      "day": 8,
+      "title": "Six of the ten, before the time goes",
+      "scene": "Ten data loggers went out before the storm and none of them came back on their own. The sample room needs six of them working by Monday. Nobody wrote down where any of them ended up.",
+      "takeaway": "A search is ground covered in an order, and the order is what stops you walking the same yard twice.",
+      "place": "Sample Room",
+      "guide": "Six of the ten are enough, and they are not on the map. They are small orange cases lying where the water left them — against a wall, off the edge of a path, behind something. You have to walk the ground to see one, so the order you sweep it in is the whole of it.",
+      "background": [
+        "Why a sweep beats wandering. Ground you have already walked is worth nothing to walk again, and the only way to know which ground that is, is to have covered it in some order. A search with no shape to it re-walks its own middle.",
+        "Why six rather than ten. Four of them are far enough out that fetching them costs more than the other six put together, and nobody knows in advance which four those are. A stopping rule is part of a search, and a search with no stopping rule is just walking until the time goes."
+      ],
+      "story": "Ten data loggers went out before the storm and none of them came back on their own. The sample room needs six of them working by Monday. Nobody wrote down where any of them ended up.",
+      "game": {
+        "type": "HUNT",
+        "title": "Six of the ten, before the time goes",
+        "setup": "Sample Room",
+        "play": "Recover six of the loggers the storm scattered, before the audit wants them.",
+        "task": "Recover six of the loggers the storm scattered, before the audit wants them.",
+        "question": "Bring back six of the ten loggers before the time is out.",
+        "answer": "Six, found by sweeping the ground in an order rather than crossing it — and the last four left wherever they are.",
+        "why": "Nothing here tells you where anything is, which is what makes it a search rather than a delivery round. Ten cases are lying about the site and six will do, so the question is never which one to fetch next — it is which ground to cover, in what order, and when to stop covering it. A sweep that works outward from the sample room sees new ground with every step. A player who crosses the site to a place they remember something being re-walks the middle twice and arrives with four. The far cases are not worth more than the near ones; they are only further away, and the clock does not care which is which.",
+        "hunt": {
+          "item": {
+            "name": "Data logger"
+          },
+          "target": 6,
+          "minutes": 75,
+          "at": [
+            {
+              "x": -46,
+              "z": 28
+            },
+            {
+              "x": -22,
+              "z": 6
+            },
+            {
+              "x": 6,
+              "z": -16
+            },
+            {
+              "x": 30,
+              "z": 4
+            },
+            {
+              "x": 48,
+              "z": 30
+            },
+            {
+              "x": -64,
+              "z": -14
+            },
+            {
+              "x": -6,
+              "z": -44
+            },
+            {
+              "x": 62,
+              "z": -24
+            },
+            {
+              "x": -34,
+              "z": 54
+            },
+            {
+              "x": 70,
+              "z": 40
+            }
+          ],
+          "hint": "They are not on the map. You have to be close to see one.",
+          "moral": "A search is ground covered in an order. The middle of the site is the part everybody walks twice.",
+          "go": "Start looking",
+          "commit": "Hand them in"
+        }
+      },
+      "assumes": [
+        "a route has a cost, and the cost is not the same for every order"
+      ]
+    },
+    {
+      "day": 9,
+      "title": "Catching him before the gate",
+      "scene": "Ilić is walking the afternoon tray down to the courier van and the custody form on it has not been signed. Once it is through the gate it is somebody else's problem for a fortnight.",
+      "takeaway": "A chase against somebody slower is won by the line you take, because closing speed is a difference and not a sum.",
+      "place": "Sample Room",
+      "guide": "Get within two and a half metres of him inside half a minute. He walks away from you and nowhere else, and he is slower than you are — so this is not a race. Walking straight at him closes the gap slowly enough that he reaches the gate first.",
+      "background": [
+        "Why a straight line does not work. Two people walking in the same direction close at the difference between their paces, not the sum. Against somebody two thirds your speed that difference is small, and half a minute of it is not enough ground.",
+        "What does work. He turns away from wherever you are, so where you stand decides where he goes. Come at him from the side he wants and the fence, the sample room wall and the corner of the yard all do the work the walking cannot."
+      ],
+      "story": "Ilić is walking the afternoon tray down to the courier van and the custody form on it has not been signed. Once it is through the gate it is somebody else's problem for a fortnight.",
+      "game": {
+        "type": "TAG",
+        "title": "Catching him before the gate",
+        "setup": "Sample Room",
+        "play": "Catch Ilić before the tray leaves with an unsigned form.",
+        "task": "Catch Ilić before the tray leaves with an unsigned form.",
+        "question": "Catch Ilić before the tray goes through the gate.",
+        "answer": "Caught inside half a minute, by cutting the corner he has to turn rather than by following him across the yard.",
+        "why": "The arithmetic is the whole of it. He walks at about two thirds of your pace, so following directly behind him closes the distance at the difference between the two — a metre and a half a second against fifty metres of yard, which is more than the half minute you have. Nothing about that improves if you try harder. What changes it is that he moves away from wherever you are standing, so your position steers him: come round one side and he turns toward the fence, and the ground he has left runs out before your time does. That is a chase decided by geometry rather than by pace.",
+        "tag": {
+          "quarry": "hand4",
+          "reach": 2.5,
+          "seconds": 30,
+          "speed": 2.8,
+          "hint": "He walks away from you and nowhere else, and he is slower than you are.",
+          "moral": "Closing speed is a difference, not a sum. The line you take is the only thing that changes it.",
+          "go": "Go after him",
+          "commit": "Report the chase"
+        }
+      },
+      "assumes": [
+        "two people moving the same way close at the difference between their speeds"
+      ]
     }
   ],
   "G3": [
@@ -856,6 +1466,12 @@ export const CURRICULUM = {
       "scene": "The closing checklist is signed throughout. Naidoo has the watch bill open beside it and has not said anything yet. There is time to verify three items.",
       "takeaway": "A record is evidence that somebody accepted a claim, which is not evidence for the claim.",
       "place": "Records Office",
+      "guide": "Open each item on the checklist and read what actually stands behind it. Some are backed by an observation, some by another signature, and some by the watch bill saying somebody was on duty. Verify what the three checks allow, and hold whatever cannot be closed on the evidence present.",
+      "background": [
+        "What a signature records. That somebody took responsibility for a line. Not that the thing was seen, tested or measured. On a closing checklist those two coincide most of the time, which is exactly why the exceptions are hard to notice.",
+        "Why the watch bill is beside it. It says who was where. A claim signed by somebody the bill puts elsewhere is not necessarily false, but it is a claim about what they were told rather than about what they saw.",
+        "Why holding is the useful outcome. Three checks against a full checklist means most items stay unverified, and that is fine as long as it is recorded. An unverified item marked as such is honest; the same item read later as closed is how a checklist becomes fiction."
+      ],
       "story": "The closing checklist is signed throughout. Naidoo has the watch bill open beside it and has not said anything yet. There is time to verify three items.",
       "game": {
         "type": "ATTEST",
@@ -927,6 +1543,12 @@ export const CURRICULUM = {
       "scene": "The gym is cleared on a rapid inspection. Naidoo has the drawings out and the roof-to-panel anchors are the only thing on them with no capacity written beside it.",
       "takeaway": "A load path is governed by its weakest required transfer, whatever the elements either side of it can carry.",
       "place": "Records Office",
+      "guide": "Put the transfers in the order the force actually takes, from the moving panel to the ground. Then name the one that decides whether the path holds. The anchors are the only thing on the drawings with no capacity written beside them, which is a fact about the paperwork — the readings on each link are what settle which transfer governs.",
+      "background": [
+        "Why a path is limited by its smallest transfer. Force handed from one element to the next has to be carried by every handover along the way. A large panel and a large roof are irrelevant if the connection between them cannot pass what arrives, and that is nearly always a connection rather than a member.",
+        "Why the anchors have no number. Connections are detailed late, sometimes on site, and often by somebody other than the engineer who sized the members. A blank on a drawing is not evidence that the anchor is weak; it is evidence that nobody has checked.",
+        "What a rapid inspection can and cannot say. It clears the obvious: no collapse, no visible distress, nothing hanging. It does not open a connection, and this whole stop is about the difference between a building that looks intact and a load path that has been demonstrated."
+      ],
       "story": "The gym is cleared on a rapid inspection. Naidoo has the drawings out and the roof-to-panel anchors are the only thing on them with no capacity written beside it.",
       "game": {
         "type": "CHAIN",
@@ -989,6 +1611,12 @@ export const CURRICULUM = {
       "scene": "The impactor arrived on Tuesday and the confirmation is on the wall. The ejecta enhancement was quoted as somewhere between one and five. Three tracking passes remain in the budget.",
       "takeaway": "An intervention is verified by measuring what it changed, not by confirming that it happened.",
       "place": "Records Office",
+      "guide": "Lock a predicted period change before committing the impact, and it cannot be edited afterwards. Then run it, then spend one of the three tracking passes to find out what actually happened. The enhancement was quoted as somewhere between one and five, so your prediction is a range with an assumption in it — say which.",
+      "background": [
+        "Why a confirmed impact is not a confirmed deflection. Arriving is a fact about the spacecraft. Moving the target is a fact about momentum, and most of the momentum transfer comes from material thrown off the surface, which nobody has measured for this body.",
+        "What an enhancement between one and five means. One means the impactor's own momentum and nothing more. Five means the ejecta carried four times as much again. That range is the difference between a demonstration and a technique, and only the tracking pass can narrow it.",
+        "Why the prediction is locked. With the measurement in hand, an enhancement can be chosen to fit and the prediction will appear to have been right. Committing to the range first is what makes the pass capable of measuring the one quantity the mission existed to measure."
+      ],
       "story": "The impactor arrived on Tuesday and the confirmation is on the wall. The ejecta enhancement was quoted as somewhere between one and five. Three tracking passes remain in the budget.",
       "game": {
         "type": "VERIFY",
@@ -1042,6 +1670,12 @@ export const CURRICULUM = {
       "scene": "Three fits of the same subsidence survey are on Priya Naidoo's screen, within two hundredths of a millimetre of each other on the summary statistic. The residuals are plotted where each marker actually sits.",
       "takeaway": "A low summary statistic with a pattern under it hides a systematic that will bias every later prediction the same way.",
       "place": "Records Office",
+      "guide": "Three fits, and their summary statistics sit within two hundredths of a millimetre of each other. That number cannot choose between them. The residual field can: each stick is one marker, drawn where it actually sits. Look at all three before choosing, and propagate the fit whose leftovers look like nothing in particular.",
+      "background": [
+        "Why the summary statistic cannot decide. It adds up how large the misses are and discards where they were. Two fits can miss by the same total, one scattering its misses at random and the other getting a whole region wrong in the same direction — and only the second is missing a term.",
+        "What structure in residuals means. Leftovers that rise across a corner of the survey, or that all lean one way near a boundary, say the model has not accounted for something real. Noise is what remains when the model is complete; a pattern is a message about what it lacks.",
+        "Why the lowest number is a trap. Fits are compared by statistic because it tabulates neatly, and the most flexible model usually wins on it while performing worst on next season's data. Choosing on the field is choosing on whether the model is right."
+      ],
       "story": "Three fits of the same subsidence survey are on Priya Naidoo's screen, within two hundredths of a millimetre of each other on the summary statistic. The residuals are plotted where each marker actually sits.",
       "game": {
         "type": "RESIDUAL",
@@ -1184,6 +1818,12 @@ export const CURRICULUM = {
       "scene": "The lower vault runs as one line of rooms with a door at each end. Priya Naidoo walks it with you once with the labels up, and mentions that one of the doors sticks.",
       "takeaway": "A sequence of recognisable places can be re-entered at any point; a count of anything cannot.",
       "place": "Records Office",
+      "guide": "Walk the route once with the labels showing. Then rebuild it from memory, in order, with the labels gone. Partway through, a door is jammed and you come out somewhere the route did not take you, and you have to say which room you are in. Nothing is timed. What is graded is the order and the room you name, and the room is nameable only from what is in it, because the labels are not there.",
+      "background": [
+        "Why the count is the trap. Paces and turns both give a number, and a number feels like knowing where you are. But a count cannot be resumed: once the route is broken, the count describes a journey that did not happen, and there is no way to check it from inside the building. It fails silently, which is worse than failing loudly.",
+        "Why a list of places survives. Every room on the route can be recognised on its own, from something in it that no other room has. That means the route is re-enterable at any point: being put down in the middle of it costs you the rooms you missed and nothing else. A sequence of recognisable things has that property; a running total never does.",
+        "What to look at on the way out. On the lit walk, the labels are the easy thing to read and the useless thing to remember, because they will be gone. What is worth carrying is the one feature of each room you would still know it by in the dark — the rail, the drawers, the smell, the ramp. That is the whole of the method, and it is why the walk is offered before it is needed."
+      ],
       "story": "The lower vault runs as one line of rooms with a door at each end. Priya Naidoo walks it with you once with the labels up, and mentions that one of the doors sticks.",
       "game": {
         "type": "ROUTE",
@@ -1247,6 +1887,178 @@ export const CURRICULUM = {
         "a count of paces or turns cannot be resumed once it is interrupted",
         "a place can be recognised from something in it that is not a label"
       ]
+    },
+    {
+      "day": 6,
+      "title": "The round nobody can shorten",
+      "scene": "The quarterly round has five stops and one van. The route that covers the least ground is not the route the paperwork allows, and Wednesday's driver took the short one.",
+      "takeaway": "The route that covers the least ground is not always the route the work allows.",
+      "place": "Records Office",
+      "guide": "Drive the five gates in the order the work has to happen, not the order that covers the least ground. The sample cannot be signed in before it is collected, and it cannot be collected before the station is opened for the day. The clock is running and it is not what you are graded on.",
+      "background": [
+        "Why the shortest route is the wrong one. Each stop hands something to the next. Driving them in the order that saves fuel means arriving somewhere with nothing to do there, going back for it, and signing a form out of sequence — which is what Wednesday's driver did and why the batch had to be repeated.",
+        "What the clock is for. Pressure, and nothing else. The grade is the order. A lap driven carefully in the right order beats a fast one that saves the records office until after the desk has already been asked to respond."
+      ],
+      "story": "The quarterly round has five stops and one van. The route that covers the least ground is not the route the paperwork allows, and Wednesday's driver took the short one.",
+      "game": {
+        "type": "TRIAL",
+        "title": "The round nobody can shorten",
+        "setup": "Records Office",
+        "play": "Drive the sign-off round in the order the paperwork has to happen.",
+        "task": "Drive the sign-off round in the order the paperwork has to happen.",
+        "question": "Drive the five gates in the order the round has to happen.",
+        "answer": "Gatehouse, field station, sample room, records, response desk — collected before it is signed in, signed in before anybody is asked to act on it.",
+        "why": "The round is a chain of handovers. The gatehouse opens the day and issues the paperwork; nothing legitimately starts before it. The field station is where the sample is taken, and the sample room cannot receive what has not been collected. Records cannot file a result that the sample room has not produced, and the response desk cannot act on a finding that is not on the record. Driven in that order every stop has something waiting for it. Driven in the order that covers the least ground — station, gatehouse, records, desk, sample room — two stops are visited before the thing they need exists, which is exactly the lap Wednesday's driver drove.",
+        "trial": {
+          "gates": [
+            {
+              "id": "gatehouse",
+              "label": "Gatehouse",
+              "x": -70,
+              "z": 42.5,
+              "note": "where the day's paperwork is issued"
+            },
+            {
+              "id": "station",
+              "label": "Field Station",
+              "x": -48,
+              "z": 21,
+              "note": "where the reading is taken"
+            },
+            {
+              "id": "sampleroom",
+              "label": "Sample Room",
+              "x": 48,
+              "z": 21,
+              "note": "where the sample is signed in"
+            },
+            {
+              "id": "records",
+              "label": "Records Office",
+              "x": -40,
+              "z": -17.5,
+              "note": "where the result is filed"
+            },
+            {
+              "id": "desk",
+              "label": "Response Desk",
+              "x": 42,
+              "z": -17.5,
+              "note": "where somebody acts on it"
+            }
+          ],
+          "order": [
+            "gatehouse",
+            "station",
+            "sampleroom",
+            "records",
+            "desk"
+          ],
+          "go": "Run it",
+          "commit": "Report the round"
+        }
+      },
+      "assumes": [
+        "a round of stops can have an order that its paperwork requires"
+      ]
+    },
+    {
+      "day": 7,
+      "title": "How many is enough",
+      "scene": "The new duplicate procedure was piloted at the field station in March and rolled out everywhere in May. Merrick signs a page on Monday saying it has cut disagreements between runs. Nobody has asked the site.",
+      "takeaway": "A sample is not a smaller copy of a place; asking the nearest few measures your own route.",
+      "place": "Records Office",
+      "guide": "Get to somebody, press Use, and they will tell you whether the procedure has made a difference in their own work. Everybody answers. Nobody will tell you when you have asked enough, and the answer you report at the end is your own — not the tally.",
+      "background": [
+        "Why the sample is the question. Fourteen people is small enough to ask all of them and large enough that you will not, and the place is laid out so that the people nearest the office are not a fair picture of it.",
+        "Where the pilot ran. The field station has been using the procedure since March and everybody else since May, so the two groups have had very different amounts of time with it. That is a real difference between the people you can ask, and it is the reason the nearest answers lean one way."
+      ],
+      "story": "The new duplicate procedure was piloted at the field station in March and rolled out everywhere in May. Merrick signs a page on Monday saying it has cut disagreements between runs. Nobody has asked the site.",
+      "game": {
+        "type": "CANVASS",
+        "title": "How many is enough",
+        "setup": "Records Office",
+        "play": "Find out whether the new duplicate procedure actually changed anything.",
+        "task": "Find out whether the new duplicate procedure actually changed anything.",
+        "question": "Has the new duplicate procedure cut disagreements between runs across the site?",
+        "answer": "No. The field station says yes and it has had the procedure since March; the rest of the site has had it since May and says no.",
+        "why": "Four of the five people nearest this office work at the field station, where the procedure was piloted in March, and they will tell you it works. They are not wrong about their own work. They are four people out of fourteen, and the other ten have had the procedure for a few weeks rather than a few months. Ask the near cluster and stop, and you have measured where you were standing rather than the thing you asked about — and the sample will be internally consistent while you do it, which is why nothing about the answer feels wrong at the time. The remedy is not a bigger sample. It is a sample that crosses the site.",
+        "canvass": {
+          "claim": "The new duplicate procedure has cut disagreements between runs across the whole site.",
+          "answer": false,
+          "minutes": 60,
+          "skew": 0.75,
+          "population": [
+            {
+              "id": "lead1",
+              "says": true
+            },
+            {
+              "id": "helper1",
+              "says": true
+            },
+            {
+              "id": "hand1",
+              "says": false
+            },
+            {
+              "id": "hand2",
+              "says": true
+            },
+            {
+              "id": "lead2",
+              "says": true
+            },
+            {
+              "id": "helper2",
+              "says": false
+            },
+            {
+              "id": "hand3",
+              "says": false
+            },
+            {
+              "id": "hand4",
+              "says": false
+            },
+            {
+              "id": "lead3",
+              "says": false
+            },
+            {
+              "id": "hand5",
+              "says": false
+            },
+            {
+              "id": "hand6",
+              "says": false
+            },
+            {
+              "id": "lead4",
+              "says": true
+            },
+            {
+              "id": "hand7",
+              "says": false
+            },
+            {
+              "id": "hand8",
+              "says": false
+            }
+          ],
+          "yes": "it has helped",
+          "no": "no difference",
+          "trueLabel": "It has cut them site-wide",
+          "falseLabel": "Not across the site",
+          "hint": "Everybody will answer. Nobody will say when you have asked enough.",
+          "moral": "Ask the nearest few and you have measured your own route. A sample crosses the place or it describes where you stood.",
+          "go": "Go and ask",
+          "commit": "Answer it"
+        }
+      },
+      "assumes": [
+        "a sample can be unrepresentative without anybody lying"
+      ]
     }
   ],
   "G4": [
@@ -1256,6 +2068,12 @@ export const CURRICULUM = {
       "scene": "Three proposals, one funded slot, and a crew that mobilises at noon either way. Calderón has read all three and will not say which she prefers.",
       "takeaway": "A measurement earns its cost by changing a decision that has not yet been taken.",
       "place": "Response Desk",
+      "guide": "Two controls set the shot: the angle and the charge. The charge is not calibrated in anything, so change one control at a time and watch where the short mark lands — that is how you find out what each one does. Three marks at three ranges have to be hit, and the same angle will not do for all of them. Put a line on each.",
+      "background": [
+        "Why forty-five degrees is not the answer. Forty-five maximises range for a given launch speed on flat ground with no air. Change the launch height, the drag, or the range you want, and the best angle moves — and for any range short of the maximum there are two angles that reach it, a low fast one and a high slow one, which behave very differently in wind.",
+        "Why one control at a time. Two unknown controls changed together give one landing point and no information about either. Fixing the angle and varying the charge, or the reverse, is the same isolation that CONTROL asks for, on a quay with a line thrower instead of a bench.",
+        "What the short mark is for. It is the cheapest place to learn: a shot that falls short tells you the sign and roughly the size of your error, and it costs one line to retrieve. Calibrating on the nearest target before attempting the far one is what a gunner does, and it is why the marks are at three ranges rather than one."
+      ],
       "story": "Three proposals, one funded slot, and a crew that mobilises at noon either way. Calderón has read all three and will not say which she prefers.",
       "game": {
         "type": "VALUE",
@@ -1318,6 +2136,12 @@ export const CURRICULUM = {
       "scene": "A crate with 20 laboratory slots in it, the river map on the wall, and the partition model's prediction pinned beside it. Nobody has written down a recommended plan.",
       "takeaway": "Sampling is experimental design under a budget, and every feasible plan forgoes a question.",
       "place": "Response Desk",
+      "guide": "Three proposals, one funded slot, and a crew that mobilises at noon whatever you decide. Open each and ask what the crew would do differently at noon depending on how it comes out. A proposal whose result changes nothing before mobilisation has spent the four hours on something you could have bought tomorrow.",
+      "background": [
+        "What makes a purchase decisive. Two possible results that lead to different actions. Calderón will not say which she prefers because the preference is not the point — the question is which result could change the plan, and that is a property of the proposal rather than of anybody's judgement.",
+        "Why the mobilisation time is the constraint. The crew leaves at noon either way, so information arriving afterwards is information about a decision already taken. The whole value of the slot is that it lands before the trucks do.",
+        "Why all three are good. They are meant to be. A choice between one good and two poor proposals tests nothing; the skill is separating valuable from decisive when everything on the table is worth doing."
+      ],
       "story": "A crate with 20 laboratory slots in it, the river map on the wall, and the partition model's prediction pinned beside it. Nobody has written down a recommended plan.",
       "game": {
         "type": "ALLOCATE",
@@ -1418,6 +2242,13 @@ export const CURRICULUM = {
       "scene": "The response board is blank. The current probability is one in two and a half thousand, the next update lands tonight, and Calderón wants the board signed before it does.",
       "takeaway": "A rule written before the data is a decision; the same rule written afterwards is a reaction.",
       "place": "Response Desk",
+      "guide": "One rule, set on the probability scale and signed before tonight's update exists. The evacuation takes fourteen days from the moment it is ordered, and only the early updates arrive with that much time left. Set the line low enough that one of them crosses it, and high enough that it would not have been crossed by an object which turned out to be nothing.",
+      "background": [
+        "Why the board is signed first. A threshold moved while the updates come in is not a threshold, it is a description of what somebody has already decided. The signature is what makes tonight's actions attributable to a rule rather than to whoever happened to be at the desk.",
+        "What lead time is, and why every stage has a different one. An advisory can be published in an afternoon; an evacuation order cannot. The lead time is how long the action takes to arrive once it is called, so a stage set close to the end of the campaign starts something that cannot finish — worse than no rule, because it is a rule somebody trusted.",
+        "Why a line can also be drawn too early. A stage that fires on a reading which had shown nothing is a standing order, not a rule: it would have fired on any campaign whatever the object did. Both failures are graded, and they look nothing alike from the desk.",
+        "What the schedule is for. The updates arrive on a known timetable even though their contents are unknown, so the real decision is which update you want each stage to act on — and then the number that puts it there."
+      ],
       "story": "The response board is blank. The current probability is one in two and a half thousand, the next update lands tonight, and Calderón wants the board signed before it does.",
       "game": {
         "type": "TRIGGER",
@@ -1425,8 +2256,8 @@ export const CURRICULUM = {
         "setup": "Response Desk",
         "play": "Write the thresholds before tonight's update",
         "task": "Write the thresholds before tonight's update",
-        "question": "Set each stage's threshold, release the board, and stand by what it does.",
-        "answer": "Every threshold has to sit low enough to fire while its own lead time is still available — the evacuation stage below about 0.3%, since it needs 14 days and only the first 2 updates arrive with that much left.",
+        "question": "At what impact probability do you begin the staged evacuation, given it needs fourteen days?",
+        "answer": "Order the evacuation around 0.3 %. Only the first two updates arrive with the fourteen days it needs, so a line at a number that merely sounds serious fires on day 9 with 312 hours left and the order can no longer be carried out.",
         "why": "Two ways of getting this wrong look nothing alike and cost the same. A threshold set too high never fires, and the stage simply does not happen. A threshold set at a sensible number fires on the day 9 update with 300 hours left, which is a correct rule for an action that needed 336 — so the rule is satisfied and the evacuation is already impossible. The day 15 collapse to 1 in 9000 does not make the day 9 decision a mistake, and the board is what makes that arguable afterwards, because it was signed before anybody knew.\n",
         "trigger": {
           "scale": {
@@ -1434,27 +2265,28 @@ export const CURRICULUM = {
             "unit": "%",
             "min": 0,
             "max": 12,
-            "step": 0.05
+            "step": 0.05,
+            "anchors": [
+              {
+                "at": 0.04,
+                "means": "one chance in two and a half thousand — the routine end of the risk list"
+              },
+              {
+                "at": 2.5,
+                "means": "one chance in forty, and the corridor is down to two provinces"
+              }
+            ]
           },
+          "direction": "rising",
           "conditions": [
-            {
-              "id": "advisory",
-              "label": "Public advisory",
-              "leadHours": 6,
-              "owner": "Calderón",
-              "action": "publish the corridor and its uncertainty"
-            },
-            {
-              "id": "stage",
-              "label": "Stage regional resources",
-              "leadHours": 72,
-              "owner": "Calderón",
-              "action": "move shelter and transport into the corridor"
-            },
             {
               "id": "evac",
               "label": "Begin staged evacuation",
               "leadHours": 336,
+              "window": {
+                "min": 0.3,
+                "max": 0.5
+              },
               "owner": "the prefecture",
               "action": "open the evacuation order"
             }
@@ -1485,7 +2317,33 @@ export const CURRICULUM = {
               "hoursLeft": 168
             }
           ],
-          "hint": "Set each stage against the probability scale, then release the board. The updates arrive afterwards and your own rules decide what happens.",
+          "rehearsal": {
+            "note": "the 2029 object, worked at the same range",
+            "stream": [
+              {
+                "value": 0.02,
+                "hoursLeft": 528
+              },
+              {
+                "value": 0.09,
+                "hoursLeft": 432
+              },
+              {
+                "value": 0.4,
+                "hoursLeft": 312
+              },
+              {
+                "value": 0.12,
+                "hoursLeft": 240
+              },
+              {
+                "value": 0.05,
+                "hoursLeft": 168
+              }
+            ]
+          },
+          "objective": "The evacuation is ordered while the fourteen days it needs are still available.",
+          "hint": "Set the line on the probability scale, then release the board. The updates arrive afterwards and your own rule decides what happens.",
           "release": "Release the board",
           "commit": "Stand by the board"
         }
@@ -1501,6 +2359,12 @@ export const CURRICULUM = {
       "scene": "Four conditions, one watch team, and a clock that runs whether or not anybody has decided. Ruth Calderón will take whichever one you leave her, and she wants the others owned.",
       "takeaway": "A handover is an owner, a first action and a condition that brings them back; two of the three is nobody watching it.",
       "place": "Response Desk",
+      "guide": "Write each stage's threshold on the board before releasing it, and once released the numbers cannot be moved. The next update lands tonight, and every action a stage starts takes time to finish. Set the thresholds so each action completes before the situation it was written for arrives, then stand by what the board does.",
+      "background": [
+        "Why a probability of one in two and a half thousand is not the trigger. It is the current state, and it will move with tonight's update. Thresholds are about what you will do at values you have not seen yet, which is exactly why they can be set calmly now and not later.",
+        "What lead time does to a threshold. An action that takes two weeks to complete must start at a probability that will still be two weeks early. Setting the trigger at the level where the action is needed is setting it at the moment it should already have been finished.",
+        "Why signing before the update. A threshold adjusted after seeing a number is not a rule; it is a justification. Calderón wants the board signed tonight because that is the difference between a policy and a series of reactions."
+      ],
       "story": "Four conditions, one watch team, and a clock that runs whether or not anybody has decided. Ruth Calderón will take whichever one you leave her, and she wants the others owned.",
       "game": {
         "type": "DELEGATE",
@@ -1597,6 +2461,12 @@ export const CURRICULUM = {
       "scene": "Ruth Calderón has the fortnight's findings on one sheet and a transfer on Friday. She wants to know which of them she is entitled to put her name to.",
       "takeaway": "What a verification office establishes is bounded by what it actually measured.",
       "place": "Response Desk",
+      "guide": "Four sentences, and the office corrected one reference factor and recomputed what divided by it. Ask of each option how far it travels from that. One stretches a single number across a frequency range nobody worked in. One inverts what was found about the independent instrument. And one throws away the correctly measured numerators along with the bad denominator.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Ruth Calderón has the fortnight's findings on one sheet and a transfer on Friday. She wants to know which of them she is entitled to put her name to.",
       "game": {
         "type": "CHOICE",
@@ -1622,6 +2492,160 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a corrected ratio and an uncorrected one are different claims"
+      ]
+    },
+    {
+      "day": 6,
+      "title": "The board changes its mind",
+      "scene": "Certificates arrive on the board all morning. The desk works to whatever the standing instruction says, and the instruction is changed by whoever is running the desk, without an announcement.",
+      "takeaway": "The cost of a withdrawn instruction is paid by whoever is still working to it.",
+      "place": "Response Desk",
+      "guide": "Take the certificates the instruction currently wants, and leave the rest. The instruction at the top of the board is replaced during the run and nobody will tell you when. What is scored is the seconds either side of each change, because that is the only interval that measures anything.",
+      "background": [
+        "Why the seconds after a change are the ones that count. Most of what arrives is wanted by neither instruction and is correctly ignored by somebody who has understood nothing. The items that separate a player who noticed from one who did not are the ones the old rule wanted and the new one does not.",
+        "Why this is not a reflex test. The instruction is on the screen the whole time. What costs you is continuing to work to the rule you had, which is a habit rather than a speed, and it is the thing a desk actually gets wrong."
+      ],
+      "story": "Certificates arrive on the board all morning. The desk works to whatever the standing instruction says, and the instruction is changed by whoever is running the desk, without an announcement.",
+      "game": {
+        "type": "SPOT",
+        "title": "The board changes its mind",
+        "setup": "Response Desk",
+        "play": "Clear the certificate board while the priority keeps changing.",
+        "task": "Clear the certificate board while the priority keeps changing.",
+        "question": "Clear the board to whatever the standing instruction currently says.",
+        "answer": "Watch the top of the board rather than the certificates. Every change leaves a few seconds in which the old rule still feels right.",
+        "why": "Three instructions run during the exercise and each one wants a different part of the board. Anything overdue, anything from the harbour site, anything not yet checked — and a certificate can be two of those at once, which is what makes the switch cost real rather than notional. What the panel scores is the window either side of each change, because everything else on the board is wanted by neither rule and is ignored correctly by somebody who has read nothing. The desk's own version of this is a Tuesday when the harbour job lands: the standing instruction changes, and the work that goes out wrong in the next quarter of an hour is the work somebody was already doing.",
+        "spot": {
+          "targets": [
+            {
+              "id": "c1",
+              "label": "Vault cell, overdue",
+              "tags": [
+                "vault",
+                "overdue"
+              ]
+            },
+            {
+              "id": "c2",
+              "label": "Harbour gauge, overdue",
+              "tags": [
+                "harbour",
+                "overdue"
+              ]
+            },
+            {
+              "id": "c3",
+              "label": "Harbour tide staff",
+              "tags": [
+                "harbour",
+                "signed"
+              ]
+            },
+            {
+              "id": "c4",
+              "label": "Vault balance, signed",
+              "tags": [
+                "signed"
+              ]
+            },
+            {
+              "id": "c5",
+              "label": "Bench thermometer",
+              "tags": [
+                "uncalibrated"
+              ]
+            },
+            {
+              "id": "c6",
+              "label": "Harbour anemometer",
+              "tags": [
+                "harbour",
+                "uncalibrated"
+              ]
+            },
+            {
+              "id": "c7",
+              "label": "Vault reference block",
+              "tags": [
+                "vault",
+                "signed"
+              ]
+            },
+            {
+              "id": "c8",
+              "label": "Field station barometer",
+              "tags": [
+                "uncalibrated",
+                "overdue"
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "say": "Anything overdue",
+              "want": [
+                "overdue"
+              ]
+            },
+            {
+              "say": "Anything from the harbour",
+              "want": [
+                "harbour"
+              ]
+            },
+            {
+              "say": "Anything not yet checked",
+              "want": [
+                "uncalibrated"
+              ]
+            }
+          ],
+          "duration": 40,
+          "switchEvery": 12,
+          "pass": 0.75,
+          "hint": "The instruction is at the top of the board, and it is replaced without warning.",
+          "commit": "Open the board"
+        }
+      },
+      "assumes": [
+        "a standing instruction can be replaced while work is still arriving"
+      ]
+    },
+    {
+      "day": 7,
+      "title": "Keeping the radius",
+      "scene": "The tray is open and has to settle for half a minute before it can be closed. Nobody may come within nine metres of it while it does. Ruth Calderón wants a signature and is following you to get one.",
+      "takeaway": "A radius held under pressure is a matter of ground, not of speed, once nobody involved is faster than you.",
+      "place": "Response Desk",
+      "guide": "Hold nine metres of clear ground for thirty seconds. The count runs only while you are clear and stops while she is closer than that, so being caught costs seconds rather than the drill. She walks slower than you and she does not walk through buildings.",
+      "background": [
+        "Why the count stops rather than resets. A drill that ends the moment somebody gets near it is measuring reaction time. One that costs you the seconds is measuring whether you can keep hold of a constraint while somebody is trying to talk to you.",
+        "Why nobody is faster than you. If she were, the only outcome would be decided by how fast you can press a key. She is not, so the drill is decided by where you go — which means the buildings, the gaps between them and the fence behind you."
+      ],
+      "story": "The tray is open and has to settle for half a minute before it can be closed. Nobody may come within nine metres of it while it does. Ruth Calderón wants a signature and is following you to get one.",
+      "game": {
+        "type": "EVADE",
+        "title": "Keeping the radius",
+        "setup": "Response Desk",
+        "play": "Get the open tray to the hood without anybody coming near it.",
+        "task": "Get the open tray to the hood without anybody coming near it.",
+        "question": "Hold nine metres of clear ground for thirty seconds while the tray settles.",
+        "answer": "Thirty seconds of clear ground, kept by putting buildings between the tray and anybody walking towards it.",
+        "why": "Nobody in this drill is faster than you, so being caught is never about speed. It is about the ground you were standing on when she arrived. Walk in a straight line and the fence at the edge of the site ends the run for you — there is nowhere further to go and she closes the last few metres while you stand at it. Put a building between you and she has to walk round it, which buys the seconds the tray needs. The count stopping rather than resetting is deliberate: the cost of losing the radius is the time it takes to get it back, which is exactly what it costs in the room this drill is standing in for.",
+        "evade": {
+          "pursuer": "lead4",
+          "distance": 9,
+          "seconds": 30,
+          "speed": 3.4,
+          "limit": 60,
+          "hint": "She walks straight at you, slower than you, and not through buildings.",
+          "moral": "Nobody here is faster than you, so being caught is about the ground you were standing on when they arrived.",
+          "go": "Open the tray",
+          "commit": "Report the drill"
+        }
+      },
+      "assumes": [
+        "a fixed distance can be maintained by choosing ground rather than by speed"
       ]
     }
   ]

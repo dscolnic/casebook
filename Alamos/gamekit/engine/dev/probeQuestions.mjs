@@ -143,6 +143,32 @@ for(const [mi, m] of MISSIONS.entries()){
           add('LEAK', at, `the takeaway repeats ${Math.round(shared * 100)}% of the keyed answer's own words, and it is shown before the question — make it the principle rather than the answer`);
         }
       }
+      // The key concept door is the same risk one level up, and it is a WORSE one,
+      // because the concept's two sentences are fixed and land on every stop that
+      // scores to that concept. A per-stop takeaway that leaks costs one question;
+      // a concept takeaway that leaks costs every stop the picker sends to it, and
+      // nobody rewriting the stop would think to look at the syllabus.
+      //
+      // Both measures, because neither alone is enough at this length. The shared
+      // fraction is the same rule as the takeaway's, at a higher threshold since 40
+      // words collect more of anything by chance; the verbatim run is insensitive to
+      // length and is what catches a concept that states the answer in the answer's
+      // own words while padding around it.
+      const conText = String(l.concept?.t ?? '').trim();
+      if(conText && keyWords.length >= 3){
+        const con = new Set(contentOf(conText));
+        const shared = keyWords.filter(w => con.has(w)).length / keyWords.length;
+        if(shared >= 0.5){
+          add('LEAK', at, `the key concept "${l.concept.c}" repeats ${Math.round(shared * 100)}%`
+            + " of the keyed answer's own words, and it is one press away above the options"
+            + ' — the concept says what the idea is for, not what this question answers');
+        }
+        const run = longestShared(conText, right);
+        if(run >= 6){
+          add('LEAK', at, `${run} consecutive words of the keyed answer appear in the key concept`
+            + ` "${l.concept.c}"`);
+        }
+      }
       const because = /\bbecause\b|\bso that\b|\bwhich is why\b/i;
       if(because.test(right) && !wrong.some(c => because.test(c))){
         add('LEAK', at, 'only the keyed answer carries its own justification ("because …"), which marks it out from the others');

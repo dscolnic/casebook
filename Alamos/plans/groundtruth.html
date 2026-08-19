@@ -1,0 +1,328 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Ground Truth — Conversion Plan</title>
+<style>
+  @page { size: A4; margin: 15mm 14mm 16mm; }
+  :root {
+    --ink:#15171a; --ink2:#4c5158; --muted:#868b92; --rule:#dcded9; --sunk:#f2f3ef;
+    --acc:#4f545c; --acc-soft:#7f8894;
+    --s:#2c7a4b; --m:#9a6f14; --d:#767b70; --r:#a4453a;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; color:var(--ink); background:#fff;
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif; font-size:9.6pt; line-height:1.5; }
+  .mono,.k,code { font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; }
+  code,.k { font-size:.9em; background:var(--sunk); padding:0 3px; border-radius:2px; }
+  em { font-style:normal; font-weight:640; }
+  strong { font-weight:680; }
+
+  header { border-bottom:2.5pt solid var(--acc); padding-bottom:7pt; margin-bottom:12pt; }
+  .eyebrow { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--acc); }
+  h1 { margin:2pt 0 3pt; font-size:24pt; line-height:1.02; letter-spacing:-.02em; font-weight:660; }
+  .sub { color:var(--ink2); font-size:9.6pt; max-width:150mm; }
+  .place { color:var(--muted); font-size:8.4pt; font-style:italic; margin-top:2pt; }
+
+  .facts { display:flex; gap:0; border:.6pt solid var(--rule); margin-top:8pt; }
+  .fact { flex:1; padding:4pt 7pt 5pt; border-right:.6pt solid var(--rule); }
+  .fact:last-child { border-right:none; }
+  .fact b { display:block; font-family:ui-monospace,Menlo,monospace; font-size:14pt; font-weight:640; letter-spacing:-.02em; }
+  .fact span { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); }
+
+  h2 { font-size:12pt; margin:15pt 0 4pt; font-weight:660; letter-spacing:-.01em;
+    border-bottom:.6pt solid var(--ink); padding-bottom:3pt; break-after:avoid; }
+  h2 .ph { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--acc); margin-right:6pt; }
+  p { margin:6pt 0; max-width:170mm; }
+
+  table { border-collapse:collapse; width:100%; font-size:8.4pt; margin:6pt 0; }
+  th,td { text-align:left; padding:3pt 6pt 3pt 0; border-bottom:.5pt solid var(--rule); vertical-align:top; }
+  thead th { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--muted); font-weight:500; border-bottom:.7pt solid var(--ink); }
+  td.n,th.n { text-align:right; padding-right:8pt; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .flag { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.06em;
+    border:.5pt solid currentColor; padding:0 3pt; border-radius:2pt; white-space:nowrap; }
+  .flag.sus { color:var(--m); } .flag.real { color:var(--r); }
+
+  .mixbar { display:flex; height:9pt; border:.6pt solid var(--rule); margin:5pt 0 3pt; }
+  .mixbar i { display:block; }
+  .mixkey { font-family:ui-monospace,Menlo,monospace; font-size:6.6pt; color:var(--ink2);
+    display:flex; flex-wrap:wrap; gap:2pt 9pt; }
+
+  .callout { border-left:2pt solid var(--acc); background:var(--sunk); padding:6pt 9pt; margin:8pt 0;
+    break-inside:avoid; }
+  .callout p { margin:3pt 0; }
+  .callout .tag { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--acc); display:block; margin-bottom:3pt; }
+  .callout.warn { border-left-color:var(--r); }
+  .callout.warn .tag { color:var(--r); }
+
+  .card { border-left:2pt solid var(--d); padding:5pt 0 6pt 8pt; margin:7pt 0; break-inside:avoid; }
+  .card.v-s { border-left-color:var(--s); } .card.v-m { border-left-color:var(--m); }
+  .card.v-d { border-left-color:var(--d); } .card.v-r { border-left-color:var(--r); }
+  .card .top { display:flex; align-items:baseline; gap:7pt; }
+  .card h4 { margin:0; font-family:ui-monospace,Menlo,monospace; font-size:9.6pt; font-weight:660; letter-spacing:.03em; }
+  .vd { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.12em;
+    text-transform:uppercase; border:.5pt solid currentColor; padding:0 3pt; border-radius:2pt; }
+  .v-s .vd { color:var(--s); } .v-m .vd { color:var(--m); }
+  .v-d .vd { color:var(--d); } .v-r .vd { color:var(--r); }
+  .card .at { margin-left:auto; color:var(--muted); font-size:7.4pt; }
+  .card p { margin:3pt 0 0; font-size:9pt; }
+  .card dl { margin:3pt 0 0; font-size:8pt; color:var(--ink2); }
+  .card dt { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); display:inline; }
+  .card dd { display:inline; margin:0; }
+  .card dd::after { content:""; display:block; }
+
+  .slate { border:.6pt solid var(--rule); padding:6pt 8pt 7pt; margin:7pt 0; break-inside:avoid; }
+  .slate .sh { display:flex; align-items:baseline; gap:8pt; border-bottom:.6pt solid var(--rule); padding-bottom:3pt; }
+  .slate h4 { margin:0; font-size:10.5pt; font-weight:660; }
+  .slate .n2 { font-family:ui-monospace,Menlo,monospace; font-size:6.6pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); }
+  table.mini { font-size:8pt; margin:4pt 0 5pt; }
+  table.mini td { border-bottom:.4pt solid var(--sunk); padding:2pt 6pt 2pt 0; }
+  table.mini .dy,.gp { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; color:var(--muted); white-space:nowrap; }
+  table.mini .fm { font-family:ui-monospace,Menlo,monospace; font-size:7.2pt; white-space:nowrap; }
+  table.mini .was { color:var(--muted); } .ar { color:var(--muted); }
+  table.mini .ti { color:var(--ink2); }
+  table.mini .nt { display:block; color:var(--muted); font-size:7.2pt; }
+  .out { border-top:.6pt solid var(--rule); padding-top:4pt; font-size:7.8pt; color:var(--ink2); }
+  .out b { color:var(--ink); font-variant-numeric:tabular-nums; }
+
+  footer { margin-top:14pt; padding-top:5pt; border-top:.6pt solid var(--rule);
+    color:var(--muted); font-size:7pt; }
+  .avoid { break-inside:avoid; }
+</style></head><body>
+
+<header>
+  <div class="eyebrow">Alamos · conversion plan · Physics · grade 9–12</div>
+  <h1>Ground Truth</h1>
+  <div class="sub">AP Physics C · E&amp;M, derived</div>
+  <div class="place">A lightning research station on a salt flat: a sixty-metre mast, a launch rail, and a storm coming in.</div>
+  <div class="facts">
+    <div class="fact"><b>45</b><span>stops</span></div>
+    <div class="fact"><b>23</b><span>choice (51%)</span></div>
+    <div class="fact"><b>3.1</b><span>effective formats</span></div>
+    <div class="fact"><b>11/11</b><span>equations computed</span></div>
+    <div class="fact"><b>5</b><span>select-only concepts</span></div>
+    <div class="fact"><b>24·19·2</b><span>select·construct·operate</span></div>
+  </div>
+</header>
+
+<h2><span class="ph">Reading</span>Where this campaign stands</h2>
+<p>The cleanest curriculum in the set outside Headwater: <strong>all eleven equations
+      computed</strong>, no debt at all. It is also the second-worst format mix in the catalogue at
+      23 CHOICE out of 45 — which is exactly the pair of facts that killed the diversity gate.
+      Nothing here is broken. The finding is six select-only mechanism concepts: fields of sheets
+      and spheres, shielding, equipotentials, force on a current, the LR transient, and energy in
+      the magnetic field — all currently reached by picking from four.</p>
+<div class="callout warn"><span class="tag">Protected — do not convert</span><p>All ten DERIVE stops stay. Ground Truth is AP Physics C E&M taught in ten
+      derivations, and that is the game. No slate below touches one.</p></div>
+
+<div class="avoid">
+<h2><span class="ph">Now</span>The mix as it ships</h2>
+<div class="mixbar"><i style="flex:23;background:#c9ccc4"></i><i style="flex:10;background:#7f8894"></i><i style="flex:2;background:#e2e4de"></i><i style="flex:1;background:#7f8894"></i><i style="flex:1;background:#7f8894"></i><i style="flex:1;background:#7f8894"></i><i style="flex:1;background:#e2e4de"></i><i style="flex:1;background:#7f8894"></i><i style="flex:1;background:#7f8894"></i><i style="flex:1;background:#7f8894"></i><i style="flex:1;background:#7f8894"></i><i style="flex:1;background:#7f8894"></i><i style="flex:1;background:#7f8894"></i></div>
+<div class="mixkey"><span>CHOICE 23</span><span>DERIVE 10</span><span>BALLPARK 2</span><span>TRIGGER 1</span><span>TRACE 1</span><span>DEGENERACY 1</span><span>DIAGNOSIS 1</span><span>PROBE 1</span><span>VALUE 1</span><span>VERIFY 1</span><span>STRESS 1</span><span>CLOUD 1</span><span>ATTEST 1</span></div>
+</div>
+
+<h2><span class="ph">Curriculum</span>What the syllabus is not getting</h2>
+<p><strong>No equation debt.</strong> Every equation the syllabus lists is computed by a question
+       somewhere in the campaign.</p>
+
+<div class="avoid">
+<h2><span class="ph">Tier</span>Concepts the player only ever picks from a list</h2>
+<table><thead><tr><th class="n">#</th><th>Mechanism concept</th><th class="n">Stops</th></tr></thead><tbody>
+<tr><td class="n">5</td><td>Field inside a conductor, and shielding</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">6, 24, 26, 39</td></tr><tr><td class="n">9</td><td>Equipotentials, and what they mean on the ground</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">8, 14</td></tr><tr><td class="n">22</td><td>Force on a current in a field, and forces between conductors</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">24</td></tr><tr><td class="n">28</td><td>The LR transient, and inductive volts against resistive volts</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">30</td></tr><tr><td class="n">29</td><td>Energy in the magnetic field, and where a strike puts it</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">24</td></tr>
+</tbody></table>
+<p style="font-size:8.4pt;color:var(--ink2)">Reported, never failed. Select-tier can be exactly right;
+these are the candidates, not the defects. The syllabus also lists
+1 concept no stop touches at all —
+<em>Biot–Savart, and when the integral is worth doing</em> — which is expected, and is a different
+conversation from this one.</p></div>
+
+<h2><span class="ph">Fun</span>What this subject and this place can carry</h2>
+<div class="card v-s">
+  <div class="top"><h4>LOB</h4><span class="vd">strong</span><span class="at">SHOT · Launch Control</span></div>
+  <p><strong>This is the one game where LOB is not a compromise.</strong> The site has a
+          launch rail and the science is rocket-triggered lightning: you fire a wire-trailing rocket
+          into a charged cloud base. Angle and charge against a mark is the actual operation, and
+          the withheld quantity is honest — nobody knows the payout well enough to compute the
+          strike, which is <em>why</em> the technique is empirical. Everywhere else in the catalogue
+          LOB teaches "it cannot be computed" as a lie. Here it is the finding.</p>
+  <dl><dt>serves</dt> <dd>triggered-lightning technique, and the empirical half of a derived course</dd></dl>
+  <dl><dt>needs</dt> <dd>marks ordered outward by distance, and a rigging quantity that is genuinely unknowable</dd></dl>
+  
+</div><div class="card v-s">
+  <div class="top"><h4>SWEEP</h4><span class="vd">strong</span><span class="at">stop 8 or 14 · COUPLE / EARTH</span></div>
+  <p>Walk a probe out across the earthing compound and plot potential against distance:
+          equipotentials are a shape, and concept 9 is select-only. "One foot and the other" is a
+          CHOICE about step potential, which is the same curve read at two points.</p>
+  <dl><dt>serves</dt> <dd>concepts 9 and 25 — equipotentials, step-and-touch</dd></dl>
+  <dl><dt>needs</dt> <dd>the response plotted only where the player looks</dd></dl>
+  
+</div><div class="card v-s">
+  <div class="top"><h4>HOLD</h4><span class="vd">strong</span><span class="at">BANK · Impulse Hall</span></div>
+  <p>Charge a capacitor bank to a target and hold it while leakage drains it and the storm
+          window closes. The LR transient — concept 28, select-only — is a rate you feel rather than
+          a formula you recognise.</p>
+  <dl><dt>serves</dt> <dd>concept 28, inductive volts against resistive volts</dd></dl>
+  <dl><dt>needs</dt> <dd>a do-nothing run must fail</dd></dl>
+  
+</div><div class="card v-s">
+  <div class="top"><h4>SPOT</h4><span class="vd">strong</span><span class="at">a MAST or FIELD stop</span></div>
+  <p>A storm-safety instruction replaced mid-run: sixty metres of instrumented mast on a
+          salt flat with a cell coming in is the most legitimate reason in the set for an
+          instruction to change without ceremony.</p>
+  <dl><dt>serves</dt> <dd>operating discipline under a moving hazard</dd></dl>
+  
+  
+</div><div class="card v-s">
+  <div class="top"><h4>TRIAL</h4><span class="vd">strong</span><span class="at">the salt flat</span></div>
+  <p>The flattest site in the catalogue, with a mast, an earthing compound, an outstation
+          and a launch rail — and a storm arriving. Driven order: earth before you touch, screen
+          before you connect.</p>
+  <dl><dt>serves</dt> <dd>concept 5, shielding, and concept 25</dd></dl>
+  
+  <dl><dt>risk</dt> <dd>world work</dd></dl>
+</div><div class="card v-s">
+  <div class="top"><h4>TALLY</h4><span class="vd">strong</span><span class="at">a SEIS-equivalent SHOT stop</span></div>
+  <p>Strikes accumulate and the statistic firms up. A storm season is exactly a case where
+          the early number moves for the wrong reason.</p>
+  <dl><dt>serves</dt> <dd>measurement statistics on a rare event</dd></dl>
+  
+  
+</div><div class="card v-r">
+  <div class="top"><h4>BELT</h4><span class="vd">reject</span><span class="at">—</span></div>
+  <p>Nothing here is sorted. Rejected on subject.</p>
+  
+  
+  
+</div>
+
+<h2><span class="ph">Slates</span>Three appetites — the campaign is zero-sum</h2>
+<p style="font-size:8.8pt">No conversion adds a stop. Each changes what an existing stop <em>does</em>
+while leaving what it <em>teaches</em> alone. Snapshot before, diff after:
+<code>curriculumDelivery.mjs groundtruth --snapshot before.json</code>, then <code>--against before.json</code>.</p>
+<div class="slate">
+    <div class="sh"><h4>Minimum honest</h4><span class="n2">3 stops · one sitting</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">6</td><td class="dy">d2</td><td class="gp">MAST</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>PROBE</b></td>
+      <td class="ti">Inside the sheet<span class="nt">inside the sheet — read station by station instead of picked</span></td>
+    </tr><tr>
+      <td class="n">8</td><td class="dy">d3</td><td class="gp">COUPLE</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>SWEEP</b></td>
+      <td class="ti">One foot and the other<span class="nt">step potential as a curve across the compound</span></td>
+    </tr><tr>
+      <td class="n">24</td><td class="dy">d8</td><td class="gp">COUPLE</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>CHAIN</b></td>
+      <td class="ti">The cabinet is a loop<span class="nt">the cabinet as a loop, and the link that governs the current</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>23 → 20</b> (44%) ·
+      moves <b>24·19·2 → 21·20·4</b> ·
+      effective formats <b>3.1 → 3.9</b> · <b>2</b> new operate stops
+    </div>
+  </div>
+<div class="slate">
+    <div class="sh"><h4>Balanced</h4><span class="n2">6 stops · the recommendation</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">6</td><td class="dy">d2</td><td class="gp">MAST</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>PROBE</b></td>
+      <td class="ti">Inside the sheet</td>
+    </tr><tr>
+      <td class="n">8</td><td class="dy">d3</td><td class="gp">COUPLE</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>SWEEP</b></td>
+      <td class="ti">One foot and the other</td>
+    </tr><tr>
+      <td class="n">24</td><td class="dy">d8</td><td class="gp">COUPLE</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>CHAIN</b></td>
+      <td class="ti">The cabinet is a loop</td>
+    </tr><tr>
+      <td class="n">30</td><td class="dy">d10</td><td class="gp">BANK</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>HOLD</b></td>
+      <td class="ti">Making a microsecond on purpose<span class="nt">making a microsecond on purpose, held against leakage</span></td>
+    </tr><tr>
+      <td class="n">39</td><td class="dy">d13</td><td class="gp">MAST</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>SPOT</b></td>
+      <td class="ti">What to put on a microsecond<span class="nt">what to put on a microsecond, under an instruction that changes</span></td>
+    </tr><tr>
+      <td class="n">2</td><td class="dy">d1</td><td class="gp">FIELD</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>BALLPARK</b></td>
+      <td class="ti">A spinning shutter and a sign<span class="nt">the spinning shutter, computed</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>23 → 17</b> (38%) ·
+      moves <b>24·19·2 → 18·21·6</b> ·
+      effective formats <b>3.1 → 4.9</b> · <b>4</b> new operate stops, 2 of them arcade
+    </div>
+  </div>
+<div class="slate">
+    <div class="sh"><h4>Ambitious</h4><span class="n2">9 stops · adds world work</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">6</td><td class="dy">d2</td><td class="gp">MAST</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>PROBE</b></td>
+      <td class="ti">Inside the sheet</td>
+    </tr><tr>
+      <td class="n">8</td><td class="dy">d3</td><td class="gp">COUPLE</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>SWEEP</b></td>
+      <td class="ti">One foot and the other</td>
+    </tr><tr>
+      <td class="n">24</td><td class="dy">d8</td><td class="gp">COUPLE</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>CHAIN</b></td>
+      <td class="ti">The cabinet is a loop</td>
+    </tr><tr>
+      <td class="n">30</td><td class="dy">d10</td><td class="gp">BANK</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>HOLD</b></td>
+      <td class="ti">Making a microsecond on purpose</td>
+    </tr><tr>
+      <td class="n">39</td><td class="dy">d13</td><td class="gp">MAST</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>SPOT</b></td>
+      <td class="ti">What to put on a microsecond</td>
+    </tr><tr>
+      <td class="n">2</td><td class="dy">d1</td><td class="gp">FIELD</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>BALLPARK</b></td>
+      <td class="ti">A spinning shutter and a sign</td>
+    </tr><tr>
+      <td class="n">12</td><td class="dy">d4</td><td class="gp">SHOT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>LOB</b></td>
+      <td class="ti">The afternoon Vero is right about<span class="nt">the launch rail — the one honest LOB in the catalogue</span></td>
+    </tr><tr>
+      <td class="n">14</td><td class="dy">d5</td><td class="gp">EARTH</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>TALLY</b></td>
+      <td class="ti">Two conductors, two hundred metres<span class="nt">two conductors, two hundred metres, and enough strikes to say so</span></td>
+    </tr><tr>
+      <td class="n">3</td><td class="dy">d1</td><td class="gp">EARTH</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>TRIAL</b></td>
+      <td class="ti">Twenty-five ohms, at what<span class="nt">the flat, driven — earthing before touching</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>23 → 14</b> (31%) ·
+      moves <b>24·19·2 → 15·21·9</b> ·
+      effective formats <b>3.1 → 6.2</b> · <b>7</b> new operate stops, 4 of them arcade
+    </div>
+  </div>
+
+<div class="callout"><span class="tag">The order of work</span>
+<p><strong>1.</strong> Phase 0 — teach the coverage check to read an instrument’s own board, and
+re-baseline <code>curriculum-debt.json</code>. Rewriting a stop that already teaches the thing is the
+exact failure the check exists to prevent.
+<strong>2.</strong> Snapshot. <strong>3.</strong> Edit the book, never the generated content —
+<code>tools/import-book.mjs books/groundtruth.yml groundtruth --verify</code>.
+<strong>4.</strong> <code>npm run traps</code>: every instrument’s trap must fire.
+<strong>5.</strong> <code>npm run check groundtruth</code> and <code>npm run drive groundtruth</code>, right
+answer and wrong — ask what a player who understood nothing would score before believing any pass mark.
+<strong>6.</strong> <code>--against</code> the snapshot. A changed format is reported; a changed
+objective fails.</p></div>
+
+<footer>
+  Counts computed from <code>themes/groundtruth/content/</code> via <code>engine/dev/curriculumDelivery.mjs</code>;
+  concept and equation lists authored in <code>tools/syllabus.js</code>. Format verdicts and slates are
+  editorial. Run it with <code>THEME=groundtruth npm run dev</code>.
+</footer>
+</body></html>

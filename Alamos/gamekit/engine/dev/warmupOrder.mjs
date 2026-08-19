@@ -1,0 +1,296 @@
+// warmupOrder.mjs — the seven warm-ups are scheduled, and every one has a reason.
+//
+//   node engine/dev/warmupOrder.mjs <theme> [--all] [--selftest] [--verbose]
+//
+// Two rules, and they fail for different reasons.
+//
+//   1. THE SCHEDULE IS THE ENGINE'S. `warmups.js` decides it, so this check does
+//      not assert the order against a table — it asserts the *properties* the
+//      order has to have, because a table here would be a second description of
+//      the rule and this repo has paid for those.
+//   2. EVERY SCHEDULED RUN HAS A STORY. A warm-up with no authored reason runs
+//      with the engine's fallback words, which say nothing about the campaign —
+//      worried about spies, looking for the missing crates, getting round the
+//      shift before the first shot. That is the difference between a warm-up and
+//      a tutorial, and the day model has a rule against tutorials.
+//
+// The second rule is the one that will fail for a while, because it is content.
+// `warmup-debt.json` records the campaigns that have not been written yet, with
+// the same two properties as every other debt file here: a gap not on the list
+// fails immediately, and a gap on the list that has been filled fails too,
+// naming the line to delete. It only shrinks.
+import { readFileSync, existsSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
+import { resolve } from 'node:path';
+import { themeDir as resolveTheme, themeNames } from './registry.mjs';
+import { warmupPlan, warmupDue, WARMUP_TAIL, WARMUP_OPENERS } from '../core/warmups.js';
+import { tiersFor, unlockDay } from '../core/orientation.js';
+
+const DEBT_FILE = 'engine/dev/warmup-debt.json';
+
+/**
+ * Everything a theme needs to be judged: how many days it runs, whether its
+ * ground has a far tier, and what its book authored.
+ */
+async function readTheme(themeName){
+  const theme = (await import(pathToFileURL(resolve(resolveTheme(themeName), 'theme.js')).href)).default;
+  const { normalizeContent } = await import('../content/normalize.js');
+  const content = theme.content ?? {};
+  normalizeContent(content);
+  const site = theme.site ?? null;
+  const tiers = site ? tiersFor(site) : { hasFar: false };
+  return {
+    days: (content.MISSIONS ?? []).length,
+    hasFar: !!tiers.hasFar,
+    unlockDay: site ? unlockDay(site) : 4,
+    authored: content.WARMUPS ?? {},
+    cast: (content.ROSTER ?? []).map(p => ({
+      name: String(p.name ?? ''), role: String(p.role ?? '') })),
+  };
+}
+
+/** The properties the schedule has to have, whatever order it comes out in. */
+export function judgeSchedule({ days, hasFar, unlockDay }){
+  const plan = warmupPlan({ days, hasFar, unlockDay });
+  const problems = [];
+  const byDay = new Map(plan.map(p => [p.day, p]));
+  const d1 = byDay.get(1), d2 = byDay.get(2);
+  if(!d1 || !d2) problems.push('days 1 and 2 must each open on a warm-up');
+  else {
+    const pair = [d1.format, d2.format].sort().join('+');
+    if(pair !== [...WARMUP_OPENERS].sort().join('+'))
+      problems.push(`days 1 and 2 are ${d1.format} and ${d2.format} — they must be TRIAL and GREET in some order`);
+  }
+  const fars = plan.filter(p => p.far);
+  if(hasFar && fars.length !== 1) problems.push('a site with far ground needs exactly one far lap');
+  if(!hasFar && fars.length) problems.push('a site with one tier of ground must not schedule a far lap');
+  if(hasFar && fars.length === 1 && fars[0].day !== unlockDay)
+    problems.push(`the far lap is on day ${fars[0].day} and the vehicles come out on day ${unlockDay}`);
+  const slots = plan.map(p => p.slot);
+  if(new Set(slots).size !== slots.length) problems.push('two warm-ups share a save slot, so one can mark the other done');
+  const tail = plan.filter(p => WARMUP_TAIL.includes(p.format)).map(p => p.format);
+  const room = Math.max(0, days - (hasFar ? 3 : 2));
+  const want = WARMUP_TAIL.slice(0, Math.min(WARMUP_TAIL.length, room));
+  if(tail.join(',') !== want.join(','))
+    problems.push(`the tail is ${tail.join(', ') || '(none)'} and this campaign has room for ${want.join(', ') || '(none)'}`);
+  return { plan, problems };
+}
+
+/**
+ * Names a warm-up card uses without introducing them.
+ *
+ * A run's card is read before the day's plan, and the two openers are read on the
+ * first and second morning of the campaign — so "Farrow wants you known to both"
+ * is a sentence about a stranger, and the player has nowhere to look them up. A
+ * name is introduced if the `why` puts a job beside it: "Farrow, the operations
+ * manager, wants…", the full name, or a role phrase in front of it.
+ *
+ * Matched on the surname, because that is how these cards refer to people, and
+ * only against the campaign's own roster — a place called Whitlock Street is not
+ * a person. A roster entry with no `role` cannot be introduced from the data, and
+ * is reported as that rather than as a missing sentence.
+ */
+export function unintroduced(authored, cast){
+  const out = [];
+  for(const [slot, w] of Object.entries(authored ?? {})){
+    const card = `${w?.title ?? ''} ${w?.why ?? ''}`;
+    const why = String(w?.why ?? '');
+    for(const person of cast ?? []){
+      // An honorific is not an introduction. "Dr. Patel has the notes" passed this
+      // check for the wrong reason — `Dr.` read as the first name, so `first +
+      // surname` matched and the card was called introduced while saying nothing
+      // about what she does. Strip the titles the rosters use before deriving a
+      // name; a rank IS a job, so `Lieutenant Sowande` still counts, and only the
+      // civil courtesies come off.
+      const bare = person.name.trim()
+        .replace(/^(Dr|Mr|Mrs|Ms|Miss|Prof|Professor|Sir|Dame)\.?\s+/i, '');
+      const parts = bare.split(/\s+/);
+      const surname = parts[parts.length - 1], first = parts[0];
+      // Bracketed nicknames — "Leona Woods (Marshall Libby)" — are not a surname.
+      if(/[()"'’]/.test(surname)) continue;
+      if(!/^[A-Za-z][A-Za-z'’-]+$/.test(surname)) continue;
+      if(!new RegExp(`\\b${surname}\\b`).test(card)) continue;
+      // Four shapes of introduction, all of which a reader would accept:
+      // an apposition ("Farrow, the metering engineer,"), the full name, a role
+      // phrase in front of the name ("the shift supervisor Reyes"), and a verb
+      // that states the job ("Patel runs the emergency department", "Bethe, who
+      // heads the Theoretical Division").
+      const JOB_VERB = 'runs|heads|leads|manages|commands|supervises|chairs|coordinates|keeps|owns';
+      const intro = new RegExp(`${surname},\\s+(the|a|an)\\s+[a-z]`).test(why)
+        || new RegExp(`\\b${first}\\s+${surname}\\b`).test(why)
+        || new RegExp(`(the|a|an)\\s+[a-z][a-z ,'&-]{2,40}\\b${surname}\\b`).test(why)
+        || new RegExp(`\\b${surname}\\b,?\\s+(who\\s+(${JOB_VERB})|(${JOB_VERB}))\\s`).test(why);
+      if(!intro) out.push({ slot, name: surname, role: person.role });
+    }
+  }
+  return out;
+}
+
+/** Which scheduled runs this campaign has not given a reason. */
+export function unwritten(plan, authored){
+  return plan.filter(p => {
+    const w = authored[p.slot] ?? authored[p.format.toLowerCase()] ?? {};
+    return !String(w.why ?? '').trim() || !String(w.title ?? '').trim();
+  }).map(p => p.slot);
+}
+
+const RAN_DIRECTLY = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+if(RAN_DIRECTLY){
+  const args = process.argv.slice(2);
+  if(args.includes('--selftest')) await selftest();
+  else {
+    const debt = existsSync(DEBT_FILE) ? JSON.parse(readFileSync(DEBT_FILE, 'utf8')) : {};
+    const wanted = args.includes('--all') || !args.find(a => !a.startsWith('--'))
+      ? themeNames() : [args.find(a => !a.startsWith('--'))];
+    const verbose = args.includes('--verbose');
+    let failures = 0, written = 0;
+    for(const themeName of wanted){
+      let info;
+      try { info = await readTheme(themeName); }
+      catch(err){ console.log(`✗ ${themeName}: cannot load theme — ${err.message}`); failures++; continue; }
+      if(!info.days) continue;
+      const { plan, problems } = judgeSchedule(info);
+      for(const p of problems){ console.log(`✗ ${themeName}: ${p}`); failures++; }
+      const gaps = unwritten(plan, info.authored);
+      const listed = new Set(debt[themeName] ?? []);
+      for(const slot of gaps){
+        if(listed.has(slot)) continue;
+        console.log(`✗ ${themeName}: the ${slot} warm-up is scheduled for day`
+          + ` ${plan.find(p => p.slot === slot).day} and has no story — give it a title and a why`
+          + ` in the book's \`warmups\` block`);
+        failures++;
+      }
+      for(const slot of listed){
+        if(gaps.includes(slot)) continue;
+        console.log(`✗ ${themeName}: ${DEBT_FILE} lists "${slot}", which is written now — delete the line`);
+        failures++;
+      }
+      for(const miss of unintroduced(info.authored, info.cast)){
+        console.log(`✗ ${themeName}: the ${miss.slot} warm-up names ${miss.name} and never says who`
+          + ` they are — ${miss.role ? `"${miss.name}, the ${miss.role.split(',')[0].toLowerCase()},"`
+            : 'and the roster gives them no role to introduce them with'}`);
+        failures++;
+      }
+      if(!gaps.length) written++;
+      if(verbose) console.log(`  · ${themeName}: ${plan.map(p => `d${p.day} ${p.format}`).join('  ')}`
+        + `${gaps.length ? `  [unwritten: ${gaps.join(', ')}]` : ''}`);
+    }
+    if(failures) console.log(`\n${failures} problem(s).`);
+    else console.log(`\n✓ ${wanted.length} theme(s): the warm-ups are scheduled, and ${written} have a story for every one.`);
+    process.exit(failures ? 1 : 0);
+  }
+}
+
+async function selftest(){
+  const cases = [];
+  const check = (name, ok, detail = '') => cases.push({ name, ok, detail });
+
+  const two = warmupPlan({ days: 15, hasFar: true, unlockDay: 4 });
+  const one = warmupPlan({ days: 15, hasFar: false });
+
+  check('a two-tier campaign opens on TRIAL and takes GREET second',
+    two[0].format === 'TRIAL' && two[1].format === 'GREET', two.slice(0, 2).map(p => p.format).join(','));
+  check('a one-tier campaign opens on GREET and takes TRIAL second',
+    one[0].format === 'GREET' && one[1].format === 'TRIAL', one.slice(0, 2).map(p => p.format).join(','));
+  check('both campaigns fill days 1 and 2',
+    two[0].day === 1 && two[1].day === 2 && one[0].day === 1 && one[1].day === 2);
+  check('the far lap is on the unlock day, and only where there is far ground',
+    two.filter(p => p.far).length === 1 && two.find(p => p.far).day === 4
+      && one.filter(p => p.far).length === 0);
+  check('the two laps have different save slots',
+    new Set(two.filter(p => p.format === 'TRIAL').map(p => p.slot)).size === 2,
+    two.filter(p => p.format === 'TRIAL').map(p => p.slot).join(','));
+  check('the five that follow are each scheduled once, in order',
+    two.filter(p => WARMUP_TAIL.includes(p.format)).map(p => p.format).join(',') === WARMUP_TAIL.join(','));
+  check('the tail skips the day the far lap took',
+    !two.some(p => WARMUP_TAIL.includes(p.format) && p.day === 4)
+      && two.some(p => p.format === 'FOLLOW' && p.day === 3),
+    two.map(p => `d${p.day}:${p.format}`).join(' '));
+  // The property that matters is the spread, not the start: the tail used to be
+  // handed out on five consecutive mornings, so a fifteen-day campaign was over
+  // for warm-ups by day 7 and the whole back half opened on nothing. The last
+  // run lands on the last day, and no two are closer than two days apart.
+  check('a one-tier campaign runs its tail to the last day of the campaign',
+    one.find(p => p.format === 'FOLLOW').day === 3
+      && one.find(p => p.format === 'TAG').day === 15,
+    one.map(p => `d${p.day}:${p.format}`).join(' '));
+  const gaps = (plan) => {
+    const d = plan.filter(p => WARMUP_TAIL.includes(p.format)).map(p => p.day);
+    return d.slice(1).map((x, i) => x - d[i]);
+  };
+  check('and they are spread rather than stacked — nothing lands on back-to-back days',
+    gaps(one).every(g => g >= 2) && gaps(two).every(g => g >= 2),
+    `one: ${gaps(one).join(',')}  two: ${gaps(two).join(',')}`);
+  check('the second half of a campaign opens on runs too',
+    one.filter(p => p.day > 8).length >= 2 && two.filter(p => p.day > 8).length >= 2,
+    `one: ${one.filter(p => p.day > 8).length}  two: ${two.filter(p => p.day > 8).length}`);
+
+  // A short campaign takes as many as it has room for rather than overflowing
+  // past its own last day — the junior editions are ten days, not fifteen.
+  const short = warmupPlan({ days: 5, hasFar: false });
+  check('a five-day campaign schedules only what fits',
+    short.length === 5 && short[short.length - 1].day === 5, short.map(p => `d${p.day}`).join(','));
+  check('and the schedule check accepts that rather than demanding all five',
+    judgeSchedule({ days: 5, hasFar: false }).problems.length === 0,
+    judgeSchedule({ days: 5, hasFar: false }).problems.join(' | '));
+
+  // warmupDue: the save record, and the story
+  check('a done slot is not offered again',
+    warmupDue(1, { 'trial-near': true }, {}, { days: 15, hasFar: true }) === null);
+  const due = warmupDue(1, {}, {}, { days: 15, hasFar: true });
+  check('an unauthored run still has words to show', !!due.title && !!due.why && due.authored === false);
+  const authored = warmupDue(1, {}, { 'trial-near': { title: 'Walk the perimeter', why: 'Spies.' } },
+    { days: 15, hasFar: true });
+  check('an authored run uses the campaign\'s own words',
+    authored.title === 'Walk the perimeter' && authored.authored === true);
+  check('a run authored under its bare format name is found too',
+    warmupDue(2, {}, { greet: { title: 'Meet the shift', why: 'Because.' } },
+      { days: 15, hasFar: true }).title === 'Meet the shift');
+
+  // The story rule, which is what the theme-level check reports
+  // The introduction rule, and the two ways it would otherwise pass wrongly: a
+  // name with a job beside it must be accepted, and a bare surname must not.
+  {
+    const cast = [{ name: 'Ada Farrow', role: 'Operations Manager, Calder' }];
+    const bare = { greet: { title: 'Get round the shift',
+      why: 'Farrow wants you known to both crews before anything goes wrong on the night shift.' } };
+    const said = { greet: { title: 'Get round the shift',
+      why: 'Farrow, the operations manager, wants you known to both crews before anything goes wrong.' } };
+    const full = { greet: { title: 'Get round the shift',
+      why: 'Ada Farrow wants you known to both crews before anything goes wrong on the night shift.' } };
+    check('a warm-up that names somebody and does not say who they are is a problem',
+      unintroduced(bare, cast).length === 1, JSON.stringify(unintroduced(bare, cast)));
+    check('…and one that puts their job beside the name is not',
+      unintroduced(said, cast).length === 0, JSON.stringify(unintroduced(said, cast)));
+    check('…nor is the full name, which introduces them by itself',
+      unintroduced(full, cast).length === 0, JSON.stringify(unintroduced(full, cast)));
+    const verbed = { greet: { title: 'Get round the shift',
+      why: 'Farrow runs the metering hut and wants you known to both crews before the handover.' } };
+    check('…nor is a sentence that simply says what they do',
+      unintroduced(verbed, cast).length === 0, JSON.stringify(unintroduced(verbed, cast)));
+    // The case that passed for the wrong reason: an honorific read as a first
+    // name, so "Dr. Patel has the notes" counted as a full-name introduction.
+    const titled = [{ name: 'Dr. Maya Patel', role: 'ED Director' }];
+    check('an honorific plus a surname is not an introduction',
+      unintroduced({ greet: { title: 'x',
+        why: 'Dr. Patel has the notes and the meeting she is going into lasts a whole hour.' } },
+        titled).length === 1);
+    check('…and the same card with her job on it is',
+      unintroduced({ greet: { title: 'x',
+        why: 'Dr. Patel runs the emergency department and has the notes you need before the meeting.' } },
+        titled).length === 0);
+
+    check('a name that is not on the roster is not a person',
+      unintroduced({ greet: { title: 'x', why: 'Walk down Whitlock Street before the shift starts today.' } },
+        cast).length === 0);
+  }
+
+  check('unwritten() names exactly the runs with no story',
+    unwritten(two, { greet: { title: 'a', why: 'b' } }).join(',')
+      === two.filter(p => p.slot !== 'greet').map(p => p.slot).join(','));
+
+  const bad = cases.filter(c => !c.ok);
+  for(const c of cases) console.log(`${c.ok ? '✓' : '✗'} selftest: ${c.name}${c.ok ? '' : ` — got: ${c.detail}`}`);
+  console.log(bad.length ? `\n${bad.length} selftest case(s) failed.` : '\n✓ all selftest cases pass.');
+  process.exit(bad.length ? 1 : 0);
+}

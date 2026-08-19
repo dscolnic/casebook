@@ -87,9 +87,30 @@ for(const name of wanted){
     fail(`both editions declare id "${mine.id}" — the save slot is ` +
          `gamekit_<id>_v1, so they would share a campaign`);
   }
+  // A *rewrite* is the one honest same-grade edition: the same course, the same
+  // reader, the questions re-authored from scratch so the two can be compared.
+  // It has to be declared in the manifest and it has to say why, because the
+  // failure this rule exists to catch — an edition nobody rewrote for anybody —
+  // looks identical from here and would otherwise be waved through by anyone
+  // who found the flag before reading the rule.
+  //
+  //   // same-grade-rewrite: a second authoring of the same course, for comparison
+  //
+  // Everything else on this page still applies: the place, the cast and the
+  // areas are the base game's, and only the course may move.
+  const rewriteWhy = /^\/\/\s*same-grade-rewrite:\s*(.+?)\s*$/m
+    .exec(readFileSync(resolve(dir, 'theme.js'), 'utf8'))?.[1];
   if(Number(mine.audience?.grade) === Number(theirs.audience?.grade)){
-    fail(`both editions declare grade ${mine.audience?.grade}: an edition that ` +
-         `is not written for a different reader is a second copy of the game`);
+    if(!rewriteWhy){
+      fail(`both editions declare grade ${mine.audience?.grade}: an edition that ` +
+           `is not written for a different reader is a second copy of the game`);
+    }else{
+      note(`same grade as ${base}, declared: ${rewriteWhy}`);
+    }
+  }else if(rewriteWhy){
+    fail(`declares "same-grade-rewrite" and is written for a different reader ` +
+         `(grade ${mine.audience?.grade} against ${theirs.audience?.grade}) — ` +
+         `delete the line, it claims something that is not true of this edition`);
   }
   for(const k of ['title', 'dayNoun', 'stopNoun']){
     if((mine[k] ?? null) !== (theirs[k] ?? null)){

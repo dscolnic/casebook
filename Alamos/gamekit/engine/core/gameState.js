@@ -266,7 +266,7 @@ export function dayRunning(){
  * Spend real seconds. Returns 'expired' on the frame the day runs out, so the
  * caller can put the day-over card up exactly once.
  *
- * `pace` scales the rate: 1 walking about, a quarter while a panel is open.
+ * `pace` scales the rate: 1 walking about, 0 while a panel is open.
  */
 export function tickDay(realSeconds, pace = 1){
   if(!dayRunning()) return null;
@@ -277,6 +277,16 @@ export function tickDay(realSeconds, pace = 1){
   // number and this reads it. `pace` is ignored here for the same reason: the
   // server applies the panel rate, because it is the only party that knows
   // whether ANYBODY has a panel open.
+  // A room whose socket is down is a room whose clock we do not own and cannot
+  // read. Falling through to the local countdown below looks harmless and is
+  // not: a thirty-second Wi-Fi drop near the end of a day lets this client run
+  // its own copy to zero, set `dayEnded`, and publish that on reconnect —
+  // ending the whole room's day from one person's router. The day is held
+  // instead, and the next heartbeat snaps it back to the room's number.
+  if(room.isRoom() && !room.isConnected()){
+    _state.timeHours = hourOfDay(_state);
+    return 'running';
+  }
   if(room.isRoom() && room.isConnected()){
     _state.dayLeft = room.clockLeft();
     if(room.clockBudget()) _state.dayBudget = room.clockBudget();
@@ -288,7 +298,16 @@ export function tickDay(realSeconds, pace = 1){
     }
     return 'running';
   }
-  const rate = Number.isFinite(pace) && pace > 0 ? pace : 1;
+  // Zero is a rate, not a missing argument. This read `pace > 0 ? pace : 1`, so
+  // the one value that means "stop the clock" was the one value that ran it at
+  // full speed — and the caller would have looked correct while the day drained
+  // four times faster behind an open panel than it did while walking. Negative
+  // and non-finite still fall back, because those are mistakes.
+  const rate = Number.isFinite(pace) && pace >= 0 ? pace : 1;
+  if(rate === 0){
+    _state.timeHours = hourOfDay(_state);
+    return 'running';
+  }
   _state.dayLeft = Math.max(0, _state.dayLeft - realSeconds * MINUTES_PER_SECOND * rate);
   // The world's light follows the countdown rather than a second clock.
   _state.timeHours = hourOfDay(_state);
@@ -346,7 +365,12 @@ export function applyRemoteState(next){
   const keepLeft = _state?.dayLeft;
   const keepBudget = _state?.dayBudget;
   _state = next;
-  if(Number.isFinite(keepLeft)) _state.dayLeft = keepLeft;
+  // ...except when the blob says the day is over. Somebody turned in, and the
+  // server's clock has been stopped, so our interpolated `dayLeft` is the last
+  // number a heartbeat happened to carry — keeping it leaves a HUD counting
+  // hours down on a day that has ended, and nothing to press.
+  if(_state.dayEnded) _state.dayLeft = 0;
+  else if(Number.isFinite(keepLeft)) _state.dayLeft = keepLeft;
   if(Number.isFinite(keepBudget) && keepBudget > 0) _state.dayBudget = keepBudget;
   ensureMissionFields();
   saveStateLocal(_state);

@@ -82,7 +82,7 @@ export const ROSTER = [
   {
     "id": "lindgren",
     "name": "Sten Lindgren",
-    "role": "Load Forecasting",
+    "role": "Load Forecasting Analyst",
     "division": "LOAD",
     "color": "#8e44ad",
     "bio": "<p>Forecasts demand, which he insists is a branch of anthropology conducted with a thermometer. Weather, the television schedule, the school holidays and whether it gets dark before people get home.</p><p>He is precise about what a forecast is: a distribution, not a number. The useful output is the width, because the width is what the reserve has to cover.</p><p>His limit is that the events worth forecasting are rare by construction, so the model is always best calibrated for the days that matter least.</p>",
@@ -101,7 +101,7 @@ export const ROSTER = [
   {
     "id": "farrow",
     "name": "June Farrow",
-    "role": "Metering & Standards",
+    "role": "Metering and Standards Engineer",
     "division": "METER",
     "color": "#b0762a",
     "bio": "<p>Owns the question nobody wants to open during an incident: is that number the number. Instrument transformers, telemetry lag, clock skew, and the cheerful confidence of a meter reading the wrong side of a saturated core.</p><p>She keeps the traceability chain because after the event there will be an inquiry, and the inquiry will run on the records rather than on anybody's memory of the night.</p><p>Her limit is that she is usually reconstructing rather than observing, and the highest-value seconds are the ones with the worst data.</p>",
@@ -269,7 +269,7 @@ export const LEADERS = [
   {
     "id": "lindgren",
     "name": "Sten Lindgren",
-    "role": "Load Forecasting",
+    "role": "Load Forecasting Analyst",
     "science": 4,
     "management": 4,
     "trait": ""
@@ -277,7 +277,7 @@ export const LEADERS = [
   {
     "id": "farrow",
     "name": "June Farrow",
-    "role": "Metering & Standards",
+    "role": "Metering and Standards Engineer",
     "science": 4,
     "management": 4,
     "trait": ""

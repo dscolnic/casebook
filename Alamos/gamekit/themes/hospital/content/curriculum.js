@@ -10,6 +10,12 @@ export const CURRICULUM = {
       "scene": "Three patients arrive at almost the same time. Ava sits very still and breathes hard. Ben can walk, but his ankle hurts. Maya has an itchy patch on her arm. One exam room is free. Hospitals do not always help people in the order they arrive. Some problems stay the same for an hour. Others get worse fast. Picking who goes first is called triage.",
       "takeaway": "Doctors use urgency, not first-come-first-served order, when several patients need help at once.",
       "place": "",
+      "guide": "All four people need help. That is not the question. Ask one thing of each. Which of them gets worse while you help somebody else? A sore ankle stays about the same. So does an itchy patch. Breathing is not like that.",
+      "background": [
+        "Why first is a different question from best. When there is more than one call on the same hour, the value of doing something now is not how much it matters. It is how much is lost by doing it later. Something important that will be just as fixable in an hour can wait. Something small that will not be fixable can not.",
+        "What to look for in the options. Ask which one changes if you wait — a reading that is still moving, a person who is getting worse, a window that closes. Then ask which ones can only be done after something else. Those two questions usually leave one option standing.",
+        "Why only one answer is marked. Real shifts do all of these, in some order. The stop asks for the front of that order because that is the only part where the reasoning shows. Read the verdict afterwards even when you are right — it says what the others were waiting on, which is the rest of the answer."
+      ],
       "story": "Three patients arrive at almost the same time. Ava sits very still and breathes hard. Ben can walk, but his ankle hurts. Maya has an itchy patch on her arm. One exam room is free. Hospitals do not always help people in the order they arrive. Some problems stay the same for an hour. Others get worse fast. Picking who goes first is called triage.",
       "game": {
         "type": "TRIAGE",
@@ -35,7 +41,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your body needs air all the time"
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Emergency assessment and triage",
+        "of": 30,
+        "rests": [
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
     },
     {
       "day": 2,
@@ -43,6 +57,12 @@ export const CURRICULUM = {
       "scene": "Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature with a thermometer. She counts his pulse too. All of it goes on his chart. But the clues are not all the same kind. Some you notice. Some the patient tells you. Some come from a tool, as a number.",
       "takeaway": "Doctors combine observations, patient stories, and measurements. They are different kinds of clues.",
       "place": "",
+      "guide": "All four clues are real and useful. They come from different places. One you see. One the patient tells you. One comes from a tool, as a number. Ask of each where it came from. That is what decides this one.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature with a thermometer. She counts his pulse too. All of it goes on his chart. But the clues are not all the same kind. Some you notice. Some the patient tells you. Some come from a tool, as a number.",
       "game": {
         "type": "CHOICE",
@@ -68,7 +88,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a tool can give you a number"
-      ]
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Vital signs, measurement and normal ranges",
+        "of": 30
+      }
     },
     {
       "day": 3,
@@ -76,6 +101,12 @@ export const CURRICULUM = {
       "scene": "Ben is here for his ankle check. The team has four things to do. Clean hands. Ben's story. A look at the ankle. A note for the next person.",
       "takeaway": "Each step in a hospital routine is there to make the next one work.",
       "place": "",
+      "guide": "All four steps happen. So ask what each one needs first. What is on your hands goes on to Ben. His story tells you where to look. And the note is for the nurse who comes after you.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Ben is ready for his ankle check. This is your first time running the room. Hospitals do the same steps in the same order every time. That can feel slow. It is how a busy team makes sure nothing is missed. Clean hands, Ben's story, a careful look, and a clear note all have a place. Someone else will read that note later.",
       "game": {
         "type": "SEQUENCE",
@@ -101,7 +132,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "germs can travel on hands"
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Germs, transmission and hand hygiene",
+        "of": 30,
+        "rests": [
+          "Immune defence and inflammation"
+        ]
+      }
     },
     {
       "day": 4,
@@ -109,6 +148,12 @@ export const CURRICULUM = {
       "scene": "The waiting board is full. Nora breathes hard and cannot finish a sentence. DeShawn can walk on a sore ankle. Mei has a fever and cough but breathes fine. Mr. Alvarez feels lightheaded but is awake. Fatima has itchy eyes. Owen has a small covered scrape. One room is free. Triage asks which problem could get dangerous fastest.",
       "takeaway": "Triage means asking, “Which problem could become dangerous fastest?”",
       "place": "",
+      "guide": "All six are real, and all six need something. Ask of each what happens while everybody waits. A sore ankle waits well. A fever waits. Feeling faint is worth a look. Only one of them can get worse quickly.",
+      "background": [
+        "Why first is a different question from best. When there is more than one call on the same hour, the value of doing something now is not how much it matters. It is how much is lost by doing it later. Something important that will be just as fixable in an hour can wait. Something small that will not be fixable can not.",
+        "What to look for in the options. Ask which one changes if you wait — a reading that is still moving, a person who is getting worse, a window that closes. Then ask which ones can only be done after something else. Those two questions usually leave one option standing.",
+        "Why only one answer is marked. Real shifts do all of these, in some order. The stop asks for the front of that order because that is the only part where the reasoning shows. Read the verdict afterwards even when you are right — it says what the others were waiting on, which is the rest of the answer."
+      ],
       "story": "The waiting board is full. Nora breathes hard and cannot finish a sentence. DeShawn can walk on a sore ankle. Mei has a fever and cough but breathes fine. Mr. Alvarez feels lightheaded but is awake. Fatima has itchy eyes. Owen has a small covered scrape. One room is free. Triage asks which problem could get dangerous fastest.",
       "game": {
         "type": "TRIAGE",
@@ -151,7 +196,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Emergency assessment and triage",
+        "of": 30,
+        "rests": [
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
     },
     {
       "day": 5,
@@ -159,6 +212,12 @@ export const CURRICULUM = {
       "scene": "Nora is with the emergency team now. Five other patients still need a next stop. A hospital is not one big room. It is a set of special places. Each one is set up to answer a certain kind of question. The right place means the right test the first time. The wrong place costs a patient hours.",
       "takeaway": "Hospitals are teams of specialized places that work together.",
       "place": "",
+      "guide": "Five people and five places. Pair them by asking what each clue needs. A picture of a bone? A check for germs? Some numbers taken? Send them all one place and most of them wait for the wrong thing.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Nora is with the emergency team now. Five other patients still need a next stop. A hospital is not one big room. It is a set of special places. Each one is set up to answer a certain kind of question. The right place means the right test the first time. The wrong place costs a patient hours.",
       "game": {
         "type": "CASEBOOK",
@@ -201,7 +260,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Emergency assessment and triage",
+        "of": 30,
+        "rests": [
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
     },
     {
       "day": 6,
@@ -209,6 +276,12 @@ export const CURRICULUM = {
       "scene": "Your shift is ending. The evening team is arriving. They were not here for any of today. They cannot read every note in time. A handoff is a summary built for them. Who each patient is. What matters most. What has been done. What to watch for. Careful work only helps if the next person can use it.",
       "takeaway": "Science is only useful if the next person can understand and act on the evidence.",
       "place": "",
+      "guide": "All four things get said. Ask what the other nurse knows already. Nothing at all. So start with who it is and what is wrong. Then the clues, so they can judge. Get the order wrong and they hear the answer first.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Your shift is ending. The evening team is arriving. They were not here for any of today. They cannot read every note in time. A handoff is a summary built for them. Who each patient is. What matters most. What has been done. What to watch for. Careful work only helps if the next person can use it.",
       "game": {
         "type": "SEQUENCE",
@@ -251,7 +324,12 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Vital signs, measurement and normal ranges",
+        "of": 30
+      }
     },
     {
       "day": 7,
@@ -259,6 +337,12 @@ export const CURRICULUM = {
       "scene": "Three patients arrive at almost the same time. Ava is sitting very still and breathing hard. Ben can walk, but his ankle hurts. Maya is smiling and showing the nurse an itchy patch on her arm. The team asks you to decide who should be brought to an exam room first.",
       "takeaway": "Doctors use urgency, not first-come-first-served order, when several patients need help at once.",
       "place": "",
+      "guide": "All four people need help. That is not the question. Ask one thing of each. Which of them gets worse while you help somebody else? A sore ankle stays about the same. So does an itchy patch. Breathing is not like that.",
+      "background": [
+        "Why first is a different question from best. When there is more than one call on the same hour, the value of doing something now is not how much it matters. It is how much is lost by doing it later. Something important that will be just as fixable in an hour can wait. Something small that will not be fixable can not.",
+        "What to look for in the options. Ask which one changes if you wait — a reading that is still moving, a person who is getting worse, a window that closes. Then ask which ones can only be done after something else. Those two questions usually leave one option standing.",
+        "Why only one answer is marked. Real shifts do all of these, in some order. The stop asks for the front of that order because that is the only part where the reasoning shows. Read the verdict afterwards even when you are right — it says what the others were waiting on, which is the rest of the answer."
+      ],
       "story": "Three patients arrive at almost the same time. Ava is sitting very still and breathing hard. Ben can walk, but his ankle hurts. Maya is smiling and showing the nurse an itchy patch on her arm. The team asks you to decide who should be brought to an exam room first.",
       "game": {
         "type": "TRIAGE",
@@ -301,7 +385,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Emergency assessment and triage",
+        "of": 30,
+        "rests": [
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
     },
     {
       "day": 8,
@@ -309,6 +401,12 @@ export const CURRICULUM = {
       "scene": "Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature and pulse. The chart now contains both things the team noticed and numbers from tools.",
       "takeaway": "Doctors combine observations, patient stories, and measurements. They are different kinds of clues.",
       "place": "",
+      "guide": "All four clues are real and useful. They come from different places. One you see. One the patient tells you. One comes from a tool, as a number. Ask of each where it came from. That is what decides this one.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature and pulse. The chart now contains both things the team noticed and numbers from tools.",
       "game": {
         "type": "CHOICE",
@@ -351,7 +449,12 @@ export const CURRICULUM = {
           ],
           "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute."
         }
-      ]
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Vital signs, measurement and normal ranges",
+        "of": 30
+      }
     },
     {
       "day": 9,
@@ -359,6 +462,12 @@ export const CURRICULUM = {
       "scene": "Ben is here for his ankle check. The team has four things to do. Clean hands. Ben's story. A look at the ankle. A note for the next person.",
       "takeaway": "Each step in a hospital routine is there to make the next one work.",
       "place": "",
+      "guide": "All four steps happen. So ask what each one needs first. What is on your hands goes on to Ben. His story tells you where to look. And the note is for the nurse who comes after you.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Ben is ready for his ankle check. Before anyone decides what happened, the team needs clean hands, Ben’s story, a look at the ankle, and a clear note for the next clinician.",
       "game": {
         "type": "SEQUENCE",
@@ -401,7 +510,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Germs, transmission and hand hygiene",
+        "of": 30,
+        "rests": [
+          "Immune defence and inflammation"
+        ]
+      }
     },
     {
       "day": 10,
@@ -409,6 +526,12 @@ export const CURRICULUM = {
       "scene": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Fatima has itchy eyes. Owen has a small covered scrape.",
       "takeaway": "Triage means asking, “Which problem could become dangerous fastest?”",
       "place": "",
+      "guide": "All six are real, and all six need something. Ask of each what happens while everybody waits. A sore ankle waits well. A fever waits. Feeling faint is worth a look. Only one of them can get worse quickly.",
+      "background": [
+        "Why first is a different question from best. When there is more than one call on the same hour, the value of doing something now is not how much it matters. It is how much is lost by doing it later. Something important that will be just as fixable in an hour can wait. Something small that will not be fixable can not.",
+        "What to look for in the options. Ask which one changes if you wait — a reading that is still moving, a person who is getting worse, a window that closes. Then ask which ones can only be done after something else. Those two questions usually leave one option standing.",
+        "Why only one answer is marked. Real shifts do all of these, in some order. The stop asks for the front of that order because that is the only part where the reasoning shows. Read the verdict afterwards even when you are right — it says what the others were waiting on, which is the rest of the answer."
+      ],
       "story": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Fatima has itchy eyes. Owen has a small covered scrape.",
       "game": {
         "type": "TRIAGE",
@@ -451,7 +574,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Emergency assessment and triage",
+        "of": 30,
+        "rests": [
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
     },
     {
       "day": 11,
@@ -459,6 +590,12 @@ export const CURRICULUM = {
       "scene": "After Nora is with the emergency team, five other patients need the best next stop. Match each clue to the hospital area that can answer the most useful question.",
       "takeaway": "Hospitals are teams of specialized places that work together.",
       "place": "",
+      "guide": "Five people and five places. Pair them by asking what each clue needs. A picture of a bone? A check for germs? Some numbers taken? Send them all one place and most of them wait for the wrong thing.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "After Nora is with the emergency team, five other patients need the best next stop. Match each clue to the hospital area that can answer the most useful question.",
       "game": {
         "type": "CASEBOOK",
@@ -501,7 +638,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Emergency assessment and triage",
+        "of": 30,
+        "rests": [
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
     },
     {
       "day": 12,
@@ -509,6 +654,12 @@ export const CURRICULUM = {
       "scene": "Your shift is ending. The evening team does not need every tiny detail; they need the most important facts for each patient.",
       "takeaway": "Science is only useful if the next person can understand and act on the evidence.",
       "place": "",
+      "guide": "All four things get said. Ask what the other nurse knows already. Nothing at all. So start with who it is and what is wrong. Then the clues, so they can judge. Get the order wrong and they hear the answer first.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Your shift is ending. The evening team does not need every tiny detail; they need the most important facts for each patient.",
       "game": {
         "type": "SEQUENCE",
@@ -551,7 +702,12 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Vital signs, measurement and normal ranges",
+        "of": 30
+      }
     },
     {
       "day": 13,
@@ -559,6 +715,12 @@ export const CURRICULUM = {
       "scene": "Three patients arrive at almost the same time. Ava is sitting very still and breathing hard. Ben can walk, but his ankle hurts. Maya is smiling and showing the nurse an itchy patch on her arm. The team asks you to decide who should be brought to an exam room first.",
       "takeaway": "Doctors use urgency, not first-come-first-served order, when several patients need help at once.",
       "place": "",
+      "guide": "All four people need help. That is not the question. Ask one thing of each. Which of them gets worse while you help somebody else? A sore ankle stays about the same. So does an itchy patch. Breathing is not like that.",
+      "background": [
+        "Why first is a different question from best. When there is more than one call on the same hour, the value of doing something now is not how much it matters. It is how much is lost by doing it later. Something important that will be just as fixable in an hour can wait. Something small that will not be fixable can not.",
+        "What to look for in the options. Ask which one changes if you wait — a reading that is still moving, a person who is getting worse, a window that closes. Then ask which ones can only be done after something else. Those two questions usually leave one option standing.",
+        "Why only one answer is marked. Real shifts do all of these, in some order. The stop asks for the front of that order because that is the only part where the reasoning shows. Read the verdict afterwards even when you are right — it says what the others were waiting on, which is the rest of the answer."
+      ],
       "story": "Three patients arrive at almost the same time. Ava is sitting very still and breathing hard. Ben can walk, but his ankle hurts. Maya is smiling and showing the nurse an itchy patch on her arm. The team asks you to decide who should be brought to an exam room first.",
       "game": {
         "type": "TRIAGE",
@@ -601,7 +763,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Emergency assessment and triage",
+        "of": 30,
+        "rests": [
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
     },
     {
       "day": 14,
@@ -609,6 +779,12 @@ export const CURRICULUM = {
       "scene": "Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature and pulse. The chart now contains both things the team noticed and numbers from tools.",
       "takeaway": "Doctors combine observations, patient stories, and measurements. They are different kinds of clues.",
       "place": "",
+      "guide": "All four clues are real and useful. They come from different places. One you see. One the patient tells you. One comes from a tool, as a number. Ask of each where it came from. That is what decides this one.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature and pulse. The chart now contains both things the team noticed and numbers from tools.",
       "game": {
         "type": "CHOICE",
@@ -651,7 +827,12 @@ export const CURRICULUM = {
           ],
           "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute."
         }
-      ]
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Vital signs, measurement and normal ranges",
+        "of": 30
+      }
     },
     {
       "day": 15,
@@ -659,6 +840,12 @@ export const CURRICULUM = {
       "scene": "Ben is here for his ankle check. The team has four things to do. Clean hands. Ben's story. A look at the ankle. A note for the next person.",
       "takeaway": "Each step in a hospital routine is there to make the next one work.",
       "place": "",
+      "guide": "All four steps happen. So ask what each one needs first. What is on your hands goes on to Ben. His story tells you where to look. And the note is for the nurse who comes after you.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Ben is ready for his ankle check. Before anyone decides what happened, the team needs clean hands, Ben’s story, a look at the ankle, and a clear note for the next clinician.",
       "game": {
         "type": "SEQUENCE",
@@ -701,7 +888,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Germs, transmission and hand hygiene",
+        "of": 30,
+        "rests": [
+          "Immune defence and inflammation"
+        ]
+      }
     },
     {
       "day": 16,
@@ -709,6 +904,12 @@ export const CURRICULUM = {
       "scene": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Fatima has itchy eyes. Owen has a small covered scrape.",
       "takeaway": "Triage means asking, “Which problem could become dangerous fastest?”",
       "place": "",
+      "guide": "All six are real, and all six need something. Ask of each what happens while everybody waits. A sore ankle waits well. A fever waits. Feeling faint is worth a look. Only one of them can get worse quickly.",
+      "background": [
+        "Why first is a different question from best. When there is more than one call on the same hour, the value of doing something now is not how much it matters. It is how much is lost by doing it later. Something important that will be just as fixable in an hour can wait. Something small that will not be fixable can not.",
+        "What to look for in the options. Ask which one changes if you wait — a reading that is still moving, a person who is getting worse, a window that closes. Then ask which ones can only be done after something else. Those two questions usually leave one option standing.",
+        "Why only one answer is marked. Real shifts do all of these, in some order. The stop asks for the front of that order because that is the only part where the reasoning shows. Read the verdict afterwards even when you are right — it says what the others were waiting on, which is the rest of the answer."
+      ],
       "story": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Fatima has itchy eyes. Owen has a small covered scrape.",
       "game": {
         "type": "TRIAGE",
@@ -751,7 +952,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Emergency assessment and triage",
+        "of": 30,
+        "rests": [
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
     },
     {
       "day": 17,
@@ -759,6 +968,12 @@ export const CURRICULUM = {
       "scene": "After Nora is with the emergency team, five other patients need the best next stop. Match each clue to the hospital area that can answer the most useful question.",
       "takeaway": "Hospitals are teams of specialized places that work together.",
       "place": "",
+      "guide": "Five people and five places. Pair them by asking what each clue needs. A picture of a bone? A check for germs? Some numbers taken? Send them all one place and most of them wait for the wrong thing.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "After Nora is with the emergency team, five other patients need the best next stop. Match each clue to the hospital area that can answer the most useful question.",
       "game": {
         "type": "CASEBOOK",
@@ -801,7 +1016,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Emergency assessment and triage",
+        "of": 30,
+        "rests": [
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
     },
     {
       "day": 18,
@@ -809,6 +1032,12 @@ export const CURRICULUM = {
       "scene": "Your shift is ending. The evening team does not need every tiny detail; they need the most important facts for each patient.",
       "takeaway": "Science is only useful if the next person can understand and act on the evidence.",
       "place": "",
+      "guide": "All four things get said. Ask what the other nurse knows already. Nothing at all. So start with who it is and what is wrong. Then the clues, so they can judge. Get the order wrong and they hear the answer first.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Your shift is ending. The evening team does not need every tiny detail; they need the most important facts for each patient.",
       "game": {
         "type": "SEQUENCE",
@@ -851,7 +1080,12 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Vital signs, measurement and normal ranges",
+        "of": 30
+      }
     },
     {
       "day": 19,
@@ -859,6 +1093,12 @@ export const CURRICULUM = {
       "scene": "Three patients arrive at almost the same time. Ava is sitting very still and breathing hard. Ben can walk, but his ankle hurts. Maya is smiling and showing the nurse an itchy patch on her arm. The team asks you to decide who should be brought to an exam room first.",
       "takeaway": "Doctors use urgency, not first-come-first-served order, when several patients need help at once.",
       "place": "",
+      "guide": "All four people need help. That is not the question. Ask one thing of each. Which of them gets worse while you help somebody else? A sore ankle stays about the same. So does an itchy patch. Breathing is not like that.",
+      "background": [
+        "Why first is a different question from best. When there is more than one call on the same hour, the value of doing something now is not how much it matters. It is how much is lost by doing it later. Something important that will be just as fixable in an hour can wait. Something small that will not be fixable can not.",
+        "What to look for in the options. Ask which one changes if you wait — a reading that is still moving, a person who is getting worse, a window that closes. Then ask which ones can only be done after something else. Those two questions usually leave one option standing.",
+        "Why only one answer is marked. Real shifts do all of these, in some order. The stop asks for the front of that order because that is the only part where the reasoning shows. Read the verdict afterwards even when you are right — it says what the others were waiting on, which is the rest of the answer."
+      ],
       "story": "Three patients arrive at almost the same time. Ava is sitting very still and breathing hard. Ben can walk, but his ankle hurts. Maya is smiling and showing the nurse an itchy patch on her arm. The team asks you to decide who should be brought to an exam room first.",
       "game": {
         "type": "TRIAGE",
@@ -901,7 +1141,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Emergency assessment and triage",
+        "of": 30,
+        "rests": [
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
     },
     {
       "day": 20,
@@ -909,6 +1157,12 @@ export const CURRICULUM = {
       "scene": "Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature and pulse. The chart now contains both things the team noticed and numbers from tools.",
       "takeaway": "Doctors combine observations, patient stories, and measurements. They are different kinds of clues.",
       "place": "",
+      "guide": "All four clues are real and useful. They come from different places. One you see. One the patient tells you. One comes from a tool, as a number. Ask of each where it came from. That is what decides this one.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature and pulse. The chart now contains both things the team noticed and numbers from tools.",
       "game": {
         "type": "CHOICE",
@@ -951,7 +1205,12 @@ export const CURRICULUM = {
           ],
           "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute."
         }
-      ]
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Vital signs, measurement and normal ranges",
+        "of": 30
+      }
     },
     {
       "day": 21,
@@ -959,6 +1218,12 @@ export const CURRICULUM = {
       "scene": "Ben is here for his ankle check. The team has four things to do. Clean hands. Ben's story. A look at the ankle. A note for the next person.",
       "takeaway": "Each step in a hospital routine is there to make the next one work.",
       "place": "",
+      "guide": "All four steps happen. So ask what each one needs first. What is on your hands goes on to Ben. His story tells you where to look. And the note is for the nurse who comes after you.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Ben is ready for his ankle check. Before anyone decides what happened, the team needs clean hands, Ben’s story, a look at the ankle, and a clear note for the next clinician.",
       "game": {
         "type": "SEQUENCE",
@@ -1001,7 +1266,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Germs, transmission and hand hygiene",
+        "of": 30,
+        "rests": [
+          "Immune defence and inflammation"
+        ]
+      }
     },
     {
       "day": 22,
@@ -1009,6 +1282,12 @@ export const CURRICULUM = {
       "scene": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Fatima has itchy eyes. Owen has a small covered scrape.",
       "takeaway": "Triage means asking, “Which problem could become dangerous fastest?”",
       "place": "",
+      "guide": "All six are real, and all six need something. Ask of each what happens while everybody waits. A sore ankle waits well. A fever waits. Feeling faint is worth a look. Only one of them can get worse quickly.",
+      "background": [
+        "Why first is a different question from best. When there is more than one call on the same hour, the value of doing something now is not how much it matters. It is how much is lost by doing it later. Something important that will be just as fixable in an hour can wait. Something small that will not be fixable can not.",
+        "What to look for in the options. Ask which one changes if you wait — a reading that is still moving, a person who is getting worse, a window that closes. Then ask which ones can only be done after something else. Those two questions usually leave one option standing.",
+        "Why only one answer is marked. Real shifts do all of these, in some order. The stop asks for the front of that order because that is the only part where the reasoning shows. Read the verdict afterwards even when you are right — it says what the others were waiting on, which is the rest of the answer."
+      ],
       "story": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Fatima has itchy eyes. Owen has a small covered scrape.",
       "game": {
         "type": "TRIAGE",
@@ -1051,7 +1330,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Emergency assessment and triage",
+        "of": 30,
+        "rests": [
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
     },
     {
       "day": 23,
@@ -1059,6 +1346,12 @@ export const CURRICULUM = {
       "scene": "After Nora is with the emergency team, five other patients need the best next stop. Match each clue to the hospital area that can answer the most useful question.",
       "takeaway": "Hospitals are teams of specialized places that work together.",
       "place": "",
+      "guide": "Five people and five places. Pair them by asking what each clue needs. A picture of a bone? A check for germs? Some numbers taken? Send them all one place and most of them wait for the wrong thing.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "After Nora is with the emergency team, five other patients need the best next stop. Match each clue to the hospital area that can answer the most useful question.",
       "game": {
         "type": "CASEBOOK",
@@ -1101,7 +1394,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Emergency assessment and triage",
+        "of": 30,
+        "rests": [
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
     },
     {
       "day": 24,
@@ -1109,6 +1410,12 @@ export const CURRICULUM = {
       "scene": "Your shift is ending. The evening team does not need every tiny detail; they need the most important facts for each patient.",
       "takeaway": "Science is only useful if the next person can understand and act on the evidence.",
       "place": "",
+      "guide": "All four things get said. Ask what the other nurse knows already. Nothing at all. So start with who it is and what is wrong. Then the clues, so they can judge. Get the order wrong and they hear the answer first.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Your shift is ending. The evening team does not need every tiny detail; they need the most important facts for each patient.",
       "game": {
         "type": "SEQUENCE",
@@ -1151,7 +1458,12 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Vital signs, measurement and normal ranges",
+        "of": 30
+      }
     },
     {
       "day": 25,
@@ -1159,6 +1471,12 @@ export const CURRICULUM = {
       "scene": "Three patients arrive at almost the same time. Ava is sitting very still and breathing hard. Ben can walk, but his ankle hurts. Maya is smiling and showing the nurse an itchy patch on her arm. The team asks you to decide who should be brought to an exam room first.",
       "takeaway": "Doctors use urgency, not first-come-first-served order, when several patients need help at once.",
       "place": "",
+      "guide": "All four people need help. That is not the question. Ask one thing of each. Which of them gets worse while you help somebody else? A sore ankle stays about the same. So does an itchy patch. Breathing is not like that.",
+      "background": [
+        "Why first is a different question from best. When there is more than one call on the same hour, the value of doing something now is not how much it matters. It is how much is lost by doing it later. Something important that will be just as fixable in an hour can wait. Something small that will not be fixable can not.",
+        "What to look for in the options. Ask which one changes if you wait — a reading that is still moving, a person who is getting worse, a window that closes. Then ask which ones can only be done after something else. Those two questions usually leave one option standing.",
+        "Why only one answer is marked. Real shifts do all of these, in some order. The stop asks for the front of that order because that is the only part where the reasoning shows. Read the verdict afterwards even when you are right — it says what the others were waiting on, which is the rest of the answer."
+      ],
       "story": "Three patients arrive at almost the same time. Ava is sitting very still and breathing hard. Ben can walk, but his ankle hurts. Maya is smiling and showing the nurse an itchy patch on her arm. The team asks you to decide who should be brought to an exam room first.",
       "game": {
         "type": "TRIAGE",
@@ -1201,130 +1519,30 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Emergency assessment and triage",
+        "of": 30,
+        "rests": [
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
     }
   ],
   "RESP": [
     {
       "day": 1,
-      "title": "Follow One Breath",
-      "scene": "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood.",
-      "takeaway": "The lungs are the meeting place between outside air and the blood.",
-      "place": "",
-      "story": "Priya takes a deep breath. She asks where the air goes. The therapist hands you four picture cards. Every cell in her body needs oxygen. No cell can go and get it by itself. So the breathing system brings air deep inside. There the blood picks the oxygen up. Knowing the path helps you find where a problem is.",
-      "game": {
-        "type": "SEQUENCE",
-        "title": "Follow One Breath",
-        "setup": "Priya  •  Respiratory Room",
-        "play": "Put the path of a breath in order.",
-        "task": "Put the path of a breath in order.",
-        "question": "Put the path of a breath in order.",
-        "answer": "Air enters through the nose or mouth. -> Air moves down the windpipe. -> Air reaches the lungs. -> Oxygen moves into the blood to travel around the body.",
-        "why": "Air has to travel to get where it is needed. In through the nose or mouth. Down the windpipe. Into the lungs. Only then can oxygen move into the blood. The blood carries it to every part of the body. Knowing the path helps you guess where a problem might be.",
-        "cards": [
-          "Air enters through the nose or mouth.",
-          "Air moves down the windpipe.",
-          "Air reaches the lungs.",
-          "Oxygen moves into the blood to travel around the body."
-        ],
-        "order": [
-          0,
-          1,
-          2,
-          3
-        ]
-      },
-      "assumes": [
-        "air goes in through your nose and mouth"
-      ]
-    },
-    {
-      "day": 2,
-      "title": "The Dusty-Room Clue",
-      "scene": "Noah helped clean a dusty storage room. Now he is wheezing. He can still talk. Each breath makes a small whistling sound. The team is with him. One clue by itself does not mean much. The useful question is which body part could make that clue. A whistle needs air squeezing through a narrow space. So the clue points somewhere.",
-      "takeaway": "A clue is useful when you connect it to the body system that could produce it.",
-      "place": "",
-      "story": "Noah helped clean a dusty storage room. Now he is wheezing. He can still talk. Each breath makes a small whistling sound. The team is with him. One clue by itself does not mean much. The useful question is which body part could make that clue. A whistle needs air squeezing through a narrow space. So the clue points somewhere.",
-      "game": {
-        "type": "CHOICE",
-        "title": "The Dusty-Room Clue",
-        "setup": "Noah  •  Pediatric Wing",
-        "play": "Which body system should the team focus on first?",
-        "task": "Which body system should the team focus on first?",
-        "question": "Which body system should the team focus on first?",
-        "answer": "The breathing system — the airways and lungs.",
-        "why": "A whistle needs air squeezing through a narrow space. Noah makes that sound with every breath. So it is the breathing tubes that got narrow. That is what wheezing is. One clue on its own does not mean much. This one is useful because you can name the part that made it.",
-        "rebuttals": [
-          "B. The throat and voice box, because that is where whistling sounds are made. — The voice box makes talking sounds. This whistle comes with every breath, from lower down.",
-          "C. The heart and blood vessels, because a whistle could be blood rushing. — The heart makes a thump you hear with a stethoscope. It does not whistle when Noah breathes.",
-          "D. The digestive system, because Noah breathed in dust and swallowed some. — Dust may reach his stomach. A stomach does not make a sound with each breath."
-        ],
-        "choices": [
-          "The breathing system — the airways and lungs.",
-          "The throat and voice box, because that is where whistling sounds are made.",
-          "The heart and blood vessels, because a whistle could be blood rushing.",
-          "The digestive system, because Noah breathed in dust and swallowed some."
-        ],
-        "correctChoice": "The breathing system — the airways and lungs."
-      },
-      "assumes": [
-        "blowing through a small gap makes a whistle"
-      ]
-    },
-    {
-      "day": 3,
-      "title": "Count the Breaths",
-      "scene": "Mrs. Grant is resting. The nurse counts 5 breaths in 15 seconds. She asks you for the one minute number. This is math practice only.",
-      "takeaway": "Doctors often turn short counts into one-minute estimates.",
-      "place": "",
-      "story": "Mrs. Grant is resting. The nurse counts 5 breaths in 15 seconds. She asks you for the one minute number. Nurses count in short blocks because it is faster. People also breathe differently when they know you are watching. 15 seconds is 1 quarter of a minute. This is math practice only. The care team decides what numbers mean.",
-      "game": {
-        "type": "BALLPARK",
-        "title": "Count the Breaths",
-        "setup": "Mrs. Grant  •  Nurse Station",
-        "play": "5 breaths in 15 seconds is about how many breaths in 60 seconds?",
-        "task": "5 breaths in 15 seconds is about how many breaths in 60 seconds?",
-        "question": "5 breaths in 15 seconds is about how many breaths in 60 seconds?",
-        "answer": "20",
-        "why": "1 minute has 4 15-second parts. So 5 breaths in 15 seconds is 5 4 times, which is 20. Nurses count short blocks to save time. People also breathe differently when they know somebody is watching. So a short count is often the honest one.",
-        "rebuttals": [
-          "A. 10 — 10 would be only 2 groups of 5.",
-          "B. 15 — 15 would be 3 groups of 5.",
-          "D. 60 — 60 is the number of seconds in a minute, not the estimated number of breaths."
-        ],
-        "givens": [
-          "Use the numbers shown"
-        ],
-        "relationship": "A minute has four fifteen-second parts. Breaths in a minute = breaths in 15 seconds × 4."
-      },
-      "assumes": [
-        "a minute has 60 seconds"
-      ],
-      "equations": [
-        {
-          "e": "breaths in a minute = breaths in 15 seconds × 4",
-          "c": "the same scaling for breathing",
-          "v": [
-            [
-              "breaths in 15 seconds",
-              "how many breaths you counted"
-            ],
-            [
-              "× 4",
-              "four fifteen-second blocks make a minute"
-            ]
-          ],
-          "s": "The same trick works for breathing, as long as the child does not know you are counting.",
-          "computed": true
-        }
-      ]
-    },
-    {
-      "day": 4,
       "title": "The Blood Loop",
       "scene": "A heart model sits on the table. Four arrow cards lie beside it. The nurse says blood moves in a loop. Heart, lungs, heart, body, and back.",
       "takeaway": "Circulation is a loop, not a one-way trip.",
       "place": "",
+      "guide": "These four make a loop. Ask what each step needs before it. Blood cannot bring oxygen to the body before it picks any up. And it picks it up in the lungs. Start at the heart and follow it round.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "A heart model sits on the table. Four arrow cards lie beside it. The nurse says blood does not travel one way and stop. It goes around and around, all day and all night. It picks up oxygen, comes back, drops it off, and returns. The heart is the pump that keeps it moving. Put the arrows in order.",
       "game": {
         "type": "SEQUENCE",
@@ -1350,14 +1568,23 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the heart is a pump"
-      ]
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Heart and circulation",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
-      "day": 5,
+      "day": 2,
       "title": "Pulse Math",
       "scene": "Jordan is resting after the stairs. The therapist counts 18 beats in 15 seconds. She asks you for the one minute number. This is math practice only.",
       "takeaway": "A pulse is a clue that the heart is beating and moving blood.",
       "place": "",
+      "guide": "Two things matter here. How many beats, and how long you counted for. Ask what the question wants. It asks about a whole minute. So work out how many of your parts fit in one. Nurses count short blocks to save time.",
       "story": "Jordan just climbed the stairs. Now he is resting. The therapist counts 18 beats in 15 seconds. Each heartbeat pushes blood along. That push makes a little bump you can feel. Counting it needs only fingers and a clock. It is one of the oldest checks in medicine. 15 seconds is a quarter of a minute.",
       "game": {
         "type": "BALLPARK",
@@ -1398,36 +1625,69 @@ export const CURRICULUM = {
           "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Pulse and blood pressure",
+        "of": 30,
+        "rests": [
+          "Heart and circulation",
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
     },
     {
-      "day": 6,
+      "day": 3,
       "title": "Why the Faster Pulse?",
       "scene": "Jordan's pulse was slow while he sat. It was fast right after the stairs. He feels fine now. The doctor asks you why it went up.",
       "takeaway": "Body systems work together. Muscles, lungs, blood, and heart all change during exercise.",
-      "place": "",
-      "story": "Jordan's pulse was slow while he sat. It was faster right after the stairs. He feels fine now. The doctor asks you why it changed. A pulse is not one fixed number for a person. It goes up and down during the day. Body parts also work as a team. When one changes, another often changes too.",
+      "place": "Exam Room 2",
+      "guide": "Say what his pulse will be right after the stairs. Write your number down first. Then he climbs, and you count his pulse for a minute. Sitting still it was 76. Working muscles need more oxygen, and the blood carries it.",
+      "background": [
+        "What a pulse is. Each beat pushes blood along, and you can feel it in the wrist. Counting the beats in a minute tells you how fast the heart is working.",
+        "Why muscles change it. Muscles need oxygen to work. Blood carries oxygen. When the muscles work harder, the heart beats faster to send the blood round faster.",
+        "Why guessing first matters. If you look at the number and then explain it, any answer sounds right. If you say the number first, the count can tell you whether you understood what the body was going to do."
+      ],
+      "story": "Jordan's pulse was slow while he sat. It was fast right after the stairs. He feels fine now. The doctor asks you why it went up.",
       "game": {
-        "type": "CHOICE",
+        "type": "VERIFY",
         "title": "Why the Faster Pulse?",
-        "setup": "Jordan  •  Treatment Room",
+        "setup": "Exam Room 2",
         "play": "What is the best explanation?",
         "task": "What is the best explanation?",
-        "question": "What is the best explanation?",
-        "answer": "Working muscles need more oxygen, so the heart moves blood faster.",
-        "why": "Working muscles need more oxygen. Blood is what carries oxygen. So the heart pumps faster to get more blood to them. A pulse is not one fixed number for a person. It goes up and down all day. When one part of the body works harder, another part changes to help.",
-        "rebuttals": [
-          "B. The heart beats faster to help the body cool down after exercise. — Cooling is mostly the skin's job, with sweat. The faster pulse is about oxygen.",
-          "C. Climbing stairs shakes the body, which makes the heartbeat easier to feel. — Jordan is resting now, and it is still fast. Shaking would have stopped.",
-          "D. The pulse only seems faster because Jordan is paying attention to it. — The therapist counted it. A count is a real number, not a feeling."
-        ],
-        "choices": [
-          "Working muscles need more oxygen, so the heart moves blood faster.",
-          "The heart beats faster to help the body cool down after exercise.",
-          "Climbing stairs shakes the body, which makes the heartbeat easier to feel.",
-          "The pulse only seems faster because Jordan is paying attention to it."
-        ],
-        "correctChoice": "Working muscles need more oxygen, so the heart moves blood faster."
+        "question": "Say what Jordan's pulse will be right after the stairs. Then count it.",
+        "answer": "About 120 beats a minute, up from 76 sitting down. His muscles needed more oxygen, so his heart sent the blood round faster.",
+        "why": "Jordan sat still first. His pulse was 76. Then he climbed the stairs. His leg muscles worked hard. Working muscles need more oxygen. Oxygen rides in the blood. So his heart beat faster to move the blood along. His pulse went up to about 120. He rested, and it came back down. Four body parts did one job. Muscles asked. Lungs took in air. Blood carried it. The heart pushed the blood. Nothing is wrong with Jordan. That is what a body should do.",
+        "verify": {
+          "prediction": {
+            "label": "Jordan's pulse right after the stairs",
+            "unit": "beats a minute",
+            "min": 60,
+            "max": 200,
+            "step": 5
+          },
+          "truth": 120,
+          "passRatio": [
+            0.7,
+            1.4
+          ],
+          "intervention": {
+            "label": "Jordan climbs one flight of stairs",
+            "note": "he sat still first, and his pulse was 76",
+            "outcome": "He climbs the flight and comes straight back, breathing harder."
+          },
+          "measurement": {
+            "label": "Count his pulse for a minute",
+            "note": "two fingers on the wrist, watch the clock",
+            "cost": 1,
+            "costUnit": "minutes"
+          },
+          "unmeasuredMoral": "If you explain the fast pulse without counting it, you never find out whether you knew what his body would do.",
+          "lock": "Lock the prediction",
+          "run": "Commit it",
+          "measure": "Take the measurement",
+          "commit": "Report"
+        }
       },
       "assumes": [
         "muscles work harder when you climb stairs"
@@ -1448,7 +1708,188 @@ export const CURRICULUM = {
           ],
           "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute."
         }
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Pulse and blood pressure",
+        "of": 30,
+        "rests": [
+          "Heart and circulation",
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
+    },
+    {
+      "day": 4,
+      "title": "Follow One Breath",
+      "scene": "Priya takes a deep breath. She asks where the air goes. She is also wheezing a little today, and the team wants to know where the air is having trouble.",
+      "takeaway": "The lungs are the meeting place between outside air and the blood.",
+      "place": "Exam Room 2",
+      "guide": "Put the four parts of the path in the order the air travels. Then name the part where the air is having trouble today. Each part has a number beside it, saying how much air it can let through. The biggest part is not always the problem.",
+      "background": [
+        "What the path is. Air goes in through the nose and mouth, down the windpipe, into smaller and smaller tubes, and reaches tiny air sacs. The blood picks up oxygen there.",
+        "What a wheeze is. A whistling sound air makes when it squeezes through a narrow tube. That tells you where to look: the small tubes, not the nose and not the sacs.",
+        "Why the narrow part decides. Air can only get through as fast as the tightest part of the path lets it. Opening up the nose more would change nothing while the small tubes are squeezed."
+      ],
+      "story": "Priya takes a deep breath. She asks where the air goes. She is also wheezing a little today, and the team wants to know where the air is having trouble.",
+      "game": {
+        "type": "CHAIN",
+        "title": "Follow One Breath",
+        "setup": "Exam Room 2",
+        "play": "Find the place where the air gets stuck.",
+        "task": "Find the place where the air gets stuck.",
+        "question": "Put the breath's path in order, then name the part where the air is having trouble.",
+        "answer": "The small tubes. They are squeezed today, and that is where the wheeze comes from — the nose and the air sacs are fine.",
+        "why": "A breath goes in the nose and mouth. Then down the windpipe. Then into the small tubes. Then into the air sacs. The blood picks up oxygen there. Today one part is not working well. Look at the numbers. The nose is fine. The windpipe is fine. The air sacs could take much more air. The small tubes let through less than half. That is where the wheeze comes from. Air whistles when it squeezes through a narrow tube. The tightest part decides how much air gets through. So helping the small tubes open up will help Priya. Breathing harder through her nose will not.",
+        "chain": {
+          "links": [
+            {
+              "id": "nose",
+              "label": "Nose and mouth",
+              "transfers": "full flow today"
+            },
+            {
+              "id": "pipe",
+              "label": "Windpipe",
+              "transfers": "full flow today"
+            },
+            {
+              "id": "tubes",
+              "label": "Small tubes",
+              "transfers": "less than half"
+            },
+            {
+              "id": "sacs",
+              "label": "Air sacs",
+              "transfers": "room for much more"
+            }
+          ],
+          "order": [
+            "nose",
+            "pipe",
+            "tubes",
+            "sacs"
+          ],
+          "governing": "tubes",
+          "distractor": "sacs",
+          "commit": "Name the governing transfer"
+        }
+      },
+      "assumes": [
+        "air goes in through your nose and mouth"
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Breathing and gas exchange",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
+    },
+    {
+      "day": 5,
+      "title": "The Dusty-Room Clue",
+      "scene": "Noah helped clean a dusty storage room. Now he is wheezing. He can still talk. Each breath makes a small whistling sound. The team is with him. One clue by itself does not mean much. The useful question is which body part could make that clue. A whistle needs air squeezing through a narrow space. So the clue points somewhere.",
+      "takeaway": "A clue is useful when you connect it to the body system that could produce it.",
+      "place": "",
+      "guide": "Four body parts, and one sound. Ask of each whether it could whistle on every breath. A whistle needs air squeezing through a narrow gap. So ask what the air is passing through. One clue alone means little. This one names a part.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
+      "story": "Noah helped clean a dusty storage room. Now he is wheezing. He can still talk. Each breath makes a small whistling sound. The team is with him. One clue by itself does not mean much. The useful question is which body part could make that clue. A whistle needs air squeezing through a narrow space. So the clue points somewhere.",
+      "game": {
+        "type": "CHOICE",
+        "title": "The Dusty-Room Clue",
+        "setup": "Noah  •  Pediatric Wing",
+        "play": "Which body system should the team focus on first?",
+        "task": "Which body system should the team focus on first?",
+        "question": "Which body system should the team focus on first?",
+        "answer": "The breathing system — the airways and lungs.",
+        "why": "A whistle needs air squeezing through a narrow space. Noah makes that sound with every breath. So it is the breathing tubes that got narrow. That is what wheezing is. One clue on its own does not mean much. This one is useful because you can name the part that made it.",
+        "rebuttals": [
+          "B. The throat and voice box, because that is where whistling sounds are made. — The voice box makes talking sounds. This whistle comes with every breath, from lower down.",
+          "C. The heart and blood vessels, because a whistle could be blood rushing. — The heart makes a thump you hear with a stethoscope. It does not whistle when Noah breathes.",
+          "D. The digestive system, because Noah breathed in dust and swallowed some. — Dust may reach his stomach. A stomach does not make a sound with each breath."
+        ],
+        "choices": [
+          "The breathing system — the airways and lungs.",
+          "The throat and voice box, because that is where whistling sounds are made.",
+          "The heart and blood vessels, because a whistle could be blood rushing.",
+          "The digestive system, because Noah breathed in dust and swallowed some."
+        ],
+        "correctChoice": "The breathing system — the airways and lungs."
+      },
+      "assumes": [
+        "blowing through a small gap makes a whistle"
+      ],
+      "concept": {
+        "n": 17,
+        "c": "Immune defence and inflammation",
+        "of": 30,
+        "rests": [
+          "Blood and its components"
+        ]
+      }
+    },
+    {
+      "day": 6,
+      "title": "Count the Breaths",
+      "scene": "Mrs. Grant is resting. The nurse counts 5 breaths in 15 seconds. She asks you for the one minute number. This is math practice only.",
+      "takeaway": "Doctors often turn short counts into one-minute estimates.",
+      "place": "",
+      "guide": "Two things matter here. How many breaths, and how long you counted for. Ask what the question wants. It asks about a whole minute. You counted part of one. So work out how many of your parts fit in a minute.",
+      "story": "Mrs. Grant is resting. The nurse counts 5 breaths in 15 seconds. She asks you for the one minute number. Nurses count in short blocks because it is faster. People also breathe differently when they know you are watching. 15 seconds is 1 quarter of a minute. This is math practice only. The care team decides what numbers mean.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "Count the Breaths",
+        "setup": "Mrs. Grant  •  Nurse Station",
+        "play": "5 breaths in 15 seconds is about how many breaths in 60 seconds?",
+        "task": "5 breaths in 15 seconds is about how many breaths in 60 seconds?",
+        "question": "5 breaths in 15 seconds is about how many breaths in 60 seconds?",
+        "answer": "20",
+        "why": "1 minute has 4 15-second parts. So 5 breaths in 15 seconds is 5 4 times, which is 20. Nurses count short blocks to save time. People also breathe differently when they know somebody is watching. So a short count is often the honest one.",
+        "rebuttals": [
+          "A. 10 — 10 would be only 2 groups of 5.",
+          "B. 15 — 15 would be 3 groups of 5.",
+          "D. 60 — 60 is the number of seconds in a minute, not the estimated number of breaths."
+        ],
+        "givens": [
+          "Use the numbers shown"
+        ],
+        "relationship": "A minute has four fifteen-second parts. Breaths in a minute = breaths in 15 seconds × 4."
+      },
+      "assumes": [
+        "a minute has 60 seconds"
+      ],
+      "equations": [
+        {
+          "e": "breaths in a minute = breaths in 15 seconds × 4",
+          "c": "the same scaling for breathing",
+          "v": [
+            [
+              "breaths in 15 seconds",
+              "how many breaths you counted"
+            ],
+            [
+              "× 4",
+              "four fifteen-second blocks make a minute"
+            ]
+          ],
+          "s": "The same trick works for breathing, as long as the child does not know you are counting.",
+          "computed": true
+        }
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Breathing and gas exchange",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 7,
@@ -1456,6 +1897,12 @@ export const CURRICULUM = {
       "scene": "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood.",
       "takeaway": "The lungs are the meeting place between outside air and the blood.",
       "place": "",
+      "guide": "These four are one journey. Ask what has to happen first. Air cannot reach the lungs before it goes down the windpipe. And oxygen cannot get into the blood before the air arrives. The path helps you guess where a problem is.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Priya asks what happens to the air when she takes a deep breath. The respiratory therapist gives you four picture cards: nose and mouth, windpipe, lungs, and blood carrying oxygen away.",
       "game": {
         "type": "SEQUENCE",
@@ -1481,7 +1928,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "air goes in through your nose and mouth"
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Breathing and gas exchange",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 8,
@@ -1489,6 +1944,12 @@ export const CURRICULUM = {
       "scene": "Noah started wheezing after helping clean a dusty storage room. He can still talk, but each breath makes a small whistling sound. The team is already with him. They ask which body system the clue points to.",
       "takeaway": "A clue is useful when you connect it to the body system that could produce it.",
       "place": "",
+      "guide": "Four body parts, and one sound. Ask of each whether it could whistle on every breath. A whistle needs air squeezing through a narrow gap. So ask what the air is passing through. One clue alone means little. This one names a part.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Noah started wheezing after helping clean a dusty storage room. He can still talk, but each breath makes a small whistling sound. The team is already with him. They ask which body system the clue points to.",
       "game": {
         "type": "CHOICE",
@@ -1531,7 +1992,12 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Levels of organisation: cells, tissues, organs, systems",
+        "of": 30
+      }
     },
     {
       "day": 9,
@@ -1539,6 +2005,7 @@ export const CURRICULUM = {
       "scene": "Mrs. Grant is resting. The nurse counts 5 breaths in 15 seconds. She asks you for the one minute number. This is math practice only.",
       "takeaway": "Doctors often turn short counts into one-minute estimates.",
       "place": "",
+      "guide": "Two things matter here. How many breaths, and how long you counted for. Ask what the question wants. It asks about a whole minute. You counted part of one. So work out how many of your parts fit in a minute.",
       "story": "The nurse counts 5 breaths in 15 seconds while Mrs. Grant rests comfortably. She asks you to estimate how many breaths that would be in one minute. This is only a math practice example, not a rule for deciding whether someone is sick.",
       "game": {
         "type": "BALLPARK",
@@ -1579,7 +2046,15 @@ export const CURRICULUM = {
           "s": "The same trick works for breathing, as long as the child does not know you are counting.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Breathing and gas exchange",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 10,
@@ -1587,6 +2062,12 @@ export const CURRICULUM = {
       "scene": "A heart model sits on the table. Four arrow cards lie beside it. The nurse says blood moves in a loop. Heart, lungs, heart, body, and back.",
       "takeaway": "Circulation is a loop, not a one-way trip.",
       "place": "",
+      "guide": "These four make a loop. Ask what each step needs before it. Blood cannot bring oxygen to the body before it picks any up. And it picks it up in the lungs. Start at the heart and follow it round.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "A heart model has four big arrow cards. The cardiology nurse says blood keeps moving in a loop: heart, lungs, heart, body, and back again.",
       "game": {
         "type": "SEQUENCE",
@@ -1612,7 +2093,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the heart is a pump"
-      ]
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Blood and its components",
+        "of": 30,
+        "rests": [
+          "Heart and circulation"
+        ]
+      }
     },
     {
       "day": 11,
@@ -1620,6 +2109,7 @@ export const CURRICULUM = {
       "scene": "Jordan is resting after the stairs. The therapist counts 18 beats in 15 seconds. She asks you for the one minute number. This is math practice only.",
       "takeaway": "A pulse is a clue that the heart is beating and moving blood.",
       "place": "",
+      "guide": "Two things matter here. How many beats, and how long you counted for. Ask what the question wants. It asks about a whole minute. So work out how many of your parts fit in one. Nurses count short blocks to save time.",
       "story": "Jordan is resting after climbing stairs. The therapist counts 18 beats in 15 seconds and asks for the one-minute estimate. The number is used only for this math game; real medical decisions belong to the clinical team.",
       "game": {
         "type": "BALLPARK",
@@ -1660,7 +2150,16 @@ export const CURRICULUM = {
           "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Pulse and blood pressure",
+        "of": 30,
+        "rests": [
+          "Heart and circulation",
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
     },
     {
       "day": 12,
@@ -1668,6 +2167,12 @@ export const CURRICULUM = {
       "scene": "Jordan's pulse was slow while he sat. It was fast right after the stairs. He feels fine now. The doctor asks you why it went up.",
       "takeaway": "Body systems work together. Muscles, lungs, blood, and heart all change during exercise.",
       "place": "",
+      "guide": "Four reasons a pulse might speed up. Ask of each whether it explains why. Working muscles need something, and blood is what brings it. Two of these answers are about feeling the beat, not about the beat itself.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Jordan’s pulse was slower while sitting and faster just after climbing the stairs. He feels fine after resting. The doctor asks why the heart sped up during activity.",
       "game": {
         "type": "CHOICE",
@@ -1710,7 +2215,16 @@ export const CURRICULUM = {
           ],
           "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute."
         }
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Pulse and blood pressure",
+        "of": 30,
+        "rests": [
+          "Heart and circulation",
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
     },
     {
       "day": 13,
@@ -1718,6 +2232,12 @@ export const CURRICULUM = {
       "scene": "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood.",
       "takeaway": "The lungs are the meeting place between outside air and the blood.",
       "place": "",
+      "guide": "These four are one journey. Ask what has to happen first. Air cannot reach the lungs before it goes down the windpipe. And oxygen cannot get into the blood before the air arrives. The path helps you guess where a problem is.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Priya asks what happens to the air when she takes a deep breath. The respiratory therapist gives you four picture cards: nose and mouth, windpipe, lungs, and blood carrying oxygen away.",
       "game": {
         "type": "SEQUENCE",
@@ -1743,7 +2263,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "air goes in through your nose and mouth"
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Breathing and gas exchange",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 14,
@@ -1751,6 +2279,12 @@ export const CURRICULUM = {
       "scene": "Noah started wheezing after helping clean a dusty storage room. He can still talk, but each breath makes a small whistling sound. The team is already with him. They ask which body system the clue points to.",
       "takeaway": "A clue is useful when you connect it to the body system that could produce it.",
       "place": "",
+      "guide": "Four body parts, and one sound. Ask of each whether it could whistle on every breath. A whistle needs air squeezing through a narrow gap. So ask what the air is passing through. One clue alone means little. This one names a part.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Noah started wheezing after helping clean a dusty storage room. He can still talk, but each breath makes a small whistling sound. The team is already with him. They ask which body system the clue points to.",
       "game": {
         "type": "CHOICE",
@@ -1793,7 +2327,12 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Levels of organisation: cells, tissues, organs, systems",
+        "of": 30
+      }
     },
     {
       "day": 15,
@@ -1801,6 +2340,7 @@ export const CURRICULUM = {
       "scene": "Mrs. Grant is resting. The nurse counts 5 breaths in 15 seconds. She asks you for the one minute number. This is math practice only.",
       "takeaway": "Doctors often turn short counts into one-minute estimates.",
       "place": "",
+      "guide": "Two things matter here. How many breaths, and how long you counted for. Ask what the question wants. It asks about a whole minute. You counted part of one. So work out how many of your parts fit in a minute.",
       "story": "The nurse counts 5 breaths in 15 seconds while Mrs. Grant rests comfortably. She asks you to estimate how many breaths that would be in one minute. This is only a math practice example, not a rule for deciding whether someone is sick.",
       "game": {
         "type": "BALLPARK",
@@ -1841,7 +2381,15 @@ export const CURRICULUM = {
           "s": "The same trick works for breathing, as long as the child does not know you are counting.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Breathing and gas exchange",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 16,
@@ -1849,6 +2397,12 @@ export const CURRICULUM = {
       "scene": "A heart model sits on the table. Four arrow cards lie beside it. The nurse says blood moves in a loop. Heart, lungs, heart, body, and back.",
       "takeaway": "Circulation is a loop, not a one-way trip.",
       "place": "",
+      "guide": "These four make a loop. Ask what each step needs before it. Blood cannot bring oxygen to the body before it picks any up. And it picks it up in the lungs. Start at the heart and follow it round.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "A heart model has four big arrow cards. The cardiology nurse says blood keeps moving in a loop: heart, lungs, heart, body, and back again.",
       "game": {
         "type": "SEQUENCE",
@@ -1874,7 +2428,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the heart is a pump"
-      ]
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Blood and its components",
+        "of": 30,
+        "rests": [
+          "Heart and circulation"
+        ]
+      }
     },
     {
       "day": 17,
@@ -1882,6 +2444,7 @@ export const CURRICULUM = {
       "scene": "Jordan is resting after the stairs. The therapist counts 18 beats in 15 seconds. She asks you for the one minute number. This is math practice only.",
       "takeaway": "A pulse is a clue that the heart is beating and moving blood.",
       "place": "",
+      "guide": "Two things matter here. How many beats, and how long you counted for. Ask what the question wants. It asks about a whole minute. So work out how many of your parts fit in one. Nurses count short blocks to save time.",
       "story": "Jordan is resting after climbing stairs. The therapist counts 18 beats in 15 seconds and asks for the one-minute estimate. The number is used only for this math game; real medical decisions belong to the clinical team.",
       "game": {
         "type": "BALLPARK",
@@ -1922,7 +2485,16 @@ export const CURRICULUM = {
           "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Pulse and blood pressure",
+        "of": 30,
+        "rests": [
+          "Heart and circulation",
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
     },
     {
       "day": 18,
@@ -1930,6 +2502,12 @@ export const CURRICULUM = {
       "scene": "Jordan's pulse was slow while he sat. It was fast right after the stairs. He feels fine now. The doctor asks you why it went up.",
       "takeaway": "Body systems work together. Muscles, lungs, blood, and heart all change during exercise.",
       "place": "",
+      "guide": "Four reasons a pulse might speed up. Ask of each whether it explains why. Working muscles need something, and blood is what brings it. Two of these answers are about feeling the beat, not about the beat itself.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Jordan’s pulse was slower while sitting and faster just after climbing the stairs. He feels fine after resting. The doctor asks why the heart sped up during activity.",
       "game": {
         "type": "CHOICE",
@@ -1972,7 +2550,16 @@ export const CURRICULUM = {
           ],
           "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute."
         }
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Pulse and blood pressure",
+        "of": 30,
+        "rests": [
+          "Heart and circulation",
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
     },
     {
       "day": 19,
@@ -1980,6 +2567,12 @@ export const CURRICULUM = {
       "scene": "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood.",
       "takeaway": "The lungs are the meeting place between outside air and the blood.",
       "place": "",
+      "guide": "These four are one journey. Ask what has to happen first. Air cannot reach the lungs before it goes down the windpipe. And oxygen cannot get into the blood before the air arrives. The path helps you guess where a problem is.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Priya asks what happens to the air when she takes a deep breath. The respiratory therapist gives you four picture cards: nose and mouth, windpipe, lungs, and blood carrying oxygen away.",
       "game": {
         "type": "SEQUENCE",
@@ -2005,7 +2598,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "air goes in through your nose and mouth"
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Breathing and gas exchange",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 20,
@@ -2013,6 +2614,12 @@ export const CURRICULUM = {
       "scene": "Noah started wheezing after helping clean a dusty storage room. He can still talk, but each breath makes a small whistling sound. The team is already with him. They ask which body system the clue points to.",
       "takeaway": "A clue is useful when you connect it to the body system that could produce it.",
       "place": "",
+      "guide": "Four body parts, and one sound. Ask of each whether it could whistle on every breath. A whistle needs air squeezing through a narrow gap. So ask what the air is passing through. One clue alone means little. This one names a part.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Noah started wheezing after helping clean a dusty storage room. He can still talk, but each breath makes a small whistling sound. The team is already with him. They ask which body system the clue points to.",
       "game": {
         "type": "CHOICE",
@@ -2055,7 +2662,12 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Levels of organisation: cells, tissues, organs, systems",
+        "of": 30
+      }
     },
     {
       "day": 21,
@@ -2063,6 +2675,7 @@ export const CURRICULUM = {
       "scene": "Mrs. Grant is resting. The nurse counts 5 breaths in 15 seconds. She asks you for the one minute number. This is math practice only.",
       "takeaway": "Doctors often turn short counts into one-minute estimates.",
       "place": "",
+      "guide": "Two things matter here. How many breaths, and how long you counted for. Ask what the question wants. It asks about a whole minute. You counted part of one. So work out how many of your parts fit in a minute.",
       "story": "The nurse counts 5 breaths in 15 seconds while Mrs. Grant rests comfortably. She asks you to estimate how many breaths that would be in one minute. This is only a math practice example, not a rule for deciding whether someone is sick.",
       "game": {
         "type": "BALLPARK",
@@ -2103,7 +2716,15 @@ export const CURRICULUM = {
           "s": "The same trick works for breathing, as long as the child does not know you are counting.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Breathing and gas exchange",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 22,
@@ -2111,6 +2732,12 @@ export const CURRICULUM = {
       "scene": "A heart model sits on the table. Four arrow cards lie beside it. The nurse says blood moves in a loop. Heart, lungs, heart, body, and back.",
       "takeaway": "Circulation is a loop, not a one-way trip.",
       "place": "",
+      "guide": "These four make a loop. Ask what each step needs before it. Blood cannot bring oxygen to the body before it picks any up. And it picks it up in the lungs. Start at the heart and follow it round.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "A heart model has four big arrow cards. The cardiology nurse says blood keeps moving in a loop: heart, lungs, heart, body, and back again.",
       "game": {
         "type": "SEQUENCE",
@@ -2136,7 +2763,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the heart is a pump"
-      ]
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Blood and its components",
+        "of": 30,
+        "rests": [
+          "Heart and circulation"
+        ]
+      }
     },
     {
       "day": 23,
@@ -2144,6 +2779,7 @@ export const CURRICULUM = {
       "scene": "Jordan is resting after the stairs. The therapist counts 18 beats in 15 seconds. She asks you for the one minute number. This is math practice only.",
       "takeaway": "A pulse is a clue that the heart is beating and moving blood.",
       "place": "",
+      "guide": "Two things matter here. How many beats, and how long you counted for. Ask what the question wants. It asks about a whole minute. So work out how many of your parts fit in one. Nurses count short blocks to save time.",
       "story": "Jordan is resting after climbing stairs. The therapist counts 18 beats in 15 seconds and asks for the one-minute estimate. The number is used only for this math game; real medical decisions belong to the clinical team.",
       "game": {
         "type": "BALLPARK",
@@ -2184,7 +2820,16 @@ export const CURRICULUM = {
           "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Pulse and blood pressure",
+        "of": 30,
+        "rests": [
+          "Heart and circulation",
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
     },
     {
       "day": 24,
@@ -2192,6 +2837,12 @@ export const CURRICULUM = {
       "scene": "Jordan's pulse was slow while he sat. It was fast right after the stairs. He feels fine now. The doctor asks you why it went up.",
       "takeaway": "Body systems work together. Muscles, lungs, blood, and heart all change during exercise.",
       "place": "",
+      "guide": "Four reasons a pulse might speed up. Ask of each whether it explains why. Working muscles need something, and blood is what brings it. Two of these answers are about feeling the beat, not about the beat itself.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Jordan’s pulse was slower while sitting and faster just after climbing the stairs. He feels fine after resting. The doctor asks why the heart sped up during activity.",
       "game": {
         "type": "CHOICE",
@@ -2234,7 +2885,16 @@ export const CURRICULUM = {
           ],
           "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute."
         }
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Pulse and blood pressure",
+        "of": 30,
+        "rests": [
+          "Heart and circulation",
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
     },
     {
       "day": 25,
@@ -2242,6 +2902,12 @@ export const CURRICULUM = {
       "scene": "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood.",
       "takeaway": "The lungs are the meeting place between outside air and the blood.",
       "place": "",
+      "guide": "These four are one journey. Ask what has to happen first. Air cannot reach the lungs before it goes down the windpipe. And oxygen cannot get into the blood before the air arrives. The path helps you guess where a problem is.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Priya asks what happens to the air when she takes a deep breath. The respiratory therapist gives you four picture cards: nose and mouth, windpipe, lungs, and blood carrying oxygen away.",
       "game": {
         "type": "SEQUENCE",
@@ -2267,7 +2933,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "air goes in through your nose and mouth"
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Breathing and gas exchange",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     }
   ],
   "NUTR": [
@@ -2277,6 +2951,12 @@ export const CURRICULUM = {
       "scene": "Owen has a paper sandwich card. He wants to know where it goes after he swallows. The dietitian hands you four organ cards and asks you to put them in order.",
       "takeaway": "Different organs have different jobs in one connected system.",
       "place": "",
+      "guide": "These four are one journey, and each part has one job. Ask what has to happen first. Nothing can soak up tiny bits before something has made them tiny. Food is far too big for the body to use whole.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Owen has a paper sandwich card. He wants to know where it goes after he swallows. The dietitian gives you four organ cards. Food is far too big for the body to use. It has to be broken into tiny pieces first. That work happens in stages. Each organ does a different part of the job.",
       "game": {
         "type": "SEQUENCE",
@@ -2302,7 +2982,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "food gets chewed before you swallow it"
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Digestion and absorption",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 2,
@@ -2310,6 +2998,12 @@ export const CURRICULUM = {
       "scene": "Nina ran all morning and now she feels shaky. She has not eaten since breakfast. Her nurse asks you what her body has run out of.",
       "takeaway": "The body spends what it takes in, and spends it faster when it works harder.",
       "place": "Food and Water Room",
+      "guide": "Four reasons Nina might feel shaky. Ask of each whether the story fits. She ran all morning. She has not eaten. Two of these answers are about water or about nerves. Food is fuel, and running spends it fast.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Nina ran all morning and now she feels shaky. She has not eaten since breakfast. Her nurse asks you what her body has run out of.",
       "game": {
         "type": "CHOICE",
@@ -2335,7 +3029,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "food gives your body energy"
-      ]
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Nutrition and energy",
+        "of": 30,
+        "rests": [
+          "Digestion and absorption"
+        ]
+      }
     },
     {
       "day": 3,
@@ -2343,6 +3045,12 @@ export const CURRICULUM = {
       "scene": "Three cards each need one picture. Owen needs the part that starts breaking food up. Sam needs the part that mixes it. Nia needs the part that soaks it up.",
       "takeaway": "A body system works because specialized parts each do a piece of the job.",
       "place": "",
+      "guide": "Four sets, and only one has every job in the right place. Ask what each part does. Chewing makes pieces smaller. Mixing breaks them down more. Soaking up comes last. Check all three before you pick a set.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Three patient cards each need one picture. Owen needs the organ that starts breaking food up. Sam needs the organ that mixes food. Nia needs the organ that soaks up nutrients. A body system works like a good team. Nobody does everything. Each part is built for its own job. Match the job to the part.",
       "game": {
         "type": "CASEBOOK",
@@ -2368,40 +3076,70 @@ export const CURRICULUM = {
       },
       "assumes": [
         "different body parts do different jobs"
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Levels of organisation: cells, tissues, organs, systems",
+        "of": 30
+      }
     },
     {
       "day": 4,
       "title": "The Thirsty Player",
       "scene": "Mateo just finished soccer. He is thirsty and his mouth is dry. The nurse says his urine looks darker than it was. The team is checking him.",
       "takeaway": "The body tells you when it is short of something, and thirst is one of those signals.",
-      "place": "",
-      "story": "Mateo just finished a long soccer practice. He is thirsty. His mouth feels dry. The nurse says his urine looks darker than usual. The team is checking him. Water is in the blood, in every cell, and in sweat. The body loses some when you are active. It also gives signals when water runs low. Doctors read several signals together.",
+      "place": "Exam Room 1",
+      "guide": "Work out how much water Mateo lost while he played. He sweated about half a litre every twenty minutes, and he played for sixty. Pick the two numbers that go together. One tile is how long a half is, which is not what you need here.",
+      "background": [
+        "Why you sweat. Running makes heat. Sweat carries the heat away when it dries off your skin. That works well, and it uses up water.",
+        "What the clues mean. A dry mouth and dark urine both say the same thing: there is less water in the body than there should be. The body saves water by making less urine, and that makes it darker.",
+        "What to do about it. Drink. A litre and a half is about three big glasses, and you cannot drink it all at once, which is why players drink through a game instead of after it."
+      ],
+      "story": "Mateo just finished soccer. He is thirsty and his mouth is dry. The nurse says his urine looks darker than it was. The team is checking him.",
       "game": {
-        "type": "CHOICE",
+        "type": "BALLPARK",
         "title": "The Thirsty Player",
-        "setup": "Mateo  •  Sports Medicine Bay",
+        "setup": "Exam Room 1",
         "play": "What body need do these clues most strongly point to?",
         "task": "What body need do these clues most strongly point to?",
-        "question": "What body need do these clues most strongly point to?",
-        "answer": "The body may need more water.",
-        "why": "Water is in your blood, in every cell, and in your sweat. You lose some when you are active. Then the body gives signals. A dry mouth is one. Dark urine is another. Doctors read several signals together, because one on its own could mean lots of things. Two pointing the same way is stronger.",
-        "rebuttals": [
-          "B. The body may need more food, because practice used up his energy. — Being hungry is real. A dry mouth and dark urine are water clues, not food clues.",
-          "C. The body may need more sleep after a long practice. — Rest helps. Sleep does not make your mouth dry or your urine dark.",
-          "D. The body may be too warm and need to cool down. — Getting warm is part of it. He lost water in that sweat, and that is what the clues show."
+        "question": "How much water did Mateo lose while he was playing?",
+        "answer": "About one and a half litres. He sweated half a litre every twenty minutes, and he played for sixty — which is why he is thirsty and his urine is dark.",
+        "why": "Mateo played for 60 minutes. He sweated about half a litre every 20 minutes. Sixty minutes holds three lots of twenty. So he lost about 3 × 0.5 = 1.5 litres. That is about three big glasses. It went into the air off his skin. Sweating is not a fault. It carries heat away. Without it he would get too hot. But the water has to go back in. His dry mouth is one clue. His dark urine is another. The body saves water by making less urine. So the urine looks darker. Both clues say the same thing. He needs a drink, a bit at a time.",
+        "givens": [
+          "half a litre of sweat every twenty minutes",
+          "sixty minutes of play"
         ],
-        "choices": [
-          "The body may need more water.",
-          "The body may need more food, because practice used up his energy.",
-          "The body may need more sleep after a long practice.",
-          "The body may be too warm and need to cool down."
-        ],
-        "correctChoice": "The body may need more water."
+        "relationship": "Part = whole × share, done as lots: how many twenty-minute lots he played, times the sweat in each one.",
+        "calcKey": "NUTR-4"
       },
       "assumes": [
         "you sweat when you run around"
-      ]
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
+        }
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Fluids, hydration and dehydration",
+        "of": 30,
+        "rests": [
+          "Kidneys and waste"
+        ]
+      }
     },
     {
       "day": 5,
@@ -2409,6 +3147,7 @@ export const CURRICULUM = {
       "scene": "Mrs. Lee has a drink chart by her bed. It shows 2 cups in the morning, 1 cup at lunch, and 3 cups later. A wall chart says a body her size loses about 8 cups a day. This is a math problem, not drink advice.",
       "takeaway": "Water balance is what goes in measured against what goes out, not either one alone.",
       "place": "",
+      "guide": "Two amounts matter here. What went in, and what went out. Ask what the question wants. It asks how far behind she is. That is a difference, so you need both. Add the drinks up before you compare them.",
       "story": "Mrs. Lee has a drink tracker by her bed. It shows 2 cups in the morning, 1 cup with lunch and 3 cups later. On the wall is a chart saying a body her size loses about 8 cups of water a day — through breathing, through sweat, and into urine. That loss happens whether or not anybody is drinking. This is a maths problem, not drinking advice.",
       "game": {
         "type": "BALLPARK",
@@ -2449,57 +3188,56 @@ export const CURRICULUM = {
           "s": "The gap between what was needed and what was given is how far behind the patient is.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Fluids, hydration and dehydration",
+        "of": 30,
+        "rests": [
+          "Kidneys and waste"
+        ]
+      }
     },
     {
       "day": 6,
       "title": "What the Kidneys Do",
-      "scene": "Harper is looking at a model. It shows the kidneys and the bladder. She asks why both are in one system. The body always makes waste it cannot keep. The blood carries that waste. The kidneys are the filters that pull it out. But filtering never stops, and nobody can visit a bathroom all day. So the system also needs a place to hold it.",
+      "scene": "Harper looks at a model. It shows the kidneys and the bladder. She asks why both are in one system. The body makes waste. The blood carries it. The kidneys are the filters.",
       "takeaway": "Kidneys filter; the bladder stores.",
-      "place": "",
-      "story": "Harper is looking at a model. It shows the kidneys and the bladder. She asks why both are in one system. The body always makes waste it cannot keep. The blood carries that waste. The kidneys are the filters that pull it out. But filtering never stops, and nobody can visit a bathroom all day. So the system also needs a place to hold it.",
+      "place": "Exam Room 1",
+      "guide": "Work out how much water the kidneys send back into the body each day. They filter 180 litres, and only 2 litres leave as urine. Take the smaller number away from the bigger one. One tile is how many kidneys there are, which is not part of this sum.",
+      "background": [
+        "What filtering means. The blood goes through the kidneys again and again. Each time, water and waste are pulled out, and then almost all of the water is put back. Only the waste, and a little water, carries on to the bladder.",
+        "Why the number is so big. The kidneys do not filter the blood once. They filter it all day, so the amount they handle is far bigger than the amount anybody drinks.",
+        "Why the bladder is in the same system. The kidneys make the urine, a little at a time, all day. Nobody could visit a toilet that often, so the bladder holds it until it is convenient."
+      ],
+      "story": "Harper looks at a model. It shows the kidneys and the bladder. She asks why both are in one system. The body makes waste. The blood carries it. The kidneys are the filters.",
       "game": {
-        "type": "SEQUENCE",
+        "type": "BALLPARK",
         "title": "What the Kidneys Do",
-        "setup": "Harper  •  Kidney Learning Room",
-        "play": "Put the simplified pathway in order.",
-        "task": "Put the simplified pathway in order.",
-        "question": "Put the simplified pathway in order.",
-        "answer": "Blood flows through the kidneys. -> The kidneys remove some wastes and extra water from the blood. -> That liquid becomes urine and moves toward the bladder. -> The bladder stores urine until it leaves the body.",
-        "why": "Blood picks up waste from all over the body. It has to go somewhere. Blood flows through the kidneys. The kidneys take out waste and extra water. That makes urine. The urine moves to the bladder, which stores it until you go. Two organs, one path, different jobs.",
-        "cards": [
-          "Blood flows through the kidneys.",
-          "The kidneys remove some wastes and extra water from the blood.",
-          "That liquid becomes urine and moves toward the bladder.",
-          "The bladder stores urine until it leaves the body."
+        "setup": "Exam Room 1",
+        "play": "Work out how much the kidneys handle in a day.",
+        "task": "Work out how much the kidneys handle in a day.",
+        "question": "How much water do the kidneys put back into the body in a day?",
+        "answer": "About 178 litres. They filter 180 and only 2 leave as urine, so almost all of it goes back — which is why filtering is not the same as throwing away.",
+        "why": "The kidneys filter about 180 litres a day. Only about 2 litres leave as urine. So they put back 180 − 2 = 178 litres. Filtering is not the same as throwing away. Nearly all of it goes back in. What carries on is the waste. It takes a little water with it. Nobody drinks 180 litres. The number is that big because the blood goes round and round. The kidneys clean it all day. Then the bladder. The kidneys make urine slowly, all day. Nobody could go to the toilet that often. So the bladder holds it. One system, two jobs. The kidneys filter. The bladder stores.",
+        "givens": [
+          "180 litres filtered a day",
+          "about 2 litres leave as urine"
         ],
-        "order": [
-          0,
-          1,
-          2,
-          3
-        ]
+        "relationship": "What goes back = what was filtered − what leaves. Filtering is not the same as throwing away.",
+        "calcKey": "NUTR-6"
       },
       "assumes": [
         "your body makes waste it has to get rid of"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ]
+      "concept": {
+        "n": 15,
+        "c": "Kidneys and waste",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 7,
@@ -2507,6 +3245,12 @@ export const CURRICULUM = {
       "scene": "Owen has a paper sandwich card. He wants to know where it goes after he swallows. The dietitian hands you four organ cards and asks you to put them in order.",
       "takeaway": "Different organs have different jobs in one connected system.",
       "place": "",
+      "guide": "These four are one journey, and each part has one job. Ask what has to happen first. Nothing can soak up tiny bits before something has made them tiny. Food is far too big for the body to use whole.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Owen has a paper sandwich card and wants to know where it goes after he swallows. The dietitian gives you four organ cards.",
       "game": {
         "type": "SEQUENCE",
@@ -2532,7 +3276,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "food gets chewed before you swallow it"
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Levels of organisation: cells, tissues, organs, systems",
+        "of": 30
+      }
     },
     {
       "day": 8,
@@ -2540,6 +3289,12 @@ export const CURRICULUM = {
       "scene": "Nia looks at a map of the gut. She knows food gets broken up small. She wants to know where the small bits go into the blood.",
       "takeaway": "Digestion is not finished when food reaches the stomach; the intestines do important work too.",
       "place": "",
+      "guide": "Four parts of the food journey. Ask of each what it is shaped for. Chewing? Mixing? Taking things in? Storing? One of them is long and folded, and folding makes more room inside.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Nia points to a cartoon digestive map. She knows food gets broken into small pieces, but she wonders where many useful nutrients move into the blood.",
       "game": {
         "type": "CHOICE",
@@ -2565,7 +3320,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a bigger surface can soak up more"
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Digestion and absorption",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 9,
@@ -2573,6 +3336,12 @@ export const CURRICULUM = {
       "scene": "Three cards each need one picture. Owen needs the part that starts breaking food up. Sam needs the part that mixes it. Nia needs the part that soaks it up.",
       "takeaway": "A body system works because specialized parts each do a piece of the job.",
       "place": "",
+      "guide": "Four sets, and only one has every job in the right place. Ask what each part does. Chewing makes pieces smaller. Mixing breaks them down more. Soaking up comes last. Check all three before you pick a set.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Three patient cards need one teaching picture each. Owen needs the organ that starts breaking food into smaller pieces, Sam needs the organ that mixes food, and Nia needs the organ that absorbs many nutrients.",
       "game": {
         "type": "CASEBOOK",
@@ -2615,7 +3384,12 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Levels of organisation: cells, tissues, organs, systems",
+        "of": 30
+      }
     },
     {
       "day": 10,
@@ -2623,6 +3397,12 @@ export const CURRICULUM = {
       "scene": "Mateo just finished soccer. He is thirsty and his mouth is dry. The nurse says his urine looks darker than it was. The team is checking him.",
       "takeaway": "The body tells you when it is short of something, and thirst is one of those signals.",
       "place": "",
+      "guide": "Four things the body might need. Ask of each whether the clues point at it. A dry mouth and dark urine both point one way. Two clues agreeing is stronger than one. One clue alone could mean lots of things.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Mateo finished a long soccer practice. He is thirsty, his mouth feels dry, and the nurse says his urine has been darker than usual. The medical team is checking him.",
       "game": {
         "type": "CHOICE",
@@ -2648,7 +3428,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "you sweat when you run around"
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Kidneys and waste",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 11,
@@ -2656,6 +3444,7 @@ export const CURRICULUM = {
       "scene": "Mrs. Lee has a drink chart by her bed. It shows 2 cups in the morning, 1 cup at lunch, and 3 cups later. A wall chart says a body her size loses about 8 cups a day. This is a math problem, not drink advice.",
       "takeaway": "Water balance is what goes in measured against what goes out, not either one alone.",
       "place": "",
+      "guide": "Two amounts matter here. What went in, and what went out. Ask what the question wants. It asks how far behind she is. That is a difference, so you need both. Add the drinks up before you compare them.",
       "story": "Mrs. Lee has a drink tracker by her bed. It shows 2 cups in the morning, 1 cup with lunch and 3 cups later. On the wall is a chart saying a body her size loses about 8 cups of water a day — through breathing, through sweat, and into urine. That loss happens whether or not anybody is drinking. This is a maths problem, not drinking advice.",
       "game": {
         "type": "BALLPARK",
@@ -2696,7 +3485,15 @@ export const CURRICULUM = {
           "s": "The gap between what was needed and what was given is how far behind the patient is.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Fluids, hydration and dehydration",
+        "of": 30,
+        "rests": [
+          "Kidneys and waste"
+        ]
+      }
     },
     {
       "day": 12,
@@ -2704,6 +3501,12 @@ export const CURRICULUM = {
       "scene": "Harper sees a model of the kidneys and bladder. She wants to know why both are part of the same system.",
       "takeaway": "Kidneys filter; the bladder stores.",
       "place": "",
+      "guide": "These four are one path. Ask what has to happen first. The kidneys cannot clean blood that has not reached them yet. And urine cannot be stored before it is made. Two organs, one path, different jobs.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Harper sees a model of the kidneys and bladder. She wants to know why both are part of the same system.",
       "game": {
         "type": "SEQUENCE",
@@ -2729,7 +3532,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your body makes waste it has to get rid of"
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Kidneys and waste",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 13,
@@ -2737,6 +3548,12 @@ export const CURRICULUM = {
       "scene": "Owen has a paper sandwich card. He wants to know where it goes after he swallows. The dietitian hands you four organ cards and asks you to put them in order.",
       "takeaway": "Different organs have different jobs in one connected system.",
       "place": "",
+      "guide": "These four are one journey, and each part has one job. Ask what has to happen first. Nothing can soak up tiny bits before something has made them tiny. Food is far too big for the body to use whole.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Owen has a paper sandwich card and wants to know where it goes after he swallows. The dietitian gives you four organ cards.",
       "game": {
         "type": "SEQUENCE",
@@ -2762,7 +3579,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "food gets chewed before you swallow it"
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Levels of organisation: cells, tissues, organs, systems",
+        "of": 30
+      }
     },
     {
       "day": 14,
@@ -2770,6 +3592,12 @@ export const CURRICULUM = {
       "scene": "Nia looks at a map of the gut. She knows food gets broken up small. She wants to know where the small bits go into the blood.",
       "takeaway": "Digestion is not finished when food reaches the stomach; the intestines do important work too.",
       "place": "",
+      "guide": "Four parts of the food journey. Ask of each what it is shaped for. Chewing? Mixing? Taking things in? Storing? One of them is long and folded, and folding makes more room inside.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Nia points to a cartoon digestive map. She knows food gets broken into small pieces, but she wonders where many useful nutrients move into the blood.",
       "game": {
         "type": "CHOICE",
@@ -2795,7 +3623,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a bigger surface can soak up more"
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Digestion and absorption",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 15,
@@ -2803,6 +3639,12 @@ export const CURRICULUM = {
       "scene": "Three cards each need one picture. Owen needs the part that starts breaking food up. Sam needs the part that mixes it. Nia needs the part that soaks it up.",
       "takeaway": "A body system works because specialized parts each do a piece of the job.",
       "place": "",
+      "guide": "Four sets, and only one has every job in the right place. Ask what each part does. Chewing makes pieces smaller. Mixing breaks them down more. Soaking up comes last. Check all three before you pick a set.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Three patient cards need one teaching picture each. Owen needs the organ that starts breaking food into smaller pieces, Sam needs the organ that mixes food, and Nia needs the organ that absorbs many nutrients.",
       "game": {
         "type": "CASEBOOK",
@@ -2845,7 +3687,12 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Levels of organisation: cells, tissues, organs, systems",
+        "of": 30
+      }
     },
     {
       "day": 16,
@@ -2853,6 +3700,12 @@ export const CURRICULUM = {
       "scene": "Mateo just finished soccer. He is thirsty and his mouth is dry. The nurse says his urine looks darker than it was. The team is checking him.",
       "takeaway": "The body tells you when it is short of something, and thirst is one of those signals.",
       "place": "",
+      "guide": "Four things the body might need. Ask of each whether the clues point at it. A dry mouth and dark urine both point one way. Two clues agreeing is stronger than one. One clue alone could mean lots of things.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Mateo finished a long soccer practice. He is thirsty, his mouth feels dry, and the nurse says his urine has been darker than usual. The medical team is checking him.",
       "game": {
         "type": "CHOICE",
@@ -2878,7 +3731,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "you sweat when you run around"
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Kidneys and waste",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 17,
@@ -2886,6 +3747,7 @@ export const CURRICULUM = {
       "scene": "Mrs. Lee has a drink chart by her bed. It shows 2 cups in the morning, 1 cup at lunch, and 3 cups later. A wall chart says a body her size loses about 8 cups a day. This is a math problem, not drink advice.",
       "takeaway": "Water balance is what goes in measured against what goes out, not either one alone.",
       "place": "",
+      "guide": "Two amounts matter here. What went in, and what went out. Ask what the question wants. It asks how far behind she is. That is a difference, so you need both. Add the drinks up before you compare them.",
       "story": "Mrs. Lee has a drink tracker by her bed. It shows 2 cups in the morning, 1 cup with lunch and 3 cups later. On the wall is a chart saying a body her size loses about 8 cups of water a day — through breathing, through sweat, and into urine. That loss happens whether or not anybody is drinking. This is a maths problem, not drinking advice.",
       "game": {
         "type": "BALLPARK",
@@ -2926,7 +3788,15 @@ export const CURRICULUM = {
           "s": "The gap between what was needed and what was given is how far behind the patient is.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Fluids, hydration and dehydration",
+        "of": 30,
+        "rests": [
+          "Kidneys and waste"
+        ]
+      }
     },
     {
       "day": 18,
@@ -2934,6 +3804,12 @@ export const CURRICULUM = {
       "scene": "Harper sees a model of the kidneys and bladder. She wants to know why both are part of the same system.",
       "takeaway": "Kidneys filter; the bladder stores.",
       "place": "",
+      "guide": "These four are one path. Ask what has to happen first. The kidneys cannot clean blood that has not reached them yet. And urine cannot be stored before it is made. Two organs, one path, different jobs.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Harper sees a model of the kidneys and bladder. She wants to know why both are part of the same system.",
       "game": {
         "type": "SEQUENCE",
@@ -2959,7 +3835,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your body makes waste it has to get rid of"
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Kidneys and waste",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 19,
@@ -2967,6 +3851,12 @@ export const CURRICULUM = {
       "scene": "Owen has a paper sandwich card. He wants to know where it goes after he swallows. The dietitian hands you four organ cards and asks you to put them in order.",
       "takeaway": "Different organs have different jobs in one connected system.",
       "place": "",
+      "guide": "These four are one journey, and each part has one job. Ask what has to happen first. Nothing can soak up tiny bits before something has made them tiny. Food is far too big for the body to use whole.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Owen has a paper sandwich card and wants to know where it goes after he swallows. The dietitian gives you four organ cards.",
       "game": {
         "type": "SEQUENCE",
@@ -2992,7 +3882,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "food gets chewed before you swallow it"
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Levels of organisation: cells, tissues, organs, systems",
+        "of": 30
+      }
     },
     {
       "day": 20,
@@ -3000,6 +3895,12 @@ export const CURRICULUM = {
       "scene": "Nia looks at a map of the gut. She knows food gets broken up small. She wants to know where the small bits go into the blood.",
       "takeaway": "Digestion is not finished when food reaches the stomach; the intestines do important work too.",
       "place": "",
+      "guide": "Four parts of the food journey. Ask of each what it is shaped for. Chewing? Mixing? Taking things in? Storing? One of them is long and folded, and folding makes more room inside.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Nia points to a cartoon digestive map. She knows food gets broken into small pieces, but she wonders where many useful nutrients move into the blood.",
       "game": {
         "type": "CHOICE",
@@ -3025,7 +3926,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a bigger surface can soak up more"
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Digestion and absorption",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 21,
@@ -3033,6 +3942,12 @@ export const CURRICULUM = {
       "scene": "Three cards each need one picture. Owen needs the part that starts breaking food up. Sam needs the part that mixes it. Nia needs the part that soaks it up.",
       "takeaway": "A body system works because specialized parts each do a piece of the job.",
       "place": "",
+      "guide": "Four sets, and only one has every job in the right place. Ask what each part does. Chewing makes pieces smaller. Mixing breaks them down more. Soaking up comes last. Check all three before you pick a set.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Three patient cards need one teaching picture each. Owen needs the organ that starts breaking food into smaller pieces, Sam needs the organ that mixes food, and Nia needs the organ that absorbs many nutrients.",
       "game": {
         "type": "CASEBOOK",
@@ -3075,7 +3990,12 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Levels of organisation: cells, tissues, organs, systems",
+        "of": 30
+      }
     },
     {
       "day": 22,
@@ -3083,6 +4003,12 @@ export const CURRICULUM = {
       "scene": "Mateo just finished soccer. He is thirsty and his mouth is dry. The nurse says his urine looks darker than it was. The team is checking him.",
       "takeaway": "The body tells you when it is short of something, and thirst is one of those signals.",
       "place": "",
+      "guide": "Four things the body might need. Ask of each whether the clues point at it. A dry mouth and dark urine both point one way. Two clues agreeing is stronger than one. One clue alone could mean lots of things.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Mateo finished a long soccer practice. He is thirsty, his mouth feels dry, and the nurse says his urine has been darker than usual. The medical team is checking him.",
       "game": {
         "type": "CHOICE",
@@ -3108,7 +4034,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "you sweat when you run around"
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Kidneys and waste",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 23,
@@ -3116,6 +4050,7 @@ export const CURRICULUM = {
       "scene": "Mrs. Lee has a drink chart by her bed. It shows 2 cups in the morning, 1 cup at lunch, and 3 cups later. A wall chart says a body her size loses about 8 cups a day. This is a math problem, not drink advice.",
       "takeaway": "Water balance is what goes in measured against what goes out, not either one alone.",
       "place": "",
+      "guide": "Two amounts matter here. What went in, and what went out. Ask what the question wants. It asks how far behind she is. That is a difference, so you need both. Add the drinks up before you compare them.",
       "story": "Mrs. Lee has a drink tracker by her bed. It shows 2 cups in the morning, 1 cup with lunch and 3 cups later. On the wall is a chart saying a body her size loses about 8 cups of water a day — through breathing, through sweat, and into urine. That loss happens whether or not anybody is drinking. This is a maths problem, not drinking advice.",
       "game": {
         "type": "BALLPARK",
@@ -3156,7 +4091,15 @@ export const CURRICULUM = {
           "s": "The gap between what was needed and what was given is how far behind the patient is.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Fluids, hydration and dehydration",
+        "of": 30,
+        "rests": [
+          "Kidneys and waste"
+        ]
+      }
     },
     {
       "day": 24,
@@ -3164,6 +4107,12 @@ export const CURRICULUM = {
       "scene": "Harper sees a model of the kidneys and bladder. She wants to know why both are part of the same system.",
       "takeaway": "Kidneys filter; the bladder stores.",
       "place": "",
+      "guide": "These four are one path. Ask what has to happen first. The kidneys cannot clean blood that has not reached them yet. And urine cannot be stored before it is made. Two organs, one path, different jobs.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Harper sees a model of the kidneys and bladder. She wants to know why both are part of the same system.",
       "game": {
         "type": "SEQUENCE",
@@ -3189,7 +4138,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your body makes waste it has to get rid of"
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Kidneys and waste",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 25,
@@ -3197,6 +4154,12 @@ export const CURRICULUM = {
       "scene": "Owen has a paper sandwich card. He wants to know where it goes after he swallows. The dietitian hands you four organ cards and asks you to put them in order.",
       "takeaway": "Different organs have different jobs in one connected system.",
       "place": "",
+      "guide": "These four are one journey, and each part has one job. Ask what has to happen first. Nothing can soak up tiny bits before something has made them tiny. Food is far too big for the body to use whole.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Owen has a paper sandwich card and wants to know where it goes after he swallows. The dietitian gives you four organ cards.",
       "game": {
         "type": "SEQUENCE",
@@ -3222,59 +4185,64 @@ export const CURRICULUM = {
       },
       "assumes": [
         "food gets chewed before you swallow it"
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Levels of organisation: cells, tissues, organs, systems",
+        "of": 30
+      }
     }
   ],
   "MOVE": [
     {
       "day": 1,
       "title": "Why Take an X-Ray?",
-      "scene": "Eli fell off his bike. His wrist hurts and looks swollen. The doctor needs to know if a bone is broken. The bone is under the skin. Nobody can see it from outside. Hospitals have many tools. Each one answers a different question. Picking the right tool matters. The wrong tool answers a question nobody asked.",
+      "scene": "Eli fell off his bike. His wrist hurts and looks swollen. The doctor needs to know if a bone is broken. The bone is under the skin, and nobody can see it from outside.",
       "takeaway": "Doctors choose tools based on the kind of clue they need.",
-      "place": "",
-      "story": "Eli fell off his bike. His wrist hurts and looks swollen. The doctor needs to know if a bone is broken. The bone is under the skin. Nobody can see it from outside. Hospitals have many tools. Each one answers a different question. Picking the right tool matters. The wrong tool answers a question nobody asked.",
+      "place": "Imaging Room",
+      "guide": "Three clues, and three tools. Match each clue to the tool that can find it. Every tool here is useful, and each one answers a different question. The one that finds a broken bone cannot tell you how hot somebody is.",
+      "background": [
+        "What an X-ray does. It makes a picture of the hard parts inside, because bone stops the rays and soft parts do not. That is why it can show a crack nobody can see from outside.",
+        "What the other tools do. A thermometer measures how hot somebody is. A stethoscope lets you listen to sounds inside, like the heart and the lungs.",
+        "Why matching is the skill. A hospital has many tools and none of them answers every question. Choosing the one that fits the clue you need is most of what a good team does."
+      ],
+      "story": "Eli fell off his bike. His wrist hurts and looks swollen. The doctor needs to know if a bone is broken. The bone is under the skin, and nobody can see it from outside.",
       "game": {
-        "type": "CHOICE",
+        "type": "PROTOCOL",
         "title": "Why Take an X-Ray?",
-        "setup": "Eli  •  Emergency Imaging",
-        "play": "Which hospital tool best matches that job?",
-        "task": "Which hospital tool best matches that job?",
-        "question": "Which hospital tool best matches that job?",
-        "answer": "An X-ray image",
-        "why": "You cannot see a bone by looking at an arm. An X-ray makes a picture of what is under the skin, and bones show up clearly in it. That is why it is the right tool here. A thermometer gives warmth. A stethoscope gives sound. Neither one shows a shape.",
-        "rebuttals": [
-          "B. A thermometer — A thermometer tells you how warm someone is. It cannot show a bone.",
-          "C. A stethoscope — A stethoscope lets you hear the heart and lungs. Bones make no sound to listen for.",
-          "D. A tape measure, to record how swollen the wrist is — Measuring the swelling is useful. It still does not show what the bone is doing."
+        "setup": "Imaging Room",
+        "play": "Match each clue to the tool that finds it.",
+        "task": "Match each clue to the tool that finds it.",
+        "question": "Match each clue the doctor needs to the tool that finds it.",
+        "answer": "The X-ray for the bone, the thermometer for the temperature, the stethoscope for the breathing. Each tool answers one kind of question.",
+        "why": "Every tool here is useful. Each one answers a different question. Bone stops X-rays. Soft parts do not. So an X-ray shows the hard parts inside. That is the only way to see if the bone in Eli's wrist is cracked. A thermometer tells you how hot he is. That says nothing about a broken bone. A stethoscope lets you listen inside him. That is how you check both lungs. Picking the right tool is most of the job. The wrong tool still gives you an answer. It just answers a question nobody asked.",
+        "scenarios": [
+          "Is the bone under the swollen skin cracked?",
+          "Is Eli running a temperature?",
+          "Is he breathing normally in both lungs?"
         ],
         "choices": [
-          "An X-ray image",
-          "A thermometer",
-          "A stethoscope",
-          "A tape measure, to record how swollen the wrist is"
+          "An X-ray picture, which shows the hard parts inside",
+          "A thermometer, which measures how hot he is",
+          "A stethoscope, which lets you listen inside"
         ],
-        "correctChoice": "An X-ray image"
+        "mapping": [
+          0,
+          1,
+          2
+        ]
       },
       "assumes": [
         "some things are hidden under the skin"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ]
+      "concept": {
+        "n": 30,
+        "c": "Imaging: X-rays and pictures of the inside",
+        "of": 30,
+        "rests": [
+          "Skeletal system"
+        ]
+      }
     },
     {
       "day": 2,
@@ -3282,6 +4250,12 @@ export const CURRICULUM = {
       "scene": "The bone doctor has three cards to hand out. Rosa needs the part that protects the heart and lungs. Mr. Bell needs the part that holds up the back. Tess needs the place where bones meet and move. Bones do more than hold you up. They are not all the same shape. That is because they do not all do the same job.",
       "takeaway": "The skeleton supports, protects, and helps the body move.",
       "place": "",
+      "guide": "Four sets, and bones do more than one job. Ask what each bone is shaped for. A cage guards what is inside it. A column holds you up. A joint is where two bones meet, so it bends.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The bone doctor has three cards to hand out. Rosa needs the part that protects the heart and lungs. Mr. Bell needs the part that holds up the back. Tess needs the place where bones meet and move. Bones do more than hold you up. They are not all the same shape. That is because they do not all do the same job.",
       "game": {
         "type": "CASEBOOK",
@@ -3308,23 +4282,14 @@ export const CURRICULUM = {
       "assumes": [
         "bones are hard and do not bend"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ]
+      "concept": {
+        "n": 3,
+        "c": "Skeletal system",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 3,
@@ -3332,6 +4297,12 @@ export const CURRICULUM = {
       "scene": "Eli's wrist may be hurt. He looks worried. In this game you do not fix it. You keep him safe and get the team what they need.",
       "takeaway": "The first action is the one that stops things getting worse; the rest can happen while it holds.",
       "place": "",
+      "guide": "All four steps happen. Ask which one stops things getting worse. Everything else can happen while the wrist is held still. Help takes time to come, so telling somebody is early. The note comes last, and it holds all of it.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Eli's wrist may be hurt. He looks worried. You are the junior doctor in this game. You do not fix the wrist. Trained adults do that. Your job is to keep him still and calm. Moving a hurt arm can make it worse. Getting the team what they need fast is a real medical job. It is the one that is yours.",
       "game": {
         "type": "SEQUENCE",
@@ -3362,7 +4333,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "moving something that is hurt can make it worse"
-      ]
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Skeletal system",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 4,
@@ -3370,6 +4349,12 @@ export const CURRICULUM = {
       "scene": "Sophie wiggles her fingers. She asks how the message got there so fast. The therapist gives you four cards. Moving one finger takes a whole chain. First a decision. Then a message along a nerve. Then a muscle pulls. Then a bone moves at a joint. Therapists think about this chain a lot. When movement fails, the chain shows where to look.",
       "takeaway": "One movement needs several parts of the body working in turn.",
       "place": "",
+      "guide": "These four are one chain. Ask what has to happen first. A muscle cannot pull before the message reaches it. And bones do not move themselves. Muscles only pull, never push, which is why they come in pairs.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Sophie wiggles her fingers. She asks how the message got there so fast. The therapist gives you four cards. Moving one finger takes a whole chain. First a decision. Then a message along a nerve. Then a muscle pulls. Then a bone moves at a joint. Therapists think about this chain a lot. When movement fails, the chain shows where to look.",
       "game": {
         "type": "SEQUENCE",
@@ -3412,40 +4397,86 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Muscles and movement",
+        "of": 30,
+        "rests": [
+          "Skeletal system"
+        ]
+      }
     },
     {
       "day": 5,
       "title": "Tired Muscles",
-      "scene": "Amara has done the same gentle motion many times. Her arm feels tired now. Nothing hurts sharply. There is no new injury. The therapist stops the set and lets her rest. Muscles use energy every time they pull. Doing one motion over and over uses it up fast. Tired is not the same as hurt. Therapists plan rest for that reason.",
+      "scene": "Amara has done the same gentle motion many times. Her arm feels tired now. Nothing hurts sharply. There is no new injury. The therapist stops the set and lets her rest.",
       "takeaway": "Body tissues can change their activity depending on what the body is doing.",
-      "place": "",
-      "story": "Amara has done the same gentle motion many times. Her arm feels tired now. Nothing hurts sharply. There is no new injury. The therapist stops the set and lets her rest. Muscles use energy every time they pull. Doing one motion over and over uses it up fast. Tired is not the same as hurt. Therapists plan rest for that reason.",
+      "place": "Therapy Room",
+      "guide": "Four things are different about the sets where her arm got tired quickly. Change one and run the set again. The grip meter shows how hard she can still squeeze at the end. Change two at once and the meter cannot tell you which one mattered. Then put your one back and see if the tiredness comes back with it.",
+      "background": [
+        "Why muscles get tired. Every pull uses energy. Do it enough times without a break and the muscle cannot pull as hard, until it has had time to recover.",
+        "Why tired is not hurt. Tiredness comes on slowly, feels the same all over the muscle, and goes away with rest. A new injury usually hurts sharply in one spot and does not get better while you rest for a minute.",
+        "Why the test matters. If rest is what fixes it, the answer is more rests. If something else is doing it — too much weight, too fast, too many in a row — then the plan changes, and only one test at a time can tell you which."
+      ],
+      "story": "Amara has done the same gentle motion many times. Her arm feels tired now. Nothing hurts sharply. There is no new injury. The therapist stops the set and lets her rest.",
       "game": {
-        "type": "CHOICE",
+        "type": "CONTROL",
         "title": "Tired Muscles",
-        "setup": "Amara  •  Physical Therapy Gym",
-        "play": "Why is rest a sensible next step in this scene?",
-        "task": "Why is rest a sensible next step in this scene?",
-        "question": "Why is rest a sensible next step in this scene?",
-        "answer": "Muscles can get tired after repeated work and need recovery time.",
-        "why": "Muscles use energy when they work. Do the same thing lots of times and they run low. Then they feel tired and weak. That is normal, and it is not the same as being hurt. Rest lets them fill back up. In therapy the rest is part of the plan, not a sign to stop.",
-        "rebuttals": [
-          "B. The arm is injured, and rest is how an injury heals. — Nothing here says he is hurt. Tired and hurt are not the same thing.",
-          "C. Muscles only grow while a person is resting, so the set is finished. — Rest does help. That is not a reason to stop in the middle of the plan.",
-          "D. Tiredness means the therapy is not working and should be changed. — Getting tired is what is supposed to happen. It means the muscle is working."
-        ],
-        "choices": [
-          "Muscles can get tired after repeated work and need recovery time.",
-          "The arm is injured, and rest is how an injury heals.",
-          "Muscles only grow while a person is resting, so the set is finished.",
-          "Tiredness means the therapy is not working and should be changed."
-        ],
-        "correctChoice": "Muscles can get tired after repeated work and need recovery time."
+        "setup": "Therapy Room",
+        "play": "Find out what the tiredness is really about.",
+        "task": "Find out what the tiredness is really about.",
+        "question": "Which one thing decides how tired Amara's arm gets?",
+        "answer": "How many pulls she does without a rest. Add a rest every ten and her grip stays strong; take the rest away and it drops again.",
+        "why": "Four things were different between the sets. Only one changes how tired her arm gets. Give her a rest every ten pulls. Keep the weight, the speed and the movement the same. Her grip at the end goes from 12 up to 26. Take the rest away, and it drops back to 13. So it was the rests. The meter follows the change both ways. The others do far less on their own. More weight, a faster movement, a different chair — each one moves the meter less than its own wobble. Muscles use energy every time they pull. They need time to get it back. That is why the therapist stopped. Tired comes on slowly and goes away with a rest. Hurt does not.",
+        "control": {
+          "observable": {
+            "label": "How hard Amara can still squeeze at the end",
+            "unit": "units on the grip meter"
+          },
+          "variables": [
+            {
+              "id": "rests",
+              "label": "Taking a rest every ten pulls"
+            },
+            {
+              "id": "weight",
+              "label": "How heavy the weight is"
+            },
+            {
+              "id": "speed",
+              "label": "How fast she moves"
+            },
+            {
+              "id": "chair",
+              "label": "Which chair she sits in"
+            }
+          ],
+          "held": [
+            "the same movement",
+            "the same arm",
+            "the same grip meter"
+          ],
+          "truth": "rests",
+          "baseline": 12,
+          "response": 14,
+          "noise": 2,
+          "hint": "The set can be run again as often as you like. Change one thing, run it, and read the meter.",
+          "run": "Run the set",
+          "commit": "Name the one that is doing it"
+        }
       },
       "assumes": [
         "you get tired after doing something over and over"
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Muscles and movement",
+        "of": 30,
+        "rests": [
+          "Skeletal system"
+        ]
+      }
     },
     {
       "day": 6,
@@ -3453,6 +4484,7 @@ export const CURRICULUM = {
       "scene": "Mr. Diaz is doing gentle leg lifts. His therapist picked 3 sets of 5. The therapist chose the plan, not you. Therapy uses sets because short rests help muscles. Counting in groups is also easier to track. A nurse can count to five while talking. 15 is harder. Groups of the same size are what multiplying is for.",
       "takeaway": "Repeated sets are groups, so multiplication helps count them quickly.",
       "place": "",
+      "guide": "Two things matter here. How many sets, and how many lifts in each. Ask what the question wants. It wants the whole lot. So one of them has to happen the other number of times.",
       "story": "Mr. Diaz is doing gentle leg lifts. His therapist picked 3 sets of 5. The therapist chose the plan, not you. Therapy uses sets because short rests help muscles. Counting in groups is also easier to track. A nurse can count to five while talking. 15 is harder. Groups of the same size are what multiplying is for.",
       "game": {
         "type": "BALLPARK",
@@ -3475,7 +4507,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a set is a group of the same thing"
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Muscles and movement",
+        "of": 30,
+        "rests": [
+          "Skeletal system"
+        ]
+      }
     },
     {
       "day": 7,
@@ -3483,6 +4523,12 @@ export const CURRICULUM = {
       "scene": "Ella has a small scrape. The team cleaned it and covered it. She asks what her body will do next. Skin is not a wrapper. It is living tissue. It fixes itself in stages, in the same order every time. First the bleeding stops. Then the cleanup. Then rebuilding. Knowing the stages tells you what is normal.",
       "takeaway": "Skin is living tissue that can repair many small injuries.",
       "place": "",
+      "guide": "These four are stages, not choices. Ask what has to happen first. New skin cannot grow under a lid that is not there. And a clot has to close the gap first. The body shuts the door, then does the repairs.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Ella has a small scrape. The team cleaned it and covered it. She asks what her body will do next. Skin is not a wrapper. It is living tissue. It fixes itself in stages, in the same order every time. First the bleeding stops. Then the cleanup. Then rebuilding. Knowing the stages tells you what is normal.",
       "game": {
         "type": "SEQUENCE",
@@ -3508,7 +4554,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a cut stops bleeding on its own after a while"
-      ]
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Skin: barrier, healing, temperature",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 8,
@@ -3516,6 +4570,12 @@ export const CURRICULUM = {
       "scene": "You are the junior doctor in this game. Real wound care is a job for grown-ups. Your job is to keep things safe and in order.",
       "takeaway": "A scrape is a break in the barrier, so everything that touches it has to be clean.",
       "place": "",
+      "guide": "All four steps happen. Ask which one takes time to arrive. Help does, so telling somebody comes early. Then your hands, because a cut is a way in. The grown-up does the caring. You keep the notes.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "You are the junior doctor in this game. Real wound care belongs to trained adults. Your job is to keep things safe and in order. Telling an adult comes first, because they can start helping while you do the rest. Then clean hands, then supplies, then the notes. Outside the game, always go and get a trusted adult.",
       "game": {
         "type": "SEQUENCE",
@@ -3541,7 +4601,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "some jobs are for grown-ups"
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Germs, transmission and hand hygiene",
+        "of": 30,
+        "rests": [
+          "Immune defence and inflammation"
+        ]
+      }
     },
     {
       "day": 9,
@@ -3549,6 +4617,12 @@ export const CURRICULUM = {
       "scene": "June was outside too long. Now she has a mild sunburn. The skin doctor explains what skin does. It keeps water in. It keeps germs out. It shields everything under it. Sunlight also carries a kind of light we cannot see. Too much of it can hurt skin cells. So the shield needs shade and sunscreen too.",
       "takeaway": "Skin protects the body, but the skin itself also needs protection.",
       "place": "",
+      "guide": "Four jobs skin does, and it does all of them. Ask of each whether the scrape stopped it. Skin still feels touch. It still sweats. What a hole in it takes away is being a wall.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "June was outside too long. Now she has a mild sunburn. The skin doctor explains what skin does. It keeps water in. It keeps germs out. It shields everything under it. Sunlight also carries a kind of light we cannot see. Too much of it can hurt skin cells. So the shield needs shade and sunscreen too.",
       "game": {
         "type": "CHOICE",
@@ -3591,7 +4665,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Skin: barrier, healing, temperature",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 10,
@@ -3599,6 +4681,12 @@ export const CURRICULUM = {
       "scene": "Eli fell from his bike. His wrist hurts and is swollen. The doctor wants a picture that can help the team look for a broken bone without opening the skin.",
       "takeaway": "Doctors choose tools based on the kind of clue they need.",
       "place": "",
+      "guide": "Four tools, and all four are good ones. Ask of each what it shows. Warmth? Sound? A shape? A size? The clue here is about a bone under the skin. So which tool shows what you cannot see?",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Eli fell from his bike. His wrist hurts and is swollen. The doctor wants a picture that can help the team look for a broken bone without opening the skin.",
       "game": {
         "type": "CHOICE",
@@ -3624,7 +4712,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "some things are hidden under the skin"
-      ]
+      ],
+      "concept": {
+        "n": 30,
+        "c": "Imaging: X-rays and pictures of the inside",
+        "of": 30,
+        "rests": [
+          "Skeletal system"
+        ]
+      }
     },
     {
       "day": 11,
@@ -3632,6 +4728,12 @@ export const CURRICULUM = {
       "scene": "The orthopedic doctor has three teaching cards. Rosa needs the part that protects the heart and lungs, Mr. Bell needs the structure that supports the back, and Tess needs the place where bones meet and move.",
       "takeaway": "The skeleton supports, protects, and helps the body move.",
       "place": "",
+      "guide": "Four sets, and bones do more than one job. Ask what each bone is shaped for. A cage guards what is inside it. A column holds you up. A joint is where two bones meet, so it bends.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The orthopedic doctor has three teaching cards. Rosa needs the part that protects the heart and lungs, Mr. Bell needs the structure that supports the back, and Tess needs the place where bones meet and move.",
       "game": {
         "type": "CASEBOOK",
@@ -3674,7 +4776,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Skeletal system",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 12,
@@ -3682,6 +4792,12 @@ export const CURRICULUM = {
       "scene": "Eli's wrist may be hurt. He looks worried. In this game you do not fix it. You keep him safe and get the team what they need.",
       "takeaway": "The first action is the one that stops things getting worse; the rest can happen while it holds.",
       "place": "",
+      "guide": "All four steps happen. Ask which one stops things getting worse. Everything else can happen while the wrist is held still. Help takes time to come, so telling somebody is early. The note comes last, and it holds all of it.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Eli’s wrist may be injured. In this game you are not fixing it yourself. Your job is to protect him and get the trained hospital team what they need.",
       "game": {
         "type": "SEQUENCE",
@@ -3712,7 +4828,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "moving something that is hurt can make it worse"
-      ]
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Skeletal system",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 13,
@@ -3720,6 +4844,12 @@ export const CURRICULUM = {
       "scene": "Sophie wiggles her fingers and asks how the message got there. The therapist gives you four cards from signal to movement.",
       "takeaway": "Movement is teamwork between the brain, nerves, muscles, bones, and joints.",
       "place": "",
+      "guide": "These four are one chain. Ask what has to happen first. A muscle cannot pull before the message reaches it. And bones do not move themselves. Muscles only pull, never push, which is why they come in pairs.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Sophie wiggles her fingers and asks how the message got there. The therapist gives you four cards from signal to movement.",
       "game": {
         "type": "SEQUENCE",
@@ -3745,7 +4875,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your brain is in charge of your body"
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Muscles and movement",
+        "of": 30,
+        "rests": [
+          "Skeletal system"
+        ]
+      }
     },
     {
       "day": 14,
@@ -3753,6 +4891,12 @@ export const CURRICULUM = {
       "scene": "Amara has repeated the same gentle therapy motion many times. Her arm muscles feel tired, but there is no new injury. The therapist ends the set and lets her rest.",
       "takeaway": "Body tissues can change their activity depending on what the body is doing.",
       "place": "",
+      "guide": "Four reasons a muscle might feel tired. Ask of each whether it means something is wrong. Muscles use energy when they work. Do the same thing many times and they run low. That is normal, and it is not the same as hurt.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Amara has repeated the same gentle therapy motion many times. Her arm muscles feel tired, but there is no new injury. The therapist ends the set and lets her rest.",
       "game": {
         "type": "CHOICE",
@@ -3778,7 +4922,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "you get tired after doing something over and over"
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Muscles and movement",
+        "of": 30,
+        "rests": [
+          "Skeletal system"
+        ]
+      }
     },
     {
       "day": 15,
@@ -3786,6 +4938,7 @@ export const CURRICULUM = {
       "scene": "Mr. Diaz’s therapist has him do 3 sets of 5 gentle leg lifts. The therapist, not the player, chose the exercise plan.",
       "takeaway": "Repeated sets are groups, so multiplication helps count them quickly.",
       "place": "",
+      "guide": "Two things matter here. How many sets, and how many lifts in each. Ask what the question wants. It wants the whole lot. So one of them has to happen the other number of times.",
       "story": "Mr. Diaz’s therapist has him do 3 sets of 5 gentle leg lifts. The therapist, not the player, chose the exercise plan.",
       "game": {
         "type": "BALLPARK",
@@ -3816,6 +4969,12 @@ export const CURRICULUM = {
       "scene": "Ella has a small scrape. The hospital team has cleaned and covered it. She asks what her body will do next.",
       "takeaway": "Skin is living tissue that can repair many small injuries.",
       "place": "",
+      "guide": "These four are stages, not choices. Ask what has to happen first. New skin cannot grow under a lid that is not there. And a clot has to close the gap first. The body shuts the door, then does the repairs.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Ella has a small scrape. The hospital team has cleaned and covered it. She asks what her body will do next.",
       "game": {
         "type": "SEQUENCE",
@@ -3841,7 +5000,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a cut stops bleeding on its own after a while"
-      ]
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Skin: barrier, healing, temperature",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 17,
@@ -3849,6 +5016,12 @@ export const CURRICULUM = {
       "scene": "You are the junior doctor in this game. Real wound care is a job for grown-ups. Your job is to keep things safe and in order.",
       "takeaway": "A scrape is a break in the barrier, so everything that touches it has to be clean.",
       "place": "",
+      "guide": "All four steps happen. Ask which one takes time to arrive. Help does, so telling somebody comes early. Then your hands, because a cut is a way in. The grown-up does the caring. You keep the notes.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "You are the junior doctor in this game. Real wound care belongs to trained adults. Your job is to keep things safe and in order. Telling an adult comes first, because they can start helping while you do the rest. Then clean hands, then supplies, then the notes. Outside the game, always go and get a trusted adult.",
       "game": {
         "type": "SEQUENCE",
@@ -3874,7 +5047,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "some jobs are for grown-ups"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "The senses",
+        "of": 30,
+        "rests": [
+          "Nervous system and reflexes"
+        ]
+      }
     },
     {
       "day": 18,
@@ -3882,6 +5063,12 @@ export const CURRICULUM = {
       "scene": "June has a mild sunburn after being outside too long. The dermatologist explains that the skin is a protective covering, but too much ultraviolet light can damage skin cells.",
       "takeaway": "Skin protects the body, but the skin itself also needs protection.",
       "place": "",
+      "guide": "Four jobs skin does, and it does all of them. Ask of each whether the scrape stopped it. Skin still feels touch. It still sweats. What a hole in it takes away is being a wall.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "June has a mild sunburn after being outside too long. The dermatologist explains that the skin is a protective covering, but too much ultraviolet light can damage skin cells.",
       "game": {
         "type": "CHOICE",
@@ -3924,7 +5111,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Skin: barrier, healing, temperature",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 19,
@@ -3932,6 +5127,12 @@ export const CURRICULUM = {
       "scene": "Eli fell from his bike. His wrist hurts and is swollen. The doctor wants a picture that can help the team look for a broken bone without opening the skin.",
       "takeaway": "Doctors choose tools based on the kind of clue they need.",
       "place": "",
+      "guide": "Four tools, and all four are good ones. Ask of each what it shows. Warmth? Sound? A shape? A size? The clue here is about a bone under the skin. So which tool shows what you cannot see?",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Eli fell from his bike. His wrist hurts and is swollen. The doctor wants a picture that can help the team look for a broken bone without opening the skin.",
       "game": {
         "type": "CHOICE",
@@ -3957,7 +5158,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "some things are hidden under the skin"
-      ]
+      ],
+      "concept": {
+        "n": 30,
+        "c": "Imaging: X-rays and pictures of the inside",
+        "of": 30,
+        "rests": [
+          "Skeletal system"
+        ]
+      }
     },
     {
       "day": 20,
@@ -3965,6 +5174,12 @@ export const CURRICULUM = {
       "scene": "The orthopedic doctor has three teaching cards. Rosa needs the part that protects the heart and lungs, Mr. Bell needs the structure that supports the back, and Tess needs the place where bones meet and move.",
       "takeaway": "The skeleton supports, protects, and helps the body move.",
       "place": "",
+      "guide": "Four sets, and bones do more than one job. Ask what each bone is shaped for. A cage guards what is inside it. A column holds you up. A joint is where two bones meet, so it bends.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The orthopedic doctor has three teaching cards. Rosa needs the part that protects the heart and lungs, Mr. Bell needs the structure that supports the back, and Tess needs the place where bones meet and move.",
       "game": {
         "type": "CASEBOOK",
@@ -4007,7 +5222,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Skeletal system",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 21,
@@ -4015,6 +5238,12 @@ export const CURRICULUM = {
       "scene": "Eli's wrist may be hurt. He looks worried. In this game you do not fix it. You keep him safe and get the team what they need.",
       "takeaway": "The first action is the one that stops things getting worse; the rest can happen while it holds.",
       "place": "",
+      "guide": "All four steps happen. Ask which one stops things getting worse. Everything else can happen while the wrist is held still. Help takes time to come, so telling somebody is early. The note comes last, and it holds all of it.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Eli’s wrist may be injured. In this game you are not fixing it yourself. Your job is to protect him and get the trained hospital team what they need.",
       "game": {
         "type": "SEQUENCE",
@@ -4045,7 +5274,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "moving something that is hurt can make it worse"
-      ]
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Skeletal system",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 22,
@@ -4053,6 +5290,12 @@ export const CURRICULUM = {
       "scene": "Sophie wiggles her fingers and asks how the message got there. The therapist gives you four cards from signal to movement.",
       "takeaway": "Movement is teamwork between the brain, nerves, muscles, bones, and joints.",
       "place": "",
+      "guide": "These four are one chain. Ask what has to happen first. A muscle cannot pull before the message reaches it. And bones do not move themselves. Muscles only pull, never push, which is why they come in pairs.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Sophie wiggles her fingers and asks how the message got there. The therapist gives you four cards from signal to movement.",
       "game": {
         "type": "SEQUENCE",
@@ -4078,7 +5321,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your brain is in charge of your body"
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Muscles and movement",
+        "of": 30,
+        "rests": [
+          "Skeletal system"
+        ]
+      }
     },
     {
       "day": 23,
@@ -4086,6 +5337,12 @@ export const CURRICULUM = {
       "scene": "Amara has repeated the same gentle therapy motion many times. Her arm muscles feel tired, but there is no new injury. The therapist ends the set and lets her rest.",
       "takeaway": "Body tissues can change their activity depending on what the body is doing.",
       "place": "",
+      "guide": "Four reasons a muscle might feel tired. Ask of each whether it means something is wrong. Muscles use energy when they work. Do the same thing many times and they run low. That is normal, and it is not the same as hurt.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Amara has repeated the same gentle therapy motion many times. Her arm muscles feel tired, but there is no new injury. The therapist ends the set and lets her rest.",
       "game": {
         "type": "CHOICE",
@@ -4111,7 +5368,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "you get tired after doing something over and over"
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Muscles and movement",
+        "of": 30,
+        "rests": [
+          "Skeletal system"
+        ]
+      }
     },
     {
       "day": 24,
@@ -4119,6 +5384,7 @@ export const CURRICULUM = {
       "scene": "Mr. Diaz’s therapist has him do 3 sets of 5 gentle leg lifts. The therapist, not the player, chose the exercise plan.",
       "takeaway": "Repeated sets are groups, so multiplication helps count them quickly.",
       "place": "",
+      "guide": "Two things matter here. How many sets, and how many lifts in each. Ask what the question wants. It wants the whole lot. So one of them has to happen the other number of times.",
       "story": "Mr. Diaz’s therapist has him do 3 sets of 5 gentle leg lifts. The therapist, not the player, chose the exercise plan.",
       "game": {
         "type": "BALLPARK",
@@ -4149,6 +5415,12 @@ export const CURRICULUM = {
       "scene": "Ella has a small scrape. The hospital team has cleaned and covered it. She asks what her body will do next.",
       "takeaway": "Skin is living tissue that can repair many small injuries.",
       "place": "",
+      "guide": "These four are stages, not choices. Ask what has to happen first. New skin cannot grow under a lid that is not there. And a clot has to close the gap first. The body shuts the door, then does the repairs.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Ella has a small scrape. The hospital team has cleaned and covered it. She asks what her body will do next.",
       "game": {
         "type": "SEQUENCE",
@@ -4174,7 +5446,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a cut stops bleeding on its own after a while"
-      ]
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Skin: barrier, healing, temperature",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     }
   ],
   "BRAIN": [
@@ -4184,6 +5464,12 @@ export const CURRICULUM = {
       "scene": "Theo is 11 and has grown 4 centimetres since spring. His chart shows he grew most while he was asleep. He wants to know who told his bones to grow.",
       "takeaway": "The body sends slow chemical messages, and some of them tell the body to grow.",
       "place": "Brain and Senses Room",
+      "guide": "Four things that might have told his bones to grow. Ask of each how fast it works. Nerves are fast, and they stop straight away. Growing takes years. So look for a slow message. And it happened while he slept.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Theo is 11 and has grown 4 centimetres since spring. His chart shows he grew most while he was asleep. He wants to know who told his bones to grow.",
       "game": {
         "type": "CHOICE",
@@ -4210,23 +5496,14 @@ export const CURRICULUM = {
       "assumes": [
         "your blood carries things all around your body"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ]
+      "concept": {
+        "n": 16,
+        "c": "Hormones and growth",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 2,
@@ -4234,6 +5511,12 @@ export const CURRICULUM = {
       "scene": "Lily touches something very cold. She pulls her hand back fast. The brain doctor shows four cards. It felt like one instant to Lily. It was really a sequence. Something was noticed. A message travelled. The brain understood it. A muscle moved. Each stage takes a tiny bit of time. So the order can be worked out.",
       "takeaway": "The nervous system helps the body notice changes and respond.",
       "place": "",
+      "guide": "These four are one chain. Ask what has to happen first. You cannot answer something you have not noticed. So the skin comes before the thinking. And the moving comes after both. It feels like one thing. It is four.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Lily touches something very cold. She pulls her hand back fast. The brain doctor shows four cards. It felt like one instant to Lily. It was really a sequence. Something was noticed. A message travelled. The brain understood it. A muscle moved. Each stage takes a tiny bit of time. So the order can be worked out.",
       "game": {
         "type": "SEQUENCE",
@@ -4259,7 +5542,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "you pull your hand back from something cold"
-      ]
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Nervous system and reflexes",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 3,
@@ -4267,6 +5558,12 @@ export const CURRICULUM = {
       "scene": "Three children come in after playground falls. Arjun bumped his head. Now he seems confused. He has trouble answering simple questions. Bea has a small scrape on her elbow. Cole has a sore finger and talks normally. Clues about how someone thinks and answers matter a lot. The brain is hard to check from outside. Always tell an adult after a head bump.",
       "takeaway": "In real life, children should tell an adult right away after a significant head injury or new concerning symptoms.",
       "place": "",
+      "guide": "All three need seeing. Ask of each what could be getting worse right now. You can see a scrape. You cannot see a brain. So a change in how somebody thinks is the clue that matters after a head bump.",
+      "background": [
+        "Why first is a different question from best. When there is more than one call on the same hour, the value of doing something now is not how much it matters. It is how much is lost by doing it later. Something important that will be just as fixable in an hour can wait. Something small that will not be fixable can not.",
+        "What to look for in the options. Ask which one changes if you wait — a reading that is still moving, a person who is getting worse, a window that closes. Then ask which ones can only be done after something else. Those two questions usually leave one option standing.",
+        "Why only one answer is marked. Real shifts do all of these, in some order. The stop asks for the front of that order because that is the only part where the reasoning shows. Read the verdict afterwards even when you are right — it says what the others were waiting on, which is the rest of the answer."
+      ],
       "story": "Three children come in after playground falls. Arjun bumped his head. Now he seems confused. He has trouble answering simple questions. Bea has a small scrape on her elbow. Cole has a sore finger and talks normally. Clues about how someone thinks and answers matter a lot. The brain is hard to check from outside. Always tell an adult after a head bump.",
       "game": {
         "type": "TRIAGE",
@@ -4293,23 +5590,14 @@ export const CURRICULUM = {
       "assumes": [
         "your brain is inside your head"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ]
+      "concept": {
+        "n": 6,
+        "c": "Nervous system and reflexes",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 4,
@@ -4317,6 +5605,12 @@ export const CURRICULUM = {
       "scene": "Mina says the board looks blurry from far away. Her book looks fine. The eye doctor wants to start simple. A test is really a question. A good first test asks what the patient just asked. Here that is what Mina can see at different sizes. Starting with the matching test saves time. It also points at what to do next.",
       "takeaway": "The best test depends on the question you are trying to answer.",
       "place": "",
+      "guide": "Four tools, all of them good. Ask of each what it measures. Eyes? Ears? Sounds inside? Bones? Then look at the clue and match it. Every one of these answers some question. Only one answers this one.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Mina says the board looks blurry from far away. Her book looks fine. The eye doctor wants to start simple. A test is really a question. A good first test asks what the patient just asked. Here that is what Mina can see at different sizes. Starting with the matching test saves time. It also points at what to do next.",
       "game": {
         "type": "CHOICE",
@@ -4342,7 +5636,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "different tools check different things"
-      ]
+      ],
+      "concept": {
+        "n": 30,
+        "c": "Imaging: X-rays and pictures of the inside",
+        "of": 30,
+        "rests": [
+          "Skeletal system"
+        ]
+      }
     },
     {
       "day": 5,
@@ -4350,6 +5652,12 @@ export const CURRICULUM = {
       "scene": "The team has three clue cards. Mina has blurry vision. Caleb has trouble hearing a tone. Mrs. Patel feels unsteady when she turns her head. Each sense starts with a part built to catch one kind of signal. Light. Sound. Movement. Here is the surprise. One organ can hold more than one of those jobs.",
       "takeaway": "One organ can have more than one job; the ear helps with both hearing and balance.",
       "place": "",
+      "guide": "Four sets, and one body part does two jobs. Ask of each person what they cannot do. Seeing? Hearing? Staying steady? The ear takes in sound, and it also tells the brain which way is up.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The team has three clue cards. Mina has blurry vision. Caleb has trouble hearing a tone. Mrs. Ruiz feels unsteady when she turns her head. Each sense starts with a part built to catch one kind of signal. Light. Sound. Movement. Here is the surprise. One organ can hold more than one of those jobs.",
       "game": {
         "type": "CASEBOOK",
@@ -4375,7 +5683,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your eyes see and your ears hear"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "The senses",
+        "of": 30,
+        "rests": [
+          "Nervous system and reflexes"
+        ]
+      }
     },
     {
       "day": 6,
@@ -4383,6 +5699,12 @@ export const CURRICULUM = {
       "scene": "Jules wants to know how light becomes a picture. The brain doctor lays out four cards. Eyes do not really see on their own. They catch light and turn it into signals. The picture is put together later, in the brain. That is why seeing is a team job. Knowing the stages tells you where a problem could be.",
       "takeaway": "Seeing is a team job between the eyes, nerves, and brain.",
       "place": "",
+      "guide": "These four are one path. Ask what has to happen first. The brain cannot make sense of a pattern the eye has not picked up. So the eye collects, and the brain understands. A problem could be anywhere along the line.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Jules wants to know how light becomes a picture. The brain doctor lays out four cards. Eyes do not really see on their own. They catch light and turn it into signals. The picture is put together later, in the brain. That is why seeing is a team job. Knowing the stages tells you where a problem could be.",
       "game": {
         "type": "SEQUENCE",
@@ -4408,7 +5730,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "you need light to see"
-      ]
+      ],
+      "concept": {
+        "n": 30,
+        "c": "Imaging: X-rays and pictures of the inside",
+        "of": 30,
+        "rests": [
+          "Skeletal system"
+        ]
+      }
     },
     {
       "day": 7,
@@ -4416,6 +5746,12 @@ export const CURRICULUM = {
       "scene": "Three charts show three parts of a simple nervous-system job: Lily feels cold, Theo’s brain figures out what the feeling means, and Ms. Reed presses a button after a signal.",
       "takeaway": "Nerves carry messages in both directions: toward the brain and toward muscles.",
       "place": "",
+      "guide": "Four sets, and signals go two ways. Ask of each person which way theirs goes. Feeling something comes in. Moving goes out. Thinking sits in the middle. All three have to work, or the whole thing stops.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Three charts show three parts of a simple nervous-system job: Lily feels cold, Theo’s brain figures out what the feeling means, and Ms. Reed presses a button after a signal.",
       "game": {
         "type": "CASEBOOK",
@@ -4441,7 +5777,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "nerves carry messages around your body"
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Muscles and movement",
+        "of": 30,
+        "rests": [
+          "Skeletal system"
+        ]
+      }
     },
     {
       "day": 8,
@@ -4449,6 +5793,12 @@ export const CURRICULUM = {
       "scene": "Lily touches something very cold and quickly moves her hand. The brain doctor shows four simplified stages.",
       "takeaway": "The nervous system helps the body notice changes and respond.",
       "place": "",
+      "guide": "These four are one chain. Ask what has to happen first. You cannot answer something you have not noticed. So the skin comes before the thinking. And the moving comes after both. It feels like one thing. It is four.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Lily touches something very cold and quickly moves her hand. The brain doctor shows four simplified stages.",
       "game": {
         "type": "SEQUENCE",
@@ -4474,15 +5824,29 @@ export const CURRICULUM = {
       },
       "assumes": [
         "you pull your hand back from something cold"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "The senses",
+        "of": 30,
+        "rests": [
+          "Nervous system and reflexes"
+        ]
+      }
     },
     {
       "day": 9,
       "title": "After the Head Bump — Review 2",
-      "scene": "Three children arrive after playground accidents. Arjun bumped his head and now seems confused and is having trouble answering simple questions. Bea has a small elbow scrape. Cole has a sore finger but is talking normally.",
+      "scene": "Three children come in from the playground. Arjun bumped his head. Now he looks muddled and cannot answer easy questions. Bea has a small elbow scrape. Cole has a sore finger but is talking normally.",
       "takeaway": "In real life, children should tell an adult right away after a significant head injury or new concerning symptoms.",
       "place": "",
-      "story": "Three children arrive after playground accidents. Arjun bumped his head and now seems confused and is having trouble answering simple questions. Bea has a small elbow scrape. Cole has a sore finger but is talking normally.",
+      "guide": "All three need seeing. Ask of each what could be getting worse right now. You can see a scrape. You cannot see a brain. So a change in how somebody thinks is the clue that matters after a head bump.",
+      "background": [
+        "Why first is a different question from best. When there is more than one call on the same hour, the value of doing something now is not how much it matters. It is how much is lost by doing it later. Something important that will be just as fixable in an hour can wait. Something small that will not be fixable can not.",
+        "What to look for in the options. Ask which one changes if you wait — a reading that is still moving, a person who is getting worse, a window that closes. Then ask which ones can only be done after something else. Those two questions usually leave one option standing.",
+        "Why only one answer is marked. Real shifts do all of these, in some order. The stop asks for the front of that order because that is the only part where the reasoning shows. Read the verdict afterwards even when you are right — it says what the others were waiting on, which is the rest of the answer."
+      ],
+      "story": "Three children come in from the playground. Arjun bumped his head. Now he looks muddled and cannot answer easy questions. Bea has a small elbow scrape. Cole has a sore finger but is talking normally.",
       "game": {
         "type": "TRIAGE",
         "title": "After the Head Bump — Review 2",
@@ -4524,7 +5888,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Nervous system and reflexes",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 10,
@@ -4532,6 +5904,12 @@ export const CURRICULUM = {
       "scene": "Mina says the letters on the classroom board look blurry from far away. The eye doctor wants to start with a simple test that checks what she can see at different sizes.",
       "takeaway": "The best test depends on the question you are trying to answer.",
       "place": "",
+      "guide": "Four tools, all of them good. Ask of each what it measures. Eyes? Ears? Sounds inside? Bones? Then look at the clue and match it. Every one of these answers some question. Only one answers this one.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Mina says the letters on the classroom board look blurry from far away. The eye doctor wants to start with a simple test that checks what she can see at different sizes.",
       "game": {
         "type": "CHOICE",
@@ -4557,7 +5935,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "different tools check different things"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "The senses",
+        "of": 30,
+        "rests": [
+          "Nervous system and reflexes"
+        ]
+      }
     },
     {
       "day": 11,
@@ -4565,6 +5951,12 @@ export const CURRICULUM = {
       "scene": "The team has three clue cards. Mina has blurry vision, Caleb has trouble hearing a tone, and Mrs. Patel feels unsteady when her head turns.",
       "takeaway": "One organ can have more than one job; the ear helps with both hearing and balance.",
       "place": "",
+      "guide": "Four sets, and one body part does two jobs. Ask of each person what they cannot do. Seeing? Hearing? Staying steady? The ear takes in sound, and it also tells the brain which way is up.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The team has three clue cards. Mina has blurry vision, Caleb has trouble hearing a tone, and Mrs. Patel feels unsteady when her head turns.",
       "game": {
         "type": "CASEBOOK",
@@ -4590,7 +5982,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your eyes see and your ears hear"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "The senses",
+        "of": 30,
+        "rests": [
+          "Nervous system and reflexes"
+        ]
+      }
     },
     {
       "day": 12,
@@ -4598,6 +5998,12 @@ export const CURRICULUM = {
       "scene": "Jules wants to know how light becomes the picture he experiences. The brain doctor uses four large picture cards.",
       "takeaway": "Seeing is a team job between the eyes, nerves, and brain.",
       "place": "",
+      "guide": "These four are one path. Ask what has to happen first. The brain cannot make sense of a pattern the eye has not picked up. So the eye collects, and the brain understands. A problem could be anywhere along the line.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Jules wants to know how light becomes the picture he experiences. The brain doctor uses four large picture cards.",
       "game": {
         "type": "SEQUENCE",
@@ -4623,7 +6029,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "you need light to see"
-      ]
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Nervous system and reflexes",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 13,
@@ -4631,6 +6045,12 @@ export const CURRICULUM = {
       "scene": "Three charts show three parts of a simple nervous-system job: Lily feels cold, Theo’s brain figures out what the feeling means, and Ms. Reed presses a button after a signal.",
       "takeaway": "Nerves carry messages in both directions: toward the brain and toward muscles.",
       "place": "",
+      "guide": "Four sets, and signals go two ways. Ask of each person which way theirs goes. Feeling something comes in. Moving goes out. Thinking sits in the middle. All three have to work, or the whole thing stops.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Three charts show three parts of a simple nervous-system job: Lily feels cold, Theo’s brain figures out what the feeling means, and Ms. Reed presses a button after a signal.",
       "game": {
         "type": "CASEBOOK",
@@ -4656,7 +6076,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "nerves carry messages around your body"
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Muscles and movement",
+        "of": 30,
+        "rests": [
+          "Skeletal system"
+        ]
+      }
     },
     {
       "day": 14,
@@ -4664,6 +6092,12 @@ export const CURRICULUM = {
       "scene": "Lily touches something very cold and quickly moves her hand. The brain doctor shows four simplified stages.",
       "takeaway": "The nervous system helps the body notice changes and respond.",
       "place": "",
+      "guide": "These four are one chain. Ask what has to happen first. You cannot answer something you have not noticed. So the skin comes before the thinking. And the moving comes after both. It feels like one thing. It is four.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Lily touches something very cold and quickly moves her hand. The brain doctor shows four simplified stages.",
       "game": {
         "type": "SEQUENCE",
@@ -4689,15 +6123,29 @@ export const CURRICULUM = {
       },
       "assumes": [
         "you pull your hand back from something cold"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "The senses",
+        "of": 30,
+        "rests": [
+          "Nervous system and reflexes"
+        ]
+      }
     },
     {
       "day": 15,
       "title": "After the Head Bump — Review 3",
-      "scene": "Three children arrive after playground accidents. Arjun bumped his head and now seems confused and is having trouble answering simple questions. Bea has a small elbow scrape. Cole has a sore finger but is talking normally.",
+      "scene": "Three children come in from the playground. Arjun bumped his head. Now he looks muddled and cannot answer easy questions. Bea has a small elbow scrape. Cole has a sore finger but is talking normally.",
       "takeaway": "In real life, children should tell an adult right away after a significant head injury or new concerning symptoms.",
       "place": "",
-      "story": "Three children arrive after playground accidents. Arjun bumped his head and now seems confused and is having trouble answering simple questions. Bea has a small elbow scrape. Cole has a sore finger but is talking normally.",
+      "guide": "All three need seeing. Ask of each what could be getting worse right now. You can see a scrape. You cannot see a brain. So a change in how somebody thinks is the clue that matters after a head bump.",
+      "background": [
+        "Why first is a different question from best. When there is more than one call on the same hour, the value of doing something now is not how much it matters. It is how much is lost by doing it later. Something important that will be just as fixable in an hour can wait. Something small that will not be fixable can not.",
+        "What to look for in the options. Ask which one changes if you wait — a reading that is still moving, a person who is getting worse, a window that closes. Then ask which ones can only be done after something else. Those two questions usually leave one option standing.",
+        "Why only one answer is marked. Real shifts do all of these, in some order. The stop asks for the front of that order because that is the only part where the reasoning shows. Read the verdict afterwards even when you are right — it says what the others were waiting on, which is the rest of the answer."
+      ],
+      "story": "Three children come in from the playground. Arjun bumped his head. Now he looks muddled and cannot answer easy questions. Bea has a small elbow scrape. Cole has a sore finger but is talking normally.",
       "game": {
         "type": "TRIAGE",
         "title": "After the Head Bump — Review 3",
@@ -4739,7 +6187,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Nervous system and reflexes",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 16,
@@ -4747,6 +6203,12 @@ export const CURRICULUM = {
       "scene": "Mina says the letters on the classroom board look blurry from far away. The eye doctor wants to start with a simple test that checks what she can see at different sizes.",
       "takeaway": "The best test depends on the question you are trying to answer.",
       "place": "",
+      "guide": "Four tools, all of them good. Ask of each what it measures. Eyes? Ears? Sounds inside? Bones? Then look at the clue and match it. Every one of these answers some question. Only one answers this one.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Mina says the letters on the classroom board look blurry from far away. The eye doctor wants to start with a simple test that checks what she can see at different sizes.",
       "game": {
         "type": "CHOICE",
@@ -4772,7 +6234,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "different tools check different things"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "The senses",
+        "of": 30,
+        "rests": [
+          "Nervous system and reflexes"
+        ]
+      }
     },
     {
       "day": 17,
@@ -4780,6 +6250,12 @@ export const CURRICULUM = {
       "scene": "The team has three clue cards. Mina has blurry vision, Caleb has trouble hearing a tone, and Mrs. Patel feels unsteady when her head turns.",
       "takeaway": "One organ can have more than one job; the ear helps with both hearing and balance.",
       "place": "",
+      "guide": "Four sets, and one body part does two jobs. Ask of each person what they cannot do. Seeing? Hearing? Staying steady? The ear takes in sound, and it also tells the brain which way is up.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The team has three clue cards. Mina has blurry vision, Caleb has trouble hearing a tone, and Mrs. Patel feels unsteady when her head turns.",
       "game": {
         "type": "CASEBOOK",
@@ -4805,7 +6281,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your eyes see and your ears hear"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "The senses",
+        "of": 30,
+        "rests": [
+          "Nervous system and reflexes"
+        ]
+      }
     },
     {
       "day": 18,
@@ -4813,6 +6297,12 @@ export const CURRICULUM = {
       "scene": "Jules wants to know how light becomes the picture he experiences. The brain doctor uses four large picture cards.",
       "takeaway": "Seeing is a team job between the eyes, nerves, and brain.",
       "place": "",
+      "guide": "These four are one path. Ask what has to happen first. The brain cannot make sense of a pattern the eye has not picked up. So the eye collects, and the brain understands. A problem could be anywhere along the line.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Jules wants to know how light becomes the picture he experiences. The brain doctor uses four large picture cards.",
       "game": {
         "type": "SEQUENCE",
@@ -4838,7 +6328,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "you need light to see"
-      ]
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Nervous system and reflexes",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 19,
@@ -4846,6 +6344,12 @@ export const CURRICULUM = {
       "scene": "Three charts show three parts of a simple nervous-system job: Lily feels cold, Theo’s brain figures out what the feeling means, and Ms. Reed presses a button after a signal.",
       "takeaway": "Nerves carry messages in both directions: toward the brain and toward muscles.",
       "place": "",
+      "guide": "Four sets, and signals go two ways. Ask of each person which way theirs goes. Feeling something comes in. Moving goes out. Thinking sits in the middle. All three have to work, or the whole thing stops.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Three charts show three parts of a simple nervous-system job: Lily feels cold, Theo’s brain figures out what the feeling means, and Ms. Reed presses a button after a signal.",
       "game": {
         "type": "CASEBOOK",
@@ -4871,7 +6375,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "nerves carry messages around your body"
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Muscles and movement",
+        "of": 30,
+        "rests": [
+          "Skeletal system"
+        ]
+      }
     },
     {
       "day": 20,
@@ -4879,6 +6391,12 @@ export const CURRICULUM = {
       "scene": "Lily touches something very cold and quickly moves her hand. The brain doctor shows four simplified stages.",
       "takeaway": "The nervous system helps the body notice changes and respond.",
       "place": "",
+      "guide": "These four are one chain. Ask what has to happen first. You cannot answer something you have not noticed. So the skin comes before the thinking. And the moving comes after both. It feels like one thing. It is four.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Lily touches something very cold and quickly moves her hand. The brain doctor shows four simplified stages.",
       "game": {
         "type": "SEQUENCE",
@@ -4904,15 +6422,29 @@ export const CURRICULUM = {
       },
       "assumes": [
         "you pull your hand back from something cold"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "The senses",
+        "of": 30,
+        "rests": [
+          "Nervous system and reflexes"
+        ]
+      }
     },
     {
       "day": 21,
       "title": "After the Head Bump — Review 4",
-      "scene": "Three children arrive after playground accidents. Arjun bumped his head and now seems confused and is having trouble answering simple questions. Bea has a small elbow scrape. Cole has a sore finger but is talking normally.",
+      "scene": "Three children come in from the playground. Arjun bumped his head. Now he looks muddled and cannot answer easy questions. Bea has a small elbow scrape. Cole has a sore finger but is talking normally.",
       "takeaway": "In real life, children should tell an adult right away after a significant head injury or new concerning symptoms.",
       "place": "",
-      "story": "Three children arrive after playground accidents. Arjun bumped his head and now seems confused and is having trouble answering simple questions. Bea has a small elbow scrape. Cole has a sore finger but is talking normally.",
+      "guide": "All three need seeing. Ask of each what could be getting worse right now. You can see a scrape. You cannot see a brain. So a change in how somebody thinks is the clue that matters after a head bump.",
+      "background": [
+        "Why first is a different question from best. When there is more than one call on the same hour, the value of doing something now is not how much it matters. It is how much is lost by doing it later. Something important that will be just as fixable in an hour can wait. Something small that will not be fixable can not.",
+        "What to look for in the options. Ask which one changes if you wait — a reading that is still moving, a person who is getting worse, a window that closes. Then ask which ones can only be done after something else. Those two questions usually leave one option standing.",
+        "Why only one answer is marked. Real shifts do all of these, in some order. The stop asks for the front of that order because that is the only part where the reasoning shows. Read the verdict afterwards even when you are right — it says what the others were waiting on, which is the rest of the answer."
+      ],
+      "story": "Three children come in from the playground. Arjun bumped his head. Now he looks muddled and cannot answer easy questions. Bea has a small elbow scrape. Cole has a sore finger but is talking normally.",
       "game": {
         "type": "TRIAGE",
         "title": "After the Head Bump — Review 4",
@@ -4954,7 +6486,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Nervous system and reflexes",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 22,
@@ -4962,6 +6502,12 @@ export const CURRICULUM = {
       "scene": "Mina says the letters on the classroom board look blurry from far away. The eye doctor wants to start with a simple test that checks what she can see at different sizes.",
       "takeaway": "The best test depends on the question you are trying to answer.",
       "place": "",
+      "guide": "Four tools, all of them good. Ask of each what it measures. Eyes? Ears? Sounds inside? Bones? Then look at the clue and match it. Every one of these answers some question. Only one answers this one.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Mina says the letters on the classroom board look blurry from far away. The eye doctor wants to start with a simple test that checks what she can see at different sizes.",
       "game": {
         "type": "CHOICE",
@@ -4987,7 +6533,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "different tools check different things"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "The senses",
+        "of": 30,
+        "rests": [
+          "Nervous system and reflexes"
+        ]
+      }
     },
     {
       "day": 23,
@@ -4995,6 +6549,12 @@ export const CURRICULUM = {
       "scene": "The team has three clue cards. Mina has blurry vision, Caleb has trouble hearing a tone, and Mrs. Patel feels unsteady when her head turns.",
       "takeaway": "One organ can have more than one job; the ear helps with both hearing and balance.",
       "place": "",
+      "guide": "Four sets, and one body part does two jobs. Ask of each person what they cannot do. Seeing? Hearing? Staying steady? The ear takes in sound, and it also tells the brain which way is up.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The team has three clue cards. Mina has blurry vision, Caleb has trouble hearing a tone, and Mrs. Patel feels unsteady when her head turns.",
       "game": {
         "type": "CASEBOOK",
@@ -5020,7 +6580,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your eyes see and your ears hear"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "The senses",
+        "of": 30,
+        "rests": [
+          "Nervous system and reflexes"
+        ]
+      }
     },
     {
       "day": 24,
@@ -5028,6 +6596,12 @@ export const CURRICULUM = {
       "scene": "Jules wants to know how light becomes the picture he experiences. The brain doctor uses four large picture cards.",
       "takeaway": "Seeing is a team job between the eyes, nerves, and brain.",
       "place": "",
+      "guide": "These four are one path. Ask what has to happen first. The brain cannot make sense of a pattern the eye has not picked up. So the eye collects, and the brain understands. A problem could be anywhere along the line.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Jules wants to know how light becomes the picture he experiences. The brain doctor uses four large picture cards.",
       "game": {
         "type": "SEQUENCE",
@@ -5053,7 +6627,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "you need light to see"
-      ]
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Nervous system and reflexes",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 25,
@@ -5061,6 +6643,12 @@ export const CURRICULUM = {
       "scene": "Three charts show three parts of a simple nervous-system job: Lily feels cold, Theo’s brain figures out what the feeling means, and Ms. Reed presses a button after a signal.",
       "takeaway": "Nerves carry messages in both directions: toward the brain and toward muscles.",
       "place": "",
+      "guide": "Four sets, and signals go two ways. Ask of each person which way theirs goes. Feeling something comes in. Moving goes out. Thinking sits in the middle. All three have to work, or the whole thing stops.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Three charts show three parts of a simple nervous-system job: Lily feels cold, Theo’s brain figures out what the feeling means, and Ms. Reed presses a button after a signal.",
       "game": {
         "type": "CASEBOOK",
@@ -5086,7 +6674,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "nerves carry messages around your body"
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Muscles and movement",
+        "of": 30,
+        "rests": [
+          "Skeletal system"
+        ]
+      }
     }
   ],
   "DEF": [
@@ -5096,6 +6692,12 @@ export const CURRICULUM = {
       "scene": "The nurse gives you three short stories. Ty was near classmates who were coughing. Ana ate food that made several relatives sick. Lena touched a shared toy and rubbed her nose. Germs cannot fly or walk by themselves. Something has to carry them. Different germs travel different ways. The way it travels tells you how to stop it.",
       "takeaway": "Knowing the route helps people choose the right prevention strategy.",
       "place": "",
+      "guide": "Four sets, and germs travel in more than one way. Ask of each person what they did. Coughed near others? Ate something? Touched a handle? The story is what tells you which way the germ came.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The nurse gives you three short stories. Ty was near classmates who were coughing. Ana ate food that made several relatives sick. Lena touched a shared toy and rubbed her nose. Germs cannot fly or walk by themselves. Something has to carry them. Different germs travel different ways. The way it travels tells you how to stop it.",
       "game": {
         "type": "CASEBOOK",
@@ -5121,57 +6723,86 @@ export const CURRICULUM = {
       },
       "assumes": [
         "germs are too small to see"
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Germs, transmission and hand hygiene",
+        "of": 30,
+        "rests": [
+          "Immune defence and inflammation"
+        ]
+      }
     },
     {
       "day": 2,
       "title": "Handwashing Challenge",
-      "scene": "Lena asks why the hospital has sinks everywhere. Hands touch more things than any other body part. That makes them the busiest ride for germs. Washing lifts germs off the skin. Then the water rinses them away. It only works if you wash long enough. You also have to cover the whole hand. That is why the steps are taught in order.",
+      "scene": "Lena asks why there are sinks everywhere. Hands touch more things than any other body part. So hands carry the most germs. The team has a glowing powder. It shows where hands are still dirty.",
       "takeaway": "Handwashing is a simple action that can break a chain of germ spread.",
-      "place": "",
-      "story": "Lena asks why the hospital has sinks everywhere. Hands touch more things than any other body part. That makes them the busiest ride for germs. Washing lifts germs off the skin. Then the water rinses them away. It only works if you wash long enough. You also have to cover the whole hand. That is why the steps are taught in order.",
+      "place": "Hand Hygiene Station",
+      "guide": "Four things are different between a good wash and a quick rinse. Change one of them and wash again. The lamp counts the glowing spots left on your hands. Change two things at once and you will not know which one helped. Then put your one back and see if the spots come back.",
+      "background": [
+        "What soap does. Germs and grease stick to skin. Soap lets water lift them off, so they run away down the drain instead of staying on your hands.",
+        "Why one thing at a time. If you use soap and scrub for longer and use warm water, and the spots go away, you still do not know which of the three did it. Change one, and the lamp tells you.",
+        "Why putting it back matters. If the spots come back when you stop using soap, then it was the soap. If they stay away, something else was doing the work."
+      ],
+      "story": "Lena asks why there are sinks everywhere. Hands touch more things than any other body part. So hands carry the most germs. The team has a glowing powder. It shows where hands are still dirty.",
       "game": {
-        "type": "SEQUENCE",
+        "type": "CONTROL",
         "title": "Handwashing Challenge",
-        "setup": "Lena  •  Family Waiting Room",
-        "play": "Put the handwashing steps in order.",
-        "task": "Put the handwashing steps in order.",
-        "question": "Put the handwashing steps in order.",
-        "answer": "1. Wet hands with clean running water. 2. Use soap and scrub all parts of the hands. 3. Rinse the soap away with clean running water. 4. Dry the hands with a clean towel or air dryer.",
-        "why": "Hands are how germs get around. Somebody touches one thing, then another, then their own face. Washing breaks that chain. Soap loosens the germs, and running water carries them away. That is why it needs both, and why the rubbing part is the part people cut short.",
-        "cards": [
-          "Wet hands with clean running water.",
-          "Use soap and scrub all parts of the hands.",
-          "Rinse the soap away with clean running water.",
-          "Dry the hands with a clean towel or air dryer."
-        ],
-        "order": [
-          0,
-          1,
-          2,
-          3
-        ]
+        "setup": "Hand Hygiene Station",
+        "play": "Find out what the soap is actually doing.",
+        "task": "Find out what the soap is actually doing.",
+        "question": "Which one thing makes the most difference to how clean your hands get?",
+        "answer": "The soap. With soap the lamp finds about 4 spots instead of 34, and when you stop using soap the spots come back.",
+        "why": "Four things were different. Only one of them matters much. Wash with soap and keep the rest the same. The lamp finds about 4 spots instead of 34. Stop using soap, and the spots come back. That is how you know it was the soap. The others do much less on their own. Warm water hardly changes the count. Twenty seconds with no soap beats five seconds, but not by much. A paper towel matters for what you touch next. Germs and grease stick to skin. Soap lets the water lift them off. Then they run down the drain. That is why there are sinks everywhere.",
+        "control": {
+          "observable": {
+            "label": "Glowing spots left on your hands",
+            "unit": "spots"
+          },
+          "variables": [
+            {
+              "id": "soap",
+              "label": "Using soap"
+            },
+            {
+              "id": "time",
+              "label": "Washing for twenty seconds instead of five"
+            },
+            {
+              "id": "warm",
+              "label": "Using warm water instead of cold"
+            },
+            {
+              "id": "towel",
+              "label": "Drying with a paper towel"
+            }
+          ],
+          "held": [
+            "the same glowing powder",
+            "the same pair of hands",
+            "the same lamp"
+          ],
+          "truth": "soap",
+          "baseline": 34,
+          "response": -30,
+          "noise": 4,
+          "hint": "You can wash your hands as many times as you like. Change one thing, wash, and look under the lamp.",
+          "run": "Wash and look under the lamp",
+          "commit": "Name the one that is doing the work"
+        }
       },
       "assumes": [
         "soap and water clean things"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ]
+      "concept": {
+        "n": 18,
+        "c": "Germs, transmission and hand hygiene",
+        "of": 30,
+        "rests": [
+          "Immune defence and inflammation"
+        ]
+      }
     },
     {
       "day": 3,
@@ -5179,6 +6810,12 @@ export const CURRICULUM = {
       "scene": "Ty and Ana both feel tired. The rest of their clues are different. So is where each of them had been. A student says they must have the same germ. The germ scientist asks you to judge that. Many different illnesses make people tired. One shared clue is weak proof. Medicine is a puzzle. The pattern across clues is what points to an answer.",
       "takeaway": "Medicine is an evidence puzzle, not a one-clue guessing game.",
       "place": "",
+      "guide": "Four answers, and two of them say yes. Ask of each what it takes as proof. Lots of things make a person tired. So one shared feeling is not enough. Saying not enough evidence yet is a real answer.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Ty and Ana both feel tired. The rest of their clues are different. So is where each of them had been. A student says they must have the same germ. The germ scientist asks you to judge that. Many different illnesses make people tired. One shared clue is weak proof. Medicine is a puzzle. The pattern across clues is what points to an answer.",
       "game": {
         "type": "CHOICE",
@@ -5204,7 +6841,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "being tired can happen for many reasons"
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Germs, transmission and hand hygiene",
+        "of": 30,
+        "rests": [
+          "Immune defence and inflammation"
+        ]
+      }
     },
     {
       "day": 4,
@@ -5212,6 +6857,12 @@ export const CURRICULUM = {
       "scene": "Ruby is getting better. The immune doctor wants to show why. Four picture cards show what her body did. The steps happen in order. Something has to be noticed before it can be fought. Helpers have to arrive before the cleanup. The last step is the surprising one. The body keeps a record of what it met.",
       "takeaway": "Immune memory can help the body respond faster when it meets the same threat again.",
       "place": "",
+      "guide": "These four are one order. Ask what has to happen first. Nothing gets attacked before it is spotted. And nothing is remembered before the fight. That last step is why you often do not get the same illness twice.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Ruby is getting better. The immune doctor wants to show why. Four picture cards show what her body did. The steps happen in order. Something has to be noticed before it can be fought. Helpers have to arrive before the cleanup. The last step is the surprising one. The body keeps a record of what it met.",
       "game": {
         "type": "SEQUENCE",
@@ -5237,7 +6888,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your body can fight off a cold"
-      ]
+      ],
+      "concept": {
+        "n": 17,
+        "c": "Immune defence and inflammation",
+        "of": 30,
+        "rests": [
+          "Blood and its components"
+        ]
+      }
     },
     {
       "day": 5,
@@ -5245,6 +6904,12 @@ export const CURRICULUM = {
       "scene": "Three cards need labels. Dante has a skin shield card. Ruby has a white blood cell card. Mae has an antibody card. The body does not defend itself one way. It defends in layers. Barriers try to keep germs out. Cells patrol and attack what gets in. Special molecules know one threat very well. Each layer catches what the last one missed.",
       "takeaway": "Defense works in layers: barriers, cells, and specialized molecules.",
       "place": "",
+      "guide": "Four sets, and each part has one job. Ask what each one does. Keeps things out? Goes looking? Knows one target? None of them can do the other two jobs. Check all three before you pick a set.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Three cards need labels. Dante has a skin shield card. Ruby has a white blood cell card. Mae has an antibody card. The body does not defend itself one way. It defends in layers. Barriers try to keep germs out. Cells patrol and attack what gets in. Special molecules know one threat very well. Each layer catches what the last one missed.",
       "game": {
         "type": "CASEBOOK",
@@ -5270,7 +6935,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a team works better than one person alone"
-      ]
+      ],
+      "concept": {
+        "n": 17,
+        "c": "Immune defence and inflammation",
+        "of": 30,
+        "rests": [
+          "Blood and its components"
+        ]
+      }
     },
     {
       "day": 6,
@@ -5278,6 +6951,12 @@ export const CURRICULUM = {
       "scene": "Mae is at the clinic with her mum. A nurse will give the shot. A shot lets the body practise, so it is ready if the real germ turns up.",
       "takeaway": "The wait at the end of a vaccine visit is part of the visit: fast reactions show up in the first few minutes.",
       "place": "",
+      "guide": "All four steps happen. Ask which one cannot be taken back. A shot cannot, so checking who it is comes first. Then telling Mae, so she can hold still. The wait at the end is not politeness.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Mae is at the clinic with her parent. The nurse explains what a vaccine does. It lets the immune system practise safely. The body keeps a memory of what it meets. So practice can make a later response much faster. Trained adults give vaccines. The visit follows the same order every time. Check who the patient is. Explain. Give it. Wait a little while.",
       "game": {
         "type": "SEQUENCE",
@@ -5303,145 +6982,28 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a shot cannot be taken back once it is given"
-      ]
+      ],
+      "concept": {
+        "n": 17,
+        "c": "Immune defence and inflammation",
+        "of": 30,
+        "rests": [
+          "Blood and its components"
+        ]
+      }
     },
     {
       "day": 7,
-      "title": "Hot or Cold Response?",
-      "scene": "Jamal is hot after exercise. He is sweating. Ivy got caught in the rain. She is cold and shivering. Both are with the team now. The body works hard to hold one steady temperature. Cells only work well in a narrow range. When it gets too warm, the body loses heat. When it gets too cold, the body makes heat.",
-      "takeaway": "Homeostasis means the body works to keep important conditions within a useful range.",
-      "place": "",
-      "story": "Jamal is hot after exercise. He is sweating. Ivy got caught in the rain. She is cold and shivering. Both are with the team now. The body works hard to hold one steady temperature. Cells only work well in a narrow range. When it gets too warm, the body loses heat. When it gets too cold, the body makes heat.",
-      "game": {
-        "type": "CHOICE",
-        "title": "Hot or Cold Response?",
-        "setup": "Jamal and Ivy  •  Observation Ward",
-        "play": "Which explanation matches the clues?",
-        "task": "Which explanation matches the clues?",
-        "question": "Which explanation matches the clues?",
-        "answer": "Sweating helps cool; shivering uses muscle activity that helps make heat.",
-        "why": "These two do opposite things. Sweat sits on your skin and dries. Drying takes heat away with it, so you cool down. Shivering is your muscles shaking fast, and working muscles make heat. So one cools and one warms. Your body uses both to stay at about the same temperature all day.",
-        "rebuttals": [
-          "B. Both make heat, because the body is trying to warm up either way. — Shivering does make heat. Sweating does the opposite, which is the whole point.",
-          "C. Sweating cools by wetting the skin; shivering cools by moving air. — Sweating does cool. Shivering is muscles working, and working muscles make heat.",
-          "D. Both are signs of being unwell rather than ways of holding a steady temperature. — You can be unwell and do both. A healthy body does both too, every day."
-        ],
-        "choices": [
-          "Sweating helps cool; shivering uses muscle activity that helps make heat.",
-          "Sweating and shivering both make heat, because the body is trying to warm up either way.",
-          "Sweating cools by wetting the skin; shivering cools by moving air across it.",
-          "Both are signs of being unwell rather than ways of holding a steady temperature."
-        ],
-        "correctChoice": "Sweating helps cool; shivering uses muscle activity that helps make heat."
-      },
-      "assumes": [
-        "you sweat when you are hot and shiver when you are cold"
-      ]
-    },
-    {
-      "day": 8,
-      "title": "Temperature Difference",
-      "scene": "A chart shows 2 numbers for Ms. Kim. The first is 98°F. The next is 101°F. The times beside them are three hours apart.",
-      "takeaway": "A change on its own is not enough; how long it took is what says whether it is fast.",
-      "place": "",
-      "story": "A chart shows 2 temperatures for Ms. Kim. The earlier 1 is 98°F. The later 1 is 101°F, and the times beside them are 3 hours apart. One temperature alone is just a number. Two of them make a change, and the times make that change a speed. That is why charts keep the old readings and the clock beside them. The care team decides what it means.",
-      "game": {
-        "type": "BALLPARK",
-        "title": "Temperature Difference",
-        "setup": "Ms. Kim  •  Nurse Station",
-        "play": "How fast is her temperature rising, in degrees per hour?",
-        "task": "How fast is her temperature rising, in degrees per hour?",
-        "question": "How fast is her temperature rising, in degrees per hour?",
-        "answer": "3°F",
-        "why": "101 take away 98 is 3. It took 3 hours. So it went up about 1 degree each hour. That is the whole trick. One number is just a number. Two numbers and a clock make a speed. The same 3 degrees in 10 minutes would be a much bigger worry.",
-        "rebuttals": [
-          "A. 1°F — 101 is 3, not 1, above 98.",
-          "B. 2°F — 101 is 3, not 2, above 98.",
-          "D. 199°F — 199 comes from adding, but the question asks for the difference."
-        ],
-        "givens": [
-          "Use the numbers shown"
-        ],
-        "relationship": "Change each hour = how much it changed ÷ how many hours it took."
-      },
-      "assumes": [
-        "you can take one number away from another"
-      ],
-      "equations": [
-        {
-          "e": "change each hour = total change ÷ hours taken",
-          "c": "a rate from a change and a time",
-          "v": [
-            [
-              "total change",
-              "how much the number moved altogether"
-            ],
-            [
-              "hours taken",
-              "how long it took to move"
-            ]
-          ],
-          "s": "Dividing the change by the time gives how fast it is moving, which is what says whether to act now or watch.",
-          "computed": true
-        }
-      ]
-    },
-    {
-      "day": 9,
-      "title": "How Sweat Helps Cool",
-      "scene": "Parker sees sweat on his arm after exercise. The nurse explains why that helps. Turning liquid water into vapour takes energy. That energy comes from the warmest thing nearby. On skin, that is the skin itself. So sweat carries heat away as it dries. It is plain physics, not magic. A breeze helps. A very humid day does not.",
-      "takeaway": "The body uses physical processes, not magic, to help control temperature.",
-      "place": "",
-      "story": "Parker sees sweat on his arm after exercise. The nurse explains why that helps. Turning liquid water into vapour takes energy. That energy comes from the warmest thing nearby. On skin, that is the skin itself. So sweat carries heat away as it dries. It is plain physics, not magic. A breeze helps. A very humid day does not.",
-      "game": {
-        "type": "SEQUENCE",
-        "title": "How Sweat Helps Cool",
-        "setup": "Parker  •  Cooling Room",
-        "play": "Put the simplified cooling story in order.",
-        "task": "Put the simplified cooling story in order.",
-        "question": "Put the simplified cooling story in order.",
-        "answer": "The body becomes warmer during activity. -> Sweat appears on the skin. -> Some sweat evaporates into the air. -> Evaporation carries away heat and helps cool the skin.",
-        "why": "Sweating alone does not cool you. The drying is what cools you. Here is the order. You get warm. Sweat comes out on your skin. Some of it dries into the air. Drying needs energy, and it takes that energy as heat from your skin. That is why a wet day feels so much hotter.",
-        "cards": [
-          "The body becomes warmer during activity.",
-          "Sweat appears on the skin.",
-          "Some sweat evaporates into the air.",
-          "Evaporation carries away heat and helps cool the skin."
-        ],
-        "order": [
-          0,
-          1,
-          2,
-          3
-        ]
-      },
-      "assumes": [
-        "water dries up in the air"
-      ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ]
-    },
-    {
-      "day": 10,
       "title": "Which Allergy Patient First?",
       "scene": "Three people come in with allergy signs. Sofia has itchy eyes and breathes normally. Malik has an itchy rash and talks normally. Chloe has swelling around her mouth. She is struggling to breathe. The team needs your call. An allergy is the body's defence going much too far. Most reactions stay about the same for a while. A few change very fast.",
       "takeaway": "When breathing is threatened, urgency rises sharply.",
       "place": "",
+      "guide": "All three need help. Ask of each what could get worse in minutes. Itchy eyes stay about the same. A big rash looks worse than a small one. How much skin it covers is not what makes it urgent.",
+      "background": [
+        "Why first is a different question from best. When there is more than one call on the same hour, the value of doing something now is not how much it matters. It is how much is lost by doing it later. Something important that will be just as fixable in an hour can wait. Something small that will not be fixable can not.",
+        "What to look for in the options. Ask which one changes if you wait — a reading that is still moving, a person who is getting worse, a window that closes. Then ask which ones can only be done after something else. Those two questions usually leave one option standing.",
+        "Why only one answer is marked. Real shifts do all of these, in some order. The stop asks for the front of that order because that is the only part where the reasoning shows. Read the verdict afterwards even when you are right — it says what the others were waiting on, which is the rest of the answer."
+      ],
       "story": "Three people come in with allergy signs. Sofia has itchy eyes and breathes normally. Malik has an itchy rash and talks normally. Chloe has swelling around her mouth. She is struggling to breathe. The team needs your call. An allergy is the body's defence going much too far. Most reactions stay about the same for a while. A few change very fast.",
       "game": {
         "type": "TRIAGE",
@@ -5484,14 +7046,28 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Emergency assessment and triage",
+        "of": 30,
+        "rests": [
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
     },
     {
-      "day": 11,
+      "day": 8,
       "title": "Allergy or Germ Clues?",
       "scene": "Sofia's eyes itch every spring. That is when pollen is high. She has no fever. Ty came in earlier with a fever and a cough. His classmates were sick too. The allergist asks which story sounds like an allergy. Both patients feel unwell. So no single symptom decides it. The pattern does. What else is happening, and when.",
       "takeaway": "Doctors compare patterns, timing, and exposures instead of relying on one clue.",
       "place": "",
+      "guide": "Four answers, and both patients feel unwell. Ask of each what the pattern under it is. Does it come back every year with the pollen? Or did it start after being near somebody sick? Look at the story, not the feeling.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Sofia's eyes itch every spring. That is when pollen is high. She has no fever. Ty came in earlier with a fever and a cough. His classmates were sick too. The allergist asks which story sounds like an allergy. Both patients feel unwell. So no single symptom decides it. The pattern does. What else is happening, and when.",
       "game": {
         "type": "CASEBOOK",
@@ -5517,14 +7093,28 @@ export const CURRICULUM = {
       },
       "assumes": [
         "some things happen at the same time every year"
-      ]
+      ],
+      "concept": {
+        "n": 17,
+        "c": "Immune defence and inflammation",
+        "of": 30,
+        "rests": [
+          "Blood and its components"
+        ]
+      }
     },
     {
-      "day": 12,
+      "day": 9,
       "title": "Emergency Team Handoff",
       "scene": "The team is helping Chloe now. In this game you do not pick or give medicine. Your job is to get the right grown-ups fast and tell them the story.",
       "takeaway": "In an emergency the first action is the one with a clock on it, and the last is the one that protects the record.",
       "place": "",
+      "guide": "All four steps happen. Ask which clock is already running. The team takes time to come, so calling is first. Then watch her breathing, because that changes fastest. Writing it down is last, so nobody has to guess the order.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "The emergency team is treating Chloe now. You do not choose medicine. You do not give it. That is their job. Your job is to bring the right adults fast. Then pass on the story clearly. Who the patient is. What happened. When it started. What changed. Emergencies are lost more often to slow, muddled information than to anything else.",
       "game": {
         "type": "SEQUENCE",
@@ -5567,7 +7157,200 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 29,
+        "c": "First aid: airway, breathing, circulation",
+        "of": 30,
+        "rests": [
+          "Breathing and gas exchange",
+          "Heart and circulation"
+        ]
+      }
+    },
+    {
+      "day": 10,
+      "title": "Hot or Cold Response?",
+      "scene": "Jamal is hot after exercise. He is sweating. Ivy got caught in the rain. She is cold and shivering. Both are with the team now. The body works hard to hold one steady temperature. Cells only work well in a narrow range. When it gets too warm, the body loses heat. When it gets too cold, the body makes heat.",
+      "takeaway": "Homeostasis means the body works to keep important conditions within a useful range.",
+      "place": "",
+      "guide": "Four answers about sweating and shivering. Ask of each whether the two do the same thing. Sweat dries, and drying takes heat away. Shivering is muscles working, and working muscles make heat. So one cools and one warms.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
+      "story": "Jamal is hot after exercise. He is sweating. Ivy got caught in the rain. She is cold and shivering. Both are with the team now. The body works hard to hold one steady temperature. Cells only work well in a narrow range. When it gets too warm, the body loses heat. When it gets too cold, the body makes heat.",
+      "game": {
+        "type": "CHOICE",
+        "title": "Hot or Cold Response?",
+        "setup": "Jamal and Ivy  •  Observation Ward",
+        "play": "Which explanation matches the clues?",
+        "task": "Which explanation matches the clues?",
+        "question": "Which explanation matches the clues?",
+        "answer": "Sweating helps cool; shivering uses muscle activity that helps make heat.",
+        "why": "These two do opposite things. Sweat sits on your skin and dries. Drying takes heat away with it, so you cool down. Shivering is your muscles shaking fast, and working muscles make heat. So one cools and one warms. Your body uses both to stay at about the same temperature all day.",
+        "rebuttals": [
+          "B. Both make heat, because the body is trying to warm up either way. — Shivering does make heat. Sweating does the opposite, which is the whole point.",
+          "C. Sweating cools by wetting the skin; shivering cools by moving air. — Sweating does cool. Shivering is muscles working, and working muscles make heat.",
+          "D. Both are signs of being unwell rather than ways of holding a steady temperature. — You can be unwell and do both. A healthy body does both too, every day."
+        ],
+        "choices": [
+          "Sweating helps cool; shivering uses muscle activity that helps make heat.",
+          "Sweating and shivering both make heat, because the body is trying to warm up either way.",
+          "Sweating cools by wetting the skin; shivering cools by moving air across it.",
+          "Both are signs of being unwell rather than ways of holding a steady temperature."
+        ],
+        "correctChoice": "Sweating helps cool; shivering uses muscle activity that helps make heat."
+      },
+      "assumes": [
+        "you sweat when you are hot and shiver when you are cold"
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Homeostasis and feedback",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
+    },
+    {
+      "day": 11,
+      "title": "Temperature Difference",
+      "scene": "A chart shows 2 numbers for Ms. Kim. The first is 98°F. The next is 101°F. The times beside them are three hours apart.",
+      "takeaway": "A change on its own is not enough; how long it took is what says whether it is fast.",
+      "place": "",
+      "guide": "Two things matter here. How much it changed, and how long that took. Ask what the question wants. It wants a speed, so it needs both. One number alone is just a number. The same change in ten minutes would worry you more.",
+      "story": "A chart shows 2 temperatures for Ms. Kim. The earlier 1 is 98°F. The later 1 is 101°F, and the times beside them are 3 hours apart. One temperature alone is just a number. Two of them make a change, and the times make that change a speed. That is why charts keep the old readings and the clock beside them. The care team decides what it means.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "Temperature Difference",
+        "setup": "Ms. Kim  •  Nurse Station",
+        "play": "How fast is her temperature rising, in degrees per hour?",
+        "task": "How fast is her temperature rising, in degrees per hour?",
+        "question": "How fast is her temperature rising, in degrees per hour?",
+        "answer": "3°F",
+        "why": "101 take away 98 is 3. It took 3 hours. So it went up about 1 degree each hour. That is the whole trick. One number is just a number. Two numbers and a clock make a speed. The same 3 degrees in 10 minutes would be a much bigger worry.",
+        "rebuttals": [
+          "A. 1°F — 101 is 3, not 1, above 98.",
+          "B. 2°F — 101 is 3, not 2, above 98.",
+          "D. 199°F — 199 comes from adding, but the question asks for the difference."
+        ],
+        "givens": [
+          "Use the numbers shown"
+        ],
+        "relationship": "Change each hour = how much it changed ÷ how many hours it took."
+      },
+      "assumes": [
+        "you can take one number away from another"
+      ],
+      "equations": [
+        {
+          "e": "change each hour = total change ÷ hours taken",
+          "c": "a rate from a change and a time",
+          "v": [
+            [
+              "total change",
+              "how much the number moved altogether"
+            ],
+            [
+              "hours taken",
+              "how long it took to move"
+            ]
+          ],
+          "s": "Dividing the change by the time gives how fast it is moving, which is what says whether to act now or watch.",
+          "computed": true
+        }
+      ],
+      "concept": {
+        "n": 27,
+        "c": "Body temperature and fever",
+        "of": 30,
+        "rests": [
+          "Homeostasis and feedback",
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
+    },
+    {
+      "day": 12,
+      "title": "How Sweat Helps Cool",
+      "scene": "Parker sees sweat on his arm. He has just been running. The nurse says water needs energy to dry up. It takes that energy from the warmest thing near it. On an arm, that is the arm.",
+      "takeaway": "The body uses physical processes, not magic, to help control temperature.",
+      "place": "Exam Room 2",
+      "guide": "Say what his skin temperature will be five minutes after the fan goes on. Write your number down first. His skin is 34 degrees now, and it is damp. Drying water takes energy out of whatever is warmest, and that is his skin.",
+      "background": [
+        "Why drying cools. Water needs energy to turn into vapour. It takes that energy from the nearest warm thing. When the warm thing is your skin, your skin gets cooler.",
+        "Why the fan helps. Moving air carries the vapour away, so more water can dry off. Still air above damp skin gets full of vapour and the drying slows down.",
+        "Why dry skin would not cool. If there is no sweat, there is nothing to dry, and the fan just moves air about. That is the difference between the sweat and the breeze — one of them is doing the cooling and the other is helping it along."
+      ],
+      "story": "Parker sees sweat on his arm. He has just been running. The nurse says water needs energy to dry up. It takes that energy from the warmest thing near it. On an arm, that is the arm.",
+      "game": {
+        "type": "VERIFY",
+        "title": "How Sweat Helps Cool",
+        "setup": "Exam Room 2",
+        "play": "Find out what the sweat is really doing.",
+        "task": "Find out what the sweat is really doing.",
+        "question": "Say what Parker's skin temperature will be five minutes after the fan goes on. Then measure it.",
+        "answer": "About 31 degrees, down from 34. The sweat dried, and drying took the energy out of his skin.",
+        "why": "Water needs energy to dry up. It takes that energy from the warmest thing near it. On a damp arm, that is the arm. So the sweat dries and the skin gives up energy. The skin gets cooler. It went from 34 degrees to about 31 in five minutes. The fan is not doing the cooling. It just carries the damp air away. Then more sweat can dry. A fan on dry skin does almost nothing. There is nothing to dry. A wet cloth cools the same way on a hot day. This is why sweating uses up water. Somebody who has been sweating hard needs a drink.",
+        "verify": {
+          "prediction": {
+            "label": "Parker's skin temperature five minutes after the fan goes on",
+            "unit": "degrees",
+            "min": 25,
+            "max": 38,
+            "step": 0.5
+          },
+          "truth": 31,
+          "passRatio": [
+            0.85,
+            1.15
+          ],
+          "intervention": {
+            "label": "Point the fan at his damp arm for five minutes",
+            "note": "his skin is 34 degrees now, and still damp from exercise",
+            "outcome": "The fan runs for five minutes and the sweat dries off his arm."
+          },
+          "measurement": {
+            "label": "Take his skin temperature again",
+            "note": "same skin thermometer, same spot on the arm",
+            "cost": 5,
+            "costUnit": "minutes"
+          },
+          "unmeasuredMoral": "Saying that sweat cools you, without measuring it, is repeating something you were told. The thermometer is what turns it into something you know.",
+          "lock": "Lock the prediction",
+          "run": "Commit it",
+          "measure": "Take the measurement",
+          "commit": "Report"
+        }
+      },
+      "assumes": [
+        "water dries up in the air"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
+        }
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Vital signs, measurement and normal ranges",
+        "of": 30
+      }
     },
     {
       "day": 13,
@@ -5575,6 +7358,12 @@ export const CURRICULUM = {
       "scene": "The infection-control nurse gives you three stories. Ty was around coughing classmates. Ana ate food that several relatives also ate before becoming sick. Lena touched a shared toy and then rubbed her nose.",
       "takeaway": "Knowing the route helps people choose the right prevention strategy.",
       "place": "",
+      "guide": "Four sets, and germs travel in more than one way. Ask of each person what they did. Coughed near others? Ate something? Touched a handle? The story is what tells you which way the germ came.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The infection-control nurse gives you three stories. Ty was around coughing classmates. Ana ate food that several relatives also ate before becoming sick. Lena touched a shared toy and then rubbed her nose.",
       "game": {
         "type": "CASEBOOK",
@@ -5600,7 +7389,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "germs are too small to see"
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Germs, transmission and hand hygiene",
+        "of": 30,
+        "rests": [
+          "Immune defence and inflammation"
+        ]
+      }
     },
     {
       "day": 14,
@@ -5608,6 +7405,12 @@ export const CURRICULUM = {
       "scene": "Lena asks why the hospital has so many sinks. The nurse explains that clean hands help stop germs from traveling between people and surfaces.",
       "takeaway": "Handwashing is a simple action that can break a chain of germ spread.",
       "place": "",
+      "guide": "All four steps happen. Ask what each one needs before it. Soap cannot spread on dry hands. And rinsing has nothing to carry away until the soap has loosened it. The rubbing is the part people cut short.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Lena asks why the hospital has so many sinks. The nurse explains that clean hands help stop germs from traveling between people and surfaces.",
       "game": {
         "type": "SEQUENCE",
@@ -5650,7 +7453,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Germs, transmission and hand hygiene",
+        "of": 30,
+        "rests": [
+          "Immune defence and inflammation"
+        ]
+      }
     },
     {
       "day": 15,
@@ -5658,6 +7469,12 @@ export const CURRICULUM = {
       "scene": "Ty and Ana both feel tired, but their other clues and exposures are different. A student says, “They must have the exact same germ because they are both tired.” The germ scientist asks you to judge that claim.",
       "takeaway": "Medicine is an evidence puzzle, not a one-clue guessing game.",
       "place": "",
+      "guide": "Four answers, and two of them say yes. Ask of each what it takes as proof. Lots of things make a person tired. So one shared feeling is not enough. Saying not enough evidence yet is a real answer.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Ty and Ana both feel tired, but their other clues and exposures are different. A student says, “They must have the exact same germ because they are both tired.” The germ scientist asks you to judge that claim.",
       "game": {
         "type": "CHOICE",
@@ -5683,7 +7500,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "being tired can happen for many reasons"
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Germs, transmission and hand hygiene",
+        "of": 30,
+        "rests": [
+          "Immune defence and inflammation"
+        ]
+      }
     },
     {
       "day": 16,
@@ -5691,6 +7516,12 @@ export const CURRICULUM = {
       "scene": "Ruby is getting better. The immunologist gives you four picture cards showing a very simplified immune response.",
       "takeaway": "Immune memory can help the body respond faster when it meets the same threat again.",
       "place": "",
+      "guide": "These four are one order. Ask what has to happen first. Nothing gets attacked before it is spotted. And nothing is remembered before the fight. That last step is why you often do not get the same illness twice.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Ruby is getting better. The immunologist gives you four picture cards showing a very simplified immune response.",
       "game": {
         "type": "SEQUENCE",
@@ -5716,7 +7547,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your body can fight off a cold"
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Germs, transmission and hand hygiene",
+        "of": 30,
+        "rests": [
+          "Immune defence and inflammation"
+        ]
+      }
     },
     {
       "day": 17,
@@ -5724,6 +7563,12 @@ export const CURRICULUM = {
       "scene": "Three teaching cards need labels. Dante has a skin-shield card, Ruby has a white-blood-cell card, and Mae has an antibody card.",
       "takeaway": "Defense works in layers: barriers, cells, and specialized molecules.",
       "place": "",
+      "guide": "Four sets, and each part has one job. Ask what each one does. Keeps things out? Goes looking? Knows one target? None of them can do the other two jobs. Check all three before you pick a set.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Three teaching cards need labels. Dante has a skin-shield card, Ruby has a white-blood-cell card, and Mae has an antibody card.",
       "game": {
         "type": "CASEBOOK",
@@ -5749,7 +7594,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a team works better than one person alone"
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Levels of organisation: cells, tissues, organs, systems",
+        "of": 30
+      }
     },
     {
       "day": 18,
@@ -5757,6 +7607,12 @@ export const CURRICULUM = {
       "scene": "Mae is at the clinic with her mum. A nurse will give the shot. A shot lets the body practise, so it is ready if the real germ turns up.",
       "takeaway": "The wait at the end of a vaccine visit is part of the visit: fast reactions show up in the first few minutes.",
       "place": "",
+      "guide": "All four steps happen. Ask which one cannot be taken back. A shot cannot, so checking who it is comes first. Then telling Mae, so she can hold still. The wait at the end is not politeness.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Mae is at the clinic with her parent. The nurse explains that a vaccine visit is handled by trained adults and is one way the immune system can practice recognizing a threat before a real infection.",
       "game": {
         "type": "SEQUENCE",
@@ -5782,7 +7638,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a shot cannot be taken back once it is given"
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Germs, transmission and hand hygiene",
+        "of": 30,
+        "rests": [
+          "Immune defence and inflammation"
+        ]
+      }
     },
     {
       "day": 19,
@@ -5790,6 +7654,12 @@ export const CURRICULUM = {
       "scene": "Jamal is hot after exercise and is sweating. Ivy is cold after being in rain and is shivering. Both are now being cared for by the hospital team.",
       "takeaway": "Homeostasis means the body works to keep important conditions within a useful range.",
       "place": "",
+      "guide": "Four answers about sweating and shivering. Ask of each whether the two do the same thing. Sweat dries, and drying takes heat away. Shivering is muscles working, and working muscles make heat. So one cools and one warms.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Jamal is hot after exercise and is sweating. Ivy is cold after being in rain and is shivering. Both are now being cared for by the hospital team.",
       "game": {
         "type": "CHOICE",
@@ -5815,7 +7685,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "you sweat when you are hot and shiver when you are cold"
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Homeostasis and feedback",
+        "of": 30,
+        "rests": [
+          "Levels of organisation: cells, tissues, organs, systems"
+        ]
+      }
     },
     {
       "day": 20,
@@ -5823,6 +7701,7 @@ export const CURRICULUM = {
       "scene": "A chart shows 2 numbers for Ms. Kim. The first is 98°F. The next is 101°F. The times beside them are three hours apart.",
       "takeaway": "A change on its own is not enough; how long it took is what says whether it is fast.",
       "place": "",
+      "guide": "Two things matter here. How much it changed, and how long that took. Ask what the question wants. It wants a speed, so it needs both. One number alone is just a number. The same change in ten minutes would worry you more.",
       "story": "A chart shows 2 temperatures for Ms. Kim. The earlier 1 is 98°F. The later 1 is 101°F, and the times beside them are 3 hours apart. One temperature alone is just a number. Two of them make a change, and the times make that change a speed. That is why charts keep the old readings and the clock beside them. The care team decides what it means.",
       "game": {
         "type": "BALLPARK",
@@ -5863,7 +7742,16 @@ export const CURRICULUM = {
           "s": "Dividing the change by the time gives how fast it is moving, which is what says whether to act now or watch.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 27,
+        "c": "Body temperature and fever",
+        "of": 30,
+        "rests": [
+          "Homeostasis and feedback",
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
     },
     {
       "day": 21,
@@ -5871,6 +7759,12 @@ export const CURRICULUM = {
       "scene": "Parker notices sweat on his arm after exercise. The nurse explains why moving liquid water into the air can help remove heat from the skin.",
       "takeaway": "The body uses physical processes, not magic, to help control temperature.",
       "place": "",
+      "guide": "These four are one order. Ask what has to happen first. Sweat cannot dry before it is on your skin. And the drying is what cools you, not the wetness. That is why a wet day feels hotter.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Parker notices sweat on his arm after exercise. The nurse explains why moving liquid water into the air can help remove heat from the skin.",
       "game": {
         "type": "SEQUENCE",
@@ -5913,7 +7807,16 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 27,
+        "c": "Body temperature and fever",
+        "of": 30,
+        "rests": [
+          "Homeostasis and feedback",
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
     },
     {
       "day": 22,
@@ -5921,6 +7824,12 @@ export const CURRICULUM = {
       "scene": "Three people arrive with possible allergy symptoms. Sofia has itchy eyes and is breathing normally. Malik has an itchy rash and is talking normally. Chloe has swelling around her mouth and is struggling to breathe. The emergency team is present.",
       "takeaway": "When breathing is threatened, urgency rises sharply.",
       "place": "",
+      "guide": "All three need help. Ask of each what could get worse in minutes. Itchy eyes stay about the same. A big rash looks worse than a small one. How much skin it covers is not what makes it urgent.",
+      "background": [
+        "Why first is a different question from best. When there is more than one call on the same hour, the value of doing something now is not how much it matters. It is how much is lost by doing it later. Something important that will be just as fixable in an hour can wait. Something small that will not be fixable can not.",
+        "What to look for in the options. Ask which one changes if you wait — a reading that is still moving, a person who is getting worse, a window that closes. Then ask which ones can only be done after something else. Those two questions usually leave one option standing.",
+        "Why only one answer is marked. Real shifts do all of these, in some order. The stop asks for the front of that order because that is the only part where the reasoning shows. Read the verdict afterwards even when you are right — it says what the others were waiting on, which is the rest of the answer."
+      ],
       "story": "Three people arrive with possible allergy symptoms. Sofia has itchy eyes and is breathing normally. Malik has an itchy rash and is talking normally. Chloe has swelling around her mouth and is struggling to breathe. The emergency team is present.",
       "game": {
         "type": "TRIAGE",
@@ -5963,7 +7872,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Emergency assessment and triage",
+        "of": 30,
+        "rests": [
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
     },
     {
       "day": 23,
@@ -5971,6 +7888,12 @@ export const CURRICULUM = {
       "scene": "Sofia’s eyes itch every spring when pollen counts are high, and she has no fever. Ty from an earlier shift had fever, cough, and sick classmates. The allergist asks which pattern sounds more like an environmental allergy and which sounds more like an infection story.",
       "takeaway": "Doctors compare patterns, timing, and exposures instead of relying on one clue.",
       "place": "",
+      "guide": "Four answers, and both patients feel unwell. Ask of each what the pattern under it is. Does it come back every year with the pollen? Or did it start after being near somebody sick? Look at the story, not the feeling.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Sofia’s eyes itch every spring when pollen counts are high, and she has no fever. Ty from an earlier shift had fever, cough, and sick classmates. The allergist asks which pattern sounds more like an environmental allergy and which sounds more like an infection story.",
       "game": {
         "type": "CASEBOOK",
@@ -5996,7 +7919,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "some things happen at the same time every year"
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Germs, transmission and hand hygiene",
+        "of": 30,
+        "rests": [
+          "Immune defence and inflammation"
+        ]
+      }
     },
     {
       "day": 24,
@@ -6004,6 +7935,12 @@ export const CURRICULUM = {
       "scene": "The team is helping Chloe now. In this game you do not pick or give medicine. Your job is to get the right grown-ups fast and tell them the story.",
       "takeaway": "In an emergency the first action is the one with a clock on it, and the last is the one that protects the record.",
       "place": "",
+      "guide": "All four steps happen. Ask which clock is already running. The team takes time to come, so calling is first. Then watch her breathing, because that changes fastest. Writing it down is last, so nobody has to guess the order.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "The emergency clinicians are treating Chloe. Your junior-doctor job is not to choose or give medicine. Your job is to get the right adults, stay organized, and pass along the key story.",
       "game": {
         "type": "SEQUENCE",
@@ -6046,7 +7983,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Emergency assessment and triage",
+        "of": 30,
+        "rests": [
+          "Vital signs, measurement and normal ranges"
+        ]
+      }
     },
     {
       "day": 25,
@@ -6054,6 +7999,12 @@ export const CURRICULUM = {
       "scene": "The infection-control nurse gives you three stories. Ty was around coughing classmates. Ana ate food that several relatives also ate before becoming sick. Lena touched a shared toy and then rubbed her nose.",
       "takeaway": "Knowing the route helps people choose the right prevention strategy.",
       "place": "",
+      "guide": "Four sets, and germs travel in more than one way. Ask of each person what they did. Coughed near others? Ate something? Touched a handle? The story is what tells you which way the germ came.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The infection-control nurse gives you three stories. Ty was around coughing classmates. Ana ate food that several relatives also ate before becoming sick. Lena touched a shared toy and then rubbed her nose.",
       "game": {
         "type": "CASEBOOK",
@@ -6079,12 +8030,77 @@ export const CURRICULUM = {
       },
       "assumes": [
         "germs are too small to see"
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Germs, transmission and hand hygiene",
+        "of": 30,
+        "rests": [
+          "Immune defence and inflammation"
+        ]
+      }
     }
   ]
 };
 
-export const BALLPARK_CALCS = {};
+export const BALLPARK_CALCS = {
+  "NUTR-4": {
+    "prompt": "Mateo sweated about half a litre every twenty minutes. He played for sixty minutes.",
+    "question": "Pick how many twenty-minute lots he played, and how much he sweated in each.",
+    "labels": [
+      "3  (lots of twenty minutes in an hour)",
+      "0.5  (litres of sweat in each lot)",
+      "60  (minutes he played)",
+      "45  (minutes in a half)"
+    ],
+    "values": [
+      3,
+      0.5,
+      60,
+      45
+    ],
+    "slots": 2,
+    "template": "{0} × {1}",
+    "formula": "a*b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 1.5,
+    "tolerance": 0.2,
+    "units": "litres of water lost",
+    "solution": "3 × 0.5 = 1.5 litres, which is about three big glasses.",
+    "explanation": "Sweat carried the heat away and took the water with it. Both his clues say the same thing."
+  },
+  "NUTR-6": {
+    "prompt": "The kidneys filter about 180 litres a day. About 2 litres leave the body as urine.",
+    "question": "Pick the amount filtered and the amount that leaves.",
+    "labels": [
+      "180  (litres filtered in a day)",
+      "2  (litres that leave as urine)",
+      "2  (how many kidneys there are)",
+      "5  (litres of blood in the body)"
+    ],
+    "values": [
+      180,
+      2,
+      2,
+      5
+    ],
+    "slots": 2,
+    "template": "{0} − {1}",
+    "formula": "a-b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 178,
+    "tolerance": 4,
+    "units": "litres put back",
+    "solution": "180 − 2 = 178 litres put back into the body.",
+    "explanation": "Almost all of it goes back. What carries on is the waste, with a little water to move it."
+  }
+};
 
 export const JARGON = [
   {

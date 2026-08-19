@@ -39,6 +39,7 @@ let self = null;
 let connected = false;
 let closing = false;
 let version = 0;
+let joinedOnce = false;          // has a `welcome` ever landed? see receive()
 const peers = new Map();          // id -> { id, name, colour, pos, seenAt }
 let claims = {};                  // stopKey -> { by, name }
 let clock = { budget: 0, left: 0, running: false };
@@ -170,6 +171,23 @@ function receive(msg, resolveFirst){
       }
       emit('members', members());
       emit('claims', claims);
+      // ——— a rejoin is not a join ———————————————————————————————————
+      //
+      // Writing the slot is enough on the FIRST welcome, because the entry point
+      // has not read it yet. On a reconnect — a dropped Wi-Fi, a phone changing
+      // cell — the game has been running for an hour and nothing reads that slot
+      // again, so the room's campaign arrived and was thrown away. This client
+      // then kept its own copy and republished it on the next autosave, which
+      // silently overwrote whatever the rest of the room had done in the
+      // meantime: two people who had been playing one campaign were now playing
+      // two, and the only symptom was progress quietly going missing.
+      //
+      // The room's copy wins, always. Anything this client did while the socket
+      // was down was never published and is discarded here — that is a real
+      // loss, and it is the cheaper of the two: the alternative erases everybody
+      // else's work instead of one person's last thirty seconds.
+      if(joinedOnce && msg.state) emit('state', msg.state);
+      joinedOnce = true;
       resolveFirst?.(!!msg.state);
       break;
     }
@@ -275,7 +293,22 @@ export function startClock(budget, left){ send({ t: 'clockStart', budget, left: 
 export function stopClock(){ send({ t: 'clockStop' }); }
 
 /** Whether this player has a panel open — the room's clock pace comes from it. */
-export function setPanel(open){ send({ t: 'panel', open: !!open }); }
+/**
+ * Somebody has a panel open, and whether that panel stops the clock outright.
+ *
+ * The server applies the panel rate because it is the only party that knows
+ * whether *anybody* is reading — see `tickDay`. A client that stops the day
+ * locally has to say so here too, or one player's stopped clock runs against
+ * everybody else's countdown and the two numbers part company.
+ *
+ * `frozen` is additive and a server that has not been taught it ignores it, so
+ * this is safe to send at a casebook that has not deployed the other half yet:
+ * the room falls back to its own panel rate, which is the behaviour before the
+ * clock was stopped.
+ */
+export function setPanel(open, frozen = false){
+  send({ t: 'panel', open: !!open, frozen: !!frozen });
+}
 
 // ------------------------------------------------------------------ claims
 

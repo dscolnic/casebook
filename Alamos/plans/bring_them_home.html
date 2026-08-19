@@ -1,0 +1,329 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Bring Them Home — Conversion Plan</title>
+<style>
+  @page { size: A4; margin: 15mm 14mm 16mm; }
+  :root {
+    --ink:#15171a; --ink2:#4c5158; --muted:#868b92; --rule:#dcded9; --sunk:#f2f3ef;
+    --acc:#783c27; --acc-soft:#c2603f;
+    --s:#2c7a4b; --m:#9a6f14; --d:#767b70; --r:#a4453a;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; color:var(--ink); background:#fff;
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif; font-size:9.6pt; line-height:1.5; }
+  .mono,.k,code { font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; }
+  code,.k { font-size:.9em; background:var(--sunk); padding:0 3px; border-radius:2px; }
+  em { font-style:normal; font-weight:640; }
+  strong { font-weight:680; }
+
+  header { border-bottom:2.5pt solid var(--acc); padding-bottom:7pt; margin-bottom:12pt; }
+  .eyebrow { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--acc); }
+  h1 { margin:2pt 0 3pt; font-size:24pt; line-height:1.02; letter-spacing:-.02em; font-weight:660; }
+  .sub { color:var(--ink2); font-size:9.6pt; max-width:150mm; }
+  .place { color:var(--muted); font-size:8.4pt; font-style:italic; margin-top:2pt; }
+
+  .facts { display:flex; gap:0; border:.6pt solid var(--rule); margin-top:8pt; }
+  .fact { flex:1; padding:4pt 7pt 5pt; border-right:.6pt solid var(--rule); }
+  .fact:last-child { border-right:none; }
+  .fact b { display:block; font-family:ui-monospace,Menlo,monospace; font-size:14pt; font-weight:640; letter-spacing:-.02em; }
+  .fact span { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); }
+
+  h2 { font-size:12pt; margin:15pt 0 4pt; font-weight:660; letter-spacing:-.01em;
+    border-bottom:.6pt solid var(--ink); padding-bottom:3pt; break-after:avoid; }
+  h2 .ph { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--acc); margin-right:6pt; }
+  p { margin:6pt 0; max-width:170mm; }
+
+  table { border-collapse:collapse; width:100%; font-size:8.4pt; margin:6pt 0; }
+  th,td { text-align:left; padding:3pt 6pt 3pt 0; border-bottom:.5pt solid var(--rule); vertical-align:top; }
+  thead th { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--muted); font-weight:500; border-bottom:.7pt solid var(--ink); }
+  td.n,th.n { text-align:right; padding-right:8pt; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .flag { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.06em;
+    border:.5pt solid currentColor; padding:0 3pt; border-radius:2pt; white-space:nowrap; }
+  .flag.sus { color:var(--m); } .flag.real { color:var(--r); }
+
+  .mixbar { display:flex; height:9pt; border:.6pt solid var(--rule); margin:5pt 0 3pt; }
+  .mixbar i { display:block; }
+  .mixkey { font-family:ui-monospace,Menlo,monospace; font-size:6.6pt; color:var(--ink2);
+    display:flex; flex-wrap:wrap; gap:2pt 9pt; }
+
+  .callout { border-left:2pt solid var(--acc); background:var(--sunk); padding:6pt 9pt; margin:8pt 0;
+    break-inside:avoid; }
+  .callout p { margin:3pt 0; }
+  .callout .tag { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--acc); display:block; margin-bottom:3pt; }
+  .callout.warn { border-left-color:var(--r); }
+  .callout.warn .tag { color:var(--r); }
+
+  .card { border-left:2pt solid var(--d); padding:5pt 0 6pt 8pt; margin:7pt 0; break-inside:avoid; }
+  .card.v-s { border-left-color:var(--s); } .card.v-m { border-left-color:var(--m); }
+  .card.v-d { border-left-color:var(--d); } .card.v-r { border-left-color:var(--r); }
+  .card .top { display:flex; align-items:baseline; gap:7pt; }
+  .card h4 { margin:0; font-family:ui-monospace,Menlo,monospace; font-size:9.6pt; font-weight:660; letter-spacing:.03em; }
+  .vd { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.12em;
+    text-transform:uppercase; border:.5pt solid currentColor; padding:0 3pt; border-radius:2pt; }
+  .v-s .vd { color:var(--s); } .v-m .vd { color:var(--m); }
+  .v-d .vd { color:var(--d); } .v-r .vd { color:var(--r); }
+  .card .at { margin-left:auto; color:var(--muted); font-size:7.4pt; }
+  .card p { margin:3pt 0 0; font-size:9pt; }
+  .card dl { margin:3pt 0 0; font-size:8pt; color:var(--ink2); }
+  .card dt { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); display:inline; }
+  .card dd { display:inline; margin:0; }
+  .card dd::after { content:""; display:block; }
+
+  .slate { border:.6pt solid var(--rule); padding:6pt 8pt 7pt; margin:7pt 0; break-inside:avoid; }
+  .slate .sh { display:flex; align-items:baseline; gap:8pt; border-bottom:.6pt solid var(--rule); padding-bottom:3pt; }
+  .slate h4 { margin:0; font-size:10.5pt; font-weight:660; }
+  .slate .n2 { font-family:ui-monospace,Menlo,monospace; font-size:6.6pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); }
+  table.mini { font-size:8pt; margin:4pt 0 5pt; }
+  table.mini td { border-bottom:.4pt solid var(--sunk); padding:2pt 6pt 2pt 0; }
+  table.mini .dy,.gp { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; color:var(--muted); white-space:nowrap; }
+  table.mini .fm { font-family:ui-monospace,Menlo,monospace; font-size:7.2pt; white-space:nowrap; }
+  table.mini .was { color:var(--muted); } .ar { color:var(--muted); }
+  table.mini .ti { color:var(--ink2); }
+  table.mini .nt { display:block; color:var(--muted); font-size:7.2pt; }
+  .out { border-top:.6pt solid var(--rule); padding-top:4pt; font-size:7.8pt; color:var(--ink2); }
+  .out b { color:var(--ink); font-variant-numeric:tabular-nums; }
+
+  footer { margin-top:14pt; padding-top:5pt; border-top:.6pt solid var(--rule);
+    color:var(--muted); font-size:7pt; }
+  .avoid { break-inside:avoid; }
+</style></head><body>
+
+<header>
+  <div class="eyebrow">Alamos · conversion plan · Physics · grade 9–12</div>
+  <h1>Bring Them Home</h1>
+  <div class="sub">AP Physics 1 → Physics C mechanics</div>
+  <div class="place">Mission Control: four tiers stepping down to a wall of plot boards. The teams are rows, not rooms.</div>
+  <div class="facts">
+    <div class="fact"><b>45</b><span>stops</span></div>
+    <div class="fact"><b>10</b><span>choice (22%)</span></div>
+    <div class="fact"><b>6.2</b><span>effective formats</span></div>
+    <div class="fact"><b>8/10</b><span>equations computed</span></div>
+    <div class="fact"><b>2</b><span>select-only concepts</span></div>
+    <div class="fact"><b>10·32·3</b><span>select·construct·operate</span></div>
+  </div>
+</header>
+
+<h2><span class="ph">Reading</span>Where this campaign stands</h2>
+<p>Strong already: 8 of 10 equations computed, only two select-only concepts, and the
+      best OPERATE count outside Headwater. The two gaps are impulse and centripetal acceleration,
+      and impulse is mentioned across three stops that look arithmetic, so Phase 0 may clear it.
+      The constraint here is the place: Mission Control is one room with no world to drive, so half
+      the fun formats are unavailable on geometry alone — and the two that fit fit exactly.</p>
+
+
+<div class="avoid">
+<h2><span class="ph">Now</span>The mix as it ships</h2>
+<div class="mixbar"><i style="flex:11;background:#e2e4de"></i><i style="flex:10;background:#c9ccc4"></i><i style="flex:7;background:#e2e4de"></i><i style="flex:7;background:#e2e4de"></i><i style="flex:1;background:#c2603f"></i><i style="flex:1;background:#c2603f"></i><i style="flex:1;background:#c2603f"></i><i style="flex:1;background:#c2603f"></i><i style="flex:1;background:#c2603f"></i><i style="flex:1;background:#c2603f"></i><i style="flex:1;background:#c2603f"></i><i style="flex:1;background:#c2603f"></i><i style="flex:1;background:#c2603f"></i><i style="flex:1;background:#c2603f"></i></div>
+<div class="mixkey"><span>BALLPARK 11</span><span>CHOICE 10</span><span>SEQUENCE 7</span><span>PROTOCOL 7</span><span>TRACE 1</span><span>FLY 1</span><span>ALLOCATE 1</span><span>VERIFY 1</span><span>CHAIN 1</span><span>CONTROL 1</span><span>CLOUD 1</span><span>STRESS 1</span><span>VALUE 1</span><span>ATTEST 1</span></div>
+</div>
+
+<h2><span class="ph">Curriculum</span>What the syllabus is not getting</h2>
+<table><thead><tr><th>Equation the course owes</th><th>What it carries</th><th>Mentioned at</th><th class="n">Status</th></tr></thead><tbody>
+<tr>
+  <td class="k">J = FΔt = Δp</td><td>impulse as the change in momentum</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">7·SEQUENCE  8·BALLPARK  10·PROTOCOL</td>
+  <td class="n"><span class="flag real">real gap</span></td>
+</tr><tr>
+  <td class="k">a_c = v² / r</td><td>centripetal acceleration in circular motion</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">6·CHOICE</td>
+  <td class="n"><span class="flag real">real gap</span></td>
+</tr></tbody></table>
+<p style="font-size:8.4pt;color:var(--ink2)">0 of 2 sit on an instrument stop, whose
+board arithmetic the coverage check cannot yet read — expect Phase 0 to clear those. <strong>2</strong>
+are unaffected by it.</p>
+
+<div class="avoid">
+<h2><span class="ph">Tier</span>Concepts the player only ever picks from a list</h2>
+<table><thead><tr><th class="n">#</th><th>Mechanism concept</th><th class="n">Stops</th></tr></thead><tbody>
+<tr><td class="n">6</td><td>Circular motion and centripetal force</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">6</td></tr><tr><td class="n">27</td><td>Fluid pressure and flow</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">9</td></tr>
+</tbody></table>
+<p style="font-size:8.4pt;color:var(--ink2)">Reported, never failed. Select-tier can be exactly right;
+these are the candidates, not the defects. The syllabus also lists
+1 concept no stop touches at all —
+<em>Collisions: elastic and inelastic</em> — which is expected, and is a different
+conversation from this one.</p></div>
+
+<h2><span class="ph">Fun</span>What this subject and this place can carry</h2>
+<div class="card v-s">
+  <div class="top"><h4>SPOT</h4><span class="vd">strong</span><span class="at">a FLIGHT or STRUCT stop</span></div>
+  <p>A flight rule <em>is</em> a standing instruction, written on the board, and it is
+          replaced mid-shift when the vehicle changes state. No other game in the set has a
+          literal, historically accurate home for this format.</p>
+  <dl><dt>serves</dt> <dd>flight rules and the cost of not noticing a change</dd></dl>
+  <dl><dt>needs</dt> <dd>two instructions, at least two changes, and items only one of them wants</dd></dl>
+  
+</div><div class="card v-s">
+  <div class="top"><h4>HOLD</h4><span class="vd">strong</span><span class="at">NAV or STRUCT</span></div>
+  <p>Hold attitude rate inside a closing band while a leaking thruster pushes. The game
+          already carries one FLY, and the argument that made FLY work — bounded commands on
+          undamped dynamics, the brake has to lead — is the same argument one step harder.</p>
+  <dl><dt>serves</dt> <dd>concept 6, circular motion and centripetal force, off the select-only list</dd></dl>
+  <dl><dt>needs</dt> <dd>a do-nothing run must fail; integrate the disturbances with the control untouched</dd></dl>
+  
+</div><div class="card v-s">
+  <div class="top"><h4>SWEEP</h4><span class="vd">strong</span><span class="at">stop 8 · NAV</span></div>
+  <p>"Small burn, large consequence" is a BALLPARK. Burn duration against arrival error is
+          a curve with a minimum, and the point of the stop is that the curve is steep.</p>
+  <dl><dt>serves</dt> <dd>impulse as the change in momentum, made visible</dd></dl>
+  <dl><dt>needs</dt> <dd>the response plotted only where the player looks</dd></dl>
+  
+</div><div class="card v-m">
+  <div class="top"><h4>TALLY</h4><span class="vd">medium</span><span class="at">a THERM or STRUCT stop</span></div>
+  <p>Telemetry samples accumulate and the trend firms up. Right subject, and the room is
+          full of plot boards to put it on. Medium because the game’s CLOUD stop already argues
+          about width.</p>
+  <dl><dt>serves</dt> <dd>measurement noise against a real trend</dd></dl>
+  
+  
+</div><div class="card v-r">
+  <div class="top"><h4>TRIAL</h4><span class="vd">reject</span><span class="at">—</span></div>
+  <p>One room, four tiers, no vehicle and nowhere to drive. Rejected on geometry.</p>
+  
+  
+  
+</div><div class="card v-r">
+  <div class="top"><h4>BELT</h4><span class="vd">reject</span><span class="at">—</span></div>
+  <p>No sorting line exists in Mission Control and inventing one would be set dressing for
+          a format.</p>
+  
+  
+  
+</div><div class="card v-r">
+  <div class="top"><h4>LOB</h4><span class="vd">reject</span><span class="at">—</span></div>
+  <p>A spacecraft game is the last place to teach that a trajectory has to be felt rather
+          than computed. This is the clearest reject in the set.</p>
+  
+  
+  
+</div>
+
+<h2><span class="ph">Slates</span>Three appetites — the campaign is zero-sum</h2>
+<p style="font-size:8.8pt">No conversion adds a stop. Each changes what an existing stop <em>does</em>
+while leaving what it <em>teaches</em> alone. Snapshot before, diff after:
+<code>curriculumDelivery.mjs bring_them_home --snapshot before.json</code>, then <code>--against before.json</code>.</p>
+<div class="slate">
+    <div class="sh"><h4>Minimum honest</h4><span class="n2">3 stops · one sitting</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">6</td><td class="dy">d2</td><td class="gp">NAV</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>HOLD</b></td>
+      <td class="ti">What holds it in the curve<span class="nt">what holds it in the curve, held rather than named</span></td>
+    </tr><tr>
+      <td class="n">9</td><td class="dy">d3</td><td class="gp">THERM</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>CHAIN</b></td>
+      <td class="ti">What the pressure difference is for<span class="nt">the pressure difference, and the link that governs the flow</span></td>
+    </tr><tr>
+      <td class="n">8</td><td class="dy">d3</td><td class="gp">NAV</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>SWEEP</b></td>
+      <td class="ti">Small burn, large consequence<span class="nt">small burn, large consequence — as a curve</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>10 → 8</b> (18%) ·
+      moves <b>10·32·3 → 8·32·5</b> ·
+      effective formats <b>6.2 → 7.3</b> · <b>2</b> new operate stops, 1 of them arcade
+    </div>
+  </div>
+<div class="slate">
+    <div class="sh"><h4>Balanced</h4><span class="n2">6 stops · the recommendation</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">6</td><td class="dy">d2</td><td class="gp">NAV</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>HOLD</b></td>
+      <td class="ti">What holds it in the curve</td>
+    </tr><tr>
+      <td class="n">9</td><td class="dy">d3</td><td class="gp">THERM</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>CHAIN</b></td>
+      <td class="ti">What the pressure difference is for</td>
+    </tr><tr>
+      <td class="n">8</td><td class="dy">d3</td><td class="gp">NAV</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>SWEEP</b></td>
+      <td class="ti">Small burn, large consequence</td>
+    </tr><tr>
+      <td class="n">10</td><td class="dy">d4</td><td class="gp">STRUCT</td>
+      <td class="fm"><span class="was">PROTOCOL</span> <span class="ar">→</span> <b>SPOT</b></td>
+      <td class="ti">Read rotational motion<span class="nt">reading rotational motion under a flight rule that is replaced</span></td>
+    </tr><tr>
+      <td class="n">7</td><td class="dy">d3</td><td class="gp">INTEG</td>
+      <td class="fm"><span class="was">SEQUENCE</span> <span class="ar">→</span> <b>TALLY</b></td>
+      <td class="ti">From force to trajectory change<span class="nt">force to trajectory change, accumulated</span></td>
+    </tr><tr>
+      <td class="n">30</td><td class="dy">d10</td><td class="gp">NAV</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>PROBE</b></td>
+      <td class="ti">How far it drifts while nobody is steering<span class="nt">a fault traced hand over hand along the bus</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>10 → 8</b> (18%) ·
+      moves <b>10·32·3 → 8·29·8</b> ·
+      effective formats <b>6.2 → 8.6</b> · <b>5</b> new operate stops, 2 of them arcade
+    </div>
+  </div>
+<div class="slate">
+    <div class="sh"><h4>Ambitious</h4><span class="n2">9 stops · adds world work</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">6</td><td class="dy">d2</td><td class="gp">NAV</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>HOLD</b></td>
+      <td class="ti">What holds it in the curve</td>
+    </tr><tr>
+      <td class="n">9</td><td class="dy">d3</td><td class="gp">THERM</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>CHAIN</b></td>
+      <td class="ti">What the pressure difference is for</td>
+    </tr><tr>
+      <td class="n">8</td><td class="dy">d3</td><td class="gp">NAV</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>SWEEP</b></td>
+      <td class="ti">Small burn, large consequence</td>
+    </tr><tr>
+      <td class="n">10</td><td class="dy">d4</td><td class="gp">STRUCT</td>
+      <td class="fm"><span class="was">PROTOCOL</span> <span class="ar">→</span> <b>SPOT</b></td>
+      <td class="ti">Read rotational motion</td>
+    </tr><tr>
+      <td class="n">7</td><td class="dy">d3</td><td class="gp">INTEG</td>
+      <td class="fm"><span class="was">SEQUENCE</span> <span class="ar">→</span> <b>TALLY</b></td>
+      <td class="ti">From force to trajectory change</td>
+    </tr><tr>
+      <td class="n">30</td><td class="dy">d10</td><td class="gp">NAV</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>PROBE</b></td>
+      <td class="ti">How far it drifts while nobody is steering</td>
+    </tr><tr>
+      <td class="n">20</td><td class="dy">d7</td><td class="gp">THERM</td>
+      <td class="fm"><span class="was">PROTOCOL</span> <span class="ar">→</span> <b>RESIDUAL</b></td>
+      <td class="ti">Choose the heat-transfer mechanism<span class="nt">what the trajectory fit leaves over</span></td>
+    </tr><tr>
+      <td class="n">35</td><td class="dy">d12</td><td class="gp">STRUCT</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>TRIGGER</b></td>
+      <td class="ti">Spring-mass period<span class="nt">a go/no-go threshold written before the number moves</span></td>
+    </tr><tr>
+      <td class="n">40</td><td class="dy">d14</td><td class="gp">NAV</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>DEGENERACY</b></td>
+      <td class="ti">Real trajectory error or common clock drift?<span class="nt">two controls, one telemetry reading</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>10 → 7</b> (16%) ·
+      moves <b>10·32·3 → 7·30·8</b> ·
+      effective formats <b>6.2 → 10.4</b> · <b>5</b> new operate stops, 2 of them arcade
+    </div>
+  </div>
+
+<div class="callout"><span class="tag">The order of work</span>
+<p><strong>1.</strong> Phase 0 — teach the coverage check to read an instrument’s own board, and
+re-baseline <code>curriculum-debt.json</code>. Rewriting a stop that already teaches the thing is the
+exact failure the check exists to prevent.
+<strong>2.</strong> Snapshot. <strong>3.</strong> Edit the book, never the generated content —
+<code>tools/import-book.mjs books/bring-them-home.yml bring_them_home --verify</code>.
+<strong>4.</strong> <code>npm run traps</code>: every instrument’s trap must fire.
+<strong>5.</strong> <code>npm run check bring_them_home</code> and <code>npm run drive bring_them_home</code>, right
+answer and wrong — ask what a player who understood nothing would score before believing any pass mark.
+<strong>6.</strong> <code>--against</code> the snapshot. A changed format is reported; a changed
+objective fails.</p></div>
+
+<footer>
+  Counts computed from <code>themes/bring_them_home/content/</code> via <code>engine/dev/curriculumDelivery.mjs</code>;
+  concept and equation lists authored in <code>tools/syllabus.js</code>. Format verdicts and slates are
+  editorial. Run it with <code>THEME=bring_them_home npm run dev</code>.
+</footer>
+</body></html>

@@ -17,7 +17,12 @@ export const CONTENT = theme.content ?? {};
 // three ways, pack references unexpanded, estimates with no spec. Repairing
 // that inside each game's theme.js meant the same code in two manifests and a
 // third game quietly missing it. One call, here, before anything reads it.
-export const CONTENT_REPORT = normalizeContent(CONTENT);
+// The site goes in because the near/far tiers are measured from it, and the day
+// shaping needs them: before the unlock day a campaign calls near ground only.
+// Passing it here rather than at each call site is what keeps the tools honest —
+// `tiersFor` runs once, stamps `CONTENT.TIERS`, and every checker that imports a
+// theme and re-normalises reads the same answer the game did.
+export const CONTENT_REPORT = normalizeContent(CONTENT, theme.site);
 
 // How big the text is, from `theme.audience`. Applied here rather than in an
 // entry point because there are three entry points and a feature added to one

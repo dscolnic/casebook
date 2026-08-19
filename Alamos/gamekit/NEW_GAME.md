@@ -589,6 +589,118 @@ touches. `three-phase` matched every conductor, loss and feeder in Blackout; wha
 is particular to that equation is that it takes *line* quantities, so that is what
 the list says now.
 
+### The same rule for concepts — `t`, `needs`, and `conceptOrder.mjs`
+
+The section above is about the eleven or fifteen equations a course lists. The card
+also names **the concept the stop is an instance of**, there are thirty of those, and
+until Blackout was swept not one of them carried a dependency. That game shipped with
+day 1 asking what a falling frequency trend is evidence of, the card naming *inertia,
+governor response and droop control* — layer 5 of 6 — the concept droop is built out
+of claimed by no stop until day 12, and the concept under that claimed by no stop at
+all. Sixteen checks, all green, because the dependency the situation needed did not
+exist as a field.
+
+Write all three fields on a concept in one sitting, when you write the syllabus:
+
+```js
+{ c: "Ohm's law and resistive networks",
+  needs: ['Charge, current, voltage and resistance'],   // by title, never by index
+  k: ['ohm', 'resistive', 'v = ir'],
+  t: 'V = IR holds for any element whose resistance does not change with the current '
+   + 'through it. It lets a whole network stand in as one number, which stays '
+   + 'legitimate only while nothing in it is heating or saturating.' },
+```
+
+* **`t` is the price of admission**, two sentences and 30–45 words: what the idea
+  says, then what it lets you decide. A concept without one stamps nothing, shows no
+  door, and is invisible to every ordering measurement — which is why twenty-seven of
+  the twenty-eight courses currently cannot be checked at all.
+* **`needs` is dependency, not difficulty, and not the list's own order.** Blackout's
+  syllabus lists transformers at 13 and Faraday's law at 17; if position could stand
+  in for dependency, that list would be asserting a transformer is teachable before
+  induction. Expect one or two such inversions in your own list. They are the reason
+  the field exists.
+* **Depth is the sanity check.** A senior course comes out five to seven layers deep.
+  Two layers means only the obvious dependencies got written.
+
+**Then author the claim on every stop rather than letting the matcher guess.**
+`concept:` in the book, by exact title, with `pickKeyConcept` as the fallback:
+
+```yaml
+      - group: GEN
+        title: Four things that have to agree before the breaker closes
+        concept: Synchronous machines and synchronisation
+```
+
+The matcher is keywords weighted by where they land and how rare they are, and it is
+honest about itself — the importer's comment calls the field *the concept this stop is
+most likely about*. Read against the scenes, **nine of Blackout's 41 stamped cards
+named the wrong concept, and three of those were unreachable by keyword at all**: a
+stop whose subject is synchronising says only that four quantities have to agree.
+
+**And say what the stop takes as read.** `takesAsRead:` names the prerequisites the
+question is entitled to expect a player already has; it prints to the player as an
+`assumes` line, so the sentence they read and the fact the checker reads are one
+authored line. Quote any entry containing a colon or the parser turns it into a map.
+
+```yaml
+        takesAsRead:
+          - Synchronous machines and synchronisation
+          - "AC waveforms: frequency, period and phase"
+```
+
+The importer refuses a title that is not on the syllabus, and refuses a concept the
+stop's own claim is not built out of — a declaration the claim does not need is one
+nothing will ever check, and one left behind by a re-claimed stop would go on
+excusing a prerequisite that stop no longer has.
+
+#### Writing the first week so this never comes up
+
+The rule is per stop and it is *strictly earlier day*, never the same day, because
+`openStopIndices()` opens a day's stops in any order — a prerequisite standing beside
+its dependent is one half the players meet second. Which means:
+
+* **Day 1 can only claim a concept at the base of your graph, or must declare what it
+  assumes.** Both are fine; pick on purpose. A senior course following a first course
+  is entitled to take a first course as read, and Blackout declares thirty-five
+  prerequisites across its fortnight. What it may not do is assume them silently.
+* **Put the base layer in the first week and the mechanisms after it.** Every stop
+  after day 1 that claims something two layers up is a declaration you will have to
+  write, and thirty-five is a lot to read.
+* **The spine equation and its arithmetic arrive on the same day.**
+  `syllabusEquations` forbids showing an equation before something computes it, so if
+  day 1's scene is about the hardest relation in the course, day 1 is also where its
+  arithmetic has to be — you cannot print the chip early and compute it later. If
+  that is too much for a first day, do not move the arithmetic: move the *day*. Which
+  is the next point.
+* **Decide the drama order and the teaching order together.** A campaign whose story
+  is a chronology cannot be re-ordered afterwards without touching every stake:
+  Blackout's re-cut was nine edits, and the correlation-maximal legal order taught
+  backwards, so it was rejected in favour of one that scored lower and broke nothing.
+  Ranking orders by *prerequisite breaks first, correlation second* is the whole
+  lesson; a campaign that opens on its emergency should be written knowing the first
+  week is then teaching mid-course material.
+* **Never print a syllabus index as an ordinal.** The card used to say
+  `Concept 19 of 32 on this course`, which a player on day 1 reads as the nineteenth
+  thing they are being taught, about a card that was right. The list is grouped by
+  topic, not ordered by teaching. It says `One of 32 concepts on this course` now,
+  followed by what the idea rests on and which of that the stop takes as read.
+
+Run it as soon as the first three days exist, not at the end:
+
+```sh
+node engine/dev/conceptOrder.mjs <theme>     # inside npm run check; silent without `needs`
+node plans/sequence.mjs <theme>              # the audit, the layer report, the ceilings
+```
+
+Two numbers it reports and never gates on, deliberately: the rank correlation between
+the day a concept is taught and where it sits on the list, and a layer band per day.
+Both are positions rather than dependencies — the same cheap-and-adjacent measurement
+this repo has paid for three times — and a gate on either would send the work at the
+games that are right.
+
+`SEQUENCING_PASS.md` is this section applied to a game that already ships.
+
 ### What the conversion brief knows that this section does not
 
 `books/interactions/CONVERSION_BRIEF.md` is written for somebody editing a

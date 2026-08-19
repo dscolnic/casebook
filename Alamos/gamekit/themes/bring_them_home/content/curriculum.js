@@ -10,6 +10,12 @@ export const CURRICULUM = {
       "scene": "The onboard computer has restarted and the tracking is intermittent, so the state has to be rebuilt from whatever measurements can still be taken. The room has to say what each type buys before it schedules any of them.",
       "takeaway": "Navigation is a reconstruction from partial projections.",
       "place": "Deep-Space Tracking Station",
+      "guide": "Four things the state estimate needs, and four ways of measuring. Pair them by asking what each measurement is physically sensitive to. An angle? A travel time? A frequency shift? Or a difference between two earlier answers? One of the four is built out of the others, which is why it is the noisiest. The next pass is intermittent, so what gets scheduled has to be chosen.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "The onboard computer has restarted and the tracking is intermittent, so the state has to be rebuilt from whatever measurements can still be taken. The room has to say what each type buys before it schedules any of them.",
       "game": {
         "type": "PROTOCOL",
@@ -50,8 +56,23 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "describing where something is and how it is moving takes six numbers"
-      ]
+        "describing where something is and how it is moving takes six numbers",
+        "waves: frequency, wavelength, speed — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 12,
+          "c": "Waves: frequency, wavelength, speed"
+        }
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Doppler shift",
+        "of": 30,
+        "rests": [
+          "Waves: frequency, wavelength, speed"
+        ]
+      }
     },
     {
       "day": 2,
@@ -59,6 +80,12 @@ export const CURRICULUM = {
       "scene": "The computer restarted and lost its alignment. A range, two bearing angles, and a Doppler trace remain. They were recorded on different clocks, and the next tracking pass will test whatever state the room reconstructs.",
       "takeaway": "A useful state estimate predicts future observations and exposes its own failures.",
       "place": "Guidance Room",
+      "guide": "All four steps will happen, so ask what each one needs to be true already. A fit across two clocks can look clean and still be wrong, so the frames come first. Range, angle and Doppler constrain different parts of the motion and are fitted together. Residuals separate a missing force from noise. And the burn is committed at an hour, not now.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "The computer restarted and lost its alignment. A range, two bearing angles, and a Doppler trace remain. They were recorded on different clocks, and the next tracking pass will test whatever state the room reconstructs.",
       "game": {
         "type": "SEQUENCE",
@@ -90,7 +117,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "measurements only combine when they share a frame and a clock"
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Vectors and components",
+        "of": 30
+      }
     },
     {
       "day": 3,
@@ -98,6 +130,12 @@ export const CURRICULUM = {
       "scene": "The free-return path swings the spacecraft round the Moon at 2,500 kilometres altitude. Somebody on the loop has asked why it does not simply fall onto the surface, and the room owes them an answer.",
       "takeaway": "A curved path needs a force toward the centre, and orbital motion is that force being exactly enough.",
       "place": "Guidance Computer Room",
+      "guide": "All four options offer something that holds the spacecraft up. Ask of each whether it names a real force. Two of them invent one: an outward push, and lift with nothing to push against. Gravity is the only force acting here, and it points inward. So the question is what the sideways speed does to a path that is already falling.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The free-return path swings the spacecraft round the Moon at 2,500 kilometres altitude. Somebody on the loop has asked why it does not simply fall onto the surface, and the room owes them an answer.",
       "game": {
         "type": "CHOICE",
@@ -122,7 +160,9 @@ export const CURRICULUM = {
         "correctChoice": "Its sideways speed makes continuous free fall curve around the Moon."
       },
       "assumes": [
-        "an object moving in a circle is accelerating even at constant speed"
+        "an object moving in a circle is accelerating even at constant speed",
+        "kinematics — taken as read",
+        "newton's laws and free-body reasoning — taken as read"
       ],
       "equations": [
         {
@@ -144,7 +184,26 @@ export const CURRICULUM = {
           ],
           "s": "Going round a curve is an acceleration even at constant speed, because the direction keeps changing."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 2,
+          "c": "Kinematics"
+        },
+        {
+          "n": 3,
+          "c": "Newton's laws and free-body reasoning"
+        }
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Circular motion and centripetal force",
+        "of": 30,
+        "rests": [
+          "Kinematics",
+          "Newton's laws and free-body reasoning"
+        ]
+      }
     },
     {
       "day": 4,
@@ -152,6 +211,11 @@ export const CURRICULUM = {
       "scene": "A 30,000 kg spacecraft takes 6,000 N of thrust for 20 seconds. The flight-dynamics officer needs the resulting acceleration and change in speed before the correction burn is approved.",
       "takeaway": "Orbital corrections often rely on small velocity changes applied early.",
       "place": "Guidance Console",
+      "guide": "Five numbers, and two of them belong to other questions. Surface gravity and specific impulse are not in this chain. Ask of each whether it is a force, a mass, or a time. And note the scale of the answer. Four metres per second looks like nothing beside an orbital speed. Days out, it moves the arrival by hundreds of kilometres.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A 30,000 kg spacecraft takes 6,000 N of thrust for 20 seconds. The flight-dynamics officer needs the resulting acceleration and change in speed before the correction burn is approved.",
       "game": {
         "type": "BALLPARK",
@@ -167,7 +231,8 @@ export const CURRICULUM = {
         "calcKey": "NAV-4"
       },
       "assumes": [
-        "force applied over a time is an impulse"
+        "force applied over a time is an impulse",
+        "newton's laws and free-body reasoning — taken as read"
       ],
       "equations": [
         {
@@ -246,7 +311,21 @@ export const CURRICULUM = {
           "s": "A small force applied for a long time changes momentum as much as a large one applied briefly.",
           "card": false
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 3,
+          "c": "Newton's laws and free-body reasoning"
+        }
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Momentum, impulse and conservation",
+        "of": 30,
+        "rests": [
+          "Newton's laws and free-body reasoning"
+        ]
+      }
     },
     {
       "day": 5,
@@ -254,6 +333,11 @@ export const CURRICULUM = {
       "scene": "A 200 N thruster fires at right angles, 3 metres from the centre of mass. The crew needs the torque before it can predict how fast the vehicle starts to turn.",
       "takeaway": "Force location matters as much as force magnitude in rotational control.",
       "place": "Guidance Console",
+      "guide": "Five numbers, and three of them belong elsewhere: the vehicle mass, the docking ring, and a cosine. Ask of each whether the turning effect depends on it. The force is at right angles here, so no angle factor is needed. And note what the crew can actually change. Choosing a different thruster pair changes the lever arm without changing the thruster.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A 200 N thruster fires at right angles, 3 metres from the centre of mass. The crew needs the torque before it can predict how fast the vehicle starts to turn.",
       "game": {
         "type": "BALLPARK",
@@ -269,7 +353,9 @@ export const CURRICULUM = {
         "calcKey": "NAV-5"
       },
       "assumes": [
-        "a longer lever arm gives the same force more turning effect"
+        "a longer lever arm gives the same force more turning effect",
+        "newton's laws and free-body reasoning — taken as read",
+        "rotational kinematics — taken as read"
       ],
       "equations": [
         {
@@ -311,7 +397,26 @@ export const CURRICULUM = {
           ],
           "s": "Acceleration is what a net force produces, and the same force moves a heavier object less."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 3,
+          "c": "Newton's laws and free-body reasoning"
+        },
+        {
+          "n": 7,
+          "c": "Rotational kinematics"
+        }
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Torque and moment of inertia",
+        "of": 30,
+        "rests": [
+          "Newton's laws and free-body reasoning",
+          "Rotational kinematics"
+        ]
+      }
     },
     {
       "day": 6,
@@ -319,6 +424,11 @@ export const CURRICULUM = {
       "scene": "Between burns the spacecraft is unpowered. A residual acceleration of 0.004 metres per second squared acts for 90 seconds. The navigation team needs the resulting drift before deciding whether it matters.",
       "takeaway": "Under a constant acceleration, displacement grows with the square of the time.",
       "place": "Guidance Computer Room",
+      "guide": "Four numbers, and one of them is surface gravity, offered for scale rather than for use. Another is the one-half that belongs in the relationship. Ask of each whether it is an acceleration, a time, or a constant. And note the square on the time. Double the coast and the drift is four times larger, which is why the coast length is the thing to argue about.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Between burns the spacecraft is unpowered. A residual acceleration of 0.004 metres per second squared acts for 90 seconds. The navigation team needs the resulting drift before deciding whether it matters.",
       "game": {
         "type": "BALLPARK",
@@ -334,7 +444,9 @@ export const CURRICULUM = {
         "calcKey": "NAV-6"
       },
       "assumes": [
-        "an object under constant acceleration covers half the acceleration times the time squared"
+        "an object under constant acceleration covers half the acceleration times the time squared",
+        "kinematics — taken as read",
+        "newton's laws and free-body reasoning — taken as read"
       ],
       "equations": [
         {
@@ -369,7 +481,26 @@ export const CURRICULUM = {
           "s": "Under constant acceleration, speed grows in step with time and distance grows with the square of it.",
           "computed": true
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 2,
+          "c": "Kinematics"
+        },
+        {
+          "n": 3,
+          "c": "Newton's laws and free-body reasoning"
+        }
+      ],
+      "concept": {
+        "n": 21,
+        "c": "Projectile motion and free fall",
+        "of": 30,
+        "rests": [
+          "Kinematics",
+          "Newton's laws and free-body reasoning"
+        ]
+      }
     },
     {
       "day": 7,
@@ -377,6 +508,12 @@ export const CURRICULUM = {
       "scene": "Several ground measurements suddenly place the spacecraft ahead of prediction. The range and Doppler solutions agree with one another. An optical star-angle solution and the station timing records are available before any correction burn is commanded.",
       "takeaway": "When several measurements agree, ask whether they agree independently or merely inherit the same clock, calibration, or model.",
       "place": "Global Tracking Network",
+      "guide": "Four options, and two measurements agree. Ask what they share before treating that as confirmation. Range and Doppler both use the ground timing reference. The optical solution does not, and it matches the prediction instead. So one of these options explains several agreeing numbers as one failure. A correction burn is about to be commanded on the answer.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Several ground measurements suddenly place the spacecraft ahead of prediction. The range and Doppler solutions agree with one another. An optical star-angle solution and the station timing records are available before any correction burn is commanded.",
       "game": {
         "type": "CHOICE",
@@ -414,7 +551,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "several instruments can be wrong together if they share a part"
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Kinematics",
+        "of": 30,
+        "rests": [
+          "Vectors and components"
+        ]
+      }
     },
     {
       "day": 8,
@@ -422,6 +567,11 @@ export const CURRICULUM = {
       "scene": "The navigation board carries two position errors. 1 is 6 kilometres, the other 8, and they lie along axes at right angles. Sandoval needs a single number for the entry brief, and the burn is called from it.",
       "takeaway": "Independent orthogonal uncertainties combine in quadrature.",
       "place": "Navigation Covariance Room",
+      "guide": "Five numbers, and three of them are wrong ways to combine the two errors: their sum, their average, and the number of axes. Ask of each whether it respects the geometry. The two errors lie along perpendicular axes, so the answer is larger than either and smaller than their sum. The burn is called from this single figure.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The navigation board carries two position errors. 1 is 6 kilometres, the other 8, and they lie along axes at right angles. Sandoval needs a single number for the entry brief, and the burn is called from it.",
       "game": {
         "type": "BALLPARK",
@@ -438,7 +588,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "two errors along different directions do not simply add"
-      ]
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Measurement uncertainty and error propagation",
+        "of": 30
+      }
     },
     {
       "day": 9,
@@ -446,6 +601,12 @@ export const CURRICULUM = {
       "scene": "The crew is aboard the recovery ship, and the review board meets Monday. Four proposals compete for three funded slots: a tank redesign, a second telemetry path, a full-duration thermal test article, and a simulator upgrade.",
       "takeaway": "The scientific obligation after a crisis is to learn from every discrepancy, not only the successful outcome.",
       "place": "Entry Tracking Network",
+      "guide": "All four proposals are worth funding and three slots exist. Ask of each whether it removes a cause or improves the response to one. The same weakness appeared twice this mission: several pressure readouts on one electrical reference, and several tracking products on one clock. Both times, agreement looked stronger than it was. Logs and rehearsal help reconstruct that, not prevent it.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The crew is aboard the recovery ship, and the review board meets Monday. Four proposals compete for three funded slots: a tank redesign, a second telemetry path, a full-duration thermal test article, and a simulator upgrade.",
       "game": {
         "type": "CHOICE",
@@ -471,7 +632,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a fix that removes a cause outlasts a fix that improves the response"
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Systems thinking: dependency, redundancy, failure modes",
+        "of": 30
+      }
     }
   ],
   "ELEC": [
@@ -481,6 +647,11 @@ export const CURRICULUM = {
       "scene": "The fuel cells are gone and the crew is on entry batteries days earlier than any plan allowed for. The flight surgeon wants an endurance number before the next powerdown decision.",
       "takeaway": "Power is the rate of energy use; endurance depends on both energy inventory and load.",
       "place": "Electrical Systems Room",
+      "guide": "Five numbers, and three of them belong to other questions: the bus voltage, the brief peak, and the time to the next burn. Ask of each whether it is an amount of energy or a rate of use. Energy divided by a rate leaves a time. And note what the answer assumes: a flat load, and every last watt-hour available. A cold battery gives less than its rating.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The fuel cells are gone and the crew is on entry batteries days earlier than any plan allowed for. The flight surgeon wants an endurance number before the next powerdown decision.",
       "game": {
         "type": "BALLPARK",
@@ -496,7 +667,8 @@ export const CURRICULUM = {
         "calcKey": "ELEC-1"
       },
       "assumes": [
-        "energy is a stock, and power is the rate it is drawn at"
+        "energy is a stock, and power is the rate it is drawn at",
+        "circuits: current, voltage, resistance, Ohm's law — taken as read"
       ],
       "equations": [
         {
@@ -555,7 +727,21 @@ export const CURRICULUM = {
           "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on.",
           "computed": true
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 14,
+          "c": "Circuits: current, voltage, resistance, Ohm's law"
+        }
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Electrical power and energy budgets",
+        "of": 30,
+        "rests": [
+          "Circuits: current, voltage, resistance, Ohm's law"
+        ]
+      }
     },
     {
       "day": 2,
@@ -563,6 +749,12 @@ export const CURRICULUM = {
       "scene": "Engineers want to reconnect battery modules to buy hours of endurance. The room agrees what each wiring choice does before anything is bolted up, because adding a module can also take capability away.",
       "takeaway": "Redundancy is useful only when connection and protection behavior are explicit.",
       "place": "Battery Test Bench",
+      "guide": "Four wiring changes, and four consequences. Pair them by asking what stays the same in that arrangement: the voltage across each part, or the current through it. Then ask what one fault does. Adding a module can take capability away, because a single open cell can break a whole series path. This is being bolted up to buy hours of endurance.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Engineers want to reconnect battery modules to buy hours of endurance. The room agrees what each wiring choice does before anything is bolted up, because adding a module can also take capability away.",
       "game": {
         "type": "PROTOCOL",
@@ -629,7 +821,12 @@ export const CURRICULUM = {
           ],
           "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on."
         }
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Systems thinking: dependency, redundancy, failure modes",
+        "of": 30
+      }
     },
     {
       "day": 3,
@@ -637,6 +834,11 @@ export const CURRICULUM = {
       "scene": "A connector in the improvised battery path develops 0.05 ohms while carrying 20 amps. The joint is inside a sealed cabin. The power team needs its heating rate before the hardware is approved.",
       "takeaway": "Small resistances matter when current is large because heating scales with current squared.",
       "place": "Electrical Integration Room",
+      "guide": "Five numbers, and three of them belong elsewhere: the bus voltage, the whole cable run, and half the current. Ask of each whether the heating at this joint depends on it. Note the square: at half the current the same joint gives off a quarter of the power. And note where it is. Twenty watts is nothing on a radiator and a great deal in one connector in a sealed cabin.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A connector in the improvised battery path develops 0.05 ohms while carrying 20 amps. The joint is inside a sealed cabin. The power team needs its heating rate before the hardware is approved.",
       "game": {
         "type": "BALLPARK",
@@ -679,7 +881,12 @@ export const CURRICULUM = {
           "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Circuits: current, voltage, resistance, Ohm's law",
+        "of": 30
+      }
     }
   ],
   "THERM": [
@@ -689,6 +896,12 @@ export const CURRICULUM = {
       "scene": "The oxygen tank reads 40 psi, the cabin regulator is set to 15, and the flow has fallen to half of what the plan assumed. The line is the same line it was yesterday.",
       "takeaway": "Something moves through a system for one reason and is held back for another.",
       "place": "Life Support Lab",
+      "guide": "All four options explain a flow that has halved. They differ in what they hold responsible: the difference, the path, the sensor, or the temperature. Ask of each whether the line is the same line it was yesterday. A pressure difference drives the flow, and how restrictive the path is decides the rate. A high-pressure tank delivers nothing through a blocked line.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The oxygen tank reads 40 psi, the cabin regulator is set to 15, and the flow has fallen to half of what the plan assumed. The line is the same line it was yesterday.",
       "game": {
         "type": "CHOICE",
@@ -713,8 +926,23 @@ export const CURRICULUM = {
         "correctChoice": "The pressure difference still drives flow; the lower rate points to more resistance in the path."
       },
       "assumes": [
-        "gas flows from higher pressure to lower pressure"
-      ]
+        "gas flows from higher pressure to lower pressure",
+        "newton's laws and free-body reasoning — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 3,
+          "c": "Newton's laws and free-body reasoning"
+        }
+      ],
+      "concept": {
+        "n": 27,
+        "c": "Fluid pressure and flow",
+        "of": 30,
+        "rests": [
+          "Newton's laws and free-body reasoning"
+        ]
+      }
     },
     {
       "day": 2,
@@ -722,6 +950,11 @@ export const CURRICULUM = {
       "scene": "With the systems powered down the cabin is losing about a kilowatt more than it generates. The flight surgeon wants to know how long the crew has before the temperature becomes a medical problem.",
       "takeaway": "Thermal inertia can make temperature change slowly even when power is lost.",
       "place": "Thermal Control Lab",
+      "guide": "Five numbers, and two of them are the same three hours written in different units. Another is the present cabin temperature, which the drop does not use. Ask of each whether the relationship needs it. And note what the answer means. The cabin cools slowly because of what it is made of, which buys hours now and costs the same energy to reheat later.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "With the systems powered down the cabin is losing about a kilowatt more than it generates. The flight surgeon wants to know how long the crew has before the temperature becomes a medical problem.",
       "game": {
         "type": "BALLPARK",
@@ -764,7 +997,15 @@ export const CURRICULUM = {
           "s": "How far a temperature moves depends on the heat added, the mass and how hard that material is to warm.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 17,
+        "c": "Heat transfer: conduction, convection, radiation",
+        "of": 30,
+        "rests": [
+          "Electrical power and energy budgets"
+        ]
+      }
     },
     {
       "day": 3,
@@ -772,6 +1013,12 @@ export const CURRICULUM = {
       "scene": "The cabin is cooling and the crew wants to do something about it. What can be done depends on how the heat is actually leaving, so the room names the pathway first.",
       "takeaway": "Identifying the pathway reveals which intervention can reduce loss.",
       "place": "Cabin Environment Console",
+      "guide": "Four situations, and four ways heat moves. Pair them by asking what carries the energy: touching, moving air, or nothing at all. One of these needs no material medium. The pairing decides what a fix looks like, because insulation, circulation and reflective surfaces each act on a different pathway. Naming the wrong one buys nothing.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "The cabin is cooling and the crew wants to do something about it. What can be done depends on how the heat is actually leaving, so the room names the pathway first.",
       "game": {
         "type": "PROTOCOL",
@@ -813,14 +1060,93 @@ export const CURRICULUM = {
       },
       "assumes": [
         "heat moves by contact, by moving fluid, or by radiation"
-      ]
+      ],
+      "concept": {
+        "n": 17,
+        "c": "Heat transfer: conduction, convection, radiation",
+        "of": 30,
+        "rests": [
+          "Electrical power and energy budgets"
+        ]
+      }
     },
     {
       "day": 4,
+      "title": "Cabin pressure, through the work period",
+      "scene": "The crew are working in the middle module and the cabin has to hold pressure while they do. A sample airlock cycles, the scrubber comes on line, and the leak that has been on the log for a week is still on the log.",
+      "takeaway": "A leak is a rate, so it is answered by a setting rather than by a correction.",
+      "place": "Environmental Console",
+      "guide": "Hold the cabin pressure inside the band on the console. The band narrows through the work period, because the crew are moving toward the module with the suspect seal and a margin that was comfortable at the start is not comfortable there. The makeup valve is your control.",
+      "background": [
+        "Why a leak is not a step. A leak is a rate: the cabin loses gas for as long as the hole is open, so the pressure keeps falling and does not settle anywhere. That is why a cabin with a small leak is held rather than corrected.",
+        "Why the airlock and the scrubber are different in kind. Cycling the airlock takes a volume of gas out once. The scrubber changes what the cabin is doing continuously. Both show up on the same gauge and want different answers.",
+        "Why the margin matters more later. Everything the crew are doing is reversible except being in the wrong module when the pressure goes. The band narrows because the cost of the same excursion rises as they move."
+      ],
+      "story": "The crew are working in the middle module and the cabin has to hold pressure while they do. A sample airlock cycles, the scrubber comes on line, and the leak that has been on the log for a week is still on the log.",
+      "game": {
+        "type": "HOLD",
+        "title": "Cabin pressure, through the work period",
+        "setup": "Environmental Console",
+        "play": "Hold the cabin while the crew works.",
+        "task": "Hold the cabin while the crew works.",
+        "question": "Hold the cabin inside the band through the work period.",
+        "answer": "Inside the band for most of the period, with the makeup valve set to match the leak rate rather than opened after the pressure has already fallen.",
+        "why": "A leak is a rate and everything about handling one follows from that. The cabin loses gas for as long as the hole is open, so the pressure keeps falling and never settles; a valve opened once and closed again buys a few minutes and changes nothing. What works is setting the makeup flow to match the loss and leaving it there, which is also what makes the leak measurable — the flow you need to hold steady *is* the leak rate, and that number is what the ground needs to decide whether the module can stay in use. The airlock is the opposite case: cycling it removes a fixed volume once, so it wants a correction rather than a new setting. Telling those two apart on one gauge is the skill, and the band narrows because the crew are moving toward the module with the suspect seal, where the same excursion costs more.",
+        "hold": {
+          "quantity": "Cabin pressure",
+          "control": "Makeup valve",
+          "unit": "kPa",
+          "hold": 101,
+          "band": 0.4,
+          "narrowTo": 0.2,
+          "duration": 45,
+          "authority": 0.1,
+          "pass": 0.8,
+          "direction": "raise",
+          "disturbances": [
+            {
+              "label": "Suspect seal opens up a little",
+              "at": 4,
+              "amount": -0.03
+            },
+            {
+              "label": "Scrubber comes on line",
+              "at": 20,
+              "amount": 0.05
+            },
+            {
+              "label": "Sample airlock cycles",
+              "at": 38,
+              "amount": -0.045
+            }
+          ],
+          "hint": "A leak keeps leaking. Set the valve to match it rather than correcting after the gauge moves.",
+          "commit": "Report the period"
+        }
+      },
+      "assumes": [
+        "a sealed volume loses pressure if gas escapes from it"
+      ],
+      "concept": {
+        "n": 27,
+        "c": "Fluid pressure and flow",
+        "of": 30,
+        "rests": [
+          "Newton's laws and free-body reasoning"
+        ]
+      }
+    },
+    {
+      "day": 5,
       "title": "CO2 production scale",
       "scene": "3 crew members each exhale roughly 20 litres of carbon dioxide an hour. The workshop needs to know what an improvised scrubber has to keep up with over the next six hours.",
       "takeaway": "Source rate sets the minimum removal requirement.",
       "place": "Cabin Air Console",
+      "guide": "Five numbers, and two of them belong to a different question: a whole day, and a figure by mass rather than by volume. Ask of each whether it is a rate, a count, or a duration. What comes out is the minimum a scrubber has to keep up with. Anything slower than that only slows the rise rather than holding it steady.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "3 crew members each exhale roughly 20 litres of carbon dioxide an hour. The workshop needs to know what an improvised scrubber has to keep up with over the next six hours.",
       "game": {
         "type": "BALLPARK",
@@ -833,18 +1159,31 @@ export const CURRICULUM = {
         "why": "Source rate sets the minimum removal rate. 3 people at 20 litres per hour each produce 60 litres per hour together. Over 6 hours that becomes 360 litres. A scrubber that removes carbon dioxide more slowly than the crew produces it cannot hold the concentration steady. It only slows the rise. The estimate does not need high precision. It needs to tell the workshop whether the improvised system is large enough to matter and how much capacity it must provide.",
         "givens": [],
         "relationship": "Total = rate per person × number of people × time.",
-        "calcKey": "THERM-4"
+        "calcKey": "THERM-5"
       },
       "assumes": [
         "a rate multiplied by a time is a total"
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Gas behaviour and life support",
+        "of": 30,
+        "rests": [
+          "Heat transfer: conduction, convection, radiation"
+        ]
+      }
     },
     {
-      "day": 5,
+      "day": 6,
       "title": "Kinetic-energy scale",
       "scene": "A 5,000 kg capsule returning from the Moon arrives at about 11,000 metres per second. The thermal protection team needs the kinetic energy before it can argue about heat load.",
       "takeaway": "Speed dominates kinetic energy because it enters squared.",
       "place": "Thermal Protection Lab",
+      "guide": "Five numbers, and two of them belong to other entries: the speed from low orbit, and surface gravity. Ask of each whether this energy depends on it. And note the square on the speed. Forty per cent more speed is nearly twice the energy at the same mass. That is the whole difference between the two entries on the list.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A 5,000 kg capsule returning from the Moon arrives at about 11,000 metres per second. The thermal protection team needs the kinetic energy before it can argue about heat load.",
       "game": {
         "type": "BALLPARK",
@@ -857,10 +1196,11 @@ export const CURRICULUM = {
         "why": "Kinetic energy is one-half the mass times speed squared. The squared speed is the dominant feature of lunar return. Raising entry speed by about 40% nearly doubles the kinetic energy for the same mass. That extra energy must still be removed before landing. The heat shield therefore faces a much harder job even if the capsule itself is unchanged. Comparing speeds without squaring them would badly understate the difference between low-Earth-orbit entry and return from the Moon.",
         "givens": [],
         "relationship": "Kinetic energy = ½ × mass × speed².",
-        "calcKey": "THERM-5"
+        "calcKey": "THERM-6"
       },
       "assumes": [
-        "kinetic energy depends on mass and on speed"
+        "kinetic energy depends on mass and on speed",
+        "newton's laws and free-body reasoning — taken as read"
       ],
       "equations": [
         {
@@ -895,14 +1235,34 @@ export const CURRICULUM = {
           "s": "Work done on something becomes its energy, and the total energy is bookkeeping that has to balance.",
           "computed": true
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 3,
+          "c": "Newton's laws and free-body reasoning"
+        }
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Work, energy and conservation of energy",
+        "of": 30,
+        "rests": [
+          "Newton's laws and free-body reasoning"
+        ]
+      }
     },
     {
-      "day": 6,
+      "day": 7,
       "title": "Commit to the path",
       "scene": "The decision has to be made this shift, and once the burn is executed most of the alternatives close. Nobody has yet written down what would show the choice was wrong.",
       "takeaway": "An abort trigger has to be defined while there is still propellant to act on it.",
       "place": "Thermal and Entry Review",
+      "guide": "All four of these will happen, and the burn closes most of the alternatives. Ask of each what would be impossible afterwards. Comparing candidates under the nominal case settles nothing, because the nominal case was never in doubt. And an abort trigger defined after the burn is a trigger with nothing left to act on.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "The decision has to be made this shift, and once the burn is executed most of the alternatives close. Nobody has yet written down what would show the choice was wrong.",
       "game": {
         "type": "SEQUENCE",
@@ -934,7 +1294,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a decision can only be undone while the means to undo it still exist"
-      ]
+      ],
+      "concept": {
+        "n": 17,
+        "c": "Heat transfer: conduction, convection, radiation",
+        "of": 30,
+        "rests": [
+          "Electrical power and energy budgets"
+        ]
+      }
     }
   ],
   "COMMS": [
@@ -944,6 +1312,12 @@ export const CURRICULUM = {
       "scene": "Voice and telemetry are down about 12 decibels at 2 ground stations. Spacecraft transmitter output is nominal. The antenna solution, redundant transmitter chain, and a backup receiver path can each be tested without committing the mission.",
       "takeaway": "A reversible one-variable test can separate a causal fault from conditions that merely occur at the same time.",
       "place": "Deep-Space Antenna",
+      "guide": "The number you are watching is the received signal strength, currently about twelve decibels low at both stations. Each test swaps or corrects one part of the path without committing the mission, and a response counts only if it is larger than the noise on the link. Two stations failing together already narrows what can be common to both. Run one test, undo it, and name the part the fade follows.",
+      "background": [
+        "Why two stations at once is the clue. The two ground stations are on opposite sides of the Earth, with separate receivers, separate crews and separate weather. A fault in one of those cannot show up at the other, so anything that explains both has to be common to both — which means the spacecraft end, or the geometry between them.",
+        "What twelve decibels means. Decibels are a ratio on a logarithmic scale: three of them is about half the power, ten is a tenth, and twelve is about one sixteenth of the power arriving. That is the difference between voice you can work with and voice you cannot, which is why the number matters more than it sounds.",
+        "Why every test is reversible here. There is a crew aboard, so a test that cannot be undone is not a test but a decision. The pointing correction, the redundant transmitter chain and the backup receiver path were chosen because each can be tried and put back, which is what makes the reversal half of the method available at all."
+      ],
       "story": "Voice and telemetry are down about 12 decibels at 2 ground stations. Spacecraft transmitter output is nominal. The antenna solution, redundant transmitter chain, and a backup receiver path can each be tested without committing the mission.",
       "game": {
         "type": "CONTROL",
@@ -985,8 +1359,23 @@ export const CURRICULUM = {
       },
       "assumes": [
         "decibels add gains and losses on a link budget",
-        "a causal test changes one condition while the others stay fixed"
-      ]
+        "a causal test changes one condition while the others stay fixed",
+        "kinematics — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 2,
+          "c": "Kinematics"
+        }
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Waves: frequency, wavelength, speed",
+        "of": 30,
+        "rests": [
+          "Kinematics"
+        ]
+      }
     },
     {
       "day": 2,
@@ -994,6 +1383,11 @@ export const CURRICULUM = {
       "scene": "The communications link is fading, and the antenna team needs the carrier wavelength for its pointing model. The spacecraft transmits at 2.0 gigahertz, while received power is being tracked at the ground stations.",
       "takeaway": "Frequency and wavelength are reciprocal descriptions of the same propagating wave.",
       "place": "Communications Analysis Room",
+      "guide": "Five numbers, and three of them are traps. One is the carrier misread as megahertz. One is the speed of sound. One is the observed loss. Ask of each whether it belongs to this wave at all. And note what the answer feeds: the beam width scales with wavelength over aperture, so this number sets how forgiving the pointing can be.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The communications link is fading, and the antenna team needs the carrier wavelength for its pointing model. The spacecraft transmits at 2.0 gigahertz, while received power is being tracked at the ground stations.",
       "game": {
         "type": "BALLPARK",
@@ -1009,7 +1403,8 @@ export const CURRICULUM = {
         "calcKey": "COMMS-2"
       },
       "assumes": [
-        "frequency and wavelength are two descriptions of one wave"
+        "frequency and wavelength are two descriptions of one wave",
+        "kinematics — taken as read"
       ],
       "equations": [
         {
@@ -1032,7 +1427,21 @@ export const CURRICULUM = {
           "s": "For a given medium the speed is fixed, so raising the frequency shortens the wavelength in proportion.",
           "computed": true
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 2,
+          "c": "Kinematics"
+        }
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Waves: frequency, wavelength, speed",
+        "of": 30,
+        "rests": [
+          "Kinematics"
+        ]
+      }
     },
     {
       "day": 3,
@@ -1040,6 +1449,12 @@ export const CURRICULUM = {
       "scene": "The crew will aim the next maneuver through a window reticle. Before that view is trusted, the room compares eye position, focus, target parallax, and spacecraft rotation so each apparent shift has a physical interpretation.",
       "takeaway": "Manual navigation requires separating instrument geometry from spacecraft motion.",
       "place": "Optics Test Room",
+      "guide": "Four apparent shifts, and four causes. Pair them by asking what actually moved. The eye? The optics? The viewpoint? The vehicle? Two of them change what you see without changing the line of sight. The crew will aim the next manoeuvre through this reticle. A shift blamed on the wrong cause becomes a burn in the wrong direction.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "The crew will aim the next maneuver through a window reticle. Before that view is trusted, the room compares eye position, focus, target parallax, and spacecraft rotation so each apparent shift has a physical interpretation.",
       "game": {
         "type": "PROTOCOL",
@@ -1082,6 +1497,124 @@ export const CURRICULUM = {
       "assumes": [
         "what you see through an eyepiece depends on where your eye is"
       ]
+    },
+    {
+      "day": 4,
+      "title": "What the room is calling now",
+      "scene": "Calls come to the loop faster than they can all be answered. The flight director holds one rule about which get answered first, and changes it as the situation does — after the burn, after the leak is confirmed, after the crew wake.",
+      "takeaway": "The cost of a withdrawn instruction is paid by whoever is still working to it.",
+      "place": "Flight Director's Console",
+      "guide": "Answer the calls the current rule wants and hold the rest. The rule is called once on the loop and then it stands; nobody repeats it. What is scored is the calls either side of a change, because they are the only ones that show whether the room is working to this rule or to the one before it.",
+      "background": [
+        "Why a flight rule changes. Before a burn everything defers to the burn. Once a leak is confirmed everything defers to the leak. When the crew are asleep the rule is different again, because a call that wakes them costs something a call to the ground does not.",
+        "Why the changeover is the dangerous part. A room working to the old rule for two more minutes gives the loop to a call that no longer matters, and the call that does matter waits behind it with nothing to say it was displaced."
+      ],
+      "story": "Calls come to the loop faster than they can all be answered. The flight director holds one rule about which get answered first, and changes it as the situation does — after the burn, after the leak is confirmed, after the crew wake.",
+      "game": {
+        "type": "SPOT",
+        "title": "What the room is calling now",
+        "setup": "Flight Director's Console",
+        "play": "Work the call board while the flight rule changes.",
+        "task": "Work the call board while the flight rule changes.",
+        "question": "Answer to the rule in force, and keep listening for the rule.",
+        "answer": "Work the rule rather than the loudest call. Every change leaves a couple of minutes in which the old rule still sounds right.",
+        "why": "Three rules run across the shift and each wants a different part of the board. Anything affecting the burn, then anything affecting the leak, then anything that would wake the crew. A call can answer two at once, which is what makes the change cost real rather than notional. What the panel scores is the window either side of each change, because most of what arrives is wanted by neither rule and is correctly held by somebody who has read nothing. The room's own version is the two minutes after a leak is confirmed: the rule has changed, and the loop is still being given to the trajectory people because that is who it belonged to a moment ago.",
+        "spot": {
+          "targets": [
+            {
+              "id": "k1",
+              "label": "Burn attitude query",
+              "tags": [
+                "burn"
+              ]
+            },
+            {
+              "id": "k2",
+              "label": "Leak rate update",
+              "tags": [
+                "leak"
+              ]
+            },
+            {
+              "id": "k3",
+              "label": "Burn timing, leak affected",
+              "tags": [
+                "burn",
+                "leak"
+              ]
+            },
+            {
+              "id": "k4",
+              "label": "Crew sleep shift request",
+              "tags": [
+                "crew"
+              ]
+            },
+            {
+              "id": "k5",
+              "label": "Ground station handover",
+              "tags": [
+                "routine"
+              ]
+            },
+            {
+              "id": "k6",
+              "label": "Leak fix needs crew",
+              "tags": [
+                "leak",
+                "crew"
+              ]
+            },
+            {
+              "id": "k7",
+              "label": "Consumables report",
+              "tags": [
+                "routine"
+              ]
+            },
+            {
+              "id": "k8",
+              "label": "Burn cut-off check",
+              "tags": [
+                "burn"
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "say": "Anything affecting the burn",
+              "want": [
+                "burn"
+              ]
+            },
+            {
+              "say": "Anything affecting the leak",
+              "want": [
+                "leak"
+              ]
+            },
+            {
+              "say": "Anything that wakes the crew",
+              "want": [
+                "crew"
+              ]
+            }
+          ],
+          "duration": 40,
+          "switchEvery": 12,
+          "pass": 0.75,
+          "hint": "The flight rule is called once on the loop and then it stands.",
+          "commit": "Open the loop"
+        }
+      },
+      "assumes": [
+        "a control room answers calls in an order somebody decides"
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Systems thinking: dependency, redundancy, failure modes",
+        "of": 30
+      }
     }
   ],
   "STRUCT": [
@@ -1091,6 +1624,12 @@ export const CURRICULUM = {
       "scene": "The main guidance platform is unavailable and the crew is about to fly the vehicle by hand. Before anybody touches a thruster the room states the rotational mechanics plainly, because each one has a consequence the crew will feel.",
       "takeaway": "Attitude control is Newtonian mechanics around a center of mass.",
       "place": "Attitude Dynamics Lab",
+      "guide": "Four changes on the left, and four consequences on the right. Pair them by asking what each change does to the two terms that matter: the torque, and the resistance to turning. One of the four adds no external torque at all, which is what makes it different from the others. The crew is about to fly this by hand and will feel every one of them.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "The main guidance platform is unavailable and the crew is about to fly the vehicle by hand. Before anybody touches a thruster the room states the rotational mechanics plainly, because each one has a consequence the crew will feel.",
       "game": {
         "type": "PROTOCOL",
@@ -1131,7 +1670,8 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "a torque is what makes something start or stop turning"
+        "a torque is what makes something start or stop turning",
+        "newton's laws and free-body reasoning — taken as read"
       ],
       "equations": [
         {
@@ -1196,7 +1736,22 @@ export const CURRICULUM = {
           "s": "Turning effect depends on where the force is applied as much as on how hard, and equilibrium needs the torques to cancel.",
           "card": false
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 3,
+          "c": "Newton's laws and free-body reasoning"
+        }
+      ],
+      "concept": {
+        "n": 25,
+        "c": "Centre of mass and balance",
+        "of": 30,
+        "rests": [
+          "Vectors and components",
+          "Newton's laws and free-body reasoning"
+        ]
+      }
     },
     {
       "day": 2,
@@ -1204,6 +1759,12 @@ export const CURRICULUM = {
       "scene": "The carrier is down 12 decibels and drifting in frequency. The crew is answering calls it can barely hear, and the next navigation update depends on getting the link back.",
       "takeaway": "Communication recovery joins wave physics, control, and estimation.",
       "place": "Spacecraft Attitude Console",
+      "guide": "All four steps will be taken, so ask which buys the most for the least. Pointing is the largest term in the link budget and costs nothing but attitude. Narrowing the bandwidth buys signal without touching the spacecraft. And one of these four is not a recovery action at all: it is what the recovered data are then used for.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "The carrier is down 12 decibels and drifting in frequency. The crew is answering calls it can barely hear, and the next navigation update depends on getting the link back.",
       "game": {
         "type": "SEQUENCE",
@@ -1234,7 +1795,8 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "a slower signal needs less power to be read"
+        "a slower signal needs less power to be read",
+        "waves: frequency, wavelength, speed — taken as read"
       ],
       "equations": [
         {
@@ -1256,7 +1818,21 @@ export const CURRICULUM = {
           ],
           "s": "For a given medium the speed is fixed, so raising the frequency shortens the wavelength in proportion."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 12,
+          "c": "Waves: frequency, wavelength, speed"
+        }
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Doppler shift",
+        "of": 30,
+        "rests": [
+          "Waves: frequency, wavelength, speed"
+        ]
+      }
     },
     {
       "day": 3,
@@ -1264,6 +1840,11 @@ export const CURRICULUM = {
       "scene": "A mounted component is modeled as a 4 kg mass on a 400 N/m spring. The structural analyst needs its natural period and frequency before nearby equipment operating speeds are approved.",
       "takeaway": "Natural frequency emerges from inertia and stiffness.",
       "place": "Spacecraft Vibration Console",
+      "guide": "Five numbers, and three belong to other things on the vehicle: a wheel speed, a damper, and a nearby mode. Ask of each whether this component's own oscillation depends on it. Two terms set it: how much mass there is, and how stiff the mount is. And note which way each pushes, because they act in opposite directions.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A mounted component is modeled as a 4 kg mass on a 400 N/m spring. The structural analyst needs its natural period and frequency before nearby equipment operating speeds are approved.",
       "game": {
         "type": "BALLPARK",
@@ -1279,7 +1860,8 @@ export const CURRICULUM = {
         "calcKey": "STRUCT-3"
       },
       "assumes": [
-        "a stiffer spring vibrates faster and a heavier mass vibrates slower"
+        "a stiffer spring vibrates faster and a heavier mass vibrates slower",
+        "newton's laws and free-body reasoning — taken as read"
       ],
       "equations": [
         {
@@ -1341,7 +1923,21 @@ export const CURRICULUM = {
           "s": "For a given medium the speed is fixed, so raising the frequency shortens the wavelength in proportion.",
           "card": false
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 3,
+          "c": "Newton's laws and free-body reasoning"
+        }
+      ],
+      "concept": {
+        "n": 23,
+        "c": "Springs and Hooke's law",
+        "of": 30,
+        "rests": [
+          "Newton's laws and free-body reasoning"
+        ]
+      }
     }
   ],
   "INTEG": [
@@ -1351,6 +1947,12 @@ export const CURRICULUM = {
       "scene": "Nine minutes after the bang, three digital cabin-pressure channels fall together. A mechanical gauge, an acoustic leak monitor, and the sensor-electronics page are also live. The flight director wants one diagnosis before the crew starts opening panels.",
       "takeaway": "Several agreeing readouts count as one piece of evidence when they inherit the same physical reference.",
       "place": "Mission Control",
+      "guide": "Open each pressure channel to see what it depends on. Keep the ones that would still stand if the sensor electronics were at fault, and untick the rest. Then name the shared source that moved the others. Three channels falling together is not three measurements agreeing; it is one measurement repeated three times if they share a supply.",
+      "background": [
+        "Why three digital channels can be one measurement. Redundant transducers usually share a power supply, a reference voltage and a signal conditioning card. Any of those failing moves all three readings the same way at the same moment, which is exactly what a real depressurisation looks like on the display.",
+        "What the other two instruments are for. A mechanical gauge has no electronics between the cabin and the needle. An acoustic monitor listens for escaping gas rather than measuring pressure at all. Neither depends on the suspect chain, which is why they carry more weight here than any number of digital channels.",
+        "Why the diagnosis has to come before the panels. Opening panels in a cabin that is genuinely losing air spends time the crew may not have. Sending them to chase an instrumentation fault costs the same hour with no leak to find. The flight director needs one answer, not a list of possibilities."
+      ],
       "story": "Nine minutes after the bang, three digital cabin-pressure channels fall together. A mechanical gauge, an acoustic leak monitor, and the sensor-electronics page are also live. The flight director wants one diagnosis before the crew starts opening panels.",
       "game": {
         "type": "TRACE",
@@ -1438,7 +2040,12 @@ export const CURRICULUM = {
       "assumes": [
         "several instruments can share one reference circuit",
         "an independent measurement does not inherit that shared failure"
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Systems thinking: dependency, redundancy, failure modes",
+        "of": 30
+      }
     },
     {
       "day": 2,
@@ -1446,6 +2053,12 @@ export const CURRICULUM = {
       "scene": "Three consoles hold contradictory numbers. One bus reads zero. The guidance platform has restarted with no record of what it saw. Nothing has been written down in an order the next controller could reconstruct.",
       "takeaway": "A good emergency command works across uncertainty rather than assuming it away.",
       "place": "Telemetry Analysis Room",
+      "guide": "All four of these will be done, so this is not a list of options. Ask of each what would be lost or wasted if it came later. Telemetry across the failure is overwritten within minutes. A fit across mixed clocks produces a confident answer that is wrong. And a command is only worth issuing once the estimate it rests on carries an uncertainty.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Three consoles hold contradictory numbers. One bus reads zero. The guidance platform has restarted with no record of what it saw. Nothing has been written down in an order the next controller could reconstruct.",
       "game": {
         "type": "SEQUENCE",
@@ -1477,7 +2090,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a number without its units and its time is not a measurement"
-      ]
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Measurement uncertainty and error propagation",
+        "of": 30
+      }
     },
     {
       "day": 3,
@@ -1485,6 +2103,12 @@ export const CURRICULUM = {
       "scene": "Four controllers, a crew flying a vehicle that is venting something, and ten minutes to the next tracking pass. Every subsystem wants the loop, and each believes its own problem is the one that kills the crew.",
       "takeaway": "Attention is a scarce physical resource during a fast-moving systems failure.",
       "place": "Spacecraft Systems Console",
+      "guide": "All four options are real work that has to happen in the next hour. Ask of each what it costs in the only resource that is short, which is attention. Four controllers are already working one failure from four sets of numbers. Two versions of the same analysis can reach the crew, and they will fly whichever arrives first.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Four controllers, a crew flying a vehicle that is venting something, and ten minutes to the next tracking pass. Every subsystem wants the loop, and each believes its own problem is the one that kills the crew.",
       "game": {
         "type": "CHOICE",
@@ -1518,6 +2142,12 @@ export const CURRICULUM = {
       "scene": "The spacecraft is drifting off the free-return path by an amount that is small today and fatal at the atmosphere. The crew wants to know why a few seconds of thrust now beats minutes of thrust tomorrow.",
       "takeaway": "Trajectory control acts on velocity now to change position much later.",
       "place": "Orbital Analysis Room",
+      "guide": "These four are one chain, so each card has something before it and something after. Ask what has to exist first. A force before an acceleration. An acceleration before a change in velocity. The last card is why any of it matters. The changed velocity is carried for hours before arrival, which is why seconds now beat minutes tomorrow.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "The spacecraft is drifting off the free-return path by an amount that is small today and fatal at the atmosphere. The crew wants to know why a few seconds of thrust now beats minutes of thrust tomorrow.",
       "game": {
         "type": "SEQUENCE",
@@ -1548,7 +2178,8 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "a force acting on a mass produces an acceleration"
+        "a force acting on a mass produces an acceleration",
+        "kinematics — taken as read"
       ],
       "equations": [
         {
@@ -1574,7 +2205,21 @@ export const CURRICULUM = {
           ],
           "s": "A small force applied for a long time changes momentum as much as a large one applied briefly."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 2,
+          "c": "Kinematics"
+        }
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Newton's laws and free-body reasoning",
+        "of": 30,
+        "rests": [
+          "Kinematics"
+        ]
+      }
     },
     {
       "day": 5,
@@ -1582,6 +2227,12 @@ export const CURRICULUM = {
       "scene": "The guidance platform is off. The crew must turn the spacecraft 90 degrees using 2 opposing thruster pairs and a window reticle. Every extra correction spends propellant reserved for entry.",
       "takeaway": "In undamped rotation, stopping the torque does not stop the motion; braking must begin before the target.",
       "place": "Crew Procedures Room",
+      "guide": "You set two things: how hard to start the turn and where to start braking. Then the plan runs and you watch it. Nothing damps this rotation, so whatever you start you must stop deliberately, and the braking has to lead the target rather than meet it. Every extra correction spends propellant reserved for entry.",
+      "background": [
+        "Why the brake has to lead. With nothing to slow the spacecraft, the rotation continues at whatever rate you gave it until an equal impulse takes it away. Firing at the target means arriving at the target still turning, and then correcting past it — which is where the propellant goes.",
+        "What the reticle actually gives you. A mark on the window and a star or a horizon is enough to see the attitude, not the rate. Rate has to be inferred from how fast the view moves, which is why a small starting impulse is easier to fly than a large one even though it takes longer.",
+        "Why the propellant matters more than the minutes. What is being spent belongs to the entry budget. A turn flown in half the time with three corrections can cost the margin that the atmosphere entry needs, and there is no way to get it back."
+      ],
       "story": "The guidance platform is off. The crew must turn the spacecraft 90 degrees using 2 opposing thruster pairs and a window reticle. Every extra correction spends propellant reserved for entry.",
       "game": {
         "type": "FLY",
@@ -1628,7 +2279,9 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a torque changes angular speed",
-        "rotation continues after a thruster stops firing"
+        "rotation continues after a thruster stops firing",
+        "newton's laws and free-body reasoning — taken as read",
+        "rotational kinematics — taken as read"
       ],
       "equations": [
         {
@@ -1650,14 +2303,189 @@ export const CURRICULUM = {
           ],
           "s": "Turning effect depends on where the force is applied as much as on how hard, and equilibrium needs the torques to cancel."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 3,
+          "c": "Newton's laws and free-body reasoning"
+        },
+        {
+          "n": 7,
+          "c": "Rotational kinematics"
+        }
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Torque and moment of inertia",
+        "of": 30,
+        "rests": [
+          "Newton's laws and free-body reasoning",
+          "Rotational kinematics"
+        ]
+      }
     },
     {
       "day": 6,
+      "title": "Off-nominal, or off-scale",
+      "scene": "The console has flagged more parameters than the team can look at before handover. Some of them are the spacecraft behaving unexpectedly. The rest are the measurement failing, and the two look identical in a list.",
+      "takeaway": "The vehicle and the measurement fail differently, and only one of them needs an intervention.",
+      "place": "Telemetry Room",
+      "guide": "Two bins. A spacecraft doing something unexpected moves in ways that are physically possible and that other parameters agree with. A measurement failing moves in ways nothing else corroborates — instantly, off the end of the scale, or to exactly zero. Sort on whether the rest of the vehicle agrees.",
+      "background": [
+        "Why this is the first question, always. The response to the spacecraft misbehaving and the response to an instrument misbehaving are opposite: one is an intervention, the other is ignoring a reading and fixing a sensor. Getting it backwards spends a consumable answering something that never happened.",
+        "What a failed sensor looks like. A step no physical process could produce, a value past the end of the range, a reading that has not changed in an hour when everything around it has, or a number that agrees with nothing else on the vehicle."
+      ],
+      "story": "The console has flagged more parameters than the team can look at before handover. Some of them are the spacecraft behaving unexpectedly. The rest are the measurement failing, and the two look identical in a list.",
+      "game": {
+        "type": "BELT",
+        "title": "Off-nominal, or off-scale",
+        "setup": "Telemetry Room",
+        "play": "Sort the telemetry flags before the handover.",
+        "task": "Sort the telemetry flags before the handover.",
+        "question": "Send each flag to the bin that says whether the vehicle or the sensor is the problem.",
+        "answer": "Anything physically possible and corroborated is the vehicle. Anything instant, off-scale, frozen or uncorroborated is the measurement.",
+        "why": "Every flag on this board is a number that moved, and the number is not the thing. A spacecraft that is genuinely warming shows it in more than one place: the structure temperature moves with the radiator outlet, the power draw agrees, and the rate is one a physical process could produce. A sensor that has failed shows none of that. It steps instantly, or parks past the end of its range, or freezes at exactly the same value while everything around it changes, or contradicts two other measurements of the same thing. That is why corroboration is the test rather than plausibility — a failed sensor can produce an entirely plausible number. And the cost of confusing them is asymmetric. Answering a sensor failure with an intervention spends propellant or power on a problem that does not exist, and treating a real excursion as a bad reading is how a crew arrives at the point where there is nothing left to do about it.",
+        "belt": {
+          "left": {
+            "name": "The vehicle"
+          },
+          "right": {
+            "name": "The measurement"
+          },
+          "items": [
+            {
+              "name": "Slow warming trend",
+              "bin": "left"
+            },
+            {
+              "name": "Power draw rising",
+              "bin": "left"
+            },
+            {
+              "name": "Radiator outlet up",
+              "bin": "left"
+            },
+            {
+              "name": "Pressure falling steadily",
+              "bin": "left"
+            },
+            {
+              "name": "Attitude drifting slowly",
+              "bin": "left"
+            },
+            {
+              "name": "Battery state falling",
+              "bin": "left"
+            },
+            {
+              "name": "Corroborated by two",
+              "bin": "left"
+            },
+            {
+              "name": "Physically possible rate",
+              "bin": "left"
+            },
+            {
+              "name": "Follows the burn",
+              "bin": "left"
+            },
+            {
+              "name": "Tracks sun angle",
+              "bin": "left"
+            },
+            {
+              "name": "Matches the model",
+              "bin": "left"
+            },
+            {
+              "name": "Crew confirms it",
+              "bin": "left"
+            },
+            {
+              "name": "Instant step",
+              "bin": "right"
+            },
+            {
+              "name": "Past full-scale",
+              "bin": "right"
+            },
+            {
+              "name": "Frozen an hour",
+              "bin": "right"
+            },
+            {
+              "name": "Exactly zero",
+              "bin": "right"
+            },
+            {
+              "name": "Contradicts two others",
+              "bin": "right"
+            },
+            {
+              "name": "Physically impossible rate",
+              "bin": "right"
+            },
+            {
+              "name": "Toggling every sample",
+              "bin": "right"
+            },
+            {
+              "name": "Negative temperature",
+              "bin": "right"
+            },
+            {
+              "name": "Changed at reset",
+              "bin": "right"
+            },
+            {
+              "name": "One string only",
+              "bin": "right"
+            },
+            {
+              "name": "Noise floor gone",
+              "bin": "right"
+            },
+            {
+              "name": "Off the scale",
+              "bin": "right"
+            },
+            {
+              "name": "Stuck at maximum",
+              "bin": "right"
+            },
+            {
+              "name": "Uncorroborated jump",
+              "bin": "right"
+            }
+          ],
+          "need": 20,
+          "lives": 3,
+          "pass": 0.8,
+          "hint": "Ask whether anything else on the vehicle agrees with it.",
+          "commit": "Start the line"
+        }
+      },
+      "assumes": [
+        "a reading comes from a sensor, and a sensor can fail"
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Measurement uncertainty and error propagation",
+        "of": 30
+      }
+    },
+    {
+      "day": 7,
       "title": "Why is bus voltage collapsing?",
       "scene": "The power bus is sagging at 24 volts instead of 28 while the total load current sits near its planned value. Engineers want to start pulling equipment off the bus.",
       "takeaway": "Electrical faults are easier to localize when voltage, current, and heat are treated as parts of one energy picture.",
       "place": "Spacecraft Load Panel",
+      "guide": "Four options, and three readings have to be explained together. Generation is normal. Total load current is near plan. Something is hot. Ask of each option how many of those it covers. A failed array or a hidden load would move the current. A bad meter would not make anything warm. Equipment is about to be pulled off the bus on this answer.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The power bus is sagging at 24 volts instead of 28 while the total load current sits near its planned value. Engineers want to start pulling equipment off the bus.",
       "game": {
         "type": "CHOICE",
@@ -1720,14 +2548,25 @@ export const CURRICULUM = {
           ],
           "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on."
         }
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Circuits: current, voltage, resistance, Ohm's law",
+        "of": 30
+      }
     },
     {
-      "day": 7,
+      "day": 8,
       "title": "Shed load without losing the mission",
       "scene": "41 amp-hours remain for a 62-hour return. Current draw is 4.2 amps. Guidance, communications, thermal control, and life support all want power, and at least one load must be reduced within minutes.",
       "takeaway": "A finite energy budget is a set of tradeoffs between load rate, runtime, and the mission conditions each load protects.",
       "place": "Mission Planning Desk",
+      "guide": "Forty-one amp-hours, sixty-two hours to fly, and a current draw of 4.2 amps that does not fit. Watch the questions list rather than the loads: it shows what the spacecraft can still do under the current plan. Every hour you buy for one load is an hour you have taken from another, and at least one has to come down within minutes.",
+      "background": [
+        "What an amp-hour buys. One amp for one hour. At 4.2 amps the whole reserve lasts under ten hours, against sixty-two to fly, so this is not a trimming exercise: the load has to fall by a factor of several and stay down.",
+        "Why the loads are not equal. Guidance and communications can be intermittent — used for a pass and switched off. Thermal control has a time constant of hours, so it can be cycled. Life support cannot be interrupted at all. That difference is what makes a plan possible.",
+        "Why minutes matter for the first cut. Every hour spent deciding is drawn at the current rate, so a slow decision has already spent part of what it was allocating. The first reduction buys the time to make the rest of the plan properly."
+      ],
       "story": "41 amp-hours remain for a 62-hour return. Current draw is 4.2 amps. Guidance, communications, thermal control, and life support all want power, and at least one load must be reduced within minutes.",
       "game": {
         "type": "ALLOCATE",
@@ -1795,7 +2634,8 @@ export const CURRICULUM = {
       },
       "assumes": [
         "amp-hours equal current multiplied by time",
-        "some loads can be duty-cycled while others must run continuously"
+        "some loads can be duty-cycled while others must run continuously",
+        "newton's laws and free-body reasoning — taken as read"
       ],
       "equations": [
         {
@@ -1821,14 +2661,34 @@ export const CURRICULUM = {
           ],
           "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 3,
+          "c": "Newton's laws and free-body reasoning"
+        }
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Work, energy and conservation of energy",
+        "of": 30,
+        "rests": [
+          "Newton's laws and free-body reasoning"
+        ]
+      }
     },
     {
-      "day": 8,
+      "day": 9,
       "title": "Qualify the emergency battery plan",
       "scene": "The emergency module reads 31 volts against a nominal 37. Its state of charge is uncertain, and the available connector is rated for 8 amps. The crew needs more endurance, but the hardware is inside the sealed cabin.",
       "takeaway": "A successful electrical action is not a verified outcome until the current and heating it produces are measured.",
       "place": "Crew Procedure Simulator",
+      "guide": "Lock what current you expect before anything is connected. Then make the connection and decide whether to spend what it costs to measure the electrical effect. The connector is rated for 8 amps and the module reads 31 volts against a nominal 37, so the prediction is about whether this is safe as well as whether it helps.",
+      "background": [
+        "Why the voltage matters more than it looks. A module at 31 volts against 37 nominal is either partly discharged or damaged, and those imply very different currents when it is connected to a healthy bus. The current is set by the difference between the two, divided by the resistance of everything between them.",
+        "What the connector rating means. Eight amps is what the hardware can carry continuously. Exceeding it inside a sealed cabin is not a component failure — it is heat, and possibly smoke, in the volume the crew is breathing.",
+        "Why measure rather than assume. The prediction can be right and the hardware still behave differently: a damaged cell, a high-resistance joint, a connector not fully seated. Spending the measurement is what converts a plan into a qualification, and not spending it leaves the crew relying on arithmetic."
+      ],
       "story": "The emergency module reads 31 volts against a nominal 37. Its state of charge is uncertain, and the available connector is rated for 8 amps. The crew needs more endurance, but the hardware is inside the sealed cabin.",
       "game": {
         "type": "VERIFY",
@@ -1898,14 +2758,28 @@ export const CURRICULUM = {
           ],
           "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on."
         }
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Electrical power and energy budgets",
+        "of": 30,
+        "rests": [
+          "Circuits: current, voltage, resistance, Ohm's law"
+        ]
+      }
     },
     {
-      "day": 9,
+      "day": 10,
       "title": "Keep the cabin survivable",
       "scene": "The cabin is at four degrees and falling, condensation is forming on the walls, and the crew is sleeping in their suits. Heating everything is not affordable on the energy that is left.",
       "takeaway": "Thermal survival is an allocation problem across space, time, and consequence.",
       "place": "Materials and Insulation Shop",
+      "guide": "All four options are ways to spend a fixed energy budget. Ask of each whether it slows the loss or replaces energy already gone. Insulation does the first and cannot do the second. Then ask where cold costs most. Cold batteries deliver less usable energy, so a thermal problem becomes a power problem. The crew is asleep in their suits at four degrees.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The cabin is at four degrees and falling, condensation is forming on the walls, and the crew is sleeping in their suits. Heating everything is not affordable on the energy that is left.",
       "game": {
         "type": "CHOICE",
@@ -1930,15 +2804,36 @@ export const CURRICULUM = {
         "correctChoice": "Insulate the crew zone and the critical batteries."
       },
       "assumes": [
-        "slowing a loss and replacing it are different things"
-      ]
+        "slowing a loss and replacing it are different things",
+        "newton's laws and free-body reasoning — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 3,
+          "c": "Newton's laws and free-body reasoning"
+        }
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Work, energy and conservation of energy",
+        "of": 30,
+        "rests": [
+          "Newton's laws and free-body reasoning"
+        ]
+      }
     },
     {
-      "day": 10,
+      "day": 11,
       "title": "Diagnose the air system",
       "scene": "Cabin carbon dioxide keeps rising. The scrubber fan sounds normal and draws its usual current, but airflow is low. Pressure readings are available on both sides of the filter and scrubber bed.",
       "takeaway": "A transport chain is limited by the required link that most restricts the quantity moving through it.",
       "place": "Life-Support Laboratory",
+      "guide": "Build the path the air takes, in order, and then name the link where it becomes limiting. The fan sounds normal and draws its usual current, which tells you the fan is working. Pressure on both sides of the filter and the bed is what locates the restriction, so read those rather than trusting the sound.",
+      "background": [
+        "Why a working fan and low flow means a restriction. A fan draws current according to how much air it is actually moving. A fan meeting a blockage moves less air, works less hard, and sounds entirely normal — which is why the current reading is evidence that the fan is fine and not that the system is.",
+        "What a pressure difference across a component tells you. Flow through a restriction costs pressure. A large drop across the filter with a small one across the bed says the filter is the restriction, and the reverse says the bed is. That is the measurement that separates two very different repairs.",
+        "Why carbon dioxide is the clock. It rises whenever removal is slower than production, and the crew's symptoms begin well before the level is dangerous. The chain has to be diagnosed while everyone can still think clearly, which is the real deadline."
+      ],
       "story": "Cabin carbon dioxide keeps rising. The scrubber fan sounds normal and draws its usual current, but airflow is low. Pressure readings are available on both sides of the filter and scrubber bed.",
       "game": {
         "type": "CHAIN",
@@ -1954,27 +2849,32 @@ export const CURRICULUM = {
             {
               "id": "intake",
               "label": "Cabin intake",
-              "transfers": "cabin air into the loop"
+              "transfers": "cabin air into the loop",
+              "reading": "intake open"
             },
             {
               "id": "fan",
               "label": "Scrubber fan",
-              "transfers": "pressure rise to the moving air"
+              "transfers": "pressure rise to the moving air",
+              "reading": "normal current and sound"
             },
             {
               "id": "filter",
               "label": "Filter section",
-              "transfers": "air through the particulate barrier"
+              "transfers": "air through the particulate barrier",
+              "reading": "large pressure drop across this section"
             },
             {
               "id": "sorbent",
               "label": "CO2 sorbent bed",
-              "transfers": "carbon dioxide from air into sorbent"
+              "transfers": "carbon dioxide from air into sorbent",
+              "reading": "bed installed"
             },
             {
               "id": "return",
               "label": "Return duct",
-              "transfers": "treated air back to the cabin"
+              "transfers": "treated air back to the cabin",
+              "reading": "duct open"
             }
           ],
           "order": [
@@ -2018,14 +2918,28 @@ export const CURRICULUM = {
           ],
           "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on."
         }
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Gas behaviour and life support",
+        "of": 30,
+        "rests": [
+          "Heat transfer: conduction, convection, radiation"
+        ]
+      }
     },
     {
-      "day": 11,
+      "day": 12,
       "title": "Restore breathable air",
       "scene": "Carbon dioxide is at 13 millimetres of mercury and still rising. The limit is 15. Spare canisters are square, the socket is round, and only tape, a suit hose, cloth, and a flight-plan cover are available.",
       "takeaway": "A life-support fix must manage both chemical uptake and fluid flow.",
       "place": "Crew Hardware Workshop",
+      "guide": "All four options describe something the fix could be judged on. Ask of each whether it changes how much air actually crosses the sorbent. Carbon dioxide is only removed from air that goes through, not past. A big canister with a gap around it does worse than a small one sealed tight. The fan makes the same noise either way.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Carbon dioxide is at 13 millimetres of mercury and still rising. The limit is 15. Spare canisters are square, the socket is round, and only tape, a suit hose, cloth, and a flight-plan cover are available.",
       "game": {
         "type": "CHOICE",
@@ -2051,14 +2965,28 @@ export const CURRICULUM = {
       },
       "assumes": [
         "air, like water, takes the easiest path it is offered"
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Gas behaviour and life support",
+        "of": 30,
+        "rests": [
+          "Heat transfer: conduction, convection, radiation"
+        ]
+      }
     },
     {
-      "day": 12,
+      "day": 13,
       "title": "Reading the trace instead of the number",
       "scene": "The plot board has 90 minutes of range against time on it, and the room keeps quoting the latest value out loud. The shape of the line has more in it than the last point does.",
       "takeaway": "A graph carries rate and change of rate, neither of which is visible in the latest reading.",
       "place": "Flight Director console",
+      "guide": "Four features of one plotted line, and four things they could mean. Pair them by asking what changes and what does not. A slope is a rate. A change of slope means something acted. Scatter around a smooth line is the instrument. A step with the same slope after it is bookkeeping, and that is the one the room will explain with an invented manoeuvre.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "The plot board has 90 minutes of range against time on it, and the room keeps quoting the latest value out loud. The shape of the line has more in it than the last point does.",
       "game": {
         "type": "PROTOCOL",
@@ -2098,15 +3026,37 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "the slope of a distance-time graph is a speed"
-      ]
+        "the slope of a distance-time graph is a speed",
+        "kinematics — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 2,
+          "c": "Kinematics"
+        }
+      ],
+      "concept": {
+        "n": 30,
+        "c": "Graphical analysis of motion data",
+        "of": 30,
+        "rests": [
+          "Kinematics",
+          "Measurement uncertainty and error propagation"
+        ]
+      }
     },
     {
-      "day": 13,
+      "day": 14,
       "title": "Where orbital energy goes",
       "scene": "The capsule reaches the atmosphere carrying enormous kinetic energy. It must arrive at the ocean with almost none of that energy left. The entry team traces where the energy goes as drag begins to act.",
       "takeaway": "Reentry is an energy-dissipation problem constrained by human and material limits.",
       "place": "Entry Dynamics Room",
+      "guide": "These four are one chain, and reentry is an energy problem before it is a temperature problem. Ask of each card what has to be true first. There is no atmospheric braking before there is atmosphere. Energy cannot become heat until it has left the vehicle's motion. The last card is where the shield and the trajectory decide the rates rather than the total.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "The capsule reaches the atmosphere carrying enormous kinetic energy. It must arrive at the ocean with almost none of that energy left. The entry team traces where the energy goes as drag begins to act.",
       "game": {
         "type": "SEQUENCE",
@@ -2137,7 +3087,8 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "energy is not destroyed, it is moved somewhere else"
+        "energy is not destroyed, it is moved somewhere else",
+        "newton's laws and free-body reasoning — taken as read"
       ],
       "equations": [
         {
@@ -2171,14 +3122,35 @@ export const CURRICULUM = {
           ],
           "s": "Work done on something becomes its energy, and the total energy is bookkeeping that has to balance."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 3,
+          "c": "Newton's laws and free-body reasoning"
+        }
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Gravitation and orbits",
+        "of": 30,
+        "rests": [
+          "Circular motion and centripetal force",
+          "Newton's laws and free-body reasoning"
+        ]
+      }
     },
     {
-      "day": 14,
+      "day": 15,
       "title": "Protect the entry corridor",
       "scene": "The safe entry corridor runs from 5.3 to 7.7 degrees. The current solution is centered at 6.2 degrees with a one-sigma width of 0.5 degrees. Two actions remain before commitment.",
       "takeaway": "Moving an estimate changes its center; new information changes its width, and safety can depend on both.",
       "place": "Crew G-Load Console",
+      "guide": "The band is every entry angle the tracking permits: centred at 6.2 degrees with half a degree of one-sigma width, against a corridor from 5.3 to 7.7. Two actions remain, and they do different things — one moves where the band sits, the other changes how wide it is. Apply what you would commit to, watch both numbers, then say when the solution is safe to fly.",
+      "background": [
+        "Why the width is the thing. A trajectory outside the corridor is a vehicle that either skips back out or comes in too steep, and the band is the set of trajectories the tracking cannot rule out. Being centred perfectly with a wide band still leaves some of those outside — and a crew flies one draw from that band, not its middle.",
+        "Two different actions. A targeting correction moves the nominal, which slides the whole band along the corridor. A tracking pass adds information, which is the only thing that makes it narrower. Confusing them is the classic error in this room: the number on the display gets better and the risk does not.",
+        "Why 'when is it ready' is part of the question. Every action costs time on a clock the vehicle sets, and the crew cannot wait for an arbitrarily tight solution. So the decision is not merely what to do but when the band is inside the corridor by enough that the next hour is better spent elsewhere."
+      ],
       "story": "The safe entry corridor runs from 5.3 to 7.7 degrees. The current solution is centered at 6.2 degrees with a one-sigma width of 0.5 degrees. Two actions remain before commitment.",
       "game": {
         "type": "CLOUD",
@@ -2186,7 +3158,7 @@ export const CURRICULUM = {
         "setup": "Crew G-Load Console",
         "play": "Use the available tracking and targeting actions to place enough of the entry-angle distribution inside the safe corridor.",
         "task": "Use the available tracking and targeting actions to place enough of the entry-angle distribution inside the safe corridor.",
-        "question": "Can you make the entry solution robust without confusing a better center with a narrower uncertainty?",
+        "question": "Can you make the entry solution robust without confusing a better center with a narrower uncertainty? Place the bars to report the mean and its one-sigma uncertainty.",
         "answer": "Use both actions: center the solution near 6.5 degrees and narrow the one-sigma width to about 0.35 degrees. Either action alone misses the 99.5% pass mark; together they clear it.",
         "why": "The nominal entry angle is only the center of a distribution. Moving that center does not make the state better known; the whole uncertainty cloud moves with it. Extra independent tracking does something different by narrowing the cloud. Here neither action alone reaches the required probability inside the safe corridor. Centering removes the bias, while added tracking reduces the spread. Together they move nearly all plausible entry states away from both boundaries. That is what turns a good nominal trajectory into a robust one.",
         "cloud": {
@@ -2247,14 +3219,25 @@ export const CURRICULUM = {
           ],
           "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on."
         }
-      ]
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Measurement uncertainty and error propagation",
+        "of": 30
+      }
     },
     {
-      "day": 15,
+      "day": 16,
       "title": "What is driving the vibration?",
       "scene": "A structural vibration becomes severe only near 3,200 rpm of reaction-wheel speed. The amplitude falls away above and below that band. Two accelerometers on different parts of the structure record the same narrow response.",
       "takeaway": "How hard something shakes matters less than what is shaking it and how fast.",
       "place": "Structural Dynamics Lab",
+      "guide": "Four options, and three facts have to be covered. The response peaks in a narrow band of wheel speed. It falls away either side. Two accelerometers on different parts of the structure see the same thing. Ask of each option how many of the three it explains. A loose sensor would not be confirmed by a second one, and an impact happens once.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "A structural vibration becomes severe only near 3,200 rpm of reaction-wheel speed. The amplitude falls away above and below that band. Two accelerometers on different parts of the structure record the same narrow response.",
       "game": {
         "type": "CHOICE",
@@ -2332,14 +3315,29 @@ export const CURRICULUM = {
           ],
           "s": "For a given medium the speed is fixed, so raising the frequency shortens the wavelength in proportion."
         }
-      ]
+      ],
+      "concept": {
+        "n": 26,
+        "c": "Static equilibrium and structural loads",
+        "of": 30,
+        "rests": [
+          "Torque and moment of inertia",
+          "Centre of mass and balance"
+        ]
+      }
     },
     {
-      "day": 16,
+      "day": 17,
       "title": "Stop the resonance",
       "scene": "A structural panel oscillates whenever the pump runs near one speed. The amplitude has grown for three cycles. The pump is needed, but its operating speed can still be changed from the control panel.",
       "takeaway": "A structural fix should change the dynamics and then demonstrate that the dangerous mode is controlled.",
       "place": "Operations Planning Room",
+      "guide": "Resonance needs two things: a structure, and a forcing frequency. All four options act on one of them, or on neither. Ask of each which, and how fast it can be done from where the crew is sitting. The amplitude has already grown for three cycles. So one option's assumption, that the structure survives the passage, is no longer safe.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "A structural panel oscillates whenever the pump runs near one speed. The amplitude has grown for three cycles. The pump is needed, but its operating speed can still be changed from the control panel.",
       "game": {
         "type": "CHOICE",
@@ -2364,7 +3362,8 @@ export const CURRICULUM = {
         "correctChoice": "Shift the pump's operating speed away from the measured resonance."
       },
       "assumes": [
-        "a resonance needs both a structure and something driving it"
+        "a resonance needs both a structure and something driving it",
+        "newton's laws and free-body reasoning — taken as read"
       ],
       "equations": [
         {
@@ -2405,14 +3404,35 @@ export const CURRICULUM = {
           ],
           "s": "For a given medium the speed is fixed, so raising the frequency shortens the wavelength in proportion."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 3,
+          "c": "Newton's laws and free-body reasoning"
+        }
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Simple harmonic motion and resonance",
+        "of": 30,
+        "rests": [
+          "Newton's laws and free-body reasoning",
+          "Springs and Hooke's law"
+        ]
+      }
     },
     {
-      "day": 17,
+      "day": 18,
       "title": "Name the binding constraint",
       "scene": "Four return paths are on the mission board. Each one stresses a different subsystem, and the fastest route is not best on every constraint. The flight director asks the room to name what each option spends.",
       "takeaway": "The best physical solution is not necessarily the shortest or lowest-fuel solution.",
       "place": "Mission Design Center",
+      "guide": "Four return paths, and four subsystems that pay for them. Pair them by asking what each path spends: consumables, propellant, heating, or the crew's own ability to navigate. No path is cheapest on every count. So the useful question is not which is fastest but which constraint each one pushes closest to its limit.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Four return paths are on the mission board. Each one stresses a different subsystem, and the fastest route is not best on every constraint. The flight director asks the room to name what each option spends.",
       "game": {
         "type": "PROTOCOL",
@@ -2454,14 +3474,29 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a spacecraft carries a fixed amount of everything it needs"
-      ]
+      ],
+      "concept": {
+        "n": 26,
+        "c": "Static equilibrium and structural loads",
+        "of": 30,
+        "rests": [
+          "Torque and moment of inertia",
+          "Centre of mass and balance"
+        ]
+      }
     },
     {
-      "day": 18,
+      "day": 19,
       "title": "Select the robust trajectory",
       "scene": "Four return paths are on the board: 58, 63, 66, and 71 hours. Their propellant and entry margins differ. The usable consumable endurance is uncertain by about a day, and water is the tightest supply.",
       "takeaway": "A robust choice survives the plausible error in the assumption that matters most, even when another option looks better nominally.",
       "place": "Life-Support Desk",
+      "guide": "Four return paths, and the consumable estimate is uncertain by about a day. Move that estimate to its pessimistic end before choosing, and watch which trajectories go dark. A path that works at the nominal estimate and fails a day short is not a plan. Water is the tightest supply, so it is the one to test against.",
+      "background": [
+        "Why the pessimistic end rather than the expected one. The endurance figure is an estimate with a spread, not a measurement. Choosing at the middle of it means accepting a real chance of running out, and running out of water on a return trajectory is not recoverable by any later decision.",
+        "What the trade actually is. A faster path uses more propellant and leaves less entry margin; a slower one asks more of the consumables. Neither end is safe, which is why the choice is made by testing both against their uncertain quantity rather than by minimising one number.",
+        "Why water rather than oxygen or power. It is the supply with the least margin, so it fails first, and every hour added to the trajectory costs it directly. The binding constraint is the one worth stressing; testing against a comfortable supply proves nothing."
+      ],
       "story": "Four return paths are on the board: 58, 63, 66, and 71 hours. Their propellant and entry margins differ. The usable consumable endurance is uncertain by about a day, and water is the tightest supply.",
       "game": {
         "type": "STRESS",
@@ -2553,14 +3588,28 @@ export const CURRICULUM = {
       "assumes": [
         "a constraint can eliminate an otherwise attractive option",
         "uncertainty should be tested in the direction that makes the plan hardest"
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Kinematics",
+        "of": 30,
+        "rests": [
+          "Vectors and components"
+        ]
+      }
     },
     {
-      "day": 19,
+      "day": 20,
       "title": "Burn or observe?",
       "scene": "Two timing-based tracking solutions disagree, and both depend on the same station clock model. A correction burn is ready. There is time for only a small amount of additional evidence before the decision closes.",
       "takeaway": "The most valuable measurement is the one whose failure mode is independent enough to change the decision.",
       "place": "Flight Director Console",
+      "guide": "Two tracking solutions disagree, and both are computed through the same station clock model. Open each piece of evidence and ask what its result would change about the burn decision. Buy the evidence that could distinguish a real trajectory error from a clock error, not the evidence that would refine a number both solutions already share.",
+      "background": [
+        "Why two disagreeing solutions can share a fault. Both are derived from timing measurements referred to the same clock model. A modelling error moves both, and it can move them by different amounts because they use different station geometries — which looks exactly like a genuine disagreement about where the spacecraft is.",
+        "What would separate the two explanations. A measurement that does not depend on that clock model: an optical sighting, a different tracking technique, a station whose timing comes from elsewhere. Any of those either confirms the trajectory or exonerates it.",
+        "Why the burn makes it urgent. Correcting a trajectory that is not wrong introduces the error you were trying to remove, and spends propellant doing it. The decision closes shortly, which is what makes the choice of evidence a decision rather than a preference."
+      ],
       "story": "Two timing-based tracking solutions disagree, and both depend on the same station clock model. A correction burn is ready. There is time for only a small amount of additional evidence before the decision closes.",
       "game": {
         "type": "VALUE",
@@ -2614,7 +3663,8 @@ export const CURRICULUM = {
       },
       "assumes": [
         "two measurements that share a clock do not provide independent timing evidence",
-        "an observation can be valuable even if it is less precise"
+        "an observation can be valuable even if it is less precise",
+        "newton's laws and free-body reasoning — taken as read"
       ],
       "equations": [
         {
@@ -2648,14 +3698,35 @@ export const CURRICULUM = {
           ],
           "s": "Under constant acceleration, speed grows in step with time and distance grows with the square of it."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 3,
+          "c": "Newton's laws and free-body reasoning"
+        }
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Gravitation and orbits",
+        "of": 30,
+        "rests": [
+          "Circular motion and centripetal force",
+          "Newton's laws and free-body reasoning"
+        ]
+      }
     },
     {
-      "day": 20,
+      "day": 21,
       "title": "Disposition final readiness",
       "scene": "11 minutes remain before atmospheric entry. Four signed readiness claims sit on the flight director's console. Some have independent evidence behind them and one does not. Only two physical verification checks can still be completed.",
       "takeaway": "A signed readiness claim is a record of what someone believes; critical physical states still need evidence proportional to their consequence.",
       "place": "Integrated Flight Room",
+      "guide": "Four signed readiness claims, eleven minutes, and two physical checks that can still be completed. Open each claim and read what backs it. Some rest on independent evidence and one does not. Hold what the evidence does not support, and spend the checks where being wrong would matter most once the vehicle is in blackout.",
+      "background": [
+        "Why blackout changes the arithmetic. During entry there is no telemetry and no way to intervene. Every claim on that console is a decision that cannot be revisited for several minutes, which is why an unverified claim is worse here than anywhere else in the mission.",
+        "What a signature means at this point. Somebody has taken responsibility for a statement. Under time pressure, signatures are given on the basis of what somebody was told, which is how a claim with nothing behind it acquires the same appearance as one with a test behind it.",
+        "How to choose between two unbacked claims. By consequence during entry, not by how doubtful each is. A claim whose failure is survivable is worth less verification than one that is not, however much more likely the first is to be wrong."
+      ],
       "story": "11 minutes remain before atmospheric entry. Four signed readiness claims sit on the flight director's console. Some have independent evidence behind them and one does not. Only two physical verification checks can still be completed.",
       "game": {
         "type": "ATTEST",
@@ -2706,14 +3777,25 @@ export const CURRICULUM = {
       "assumes": [
         "a signature records responsibility, not physical truth",
         "verification time should be spent according to consequence and existing evidence"
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Systems thinking: dependency, redundancy, failure modes",
+        "of": 30
+      }
     },
     {
-      "day": 21,
+      "day": 22,
       "title": "Execute the final physical chain",
       "scene": "Everything now depends on the next 11 minutes, including 4 minutes without communications. The final entry sequence is on the console. Anything needing ground input must happen before the radio goes quiet.",
       "takeaway": "Entry is ordered by the blackout: whatever needs the ground has to be settled before it starts.",
       "place": "Crew Capsule",
+      "guide": "Four minutes with no radio is what orders these four. Ask of each whether it needs ground input, and whether it can be done after the interface. Anything the ground has to approve happens before the blackout. Anything compared against a prediction can only happen once entry has begun. And the record is the only direct test the predicted envelope will ever get.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Everything now depends on the next 11 minutes, including 4 minutes without communications. The final entry sequence is on the console. Anything needing ground input must happen before the radio goes quiet.",
       "game": {
         "type": "SEQUENCE",
@@ -2745,7 +3827,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "you cannot fix from the ground what happens while the radio is quiet"
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Systems thinking: dependency, redundancy, failure modes",
+        "of": 30
+      }
     }
   ]
 };
@@ -2903,7 +3990,7 @@ export const BALLPARK_CALCS = {
     "solution": "1 kW for 10,800 s is 10.8 MJ; divided by 12 MJ/K, about 0.9 K.",
     "explanation": "A watt is a joule per second, so the time has to be in seconds or the answer is out by 3,600. That is the arithmetic slip this problem exists to catch."
   },
-  "THERM-4": {
+  "THERM-5": {
     "prompt": "3 crew members each exhale roughly 20 litres of carbon dioxide an hour, and the improvised scrubber has to keep up for the next 6 hours.",
     "question": "Estimate the carbon dioxide produced in six hours.",
     "labels": [
@@ -2993,7 +4080,7 @@ export const BALLPARK_CALCS = {
     "solution": "0.5 × 0.004 × 90² = 0.002 × 8,100 ≈ 16 m.",
     "explanation": "The time is squared. Use it once and the answer is 0.36 m, which would look like nothing worth correcting."
   },
-  "THERM-5": {
+  "THERM-6": {
     "prompt": "A 5,000 kg capsule returns from the Moon at about 11,000 metres per second.",
     "question": "Estimate the kinetic energy to be dissipated.",
     "labels": [

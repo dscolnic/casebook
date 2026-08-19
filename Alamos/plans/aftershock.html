@@ -1,0 +1,370 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Aftershock — Conversion Plan</title>
+<style>
+  @page { size: A4; margin: 15mm 14mm 16mm; }
+  :root {
+    --ink:#15171a; --ink2:#4c5158; --muted:#868b92; --rule:#dcded9; --sunk:#f2f3ef;
+    --acc:#713527; --acc-soft:#b6553f;
+    --s:#2c7a4b; --m:#9a6f14; --d:#767b70; --r:#a4453a;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; color:var(--ink); background:#fff;
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif; font-size:9.6pt; line-height:1.5; }
+  .mono,.k,code { font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; }
+  code,.k { font-size:.9em; background:var(--sunk); padding:0 3px; border-radius:2px; }
+  em { font-style:normal; font-weight:640; }
+  strong { font-weight:680; }
+
+  header { border-bottom:2.5pt solid var(--acc); padding-bottom:7pt; margin-bottom:12pt; }
+  .eyebrow { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--acc); }
+  h1 { margin:2pt 0 3pt; font-size:24pt; line-height:1.02; letter-spacing:-.02em; font-weight:660; }
+  .sub { color:var(--ink2); font-size:9.6pt; max-width:150mm; }
+  .place { color:var(--muted); font-size:8.4pt; font-style:italic; margin-top:2pt; }
+
+  .facts { display:flex; gap:0; border:.6pt solid var(--rule); margin-top:8pt; }
+  .fact { flex:1; padding:4pt 7pt 5pt; border-right:.6pt solid var(--rule); }
+  .fact:last-child { border-right:none; }
+  .fact b { display:block; font-family:ui-monospace,Menlo,monospace; font-size:14pt; font-weight:640; letter-spacing:-.02em; }
+  .fact span { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); }
+
+  h2 { font-size:12pt; margin:15pt 0 4pt; font-weight:660; letter-spacing:-.01em;
+    border-bottom:.6pt solid var(--ink); padding-bottom:3pt; break-after:avoid; }
+  h2 .ph { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--acc); margin-right:6pt; }
+  p { margin:6pt 0; max-width:170mm; }
+
+  table { border-collapse:collapse; width:100%; font-size:8.4pt; margin:6pt 0; }
+  th,td { text-align:left; padding:3pt 6pt 3pt 0; border-bottom:.5pt solid var(--rule); vertical-align:top; }
+  thead th { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--muted); font-weight:500; border-bottom:.7pt solid var(--ink); }
+  td.n,th.n { text-align:right; padding-right:8pt; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .flag { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.06em;
+    border:.5pt solid currentColor; padding:0 3pt; border-radius:2pt; white-space:nowrap; }
+  .flag.sus { color:var(--m); } .flag.real { color:var(--r); }
+
+  .mixbar { display:flex; height:9pt; border:.6pt solid var(--rule); margin:5pt 0 3pt; }
+  .mixbar i { display:block; }
+  .mixkey { font-family:ui-monospace,Menlo,monospace; font-size:6.6pt; color:var(--ink2);
+    display:flex; flex-wrap:wrap; gap:2pt 9pt; }
+
+  .callout { border-left:2pt solid var(--acc); background:var(--sunk); padding:6pt 9pt; margin:8pt 0;
+    break-inside:avoid; }
+  .callout p { margin:3pt 0; }
+  .callout .tag { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--acc); display:block; margin-bottom:3pt; }
+  .callout.warn { border-left-color:var(--r); }
+  .callout.warn .tag { color:var(--r); }
+
+  .card { border-left:2pt solid var(--d); padding:5pt 0 6pt 8pt; margin:7pt 0; break-inside:avoid; }
+  .card.v-s { border-left-color:var(--s); } .card.v-m { border-left-color:var(--m); }
+  .card.v-d { border-left-color:var(--d); } .card.v-r { border-left-color:var(--r); }
+  .card .top { display:flex; align-items:baseline; gap:7pt; }
+  .card h4 { margin:0; font-family:ui-monospace,Menlo,monospace; font-size:9.6pt; font-weight:660; letter-spacing:.03em; }
+  .vd { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.12em;
+    text-transform:uppercase; border:.5pt solid currentColor; padding:0 3pt; border-radius:2pt; }
+  .v-s .vd { color:var(--s); } .v-m .vd { color:var(--m); }
+  .v-d .vd { color:var(--d); } .v-r .vd { color:var(--r); }
+  .card .at { margin-left:auto; color:var(--muted); font-size:7.4pt; }
+  .card p { margin:3pt 0 0; font-size:9pt; }
+  .card dl { margin:3pt 0 0; font-size:8pt; color:var(--ink2); }
+  .card dt { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); display:inline; }
+  .card dd { display:inline; margin:0; }
+  .card dd::after { content:""; display:block; }
+
+  .slate { border:.6pt solid var(--rule); padding:6pt 8pt 7pt; margin:7pt 0; break-inside:avoid; }
+  .slate .sh { display:flex; align-items:baseline; gap:8pt; border-bottom:.6pt solid var(--rule); padding-bottom:3pt; }
+  .slate h4 { margin:0; font-size:10.5pt; font-weight:660; }
+  .slate .n2 { font-family:ui-monospace,Menlo,monospace; font-size:6.6pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); }
+  table.mini { font-size:8pt; margin:4pt 0 5pt; }
+  table.mini td { border-bottom:.4pt solid var(--sunk); padding:2pt 6pt 2pt 0; }
+  table.mini .dy,.gp { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; color:var(--muted); white-space:nowrap; }
+  table.mini .fm { font-family:ui-monospace,Menlo,monospace; font-size:7.2pt; white-space:nowrap; }
+  table.mini .was { color:var(--muted); } .ar { color:var(--muted); }
+  table.mini .ti { color:var(--ink2); }
+  table.mini .nt { display:block; color:var(--muted); font-size:7.2pt; }
+  .out { border-top:.6pt solid var(--rule); padding-top:4pt; font-size:7.8pt; color:var(--ink2); }
+  .out b { color:var(--ink); font-variant-numeric:tabular-nums; }
+
+  footer { margin-top:14pt; padding-top:5pt; border-top:.6pt solid var(--rule);
+    color:var(--muted); font-size:7pt; }
+  .avoid { break-inside:avoid; }
+</style></head><body>
+
+<header>
+  <div class="eyebrow">Alamos · conversion plan · Engineering · grade 9–12</div>
+  <h1>Aftershock</h1>
+  <div class="sub">Earth science · statics &amp; materials</div>
+  <div class="place">Kestrel Bay three days after, where the fault broke the surface and you can walk the scarp.</div>
+  <div class="facts">
+    <div class="fact"><b>45</b><span>stops</span></div>
+    <div class="fact"><b>22</b><span>choice (49%)</span></div>
+    <div class="fact"><b>3.8</b><span>effective formats</span></div>
+    <div class="fact"><b>2/10</b><span>equations computed</span></div>
+    <div class="fact"><b>6</b><span>select-only concepts</span></div>
+    <div class="fact"><b>28·17·0</b><span>select·construct·operate</span></div>
+  </div>
+</header>
+
+<h2><span class="ph">Reading</span>Where this campaign stands</h2>
+<p><strong>The worst curriculum delivery in the set: 2 of 10 equations computed.</strong>
+      Four of the eight gaps sit on instruments and may be Phase 0 phantoms, but four do not, and
+      two equations — a building’s natural period and base shear — are mentioned <em>nowhere</em>,
+      with base shear also listed as an absent concept. Twenty-two CHOICE stops, seven select-only
+      concepts, and <em>zero OPERATE stops</em> — the only game in the set with none. The place, by
+      contrast, is one of the strongest: granite bench above, liquefied fill below, and a 1.8 m
+      fault scarp you walk between them.</p>
+
+
+<div class="avoid">
+<h2><span class="ph">Now</span>The mix as it ships</h2>
+<div class="mixbar"><i style="flex:22;background:#c9ccc4"></i><i style="flex:4;background:#e2e4de"></i><i style="flex:3;background:#e2e4de"></i><i style="flex:3;background:#e2e4de"></i><i style="flex:2;background:#e2e4de"></i><i style="flex:2;background:#e2e4de"></i><i style="flex:2;background:#b6553f"></i><i style="flex:2;background:#b6553f"></i><i style="flex:1;background:#b6553f"></i><i style="flex:1;background:#b6553f"></i><i style="flex:1;background:#e2e4de"></i><i style="flex:1;background:#b6553f"></i><i style="flex:1;background:#b6553f"></i></div>
+<div class="mixkey"><span>CHOICE 22</span><span>BALLPARK 4</span><span>SEQUENCE 3</span><span>CASEBOOK 3</span><span>PROTOCOL 2</span><span>TRIAGE 2</span><span>VALUE 2</span><span>ATTEST 2</span><span>ALLOCATE 1</span><span>CHAIN 1</span><span>SCIENCETANK 1</span><span>TRACE 1</span><span>DELEGATE 1</span></div>
+</div>
+
+<h2><span class="ph">Curriculum</span>What the syllabus is not getting</h2>
+<table><thead><tr><th>Equation the course owes</th><th>What it carries</th><th>Mentioned at</th><th class="n">Status</th></tr></thead><tbody>
+<tr>
+  <td class="k">M₀ = μ · A · D</td><td>seismic moment, and what makes a big earthquake big</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">5·CHOICE  34·TRACE</td>
+  <td class="n"><span class="flag sus">verify first</span></td>
+</tr><tr>
+  <td class="k">M_w = ⅔ log₁₀ M₀ − 6.06</td><td>moment magnitude, and why the scale is logarithmic</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">5·CHOICE  34·TRACE</td>
+  <td class="n"><span class="flag sus">verify first</span></td>
+</tr><tr>
+  <td class="k">T ≈ 0.1 N</td><td>a building's natural period from its storeys</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">— no stop at all</td>
+  <td class="n"><span class="flag real">real gap</span></td>
+</tr><tr>
+  <td class="k">V = C_s · W</td><td>base shear — the sideways force it is designed for</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">— no stop at all</td>
+  <td class="n"><span class="flag real">real gap</span></td>
+</tr><tr>
+  <td class="k">σ = F / A, ε = ΔL / L</td><td>stress and strain, and the yield point between them</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">2·PROTOCOL  10·CHOICE  17·CHOICE  22·CHOICE  23·CHOICE</td>
+  <td class="n"><span class="flag real">real gap</span></td>
+</tr><tr>
+  <td class="k">σ' = σ − u</td><td>effective stress, and how liquefaction happens</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">2·PROTOCOL  10·CHOICE  11·CHOICE  26·CHOICE  38·CHOICE</td>
+  <td class="n"><span class="flag real">real gap</span></td>
+</tr><tr>
+  <td class="k">n(t) = K / (c + t)^p</td><td>aftershock rate, falling as a power law</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">1·CHOICE  6·SEQUENCE  8·CHOICE  10·CHOICE  17·CHOICE</td>
+  <td class="n"><span class="flag sus">verify first</span></td>
+</tr><tr>
+  <td class="k">A_soft / A_rock</td><td>site amplification — the same wave on two grounds</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">1·CHOICE  2·PROTOCOL  7·CASEBOOK  11·CHOICE  31·CHOICE</td>
+  <td class="n"><span class="flag real">real gap</span></td>
+</tr></tbody></table>
+<p style="font-size:8.4pt;color:var(--ink2)">3 of 8 sit on an instrument stop, whose
+board arithmetic the coverage check cannot yet read — expect Phase 0 to clear those. <strong>5</strong>
+are unaffected by it.</p>
+
+<div class="avoid">
+<h2><span class="ph">Tier</span>Concepts the player only ever picks from a list</h2>
+<table><thead><tr><th class="n">#</th><th>Mechanism concept</th><th class="n">Stops</th></tr></thead><tbody>
+<tr><td class="n">8</td><td>Natural period, and resonance between building and ground</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">1</td></tr><tr><td class="n">11</td><td>Ductility: bending without breaking</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">23</td></tr><tr><td class="n">14</td><td>Unreinforced masonry, and why it fails outward</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">31, 33, 35</td></tr><tr><td class="n">17</td><td>Lateral spreading toward a free face</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">26</td></tr><tr><td class="n">22</td><td>Rapid assessment against detailed evaluation</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">7, 8, 9, 15</td></tr><tr><td class="n">27</td><td>Recurrence intervals and what "the big one" means</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">33, 43</td></tr>
+</tbody></table>
+<p style="font-size:8.4pt;color:var(--ink2)">Reported, never failed. Select-tier can be exactly right;
+these are the candidates, not the defects. The syllabus also lists
+2 concepts no stop touches at all —
+<em>Intensity against magnitude — one event, many shakings</em>; <em>Base shear — the horizontal force a building is designed for</em> — which is expected, and is a different
+conversation from this one.</p></div>
+
+<h2><span class="ph">Fun</span>What this subject and this place can carry</h2>
+<div class="card v-s">
+  <div class="top"><h4>TALLY</h4><span class="vd">strong</span><span class="at">stop 19 or 20 · HAZ / SEIS</span></div>
+  <p>Aftershocks accumulate and the rate falls as a power law. Omori’s law is mentioned at
+          <em>fifteen</em> stops and computed at none, and "a rate is not a schedule" is currently a
+          CHOICE. TALLY is the format whose subject is precisely that an early number moves because
+          there is not enough behind it.</p>
+  <dl><dt>serves</dt> <dd>n(t) = K/(c+t)^p — the most-mentioned uncomputed equation in the repo</dd></dl>
+  <dl><dt>needs</dt> <dd>an early batch that flatters the rate, and a pass mark that stays unprinted</dd></dl>
+  
+</div><div class="card v-s">
+  <div class="top"><h4>PROBE</h4><span class="vd">strong</span><span class="at">stop 26 or 40 · GEO</span></div>
+  <p>Walk from the granite bench across the scarp onto the fill, taking a reading at each
+          station, and name where the ground changes. Site amplification is mentioned at thirteen
+          stops and computed at none, and the place was built to be walked exactly this way.</p>
+  <dl><dt>serves</dt> <dd>A_soft / A_rock — and the scarp stops being scenery</dd></dl>
+  <dl><dt>needs</dt> <dd>stations along the real traverse; one honest break that is not the worst number</dd></dl>
+  
+</div><div class="card v-s">
+  <div class="top"><h4>SWEEP</h4><span class="vd">strong</span><span class="at">stop 1 or 11 · SEIS / STRUCT</span></div>
+  <p>Building period against ground period, and the peak is where they meet. Concept 8 —
+          natural period, and resonance between building and ground — is select-only on one stop,
+          and it is the single most consequential idea in earthquake engineering.</p>
+  <dl><dt>serves</dt> <dd>concept 8, and T ≈ 0.1 N, which is mentioned nowhere at all</dd></dl>
+  <dl><dt>needs</dt> <dd>a findable peak, unmarked</dd></dl>
+  
+</div><div class="card v-s">
+  <div class="top"><h4>SPOT</h4><span class="vd">strong</span><span class="at">stop 8 or 9 · SAFE / HAZ</span></div>
+  <p>A placarding criterion replaced mid-round with nothing announcing it. "Green does not
+          mean safe" is already the game’s own sentence; a rapid-assessment crew whose criterion is
+          revised on day three is what actually happened in every event this game is drawn from.</p>
+  <dl><dt>serves</dt> <dd>concept 22 — rapid assessment against detailed evaluation, currently select-only</dd></dl>
+  
+  <dl><dt>risk</dt> <dd>score only the discriminating items</dd></dl>
+</div><div class="card v-s">
+  <div class="top"><h4>TRIAL</h4><span class="vd">strong</span><span class="at">the bay</span></div>
+  <p>An assessment round driven across the scarp: which buildings first, and the walk
+          between them is the geology. Order is the answer — the school before the parade building,
+          because four hundred children arrive on Monday.</p>
+  <dl><dt>serves</dt> <dd>concept 22 and triage order</dd></dl>
+  
+  <dl><dt>risk</dt> <dd>world work, and the most expensive item in this plan</dd></dl>
+</div><div class="card v-m">
+  <div class="top"><h4>HOLD</h4><span class="vd">medium</span><span class="at">STRUCT · shoring</span></div>
+  <p>Hold a shoring jack’s load inside a band while the structure settles and aftershocks
+          arrive. Real, and the physics is statics rather than the dynamics the syllabus is short
+          of.</p>
+  
+  
+  
+</div><div class="card v-d">
+  <div class="top"><h4>BELT</h4><span class="vd">defer</span><span class="at">—</span></div>
+  <p>Sorting placards at speed would teach the criterion and reward speed on a subject
+          where speed killed people. Defer on tone.</p>
+  
+  
+  
+</div><div class="card v-r">
+  <div class="top"><h4>LOB</h4><span class="vd">reject</span><span class="at">—</span></div>
+  <p>Reject, and not only on subject.</p>
+  
+  
+  
+</div>
+
+<h2><span class="ph">Slates</span>Three appetites — the campaign is zero-sum</h2>
+<p style="font-size:8.8pt">No conversion adds a stop. Each changes what an existing stop <em>does</em>
+while leaving what it <em>teaches</em> alone. Snapshot before, diff after:
+<code>curriculumDelivery.mjs aftershock --snapshot before.json</code>, then <code>--against before.json</code>.</p>
+<div class="slate">
+    <div class="sh"><h4>Minimum honest</h4><span class="n2">3 stops · one sitting</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">19</td><td class="dy">d7</td><td class="gp">HAZ</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>TALLY</b></td>
+      <td class="ti">The rate, falling<span class="nt">the rate, falling — accumulated so Omori is computed</span></td>
+    </tr><tr>
+      <td class="n">26</td><td class="dy">d9</td><td class="gp">GEO</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>PROBE</b></td>
+      <td class="ti">Soft ground, three days on<span class="nt">soft ground three days on, walked station by station</span></td>
+    </tr><tr>
+      <td class="n">11</td><td class="dy">d4</td><td class="gp">STRUCT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>SWEEP</b></td>
+      <td class="ti">What eight degrees does<span class="nt">what eight degrees does — as a resonance curve</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>22 → 20</b> (44%) ·
+      moves <b>28·17·0 → 26·16·3</b> ·
+      effective formats <b>3.8 → 4.5</b> · <b>3</b> new operate stops
+    </div>
+  </div>
+<div class="slate">
+    <div class="sh"><h4>Balanced</h4><span class="n2">6 stops · the recommendation</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">19</td><td class="dy">d7</td><td class="gp">HAZ</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>TALLY</b></td>
+      <td class="ti">The rate, falling</td>
+    </tr><tr>
+      <td class="n">26</td><td class="dy">d9</td><td class="gp">GEO</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>PROBE</b></td>
+      <td class="ti">Soft ground, three days on</td>
+    </tr><tr>
+      <td class="n">11</td><td class="dy">d4</td><td class="gp">STRUCT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>SWEEP</b></td>
+      <td class="ti">What eight degrees does</td>
+    </tr><tr>
+      <td class="n">22</td><td class="dy">d8</td><td class="gp">MAT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>BALLPARK</b></td>
+      <td class="ti">A number, with a method attached<span class="nt">a number with a method attached — stress and strain, computed</span></td>
+    </tr><tr>
+      <td class="n">8</td><td class="dy">d3</td><td class="gp">SAFE</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>SPOT</b></td>
+      <td class="ti">Green does not mean safe<span class="nt">green does not mean safe, under a criterion that changes</span></td>
+    </tr><tr>
+      <td class="n">31</td><td class="dy">d11</td><td class="gp">STRUCT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>CHAIN</b></td>
+      <td class="ti">Walls that fall outward<span class="nt">walls that fall outward — name the link that governs</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>22 → 17</b> (38%) ·
+      moves <b>28·17·0 → 23·18·4</b> ·
+      effective formats <b>3.8 → 5.8</b> · <b>4</b> new operate stops, 1 of them arcade
+    </div>
+  </div>
+<div class="slate">
+    <div class="sh"><h4>Ambitious</h4><span class="n2">9 stops · adds world work</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">19</td><td class="dy">d7</td><td class="gp">HAZ</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>TALLY</b></td>
+      <td class="ti">The rate, falling</td>
+    </tr><tr>
+      <td class="n">26</td><td class="dy">d9</td><td class="gp">GEO</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>PROBE</b></td>
+      <td class="ti">Soft ground, three days on</td>
+    </tr><tr>
+      <td class="n">11</td><td class="dy">d4</td><td class="gp">STRUCT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>SWEEP</b></td>
+      <td class="ti">What eight degrees does</td>
+    </tr><tr>
+      <td class="n">22</td><td class="dy">d8</td><td class="gp">MAT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>BALLPARK</b></td>
+      <td class="ti">A number, with a method attached</td>
+    </tr><tr>
+      <td class="n">8</td><td class="dy">d3</td><td class="gp">SAFE</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>SPOT</b></td>
+      <td class="ti">Green does not mean safe</td>
+    </tr><tr>
+      <td class="n">31</td><td class="dy">d11</td><td class="gp">STRUCT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>CHAIN</b></td>
+      <td class="ti">Walls that fall outward</td>
+    </tr><tr>
+      <td class="n">39</td><td class="dy">d13</td><td class="gp">STRUCT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>CLOUD</b></td>
+      <td class="ti">A smaller shake against a weaker building<span class="nt">a smaller shake against a weaker building, as a band against a limit</span></td>
+    </tr><tr>
+      <td class="n">23</td><td class="dy">d8</td><td class="gp">STRUCT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>HOLD</b></td>
+      <td class="ti">Which way the cracks run<span class="nt">shoring held while the aftershocks arrive</span></td>
+    </tr><tr>
+      <td class="n">9</td><td class="dy">d3</td><td class="gp">HAZ</td>
+      <td class="fm"><span class="was">TRIAGE</span> <span class="ar">→</span> <b>TRIAL</b></td>
+      <td class="ti">The ones worth a second visit<span class="nt">the assessment round, driven across the scarp</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>22 → 15</b> (33%) ·
+      moves <b>28·17·0 → 20·19·6</b> ·
+      effective formats <b>3.8 → 7.1</b> · <b>6</b> new operate stops, 3 of them arcade
+    </div>
+  </div>
+
+<div class="callout"><span class="tag">The order of work</span>
+<p><strong>1.</strong> Phase 0 — teach the coverage check to read an instrument’s own board, and
+re-baseline <code>curriculum-debt.json</code>. Rewriting a stop that already teaches the thing is the
+exact failure the check exists to prevent.
+<strong>2.</strong> Snapshot. <strong>3.</strong> Edit the book, never the generated content —
+<code>tools/import-book.mjs books/aftershock.yml aftershock --verify</code>.
+<strong>4.</strong> <code>npm run traps</code>: every instrument’s trap must fire.
+<strong>5.</strong> <code>npm run check aftershock</code> and <code>npm run drive aftershock</code>, right
+answer and wrong — ask what a player who understood nothing would score before believing any pass mark.
+<strong>6.</strong> <code>--against</code> the snapshot. A changed format is reported; a changed
+objective fails.</p></div>
+
+<footer>
+  Counts computed from <code>themes/aftershock/content/</code> via <code>engine/dev/curriculumDelivery.mjs</code>;
+  concept and equation lists authored in <code>tools/syllabus.js</code>. Format verdicts and slates are
+  editorial. Run it with <code>THEME=aftershock npm run dev</code>.
+</footer>
+</body></html>

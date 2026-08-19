@@ -39,15 +39,32 @@ import theme from './theme.js';
 export const MINUTES_PER_SECOND = 1;
 
 /**
- * How fast the day runs while a panel is open — a quarter.
+ * How fast the day runs while a panel is open — **stopped**, in every game.
  *
- * Reading the evidence and working the instrument is the part of this the games
- * are actually about, and at full rate a Diagnosis panel with six readings and
- * five candidates costs more of the day than walking across town to reach it.
- * It is not free, because thinking is not free; it is cheap enough that nobody
- * answers fast to save the clock.
+ * It was a quarter for most of this engine's life, on the argument that thinking
+ * is not free. That argument was about the wrong thing. The clock exists to make
+ * the *route* a decision — which calls to take, in what order, how far to walk,
+ * whether to talk to anybody on the way. None of that is happening while a
+ * question panel is up. What the quarter rate actually charged was reading the
+ * evidence, which is the part the games are about, and it charged it hardest to
+ * the player who most needed to re-read the scene.
+ *
+ * BELT is what made it obvious: a format with its own rising pressure, running
+ * against a day that also ran down, charged the player twice for the one stop
+ * meant to be enjoyable. The same objection turns out to hold for a Diagnosis
+ * panel with six readings, for a junior edition where the reader is eleven, and
+ * for anybody who alt-tabs mid-question.
+ *
+ * So the day runs while you walk, drive, fly, read a bio or stand still, and
+ * stops while a panel is open. **Nothing else changed** — the budget is still
+ * computed from the route, a day still ends, and running out still restarts it.
+ * Time is spent getting places, not spent reading.
+ *
+ * Put 0.25 back here and every panel is charged again, including BELT's, whose
+ * `pausesClock` flag survives precisely so that reversing this decision does not
+ * silently un-fix the format it was made for.
  */
-export const PANEL_PACE = 0.25;
+export const PANEL_PACE = 0;
 
 /** Player walking speed, m/s — `player.js` moves at 4.2 and sprints at 8.5. */
 const WALK_SPEED = 4.2;

@@ -10,6 +10,12 @@ export const CURRICULUM = {
       "scene": "Three survey pictures show the same faint dot in three different places. The background stars have not moved. A telescope on another mountain has just found the dot too.",
       "takeaway": "Something real moves against the stars, and a camera fault stays where the camera put it.",
       "place": "Survey Telescope Control",
+      "guide": "Four options, and the test is whether the thing moved in the sky or on the chip. Ask of each what it would leave behind. A cosmic ray arrives once. A hot pixel stays on its own pixel. Lining the pictures up wrongly would move the stars too. And another mountain has just found the same dot.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Three survey pictures show the same faint dot in three different places. The background stars have not moved. A telescope on another mountain has just found the dot too.",
       "game": {
         "type": "CHOICE",
@@ -47,7 +53,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a detector is the chip inside the camera, and its faults stay in one spot on the chip"
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Telling a real object from an artefact, by repeating the observation",
+        "of": 16
+      }
     },
     {
       "day": 2,
@@ -55,6 +66,12 @@ export const CURRICULUM = {
       "scene": "Forty thousand stars, two satellite streaks and a bad column of pixels share the pictures with the moving dot. The camera's calibration is the check against known stars that says what its numbers mean. The discovery notice goes out at dawn.",
       "takeaway": "A claim is worth sending out once somebody else can test it.",
       "place": "Image Processing Lab",
+      "guide": "All four steps happen before dawn, so ask what each one rules out. The pictures are crowded with things that are not the dot: stars, streaks and a bad column. Ask of each step whether it separates the dot from the camera, or from something already known. And the last one spends somebody else's night.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Forty thousand stars, two satellite streaks and a bad column of pixels share the pictures with the moving dot. The camera's calibration is the check against known stars that says what its numbers mean. The discovery notice goes out at dawn.",
       "game": {
         "type": "SEQUENCE",
@@ -86,7 +103,202 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a prediction other people can test is what makes a claim checkable"
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Telling a real object from an artefact, by repeating the observation",
+        "of": 16
+      }
+    },
+    {
+      "day": 3,
+      "title": "Moving with the sky, or not moving at all",
+      "scene": "The survey found four hundred things last night and the report goes at dawn. Most of them are not objects. What tells them apart is how they move between the pictures.",
+      "takeaway": "What makes a detection an object is how it moves, not how bright it is.",
+      "place": "Survey Dome",
+      "guide": "Two bins. A real object out there moves against the stars, the same way and the same amount in each picture. Everything else either does not move at all, or moves in a way nothing in space does.",
+      "background": [
+        "Why movement is the test. The stars stay put across one night. Anything in the solar system moves against them. Something in the same place in all four pictures is a star, a bad pixel or a reflection.",
+        "What the false ones look like. A cosmic ray shows up in one picture and never again. A satellite crosses so fast it draws a line. Reflections sit at a fixed place in the camera and move when the telescope moves, not when the sky does."
+      ],
+      "story": "The survey found four hundred things last night and the report goes at dawn. Most of them are not objects. What tells them apart is how they move between the pictures.",
+      "game": {
+        "type": "BELT",
+        "title": "Moving with the sky, or not moving at all",
+        "setup": "Survey Dome",
+        "play": "Sort the night's detections before the report.",
+        "task": "Sort the night's detections before the report.",
+        "question": "Send each detection to the bin that says whether something is really out there.",
+        "answer": "Steady movement across the pictures means it is real. One picture only, a streak, or no movement at all means it is the camera or the sky.",
+        "why": "A survey does not find objects. It finds differences between pictures, and the work is deciding which differences are things. A real object moves against the stars, the same direction and the same amount each time, which is why four pictures are taken rather than two. Three points can line up by chance and four almost never do. Everything else fails that test in its own way. A cosmic ray hits the camera once and is gone. A satellite crosses so fast it draws a line in a single picture. Hot pixels and reflections sit in fixed places in the camera, so they move when the telescope is nudged and stay put when the sky turns. None of this is about brightness, which is why a bright convincing blob is exactly the thing that wastes a follow-up night — and follow-up nights are what this survey has least of.",
+        "belt": {
+          "left": {
+            "name": "Really out there"
+          },
+          "right": {
+            "name": "Camera or sky"
+          },
+          "items": [
+            {
+              "name": "Steady slow drift",
+              "bin": "left"
+            },
+            {
+              "name": "Straight-line motion",
+              "bin": "left"
+            },
+            {
+              "name": "Seen in four",
+              "bin": "left"
+            },
+            {
+              "name": "Same rate each",
+              "bin": "left"
+            },
+            {
+              "name": "Backwards track",
+              "bin": "left"
+            },
+            {
+              "name": "Slow near opposition",
+              "bin": "left"
+            },
+            {
+              "name": "Faint but steady",
+              "bin": "left"
+            },
+            {
+              "name": "Crosses two chips",
+              "bin": "left"
+            },
+            {
+              "name": "Found where predicted",
+              "bin": "left"
+            },
+            {
+              "name": "Matches a known",
+              "bin": "left"
+            },
+            {
+              "name": "Steady in moonlight",
+              "bin": "left"
+            },
+            {
+              "name": "Tracks through cloud",
+              "bin": "left"
+            },
+            {
+              "name": "One picture only",
+              "bin": "right"
+            },
+            {
+              "name": "Hot pixel",
+              "bin": "right"
+            },
+            {
+              "name": "Spike off a",
+              "bin": "right"
+            },
+            {
+              "name": "Reflection inside",
+              "bin": "right"
+            },
+            {
+              "name": "Satellite line",
+              "bin": "right"
+            },
+            {
+              "name": "Aircraft light",
+              "bin": "right"
+            },
+            {
+              "name": "Cosmic ray",
+              "bin": "right"
+            },
+            {
+              "name": "Ghost of Vega",
+              "bin": "right"
+            },
+            {
+              "name": "Bleeding column",
+              "bin": "right"
+            },
+            {
+              "name": "Dead pixel edge",
+              "bin": "right"
+            },
+            {
+              "name": "Turning field mark",
+              "bin": "right"
+            },
+            {
+              "name": "Dome shadow",
+              "bin": "right"
+            },
+            {
+              "name": "Star not moving",
+              "bin": "right"
+            },
+            {
+              "name": "Cable shadow",
+              "bin": "right"
+            }
+          ],
+          "need": 20,
+          "lives": 3,
+          "pass": 0.8,
+          "hint": "Watch how it moves across the four pictures.",
+          "commit": "Start the line"
+        }
+      },
+      "assumes": [
+        "the stars stay in the same places across one night"
+      ],
+      "equations": [
+        {
+          "e": "change in speed = momentum ÷ weight",
+          "c": "what a push does to something heavy",
+          "v": [
+            [
+              "change in speed",
+              "in metres per second"
+            ],
+            [
+              "momentum",
+              "what the push handed over"
+            ],
+            [
+              "weight",
+              "the mass it landed on, in kilograms"
+            ]
+          ],
+          "s": "The same push spread over more mass makes less change in speed, in exact proportion."
+        },
+        {
+          "e": "change in position = change in speed × time",
+          "c": "why a deflection works better early",
+          "v": [
+            [
+              "change in position",
+              "how far it has moved off its old path, in kilometres"
+            ],
+            [
+              "change in speed",
+              "in kilometres per second"
+            ],
+            [
+              "time",
+              "how long before it arrives, in seconds"
+            ]
+          ],
+          "s": "A tiny change in speed moves an object hardly at all in a week and a long way in ten years, so the same push is worth far more the earlier it is given."
+        }
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Telling a real object from an artefact, by repeating the observation",
+        "of": 16
+      }
     }
   ],
   "ORBIT": [
@@ -96,6 +308,11 @@ export const CURRICULUM = {
       "scene": "The dot shifted between two pictures taken twenty minutes apart. The next telescope has to be told where to point. Nobody has turned that shift into a rate yet.",
       "takeaway": "Two pictures and a clock turn movement into a rate you can point with.",
       "place": "Minor-Planet Operations Desk",
+      "guide": "Five numbers, and two of them are the same gap written in different units. Another is the number of exposures. Ask of each whether this rate needs it. And note what the answer is for. It tells the next telescope where to point. It does not say how fast the rock is really going.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The dot shifted between two pictures taken twenty minutes apart. The next telescope has to be told where to point. Nobody has turned that shift into a rate yet.",
       "game": {
         "type": "BALLPARK",
@@ -134,7 +351,12 @@ export const CURRICULUM = {
           "s": "Speed is how much ground is covered divided by how long it took.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Position, time and speed: how fast something moves across the sky",
+        "of": 16
+      }
     },
     {
       "day": 2,
@@ -142,6 +364,12 @@ export const CURRICULUM = {
       "scene": "Six observatories have sent positions. Two used a different time standard, and one sent no pointing solution at all. Together they cover four hours.",
       "takeaway": "A path is tested by where the object turns up next, not by how well it fits the past.",
       "place": "Astrometry Lab",
+      "guide": "All four steps will happen. Six observatories have sent positions, two on a different clock and one with no pointing solution. Ask of each step what the next one would mean without it. And note what the goal is. Not more numbers, but numbers that would tell two possible paths apart.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Six observatories have sent positions. Two used a different time standard, and one sent no pointing solution at all. Together they cover four hours.",
       "game": {
         "type": "SEQUENCE",
@@ -173,7 +401,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an arc is the stretch of time your measurements cover"
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Position, time and speed: how fast something moves across the sky",
+        "of": 16
+      }
     },
     {
       "day": 3,
@@ -181,6 +414,11 @@ export const CURRICULUM = {
       "scene": "The computer has finished flying every path that fits the measurements. What came back is a count. The number that leaves this room will be quoted in public for years.",
       "takeaway": "A very small chance can only be measured by trying a very large number of times.",
       "place": "Statistical Orbit Lab",
+      "guide": "Four numbers, and two belong to other things. The first quick run, and the years to the encounter. Ask of each whether this share needs it. And note what the answer means. It is the share of the paths that still fit, and one new measurement can change it a lot.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The computer has finished flying every path that fits the measurements. What came back is a count. The number that leaves this room will be quoted in public for years.",
       "game": {
         "type": "BALLPARK",
@@ -219,7 +457,15 @@ export const CURRICULUM = {
           "s": "A percentage is a share out of a hundred, so it has to become a decimal before anything is multiplied by it.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Uncertainty as a range, not a mistake",
+        "of": 16,
+        "rests": [
+          "Repeated measurements and their average"
+        ]
+      }
     },
     {
       "day": 4,
@@ -227,6 +473,12 @@ export const CURRICULUM = {
       "scene": "Radar has pinned this pass at 2.4 Earth radii and the room starts to relax. Then the return solution flashes up on the board: eleven years.",
       "takeaway": "A close pass rewrites the path it happens on, so safety is a claim about the passes after it.",
       "place": "Orbit Determination",
+      "guide": "Four options, and radar has settled this pass. Ask of each whether it says anything about the one in eleven years. Passing that close lets Earth's pull change the rock's path, so the orbit that comes back is not the one that arrived. Fresh measurements afterwards check that working out. They do not replace it.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Radar has pinned this pass at 2.4 Earth radii and the room starts to relax. Then the return solution flashes up on the board: eleven years.",
       "game": {
         "type": "CHOICE",
@@ -292,7 +544,15 @@ export const CURRICULUM = {
           ],
           "s": "A radar pulse travels out and back at a known speed, so the time it takes gives the distance — halved, because it went twice."
         }
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Radar: distance from an echo, using speed and time",
+        "of": 16,
+        "rests": [
+          "Position, time and speed: how fast something moves across the sky"
+        ]
+      }
     },
     {
       "day": 5,
@@ -300,6 +560,12 @@ export const CURRICULUM = {
       "scene": "The impactor has hit and the control room is cheering. Nobody has measured the orbit yet. One tracking campaign is left in the budget.",
       "takeaway": "An action is not finished until somebody measures what it did.",
       "place": "Orbit Monitoring Room",
+      "guide": "Write down the change you expected before the impact, and lock it. Then run the tracking campaign and read what the orbit actually did. The cheering is not the result. One campaign is left in the budget, so this is the only chance to find out.",
+      "background": [
+        "Why hitting it is not the same as moving it. The spacecraft changes the rock's speed by a few millimetres a second. How much depends mostly on the rubble thrown off the surface when it hits, and nobody knows what that surface is made of. So the size of the push has to be measured, not assumed.",
+        "What the campaign measures. Where the rock was going before, and where it is going now, watched long enough that the difference is bigger than the measurement error. That is what turns 'we hit it' into 'we moved it this much'.",
+        "Why the prediction is written first. If the number is written after the measurement, it becomes whatever makes the mission look right. Then the one thing this whole mission existed to find out is lost."
+      ],
       "story": "The impactor has hit and the control room is cheering. Nobody has measured the orbit yet. One tracking campaign is left in the budget.",
       "game": {
         "type": "VERIFY",
@@ -404,7 +670,15 @@ export const CURRICULUM = {
           "s": "The same push spread over more mass makes less change in speed, in exact proportion.",
           "card": false
         }
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Changing motion with a push, and why an early push does more",
+        "of": 16,
+        "rests": [
+          "Impact energy: mass and speed, and why speed matters more"
+        ]
+      }
     },
     {
       "day": 6,
@@ -412,6 +686,12 @@ export const CURRICULUM = {
       "scene": "Two independent checks are left before the record goes public tonight. Every claim in it is signed. Some of them would change the conclusion if they were wrong.",
       "takeaway": "A signature records a decision. It does not measure a thing.",
       "place": "Orbit Monitoring Center",
+      "guide": "Two checks left, and the record goes out tonight. Open each signed claim and read what actually backs it. Hold the ones the evidence does not support, and spend the checks where a wrong claim would do the most damage — because what goes out tonight is where the next team starts.",
+      "background": [
+        "Why signed is not checked. A signature says somebody took responsibility for a sentence. It does not say anybody went and looked. Under a deadline, a guess and an observation end up written the same way on the same page.",
+        "Why a public record is harder to fix than to write. People will read it who cannot see the evidence, and quote it who were not there. A correction afterwards never travels as far as the original did.",
+        "How to pick two out of several. Not the shakiest. The one that would send the next team in the wrong direction if it were wrong."
+      ],
       "story": "Two independent checks are left before the record goes public tonight. Every claim in it is signed. Some of them would change the conclusion if they were wrong.",
       "game": {
         "type": "ATTEST",
@@ -445,13 +725,6 @@ export const CURRICULUM = {
               "signedBy": "—",
               "evidence": "independent reprocessing reproduces the approximately 180 m size scale and the stated consequence envelope",
               "critical": true
-            },
-            {
-              "id": "discovery",
-              "label": "Discovery images, timestamps and provenance are archived",
-              "signedBy": "—",
-              "evidence": "archive checksum and provenance audit already completed",
-              "backed": true
             },
             {
               "id": "wording",
@@ -489,7 +762,16 @@ export const CURRICULUM = {
           ],
           "s": "The same push spread over more mass makes less change in speed, in exact proportion."
         }
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Independent checks: a second method that could disagree",
+        "of": 16,
+        "rests": [
+          "Telling a real object from an artefact, by repeating the observation",
+          "Choosing the measurement that tells two explanations apart"
+        ]
+      }
     }
   ],
   "CHAR": [
@@ -499,6 +781,12 @@ export const CURRICULUM = {
       "scene": "The object was bright enough for the survey to spot it, and people across the room are reading that one number as a size. Four things that change brightness are on the board.",
       "takeaway": "A bright asteroid is not always a big one.",
       "place": "Photometry Lab",
+      "guide": "Four changes, and four things they do to the brightness. Pair them by asking where in the journey each one acts. How much sunlight arrives? How much is sent back? Or how much of that reaches us? Brightness is all of them together, which is why one number cannot give a size.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If three lines are right, the fourth response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
       "story": "The object was bright enough for the survey to spot it, and people across the room are reading that one number as a size. Four things that change brightness are on the board.",
       "game": {
         "type": "PROTOCOL",
@@ -540,7 +828,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "light spreads out as it travels, so the same lamp looks fainter from further away"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Brightness and distance: the same object is fainter further away",
+        "of": 16,
+        "rests": [
+          "Scale and distance in the solar system"
+        ]
+      }
     },
     {
       "day": 2,
@@ -548,6 +844,12 @@ export const CURRICULUM = {
       "scene": "Reflected light alone puts the rock somewhere between one hundred and twenty and six hundred metres across. The heat team now has an infrared reading from the same night.",
       "takeaway": "A tie between two answers is broken by a measurement that depends on them differently.",
       "place": "Physical Characterization Group",
+      "guide": "Two controls slide the size and the surface brightness along a whole family of pairs that all match the reflected light. See how wide that family is first. Then bring in the heat reading, which depends on the same two things in a different way, and watch the family shrink to one pair.",
+      "background": [
+        "Why reflected light alone cannot settle it. What you measure is how much sunlight comes back. That depends on how big the rock is and how shiny it is, multiplied together. A small shiny rock and a big dark one send back the same light.",
+        "What the heat reading adds. Sunlight that is not reflected is absorbed and comes back out as heat. So the heat depends on the size and on how much is absorbed, which is a different mix of the same two unknowns. Put the two together and both are fixed.",
+        "Why the size is the number everybody wants. The energy of an impact goes as the size cubed. A rock five times wider carries more than a hundred times the energy, which is the difference between one region and a continent."
+      ],
       "story": "Reflected light alone puts the rock somewhere between one hundred and twenty and six hundred metres across. The heat team now has an infrared reading from the same night.",
       "game": {
         "type": "DEGENERACY",
@@ -647,7 +949,15 @@ export const CURRICULUM = {
       "assumes": [
         "a warm object glows in infrared light, which our eyes cannot see",
         "reflected brightness depends on the size and the surface together"
-      ]
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Size and albedo: two explanations for one brightness",
+        "of": 16,
+        "rests": [
+          "Brightness and distance: the same object is fainter further away"
+        ]
+      }
     },
     {
       "day": 3,
@@ -655,6 +965,12 @@ export const CURRICULUM = {
       "scene": "A wide dip has turned up in the spectrum, which is the rock's brightness measured colour by colour. It would change what the rock is made of. The room has a standard star, an air record, and a spectrum taken from space.",
       "takeaway": "Measurements that share one path do not check each other.",
       "place": "Spectroscopy Observatory",
+      "guide": "Open each piece of evidence to see what the spectrum depended on. Keep what would still stand if the air were at fault, and untick the rest. Then name what the failing ones share. The dip would change what the rock is made of, so both halves count: keeping a false dip and throwing away a real one are equally wrong.",
+      "background": [
+        "Why the air is the first suspect. Water vapour in Earth's air absorbs light at particular colours, and one of them is right where this dip is. Every ground telescope looks through that air, so every ground spectrum is the rock's spectrum multiplied by the air's.",
+        "What looking through more air tells you. If the dip gets deeper when the telescope looks through more atmosphere, the air is making it. If it stays the same, the air is not.",
+        "Why the space spectrum settles it. Above the atmosphere there is no water vapour in the way at all. It is the one measurement that does not go through the suspect step, which makes it worth more than any number of careful ground measurements."
+      ],
       "story": "A wide dip has turned up in the spectrum, which is the rock's brightness measured colour by colour. It would change what the rock is made of. The room has a standard star, an air record, and a spectrum taken from space.",
       "game": {
         "type": "TRACE",
@@ -663,7 +979,7 @@ export const CURRICULUM = {
         "play": "Open what each spectrum depends on, keep the ones that stand alone, and name what the rest share.",
         "task": "Open what each spectrum depends on, keep the ones that stand alone, and name what the rest share.",
         "question": "Does the dip belong to the rock, to the air, or to the camera?",
-        "answer": "Treat the dip as air, not rock. The target, the standard star and the airmass pattern all share Earth's atmosphere. The spectrum from space has no dip, and the flat field says the camera is fine.",
+        "answer": "Treat the dip as air, not rock. The ground spectrum and the airmass comparison both look through Earth's atmosphere, and the dip deepens the longer the path through it. The spectrum from space has no dip at all, and the flat field says the camera is fine.",
         "why": "Three ground displays can agree because all three looked through the same air. The standard star has the dip too. The dip gets deeper when the light came through more air. The flat field is steady, so the camera is not adding it. And the spectrum taken from above the air has no dip at all. Agreement proves nothing when everything agrees for one shared reason.",
         "trace": {
           "channels": [
@@ -673,16 +989,6 @@ export const CURRICULUM = {
               "reading": "broad dip near 1.4 μm (expected candidate surface feature)",
               "depends": [
                 "surface",
-                "telluric",
-                "detector"
-              ]
-            },
-            {
-              "id": "standard",
-              "label": "Night standard spectrum",
-              "reading": "dip at the same wavelength (expected smooth intrinsic continuum expected here)",
-              "depends": [
-                "standard_star_spectrum",
                 "telluric",
                 "detector"
               ]
@@ -701,8 +1007,7 @@ export const CURRICULUM = {
               "label": "Flat-field check",
               "reading": "stable response with no matching feature (expected detector calibration stable)",
               "depends": [
-                "detector",
-                "flat_field_calibration"
+                "detector"
               ]
             },
             {
@@ -710,8 +1015,7 @@ export const CURRICULUM = {
               "label": "Space comparison spectrum",
               "reading": "feature absent (expected same target observed without a terrestrial path)",
               "depends": [
-                "surface",
-                "space_instrument"
+                "surface"
               ]
             }
           ],
@@ -729,20 +1033,8 @@ export const CURRICULUM = {
               "label": "Asteroid surface"
             },
             {
-              "id": "standard_star_spectrum",
-              "label": "standard-star spectrum"
-            },
-            {
               "id": "airmass_geometry",
               "label": "airmass geometry"
-            },
-            {
-              "id": "flat_field_calibration",
-              "label": "the flat-field calibration, which is the check that evens out the camera"
-            },
-            {
-              "id": "space_instrument",
-              "label": "space instrument"
             }
           ],
           "independent": [
@@ -758,7 +1050,12 @@ export const CURRICULUM = {
         "a spectrum is brightness measured colour by colour",
         "air can leave marks of its own in a spectrum taken from the ground",
         "airmass is how much air the light came through on the way in"
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Colour and light as evidence of what something is made of",
+        "of": 16
+      }
     }
   ],
   "RADAR": [
@@ -768,6 +1065,12 @@ export const CURRICULUM = {
       "scene": "The radar room has its first clean run of echoes. Delay, pitch shift and echo width are up on one screen. The orbit team is waiting to hear which reading to use.",
       "takeaway": "Each radar reading measures one thing, and none of them measures all of it.",
       "place": "Planetary Radar Facility",
+      "guide": "Four things we want to know, and four radar readings. Pair them by asking what each reading really is. A time? A spread of pitch? A pattern of when the echo comes back? Or a set of pictures? One of them only exists after you have taken the others many times.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If three lines are right, the fourth response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
       "story": "The radar room has its first clean run of echoes. Delay, pitch shift and echo width are up on one screen. The orbit team is waiting to hear which reading to use.",
       "game": {
         "type": "PROTOCOL",
@@ -850,7 +1153,140 @@ export const CURRICULUM = {
           ],
           "s": "A radar pulse travels out and back at a known speed, so the time it takes gives the distance — halved, because it went twice."
         }
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Radar: distance from an echo, using speed and time",
+        "of": 16,
+        "rests": [
+          "Position, time and speed: how fast something moves across the sky"
+        ]
+      }
+    },
+    {
+      "day": 2,
+      "title": "On target, while the wind gets up",
+      "scene": "The object is faint and the pass lasts eleven minutes. The dish has to stay pointed at it while wind comes down the ridge and pushes the dish about.",
+      "takeaway": "A push that lasts is answered by holding, not by a nudge.",
+      "place": "Radar Dish",
+      "guide": "Hold the pointing error inside the band on the console. The band narrows through the pass, because the object gets closer and the beam needs to be more exactly on it. Each gust keeps pushing for as long as it lasts, so hold the drive against it.",
+      "background": [
+        "Why pointing decides everything. The signal is strongest in the middle of the beam and falls away quickly. A dish half a beam off is not getting a slightly worse measurement. It is getting noise.",
+        "Why a gust is not one push. Wind loads the dish for as long as it blows. The drive has to hold against it, not correct once and let go."
+      ],
+      "story": "The object is faint and the pass lasts eleven minutes. The dish has to stay pointed at it while wind comes down the ridge and pushes the dish about.",
+      "game": {
+        "type": "HOLD",
+        "title": "On target, while the wind gets up",
+        "setup": "Radar Dish",
+        "play": "Hold the dish on the object.",
+        "task": "Hold the dish on the object.",
+        "question": "Hold the dish on the object through the pass.",
+        "answer": "Inside the band for most of the pass, with the drive held against each gust rather than corrected once the pointing has already slipped.",
+        "why": "The signal falls away from the middle of the beam, so pointing is not a detail. It is the difference between a measurement and eleven minutes of nothing. Every push here lasts. A gust off the ridge loads the dish while it blows, and a dish left alone is pushed off and stays off, so the drive has to hold against it rather than correct and let go. The band narrows because the object is getting closer through the pass and the measurement gets fussier about where the dish is looking. And there is no second try tonight. The pass is the pass. The next one is when the object comes round again, which for this one is years away.",
+        "hold": {
+          "quantity": "Pointing error",
+          "control": "Trim drive",
+          "unit": "beam widths",
+          "hold": 0,
+          "band": 0.4,
+          "narrowTo": 0.2,
+          "duration": 45,
+          "authority": 0.1,
+          "pass": 0.8,
+          "direction": "raise",
+          "disturbances": [
+            {
+              "label": "Gust down the ridge",
+              "at": 4,
+              "amount": -0.03
+            },
+            {
+              "label": "Wind drops as the dish turns",
+              "at": 20,
+              "amount": 0.05
+            },
+            {
+              "label": "Second gust",
+              "at": 38,
+              "amount": -0.045
+            }
+          ],
+          "hint": "A gust lasts. Hold the drive against it.",
+          "commit": "Report the pass"
+        }
+      },
+      "assumes": [
+        "a dish has to be pointed at something to receive from it"
+      ],
+      "equations": [
+        {
+          "e": "distance = speed × time",
+          "c": "distance from a radar echo",
+          "v": [
+            [
+              "distance",
+              "in kilometres"
+            ],
+            [
+              "speed",
+              "the speed of light, 300,000 kilometres per second"
+            ],
+            [
+              "time",
+              "the round trip, in seconds"
+            ]
+          ],
+          "s": "A radar pulse travels out and back at a known speed, so the time it takes gives the distance — halved, because it went twice."
+        },
+        {
+          "e": "change in speed = momentum ÷ weight",
+          "c": "what a push does to something heavy",
+          "v": [
+            [
+              "change in speed",
+              "in metres per second"
+            ],
+            [
+              "momentum",
+              "what the push handed over"
+            ],
+            [
+              "weight",
+              "the mass it landed on, in kilograms"
+            ]
+          ],
+          "s": "The same push spread over more mass makes less change in speed, in exact proportion."
+        },
+        {
+          "e": "change in position = change in speed × time",
+          "c": "why a deflection works better early",
+          "v": [
+            [
+              "change in position",
+              "how far it has moved off its old path, in kilometres"
+            ],
+            [
+              "change in speed",
+              "in kilometres per second"
+            ],
+            [
+              "time",
+              "how long before it arrives, in seconds"
+            ]
+          ],
+          "s": "A tiny change in speed moves an object hardly at all in a week and a long way in ten years, so the same push is worth far more the earlier it is given.",
+          "card": false
+        }
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Radar: distance from an echo, using speed and time",
+        "of": 16,
+        "rests": [
+          "Position, time and speed: how fast something moves across the sky"
+        ]
+      }
     }
   ],
   "IMPACT": [
@@ -860,6 +1296,12 @@ export const CURRICULUM = {
       "scene": "The best-guess path misses Earth, and the cloud of possible paths around it still touches the impact line. Dr. Marco Rossi, the orbit lead, wants one sentence before the briefing.",
       "takeaway": "Risk lives in the whole spread, not in the middle of it.",
       "place": "Impact Monitoring Center",
+      "guide": "The cloud on screen is every path the observations still allow. Its middle misses Earth. Its edge still touches the impact line, so this is not a stand-down yet. Two improvements are ready, and they do different things to the cloud: one moves it, one makes it smaller. Apply what you would authorise, then say what the briefing can state.",
+      "background": [
+        "What the cloud is. The path is worked out from observations, and the observations allow a range of paths rather than one. Drawn on the encounter plane, that range is a cloud. The impact line is drawn on the same plane. Saying the best-guess path misses Earth is a statement about the middle of the cloud only.",
+        "Moving it and shrinking it are different jobs. Fixing an error in the best-guess path slides the whole cloud across without changing its size. The uncertainty is the same, just somewhere else. A new, well-placed observation adds information and makes the cloud smaller. Only that can clear Earth if it is the width that reaches the line.",
+        "Why the sentence matters. People hear safe or not safe. A stand-down that gets taken back costs the trust the next warning needs. So the briefing has to be about the whole cloud, and this is where you find out whether you can say that yet."
+      ],
       "story": "The best-guess path misses Earth, and the cloud of possible paths around it still touches the impact line. Dr. Marco Rossi, the orbit lead, wants one sentence before the briefing.",
       "game": {
         "type": "CLOUD",
@@ -867,7 +1309,7 @@ export const CURRICULUM = {
         "setup": "Impact Monitoring Center",
         "play": "Move and narrow the cloud of paths until all of it clears Earth.",
         "task": "Move and narrow the cloud of paths until all of it clears Earth.",
-        "question": "What has to change before the whole cloud of paths clears Earth?",
+        "question": "What has to change before the whole cloud of paths clears Earth? Move the bars to show the middle and one sigma either side.",
         "answer": "Neither move is enough on its own. Do both. The near edge then sits at 4.5 − 3.2 = 1.3 Earth radii, and the whole cloud clears Earth.",
         "why": "An orbit is a spread of possible paths, not a dot. Fixing a known bias slides the whole spread sideways. It does not make the spread any thinner. Better measurements do make it thinner, but they do not choose where the middle sits. The call needs both. If a real part of the spread still crosses Earth, a safe-looking middle has not made anybody safe.",
         "cloud": {
@@ -903,7 +1345,15 @@ export const CURRICULUM = {
       "assumes": [
         "an orbit fit gives a spread of possible paths, not one path",
         "the middle of a spread can move without the spread getting any thinner"
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Uncertainty as a range, not a mistake",
+        "of": 16,
+        "rests": [
+          "Repeated measurements and their average"
+        ]
+      }
     },
     {
       "day": 2,
@@ -911,6 +1361,11 @@ export const CURRICULUM = {
       "scene": "Civil defence will not call anyone in without an energy figure. The impact group has a weight for the rock. It also has the speed the rock would arrive at.",
       "takeaway": "Speed counts twice over in energy, so it is the number worth measuring best.",
       "place": "Impact Physics Group",
+      "guide": "Four numbers, and two of them belong to other questions. How wide it is, and how many joules make a megaton. Ask of each whether this energy needs it. The weight and the speed are what the sum uses. And the speed goes in twice over, which is why speed matters more than weight.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Civil defence will not call anyone in without an energy figure. The impact group has a weight for the rock. It also has the speed the rock would arrive at.",
       "game": {
         "type": "BALLPARK",
@@ -949,7 +1404,15 @@ export const CURRICULUM = {
           "s": "Speed is how much ground is covered divided by how long it took.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Impact energy: mass and speed, and why speed matters more",
+        "of": 16,
+        "rests": [
+          "Position, time and speed: how fast something moves across the sky"
+        ]
+      }
     },
     {
       "day": 3,
@@ -957,6 +1420,11 @@ export const CURRICULUM = {
       "scene": "The deflection lab is sizing a spacecraft. It knows the craft's weight and how fast it would close, and the rock's weight to within a factor of a few.",
       "takeaway": "The same push moves a heavier thing less, in exact proportion.",
       "place": "Deflection Physics Lab",
+      "guide": "Four numbers, and two of them belong to an earlier step. The millimetres a second, and the extra push from thrown-off material, were used to get the yearly figure. Ask which two this sum needs. And note why a tiny nudge works at all. It gets multiplied by every year that is left.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The deflection lab is sizing a spacecraft. It knows the craft's weight and how fast it would close, and the rock's weight to within a factor of a few.",
       "game": {
         "type": "BALLPARK",
@@ -1054,7 +1522,15 @@ export const CURRICULUM = {
           "s": "A tiny change in speed moves an object hardly at all in a week and a long way in ten years, so the same push is worth far more the earlier it is given.",
           "card": false
         }
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Changing motion with a push, and why an early push does more",
+        "of": 16,
+        "rests": [
+          "Impact energy: mass and speed, and why speed matters more"
+        ]
+      }
     },
     {
       "day": 4,
@@ -1062,6 +1538,12 @@ export const CURRICULUM = {
       "scene": "The impactor plan is up on the mission board. Beside it sit the weight estimate and the tracking plan. The director wants it all sorted before the review.",
       "takeaway": "A deflection is an experiment, and the thing it changes is the orbit.",
       "place": "Mission Engineering Center",
+      "guide": "Four items on the board, and four effects. Pair them by asking which part each one changes. The push that lands? How much that push moves the rock? Or how far the rock has gone by the time it arrives? One of the four is not a prediction at all. It is a measurement, taken afterwards.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If three lines are right, the fourth response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
       "story": "The impactor plan is up on the mission board. Beside it sit the weight estimate and the tracking plan. The director wants it all sorted before the review.",
       "game": {
         "type": "PROTOCOL",
@@ -1183,7 +1665,15 @@ export const CURRICULUM = {
           "s": "A tiny change in speed moves an object hardly at all in a week and a long way in ten years, so the same push is worth far more the earlier it is given.",
           "card": false
         }
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Changing motion with a push, and why an early push does more",
+        "of": 16,
+        "rests": [
+          "Impact energy: mass and speed, and why speed matters more"
+        ]
+      }
     }
   ],
   "OPS": [
@@ -1193,6 +1683,12 @@ export const CURRICULUM = {
       "scene": "One wide camera's positions bend away from the orbit near one edge of its chip. The clock checks out. A second telescope, watching the same object, shows nothing odd.",
       "takeaway": "An error that follows the equipment is telling you about the equipment.",
       "place": "Follow-Up Telescope Network",
+      "guide": "Four options, and the misses appear at one edge of one chip. Ask of each whether it would show up everywhere or only there. A rock speeding up would look the same from every telescope. Wrong times would too. A wrong star list would spoil every camera. What is left belongs to this camera alone.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "One wide camera's positions bend away from the orbit near one edge of its chip. The clock checks out. A second telescope, watching the same object, shows nothing odd.",
       "game": {
         "type": "CHOICE",
@@ -1270,7 +1766,15 @@ export const CURRICULUM = {
           ],
           "s": "The same push spread over more mass makes less change in speed, in exact proportion."
         }
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Changing motion with a push, and why an early push does more",
+        "of": 16,
+        "rests": [
+          "Impact energy: mass and speed, and why speed matters more"
+        ]
+      }
     },
     {
       "day": 2,
@@ -1278,6 +1782,12 @@ export const CURRICULUM = {
       "scene": "Four hours of spare time on a two-metre telescope, and the object sets soon after dusk. Two possible paths fit tonight's measurements equally well. The same patch of sky comes back in six nights.",
       "takeaway": "Two paths that agree today drift apart with time, so a later look separates them better than a sharper look now.",
       "place": "Time Standards Room",
+      "guide": "Four options, and two paths fit tonight equally well. Ask of each what it would change about that. A sharper picture tonight measures the same moment more precisely. So does a bigger telescope, and so does taking more pictures in a row. What tells two paths apart is letting them drift away from each other.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Four hours of spare time on a two-metre telescope, and the object sets soon after dusk. Two possible paths fit tonight's measurements equally well. The same patch of sky comes back in six nights.",
       "game": {
         "type": "CHOICE",
@@ -1303,7 +1813,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "two paths that agree tonight can disagree later"
-      ]
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Repeated measurements and their average",
+        "of": 16,
+        "rests": [
+          "Telling a real object from an artefact, by repeating the observation"
+        ]
+      }
     },
     {
       "day": 3,
@@ -1311,6 +1829,12 @@ export const CURRICULUM = {
       "scene": "The best guess misses by four Earth radii, and about one path in six hundred still hits. Next Tuesday the two sets of paths sit eight arcseconds apart. After that they close up again.",
       "takeaway": "The best measurement is the one whose result the rival answers would disagree about.",
       "place": "Planetary Defense Coordination Office",
+      "guide": "Four places to point, and a measurement only helps where the answers disagree. Ask of each option whether the hitting paths and the missing paths point somewhere different there. Before and after Tuesday they agree. Looking then confirms what nobody was arguing about. Brightness is not what decides this. A date is.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The best guess misses by four Earth radii, and about one path in six hundred still hits. Next Tuesday the two sets of paths sit eight arcseconds apart. After that they close up again.",
       "game": {
         "type": "CHOICE",
@@ -1336,7 +1860,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a measurement teaches you something where the possible answers disagree"
-      ]
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Choosing the measurement that tells two explanations apart",
+        "of": 16,
+        "rests": [
+          "Size and albedo: two explanations for one brightness",
+          "Uncertainty as a range, not a mistake"
+        ]
+      }
     },
     {
       "day": 4,
@@ -1344,6 +1877,11 @@ export const CURRICULUM = {
       "scene": "Two rocks look just as bright as each other. One reflects four times as well. The infrared team wants the sizes compared before anybody says a number out loud.",
       "takeaway": "Brightness alone cannot give a size unless somebody has assumed a reflectivity.",
       "place": "Infrared Telescope Team",
+      "guide": "Five numbers, and three of them are wrong ways to use the reflectivity. Its square. One divided by it. And the brightness itself. Ask of each whether it respects the two steps. Four times the reflectivity needs a quarter of the area. And width is the square root of area, so a quarter of the area is half the width.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Two rocks look just as bright as each other. One reflects four times as well. The infrared team wants the sizes compared before anybody says a number out loud.",
       "game": {
         "type": "BALLPARK",
@@ -1361,7 +1899,15 @@ export const CURRICULUM = {
       "assumes": [
         "albedo is how well a surface reflects the light that lands on it",
         "the area of a circle grows as the square of its width"
-      ]
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Size and albedo: two explanations for one brightness",
+        "of": 16,
+        "rests": [
+          "Brightness and distance: the same object is fainter further away"
+        ]
+      }
     },
     {
       "day": 5,
@@ -1369,6 +1915,12 @@ export const CURRICULUM = {
       "scene": "The spectrum has two dips and a slope. Three different mineral mixes match it just as well as each other. A draft notice naming one of them is already being typed.",
       "takeaway": "A good answer about what something is made of keeps the other answers that still fit.",
       "place": "Meteorite Comparison Lab",
+      "guide": "All four steps will happen, and three mineral mixes fit just as well. Ask of each step what would be meaningless without it. The Sun, the air and the instrument all added something to what was recorded. A feature named before those come out could belong to any of them. And trying several mixes is what stops one being named too early.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "The spectrum has two dips and a slope. Three different mineral mixes match it just as well as each other. A draft notice naming one of them is already being typed.",
       "game": {
         "type": "SEQUENCE",
@@ -1400,7 +1952,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "what a telescope records includes everything the light passed through on the way"
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Colour and light as evidence of what something is made of",
+        "of": 16
+      }
     },
     {
       "day": 6,
@@ -1408,6 +1965,12 @@ export const CURRICULUM = {
       "scene": "The draft notice names what the rock is made of. One spectrum backs it. Next door the deflection team is sizing a spacecraft from the weight that class implies.",
       "takeaway": "Ask for evidence that could disagree with you, not for a firmer label.",
       "place": "Composition Review Room",
+      "guide": "Four options, and there is one spectrum, taken at one angle, at one point in the spin. Ask of each whether it repeats what has been done or brings something new. Another spectrum the same way can repeat the same mistake. Next door somebody is sizing a spacecraft from this, so what is wanted is something that could rule a mix out.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The draft notice names what the rock is made of. One spectrum backs it. Next door the deflection team is sizing a spacecraft from the weight that class implies.",
       "game": {
         "type": "CHOICE",
@@ -1473,7 +2036,15 @@ export const CURRICULUM = {
           ],
           "s": "A tiny change in speed moves an object hardly at all in a week and a long way in ten years, so the same push is worth far more the earlier it is given."
         }
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Rotation, and a pattern that repeats in a measurement",
+        "of": 16,
+        "rests": [
+          "Repeated measurements and their average"
+        ]
+      }
     },
     {
       "day": 7,
@@ -1481,6 +2052,11 @@ export const CURRICULUM = {
       "scene": "The dish sent a pulse, and the echo came back four seconds later. The characterisation team needs a distance before the next run starts.",
       "takeaway": "An echo becomes a distance once you know the speed and the time.",
       "place": "Coordination Office",
+      "guide": "Five numbers, and two belong to other questions. The years to the encounter, and that night's seeing. Ask of each whether this distance needs it. And note the two in the sum. The pulse went out and came back, so the time covers the trip twice. Forgetting that doubles the answer.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The dish sent a pulse, and the echo came back four seconds later. The characterisation team needs a distance before the next run starts.",
       "game": {
         "type": "BALLPARK",
@@ -1538,7 +2114,15 @@ export const CURRICULUM = {
           ],
           "s": "A radar pulse travels out and back at a known speed, so the time it takes gives the distance — halved, because it went twice."
         }
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Radar: distance from an echo, using speed and time",
+        "of": 16,
+        "rests": [
+          "Position, time and speed: how fast something moves across the sky"
+        ]
+      }
     },
     {
       "day": 8,
@@ -1546,6 +2130,12 @@ export const CURRICULUM = {
       "scene": "The arrival speed in the briefing has just doubled after a new tracking run. The energy in that briefing came from the old speed, and it is read out in an hour.",
       "takeaway": "A quantity that appears twice in a rule moves the answer much further than one that appears once.",
       "place": "Coordination Office",
+      "guide": "Four options, and only the speed has changed. Ask of each how many times the speed enters the energy. Twice the speed gives twice the momentum and more than twice the energy. One option talks about the air, and one about the crater. Neither of those is the question. The briefing goes out in an hour.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The arrival speed in the briefing has just doubled after a new tracking run. The energy in that briefing came from the old speed, and it is read out in an hour.",
       "game": {
         "type": "CHOICE",
@@ -1611,7 +2201,15 @@ export const CURRICULUM = {
           ],
           "s": "Doubling the mass doubles the energy; doubling the speed multiplies it by four, which is why speed is the number that matters most."
         }
-      ]
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Impact energy: mass and speed, and why speed matters more",
+        "of": 16,
+        "rests": [
+          "Position, time and speed: how fast something moves across the sky"
+        ]
+      }
     },
     {
       "day": 9,
@@ -1619,6 +2217,12 @@ export const CURRICULUM = {
       "scene": "The range of harm runs from one region to a whole continent. Every part of that range comes from a measurement. There is time to improve one of them.",
       "takeaway": "Improve the measurement that carries the most error into the answer, not the one that is easiest to repeat.",
       "place": "Emergency Planning Office",
+      "guide": "Four options, and every part of that range came from a measurement. Ask of each how strongly it feeds the energy. Weight grows with width three times over, so a small error in width is a big error in weight. The speed goes in twice. And one option refuses to narrow anything at all.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The range of harm runs from one region to a whole continent. Every part of that range comes from a measurement. There is time to improve one of them.",
       "game": {
         "type": "CHOICE",
@@ -1684,7 +2288,16 @@ export const CURRICULUM = {
           ],
           "s": "A radar pulse travels out and back at a known speed, so the time it takes gives the distance — halved, because it went twice."
         }
-      ]
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Choosing the measurement that tells two explanations apart",
+        "of": 16,
+        "rests": [
+          "Size and albedo: two explanations for one brightness",
+          "Uncertainty as a range, not a mistake"
+        ]
+      }
     },
     {
       "day": 10,
@@ -1692,6 +2305,12 @@ export const CURRICULUM = {
       "scene": "The regional team is round one table. The wall shows the newest corridor, the likely damage area and the time left. Today they choose what to do.",
       "takeaway": "You can prepare in stages without ever claiming to be certain.",
       "place": "Risk Communication Center",
+      "guide": "Four states of the evidence, and four things to do. Pair them by asking three questions. How bad would it be? How long is left? And can the action be undone? Cheap, undoable things suit a long wait. Ordering people to move suits having run out of time. And saying so in public is what makes the next warning believed.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If three lines are right, the fourth response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
       "story": "The regional team is round one table. The wall shows the newest corridor, the likely damage area and the time left. Today they choose what to do.",
       "game": {
         "type": "PROTOCOL",
@@ -1733,7 +2352,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a reversible action can be undone afterwards; an irreversible one cannot"
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Deciding what to tell people, and when",
+        "of": 16,
+        "rests": [
+          "Uncertainty as a range, not a mistake",
+          "Choosing the measurement that tells two explanations apart"
+        ]
+      }
     },
     {
       "day": 11,
@@ -1741,6 +2369,11 @@ export const CURRICULUM = {
       "scene": "The emergency office needs a number to plan against. It has the people living inside the corridor. It has today's chance of impact. And it has a form to fill in.",
       "takeaway": "A small share of a very large number is still a number somebody has to plan for.",
       "place": "Emergency Management Office",
+      "guide": "Five numbers, and three belong to other sums. The biggest city, the earlier chance, and the paths that hit. Ask of each whether this one needs it. A share of a whole means multiplying, once the share is written as a decimal. What comes out is a planning figure, not a number of people who will really move.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The emergency office needs a number to plan against. It has the people living inside the corridor. It has today's chance of impact. And it has a form to fill in.",
       "game": {
         "type": "BALLPARK",
@@ -1778,7 +2411,15 @@ export const CURRICULUM = {
           ],
           "s": "A percentage is a share out of a hundred, so it has to become a decimal before anything is multiplied by it."
         }
-      ]
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Ratios and unit rates in a measurement",
+        "of": 16,
+        "rests": [
+          "Position, time and speed: how fast something moves across the sky"
+        ]
+      }
     },
     {
       "day": 12,
@@ -1786,34 +2427,50 @@ export const CURRICULUM = {
       "scene": "Five orbit updates are queued. Planners can still prepare without moving anybody. Both planning and supplies take time, and the thresholds have to be set before the stream starts.",
       "takeaway": "A rule written before the numbers arrive is the only rule the numbers cannot bend.",
       "place": "Scientific Advisory Board",
+      "guide": "One rule, written before the next updates arrive. Once the board is released the number cannot change. Starting the planning cell takes two days from the moment it is called, and the last update arrives with no time left at all. So your line has to be crossed early enough for those two days to fit — and not so early that a cell is started for an object that was never going to matter.",
+      "background": [
+        "Why set the rules first. The updates arrive one after another, each one changing the odds a little. A threshold changed while they come in is just a description of what somebody already decided, and it cannot be explained afterwards to the people who acted on it.",
+        "Why two numbers rather than one. Writing a plan takes weeks. Moving supplies takes days, and needs the plan to exist first. One threshold set for the slow job fires far too early for the fast one, and set for the fast one leaves no time to plan.",
+        "What preparing without panic buys. Preparation can be undone cheaply. Evacuating people cannot. Good thresholds keep the cheap actions available long enough that the expensive one never becomes the only one left."
+      ],
       "story": "Five orbit updates are queued. Planners can still prepare without moving anybody. Both planning and supplies take time, and the thresholds have to be set before the stream starts.",
       "game": {
         "type": "TRIGGER",
         "title": "Prepare without panic",
         "setup": "Scientific Advisory Board",
-        "play": "Set the threshold for each stage before the updates arrive, then release the stream.",
-        "task": "Set the threshold for each stage before the updates arrive, then release the stream.",
-        "question": "Which thresholds still leave enough time for planning and for moving supplies?",
-        "answer": "Set planning near 0.25 per cent and supplies near 0.75 per cent, before the stream runs. Both then fire with time still in hand. Waiting for the last update at 1.4 per cent leaves none.",
+        "play": "Set the threshold before the updates arrive, then release the stream.",
+        "task": "Set the threshold before the updates arrive, then release the stream.",
+        "question": "At what impact probability do you start up the regional planning cell, when it takes two days?",
+        "answer": "Start it near 0.2 per cent. It fires on the 0.35 per cent update with 72 hours left, which covers the two days the cell needs. The 0.8 per cent update arrives with 24 hours and the last one with none.",
         "why": "A threshold is a decision made before the next number lands. Preparation takes time, so an action that is right can still be useless if it starts too late. Setting the rule first also stops every new number being judged by a new standard. Early thresholds go on things that can be undone. Later ones go on the things that cost more. None of it pretends the chance is certain.",
         "trigger": {
           "scale": {
-            "label": "Campaign impact-probability update",
-            "unit": "% impact probability",
+            "label": "Impact probability",
+            "unit": "%",
             "min": 0,
             "max": 2,
-            "step": 0.02
+            "step": 0.02,
+            "anchors": [
+              {
+                "at": 0.11,
+                "means": "about one chance in 900 — the quiet end of the list"
+              },
+              {
+                "at": 1.4,
+                "means": "one chance in 70, and the corridor crosses where people live"
+              }
+            ]
           },
+          "direction": "rising",
           "conditions": [
             {
               "id": "planning",
               "label": "Activate regional planning cell",
-              "leadHours": 48
-            },
-            {
-              "id": "preposition",
-              "label": "Pre-position transport and medical resources",
-              "leadHours": 24
+              "leadHours": 48,
+              "window": {
+                "min": 0.15,
+                "max": 0.4
+              }
             }
           ],
           "stream": [
@@ -1848,7 +2505,33 @@ export const CURRICULUM = {
               "hoursLeft": 0
             }
           ],
-          "hint": "Write both action thresholds before releasing the next orbit updates. The first action needs two days of lead time; the second needs one. A rule that triggers after its operational lead time is gone does not count as a successful plan.",
+          "rehearsal": {
+            "note": "the last object watched at this range",
+            "stream": [
+              {
+                "value": 0.09,
+                "hoursLeft": 168
+              },
+              {
+                "value": 0.14,
+                "hoursLeft": 120
+              },
+              {
+                "value": 0.22,
+                "hoursLeft": 72
+              },
+              {
+                "value": 0.15,
+                "hoursLeft": 24
+              },
+              {
+                "value": 0.05,
+                "hoursLeft": 0
+              }
+            ]
+          },
+          "objective": "The planning cell is running while there is still time to use it.",
+          "hint": "Write the threshold before releasing the updates. The cell takes two days to start, so a rule firing with less than that has called something that cannot happen.",
           "release": "Release the board",
           "commit": "Stand by the board"
         }
@@ -1877,14 +2560,152 @@ export const CURRICULUM = {
           ],
           "s": "A percentage is a share out of a hundred, so it has to become a decimal before anything is multiplied by it."
         }
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Deciding what to tell people, and when",
+        "of": 16,
+        "rests": [
+          "Uncertainty as a range, not a mistake",
+          "Choosing the measurement that tells two explanations apart"
+        ]
+      }
     },
     {
       "day": 13,
+      "title": "What the telescope is chasing tonight",
+      "scene": "The target list runs all night. One priority says which to observe, and whoever has the desk changes it as the night goes on.",
+      "takeaway": "A rule that has changed costs most when the chance does not come back.",
+      "place": "Operations Hut",
+      "guide": "Observe what the priority asks for and leave the rest on the list. The board changes during the night and nobody announces it. What counts is the targets either side of a change, because a target that has set cannot be brought back.",
+      "background": [
+        "Why the priority changes. A new object nobody has tracked yet is the most urgent thing on any night, until enough measurements exist to predict where it goes. Then it becomes whatever is setting soonest, because a target below the horizon cannot be observed at all.",
+        "Why a missed target is different from other mistakes. Most work can be done tomorrow. An object low in the sky is up for an hour a night for two weeks, and then not for a year."
+      ],
+      "story": "The target list runs all night. One priority says which to observe, and whoever has the desk changes it as the night goes on.",
+      "game": {
+        "type": "SPOT",
+        "title": "What the telescope is chasing tonight",
+        "setup": "Operations Hut",
+        "play": "Observe what the priority asks for.",
+        "task": "Observe what the priority asks for.",
+        "question": "Observe to the priority on the board, and keep checking the board.",
+        "answer": "Read the board, not the list. Every change leaves a few minutes when the old priority still looks like tonight's.",
+        "why": "Three priorities run across the night and each wants different targets. Anything nobody has tracked yet, then anything setting soon, then anything with a deadline. A target can match two at once, and that is what makes a change cost something. What the panel scores is the targets either side of a change. Most of the list is wanted by neither priority, so leaving those alone proves nothing. This is the case where the cost is highest, because the sky does not wait. An object low in the west is up for an hour a night for a fortnight, and a telescope spent on the last hour's priority adds a year to somebody's orbit.",
+        "spot": {
+          "targets": [
+            {
+              "id": "o1",
+              "label": "New object, few points",
+              "tags": [
+                "new"
+              ]
+            },
+            {
+              "id": "o2",
+              "label": "Setting within the hour",
+              "tags": [
+                "setting"
+              ]
+            },
+            {
+              "id": "o3",
+              "label": "New object, setting soon",
+              "tags": [
+                "new",
+                "setting"
+              ]
+            },
+            {
+              "id": "o4",
+              "label": "Due by Friday",
+              "tags": [
+                "deadline"
+              ]
+            },
+            {
+              "id": "o5",
+              "label": "Well known, high up",
+              "tags": [
+                "routine"
+              ]
+            },
+            {
+              "id": "o6",
+              "label": "Deadline, setting soon",
+              "tags": [
+                "deadline",
+                "setting"
+              ]
+            },
+            {
+              "id": "o7",
+              "label": "Routine measurement",
+              "tags": [
+                "routine"
+              ]
+            },
+            {
+              "id": "o8",
+              "label": "New object, deadline",
+              "tags": [
+                "new",
+                "deadline"
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "say": "Anything nobody has tracked yet",
+              "want": [
+                "new"
+              ]
+            },
+            {
+              "say": "Anything setting soon",
+              "want": [
+                "setting"
+              ]
+            },
+            {
+              "say": "Anything with a deadline",
+              "want": [
+                "deadline"
+              ]
+            }
+          ],
+          "duration": 40,
+          "switchEvery": 12,
+          "pass": 0.75,
+          "hint": "The priority is on the desk board and changes without warning.",
+          "commit": "Open the list"
+        }
+      },
+      "assumes": [
+        "an object can only be observed when it is above the horizon"
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Deciding what to tell people, and when",
+        "of": 16,
+        "rests": [
+          "Uncertainty as a range, not a mistake",
+          "Choosing the measurement that tells two explanations apart"
+        ]
+      }
+    },
+    {
+      "day": 14,
       "title": "What each claim has earned",
       "scene": "The board has to publish one account of an eight-year campaign. The four claims in front of it rest on very different evidence. Whoever runs the next one will read it.",
       "takeaway": "Different claims in one document have earned different amounts of confidence.",
       "place": "International Review Hall",
+      "guide": "Four claims and four things to do about them. Pair them by asking what state each claim is in. Settled? Still open? Out of date? Or bigger than this rock? Giving four different states the same confidence is how a report stops being trusted. Whoever runs the next campaign reads this one.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If three lines are right, the fourth response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
       "story": "The board has to publish one account of an eight-year campaign. The four claims in front of it rest on very different evidence. Whoever runs the next one will read it.",
       "game": {
         "type": "PROTOCOL",
@@ -1926,14 +2747,29 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a conclusion is only as strong as the evidence under it"
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Independent checks: a second method that could disagree",
+        "of": 16,
+        "rests": [
+          "Telling a real object from an artefact, by repeating the observation",
+          "Choosing the measurement that tells two explanations apart"
+        ]
+      }
     },
     {
-      "day": 14,
+      "day": 15,
       "title": "What survives the success",
       "scene": "The threat is gone, and so is most of the budget. The search still misses parts of the sky, and two follow-up sites lose their funding at the end of the year.",
       "takeaway": "The lasting defence is a system that can find, learn, decide and act again.",
       "place": "Mission Operations",
+      "guide": "Four options, and the threat is gone along with most of the money. Ask of each what it does to warning time. Finding a rock earlier buys nights for the path, time for the size, and years for a small nudge to work. Nothing later can give back time that was never bought.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The threat is gone, and so is most of the budget. The search still misses parts of the sky, and two follow-up sites lose their funding at the end of the year.",
       "game": {
         "type": "CHOICE",
@@ -1999,7 +2835,16 @@ export const CURRICULUM = {
           ],
           "s": "A tiny change in speed moves an object hardly at all in a week and a long way in ten years, so the same push is worth far more the earlier it is given."
         }
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Deciding what to tell people, and when",
+        "of": 16,
+        "rests": [
+          "Uncertainty as a range, not a mistake",
+          "Choosing the measurement that tells two explanations apart"
+        ]
+      }
     }
   ]
 };

@@ -425,9 +425,18 @@ function yieldToPlayer(n, px, pz){
  */
 let wantedIds = new Set();
 let sinceWanted = 1;
+// A warm-up run turns the day's own markers off. The cone over somebody's head
+// means "today wants a word with you", and during a GREET or a FOLLOW it is
+// pointing at a person who has nothing to do with the run — two sets of
+// instructions in one street, in the one part of the day that exists to teach
+// the player how to read the place. The cone is the only thing in these games
+// allowed to draw through walls, so leaving it up during a run is louder than
+// anything the run itself puts on screen.
+let suppressWanted = false;
+export function setWantedMarkers(on){ suppressWanted = !on; }
 function refreshWanted(){
   const state = getState?.();
-  if(!state){ wantedIds = new Set(); return; }
+  if(!state || suppressWanted){ wantedIds = new Set(); return; }
   const next = new Set();
   try{
     for(const i of openStopIndices(state)){
@@ -491,6 +500,12 @@ export function updateCrowd(delta, t){
  * where it is going before the legs are asked to take it there.
  */
 function walk(n, delta, t){
+  // Somebody a world format has taken over. FOLLOW's guide and EVADE's pursuer
+  // are people who already stand in this crowd with a body, a nameplate and a
+  // collider, and the run drives them directly — see worldFormats.js takeOver.
+  // Building a second figure instead would mean a second look drawn from the
+  // world's own seeded generator, which moves every later draw.
+  if(n.scripted) return;
   // Somebody standing inside a collider cannot walk out of it: every step from
   // in there is blocked too. Check where they are, not only where they head.
   if(ctx.blocked?.(n.pos.x, n.pos.z, 0.15)){

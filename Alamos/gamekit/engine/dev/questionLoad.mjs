@@ -26,6 +26,11 @@
 //      is genuinely eleventh-grade work; a campaign may carry a few, and when
 //      most of the campaign is that, the game is a senior-high game in plain
 //      words.
+//   5. A size on the board each of those stops puts up. The budget in 4 counts
+//      instruments; this measures one. Sweeping the nine editions against the
+//      games they were derived from found 37 of 38 boards identical in size to
+//      their AP parents — the prose came down four grades and the bookkeeping
+//      did not move at all. See BOARD below.
 //
 // WHAT IT CANNOT SEE. Whether the science is familiar, whether a day depends on
 // the day before it, whether a number means anything to a child. Those still
@@ -57,6 +62,11 @@ const LIMITS = {
   demandingPerDay: 1,
   demandingFirstDay: 3, // nothing that asks for judgement before this day
   equationsPerStop: 1,  // a stop teaches one relationship, not a chain of them
+  chainPath: 5,         // links a CHAIN makes the player put in exact order
+  chainBank: 6,         // cards on its board at once — the path plus its decoys
+  exactWidth: 4,        // things on a board graded as an exact subset — each list
+  pickWidth: 6,         // things on a board you compare and choose one of
+  matchWidth: 3,        // rows on a board graded as one exact permutation
 };
 
 // How many distinct equations a stop's `relationship` line declares. Written as
@@ -119,13 +129,123 @@ const isJudgement = (s) => JUDGEMENT.some(re => re.test(String(s ?? '')));
 /** Canonical challenge kind — the books write "Science Tank", "SEQUENCE". */
 const kindOf = (ch) => String(ch?.type ?? '').toUpperCase().replace(/[\s_-]+/g, '');
 
+/**
+ * HOW BIG THE BOARD IS, which is the load a reading score and a format budget
+ * both miss.
+ *
+ * `DEMANDING_FORMATS` above rations *how many* instruments a junior campaign
+ * carries. It says nothing about how large any one of them is, and the answer
+ * turned out to be: exactly as large as its AP parent. Sweeping the nine
+ * grade-6 editions against the games they were derived from, **37 of 38
+ * instrument boards are identical in size** — same channels, same claims, same
+ * options. `tools/derive-edition.mjs` rewrites the prose and copies the board,
+ * and nothing looked at the board, so nine editions came down four reading
+ * grades with an eleventh-grade amount of bookkeeping still on the screen.
+ *
+ * Bring Them Home's grade-6 TRACE is the worked example: five channels, four
+ * sources, name one source AND tick exactly two of the five — 128 combinations,
+ * graded all-or-nothing, byte-identical to the twelfth-grade version.
+ *
+ * TWO WIDTHS, because two kinds of board ask different things.
+ *
+ *   `exact: true`  — the panel accepts one subset out of 2^n and gives no
+ *      feedback until commit, so every item's status has to be held at once.
+ *      Same argument as `optionWords`, which exists because four options have
+ *      to be held in mind together. Four items — and four in the second list
+ *      too, where the format has one, because naming the shared source is the
+ *      same kind of choice as picking an option.
+ *   `exact: false` — you compare the items and pick one, or the panel tells you
+ *      live where you stand (ALLOCATE's answers list goes dark as the pool runs
+ *      out). That is a comparison, and a comparison narrows as you work, so it
+ *      carries a wider board.
+ *
+ * CHAIN is absent on purpose: it has `chainPath` and `chainBank` above, which
+ * measure a permutation rather than a subset. So are FLY, VERIFY, TRIGGER and
+ * SWEEP — a slider is one decision however far it travels.
+ */
+/** n! — the arrangements a match board admits, and it accepts exactly one. */
+const arrangements = (n) => (n > 0 ? Array.from({ length: n }, (_, i) => i + 1).reduce((a, b) => a * b, 1) : 0);
+
+const matchBoard = (q) => {
+  const n = (q.scenarios ?? q.cards ?? []).length;
+  return { exact: true, width: LIMITS.matchWidth, permutation: true,
+    items: n, itemsAre: 'rows to join', space: arrangements(n),
+    graded: ['join every row to the right one, with none of them right on their own'] };
+};
+
+const BOARD = {
+  TRACE: (q) => { const t = q.trace ?? {}; const ch = (t.channels ?? []).length;
+    const src = (t.resources ?? []).length;
+    return { exact: true, items: ch, itemsAre: 'channels', sources: src, sourcesAre: 'sources',
+      space: src && ch ? src * 2 ** ch : 0,
+      graded: ['name the shared source', `tick exactly the ${(t.independent ?? []).length} that survive`] }; },
+  ATTEST: (q) => { const n = (q.attest?.claims ?? []).length;
+    return { exact: true, items: n, itemsAre: 'claims', space: n ? 2 ** n : 0,
+      graded: ['hold exactly the critical claims the evidence does not back'] }; },
+  VALUE: (q) => { const n = (q.value?.options ?? []).length;
+    return { exact: true, items: n, itemsAre: 'options', space: n ? 2 ** n : 0,
+      graded: ['buy every decisive option and nothing that is merely reassuring'] }; },
+  // PROTOCOL and CASEBOOK — the match board, and the third width.
+  //
+  // They were the hole this table had, and it is the same hole one level in that
+  // the instrument budget had: CASEBOOK is in DEMANDING_FORMATS, so it was
+  // *counted* against the judgement budget and never *measured*, and PROTOCOL was
+  // in neither list. 118 stops across the catalogue join four rows or more, 32 of
+  // them in the nine grade-6 editions.
+  //
+  // A permutation is not a subset and it needs its own number. Four rows admit 4!
+  // = 24 arrangements against the 2^4 = 16 subsets that are already the limit for
+  // a TRACE, and `bindCasebook` grades `picked.every((v, i) => v === mapping[i])`
+  // — one accepted arrangement, no partial credit, no feedback until commit. So
+  // three rows, which is six arrangements and comfortably inside a TRACE's
+  // sixteen.
+  //
+  // Three is a limit and not a ban, which is the test the composite count failed:
+  // the importer floors a PROTOCOL at two situations and a CASEBOOK at none, so
+  // every junior board can satisfy this by dropping one row. Above grade 8 it
+  // does not apply at all, and 4-of-4 stays what an AP stop asks for.
+  //
+  // A CASEBOOK carrying `proposals` is a SCIENCETANK on a different panel — it is
+  // graded on a share, not on an arrangement — so it is not this board at all.
+  PROTOCOL: (q) => matchBoard(q),
+  CASEBOOK: (q) => (q.proposals ? { exact: false, items: 0 } : matchBoard(q)),
+  // SEQUENCE is the same number wearing a different panel, and leaving it out
+  // would have made this whole rule an escape hatch.
+  //
+  // `bindOrder` grades `chosen.every((v, i) => v === ch.order[i])` — the identical
+  // all-or-nothing test `bindCasebook` uses, over the identical n! arrangements. So
+  // a ladder-shaped PROTOCOL converted to a four-card SEQUENCE, which is the right
+  // MECHANIC for an ordered answer, moves 24 arrangements from a format this table
+  // measures to one it did not, turns the gate green, and makes nothing easier. A
+  // limit that can be satisfied by renaming the format is not a limit.
+  //
+  // Three is the importer's own floor for the format (`need(n >= 3, 'sequence needs
+  // at least three cards')`), so the limit sits exactly ON the minimum rather than
+  // under it — an ordering is still allowed below grade 9, at the smallest size the
+  // format admits. Below that it would be a ban, which is the test the composite
+  // count failed.
+  SEQUENCE: (q) => ({ exact: true, width: LIMITS.matchWidth, permutation: true,
+    items: (q.cards ?? []).length, itemsAre: 'cards to order',
+    space: arrangements((q.cards ?? []).length),
+    graded: ['put every card in the one accepted order, with none of them right on their own'] }),
+  ALLOCATE: (q) => ({ exact: false, items: (q.allocate?.items ?? []).length, itemsAre: 'items' }),
+  TRIANGULATE: (q) => ({ exact: false, items: (q.triangulate?.stations ?? []).length, itemsAre: 'stations' }),
+  RESIDUAL: (q) => ({ exact: false, items: (q.residual?.fits ?? []).length, itemsAre: 'candidate fits' }),
+  INJECT: (q) => ({ exact: false, items: (q.inject?.configs ?? []).length, itemsAre: 'configurations' }),
+  STRESS: (q) => ({ exact: false, items: (q.stress?.candidates ?? []).length, itemsAre: 'candidates' }),
+  PROPAGATE: (q) => ({ exact: false, items: (q.propagate?.terms ?? []).length, itemsAre: 'terms' }),
+  DELEGATE: (q) => ({ exact: false, items: (q.delegate?.problems ?? []).length, itemsAre: 'problems' }),
+  CONTROL: (q) => ({ exact: false, items: (q.control?.variables ?? []).length, itemsAre: 'variables' }),
+  DEGENERACY: (q) => ({ exact: false, items: (q.degeneracy?.controls ?? []).length, itemsAre: 'controls' }),
+};
+
 const words = (s) => String(s ?? '').trim().split(/\s+/).filter(Boolean).length;
 
 /**
  * Every gate, over one campaign's content. Split out from the theme loop so
  * `--selftest` can run it on fixtures: a checker nobody has watched fail is the
  * thing that produced this whole mess.
- * @returns {{problems: string[], notes: string[], demanding: string[], stops: number}}
+ * @returns {{problems: string[], notes: string[], advice: string[], demanding: string[], stops: number}}
  */
 export function analyse({ CURRICULUM = {}, MISSIONS = [], ROSTER = [], BALLPARK_CALCS = {} }) {
   const CALCS = BALLPARK_CALCS;
@@ -134,6 +254,10 @@ export function analyse({ CURRICULUM = {}, MISSIONS = [], ROSTER = [], BALLPARK_
 
   const problems = [];
   const notes = [];
+  // Things worth a person's eye that are not a limit anybody set. They print
+  // whether or not the campaign passes, because a campaign that passes is
+  // exactly where an unmeasured cost hides.
+  const advice = [];
   const lessonOf = (stop) => (CURRICULUM[stop.group] ?? [])[stop.lesson] ?? null;
 
   // ------------------------------------------------------------ per stop
@@ -186,6 +310,81 @@ export function analyse({ CURRICULUM = {}, MISSIONS = [], ROSTER = [], BALLPARK_
           if (n > LIMITS.optionWords) {
             problems.push(`${at}: ${key} ${k + 1} is ${n} words — four of these have to be held in mind at once (limit ${LIMITS.optionWords})`);
           }
+        }
+      }
+
+      // 2b. the chain board.
+      //
+      // A CHAIN is graded on an exact permutation, so its load is the length of
+      // the path and not the reading level of any card on it — six links is 720
+      // orders where five is 120, and the panel accepts one. Written after a
+      // sixth grader stopped on a five-link one; that stop's real defects were
+      // in the panel (the bank printed a link's name and not what it carried,
+      // and nothing came back off the rail once placed), but nothing measured
+      // the size of the board either, so both editions running six-link paths
+      // were invisible. `links` is the bank and may hold up to two decoys the
+      // path does not use, which are cards to weigh even though they are never
+      // placed — so the two are counted separately.
+      if (kindOf(q) === 'CHAIN') {
+        const c = q.chain ?? {};
+        const path = (c.order ?? []).length;
+        const bankN = (c.links ?? []).length;
+        if (path > LIMITS.chainPath) {
+          problems.push(`${at}: the chain is ${path} links long and graded on the exact order — ${LIMITS.chainPath} is the limit at this level`);
+        }
+        if (bankN > LIMITS.chainBank) {
+          problems.push(`${at}: the chain board holds ${bankN} cards (${path} in the path, ${bankN - path} decoy(s)) — ${LIMITS.chainBank} is the limit at this level`);
+        }
+        // A card reads as its name and what it carries, together, because that
+        // is what the bank prints and what the ordering decision is made from.
+        for (const [k, link] of (c.links ?? []).entries()) {
+          const n = words(`${link?.label ?? ''} ${link?.transfers ?? ''}`);
+          if (n > LIMITS.optionWords) {
+            problems.push(`${at}: chain card ${k + 1} ("${link?.label ?? ''}") reads ${n} words with what it transfers — the whole board has to be held in mind at once (limit ${LIMITS.optionWords})`);
+          }
+        }
+      }
+
+      // 2c. the instrument board — see BOARD above for why two widths.
+      const board = BOARD[kindOf(q)]?.(q);
+      if (board && board.items) {
+        const width = board.width ?? (board.exact ? LIMITS.exactWidth : LIMITS.pickWidth);
+        const kind = kindOf(q);
+        if (board.items > width) {
+          const how = board.permutation
+            ? ', graded as one exact permutation with no feedback until commit'
+            : board.exact ? ', graded as an exact subset with no feedback until commit' : '';
+          problems.push(`${at}: the ${kind} board carries ${board.items} ${board.itemsAre}`
+            + `${how} — ${width} is the limit at this level`);
+        }
+        if (board.sources && board.sources > LIMITS.exactWidth) {
+          problems.push(`${at}: the ${kind} board offers ${board.sources} ${board.sourcesAre}`
+            + ` to choose between — ${LIMITS.exactWidth} is the limit at this level`);
+        }
+        // The combination count is REPORTED, not limited.
+        //
+        // It was a limit for one revision, at 32, and that was wrong twice over.
+        // A composite of two lists is a number nobody authored and cannot aim
+        // at; and the importer floors a TRACE at four channels, so 2^4 subsets
+        // times any real source list is already 48 or more. A limit the
+        // format's own minimum cannot satisfy is not a limit, it is a ban on
+        // the format below grade 9 — which is the opposite of the finding.
+        // Both widths are capped above; this line is what those two mean
+        // together, for a person reading the report.
+        if (board.space) {
+          advice.push(`${at}: the ${kind} board admits ${board.space} combinations`
+            + ` (${board.items} ${board.itemsAre}`
+            + `${board.sources ? ` × ${board.sources} ${board.sourcesAre}` : ''})`
+            + ` and the panel takes one`);
+        }
+        // Conjunctive grading is reported rather than limited, because CHAIN and
+        // ROUTE are two-part by construction and banning it would ban them. What
+        // it costs is partial credit: a child who names the shared source and
+        // keeps one channel too many is marked exactly like one who understood
+        // nothing, and the verdict cannot tell them apart either.
+        if ((board.graded ?? []).length > 1) {
+          advice.push(`${at}: ${kind} is graded on ${board.graded.length} things at once`
+            + ` (${board.graded.join('; ')}) — right on one and wrong on the other scores as wrong`);
         }
       }
 
@@ -244,7 +443,7 @@ export function analyse({ CURRICULUM = {}, MISSIONS = [], ROSTER = [], BALLPARK_
     notes.push(`${demanding.length} of ${stops} demanding stops (${(share * 100).toFixed(0)}%)`);
   }
 
-  return { problems, notes, demanding, stops };
+  return { problems, notes, advice, demanding, stops };
 }
 
 let failed = 0;
@@ -307,7 +506,7 @@ for (const name of selftest ? [] : wanted) {
   const { normalizeContent } = await import('../content/normalize.js');
   normalizeContent(content);
 
-  const { problems, notes, demanding } = analyse(content);
+  const { problems, notes, advice, demanding } = analyse(content);
 
   // An edition is held to this; a game written for its audience from scratch is
   // only advised. The gate was built after nine editions had shipped, and
@@ -329,6 +528,7 @@ for (const name of selftest ? [] : wanted) {
   } else {
     console.log(`\n✓ ${name} (grade ${grade}): the questions are as small as the sentences${notes.length ? ' — ' + notes.join(', ') : ''}`);
   }
+  advice.forEach(a => console.log('  · ' + a));
 }
 
 // ---------------------------------------------------------------- selftest
@@ -398,11 +598,109 @@ if (selftest) {
     },
   };
 
+  /**
+   * A CHAIN the size the shipped editions ship: five links, every card short.
+   * It is in the good fixture on purpose — the limit is five, and a gate that
+   * fires at the limit is a gate that would have banned every chain in the repo.
+   */
+  const chainOk = {
+    title: 'Follow the air',
+    scene: 'Reyes shows you the meter.',
+    game: {
+      type: 'CHAIN',
+      question: 'Where does the air path become the problem?',
+      chain: {
+        links: [
+          { id: 'a', label: 'Cabin intake', transfers: 'cabin air into the loop' },
+          { id: 'b', label: 'Fan', transfers: 'pressure rise to the moving air' },
+          { id: 'c', label: 'Filter', transfers: 'air through the barrier' },
+          { id: 'd', label: 'Sorbent bed', transfers: 'carbon dioxide out of the air' },
+          { id: 'e', label: 'Return duct', transfers: 'treated air back to the cabin' },
+        ],
+        order: ['a', 'b', 'c', 'd', 'e'], governing: 'c', distractor: 'b',
+      },
+    },
+  };
+  /** One link longer, one decoy over, and one card that is a sentence. */
+  const chainBig = {
+    title: 'Follow all of the air',
+    scene: 'Reyes shows you the meter.',
+    game: {
+      type: 'CHAIN',
+      question: 'Where does the air path become the problem?',
+      chain: {
+        links: [
+          ...chainOk.game.chain.links,
+          { id: 'f', label: 'Cross-tie duct', transfers: 'air to the other loop' },
+          { id: 'g', label: 'The layer is buried and begins to compact', transfers: 'load from everything above it, squeezing the pore space smaller' },
+        ],
+        order: ['a', 'b', 'c', 'd', 'e', 'f'], governing: 'c', distractor: 'b',
+      },
+    },
+  };
+
+  /**
+   * A TRACE the size a sixth grader can hold: three channels, three sources,
+   * one of them independent. It is in a passing fixture on purpose — the whole
+   * point of the board gate is that TRACE is *allowed* at this level, and a
+   * gate that fires on every instance would read as "no instruments below
+   * grade 9", which is not the finding.
+   */
+  const traceOk = {
+    title: 'One clock, or really off course',
+    scene: 'Reyes shows you the two readings.',
+    game: {
+      type: 'TRACE',
+      question: 'Which measurement stands on its own?',
+      trace: {
+        channels: [
+          { id: 'a', label: 'Range', reading: 'ahead', depends: ['path', 'clock'] },
+          { id: 'b', label: 'Doppler', reading: 'ahead', depends: ['path', 'clock'] },
+          { id: 'c', label: 'Star camera', reading: 'as predicted', depends: ['path', 'stars'] },
+        ],
+        resources: [{ id: 'path', label: 'Where it is' }, { id: 'clock', label: 'The ground clock' },
+          { id: 'stars', label: 'The stars' }],
+        target: 'clock', independent: ['c'],
+      },
+    },
+  };
+  /** The same stop as every edition ships it: the AP board, word for word. */
+  const traceBig = {
+    ...traceOk,
+    title: 'Really off course, or one bad clock?',
+    game: {
+      ...traceOk.game,
+      trace: {
+        ...traceOk.game.trace,
+        channels: [
+          ...traceOk.game.trace.channels,
+          { id: 'd', label: 'Re-timed data', reading: 'ahead', depends: ['path', 'clock'] },
+          { id: 'e', label: 'Onboard sensors', reading: 'no push', depends: ['onboard'] },
+        ],
+        resources: [...traceOk.game.trace.resources, { id: 'onboard', label: 'Its own sensors' },
+          { id: 'sun', label: 'The sun sensor' }],
+        independent: ['c', 'e'],
+      },
+    },
+  };
+  const filler = (n) => ({ ...good, title: `How much air ${n}` });
+  // Three days, because a demanding stop is illegal before day 3 whatever its
+  // size, and the board gate has to be tested without that one firing too.
+  const threeDays = (last) => ({
+    CURRICULUM: { ELEC: [filler(1), filler(2), filler(3), filler(4), last] },
+    MISSIONS: [
+      { title: 'Day one', stops: [stop('ELEC', 0), stop('ELEC', 1)] },
+      { title: 'Day two', stops: [stop('ELEC', 2), stop('ELEC', 3)] },
+      { title: 'Day three', stops: [stop('ELEC', 4)] },
+    ],
+    ROSTER: [person('Reyes')],
+  });
+
   const cases = [
     {
       name: 'a campaign built for the audience',
       content: {
-        CURRICULUM: { ELEC: [good, { ...good, title: 'How far it cooled' }, { ...good, title: 'How much air' }] },
+        CURRICULUM: { ELEC: [good, chainOk, { ...good, title: 'How much air' }] },
         MISSIONS: [{ title: 'Day one', stops: [stop('ELEC', 0), stop('ELEC', 1), stop('ELEC', 2)] }],
         ROSTER: [person('Reyes')],
       },
@@ -411,14 +709,24 @@ if (selftest) {
     {
       name: 'a senior-high campaign in short sentences',
       content: {
-        CURRICULUM: { INTEG: [bad, { ...bad, title: 'Which claims deserve the checks' }, hardMath, smushed] },
-        MISSIONS: [{ title: 'Day one', stops: [stop('INTEG', 0), stop('INTEG', 1), stop('INTEG', 2), stop('INTEG', 3)] }],
+        CURRICULUM: { INTEG: [bad, { ...bad, title: 'Which claims deserve the checks' }, hardMath, smushed, chainBig] },
+        MISSIONS: [{ title: 'Day one', stops: [stop('INTEG', 0), stop('INTEG', 1), stop('INTEG', 2), stop('INTEG', 3), stop('INTEG', 4)] }],
         ROSTER: ['Reyes', 'Okonkwo', 'Vance', 'Lindqvist', 'Sato'].map(person),
       },
       // Every gate has to fire, and the message has to name which one.
       expect: [/operations/, /over 9999/, /under 0.1/, /too large/, /is \d+ words/, /declares 2 equations/,
         /names 4 people/, /people named across its stops/, /2 stops that ask for judgement/,
-        /of 4 stops ask what the evidence licenses/, /before the player has answered anything/],
+        /of \d+ stops ask what the evidence licenses/, /before the player has answered anything/,
+        /chain is 6 links long/, /board holds 7 cards/, /chain card 7 .* reads \d+ words/],
+    },
+    // The board gate, both ways, on the one format the sweep found worst. If
+    // these two ever score the same, the gate has stopped measuring the board
+    // and is measuring the format — which is the mistake it was written to end.
+    { name: 'an instrument board the size of its audience', content: threeDays(traceOk), expect: [] },
+    {
+      name: 'the same instrument at its AP parent\'s size',
+      content: threeDays(traceBig),
+      expect: [/TRACE board carries 5 channels/, /offers 5 sources/],
     },
   ];
 
@@ -427,6 +735,14 @@ if (selftest) {
     const { problems } = analyse(c.content);
     const missed = c.expect.filter(re => !problems.some(p => re.test(p)));
     const spurious = c.expect.length ? [] : problems;
+    // Findings the case did not name. On a fixture that expects nothing they
+    // are failures; on one that expects a list they are printed, because a new
+    // gate quietly adding findings to an existing fixture is how a checker
+    // starts measuring something nobody asked it to.
+    if (c.expect.length && verbose) {
+      problems.filter(p => !c.expect.some(re => re.test(p)))
+        .forEach(p => console.log(`    (also, unnamed by the case) ${p}`));
+    }
     if (missed.length || spurious.length) {
       bad_++;
       console.log(`✗ selftest: ${c.name}`);

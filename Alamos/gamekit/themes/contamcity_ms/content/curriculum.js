@@ -10,6 +10,12 @@ export const CURRICULUM = {
       "scene": "A fire at the freight yard has damaged several unlabelled drums, eighty metres from the river. Three different guesses are already on the radio. Firefighters are choosing what to spray based on whatever you tell them.",
       "takeaway": "A name is a label. A formula says what something is made of, which is what decides how it behaves.",
       "place": "Accident Command Post",
+      "guide": "The left side is four kinds of record. The right side is four things you could say from one. Ask of each record what it really pins down. Which elements? How many of each? What charge? A trade name pins down none of them. Firefighters are choosing what to spray from your answer.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If three lines are right, the fourth response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
       "story": "A freight-yard fire has damaged several unlabelled containers 80 metres from the river, and the shift supervisor's radio traffic is already carrying 3 different guesses about what is in them. A chemical formula is not a name: it states which elements are present, in what whole-number ratio, and what charge the unit carries, and each of those constrains what the substance can do. A subscript or a charge changed makes a different compound with different reactivity, different solubility and a different hazard class. Firefighters are choosing a suppression agent from whatever identity you give them, and some of the wrong answers react with water.",
       "game": {
         "type": "PROTOCOL",
@@ -50,8 +56,23 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "a chemical formula says which elements are in something, and how many of each"
-      ]
+        "a chemical formula says which elements are in something, and how many of each",
+        "dissolving, and why some things dissolve and others do not — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 3,
+          "c": "Dissolving, and why some things dissolve and others do not"
+        }
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Concentration: how much of something is in how much of everything",
+        "of": 16,
+        "rests": [
+          "Dissolving, and why some things dissolve and others do not"
+        ]
+      }
     },
     {
       "day": 2,
@@ -59,6 +80,12 @@ export const CURRICULUM = {
       "scene": "In the mobile laboratory, the first sealed drum sample is on the bench. The markings on the outside are readable now, and opening the drum will scuff them off. Opening it also lets the air above the liquid escape. There is enough liquid for two tests.",
       "takeaway": "Do the tests that cost nothing before the ones that cannot be taken back.",
       "place": "Molecular Identification Lab",
+      "guide": "Every one of these can be done right now. So this is not about time. It is about what you can still do afterwards. Ask what each step uses up. The markings? The air above the liquid? The drops? The sample itself? There is only enough liquid for two tests.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "The containers are now evidence as well as hazard. Identification runs in a fixed order for reasons that are chemical rather than bureaucratic: some observations leave the sample exactly as they found it and can be repeated all week, and some consume the material to produce their answer. A destructive method gives the best identification and gives it once. What is on the outside of the drum survives only until somebody opens it. You are choosing the order in which to spend a sample nobody can go back for.",
       "game": {
         "type": "SEQUENCE",
@@ -95,7 +122,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "some tests leave a sample as they found it, and some use it up"
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Everything is made of matter, and matter comes in solids, liquids and gases",
+        "of": 16
+      }
     },
     {
       "day": 3,
@@ -103,6 +135,12 @@ export const CURRICULUM = {
       "scene": "One drum is leaking into the bund. Nobody knows what the liquid is yet. Adaeze Okonjo needs to know whether it will float on the water already lying there, or sink under it.",
       "takeaway": "Whether something floats is a comparison, not a property: it is heavier or lighter than the same amount of water.",
       "place": "Records and Shipping Office",
+      "guide": "All four options are things you could measure about this liquid. Only one of them decides floating. Floating is about how heavy a litre is, next to a litre of water. Colour and smell tell you other things. So does the amount in the drum. The bund is filling while you decide.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Whether a spilled liquid floats or sinks decides where it goes and which end of the bund matters. A litre of water weighs about a kilogram; a litre of the spill weighs more or less than that, and that single comparison sets the response. A floating layer spreads out and reaches the drain. A sinking one collects at the bottom, which is where the pump inlet sits, and it can be pumped straight into the system somebody is trying to protect.",
       "game": {
         "type": "CHOICE",
@@ -128,7 +166,168 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a litre of water weighs about a kilogram"
-      ]
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Dissolving, and why some things dissolve and others do not",
+        "of": 16,
+        "rests": [
+          "A mixture is things sharing a space without becoming one another"
+        ]
+      }
+    },
+    {
+      "day": 4,
+      "title": "Water helps, or water makes it worse",
+      "scene": "The contractor lifts at four and the yard has to be sorted first. Some of these drums are made safer by water. Others react with water, and a hose is the worst thing that could reach them.",
+      "takeaway": "The usual answer is right for most things and dangerous for a few.",
+      "place": "Container Yard",
+      "guide": "Two bins. Ask what happens when water reaches it. Something that dissolves is made weaker by water. Something that reacts with water makes heat or gas, and then the hose has made things worse.",
+      "background": [
+        "Why this is the first question. Water is what a fire crew has, so water is what usually arrives. For most of a yard that is right, and for a short list it is the worst possible move.",
+        "What reacting looks like. Heat, sometimes enough to boil the water. Gas coming off that was not there before. Both happen in seconds and neither can be undone."
+      ],
+      "story": "The contractor lifts at four and the yard has to be sorted first. Some of these drums are made safer by water. Others react with water, and a hose is the worst thing that could reach them.",
+      "game": {
+        "type": "BELT",
+        "title": "Water helps, or water makes it worse",
+        "setup": "Container Yard",
+        "play": "Sort the drums before the contractor lifts them.",
+        "task": "Sort the drums before the contractor lifts them.",
+        "question": "Send each drum to the bin that says what water would do.",
+        "answer": "Anything that dissolves goes left, and water helps. Anything that reacts goes right, and a hose is the last thing it should meet.",
+        "why": "Water is the usual answer to a spill because it is what everybody has. For most of a yard it is the right one. A salt or a weak acid gets weaker as more water arrives, so diluting it helps. The short list is where that flips. Some metals react with water and give off a gas that catches fire. Strong acid gives off so much heat when water hits it that the water boils and throws the acid back, which is why the rule is acid into water and never the other way round. Some solids give off a gas that is worse in the air than the drum was on the ground. None of this shows on the outside. The label is the only thing that says which list a drum is on, which is why a yard of drums with no labels is the emergency and not just a nuisance.",
+        "belt": {
+          "left": {
+            "name": "Water helps"
+          },
+          "right": {
+            "name": "Water reacts"
+          },
+          "items": [
+            {
+              "name": "Table salt",
+              "bin": "left"
+            },
+            {
+              "name": "Weak vinegar",
+              "bin": "left"
+            },
+            {
+              "name": "Copper sulphate",
+              "bin": "left"
+            },
+            {
+              "name": "Garden fertiliser",
+              "bin": "left"
+            },
+            {
+              "name": "Caustic pellets",
+              "bin": "left"
+            },
+            {
+              "name": "Ethanol",
+              "bin": "left"
+            },
+            {
+              "name": "Glycerol",
+              "bin": "left"
+            },
+            {
+              "name": "Saltpetre",
+              "bin": "left"
+            },
+            {
+              "name": "Sugar",
+              "bin": "left"
+            },
+            {
+              "name": "Urea",
+              "bin": "left"
+            },
+            {
+              "name": "Weak ammonia",
+              "bin": "left"
+            },
+            {
+              "name": "Washing soda",
+              "bin": "left"
+            },
+            {
+              "name": "Sodium metal",
+              "bin": "right"
+            },
+            {
+              "name": "Calcium carbide",
+              "bin": "right"
+            },
+            {
+              "name": "Metal hydride",
+              "bin": "right"
+            },
+            {
+              "name": "Strong sulphuric acid",
+              "bin": "right"
+            },
+            {
+              "name": "Acid chloride",
+              "bin": "right"
+            },
+            {
+              "name": "Drying agent",
+              "bin": "right"
+            },
+            {
+              "name": "Titanium chloride",
+              "bin": "right"
+            },
+            {
+              "name": "Lithium hydride",
+              "bin": "right"
+            },
+            {
+              "name": "Thionyl chloride",
+              "bin": "right"
+            },
+            {
+              "name": "Quicklime",
+              "bin": "right"
+            },
+            {
+              "name": "Potassium metal",
+              "bin": "right"
+            },
+            {
+              "name": "Phosphide pellets",
+              "bin": "right"
+            },
+            {
+              "name": "Chlorosulphonic acid",
+              "bin": "right"
+            },
+            {
+              "name": "Magnesium powder",
+              "bin": "right"
+            }
+          ],
+          "need": 20,
+          "lives": 3,
+          "pass": 0.8,
+          "hint": "Ask what happens the moment water reaches it.",
+          "commit": "Start the line"
+        }
+      },
+      "assumes": [
+        "some things dissolve in water and some react with it"
+      ],
+      "concept": {
+        "n": 2,
+        "c": "A mixture is things sharing a space without becoming one another",
+        "of": 16,
+        "rests": [
+          "Everything is made of matter, and matter comes in solids, liquids and gases"
+        ]
+      }
     }
   ],
   "GASES": [
@@ -138,6 +337,11 @@ export const CURRICULUM = {
       "scene": "A colourless cloud is drifting away from the yard toward two neighbourhoods. Police are holding the evacuation roads open. The wind is steady, and there is a school two kilometres downwind.",
       "takeaway": "A hazard has a speed, and a speed turns a distance into the time you have.",
       "place": "Mobile Weather Station",
+      "guide": "Four numbers, and two of them are distances to other places. One is how wide the cloud is, which does not change when it arrives. Ask of each number what it measures. A distance? A speed? A size? Police are holding roads open on this answer.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A colourless plume is drifting toward two neighbourhoods and the incident commander wants a number before the wind shifts. The ideal gas law relates the amount of substance to the volume it occupies at a given temperature and pressure — at ordinary conditions about 24 litres per mole — which turns a mass in a tank into a scale you can reason about. It is a first-order tool and nothing more: it says how big the release is, not where it goes. Evacuating too little exposes people; evacuating too much blocks the roads the response needs.",
       "game": {
         "type": "BALLPARK",
@@ -159,7 +363,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a cloud drifts at roughly the speed of the wind carrying it"
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Gases spread out, and the wind decides where",
+        "of": 16,
+        "rests": [
+          "Everything is made of matter, and matter comes in solids, liquids and gases"
+        ]
+      }
     },
     {
       "day": 2,
@@ -167,6 +379,12 @@ export const CURRICULUM = {
       "scene": "The weather station shows the temperature rising and the pressure falling, with the wind picking up. Crews report vapour pooling in a low channel downwind.",
       "takeaway": "Some things change what the gas is doing. Others change where it is going. They are not the same question.",
       "place": "Gas Properties Lab",
+      "guide": "Four changes in the field. Two of them change how much room the gas takes up. Two of them change where the gas goes. Ask which of the two each change does. Get that wrong and the map moves for the wrong reason. Vapour is pooling in a low channel.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If three lines are right, the fourth response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
       "story": "The weather is changing while the plume is still moving. Two different physics are operating at once here: gas-law behaviour, which says how a fixed amount of substance responds to changes in temperature and pressure, and atmospheric transport, which says where the resulting parcel actually goes. Density relative to air decides whether the cloud hugs the ground or lifts; wind and turbulence decide how fast it dilutes; terrain decides where it pools. Each change on the board pushes on one of those and not necessarily the others, and the neighbourhood downwind is where the arithmetic lands.",
       "game": {
         "type": "PROTOCOL",
@@ -208,7 +426,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a gas has a state, and it also has a place, and those change for different reasons"
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Gases spread out, and the wind decides where",
+        "of": 16,
+        "rests": [
+          "Everything is made of matter, and matter comes in solids, liquids and gases"
+        ]
+      }
     },
     {
       "day": 3,
@@ -216,6 +442,12 @@ export const CURRICULUM = {
       "scene": "The same open drum reads three times the vapour at two in the afternoon as it did at six in the morning. Nothing has been added and nothing taken out.",
       "takeaway": "A measurement of a hazard belongs to the conditions it was taken in.",
       "place": "Atmospheric Monitoring Post",
+      "guide": "All four options would explain a bigger reading. They differ in what changed. One changes the liquid. One changes the instrument. One changes how much is left. One changes only how much sits in the air. Nothing was added and nothing taken out. That is the fact that decides it.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The same open drum reads three times the vapour at two in the afternoon as it did at six in the morning. Nothing has been added and nothing taken out.",
       "game": {
         "type": "CHOICE",
@@ -241,7 +473,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a liquid is always sending some of itself into the air above it"
-      ]
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Reactions give out heat or take it in, and heat speeds things up",
+        "of": 16,
+        "rests": [
+          "Everything is made of matter, and matter comes in solids, liquids and gases"
+        ]
+      }
     }
   ],
   "WATER": [
@@ -251,6 +491,12 @@ export const CURRICULUM = {
       "scene": "Runoff from the fire has reached the river. Predict the wrong place and the team samples the wrong thing, and a clean water result gets read by the city as an all-clear.",
       "takeaway": "Not finding something in the water does not mean it is not in the river.",
       "place": "River Sampling Boat",
+      "guide": "Four kinds of chemical, and four places in the river. Pair them by asking what water does with each one. Does it dissolve? Does it refuse to mix? Does it stick to the specks? A chemical that leaves the water has not left the river. Sample the wrong place and the city hears an all-clear.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If three lines are right, the fourth response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
       "story": "Runoff from the accident has reached the river. A chemical released into water does not stay in one place or one phase: polar molecules dissolve readily, non-polar ones partition onto organic carbon in sediment and stay there, volatile ones leave for the atmosphere, and surface-active ones concentrate in the film on top. All of that follows from molecular structure — polarity, hydrogen bonding, and how the compound interacts with water compared with everything else on offer. If you predict the wrong phase you will sample the wrong thing, and a clean water result will be read by the city as an all-clear.",
       "game": {
         "type": "PROTOCOL",
@@ -292,7 +538,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "some things dissolve in water and some refuse to mix with it"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Weight is conserved: what goes in has to come out somewhere",
+        "of": 16,
+        "rests": [
+          "Everything is made of matter, and matter comes in solids, liquids and gases"
+        ]
+      }
     },
     {
       "day": 2,
@@ -300,6 +554,12 @@ export const CURRICULUM = {
       "scene": "The filtered water holds 3.1 milligrams of dissolved metal in every litre. The limit is 0.5. The rig can put in eight times as much of the partner chemical.",
       "takeaway": "Two things that settle together can be pushed apart by adding more of one.",
       "place": "Water and Sediment Laboratory",
+      "guide": "All four options give a number and a reason. The reasons are what differ. One says nothing changes. One says both go up together. Two say the metal falls, by different amounts. So work out how the two chemicals are tied to each other. The limit is well below where the water sits now.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The filtered water holds 3.1 milligrams of dissolved metal in every litre. The limit is 0.5. The rig can put in eight times as much of the partner chemical.",
       "game": {
         "type": "CHOICE",
@@ -325,7 +585,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a dissolved metal and its partner chemical settle at a balance point together"
-      ]
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Dissolving, and why some things dissolve and others do not",
+        "of": 16,
+        "rests": [
+          "A mixture is things sharing a space without becoming one another"
+        ]
+      }
     },
     {
       "day": 3,
@@ -333,6 +601,12 @@ export const CURRICULUM = {
       "scene": "The survey has twenty bottles. The chemical barely dissolves, the river runs nine hundred metres from the spill to the water intake, and two samples taken so far disagree six times over.",
       "takeaway": "A sampling plan is the set of questions it can answer, and every bottle spent is a question given up.",
       "place": "Sediment Analysis Room",
+      "guide": "Twenty bottles is the whole survey. Each package you pick spends some of them. Watch the list of questions rather than the map: it shows which ones your plan can answer. Two samples already disagree six times over, so a plan that cannot explain why will be argued with.",
+      "background": [
+        "Why the disagreement is the reason for the survey. Six times over between two samples means the chemical is not spread evenly through the water. It could be in a streak across the river, or deeper in some places, or changing with time. Each of those needs a different sampling pattern, and one bottle per place cannot tell them apart.",
+        "Why 'barely dissolves' matters. A chemical that barely dissolves travels partly as tiny droplets or stuck to grains of dirt, not just mixed into the water. So a filtered bottle and an unfiltered one answer different questions, and nine hundred metres is far enough for that to matter.",
+        "What the required questions are. Not everything you could ask. The ones a decision needs: is the intake affected now, will it be, and how much. A plan that answers other things well and misses one of those has spent the bottles badly."
+      ],
       "story": "The survey has 20 samples in the budget. The compound is sparingly soluble, the river is 900 metres upstream of the intake, and the 2 grab samples taken so far disagree by a factor of 6. Sampling design is where environmental chemistry is usually won or lost: coverage in space, coverage in time, and coverage across phases each buy a different kind of certainty, and a striking photograph of an oily bank buys none of them. The point of a survey is to test the model you built — to give the partitioning prediction a real chance to be wrong — rather than to collect confirmation from the most visually convincing spot on the river.",
       "game": {
         "type": "ALLOCATE",
@@ -413,7 +687,15 @@ export const CURRICULUM = {
       "assumes": [
         "different places and different parts of a river answer different questions",
         "a clean water sample cannot rule out a chemical sitting in the mud"
-      ]
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Dissolving, and why some things dissolve and others do not",
+        "of": 16,
+        "rests": [
+          "A mixture is things sharing a space without becoming one another"
+        ]
+      }
     },
     {
       "day": 4,
@@ -421,6 +703,11 @@ export const CURRICULUM = {
       "scene": "The intake water reads four on the acid scale. Ordinary water reads seven. The plant is about to add something to bring it back, and wants the size of the problem first.",
       "takeaway": "A scale where each step is ten times hides how big a difference really is.",
       "place": "Water Intake Laboratory",
+      "guide": "Four numbers. Two are readings on the scale. One is the gap between them. The scale counts steps, and each step is ten times. So the gap is what the answer is built from, not the readings. The plant is sizing a dose from it.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The river intake has turned acidic and the plant needs a neutralisation dose. pH is a logarithmic measure of the hydrogen ion concentration that is free in solution right now — one pH unit is a factor of ten — so a modest-looking change in pH is a large change in concentration, and pH alone tells you nothing about how much acid is waiting undissociated to take its place. Convert to moles first. Dosing on the pH number alone is how a plant overshoots from acidic straight into strongly basic.",
       "game": {
         "type": "BALLPARK",
@@ -461,7 +748,15 @@ export const CURRICULUM = {
           ],
           "s": "A concentration is an amount shared out over a volume, so the same amount in more water is a smaller number."
         }
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Acids and bases, and why the middle is where things are stable",
+        "of": 16,
+        "rests": [
+          "Dissolving, and why some things dissolve and others do not"
+        ]
+      }
     },
     {
       "day": 5,
@@ -469,6 +764,12 @@ export const CURRICULUM = {
       "scene": "A dose worked out from the intake reading overshot badly. The bench test is up beside a curve for a simple acid. That test is a titration: add a little at a time, until the water changes, and count how much it took.",
       "takeaway": "A reading tells you what is loose right now. It does not tell you what is held in reserve.",
       "place": "Acid-Base Bench",
+      "guide": "Six readings, and two are there to rule things out. The fresh meter checks, and the simple acid at the same reading. Compare the test curve against that simple acid. A long flat stretch is something a simple acid does not have. The first dose overshot, so the answer has to explain that too.",
+      "background": [
+        "Why the quiet readings matter. It is easy to build a story around the number that is out of range. But most wrong explanations fail on something that did not move. If a cause would have pushed a second reading up and that reading is where it should be, the cause is not what happened, however well it explains the first one.",
+        "How to use the candidates. Take each one and ask what the panel would look like if it were true. Then compare that with the panel in front of you. Doing it in that order stops you fitting the story to the numbers, which is easy to do without noticing.",
+        "Why there is only one answer. More than one candidate will fit part of the panel, and that is on purpose. Only one fits every part of it. If two still look possible, find the reading they disagree about and let that reading choose."
+      ],
       "story": "The curve on the screen is the result of adding base slowly and watching what the solution does. A titration is that: adding a measured amount, drop by drop, until the water changes, and counting how much it took. It is two instruments in one: quantitatively it measures how much base was needed to reach the equivalence point, which is a measure of total acid rather than free acid, and diagnostically its shape identifies the chemistry — the steepness of the rise, the presence or absence of a flat region, and where the equivalence point falls all say something about what kind of acid is in the water. The plant will dose the intake from your reading.",
       "game": {
         "type": "DIAGNOSIS",
@@ -653,7 +954,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "some acids hold most of their acid back, and let it out as you neutralise"
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Acids and bases, and why the middle is where things are stable",
+        "of": 16,
+        "rests": [
+          "Dissolving, and why some things dissolve and others do not"
+        ]
+      }
     },
     {
       "day": 6,
@@ -661,6 +970,12 @@ export const CURRICULUM = {
       "scene": "The pump is primed and the operators are waiting on the valve. The water is acidic and the iron pipe is corroding. Every change to the pump shows up one reading later.",
       "takeaway": "When the answer arrives late, the rule has to fire early.",
       "place": "Treatment Control Room",
+      "guide": "One rule, written now and fixed once you release it. The base feed is pushing the tank up. Past pH 7.5 the water is bad again the other way. Here is the catch: a pump change shows on the meter one reading late, so the tank keeps rising after you stop the feed. Put your line below 7.5 by that one reading of rise. Do not put it so low that it fires on water which has not shown anything yet.",
+      "background": [
+        "What the delay does. Your correction lands on water that left the mixing point one interval ago. Push hard using an old reading and the correction arrives on top of one already in the pipe. That is what overshooting is, and the delay is the whole reason it happens.",
+        "Why both mistakes cost. The water is acidic and the pipe is iron, so dosing too little keeps eating the pipe. Dosing too much swings the tank the other way and the pump has to chase it back. Neither is free, and where you put the two thresholds is how you balance them.",
+        "Why the rules go first. A threshold changed while the readings arrive is not a rule, it is a description of what somebody already did. The operators at the valve need to know what will happen before it happens."
+      ],
       "story": "Neutralisation in a live water system is a control problem, not an arithmetic problem. The dose calculated from one grab sample assumes the water is uniform, the demand is fully characterised and the mixing is instantaneous, and none of those is true in a treatment train. Overshooting into strongly basic conditions is not a smaller mistake than under-dosing: it can mobilise metals from pipework and sediment that the acidic water was leaving alone. The plant is waiting on a dose, and what it is given first decides whether the correction is a measurement or a guess.",
       "game": {
         "type": "TRIGGER",
@@ -668,27 +983,37 @@ export const CURRICULUM = {
         "setup": "The plant wants a neutralisation dose this morning. What do you give them?",
         "play": "Set the slow-down and stop rules before the stream runs.",
         "task": "Set the slow-down and stop rules before the stream runs.",
-        "question": "Where do the two thresholds go, when every change shows up a reading late?",
-        "answer": "Slow the feed near 5.8 and stop it near 6.5. Each change shows up a reading later, so waiting for the number you want arrives too late.",
+        "question": "The tank is climbing from 4.8 towards the 7.5 limit. At what pH do you stop the base feed?",
+        "answer": "Stop the feed near pH 6.5. The tank rises about half a unit between your command and the reading that shows it, so a rule at the number you want lands past the limit.",
         "why": "The pump acts now and the meter shows it later. So waiting until the meter reads what you want guarantees going past it, because more base is already on its way through the tank. Writing the rules first is what stops that. Slow the feed while the water can still absorb it, and stop it early enough that what is already in the pipe carries the reading the rest of the way. The threshold is a decision, not a description.",
         "trigger": {
           "scale": {
-            "label": "",
+            "label": "The mixed tank",
             "unit": "pH",
             "min": 4,
             "max": 9,
-            "step": 0.05
+            "step": 0.05,
+            "anchors": [
+              {
+                "at": 4.8,
+                "means": "the tank now — acid, and outside what may be released"
+              },
+              {
+                "at": 8.2,
+                "means": "pushed too far the other way, and it breaks the limit again"
+              }
+            ]
           },
+          "direction": "rising",
           "conditions": [
-            {
-              "id": "reduce",
-              "label": "Reduce base feed to 30%",
-              "leadHours": 1
-            },
             {
               "id": "stop",
               "label": "Stop base feed",
-              "leadHours": 1
+              "leadHours": 1,
+              "window": {
+                "min": 6.5,
+                "max": 7
+              }
             }
           ],
           "stream": [
@@ -741,7 +1066,45 @@ export const CURRICULUM = {
               "hoursLeft": 0
             }
           ],
-          "hint": "Set both rules before releasing the stream. Each pump command affects the mixed-tank reading one update later, so a threshold set at the final desired reading acts late.",
+          "consequenceLimit": 7.5,
+          "rehearsal": {
+            "note": "the last time this tank was neutralised",
+            "stream": [
+              {
+                "value": 4.9,
+                "hoursLeft": 7
+              },
+              {
+                "value": 5.6,
+                "hoursLeft": 6
+              },
+              {
+                "value": 6.3,
+                "hoursLeft": 5
+              },
+              {
+                "value": 6.9,
+                "hoursLeft": 4
+              },
+              {
+                "value": 7.2,
+                "hoursLeft": 3
+              },
+              {
+                "value": 7.3,
+                "hoursLeft": 2
+              },
+              {
+                "value": 7.4,
+                "hoursLeft": 1
+              },
+              {
+                "value": 7.4,
+                "hoursLeft": 0
+              }
+            ]
+          },
+          "objective": "The feed is stopped in time to leave the tank under pH 7.5.",
           "release": "Release the board",
           "commit": "Stand by the board"
         }
@@ -749,7 +1112,15 @@ export const CURRICULUM = {
       "assumes": [
         "the meter shows what the pump did one reading ago, not what it is doing now",
         "each step on the acid scale is ten times, so equal steps are not equal amounts"
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Acids and bases, and why the middle is where things are stable",
+        "of": 16,
+        "rests": [
+          "Dissolving, and why some things dissolve and others do not"
+        ]
+      }
     }
   ],
   "QUANT": [
@@ -759,6 +1130,11 @@ export const CURRICULUM = {
       "scene": "The lab watered the sample down before measuring it. So the number is what was in the vial, not the river. It is in mg/L, which means milligrams in every litre. The city is about to hold that number against a limit.",
       "takeaway": "What was done to a sample before it was measured is part of the answer.",
       "place": "Quantitative Analysis Lab",
+      "guide": "Five numbers, and two belong to other questions. One is the smallest the instrument can see. One is the size of the bottle. Two are the volumes before and after watering down. Only how those two compare matters. The city will hold your answer against a limit.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The instrument reports what was in the vial, not what was in the river. Samples are diluted so that the signal falls inside the range the method can actually measure, and the analyst has to carry that factor back through before the number means anything about the water — a tenfold dilution reported as-is understates the river by a factor of ten. Sample preparation is part of the result, not something that happened to it beforehand. City leaders are comparing the number you hand over against a threshold and closing or opening a water system with it.",
       "game": {
         "type": "BALLPARK",
@@ -820,7 +1196,15 @@ export const CURRICULUM = {
           "s": "Adding water spreads the same amount through more volume, so the concentration falls in proportion.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Concentration: how much of something is in how much of everything",
+        "of": 16,
+        "rests": [
+          "Dissolving, and why some things dissolve and others do not"
+        ]
+      }
     },
     {
       "day": 2,
@@ -828,6 +1212,12 @@ export const CURRICULUM = {
       "scene": "The reading is above the range this meter was calibrated for. Calibration is the check against known samples. It is what turns a signal into a number. The meter still prints one, and it is going into a report.",
       "takeaway": "Predict what a change should do, make it, and check. That is what turns a reading into a result.",
       "place": "River Mapping Center",
+      "guide": "Lock the reading you expect after watering the sample down by half, before you do it. Then water it down and see what the meter says. Checking costs a verification slot, and spending it is the point. A meter prints a number for almost anything, and only the comparison shows whether this one can be trusted.",
+      "background": [
+        "Why watering it down is the test. If the reading really comes from this chemical, then half as much of it should give half the reading. That holds while the reading is inside the range the meter was calibrated for. Outside that range it does not halve, because the relationship there has stopped being straight.",
+        "What a reading outside the range is worth. The meter still prints one, with just as many digits and no warning. It is a guess dressed as a measurement, and a check like this one is the only way to catch it.",
+        "Why you lock the prediction first. Reading the watered-down sample and then deciding what you expected is not a test. Doing it in that order is what makes the second reading evidence instead of agreement."
+      ],
       "story": "An instrument will return a number for almost anything you put in front of it, which is why quality control exists. A calibration curve is a claim about a specific range of concentrations, built from standards that bracket that range; a blank says whether the laboratory contributed to the signal; a spike recovery says whether the matrix is suppressing or enhancing the response; replicates say whether the measurement is stable at all. Each of them fails in a distinct way, and the panel in front of you contains everything you need to decide whether this reading can be defended.",
       "game": {
         "type": "VERIFY",
@@ -893,7 +1283,16 @@ export const CURRICULUM = {
           ],
           "s": "A concentration is an amount shared out over a volume, so the same amount in more water is a smaller number."
         }
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Saying what you know and how well you know it",
+        "of": 16,
+        "rests": [
+          "Measuring the same thing several times, and averaging",
+          "A blank and a standard: how a laboratory knows a number is real"
+        ]
+      }
     },
     {
       "day": 3,
@@ -901,6 +1300,12 @@ export const CURRICULUM = {
       "scene": "The city wants a picture of eleven kilometres of river. The laboratory can run thirty samples. The field kit is far rougher than the laboratory.",
       "takeaway": "Good numbers in the wrong places and rough numbers in the right ones both mislead.",
       "place": "Quality Assurance Desk",
+      "guide": "Every option buys something real, and they trade against each other. Wide coverage costs detail. Repeats and checks cost samples. Thirty is all there is. Ask what decision each choice would improve. The city's decisions all happen in one place. Detail somewhere else is detail nobody uses.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The city wants a concentration map of 11 kilometres of river, and the laboratory can run 30 samples. The 2 known hot spots are 400 metres apart, and the field kit reads to plus or minus 30% against the laboratory's 5. A map is a compromise between two things that both cost money: analytical validity, which is whether each number can be trusted, and spatial coverage, which is whether the numbers are in the places the decision depends on. Neither alone protects anybody — perfect chemistry at the wrong points, or dense sampling with an unvalidated method, both produce a confident map that misleads. Decide where the decisions actually get made, then spend on the sampling that constrains them.",
       "game": {
         "type": "CHOICE",
@@ -947,14 +1352,149 @@ export const CURRICULUM = {
           ],
           "s": "A concentration is an amount shared out over a volume, so the same amount in more water is a smaller number."
         }
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "A sample stands for a place and a moment, and only those",
+        "of": 16,
+        "rests": [
+          "Measuring the same thing several times, and averaging"
+        ]
+      }
     },
     {
       "day": 4,
+      "title": "What the bench is running now",
+      "scene": "Samples queue on the bench all day. One priority says which are run first, and it is changed as the day goes on.",
+      "takeaway": "The cost of a rule that has changed is paid by whoever is still using the old one.",
+      "place": "Analytical Laboratory",
+      "guide": "Run what the priority asks for and leave the rest queued. The card on the bench changes during the day and nobody says so. What counts is the samples either side of a change.",
+      "background": [
+        "Why the priority changes. Early it is whatever the commander is waiting for. Then it is whatever is about to go out of date, because a sample tested too late is not a result. Then it is drinking water, because people are asking.",
+        "Why it costs. The bench has one clean instrument. A sample run under the old priority uses it, and the one that mattered sits in the fridge going out of date."
+      ],
+      "story": "Samples queue on the bench all day. One priority says which are run first, and it is changed as the day goes on.",
+      "game": {
+        "type": "SPOT",
+        "title": "What the bench is running now",
+        "setup": "Analytical Laboratory",
+        "play": "Run the samples the priority asks for.",
+        "task": "Run the samples the priority asks for.",
+        "question": "Run to the priority on the card, and keep checking the card.",
+        "answer": "Read the card, not the rack. Every change leaves twenty minutes when the old priority still looks right.",
+        "why": "Three priorities run across the day and each wants different samples. Whatever the commander is waiting for, then whatever is near its time limit, then anything from drinking water. A sample can match two at once, and that is what makes a change cost something. What the panel scores is the samples either side of a change. Most of the rack is wanted by neither priority, so leaving those queued proves nothing. The laboratory's own version is the twenty minutes after the schools ask about the taps. The priority has changed to drinking water, and the instrument is still working through river samples that were urgent an hour ago. And the cost is invisible later: a sample past its time limit comes out of the fridge looking just like a good one.",
+        "spot": {
+          "targets": [
+            {
+              "id": "s1",
+              "label": "River, commander waiting",
+              "tags": [
+                "commander"
+              ]
+            },
+            {
+              "id": "s2",
+              "label": "Tap water, school",
+              "tags": [
+                "drinking"
+              ]
+            },
+            {
+              "id": "s3",
+              "label": "River, time limit today",
+              "tags": [
+                "limit"
+              ]
+            },
+            {
+              "id": "s4",
+              "label": "Borehole, time limit",
+              "tags": [
+                "limit",
+                "drinking"
+              ]
+            },
+            {
+              "id": "s5",
+              "label": "Soil, commander waiting",
+              "tags": [
+                "commander"
+              ]
+            },
+            {
+              "id": "s6",
+              "label": "Reservoir inlet",
+              "tags": [
+                "drinking"
+              ]
+            },
+            {
+              "id": "s7",
+              "label": "Drum headspace",
+              "tags": [
+                "commander",
+                "limit"
+              ]
+            },
+            {
+              "id": "s8",
+              "label": "Storm drain swab",
+              "tags": [
+                "limit"
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "say": "Whatever the commander is waiting for",
+              "want": [
+                "commander"
+              ]
+            },
+            {
+              "say": "Anything near its time limit",
+              "want": [
+                "limit"
+              ]
+            },
+            {
+              "say": "Anything from drinking water",
+              "want": [
+                "drinking"
+              ]
+            }
+          ],
+          "duration": 40,
+          "switchEvery": 12,
+          "pass": 0.75,
+          "hint": "The priority is on the bench card and changes without warning.",
+          "commit": "Open the bench"
+        }
+      },
+      "assumes": [
+        "a laboratory works to a priority somebody can change"
+      ],
+      "concept": {
+        "n": 10,
+        "c": "A sample stands for a place and a moment, and only those",
+        "of": 16,
+        "rests": [
+          "Measuring the same thing several times, and averaging"
+        ]
+      }
+    },
+    {
+      "day": 5,
       "title": "Two candidates, one difference",
       "scene": "Two substances fit the result equally well. Their formulas differ by one oxygen atom. An instrument that weighs molecules has already measured this sample.",
       "takeaway": "When two answers fit, use a measurement that depends on something they differ in.",
       "place": "Quantitative Analysis Suite",
+      "guide": "The two candidates differ by one oxygen atom. So ask which measurement notices one atom. Sort the options by what each one measures. How fast it travelled? How much there was? What it weighs? Two of these are real numbers about the wrong thing.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Two substances fit the result equally well. Their formulas differ by one oxygen atom. An instrument that weighs molecules has already measured this sample.",
       "game": {
         "type": "CHOICE",
@@ -980,14 +1520,28 @@ export const CURRICULUM = {
       },
       "assumes": [
         "what a molecule is made of decides what it weighs"
-      ]
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Separating a mixture, using a difference between the parts",
+        "of": 16,
+        "rests": [
+          "A mixture is things sharing a space without becoming one another"
+        ]
+      }
     },
     {
-      "day": 5,
+      "day": 6,
       "title": "Close the gaps before release",
       "scene": "A number can be perfectly correct and still answer the wrong question. The pipes are about to be brought back up to pressure on the strength of this evidence.",
       "takeaway": "A correct number is only useful if the sample it came from matches the decision.",
       "place": "Water Distribution Network",
+      "guide": "The left side is four separate holes in the evidence. Each has its own fix. Pair them by asking what was not tested. Sampling at the plant leaves the taps untested. Running the tap first tests water nobody drinks. A machine that cannot see the limit cannot test it.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If three lines are right, the fourth response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
       "story": "A number can be perfectly valid and still fail to answer the question that was asked. Verification has three separate weak points: whether the samples represent the exposure people will actually receive, whether the method's detection limit is low enough to test the standard at all, and whether what was measured is the compound the standard is about. Each weakness has its own remedy and they do not substitute for one another. The distribution network is about to be brought back up to pressure on the strength of this evidence package.",
       "game": {
         "type": "PROTOCOL",
@@ -1029,14 +1583,28 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a sample tells you about the place and the moment it was taken"
-      ]
+      ],
+      "concept": {
+        "n": 9,
+        "c": "A blank and a standard: how a laboratory knows a number is real",
+        "of": 16,
+        "rests": [
+          "Measuring the same thing several times, and averaging"
+        ]
+      }
     },
     {
-      "day": 6,
+      "day": 7,
       "title": "Open, hold, or open with conditions",
       "scene": "The pumps are idle while the board meets. The result is nine against a limit of ten, give or take two. Operators are waiting at the valves, and the city has already been given two different reopening times.",
       "takeaway": "Moving the middle and narrowing the band are different moves, and a boundary needs both.",
       "place": "Independent Review Board",
+      "guide": "The band on screen is every result the test allows, not just the best guess. It is nine against a limit of ten, give or take two, so part of the band is over the limit. Two pieces of follow-up work are ready. Each one does something different to the band, so watch its middle and its width separately. Apply what you would authorise, then say whether the rule is met.",
+      "background": [
+        "What the band means. A number with a give-or-take on it stands for a range. Any value inside that range fits what was measured. The board is not asking whether the middle is under the limit. It is asking whether being over the limit has been ruled out.",
+        "Moving the middle is not the same as narrowing. A rerun that finds a mistake moves where the band sits. The band stays just as wide. Only new information makes it narrower: more samples, a better method, a second measurement. Both kinds of work are useful, and only one of them can clear a limit the width is crossing.",
+        "Why it matters here. The pumps are off and the city has already been told two different times. If the decision is made on the middle alone, the water goes back on with a real chance of being over the limit. The second apology costs more than the first."
+      ],
       "story": "The review board's decision is not binary, and treating it as though it were is how emergencies end badly in both directions — a premature release exposes the city, an indefinite hold deprives hospitals and homes of water they need now. A conditional approval with monitoring, staged reopening and defined triggers is a way of acting under uncertainty without pretending it has been resolved. What the board decides has to be defensible to a city that has been told several things already.",
       "game": {
         "type": "CLOUD",
@@ -1044,7 +1612,7 @@ export const CURRICULUM = {
         "setup": "The verification result is 9 units against a limit of 10, plus or minus 2. What does the board decide?",
         "play": "Move and narrow the band, and say whether the valves can open.",
         "task": "Move and narrow the band, and say whether the valves can open.",
-        "question": "Can the whole band be brought under the limit, or only its middle?",
+        "question": "Can the whole band be brought under the limit, or only its middle? Move the bars to show the middle and one sigma either side.",
         "answer": "Neither move is enough alone. Do both, and the band becomes 8.6 give or take one, with its top edge at 9.6.",
         "why": "Nine against a limit of ten looks like a pass until the band is drawn. Give or take two means the honest range runs up to eleven, and eleven is over. A rerun can move the middle without proving the band was too wide. Better sampling can narrow the band without moving the middle. Neither alone gets the top of the band under ten. Both together give 8.6 with a band of one, and a top edge of 9.6.",
         "cloud": {
@@ -1080,7 +1648,12 @@ export const CURRICULUM = {
       "assumes": [
         "the band shown is the doubt that this decision has to live with",
         "a middle below a limit is not a pass if the band crosses it"
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "A limit is a number somebody chose, for a reason worth knowing",
+        "of": 16
+      }
     }
   ],
   "ENERGY": [
@@ -1090,6 +1663,11 @@ export const CURRICULUM = {
       "scene": "The visible fire has been out for two hours, and the water bath beside the damaged bay is still warming. Fire Command wants the size of the heat before deciding whether the cooling on site is enough.",
       "takeaway": "A small temperature rise across something heavy is a very large amount of energy.",
       "place": "Thermal Camera Team",
+      "guide": "Five numbers. One is for boiling the water away, which is not what happened. One is a temperature on another scale. Ask of each what it describes. How much water there is? What water is like? How much it changed? A small warming in a big tank is a lot of energy.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The visible fire has been out for two hours and the storage zone is still warming. The energy needed to change the temperature of a material is its mass times its specific heat capacity times the temperature change, which is why a small rise across a large thermal mass can represent a very large amount of energy — water's high heat capacity is exactly what makes it a good containment bath and also what hides how much energy has gone in. The number decides whether cooling capacity on site is adequate or decorative.",
       "game": {
         "type": "BALLPARK",
@@ -1110,7 +1688,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "different materials need different amounts of energy to warm by one degree"
-      ]
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Reactions give out heat or take it in, and heat speeds things up",
+        "of": 16,
+        "rests": [
+          "Everything is made of matter, and matter comes in solids, liquids and gases"
+        ]
+      }
     },
     {
       "day": 2,
@@ -1118,6 +1704,12 @@ export const CURRICULUM = {
       "scene": "Two bays saw the same fire. Ninety minutes after the cooling stopped, the east bay is cooling and the west bay is warming. The west bay is giving off more gas, and the hot spot has not moved.",
       "takeaway": "A thing that keeps changing after its cause is removed has a cause of its own.",
       "place": "Calorimetry Lab",
+      "guide": "Six readings, and the east bay is the useful one. Same fire, nothing left running. Compare the two bays, reading by reading. A broken sensor would move both bays. Left-over heat can only drain away. Warming, with more gas, at one fixed spot is a different story. Fire Command releases the site on this.",
+      "background": [
+        "Why the quiet readings matter. It is easy to build a story around the number that is out of range. But most wrong explanations fail on something that did not move. If a cause would have pushed a second reading up and that reading is where it should be, the cause is not what happened, however well it explains the first one.",
+        "How to use the candidates. Take each one and ask what the panel would look like if it were true. Then compare that with the panel in front of you. Doing it in that order stops you fitting the story to the numbers, which is easy to do without noticing.",
+        "Why there is only one answer. More than one candidate will fit part of the panel, and that is on purpose. Only one fits every part of it. If two still look possible, find the reading they disagree about and let that reading choose."
+      ],
       "story": "Two bays are warm and Fire Command wants to know whether to release the site. There are only two ways a mass can be hot: it absorbed energy earlier and has not yet lost it, or it is making energy now. Those behave completely differently over time — anything that is merely storing heat can only cool toward its surroundings once the source is removed, while a self-heating mass can rise on its own and rise faster as it goes. The panel gives you both bays, and getting this wrong sends responders home before a runaway.",
       "game": {
         "type": "DIAGNOSIS",
@@ -1321,7 +1913,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "heat flows from hot to cold, and never the other way by itself"
-      ]
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Reactions give out heat or take it in, and heat speeds things up",
+        "of": 16,
+        "rests": [
+          "Everything is made of matter, and matter comes in solids, liquids and gases"
+        ]
+      }
     },
     {
       "day": 3,
@@ -1329,6 +1929,11 @@ export const CURRICULUM = {
       "scene": "Fire Command wants the site released tonight. Bay three has gone from thirty-one degrees to forty-four in eight hours, and it is climbing faster than it was. There are four tonnes in there.",
       "takeaway": "A rising temperature is a rate, and a rate can be run forward to a time somebody has to act by.",
       "place": "Fire Command",
+      "guide": "Four numbers. Two are temperatures the bay has read. One is the difference between them. One is the hours between. Ask which of those the question needs. A temperature is not a rise, and a rise is not a temperature. The site is released tonight on this number.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A self-heating mass is a race between the energy a reaction produces and the energy the surroundings can carry away, and that race can be lost slowly enough that nobody notices until it cannot be won. Controlling it takes three separate things that no one of them substitutes for: detection early enough to act, understanding of the mechanism so that the action is the right one, and enough physical cooling or dilution capacity to change the balance. Fire Command wants the site released tonight, and one of the three has to be in place before that can happen.",
       "game": {
         "type": "BALLPARK",
@@ -1345,7 +1950,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a rate of change can be carried forward to guess what comes next"
-      ]
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Reactions give out heat or take it in, and heat speeds things up",
+        "of": 16,
+        "rests": [
+          "Everything is made of matter, and matter comes in solids, liquids and gases"
+        ]
+      }
     }
   ],
   "TREAT": [
@@ -1355,6 +1968,12 @@ export const CURRICULUM = {
       "scene": "Acidic water is flowing through a section where two different metals are bolted together. An inspection has found one small break in the coating. The team wants the circuit understood before choosing a repair.",
       "takeaway": "Rusting is a loop. Break any part of the loop and it stops.",
       "place": "Pipeline Inspection Gallery",
+      "guide": "The loop needs four things at once. A place where metal is lost. A place that takes the electrons. A path through the metal, and a path through the water. Each thing on the left gives or squeezes one of those. Ask which one. Break any single part and the loop stops.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If three lines are right, the fourth response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
       "story": "Acidic water and two different metals in contact are all corrosion needs. Corrosion is an electrochemical circuit with four parts that must all be present: an anode where metal is oxidised and lost, a cathode where a matching reduction occurs, an electron path through the metal, and an ion path through the water. Break any one of them and the circuit stops. That is why treating a corroding pipe as a materials problem alone misses most of the available fixes, and why the intake pipeline for a city's drinking water is a bad place to guess.",
       "game": {
         "type": "PROTOCOL",
@@ -1396,7 +2015,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "rusting is electricity, moving in a loop, with metal as one of the ingredients"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Weight is conserved: what goes in has to come out somewhere",
+        "of": 16,
+        "rests": [
+          "Everything is made of matter, and matter comes in solids, liquids and gases"
+        ]
+      }
     },
     {
       "day": 2,
@@ -1404,6 +2031,11 @@ export const CURRICULUM = {
       "scene": "A test piece from the intake has lost two kilograms of steel in a year, spread over four square metres. The wall that is left is six millimetres thick.",
       "takeaway": "An amount lost is not a warning until somebody turns it into a depth.",
       "place": "Electrochemistry Lab",
+      "guide": "Four numbers. One is the wall that is left, which belongs to the comparison. One is how much steel makes a millimetre over that patch. Ask which numbers the sum needs. And note what an average cannot see. The same loss in one small spot goes through the wall much sooner.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "An average corrosion rate is a mass loss spread evenly over an area, and metal almost never obliges. A uniform rate of a fraction of a millimetre a year sounds survivable; the same total loss concentrated at a defect in a coating perforates the wall in a season, because the entire anodic current is being delivered into a small patch. Work out the average anyway — it bounds the problem and it is what maintenance budgets are written against — but the number to hand over is the one that says where the metal is going, not just how much.",
       "game": {
         "type": "BALLPARK",
@@ -1467,7 +2099,15 @@ export const CURRICULUM = {
           ],
           "s": "A weight loss spread over a wide area is a thin loss; over a small one it is a hole."
         }
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "A sample stands for a place and a moment, and only those",
+        "of": 16,
+        "rests": [
+          "Measuring the same thing several times, and averaging"
+        ]
+      }
     },
     {
       "day": 3,
@@ -1475,6 +2115,12 @@ export const CURRICULUM = {
       "scene": "The thinnest part of the intake pipe has three millimetres of wall left, and the loss has sped up eight times. The gallery stays cleared until the first control is chosen. Water is still flowing.",
       "takeaway": "Break the loop where you can break it today, and do the rest afterwards.",
       "place": "Maintenance Control",
+      "guide": "Three of the four options act on a real part of the loop. One only moves paper. Ask which part each one removes. Then ask whether one small hole could beat it. The water is still flowing and three millimetres are left. The first fix has to stop the loop, not slow it.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Protecting a pipeline means attacking the circuit at whichever point is cheapest to break. Water chemistry changes how aggressive the electrolyte is; coatings interrupt the ion path but concentrate the attack wherever they fail; electrical isolation removes the galvanic couple between different metals; cathodic protection supplies electrons so that the pipe stops being the anode; inspection tells you which of them is working before a leak does. They are complementary, not alternatives, and the city cannot afford to lose the intake in the middle of the emergency.",
       "game": {
         "type": "CHOICE",
@@ -1500,14 +2146,93 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a loop stops when any one part of it is broken"
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "A mixture is things sharing a space without becoming one another",
+        "of": 16,
+        "rests": [
+          "Everything is made of matter, and matter comes in solids, liquids and gases"
+        ]
+      }
     },
     {
       "day": 4,
+      "title": "Neutral, while the works keeps feeding",
+      "scene": "The tank has to sit in the middle of the pH scale before anything goes to the river. Acid keeps arriving from the works in batches, and the lime pump is the only control.",
+      "takeaway": "A feed you do not answer does not stop on its own.",
+      "place": "Treatment Works",
+      "guide": "Hold the tank at pH 7, inside the band on the meter. The band narrows as the discharge time comes closer. Each batch keeps arriving for as long as it is being pumped in, so set the lime to match the feed rather than chasing the meter.",
+      "background": [
+        "Why the middle is the target. Strong acid and strong base both do damage. Near the middle, water is safe for the river and for the people who work near it.",
+        "Why the last part is the hardest. The pH scale is not even. Near the middle, a small amount of lime moves the tank much further than the same amount did at the acid end."
+      ],
+      "story": "The tank has to sit in the middle of the pH scale before anything goes to the river. Acid keeps arriving from the works in batches, and the lime pump is the only control.",
+      "game": {
+        "type": "HOLD",
+        "title": "Neutral, while the works keeps feeding",
+        "setup": "Treatment Works",
+        "play": "Hold the tank while the works feeds it.",
+        "task": "Hold the tank while the works feeds it.",
+        "question": "Hold the tank at pH 7 while the works keeps feeding it.",
+        "answer": "Inside the band for most of the run, with the lime pump set to match what is coming in rather than nudged after the meter has moved.",
+        "why": "Each batch of acid is not one push. It keeps arriving while it is being pumped, so the tank keeps falling until the lime is set to match it. That is why the pump is moved to a new setting and left there. The pH scale makes it harder than it sounds. It is not an even scale. Down at the acid end it takes a lot of lime to move the number one step, and near the middle the same lime moves it much further. So an operator who has learned how the tank feels at pH 4 will overshoot at 6.8 and end up adding acid back. The band narrows because what is measured is what leaves the works, not what the tank was doing an hour ago.",
+        "hold": {
+          "quantity": "Tank pH",
+          "control": "Lime pump",
+          "unit": "pH",
+          "hold": 7,
+          "band": 0.4,
+          "narrowTo": 0.2,
+          "duration": 45,
+          "authority": 0.1,
+          "pass": 0.8,
+          "direction": "raise",
+          "disturbances": [
+            {
+              "label": "Acid batch from the works",
+              "at": 4,
+              "amount": -0.03
+            },
+            {
+              "label": "The water resists for a while",
+              "at": 20,
+              "amount": 0.05
+            },
+            {
+              "label": "Second batch arrives",
+              "at": 38,
+              "amount": -0.045
+            }
+          ],
+          "hint": "Each batch keeps arriving. Set the pump to match the feed.",
+          "commit": "Report the run"
+        }
+      },
+      "assumes": [
+        "pH says how acidic or how basic something is"
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Acids and bases, and why the middle is where things are stable",
+        "of": 16,
+        "rests": [
+          "Dissolving, and why some things dissolve and others do not"
+        ]
+      }
+    },
+    {
+      "day": 5,
       "title": "What did the treatment actually do?",
       "scene": "The pilot treated a batch holding a hundred kilograms of the chemical. The treated water, the sludge and the gas coming off have each been measured. The city is waiting to hear whether it was destroyed.",
       "takeaway": "Taking something out of one place is not destroying it. The ledger has to close.",
       "place": "Pilot Treatment Plant",
+      "guide": "Read every stream first, because reading is free. Then count only the masses that are the same chemical the batch went in with. A hundred kilograms went in, and the treated water, the sludge and the gas have each been measured. Whatever the counted streams do not account for is missing, and that gap is what the claim rests on.",
+      "background": [
+        "What counting a stream claims. Reading is neutral. Adding a stream to the total says the mass in it is the same chemical you started with. If a method reports a breakdown product as though it were the original, that claim is wrong and the total looks better than it is.",
+        "Why a gap is not proof of destruction. Mass that is missing from the measured streams went somewhere: out of a vent nobody measured, stuck to the inside of the vessel, or turned into something none of the three methods can see. Destroyed is one explanation, and the hardest one to check.",
+        "What the city is being told. Destroyed and moved somewhere else are very different for whoever ends up with the sludge or breathes the air. The ledger is what tells them apart, which is why the claim has to come out of the numbers."
+      ],
       "story": "The pilot plant has run and the city wants to hear that the contaminant is gone. A mass balance across every stream is what makes that claim checkable: what came in, what left in the treated water, what left in the sludge, what left as off-gas, and what is unaccounted for. Removal from water and destruction are two different claims, and only one of them means the hazard has ended — a contaminant concentrated into a solid is smaller in volume, easier to handle, and still entirely present. Read all the streams, not the one being asked about.",
       "game": {
         "type": "BALANCE",
@@ -1580,14 +2305,28 @@ export const CURRICULUM = {
           ],
           "s": "A small concentration in a very large volume can still be a large amount of material."
         }
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Weight is conserved: what goes in has to come out somewhere",
+        "of": 16,
+        "rests": [
+          "Everything is made of matter, and matter comes in solids, liquids and gases"
+        ]
+      }
     },
     {
-      "day": 5,
+      "day": 6,
       "title": "Put the treatment in order",
       "scene": "Four stages are on the table and the plant wants an order for them. Riverton has one intake, and it cannot run this experiment twice while the water is off.",
       "takeaway": "Each stage is ordered by what it leaves the next one to work with.",
       "place": "Byproduct Analysis Lab",
+      "guide": "These four are not four separate machines. Each one changes what reaches the next. Ask what has to be there already. You cannot filter a solid before there is one. There is no solid until the metal is in the right form. Riverton has one intake and cannot try twice.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Four unit processes are on the table and the plant wants them in an order. A treatment train is not four independent machines: each one changes the chemical form of what reaches the next, so a stage that receives the wrong form does nothing at all — or worse than nothing, because a carbon bed that receives suspended solids blinds in hours and stops polishing anything. Solubility is the pivot. Riverton has one intake and cannot run this experiment twice while the water is off.",
       "game": {
         "type": "SEQUENCE",
@@ -1619,14 +2358,28 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a filter can only take out something that is already solid"
-      ]
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Dissolving, and why some things dissolve and others do not",
+        "of": 16,
+        "rests": [
+          "A mixture is things sharing a space without becoming one another"
+        ]
+      }
     },
     {
-      "day": 6,
+      "day": 7,
       "title": "Choose what the pilot measures",
       "scene": "The pilot has room for one question, four weeks, and a tenth of the flow. All three methods claim to remove the chemical, and the full plant is committed in June whatever the pilot finds.",
       "takeaway": "Measure the thing that would tell the options apart, not the thing they all agree on.",
       "place": "Waste Management Office",
+      "guide": "All three methods remove the chemical. That is why they are all on the table. So measuring removal cannot separate them. Ask what each option would tell you that the others would not. Judged on removal alone, the winner is whichever makes the most leftovers fastest.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The pilot programme is the last point at which being wrong is cheap. What it needs to test is not which method removes the most contaminant — all three claim that — but which one's total hazard is smallest once byproducts, residuals and the lifecycle of the waste are counted. That means comparing mechanisms honestly, analysing for the products a mechanism would predict rather than only for the target, and running long enough for slow effects to show. The pilot has room for one question, and it should be the one that would change the decision.",
       "game": {
         "type": "CHOICE",
@@ -1652,14 +2405,29 @@ export const CURRICULUM = {
       },
       "assumes": [
         "something that removes a chemical has to put it somewhere"
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "A treatment can move a problem rather than remove it",
+        "of": 16,
+        "rests": [
+          "Separating a mixture, using a difference between the parts",
+          "Weight is conserved: what goes in has to come out somewhere"
+        ]
+      }
     },
     {
-      "day": 7,
+      "day": 8,
       "title": "What each claim has earned",
       "scene": "The city wants one sentence, and the chemistry does not support one. Turning all of it into a single green light is how a place gets reopened above a problem nobody wrote down.",
       "takeaway": "Readiness is claim by claim. There is no single green light.",
       "place": "Scientific Review Hall",
+      "guide": "The evidence is in four different states at once. Each state needs a different sentence. Ask what would have to happen for each one to be settled. Another method? A way to measure it? More money? A trigger? Collapsing four states into one is how the sentence stops being true.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If three lines are right, the fourth response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
       "story": "The city wants one sentence and the chemistry does not support one. At the end of a release the evidence is in several different states at once: some claims are established and can be closed, some are unresolved and need work, some are managed by a control that has to keep being funded, and some are simply unknown. Each of those calls for a different recommendation, and collapsing them into a single green light is how a site gets reoccupied above a problem nobody wrote down.",
       "game": {
         "type": "PROTOCOL",
@@ -1701,14 +2469,28 @@ export const CURRICULUM = {
       },
       "assumes": [
         "evidence comes in strengths, and a claim is only as strong as the weakest step under it"
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Saying what you know and how well you know it",
+        "of": 16,
+        "rests": [
+          "Measuring the same thing several times, and averaging",
+          "A blank and a standard: how a laboratory knows a number is real"
+        ]
+      }
     },
     {
-      "day": 8,
+      "day": 9,
       "title": "Did the cell do what it should?",
       "scene": "The polishing cell ran for six hours. From the current it drew, it should have taken out about four and a half kilograms of metal. The water figures say it took out three and a half.",
       "takeaway": "Comparing what happened with what should have happened is how a claim gets checked.",
       "place": "Treatment Plant Gallery",
+      "guide": "Four numbers. Two are the current and the hours, and they were used to work out the most it could remove. That work is already done. Ask which two numbers the comparison needs. A share compares what happened with what was possible. Nothing above a hundred per cent is possible.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The polishing cell ran for six hours. From the current it drew, it should have taken out about four and a half kilograms of metal. The water figures say it took out three and a half.",
       "game": {
         "type": "BALLPARK",
@@ -1731,7 +2513,7 @@ export const CURRICULUM = {
           "F = 96,485 C/mol e⁻"
         ],
         "relationship": "Share = what it removed ÷ what it could have removed × 100.",
-        "calcKey": "TREAT-8"
+        "calcKey": "TREAT-9"
       },
       "assumes": [
         "the electricity a cell uses sets the most metal it could possibly remove"
@@ -1796,14 +2578,28 @@ export const CURRICULUM = {
           "s": "A small concentration in a very large volume can still be a large amount of material.",
           "card": false
         }
-      ]
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Measuring the same thing several times, and averaging",
+        "of": 16,
+        "rests": [
+          "Concentration: how much of something is in how much of everything"
+        ]
+      }
     },
     {
-      "day": 9,
+      "day": 10,
       "title": "What the city keeps",
       "scene": "The temporary laboratory is being packed up as the emergency money ends. The plant is running. The mud still holds about seventy-one kilograms. One monitoring station has funding after next month.",
       "takeaway": "What outlasts an emergency is the part that went quiet, not the part that stopped.",
       "place": "Long-Term Monitoring Office",
+      "guide": "All four options are fair uses of the last money. They protect different things. Ask what nobody would notice if it were not funded. Seventy-one kilograms are still in the mud. None of it was destroyed. It went quiet. What lasts after a spill is the part that went quiet.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The immediate emergency is over and the money is about to move somewhere else. What outlasts a release is the contamination that fell below a threshold rather than disappearing, the sediment and infrastructure holding it, and the institutional memory of how any of this was measured. Long-term monitoring, resilient treatment and preserved methods are what convert 15 days of crisis work into capacity the city keeps. What the city keeps is what will still matter when nobody remembers the fire.",
       "game": {
         "type": "CHOICE",
@@ -1829,7 +2625,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "falling below a limit is not the same as being gone"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Weight is conserved: what goes in has to come out somewhere",
+        "of": 16,
+        "rests": [
+          "Everything is made of matter, and matter comes in solids, liquids and gases"
+        ]
+      }
     }
   ]
 };
@@ -2009,7 +2813,7 @@ export const BALLPARK_CALCS = {
     "solution": "Thirty-two kilograms in each millimetre, at two kilograms a year, is about sixteen years for the first millimetre.",
     "explanation": "The six millimetres of wall left is most of a century at this rate, which is maintenance. Ten times the rate is a burst main within a decade, so the rate is the whole question."
   },
-  "TREAT-8": {
+  "TREAT-9": {
     "prompt": "The current the cell drew allows at most 4.5 kilograms of metal to be removed. The water figures say 3.6 kilograms came out.",
     "question": "What share of the possible removal did the cell manage?",
     "labels": [

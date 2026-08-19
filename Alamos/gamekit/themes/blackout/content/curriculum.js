@@ -6,10 +6,156 @@ export const CURRICULUM = {
   "OPS": [
     {
       "day": 1,
+      "title": "What a node has to add up to",
+      "scene": "The busbar meter reads 900 A out. Reyes wants to know what that single figure rules out about the two circuits underneath it. A printed network diagram lies on the desk.",
+      "takeaway": "A conservation law bounds the parts of a system without identifying any of them.",
+      "place": "System Operations",
+      "guide": "All four options say something about two parallel circuits. They differ in whether they need one equation or two. Ask of each whether the meter reading alone could establish it. Charge does not pile up at a junction, so the branch currents have to add to the total. That fixes their sum and nothing else. Two of these options confuse parallel with series.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
+      "story": "The busbar meter reads 900 A out. Reyes wants to know what that single figure rules out about the two circuits underneath it. A printed network diagram lies on the desk.",
+      "game": {
+        "type": "CHOICE",
+        "title": "What a node has to add up to",
+        "setup": "System Operations",
+        "play": "Say what the busbar meter can and cannot tell you",
+        "task": "Say what the busbar meter can and cannot tell you",
+        "question": "What does the 900 A total tell you about the 2 circuits?",
+        "answer": "The branch currents must add to 900 A. Their individual values require another relation, such as the branch impedances.",
+        "why": "Charge does not build up at a junction, so current entering a node must equal current leaving it. Kirchhoff’s current law gives that conservation rule. It fixes the sum of the branch currents without telling you how the total divides. The split needs another relation, such as the branch impedances. Assuming an even split is wrong when the paths differ. Assuming each branch carries the full total confuses parallel and series circuits. One equation constrains two unknown branch currents; it does not determine both alone.",
+        "rebuttals": [
+          "Equal voltage does not imply equal current unless the branch impedances are equal.",
+          "Parallel branches share voltage, not current; the node law constrains only the sum of the branch currents.",
+          "A nonzero higher-impedance branch still carries current, so the lower-impedance path cannot take the full total by itself."
+        ],
+        "choices": [
+          "The 2 branch currents must be 450 A each because they share the same 2 busbars.",
+          "The 2 branch currents must add algebraically to 900 A, but the total alone does not give the split.",
+          "Each branch must carry 900 A because every parallel branch sees the same busbar voltage.",
+          "The lower-impedance branch must carry 900 A and the higher-impedance branch must carry 0."
+        ],
+        "correctChoice": "The 2 branch currents must add algebraically to 900 A, but the total alone does not give the split."
+      },
+      "assumes": [
+        "charge does not accumulate at a junction",
+        "ohm's law and resistive networks — taken as read",
+        "charge, current, voltage and resistance — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 2,
+          "c": "Ohm's law and resistive networks"
+        },
+        {
+          "n": 1,
+          "c": "Charge, current, voltage and resistance"
+        }
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Kirchhoff's laws and nodal analysis",
+        "t": "Charge does not pile up at a junction, and the voltages around any closed loop sum to zero. Between them they turn a drawing into simultaneous equations, so a current nobody can measure is still one you can solve for.",
+        "of": 32,
+        "rests": [
+          "Charge, current, voltage and resistance",
+          "Ohm's law and resistive networks"
+        ]
+      }
+    },
+    {
+      "day": 2,
+      "title": "Which of the three cannot wait",
+      "scene": "Reyes has three live problems on the board and only one attention channel she can keep herself. Aaron Whitlock is ready to take a handoff, but she refuses any instruction that amounts to “watch it.”.",
+      "takeaway": "Urgency comes from how fast a condition is worsening, how reversible it is, and whether somebody else can own the next move.",
+      "place": "System Operations",
+      "guide": "Three live problems and one attention channel you can keep. For each of the other two, name an owner, the first real action they will take, and the reading or event that brings the problem back to you. Reyes will not accept anything that amounts to 'watch it'. Then take the watch on the one that needs your own judgement.",
+      "background": [
+        "Why 'watch it' fails. An owner who has been told to observe will come back at the moment they need instructions, which is the moment you are busiest. A first action is what lets somebody hold a problem without you, and naming it is the difference between delegating and deferring.",
+        "What a return condition is for. It is not a promise to check in. It is the threshold at which the problem stops being theirs, agreed in advance, so nobody has to judge in the moment whether this is bad enough to interrupt you.",
+        "How to choose what to keep. Compare the three on how fast they are getting worse, on whether they are already contained, and on what happens if nobody acts. The one that needs judgement rather than procedure is the one you cannot hand over."
+      ],
+      "story": "Reyes has three live problems on the board and only one attention channel she can keep herself. Aaron Whitlock is ready to take a handoff, but she refuses any instruction that amounts to “watch it.”.",
+      "game": {
+        "type": "DELEGATE",
+        "title": "Which of the three cannot wait",
+        "setup": "System Operations",
+        "play": "Keep the one condition that cannot safely wait and delegate the rest with an owner, first action and return condition.",
+        "task": "Keep the one condition that cannot safely wait and delegate the rest with an owner, first action and return condition.",
+        "question": "What do you keep, and what exactly do you hand off?",
+        "answer": "Keep the growing forecast error. Delegate the cable fault to the field coordinator. Send the scheduled machine loss to the generation desk, with a first action and return threshold for each.",
+        "why": "The cable outage is loud but stable: customers are already off and a crew is moving. The fuel-limited machine has a known time and quantity, so another operator can prepare its replacement. The forecast error is different. It is still growing, and reserve procurement needs lead time before the evening peak. Every update that passes without action removes options that cannot be recovered later. Delegation is therefore not “watch it.” Each handoff needs an owner, a first action and a condition that brings the problem back.",
+        "delegate": {
+          "team": [
+            {
+              "id": "field",
+              "label": "Field coordinator"
+            },
+            {
+              "id": "generation",
+              "label": "Generation desk"
+            }
+          ],
+          "firstActions": [
+            {
+              "id": "field-check",
+              "label": "Confirm crew arrival and fault location"
+            },
+            {
+              "id": "start-replacement",
+              "label": "Begin loading 180 MW of replacement generation"
+            }
+          ],
+          "problems": [
+            {
+              "id": "forecast",
+              "label": "Forecast is 200 MW low and worsening",
+              "trend": "rising",
+              "rate": "+40 MW error per 10 min",
+              "consequence": "Reserve procurement closes in 20 min; lost lead time cannot be recovered before the peak.",
+              "irreversible": true,
+              "delegable": false
+            },
+            {
+              "id": "cable",
+              "label": "Cable fault with 3,300 households off",
+              "trend": "stable",
+              "rate": "0 additional households per 10 min",
+              "consequence": "Customers remain off while the dispatched crew repairs the fault.",
+              "loud": true
+            },
+            {
+              "id": "fuel",
+              "label": "Gas machine reaches its fuel limit at 18:00",
+              "trend": "stable",
+              "rate": "known 180 MW loss at a fixed time",
+              "consequence": "Replacement generation must be loaded before 18:00."
+            }
+          ],
+          "first": "forecast",
+          "hint": "Choose one problem to keep. For every handoff, assign a person, a first action and a measurable return condition; “watch it” is refused.",
+          "commit": "Take the watch"
+        }
+      },
+      "assumes": [
+        "a stable problem can be severe without becoming more urgent each minute",
+        "reserve actions need lead time before the peak"
+      ]
+    },
+    {
+      "day": 3,
       "title": "What a frequency trend is evidence of",
       "scene": "The wall shows frequency dropping for eight seconds, then flattening low. Aaron Whitlock, the assistant operator, has the log open. Two people have already named a cause, and he wants a statement the record can defend.",
       "takeaway": "Frequency is a system-wide balance signal; its rate of change depends on both the power mismatch and stored kinetic energy.",
       "place": "System Operations",
+      "guide": "Four observations, and the right column says what each one is evidence of. Pair them by asking one question. Is this quantity system-wide, or local to a place? Frequency is one number for the whole interconnection. Voltage is not. That difference is what lets a trend say whether something happened, while a voltage says where. Two people have already named a cause.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "The wall shows frequency dropping for eight seconds, then flattening low. Aaron Whitlock, the assistant operator, has the log open. Two people have already named a cause, and he wants a statement the record can defend.",
       "game": {
         "type": "PROTOCOL",
@@ -46,16 +192,22 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "an alternating supply has a frequency measured in cycles per second"
+        "an alternating supply has a frequency measured in cycles per second",
+        "synchronous machines and synchronisation — taken as read",
+        "electrical power and energy over time — taken as read"
       ],
       "equations": [
         {
-          "e": "df/dt = (P_gen − P_load) / 2H",
+          "e": "df/dt = f₀(P_gen − P_load) / 2H",
           "c": "frequency as the running balance of supply and demand",
           "v": [
             [
               "df/dt",
               "how fast frequency is moving, in hertz per second"
+            ],
+            [
+              "f₀",
+              "nominal frequency, in hertz — 50 on this system"
             ],
             [
               "P_gen",
@@ -70,49 +222,126 @@ export const CURRICULUM = {
               "stored kinetic energy of the machines online, in megawatt-seconds"
             ]
           ],
-          "s": "Frequency falls at a rate set by how far generation is short, divided by the spinning inertia there to absorb it."
+          "s": "Frequency falls at a rate set by how far generation is short, divided by the spinning inertia there to absorb it, and scaled by the frequency the system runs at."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 18,
+          "c": "Synchronous machines and synchronisation"
+        },
+        {
+          "n": 5,
+          "c": "Electrical power and energy over time"
+        }
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Frequency as the balance of supply and demand",
+        "t": "Frequency is not set anywhere; it is what generation minus demand does to the energy stored in spinning machines. That makes it the fastest system-wide signal there is, and the same number everywhere in a connected network.",
+        "of": 32,
+        "rests": [
+          "Electrical power and energy over time",
+          "Synchronous machines and synchronisation"
+        ]
+      }
     },
     {
-      "day": 2,
-      "title": "The contingency you are actually protecting against",
-      "scene": "Reyes, the system operator, wants a decision. The corridor is inside its emergency rating for another half hour. The question on the table is what happens elsewhere if this element trips.",
-      "takeaway": "A rating is only interesting alongside what the flow does when that element is gone.",
+      "day": 4,
+      "title": "What the path opposes at 50 hertz",
+      "scene": "Reyes has the switching order for the second circuit in front of her. Novak has read the path's own figures out of the records: 3.1 ohms of resistance, and 12.4 ohms of reactance at 50 hertz. She wants one number before she signs.",
+      "takeaway": "Two oppositions that peak a quarter of a cycle apart combine at right angles, so the larger of them dominates the total.",
       "place": "System Operations",
-      "story": "Reyes, the system operator, wants a decision. The corridor is inside its emergency rating for another half hour. The question on the table is what happens elsewhere if this element trips.",
+      "guide": "Five numbers, and only two of them are properties of the path. Ask of each whether it describes what the path is, or what is being pushed through it. Resistance and reactance are both measured in ohms and both oppose the current, but they do it at different moments in the cycle, so they do not add end to end. Combine them the way you would two sides of a right-angled triangle, and notice before you commit how little the smaller one moves the answer.",
+      "background": [
+        "Why the two do not simply add. Resistance turns electrical energy into heat and opposes the current itself. An inductance stores energy in a magnetic field and hands it back a quarter of a cycle later, so what it opposes is the change of current. The two oppositions peak at different instants, and adding them arithmetically would count a maximum that never happens.",
+        "Why an overhead path is mostly reactance. A long circuit is a large loop of wire, and its inductance grows with the area that loop encloses. At the spacings a 400 kV tower needs, that inductance dominates: on this path the reactance is four times the resistance, so the resistance contributes about three per cent of the total, and heat is a small part of the story.",
+        "What the frequency has to do with it. Reactance is proportional to frequency, so a figure like this one is only true at the frequency it was measured at. Resistance is nearly a property of the metal; reactance is a property of the metal and the cycle together, which is why a record of it has to say 50 hertz."
+      ],
+      "story": "Reyes has the switching order for the second circuit in front of her. Novak has read the path's own figures out of the records: 3.1 ohms of resistance, and 12.4 ohms of reactance at 50 hertz. She wants one number before she signs.",
       "game": {
-        "type": "CHOICE",
-        "title": "The contingency you are actually protecting against",
+        "type": "BALLPARK",
+        "title": "What the path opposes at 50 hertz",
         "setup": "System Operations",
-        "play": "Choose what to do about the warm corridor",
-        "task": "Choose what to do about the warm corridor",
-        "question": "What makes the loaded corridor a problem worth acting on now?",
-        "answer": "The urgent problem is the post-contingency flow: if this corridor trips, a neighbouring circuit exceeds its emergency rating and a cascade can begin.",
-        "why": "Running above a continuous rating is a decision about time and temperature. The emergency rating exists so that decision can be made. What turns this from expensive into dangerous is the contingency. One corridor is already loaded. Lose it, and its flow lands on neighbours that are not rated for the sum. That second trip is a relay working correctly, not a choice anybody makes. This is the whole of the N-1 rule. The system is not required to be comfortable.",
-        "rebuttals": [
-          "An emergency rating exists specifically to allow limited operation above the continuous rating; the urgent issue is what follows a trip.",
-          "Resistive loss creates heat, but the protection concern here is the post-contingency overload on the neighbouring circuit.",
-          "The relay and emergency rating are coordinated; the danger is the next circuit exceeding its own limit after the first corridor is lost."
+        "play": "Work out what the path opposes before the order is signed",
+        "task": "Work out what the path opposes before the order is signed",
+        "question": "Estimate what the corridor path opposes at 50 hertz.",
+        "answer": "About 12.8 ohms.",
+        "why": "Resistance opposes the current itself and turns part of it into heat. Reactance opposes the change of current, because an inductance answers a rising current by pushing back, and it does that a quarter of a cycle away from the resistance. Two oppositions that peak at different moments cannot be added end to end; they combine as the two shorter sides of a right-angled triangle. Here the reactance is four times the resistance, so the resistance moves the total by about three per cent.",
+        "givens": [
+          "Resistance of the path is 3.1 Ω",
+          "Reactance of the path at 50 Hz is 12.4 Ω"
         ],
-        "choices": [
-          "Because exceeding the continuous rating means insulation damage starts immediately.",
-          "Because losing this corridor would push a neighbouring circuit beyond its emergency rating and invite a second trip.",
-          "Because the 17 MW of resistive loss is already large enough to make protection operate.",
-          "Because the protection relay must trip before the operator can use the emergency rating."
-        ],
-        "correctChoice": "Because losing this corridor would push a neighbouring circuit beyond its emergency rating and invite a second trip."
+        "relationship": "Z = √(R² + X²), the resistance and the reactance of the same path combined at right angles because they oppose the current a quarter of a cycle apart.",
+        "calcKey": "OPS-4"
       },
       "assumes": [
-        "a network is required to survive the loss of any single element"
-      ]
+        "an alternating current has a frequency, and this system runs at 50 hertz",
+        "the hypotenuse of a right-angled triangle is the square root of the sum of the squares",
+        "aC waveforms: frequency, period and phase — taken as read",
+        "capacitance, inductance and stored energy — taken as read",
+        "rMS against peak and average — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "V = IR",
+          "c": "Ohm's law, on a conductor and on a whole network",
+          "v": [
+            [
+              "V",
+              "voltage across it, in volts"
+            ],
+            [
+              "I",
+              "current through it, in amperes"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Current through a resistance produces a voltage across it, in proportion.",
+          "computed": true
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 6,
+          "c": "AC waveforms: frequency, period and phase"
+        },
+        {
+          "n": 8,
+          "c": "Capacitance, inductance and stored energy"
+        },
+        {
+          "n": 7,
+          "c": "RMS against peak and average"
+        }
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Reactance, impedance and phasors",
+        "t": "Reactance is the opposition a capacitor or inductor offers at a given frequency, and impedance is that combined with resistance. Phasors let you add quantities that peak at different moments without drawing a single waveform.",
+        "of": 32,
+        "rests": [
+          "AC waveforms: frequency, period and phase",
+          "RMS against peak and average",
+          "Capacitance, inductance and stored energy"
+        ]
+      }
     },
     {
-      "day": 3,
+      "day": 5,
       "title": "The order somebody will read back to you",
       "scene": "3 crews, 11 dead feeders, and a list in front of Reyes that mixes household counts with 1 clinic and 1 pumping station. The control-room phone is already ringing.. The shift log and network board are open beside them.",
       "takeaway": "The first crew goes where the consequence of waiting is worst, not where the count is biggest.",
       "place": "System Operations",
+      "guide": "Four feeders, and household count is only one of two things that matter. Ask of each what waiting costs, and how long the work takes. A one-hour job frees the crew for the next fault this shift. A four-hour job does not. One of these is measured in treatments rather than in inconvenience, and one is already on a standby supply.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "3 crews, 11 dead feeders, and a list in front of Reyes that mixes household counts with 1 clinic and 1 pumping station. The control-room phone is already ringing.. The shift log and network board are open beside them.",
       "game": {
         "type": "CHOICE",
@@ -141,11 +370,17 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 4,
+      "day": 6,
       "title": "What is worth knowing before the peak",
       "scene": "Reyes has a small budget and four things she could find out before the evening peak. Only some of them would change what she does about the reserve. The shift log is open beside them.",
       "takeaway": "The value of a measurement is the decision it can change, not how precise or interesting it sounds.",
       "place": "System Operations",
+      "guide": "Five evidence credits, four things you could find out, and a reserve decision at six o'clock. Open each card and ask what its result would change. A measurement that confirms something already settled is not worth a credit, however clean it would be. Buy the ones that could still move the decision, and commit before the peak.",
+      "background": [
+        "What makes evidence worth its credit. Two possible results that point at different actions. If both outcomes leave you doing the same thing about the reserve, the measurement is interesting and not useful — and tonight the difference between those two words is a credit you cannot get back.",
+        "Why the deadline is part of the question. A result that arrives at seven is a result about a decision already made. So a slower, better measurement can be worth less than a rough one in time, which is the opposite of how the same choice would be scored in a laboratory.",
+        "What the shift log is doing open beside her. It records what has already been decided and why, which is the fastest way to see which of the four questions are still open. Half of buying evidence well is knowing what is already settled."
+      ],
       "story": "Reyes has a small budget and four things she could find out before the evening peak. Only some of them would change what she does about the reserve. The shift log is open beside them.",
       "game": {
         "type": "VALUE",
@@ -200,7 +435,8 @@ export const CURRICULUM = {
       },
       "assumes": [
         "reserve is held against uncertainty rather than only the forecast centre",
-        "storage power and storage deliverability are separate claims"
+        "storage power and storage deliverability are separate claims",
+        "electrical power and energy over time — taken as read"
       ],
       "equations": [
         {
@@ -222,89 +458,22 @@ export const CURRICULUM = {
           ],
           "s": "Storage returns less than it takes, so the reserve it is counted as is smaller than its nameplate."
         }
-      ]
-    },
-    {
-      "day": 5,
-      "title": "What a node has to add up to",
-      "scene": "The busbar meter reads 900 A out. Reyes wants to know what that single figure rules out about the two circuits underneath it. A printed network diagram lies on the desk.",
-      "takeaway": "A conservation law bounds the parts of a system without identifying any of them.",
-      "place": "System Operations",
-      "story": "The busbar meter reads 900 A out. Reyes wants to know what that single figure rules out about the two circuits underneath it. A printed network diagram lies on the desk.",
-      "game": {
-        "type": "CHOICE",
-        "title": "What a node has to add up to",
-        "setup": "System Operations",
-        "play": "Say what the busbar meter can and cannot tell you",
-        "task": "Say what the busbar meter can and cannot tell you",
-        "question": "What does the 900 A total tell you about the 2 circuits?",
-        "answer": "The branch currents must add to 900 A. Their individual values require another relation, such as the branch impedances.",
-        "why": "Charge does not build up at a junction, so current entering a node must equal current leaving it. Kirchhoff’s current law gives that conservation rule. It fixes the sum of the branch currents without telling you how the total divides. The split needs another relation, such as the branch impedances. Assuming an even split is wrong when the paths differ. Assuming each branch carries the full total confuses parallel and series circuits. One equation constrains two unknown branch currents; it does not determine both alone.",
-        "rebuttals": [
-          "Equal voltage does not imply equal current unless the branch impedances are equal.",
-          "Parallel branches share voltage, not current; the node law constrains only the sum of the branch currents.",
-          "A nonzero higher-impedance branch still carries current, so the lower-impedance path cannot take the full total by itself."
-        ],
-        "choices": [
-          "The 2 branch currents must be 450 A each because they share the same 2 busbars.",
-          "The 2 branch currents must add algebraically to 900 A, but the total alone does not give the split.",
-          "Each branch must carry 900 A because every parallel branch sees the same busbar voltage.",
-          "The lower-impedance branch must carry 900 A and the higher-impedance branch must carry 0."
-        ],
-        "correctChoice": "The 2 branch currents must add algebraically to 900 A, but the total alone does not give the split."
-      },
-      "assumes": [
-        "charge does not accumulate at a junction"
-      ]
-    },
-    {
-      "day": 6,
-      "title": "Cheapest first, and the exceptions that are not exceptions",
-      "scene": "Four plants and an order to sign. Reyes wants each one matched to the actual reason it sits where it does in the stack, rather than to its price alone.",
-      "takeaway": "Merit order is cost order, corrected for what the system also needs from a machine.",
-      "place": "System Operations",
-      "story": "Four plants and an order to sign. Reyes wants each one matched to the actual reason it sits where it does in the stack, rather than to its price alone.",
-      "game": {
-        "type": "CASEBOOK",
-        "title": "Cheapest first, and the exceptions that are not exceptions",
-        "setup": "System Operations",
-        "play": "Match each plant to why it is dispatched where it is",
-        "task": "Match each plant to why it is dispatched where it is",
-        "question": "Match each plant to why it is dispatched where it is",
-        "answer": "",
-        "why": "Dispatch starts from cost, because running the cheapest first is what makes electricity affordable. Then three things bend it. Plant with almost no running cost goes first and cannot be relied on. It displaces fuel without displacing the need for something reliable behind it. Plant that can change output quickly is worth holding part-loaded, because reserve is a service and a machine at full output cannot provide it. And plant in the right place can be needed regardless of price, when the alternative is a corridor over its limit.",
-        "rebuttals": [
-          "Near-zero running cost puts it first in the stack, and the uncertainty is why something reliable still has to be behind it.",
-          "Holding a fast machine part-loaded is buying reserve, which a machine at full output cannot sell.",
-          "Being in the right place can be worth more than being cheap, when the cheap alternative overloads a corridor.",
-          "Expensive and slow means last, and it is the plant the system is trying not to need."
-        ],
-        "scenarios": [
-          "The ridge fleet, almost free to run, output not promised beyond four hours.",
-          "A gas machine that can move 40 MW a minute, deliberately left at half output.",
-          "An old station on the wrong side of the corridor, kept off despite being mid-priced.",
-          "An old station on the right side of a constraint, run despite being expensive."
-        ],
-        "choices": [
-          "First in the stack on cost, with something reliable behind it because the output is not promised.",
-          "Held part-loaded on purpose, because reserve is a service and only a part-loaded machine can sell it.",
-          "Kept off because running it would push flow onto a corridor that cannot take it.",
-          "Run out of merit order because of where it is, not what it costs."
-        ],
-        "mapping": [
-          0,
-          1,
-          2,
-          3
-        ],
-        "columns": [
-          "The plant",
-          "Why it sits where it does"
+      ],
+      "takesAsRead": [
+        {
+          "n": 5,
+          "c": "Electrical power and energy over time"
+        }
+      ],
+      "concept": {
+        "n": 29,
+        "c": "Storage, round-trip efficiency and ramp rate",
+        "t": "Storage returns less than it takes in, and round-trip efficiency is that fraction. What it is worth depends as much on how fast it can change output as on how much it holds, since some jobs are energy and others are speed.",
+        "of": 32,
+        "rests": [
+          "Electrical power and energy over time"
         ]
-      },
-      "assumes": [
-        "generation is scheduled in order of what it costs to run"
-      ]
+      }
     },
     {
       "day": 7,
@@ -312,6 +481,12 @@ export const CURRICULUM = {
       "scene": "The island frequency is falling at 0.10 hertz per second. Its dispatchable machine is already at full output, while inverter-connected ridge generation is low. Haddad wants the power shortfall, but the wall gives only the slope.",
       "takeaway": "A frequency slope constrains the ratio of power imbalance to stored kinetic energy; it does not determine either one by itself.",
       "place": "System Operations",
+      "guide": "Two controls slide along a family of combinations that all reproduce the observed 0.10 hertz per second. Find out how wide that family is before naming a number. The wall gives only the slope, and a slope alone cannot separate a large shortfall on a heavy system from a small one on a light system. Then bring in the stored kinetic energy, which collapses it.",
+      "background": [
+        "Why the slope alone is not enough. Frequency falls at a rate set by the power shortfall divided by the stored kinetic energy of everything spinning. One equation, two unknowns. Every pair that gives the same ratio produces exactly the same slope on the wall.",
+        "Why the ridge generation matters. Inverter-connected machines contribute little or no stored kinetic energy — they are not spinning masses locked to the frequency. So an island leaning on them has less inertia than its megawatts suggest, and the same shortfall drives the frequency down faster.",
+        "What measuring the inertia buys. It fixes one of the two unknowns, so the shortfall follows immediately. That is why system operators now measure inertia rather than assuming it: the assumption was safe while the fleet was synchronous and stopped being safe as it changed."
+      ],
       "story": "The island frequency is falling at 0.10 hertz per second. Its dispatchable machine is already at full output, while inverter-connected ridge generation is low. Haddad wants the power shortfall, but the wall gives only the slope.",
       "game": {
         "type": "DEGENERACY",
@@ -402,12 +577,16 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "df/dt = (P_gen − P_load) / 2H",
+          "e": "df/dt = f₀(P_gen − P_load) / 2H",
           "c": "frequency as the running balance of supply and demand",
           "v": [
             [
               "df/dt",
               "how fast frequency is moving, in hertz per second"
+            ],
+            [
+              "f₀",
+              "nominal frequency, in hertz — 50 on this system"
             ],
             [
               "P_gen",
@@ -422,9 +601,18 @@ export const CURRICULUM = {
               "stored kinetic energy of the machines online, in megawatt-seconds"
             ]
           ],
-          "s": "Frequency falls at a rate set by how far generation is short, divided by the spinning inertia there to absorb it."
+          "s": "Frequency falls at a rate set by how far generation is short, divided by the spinning inertia there to absorb it, and scaled by the frequency the system runs at."
         }
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Inertia, governor response and droop control",
+        "t": "Stored rotational inertia decides how fast frequency moves in the first seconds; governors then act on the deviation and arrest it. Droop makes machines share that response in proportion, rather than each one chasing the target alone.",
+        "of": 32,
+        "rests": [
+          "Frequency as the balance of supply and demand"
+        ]
+      }
     },
     {
       "day": 8,
@@ -432,6 +620,12 @@ export const CURRICULUM = {
       "scene": "One hydro set that can start unaided, a dead network, and a room full of people who want the big station back first. Reyes needs the sequence written before anybody switches anything.",
       "takeaway": "A black start is a dependency chain: the largest generator is useless until a smaller source can energise its auxiliaries through a complete path.",
       "place": "System Operations",
+      "guide": "Build the path in the order the energy actually travels, from the machine that can start unaided to the one that cannot. Then name the required link that limits it. The biggest station is not the answer, and neither is the largest number on the board: a path is limited by the link with the least to give, and the readings tell you which.",
+      "background": [
+        "What black start means. Almost every generator needs power to start: excitation, auxiliaries, pumps, controls. A hydro set with a battery, a governor and a head of water behind it does not, which makes it the only place a dead network can begin. Everything else is downstream of it.",
+        "Why the order is not a preference. Energising a path means charging line capacitance and picking up auxiliaries in an order the equipment can survive. Take too much at once and the small starting machine collapses, and the network is dead again with less to try next.",
+        "Why the room wants the wrong thing. The big station is what everybody is waiting for and what the public will notice. That is a reason to write the sequence down before anybody switches anything, rather than a reason to put it first."
+      ],
       "story": "One hydro set that can start unaided, a dead network, and a room full of people who want the big station back first. Reyes needs the sequence written before anybody switches anything.",
       "game": {
         "type": "CHAIN",
@@ -447,32 +641,38 @@ export const CURRICULUM = {
             {
               "id": "gate",
               "label": "Reservoir gate",
-              "transfers": "water flow"
+              "transfers": "water flow",
+              "reading": "30 MW equivalent"
             },
             {
               "id": "turbine",
               "label": "Hydro turbine",
-              "transfers": "mechanical torque"
+              "transfers": "mechanical torque",
+              "reading": "24 MW"
             },
             {
               "id": "hydro-gen",
               "label": "Hydro generator",
-              "transfers": "electrical power"
+              "transfers": "electrical power",
+              "reading": "20 MW"
             },
             {
               "id": "startup-feeder",
               "label": "Black-start feeder",
-              "transfers": "electrical power to station auxiliaries"
+              "transfers": "electrical power to station auxiliaries",
+              "reading": "8 MW"
             },
             {
               "id": "auxiliaries",
               "label": "Large-station pumps and fans",
-              "transfers": "startup services"
+              "transfers": "startup services",
+              "reading": "needs 6 MW"
             },
             {
               "id": "large-gen",
               "label": "Large station generator",
-              "transfers": "electrical output after startup"
+              "transfers": "electrical output after startup",
+              "reading": "500 MW"
             }
           ],
           "order": [
@@ -517,7 +717,18 @@ export const CURRICULUM = {
           ],
           "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
         }
-      ]
+      ],
+      "concept": {
+        "n": 26,
+        "c": "Islanding, black start and restoration order",
+        "t": "An island is a section running on its own generation, and a black start builds one from a plant that can start with no outside power. The order is set by physics: something has to hold voltage and frequency before load can arrive.",
+        "of": 32,
+        "rests": [
+          "Voltage drop, regulation and reactive support",
+          "Synchronous machines and synchronisation",
+          "Frequency as the balance of supply and demand"
+        ]
+      }
     },
     {
       "day": 9,
@@ -525,6 +736,12 @@ export const CURRICULUM = {
       "scene": "Reyes has the week's decisions on the board and one wrong input underneath several of them. She wants each one marked as still good, now unsupported, or wrong. The yard radio is still live beside them.",
       "takeaway": "A bad input invalidates what rested on it and leaves the rest standing, and telling them apart is the work.",
       "place": "System Operations",
+      "guide": "Four decisions from the week, and one wrong input underneath some of them. Trace each decision back to what it was argued from. Ask whether temperature is in that chain at all. A loss calculation that used current and resistance never touched the sensor. Neither did a frequency. One wrong number voids what leaned on it and nothing more.",
+      "background": [
+        "Why explanations rather than labels. Naming a finding is not accounting for it, and a plausible-sounding mechanism attached to the wrong observation is the commonest way a wrong story survives. Committing an explanation to one clue means claiming it accounts for that clue specifically and not for its neighbour, which is where the two come apart.",
+        "How to use the one-each rule. The explanations are a set to be distributed, not a list to be sampled, so every join constrains the rest. Settling the two you are confident of can decide the remaining pair by elimination. Where it does not, two explanations are still competing for one clue, and that competition is the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every explanation used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Reyes has the week's decisions on the board and one wrong input underneath several of them. She wants each one marked as still good, now unsupported, or wrong. The yard radio is still live beside them.",
       "game": {
         "type": "CASEBOOK",
@@ -610,7 +827,18 @@ export const CURRICULUM = {
           ],
           "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
         }
-      ]
+      ],
+      "concept": {
+        "n": 26,
+        "c": "Islanding, black start and restoration order",
+        "t": "An island is a section running on its own generation, and a black start builds one from a plant that can start with no outside power. The order is set by physics: something has to hold voltage and frequency before load can arrive.",
+        "of": 32,
+        "rests": [
+          "Voltage drop, regulation and reactive support",
+          "Synchronous machines and synchronisation",
+          "Frequency as the balance of supply and demand"
+        ]
+      }
     },
     {
       "day": 10,
@@ -618,6 +846,12 @@ export const CURRICULUM = {
       "scene": "The screen says every single contingency is survivable tonight. Whitlock asks what the check does not cover, and Reyes says that is the right question on a quiet shift. The event board is still showing the overnight state.",
       "takeaway": "An N-1 check is a statement about single failures, and it says nothing about 2.",
       "place": "System Operations",
+      "guide": "All four options describe something a clean contingency check might mean. They differ in scope: one failure or two, survivable or likely. Ask of each whether the check's own list could support it. The check is exactly as broad as that list. Last Friday was a corridor already above a limit nobody knew about, and then a trip.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The screen says every single contingency is survivable tonight. Whitlock asks what the check does not cover, and Reyes says that is the right question on a quiet shift. The event board is still showing the overnight state.",
       "game": {
         "type": "CHOICE",
@@ -627,7 +861,7 @@ export const CURRICULUM = {
         "task": "Say what the contingency check is actually asking",
         "question": "What does a clean contingency check tell you tonight?",
         "answer": "A clean N-1 check says each listed single failure leaves the modeled system inside limits. It says nothing about failure probability or simultaneous failures.",
-        "why": "The check is exactly as broad as its list. It takes each credible single failure in turn, works out the flows afterwards, and confirms nothing ends up over a limit. That is a genuinely strong statement and a narrow one. It does not cover two failures at once, it does not cover a failure outside the list. It says nothing at all about what is likely — only about what is survivable. Last Friday was two things: a corridor already above a limit nobody knew about, and then the trip.",
+        "why": "The check is exactly as broad as its list. It takes each credible single failure in turn, works out the flows afterwards, and confirms nothing ends up over a limit. That is a genuinely strong statement and a narrow one. It does not cover two failures at once, it does not cover a failure outside the list. It says nothing at all about what is likely — only about what is survivable. Last Friday was two things: a corridor already above a limit nobody knew about, and then the trip. When a second thing lands on neighbours checked only one at a time, each trips correctly in turn, and the sequence of events is what has to be reconstructed afterwards.",
         "rebuttals": [
           "Contingency analysis tests survivability after an assumed failure, not the probability that the failure will occur.",
           "An N-1 study is explicitly a one-at-a-time test. It does not establish N-2 survivability.",
@@ -643,112 +877,191 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a system is required to survive any one credible failure"
-      ]
+      ],
+      "concept": {
+        "n": 27,
+        "c": "Contingency analysis and the N-1 criterion",
+        "t": "N-1 asks whether the system still stands with any single element gone, tested against every element in turn rather than against the one that looks likely. It is a statement about what survives, not a prediction of what will fail.",
+        "of": 32,
+        "rests": [
+          "Series, parallel and equivalent circuits",
+          "Transmission losses and conductor sizing"
+        ]
+      }
     },
     {
       "day": 11,
-      "title": "Which of the three cannot wait",
-      "scene": "Reyes has three live problems on the board and only one attention channel she can keep herself. Aaron Whitlock is ready to take a handoff, but she refuses any instruction that amounts to “watch it.”.",
-      "takeaway": "Urgency comes from how fast a condition is worsening, how reversible it is, and whether somebody else can own the next move.",
+      "title": "Cheapest first, and the exceptions that are not exceptions",
+      "scene": "Four plants and an order to sign. Reyes wants each one matched to the actual reason it sits where it does in the stack, rather than to its price alone.",
+      "takeaway": "Merit order is cost order, corrected for what the system also needs from a machine.",
       "place": "System Operations",
-      "story": "Reyes has three live problems on the board and only one attention channel she can keep herself. Aaron Whitlock is ready to take a handoff, but she refuses any instruction that amounts to “watch it.”.",
+      "guide": "Four plants and four reasons to sit where they do. Only one of the four reasons is price. Pair them by asking what bends the merit order: reliability, the ability to move quickly, or where the plant is. A machine at full output cannot sell reserve. A cheap machine in the wrong place can be worse than an expensive one in the right place.",
+      "background": [
+        "Why explanations rather than labels. Naming a finding is not accounting for it, and a plausible-sounding mechanism attached to the wrong observation is the commonest way a wrong story survives. Committing an explanation to one clue means claiming it accounts for that clue specifically and not for its neighbour, which is where the two come apart.",
+        "How to use the one-each rule. The explanations are a set to be distributed, not a list to be sampled, so every join constrains the rest. Settling the two you are confident of can decide the remaining pair by elimination. Where it does not, two explanations are still competing for one clue, and that competition is the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every explanation used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
+      "story": "Four plants and an order to sign. Reyes wants each one matched to the actual reason it sits where it does in the stack, rather than to its price alone.",
       "game": {
-        "type": "DELEGATE",
-        "title": "Which of the three cannot wait",
+        "type": "CASEBOOK",
+        "title": "Cheapest first, and the exceptions that are not exceptions",
         "setup": "System Operations",
-        "play": "Keep the one condition that cannot safely wait and delegate the rest with an owner, first action and return condition.",
-        "task": "Keep the one condition that cannot safely wait and delegate the rest with an owner, first action and return condition.",
-        "question": "What do you keep, and what exactly do you hand off?",
-        "answer": "Keep the growing forecast error. Delegate the cable fault to the field coordinator. Send the scheduled machine loss to the generation desk, with a first action and return threshold for each.",
-        "why": "The cable outage is loud but stable: customers are already off and a crew is moving. The fuel-limited machine has a known time and quantity, so another operator can prepare its replacement. The forecast error is different. It is still growing, and reserve procurement needs lead time before the evening peak. Every update that passes without action removes options that cannot be recovered later. Delegation is therefore not “watch it.” Each handoff needs an owner, a first action and a condition that brings the problem back.",
-        "delegate": {
-          "team": [
-            {
-              "id": "field",
-              "label": "Field coordinator"
-            },
-            {
-              "id": "generation",
-              "label": "Generation desk"
-            }
-          ],
-          "firstActions": [
-            {
-              "id": "field-check",
-              "label": "Confirm crew arrival and fault location"
-            },
-            {
-              "id": "start-replacement",
-              "label": "Begin loading 180 MW of replacement generation"
-            }
-          ],
-          "problems": [
-            {
-              "id": "forecast",
-              "label": "Forecast is 200 MW low and worsening",
-              "trend": "rising",
-              "rate": "+40 MW error per 10 min",
-              "consequence": "Reserve procurement closes in 20 min; lost lead time cannot be recovered before the peak.",
-              "irreversible": true,
-              "delegable": false
-            },
-            {
-              "id": "cable",
-              "label": "Cable fault with 3,300 households off",
-              "trend": "stable",
-              "rate": "0 additional households per 10 min",
-              "consequence": "Customers remain off while the dispatched crew repairs the fault.",
-              "loud": true
-            },
-            {
-              "id": "fuel",
-              "label": "Gas machine reaches its fuel limit at 18:00",
-              "trend": "stable",
-              "rate": "known 180 MW loss at a fixed time",
-              "consequence": "Replacement generation must be loaded before 18:00."
-            }
-          ],
-          "first": "forecast",
-          "hint": "Choose one problem to keep. For every handoff, assign a person, a first action and a measurable return condition; “watch it” is refused.",
-          "commit": "Take the watch"
-        }
+        "play": "Match each plant to why it is dispatched where it is",
+        "task": "Match each plant to why it is dispatched where it is",
+        "question": "Match each plant to why it is dispatched where it is",
+        "answer": "",
+        "why": "Dispatch starts from cost, because running the cheapest first is what makes electricity affordable. Then three things bend it. Plant with almost no running cost goes first and cannot be relied on. It displaces fuel without displacing the need for something reliable behind it. Plant that can change output quickly is worth holding part-loaded, because reserve is a service and a machine at full output cannot provide it. And plant in the right place can be needed regardless of price, when the alternative is a corridor over its limit.",
+        "rebuttals": [
+          "Near-zero running cost puts it first in the stack, and the uncertainty is why something reliable still has to be behind it.",
+          "Holding a fast machine part-loaded is buying reserve, which a machine at full output cannot sell.",
+          "Being in the right place can be worth more than being cheap, when the cheap alternative overloads a corridor.",
+          "Expensive and slow means last, and it is the plant the system is trying not to need."
+        ],
+        "scenarios": [
+          "The ridge fleet, almost free to run, output not promised beyond four hours.",
+          "A gas machine that can move 40 MW a minute, deliberately left at half output.",
+          "An old station on the wrong side of the corridor, kept off despite being mid-priced.",
+          "An old station on the right side of a constraint, run despite being expensive."
+        ],
+        "choices": [
+          "First in the stack on cost, with something reliable behind it because the output is not promised.",
+          "Held part-loaded on purpose, because reserve is a service and only a part-loaded machine can sell it.",
+          "Kept off because running it would push flow onto a corridor that cannot take it.",
+          "Run out of merit order because of where it is, not what it costs."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "columns": [
+          "The plant",
+          "Why it sits where it does"
+        ]
       },
       "assumes": [
-        "a stable problem can be severe without becoming more urgent each minute",
-        "reserve actions need lead time before the peak"
+        "generation is scheduled in order of what it costs to run"
       ],
-      "equations": [
-        {
-          "e": "peak = base peak + sensitivity × degrees below",
-          "c": "how far cold moves an evening peak",
-          "v": [
-            [
-              "peak",
-              "in MW"
-            ],
-            [
-              "base peak",
-              "in MW for that day and season"
-            ],
-            [
-              "sensitivity",
-              "in MW per degree"
-            ],
-            [
-              "degrees below",
-              "below the reference temperature"
-            ]
-          ],
-          "s": "Demand rises with cold at a rate measured from this system, not from a textbook."
-        }
-      ]
+      "concept": {
+        "n": 22,
+        "c": "Economic dispatch and merit order",
+        "t": "With demand given, run the cheapest available plant first and let the last unit needed set the marginal cost. That order is only economic while the network can physically deliver it, so a constraint is what breaks merit order.",
+        "of": 32,
+        "rests": [
+          "Load curves and demand forecasting"
+        ]
+      }
     },
     {
       "day": 12,
+      "title": "Fifty hertz, through the evening rise",
+      "scene": "The evening rise is starting and the frequency is drifting under it. Governors are answering, and the only thing left on the desk is the regulating set's raise-lower control.",
+      "takeaway": "A mismatch you do not answer is not a mismatch that goes away.",
+      "place": "Control Room",
+      "guide": "Hold the frequency inside the band on the wall display. The band narrows as the evening goes on, because the tolerance a system can live with at seven o'clock is not the one it can live with at peak. The raise-lower control is what you have, and every load that comes on is a mismatch that keeps pushing until generation answers it.",
+      "background": [
+        "Why frequency drifts at all. Frequency is the running balance between what is being generated and what is being drawn. A load that comes on is not a step in the frequency — it is a step in the *rate*, and the machines slow for as long as the mismatch lasts.",
+        "What the governors have already done. Droop has answered part of each step automatically and left an offset behind: that is what droop is for, and it is why the frequency settles low rather than returning. Bringing it back to fifty is the operator's job, and it is what this control is.",
+        "Why the band narrows. Early evening the system has inertia and reserve to spare. At peak, with less spinning and more load, the same excursion is closer to the settings that shed feeders — so the same skill has to be exercised more tightly on exactly the hour it is hardest."
+      ],
+      "story": "The evening rise is starting and the frequency is drifting under it. Governors are answering, and the only thing left on the desk is the regulating set's raise-lower control.",
+      "game": {
+        "type": "HOLD",
+        "title": "Fifty hertz, through the evening rise",
+        "setup": "Control Room",
+        "play": "Hold the system frequency while the evening load comes on.",
+        "task": "Hold the system frequency while the evening load comes on.",
+        "question": "Hold the system at fifty hertz through the evening rise.",
+        "answer": "Inside the band for most of the rise, with the regulating set moved to a new output for each step rather than nudged after the frequency has already left the band.",
+        "why": "Every event here is a step in the rate rather than a step in the reading. A block of load coming on does not drop the frequency by twenty millihertz and stop; it makes the system lose speed and it goes on losing while the mismatch stands. That is why the raise-lower control has to be moved to a new position and left there rather than nudged and released, and it is the whole difference between operating a system and chasing a needle. Droop has already answered part of each step and left an offset — a system that settles at 49.94 has done exactly what it was designed to do — so returning to fifty is a separate action taken by somebody. And the band narrows for a reason that is not arbitrary: at peak there is less inertia spinning and less reserve behind it, so the same excursion sits closer to the frequency at which feeders start coming off on their own.",
+        "hold": {
+          "quantity": "System frequency",
+          "control": "Regulating set raise-lower",
+          "unit": "Hz",
+          "hold": 50,
+          "band": 0.4,
+          "narrowTo": 0.2,
+          "duration": 45,
+          "authority": 0.1,
+          "pass": 0.8,
+          "direction": "raise",
+          "disturbances": [
+            {
+              "label": "Evening block comes on",
+              "at": 4,
+              "amount": -0.03
+            },
+            {
+              "label": "Interconnector import steps up",
+              "at": 20,
+              "amount": 0.05
+            },
+            {
+              "label": "Second block, and a unit trips off",
+              "at": 38,
+              "amount": -0.045
+            }
+          ],
+          "hint": "Each block of load is a mismatch that keeps pushing. Move the set to answer the mismatch, not the reading.",
+          "commit": "Report the evening"
+        }
+      },
+      "assumes": [
+        "frequency falls when demand exceeds generation"
+      ],
+      "equations": [
+        {
+          "e": "df/dt = f₀(P_gen − P_load) / 2H",
+          "c": "frequency as the running balance of supply and demand",
+          "v": [
+            [
+              "df/dt",
+              "how fast frequency is moving, in hertz per second"
+            ],
+            [
+              "f₀",
+              "nominal frequency, in hertz — 50 on this system"
+            ],
+            [
+              "P_gen",
+              "total generation, in megawatts"
+            ],
+            [
+              "P_load",
+              "total demand, in megawatts"
+            ],
+            [
+              "H",
+              "stored kinetic energy of the machines online, in megawatt-seconds"
+            ]
+          ],
+          "s": "Frequency falls at a rate set by how far generation is short, divided by the spinning inertia there to absorb it, and scaled by the frequency the system runs at."
+        }
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Frequency as the balance of supply and demand",
+        "t": "Frequency is not set anywhere; it is what generation minus demand does to the energy stored in spinning machines. That makes it the fastest system-wide signal there is, and the same number everywhere in a connected network.",
+        "of": 32,
+        "rests": [
+          "Electrical power and energy over time",
+          "Synchronous machines and synchronisation"
+        ]
+      }
+    },
+    {
+      "day": 13,
       "title": "The 18 months you just bought",
       "scene": "Reyes wants the consequences written down before the decision is signed, so that the next shift inherits a plan rather than a mood. The room is waiting for a written instruction.",
       "takeaway": "Committing to a fix commits you to running the system without it until it arrives, and that has to be planned too.",
       "place": "System Operations",
+      "guide": "Four things on the left, and what the decision does to each on the right. Pair them by asking what changes today and what changes only when the circuit exists. A build is a date, not relief. Between now and then the corridor is as weak as it was this morning, and now known to be weaker. One of these is closed so a shift can act at 16:40.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Reyes wants the consequences written down before the decision is signed, so that the next shift inherits a plan rather than a mood. The room is waiting for a written instruction.",
       "game": {
         "type": "PROTOCOL",
@@ -790,14 +1103,30 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a decision to build something is also a decision about the years before it exists"
-      ]
+      ],
+      "concept": {
+        "n": 27,
+        "c": "Contingency analysis and the N-1 criterion",
+        "t": "N-1 asks whether the system still stands with any single element gone, tested against every element in turn rather than against the one that looks likely. It is a statement about what survives, not a prediction of what will fail.",
+        "of": 32,
+        "rests": [
+          "Series, parallel and equivalent circuits",
+          "Transmission losses and conductor sizing"
+        ]
+      }
     },
     {
-      "day": 13,
+      "day": 14,
       "title": "What outlives the emergency",
       "scene": "Four things the room started doing under pressure. Reyes asks which of them are worth their cost on an ordinary Monday, when nothing is going wrong. A printed network diagram lies on the desk.",
       "takeaway": "Keep the practices that would have caught the fault early, and drop the ones that only paid off because the fortnight was abnormal.",
       "place": "System Operations",
+      "guide": "All four changes are defensible and all four cost something every day. Ask of each whether it would have caught this fortnight's failure, and whether the room will still be doing it in March. The sensor's offset survived months because nothing was compared against it. More frequent reports of a wrong number are not information.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Four things the room started doing under pressure. Reyes asks which of them are worth their cost on an ordinary Monday, when nothing is going wrong. A printed network diagram lies on the desk.",
       "game": {
         "type": "CHOICE",
@@ -829,10 +1158,101 @@ export const CURRICULUM = {
   "GEN": [
     {
       "day": 1,
+      "title": "The reason the wires are not at wall voltage",
+      "scene": "A visitor asks Nadia Haddad, the generation lead, why the machine makes power at 20000 volts and the line outside runs at 400000. The room is waiting for a written instruction.",
+      "takeaway": "The same power can be delivered in more than one way, and the ways are not equally wasteful.",
+      "place": "Generation Hall",
+      "guide": "All four options pair a change in current with a change in loss. Two of them get the current right and disagree about the heat. Ask what the loss depends on, and what power it depends on it to. Current falls in proportion to voltage. Heat follows the square of current. Work both halves before choosing, because three of these get one half right.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
+      "story": "A visitor asks Nadia Haddad, the generation lead, why the machine makes power at 20000 volts and the line outside runs at 400000. The room is waiting for a written instruction.",
+      "game": {
+        "type": "CHOICE",
+        "title": "The reason the wires are not at wall voltage",
+        "setup": "Generation Hall",
+        "play": "Work out what the voltage step-up does to current and line loss.",
+        "task": "Work out what the voltage step-up does to current and line loss.",
+        "question": "For the same real power, what happens when voltage is stepped from 20 kV to 400 kV?",
+        "answer": "The voltage rises by 20×, so current falls by 20× for the same power. Resistive loss then falls by 20² = 400×, ignoring transformer losses.",
+        "why": "For a given real power, raising voltage allows the same power to move with less current. Resistive loss then falls with current squared. Halving current cuts that loss to one quarter. A transformer makes the trade possible by changing voltage in proportion to turns while transferring nearly the same power, apart from losses. That is why long-distance transmission uses high voltage despite the harder insulation problem. The cost of insulation buys a much larger saving in conductor heating.",
+        "rebuttals": [
+          "At fixed power, current scales inversely with voltage. Loss then scales with the square of that current, not in direct proportion.",
+          "The insulation requirement does change, but the electrical reason for stepping up voltage is the large reduction in current and I²R loss.",
+          "Raising voltage for the same power reduces current; it does not increase it."
+        ],
+        "choices": [
+          "Current falls by 20× and resistive line loss falls by 400×.",
+          "Current falls by 20× and resistive line loss falls by 20×.",
+          "Current stays the same and only the insulation requirement changes.",
+          "Current rises by 20× and resistive line loss rises by 400×."
+        ],
+        "correctChoice": "Current falls by 20× and resistive line loss falls by 20×."
+      },
+      "assumes": [
+        "a transformer changes voltage in proportion to its turns",
+        "electrical power and energy over time — taken as read",
+        "faraday's law and electromagnetic induction — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "N₁/N₂ = V₁/V₂",
+          "c": "the transformer ratio, and why transmission is at high voltage",
+          "v": [
+            [
+              "N₁",
+              "turns on the primary winding"
+            ],
+            [
+              "N₂",
+              "turns on the secondary"
+            ],
+            [
+              "V₁",
+              "primary voltage"
+            ],
+            [
+              "V₂",
+              "secondary voltage"
+            ]
+          ],
+          "s": "A transformer trades voltage for current in the ratio of its turns, which is what makes long-distance transmission affordable."
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 5,
+          "c": "Electrical power and energy over time"
+        },
+        {
+          "n": 17,
+          "c": "Faraday's law and electromagnetic induction"
+        }
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Transformers, turns ratio and losses",
+        "t": "The turns ratio trades voltage against current at nearly constant power, which is why transmission is done high and cheap. Losses divide into copper losses that follow the load and iron losses paid for whenever the unit is energised at all.",
+        "of": 32,
+        "rests": [
+          "Electrical power and energy over time",
+          "Faraday's law and electromagnetic induction"
+        ]
+      }
+    },
+    {
+      "day": 2,
       "title": "How much power actually left the system",
       "scene": "Haddad, the generation lead, needs a number before starting anything. The only clean evidence is the first two seconds of the trend and the stored-energy figure for the machines that were online overnight.",
       "takeaway": "The initial rate of frequency change measures the size of the imbalance, given the inertia.",
       "place": "Generation Hall",
+      "guide": "Five numbers, and two of them belong to the aftermath rather than the first instant. The settled deviation is what the governors did afterwards. The generation online is the denominator of a different question. Ask of each number whether it describes the first two seconds. A figure that is right about a later moment is wrong here, and the control room acts on whatever comes out.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Haddad, the generation lead, needs a number before starting anything. The only clean evidence is the first two seconds of the trend and the stored-energy figure for the machines that were online overnight.",
       "game": {
         "type": "BALLPARK",
@@ -849,19 +1269,25 @@ export const CURRICULUM = {
           "Nominal frequency is 50 Hz"
         ],
         "relationship": "Power imbalance magnitude = 2 × stored kinetic energy × |df/dt| ÷ nominal frequency.",
-        "calcKey": "GEN-1"
+        "calcKey": "GEN-2"
       },
       "assumes": [
-        "a rate of change can be read off the steep part of a trend"
+        "a rate of change can be read off the steep part of a trend",
+        "synchronous machines and synchronisation — taken as read",
+        "electrical power and energy over time — taken as read"
       ],
       "equations": [
         {
-          "e": "df/dt = (P_gen − P_load) / 2H",
+          "e": "df/dt = f₀(P_gen − P_load) / 2H",
           "c": "frequency as the running balance of supply and demand",
           "v": [
             [
               "df/dt",
               "how fast frequency is moving, in hertz per second"
+            ],
+            [
+              "f₀",
+              "nominal frequency, in hertz — 50 on this system"
             ],
             [
               "P_gen",
@@ -876,17 +1302,43 @@ export const CURRICULUM = {
               "stored kinetic energy of the machines online, in megawatt-seconds"
             ]
           ],
-          "s": "Frequency falls at a rate set by how far generation is short, divided by the spinning inertia there to absorb it.",
+          "s": "Frequency falls at a rate set by how far generation is short, divided by the spinning inertia there to absorb it, and scaled by the frequency the system runs at.",
           "computed": true
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 18,
+          "c": "Synchronous machines and synchronisation"
+        },
+        {
+          "n": 5,
+          "c": "Electrical power and energy over time"
+        }
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Frequency as the balance of supply and demand",
+        "t": "Frequency is not set anywhere; it is what generation minus demand does to the energy stored in spinning machines. That makes it the fastest system-wide signal there is, and the same number everywhere in a connected network.",
+        "of": 32,
+        "rests": [
+          "Electrical power and energy over time",
+          "Synchronous machines and synchronisation"
+        ]
+      }
     },
     {
-      "day": 2,
+      "day": 3,
       "title": "Four things that have to agree before the breaker closes",
       "scene": "Haddad has a machine at rest and a system running at nominal. She wants the sequence written down before anybody is standing at the panel. The next operating call is minutes away.",
       "takeaway": "Speed, then voltage, then phase angle, and only then the breaker.",
       "place": "Generation Hall",
+      "guide": "All four of these happen at the panel, so this is not a matter of what is available. Ask of each what mismatch it removes, and what that mismatch would do if the breaker closed with it still there. A speed difference and a voltage difference cause different damage. One of these four is the consequence of the others being right.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Haddad has a machine at rest and a system running at nominal. She wants the sequence written down before anybody is standing at the panel. The next operating call is minutes away.",
       "game": {
         "type": "SEQUENCE",
@@ -911,161 +1363,42 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "a generator joined to a live system is forced to turn at the system's speed"
-      ]
-    },
-    {
-      "day": 3,
-      "title": "The reason the wires are not at wall voltage",
-      "scene": "A visitor asks Haddad why the machine makes power at 20000 volts and the line outside runs at 400000. The room is waiting for a written instruction.",
-      "takeaway": "The same power can be delivered in more than one way, and the ways are not equally wasteful.",
-      "place": "Generation Hall",
-      "story": "A visitor asks Haddad why the machine makes power at 20000 volts and the line outside runs at 400000. The room is waiting for a written instruction.",
-      "game": {
-        "type": "CHOICE",
-        "title": "The reason the wires are not at wall voltage",
-        "setup": "Generation Hall",
-        "play": "Work out what the voltage step-up does to current and line loss.",
-        "task": "Work out what the voltage step-up does to current and line loss.",
-        "question": "For the same real power, what happens when voltage is stepped from 20 kV to 400 kV?",
-        "answer": "The voltage rises by 20×, so current falls by 20× for the same power. Resistive loss then falls by 20² = 400×, ignoring transformer losses.",
-        "why": "For a given real power, raising voltage allows the same power to move with less current. Resistive loss then falls with current squared. Halving current cuts that loss to one quarter. A transformer makes the trade possible by changing voltage in proportion to turns while transferring nearly the same power, apart from losses. That is why long-distance transmission uses high voltage despite the harder insulation problem. The cost of insulation buys a much larger saving in conductor heating.",
-        "rebuttals": [
-          "At fixed power, current scales inversely with voltage. Loss then scales with the square of that current, not in direct proportion.",
-          "The insulation requirement does change, but the electrical reason for stepping up voltage is the large reduction in current and I²R loss.",
-          "Raising voltage for the same power reduces current; it does not increase it."
-        ],
-        "choices": [
-          "Current falls by 20× and resistive line loss falls by 400×.",
-          "Current falls by 20× and resistive line loss falls by 20×.",
-          "Current stays the same and only the insulation requirement changes.",
-          "Current rises by 20× and resistive line loss rises by 400×."
-        ],
-        "correctChoice": "Current falls by 20× and resistive line loss falls by 20×."
-      },
-      "assumes": [
-        "a transformer changes voltage in proportion to its turns"
+        "a generator joined to a live system is forced to turn at the system's speed",
+        "aC waveforms: frequency, period and phase — taken as read",
+        "faraday's law and electromagnetic induction — taken as read"
       ],
-      "equations": [
+      "takesAsRead": [
         {
-          "e": "P = IV, and P = I²R",
-          "c": "power delivered, and the loss that never arrives",
-          "v": [
-            [
-              "P",
-              "power, in watts"
-            ],
-            [
-              "I",
-              "current, in amperes"
-            ],
-            [
-              "V",
-              "voltage, in volts"
-            ],
-            [
-              "R",
-              "resistance, in ohms"
-            ]
-          ],
-          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
+          "n": 6,
+          "c": "AC waveforms: frequency, period and phase"
         },
         {
-          "e": "N₁/N₂ = V₁/V₂",
-          "c": "the transformer ratio, and why transmission is at high voltage",
-          "v": [
-            [
-              "N₁",
-              "turns on the primary winding"
-            ],
-            [
-              "N₂",
-              "turns on the secondary"
-            ],
-            [
-              "V₁",
-              "primary voltage"
-            ],
-            [
-              "V₂",
-              "secondary voltage"
-            ]
-          ],
-          "s": "A transformer trades voltage for current in the ratio of its turns, which is what makes long-distance transmission affordable."
+          "n": 17,
+          "c": "Faraday's law and electromagnetic induction"
         }
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Synchronous machines and synchronisation",
+        "t": "A synchronous machine turns locked to system frequency, and its rotor angle carries the power it is delivering. Connecting one out of step throws that mismatch at the shaft, so voltage, frequency and phase all have to agree first.",
+        "of": 32,
+        "rests": [
+          "AC waveforms: frequency, period and phase",
+          "Faraday's law and electromagnetic induction"
+        ]
+      }
     },
     {
       "day": 4,
-      "title": "When the cheapest power cannot get out",
-      "scene": "Sarraf, the renewable operator, can produce 340 megawatts from the ridge tonight. The corridor out of the valley can carry about 190. There is no second export path available. A printed network diagram lies on the desk.",
-      "takeaway": "Curtailment is what a network limit looks like from the generator's end.",
-      "place": "Generation Hall",
-      "story": "Sarraf, the renewable operator, can produce 340 megawatts from the ridge tonight. The corridor out of the valley can carry about 190. There is no second export path available. A printed network diagram lies on the desk.",
-      "game": {
-        "type": "SCIENCETANK",
-        "title": "When the cheapest power cannot get out",
-        "setup": "Generation Hall",
-        "play": "Decide what to do with more wind than the corridor can carry",
-        "task": "Decide what to do with more wind than the corridor can carry",
-        "question": "Decide what to do with more wind than the corridor can carry",
-        "answer": "",
-        "why": "Energy that cannot reach a customer is not energy, and a corridor at its thermal limit is a hard wall rather than a preference. So some of that output has to stop, and the question is only how the system pays for it and what it buys instead. Reinforcing the corridor fixes it permanently and takes years. Storage on the ridge moves the surplus in time rather than in space, which is exactly the right shape for this problem.",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Install storage at the ridge, to move the surplus into the hours when the corridor is free."
-          },
-          {
-            "label": "B",
-            "text": "Pay the fleet to curtail tonight, and every night like it, until something else changes."
-          },
-          {
-            "label": "C",
-            "text": "Reinforce the corridor with a second circuit, commissioned in about three years."
-          },
-          {
-            "label": "D",
-            "text": "Run the corridor above its limit and accept the risk while the wind lasts."
-          }
-        ],
-        "recommended": {
-          "A": 45,
-          "C": 25
-        },
-        "research": "The ridge can produce 340 MW tonight. The corridor is rated at about 190 MW continuous. Nights like\nthis occur perhaps 40 times a winter. Storage at the ridge would be about 50 MW for 4 hours,\nat 85% round trip. The corridor's second circuit has been on the reinforcement list for\ntwo years without a date."
-      },
-      "assumes": [
-        "power has to have a path to where it is used"
-      ],
-      "equations": [
-        {
-          "e": "η = E_out / E_in",
-          "c": "round-trip efficiency of storage",
-          "v": [
-            [
-              "η",
-              "round-trip efficiency, between 0 and 1"
-            ],
-            [
-              "E_out",
-              "energy you get back out"
-            ],
-            [
-              "E_in",
-              "energy you put in"
-            ]
-          ],
-          "s": "Storage returns less than it takes, so the reserve it is counted as is smaller than its nameplate."
-        }
-      ]
-    },
-    {
-      "day": 5,
       "title": "What the dark hours actually cost",
       "scene": "The valley was drawing about 300 megawatts when it went. Haddad expects the restoration to take two and a half hours, and the report will want the figure in energy rather than power.",
       "takeaway": "Power is a rate and energy is the amount, and the settlement is always in energy.",
       "place": "Generation Hall",
+      "guide": "Four numbers, and two of them belong to other questions: the household count and the frequency before the split. Ask of each whether it is a power, a duration, or neither. Power says how fast energy is delivered. Energy says how much arrived, and it is what a settlement runs on. Both get called demand, which is where this goes wrong.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The valley was drawing about 300 megawatts when it went. Haddad expects the restoration to take two and a half hours, and the report will want the figure in energy rather than power.",
       "game": {
         "type": "BALLPARK",
@@ -1081,10 +1414,11 @@ export const CURRICULUM = {
           "Restoration is expected to take about 2.5 hours"
         ],
         "relationship": "Energy = the power × the time it is sustained for, in megawatt-hours when power is in megawatts.",
-        "calcKey": "GEN-5"
+        "calcKey": "GEN-4"
       },
       "assumes": [
-        "power sustained over a period of time delivers energy"
+        "power sustained over a period of time delivers energy",
+        "charge, current, voltage and resistance — taken as read"
       ],
       "equations": [
         {
@@ -1107,14 +1441,36 @@ export const CURRICULUM = {
           "s": "Power is a rate and energy is the amount, and every settlement and compensation claim is in energy.",
           "computed": true
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Charge, current, voltage and resistance"
+        }
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Electrical power and energy over time",
+        "t": "Power is the rate; energy is that rate multiplied by how long it ran. Ratings are written in power, while bills, fuel burned and heat damage are all written in energy, so a peak and a total answer different questions.",
+        "of": 32,
+        "rests": [
+          "Charge, current, voltage and resistance",
+          "Ohm's law and resistive networks"
+        ]
+      }
     },
     {
-      "day": 6,
+      "day": 5,
       "title": "Which of these is a measurement",
       "scene": "Haddad lists four reasons the room feels comfortable tonight. Three are current measurements or long-run evidence. One is an inherited stored-energy figure written before the inverter-connected fleet became much larger.",
       "takeaway": "An old assumption deserves priority when it is load-bearing, likely to have changed, and cheap enough to check.",
       "place": "Generation Hall",
+      "guide": "Four reasons the room feels comfortable, and four check credits. Open each one and ask what it actually is: a current measurement, long-run evidence, or a number somebody inherited. Buy the evidence that could change the under-frequency timing. A figure written before the fleet changed is a claim about a different system.",
+      "background": [
+        "Why the stored-energy figure is the suspect. Under-frequency protection is timed against how fast the frequency can fall, and that depends on the inertia of everything spinning. As inverter-connected generation grew, the inertia fell — but a number written down before that shift keeps being quoted because it has been in the file for years.",
+        "What separates a measurement from a comfort. Three of the four can be pointed at something measured recently on this system. The fourth is an inheritance, and the room's confidence rests on it without anybody having decided to trust it.",
+        "Why timing is where it bites. Under-frequency load shedding has to act before the frequency reaches the point where machines trip. If the real inertia is lower than assumed, the frequency gets there sooner and the settings are late — which is a blackout rather than a load-shedding event."
+      ],
       "story": "Haddad lists four reasons the room feels comfortable tonight. Three are current measurements or long-run evidence. One is an inherited stored-energy figure written before the inverter-connected fleet became much larger.",
       "game": {
         "type": "VALUE",
@@ -1172,12 +1528,16 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "df/dt = (P_gen − P_load) / 2H",
+          "e": "df/dt = f₀(P_gen − P_load) / 2H",
           "c": "frequency as the running balance of supply and demand",
           "v": [
             [
               "df/dt",
               "how fast frequency is moving, in hertz per second"
+            ],
+            [
+              "f₀",
+              "nominal frequency, in hertz — 50 on this system"
             ],
             [
               "P_gen",
@@ -1192,18 +1552,208 @@ export const CURRICULUM = {
               "stored kinetic energy of the machines online, in megawatt-seconds"
             ]
           ],
-          "s": "Frequency falls at a rate set by how far generation is short, divided by the spinning inertia there to absorb it."
+          "s": "Frequency falls at a rate set by how far generation is short, divided by the spinning inertia there to absorb it, and scaled by the frequency the system runs at."
         }
-      ]
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Frequency as the balance of supply and demand",
+        "t": "Frequency is not set anywhere; it is what generation minus demand does to the energy stored in spinning machines. That makes it the fastest system-wide signal there is, and the same number everywhere in a connected network.",
+        "of": 32,
+        "rests": [
+          "Electrical power and energy over time",
+          "Synchronous machines and synchronisation"
+        ]
+      }
+    },
+    {
+      "day": 6,
+      "title": "When the cheapest power cannot get out",
+      "scene": "Sarraf, the renewable operator, can produce 340 megawatts from the ridge tonight. The corridor out of the valley can carry about 190. There is no second export path available. A printed network diagram lies on the desk.",
+      "takeaway": "Curtailment is what a network limit looks like from the generator's end.",
+      "place": "Generation Hall",
+      "guide": "The ridge can produce 340 MW tonight and the corridor is rated at about 190 MW continuous. Nights like this occur perhaps 40 times a winter. Storage at the ridge would be 50 MW for four hours at 85 per cent round trip. That moves surplus in time rather than in space. The second circuit has been on the reinforcement list for two years without a date, and commissioning runs about three years from a start. Curtailment payments recur every night like this one. Running above a thermal rating anneals the conductor, and the annealing accumulates.",
+      "rules": "Spread the hundred points across the 4 proposals. At least 70 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "background": [
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
+      ],
+      "story": "Sarraf, the renewable operator, can produce 340 megawatts from the ridge tonight. The corridor out of the valley can carry about 190. There is no second export path available. A printed network diagram lies on the desk.",
+      "game": {
+        "type": "SCIENCETANK",
+        "title": "When the cheapest power cannot get out",
+        "setup": "Generation Hall",
+        "play": "Decide what to do with more wind than the corridor can carry",
+        "task": "Decide what to do with more wind than the corridor can carry",
+        "question": "Decide what to do with more wind than the corridor can carry",
+        "answer": "",
+        "why": "Energy that cannot reach a customer is not energy, and a corridor at its thermal limit is a hard wall rather than a preference. So some of that output has to stop, and the question is only how the system pays for it and what it buys instead. Reinforcing the corridor fixes it permanently and takes years. Storage on the ridge moves the surplus in time rather than in space, which is exactly the right shape for this problem.",
+        "proposals": [
+          {
+            "label": "A",
+            "text": "Install storage at the ridge, to move the surplus into the hours when the corridor is free."
+          },
+          {
+            "label": "B",
+            "text": "Pay the fleet to curtail tonight, and every night like it, until something else changes."
+          },
+          {
+            "label": "C",
+            "text": "Reinforce the corridor with a second circuit, commissioned in about three years."
+          },
+          {
+            "label": "D",
+            "text": "Run the corridor above its limit and accept the risk while the wind lasts."
+          }
+        ],
+        "recommended": {
+          "A": 45,
+          "C": 25
+        },
+        "research": ""
+      },
+      "assumes": [
+        "power has to have a path to where it is used"
+      ],
+      "equations": [
+        {
+          "e": "η = E_out / E_in",
+          "c": "round-trip efficiency of storage",
+          "v": [
+            [
+              "η",
+              "round-trip efficiency, between 0 and 1"
+            ],
+            [
+              "E_out",
+              "energy you get back out"
+            ],
+            [
+              "E_in",
+              "energy you put in"
+            ]
+          ],
+          "s": "Storage returns less than it takes, so the reserve it is counted as is smaller than its nameplate."
+        }
+      ],
+      "concept": {
+        "n": 22,
+        "c": "Economic dispatch and merit order",
+        "t": "With demand given, run the cheapest available plant first and let the last unit needed set the marginal cost. That order is only economic while the network can physically deliver it, so a constraint is what breaks merit order.",
+        "of": 32,
+        "rests": [
+          "Load curves and demand forecasting"
+        ]
+      }
     }
   ],
   "TRANS": [
     {
       "day": 1,
+      "title": "Loss when the load turns up anyway",
+      "scene": "With the feeder out, flow has redistributed and the corridor is carrying more. Novak wants the heat figure before he decides whether the evening needs a switching change. A printed network diagram lies on the desk.",
+      "takeaway": "When a quantity enters squared, a small change in it is a large change in the result.",
+      "place": "Transmission & Protection",
+      "guide": "Five numbers, and two of them are the current an hour ago and the conductor temperature. Neither belongs in the loss. Ask of each number whether the heat depends on it. And note the square. Current has risen about eleven per cent, and the heat rises by nearly a quarter. The rating is thermal, so that is a bigger bite of the margin than it looks.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
+      "story": "With the feeder out, flow has redistributed and the corridor is carrying more. Novak wants the heat figure before he decides whether the evening needs a switching change. A printed network diagram lies on the desk.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "Loss when the load turns up anyway",
+        "setup": "Transmission & Protection",
+        "play": "Work out the corridor's loss at the higher flow",
+        "task": "Work out the corridor's loss at the higher flow",
+        "question": "Estimate the power now lost as heat in the corridor.",
+        "answer": "About 21 MW.",
+        "why": "The same loss relation now gives a worse answer. Resistive heating rises with the square of RMS current, across all three phases. Current has risen by about 11%, from 1,150 A to 1,280 A. The heat rises by about 24%, from roughly 17 MW to 21 MW. That matters because the conductor rating is thermal. A small-looking increase in current can therefore use a much larger fraction of the available temperature margin.",
+        "givens": [
+          "RMS current is now 1,280 A in each phase",
+          "Resistance remains 4.2 Ω per phase",
+          "There are three phases"
+        ],
+        "relationship": "Total three-phase loss = 3 × I_rms² × R_phase, so a small rise in current makes a larger rise in heat.",
+        "calcKey": "TRANS-1"
+      },
+      "assumes": [
+        "loss in a conductor rises with the square of the current",
+        "ohm's law and resistive networks — taken as read",
+        "electrical power and energy over time — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "V = IR",
+          "c": "Ohm's law, on a conductor and on a whole network",
+          "v": [
+            [
+              "V",
+              "voltage across it, in volts"
+            ],
+            [
+              "I",
+              "current through it, in amperes"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Current through a resistance produces a voltage across it, in proportion.",
+          "computed": true
+        },
+        {
+          "e": "V_rms = V_peak / √2",
+          "c": "why an AC quantity needs saying which one you mean",
+          "v": [
+            [
+              "V_rms",
+              "the root-mean-square value a meter reports"
+            ],
+            [
+              "V_peak",
+              "the highest instantaneous value a scope shows"
+            ]
+          ],
+          "s": "An alternating voltage has no single value, so a reading is meaningless until it says which one is meant.",
+          "computed": true
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 2,
+          "c": "Ohm's law and resistive networks"
+        },
+        {
+          "n": 5,
+          "c": "Electrical power and energy over time"
+        }
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Transmission losses and conductor sizing",
+        "t": "Loss in a conductor goes as the square of the current, so halving the current quarters the loss. A conductor's limit is a temperature reached over time rather than a line it either meets or breaks, which is why ratings carry durations.",
+        "of": 32,
+        "rests": [
+          "Ohm's law and resistive networks",
+          "Electrical power and energy over time"
+        ]
+      }
+    },
+    {
+      "day": 2,
       "title": "What you do before a relay does it for you",
       "scene": "The corridor is at 108% of continuous rating and rising slowly. Novak, the transmission engineer, wants a response he can hand to Dube, the switching operator, before the relay makes the choice for them.",
       "takeaway": "A protection plan must be written before the number moves, with earlier thresholds for actions that take longer to arrive.",
       "place": "Transmission Control",
+      "guide": "One rule, written before the trend arrives and fixed once you release it. Moving 200 MW off the corridor takes six hours from the moment it is called, and at 120 % of continuous rating the protection takes the line out itself. So the line goes back from 120 by however far the loading climbs in those six hours — and not so far back that you are redispatching a corridor which has shown nothing.",
+      "background": [
+        "Why act before the relay. Protection will disconnect the corridor when its limit is reached, and it will do so without regard to what else that leaves connected. Anything you do before then is a controlled choice; anything after is a consequence.",
+        "Why two thresholds rather than one. Redispatching generation takes minutes and shedding load takes seconds. A single threshold set for the slower action fires far too early for the faster one, and set for the faster one leaves no time for the slower. The lead time is the reason there are two numbers.",
+        "What Dube needs from this. A switching operator acting at three in the morning needs a rule, not a judgement. Numbers agreed in advance are what make the night's actions defensible afterwards, and what stop the decision being made by whoever happens to be awake."
+      ],
       "story": "The corridor is at 108% of continuous rating and rising slowly. Novak, the transmission engineer, wants a response he can hand to Dube, the switching operator, before the relay makes the choice for them.",
       "game": {
         "type": "TRIGGER",
@@ -1211,27 +1761,37 @@ export const CURRICULUM = {
         "setup": "Transmission Control",
         "play": "Set the overload action thresholds before the corridor trend is released.",
         "task": "Set the overload action thresholds before the corridor trend is released.",
-        "question": "At what loading should redispatch and then load shedding be committed, given their different lead times?",
-        "answer": "Set redispatch to trigger at 110% of continuous rating and emergency shedding at 118%. Those thresholds leave enough lead time on this authored trend for the slower action to arrive before the 120% emergency ceiling.",
-        "why": "An emergency rating is a time-limited thermal allowance, not permission to wait until the relay acts. The response has stages because each action has a different lead time. Redispatch takes several minutes, so it must be triggered while thermal margin still exists. Load shedding acts faster and can sit at a later threshold. Writing both rules before the trend appears prevents hindsight from turning into policy. A threshold that is physically sensible but fires after its action can arrive is still a failed rule.",
+        "question": "At what loading do you commit the redispatch, given the move takes six hours and protection acts at 120 %?",
+        "answer": "Commit the redispatch around 111 % of continuous rating. It then fires with the six hours the move needs still in hand, and the corridor is unloaded before the 120 % ceiling.",
+        "why": "An emergency rating is a time-limited thermal allowance, not permission to wait until the relay acts. Redispatch takes six hours from the moment it is called, so the loading at which it is committed has to sit back from the 120 per cent ceiling by however far the corridor climbs in those six hours. That is what makes the number smaller than the number the ceiling suggests. Writing the rule before the trend appears is what keeps hindsight from turning into policy, and a threshold that is physically sensible but fires after its action can still arrive is a failed rule.",
         "trigger": {
           "scale": {
-            "label": "",
+            "label": "Loading on the corridor",
             "unit": "% of continuous rating",
             "min": 100,
             "max": 125,
-            "step": 0.25
+            "step": 0.25,
+            "anchors": [
+              {
+                "at": 108,
+                "means": "above rating and warming, hours of margin before the conductor sags"
+              },
+              {
+                "at": 120,
+                "means": "the emergency ceiling — protection takes the line out itself"
+              }
+            ]
           },
+          "direction": "rising",
           "conditions": [
             {
               "id": "redispatch",
               "label": "Redispatch 200 MW away from the corridor",
-              "leadHours": 6
-            },
-            {
-              "id": "shed",
-              "label": "Shed 8% of downstream load",
-              "leadHours": 1
+              "leadHours": 6,
+              "window": {
+                "min": 110,
+                "max": 113
+              }
             }
           ],
           "stream": [
@@ -1278,22 +1838,85 @@ export const CURRICULUM = {
               "hoursLeft": 0
             }
           ],
-          "hint": "Choose a loading threshold for each action, then release the trend. The action begins only after its lead time, so a threshold can be correct in principle and still arrive too late.",
+          "consequenceLimit": 120,
+          "rehearsal": {
+            "note": "the same corridor last August",
+            "stream": [
+              {
+                "value": 105,
+                "hoursLeft": 576
+              },
+              {
+                "value": 107,
+                "hoursLeft": 480
+              },
+              {
+                "value": 112,
+                "hoursLeft": 384
+              },
+              {
+                "value": 116,
+                "hoursLeft": 288
+              },
+              {
+                "value": 114,
+                "hoursLeft": 192
+              },
+              {
+                "value": 109,
+                "hoursLeft": 96
+              },
+              {
+                "value": 106,
+                "hoursLeft": 0
+              }
+            ]
+          },
+          "objective": "The redispatch is finished before the corridor reaches its 120 % emergency ceiling.",
+          "hint": "Choose the loading at which the redispatch is committed, then release the trend. It begins only when your rule fires, and takes six hours after that.",
           "release": "Release the board",
           "commit": "Stand by the board"
         }
       },
       "assumes": [
         "continuous and emergency ratings are different limits",
-        "redispatch is slower than automatic or operator load shedding"
-      ]
+        "redispatch is slower than automatic or operator load shedding",
+        "charge, current, voltage and resistance — taken as read",
+        "ohm's law and resistive networks — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Charge, current, voltage and resistance"
+        },
+        {
+          "n": 2,
+          "c": "Ohm's law and resistive networks"
+        }
+      ],
+      "concept": {
+        "n": 23,
+        "c": "Protection: relays, breakers and coordination",
+        "t": "A relay decides from what it can measure locally, and a breaker carries the decision out. Coordination is the deliberate delay that makes the device nearest a fault act first, so a local problem does not clear a whole region.",
+        "of": 32,
+        "rests": [
+          "Charge, current, voltage and resistance",
+          "Ohm's law and resistive networks"
+        ]
+      }
     },
     {
-      "day": 2,
+      "day": 3,
       "title": "What actually limits a conductor",
       "scene": "Novak is asked to allow more current down a circuit for the afternoon. He wants each reason for saying no matched to the thing it is actually about. The shift log is open beside them.",
       "takeaway": "Current sets the heat, voltage sets the insulation, and the two limits are separate.",
       "place": "Transmission & Protection",
+      "guide": "Four observations, and each is limited by a different thing. Ask of each whether it is set by current, by voltage, or by geometry. Heat comes from current and does not care about voltage. Insulation cares about voltage and not about current. A volt drop is a customer problem. One of these four is where a heat limit turns into a safety one.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Novak is asked to allow more current down a circuit for the afternoon. He wants each reason for saying no matched to the thing it is actually about. The shift log is open beside them.",
       "game": {
         "type": "PROTOCOL",
@@ -1334,7 +1957,8 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "a conductor warms up as current passes through it"
+        "a conductor warms up as current passes through it",
+        "electrical power and energy over time — taken as read"
       ],
       "equations": [
         {
@@ -1364,14 +1988,36 @@ export const CURRICULUM = {
           ],
           "s": "Voltage falls along a loaded line, and on a transmission line the reactance term dominates, which is why reactive power moves voltage."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 5,
+          "c": "Electrical power and energy over time"
+        }
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Transmission losses and conductor sizing",
+        "t": "Loss in a conductor goes as the square of the current, so halving the current quarters the loss. A conductor's limit is a temperature reached over time rather than a line it either meets or breaks, which is why ratings carry durations.",
+        "of": 32,
+        "rests": [
+          "Ohm's law and resistive networks",
+          "Electrical power and energy over time"
+        ]
+      }
     },
     {
-      "day": 3,
+      "day": 4,
       "title": "Two instruments, two quantities",
       "scene": "An oscilloscope on the busbar shows a peak of 325 volts. The panel meter beside it reads 230. Both were calibrated last month and neither has moved. The yard radio is still live beside them.",
       "takeaway": "Peak and RMS are different quantities, and one is the other divided by root two.",
       "place": "Transmission & Protection",
+      "guide": "Four relations, and both instruments are in calibration. So the question is what each number is a summary of. An alternating voltage has no single value. One instrument reports the highest the waveform reaches. The other reports the steady voltage that would heat a resistor the same. Ask which way the conversion runs before choosing, because two of these options have it backwards.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "An oscilloscope on the busbar shows a peak of 325 volts. The panel meter beside it reads 230. Both were calibrated last month and neither has moved. The yard radio is still live beside them.",
       "game": {
         "type": "CHOICE",
@@ -1396,7 +2042,8 @@ export const CURRICULUM = {
         "correctChoice": "325 V ≈ 230 V × 2"
       },
       "assumes": [
-        "an alternating voltage changes continuously through each cycle"
+        "an alternating voltage changes continuously through each cycle",
+        "aC waveforms: frequency, period and phase — taken as read"
       ],
       "equations": [
         {
@@ -1433,14 +2080,34 @@ export const CURRICULUM = {
           ],
           "s": "An alternating voltage has no single value, so a reading is meaningless until it says which one is meant."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 6,
+          "c": "AC waveforms: frequency, period and phase"
+        }
+      ],
+      "concept": {
+        "n": 7,
+        "c": "RMS against peak and average",
+        "t": "RMS is the steady value that would deliver the same heating as the varying one, and for a sine wave it is the peak divided by root two. Instruments do not all report the same quantity, so the convention has to be stated.",
+        "of": 32,
+        "rests": [
+          "AC waveforms: frequency, period and phase"
+        ]
+      }
     },
     {
-      "day": 4,
+      "day": 5,
       "title": "How the flow splits between two paths",
       "scene": "900 amps leave the busbar for the same destination by 2 routes. The older circuit is six ohms, the newer one three, and only the total is metered. The control-room phone is already ringing.",
       "takeaway": "The lower-impedance path takes the larger share, in inverse proportion.",
       "place": "Transmission & Protection",
+      "guide": "Four numbers, and one of them is the busbar voltage, which cancels out of a divider. Both circuits connect the same two busbars, so they see the same voltage. Ask of each number whether it describes this path, the other path, or both. Current divides against impedance, so the path being asked about is not the impedance the formula wants.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "900 amps leave the busbar for the same destination by 2 routes. The older circuit is six ohms, the newer one three, and only the total is metered. The control-room phone is already ringing.",
       "game": {
         "type": "BALLPARK",
@@ -1456,18 +2123,33 @@ export const CURRICULUM = {
           "The older circuit is 6 Ω and the newer is 3 Ω"
         ],
         "relationship": "Current in one of two parallel paths = the total × the other path's impedance ÷ the sum of the two impedances.",
-        "calcKey": "TRANS-4"
+        "calcKey": "TRANS-5"
       },
       "assumes": [
         "two paths between the same two points carry the same voltage across them"
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Series, parallel and equivalent circuits",
+        "t": "Series elements share a current and divide the voltage; parallel elements share a voltage and divide the current. Which arrangement you have decides whether a second path relieves the first or simply gives a fault somewhere else to go.",
+        "of": 32,
+        "rests": [
+          "Ohm's law and resistive networks",
+          "Kirchhoff's laws and nodal analysis"
+        ]
+      }
     },
     {
-      "day": 5,
+      "day": 6,
       "title": "What a short circuit is limited by",
       "scene": "The cable failed phase to earth. Phase voltage is 6,350 volts and the total impedance back to the source is 0.42 ohms. Novak wants the current the switchgear had to interrupt.",
       "takeaway": "Fault current is the driving voltage over the impedance of the path, and nothing else limits it.",
       "place": "Transmission & Protection",
+      "guide": "Four numbers, and two of them belong to the healthy circuit and the protection. Normal load current is set by equipment drawing power, and a fault bypasses that equipment. Ask of each number whether it describes the load or the path back to the source. The clearing time decides how long the current flows, not how large it is.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The cable failed phase to earth. Phase voltage is 6,350 volts and the total impedance back to the source is 0.42 ohms. Novak wants the current the switchgear had to interrupt.",
       "game": {
         "type": "BALLPARK",
@@ -1483,7 +2165,7 @@ export const CURRICULUM = {
           "Impedance back to the source is 0.42 Ω"
         ],
         "relationship": "Fault current = the driving phase voltage ÷ the total impedance of the path back to the source, with the load bypassed and contributing nothing.",
-        "calcKey": "TRANS-5"
+        "calcKey": "TRANS-6"
       },
       "assumes": [
         "a short circuit leaves almost no impedance in the path"
@@ -1504,15 +2186,32 @@ export const CURRICULUM = {
           ],
           "s": "An alternating voltage has no single value, so a reading is meaningless until it says which one is meant."
         }
-      ]
+      ],
+      "concept": {
+        "n": 24,
+        "c": "Fault current and short-circuit analysis",
+        "t": "A short circuit is limited by the source and the path rather than by the load, so the network sets the current, not whatever failed. Equipment has to be able to interrupt that current, which is a harder duty than carrying it.",
+        "of": 32,
+        "rests": [
+          "Ohm's law and resistive networks",
+          "Series, parallel and equivalent circuits",
+          "Protection: relays, breakers and coordination"
+        ]
+      }
     },
     {
-      "day": 6,
+      "day": 7,
       "title": "What a rating is a statement about",
-      "scene": "Novak has the corrected figures and the standard the corridor was built to. Its conductors may run continuously at 75 degrees and no hotter. That is because above that the aluminium begins to lose strength and the span loses clearance over the road beneath it.",
+      "scene": "The corridor's conductors may run continuously at 75 degrees and no hotter. Above that the aluminium starts to lose strength, and the span sags towards the road beneath it. Novak has the corrected figures and wants the current that limit allows, because a rating quoted in amps is really a statement about temperature.",
       "takeaway": "A rating is a temperature expressed as a current, so a wrong temperature makes the current limit meaningless.",
       "place": "Transmission & Protection",
-      "story": "Novak has the corrected figures and the standard the corridor was built to. Its conductors may run continuously at 75 degrees and no hotter. That is because above that the aluminium begins to lose strength and the span loses clearance over the road beneath it.",
+      "guide": "Drag the corridor current. The readout is the conductor's own temperature, not its rating, and only the currents you stop at get plotted. You want the current at which that temperature reaches the 75-degree limit named above. Heating rises faster than the current causing it, so the curve steepens as you go and the last hundred amps cost more than the first. Mark that current and commit.",
+      "background": [
+        "What sets the temperature. Current heats a conductor as the square of itself, and the conductor loses that heat to the air by convection and to the sky by radiation. The temperature settles where the two balance, which is why the curve is not a straight line: doubling the current asks the cooling to remove four times as much heat.",
+        "Why a rating is a temperature. The ampere figure printed on a corridor is the current that reaches the temperature limit under an assumed ambient, an assumed wind and an assumed sun. Change any of those and the same amps arrive at a different temperature. That is why a corrected weather figure can move a rating without anybody touching the line, and why a rating quoted without its assumptions is not a limit at all.",
+        "What happens above the limit. Aluminium held above its continuous temperature begins to anneal, losing strength it does not get back, and the hotter span stretches and sags. The clearance over the road below is a legal minimum, so the temperature limit is doing two jobs at once: protecting the conductor, and keeping the line where the survey says it is."
+      ],
+      "story": "The corridor's conductors may run continuously at 75 degrees and no hotter. Above that the aluminium starts to lose strength, and the span sags towards the road beneath it. Novak has the corrected figures and wants the current that limit allows, because a rating quoted in amps is really a statement about temperature.",
       "game": {
         "type": "SWEEP",
         "title": "What a rating is a statement about",
@@ -1611,73 +2310,17 @@ export const CURRICULUM = {
       "assumes": [
         "a conductor's rating is a limit on temperature rather than on current",
         "resistive heating rises faster than the current that causes it"
-      ]
-    },
-    {
-      "day": 7,
-      "title": "Loss when the load turns up anyway",
-      "scene": "With the feeder out, flow has redistributed and the corridor is carrying more. Novak wants the heat figure before he decides whether the evening needs a switching change. A printed network diagram lies on the desk.",
-      "takeaway": "When a quantity enters squared, a small change in it is a large change in the result.",
-      "place": "Transmission & Protection",
-      "story": "With the feeder out, flow has redistributed and the corridor is carrying more. Novak wants the heat figure before he decides whether the evening needs a switching change. A printed network diagram lies on the desk.",
-      "game": {
-        "type": "BALLPARK",
-        "title": "Loss when the load turns up anyway",
-        "setup": "Transmission & Protection",
-        "play": "Work out the corridor's loss at the higher flow",
-        "task": "Work out the corridor's loss at the higher flow",
-        "question": "Estimate the power now lost as heat in the corridor.",
-        "answer": "About 21 MW.",
-        "why": "The same loss relation now gives a worse answer. Resistive heating rises with the square of RMS current, across all three phases. Current has risen by about 11%, from 1,150 A to 1,280 A. The heat rises by about 24%, from roughly 17 MW to 21 MW. That matters because the conductor rating is thermal. A small-looking increase in current can therefore use a much larger fraction of the available temperature margin.",
-        "givens": [
-          "RMS current is now 1,280 A in each phase",
-          "Resistance remains 4.2 Ω per phase",
-          "There are three phases"
-        ],
-        "relationship": "Total three-phase loss = 3 × I_rms² × R_phase, so a small rise in current makes a larger rise in heat.",
-        "calcKey": "TRANS-7"
-      },
-      "assumes": [
-        "loss in a conductor rises with the square of the current"
       ],
-      "equations": [
-        {
-          "e": "V = IR",
-          "c": "Ohm's law, on a conductor and on a whole network",
-          "v": [
-            [
-              "V",
-              "voltage across it, in volts"
-            ],
-            [
-              "I",
-              "current through it, in amperes"
-            ],
-            [
-              "R",
-              "resistance, in ohms"
-            ]
-          ],
-          "s": "Current through a resistance produces a voltage across it, in proportion.",
-          "computed": true
-        },
-        {
-          "e": "V_rms = V_peak / √2",
-          "c": "why an AC quantity needs saying which one you mean",
-          "v": [
-            [
-              "V_rms",
-              "the root-mean-square value a meter reports"
-            ],
-            [
-              "V_peak",
-              "the highest instantaneous value a scope shows"
-            ]
-          ],
-          "s": "An alternating voltage has no single value, so a reading is meaningless until it says which one is meant.",
-          "computed": true
-        }
-      ]
+      "concept": {
+        "n": 15,
+        "c": "Transmission losses and conductor sizing",
+        "t": "Loss in a conductor goes as the square of the current, so halving the current quarters the loss. A conductor's limit is a temperature reached over time rather than a line it either meets or breaks, which is why ratings carry durations.",
+        "of": 32,
+        "rests": [
+          "Ohm's law and resistive networks",
+          "Electrical power and energy over time"
+        ]
+      }
     },
     {
       "day": 8,
@@ -1685,6 +2328,13 @@ export const CURRICULUM = {
       "scene": "Two options, one budget, one afternoon. Novak points out that only one of them still exists tomorrow, and Haddad points out that only one of them fixes the corridor. The event board is still showing the overnight state.",
       "takeaway": "When one path closes today, its value includes everything the eighteen-month delay would cost.",
       "place": "Transmission & Protection",
+      "guide": "The outage window closes at close of business and the next is 18 months out. The corrected record has the corridor above continuous rating for about 90 hours over three years. The storage quote expires with the window and does not change a thermal rating. Curtailment on nights like last Friday runs about 40 nights a winter. The review Farrow would want takes three weeks. The board will not approve both the storage and the circuit, and nobody who has read the corrected record has disputed it.",
+      "rules": "Spread the hundred points across the 4 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "background": [
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
+      ],
       "story": "Two options, one budget, one afternoon. Novak points out that only one of them still exists tomorrow, and Haddad points out that only one of them fixes the corridor. The event board is still showing the overnight state.",
       "game": {
         "type": "SCIENCETANK",
@@ -1717,20 +2367,128 @@ export const CURRICULUM = {
           "A": 55,
           "B": 25
         },
-        "research": "The outage window closes at close of business and the next is 18 months out. The corrected\nrecord has the corridor above continuous rating for about 90 hours over 3 years. Storage\nwould be 50 MW for 4 hours and does not change a thermal rating. Curtailment on nights like\nlast Friday runs about 40 nights a winter. The review Farrow would want takes three weeks."
+        "research": ""
       },
       "assumes": [
         "an option with an expiry date is worth more than the same option without one"
-      ]
+      ],
+      "concept": {
+        "n": 30,
+        "c": "Renewables: variability, curtailment and inverters",
+        "t": "Output follows the weather rather than instruction, so a surplus is sometimes curtailed instead of stored. Inverter-connected plant contributes no rotational inertia by default, which changes how the system behaves in the seconds after a loss.",
+        "of": 32,
+        "rests": [
+          "Inertia, governor response and droop control",
+          "Storage, round-trip efficiency and ramp rate"
+        ]
+      }
     }
   ],
   "DIST": [
     {
       "day": 1,
+      "title": "What is common and what divides",
+      "scene": "Obi, the distribution supervisor, is training a new starter. Four circuit sketches are on the whiteboard, and he wants each matched to the quantity that stays common across that arrangement.",
+      "takeaway": "Series shares the current and divides the voltage; parallel shares the voltage and divides the current.",
+      "place": "Distribution Depot",
+      "guide": "Four arrangements, and the right column names what stays common in each. Pair them by asking how many paths the current has. One path means one current and a divided voltage. Two nodes shared means one voltage and a divided current. Then ask what adding a branch does to the total. Getting this wrong sizes a fuse for the wrong current.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
+      "story": "Obi, the distribution supervisor, is training a new starter. Four circuit sketches are on the whiteboard, and he wants each matched to the quantity that stays common across that arrangement.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "What is common and what divides",
+        "setup": "Distribution Depot",
+        "play": "Match each connection to what it shares",
+        "task": "Match each connection to what it shares",
+        "question": "Match each connection to what it shares",
+        "answer": "",
+        "why": "Series and parallel circuits differ by what stays common. In series there is one path, so every element carries the same current. The supply voltage divides across the elements. In parallel every branch connects to the same two nodes, so each branch has the same voltage. The current divides instead. Adding a parallel branch lowers the equivalent resistance and raises total current. Adding a series resistance raises the equivalent resistance and lowers the loop current. Mixing these rules leads directly to wrong fuse and conductor sizing.",
+        "rebuttals": [
+          "One path end to end means one current through everything, with the voltage dividing between them.",
+          "Side by side each branch sees the full voltage, so what divides is the current.",
+          "Another parallel branch offers another route, lowering the combined impedance and raising the total.",
+          "Another element in line adds impedance and reduces the current everywhere in that loop."
+        ],
+        "scenarios": [
+          "Three elements connected end to end in one loop.",
+          "Three elements connected side by side across the same two points.",
+          "A fourth branch is added side by side to an existing three.",
+          "A fourth element is added end to end into an existing loop."
+        ],
+        "choices": [
+          "The current is the same in all of them, and the voltage divides between them.",
+          "The voltage is the same across all of them, and the current divides between them.",
+          "The combined impedance falls, so the total current rises.",
+          "The combined impedance rises, so the current falls everywhere in the loop."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "columns": [
+          "The arrangement",
+          "What it does"
+        ]
+      },
+      "assumes": [
+        "a circuit can be connected end to end or side by side",
+        "kirchhoff's laws and nodal analysis — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "V = IR",
+          "c": "Ohm's law, on a conductor and on a whole network",
+          "v": [
+            [
+              "V",
+              "voltage across it, in volts"
+            ],
+            [
+              "I",
+              "current through it, in amperes"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Current through a resistance produces a voltage across it, in proportion."
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 3,
+          "c": "Kirchhoff's laws and nodal analysis"
+        }
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Series, parallel and equivalent circuits",
+        "t": "Series elements share a current and divide the voltage; parallel elements share a voltage and divide the current. Which arrangement you have decides whether a second path relieves the first or simply gives a fault somewhere else to go.",
+        "of": 32,
+        "rests": [
+          "Ohm's law and resistive networks",
+          "Kirchhoff's laws and nodal analysis"
+        ]
+      }
+    },
+    {
+      "day": 2,
       "title": "Why the far end sits low",
       "scene": "The substation end of the feeder is at nominal voltage. Customers four kilometres along it are complaining, and the only meter is back at the substation. The room is waiting for a written instruction.",
       "takeaway": "Volt drop is set by the current and by both parts of the line's impedance.",
       "place": "Distribution Depot",
+      "guide": "Six numbers, and one of them is the feeder's nominal voltage, which the drop does not use. Two pairs go together: resistance with the in-phase part, reactance with the out-of-phase part. Ask of each number which half of the impedance it belongs to. And note the rating. Eleven kilovolts is measured between lines, which is why a factor arrives with it.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The substation end of the feeder is at nominal voltage. Customers four kilometres along it are complaining, and the only meter is back at the substation. The room is waiting for a written instruction.",
       "game": {
         "type": "BALLPARK",
@@ -1747,7 +2505,7 @@ export const CURRICULUM = {
           "Power factor is 0.95, so sin φ is 0.31"
         ],
         "relationship": "For a balanced three-phase feeder, line-to-line drop ≈ √3 × I × (R cos φ + X sin φ), using per-phase R and X.",
-        "calcKey": "DIST-1"
+        "calcKey": "DIST-2"
       },
       "assumes": [
         "current flowing through a resistance produces a drop in voltage"
@@ -1798,6 +2556,30 @@ export const CURRICULUM = {
           "computed": true
         },
         {
+          "e": "P = √3 · V_L · I_L · cos φ",
+          "c": "three-phase power from line quantities",
+          "v": [
+            [
+              "P",
+              "three-phase power, in watts"
+            ],
+            [
+              "V_L",
+              "line-to-line voltage, in volts"
+            ],
+            [
+              "I_L",
+              "line current, in amperes"
+            ],
+            [
+              "cos φ",
+              "power factor"
+            ]
+          ],
+          "s": "Three-phase power from line quantities carries a √3 because line and phase values differ.",
+          "card": false
+        },
+        {
           "e": "ΔV ≈ I(R cos φ + X sin φ)",
           "c": "voltage drop along a line, and why reactive power moves it",
           "v": [
@@ -1825,117 +2607,31 @@ export const CURRICULUM = {
           "s": "Voltage falls along a loaded line, and on a transmission line the reactance term dominates, which is why reactive power moves voltage.",
           "card": false
         }
-      ]
-    },
-    {
-      "day": 2,
-      "title": "What is common and what divides",
-      "scene": "Obi, the distribution supervisor, is training a new starter. Four circuit sketches are on the whiteboard, and he wants each matched to the quantity that stays common across that arrangement.",
-      "takeaway": "Series shares the current and divides the voltage; parallel shares the voltage and divides the current.",
-      "place": "Distribution Depot",
-      "story": "Obi, the distribution supervisor, is training a new starter. Four circuit sketches are on the whiteboard, and he wants each matched to the quantity that stays common across that arrangement.",
-      "game": {
-        "type": "PROTOCOL",
-        "title": "What is common and what divides",
-        "setup": "Distribution Depot",
-        "play": "Match each connection to what it shares",
-        "task": "Match each connection to what it shares",
-        "question": "Match each connection to what it shares",
-        "answer": "",
-        "why": "Series and parallel circuits differ by what stays common. In series there is one path, so every element carries the same current. The supply voltage divides across the elements. In parallel every branch connects to the same two nodes, so each branch has the same voltage. The current divides instead. Adding a parallel branch lowers the equivalent resistance and raises total current. Adding a series resistance raises the equivalent resistance and lowers the loop current. Mixing these rules leads directly to wrong fuse and conductor sizing.",
-        "rebuttals": [
-          "One path end to end means one current through everything, with the voltage dividing between them.",
-          "Side by side each branch sees the full voltage, so what divides is the current.",
-          "Another parallel branch offers another route, lowering the combined impedance and raising the total.",
-          "Another element in line adds impedance and reduces the current everywhere in that loop."
-        ],
-        "scenarios": [
-          "Three elements connected end to end in one loop.",
-          "Three elements connected side by side across the same two points.",
-          "A fourth branch is added side by side to an existing three.",
-          "A fourth element is added end to end into an existing loop."
-        ],
-        "choices": [
-          "The current is the same in all of them, and the voltage divides between them.",
-          "The voltage is the same across all of them, and the current divides between them.",
-          "The combined impedance falls, so the total current rises.",
-          "The combined impedance rises, so the current falls everywhere in the loop."
-        ],
-        "mapping": [
-          0,
-          1,
-          2,
-          3
-        ],
-        "columns": [
-          "The arrangement",
-          "What it does"
-        ]
-      },
-      "assumes": [
-        "a circuit can be connected end to end or side by side"
       ],
-      "equations": [
-        {
-          "e": "V = IR",
-          "c": "Ohm's law, on a conductor and on a whole network",
-          "v": [
-            [
-              "V",
-              "voltage across it, in volts"
-            ],
-            [
-              "I",
-              "current through it, in amperes"
-            ],
-            [
-              "R",
-              "resistance, in ohms"
-            ]
-          ],
-          "s": "Current through a resistance produces a voltage across it, in proportion."
-        }
-      ]
+      "concept": {
+        "n": 16,
+        "c": "Voltage drop, regulation and reactive support",
+        "t": "Current through the line's own impedance leaves the far end below the near end, and the gap widens with load. Reactive support props it up locally, and past a point more load pulls the voltage down faster than it lifts the current.",
+        "of": 32,
+        "rests": [
+          "Reactance, impedance and phasors",
+          "Real, reactive and apparent power",
+          "Transmission losses and conductor sizing"
+        ]
+      }
     },
     {
       "day": 3,
-      "title": "The ground is not at one voltage",
-      "scene": "The cable is isolated at both ends and a tester reads dead at the work point. Kowalczyk, the safety lead, stops the crew because one protection step is still missing. The substation remains connected to live equipment nearby.",
-      "takeaway": "Isolation is not proof of safety, and earthing is what makes it provable.",
-      "place": "Distribution Depot",
-      "story": "The cable is isolated at both ends and a tester reads dead at the work point. Kowalczyk, the safety lead, stops the crew because one protection step is still missing. The substation remains connected to live equipment nearby.",
-      "game": {
-        "type": "CHOICE",
-        "title": "The ground is not at one voltage",
-        "setup": "Distribution Depot",
-        "play": "Choose the last protection step before the crew approaches the conductor.",
-        "task": "Choose the last protection step before the crew approaches the conductor.",
-        "question": "What must happen after isolation and a successful dead test?",
-        "answer": "Apply portable earths at the point of work. Isolation and testing dead establish the condition; earthing holds it near local ground potential if something changes.",
-        "why": "Isolation and proving dead answer different questions. Opening both ends removes the known sources, while the dead test confirms the condition at that moment. Neither guarantees the conductor will stay safe if switching changes or induced voltage appears. Portable earths provide a low-impedance path for unexpected current and keep the work conductor close to local ground potential. That is why earthing follows the dead test rather than replacing it. The sequence turns a measured safe state into a maintained safe state.",
-        "rebuttals": [
-          "A repeated test is still only a sequence of snapshots; an applied earth makes an accidental return of voltage survivable.",
-          "A floating conductor can rise to a dangerous potential by induction or mistaken energisation.",
-          "Deliberately re-energising the work zone is not a protection test; the safe state is isolation, proving dead, then earthing."
-        ],
-        "choices": [
-          "Apply portable earths at the point of work.",
-          "Repeat the dead test every five minutes while the crew works.",
-          "Leave the conductor floating so any unexpected voltage remains measurable.",
-          "Close one isolator briefly to prove the protection will trip if power returns."
-        ],
-        "correctChoice": "Apply portable earths at the point of work."
-      },
-      "assumes": [
-        "a conductor can be re-energised from more than one direction"
-      ]
-    },
-    {
-      "day": 4,
       "title": "Keeping it, or collapsing it on purpose",
       "scene": "Obi has 26,000 households inside the island and a frequency still falling. Holding it needs demand off. Collapsing it means all of them, and a longer way back. The event board is still showing the overnight state.",
       "takeaway": "Shedding some load to keep an island alive is usually cheaper than restoring it from nothing.",
       "place": "Distribution Depot",
+      "guide": "Four options, and the island has one dispatchable machine already at maximum. So ask what lever each option actually uses. Two of them are bets on something outside the room. One costs all twenty-six thousand households and a restoration measured in hours, because a dead network is built back piece by piece. The frequency is still falling while you choose.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Obi has 26,000 households inside the island and a frequency still falling. Holding it needs demand off. Collapsing it means all of them, and a longer way back. The event board is still showing the overnight state.",
       "game": {
         "type": "CHOICE",
@@ -1961,14 +2657,31 @@ export const CURRICULUM = {
       },
       "assumes": [
         "restoring a collapsed island takes longer than holding a live one"
-      ]
+      ],
+      "concept": {
+        "n": 26,
+        "c": "Islanding, black start and restoration order",
+        "t": "An island is a section running on its own generation, and a black start builds one from a plant that can start with no outside power. The order is set by physics: something has to hold voltage and frequency before load can arrive.",
+        "of": 32,
+        "rests": [
+          "Voltage drop, regulation and reactive support",
+          "Synchronous machines and synchronisation",
+          "Frequency as the balance of supply and demand"
+        ]
+      }
     },
     {
-      "day": 5,
+      "day": 4,
       "title": "Why it cannot go faster",
       "scene": "Obi has crews asking why restoration is moving a few streets at a time. The substation is live, and the whole feeder could be closed in one movement. The switching sheet is open beside him.",
       "takeaway": "Every restoration step is limited by something different, and hurrying the wrong one collapses it again.",
       "place": "Distribution Depot",
+      "guide": "Four restoration steps, and four different limits. Pair them by asking what is small: the live system, the load on the line, or the agreement between two systems. One of these is the opposite of most people's instinct. A long circuit with almost nothing on it raises the voltage at its far end rather than lowering it.",
+      "background": [
+        "Why explanations rather than labels. Naming a finding is not accounting for it, and a plausible-sounding mechanism attached to the wrong observation is the commonest way a wrong story survives. Committing an explanation to one clue means claiming it accounts for that clue specifically and not for its neighbour, which is where the two come apart.",
+        "How to use the one-each rule. The explanations are a set to be distributed, not a list to be sampled, so every join constrains the rest. Settling the two you are confident of can decide the remaining pair by elimination. Where it does not, two explanations are still competing for one clue, and that competition is the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every explanation used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Obi has crews asking why restoration is moving a few streets at a time. The substation is live, and the whole feeder could be closed in one movement. The switching sheet is open beside him.",
       "game": {
         "type": "CASEBOOK",
@@ -2010,16 +2723,328 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a small live system is disturbed more by a given block of load than a large one"
-      ]
+      ],
+      "concept": {
+        "n": 26,
+        "c": "Islanding, black start and restoration order",
+        "t": "An island is a section running on its own generation, and a black start builds one from a plant that can start with no outside power. The order is set by physics: something has to hold voltage and frequency before load can arrive.",
+        "of": 32,
+        "rests": [
+          "Voltage drop, regulation and reactive support",
+          "Synchronous machines and synchronisation",
+          "Frequency as the balance of supply and demand"
+        ]
+      }
+    },
+    {
+      "day": 5,
+      "title": "What the desk is chasing now",
+      "scene": "Faults arrive on the board all evening. The desk works to one standing priority, and the shift manager changes it as the picture changes — after the storm crosses, after the hospital calls, after the count of customers off passes ten thousand.",
+      "takeaway": "The cost of a withdrawn instruction is paid by whoever is still working to it.",
+      "place": "Distribution Control",
+      "guide": "Take the faults the standing priority currently wants and leave the rest. The priority at the top of the board is replaced during the evening and nobody announces it. What is scored is the faults either side of a change, because they are the only ones that show whether the desk is reading the board.",
+      "background": [
+        "Why the priority changes at all. Early in an event the work is restoring the most customers per crew-hour. Once a hospital is on generator the work is that hospital. After midnight it is whatever cannot be left overnight in the weather. Each of those is a different order of the same list.",
+        "Why the changeover is where it goes wrong. A desk that keeps dispatching to the old priority for ten more minutes sends its last free crew to the job that mattered an hour ago, and nothing on the board says that is what happened."
+      ],
+      "story": "Faults arrive on the board all evening. The desk works to one standing priority, and the shift manager changes it as the picture changes — after the storm crosses, after the hospital calls, after the count of customers off passes ten thousand.",
+      "game": {
+        "type": "SPOT",
+        "title": "What the desk is chasing now",
+        "setup": "Distribution Control",
+        "play": "Work the fault board while the standing instruction changes.",
+        "task": "Work the fault board while the standing instruction changes.",
+        "question": "Dispatch to the priority on the board, and keep watching the board.",
+        "answer": "Read the top of the board, not the fault list. Every change leaves a few minutes in which the old priority still feels like the right one.",
+        "why": "Three priorities run across the evening. Each one wants a different part of the board. Most customers restored first. Then anything with a vulnerable customer behind it. Then anything that cannot be left out overnight in the weather. A fault can answer two of those at once, and that is what makes the switch cost real. What the panel scores is the window either side of each change. Everything else on the board is wanted by neither priority, so it is left alone correctly by somebody who has read nothing. The desk's own version is the ten minutes after a hospital calls. The priority has already changed, and the crews rolling are rolling to the order in force when they left.",
+        "spot": {
+          "targets": [
+            {
+              "id": "f1",
+              "label": "Feeder, 4,000 customers",
+              "tags": [
+                "many"
+              ]
+            },
+            {
+              "id": "f2",
+              "label": "Spur, hospital behind it",
+              "tags": [
+                "vulnerable"
+              ]
+            },
+            {
+              "id": "f3",
+              "label": "Overhead line down",
+              "tags": [
+                "weather",
+                "many"
+              ]
+            },
+            {
+              "id": "f4",
+              "label": "Village spur, 60 customers",
+              "tags": [
+                "few"
+              ]
+            },
+            {
+              "id": "f5",
+              "label": "Care home spur",
+              "tags": [
+                "vulnerable",
+                "few"
+              ]
+            },
+            {
+              "id": "f6",
+              "label": "Pole fire, road closed",
+              "tags": [
+                "weather"
+              ]
+            },
+            {
+              "id": "f7",
+              "label": "Town centre feeder",
+              "tags": [
+                "many",
+                "few"
+              ]
+            },
+            {
+              "id": "f8",
+              "label": "Farm supply, flooded",
+              "tags": [
+                "weather",
+                "few"
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "say": "Most customers back first",
+              "want": [
+                "many"
+              ]
+            },
+            {
+              "say": "Anything with a vulnerable customer",
+              "want": [
+                "vulnerable"
+              ]
+            },
+            {
+              "say": "Anything that cannot wait out the weather",
+              "want": [
+                "weather"
+              ]
+            }
+          ],
+          "duration": 40,
+          "switchEvery": 12,
+          "pass": 0.75,
+          "hint": "The standing priority is at the top of the board, and the shift manager changes it without announcement.",
+          "commit": "Open the board"
+        }
+      },
+      "assumes": [
+        "a control desk works to a stated priority that somebody can change"
+      ],
+      "concept": {
+        "n": 26,
+        "c": "Islanding, black start and restoration order",
+        "t": "An island is a section running on its own generation, and a black start builds one from a plant that can start with no outside power. The order is set by physics: something has to hold voltage and frequency before load can arrive.",
+        "of": 32,
+        "rests": [
+          "Voltage drop, regulation and reactive support",
+          "Synchronous machines and synchronisation",
+          "Frequency as the balance of supply and demand"
+        ]
+      }
+    },
+    {
+      "day": 6,
+      "title": "The ground is not at one voltage",
+      "scene": "The cable is isolated at both ends and a tester reads dead at the work point. Kowalczyk, the safety lead, stops the crew because one protection step is still missing. The substation remains connected to live equipment nearby.",
+      "takeaway": "Isolation is not proof of safety, and earthing is what makes it provable.",
+      "place": "Distribution Depot",
+      "guide": "All four options are things a crew could do next, and three of them sound careful. Ask of each what it would protect against: a source you know about, or one that arrives later. Isolation removes the known sources. A dead test confirms one moment. Neither holds the conductor down if switching changes or a voltage is induced nearby.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
+      "story": "The cable is isolated at both ends and a tester reads dead at the work point. Kowalczyk, the safety lead, stops the crew because one protection step is still missing. The substation remains connected to live equipment nearby.",
+      "game": {
+        "type": "CHOICE",
+        "title": "The ground is not at one voltage",
+        "setup": "Distribution Depot",
+        "play": "Choose the last protection step before the crew approaches the conductor.",
+        "task": "Choose the last protection step before the crew approaches the conductor.",
+        "question": "What must happen after isolation and a successful dead test?",
+        "answer": "Apply portable earths at the point of work. Isolation and testing dead establish the condition; earthing holds it near local ground potential if something changes.",
+        "why": "Isolation and proving dead answer different questions. Opening both ends removes the known sources, while the dead test confirms the condition at that moment. Neither guarantees the conductor will stay safe if switching changes or induced voltage appears. Portable earths provide a low-impedance path for unexpected current and keep the work conductor close to local ground potential. That is why earthing follows the dead test rather than replacing it. The sequence turns a measured safe state into a maintained safe state.",
+        "rebuttals": [
+          "A repeated test is still only a sequence of snapshots; an applied earth makes an accidental return of voltage survivable.",
+          "A floating conductor can rise to a dangerous potential by induction or mistaken energisation.",
+          "Deliberately re-energising the work zone is not a protection test; the safe state is isolation, proving dead, then earthing."
+        ],
+        "choices": [
+          "Apply portable earths at the point of work.",
+          "Repeat the dead test every five minutes while the crew works.",
+          "Leave the conductor floating so any unexpected voltage remains measurable.",
+          "Close one isolator briefly to prove the protection will trip if power returns."
+        ],
+        "correctChoice": "Apply portable earths at the point of work."
+      },
+      "assumes": [
+        "a conductor can be re-energised from more than one direction",
+        "charge, current, voltage and resistance — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Charge, current, voltage and resistance"
+        }
+      ],
+      "concept": {
+        "n": 25,
+        "c": "Earthing, step-and-touch potential and safety",
+        "t": "Earth is not one voltage. Current spreading through soil lifts the ground near where it enters, so the hazard is the difference between two places a person can bridge, and earthing is designed to keep that difference small.",
+        "of": 32,
+        "rests": [
+          "Charge, current, voltage and resistance",
+          "Fault current and short-circuit analysis"
+        ]
+      }
     }
   ],
   "LOAD": [
     {
       "day": 1,
+      "title": "What comes out against what went in",
+      "scene": "The battery charged overnight on Saturday and discharged into Sunday's peak. Alvarez, the storage engineer, has both energy totals and the brochure figure. The three numbers do not agree. The weekend log is open on the desk beside them.",
+      "takeaway": "Round-trip efficiency is measured on the energy, not on the power rating.",
+      "place": "Load & Forecasting",
+      "guide": "Four numbers, and two of them are the power rating and the rated duration. Those say how fast and for how long, not how much came back. Ask of each whether it is an energy or a rate. A round trip is what went in against what came out, over a whole cycle. Three numbers on the desk disagree, and the brochure figure is one of them.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
+      "story": "The battery charged overnight on Saturday and discharged into Sunday's peak. Alvarez, the storage engineer, has both energy totals and the brochure figure. The three numbers do not agree. The weekend log is open on the desk beside them.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "What comes out against what went in",
+        "setup": "Load & Forecasting",
+        "play": "Estimate what the store gives back",
+        "task": "Estimate what the store gives back",
+        "question": "Estimate the round-trip efficiency of the store.",
+        "answer": "About 85% round-trip efficiency.",
+        "why": "Everything that moves energy in and out loses a share of it, in the converter, in the chemistry and in keeping itself cool. Round-trip efficiency is the plain ratio of what came out to what went in, over a whole cycle. It is the only figure that tells you what the store is worth as reserve. A power rating is a different claim: it says how fast, not how much. Duration is a third one again.",
+        "givens": [
+          "Energy in was 220 MWh",
+          "Energy returned was 187 MWh"
+        ],
+        "relationship": "Round-trip efficiency = the energy out ÷ the energy in, measured over a full cycle.",
+        "calcKey": "LOAD-1"
+      },
+      "assumes": [
+        "storing energy and recovering it both lose some of it",
+        "electrical power and energy over time — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "η = E_out / E_in",
+          "c": "round-trip efficiency of storage",
+          "v": [
+            [
+              "η",
+              "round-trip efficiency, between 0 and 1"
+            ],
+            [
+              "E_out",
+              "energy you get back out"
+            ],
+            [
+              "E_in",
+              "energy you put in"
+            ]
+          ],
+          "s": "Storage returns less than it takes, so the reserve it is counted as is smaller than its nameplate.",
+          "computed": true
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 5,
+          "c": "Electrical power and energy over time"
+        }
+      ],
+      "concept": {
+        "n": 29,
+        "c": "Storage, round-trip efficiency and ramp rate",
+        "t": "Storage returns less than it takes in, and round-trip efficiency is that fraction. What it is worth depends as much on how fast it can change output as on how much it holds, since some jobs are energy and others are speed.",
+        "of": 32,
+        "rests": [
+          "Electrical power and energy over time"
+        ]
+      }
+    },
+    {
+      "day": 2,
+      "title": "An order that survives being carried out",
+      "scene": "Lindgren has four moves for the evening and no view on the order. Two of them change what the others are worth, and one of them cannot be reversed inside the shift.",
+      "takeaway": "Do the moves that improve your information first and the moves you cannot undo last.",
+      "place": "Load & Forecasting",
+      "guide": "All four moves are available right now, so this is not a clock. Ask of each two things. What does it improve about the numbers you are working from? And how easily can it be taken back? One of these sizes every other figure in the shift. One of them costs money rather than customers, and one takes real minutes to load.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
+      "story": "Lindgren has four moves for the evening and no view on the order. Two of them change what the others are worth, and one of them cannot be reversed inside the shift.",
+      "game": {
+        "type": "SEQUENCE",
+        "title": "An order that survives being carried out",
+        "setup": "Load & Forecasting",
+        "play": "Order the evening's moves so none of them undoes another",
+        "task": "Order the evening's moves so none of them undoes another",
+        "question": "Order the evening's moves so none of them undoes another",
+        "answer": "",
+        "why": "Correct the forecast first. Every other number is sized against it, and a wrong demand figure means doing the right thing to the wrong amount. Bring reserve forward next. It is reversible, it costs money rather than customers, and it covers the machine coming off at 1800. Then move the replacement plant, which takes real minutes to load and has to be underway before the fuel limit bites. Reconfiguring the network is last.",
+        "cards": [
+          "Correct the forecast, so every other figure is sized against a real demand.",
+          "Bring reserve forward to cover the machine coming off at 1800.",
+          "Start loading the replacement plant, which needs the minutes.",
+          "Reconfigure the network around the faulted feeder."
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "axis": "Order the four moves by what each one commits you to, not by the clock. All four are available now; what differs is how much they improve the figures you are working from, and how easily they can be taken back.",
+        "ends": [
+          "Improves your information",
+          "Cannot be taken back"
+        ]
+      },
+      "assumes": [
+        "some actions change the value of the actions that follow them"
+      ]
+    },
+    {
+      "day": 3,
       "title": "The power that never arrives",
       "scene": "Sten Lindgren, who forecasts demand, wants the loss figure before the morning call. The argument about moving generation is really an argument about waste. The yard radio is still live beside them.",
       "takeaway": "Loss rises with the square of current, which is why a small overload costs more than it looks.",
       "place": "Load & Forecasting",
+      "guide": "Five numbers, and two of them are the voltage and the power factor. Neither appears in a resistive loss. Ask of each number whether the heat depends on it. Heat comes from current and resistance, and it is paid once per phase. Note the square while you are choosing. Ten per cent more current is about twenty-one per cent more heat.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Sten Lindgren, who forecasts demand, wants the loss figure before the morning call. The argument about moving generation is really an argument about waste. The yard radio is still live beside them.",
       "game": {
         "type": "BALLPARK",
@@ -2036,10 +3061,11 @@ export const CURRICULUM = {
           "There are three phases"
         ],
         "relationship": "Line loss = 3 × I_rms² × R_phase, the electrical power P = I²R paid once per phase. The current is RMS, the resistance per phase.",
-        "calcKey": "LOAD-1"
+        "calcKey": "LOAD-3"
       },
       "assumes": [
-        "current through a resistance dissipates power as heat"
+        "current through a resistance dissipates power as heat",
+        "charge, current, voltage and resistance — taken as read"
       ],
       "equations": [
         {
@@ -2103,63 +3129,34 @@ export const CURRICULUM = {
           "computed": true,
           "card": false
         }
-      ]
-    },
-    {
-      "day": 2,
-      "title": "What comes out against what went in",
-      "scene": "The battery charged overnight on Saturday and discharged into Sunday's peak. Alvarez, the storage engineer, has both energy totals and the brochure figure. The three numbers do not agree. The event board is still showing the overnight state.",
-      "takeaway": "Round-trip efficiency is measured on the energy, not on the power rating.",
-      "place": "Load & Forecasting",
-      "story": "The battery charged overnight on Saturday and discharged into Sunday's peak. Alvarez, the storage engineer, has both energy totals and the brochure figure. The three numbers do not agree. The event board is still showing the overnight state.",
-      "game": {
-        "type": "BALLPARK",
-        "title": "What comes out against what went in",
-        "setup": "Load & Forecasting",
-        "play": "Estimate what the store gives back",
-        "task": "Estimate what the store gives back",
-        "question": "Estimate the round-trip efficiency of the store.",
-        "answer": "About 85% round-trip efficiency.",
-        "why": "Everything that moves energy in and out loses a share of it, in the converter, in the chemistry and in keeping itself cool. Round-trip efficiency is the plain ratio of what came out to what went in, over a whole cycle. It is the only figure that tells you what the store is worth as reserve. A power rating is a different claim: it says how fast, not how much. Duration is a third one again.",
-        "givens": [
-          "Energy in was 220 MWh",
-          "Energy returned was 187 MWh"
-        ],
-        "relationship": "Round-trip efficiency = the energy out ÷ the energy in, measured over a full cycle.",
-        "calcKey": "LOAD-2"
-      },
-      "assumes": [
-        "storing energy and recovering it both lose some of it"
       ],
-      "equations": [
+      "takesAsRead": [
         {
-          "e": "η = E_out / E_in",
-          "c": "round-trip efficiency of storage",
-          "v": [
-            [
-              "η",
-              "round-trip efficiency, between 0 and 1"
-            ],
-            [
-              "E_out",
-              "energy you get back out"
-            ],
-            [
-              "E_in",
-              "energy you put in"
-            ]
-          ],
-          "s": "Storage returns less than it takes, so the reserve it is counted as is smaller than its nameplate.",
-          "computed": true
+          "n": 1,
+          "c": "Charge, current, voltage and resistance"
         }
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Ohm's law and resistive networks",
+        "t": "V = IR holds for any element whose resistance does not change with the current through it. It lets a whole network stand in as one number, which stays legitimate only while nothing in it is heating or saturating.",
+        "of": 32,
+        "rests": [
+          "Charge, current, voltage and resistance"
+        ]
+      }
     },
     {
-      "day": 3,
+      "day": 4,
       "title": "The peak, and how far the cold moves it",
       "scene": "The base peak for a Friday in this week of the year is 6,400 megawatts. Lindgren's own figure for this winter is 120 megawatts of extra demand per degree below 0, and tomorrow is minus 4.",
       "takeaway": "A forecast is a base shape plus a sensitivity, and the sensitivity is measured rather than assumed.",
       "place": "Load & Forecasting",
+      "guide": "Four numbers, and one of them is the reserve held, which belongs to the width of the forecast rather than its centre. Ask of each whether it is a base, a sensitivity, or a temperature. A sensitivity is megawatts per degree on this system, measured from this winter. What comes out is the centre of a forecast, and the reserve covers the rest.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The base peak for a Friday in this week of the year is 6,400 megawatts. Lindgren's own figure for this winter is 120 megawatts of extra demand per degree below 0, and tomorrow is minus 4.",
       "game": {
         "type": "BALLPARK",
@@ -2176,10 +3173,11 @@ export const CURRICULUM = {
           "Tomorrow is four degrees below zero"
         ],
         "relationship": "Forecast peak = the base peak for that day and season + the demand sensitivity × the degrees below zero, with the sensitivity measured from this winter's own data.",
-        "calcKey": "LOAD-3"
+        "calcKey": "LOAD-4"
       },
       "assumes": [
-        "demand rises as the temperature falls, roughly in step"
+        "demand rises as the temperature falls, roughly in step",
+        "electrical power and energy over time — taken as read"
       ],
       "equations": [
         {
@@ -2206,14 +3204,191 @@ export const CURRICULUM = {
           "s": "Demand rises with cold at a rate measured from this system, not from a textbook.",
           "computed": true
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 5,
+          "c": "Electrical power and energy over time"
+        }
+      ],
+      "concept": {
+        "n": 21,
+        "c": "Load curves and demand forecasting",
+        "t": "Demand follows the day, the week and the weather, so a forecast is a shape rather than a single number. Planning turns on the peak and how long it lasts, because plant has to be standing there for the worst hour.",
+        "of": 32,
+        "rests": [
+          "Electrical power and energy over time"
+        ]
+      }
     },
     {
-      "day": 4,
+      "day": 5,
+      "title": "What can come off, and what cannot",
+      "scene": "A shed order needs a list in ten minutes. Some feeders can be dropped and restored an hour later with nobody harmed. Others carry something that cannot simply be switched off and switched back.",
+      "takeaway": "What can be shed is decided by what is behind the feeder, not by how important it sounds.",
+      "place": "Load Dispatch",
+      "guide": "Two bins. A feeder can be shed if the load behind it tolerates an hour without power and comes back the way it went off. It cannot be shed if something behind it needs power to stay safe, or cannot be restarted at will. Sort on what is behind the feeder, not on how important it sounds.",
+      "background": [
+        "Why sheddable is not the same as unimportant. A large industrial customer with its own standby plant is sheddable; a small clinic on one supply is not. Size, revenue and prominence have nothing to do with it, which is why the list is written in advance and not argued out at the time.",
+        "What makes a load unsheddable. Something behind it that fails unsafely without power, or that cannot be brought back on demand — a furnace that sets solid, a pumped drain that floods, a process that has to be run to a finish once started."
+      ],
+      "story": "A shed order needs a list in ten minutes. Some feeders can be dropped and restored an hour later with nobody harmed. Others carry something that cannot simply be switched off and switched back.",
+      "game": {
+        "type": "BELT",
+        "title": "What can come off, and what cannot",
+        "setup": "Load Dispatch",
+        "play": "Sort the feeder list before the shed order goes out.",
+        "task": "Sort the feeder list before the shed order goes out.",
+        "question": "Send each feeder to the bin that says whether the shed order can take it.",
+        "answer": "Anything that can be dropped and restored with nothing harmed goes left. Anything that fails unsafely or cannot be restarted goes right.",
+        "why": "A shed order is written to the state of what is behind each feeder. On one side sit the loads that tolerate an hour off and come back exactly as they went — cold stores with thermal mass, offices, street lighting, a works with its own standby set. On the other side are loads where an hour without power is not an hour of inconvenience: a hospital on one supply, a smelter whose bath sets solid, a pumped drain under a town, a process that has to run to a finish once it has started. None of that maps onto size or importance, which is exactly why the list is prepared cold and not decided at four in the morning by whoever is loudest on the phone. The one thing a dispatcher cannot do is work it out during the event.",
+        "belt": {
+          "left": {
+            "name": "Can be shed"
+          },
+          "right": {
+            "name": "Cannot be shed"
+          },
+          "items": [
+            {
+              "name": "Street lighting",
+              "bin": "left"
+            },
+            {
+              "name": "Retail park",
+              "bin": "left"
+            },
+            {
+              "name": "Cold store",
+              "bin": "left"
+            },
+            {
+              "name": "Office block",
+              "bin": "left"
+            },
+            {
+              "name": "Works with standby",
+              "bin": "left"
+            },
+            {
+              "name": "Sawmill",
+              "bin": "left"
+            },
+            {
+              "name": "Leisure centre",
+              "bin": "left"
+            },
+            {
+              "name": "Car plant paintshop",
+              "bin": "left"
+            },
+            {
+              "name": "Depot chargers",
+              "bin": "left"
+            },
+            {
+              "name": "Quarry crusher",
+              "bin": "left"
+            },
+            {
+              "name": "Grain drier",
+              "bin": "left"
+            },
+            {
+              "name": "Data hall standby",
+              "bin": "left"
+            },
+            {
+              "name": "Hospital single supply",
+              "bin": "right"
+            },
+            {
+              "name": "Aluminium smelter",
+              "bin": "right"
+            },
+            {
+              "name": "Town drainage pumps",
+              "bin": "right"
+            },
+            {
+              "name": "Signalling supply",
+              "bin": "right"
+            },
+            {
+              "name": "Water treatment",
+              "bin": "right"
+            },
+            {
+              "name": "Dialysis unit",
+              "bin": "right"
+            },
+            {
+              "name": "Furnace on tap",
+              "bin": "right"
+            },
+            {
+              "name": "Airport approach lighting",
+              "bin": "right"
+            },
+            {
+              "name": "Mine ventilation",
+              "bin": "right"
+            },
+            {
+              "name": "Glass tank",
+              "bin": "right"
+            },
+            {
+              "name": "Care home oxygen",
+              "bin": "right"
+            },
+            {
+              "name": "Lock gates",
+              "bin": "right"
+            },
+            {
+              "name": "Cable pressurisation",
+              "bin": "right"
+            },
+            {
+              "name": "Chemical reactor mid-batch",
+              "bin": "right"
+            }
+          ],
+          "need": 20,
+          "lives": 3,
+          "pass": 0.8,
+          "hint": "Ask what happens behind the feeder during the hour it is off.",
+          "commit": "Start the line"
+        }
+      },
+      "assumes": [
+        "some loads can be interrupted and restored, and some cannot"
+      ],
+      "concept": {
+        "n": 32,
+        "c": "Load shedding as a decision under uncertainty",
+        "t": "Shedding load on purpose is how a shortfall is kept from becoming an uncontrolled collapse. The call is made before the picture is complete, so it is judged on whether it was proportionate to what was known, not on what was learned later.",
+        "of": 32,
+        "rests": [
+          "Frequency as the balance of supply and demand",
+          "Inertia, governor response and droop control",
+          "Load curves and demand forecasting"
+        ]
+      }
+    },
+    {
+      "day": 6,
       "title": "The trend with nothing wrong with it",
       "scene": "Lindgren's forecast has tracked within 30 megawatts all evening. He wants to know what that does and does not license the room to assume about tomorrow. The room is waiting for a written instruction.",
       "takeaway": "One good night is not evidence about the method, because the width was never a claim about tonight.",
       "place": "Load & Forecasting",
+      "guide": "Four observations about a forecast, and the right column says what each one licenses. Pair them by asking where in the distribution that day sits. A mild Monday is the middle, and the middle is where the model was best calibrated. Only one of these four is evidence about the method rather than about a night, and the room is deciding reserve on it.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Lindgren's forecast has tracked within 30 megawatts all evening. He wants to know what that does and does not license the room to assume about tomorrow. The room is waiting for a written instruction.",
       "game": {
         "type": "PROTOCOL",
@@ -2254,53 +3429,38 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "a forecast can be right by luck as easily as by skill on any one day"
-      ]
-    },
-    {
-      "day": 5,
-      "title": "An order that survives being carried out",
-      "scene": "Lindgren has four moves for the evening and no view on the order. Two of them change what the others are worth, and one of them cannot be reversed inside the shift.",
-      "takeaway": "Do the moves that improve your information first and the moves you cannot undo last.",
-      "place": "Load & Forecasting",
-      "story": "Lindgren has four moves for the evening and no view on the order. Two of them change what the others are worth, and one of them cannot be reversed inside the shift.",
-      "game": {
-        "type": "SEQUENCE",
-        "title": "An order that survives being carried out",
-        "setup": "Load & Forecasting",
-        "play": "Order the evening's moves so none of them undoes another",
-        "task": "Order the evening's moves so none of them undoes another",
-        "question": "Order the evening's moves so none of them undoes another",
-        "answer": "",
-        "why": "Correct the forecast first. Every other number is sized against it, and a wrong demand figure means doing the right thing to the wrong amount. Bring reserve forward next. It is reversible, it costs money rather than customers, and it covers the machine coming off at 1800. Then move the replacement plant, which takes real minutes to load and has to be underway before the fuel limit bites. Reconfiguring the network is last.",
-        "cards": [
-          "Correct the forecast, so every other figure is sized against a real demand.",
-          "Bring reserve forward to cover the machine coming off at 1800.",
-          "Start loading the replacement plant, which needs the minutes.",
-          "Reconfigure the network around the faulted feeder."
-        ],
-        "order": [
-          0,
-          1,
-          2,
-          3
-        ],
-        "axis": "Order the four moves by what each one commits you to, not by the clock. All four are available now; what differs is how much they improve the figures you are working from, and how easily they can be taken back.",
-        "ends": [
-          "Improves your information",
-          "Cannot be taken back"
+        "a forecast can be right by luck as easily as by skill on any one day",
+        "charge, current, voltage and resistance — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Charge, current, voltage and resistance"
+        }
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Electrical power and energy over time",
+        "t": "Power is the rate; energy is that rate multiplied by how long it ran. Ratings are written in power, while bills, fuel burned and heat damage are all written in energy, so a peak and a total answer different questions.",
+        "of": 32,
+        "rests": [
+          "Charge, current, voltage and resistance",
+          "Ohm's law and resistive networks"
         ]
-      },
-      "assumes": [
-        "some actions change the value of the actions that follow them"
-      ]
+      }
     },
     {
-      "day": 6,
+      "day": 7,
       "title": "The number that has to be a range",
       "scene": "Lindgren's winter peak goes into the report. He wants the width in the sentence, and Reyes wants to know what the width is for. The control-room phone is already ringing.",
       "takeaway": "A prediction is only usable by a planner if it says how wrong it might be.",
       "place": "Load & Forecasting",
+      "guide": "Four reasons for a range, and they differ in what the width is for. Ask of each whether it is about blame, measurement, or planning. Reserve is not held against the expected peak. It is held against the amount by which the peak might exceed it, and that is the width. A single figure deletes the only quantity a planner needs.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Lindgren's winter peak goes into the report. He wants the width in the sentence, and Reyes wants to know what the width is for. The control-room phone is already ringing.",
       "game": {
         "type": "CHOICE",
@@ -2325,8 +3485,25 @@ export const CURRICULUM = {
         "correctChoice": "Because reserve must cover plausible outcomes above the forecast centre, which depends on the forecast width."
       },
       "assumes": [
-        "a forecast is a distribution rather than a single value"
-      ]
+        "a forecast is a distribution rather than a single value",
+        "charge, current, voltage and resistance — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Charge, current, voltage and resistance"
+        }
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Electrical power and energy over time",
+        "t": "Power is the rate; energy is that rate multiplied by how long it ran. Ratings are written in power, while bills, fuel burned and heat damage are all written in energy, so a peak and a total answer different questions.",
+        "of": 32,
+        "rests": [
+          "Charge, current, voltage and resistance",
+          "Ohm's law and resistive networks"
+        ]
+      }
     }
   ],
   "METER": [
@@ -2336,6 +3513,12 @@ export const CURRICULUM = {
       "scene": "June Farrow, the metering engineer, has three records of the same eight seconds. They disagree about what happened first. One record was stamped by a clock nobody has checked since spring.",
       "takeaway": "Agreement is independent evidence only when the channels do not share the same dependency.",
       "place": "Metering & Standards",
+      "guide": "Open each record to see which clock and which physical input it depends on. Keep the ones that would still stand if one clock were wrong, and untick the rest. Then name the shared source behind the false early timestamps. Three records disagreeing about the order is evidence about the records, not only about the event.",
+      "background": [
+        "Why a clock is part of the measurement. A record's timestamp is as good as the clock that made it, and a clock nobody has checked since spring can be seconds out. Every event stamped by it moves together, which is exactly what makes a false ordering look consistent.",
+        "How to tell dependence from agreement. Two records agreeing prove nothing if both were stamped by the same clock. What matters is whether a record's timing came from somewhere else — a synchronised source, a physical input with its own time base — because only those constrain the order independently.",
+        "What the order is for. Sequence-of-events analysis is how a blackout is explained: what tripped first decides whether this was a protection failure, an operator action or a cascade. Getting the order wrong produces a confident and wrong account of the night."
+      ],
       "story": "June Farrow, the metering engineer, has three records of the same eight seconds. They disagree about what happened first. One record was stamped by a clock nobody has checked since spring.",
       "game": {
         "type": "TRACE",
@@ -2413,8 +3596,30 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a timestamp combines a measured event with a clock reference",
-        "two channels can agree because they share the same source"
-      ]
+        "two channels can agree because they share the same source",
+        "faraday's law and electromagnetic induction — taken as read",
+        "rMS against peak and average — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 17,
+          "c": "Faraday's law and electromagnetic induction"
+        },
+        {
+          "n": 7,
+          "c": "RMS against peak and average"
+        }
+      ],
+      "concept": {
+        "n": 31,
+        "c": "Metering, instrument transformers and measurement error",
+        "t": "Every number on the screen arrived through a transducer, a link and a timestamp, any of which can be wrong on its own. A reading is evidence about the instrument as much as about the system, and the two have to be told apart.",
+        "of": 32,
+        "rests": [
+          "RMS against peak and average",
+          "Faraday's law and electromagnetic induction"
+        ]
+      }
     },
     {
       "day": 2,
@@ -2422,6 +3627,11 @@ export const CURRICULUM = {
       "scene": "Farrow has line voltage, line current and a power factor from the night of the event. The report claims a figure for delivered power that nobody has reproduced. A printed network diagram lies on the desk.",
       "takeaway": "Three-phase power from line quantities carries a factor of root three, and it is not three.",
       "place": "Metering & Standards",
+      "guide": "Six numbers, and two of them are traps that look right. There are three phases, and the factor is not three. And the sine of the angle is not what selects real power. Ask of each number what definition it belongs to. A voltage measured between two phases differs from one measured to neutral, and that is where the factor comes from. A report already claims a figure nobody has reproduced.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Farrow has line voltage, line current and a power factor from the night of the event. The report claims a figure for delivered power that nobody has reproduced. A printed network diagram lies on the desk.",
       "game": {
         "type": "BALLPARK",
@@ -2441,7 +3651,8 @@ export const CURRICULUM = {
         "calcKey": "METER-2"
       },
       "assumes": [
-        "a three-phase supply carries power on three conductors at once"
+        "a three-phase supply carries power on three conductors at once",
+        "electrical power and energy over time — taken as read"
       ],
       "equations": [
         {
@@ -2492,7 +3703,23 @@ export const CURRICULUM = {
           "s": "Three-phase power from line quantities carries a √3 because line and phase values differ.",
           "computed": true
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 5,
+          "c": "Electrical power and energy over time"
+        }
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Real, reactive and apparent power",
+        "t": "Real power does work, reactive power is energy sloshing in and out of fields, and apparent power is what conductors and transformers actually have to carry. Plant is sized for the third and paid for out of the first.",
+        "of": 32,
+        "rests": [
+          "Electrical power and energy over time",
+          "Reactance, impedance and phasors"
+        ]
+      }
     },
     {
       "day": 3,
@@ -2500,6 +3727,12 @@ export const CURRICULUM = {
       "scene": "June Farrow, the metering engineer, has a protected low-voltage current-transformer test loop beside the yard diagram. The bench shows primary current, secondary current and a movable core. She wants a cause, not a remembered definition.",
       "takeaway": "A current transformer responds to changing magnetic flux; a steady primary current produces no sustained secondary signal.",
       "place": "Metering & Standards",
+      "guide": "The rig is a current transformer: a conductor carrying current, and a core around it with a winding that reports a scaled copy. The number you are watching is that secondary current. Three controls can be changed, and a response counts only if it is larger than the bench's own wander. Change one, run it, put it back, and name the control the secondary current follows.",
+      "background": [
+        "How a current transformer works, and why nothing touches the conductor. Current in the primary makes a changing magnetic field, the core carries that field around the winding, and the changing field induces a proportional current in it. Nothing is connected to the primary at all — which is exactly why the instrument is safe on a live circuit, and why what it needs is change rather than contact.",
+        "Why a steady current reads nothing. Induction responds to a field that is changing. Hold the primary current constant and the field stops changing, so the winding reports nothing while the conductor is still carrying full load. An instrument that reads zero on a live conductor looks broken and is behaving exactly as designed.",
+        "Why the core is the third control. Open the magnetic path and the field no longer links the winding, so the secondary falls away even with a changing primary. Two different controls therefore kill the reading for two different reasons, and telling them apart is what the reversal is for."
+      ],
       "story": "June Farrow, the metering engineer, has a protected low-voltage current-transformer test loop beside the yard diagram. The bench shows primary current, secondary current and a movable core. She wants a cause, not a remembered definition.",
       "game": {
         "type": "CONTROL",
@@ -2541,7 +3774,9 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a changing magnetic field can induce voltage in a nearby coil",
-        "the bench current transformer has 1 primary turn and 20 secondary turns"
+        "the bench current transformer has 1 primary turn and 20 secondary turns",
+        "aC waveforms: frequency, period and phase — taken as read",
+        "charge, current, voltage and resistance — taken as read"
       ],
       "equations": [
         {
@@ -2567,7 +3802,27 @@ export const CURRICULUM = {
           ],
           "s": "A transformer trades voltage for current in the ratio of its turns, which is what makes long-distance transmission affordable."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 6,
+          "c": "AC waveforms: frequency, period and phase"
+        },
+        {
+          "n": 1,
+          "c": "Charge, current, voltage and resistance"
+        }
+      ],
+      "concept": {
+        "n": 17,
+        "c": "Faraday's law and electromagnetic induction",
+        "t": "A changing magnetic flux through a loop induces a voltage around it, in proportion to how fast the flux changes. Generators, transformers and current transformers all work this way, which is why a changing current nearby can be read without any connection.",
+        "of": 32,
+        "rests": [
+          "Charge, current, voltage and resistance",
+          "AC waveforms: frequency, period and phase"
+        ]
+      }
     },
     {
       "day": 4,
@@ -2575,6 +3830,12 @@ export const CURRICULUM = {
       "scene": "Farrow is asked to list what the island has to draw on in the first ten seconds. Two of the four things on her list cannot help at that timescale.",
       "takeaway": "Every store has a timescale, and matching the store to the timescale is the whole trick.",
       "place": "Metering & Standards",
+      "guide": "Four stores of energy, and the right column is four timescales. Pair them by asking how soon each one answers, and for how long. Two of these are on the list and cannot help in ten seconds. The fields in transformers and lines hold real energy for a fraction of a cycle, which is nothing you can dispatch.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Farrow is asked to list what the island has to draw on in the first ten seconds. Two of the four things on her list cannot help at that timescale.",
       "game": {
         "type": "PROTOCOL",
@@ -2615,7 +3876,9 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "energy can be stored in a spinning mass, in a magnetic field or in a chemical cell"
+        "energy can be stored in a spinning mass, in a magnetic field or in a chemical cell",
+        "aC waveforms: frequency, period and phase — taken as read",
+        "charge, current, voltage and resistance — taken as read"
       ],
       "equations": [
         {
@@ -2660,7 +3923,27 @@ export const CURRICULUM = {
           ],
           "s": "Storage returns less than it takes, so the reserve it is counted as is smaller than its nameplate."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 6,
+          "c": "AC waveforms: frequency, period and phase"
+        },
+        {
+          "n": 1,
+          "c": "Charge, current, voltage and resistance"
+        }
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Capacitance, inductance and stored energy",
+        "t": "A capacitor stores energy in an electric field and resists a change of voltage; an inductor stores it in a magnetic field and resists a change of current. Neither consumes that energy — each lends it back a quarter of a cycle later.",
+        "of": 32,
+        "rests": [
+          "Charge, current, voltage and resistance",
+          "AC waveforms: frequency, period and phase"
+        ]
+      }
     },
     {
       "day": 5,
@@ -2668,6 +3951,12 @@ export const CURRICULUM = {
       "scene": "Farrow has three sources for the corridor's temperature that week: the sensor, an infrared survey from the ground. The sag measured off a photograph. Two of them agree with each other.",
       "takeaway": "Precision is repeatability; accuracy is being right. A drifted sensor has the first and not the second.",
       "place": "Metering & Standards",
+      "guide": "Four options, and three temperature sources have to be accounted for. Two agree with each other and neither of them shares the corridor sensor. Ask of each option how many of the three it explains. Small scatter shows an instrument repeats, not that it is right. And the firmware date marks where the disagreement starts.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Farrow has three sources for the corridor's temperature that week: the sensor, an infrared survey from the ground. The sag measured off a photograph. Two of them agree with each other.",
       "game": {
         "type": "CHOICE",
@@ -2705,7 +3994,17 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an instrument can be precise and still be offset from the truth"
-      ]
+      ],
+      "concept": {
+        "n": 31,
+        "c": "Metering, instrument transformers and measurement error",
+        "t": "Every number on the screen arrived through a transducer, a link and a timestamp, any of which can be wrong on its own. A reading is evidence about the instrument as much as about the system, and the two have to be told apart.",
+        "of": 32,
+        "rests": [
+          "RMS against peak and average",
+          "Faraday's law and electromagnetic induction"
+        ]
+      }
     },
     {
       "day": 6,
@@ -2713,6 +4012,12 @@ export const CURRICULUM = {
       "scene": "Farrow's corrected record has the corridor above continuous rating for about 90 hours over 3 years. She wants to know whether that is a maintenance note or a design problem.",
       "takeaway": "Thermal damage integrates over time, so 90 scattered hours count as 90 hours.",
       "place": "Metering & Standards",
+      "guide": "Four options, and they differ in whether the damage is reversible. Ask of each what happens when the conductor cools. Above about ninety-five degrees the aluminium's grain structure relaxes, and the strength it loses stays lost. That is why the hours are added up over three years rather than judged one event at a time. Nothing fails today, which is what makes this easy to file.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Farrow's corrected record has the corridor above continuous rating for about 90 hours over 3 years. She wants to know whether that is a maintenance note or a design problem.",
       "game": {
         "type": "CHOICE",
@@ -2738,7 +4043,17 @@ export const CURRICULUM = {
       },
       "assumes": [
         "time spent above a thermal limit accumulates rather than resetting"
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Transmission losses and conductor sizing",
+        "t": "Loss in a conductor goes as the square of the current, so halving the current quarters the loss. A conductor's limit is a temperature reached over time rather than a line it either meets or breaks, which is why ratings carry durations.",
+        "of": 32,
+        "rests": [
+          "Ohm's law and resistive networks",
+          "Electrical power and energy over time"
+        ]
+      }
     },
     {
       "day": 7,
@@ -2746,6 +4061,12 @@ export const CURRICULUM = {
       "scene": "June Farrow, the metering engineer, has four statements ready for the final report and only two verification slots left before sign-off. Some claims are already backed. Others are still inference or suspicion.",
       "takeaway": "A signed claim is still only as strong as the evidence behind it; verification should go first to critical claims that remain unbacked.",
       "place": "Metering & Standards",
+      "guide": "Four statements are ready for the report and you have two verification slots. Open each claim and read what already backs it: some are measured, some are inferred from something measured, and some are suspicion written confidently. Hold what the backing does not support, and spend the checks where a wrong claim would do the most damage.",
+      "background": [
+        "The three categories, and why they read alike. A measured claim points at a record. An inferred one is a chain of reasoning from a record, which is only as good as its weakest step. A suspicion has neither, and in a report all three appear as declarative sentences in the same typeface.",
+        "Why consequence rather than doubt decides the spend. The least-supported claim is not automatically the one to check. A weakly backed statement nobody will act on costs little; a well-worded inference that will drive an equipment replacement costs a great deal if it is wrong.",
+        "What holding a claim means. Not deleting it — marking it as not yet supported, so the report says what it can stand behind and what it cannot. A finding is a claim the author is willing to be wrong about in public, which is a higher bar than believing it."
+      ],
       "story": "June Farrow, the metering engineer, has four statements ready for the final report and only two verification slots left before sign-off. Some claims are already backed. Others are still inference or suspicion.",
       "game": {
         "type": "ATTEST",
@@ -2817,13 +4138,81 @@ export const CURRICULUM = {
           ],
           "s": "Storage returns less than it takes, so the reserve it is counted as is smaller than its nameplate."
         }
-      ]
+      ],
+      "concept": {
+        "n": 29,
+        "c": "Storage, round-trip efficiency and ramp rate",
+        "t": "Storage returns less than it takes in, and round-trip efficiency is that fraction. What it is worth depends as much on how fast it can change output as on how much it holds, since some jobs are energy and others are speed.",
+        "of": 32,
+        "rests": [
+          "Electrical power and energy over time"
+        ]
+      }
     }
   ]
 };
 
 export const BALLPARK_CALCS = {
-  "GEN-1": {
+  "LOAD-1": {
+    "prompt": "The store took in 220 MWh over Saturday night and gave back 187 MWh into Sunday's peak. It is rated at 50 MW for 4 hours.",
+    "question": "Choose the energy out and the energy in.",
+    "labels": [
+      "187 MWh  (energy returned)",
+      "220 MWh  (energy taken in)",
+      "50 MW  (power rating)",
+      "4 h  (rated duration)"
+    ],
+    "values": [
+      187,
+      220,
+      50,
+      4
+    ],
+    "slots": 2,
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 0.85,
+    "tolerance": 0.03,
+    "units": "fraction",
+    "solution": "η = 187 ÷ 220 = 0.85, or 85%.",
+    "explanation": "85%, so 15% of everything put in never comes back. The rating and the duration describe how the store behaves, not how much survives the trip. Multiply them and you get an energy figure that has nothing to do with this question."
+  },
+  "TRANS-1": {
+    "prompt": "The balanced corridor now carries 1,280 A RMS in each phase. Each phase still has 4.2 ohms of resistance over the full corridor.",
+    "question": "Choose the current, the resistance and the number of phases.",
+    "labels": [
+      "1280 A  (RMS current per phase now)",
+      "4.2 Ω  (resistance per phase)",
+      "3  (phases)",
+      "1150 A  (the current an hour ago)",
+      "89 °C  (corrected conductor temperature)"
+    ],
+    "values": [
+      1280,
+      4.2,
+      3,
+      1150,
+      89
+    ],
+    "slots": 3,
+    "template": "{0} × {0} × {1} × {2}",
+    "formula": "a*a*b*c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 20643840,
+    "tolerance": 1800000,
+    "units": "W",
+    "solution": "P_loss = 3 × 1280² × 4.2 ≈ 2.06 × 10⁷ W ≈ 21 MW.",
+    "explanation": "About 21 megawatts, against 17 an hour ago. Current rose by 11% and the heat rose by nearly a quarter, because the square does the work. The earlier current and the corrected temperature are both real numbers about this corridor and neither enters the loss."
+  },
+  "GEN-2": {
     "prompt": "Frequency fell at 0.30 Hz per second over the first 2 seconds. The machines online held 25,000 MW·s of stored kinetic energy. Nominal frequency is 50 Hz.",
     "question": "Choose the stored energy, the rate of fall and the nominal frequency.",
     "labels": [
@@ -2854,7 +4243,7 @@ export const BALLPARK_CALCS = {
     "solution": "|ΔP| = 2 × 25,000 × 0.30 ÷ 50 = 300 MW.",
     "explanation": "About 300 megawatts. That is a unit, not a faulty meter. The settled deviation and the generation online are both real figures, and neither belongs here. The first is what the governors did afterwards. The second is the denominator for a different question."
   },
-  "LOAD-1": {
+  "LOAD-3": {
     "prompt": "The balanced corridor carries 1,150 A RMS in each phase. Each phase has 4.2 ohms of resistance over the full corridor.",
     "question": "Choose the current, the resistance and the number of phases.",
     "labels": [
@@ -2885,40 +4274,35 @@ export const BALLPARK_CALCS = {
     "solution": "P_loss = 3 × 1150² × 4.2 ≈ 1.67 × 10⁷ W ≈ 17 MW.",
     "explanation": "About 17 megawatts, turned into warm air. The line voltage and the power factor both belong to other calculations — voltage sets what current is needed for a given power, and power factor decides how much of the apparent power does work — but neither enters the loss itself."
   },
-  "DIST-1": {
-    "prompt": "The feeder carries 310 A. Over 4 kilometres it has 1.8 ohms of resistance and 0.9 ohms of reactance. The load runs at 0.95 power factor, so sin of the angle is 0.31.",
-    "question": "Choose the current, both parts of the impedance, and the two parts of the angle.",
+  "OPS-4": {
+    "prompt": "The path has 3.1 ohms of resistance and 12.4 ohms of reactance at 50 hertz. The corridor is carrying 1,150 A at a nominal 400 kV.",
+    "question": "Choose the two figures that are properties of the path.",
     "labels": [
-      "310 A  (feeder current)",
-      "1.8 Ω  (resistance)",
-      "0.95  (cos φ)",
-      "0.9 Ω  (reactance)",
-      "0.31  (sin φ)",
-      "11000 V  (nominal feeder voltage)"
+      "3.1 Ω  (resistance of the path)",
+      "12.4 Ω  (reactance of the path at 50 Hz)",
+      "1,150 A  (present corridor current)",
+      "400 kV  (nominal corridor voltage)",
+      "50 Hz  (system frequency)"
     ],
     "values": [
-      310,
-      1.8,
-      0.95,
-      0.9,
-      0.31,
-      11000
+      3.1,
+      12.4,
+      1150,
+      400,
+      50
     ],
-    "slots": 5,
-    "template": "{0} × ({1} × {2} + {3} × {4})",
-    "formula": "a*(b*c+d*e)",
+    "slots": 2,
+    "template": "√({0}² + {1}²)",
+    "formula": "Math.sqrt(a*a + b*b)",
     "correct": [
       0,
-      1,
-      2,
-      3,
-      4
+      1
     ],
-    "target": 616.6,
-    "tolerance": 60,
-    "units": "V",
-    "solution": "ΔV_LL ≈ 1.732 × 310 × (1.8 × 0.95 + 0.9 × 0.31) ≈ 1,069 V ≈ 1.07 kV.",
-    "explanation": "About 1.07 kV line-to-line, close to 10% of an 11 kV feeder. That is large enough to explain complaints at the far end while the sending-end meter looks normal. The nominal 11 kV is used to judge the percentage drop; it is not multiplied into the drop formula."
+    "target": 12.78,
+    "tolerance": 0.4,
+    "units": "Ω",
+    "solution": "Z = √(3.1² + 12.4²) = √163.4 ≈ 12.8 Ω.",
+    "explanation": "About 12.8 ohms, and 12.4 of it is the reactance. The current and the nominal voltage decide what that opposition does at the far end of the path; neither is part of the opposition itself. The frequency is the condition the reactance figure was measured under, not a term in it."
   },
   "METER-2": {
     "prompt": "The circuit was at 11,000 V between lines, carrying 310 A per line, at 0.95 power factor. Root 3 is about 1.732.",
@@ -2954,35 +4338,7 @@ export const BALLPARK_CALCS = {
     "solution": "P = 1.732 × 11,000 × 310 × 0.95 ≈ 5.6 × 10⁶ W ≈ 5.6 MW.",
     "explanation": "About five and a half megawatts. Using three instead of root three gives nearly ten, which is a different circuit. The phase count is a real fact about the system and is not the multiplier here. Sin φ belongs to the reactive part, which is a separate question."
   },
-  "LOAD-2": {
-    "prompt": "The store took in 220 MWh over Saturday night and gave back 187 MWh into Sunday's peak. It is rated at 50 MW for 4 hours.",
-    "question": "Choose the energy out and the energy in.",
-    "labels": [
-      "187 MWh  (energy returned)",
-      "220 MWh  (energy taken in)",
-      "50 MW  (power rating)",
-      "4 h  (rated duration)"
-    ],
-    "values": [
-      187,
-      220,
-      50,
-      4
-    ],
-    "slots": 2,
-    "template": "{0} ÷ {1}",
-    "formula": "a/b",
-    "correct": [
-      0,
-      1
-    ],
-    "target": 0.85,
-    "tolerance": 0.03,
-    "units": "fraction",
-    "solution": "η = 187 ÷ 220 = 0.85, or 85%.",
-    "explanation": "85%, so 15% of everything put in never comes back. The rating and the duration describe how the store behaves, not how much survives the trip. Multiply them and you get an energy figure that has nothing to do with this question."
-  },
-  "TRANS-4": {
+  "TRANS-5": {
     "prompt": "The total leaving the busbar is 900 A. The older circuit is 6 ohms and the newer 1 is 3 ohms. Both run between the same two busbars.",
     "question": "Choose the total current, the other path's impedance and the sum of the two.",
     "labels": [
@@ -3011,7 +4367,42 @@ export const BALLPARK_CALCS = {
     "solution": "I_old = 900 × 3 ÷ (6 + 3) = 300 A.",
     "explanation": "300 amps in the old circuit and 600 in the new 1. Each path takes the other's impedance over the sum, so the low-impedance route carries twice as much. The busbar voltage is the same for both, which is why it cancels and never enters the arithmetic."
   },
-  "TRANS-5": {
+  "DIST-2": {
+    "prompt": "The feeder carries 310 A. Over 4 kilometres it has 1.8 ohms of resistance and 0.9 ohms of reactance. The load runs at 0.95 power factor, so sin of the angle is 0.31.",
+    "question": "Choose the current, both parts of the impedance, and the two parts of the angle.",
+    "labels": [
+      "310 A  (feeder current)",
+      "1.8 Ω  (resistance)",
+      "0.95  (cos φ)",
+      "0.9 Ω  (reactance)",
+      "0.31  (sin φ)",
+      "11000 V  (nominal feeder voltage)"
+    ],
+    "values": [
+      310,
+      1.8,
+      0.95,
+      0.9,
+      0.31,
+      11000
+    ],
+    "slots": 5,
+    "template": "{0} × ({1} × {2} + {3} × {4})",
+    "formula": "a*(b*c+d*e)",
+    "correct": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "target": 616.6,
+    "tolerance": 60,
+    "units": "V",
+    "solution": "ΔV_LL ≈ 1.732 × 310 × (1.8 × 0.95 + 0.9 × 0.31) ≈ 1,069 V ≈ 1.07 kV.",
+    "explanation": "About 1.07 kV line-to-line, close to 10% of an 11 kV feeder. That is large enough to explain complaints at the far end while the sending-end meter looks normal. The nominal 11 kV is used to judge the percentage drop; it is not multiplied into the drop formula."
+  },
+  "TRANS-6": {
     "prompt": "Phase voltage at the fault was 6,350 V. Total impedance of the source, transformer and cable back to it is 0.42 Ω. Normal load on the circuit is 310 A.",
     "question": "Choose the driving voltage and the impedance of the path.",
     "labels": [
@@ -3039,7 +4430,7 @@ export const BALLPARK_CALCS = {
     "solution": "I = 6,350 ÷ 0.42 ≈ 1.5 × 10⁴ A.",
     "explanation": "About 15000 amps, roughly 50 times the normal load. The load current does not limit a fault, because the fault has gone around the load. The clearing time matters for the energy released rather than for the size of the current."
   },
-  "LOAD-3": {
+  "LOAD-4": {
     "prompt": "Base Friday peak for this week of the year is 6,400 MW. Demand sensitivity is 120 MW per degree below 0. Tomorrow's forecast is minus four degrees.",
     "question": "Choose the base peak, the sensitivity and the degrees below zero.",
     "labels": [
@@ -3068,7 +4459,7 @@ export const BALLPARK_CALCS = {
     "solution": "Peak ≈ 6,400 + 120 × 4 = 6,880 MW.",
     "explanation": "About 6,900 megawatts at the centre of the forecast. The reserve is what covers the width around that centre, so it is a separate decision and not part of this sum. Add it in here and you have double-counted the thing the reserve exists for."
   },
-  "GEN-5": {
+  "GEN-4": {
     "prompt": "The valley was drawing about 300 MW when it collapsed. The restoration is expected to take about two and a half hours.",
     "question": "Choose the power and the duration.",
     "labels": [
@@ -3095,37 +4486,6 @@ export const BALLPARK_CALCS = {
     "units": "MWh",
     "solution": "E = 300 × 2.5 = 750 MWh.",
     "explanation": "750 megawatt-hours never delivered. The household count and the frequency are both central to the story and neither belongs in this calculation. One is who was affected; the other is why it happened."
-  },
-  "TRANS-7": {
-    "prompt": "The balanced corridor now carries 1,280 A RMS in each phase. Each phase still has 4.2 ohms of resistance over the full corridor.",
-    "question": "Choose the current, the resistance and the number of phases.",
-    "labels": [
-      "1280 A  (RMS current per phase now)",
-      "4.2 Ω  (resistance per phase)",
-      "3  (phases)",
-      "1150 A  (the current an hour ago)",
-      "89 °C  (corrected conductor temperature)"
-    ],
-    "values": [
-      1280,
-      4.2,
-      3,
-      1150,
-      89
-    ],
-    "slots": 3,
-    "template": "{0} × {0} × {1} × {2}",
-    "formula": "a*a*b*c",
-    "correct": [
-      0,
-      1,
-      2
-    ],
-    "target": 20643840,
-    "tolerance": 1800000,
-    "units": "W",
-    "solution": "P_loss = 3 × 1280² × 4.2 ≈ 2.06 × 10⁷ W ≈ 21 MW.",
-    "explanation": "About 21 megawatts, against 17 an hour ago. Current rose by 11% and the heat rose by nearly a quarter, because the square does the work. The earlier current and the corrected temperature are both real numbers about this corridor and neither enters the loss."
   }
 };
 

@@ -204,9 +204,12 @@ evidence axes must be present.
 
 **`CLOUD` — a distribution against a boundary.**
 A visible spread against a limit; the player can shift the centre or narrow the
-spread. Attacks: reading a number with error bars as a number. "You moved the
-dot. The cloud came with it." *Trap:* re-centring alone must fall short of the
-pass mark; applying everything must clear it.
+spread, and reports the mean and its one-sigma uncertainty by dragging three bars
+over the scatter — the panel counts points below, above and between them as they
+move. Attacks: reading a number with error bars as a number. "You moved the dot.
+The cloud came with it." *Trap:* re-centring alone must fall short of the pass
+mark; applying everything must clear it; and an authored
+`report: { centreTol, spreadTol }` must be tighter than half the finishing spread.
 
 **`ALLOCATE` — a finite pool across competing claims.**
 Twenty sample bottles, a yard slot, a budget — or, in the integrated variant,
@@ -665,7 +668,7 @@ there is nothing to hold fixed and nothing to rule out.
 | --- | --- |
 | `TRIGGER` | 2 stages · 3 updates in the stream |
 | `VALUE` | 4 options · 1 decisive · 2 distinct axes |
-| `CLOUD` | 2 actions · at least 1 that narrows |
+| `CLOUD` | 2 actions · at least 1 that narrows · any `report` tolerance under half the finishing spread |
 | `ALLOCATE` | 4 items · 3 answers · ≥1 required and ≥1 not |
 | `TRACE` | 4 channels · 2 sharing the target · 1 independent |
 | `ATTEST` | 4 claims · 1 critical-and-unbacked · 1 critical-and-backed |

@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Every format — two real stops each, answerable</title>
+<!--
+  Two questions of every answer format the engine renders — the best stop and the
+  best stop from a different campaign — each taken out of the game that authored
+  it, drawn the way the game draws it, and graded the way the game grades it. The
+  pair is the point: one card shows what a format looks like, the second shows
+  which half of it was the format and which half was that book's authoring.
+
+      node engine/dev/lessonGallery.mjs --report     # harvest the stops
+      THEME=contamcity npm run dev                   # any theme; see below
+      →  http://localhost:<port>/engine/dev/lessons.html
+
+  WHY ANY THEME WILL DO. The stops come from engine/dev/lessons.json, which the
+  harvester wrote by reading all eighteen games. The theme the dev server was
+  started with decides nothing here except which content module the engine
+  happens to have loaded — the card's person, colour, glossary and estimate
+  numbers all arrive with the stop, because they belong to the game it came from.
+
+  WHAT IS NOT THE GAME. Three things, all deliberate, and each one is a campaign
+  rather than a question:
+
+    · no clock, no money, so no scientific hint and no priced way out of a wrong
+      answer — those are the day's economy, and there is no day here;
+    · the verdict carries the teaching half only. Readiness, the countdown and
+      the projection are answers about a campaign that is running;
+    · TRIAL drives the theme's own world through gates, so with no world behind
+      the panel it briefs and disables its own button. Same as every other
+      harness — see the note in instruments.js.
+
+  Everything else — the ask card, the panel, the shuffle, the grading, the
+  verdict figure, the reasoning, the rebuttals — is the engine's own code. The
+  page owns no renderer and no grader; if a panel is broken here it is broken in
+  the game, which is the whole reason not to write a second copy of any of it.
+-->
+<link rel="stylesheet" href="/engine/core/styles.css">
+<style>
+  :root{ --edge:#dbe3e8; }
+  body{margin:0;background:#eef2f4;font:400 15px/1.5 Inter,system-ui,sans-serif;color:#2f4652}
+  .wrap{display:grid;grid-template-columns:288px minmax(0,1fr);gap:26px;
+    max-width:1240px;margin:0 auto;padding:24px 20px 60px}
+  @media (max-width:900px){ .wrap{grid-template-columns:1fr} .side{position:static!important} }
+
+  h1{font:800 1.34rem/1.2 Inter,system-ui;margin:0 0 3px}
+  .lede{color:#6b7c85;margin:0 0 18px;font-size:.86rem}
+  .lede code{background:#e2e9ed;padding:1px 5px;border-radius:4px;font-size:.82em}
+
+  /* ——— the format list ——— */
+  .side{position:sticky;top:24px;align-self:start;max-height:calc(100vh - 48px);overflow:auto}
+  .tally{display:flex;gap:8px;align-items:baseline;margin:0 0 10px;font:700 .74rem/1 Inter,system-ui;
+    color:#5b6a72}
+  .tally b{font:800 1.1rem/1 Inter,system-ui;color:#2f4652}
+  .fmtGroup{font:800 .58rem/1 Inter,system-ui;letter-spacing:.09em;text-transform:uppercase;
+    color:#8a97a0;margin:14px 0 6px}
+  .fmtList{display:flex;flex-direction:column;gap:2px}
+  .fmt{display:grid;grid-template-columns:1fr auto;align-items:center;gap:8px;
+    background:none;border:1px solid transparent;border-radius:7px;padding:6px 9px;cursor:pointer;
+    text-align:left;font:inherit;color:inherit;width:100%}
+  .fmt:hover{background:#e4ebef}
+  .fmt.on{background:#fff;border-color:var(--edge);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+  .fmt .name{font:800 .78rem/1.2 Inter,system-ui}
+  .fmt .from{font:400 .68rem/1.3 Inter,system-ui;color:#7d8b93}
+  /* The second stop of a pair: the same format from another campaign, so it is a
+     sibling of the row above rather than an entry of its own. */
+  .fmt.alt{padding-left:20px}
+  .fmt.alt .name{font-weight:600;color:#7d8b93;font-size:.72rem}
+  .pair{border-left:2px solid #dce4e8;margin-left:9px;padding-left:0}
+  .mark{font:800 .8rem/1 Inter,system-ui}
+  .mark.ok{color:#0a8a0a}
+  .mark.no{color:#c0392b}
+
+  /* ——— the stop ———
+     `.modal`, `.modalHead`, `.eyebrow` and `.modalBody` are the game shell's own
+     markup (index.html) styled by the engine sheet, reproduced here so the card
+     is laid out at the width and inside the frame the player meets it in. Nothing
+     is restyled; the only rule below is the provenance line, which is this page's
+     and is not in the game at all. */
+  .facts{font:600 .7rem/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;color:#7d8b93;
+    margin:0;padding:10px 16px;border-top:1px solid var(--edge)}
+
+  /* The card the verdict is drawn into. The overlay and the box are this page's,
+     the same way index.html owns them in the game; everything inside is the
+     engine's own markup, styled by engine/core/styles.css. */
+  .verdict{margin:20px 0 0;background:var(--panel,#fff);border:1px solid var(--edge);
+    border-radius:14px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.09);display:none}
+  .verdict.show{display:block}
+  .again{display:flex;gap:8px;justify-content:flex-end;padding:12px 22px;border-top:1px solid var(--edge)}
+
+  .miss{padding:14px 18px;background:#fff2f0;border:1px solid #e3b4ad;border-radius:9px;
+    font-size:.86rem;margin:0 0 16px}
+  /* A format nobody wrote twice is a fact about the catalogue, not a fault on the
+     page, so it does not get the missing-format red. */
+  .miss.note{background:#fff;border-color:var(--edge);color:#5b6a72}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="side">
+    <div class="tally"><b id="tallyRight">0</b> right of <span id="tallyDone">0</span> answered</div>
+    <div id="list"></div>
+  </div>
+  <div>
+    <h1>Every format, twice, from two campaigns</h1>
+    <p class="lede">Pulled out of the games by <code>node engine/dev/lessonGallery.mjs</code> —
+      each format's best stop, and the best one from a different campaign under it.
+      Drawn and graded by the engine — nothing on this page renders or marks anything itself.</p>
+    <div id="warn"></div>
+    <div id="stop"></div>
+  </div>
+</div>
+
+<script type="module">
+import { mountStandalone, unmountStandalone, portraitSvg } from '/engine/core/questionUI.js';
+import { INSTRUMENTS } from '/engine/core/instruments.js';
+
+const esc = (v) => String(v ?? '').replace(/[&<>"']/g, c =>
+  ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+const listEl = document.getElementById('list');
+const stopEl = document.getElementById('stop');
+const warnEl = document.getElementById('warn');
+
+let data;
+try{
+  // `cache: no-store`, because the harvester is re-run while this page is open and
+  // a cached gallery is a gallery of the last harvest.
+  data = await (await fetch('/engine/dev/lessons.json', { cache: 'no-store' })).json();
+}catch(e){
+  warnEl.innerHTML = '<div class="miss">No <code>engine/dev/lessons.json</code>. '
+    + 'Run <code>node engine/dev/lessonGallery.mjs</code> and reload.</div>';
+  throw e;
+}
+
+const glossary = Object.fromEntries((data.themes ?? []).map(t => [t.id, t.glossary ?? []]));
+const gameName = Object.fromEntries((data.themes ?? []).map(t => [t.id, t.title ?? t.id]));
+const stops = data.stops ?? [];
+const notes = [];
+if(data.missing?.length){
+  notes.push(['', `Built and never authored, so not shown: <b>${esc(data.missing.join(', '))}</b>. `
+    + `A hand-written example would make this page a picture of itself.`]);
+}
+if(data.lonely?.length){
+  notes.push(['note', `Authored in one place only, so shown alone: `
+    + `<b>${esc(data.lonely.join(', '))}</b>.`]);
+}
+if(data.inbred?.length){
+  notes.push(['note', `No second campaign authors these, so both cards come out of one book: `
+    + `<b>${esc(data.inbred.join(', '))}</b>.`]);
+}
+if(notes.length) warnEl.innerHTML = notes.map(([k, n]) => `<div class="miss ${k}">${n}</div>`).join('');
+
+/** Which formats the engine renders itself, so the list reads in two halves. */
+const IS_INSTRUMENT = (f) => Object.hasOwn(INSTRUMENTS, f);
+const answered = new Map();     // format -> boolean
+
+// ————————————————————————————————————————————————————————— the format list
+const rows = new Map();
+/** theme:GROUP:day — unique per stop, which `format` is not once --include is used. */
+const idOf = (s) => `${s.theme}:${s.group.id}:${s.day}`;
+function buildList(){
+  const groups = [
+    ['What questionUI renders', stops.filter(s => !IS_INSTRUMENT(s.format))],
+    ['Instruments', stops.filter(s => IS_INSTRUMENT(s.format))],
+  ];
+  listEl.innerHTML = '';
+  for(const [label, members] of groups){
+    if(!members.length) continue;
+    const h = document.createElement('div');
+    h.className = 'fmtGroup';
+    const formats = new Set(members.map(m => m.format)).size;
+    h.textContent = `${label} · ${formats} formats, ${members.length} stops`;
+    listEl.append(h);
+    const box = document.createElement('div');
+    box.className = 'fmtList';
+    for(const s of members){
+      const alt = s.pair === 2;
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = alt ? 'fmt alt' : 'fmt';
+      // A pair reads as one format seen twice, so only the first row is titled by
+      // the format; the second says what makes it worth looking at, which is the
+      // other campaign it came from.
+      b.innerHTML = `<span><span class="name">`
+        + `${esc(alt ? `also in ${gameName[s.theme] ?? s.theme}` : s.format)}</span><br>`
+        + `<span class="from">${esc(alt ? '' : `${gameName[s.theme] ?? s.theme} · `)}`
+        + `${esc(s.group.id)} day ${esc(s.day)}</span></span><span class="mark"></span>`;
+      b.onclick = () => show(s);
+      (alt ? wrapAlt(box) : box).append(b);
+      rows.set(idOf(s), b);
+    }
+    listEl.append(box);
+  }
+}
+
+/** The hairline the second card of a pair hangs off, made once per pair. */
+function wrapAlt(box){
+  const last = box.lastElementChild;
+  if(last?.classList.contains('pair')) return last;
+  const d = document.createElement('div');
+  d.className = 'pair';
+  box.append(d);
+  return d;
+}
+
+function paintMarks(){
+  let right = 0, done = 0;
+  for(const [id, ok] of answered){
+    done++; if(ok) right++;
+    const m = rows.get(id)?.querySelector('.mark');
+    if(m){ m.textContent = ok ? '✓' : '✕'; m.className = `mark ${ok ? 'ok' : 'no'}`; }
+  }
+  document.getElementById('tallyRight').textContent = right;
+  document.getElementById('tallyDone').textContent = done;
+}
+
+// ————————————————————————————————————————————————————————————— one stop
+/**
+ * One line of provenance under the panel.
+ *
+ * Not the stop's own facts — the instrument page prints those. This says where
+ * the card came from, so a wrong-looking question can be found in its book.
+ */
+const provenance = (s) => `${s.theme} · group ${s.group.id} · lesson ${s.lessonIndex}`
+  + ` · day ${s.day} · ${s.format}` + (s.calc ? ` · estimate spec ${s.group.id}-${s.day}` : '');
+
+function show(s){
+  for(const [, b] of rows) b.classList.remove('on');
+  rows.get(idOf(s))?.classList.add('on');
+  // The stop, not the format: with --include there can be two of one format, and a
+  // link that reopens the wrong one is a link that wasted somebody's review.
+  history.replaceState(null, '', `?stop=${encodeURIComponent(idOf(s))}`);
+
+  const lesson = s.lesson, ch = lesson.game;
+  // The frame the game puts this in: `.modal` with a `.modalHead` carrying the
+  // eyebrow and the title, and the panel in `.modalBody`. That last one is not
+  // cosmetic — the action row's `position:sticky;bottom:0` rule is scoped to
+  // `.modalBody`, and that rule is what once hid a sweep's readouts in the game
+  // while a dev page showed them fine.
+  stopEl.innerHTML = `<div class="modal">`
+    + `<div class="modalHead"><div>`
+    + `<div class="eyebrow">${esc(s.format)} · ${esc(gameName[s.theme] ?? s.theme)}`
+    + ` · ${esc(s.group.name ?? s.group.id)} · day ${esc(s.day)}</div>`
+    + `<h3>${esc(lesson.title ?? ch.title ?? '')}</h3></div></div>`
+    + `<div class="modalBody" id="panel"></div>`
+    + `<p class="facts">${esc(provenance(s))}</p></div>`
+    + `<div class="verdict" id="verdict"></div>`;
+
+  const verdict = document.getElementById('verdict');
+  mountStandalone(document.getElementById('panel'), lesson, ch, {
+    who: {
+      name: s.asker.name,
+      role: s.asker.role,
+      art: portraitSvg({ id: s.asker.id, name: s.asker.name }, s.asker.color),
+      accent: s.asker.color,
+    },
+    jargon: glossary[s.theme] ?? [],
+    calc: s.calc,
+    seed: s.seed,
+    onGrade(ok, { verdict: html }){
+      answered.set(idOf(s), ok);
+      paintMarks();
+      verdict.style.setProperty('--vc', ok ? '#0ca30c' : '#c0392b');
+      verdict.innerHTML = html
+        + `<div class="again"><button class="btn" id="againBtn" type="button">Answer it again</button>`
+        + `<button class="btn primary" id="nextBtn" type="button">Next stop</button></div>`;
+      verdict.classList.add('show');
+      verdict.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Re-mounting deals the same seed, so the options are where they were: this
+      // is a second attempt at the same question, not a different one.
+      document.getElementById('againBtn').onclick = () => show(s);
+      document.getElementById('nextBtn').onclick = () => {
+        const at = stops.indexOf(s);
+        show(stops[(at + 1) % stops.length]);
+      };
+    },
+  });
+}
+
+buildList();
+// `?stop=theme:GROUP:day` opens one exactly; `?f=FORMAT` still opens that format's
+// own example, which is what every link written before --include existed says.
+const q = new URLSearchParams(location.search);
+const wantStop = q.get('stop'), wantFmt = String(q.get('f') ?? '').toUpperCase();
+show(stops.find(s => idOf(s) === wantStop)
+  ?? stops.find(s => s.format === wantFmt)
+  ?? stops[0]);
+// Nothing is mounted twice: leaving the page has to run whatever teardown the
+// panel registered, or a BELT's frame loop draws into a detached canvas for as
+// long as the tab is open.
+addEventListener('pagehide', () => unmountStandalone());
+</script>
+</body>
+</html>

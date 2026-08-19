@@ -171,6 +171,19 @@ function parseSequence(lines, i, indent){
       i = next === 0 ? i + 1 : i + next;
       continue;
     }
+    // A block scalar on the dash — `- >-` and its three siblings — is the item
+    // itself, folded out of the lines beneath it. Without this the item came back
+    // as the literal string ">-" and the prose under it was read as a *deeper*
+    // block and skipped, so a four-paragraph `background:` list arrived as four
+    // paragraphs each beginning ">- " with the folding never applied. Same class
+    // of defect as the comma-split flow map: what reaches the game is a valid
+    // string, so nothing downstream can tell.
+    if(rest === '|' || rest === '>' || rest === '|-' || rest === '>-'){
+      const [text, next] = readBlockScalar(lines, i + 1, indent, rest.startsWith('>'));
+      out.push(rest.endsWith('-') ? text.replace(/\n+$/, '') : text);
+      i = next;
+      continue;
+    }
     // A quoted scalar on the dash is a scalar even when it contains a colon.
     // The mapping test below only knows "something, a colon, a space", which a
     // sentence in quotes satisfies — one rebuttal reading "…the most expensive:

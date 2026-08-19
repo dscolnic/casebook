@@ -10,6 +10,12 @@ export const CURRICULUM = {
       "scene": "Three survey frames show the same star-like point at three sky positions and on three different detector pixels. The background stars stay registered. A second telescope on another mountain then finds the source close to the predicted next position.",
       "takeaway": "A discovery becomes convincing when motion is coherent in sky coordinates but not tied to one detector, exposure, or telescope.",
       "place": "Survey Telescope Control",
+      "guide": "Four options, and the test is whether the thing moves in the sky or on the chip. Ask of each candidate what it would leave behind. A cosmic ray arrives once and sharp. A hot pixel stays on its own pixel while the stars drift past. An alignment error would move the background stars too. And one reading is from an instrument on another mountain entirely.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Three survey frames show the same star-like point at three sky positions and on three different detector pixels. The background stars stay registered. A second telescope on another mountain then finds the source close to the predicted next position.",
       "game": {
         "type": "CHOICE",
@@ -47,7 +53,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a detector has its own defects, and they sit still in detector coordinates"
-      ]
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Telescopes: aperture, resolution, signal-to-noise",
+        "of": 30
+      }
     },
     {
       "day": 2,
@@ -55,6 +66,12 @@ export const CURRICULUM = {
       "scene": "40000 catalogued stars, 2 satellite trails and a hot-pixel column share the frames with the moving point. The formal discovery notice goes out at dawn. If the reduction is wrong, follow-up telescopes will spend the next night chasing an artifact.",
       "takeaway": "A discovery is useful only when another observer can test it.",
       "place": "Image Processing Lab",
+      "guide": "All four steps will happen before dawn, so ask what each one removes. Forty thousand catalogued stars, two satellite trails and a bad column share these frames. Ask of each step whether it separates the source from the instrument, or from something already known. And the last card is the only one that spends somebody else's night if the earlier ones were wrong.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "40000 catalogued stars, 2 satellite trails and a hot-pixel column share the frames with the moving point. The formal discovery notice goes out at dawn. If the reduction is wrong, follow-up telescopes will spend the next night chasing an artifact.",
       "game": {
         "type": "SEQUENCE",
@@ -85,8 +102,176 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "a prediction somebody else can test is what makes a claim checkable"
-      ]
+        "a prediction somebody else can test is what makes a claim checkable",
+        "uncertainty, error bars and covariance — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 11,
+          "c": "Uncertainty, error bars and covariance"
+        }
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Independent confirmation and data validation",
+        "of": 30,
+        "rests": [
+          "Uncertainty, error bars and covariance"
+        ]
+      }
+    },
+    {
+      "day": 3,
+      "title": "Moving with the sky, or across it",
+      "scene": "The survey produced four hundred detections tonight and the report goes at dawn. Most of them are not objects at all. What separates them is how a thing moves between frames.",
+      "takeaway": "What makes a detection an object is how it moves, not how bright or how sharp it is.",
+      "place": "Survey Dome",
+      "guide": "Two bins. A real object in the solar system moves against the stars from frame to frame, in the same direction, by a consistent amount. Everything else — cosmic ray hits, satellites, hot pixels, ghosts — either does not move like that or does not move at all. Sort on the motion, not on how bright it is.",
+      "background": [
+        "Why motion is the test. The stars are fixed on the timescale of a night, so anything in the solar system moves against them. A detection that is in the same place on all four frames is a star, a hot pixel or a ghost, however convincing it looks.",
+        "What the false positives are. A cosmic ray hits one frame and never appears again. A satellite crosses far too fast and streaks. Diffraction spikes and internal reflections sit at fixed offsets from bright stars and move when the telescope does, not when the sky does."
+      ],
+      "story": "The survey produced four hundred detections tonight and the report goes at dawn. Most of them are not objects at all. What separates them is how a thing moves between frames.",
+      "game": {
+        "type": "BELT",
+        "title": "Moving with the sky, or across it",
+        "setup": "Survey Dome",
+        "play": "Sort the night's detections before the report goes out.",
+        "task": "Sort the night's detections before the report goes out.",
+        "question": "Send each detection to the bin that says whether anything is really out there.",
+        "answer": "Anything that moves against the stars consistently across the frames is real. Anything that appears once, streaks, or never moves is the instrument or the sky.",
+        "why": "A survey does not detect objects; it detects differences between frames, and the work is deciding which differences are things. A genuine solar-system object moves against the fixed stars in a consistent direction at a consistent rate, which is why four frames rather than two: three points can be a coincidence and four almost never are. Everything else fails that test in a characteristic way. A cosmic ray deposits its charge on one frame and is absent from the rest. A satellite crosses so fast it streaks within a single exposure. Hot pixels and internal reflections sit at fixed positions in the detector, so they move when the telescope is nudged and not when the sky turns. None of that is about brightness, which is why a bright convincing blob is exactly the thing that wastes a follow-up night — and follow-up time is what this survey has least of.",
+        "belt": {
+          "left": {
+            "name": "Really out there"
+          },
+          "right": {
+            "name": "Instrument or sky"
+          },
+          "items": [
+            {
+              "name": "Consistent slow drift",
+              "bin": "left"
+            },
+            {
+              "name": "Linear motion",
+              "bin": "left"
+            },
+            {
+              "name": "Four-frame track",
+              "bin": "left"
+            },
+            {
+              "name": "Steady rate",
+              "bin": "left"
+            },
+            {
+              "name": "Retrograde track",
+              "bin": "left"
+            },
+            {
+              "name": "Slow near-opposition",
+              "bin": "left"
+            },
+            {
+              "name": "Faint but consistent",
+              "bin": "left"
+            },
+            {
+              "name": "Track across chips",
+              "bin": "left"
+            },
+            {
+              "name": "Predicted recovery",
+              "bin": "left"
+            },
+            {
+              "name": "Matches known orbit",
+              "bin": "left"
+            },
+            {
+              "name": "Steady under moonlight",
+              "bin": "left"
+            },
+            {
+              "name": "Track through cloud",
+              "bin": "left"
+            },
+            {
+              "name": "One-frame spike",
+              "bin": "right"
+            },
+            {
+              "name": "Hot pixel",
+              "bin": "right"
+            },
+            {
+              "name": "Diffraction spike",
+              "bin": "right"
+            },
+            {
+              "name": "Internal reflection",
+              "bin": "right"
+            },
+            {
+              "name": "Satellite track",
+              "bin": "right"
+            },
+            {
+              "name": "Aircraft light",
+              "bin": "right"
+            },
+            {
+              "name": "Cosmic ray hit",
+              "bin": "right"
+            },
+            {
+              "name": "Ghost of Vega",
+              "bin": "right"
+            },
+            {
+              "name": "Column bleed",
+              "bin": "right"
+            },
+            {
+              "name": "Dead pixel edge",
+              "bin": "right"
+            },
+            {
+              "name": "Rotating field track",
+              "bin": "right"
+            },
+            {
+              "name": "Dome vignette",
+              "bin": "right"
+            },
+            {
+              "name": "Star not moving",
+              "bin": "right"
+            },
+            {
+              "name": "Cable shadow",
+              "bin": "right"
+            }
+          ],
+          "need": 20,
+          "lives": 3,
+          "pass": 0.8,
+          "hint": "Watch how it moves across the four frames, not how bright it is.",
+          "commit": "Start the line"
+        }
+      },
+      "assumes": [
+        "stars stay in the same relative positions over one night"
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Detectors and image artifacts",
+        "of": 30,
+        "rests": [
+          "Telescopes: aperture, resolution, signal-to-noise"
+        ]
+      }
     }
   ],
   "ORBIT": [
@@ -96,6 +281,11 @@ export const CURRICULUM = {
       "scene": "The object shifted between 2 frames 20 minutes apart, and the desk has to say where the next telescope should point. Nobody has turned that shift into a rate yet.",
       "takeaway": "Repeated images turn apparent motion into a measurable rate.",
       "place": "Minor-Planet Operations Desk",
+      "guide": "Five numbers, and two of them are the same interval in different units, with a third being the exposure count. Ask of each whether this rate needs it. And note what the answer is and is not. A sky rate says where to point next. It says nothing about a physical speed, because the same angle covers very different distances.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The object shifted between 2 frames 20 minutes apart, and the desk has to say where the next telescope should point. Nobody has turned that shift into a rate yet.",
       "game": {
         "type": "BALLPARK",
@@ -112,7 +302,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a rate is an amount divided by the time it took"
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Celestial coordinates and angular measure",
+        "of": 30
+      }
     },
     {
       "day": 2,
@@ -120,6 +315,12 @@ export const CURRICULUM = {
       "scene": "Six observatories have reported. Two use a different time standard, one recorded no plate solution at all, and together they cover four hours. The next uncertainty region has to come out of this.",
       "takeaway": "Prediction is the operational test of an astrometric model.",
       "place": "Astrometry Lab",
+      "guide": "All four steps will happen. Six observatories have reported, two on a different time standard and one with no plate solution. Ask of each step what the next one would mean without it. More coordinates are not the goal. What is wanted is measurements that make competing orbits predict different places, and then the uncertainty carried forward.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Six observatories have reported. Two use a different time standard, one recorded no plate solution at all, and together they cover four hours. The next uncertainty region has to come out of this.",
       "game": {
         "type": "SEQUENCE",
@@ -168,7 +369,12 @@ export const CURRICULUM = {
           ],
           "s": "Watching an object from two places shifts it against the background, and the size of that shift gives the distance."
         }
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Time and coordinate standards",
+        "of": 30
+      }
     },
     {
       "day": 3,
@@ -176,6 +382,12 @@ export const CURRICULUM = {
       "scene": "Every orbit that fits the arc projects to almost the same track across the sky. Some of them pass 1 million kilometres from Earth and some do not, and nothing measured so far separates them.",
       "takeaway": "Uncertainty should be carried forward as an ensemble of physically allowed trajectories.",
       "place": "Orbit Determination Center",
+      "guide": "All four steps will happen, and every orbit that fits projects to nearly the same track. Ask of each step what keeps the family a family rather than a best fit. Angles cannot supply range, so that has to come from somewhere. And the answer is the spread in where the members end up, not the middle of it.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Every orbit that fits the arc projects to almost the same track across the sky. Some of them pass 1 million kilometres from Earth and some do not, and nothing measured so far separates them.",
       "game": {
         "type": "SEQUENCE",
@@ -206,8 +418,24 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "angles alone do not fix a distance"
-      ]
+        "angles alone do not fix a distance",
+        "probability, risk and expected value — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 16,
+          "c": "Probability, risk and expected value"
+        }
+      ],
+      "concept": {
+        "n": 28,
+        "c": "Monte Carlo methods and ensembles",
+        "of": 30,
+        "rests": [
+          "Uncertainty, error bars and covariance",
+          "Probability, risk and expected value"
+        ]
+      }
     },
     {
       "day": 4,
@@ -215,6 +443,11 @@ export const CURRICULUM = {
       "scene": "A simplified Monte Carlo run has finished at the statistical orbit lab. What it produced is a count of samples, and the figure that leaves this room will be quoted in public for years.",
       "takeaway": "A tiny probability can be estimated only with enough samples and a valid uncertainty model.",
       "place": "Statistical Orbit Lab",
+      "guide": "Five numbers, and three of them belong to other runs or other questions: the first quick run, the misses, and the years to encounter. Ask of each whether this fraction needs it. And note what the answer is. It is the share of the current uncertainty that lands on Earth. It is not a count of futures, and a new observation can move it sharply.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A simplified Monte Carlo run has finished at the statistical orbit lab. What it produced is a count of samples, and the figure that leaves this room will be quoted in public for years.",
       "game": {
         "type": "BALLPARK",
@@ -230,8 +463,24 @@ export const CURRICULUM = {
         "calcKey": "ORBIT-4"
       },
       "assumes": [
-        "a probability can be estimated by counting outcomes over trials"
-      ]
+        "a probability can be estimated by counting outcomes over trials",
+        "probability, risk and expected value — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 16,
+          "c": "Probability, risk and expected value"
+        }
+      ],
+      "concept": {
+        "n": 28,
+        "c": "Monte Carlo methods and ensembles",
+        "of": 30,
+        "rests": [
+          "Uncertainty, error bars and covariance",
+          "Probability, risk and expected value"
+        ]
+      }
     },
     {
       "day": 5,
@@ -239,6 +488,12 @@ export const CURRICULUM = {
       "scene": "Radar has pinned this pass at 2.4 Earth radii, and the control room starts to relax. Then the return solution flashes: 11 years. Earth’s gravity is about to rewrite the orbit, and nobody yet knows where that rewritten orbit brings it back.",
       "takeaway": "A close approach rewrites the orbit it happens on, so safety is a claim about the returns after it.",
       "place": "Orbit Determination",
+      "guide": "Four options, and radar has settled this pass at 2.4 Earth radii. Ask of each whether it says anything about the return in eleven years. Passing that close lets Earth's gravity change the period, so the orbit that comes back is not the one that arrived. A post-encounter arc tests a propagation rather than replacing it.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Radar has pinned this pass at 2.4 Earth radii, and the control room starts to relax. Then the return solution flashes: 11 years. Earth’s gravity is about to rewrite the orbit, and nobody yet knows where that rewritten orbit brings it back.",
       "game": {
         "type": "CHOICE",
@@ -263,7 +518,8 @@ export const CURRICULUM = {
         "correctChoice": "Propagate the measured encounter through Earth’s gravity and test the resulting return geometry for later close approaches."
       },
       "assumes": [
-        "a planet's gravity changes the path of anything that passes close to it"
+        "a planet's gravity changes the path of anything that passes close to it",
+        "scientific notation and unit conversion — taken as read"
       ],
       "equations": [
         {
@@ -285,7 +541,22 @@ export const CURRICULUM = {
           ],
           "s": "Brightness at the telescope is the emitted light spread over a sphere, which is why a small bright object and a large dark one can look identical."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 17,
+          "c": "Scientific notation and unit conversion"
+        }
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Radar ranging, light travel time and Doppler",
+        "of": 30,
+        "rests": [
+          "Celestial coordinates and angular measure",
+          "Scientific notation and unit conversion"
+        ]
+      }
     },
     {
       "day": 6,
@@ -293,6 +564,12 @@ export const CURRICULUM = {
       "scene": "The impactor has hit. Applause starts in the control room, but the asteroid’s orbit has not yet been remeasured. One dedicated tracking campaign remains, and the mission cannot say it worked until that campaign returns a post-impact velocity change.",
       "takeaway": "An intervention is not scientifically complete until its effect is measured against a prediction made before the action.",
       "place": "Orbit Monitoring Room",
+      "guide": "Lock the velocity change you predicted before the impact, then run the tracking campaign and read what the orbit actually did. The applause is not the result. One campaign is left, so the last step costs something real, and a comparison made after seeing the number can be made to agree with anything.",
+      "background": [
+        "Why hitting it is not the measurement. An impactor changes the asteroid's speed by a few millimetres a second. Nothing about the impact itself tells you by how much, because most of the effect comes from material thrown off the surface — the momentum enhancement — which depends on a composition nobody has sampled.",
+        "What the campaign measures. The orbit before and the orbit after, over enough arc that the difference is larger than the measurement error. That is what turns 'we hit it' into 'we moved it by this much', which is the only claim the next mission can be designed from.",
+        "Why the prediction is locked first. The predicted change carries an assumed enhancement factor. If the number is written after the measurement, the factor becomes whatever makes the mission look right, and the one quantity this whole exercise existed to measure is lost."
+      ],
       "story": "The impactor has hit. Applause starts in the control room, but the asteroid’s orbit has not yet been remeasured. One dedicated tracking campaign remains, and the mission cannot say it worked until that campaign returns a post-impact velocity change.",
       "game": {
         "type": "VERIFY",
@@ -336,7 +613,8 @@ export const CURRICULUM = {
       },
       "assumes": [
         "momentum transfer sets a lower-bound deflection scale",
-        "ejecta can change the momentum transferred to the asteroid"
+        "ejecta can change the momentum transferred to the asteroid",
+        "momentum conservation in collisions — taken as read"
       ],
       "equations": [
         {
@@ -377,7 +655,21 @@ export const CURRICULUM = {
           ],
           "s": "Earth's gravity accelerates anything falling toward it, so nothing can arrive slower than escape speed."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 26,
+          "c": "Momentum conservation in collisions"
+        }
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Momentum transfer and deflection",
+        "of": 30,
+        "rests": [
+          "Momentum conservation in collisions"
+        ]
+      }
     },
     {
       "day": 7,
@@ -385,6 +677,12 @@ export const CURRICULUM = {
       "scene": "The board has two independent checks left before release. Every claim is signed, but several could still change the public conclusion if wrong. The final record goes public tonight, and whatever survives becomes the starting point for the next threat.",
       "takeaway": "A scientific record is strongest where critical claims can be independently reconstructed, not merely where every box is signed.",
       "place": "Orbit Monitoring Center",
+      "guide": "Two independent checks left, and the record goes public tonight. Open each signed claim and read what actually backs it. Hold what the evidence does not support, and spend the checks where a wrong claim would most damage the public conclusion — because whatever survives tonight becomes the starting point for the next threat.",
+      "background": [
+        "Why the public record is different. It is read by people who cannot inspect the evidence and cited by people who were not there. A claim corrected later has already shaped what the next team assumes, and corrections do not travel as far as the original.",
+        "What a signature means at this stage. Somebody took responsibility for a sentence, often on the basis of what a colleague told them. Under a release deadline, that is how an inference and an observation end up looking identical on the page.",
+        "How to spend two checks on several doubtful claims. By consequence, not by doubt. The claim that would misdirect the next mission is worth more verification than the one most likely to be wrong."
+      ],
       "story": "The board has two independent checks left before release. Every claim is signed, but several could still change the public conclusion if wrong. The final record goes public tonight, and whatever survives becomes the starting point for the next threat.",
       "game": {
         "type": "ATTEST",
@@ -462,7 +760,15 @@ export const CURRICULUM = {
           ],
           "s": "Momentum is conserved, so whatever a deflection pushes away pushes back on the object by the same amount."
         }
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Momentum transfer and deflection",
+        "of": 30,
+        "rests": [
+          "Momentum conservation in collisions"
+        ]
+      }
     }
   ],
   "CHAR": [
@@ -472,6 +778,12 @@ export const CURRICULUM = {
       "scene": "The object was bright enough for a survey telescope to find, and that single number is being read across the room as a size. Four things that change reflected flux are on the board.",
       "takeaway": "A bright asteroid is not necessarily large.",
       "place": "Photometry Lab",
+      "guide": "Four things that change reflected flux, and four effects. Pair them by asking whether each one changes how much light arrives, how much is sent back, or how much reaches the telescope. Brightness is the product of all four, which is why the size everybody wants is tangled up with a reflectivity nobody has measured.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "The object was bright enough for a survey telescope to find, and that single number is being read across the room as a size. Four things that change reflected flux are on the board.",
       "game": {
         "type": "PROTOCOL",
@@ -512,8 +824,23 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "light spreads out with distance"
-      ]
+        "light spreads out with distance",
+        "scientific notation and unit conversion — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 17,
+          "c": "Scientific notation and unit conversion"
+        }
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Apparent and absolute magnitude; inverse-square brightness",
+        "of": 30,
+        "rests": [
+          "Scientific notation and unit conversion"
+        ]
+      }
     },
     {
       "day": 2,
@@ -521,6 +848,12 @@ export const CURRICULUM = {
       "scene": "Reflected light alone leaves the asteroid somewhere between roughly 120 and 600 metres across. The thermal team now has a calibrated infrared spectrum peaking near 10.0 μm and a heat-flux measurement from the same observing geometry.",
       "takeaway": "A degeneracy is broken by an observable with different physical dependence, not merely by measuring the same observable more precisely.",
       "place": "Physical Characterization Group",
+      "guide": "Two controls slide diameter and albedo along a family of pairs that all reproduce the reflected light. Find out how wide that family is first. Then bring in the thermal measurement, which depends on the same two quantities in a different combination, and watch the family collapse to the pair that satisfies both.",
+      "background": [
+        "Why reflected light alone cannot do it. What you measure is how much sunlight comes back, which is the area times how reflective the surface is. A small bright rock and a large dark one return the same light, so one measurement fixes the product and leaves a factor of five in the diameter.",
+        "What the infrared adds. Whatever is not reflected is absorbed and re-radiated as heat, so the thermal flux goes roughly as area times one minus the albedo. That is a different combination of the same unknowns, which is why the two together pin both.",
+        "Why the diameter is the number that matters. Impact energy goes as the cube of it. A factor of five in diameter is a factor of a hundred and twenty-five in energy, which is the difference between a regional evacuation and a global one."
+      ],
       "story": "Reflected light alone leaves the asteroid somewhere between roughly 120 and 600 metres across. The thermal team now has a calibrated infrared spectrum peaking near 10.0 μm and a heat-flux measurement from the same observing geometry.",
       "game": {
         "type": "DEGENERACY",
@@ -619,7 +952,8 @@ export const CURRICULUM = {
       },
       "assumes": [
         "reflected brightness depends on both size and albedo",
-        "a thermal spectrum carries temperature information"
+        "a thermal spectrum carries temperature information",
+        "apparent and absolute magnitude; inverse-square brightness — taken as read"
       ],
       "equations": [
         {
@@ -660,7 +994,21 @@ export const CURRICULUM = {
           ],
           "s": "Hotter things peak at shorter wavelengths, so the colour of thermal emission is a thermometer."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 2,
+          "c": "Apparent and absolute magnitude; inverse-square brightness"
+        }
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Albedo and the size–brightness degeneracy",
+        "of": 30,
+        "rests": [
+          "Apparent and absolute magnitude; inverse-square brightness"
+        ]
+      }
     },
     {
       "day": 3,
@@ -668,6 +1016,12 @@ export const CURRICULUM = {
       "scene": "A broad dip near 1.4 microns has appeared in the spectrum, and it would change the composition class if it is real. The observatory has the standard star, the airmass record and a space-based spectrum of the same object.",
       "takeaway": "Agreement is not independent evidence when several measurements inherit the same physical path or calibration.",
       "place": "Spectroscopy Observatory",
+      "guide": "Open each piece of evidence and see what the spectrum depended on. Keep what would still stand if the atmosphere or the detector chain were at fault, and untick the rest. Then name the shared source. The dip would change the composition class, so both halves count: keeping an artefact and discarding a real feature are equally wrong.",
+      "background": [
+        "Why 1.4 microns is the suspicious place. Water vapour in Earth's atmosphere absorbs strongly there. A ground-based spectrum is always the object's spectrum multiplied by the atmosphere's, and the correction is made by observing a standard star through the same air.",
+        "What the airmass record tells you. How much atmosphere each observation looked through. If the dip deepens with airmass, it is the sky. If it is the same at every airmass, the sky is not producing it.",
+        "Why the space-based spectrum settles it. Above the atmosphere there is no water vapour in the path at all. It is the one measurement whose chain does not contain the suspect step, which makes it worth more than any number of careful ground-based repeats."
+      ],
       "story": "A broad dip near 1.4 microns has appeared in the spectrum, and it would change the composition class if it is real. The observatory has the standard star, the airmass record and a space-based spectrum of the same object.",
       "game": {
         "type": "TRACE",
@@ -770,8 +1124,23 @@ export const CURRICULUM = {
       "assumes": [
         "Earth’s atmosphere can imprint absorption on ground-based spectra",
         "airmass measures the length of the atmospheric path",
-        "a spectrum is brightness measured wavelength by wavelength"
-      ]
+        "a spectrum is brightness measured wavelength by wavelength",
+        "telescopes: aperture, resolution, signal-to-noise — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 5,
+          "c": "Telescopes: aperture, resolution, signal-to-noise"
+        }
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Detectors and image artifacts",
+        "of": 30,
+        "rests": [
+          "Telescopes: aperture, resolution, signal-to-noise"
+        ]
+      }
     },
     {
       "day": 4,
@@ -779,6 +1148,12 @@ export const CURRICULUM = {
       "scene": "The asteroid repeats a 4.8-hour brightness cycle in 2 filters while comparison stars stay steady. The source crosses different detector pixels during the run, and the Sun-object-observer phase angle changes only slowly across the same nights.",
       "takeaway": "Periodicity becomes physical evidence only after environmental and instrumental periodicities are ruled out.",
       "place": "Time-Series Photometry Network",
+      "guide": "Four options, and the comparison stars and second filter are what rule three of them out. Ask of each candidate whether it survives them. Stars on the same frames are steady. The period survives a change of filter. The object lands on different pixels. And the phase-angle trend is far slower than the cycle being measured.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The asteroid repeats a 4.8-hour brightness cycle in 2 filters while comparison stars stay steady. The source crosses different detector pixels during the run, and the Sun-object-observer phase angle changes only slowly across the same nights.",
       "game": {
         "type": "CHOICE",
@@ -816,16 +1191,104 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the atmosphere and the instrument have their own rhythms"
-      ]
+      ],
+      "concept": {
+        "n": 24,
+        "c": "Phase angle, scattering and observing geometry",
+        "of": 30,
+        "rests": [
+          "Apparent and absolute magnitude; inverse-square brightness",
+          "Celestial coordinates and angular measure"
+        ]
+      }
     }
   ],
   "RADAR": [
     {
       "day": 1,
+      "title": "On target, while the ridge blows",
+      "scene": "The object is faint and the pass is eleven minutes long. The dish has to stay pointed within the beam while a katabatic wind comes down the ridge and the drive fights it.",
+      "takeaway": "A load that lasts is answered by a setting, not by a nudge.",
+      "place": "Radar Dish",
+      "guide": "Hold the pointing error inside the band on the console. The band narrows through the pass, because the object is closing and the return needs more of the beam on it, not less. The trim drive is your control, and every gust is a load that goes on pushing until the drive answers it.",
+      "background": [
+        "Why pointing decides whether there is a result at all. Signal falls off across the beam, so a dish half a beamwidth off is not returning a slightly worse measurement — it is returning noise, and eleven minutes of it cannot be repeated until the object comes round again.",
+        "Why a gust is not a step. Wind loading on a dish is a force that lasts as long as the gust does, so the drive has to hold a new torque against it rather than make one correction. A dish left alone does not settle back; it is pushed off and stays off."
+      ],
+      "story": "The object is faint and the pass is eleven minutes long. The dish has to stay pointed within the beam while a katabatic wind comes down the ridge and the drive fights it.",
+      "game": {
+        "type": "HOLD",
+        "title": "On target, while the ridge blows",
+        "setup": "Radar Dish",
+        "play": "Hold the dish on the object while the wind gets up.",
+        "task": "Hold the dish on the object while the wind gets up.",
+        "question": "Hold the dish on the object through the pass.",
+        "answer": "Inside the band for most of the pass, with the trim drive held against each gust rather than corrected after the pointing has already left the beam.",
+        "why": "Signal falls away across a beam, so pointing is not a refinement — it is the difference between a measurement and eleven minutes of noise. Every disturbance here lasts. A gust off the ridge loads the dish for as long as it blows, the drive has to hold a new torque against it, and a dish left alone is pushed off and stays off. The band narrows because the object is closing: the return gets stronger, the useful bandwidth gets narrower, and the pointing that was good enough at acquisition is not good enough at closest approach. And there is no second attempt tonight. The pass is the pass, and the next one is when the geometry comes back round, which for this object is a matter of years.",
+        "hold": {
+          "quantity": "Pointing error",
+          "control": "Trim drive",
+          "unit": "beamwidths",
+          "hold": 0,
+          "band": 0.4,
+          "narrowTo": 0.2,
+          "duration": 45,
+          "authority": 0.1,
+          "pass": 0.8,
+          "direction": "raise",
+          "disturbances": [
+            {
+              "label": "Katabatic gust down the ridge",
+              "at": 4,
+              "amount": -0.03
+            },
+            {
+              "label": "Wind drops as the dish turns downwind",
+              "at": 20,
+              "amount": 0.05
+            },
+            {
+              "label": "Second gust, and the drive warms",
+              "at": 38,
+              "amount": -0.045
+            }
+          ],
+          "hint": "A gust lasts. Hold the drive against it rather than correcting after the error has grown.",
+          "commit": "Report the pass"
+        }
+      },
+      "assumes": [
+        "a dish has to point at something to receive from it",
+        "scientific notation and unit conversion — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 17,
+          "c": "Scientific notation and unit conversion"
+        }
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Radar ranging, light travel time and Doppler",
+        "of": 30,
+        "rests": [
+          "Celestial coordinates and angular measure",
+          "Scientific notation and unit conversion"
+        ]
+      }
+    },
+    {
+      "day": 2,
       "title": "What does radar measure?",
       "scene": "The radar room has its first clean echo train from the asteroid. Delay, Doppler shift and echo width are displayed together, and the optical orbit team is standing by to decide which new constraint belongs in the next fit.",
       "takeaway": "Active sensing can transform orbit and shape knowledge during a short window.",
       "place": "Planetary Radar Facility",
+      "guide": "Four quantities and four radar observables. Pair them by asking what each observable physically is: a time, a frequency spread, a power against delay, or a sequence of images. Radar separates what optical images tangle together, so each one answers a different question. And one of the four only exists once you have taken the others repeatedly.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "The radar room has its first clean echo train from the asteroid. Delay, Doppler shift and echo width are displayed together, and the optical orbit team is standing by to decide which new constraint belongs in the next fit.",
       "game": {
         "type": "PROTOCOL",
@@ -866,7 +1329,8 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "radar sends a signal out and measures what comes back"
+        "radar sends a signal out and measures what comes back",
+        "scientific notation and unit conversion — taken as read"
       ],
       "equations": [
         {
@@ -892,7 +1356,22 @@ export const CURRICULUM = {
           ],
           "s": "Motion toward or away stretches or squeezes the light by a fraction equal to the speed as a fraction of light speed."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 17,
+          "c": "Scientific notation and unit conversion"
+        }
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Radar ranging, light travel time and Doppler",
+        "of": 30,
+        "rests": [
+          "Celestial coordinates and angular measure",
+          "Scientific notation and unit conversion"
+        ]
+      }
     }
   ],
   "IMPACT": [
@@ -902,6 +1381,12 @@ export const CURRICULUM = {
       "scene": "The nominal orbit misses Earth, but the uncertainty cloud still reaches the impact boundary. A press briefing is scheduled this afternoon, and the monitoring chief wants one sentence: safe enough to stand down, or dangerous enough to keep tracking?",
       "takeaway": "Risk is carried by the full uncertainty distribution; a safe-looking central value does not erase the tail.",
       "place": "Impact Monitoring Center",
+      "guide": "The band is every miss distance the observations permit. Its middle clears Earth; its edge still touches the impact boundary, which is why this is not yet a stand-down. Two improvements are available and they do different things to the band — one moves it, one narrows it. Apply what you would authorise, then say what the briefing can state this afternoon.",
+      "background": [
+        "What the cloud is. Orbits are fitted to observations, and the fit permits a range of orbits rather than one. Projected onto the encounter plane that range is a cloud, and the impact boundary is a line on the same plane. A nominal orbit that misses is a statement about the middle of the cloud only.",
+        "Moving it and narrowing it are different work. Correcting a catalogue bias in the nominal moves the whole cloud without changing its size — the same uncertainty, somewhere else. An independent, well-placed observation adds information and shrinks it. Only the second can put the whole cloud outside the boundary if the width is what reaches it.",
+        "Why the sentence matters more than the number. The public hears 'safe' or 'not safe', and a stand-down that is later reversed costs the credibility the next warning depends on. So the briefing has to be a statement about the whole cloud, and this panel is where you find out whether you can make one."
+      ],
       "story": "The nominal orbit misses Earth, but the uncertainty cloud still reaches the impact boundary. A press briefing is scheduled this afternoon, and the monitoring chief wants one sentence: safe enough to stand down, or dangerous enough to keep tracking?",
       "game": {
         "type": "CLOUD",
@@ -909,7 +1394,7 @@ export const CURRICULUM = {
         "setup": "Impact Monitoring Center",
         "play": "Move and narrow the encounter cloud until the full allowed band clears Earth.",
         "task": "Move and narrow the encounter cloud until the full allowed band clears Earth.",
-        "question": "What has to change before the whole uncertainty cloud is outside the impact boundary?",
+        "question": "What has to change before the whole uncertainty cloud is outside the impact boundary? Place the bars to report the mean and its one-sigma uncertainty.",
         "answer": "Neither a safer nominal miss nor a modestly narrower uncertainty is enough alone in this panel. Apply both: the lower edge moves to 4.5 − 3.2 = 1.3 Earth radii, so the full authored cloud clears the Earth-limb boundary.",
         "why": "An orbit solution is a probability distribution, not a dot. Changing a systematic offset can move its center without reducing the range of allowed trajectories. Better independent observations can narrow that range without guaranteeing that the new center is safely placed. The decision has to use both pieces. If any substantial part of the allowed cloud still crosses the impact boundary, the risk is not removed by a reassuring nominal miss. New evidence earns confidence by changing the distribution in a physically justified way.",
         "cloud": {
@@ -945,7 +1430,15 @@ export const CURRICULUM = {
       "assumes": [
         "an orbit fit has uncertainty as well as a central solution",
         "systematic corrections move a center while new information can narrow a distribution"
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Probability, risk and expected value",
+        "of": 30,
+        "rests": [
+          "Uncertainty, error bars and covariance"
+        ]
+      }
     },
     {
       "day": 2,
@@ -953,6 +1446,11 @@ export const CURRICULUM = {
       "scene": "Civil defence will not convene anybody without an energy figure. The impact physics group has a radius, a density from the presumed composition class, and an approach speed, each with its own uncertainty.",
       "takeaway": "Impact energy couples geometric, material, and orbital measurements.",
       "place": "Impact Physics Group",
+      "guide": "Five numbers, and two of them are traps. One is the diameter where the formula wants a radius. One is Earth's escape speed, which belongs to a later stop. Ask of each what the relationship asks for. A diameter dropped in gives an object eight times too heavy. That factor of eight is why the size measurement matters more than any other.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Civil defence will not convene anybody without an energy figure. The impact physics group has a radius, a density from the presumed composition class, and an approach speed, each with its own uncertainty.",
       "game": {
         "type": "BALLPARK",
@@ -969,7 +1467,8 @@ export const CURRICULUM = {
       },
       "assumes": [
         "kinetic energy depends on mass and on speed",
-        "the volume of a sphere goes as the cube of its radius"
+        "the volume of a sphere goes as the cube of its radius",
+        "gravitation, orbital speed and energy — taken as read"
       ],
       "equations": [
         {
@@ -992,7 +1491,21 @@ export const CURRICULUM = {
           "s": "Impact energy rises with the square of speed, so a body arriving twice as fast carries four times the energy.",
           "computed": true
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 9,
+          "c": "Gravitation, orbital speed and energy"
+        }
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Kinetic energy and impact energy scaling",
+        "of": 30,
+        "rests": [
+          "Gravitation, orbital speed and energy"
+        ]
+      }
     },
     {
       "day": 3,
@@ -1000,6 +1513,11 @@ export const CURRICULUM = {
       "scene": "The entry model reports 3.1×10^17 joules. Every emergency manager on the call works in megatons, and the last briefing sent them a number with the exponent copied wrongly.",
       "takeaway": "A quantity is only communicable once it is in the units the decision is made in.",
       "place": "Entry and Consequences Lab",
+      "guide": "Four numbers, and two of them belong elsewhere: joules in a megajoule, and the 1945 test offered for scale. Ask of each whether this conversion uses it. A megaton is a unit of energy and not a claim about mechanism. What it buys is a comparison, and the last briefing sent the exponent out wrongly.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The entry model reports 3.1×10^17 joules. Every emergency manager on the call works in megatons, and the last briefing sent them a number with the exponent copied wrongly.",
       "game": {
         "type": "BALLPARK",
@@ -1038,7 +1556,12 @@ export const CURRICULUM = {
           "s": "Impact energy rises with the square of speed, so a body arriving twice as fast carries four times the energy.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 17,
+        "c": "Scientific notation and unit conversion",
+        "of": 30
+      }
     },
     {
       "day": 4,
@@ -1046,6 +1569,11 @@ export const CURRICULUM = {
       "scene": "A kinetic impactor is being sized at the deflection lab. The spacecraft's mass and closing speed are known, and so is the asteroid's mass to within a factor of a few.",
       "takeaway": "Deflection relies on small velocity change plus long lead time.",
       "place": "Deflection Physics Lab",
+      "guide": "Five numbers, and two of them belong to other stops: the encounter speed with Earth, and the ejecta enhancement. Ask of each whether this first estimate needs it. Momentum delivered is the impactor's, and the speed change is that momentum given to a much larger mass. What comes out is a lower bound, before ejecta are counted.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A kinetic impactor is being sized at the deflection lab. The spacecraft's mass and closing speed are known, and so is the asteroid's mass to within a factor of a few.",
       "game": {
         "type": "BALLPARK",
@@ -1084,7 +1612,15 @@ export const CURRICULUM = {
           "s": "Momentum is conserved, so whatever a deflection pushes away pushes back on the object by the same amount.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 26,
+        "c": "Momentum conservation in collisions",
+        "of": 30,
+        "rests": [
+          "Gravitation, orbital speed and energy"
+        ]
+      }
     },
     {
       "day": 5,
@@ -1092,6 +1628,12 @@ export const CURRICULUM = {
       "scene": "The impactor concept is on the mission board beside the asteroid mass estimate, encounter geometry and tracking plan. The director wants the team to separate what sets the delivered momentum from what determines whether that momentum becomes a useful orbital change.",
       "takeaway": "Deflection is an experiment whose dependent variable is the asteroid orbit.",
       "place": "Mission Engineering Center",
+      "guide": "Four things on the left, and four consequences on the right. Pair them by asking which link in the chain each one acts on. The momentum delivered? The speed change it produces? Or whether that change becomes a useful orbit shift? A successful collision is one link. Only one of these four measures what actually happened.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "The impactor concept is on the mission board beside the asteroid mass estimate, encounter geometry and tracking plan. The director wants the team to separate what sets the delivered momentum from what determines whether that momentum becomes a useful orbital change.",
       "game": {
         "type": "PROTOCOL",
@@ -1132,7 +1674,8 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "a small velocity change accumulates into a large displacement over time"
+        "a small velocity change accumulates into a large displacement over time",
+        "momentum conservation in collisions — taken as read"
       ],
       "equations": [
         {
@@ -1154,7 +1697,21 @@ export const CURRICULUM = {
           ],
           "s": "Momentum is conserved, so whatever a deflection pushes away pushes back on the object by the same amount."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 26,
+          "c": "Momentum conservation in collisions"
+        }
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Momentum transfer and deflection",
+        "of": 30,
+        "rests": [
+          "Momentum conservation in collisions"
+        ]
+      }
     }
   ],
   "OPS": [
@@ -1164,6 +1721,12 @@ export const CURRICULUM = {
       "scene": "The wide-field camera's reference stars and asteroid share a residual that grows toward one edge of the detector. Exposure times agree with the observatory clock. A second telescope shows neither pattern and agrees with the current orbit fit.",
       "takeaway": "An error that tracks the apparatus rather than the target is telling you about the apparatus.",
       "place": "Follow-Up Telescope Network",
+      "guide": "Four options, and the reference stars are the control. They show the same pattern as the asteroid. Ask of each candidate whether it would move both, or only one. Real acceleration moves the asteroid and leaves the stars alone. The timestamps agree with the clock. A second telescope agrees with the orbit. What is left is the map from detector to sky.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The wide-field camera's reference stars and asteroid share a residual that grows toward one edge of the detector. Exposure times agree with the observatory clock. A second telescope shows neither pattern and agrees with the current orbit fit.",
       "game": {
         "type": "CHOICE",
@@ -1201,7 +1764,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "reference stars in the same frame are a control on the frame itself"
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Uncertainty, error bars and covariance",
+        "of": 30
+      }
     },
     {
       "day": 2,
@@ -1209,6 +1777,12 @@ export const CURRICULUM = {
       "scene": "4 hours of discretionary time are available on a 2-metre telescope. The object is magnitude 22.4, sets 2 hours after dusk, and the current arc is only 4 hours. The same field is observable again in six nights; the press office is waiting.",
       "takeaway": "A measurement is valuable when its possible outcomes separate the decisions still in contention, not merely when it is precise.",
       "place": "Time Standards Room",
+      "guide": "Four hours of discretionary time, an object at magnitude 22.4 that sets two hours after dusk, and an arc only four hours long. Open each booking and ask what it would do to the six-night prediction. Buy the observation that extends the arc where it is weakest, not the one that collects the most photons.",
+      "background": [
+        "Why arc length dominates. An orbit fitted to four hours of arc is barely constrained: small measurement errors turn into large changes in where the object will be. Extending the arc constrains the curvature of the path, and that is what shrinks the prediction rather than more measurements at the same epoch.",
+        "What the setting time costs. The object is only up for two hours after dusk, so four hours of allocated time cannot all be used on it tonight. A booking has to be a plan about when, not only about how long.",
+        "Why the press office is in the scene. There is pressure to produce something tonight. An observation that yields a publishable image and no orbital improvement satisfies that pressure and leaves the six-night prediction exactly where it was."
+      ],
       "story": "4 hours of discretionary time are available on a 2-metre telescope. The object is magnitude 22.4, sets 2 hours after dusk, and the current arc is only 4 hours. The same field is observable again in six nights; the press office is waiting.",
       "game": {
         "type": "VALUE",
@@ -1262,7 +1836,8 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a short observation arc is consistent with many orbits",
-        "parallax can constrain distance"
+        "parallax can constrain distance",
+        "angular size and the small-angle formula — taken as read"
       ],
       "equations": [
         {
@@ -1280,7 +1855,22 @@ export const CURRICULUM = {
           ],
           "s": "Watching an object from two places shifts it against the background, and the size of that shift gives the distance."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 21,
+          "c": "Angular size and the small-angle formula"
+        }
+      ],
+      "concept": {
+        "n": 22,
+        "c": "Parallax, baselines and distance",
+        "of": 30,
+        "rests": [
+          "Angular size and the small-angle formula",
+          "Celestial coordinates and angular measure"
+        ]
+      }
     },
     {
       "day": 3,
@@ -1288,6 +1878,12 @@ export const CURRICULUM = {
       "scene": "Four kinds of evidence are on offer and the group has to say what each one buys before it spends any telescope time. Each is strong in a different direction.",
       "takeaway": "Orbit determination is an information-geometry problem.",
       "place": "Celestial Mechanics Group",
+      "guide": "Four parts of the orbit, and four ways to measure. Pair them by asking what each measurement is physically sensitive to. A time of flight? A frequency shift? A curvature that only shows over weeks? Or a difference between two places on Earth at once? Each is strong in a different direction, and telescope time is finite.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Four kinds of evidence are on offer and the group has to say what each one buys before it spends any telescope time. Each is strong in a different direction.",
       "game": {
         "type": "PROTOCOL",
@@ -1328,7 +1924,8 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "different measurements constrain different parts of an orbit"
+        "different measurements constrain different parts of an orbit",
+        "kepler's laws — taken as read"
       ],
       "equations": [
         {
@@ -1369,7 +1966,22 @@ export const CURRICULUM = {
           ],
           "s": "Motion toward or away stretches or squeezes the light by a fraction equal to the speed as a fraction of light speed."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 7,
+          "c": "Kepler's laws"
+        }
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Orbital elements and orbit determination",
+        "of": 30,
+        "rests": [
+          "Kepler's laws",
+          "Celestial coordinates and angular measure"
+        ]
+      }
     },
     {
       "day": 4,
@@ -1377,6 +1989,12 @@ export const CURRICULUM = {
       "scene": "The allowed orbits sweep a 40,000-kilometre corridor at Earth. The object fades below the survey limit in 12 nights, radar can see it in 9 days, and the beam needs a usable ephemeris. Tonight’s schedule decides whether that window exists.",
       "takeaway": "A sharper-looking orbit is not a better orbit unless new evidence narrows the allowed family.",
       "place": "Follow-Up Scheduling Desk",
+      "guide": "Four options, and the object fades in twelve nights while radar opens in nine days. Ask of each what it does to the pointing prediction radar will need. Optical angles and radar answer different parts of the problem, so waiting for one does not replace doing the other. And reprocessing sharpens a nominal orbit without narrowing the family.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The allowed orbits sweep a 40,000-kilometre corridor at Earth. The object fades below the survey limit in 12 nights, radar can see it in 9 days, and the beam needs a usable ephemeris. Tonight’s schedule decides whether that window exists.",
       "game": {
         "type": "CHOICE",
@@ -1419,7 +2037,12 @@ export const CURRICULUM = {
           ],
           "s": "Watching an object from two places shifts it against the background, and the size of that shift gives the distance."
         }
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Uncertainty, error bars and covariance",
+        "of": 30
+      }
     },
     {
       "day": 5,
@@ -1427,6 +2050,12 @@ export const CURRICULUM = {
       "scene": "The nominal orbit misses by four Earth radii. Roughly 1 in 600 allowed solutions impact instead. Next Tuesday those solutions place the object eight arcseconds from the rest of the family; after that the two predictions begin to converge again.",
       "takeaway": "The best observation separates the live hypotheses rather than merely adding another point.",
       "place": "Planetary Defense Coordination Office",
+      "guide": "Four places to point, and a measurement is only informative where the live hypotheses disagree. Ask of each option whether the impacting and missing solutions predict different positions there. Before and after Tuesday they agree within the errors, so an observation then confirms what nobody disputed. Brightness is not the criterion. A date is.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The nominal orbit misses by four Earth radii. Roughly 1 in 600 allowed solutions impact instead. Next Tuesday those solutions place the object eight arcseconds from the rest of the family; after that the two predictions begin to converge again.",
       "game": {
         "type": "CHOICE",
@@ -1452,7 +2081,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a measurement is informative where the candidate explanations disagree"
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Uncertainty, error bars and covariance",
+        "of": 30
+      }
     },
     {
       "day": 6,
@@ -1460,6 +2094,11 @@ export const CURRICULUM = {
       "scene": "Two objects show the same reflected brightness and one is four times as reflective as the other. The infrared team wants the size comparison written down before anybody quotes a diameter.",
       "takeaway": "Brightness alone cannot uniquely determine size without an albedo assumption.",
       "place": "Infrared Telescope Team",
+      "guide": "Five numbers, and three of them are wrong ways to use the albedo ratio: its square, its reciprocal, and the brightness itself. Ask of each whether it respects the two steps. Brightness fixes area, and diameter is the square root of area. Four times the albedo is a quarter of the area and half the diameter, not a quarter of it.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Two objects show the same reflected brightness and one is four times as reflective as the other. The infrared team wants the size comparison written down before anybody quotes a diameter.",
       "game": {
         "type": "BALLPARK",
@@ -1475,7 +2114,8 @@ export const CURRICULUM = {
         "calcKey": "OPS-6"
       },
       "assumes": [
-        "the area of a disc goes as the square of its diameter"
+        "the area of a disc goes as the square of its diameter",
+        "apparent and absolute magnitude; inverse-square brightness — taken as read"
       ],
       "equations": [
         {
@@ -1498,7 +2138,21 @@ export const CURRICULUM = {
           "s": "Brightness at the telescope is the emitted light spread over a sphere, which is why a small bright object and a large dark one can look identical.",
           "computed": true
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 2,
+          "c": "Apparent and absolute magnitude; inverse-square brightness"
+        }
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Albedo and the size–brightness degeneracy",
+        "of": 30,
+        "rests": [
+          "Apparent and absolute magnitude; inverse-square brightness"
+        ]
+      }
     },
     {
       "day": 7,
@@ -1506,6 +2160,12 @@ export const CURRICULUM = {
       "scene": "The spectrum has two broad features and a slope, and three mineral models reproduce all of them within the noise. Space weathering reddens a surface, grain size changes band depth, and viewing geometry shifts the continuum.",
       "takeaway": "A good composition result retains the plausible alternatives.",
       "place": "Meteorite Comparison Lab",
+      "guide": "All four steps will happen, and three mineral models fit the spectrum within the noise. Ask of each step what would be uninterpretable without it. The Sun, the atmosphere and the instrument are all in the recorded signal. A feature named before they are removed may belong to any of them. And comparing several models is what stops weathering being read as composition.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "The spectrum has two broad features and a slope, and three mineral models reproduce all of them within the noise. Space weathering reddens a surface, grain size changes band depth, and viewing geometry shifts the continuum.",
       "game": {
         "type": "SEQUENCE",
@@ -1536,8 +2196,23 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "what a telescope records includes everything the light passed through"
-      ]
+        "what a telescope records includes everything the light passed through",
+        "kinetic energy and impact energy scaling — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 13,
+          "c": "Kinetic energy and impact energy scaling"
+        }
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Atmospheric entry: drag, ablation, airburst",
+        "of": 30,
+        "rests": [
+          "Kinetic energy and impact energy scaling"
+        ]
+      }
     },
     {
       "day": 8,
@@ -1545,6 +2220,12 @@ export const CURRICULUM = {
       "scene": "The draft circular names a composition class outright. One spectrum supports it. In the next room, the deflection team is using the implied density to size the impactor. If the class is wrong, the spacecraft design starts from the wrong mass estimate.",
       "takeaway": "Characterization should seek discriminating evidence rather than stronger labels.",
       "place": "Composition Review Room",
+      "guide": "Four options, and there is one spectrum, one phase angle, one rotation. Ask of each whether it repeats the current method or brings different physics. Another spectrum taken the same way can repeat the same errors. The deflection team is sizing an impactor from the implied density, so what is wanted is a check that could rule a class out.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The draft circular names a composition class outright. One spectrum supports it. In the next room, the deflection team is using the implied density to size the impactor. If the class is wrong, the spacecraft design starts from the wrong mass estimate.",
       "game": {
         "type": "CHOICE",
@@ -1570,7 +2251,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a measurement made one way can be wrong one way"
-      ]
+      ],
+      "concept": {
+        "n": 24,
+        "c": "Phase angle, scattering and observing geometry",
+        "of": 30,
+        "rests": [
+          "Apparent and absolute magnitude; inverse-square brightness",
+          "Celestial coordinates and angular measure"
+        ]
+      }
     },
     {
       "day": 9,
@@ -1578,6 +2268,11 @@ export const CURRICULUM = {
       "scene": "Similar maxima in the light curve are separated by 3.5 hours. An elongated body presents its long profile twice in every turn, and the spacecraft has to arrive at a known face.",
       "takeaway": "A measured repetition time is not always the physical period.",
       "place": "Rotation Dynamics Lab",
+      "guide": "Five numbers, and two of them are wrong ways to use the peak spacing: half of it, and four peaks per turn. One is the amplitude, which belongs elsewhere. Ask of each whether this period needs it. An elongated body shows its long profile twice a turn, so the photometric repeat and the spin can differ by two.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Similar maxima in the light curve are separated by 3.5 hours. An elongated body presents its long profile twice in every turn, and the spacecraft has to arrive at a known face.",
       "game": {
         "type": "BALLPARK",
@@ -1594,7 +2289,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a shape that repeats twice per turn is seen twice per turn"
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Light curves and rotation",
+        "of": 30,
+        "rests": [
+          "Apparent and absolute magnitude; inverse-square brightness"
+        ]
+      }
     },
     {
       "day": 10,
@@ -1602,6 +2305,12 @@ export const CURRICULUM = {
       "scene": "The light curve varies by a factor of three over about seven hours, which could be one rotation, half of one, or a tumbling body seen from a changing angle. The spacecraft launches on whichever is true.",
       "takeaway": "Mission timing should be based on a rotation model tested across time and viewpoint.",
       "place": "Mission Design Office",
+      "guide": "Four campaigns, and the ambiguity is between one rotation, half of one, and a tumbler. Ask of each option whether it samples the cycle at new times and new geometries. A denser copy of the same partial window keeps the same aliases. And adopting a provisional period is a decision rather than a measurement, with a launch behind it.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The light curve varies by a factor of three over about seven hours, which could be one rotation, half of one, or a tumbling body seen from a changing angle. The spacecraft launches on whichever is true.",
       "game": {
         "type": "CHOICE",
@@ -1627,7 +2336,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a gap in coverage can hide a period"
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Light curves and rotation",
+        "of": 30,
+        "rests": [
+          "Apparent and absolute magnitude; inverse-square brightness"
+        ]
+      }
     },
     {
       "day": 11,
@@ -1635,6 +2352,11 @@ export const CURRICULUM = {
       "scene": "A radar image resolves the echo to about 0.09 arcsecond across while the orbit solution places the asteroid 4.0 × 10^8 metres away. The characterization team wants a physical diameter before the next consequence run begins.",
       "takeaway": "An angle becomes a size only when it is multiplied by a distance.",
       "place": "Coordination Office",
+      "guide": "Five numbers, and three of them belong elsewhere: an astronomical unit, that night's seeing, and a distance from a different solution. Ask of each whether this diameter needs it. An angle becomes a size only with a distance, which is what radar supplied. Without it, small and near looks exactly like large and far.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A radar image resolves the echo to about 0.09 arcsecond across while the orbit solution places the asteroid 4.0 × 10^8 metres away. The characterization team wants a physical diameter before the next consequence run begins.",
       "game": {
         "type": "BALLPARK",
@@ -1673,7 +2395,12 @@ export const CURRICULUM = {
           "s": "For small angles the angle an object subtends is simply its size divided by its distance.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Celestial coordinates and angular measure",
+        "of": 30
+      }
     },
     {
       "day": 12,
@@ -1681,6 +2408,11 @@ export const CURRICULUM = {
       "scene": "The approach speed far from Earth is 12 kilometres a second. That number has gone to civil defence as the entry speed, and the energy in their briefing was computed from it.",
       "takeaway": "Earth gravity can raise a slow encounter speed enough to change impact energy materially before atmospheric entry begins.",
       "place": "Coordination Office",
+      "guide": "Five numbers, and two of them are the radius and the density, already folded into the mass. Ask of each whether this energy needs it again. The two speeds combine in quadrature rather than by adding, because they are not in the same direction. Energy then follows the square, so getting the combination wrong is not a small error.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The approach speed far from Earth is 12 kilometres a second. That number has gone to civil defence as the entry speed, and the energy in their briefing was computed from it.",
       "game": {
         "type": "BALLPARK",
@@ -1701,7 +2433,8 @@ export const CURRICULUM = {
         "calcKey": "OPS-12"
       },
       "assumes": [
-        "a falling object speeds up as it falls, and Earth's escape speed is 11.2 km/s"
+        "a falling object speeds up as it falls, and Earth's escape speed is 11.2 km/s",
+        "kepler's laws — taken as read"
       ],
       "equations": [
         {
@@ -1742,7 +2475,21 @@ export const CURRICULUM = {
           ],
           "s": "Earth's gravity accelerates anything falling toward it, so nothing can arrive slower than escape speed."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 7,
+          "c": "Kepler's laws"
+        }
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Gravitation, orbital speed and energy",
+        "of": 30,
+        "rests": [
+          "Kepler's laws"
+        ]
+      }
     },
     {
       "day": 13,
@@ -1750,6 +2497,12 @@ export const CURRICULUM = {
       "scene": "The consequence range runs from a regional evacuation to a continent-wide emergency, and every part of that range traces back to a physical measurement. The planning office can improve one of them before the region has to be told anything.",
       "takeaway": "Risk communication should show how physical uncertainty maps into consequence uncertainty.",
       "place": "Emergency Planning Office",
+      "guide": "Four options, and the consequence range spans two orders of magnitude. Ask of each how strongly it enters the energy. Mass goes as the cube of diameter, so a fractional size error is amplified. Speed enters squared. And one option refuses to narrow anything, which is a decision about planning rather than about measurement.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The consequence range runs from a regional evacuation to a continent-wide emergency, and every part of that range traces back to a physical measurement. The planning office can improve one of them before the region has to be told anything.",
       "game": {
         "type": "CHOICE",
@@ -1796,7 +2549,12 @@ export const CURRICULUM = {
           ],
           "s": "Impact energy rises with the square of speed, so a body arriving twice as fast carries four times the energy."
         }
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Uncertainty, error bars and covariance",
+        "of": 30
+      }
     },
     {
       "day": 14,
@@ -1804,6 +2562,12 @@ export const CURRICULUM = {
       "scene": "The optical track brightens high in the atmosphere while the measured speed drops sharply. Low-frequency sound arrives later, several fading tracks separate from the main one, and ground teams report neither a crater nor a matching seismic signal.",
       "takeaway": "Entry outcome is inferred from several energy-transfer signatures; brightness alone cannot tell where or how the energy was deposited.",
       "place": "High-Altitude Observation Network",
+      "guide": "Four outcomes, and the silent channels do as much work as the loud ones. No crater. No matching seismic signal. Ask of each candidate how many of the readings it covers. Brightening high up with speed falling fast is a body being stopped by air. Several fading tracks are fragments. And whatever happened did not happen at the surface.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The optical track brightens high in the atmosphere while the measured speed drops sharply. Low-frequency sound arrives later, several fading tracks separate from the main one, and ground teams report neither a crater nor a matching seismic signal.",
       "game": {
         "type": "CHOICE",
@@ -1841,7 +2605,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "energy deposited in the air does not arrive at the ground"
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Atmospheric entry: drag, ablation, airburst",
+        "of": 30,
+        "rests": [
+          "Kinetic energy and impact energy scaling"
+        ]
+      }
     },
     {
       "day": 15,
@@ -1849,6 +2621,12 @@ export const CURRICULUM = {
       "scene": "Three entry models give three outcomes: ground impact, breakup at 30 kilometres, and a city-wide airburst at 12 kilometres. Emergency planners are waiting for one map. The disagreement comes from a material strength nobody has measured.",
       "takeaway": "Consequence models should expose structural uncertainty rather than bury it in one asteroid “type.”",
       "place": "Consequence Modeling Center",
+      "guide": "Four options, and three models disagree because of a material strength nobody has measured. Ask of each whether it removes that uncertainty or hides it. Picking one model hides it. Analogue fireballs constrain it from outside. And what planners can use is which outcomes stay plausible across the range, rather than one map.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Three entry models give three outcomes: ground impact, breakup at 30 kilometres, and a city-wide airburst at 12 kilometres. Emergency planners are waiting for one map. The disagreement comes from a material strength nobody has measured.",
       "game": {
         "type": "CHOICE",
@@ -1874,7 +2652,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an unmeasured input does not become known by being assumed"
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Atmospheric entry: drag, ablation, airburst",
+        "of": 30,
+        "rests": [
+          "Kinetic energy and impact energy scaling"
+        ]
+      }
     },
     {
       "day": 16,
@@ -1882,6 +2668,12 @@ export const CURRICULUM = {
       "scene": "Before discovery, the object's solar elongation stayed below about 30 degrees. Weather logs are mostly clear, detector health is normal, and the predicted brightness is within the survey limit whenever the object finally reaches dark enough sky.",
       "takeaway": "Survey completeness is geometric as well as instrumental; an object can be bright enough yet effectively hidden by the Sun.",
       "place": "Survey Strategy Center",
+      "guide": "Four options, and three of them would mean the survey was broken. Ask of each whether the logs support it. The weather was clear. The detector was healthy. The predicted brightness was within reach whenever the object was in dark sky. So the object was bright enough and unobservable at the same time, which is a fact about geometry.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Before discovery, the object's solar elongation stayed below about 30 degrees. Weather logs are mostly clear, detector health is normal, and the predicted brightness is within the survey limit whenever the object finally reaches dark enough sky.",
       "game": {
         "type": "CHOICE",
@@ -1919,7 +2711,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a telescope on the ground can only work at night"
-      ]
+      ],
+      "concept": {
+        "n": 29,
+        "c": "Detection thresholds, false alarms and completeness",
+        "of": 30,
+        "rests": [
+          "Telescopes: aperture, resolution, signal-to-noise",
+          "Uncertainty, error bars and covariance"
+        ]
+      }
     },
     {
       "day": 17,
@@ -1927,6 +2728,11 @@ export const CURRICULUM = {
       "scene": "The survey team can improve limiting sensitivity so an object of the same type is detectable from twice as far away. The strategy desk wants the resulting search-volume gain before deciding whether that depth is worth the observing cost.",
       "takeaway": "Small gains in distance can produce large gains in searchable volume.",
       "place": "Telescope Network",
+      "guide": "Four numbers, and two of them are wrong powers: twice the distance squared, and the depth gain in magnitudes. Ask of each what dimension the answer lives in. A searchable region is a volume, so the distance limit enters three times. And note the limit of the answer: it is geometry, not a promise of eight times the discoveries.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The survey team can improve limiting sensitivity so an object of the same type is detectable from twice as far away. The strategy desk wants the resulting search-volume gain before deciding whether that depth is worth the observing cost.",
       "game": {
         "type": "BALLPARK",
@@ -1943,7 +2749,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a searchable region is roughly a sphere"
-      ]
+      ],
+      "concept": {
+        "n": 29,
+        "c": "Detection thresholds, false alarms and completeness",
+        "of": 30,
+        "rests": [
+          "Telescopes: aperture, resolution, signal-to-noise",
+          "Uncertainty, error bars and covariance"
+        ]
+      }
     },
     {
       "day": 18,
@@ -1951,6 +2766,12 @@ export const CURRICULUM = {
       "scene": "The survey strategy lab has a synthetic catalogue of 1,000 near-Earth objects with known orbits, brightnesses and solar elongations. Three candidate observing strategies are ready to run through the same detection and linking pipeline before next year’s schedule is frozen.",
       "takeaway": "Completeness is measured by recovery of known truth across the relevant parameter space, not by the size of the detected catalogue.",
       "place": "Population Statistics Lab",
+      "guide": "A thousand synthetic objects with known orbits go through the same detection and linking pipeline as real data. Run the strategies you want to compare. What comes back measures the pipeline rather than the sky, so judge a strategy by which known objects it recovers — especially the ones current surveys miss — and not by how many detections it produces.",
+      "background": [
+        "Why a synthetic population is the instrument. With real data nobody knows what was missed. Pushing objects whose orbits you already know through the identical pipeline turns completeness into something measurable: recovered divided by injected, sliced any way you like.",
+        "Why total detections is the wrong score. A strategy that stares at the easy sky detects enormous numbers of already-known, well-placed objects. The population that matters is the one arriving from the sunward direction at low elongation, and those are exactly the ones a detection-maximising strategy skips.",
+        "Why it has to run before the schedule freezes. A year of telescope time is committed at once. A strategy that turns out to be blind to a class of orbits is blind for the whole year, and the objects it missed are not re-observable on demand."
+      ],
       "story": "The survey strategy lab has a synthetic catalogue of 1,000 near-Earth objects with known orbits, brightnesses and solar elongations. Three candidate observing strategies are ready to run through the same detection and linking pipeline before next year’s schedule is frozen.",
       "game": {
         "type": "INJECT",
@@ -1998,14 +2819,152 @@ export const CURRICULUM = {
       "assumes": [
         "a survey can miss objects even when its detector works",
         "a synthetic population can be used because the true inputs are known"
-      ]
+      ],
+      "concept": {
+        "n": 29,
+        "c": "Detection thresholds, false alarms and completeness",
+        "of": 30,
+        "rests": [
+          "Telescopes: aperture, resolution, signal-to-noise",
+          "Uncertainty, error bars and covariance"
+        ]
+      }
     },
     {
       "day": 19,
+      "title": "What the dish is chasing tonight",
+      "scene": "The target list runs all night and the priority on it is set by whoever has the desk. It changes as the night does — after the new object comes in, after the weather turns west, after the recovery deadline gets close.",
+      "takeaway": "The cost of a withdrawn instruction is highest where the opportunity does not come back.",
+      "place": "Operations Hut",
+      "guide": "Observe what the current priority wants and leave the rest on the list. The priority on the desk board changes during the night and nobody announces it. What is scored is the targets either side of a change, because a window missed cannot be re-opened until the object comes round again.",
+      "background": [
+        "Why the priority changes. A new object with a short arc is the most urgent thing on any night, until its arc is long enough to predict. Then it is whatever is setting soonest, because a target below the horizon is not a target. Then it is whatever a deadline needs.",
+        "Why a missed window is not like other misses. Most work can be repeated tomorrow. An object at low elongation is available for an hour a night for a fortnight and then not at all for a year, so the cost of working to the old priority is measured in years rather than in hours."
+      ],
+      "story": "The target list runs all night and the priority on it is set by whoever has the desk. It changes as the night does — after the new object comes in, after the weather turns west, after the recovery deadline gets close.",
+      "game": {
+        "type": "SPOT",
+        "title": "What the dish is chasing tonight",
+        "setup": "Operations Hut",
+        "play": "Work the target list while the observing priority changes.",
+        "task": "Work the target list while the observing priority changes.",
+        "question": "Observe to the priority on the desk board, and keep watching the board.",
+        "answer": "Read the board rather than the list. Every change leaves a few minutes in which the old priority still looks like tonight's.",
+        "why": "Three priorities run across the night and each wants a different part of the list. Anything with a short arc, then anything setting soon, then anything with a deadline on it. A target can answer two at once, which is what makes the switch cost real. What the panel scores is the window either side of each change, because most of the list is wanted by neither priority and is correctly left alone by somebody who has read nothing. And this is the case where a withdrawn instruction costs most, because the opportunity does not wait: an object at low elongation is up for an hour a night for a fortnight, and a telescope spent on last hour's priority is a year added to somebody's orbit determination.",
+        "spot": {
+          "targets": [
+            {
+              "id": "o1",
+              "label": "New object, short arc",
+              "tags": [
+                "shortarc"
+              ]
+            },
+            {
+              "id": "o2",
+              "label": "Setting in an hour",
+              "tags": [
+                "setting"
+              ]
+            },
+            {
+              "id": "o3",
+              "label": "Short arc, setting soon",
+              "tags": [
+                "shortarc",
+                "setting"
+              ]
+            },
+            {
+              "id": "o4",
+              "label": "Recovery due Friday",
+              "tags": [
+                "deadline"
+              ]
+            },
+            {
+              "id": "o5",
+              "label": "Long arc, high",
+              "tags": [
+                "routine"
+              ]
+            },
+            {
+              "id": "o6",
+              "label": "Deadline, setting soon",
+              "tags": [
+                "deadline",
+                "setting"
+              ]
+            },
+            {
+              "id": "o7",
+              "label": "Routine astrometry",
+              "tags": [
+                "routine"
+              ]
+            },
+            {
+              "id": "o8",
+              "label": "Short arc, deadline",
+              "tags": [
+                "shortarc",
+                "deadline"
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "say": "Anything with a short arc",
+              "want": [
+                "shortarc"
+              ]
+            },
+            {
+              "say": "Anything setting soon",
+              "want": [
+                "setting"
+              ]
+            },
+            {
+              "say": "Anything with a deadline",
+              "want": [
+                "deadline"
+              ]
+            }
+          ],
+          "duration": 40,
+          "switchEvery": 12,
+          "pass": 0.75,
+          "hint": "The observing priority is on the desk board, and whoever has the desk changes it without saying so.",
+          "commit": "Open the list"
+        }
+      },
+      "assumes": [
+        "an object is only observable when it is above the horizon and away from the Sun"
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Observing constraints: elongation, visibility windows, scheduling",
+        "of": 30,
+        "rests": [
+          "Celestial coordinates and angular measure",
+          "Time and coordinate standards"
+        ]
+      }
+    },
+    {
+      "day": 20,
       "title": "Which subsystem owns the constraint?",
       "scene": "The intercept architecture is split across propulsion, guidance, characterization and tracking teams. Each group has a different hard limit, and the flight director wants every constraint assigned to the subsystem that can actually change it before margins are traded.",
       "takeaway": "An intercept is a coordinated prediction-and-control problem.",
       "place": "Trajectory Design Center",
+      "guide": "Four constraints and four responses, and the responses are not interchangeable. Pair them by asking who can act on that constraint, and when. No amount of onboard cleverness recovers a missed launch window. Light-time that rules out piloting cannot be answered from the ground. And one of them has to be settled before launch rather than during approach.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "The intercept architecture is split across propulsion, guidance, characterization and tracking teams. Each group has a different hard limit, and the flight director wants every constraint assigned to the subsystem that can actually change it before margins are traded.",
       "game": {
         "type": "PROTOCOL",
@@ -2046,15 +3005,37 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "a spacecraft cannot be flown in real time across light-minutes"
-      ]
+        "a spacecraft cannot be flown in real time across light-minutes",
+        "time and coordinate standards — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 12,
+          "c": "Time and coordinate standards"
+        }
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Observing constraints: elongation, visibility windows, scheduling",
+        "of": 30,
+        "rests": [
+          "Celestial coordinates and angular measure",
+          "Time and coordinate standards"
+        ]
+      }
     },
     {
-      "day": 20,
+      "day": 21,
       "title": "When does it come back?",
       "scene": "Four candidate orbits are still consistent with the arc, and the intercept cannot be designed until somebody says when each one brings the object back. Nobody has turned the distances into times.",
       "takeaway": "An orbit's size fixes its period, so a launch window is a consequence of the orbit rather than a choice.",
       "place": "Coordination Office",
+      "guide": "Four orbit sizes and four periods. Pair them by asking what the relationship actually uses. Not the shape of the orbit, not the object's mass, only the axis. The period is the axis raised to one and a half, in years and astronomical units. That is why an arc long enough to fix the axis also fixes every launch window that follows.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Four candidate orbits are still consistent with the arc, and the intercept cannot be designed until somebody says when each one brings the object back. Nobody has turned the distances into times.",
       "game": {
         "type": "PROTOCOL",
@@ -2120,14 +3101,25 @@ export const CURRICULUM = {
           ],
           "s": "An orbit is a balance between speed and distance, so a closer orbit has to be a faster one."
         }
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Kepler's laws",
+        "of": 30
+      }
     },
     {
-      "day": 21,
+      "day": 22,
       "title": "Why a centimetre a second is enough",
       "scene": "Post-impact tracking reports a velocity change of about 2 centimetres a second, against an orbital speed near 25 kilometres a second. The intercept room is being asked how a change of only a few parts in 1 million can create a safe miss years later.",
       "takeaway": "A tiny nudge applied early buys a large miss later, and the currency is time.",
       "place": "Coordination Office",
+      "guide": "Four explanations for how two centimetres a second matters. Ask of each whether it names a direction and a mechanism. One claims momentum is not conserved, which would be new physics. One claims a direction is always best, which depends on geometry. Two centimetres against twenty-five kilometres is parts in a million, so whatever the answer is, it has to accumulate.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Post-impact tracking reports a velocity change of about 2 centimetres a second, against an orbital speed near 25 kilometres a second. The intercept room is being asked how a change of only a few parts in 1 million can create a safe miss years later.",
       "game": {
         "type": "CHOICE",
@@ -2197,14 +3189,28 @@ export const CURRICULUM = {
           ],
           "s": "An orbit is a balance between speed and distance, so a closer orbit has to be a faster one."
         }
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Momentum transfer and deflection",
+        "of": 30,
+        "rests": [
+          "Momentum conservation in collisions"
+        ]
+      }
     },
     {
-      "day": 22,
+      "day": 23,
       "title": "Match action to evidence state",
       "scene": "The regional emergency team is around one table. A wall display shows the newest orbit corridor, likely damage area, and time remaining. Today they must decide whether to keep watching, prepare supplies, warn the public, or order people to move.",
       "takeaway": "Preparedness can escalate in stages without claiming certainty.",
       "place": "Risk Communication Center",
+      "guide": "Four evidence states and four responses. Pair them by asking three things of each state: how bad, how long left, and how reversible the action is. Cheap and reversible actions suit a long lead time. Irreversible ones need the time to learn more to have gone. And standing down publicly is what makes the next escalation believable.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "The regional emergency team is around one table. A wall display shows the newest orbit corridor, likely damage area, and time remaining. Today they must decide whether to keep watching, prepare supplies, warn the public, or order people to move.",
       "game": {
         "type": "PROTOCOL",
@@ -2246,14 +3252,27 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a reversible action can be taken and undone; an irreversible one cannot"
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Probability, risk and expected value",
+        "of": 30,
+        "rests": [
+          "Uncertainty, error bars and covariance"
+        ]
+      }
     },
     {
-      "day": 23,
+      "day": 24,
       "title": "Expected displaced population",
       "scene": "The emergency management office needs a number to plan against. It has the population inside the corridor and the current impact probability, and it has to write something on a form today.",
       "takeaway": "Decision metrics must be interpreted according to the distribution they summarize.",
       "place": "Emergency Management Office",
+      "guide": "Five numbers, and three of them belong to other estimates: the largest city, an earlier probability, and the ensemble figure. Ask of each whether this expectation uses it. An expectation multiplies a consequence by its probability. What comes out is a planning figure, and not a number of people who will actually move.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The emergency management office needs a number to plan against. It has the population inside the corridor and the current impact probability, and it has to write something on a form today.",
       "game": {
         "type": "BALLPARK",
@@ -2266,7 +3285,7 @@ export const CURRICULUM = {
         "why": "Expected value combines the size of an outcome with its probability. If the current impact probability is 2% and the exposed population in the relevant corridor is 500,000 people, the expected displaced population is 0.02 × 500,000 = 10,000. That does not mean exactly 10,000 people will move. In the simplified two-outcome picture, either the impact does not occur or a much larger population is affected. The expectation is useful for comparing preparation costs and risks while the event itself remains uncertain.",
         "givens": [],
         "relationship": "An expectation = the consequence × the probability of it happening.",
-        "calcKey": "OPS-23"
+        "calcKey": "OPS-24"
       },
       "assumes": [
         "an expectation is a probability multiplied by a consequence"
@@ -2292,14 +3311,29 @@ export const CURRICULUM = {
           "s": "Weight each outcome by how likely it is and add them up, which is how a small chance of something enormous is compared with a certainty of something small.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 30,
+        "c": "Crater and blast scaling; ground effects",
+        "of": 30,
+        "rests": [
+          "Kinetic energy and impact energy scaling",
+          "Atmospheric entry: drag, ablation, airburst"
+        ]
+      }
     },
     {
-      "day": 24,
+      "day": 25,
       "title": "Prepare without panic",
       "scene": "Five orbit updates are queued. Regional planners can still prepare without evacuating anyone, but planning and pre-positioning both take time. The action thresholds must be locked before the updates begin. Once the stream starts, nobody gets to move them.",
       "takeaway": "Good risk policy ties staged, reversible actions to evidence thresholds before the evidence moves.",
       "place": "Scientific Advisory Board",
+      "guide": "One rule, written before the next orbit updates arrive and fixed once the board is released. Standing up the planning cell takes two days from the moment it is called, and the last update of the campaign arrives with none left. So the line goes back from the end by those two days of climb — and not so far back that a cell is convened for an object which was never going to matter.",
+      "background": [
+        "Why precommit before the stream. Orbit updates arrive one after another, each shifting the probability. A threshold adjusted while they come in is a rationalisation of what somebody already wanted to do, and it cannot be defended afterwards to the public or to the planners who acted on it.",
+        "Why two thresholds rather than one. Writing a plan takes weeks; moving supplies takes days and needs the plan to exist first. A single threshold set for the slower action triggers the faster one absurdly early, and set for the faster one leaves no time to plan at all.",
+        "What 'without panic' costs. Preparation is reversible and cheap; evacuation is neither. The thresholds have to keep the reversible actions available long enough that the irreversible one never becomes the only option left."
+      ],
       "story": "Five orbit updates are queued. Regional planners can still prepare without evacuating anyone, but planning and pre-positioning both take time. The action thresholds must be locked before the updates begin. Once the stream starts, nobody gets to move them.",
       "game": {
         "type": "TRIGGER",
@@ -2307,27 +3341,37 @@ export const CURRICULUM = {
         "setup": "Scientific Advisory Board",
         "play": "Write the staged action thresholds before the next impact-probability updates arrive, then release the trace.",
         "task": "Write the staged action thresholds before the next impact-probability updates arrive, then release the trace.",
-        "question": "Which precommitted thresholds preserve enough lead time for planning and pre-positioning?",
-        "answer": "Set the planning trigger around 0.25% and the pre-positioning trigger around 0.75% before releasing the updates. In this authored trace they fire with the required lead time still available; waiting until the final 1.4% update leaves no operational margin.",
+        "question": "At what impact probability do you activate the regional planning cell, given it needs two days?",
+        "answer": "Activate around 0.2 %. It fires on the 0.35 % update with 72 hours in hand, which covers the two days the cell needs; the 0.8 % update arrives with 24 hours and the last with none.",
         "why": "A trigger is a decision rule written before the next number arrives. Preparation has lead time, so a scientifically correct action can still be useless if it begins too late. Precommitting thresholds also prevents hindsight from turning every new probability into a different standard. Tie early thresholds to reversible actions and later ones to costlier steps while the orbit solution continues to update. The goal is not to pretend the probability is certain; it is to connect uncertainty to staged actions that remain possible when the rule fires.",
         "trigger": {
           "scale": {
-            "label": "Campaign impact-probability update",
-            "unit": "% impact probability",
+            "label": "Impact probability",
+            "unit": "%",
             "min": 0,
             "max": 2,
-            "step": 0.02
+            "step": 0.02,
+            "anchors": [
+              {
+                "at": 0.11,
+                "means": "about one chance in 900 — the ordinary end of the risk list"
+              },
+              {
+                "at": 1.4,
+                "means": "one chance in 70, with the corridor over inhabited ground"
+              }
+            ]
           },
+          "direction": "rising",
           "conditions": [
             {
               "id": "planning",
               "label": "Activate regional planning cell",
-              "leadHours": 48
-            },
-            {
-              "id": "preposition",
-              "label": "Pre-position transport and medical resources",
-              "leadHours": 24
+              "leadHours": 48,
+              "window": {
+                "min": 0.15,
+                "max": 0.4
+              }
             }
           ],
           "stream": [
@@ -2362,7 +3406,33 @@ export const CURRICULUM = {
               "hoursLeft": 0
             }
           ],
-          "hint": "Write both action thresholds before releasing the next orbit updates. The first action needs two days of lead time; the second needs one. A rule that triggers after its operational lead time is gone does not count as a successful plan.",
+          "rehearsal": {
+            "note": "the last object worked at this range",
+            "stream": [
+              {
+                "value": 0.09,
+                "hoursLeft": 168
+              },
+              {
+                "value": 0.14,
+                "hoursLeft": 120
+              },
+              {
+                "value": 0.22,
+                "hoursLeft": 72
+              },
+              {
+                "value": 0.15,
+                "hoursLeft": 24
+              },
+              {
+                "value": 0.05,
+                "hoursLeft": 0
+              }
+            ]
+          },
+          "objective": "The planning cell is standing while there is still margin to use it.",
+          "hint": "Write the threshold before releasing the updates. The planning cell takes two days to stand up, so a rule that fires with less than that has called something which cannot happen.",
           "release": "Release the board",
           "commit": "Stand by the board"
         }
@@ -2370,14 +3440,28 @@ export const CURRICULUM = {
       "assumes": [
         "impact probability can change as new orbit data arrive",
         "some preparations are reversible and require lead time"
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Probability, risk and expected value",
+        "of": 30,
+        "rests": [
+          "Uncertainty, error bars and covariance"
+        ]
+      }
     },
     {
-      "day": 25,
+      "day": 26,
       "title": "Disposition the final claims",
       "scene": "The board has to publish one account of an eight-year campaign, and the four claims in front of it carry very different weights of evidence. Whatever it writes will be read by whoever runs the next one.",
       "takeaway": "Planetary defense is a continuing evidence system, not a one-time heroic act.",
       "place": "International Review Hall",
+      "guide": "Four claims and four dispositions. Pair them by asking what state each claim is in: confirmed, still open, out of date, or outliving this object. Giving four different states one confidence is how a document stops being trusted. And whoever runs the next campaign will read this one to find out what was actually established.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "The board has to publish one account of an eight-year campaign, and the four claims in front of it carry very different weights of evidence. Whatever it writes will be read by whoever runs the next one.",
       "game": {
         "type": "PROTOCOL",
@@ -2440,14 +3524,25 @@ export const CURRICULUM = {
           ],
           "s": "Momentum is conserved, so whatever a deflection pushes away pushes back on the object by the same amount."
         }
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Uncertainty, error bars and covariance",
+        "of": 30
+      }
     },
     {
-      "day": 26,
+      "day": 27,
       "title": "Fund the planetary-defense legacy",
       "scene": "The threat is gone, and so is most of the campaign budget. The discovery survey still misses parts of the sky, and two follow-up sites lose funding at year’s end. The board must decide what capability survives this success.",
       "takeaway": "The durable defense is an institution that can repeatedly detect, learn, decide, and act.",
       "place": "Mission Operations",
+      "guide": "Four options, and the threat is gone along with most of the budget. Ask of each what it does to warning time. Finding an object earlier buys nights for the orbit, time for the size and rotation, and years for a small deflection to work. Nothing later in the chain can restore time that was never bought.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The threat is gone, and so is most of the campaign budget. The discovery survey still misses parts of the sky, and two follow-up sites lose funding at year’s end. The board must decide what capability survives this success.",
       "game": {
         "type": "CHOICE",
@@ -2494,7 +3589,16 @@ export const CURRICULUM = {
           ],
           "s": "Momentum is conserved, so whatever a deflection pushes away pushes back on the object by the same amount."
         }
-      ]
+      ],
+      "concept": {
+        "n": 29,
+        "c": "Detection thresholds, false alarms and completeness",
+        "of": 30,
+        "rests": [
+          "Telescopes: aperture, resolution, signal-to-noise",
+          "Uncertainty, error bars and covariance"
+        ]
+      }
     }
   ]
 };
@@ -2799,7 +3903,7 @@ export const BALLPARK_CALCS = {
     "solution": "Momentum transferred is 1.2 × 10⁸ kg m/s; divided by 7.9 × 10⁹ kg, Δv ≈ 0.015 m/s.",
     "explanation": "Conservation of momentum needs the impactor's mass and speed, not the asteroid's encounter speed with Earth. The ejecta enhancement is real and would raise this figure — it is left out because nobody can predict it, which is exactly why the mission has to measure it."
   },
-  "OPS-23": {
+  "OPS-24": {
     "prompt": "A simplified corridor contains 9 million people and the current impact probability is 0.5%.",
     "question": "Estimate the expected displaced population.",
     "labels": [

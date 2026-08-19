@@ -266,6 +266,55 @@ that predicts, burns and then measures, an ATTEST replaced by the reentry
 blackout, and TRACE moved off day 1 and onto day 9, where the shared-clock
 argument was already the thing being taught.
 
+## 7b. The board was copied even where the prose was not
+
+The same failure, one level in. `derive-edition` rewrites the words of a stop
+and copies its instrument block verbatim, and nothing looked at the block — so
+the *size* of every board came across from the AP game untouched. Swept across
+the nine editions against the games they were derived from: **37 of 38
+instrument boards were identical in size to their parents.** The one exception
+had gained a required answer, not lost one.
+
+It surfaced on Bring Them Home's day-9 TRACE, the one moved there in 7a. The
+prose was fine — scene at Flesch–Kincaid 7.4, verdict at 6.3 — and the board was
+the twelfth-grade board: five channels, four sources, name one source *and* tick
+exactly two of the five, 128 combinations, graded all-or-nothing. A child who
+names the shared clock correctly and keeps one channel too many is marked
+exactly like one who understood nothing.
+
+`questionLoad` now measures the board as well as counting the stops, with two
+widths — four for a list graded as an exact subset with no feedback until commit
+(TRACE channels, TRACE sources, ATTEST claims, VALUE options), six for a list
+you compare and pick one from, or where the panel narrows live as you work. It
+failed 8 stops across 6 editions on its first run, all of them TRACE or ATTEST;
+no VALUE, ALLOCATE, CHAIN, CONTROL or DELEGATE board was over. All eight are
+fixed:
+
+| Edition | Stop | Was | Now |
+| --- | --- | --- | --- |
+| `planetary_defense_ms` | Whose dip is it? | 5 channels, 7 sources | 4 and 4 — the flat-field check dropped |
+| `planetary_defense_ms` | Signed is not checked | 5 claims | 4, and the labels out of AP register |
+| `aftershock_ms` | Measuring against the wrong zero | 5 channels, 5 sources | 4 and 4 — the magnitude line dropped |
+| `icecore_ms` | What both records rest on | 5 channels | 4 — the gas-age offset dropped |
+| `icecore_ms` | Six signatures and two hours | 6 claims | 4, and retitled |
+| `seedbank_ms` | Which evidence shares the grow-out | 6 sources | 4 |
+| `outbreak_riverton_ms` | Why did the test turn positive? | 6 sources | 4 |
+| `bring_them_home_ms` | Really off course, or one bad clock? | 5 channels | 4 — the re-timed copy dropped |
+
+**The importer's floor is the thing to know before editing one.** A TRACE needs
+at least four channels and an ATTEST at least four claims, so a junior board sits
+*at* the limit rather than under it. An earlier revision of the gate also capped
+`sources × 2^channels` at 32, which no legal TRACE can reach — a limit the
+format's own minimum cannot satisfy is a ban on the format, not a limit on its
+size. That number is reported now and not enforced.
+
+**What was dropped is the second distractor, every time.** Not the argument. The
+flat-field check, the final magnitude, the gas–ice offset, the re-timed copy of
+the same data: each is a fourth or fifth way of saying what the third had already
+established. Reducing the board is a content decision and it should be read as
+one — the question to ask of each channel is whether removing it changes the
+answer, and if it does not, it was load without teaching.
+
 ## 8. Order of work
 
 1. **Machinery** — `derive-edition.mjs`, `editionParity.mjs`, the vite

@@ -13,7 +13,7 @@
 import { buildInteriorBuilding, DISTRICT_X } from '../world/interiorBuilding.js';
 import { addProbeStations } from '../world/interiorStations.js';
 import { probeKey, probeReadsFor, setProbeSited, markProbeRead } from './questionUI.js';
-import { getState, getNextMissionStop, startDay, restartDay, tickDay, endDayNow, jumpToMission } from './gameState.js';
+import { getState, getNextMissionStop, startDay, restartDay, tickDay, endDayNow, jumpToMission, save } from './gameState.js';
 import { nextMissionStopIndex, openStopIndices, isPersonStopForIdx, getCurrentMission, completedMissionStops,
          getPersonIdForStop } from './simulation.js';
 import { HISTORIC_CHARACTERS } from './historicCharacters.js';
@@ -409,6 +409,10 @@ export function exposeDebug(theme, parts){
  */
 export function createDay({
   theme, def, positionOf, spawn, onDayStart, onDayEnd, mapHTML, ui, pace,
+  // Optional, and absent in every one-tier game: run an orientation lap and call
+  // back when it is over. `main.js` supplies it because the TRIAL controller
+  // needs the scene, which this file has never had.
+  runLap,
 }){
   let planOpen = false;
 
@@ -705,6 +709,62 @@ export function createDay({
       const m = getCurrentMission(state);
       if(!m) return;
       const resuming = !!state.dayStarted && !state.dayEnded;
+
+      // ---- the orientation lap, before the plan rather than after it
+      //
+      // The plan card names six places and draws a map of them. On a site with a
+      // far tier that map is of ground the player has never walked, so the lap
+      // goes first: it is what makes the plan readable. Only when the day has not
+      // already started — reopening the plan mid-morning is a briefing, and a
+      // briefing should not restart a tutorial.
+      if(!resuming && runLap){
+        state.laps = state.laps ?? {};
+        const lap = runLap.due(state.week, state.laps);
+        if(lap){
+          planOpen = true;
+          // ONE button. The lap used to carry a "Skip it" beside the run and
+          // to mark itself done whether it was finished or abandoned, on the
+          // argument that a second-campaign player made to sit through a
+          // tutorial is a player who stops on day 1. The rule now is the one
+          // every other run-in-the-world format follows: if you did not do it,
+          // you do it again. A lap that can be waved away is a lap that teaches
+          // the map is optional, and the map is what the day is planned from.
+          //
+          // Abandoning it (Esc) therefore does NOT mark it done — the card comes
+          // straight back. It still costs nothing but the walking, and the day's
+          // clock has not started: the plan is what starts it.
+          ui.open(lap.title, runLap.cardHTML(lap), [
+            { id: 'lapGo', label: 'Take the run', primary: true, onClick: () => {
+              ui.close();
+              runLap.start(lap, (r) => {
+                // Done only if the run says the goal was reached. `ok` absent —
+                // a lap that could not be built at all — still counts, or the
+                // card loops for ever with nothing behind it.
+                const done = r?.ok !== false;
+                if(done) state.laps[lap.slot ?? lap.tier] = true;
+                save();
+                // A card about what just happened, before anything else. Without
+                // it a run ends and the morning simply carries on, which reads as
+                // the game ignoring the thing you were just doing — and on a
+                // failed run leaves nobody any idea why they are being handed the
+                // same card again.
+                planOpen = true;
+                // On a finished run the card says one thing and gets out of the
+                // way: the run is not graded and its tally is already on the HUD
+                // the player was just looking at, so a summary line under the
+                // heading is a second description of what they have done.
+                ui.open(done ? 'Congrats! You are now ready to start the day' : 'Not this time',
+                  done ? '' : `<p class="lapOutcome">${esc(r?.summary ?? 'Not finished.')}</p>`
+                    + `<p class="lapOutcome dim">It has to be done before the day`
+                    + ` starts. Nothing is lost — the clock has not begun.</p>`,
+                  [{ id: 'lapOn', label: done ? 'Get on with the day' : 'Take it again',
+                    primary: true, onClick: () => { ui.close(); this.showPlan(); } }]);
+              });
+            } },
+          ]);
+          return;
+        }
+      }
       planOpen = true;
       ui.open(`${DAY_NOUN} ${state.week} — ${m.title}`, planHTML(resuming), [
         resuming
@@ -753,8 +813,8 @@ export function createDay({
      * Per frame, in real seconds. Returns 'expired' once, when it runs out.
      *
      * `pace()` is the entry point's answer to "is the player reading rather
-     * than walking?" — a quarter rate while a panel is up. The plan itself is
-     * not paced, it is paused: nothing has started yet.
+     * than walking?" — the day is stopped while a panel is up, in every game.
+     * The plan card is paused for a different reason: nothing has started yet.
      */
     tick(delta){
       refreshBar();

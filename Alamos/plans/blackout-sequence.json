@@ -1,0 +1,1007 @@
+{
+ "theme": "blackout",
+ "days": 15,
+ "stops": 45,
+ "concepts": 32,
+ "claimed": 25,
+ "layers": 7,
+ "open": {
+  "0": 1,
+  "1": 1,
+  "2": 4,
+  "3": 7,
+  "4": 9,
+  "5": 12,
+  "6": 15
+ },
+ "rho": 0.29,
+ "inversions": 0,
+ "prior": 0,
+ "course": 0,
+ "priorConcepts": [],
+ "sameDay": 0,
+ "unclaimed": [
+  1,
+  6,
+  11,
+  12,
+  14,
+  28,
+  32
+ ],
+ "untouched": [],
+ "dupes": [
+  [
+   15,
+   [
+    5,
+    14,
+    32,
+    40
+   ]
+  ],
+  [
+   26,
+   [
+    27,
+    29,
+    30,
+    33
+   ]
+  ],
+  [
+   29,
+   [
+    1,
+    20,
+    43
+   ]
+  ],
+  [
+   19,
+   [
+    7,
+    8,
+    36
+   ]
+  ],
+  [
+   5,
+   [
+    28,
+    35,
+    44
+   ]
+  ],
+  [
+   31,
+   [
+    9,
+    31
+   ]
+  ],
+  [
+   4,
+   [
+    13,
+    19
+   ]
+  ],
+  [
+   27,
+   [
+    34,
+    42
+   ]
+  ],
+  [
+   22,
+   [
+    38,
+    39
+   ]
+  ]
+ ],
+ "bandEarly": 20,
+ "bestLegal": {
+  "rho": 0.46,
+  "order": [
+   5,
+   6,
+   1,
+   4,
+   2,
+   7,
+   12,
+   9,
+   10,
+   8,
+   13,
+   3,
+   11,
+   14,
+   15
+  ],
+  "course": 1
+ },
+ "bestFree": {
+  "rho": 0.5
+ },
+ "stopLevel": {
+  "rho": 0.9,
+  "moves": 30,
+  "course": 2
+ },
+ "slates": [
+  {
+   "key": "A",
+   "name": "Declare what it takes as read — applied",
+   "inversions": 0,
+   "prior": 0,
+   "course": 0,
+   "claimed": 25,
+   "rho": 0.29
+  },
+  {
+   "key": "B",
+   "name": "Fix the twelve — applied",
+   "inversions": 0,
+   "prior": 0,
+   "course": 0,
+   "claimed": 25,
+   "rho": 0.29
+  },
+  {
+   "key": "C",
+   "name": "Re-cut the fortnight",
+   "inversions": 0,
+   "prior": 0,
+   "course": 0,
+   "claimed": 25,
+   "rho": 0.29
+  }
+ ],
+ "courseRows": [],
+ "priorRows": [],
+ "rows": [
+  {
+   "n": 1,
+   "day": 1,
+   "group": "LOAD",
+   "type": "BALLPARK",
+   "tier": "CONSTRUCT",
+   "title": "What comes out against what went in",
+   "c": 29,
+   "cname": "Storage, round-trip efficiency and ramp rate",
+   "assumes": [
+    "storing energy and recovering it both lose some of it",
+    "electrical power and energy over time — taken as read"
+   ],
+   "takesAsRead": [
+    {
+     "n": 5,
+     "c": "Electrical power and energy over time"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "day": 1,
+   "group": "GEN",
+   "type": "CHOICE",
+   "tier": "SELECT",
+   "title": "The reason the wires are not at wall voltage",
+   "c": 13,
+   "cname": "Transformers, turns ratio and losses",
+   "assumes": [
+    "a transformer changes voltage in proportion to its turns",
+    "electrical power and energy over time — taken as read",
+    "faraday's law and electromagnetic induction — taken as read"
+   ],
+   "takesAsRead": [
+    {
+     "n": 5,
+     "c": "Electrical power and energy over time"
+    },
+    {
+     "n": 17,
+     "c": "Faraday's law and electromagnetic induction"
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "day": 1,
+   "group": "OPS",
+   "type": "CHOICE",
+   "tier": "SELECT",
+   "title": "What a node has to add up to",
+   "c": 3,
+   "cname": "Kirchhoff's laws and nodal analysis",
+   "assumes": [
+    "charge does not accumulate at a junction",
+    "ohm's law and resistive networks — taken as read",
+    "charge, current, voltage and resistance — taken as read"
+   ],
+   "takesAsRead": [
+    {
+     "n": 2,
+     "c": "Ohm's law and resistive networks"
+    },
+    {
+     "n": 1,
+     "c": "Charge, current, voltage and resistance"
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "day": 2,
+   "group": "OPS",
+   "type": "DELEGATE",
+   "tier": "CONSTRUCT",
+   "title": "Which of the three cannot wait",
+   "c": null,
+   "cname": null,
+   "assumes": [
+    "a stable problem can be severe without becoming more urgent each minute",
+    "reserve actions need lead time before the peak"
+   ],
+   "takesAsRead": []
+  },
+  {
+   "n": 5,
+   "day": 2,
+   "group": "TRANS",
+   "type": "BALLPARK",
+   "tier": "CONSTRUCT",
+   "title": "Loss when the load turns up anyway",
+   "c": 15,
+   "cname": "Transmission losses and conductor sizing",
+   "assumes": [
+    "loss in a conductor rises with the square of the current",
+    "ohm's law and resistive networks — taken as read",
+    "electrical power and energy over time — taken as read"
+   ],
+   "takesAsRead": [
+    {
+     "n": 2,
+     "c": "Ohm's law and resistive networks"
+    },
+    {
+     "n": 5,
+     "c": "Electrical power and energy over time"
+    }
+   ]
+  },
+  {
+   "n": 6,
+   "day": 2,
+   "group": "LOAD",
+   "type": "SEQUENCE",
+   "tier": "CONSTRUCT",
+   "title": "An order that survives being carried out",
+   "c": null,
+   "cname": null,
+   "assumes": [
+    "some actions change the value of the actions that follow them"
+   ],
+   "takesAsRead": []
+  },
+  {
+   "n": 7,
+   "day": 3,
+   "group": "OPS",
+   "type": "PROTOCOL",
+   "tier": "CONSTRUCT",
+   "title": "What a frequency trend is evidence of",
+   "c": 19,
+   "cname": "Frequency as the balance of supply and demand",
+   "assumes": [
+    "an alternating supply has a frequency measured in cycles per second",
+    "synchronous machines and synchronisation — taken as read",
+    "electrical power and energy over time — taken as read"
+   ],
+   "takesAsRead": [
+    {
+     "n": 18,
+     "c": "Synchronous machines and synchronisation"
+    },
+    {
+     "n": 5,
+     "c": "Electrical power and energy over time"
+    }
+   ]
+  },
+  {
+   "n": 8,
+   "day": 3,
+   "group": "GEN",
+   "type": "BALLPARK",
+   "tier": "CONSTRUCT",
+   "title": "How much power actually left the system",
+   "c": 19,
+   "cname": "Frequency as the balance of supply and demand",
+   "assumes": [
+    "a rate of change can be read off the steep part of a trend",
+    "synchronous machines and synchronisation — taken as read",
+    "electrical power and energy over time — taken as read"
+   ],
+   "takesAsRead": [
+    {
+     "n": 18,
+     "c": "Synchronous machines and synchronisation"
+    },
+    {
+     "n": 5,
+     "c": "Electrical power and energy over time"
+    }
+   ]
+  },
+  {
+   "n": 9,
+   "day": 3,
+   "group": "METER",
+   "type": "TRACE",
+   "tier": "CONSTRUCT",
+   "title": "The order the records claim things happened in",
+   "c": 31,
+   "cname": "Metering, instrument transformers and measurement error",
+   "assumes": [
+    "a timestamp combines a measured event with a clock reference",
+    "two channels can agree because they share the same source",
+    "faraday's law and electromagnetic induction — taken as read",
+    "rMS against peak and average — taken as read"
+   ],
+   "takesAsRead": [
+    {
+     "n": 17,
+     "c": "Faraday's law and electromagnetic induction"
+    },
+    {
+     "n": 7,
+     "c": "RMS against peak and average"
+    }
+   ]
+  },
+  {
+   "n": 10,
+   "day": 4,
+   "group": "TRANS",
+   "type": "TRIGGER",
+   "tier": "CONSTRUCT",
+   "title": "What you do before a relay does it for you",
+   "c": 23,
+   "cname": "Protection: relays, breakers and coordination",
+   "assumes": [
+    "continuous and emergency ratings are different limits",
+    "redispatch is slower than automatic or operator load shedding",
+    "charge, current, voltage and resistance — taken as read",
+    "ohm's law and resistive networks — taken as read"
+   ],
+   "takesAsRead": [
+    {
+     "n": 1,
+     "c": "Charge, current, voltage and resistance"
+    },
+    {
+     "n": 2,
+     "c": "Ohm's law and resistive networks"
+    }
+   ]
+  },
+  {
+   "n": 11,
+   "day": 4,
+   "group": "LOAD",
+   "type": "BALLPARK",
+   "tier": "CONSTRUCT",
+   "title": "The power that never arrives",
+   "c": 2,
+   "cname": "Ohm's law and resistive networks",
+   "assumes": [
+    "current through a resistance dissipates power as heat",
+    "charge, current, voltage and resistance — taken as read"
+   ],
+   "takesAsRead": [
+    {
+     "n": 1,
+     "c": "Charge, current, voltage and resistance"
+    }
+   ]
+  },
+  {
+   "n": 12,
+   "day": 4,
+   "group": "OPS",
+   "type": "BALLPARK",
+   "tier": "CONSTRUCT",
+   "title": "What the path opposes at 50 hertz",
+   "c": 9,
+   "cname": "Reactance, impedance and phasors",
+   "assumes": [
+    "an alternating current has a frequency, and this system runs at 50 hertz",
+    "the hypotenuse of a right-angled triangle is the square root of the sum of the squares",
+    "aC waveforms: frequency, period and phase — taken as read",
+    "capacitance, inductance and stored energy — taken as read",
+    "rMS against peak and average — taken as read"
+   ],
+   "takesAsRead": [
+    {
+     "n": 6,
+     "c": "AC waveforms: frequency, period and phase"
+    },
+    {
+     "n": 8,
+     "c": "Capacitance, inductance and stored energy"
+    },
+    {
+     "n": 7,
+     "c": "RMS against peak and average"
+    }
+   ]
+  },
+  {
+   "n": 13,
+   "day": 5,
+   "group": "DIST",
+   "type": "PROTOCOL",
+   "tier": "CONSTRUCT",
+   "title": "What is common and what divides",
+   "c": 4,
+   "cname": "Series, parallel and equivalent circuits",
+   "assumes": [
+    "a circuit can be connected end to end or side by side",
+    "kirchhoff's laws and nodal analysis — taken as read"
+   ],
+   "takesAsRead": [
+    {
+     "n": 3,
+     "c": "Kirchhoff's laws and nodal analysis"
+    }
+   ]
+  },
+  {
+   "n": 14,
+   "day": 5,
+   "group": "TRANS",
+   "type": "PROTOCOL",
+   "tier": "CONSTRUCT",
+   "title": "What actually limits a conductor",
+   "c": 15,
+   "cname": "Transmission losses and conductor sizing",
+   "assumes": [
+    "a conductor warms up as current passes through it",
+    "electrical power and energy over time — taken as read"
+   ],
+   "takesAsRead": [
+    {
+     "n": 5,
+     "c": "Electrical power and energy over time"
+    }
+   ]
+  },
+  {
+   "n": 15,
+   "day": 5,
+   "group": "OPS",
+   "type": "CHOICE",
+   "tier": "SELECT",
+   "title": "The order somebody will read back to you",
+   "c": null,
+   "cname": null,
+   "assumes": [
+    "a crew can only work one fault at a time"
+   ],
+   "takesAsRead": []
+  },
+  {
+   "n": 16,
+   "day": 6,
+   "group": "METER",
+   "type": "BALLPARK",
+   "tier": "CONSTRUCT",
+   "title": "What three phases actually add up to",
+   "c": 10,
+   "cname": "Real, reactive and apparent power",
+   "assumes": [
+    "a three-phase supply carries power on three conductors at once",
+    "electrical power and energy over time — taken as read"
+   ],
+   "takesAsRead": [
+    {
+     "n": 5,
+     "c": "Electrical power and energy over time"
+    }
+   ]
+  },
+  {
+   "n": 17,
+   "day": 6,
+   "group": "GEN",
+   "type": "SEQUENCE",
+   "tier": "CONSTRUCT",
+   "title": "Four things that have to agree before the breaker closes",
+   "c": 18,
+   "cname": "Synchronous machines and synchronisation",
+   "assumes": [
+    "a generator joined to a live system is forced to turn at the system's speed",
+    "aC waveforms: frequency, period and phase — taken as read",
+    "faraday's law and electromagnetic induction — taken as read"
+   ],
+   "takesAsRead": [
+    {
+     "n": 6,
+     "c": "AC waveforms: frequency, period and phase"
+    },
+    {
+     "n": 17,
+     "c": "Faraday's law and electromagnetic induction"
+    }
+   ]
+  },
+  {
+   "n": 18,
+   "day": 6,
+   "group": "TRANS",
+   "type": "CHOICE",
+   "tier": "SELECT",
+   "title": "Two instruments, two quantities",
+   "c": 7,
+   "cname": "RMS against peak and average",
+   "assumes": [
+    "an alternating voltage changes continuously through each cycle",
+    "aC waveforms: frequency, period and phase — taken as read"
+   ],
+   "takesAsRead": [
+    {
+     "n": 6,
+     "c": "AC waveforms: frequency, period and phase"
+    }
+   ]
+  },
+  {
+   "n": 19,
+   "day": 7,
+   "group": "TRANS",
+   "type": "BALLPARK",
+   "tier": "CONSTRUCT",
+   "title": "How the flow splits between two paths",
+   "c": 4,
+   "cname": "Series, parallel and equivalent circuits",
+   "assumes": [
+    "two paths between the same two points carry the same voltage across them"
+   ],
+   "takesAsRead": []
+  },
+  {
+   "n": 20,
+   "day": 7,
+   "group": "OPS",
+   "type": "VALUE",
+   "tier": "CONSTRUCT",
+   "title": "What is worth knowing before the peak",
+   "c": 29,
+   "cname": "Storage, round-trip efficiency and ramp rate",
+   "assumes": [
+    "reserve is held against uncertainty rather than only the forecast centre",
+    "storage power and storage deliverability are separate claims",
+    "electrical power and energy over time — taken as read"
+   ],
+   "takesAsRead": [
+    {
+     "n": 5,
+     "c": "Electrical power and energy over time"
+    }
+   ]
+  },
+  {
+   "n": 21,
+   "day": 7,
+   "group": "DIST",
+   "type": "BALLPARK",
+   "tier": "CONSTRUCT",
+   "title": "Why the far end sits low",
+   "c": 16,
+   "cname": "Voltage drop, regulation and reactive support",
+   "assumes": [
+    "current flowing through a resistance produces a drop in voltage"
+   ],
+   "takesAsRead": []
+  },
+  {
+   "n": 22,
+   "day": 8,
+   "group": "TRANS",
+   "type": "BALLPARK",
+   "tier": "CONSTRUCT",
+   "title": "What a short circuit is limited by",
+   "c": 24,
+   "cname": "Fault current and short-circuit analysis",
+   "assumes": [
+    "a short circuit leaves almost no impedance in the path"
+   ],
+   "takesAsRead": []
+  },
+  {
+   "n": 23,
+   "day": 8,
+   "group": "METER",
+   "type": "CONTROL",
+   "tier": "OPERATE",
+   "title": "A reading taken without a connection",
+   "c": 17,
+   "cname": "Faraday's law and electromagnetic induction",
+   "assumes": [
+    "a changing magnetic field can induce voltage in a nearby coil",
+    "the bench current transformer has 1 primary turn and 20 secondary turns",
+    "aC waveforms: frequency, period and phase — taken as read",
+    "charge, current, voltage and resistance — taken as read"
+   ],
+   "takesAsRead": [
+    {
+     "n": 6,
+     "c": "AC waveforms: frequency, period and phase"
+    },
+    {
+     "n": 1,
+     "c": "Charge, current, voltage and resistance"
+    }
+   ]
+  },
+  {
+   "n": 24,
+   "day": 8,
+   "group": "LOAD",
+   "type": "BALLPARK",
+   "tier": "CONSTRUCT",
+   "title": "The peak, and how far the cold moves it",
+   "c": 21,
+   "cname": "Load curves and demand forecasting",
+   "assumes": [
+    "demand rises as the temperature falls, roughly in step",
+    "electrical power and energy over time — taken as read"
+   ],
+   "takesAsRead": [
+    {
+     "n": 5,
+     "c": "Electrical power and energy over time"
+    }
+   ]
+  },
+  {
+   "n": 25,
+   "day": 9,
+   "group": "OPS",
+   "type": "DEGENERACY",
+   "tier": "CONSTRUCT",
+   "title": "Why the island's frequency is falling slowly",
+   "c": 20,
+   "cname": "Inertia, governor response and droop control",
+   "assumes": [
+    "the island is near 50 Hz",
+    "the initial frequency slope follows df/dt = f₀ΔP/(2E_k)"
+   ],
+   "takesAsRead": []
+  },
+  {
+   "n": 26,
+   "day": 9,
+   "group": "METER",
+   "type": "PROTOCOL",
+   "tier": "CONSTRUCT",
+   "title": "What is stored, and for how long",
+   "c": 8,
+   "cname": "Capacitance, inductance and stored energy",
+   "assumes": [
+    "energy can be stored in a spinning mass, in a magnetic field or in a chemical cell",
+    "aC waveforms: frequency, period and phase — taken as read",
+    "charge, current, voltage and resistance — taken as read"
+   ],
+   "takesAsRead": [
+    {
+     "n": 6,
+     "c": "AC waveforms: frequency, period and phase"
+    },
+    {
+     "n": 1,
+     "c": "Charge, current, voltage and resistance"
+    }
+   ]
+  },
+  {
+   "n": 27,
+   "day": 9,
+   "group": "DIST",
+   "type": "CHOICE",
+   "tier": "SELECT",
+   "title": "Keeping it, or collapsing it on purpose",
+   "c": 26,
+   "cname": "Islanding, black start and restoration order",
+   "assumes": [
+    "restoring a collapsed island takes longer than holding a live one"
+   ],
+   "takesAsRead": []
+  },
+  {
+   "n": 28,
+   "day": 10,
+   "group": "GEN",
+   "type": "BALLPARK",
+   "tier": "CONSTRUCT",
+   "title": "What the dark hours actually cost",
+   "c": 5,
+   "cname": "Electrical power and energy over time",
+   "assumes": [
+    "power sustained over a period of time delivers energy",
+    "charge, current, voltage and resistance — taken as read"
+   ],
+   "takesAsRead": [
+    {
+     "n": 1,
+     "c": "Charge, current, voltage and resistance"
+    }
+   ]
+  },
+  {
+   "n": 29,
+   "day": 10,
+   "group": "OPS",
+   "type": "CHAIN",
+   "tier": "CONSTRUCT",
+   "title": "The order physics allows",
+   "c": 26,
+   "cname": "Islanding, black start and restoration order",
+   "assumes": [
+    "the large station needs electrical auxiliaries before it can start",
+    "the hydro unit can start without an outside electrical supply"
+   ],
+   "takesAsRead": []
+  },
+  {
+   "n": 30,
+   "day": 10,
+   "group": "DIST",
+   "type": "CASEBOOK",
+   "tier": "SELECT",
+   "title": "Why it cannot go faster",
+   "c": 26,
+   "cname": "Islanding, black start and restoration order",
+   "assumes": [
+    "a small live system is disturbed more by a given block of load than a large one"
+   ],
+   "takesAsRead": []
+  },
+  {
+   "n": 31,
+   "day": 11,
+   "group": "METER",
+   "type": "CHOICE",
+   "tier": "SELECT",
+   "title": "The sensor that was confident and wrong",
+   "c": 31,
+   "cname": "Metering, instrument transformers and measurement error",
+   "assumes": [
+    "an instrument can be precise and still be offset from the truth"
+   ],
+   "takesAsRead": []
+  },
+  {
+   "n": 32,
+   "day": 11,
+   "group": "TRANS",
+   "type": "SWEEP",
+   "tier": "OPERATE",
+   "title": "What a rating is a statement about",
+   "c": 15,
+   "cname": "Transmission losses and conductor sizing",
+   "assumes": [
+    "a conductor's rating is a limit on temperature rather than on current",
+    "resistive heating rises faster than the current that causes it"
+   ],
+   "takesAsRead": []
+  },
+  {
+   "n": 33,
+   "day": 11,
+   "group": "OPS",
+   "type": "CASEBOOK",
+   "tier": "SELECT",
+   "title": "What survives a bad number",
+   "c": 26,
+   "cname": "Islanding, black start and restoration order",
+   "assumes": [
+    "a conclusion can depend on one input or on several"
+   ],
+   "takesAsRead": []
+  },
+  {
+   "n": 34,
+   "day": 12,
+   "group": "OPS",
+   "type": "CHOICE",
+   "tier": "SELECT",
+   "title": "The failure that has not happened",
+   "c": 27,
+   "cname": "Contingency analysis and the N-1 criterion",
+   "assumes": [
+    "a system is required to survive any one credible failure"
+   ],
+   "takesAsRead": []
+  },
+  {
+   "n": 35,
+   "day": 12,
+   "group": "LOAD",
+   "type": "PROTOCOL",
+   "tier": "CONSTRUCT",
+   "title": "The trend with nothing wrong with it",
+   "c": 5,
+   "cname": "Electrical power and energy over time",
+   "assumes": [
+    "a forecast can be right by luck as easily as by skill on any one day",
+    "charge, current, voltage and resistance — taken as read"
+   ],
+   "takesAsRead": [
+    {
+     "n": 1,
+     "c": "Charge, current, voltage and resistance"
+    }
+   ]
+  },
+  {
+   "n": 36,
+   "day": 12,
+   "group": "GEN",
+   "type": "VALUE",
+   "tier": "CONSTRUCT",
+   "title": "Which of these is a measurement",
+   "c": 19,
+   "cname": "Frequency as the balance of supply and demand",
+   "assumes": [
+    "stored kinetic energy affects the initial rate of frequency change",
+    "inverter-connected generation may add power without adding synchronous inertia"
+   ],
+   "takesAsRead": []
+  },
+  {
+   "n": 37,
+   "day": 13,
+   "group": "DIST",
+   "type": "CHOICE",
+   "tier": "SELECT",
+   "title": "The ground is not at one voltage",
+   "c": 25,
+   "cname": "Earthing, step-and-touch potential and safety",
+   "assumes": [
+    "a conductor can be re-energised from more than one direction",
+    "charge, current, voltage and resistance — taken as read"
+   ],
+   "takesAsRead": [
+    {
+     "n": 1,
+     "c": "Charge, current, voltage and resistance"
+    }
+   ]
+  },
+  {
+   "n": 38,
+   "day": 13,
+   "group": "OPS",
+   "type": "CASEBOOK",
+   "tier": "SELECT",
+   "title": "Cheapest first, and the exceptions that are not exceptions",
+   "c": 22,
+   "cname": "Economic dispatch and merit order",
+   "assumes": [
+    "generation is scheduled in order of what it costs to run"
+   ],
+   "takesAsRead": []
+  },
+  {
+   "n": 39,
+   "day": 13,
+   "group": "GEN",
+   "type": "SCIENCETANK",
+   "tier": "SELECT",
+   "title": "When the cheapest power cannot get out",
+   "c": 22,
+   "cname": "Economic dispatch and merit order",
+   "assumes": [
+    "power has to have a path to where it is used"
+   ],
+   "takesAsRead": []
+  },
+  {
+   "n": 40,
+   "day": 14,
+   "group": "METER",
+   "type": "CHOICE",
+   "tier": "SELECT",
+   "title": "Hours over limit, added up",
+   "c": 15,
+   "cname": "Transmission losses and conductor sizing",
+   "assumes": [
+    "time spent above a thermal limit accumulates rather than resetting"
+   ],
+   "takesAsRead": []
+  },
+  {
+   "n": 41,
+   "day": 14,
+   "group": "TRANS",
+   "type": "SCIENCETANK",
+   "tier": "SELECT",
+   "title": "What the window is worth",
+   "c": 30,
+   "cname": "Renewables: variability, curtailment and inverters",
+   "assumes": [
+    "an option with an expiry date is worth more than the same option without one"
+   ],
+   "takesAsRead": []
+  },
+  {
+   "n": 42,
+   "day": 14,
+   "group": "OPS",
+   "type": "PROTOCOL",
+   "tier": "CONSTRUCT",
+   "title": "The 18 months you just bought",
+   "c": 27,
+   "cname": "Contingency analysis and the N-1 criterion",
+   "assumes": [
+    "a decision to build something is also a decision about the years before it exists"
+   ],
+   "takesAsRead": []
+  },
+  {
+   "n": 43,
+   "day": 15,
+   "group": "METER",
+   "type": "ATTEST",
+   "tier": "CONSTRUCT",
+   "title": "Measured, inferred, assumed",
+   "c": 29,
+   "cname": "Storage, round-trip efficiency and ramp rate",
+   "assumes": [
+    "a report claim can be measured, inferred or still assumed",
+    "verification time is limited before the report closes"
+   ],
+   "takesAsRead": []
+  },
+  {
+   "n": 44,
+   "day": 15,
+   "group": "LOAD",
+   "type": "CHOICE",
+   "tier": "SELECT",
+   "title": "The number that has to be a range",
+   "c": 5,
+   "cname": "Electrical power and energy over time",
+   "assumes": [
+    "a forecast is a distribution rather than a single value",
+    "charge, current, voltage and resistance — taken as read"
+   ],
+   "takesAsRead": [
+    {
+     "n": 1,
+     "c": "Charge, current, voltage and resistance"
+    }
+   ]
+  },
+  {
+   "n": 45,
+   "day": 15,
+   "group": "OPS",
+   "type": "CHOICE",
+   "tier": "SELECT",
+   "title": "What outlives the emergency",
+   "c": null,
+   "cname": null,
+   "assumes": [
+    "a practice adopted under pressure has a cost that only shows up later"
+   ],
+   "takesAsRead": []
+  }
+ ]
+}

@@ -20,6 +20,11 @@
 // conformance check with a sentence a person can act on, not a stack trace at
 // the first question panel.
 
+// The near/far split is geometry, and it lives beside the two orientation laps
+// that teach it. This file only needs to know which day a far area starts being
+// called on.
+import { tiersFor, unlockDay } from '../core/orientation.js';
+
 /** The formats the question UI can render. Everything maps onto one of these. */
 export const FORMATS = new Set([
   'PROTOCOL', 'SEQUENCE', 'BALLPARK', 'SCIENCETANK',
@@ -67,7 +72,40 @@ export const FORMATS = new Set([
   'ROUTE',        // a sequence that can be rejoined after an interruption
   // ---- The thirteenth, written for a calculus course.
   'DERIVE',       // build the derivation a line at a time, and name what licenses each
+  // ---- Tier 3: the ones that are fun first. Same registry and same contract;
+  // what differs is that the move is the player's rather than the scientist's,
+  // and one bit of subject matter is carried at speed. See ARCADE.md.
+  'BELT',         // a binary category, sorted before it reaches the end of the line
+  'TRIAL',        // the route itself, graded on the order rather than the clock
+  'HOLD',         // one number under load, held inside a band that closes
+  'SPOT',         // an instruction that is replaced without announcement
+  'STACK',        // falling blocks with a question rail; a wrong answer costs a row
+  'LOB',          // angle, charge and wind, with the launch speed withheld
+  // ---- Tier 3, the world-graded five. Same contract again; what they have in
+  // common is that the board is the place — see worldFormats.js and ARCADE.md.
+  'GREET',        // get round a list of people before the hour is out
+  'FOLLOW',       // stay inside a band behind somebody who will not wait
+  'HUNT',         // find enough of the same thing, and know when to stop looking
+  'CANVASS',      // ask a yes-or-no question until the sample can answer it
+  'EVADE',        // hold a clear distance for a stretch of time, using the ground
+  'TAG',          // and the same test the other way round: close it, using the ground
 ]);
+
+/**
+ * Formats that exist and may not be authored, with the reason.
+ *
+ * A suspended format keeps its entry in `FORMATS`, its panel in
+ * `instruments.js` and its traps — because the fix is meant to arrive, and
+ * deleting a format is how the work of rebuilding it starts. What is refused is
+ * a *book* authoring one: `import-book.mjs` fails the stop, and the loop below
+ * reports any that reached a theme's content, so a game cannot ship one through
+ * a stale generated file either.
+ *
+ * Lift a suspension by deleting the line. Nothing else has to change.
+ */
+export const SUSPENDED_FORMATS = {
+  STACK: 'reported broken in play — suspended until it is fixed and re-driven',
+};
 
 /** 'Science Tank' | 'sciencetank' | 'SCIENCE_TANK' -> 'SCIENCETANK'. */
 export function canonicalType(type){
@@ -86,10 +124,19 @@ const baseTitle = (t) => String(t ?? '').replace(/ — Review \d+$/, '');
  *   BALLPARK_BY_TITLE  lesson title -> number-tile spec, applied to its reviews
  *   DIVISION_BY_PERSON person id -> group id, for a roster that omits it
  */
-export function normalizeContent(content = {}){
+export function normalizeContent(content = {}, site = null){
   const changes = [];
   const problems = [];
   const curriculum = content.CURRICULUM ?? {};
+  // The near/far tiers, measured once from the site and stamped on the content.
+  // A caller with no site — a selftest fixture, a tool that hand-builds a
+  // campaign — gets one tier and today's behaviour. A caller that loaded a theme
+  // gets whatever theme.js already stamped, so the checkers and the game agree
+  // about which day a stop is called on.
+  if(site && !content.TIERS){
+    content.TIERS = tiersFor(site);
+    content.UNLOCK_DAY = unlockDay(site);
+  }
   // Applied after the lessons are canonical, at the bottom of this function.
   const calcs = content.BALLPARK_CALCS ?? {};
   const packs = content.DIAGNOSIS_PACKS ?? {};
@@ -168,6 +215,8 @@ export function normalizeContent(content = {}){
 
       if(!FORMATS.has(ch.type)){
         problems.push(`${at}: format "${ch.type}" has no renderer`);
+      } else if(SUSPENDED_FORMATS[ch.type]){
+        problems.push(`${at}: format "${ch.type}" is suspended — ${SUSPENDED_FORMATS[ch.type]}`);
       }
     }
   }
@@ -188,8 +237,28 @@ export function normalizeContent(content = {}){
     }
   }
 
+  // ---- a briefed stop tells its panel to stop lecturing
+  //
+  // A stop carrying `guide` has one paragraph whose job is the instruction, so the
+  // panel's format-level "what you are doing" block is the same thing said again in
+  // more words. The four panels in questionUI.js can read the active lesson and
+  // suppress it themselves; the 24 in instruments.js are handed nothing but `ch`,
+  // deliberately — they take no engine state at all — so the flag has to travel on
+  // the challenge. Derived here rather than authored, because a book that had to
+  // remember to write both would eventually write one.
+  for(const lessons of Object.values(curriculum)){
+    for(const lesson of (lessons ?? [])){
+      if(!lesson?.game) continue;
+      if(String(lesson.guide ?? '').trim() && !lesson.game.briefed){
+        lesson.game.briefed = true;
+        changes.push(`${lesson.title ?? 'a stop'}: has a guide, so its panel drops the`
+          + ' format-level "what you are doing" block');
+      }
+    }
+  }
+
   // ---- last: the shape of the days themselves
-  shapeMissions(content.MISSIONS ?? [], curriculum, changes);
+  shapeMissions(content.MISSIONS ?? [], curriculum, changes, content.TIERS, content.UNLOCK_DAY);
   primeMissions(content.MISSIONS ?? [], curriculum, content.JARGON ?? [], changes);
   // After shaping, because shaping is what decides which day a lesson lands on:
   // an equation's first day is not knowable until the callbacks exist.
@@ -619,8 +688,71 @@ function applyPack(ch, pack){
  * Deep Watch needs almost none of the first rule — it was authored interleaved
  * — and Project Y needs none of it. Both still get the callbacks.
  */
-export function shapeMissions(missions = [], curriculum = {}, changes = []){
+/**
+ * Pull far-ground calls out of the opening days, by swapping rather than moving.
+ *
+ * A site with two tiers of ground opens the far tier on the unlock day, and the
+ * rule is **soft**: the ground is walkable from the first morning, but nothing is
+ * *called* out there until the day the second orientation lap and the vehicles
+ * arrive. Every campaign with a far tier currently teaches in it on day 1 —
+ * Wellmere has seven of its first ten calls out past the glasshouses — so
+ * something has to give, and the choice is which.
+ *
+ * Swapping, not moving. A far call on day 2 trades places with a near call on a
+ * later day, so both days keep their stop count, every lesson is still taught,
+ * and the books are untouched. What changes is the order two lessons are met in.
+ *
+ * **Nothing here reasons about equation dependencies, deliberately.** The
+ * syllabus lives in `tools/`, the engine does not import it, and a second
+ * dependency solver in this file would be a second description of a rule
+ * `equationOrder.mjs` already owns. So the swap is conservative — it prefers the
+ * latest available partner, which pushes lessons later rather than earlier — and
+ * `equationOrder` is the guard. If it fails a game after this, the fix is to
+ * refuse that swap, not to teach this function about equations.
+ */
+function nearFirst(missions, tiers, unlockDay, changes){
+  if(!tiers?.hasFar || !(unlockDay > 1)) return;
+  const isFar = (s) => tiers.far.includes(s.group);
+  const opening = missions.slice(0, unlockDay - 1);
+  if(!opening.length) return;
+
+  for(let d = 0; d < opening.length; d++){
+    const day = missions[d];
+    for(const stop of day.stops ?? []){
+      if(!isFar(stop)) continue;
+      // Latest day first: a lesson pushed later is safer than one pulled
+      // earlier, because a course is written so that later work depends on
+      // earlier work and never the other way round.
+      let partner = null, from = -1;
+      for(let e = missions.length - 1; e >= unlockDay - 1; e--){
+        const cand = (missions[e].stops ?? []).find(s =>
+          !isFar(s)
+          // Neither day may end up calling the same area twice: that is what
+          // makes a stop a person hunt three lines further down.
+          && !(day.stops ?? []).some(x => x !== stop && x.group === s.group)
+          && !(missions[e].stops ?? []).some(x => x !== s && x.group === stop.group));
+        if(cand){ partner = cand; from = e; break; }
+      }
+      if(!partner){
+        // Nothing legal to trade with. The far call stays, and it is reported
+        // rather than dropped — a silent exception is how a rule stops meaning
+        // anything.
+        changes.push(`day ${d + 1}: ${stop.group} is far ground and no near call could be traded for it`);
+        continue;
+      }
+      const a = { group: stop.group, lesson: stop.lesson, task: stop.task };
+      stop.group = partner.group; stop.lesson = partner.lesson; stop.task = partner.task;
+      partner.group = a.group; partner.lesson = a.lesson; partner.task = a.task;
+      changes.push(`day ${d + 1}: far call ${a.group} traded with ${stop.group} from day ${from + 1}`);
+    }
+  }
+}
+
+export function shapeMissions(missions = [], curriculum = {}, changes = [], tiers = null, unlockDay = 0){
   if(!Array.isArray(missions) || !missions.length) return missions;
+  // Before anything else: the opening days must not call far ground. Person
+  // stops and callbacks are decided below, on the days as they finally stand.
+  nearFirst(missions, tiers, unlockDay, changes);
   /** Lessons already taught, oldest first: [group, lessonIndex, title]. */
   const taught = [];
   const calledBack = new Set();

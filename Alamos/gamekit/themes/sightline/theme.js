@@ -7,7 +7,7 @@
 import { plan } from './plan.js';
 import { OUTFITS, roleToOutfit } from './outfits.js';
 import { GROUPS } from './content/groups.js';
-import { MISSIONS } from './content/missions.js';
+import { MISSIONS, WARMUPS } from './content/missions.js';
 import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
 import { ROSTER, LEADERS, AVATARS } from './content/roster.js';
 import { COPY } from './content/copy.js';
@@ -34,7 +34,7 @@ export default {
   // between here and it.
   start: { x: 0, z: 39, yaw: 0 },
 
-  content: { GROUPS, MISSIONS, CURRICULUM, BALLPARK_CALCS, JARGON, ROSTER, LEADERS, AVATARS, COPY },
+  content: { GROUPS, MISSIONS, CURRICULUM, BALLPARK_CALCS, JARGON, ROSTER, LEADERS, AVATARS, COPY, WARMUPS },
 
   people: {
     OUTFITS,

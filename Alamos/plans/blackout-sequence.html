@@ -1,0 +1,527 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Blackout — Sequencing Plan</title>
+<style>
+  @page { size: A4; margin: 15mm 14mm 16mm; }
+  :root { --ink:#15171a; --ink2:#4c5158; --muted:#868b92; --rule:#dcded9; --sunk:#f2f3ef;
+    --acc:#876e25; --s:#2c7a4b; --m:#9a6f14; --d:#767b70; --r:#a4453a; }
+  * { box-sizing:border-box; }
+  body { margin:0; color:var(--ink); background:#fff;
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif; font-size:9.6pt; line-height:1.5; }
+  .mono,.k,code { font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; }
+  code,.k { font-size:.9em; background:var(--sunk); padding:0 3px; border-radius:2px; }
+  em { font-style:normal; font-weight:640; }
+  strong { font-weight:680; }
+  header { border-bottom:2.5pt solid var(--acc); padding-bottom:7pt; margin-bottom:12pt; }
+  .eyebrow { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--acc); }
+  h1 { margin:2pt 0 3pt; font-size:24pt; line-height:1.02; letter-spacing:-.02em; font-weight:660; }
+  .sub { color:var(--ink2); font-size:9.6pt; max-width:150mm; }
+  .place { color:var(--muted); font-size:8.4pt; font-style:italic; margin-top:2pt; }
+  .facts { display:flex; border:.6pt solid var(--rule); margin-top:8pt; }
+  .fact { flex:1; padding:4pt 7pt 5pt; border-right:.6pt solid var(--rule); }
+  .fact:last-child { border-right:none; }
+  .fact b { display:block; font-family:ui-monospace,Menlo,monospace; font-size:13pt; font-weight:640; letter-spacing:-.02em; }
+  .fact span { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); }
+  h2 { font-size:12pt; margin:15pt 0 4pt; font-weight:660; letter-spacing:-.01em;
+    border-bottom:.6pt solid var(--ink); padding-bottom:3pt; break-after:avoid; }
+  h2 .ph { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--acc); margin-right:6pt; }
+  h3 { font-size:9.8pt; margin:11pt 0 0; font-weight:660; break-after:avoid; }
+  p { margin:6pt 0; max-width:170mm; }
+  ul { margin:6pt 0 6pt 16pt; padding:0; }
+  li { margin:3pt 0; }
+  table { border-collapse:collapse; width:100%; font-size:8.4pt; margin:6pt 0; }
+  th,td { text-align:left; padding:3pt 6pt 3pt 0; border-bottom:.5pt solid var(--rule); vertical-align:top; }
+  thead th { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--muted); font-weight:500; border-bottom:.7pt solid var(--ink); }
+  td.n,th.n { text-align:right; padding-right:8pt; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .flag { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.05em;
+    border:.5pt solid currentColor; padding:0 3pt; border-radius:2pt; white-space:nowrap; }
+  .f-same { color:var(--m); }
+  .callout { border-left:2pt solid var(--acc); background:var(--sunk); padding:6pt 9pt; margin:8pt 0; break-inside:avoid; }
+  .callout p { margin:3pt 0; }
+  .callout .tag { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--acc); display:block; margin-bottom:3pt; }
+  .callout.warn { border-left-color:var(--r); }
+  .callout.warn .tag { color:var(--r); }
+  .lane { display:flex; border:.6pt solid var(--rule); margin:7pt 0 3pt; }
+  .lane .col { flex:1; border-right:.5pt solid var(--rule); padding:3pt 0 4pt; text-align:center; }
+  .lane .col:last-child { border-right:none; }
+  .lane .dy { font-family:ui-monospace,Menlo,monospace; font-size:6pt; color:var(--muted); display:block; }
+  .lane .lic { font-family:ui-monospace,Menlo,monospace; font-size:6pt; color:var(--acc); display:block; }
+  .lane .cs { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; line-height:1.4; }
+  .lane .over { color:var(--r); font-weight:680; }
+  .lane .ok { color:var(--ink2); }
+  .slate { border:.6pt solid var(--rule); padding:6pt 8pt 7pt; margin:7pt 0; break-inside:avoid; }
+  .slate .sh { display:flex; align-items:baseline; gap:8pt; border-bottom:.6pt solid var(--rule); padding-bottom:3pt; }
+  .slate h4 { margin:0; font-size:10.5pt; font-weight:660; }
+  .slate .n2 { font-family:ui-monospace,Menlo,monospace; font-size:6.6pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); }
+  .slate p { font-size:9pt; margin:4pt 0 0; }
+  .out { border-top:.6pt solid var(--rule); padding-top:4pt; margin-top:5pt; font-size:7.8pt; color:var(--ink2); }
+  .out b { color:var(--ink); font-variant-numeric:tabular-nums; }
+  footer { margin-top:14pt; padding-top:5pt; border-top:.6pt solid var(--rule); color:var(--muted); font-size:7pt; }
+  .avoid { break-inside:avoid; }
+</style></head><body>
+
+<header>
+  <div class="eyebrow">Alamos · sequencing plan · Engineering · grade 12–13</div>
+  <h1>Blackout</h1>
+  <div class="sub">AP Physics 2 · circuits &amp; induction — when the course introduces a concept, against where the
+  story is standing when it does.</div>
+  <div class="place">Calder Switching Station, and two circuits of lattice towers walking off the edge of the map.</div>
+  <div class="facts">
+    <div class="fact"><b>45</b><span>stops · 15 days</span></div>
+    <div class="fact"><b>25/32</b><span>concepts claimed</span></div>
+    <div class="fact"><b>0.29</b><span>day ↔ concept (ρ)</span></div>
+    <div class="fact"><b>0</b><span>prerequisite inversions</span></div>
+    <div class="fact"><b>34</b><span>declared as read</span></div>
+    <div class="fact"><b>L3 of 6</b><span>day 1 opens at</span></div>
+  </div>
+</header>
+
+<h2><span class="ph">Reading</span>Where this campaign stands</h2>
+<p><strong>Both slates are applied, and the rule is a check now.</strong> Before them, day 1's first
+stop asked what a falling frequency trend is evidence of and the card named
+c20 · inertia, governor response and droop control (twice) and c31 · metering — layer 5 of 6 — while <em>c19 · frequency as the balance
+of supply and demand</em>, which droop is built out of, was claimed by no stop until day 12, and
+<em>c18 · synchronous machines</em> by no stop at all. Today that stop claims the balance itself, which is
+what it computes, and says on the card that it takes synchronous machines and power-against-energy as
+read. <code>engine/dev/conceptOrder.mjs</code> is green on all 29 themes.</p>
+<p>The numbers: of 28 prerequisite inversions, 12 rested on
+material this campaign itself teaches later and 16 on the bottom of the graph. The first
+group is ordered — <em>0</em> left — and the second is declared, in
+32 <code>takesAsRead</code> entries that the importer refuses unless the concept
+is genuinely something the stop's claim is built out of. Concepts claimed went 22 →
+25 of 32; ρ went 0.19 → 0.29.</p>
+<p><strong>The gate is per stop, and that is not the same audit as this document's.</strong> Two stops can
+claim one concept, and each of them has to answer for its own prerequisites — so
+<code>conceptOrder</code> found 6 rows the concept-level count had
+hidden, including a stop standing beside its own base on day 6 rather than after it. Four were declared;
+two were ordered, and one of those is the fix worth copying: day 10's dark-hours estimate now claims
+<em>energy from power over time</em>, which is what <code>E = Pt</code> is, and that single re-claim put
+the base under two later stops at once.</p>
+
+<div class="callout warn"><span class="tag">The finding that decides the work</span>
+<p><strong>Re-ordering the story is not the fix.</strong> The fortnight is a chronology — the trip
+causes the aftermath, the island precedes the black start, the report is last — and searching
+permutations of the fifteen missions that respect those 11 constraints, the best
+correlation available is <em>ρ = 0.46</em> against today's
+0.29 — and measured before the pass it left 10 of the 12 in-course
+inversions standing, which is why it was never the fix. The re-order that was taken scores
+0.29 rather than that ceiling <em>on purpose</em>: the search ranked orders by
+prerequisite breaks first and correlation second, and the correlation-maximal order teaches backwards. Ignore the story entirely and it reaches
+0.50; move individual stops rather than whole missions and it reaches
+0.90, at 30 rewritten scenes.</p>
+<p>Correlation is the wrong target anyway — it is the cheap number adjacent to the thing. The target is
+the prerequisite: <em>every concept a stop claims has a base that arrived on an earlier day, or the stop
+says out loud that it assumes it.</em> That is what the two slates did, without moving a mission or
+touching the story: 12 in-course inversions down to 0 — two
+swapped pairs, one rewritten question, and the last row declared rather than moved, because day 1 cannot
+have anything before it.</p></div>
+
+<div class="avoid">
+<h2><span class="ph">Dependency</span>What this course is built out of</h2>
+<p style="font-size:8.8pt">Authored beside the concepts in <code>tools/syllabus.js</code> — where
+<code>needs</code> already lived for equations — because it is a claim about the subject and not about
+this game, and <code>conceptOrder.mjs</code> reads it there. It is not
+difficulty — c20 is no harder than c9, it is further downstream — and it is not the syllabus's own
+order, which lists transformers at 13 and Faraday's law at 17. Argue with this first: a wrong
+prerequisite here produces a confident wrong number everywhere else in the document.</p>
+<table><thead><tr><th class="n">layer</th><th class="n">licensed from</th><th>concepts</th></tr></thead><tbody>
+<tr><td class="n mono">L0</td><td class="n mono">d1</td>
+  <td><span class="mono" style="font-size:7.4pt">c1</span> Charge, current, voltage and resistance</td></tr><tr><td class="n mono">L1</td><td class="n mono">d1</td>
+  <td><span class="mono" style="font-size:7.4pt">c2</span> Ohm's law and resistive networks · <span class="mono" style="font-size:7.4pt">c6</span> AC waveforms: frequency, period and phase</td></tr><tr><td class="n mono">L2</td><td class="n mono">d4</td>
+  <td><span class="mono" style="font-size:7.4pt">c3</span> Kirchhoff's laws and nodal analysis · <span class="mono" style="font-size:7.4pt">c5</span> Electrical power and energy over time · <span class="mono" style="font-size:7.4pt">c7</span> RMS against peak and average · <span class="mono" style="font-size:7.4pt">c8</span> Capacitance, inductance and stored energy · <span class="mono" style="font-size:7.4pt">c17</span> Faraday's law and electromagnetic induction · <span class="mono" style="font-size:7.4pt">c23</span> Protection: relays, breakers and coordination</td></tr><tr><td class="n mono">L3</td><td class="n mono">d7</td>
+  <td><span class="mono" style="font-size:7.4pt">c4</span> Series, parallel and equivalent circuits · <span class="mono" style="font-size:7.4pt">c9</span> Reactance, impedance and phasors · <span class="mono" style="font-size:7.4pt">c13</span> Transformers, turns ratio and losses · <span class="mono" style="font-size:7.4pt">c15</span> Transmission losses and conductor sizing · <span class="mono" style="font-size:7.4pt">c18</span> Synchronous machines and synchronisation · <span class="mono" style="font-size:7.4pt">c21</span> Load curves and demand forecasting · <span class="mono" style="font-size:7.4pt">c29</span> Storage, round-trip efficiency and ramp rate · <span class="mono" style="font-size:7.4pt">c31</span> Metering, instrument transformers and measurement error</td></tr><tr><td class="n mono">L4</td><td class="n mono">d9</td>
+  <td><span class="mono" style="font-size:7.4pt">c10</span> Real, reactive and apparent power · <span class="mono" style="font-size:7.4pt">c14</span> Voltage levels and the per-unit system · <span class="mono" style="font-size:7.4pt">c19</span> Frequency as the balance of supply and demand · <span class="mono" style="font-size:7.4pt">c22</span> Economic dispatch and merit order · <span class="mono" style="font-size:7.4pt">c24</span> Fault current and short-circuit analysis · <span class="mono" style="font-size:7.4pt">c27</span> Contingency analysis and the N-1 criterion</td></tr><tr><td class="n mono">L5</td><td class="n mono">d12</td>
+  <td><span class="mono" style="font-size:7.4pt">c11</span> Power factor and its correction · <span class="mono" style="font-size:7.4pt">c12</span> Three-phase systems and balance · <span class="mono" style="font-size:7.4pt">c16</span> Voltage drop, regulation and reactive support · <span class="mono" style="font-size:7.4pt">c20</span> Inertia, governor response and droop control · <span class="mono" style="font-size:7.4pt">c25</span> Earthing, step-and-touch potential and safety · <span class="mono" style="font-size:7.4pt">c28</span> Cascading failure and the sequence of events</td></tr><tr><td class="n mono">L6</td><td class="n mono">d15</td>
+  <td><span class="mono" style="font-size:7.4pt">c26</span> Islanding, black start and restoration order · <span class="mono" style="font-size:7.4pt">c30</span> Renewables: variability, curtailment and inverters · <span class="mono" style="font-size:7.4pt">c32</span> Load shedding as a decision under uncertainty</td></tr>
+</tbody></table>
+<p style="font-size:8.4pt;color:var(--ink2)"><em>Licensed from</em> is a report and must never become a
+gate: it assumes a course spreads its layers evenly over its days, which no course promises. On that
+report 20 of 45 stops sit before their layer opens, and six of those are
+the black-start block — layer 6 material, correctly late in the course, landing on days
+9–11. A gate on this number would have sent the work at six stops that are right.</p>
+</div>
+
+<div class="avoid">
+<h2><span class="ph">Audit</span>Every day, and the layer it teaches at</h2>
+<div class="lane"><div class="col"><span class="dy">d1</span><span class="lic">L≤1</span><div class="cs"><span class="over">c29·L3</span><br><span class="over">c13·L3</span><br><span class="over">c3·L2</span></div></div><div class="col"><span class="dy">d2</span><span class="lic">L≤1</span><div class="cs"><span class="ok">—</span><br><span class="over">c15·L3</span><br><span class="ok">—</span></div></div><div class="col"><span class="dy">d3</span><span class="lic">L≤1</span><div class="cs"><span class="over">c19·L4</span><br><span class="over">c19·L4</span><br><span class="over">c31·L3</span></div></div><div class="col"><span class="dy">d4</span><span class="lic">L≤2</span><div class="cs"><span class="ok">c23·L2</span><br><span class="ok">c2·L1</span><br><span class="over">c9·L3</span></div></div><div class="col"><span class="dy">d5</span><span class="lic">L≤2</span><div class="cs"><span class="over">c4·L3</span><br><span class="over">c15·L3</span><br><span class="ok">—</span></div></div><div class="col"><span class="dy">d6</span><span class="lic">L≤2</span><div class="cs"><span class="over">c10·L4</span><br><span class="over">c18·L3</span><br><span class="ok">c7·L2</span></div></div><div class="col"><span class="dy">d7</span><span class="lic">L≤3</span><div class="cs"><span class="ok">c4·L3</span><br><span class="ok">c29·L3</span><br><span class="over">c16·L5</span></div></div><div class="col"><span class="dy">d8</span><span class="lic">L≤3</span><div class="cs"><span class="over">c24·L4</span><br><span class="ok">c17·L2</span><br><span class="ok">c21·L3</span></div></div><div class="col"><span class="dy">d9</span><span class="lic">L≤4</span><div class="cs"><span class="over">c20·L5</span><br><span class="ok">c8·L2</span><br><span class="over">c26·L6</span></div></div><div class="col"><span class="dy">d10</span><span class="lic">L≤4</span><div class="cs"><span class="ok">c5·L2</span><br><span class="over">c26·L6</span><br><span class="over">c26·L6</span></div></div><div class="col"><span class="dy">d11</span><span class="lic">L≤4</span><div class="cs"><span class="ok">c31·L3</span><br><span class="ok">c15·L3</span><br><span class="over">c26·L6</span></div></div><div class="col"><span class="dy">d12</span><span class="lic">L≤5</span><div class="cs"><span class="ok">c27·L4</span><br><span class="ok">c5·L2</span><br><span class="ok">c19·L4</span></div></div><div class="col"><span class="dy">d13</span><span class="lic">L≤5</span><div class="cs"><span class="ok">c25·L5</span><br><span class="ok">c22·L4</span><br><span class="ok">c22·L4</span></div></div><div class="col"><span class="dy">d14</span><span class="lic">L≤5</span><div class="cs"><span class="ok">c15·L3</span><br><span class="over">c30·L6</span><br><span class="ok">c27·L4</span></div></div><div class="col"><span class="dy">d15</span><span class="lic">L≤6</span><div class="cs"><span class="ok">c29·L3</span><br><span class="ok">c5·L2</span><br><span class="ok">—</span></div></div></div>
+<p style="font-size:8.4pt;color:var(--ink2)">Each column is a day: the layer the report licenses by
+then, and the layer each stop actually claims. Red is above the licence. What matters is not the red —
+it is that there is no slope at all. Days 1 and 2 teach layers
+3, 3, 2, 3; days 12 to 15 teach
+4, 2, 4, 5, 4, 4, 3, 6, 4, 3, 2.</p>
+</div>
+
+<h2><span class="ph">Work</span>Nothing is out of order</h2>
+<p style="font-size:8.8pt">Every claim's prerequisites arrive on an earlier day or are declared on the card — 34 declarations across 22 stops. What follows is the record of the twelve that were out of order, because the shape of each fix is the useful part for the next game: two were a claim naming the wrong concept, three were a stop standing beside its own base, and two needed a question the course did not have.</p>
+
+
+<div class="avoid">
+<h3>The 12, and what fixed each</h3>
+<table><thead><tr><th>the rows, as they stood</th><th>the fix</th><th class="n">cost</th></tr></thead><tbody>
+<tr><td class="mono" style="font-size:7.6pt">c20 d1 ← c19 d3</td>
+  <td>Day 1's two stops claim <em>c19</em>, which is what they already compute: one number for the whole
+  interconnection, and df/dt as that balance's rate. Droop is claimed on day 9 anyway.</td>
+  <td class="n mono" style="font-size:7.4pt">claim</td></tr>
+<tr><td class="mono" style="font-size:7.6pt">c26 d9 ← c18, c19</td>
+  <td>Synchronising is what day 4's breaker-closing SEQUENCE teaches; claim it there. With c19 on day 1,
+  the whole black-start block is legal where it stands.</td>
+  <td class="n mono" style="font-size:7.4pt">claim</td></tr>
+<tr><td class="mono" style="font-size:7.6pt">c16 d3 ← c9, c10, c15</td>
+  <td>Voltage drop rests on impedance and on real against apparent power, and <em>neither is mentioned
+  anywhere in the fortnight</em> — the same hole the conversion plan records as its one real equation
+  gap, ΔV ≈ I(R cos φ + X sin φ). Two questions get written, on days 2 and 3, and voltage drop moves to
+  day 8.</td>
+  <td class="n mono" style="font-size:7.4pt">2 questions</td></tr>
+<tr><td class="mono" style="font-size:7.6pt">c12 d4 ← c10</td>
+  <td>Three-phase power from line quantities is <code>P = √3·V·I·cos φ</code>, and the cos φ is what
+  day 3's new stop is about. Covered by the same question.</td>
+  <td class="n mono" style="font-size:7.4pt">covered</td></tr>
+<tr><td class="mono" style="font-size:7.6pt">c22 d8 ← c21 d8</td>
+  <td>The load curve moves from day 8 to day 7. One day, and its scene names no event.</td>
+  <td class="n mono" style="font-size:7.4pt">1 day</td></tr>
+<tr><td class="mono" style="font-size:7.6pt">c25 d7 ← c24 d7</td>
+  <td>Fault current moves from day 7 to day 6, ahead of the earthing stop that rests on it; series and
+  parallel moves from day 6 to day 5, ahead of that.</td>
+  <td class="n mono" style="font-size:7.4pt">2 days</td></tr>
+<tr><td class="mono" style="font-size:7.6pt">c27 d2 ← c4 d6, c15 d3</td>
+  <td>Day 2's contingency stop becomes the impedance question; N-1 is claimed on days 12 and 14 as
+  well, where both of its bases already exist.</td>
+  <td class="n mono" style="font-size:7.4pt">covered</td></tr>
+</tbody></table>
+</div>
+
+<h2><span class="ph">Slates</span>Three appetites</h2>
+<p style="font-size:8.8pt">No slate adds a stop. Every figure in the three boxes is computed by applying
+the slate to the real content and re-running the audit.</p>
+
+<div class="slate">
+  <div class="sh"><h4>A · Declare what it takes as read</h4><span class="n2">done 18 Aug 2026 · 22 stops · nothing rewritten</span></div>
+  <p>The 16 silent assumptions are authored now: <code>takesAsRead</code> on the stop,
+  refused by the importer unless the concept is something the stop's claim is built out of, and printed to
+  the player as an <code>assumes</code> line and on the Key concept door — "rests on … (taken as read
+  here)". It fixed no ordering, and it was never meant to. What it fixed is that the campaign leaned on
+  pieces of prior physics without saying so, and a reader could not tell a deliberate assumption from an
+  accident. It also has to come first: day 1 could otherwise only ever claim a concept with no
+  prerequisites at all.</p>
+  <div class="out">undeclared assumptions <b>16 → 0</b> ·
+  declarations <b>32</b> across
+  <b>22</b> stops ·
+  nothing moved, nothing was rewritten</div>
+</div>
+
+<div class="slate">
+  <div class="sh"><h4>B · Fix the twelve</h4><span class="n2">done 18 Aug 2026 · re-run this file to re-measure</span></div>
+  <p>The 10 authored claims, the two swaps and the one rewritten question in the table
+  above. No mission was re-ordered and no scene was rewritten except the one whose question changed. The
+  figures on the right are the pass, measured before and after on the real content — everything else in
+  this document already reads the game as it now is.</p>
+  <div class="out">in-course inversions <b>12 → 0</b> ·
+  concepts claimed <b>22 → 25</b> ·
+  ρ <b>0.19 → 0.29</b> ·
+  declared assumptions <b>16 → 0</b>, because four more concepts
+  claimed is four more sets of bases to declare · the row left over is day 1 itself, which no ordering can fix</div>
+</div>
+
+<div class="slate">
+  <div class="sh"><h4>C · Re-cut the fortnight</h4><span class="n2">done 18 Aug 2026 · 15 missions, 9 edits</span></div>
+  <p>The missions are in a new order and no stop was rewritten to get there:
+  d1←5 d2←13 d3←1 d4←2 d5←3 d6←4 d7←6 d8←7 d9←9 d10←10 d11←11 d12←12 d13←8 d14←14 d15←15. It was chosen by search over every
+  order the chronology allows — 11 constraints read off the stakes — ranked by
+  prerequisite breaks first and correlation second, because a re-order that reads well and teaches
+  backwards is not an improvement. The fortnight opens on the reserve day and the three-problems day; the
+  trip lands on <em>day 3</em>, which is what the swing equation being the first arithmetic anybody met was
+  costing. Eight continuity edits (the weekday stamps, one back-reference to an event that has not happened
+  yet, one scene tail) and one character introduced at her new first mention — <code>checkNames</code>
+  caught that, having been told nothing about the re-order.</p>
+  <div class="out">the swing equation first appears on <b>day 3</b>, not day 1 ·
+  ρ <b>0.24 → 0.29</b> ·
+  declarations <b>32 → 35</b> ·
+  prerequisite inversions <b>0</b> · no stop rewritten, no objective lost</div>
+</div>
+
+<div class="avoid">
+<h2><span class="ph">Gate</span><code>engine/dev/conceptOrder.mjs</code></h2>
+<p>One rule, and it is the rule <code>equationOrder</code> already enforces one field over: <em>for every
+stop that claims concept c on day d, each of c's prerequisites is claimed by a stop on a day earlier
+than d, or is named in that stop's own <code>assumes</code>.</em> The hatch is what makes the rule
+satisfiable, and it is the right hatch — <code>assumes</code> already exists, is already printed, and
+turns "the player has not met this" into an authored sentence. Both halves get counted: the failures,
+and the exceptions, because a campaign with sixty exceptions has not passed anything.</p>
+<p>Two reports beside it and neither of them a gate: the rank correlation, and the layer band. The
+selftest is the load-bearing half — three cases, each of them a bug this file could have. A fixture
+whose prerequisite is claimed on the <em>same</em> day must fail, because the engine opens a day in any
+order. One claimed a day earlier must pass. One declared in <code>assumes</code> must pass, with the
+exception counted and printed. Put each bug back and that case, and only that case, should fail.</p>
+<p>Debt rather than an advisory flag: 0 rows on one game is too many to gate on cold,
+so what exists today goes in <code>concept-debt.json</code> beside <code>curriculum-debt.json</code>,
+with the same two properties — a row not on the list fails immediately, and a row on the list that has
+since been fixed <em>also</em> fails, naming the line to delete. It only shrinks.</p>
+</div>
+
+<div class="callout"><span class="tag">The order of work</span>
+<p><strong>1.</strong> Author the claim: <code>concept:</code> on a stop in the book,
+<em>refused</em> by <code>import-book.mjs</code> when it names something not on the theme's syllabus
+rather than dropped, with <code>pickKeyConcept</code> as the fallback. Nothing here can be built before
+this — a gate on a derived field grades the matcher, not the course. <strong>2.</strong> Review the
+32 <code>needs</code> lists into <code>tools/syllabus.js</code>; the graph in this document is one
+reading of one syllabus. <strong>3.</strong> <code>conceptOrder.mjs</code> with its three selftest
+cases, and <code>concept-debt.json</code> baselined at today's 0.
+<strong>4.</strong> <code>node engine/dev/curriculumDelivery.mjs blackout --snapshot before.json</code>.
+<strong>5.</strong> Slates A then B, editing the book and re-importing —
+<code>node tools/import-book.mjs books/blackout.yml blackout --verify</code>. The two written questions
+are a deliberate curriculum change: re-snapshot after them and say so in the commit.
+<strong>6.</strong> <code>--against before.json</code>, knowing what it will and will not say — a
+corrected claim is invisible to it, a reworded takeaway fails it, and a changed day is not compared at
+all, so add the day comparison to <code>diffSnapshots</code> as a <em>note</em> before slate C, never as
+a failure. <strong>7.</strong> <code>npm run check blackout</code>, then
+<code>npm run drive blackout</code> on the two new questions, right answer and wrong.
+<strong>8.</strong> Re-derive the editions. <code>blackout_fable</code> shares this syllabus and has the
+same day-1 opening; <code>blackout_ms</code> claims <em>no</em> concepts at all, because none of its 16
+concepts has a <code>t</code> written — its cards show no key-concept door, and this whole audit is
+unmeasurable there until they do.</p></div>
+
+<footer>
+  Stops, claims, layers, correlations, permutation searches and slate outcomes computed from
+  <code>themes/blackout/content/</code> by <code>plans/sequence.mjs</code>; data in
+  <code>plans/blackout-sequence.json</code>. The dependency graph, the 10 mis-pick
+  readings and the three slates are authored in that file, and are what a person should argue with. The
+  conversion plan — format mix, equations owed, fun formats — is <code>plans/blackout.html</code>, and is
+  a different question. Run the game with <code>THEME=blackout npm run dev</code>.
+</footer>
+
+<h2 style="break-before:page"><span class="ph">Appendix</span>All 45 stops, in campaign order</h2>
+<table><thead><tr><th class="n">#</th><th class="n">day</th><th>area</th><th>format</th>
+  <th class="n">concept</th><th class="n">layer</th><th>title</th></tr></thead><tbody>
+<tr><td class="n mono">1</td><td class="n mono">d1</td>
+    <td class="mono" style="font-size:7.2pt">LOAD</td>
+    <td class="mono" style="font-size:7.2pt">BALLPARK</td>
+    <td class="n mono">c29</td>
+    <td class="n mono" style="color:var(--r);font-weight:680">L3</td>
+    <td>What comes out against what went in</td></tr><tr><td class="n mono">2</td><td class="n mono">d1</td>
+    <td class="mono" style="font-size:7.2pt">GEN</td>
+    <td class="mono" style="font-size:7.2pt">CHOICE</td>
+    <td class="n mono">c13</td>
+    <td class="n mono" style="color:var(--r);font-weight:680">L3</td>
+    <td>The reason the wires are not at wall voltage</td></tr><tr><td class="n mono">3</td><td class="n mono">d1</td>
+    <td class="mono" style="font-size:7.2pt">OPS</td>
+    <td class="mono" style="font-size:7.2pt">CHOICE</td>
+    <td class="n mono">c3</td>
+    <td class="n mono" style="color:var(--r);font-weight:680">L2</td>
+    <td>What a node has to add up to</td></tr><tr><td class="n mono">4</td><td class="n mono">d2</td>
+    <td class="mono" style="font-size:7.2pt">OPS</td>
+    <td class="mono" style="font-size:7.2pt">DELEGATE</td>
+    <td class="n mono">—</td>
+    <td class="n mono">—</td>
+    <td>Which of the three cannot wait</td></tr><tr><td class="n mono">5</td><td class="n mono">d2</td>
+    <td class="mono" style="font-size:7.2pt">TRANS</td>
+    <td class="mono" style="font-size:7.2pt">BALLPARK</td>
+    <td class="n mono">c15</td>
+    <td class="n mono" style="color:var(--r);font-weight:680">L3</td>
+    <td>Loss when the load turns up anyway</td></tr><tr><td class="n mono">6</td><td class="n mono">d2</td>
+    <td class="mono" style="font-size:7.2pt">LOAD</td>
+    <td class="mono" style="font-size:7.2pt">SEQUENCE</td>
+    <td class="n mono">—</td>
+    <td class="n mono">—</td>
+    <td>An order that survives being carried out</td></tr><tr><td class="n mono">7</td><td class="n mono">d3</td>
+    <td class="mono" style="font-size:7.2pt">OPS</td>
+    <td class="mono" style="font-size:7.2pt">PROTOCOL</td>
+    <td class="n mono">c19</td>
+    <td class="n mono" style="color:var(--r);font-weight:680">L4</td>
+    <td>What a frequency trend is evidence of</td></tr><tr><td class="n mono">8</td><td class="n mono">d3</td>
+    <td class="mono" style="font-size:7.2pt">GEN</td>
+    <td class="mono" style="font-size:7.2pt">BALLPARK</td>
+    <td class="n mono">c19</td>
+    <td class="n mono" style="color:var(--r);font-weight:680">L4</td>
+    <td>How much power actually left the system</td></tr><tr><td class="n mono">9</td><td class="n mono">d3</td>
+    <td class="mono" style="font-size:7.2pt">METER</td>
+    <td class="mono" style="font-size:7.2pt">TRACE</td>
+    <td class="n mono">c31</td>
+    <td class="n mono" style="color:var(--r);font-weight:680">L3</td>
+    <td>The order the records claim things happened in</td></tr><tr><td class="n mono">10</td><td class="n mono">d4</td>
+    <td class="mono" style="font-size:7.2pt">TRANS</td>
+    <td class="mono" style="font-size:7.2pt">TRIGGER</td>
+    <td class="n mono">c23</td>
+    <td class="n mono">L2</td>
+    <td>What you do before a relay does it for you</td></tr><tr><td class="n mono">11</td><td class="n mono">d4</td>
+    <td class="mono" style="font-size:7.2pt">LOAD</td>
+    <td class="mono" style="font-size:7.2pt">BALLPARK</td>
+    <td class="n mono">c2</td>
+    <td class="n mono">L1</td>
+    <td>The power that never arrives</td></tr><tr><td class="n mono">12</td><td class="n mono">d4</td>
+    <td class="mono" style="font-size:7.2pt">OPS</td>
+    <td class="mono" style="font-size:7.2pt">BALLPARK</td>
+    <td class="n mono">c9</td>
+    <td class="n mono" style="color:var(--r);font-weight:680">L3</td>
+    <td>What the path opposes at 50 hertz</td></tr><tr><td class="n mono">13</td><td class="n mono">d5</td>
+    <td class="mono" style="font-size:7.2pt">DIST</td>
+    <td class="mono" style="font-size:7.2pt">PROTOCOL</td>
+    <td class="n mono">c4</td>
+    <td class="n mono" style="color:var(--r);font-weight:680">L3</td>
+    <td>What is common and what divides</td></tr><tr><td class="n mono">14</td><td class="n mono">d5</td>
+    <td class="mono" style="font-size:7.2pt">TRANS</td>
+    <td class="mono" style="font-size:7.2pt">PROTOCOL</td>
+    <td class="n mono">c15</td>
+    <td class="n mono" style="color:var(--r);font-weight:680">L3</td>
+    <td>What actually limits a conductor</td></tr><tr><td class="n mono">15</td><td class="n mono">d5</td>
+    <td class="mono" style="font-size:7.2pt">OPS</td>
+    <td class="mono" style="font-size:7.2pt">CHOICE</td>
+    <td class="n mono">—</td>
+    <td class="n mono">—</td>
+    <td>The order somebody will read back to you</td></tr><tr><td class="n mono">16</td><td class="n mono">d6</td>
+    <td class="mono" style="font-size:7.2pt">METER</td>
+    <td class="mono" style="font-size:7.2pt">BALLPARK</td>
+    <td class="n mono">c10</td>
+    <td class="n mono" style="color:var(--r);font-weight:680">L4</td>
+    <td>What three phases actually add up to</td></tr><tr><td class="n mono">17</td><td class="n mono">d6</td>
+    <td class="mono" style="font-size:7.2pt">GEN</td>
+    <td class="mono" style="font-size:7.2pt">SEQUENCE</td>
+    <td class="n mono">c18</td>
+    <td class="n mono" style="color:var(--r);font-weight:680">L3</td>
+    <td>Four things that have to agree before the breaker closes</td></tr><tr><td class="n mono">18</td><td class="n mono">d6</td>
+    <td class="mono" style="font-size:7.2pt">TRANS</td>
+    <td class="mono" style="font-size:7.2pt">CHOICE</td>
+    <td class="n mono">c7</td>
+    <td class="n mono">L2</td>
+    <td>Two instruments, two quantities</td></tr><tr><td class="n mono">19</td><td class="n mono">d7</td>
+    <td class="mono" style="font-size:7.2pt">TRANS</td>
+    <td class="mono" style="font-size:7.2pt">BALLPARK</td>
+    <td class="n mono">c4</td>
+    <td class="n mono">L3</td>
+    <td>How the flow splits between two paths</td></tr><tr><td class="n mono">20</td><td class="n mono">d7</td>
+    <td class="mono" style="font-size:7.2pt">OPS</td>
+    <td class="mono" style="font-size:7.2pt">VALUE</td>
+    <td class="n mono">c29</td>
+    <td class="n mono">L3</td>
+    <td>What is worth knowing before the peak</td></tr><tr><td class="n mono">21</td><td class="n mono">d7</td>
+    <td class="mono" style="font-size:7.2pt">DIST</td>
+    <td class="mono" style="font-size:7.2pt">BALLPARK</td>
+    <td class="n mono">c16</td>
+    <td class="n mono" style="color:var(--r);font-weight:680">L5</td>
+    <td>Why the far end sits low</td></tr><tr><td class="n mono">22</td><td class="n mono">d8</td>
+    <td class="mono" style="font-size:7.2pt">TRANS</td>
+    <td class="mono" style="font-size:7.2pt">BALLPARK</td>
+    <td class="n mono">c24</td>
+    <td class="n mono" style="color:var(--r);font-weight:680">L4</td>
+    <td>What a short circuit is limited by</td></tr><tr><td class="n mono">23</td><td class="n mono">d8</td>
+    <td class="mono" style="font-size:7.2pt">METER</td>
+    <td class="mono" style="font-size:7.2pt">CONTROL</td>
+    <td class="n mono">c17</td>
+    <td class="n mono">L2</td>
+    <td>A reading taken without a connection</td></tr><tr><td class="n mono">24</td><td class="n mono">d8</td>
+    <td class="mono" style="font-size:7.2pt">LOAD</td>
+    <td class="mono" style="font-size:7.2pt">BALLPARK</td>
+    <td class="n mono">c21</td>
+    <td class="n mono">L3</td>
+    <td>The peak, and how far the cold moves it</td></tr><tr><td class="n mono">25</td><td class="n mono">d9</td>
+    <td class="mono" style="font-size:7.2pt">OPS</td>
+    <td class="mono" style="font-size:7.2pt">DEGENERACY</td>
+    <td class="n mono">c20</td>
+    <td class="n mono" style="color:var(--r);font-weight:680">L5</td>
+    <td>Why the island's frequency is falling slowly</td></tr><tr><td class="n mono">26</td><td class="n mono">d9</td>
+    <td class="mono" style="font-size:7.2pt">METER</td>
+    <td class="mono" style="font-size:7.2pt">PROTOCOL</td>
+    <td class="n mono">c8</td>
+    <td class="n mono">L2</td>
+    <td>What is stored, and for how long</td></tr><tr><td class="n mono">27</td><td class="n mono">d9</td>
+    <td class="mono" style="font-size:7.2pt">DIST</td>
+    <td class="mono" style="font-size:7.2pt">CHOICE</td>
+    <td class="n mono">c26</td>
+    <td class="n mono" style="color:var(--r);font-weight:680">L6</td>
+    <td>Keeping it, or collapsing it on purpose</td></tr><tr><td class="n mono">28</td><td class="n mono">d10</td>
+    <td class="mono" style="font-size:7.2pt">GEN</td>
+    <td class="mono" style="font-size:7.2pt">BALLPARK</td>
+    <td class="n mono">c5</td>
+    <td class="n mono">L2</td>
+    <td>What the dark hours actually cost</td></tr><tr><td class="n mono">29</td><td class="n mono">d10</td>
+    <td class="mono" style="font-size:7.2pt">OPS</td>
+    <td class="mono" style="font-size:7.2pt">CHAIN</td>
+    <td class="n mono">c26</td>
+    <td class="n mono" style="color:var(--r);font-weight:680">L6</td>
+    <td>The order physics allows</td></tr><tr><td class="n mono">30</td><td class="n mono">d10</td>
+    <td class="mono" style="font-size:7.2pt">DIST</td>
+    <td class="mono" style="font-size:7.2pt">CASEBOOK</td>
+    <td class="n mono">c26</td>
+    <td class="n mono" style="color:var(--r);font-weight:680">L6</td>
+    <td>Why it cannot go faster</td></tr><tr><td class="n mono">31</td><td class="n mono">d11</td>
+    <td class="mono" style="font-size:7.2pt">METER</td>
+    <td class="mono" style="font-size:7.2pt">CHOICE</td>
+    <td class="n mono">c31</td>
+    <td class="n mono">L3</td>
+    <td>The sensor that was confident and wrong</td></tr><tr><td class="n mono">32</td><td class="n mono">d11</td>
+    <td class="mono" style="font-size:7.2pt">TRANS</td>
+    <td class="mono" style="font-size:7.2pt">SWEEP</td>
+    <td class="n mono">c15</td>
+    <td class="n mono">L3</td>
+    <td>What a rating is a statement about</td></tr><tr><td class="n mono">33</td><td class="n mono">d11</td>
+    <td class="mono" style="font-size:7.2pt">OPS</td>
+    <td class="mono" style="font-size:7.2pt">CASEBOOK</td>
+    <td class="n mono">c26</td>
+    <td class="n mono" style="color:var(--r);font-weight:680">L6</td>
+    <td>What survives a bad number</td></tr><tr><td class="n mono">34</td><td class="n mono">d12</td>
+    <td class="mono" style="font-size:7.2pt">OPS</td>
+    <td class="mono" style="font-size:7.2pt">CHOICE</td>
+    <td class="n mono">c27</td>
+    <td class="n mono">L4</td>
+    <td>The failure that has not happened</td></tr><tr><td class="n mono">35</td><td class="n mono">d12</td>
+    <td class="mono" style="font-size:7.2pt">LOAD</td>
+    <td class="mono" style="font-size:7.2pt">PROTOCOL</td>
+    <td class="n mono">c5</td>
+    <td class="n mono">L2</td>
+    <td>The trend with nothing wrong with it</td></tr><tr><td class="n mono">36</td><td class="n mono">d12</td>
+    <td class="mono" style="font-size:7.2pt">GEN</td>
+    <td class="mono" style="font-size:7.2pt">VALUE</td>
+    <td class="n mono">c19</td>
+    <td class="n mono">L4</td>
+    <td>Which of these is a measurement</td></tr><tr><td class="n mono">37</td><td class="n mono">d13</td>
+    <td class="mono" style="font-size:7.2pt">DIST</td>
+    <td class="mono" style="font-size:7.2pt">CHOICE</td>
+    <td class="n mono">c25</td>
+    <td class="n mono">L5</td>
+    <td>The ground is not at one voltage</td></tr><tr><td class="n mono">38</td><td class="n mono">d13</td>
+    <td class="mono" style="font-size:7.2pt">OPS</td>
+    <td class="mono" style="font-size:7.2pt">CASEBOOK</td>
+    <td class="n mono">c22</td>
+    <td class="n mono">L4</td>
+    <td>Cheapest first, and the exceptions that are not exceptions</td></tr><tr><td class="n mono">39</td><td class="n mono">d13</td>
+    <td class="mono" style="font-size:7.2pt">GEN</td>
+    <td class="mono" style="font-size:7.2pt">SCIENCETANK</td>
+    <td class="n mono">c22</td>
+    <td class="n mono">L4</td>
+    <td>When the cheapest power cannot get out</td></tr><tr><td class="n mono">40</td><td class="n mono">d14</td>
+    <td class="mono" style="font-size:7.2pt">METER</td>
+    <td class="mono" style="font-size:7.2pt">CHOICE</td>
+    <td class="n mono">c15</td>
+    <td class="n mono">L3</td>
+    <td>Hours over limit, added up</td></tr><tr><td class="n mono">41</td><td class="n mono">d14</td>
+    <td class="mono" style="font-size:7.2pt">TRANS</td>
+    <td class="mono" style="font-size:7.2pt">SCIENCETANK</td>
+    <td class="n mono">c30</td>
+    <td class="n mono" style="color:var(--r);font-weight:680">L6</td>
+    <td>What the window is worth</td></tr><tr><td class="n mono">42</td><td class="n mono">d14</td>
+    <td class="mono" style="font-size:7.2pt">OPS</td>
+    <td class="mono" style="font-size:7.2pt">PROTOCOL</td>
+    <td class="n mono">c27</td>
+    <td class="n mono">L4</td>
+    <td>The 18 months you just bought</td></tr><tr><td class="n mono">43</td><td class="n mono">d15</td>
+    <td class="mono" style="font-size:7.2pt">METER</td>
+    <td class="mono" style="font-size:7.2pt">ATTEST</td>
+    <td class="n mono">c29</td>
+    <td class="n mono">L3</td>
+    <td>Measured, inferred, assumed</td></tr><tr><td class="n mono">44</td><td class="n mono">d15</td>
+    <td class="mono" style="font-size:7.2pt">LOAD</td>
+    <td class="mono" style="font-size:7.2pt">CHOICE</td>
+    <td class="n mono">c5</td>
+    <td class="n mono">L2</td>
+    <td>The number that has to be a range</td></tr><tr><td class="n mono">45</td><td class="n mono">d15</td>
+    <td class="mono" style="font-size:7.2pt">OPS</td>
+    <td class="mono" style="font-size:7.2pt">CHOICE</td>
+    <td class="n mono">—</td>
+    <td class="n mono">—</td>
+    <td>What outlives the emergency</td></tr></tbody></table>
+
+</body></html>

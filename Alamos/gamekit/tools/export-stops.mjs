@@ -143,7 +143,26 @@ function packOf(book, id){
   };
 }
 
-function shapeOf(s){
+/**
+ * The block an instrument stop keeps its board in.
+ *
+ * Every one of the twenty-three instrument formats stores its data under its
+ * own lowercased name — `chain`, `attest`, `allocate`, `sweep`, `holdout` — so
+ * this is derived rather than listed. A list here would go stale the first time
+ * a format was added, which is exactly what happened to the sheet: `shapeOf`
+ * read only the plain-format keys (`choices`, `cards`, `mapping`) and every
+ * instrument's board lives one level down, so 39 of the 51 instrument stops
+ * across the nine middle-school editions exported with an empty shape and no
+ * text at all. A row with a title, a scene and nothing about the board is the
+ * one row nobody can make a decision from, which is the whole purpose of the
+ * sheet.
+ */
+const blockOf = (s, fmt) => {
+  const b = s[String(fmt ?? '').toLowerCase()];
+  return b && typeof b === 'object' && !Array.isArray(b) ? b : null;
+};
+
+function shapeOf(s, fmt){
   const out = {};
   const n = (k, v) => { if(Array.isArray(v) && v.length) out[k] = v.length; };
   n('choices', s.choices);
@@ -160,6 +179,18 @@ function shapeOf(s){
   if(Array.isArray(s.readings)){
     const z = new Set(s.readings.map(r => r.zone).filter(Boolean));
     if(z.size) out.zones = z.size;
+  }
+  // The instrument's own board, one level down. Arrays as counts and scalars as
+  // themselves — the same "shape, not a dump" rule as above, so a reader can see
+  // that a CHAIN is five links governed by one of them, or that an ALLOCATE has
+  // a pool of 430 against seven items, without the sheet carrying every string.
+  const b = blockOf(s, fmt);
+  if(b){
+    for(const [k, v] of Object.entries(b)){
+      if(Array.isArray(v)) { if(v.length) out[k] = v.length; }
+      else if(v && typeof v === 'object') out[k] = 'yes';
+      else if(v !== undefined && v !== '') out[k] = typeof v === 'string' ? oneLine(v) : v;
+    }
   }
   return out;
 }
@@ -205,6 +236,24 @@ function exportTheme(theme){
           ...((e.labels ?? []).length ? { labels: e.labels.map(String) } : {}),
         };
       }
+      // And every readable string on the instrument's own board. The sheet is
+      // an editing channel, not a listing, so a CHAIN whose cards say the wrong
+      // thing has to be fixable here — which it was not, because none of this
+      // was exported at all.
+      //
+      // THE WHOLE BLOCK, not a readable projection of it. The first version of
+      // this carried `label`, `transfers`, `reading` and the other prose fields
+      // and dropped ids, `order`, `depends`, thresholds and every number, on the
+      // "shape, not a dump" rule that governs the plain formats. That rule is
+      // right for four choices and wrong for an instrument, because for an
+      // instrument the block *is* the stop — and a writer converting a CHOICE
+      // into a CHAIN has nowhere to put the path, so the row comes back with
+      // five beautifully worded links, no ids and no `order`, and
+      // `apply-conversions` refuses it for having no data block. That is exactly
+      // what happened: 86 conversions to the plain formats landed and all five
+      // to instruments were refused, on five different games.
+      const b = blockOf(s, fmt);
+      if(b) text[String(fmt).toLowerCase()] = b;
       // Which of the course's essential equations this stop's own words touch,
       // and whether a number actually comes out of one. A stop that mentions an
       // equation and never computes it is a stop the course has not taught it in.
@@ -250,7 +299,7 @@ function exportTheme(theme){
         // The stop's own question data, as text. Editable in place.
         ...(Object.keys(text).length ? { text } : {}),
         ...(eqs.length ? { equations: eqs } : {}),
-        shape: shapeOf(s),
+        shape: shapeOf(s, fmt),
         // The panel itself, where the stop only referenced one. These are the
         // real observed-against-expected numbers, and they are what an
         // instrument's response, noise and tolerance have to be built from.

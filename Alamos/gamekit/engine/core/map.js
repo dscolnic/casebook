@@ -143,6 +143,33 @@ function focusBounds(p, r, full, aspect = 1){
  * rendered at two pixels, which is the "zoomed out so I cannot see it" this
  * fixes. Fitting the box here keeps text at its own size.
  */
+/**
+ * Things a running world format wants drawn on the map.
+ *
+ * HUNT is the only caller today, and it is deliberate rather than a convenience:
+ * a search where you cannot see what is left is graded on whether you happened
+ * to walk down the right side of a building, and the decision worth having is
+ * which of the ones you can see is worth the walk. Set to null to clear.
+ *
+ * `engine/world` does not import `engine/core`, so the world module is handed
+ * this function by `main.js` rather than reaching for it. Same direction of
+ * dependency as `ctx.world` itself.
+ */
+let pins = null;
+export function setMapPins(list){ pins = list ?? null; }
+/**
+ * What a running format wants drawn, resolved at draw time.
+ *
+ * A function rather than a list, where the caller has one, because four of these
+ * formats are about PEOPLE and people walk: a list captured when the run started
+ * would draw everybody where they were standing a minute ago, which is the exact
+ * lie the wanted-person marker was rewritten to stop telling.
+ */
+const livePins = () => {
+  const v = typeof pins === 'function' ? pins() : pins;
+  return Array.isArray(v) ? v : [];
+};
+
 export function renderMap(opts = {}){
   // `mini` is the corner map: same drawing, no writing. At 190 px a place name
   // is three unreadable pixels and the legend is a grey smear, and both of them
@@ -440,7 +467,7 @@ export function renderMap(opts = {}){
   const plots = [];
   for(const bl of site.buildings ?? []){
     const area = bl.group ? def(bl.group) : null;
-    const isTarget = bl.group && targetGroups.has(bl.group);
+    const isTarget = !livePins().length && bl.group && targetGroups.has(bl.group);
     const fill = area ? area.color : '#9a958a';
     const r = plotRect(bl.x, bl.z, bl.w, bl.d);
     const x = r.x, y = r.y, w = r.w, h = r.h;
@@ -452,8 +479,15 @@ export function renderMap(opts = {}){
   }
   // The people first, so their names win the space: a building label can move,
   // and the name of somebody you have to find is the point of the map.
+  //
+  // Unless a run owns the map. While one of the world-graded formats is going
+  // the only thing on it is that format's own business — the gates of a trial,
+  // the people still to greet — because the open calls of the day are exactly
+  // what the player must NOT be reading while they are out doing something
+  // else. `wantedPeople` is emptied and the gold open-call outline is off, both
+  // handled where they are drawn.
   const peopleLabels = [];
-  for(const wanted of wantedPeople){
+  for(const wanted of (livePins().length ? [] : wantedPeople)){
     const mx = px(wanted.pos?.x ?? 0, wanted.pos?.z ?? 0);
     const mz = py(wanted.pos?.x ?? 0, wanted.pos?.z ?? 0);
     const colour = def(wanted.division)?.color ?? '#8a6410';
@@ -463,6 +497,24 @@ export function renderMap(opts = {}){
     taken.push({ x0: mx - 13, y0: mz - 13, x1: mx + 13, y1: mz + 13 });
     peopleLabels.push([mx, mz, wanted.char?.name ?? 'your contact']);
   }
+
+  // Anything a running format has put on the ground. Drawn as a diamond so it
+  // reads as neither a person (circle) nor a building (rectangle), and unlabelled
+  // — there are a dozen of them and they are all the same thing, which the
+  // briefing has already said.
+  const drawnPins = livePins();
+  const pinLabels = [];
+  for(const pin of drawnPins){
+    const mx = px(+pin.x, +pin.z), mz = py(+pin.x, +pin.z);
+    const colour = pin.colour ?? '#d8b23c';
+    g += `<rect x="${mx - 5}" y="${mz - 5}" width="10" height="10" rx="1.5"`
+       + ` transform="rotate(45 ${mx} ${mz})" fill="${colour}" stroke="#fff" stroke-width="2"/>`;
+    taken.push({ x0: mx - 9, y0: mz - 9, x1: mx + 9, y1: mz + 9 });
+    // A person's name is worth the space; a dozen identical items is not — the
+    // briefing has already said what they are.
+    if(pin.name) pinLabels.push([mx, mz, pin.name]);
+  }
+  for(const [mx, mz, name] of pinLabels) g += label(mx, mz, 11, 11, name, { weight: 800 });
 
   // Pass two: the labels, the ones that matter first.
   plots.sort((a, b) => (b.isTarget - a.isTarget) || (b.w * b.h - a.w * a.h));
@@ -506,6 +558,17 @@ export function renderMap(opts = {}){
   if(focus){
     const outside = (x, z) => x < b.x0 || x > b.x1 || z < b.z0 || z > b.z1;
     const marks = [];
+    // A running format's own pins go first, because on a windowed map they are the
+    // only thing the player is being asked to walk to — and until this they were
+    // the one class of mark with no edge arrow at all. At Planetary Defense the far
+    // lap's gates are a kilometre and a half down the ridge and `mapRadius` is
+    // 170 m, so the map drew the camp, nothing else, and no way to tell there was
+    // anything beyond it: a lap of ground the map denied existed.
+    for(const pin of drawnPins){
+      const x = +pin.x, z = +pin.z;
+      if(!outside(x, z)) continue;
+      marks.push({ x, z, name: pin.name ?? '', colour: pin.colour ?? '#d8b23c', rank: -1 });
+    }
     for(const w of wantedPeople){
       const x = w.pos?.x ?? 0, z = w.pos?.z ?? 0;
       if(!outside(x, z)) continue;

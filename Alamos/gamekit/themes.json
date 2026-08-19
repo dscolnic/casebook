@@ -28,6 +28,7 @@
     "blackout_ms": "themes/blackout_ms",
     "bring_them_home_ms": "themes/bring_them_home_ms",
     "contamcity_ms": "themes/contamcity_ms",
-    "groundtruth": "themes/groundtruth"
+    "groundtruth": "themes/groundtruth",
+    "blackout_fable": "themes/blackout_fable"
   }
 }

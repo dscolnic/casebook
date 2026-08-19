@@ -7,10 +7,16 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Which stage the leak is on",
-      "scene": "Delft's slot is now on the calendar, but Ridgeway's fridge has stalled above its normal base temperature. The cryostat is open in service mode, six stages down the chain. Okafor has last cooldown's numbers and a thermometer at every stage.",
+      "scene": "A dilution refrigerator cools in stages. Each one is colder than the stage above it: 50 kelvin, 4 kelvin, the still, the heat exchanger, the cold plate, and the mixing chamber at the bottom. Heat travels down that chain and stops where it is anchored. Ridgeway's fridge has stalled warm. Okafor has last cooldown's numbers and a thermometer on every stage.",
       "takeaway": "A refrigerator's stage-by-stage temperature pattern can localise a heat load instead of merely announcing that one exists.",
       "place": "Cryogenics & Vacuum",
-      "story": "Delft's slot is now on the calendar, but Ridgeway's fridge has stalled above its normal base temperature. The cryostat is open in service mode, six stages down the chain. Okafor has last cooldown's numbers and a thermometer at every stage.",
+      "guide": "Nothing has been measured for you. Press Read on any stage and it reports what it holds now, what it held last cooldown, and how hard its cooling is working. Take at least three, and remember that a stage matching last time tells you as much as one that does not. Then click the stage where the heat is arriving and commit. You are graded on the stage, not on how many readings it took.",
+      "background": [
+        "How the stages work. Each stage is anchored to the one above by a deliberate thermal link, and cools whatever is bolted to it. A stage removes a fixed amount of heat per second, so extra heat arriving does not simply pass through: the stage warms and its cooling works harder, and everything below it is left with less cooling to spare. That is why a load shows up as a pattern down the chain rather than at one thermometer.",
+        "What the numbers mean. \"Holding now\" against \"last cooldown\" is a comparison with a known-good run, which is worth more here than any absolute temperature — a stage sitting at its usual value under its usual load has been ruled out, and one sitting high has not. The cooling effort is the third column: a stage can hold its temperature and still be telling you something, if it is working harder to do it.",
+        "Why the top of the chain matters. A vacuum leak, a failing pulse tube, or a room-temperature fault all deliver heat to the warmest stages first. If those are unchanged, a whole family of explanations is gone before you look further down."
+      ],
+      "story": "A dilution refrigerator cools in stages. Each one is colder than the stage above it: 50 kelvin, 4 kelvin, the still, the heat exchanger, the cold plate, and the mixing chamber at the bottom. Heat travels down that chain and stops where it is anchored. Ridgeway's fridge has stalled warm. Okafor has last cooldown's numbers and a thermometer on every stage.",
       "game": {
         "type": "PROBE",
         "title": "Which stage the leak is on",
@@ -68,22 +74,41 @@ export const CURRICULUM = {
           "target": "STILL",
           "chainLabel": "Stage",
           "minReadings": 3,
-          "commit": "Name the stage",
-          "hint": "Each station reports what it is holding now, what it held on the last cooldown, and what its cooling is having to do. Read as few or as many as you like."
+          "commit": "Name the stage"
         }
       },
       "assumes": [
         "a refrigerator removes heat in stages, each colder than the last",
-        "a conductive path carries heat to wherever it is anchored, and past wherever it is not"
-      ]
+        "a conductive path carries heat to wherever it is anchored, and past wherever it is not",
+        "thermal energy against level spacing — why a qubit needs millikelvin — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 2,
+          "c": "Thermal energy against level spacing — why a qubit needs millikelvin"
+        }
+      ],
+      "concept": {
+        "n": 17,
+        "c": "Cryogenics: stages, cooling power and heat load",
+        "of": 30,
+        "rests": [
+          "Thermal energy against level spacing — why a qubit needs millikelvin"
+        ]
+      }
     },
     {
       "day": 2,
       "title": "The energy of one quantum against the energy of the room",
-      "scene": "The chip's qubits answer at about 5 gigahertz. Okafor circles the Delft date on the whiteboard, writes 2 energy scales beside it — 1 quantum at that frequency and the thermal energy at 42 millikelvin — and waits.",
+      "scene": "The chip's qubits answer at about 5 gigahertz. Okafor circles the Delft date on the whiteboard and writes two energy scales beside it: one quantum at that frequency, and the thermal energy at 42 millikelvin. Then she waits.",
       "takeaway": "Thermal energy well below one quantum is what keeps a qubit in its ground state at rest.",
       "place": "Cryogenics & Vacuum",
-      "story": "The chip's qubits answer at about 5 gigahertz. Okafor circles the Delft date on the whiteboard, writes 2 energy scales beside it — 1 quantum at that frequency and the thermal energy at 42 millikelvin — and waits.",
+      "guide": "Five numbers, and three of them are energies while two are the raw frequency and temperature those energies were built from. Two of the energies are thermal, taken at different temperatures. The exponent is a ratio of energies, so both terms have to be in joules and both have to describe today's fridge. Using the colder thermal energy answers a question about a machine that is working. That is not the one on the bench.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
+      "story": "The chip's qubits answer at about 5 gigahertz. Okafor circles the Delft date on the whiteboard and writes two energy scales beside it: one quantum at that frequency, and the thermal energy at 42 millikelvin. Then she waits.",
       "game": {
         "type": "BALLPARK",
         "title": "The energy of one quantum against the energy of the room",
@@ -132,14 +157,119 @@ export const CURRICULUM = {
           "s": "A qubit only stays in its ground state if the thermal energy around it is well below the energy of one quantum, which for a 5 GHz qubit means tens of millikelvin.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Energy quantisation, and why a level spacing sets everything else",
+        "of": 30
+      }
     },
     {
       "day": 3,
+      "title": "Ten millikelvin, while the wiring warms",
+      "scene": "The chip has to sit at ten millikelvin while a measurement runs. A new coaxial line is carrying heat down from room temperature, the still is working, and the flow control is the only thing that answers it.",
+      "takeaway": "A heat load that keeps arriving is answered by circulation, not by waiting.",
+      "place": "Cryostat Bay",
+      "guide": "Hold the mixing chamber temperature inside the band on the thermometry. The band narrows through the run, because the same excess temperature costs more the longer the qubit has to stay coherent. The flow control is your control, and every heat load keeps arriving until the circulation answers it.",
+      "background": [
+        "Why ten millikelvin and not one kelvin. A qubit's two levels are a few gigahertz apart, and thermal energy at one kelvin is comparable to that spacing — so the qubit sits in a mixture rather than in its ground state, and every experiment starts from noise.",
+        "Why a heat load is a rate. A coaxial line conducting from room temperature does not raise the chamber by a millikelvin and stop; it carries heat continuously, so the temperature climbs until the circulation carries the same power away.",
+        "Why the margin tightens. The longer a measurement runs, the more of the qubit's coherence has already been spent, so a warm spell late in a run costs a larger share of what was left than the same excursion at the start."
+      ],
+      "story": "The chip has to sit at ten millikelvin while a measurement runs. A new coaxial line is carrying heat down from room temperature, the still is working, and the flow control is the only thing that answers it.",
+      "game": {
+        "type": "HOLD",
+        "title": "Ten millikelvin, while the wiring warms",
+        "setup": "Cryostat Bay",
+        "play": "Hold the mixing chamber while the fridge is loaded.",
+        "task": "Hold the mixing chamber while the fridge is loaded.",
+        "question": "Hold the mixing chamber at ten millikelvin while the measurement runs.",
+        "answer": "Inside the band for most of the run, with the flow set to carry each load away rather than adjusted after the thermometry has already climbed.",
+        "why": "A superconducting qubit needs millikelvin because its two levels are only a few gigahertz apart, and thermal energy at a kelvin is comparable to that spacing — the qubit would sit in a thermal mixture rather than in its ground state, and every shot would start from noise. Holding that temperature is a continuous job because every disturbance is a rate. A coaxial line conducts heat down from room temperature for as long as it is installed; a pulse tube cycling changes the load on the still continuously; a helium level falling changes the cooling power available. None of them is a step, so the flow is set to a new rate and left there rather than nudged. The band narrows for the same reason the whole experiment is timed: coherence is being spent as the run goes on, and a warm spell in the last minutes costs a larger share of what remains than the same excursion in the first.",
+        "hold": {
+          "quantity": "Mixing chamber temperature",
+          "control": "Circulation flow",
+          "unit": "mK",
+          "hold": 10,
+          "band": 0.4,
+          "narrowTo": 0.2,
+          "duration": 45,
+          "authority": 0.1,
+          "pass": 0.8,
+          "direction": "lower",
+          "disturbances": [
+            {
+              "label": "New coax conducts from room temperature",
+              "at": 4,
+              "amount": 0.03
+            },
+            {
+              "label": "Still heater comes up to setpoint",
+              "at": 20,
+              "amount": -0.05
+            },
+            {
+              "label": "Pulse tube cycles and the load steps",
+              "at": 38,
+              "amount": 0.045
+            }
+          ],
+          "hint": "Each load keeps arriving. Set the flow to carry it away rather than reacting to the thermometry.",
+          "commit": "Report the run"
+        }
+      },
+      "assumes": [
+        "a system in thermal contact settles toward the temperature around it"
+      ],
+      "equations": [
+        {
+          "e": "E = hf,  compare with  kT",
+          "c": "why a superconducting qubit needs millikelvin",
+          "v": [
+            [
+              "E",
+              "energy of one quantum, in joules"
+            ],
+            [
+              "h",
+              "Planck's constant, 6.63 × 10⁻³⁴ J s"
+            ],
+            [
+              "f",
+              "transition frequency, in hertz"
+            ],
+            [
+              "k",
+              "Boltzmann's constant, 1.38 × 10⁻²³ J per kelvin"
+            ],
+            [
+              "T",
+              "temperature, in kelvin"
+            ]
+          ],
+          "s": "A qubit only stays in its ground state if the thermal energy around it is well below the energy of one quantum, which for a 5 GHz qubit means tens of millikelvin."
+        }
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Thermal energy against level spacing — why a qubit needs millikelvin",
+        "of": 30,
+        "rests": [
+          "Energy quantisation, and why a level spacing sets everything else"
+        ]
+      }
+    },
+    {
+      "day": 4,
       "title": "How good T2 could be",
       "scene": "Okafor wants to know how much room there is before anybody spends a week chasing the noise. The relation is one over T2 equals one over twice T1 plus one over the pure dephasing time.",
       "takeaway": "When independent exponential decoherence processes are modelled as rates, the rates add and the corresponding times do not.",
       "place": "Cryogenics & Vacuum",
+      "guide": "Five numbers, two of which are the same relaxation time written with and without its factor of two. The relation is written in rates. A rate is the reciprocal of a time, so the factor has to sit where the algebra put it. Read the equation before reading the labels. Halving or doubling that term by mistake shifts the dephasing time enough to send somebody after noise that is not there.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Okafor wants to know how much room there is before anybody spends a week chasing the noise. The relation is one over T2 equals one over twice T1 plus one over the pure dephasing time.",
       "game": {
         "type": "BALLPARK",
@@ -155,10 +285,11 @@ export const CURRICULUM = {
           "Twice T1 is 180 µs"
         ],
         "relationship": "1/T_φ = 1/T2 − 1/(2·T1), because the rates add and the relaxation contribution is the part you already know.\n",
-        "calcKey": "CRYO-3"
+        "calcKey": "CRYO-4"
       },
       "assumes": [
-        "two independent loss processes add as rates rather than as times"
+        "two independent loss processes add as rates rather than as times",
+        "superposition as an amplitude, not a mixture — taken as read"
       ],
       "equations": [
         {
@@ -201,14 +332,35 @@ export const CURRICULUM = {
           "s": "Coherence is limited both by energy leaving and by phase being scrambled, and T₂ can never be more than twice T₁ however quiet the phase noise is.",
           "computed": true
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 4,
+          "c": "Superposition as an amplitude, not a mixture"
+        }
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Dephasing time T2 — the phase going before the energy does",
+        "of": 30,
+        "rests": [
+          "Superposition as an amplitude, not a mixture",
+          "Relaxation time T1 — energy leaving the system"
+        ]
+      }
     },
     {
-      "day": 4,
+      "day": 5,
       "title": "Which of these is a measurement",
       "scene": "Okafor lists four things the group is relying on today. Two are numbers somebody took this week. Two are figures nobody has revisited in a year.",
       "takeaway": "The riskiest inherited parameter is usually the one that is both stale and load-bearing in many later calculations.",
       "place": "Cryogenics & Vacuum",
+      "guide": "All four are things the group is relying on today, and two of them are current. Age alone does not rank them. Ask of each how many later conclusions divide by it, then weigh that reach against how long it has been since anybody looked. A stale parameter feeding one narrow interpretation is a smaller problem than a stale one every drive amplitude is computed from.",
+      "background": [
+        "Why first is a different question from most important. When several calls compete for the same hour, what a choice is worth is not its own importance but the difference between doing it now and doing it later. A serious problem that will be no worse in an hour costs nothing to defer. A smaller one that closes a door costs everything behind that door.",
+        "What to look for in the options. Two things separate them: which is still changing, and which is a precondition for the others. A situation that is deteriorating has a cost per hour attached to it, and a step that unblocks the rest multiplies the value of the hours after it. Everything else is a preference about where to start.",
+        "Why only one answer is marked. In the situation these options describe all of them eventually happen; what is being tested is the head of the queue, because that is where the reasoning is visible. The verdict names what each of the others was waiting on, which is worth reading even when the choice was right — the ordering behind the first place is the rest of the answer."
+      ],
       "story": "Okafor lists four things the group is relying on today. Two are numbers somebody took this week. Two are figures nobody has revisited in a year.",
       "game": {
         "type": "TRIAGE",
@@ -251,14 +403,28 @@ export const CURRICULUM = {
           ],
           "s": "Driving harder makes the qubit turn over faster, so the pulse that flips it gets shorter in proportion."
         }
-      ]
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Measurement collapses the state and returns one outcome",
+        "of": 30,
+        "rests": [
+          "Superposition as an amplitude, not a mixture"
+        ]
+      }
     },
     {
-      "day": 5,
+      "day": 6,
       "title": "What outlives the fortnight",
       "scene": "Four things the group started doing under pressure. Okafor asks which of them are worth their cost on an ordinary Tuesday, when nothing is wrong.",
       "takeaway": "Keep inexpensive practices that directly block a demonstrated failure mode; distinguish them from good documentation that only helps reconstruct the failure afterwards.",
       "place": "Cryogenics & Vacuum",
+      "guide": "All four practices are good ones and all would survive an ordinary Tuesday. They differ in whether they block the failure that actually happened, or merely help reconstruct it afterwards. Trace each back to the mechanism: a classifier judged on the data it was tuned on. A practice that makes a failure legible in hindsight is worth keeping, and it is not the same as one that prevents it.",
+      "background": [
+        "Why first is a different question from most important. When several calls compete for the same hour, what a choice is worth is not its own importance but the difference between doing it now and doing it later. A serious problem that will be no worse in an hour costs nothing to defer. A smaller one that closes a door costs everything behind that door.",
+        "What to look for in the options. Two things separate them: which is still changing, and which is a precondition for the others. A situation that is deteriorating has a cost per hour attached to it, and a step that unblocks the rest multiplies the value of the hours after it. Everything else is a preference about where to start.",
+        "Why only one answer is marked. In the situation these options describe all of them eventually happen; what is being tested is the head of the queue, because that is where the reasoning is visible. The verdict names what each of the others was waiting on, which is worth reading even when the choice was right — the ordering behind the first place is the rest of the answer."
+      ],
       "story": "Four things the group started doing under pressure. Okafor asks which of them are worth their cost on an ordinary Tuesday, when nothing is wrong.",
       "game": {
         "type": "TRIAGE",
@@ -284,7 +450,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a practice adopted in a crisis has a cost that only shows later"
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Readout, discriminators, and how a classifier can cheat",
+        "of": 30,
+        "rests": [
+          "Measurement collapses the state and returns one outcome",
+          "Probability from amplitude, and why one shot tells you nothing"
+        ]
+      }
     }
   ],
   "FAB": [
@@ -294,6 +469,13 @@ export const CURRICULUM = {
       "scene": "The twelfth qubit is found, but the weak feature beside it survives every repeat. Swapping chips would consume four of the days before Delft's slot. Lindqvist arrives with the fabrication coupon: its junction resistances spread twice as wide as usual.",
       "takeaway": "A device decision should compare the cost of its known imperfection with the cost and uncertainty of replacing it.",
       "place": "Fabrication & Materials",
+      "guide": "The chip has twelve qubits and eleven sit within 40 MHz of design. A warm-up and cooldown is four days out of the ten before the review. The spare comes from the same suspicious run and its coupon has not been measured. Junction resistance on the coupon spreads twice as wide as usual. The defect near 4.55 GHz has not been characterised on any chip in this laboratory. A register reported as eleven qubits is a different claim from one reported as twelve with one of them worse.",
+      "rules": "Spread the hundred points across the 4 proposals. At least 75 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "background": [
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
+      ],
       "story": "The twelfth qubit is found, but the weak feature beside it survives every repeat. Swapping chips would consume four of the days before Delft's slot. Lindqvist arrives with the fabrication coupon: its junction resistances spread twice as wide as usual.",
       "game": {
         "type": "SCIENCETANK",
@@ -326,11 +508,26 @@ export const CURRICULUM = {
           "A": 50,
           "C": 25
         },
-        "research": "The chip has 12 qubits and 11 are within 40 MHz of design. Warm-up and cooldown is four\ndays out of the ten before the review. The spare comes from the same suspicious run. Junction\nresistance on the coupon spreads twice as wide as usual. The defect near 4.55 GHz has not been\ncharacterised on any chip in this lab."
+        "research": ""
       },
       "assumes": [
-        "a fabrication run produces chips with a spread of properties"
-      ]
+        "a fabrication run produces chips with a spread of properties",
+        "energy quantisation, and why a level spacing sets everything else — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Energy quantisation, and why a level spacing sets everything else"
+        }
+      ],
+      "concept": {
+        "n": 3,
+        "c": "The two-level approximation, and when it fails",
+        "of": 30,
+        "rests": [
+          "Energy quantisation, and why a level spacing sets everything else"
+        ]
+      }
     },
     {
       "day": 2,
@@ -338,6 +535,12 @@ export const CURRICULUM = {
       "scene": "Lindqvist lists four candidates on the board and asks which of them changes a qubit's frequency slightly and slowly, rather than taking a quantum out of it.",
       "takeaway": "A process that changes the qubit frequency from one repetition to the next can wash out phase even if little energy is lost.",
       "place": "Fabrication & Materials",
+      "guide": "The four sources on the left are all real noise in this device. The four descriptions differ on one thing: whether the process takes energy out of the qubit, or only moves its frequency between repetitions. Ask that question of each source before pairing anything. A mechanism sorted into the wrong channel sends a week of shielding work at the wrong target, and the coherence number does not move.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Lindqvist lists four candidates on the board and asks which of them changes a qubit's frequency slightly and slowly, rather than taking a quantum out of it.",
       "game": {
         "type": "PROTOCOL",
@@ -447,7 +650,16 @@ export const CURRICULUM = {
           "s": "Coherence is limited both by energy leaving and by phase being scrambled, and T₂ can never be more than twice T₁ however quiet the phase noise is.",
           "card": false
         }
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Where decoherence comes from: two-level defects, photons, flux noise",
+        "of": 30,
+        "rests": [
+          "Relaxation time T1 — energy leaving the system",
+          "Dephasing time T2 — the phase going before the energy does"
+        ]
+      }
     },
     {
       "day": 3,
@@ -455,6 +667,12 @@ export const CURRICULUM = {
       "scene": "By breakfast Lindqvist has three chips from one processing window lined up on the bench. The same narrow feature appears on all three and shifts after thermal cycling. Chips from every other window are clean. The fabrication log is open beside them.",
       "takeaway": "A narrow, repeatable spectral feature can be used as a fingerprint, but identifying its microscopic cause requires ruling out competing modes and artefacts.",
       "place": "Fabrication & Materials",
+      "guide": "Five readings are on the panel, and the unremarkable ones carry as much weight as the narrow line. Three chips from one process window, clean chips from every other, and a shift after cycling: each rules out a different candidate. Test every explanation against all five readings, not the loudest. An explanation that fits the feature but not where it appears is a hypothesis about the wrong part of the building.",
+      "background": [
+        "Why the unremarkable readings decide it. The salient reading is what draws attention, and it is usually consistent with several explanations at once, which is why it rarely settles anything. The readings that discriminate are the ones a candidate predicts should have moved and which have not: a normal value is a positive result against every mechanism that would have disturbed it.",
+        "How to work the candidates. Take each mechanism and predict the panel it implies before you look at the panel again — which readings it drives, in which direction, and by roughly how much. Then compare. Working that way round is what separates a diagnosis from a rationalisation, because the prediction is made before the data is consulted.",
+        "Why only one candidate survives. Several will account for part of the panel, deliberately so, and a partial fit is exactly what a confident wrong answer feels like from the inside. When two remain, look for the reading on which their predictions differ and let it decide. If no reading separates them you have not finished reading the panel."
+      ],
       "story": "By breakfast Lindqvist has three chips from one processing window lined up on the bench. The same narrow feature appears on all three and shifts after thermal cycling. Chips from every other window are clean. The fabrication log is open beside them.",
       "game": {
         "type": "DIAGNOSIS",
@@ -546,7 +764,16 @@ export const CURRICULUM = {
           ],
           "s": "An excited qubit loses its energy at random, so the population falls by the same fraction in every equal interval and T₁ is the time it takes to fall to about a third."
         }
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Where decoherence comes from: two-level defects, photons, flux noise",
+        "of": 30,
+        "rests": [
+          "Relaxation time T1 — energy leaving the system",
+          "Dephasing time T2 — the phase going before the energy does"
+        ]
+      }
     },
     {
       "day": 4,
@@ -554,6 +781,12 @@ export const CURRICULUM = {
       "scene": "Nothing has been published. The review is in two days. Delft has the raw shots and has not been told what Ridgeway found.",
       "takeaway": "When an external collaborator is spending time on a discrepancy you already understand, disclosure becomes part of the experimental workflow.",
       "place": "Fabrication & Materials",
+      "guide": "All four actions are going to happen. The order is what is being graded, and the test is neither effort nor importance. Ask of each one which changes what somebody outside this building does in the next hour. Everything internal can be done tomorrow at the same cost. Time another group spends chasing a hardware fault that does not exist cannot be given back to them.",
+      "background": [
+        "Why first is a different question from most important. When several calls compete for the same hour, what a choice is worth is not its own importance but the difference between doing it now and doing it later. A serious problem that will be no worse in an hour costs nothing to defer. A smaller one that closes a door costs everything behind that door.",
+        "What to look for in the options. Two things separate them: which is still changing, and which is a precondition for the others. A situation that is deteriorating has a cost per hour attached to it, and a step that unblocks the rest multiplies the value of the hours after it. Everything else is a preference about where to start.",
+        "Why only one answer is marked. In the situation these options describe all of them eventually happen; what is being tested is the head of the queue, because that is where the reasoning is visible. The verdict names what each of the others was waiting on, which is worth reading even when the choice was right — the ordering behind the first place is the rest of the answer."
+      ],
       "story": "Nothing has been published. The review is in two days. Delft has the raw shots and has not been told what Ridgeway found.",
       "game": {
         "type": "TRIAGE",
@@ -579,7 +812,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a fault found before publication is a different problem from one found after"
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Materials and fabrication: junctions, oxide and yield",
+        "of": 30,
+        "rests": [
+          "Energy quantisation, and why a level spacing sets everything else"
+        ]
+      }
     }
   ],
   "CTRL": [
@@ -589,6 +830,12 @@ export const CURRICULUM = {
       "scene": "Fixing the heat leak means a warm-up and another cooldown: four days. With Delft's slot approaching, Mensah does not want four empty days and asks what work remains interpretable while the device is off its normal temperature.",
       "takeaway": "An off-nominal machine can still produce useful diagnostics, but those data must not be mistaken for nominal performance.",
       "place": "Control & Readout",
+      "guide": "All four options are things the group could genuinely do in four days. They differ in whether the number that comes out still means what it usually means. Sort them by what the answer depends on: the chip, the wiring, or both. A measurement taken off-nominal is not useless. A warm-state diagnostic filed as a baseline is worse than no measurement at all.",
+      "background": [
+        "Why first is a different question from most important. When several calls compete for the same hour, what a choice is worth is not its own importance but the difference between doing it now and doing it later. A serious problem that will be no worse in an hour costs nothing to defer. A smaller one that closes a door costs everything behind that door.",
+        "What to look for in the options. Two things separate them: which is still changing, and which is a precondition for the others. A situation that is deteriorating has a cost per hour attached to it, and a step that unblocks the rest multiplies the value of the hours after it. Everything else is a preference about where to start.",
+        "Why only one answer is marked. In the situation these options describe all of them eventually happen; what is being tested is the head of the queue, because that is where the reasoning is visible. The verdict names what each of the others was waiting on, which is worth reading even when the choice was right — the ordering behind the first place is the rest of the answer."
+      ],
       "story": "Fixing the heat leak means a warm-up and another cooldown: four days. With Delft's slot approaching, Mensah does not want four empty days and asks what work remains interpretable while the device is off its normal temperature.",
       "game": {
         "type": "TRIAGE",
@@ -613,7 +860,8 @@ export const CURRICULUM = {
         "correctChoice": "Warm checks — wiring and electronics, which the chip cannot affect."
       },
       "assumes": [
-        "some measurements depend on temperature and some do not"
+        "some measurements depend on temperature and some do not",
+        "energy quantisation, and why a level spacing sets everything else — taken as read"
       ],
       "equations": [
         {
@@ -643,15 +891,35 @@ export const CURRICULUM = {
           ],
           "s": "A qubit only stays in its ground state if the thermal energy around it is well below the energy of one quantum, which for a 5 GHz qubit means tens of millikelvin."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Energy quantisation, and why a level spacing sets everything else"
+        }
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Thermal energy against level spacing — why a qubit needs millikelvin",
+        "of": 30,
+        "rests": [
+          "Energy quantisation, and why a level spacing sets everything else"
+        ]
+      }
     },
     {
       "day": 2,
       "title": "Where the qubit actually is",
-      "scene": "The fridge is back at base temperature. Mensah has the drive on the twelfth qubit and a readout that reports how much population ends up excited. The design put this qubit at 5.02 gigahertz, but the readout there has been flat all morning.",
+      "scene": "A qubit absorbs a drive only near its own transition frequency. So you find that frequency by sweeping the drive and watching how much of the population ends up excited. The design put this one at 5.02 gigahertz. The readout there has been flat all morning, so the device that came out of fabrication is somewhere else.",
       "takeaway": "A designed transition frequency is a target; spectroscopy tells you where the fabricated device actually responds.",
       "place": "Control & Readout",
-      "story": "The fridge is back at base temperature. Mensah has the drive on the twelfth qubit and a readout that reports how much population ends up excited. The design put this qubit at 5.02 gigahertz, but the readout there has been flat all morning.",
+      "guide": "Drag the drive frequency. The readout is the fraction of shots that finish excited, so a frequency this qubit absorbs shows up as a rise, and only the places you stop at get plotted. Sweep the whole band before deciding: more than one feature can appear, and they are not the same size. What counts as the transition is on the Background button. Then mark the frequency and commit.",
+      "background": [
+        "Why the design number is only a guess. The transition frequency is set by a junction barrier about a nanometre thick, and no fabrication process controls a nanometre exactly. A device landing a few hundred megahertz from its design value is ordinary, which is why every qubit is found by spectroscopy before it is used.",
+        "What a resonant drive does. On its own transition, a drive moves nearly the whole population into the excited state, because every repetition is driving the same transition in step. Off resonance the population barely moves. So the size of a feature is evidence about what it is, not merely about how strong the drive was.",
+        "What else can absorb. A smaller feature elsewhere in the band is usually real and usually not the qubit: a two-level defect in the oxide, a stray mode of the package, or a neighbouring qubit. Those are worth knowing about — one of them turns up again later this fortnight as a place this qubit must not be parked."
+      ],
+      "story": "A qubit absorbs a drive only near its own transition frequency. So you find that frequency by sweeping the drive and watching how much of the population ends up excited. The design put this one at 5.02 gigahertz. The readout there has been flat all morning, so the device that came out of fabrication is somewhere else.",
       "game": {
         "type": "SWEEP",
         "title": "Where the qubit actually is",
@@ -786,7 +1054,15 @@ export const CURRICULUM = {
           ],
           "s": "A qubit only stays in its ground state if the thermal energy around it is well below the energy of one quantum, which for a 5 GHz qubit means tens of millikelvin."
         }
-      ]
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Resonance, detuning, and finding a qubit frequency",
+        "of": 30,
+        "rests": [
+          "Energy quantisation, and why a level spacing sets everything else"
+        ]
+      }
     },
     {
       "day": 3,
@@ -794,6 +1070,11 @@ export const CURRICULUM = {
       "scene": "With the drive at 4.61 GHz, the qubit's population oscillates as the pulse gets longer. Mensah measures a full cycle every 84 nanoseconds.",
       "takeaway": "A resonant drive produces an oscillation; the pulse area, not simply the carrier frequency, determines the rotation.",
       "place": "Control & Readout",
+      "guide": "Five numbers and only two of them describe the oscillation. The rest are the carrier frequency, the temperature and the size of the chip. All are true of the device; none is about how long a rotation takes. Ask of each whether it describes the population moving or the machine it moves in. Confusing the drive frequency with the rate the population turns at is the standard error here, and the two differ by orders of magnitude.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "With the drive at 4.61 GHz, the qubit's population oscillates as the pulse gets longer. Mensah measures a full cycle every 84 nanoseconds.",
       "game": {
         "type": "BALLPARK",
@@ -812,7 +1093,9 @@ export const CURRICULUM = {
         "calcKey": "CTRL-3"
       },
       "assumes": [
-        "a driven two-level system cycles between its states while the drive is on"
+        "a driven two-level system cycles between its states while the drive is on",
+        "superposition as an amplitude, not a mixture — taken as read",
+        "resonance, detuning, and finding a qubit frequency — taken as read"
       ],
       "equations": [
         {
@@ -831,7 +1114,26 @@ export const CURRICULUM = {
           "s": "Driving harder makes the qubit turn over faster, so the pulse that flips it gets shorter in proportion.",
           "computed": true
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 4,
+          "c": "Superposition as an amplitude, not a mixture"
+        },
+        {
+          "n": 8,
+          "c": "Resonance, detuning, and finding a qubit frequency"
+        }
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Rabi oscillation: driving a transition",
+        "of": 30,
+        "rests": [
+          "Superposition as an amplitude, not a mixture",
+          "Resonance, detuning, and finding a qubit frequency"
+        ]
+      }
     },
     {
       "day": 4,
@@ -839,6 +1141,12 @@ export const CURRICULUM = {
       "scene": "The device is cold, the qubit is located, and its coherence is measured. Before Ridgeway sends the experiment to Delft, Nakamura walks the final readout path: resonator, cable, isolator, parametric amplifier, 4-kelvin amplifier, more cable, then the room-temperature digitiser.",
       "takeaway": "In a cascaded readout chain, noise added early — and loss before the first high-gain amplifier — is especially costly.",
       "place": "Control & Readout",
+      "guide": "The four cards are places in a chain rather than moments on a clock, so nothing here happens before anything else in time. What orders them is where the signal is: how cold, how far from the chip, and how much gain it has already been given. Work outward from the qubit and let the temperature be the guide. Put the gain stages the wrong way round and the chain's noise is set by its warmest amplifier.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "The device is cold, the qubit is located, and its coherence is measured. Before Ridgeway sends the experiment to Delft, Nakamura walks the final readout path: resonator, cable, isolator, parametric amplifier, 4-kelvin amplifier, more cable, then the room-temperature digitiser.",
       "game": {
         "type": "SEQUENCE",
@@ -869,15 +1177,29 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an amplifier increases a signal and adds noise of its own"
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "The microwave chain: attenuation, amplification and noise temperature",
+        "of": 30,
+        "rests": [
+          "Cryogenics: stages, cooling power and heat load"
+        ]
+      }
     },
     {
       "day": 5,
       "title": "A line drawn between two clouds",
-      "scene": "The digitiser's shots plot as two clouds. Most are clearly in one or the other. A few thousand sit between them, and a line drawn somewhere in that gap assigns every one of those to a state.",
+      "scene": "The digitiser's shots plot as two clouds, ground and excited. Most sit clearly inside one of them. A few thousand lie in the gap between, and a threshold anywhere in that gap assigns every one of those to a state. Move it one way and ground shots get called excited. Move it the other and excited shots get called ground.",
       "takeaway": "A discriminator converts overlapping analogue distributions into reported states, so its threshold sets a trade between two kinds of misclassification.",
       "place": "Control & Readout",
-      "story": "The digitiser's shots plot as two clouds. Most are clearly in one or the other. A few thousand sit between them, and a line drawn somewhere in that gap assigns every one of those to a state.",
+      "guide": "Drag the threshold. Two curves are plotted: ground shots called excited, and excited shots called ground. Both mistakes cost the same in this circuit, so what matters is the two added together rather than either one alone. Sweep the range and watch both readouts, then mark the threshold you would set and commit. You are graded on where you put the line.",
+      "background": [
+        "Why the clouds overlap. A readout is a voltage built up over a few microseconds, and it carries amplifier noise. Some shots also change state during the measurement itself, which puts them between the two clouds by right rather than by accident. So the overlap is physics, not sloppiness, and no threshold can remove it.",
+        "How the two curves behave. Each one falls as the other rises: every millivolt you move the line rescues some shots of one kind and loses some of the other. The two therefore have a total with a shape, and it is that total the circuit pays.",
+        "Why this line matters more than it looks. Every number built from classified outcomes inherits this threshold — readout fidelity, circuit fidelity, the correlations later in the fortnight. A threshold set in the wrong place does not announce itself; it quietly lowers whatever is reported downstream, which is a thing that happens to this group again on day 10."
+      ],
+      "story": "The digitiser's shots plot as two clouds, ground and excited. Most sit clearly inside one of them. A few thousand lie in the gap between, and a threshold anywhere in that gap assigns every one of those to a state. Move it one way and ground shots get called excited. Move it the other and excited shots get called ground.",
       "game": {
         "type": "SWEEP",
         "title": "A line drawn between two clouds",
@@ -1031,15 +1353,29 @@ export const CURRICULUM = {
           ],
           "s": "Error correction only works below a threshold error rate, and above it every qubit you add makes the logical qubit worse rather than better."
         }
-      ]
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Measurement collapses the state and returns one outcome",
+        "of": 30,
+        "rests": [
+          "Superposition as an amplitude, not a mixture"
+        ]
+      }
     },
     {
       "day": 6,
       "title": "Energy with somewhere to go",
-      "scene": "This qubit is tunable across about 400 megahertz. Nakamura has measured its relaxation time at every setting across that band, with the defect the group found yesterday somewhere inside it.",
+      "scene": "This qubit can be tuned across about 400 megahertz, and Nakamura has measured how long it keeps its energy at every setting in that band. That relaxation time is the readout, and longer is better. Somewhere inside the band sits the defect the group found yesterday.",
       "takeaway": "If a loss channel is sharply resonant, frequency can be an engineering control knob as well as a measurement.",
       "place": "Control & Readout",
-      "story": "This qubit is tunable across about 400 megahertz. Nakamura has measured its relaxation time at every setting across that band, with the defect the group found yesterday somewhere inside it.",
+      "guide": "Drag the qubit frequency. The readout is the relaxation time in microseconds, and higher is better. Across most of the band it is roughly flat, and you are looking for the narrow place where it collapses, because that is the frequency to keep this qubit away from. The damage is only tens of megahertz wide, so sweep the whole band before deciding. Then mark it and commit.",
+      "background": [
+        "Why a frequency can cost you energy. Two systems at the same frequency exchange energy easily; at different frequencies they barely talk. A defect in the oxide with a transition of its own is therefore harmless almost everywhere and ruinous where the qubit's frequency matches it, because the qubit's energy has somewhere to go.",
+        "Why the dip is narrow. The width of the damage is the defect's own linewidth, which is why it is tens of megahertz rather than hundreds, and why a qubit parked 50 megahertz away is unaffected. It also means a coarse sweep can step straight over it.",
+        "What this turns a measurement into. A loss channel that is sharply resonant makes frequency an engineering control rather than merely a property: the fix is not to repair the defect but to operate away from it. That is why a tunable qubit is worth the extra circuitry it costs."
+      ],
+      "story": "This qubit can be tuned across about 400 megahertz, and Nakamura has measured how long it keeps its energy at every setting in that band. That relaxation time is the readout, and longer is better. Somewhere inside the band sits the defect the group found yesterday.",
       "game": {
         "type": "SWEEP",
         "title": "Energy with somewhere to go",
@@ -1166,7 +1502,16 @@ export const CURRICULUM = {
           ],
           "s": "An excited qubit loses its energy at random, so the population falls by the same fraction in every equal interval and T₁ is the time it takes to fall to about a third."
         }
-      ]
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Relaxation time T1 — energy leaving the system",
+        "of": 30,
+        "rests": [
+          "Energy quantisation, and why a level spacing sets everything else",
+          "Measurement collapses the state and returns one outcome"
+        ]
+      }
     },
     {
       "day": 7,
@@ -1174,6 +1519,11 @@ export const CURRICULUM = {
       "scene": "Mensah's proposed circuit is 400 gates deep. The measured fidelity of a single gate is 0.988.",
       "takeaway": "In an independent-error toy model, small per-gate infidelity compounds rapidly with circuit depth.",
       "place": "Control & Readout",
+      "guide": "Five numbers, two of which are the same gate quality written once as a fidelity and once as an error. Another is a benchmark figure in per cent. The relationship is written for one of those forms, so establish which before choosing anything. Raising an error rate to a power where a fidelity belongs gives an answer near zero. It still looks like a probability, and nothing downstream will object.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Mensah's proposed circuit is 400 gates deep. The measured fidelity of a single gate is 0.988.",
       "game": {
         "type": "BALLPARK",
@@ -1230,7 +1580,16 @@ export const CURRICULUM = {
           ],
           "s": "Averaging independent measurements improves a sensor only as the square root of their number, which is the wall entanglement is used to get past."
         }
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Gate fidelity, and how error compounds with depth",
+        "of": 30,
+        "rests": [
+          "Rabi oscillation: driving a transition",
+          "Dephasing time T2 — the phase going before the energy does"
+        ]
+      }
     },
     {
       "day": 8,
@@ -1238,6 +1597,12 @@ export const CURRICULUM = {
       "scene": "Petrova lists what somebody sceptical will want to know: whether the settings were chosen after the state was prepared, whether the two qubits were far enough apart, and how many runs were discarded.",
       "takeaway": "A loophole-free Bell claim requires the apparatus to enforce the assumptions rather than asking the reader to grant them.",
       "place": "Control & Readout",
+      "guide": "The left column is four conditions a sceptic will ask about; the right is four things an apparatus physically does. Pair them by mechanism. For each condition, ask what has to be true of the equipment for the assumption to hold rather than be granted. An apparatus can enforce an assumption, or a reader can be asked to accept it. That difference separates a demonstration from a claim.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Petrova lists what somebody sceptical will want to know: whether the settings were chosen after the state was prepared, whether the two qubits were far enough apart, and how many runs were discarded.",
       "game": {
         "type": "PROTOCOL",
@@ -1300,7 +1665,16 @@ export const CURRICULUM = {
           ],
           "s": "No pre-agreed instruction set can push S above 2, so measuring more than that rules out the whole class of explanations rather than supporting one."
         }
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "The Bell inequality as a number you measure",
+        "of": 30,
+        "rests": [
+          "Entanglement as a correlation stronger than any shared instruction",
+          "Probability from amplitude, and why one shot tells you nothing"
+        ]
+      }
     },
     {
       "day": 9,
@@ -1308,6 +1682,12 @@ export const CURRICULUM = {
       "scene": "Ridgeway has 12 qubits. Mensah is asked what, if anything, a twelve-qubit device can contribute to an argument about a sixty-seven-qubit one.",
       "takeaway": "Small instances are valuable because they can validate an analysis against a truth that is independently computable.",
       "place": "Control & Readout",
+      "guide": "All four options describe something a small device could be pointed at. They differ in whether the thing being tested is the hardware, the runtime, or the method used to interpret the data. At twelve qubits, one of those has an independently computable truth to check against. Decide which, and be modest about what it settles. Validating a load-bearing method where the answer is knowable beats a scaled-up guess.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Ridgeway has 12 qubits. Mensah is asked what, if anything, a twelve-qubit device can contribute to an argument about a sixty-seven-qubit one.",
       "game": {
         "type": "CHOICE",
@@ -1354,102 +1734,69 @@ export const CURRICULUM = {
           ],
           "s": "Every error might be an eavesdropper, so the protocol throws away enough key to cover it, and above about eleven per cent errors nothing is left."
         }
-      ]
+      ],
+      "concept": {
+        "n": 3,
+        "c": "The two-level approximation, and when it fails",
+        "of": 30,
+        "rests": [
+          "Energy quantisation, and why a level spacing sets everything else"
+        ]
+      }
     },
     {
       "day": 10,
       "title": "Scoring yourself on your own training set",
-      "scene": "Delft's message is on the main screen: their hardware has better coherence, lower gate error and cleaner readout, yet their circuit fidelity is a third lower. Castellan puts Ridgeway's two trays of shots beside it. Something in the comparison does not add up.",
+      "scene": "When this machine reads a qubit it does not report 0 or 1. It reports a voltage. Shots that were really 0 come back low and shots that were really 1 come back high, but the two groups overlap, so no cut-off separates them perfectly. You have to choose one anyway. That cut-off is the threshold: above it you call the shot 1, below it you call it 0. A threshold's score is the share of shots it labels correctly, so 95% means 5 shots in every 100 were called wrong, and higher is better. Castellan has 800 shots whose true answers are already known, split into two trays of 400. Ridgeway picked his threshold using tray A, then reported the score tray A gave it.",
       "takeaway": "A rule chosen on a sample is scored generously by that sample, so the only honest number comes from data the rule has never seen.",
       "place": "Control & Readout",
-      "story": "Delft's message is on the main screen: their hardware has better coherence, lower gate error and cleaner readout, yet their circuit fidelity is a third lower. Castellan puts Ridgeway's two trays of shots beside it. Something in the comparison does not add up.",
+      "guide": "Each slider position is a different threshold, scored against tray A and plotted, so the curve is one you build by looking. Two things about those scores. Each comes from 400 shots, so it can land about a point either side of the truth, and you are hunting the best of many positions, which is a contest luck can win. And moving the line 2 mV only reclassifies the shots inside those 2 mV, so anything the clouds are really doing changes gradually. When you have chosen, freeze. Freezing commits you, and only then does tray B open — 400 shots that had no say in your choice. Report tray B's number.",
+      "background": [
+        "Why there is a choice to make at all. A readout is not a clean 0 or a clean 1; it is a voltage with noise on it. Plot every shot and you get two humps, one per state, and the humps have tails that reach into each other. Put the threshold too low and true 0s get called 1. Too high and true 1s get called 0. Somewhere in between is the line that costs you least, and finding it is what this panel is for.",
+        "Why a score wobbles. Flip a fair coin 400 times and you will not get exactly 200 heads, and you will get a different count if you do it again. A percentage measured on 400 shots behaves the same way, and here that is worth about a point. So two thresholds whose scores differ by half a point have not been told apart at all.",
+        "Why the best number on the screen is not the best threshold. Sixteen positions each carry their own wobble, and you are keeping whichever came out highest. The winner is the one whose luck ran furthest in your favour, so the top score in any scan is biased upward — not because anybody cheated, but because picking the maximum is itself a choice made using the noise. Statisticians call it the winner's curse.",
+        "The discriminator is the step that applies your line and turns a voltage into a bit. Every other number in the experiment is built on top of it, so a threshold in the wrong place quietly lowers the circuit fidelity reported at the end. That is how Delft can own the better machine and still post the worse result. Their hardware is cleaner. Ridgeway's number was flattered by the way it was measured.",
+        "Picking a rule on one set of data and scoring it on data you kept back is called a holdout. It is the standard defence against fooling yourself, and it is procedural rather than clever. You do not have to be a better statistician. You have to have sealed the second tray before you started. Note what would go wrong if you could keep adjusting after tray B opened. You would be choosing with tray B as well, and there would be nothing left to test the choice on.",
+        "The two equations attached to this card come from the course's error-correction thread, and both are spelled out below. Neither is needed here. They are on the card because the day's topic touches them."
+      ],
+      "story": "When this machine reads a qubit it does not report 0 or 1. It reports a voltage. Shots that were really 0 come back low and shots that were really 1 come back high, but the two groups overlap, so no cut-off separates them perfectly. You have to choose one anyway. That cut-off is the threshold: above it you call the shot 1, below it you call it 0. A threshold's score is the share of shots it labels correctly, so 95% means 5 shots in every 100 were called wrong, and higher is better. Castellan has 800 shots whose true answers are already known, split into two trays of 400. Ridgeway picked his threshold using tray A, then reported the score tray A gave it.",
       "game": {
         "type": "HOLDOUT",
         "title": "Scoring yourself on your own training set",
         "setup": "Control & Readout",
         "play": "Say what the retraining did",
         "task": "Say what the retraining did",
-        "question": "Ridgeway's number was measured on the very shots that chose the line. Choose the line yourself, freeze it, and give it shots it has never seen — what does it score then?",
-        "answer": "About 95% from anywhere on the broad plateau. A line on the 14 mV spike — the best-scoring line on the calibration shots — reports about 92.6, and the 2% it appeared to gain was a feature of that 1 sample.",
-        "why": "A threshold chosen on a sample is chosen partly on that sample's noise, and noise does not repeat. That is why the middle of the range holds up and the spike does not: the plateau is a property of the 2 clouds, which the next batch of shots also has, and the spike is a property of 4000 particular records, which it does not. So a score measured where the line was chosen is not a measurement of the classifier at all — it is a measurement of the classifier plus the sample, and it is biased upwards every time, quietly and in the same direction. The cure is procedural rather than clever: keep shots back, freeze the rule, and report what it does on those.",
+        "question": "Choose your threshold on tray A, freeze it, and report what tray B scores.",
+        "answer": "About 95% from the middle of the curve, near 0 mV. The 95.1 at 14 mV is the best score on tray A and it does not survive the move: tray B gives that same threshold 92.5, because 14 mV is genuinely worse than the middle and its high score on tray A was a lucky draw.",
+        "why": "Two things went wrong at 14 mV and only one of them is luck. It is off the top of the curve, so it really does classify worse — about two points worse — and on top of that its tray A score was a favourable draw of 400 shots. Picking the highest of sixteen scores selects for exactly that kind of draw, which is why the top of a scan is biased upward. The middle of the curve is high on tray A for a different reason: the two voltage clouds are furthest apart there, and the next 400 shots have the same clouds. So a score measured where the threshold was chosen is not a measurement of the threshold. It is a measurement of the threshold plus the sample, biased upward every time, quietly and in the same direction. The cure is procedural rather than clever: keep shots back, freeze the rule, and report what it does on those.",
         "holdout": {
           "axis": {
             "label": "Discriminator threshold",
             "unit": "mV",
-            "min": -40,
-            "max": 40,
+            "min": -24,
+            "max": 24,
             "step": 1
           },
           "fit": [
             {
-              "at": -40,
-              "value": 88
+              "at": -24,
+              "value": 89.2
             },
             {
               "at": -20,
-              "value": 92.4
+              "value": 90.1
             },
             {
-              "at": -10,
-              "value": 94.6
+              "at": -16,
+              "value": 91.4
             },
             {
-              "at": -6,
-              "value": 95.1
-            },
-            {
-              "at": -3,
-              "value": 95.2
-            },
-            {
-              "at": 0,
-              "value": 95.2
-            },
-            {
-              "at": 2,
-              "value": 95
-            },
-            {
-              "at": 8,
-              "value": 94.4
-            },
-            {
-              "at": 12,
-              "value": 95.2
-            },
-            {
-              "at": 14,
-              "value": 96.4
-            },
-            {
-              "at": 16,
-              "value": 95
-            },
-            {
-              "at": 20,
-              "value": 93.6
-            },
-            {
-              "at": 30,
-              "value": 91
-            },
-            {
-              "at": 40,
-              "value": 88.2
-            }
-          ],
-          "test": [
-            {
-              "at": -40,
-              "value": 87.6
-            },
-            {
-              "at": -20,
-              "value": 92
-            },
-            {
-              "at": -10,
+              "at": -12,
               "value": 94.2
+            },
+            {
+              "at": -9,
+              "value": 94.8
             },
             {
               "at": -6,
@@ -1457,79 +1804,129 @@ export const CURRICULUM = {
             },
             {
               "at": -3,
-              "value": 95
+              "value": 94.9
             },
             {
               "at": 0,
               "value": 94.9
             },
             {
-              "at": 2,
+              "at": 3,
               "value": 94.6
             },
             {
-              "at": 8,
-              "value": 93.8
+              "at": 6,
+              "value": 94.1
+            },
+            {
+              "at": 9,
+              "value": 93.9
             },
             {
               "at": 12,
-              "value": 93.2
+              "value": 92.8
             },
             {
               "at": 14,
-              "value": 92.6
+              "value": 95.1
             },
             {
               "at": 16,
-              "value": 92.2
+              "value": 92.7
             },
             {
               "at": 20,
-              "value": 91.4
+              "value": 91.3
             },
             {
-              "at": 30,
-              "value": 89.2
-            },
-            {
-              "at": 40,
-              "value": 86.8
+              "at": 24,
+              "value": 87.8
             }
           ],
-          "fitLabel": "Calibration shots",
-          "testLabel": "Shots it has never seen",
+          "test": [
+            {
+              "at": -24,
+              "value": 87.9
+            },
+            {
+              "at": -20,
+              "value": 91
+            },
+            {
+              "at": -16,
+              "value": 93
+            },
+            {
+              "at": -12,
+              "value": 94.1
+            },
+            {
+              "at": -9,
+              "value": 93.9
+            },
+            {
+              "at": -6,
+              "value": 95.2
+            },
+            {
+              "at": -3,
+              "value": 95.9
+            },
+            {
+              "at": 0,
+              "value": 95.7
+            },
+            {
+              "at": 3,
+              "value": 94.9
+            },
+            {
+              "at": 6,
+              "value": 95.8
+            },
+            {
+              "at": 9,
+              "value": 95
+            },
+            {
+              "at": 12,
+              "value": 93
+            },
+            {
+              "at": 14,
+              "value": 92.5
+            },
+            {
+              "at": 16,
+              "value": 92
+            },
+            {
+              "at": 20,
+              "value": 90
+            },
+            {
+              "at": 24,
+              "value": 89.1
+            }
+          ],
+          "fitLabel": "Tray A",
+          "testLabel": "Tray B",
           "unit": "%",
-          "pass": 94.5,
-          "start": -40,
-          "freeze": "Freeze the line",
-          "commit": "Report the held-out number",
-          "afterFreeze": "Frozen. That is what your line scores on shots it has never been shown."
+          "pass": 94.8,
+          "start": -24,
+          "freeze": "Freeze it and open tray B",
+          "commit": "Report tray B's number",
+          "afterFreeze": "Frozen. Tray B had no part in choosing this threshold, so that is the number you can quote to Delft.",
+          "fitNote": "400 labelled shots. Every point on the curve is scored on these.",
+          "testNote": "The other 400, sealed this morning. It opens when you freeze."
         }
       },
       "assumes": [
         "a rule fitted to data describes that data better than it describes new data",
-        "a labelled calibration set is a sample, and a sample has features of its own"
+        "a labelled calibration set is a sample, and a sample has features of its own",
+        "a percentage measured on four hundred shots carries about a point of counting noise"
       ],
       "equations": [
-        {
-          "e": "F_total ≈ F^n",
-          "c": "gate fidelity compounding over circuit depth",
-          "v": [
-            [
-              "F_total",
-              "chance the whole circuit is right"
-            ],
-            [
-              "F",
-              "fidelity of one gate, between 0 and 1"
-            ],
-            [
-              "n",
-              "number of gates in the circuit"
-            ]
-          ],
-          "s": "Errors multiply rather than add, so a gate that is right 99.9 per cent of the time is useless a few thousand gates deep."
-        },
         {
           "e": "n_phys ≈ d²  per logical qubit",
           "c": "what error correction costs",
@@ -1549,7 +1946,16 @@ export const CURRICULUM = {
           ],
           "s": "Error correction only works below a threshold error rate, and above it every qubit you add makes the logical qubit worse rather than better."
         }
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Readout, discriminators, and how a classifier can cheat",
+        "of": 30,
+        "rests": [
+          "Measurement collapses the state and returns one outcome",
+          "Probability from amplitude, and why one shot tells you nothing"
+        ]
+      }
     },
     {
       "day": 11,
@@ -1557,6 +1963,12 @@ export const CURRICULUM = {
       "scene": "The automatic tune-up reports success on all 12 qubits in 11 minutes. Mensah asks what, precisely, that success is a statement about.",
       "takeaway": "An optimizer can prove that it satisfied its objective function without proving that every relevant behaviour of the device is healthy.",
       "place": "Control & Readout",
+      "guide": "The four options differ in how far a converged optimiser's word is being taken. One reports on what the routine actually measured; the others extend it to drift, to next week, or to the whole device. Ask what was inside the objective function and what was never in it. The useful line is not human against automatic. It is behaviour that was tested against behaviour that was not.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The automatic tune-up reports success on all 12 qubits in 11 minutes. Mensah asks what, precisely, that success is a statement about.",
       "game": {
         "type": "CHOICE",
@@ -1581,7 +1993,8 @@ export const CURRICULUM = {
         "correctChoice": "That it found parameters matching the responses it tests for."
       },
       "assumes": [
-        "an automated procedure optimises the quantity it was given"
+        "an automated procedure optimises the quantity it was given",
+        "resonance, detuning, and finding a qubit frequency — taken as read"
       ],
       "equations": [
         {
@@ -1603,14 +2016,154 @@ export const CURRICULUM = {
           ],
           "s": "Every error might be an eavesdropper, so the protocol throws away enough key to cover it, and above about eleven per cent errors nothing is left."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 8,
+          "c": "Resonance, detuning, and finding a qubit frequency"
+        }
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Calibration drift, and the tuning that has to happen daily",
+        "of": 30,
+        "rests": [
+          "Resonance, detuning, and finding a qubit frequency"
+        ]
+      }
     },
     {
       "day": 12,
+      "title": "What the morning calibration is chasing",
+      "scene": "The morning calibration cannot do everything before the users arrive. The queue is worked to one priority, and Raghavan changes it as the day's plan changes — after the fridge cycles, after the two-qubit run is booked, after a qubit drifts out.",
+      "takeaway": "The cost of a withdrawn instruction is paid by whoever is still working to it.",
+      "place": "Control Rack",
+      "guide": "Calibrate what the current priority wants and leave the rest. The priority on the rack board changes during the morning and nobody announces it. What is scored is the routines either side of a change, because they are the only ones that show whether the rack is reading the board.",
+      "background": [
+        "Why any of this drifts. Frequencies move with flux, with temperature and with two-level defects that come and go. A calibration is good for hours rather than days, which is why the morning exists at all.",
+        "Why the priority changes. On a single-qubit day it is readout, because a bad discriminator spoils everything downstream. On a two-qubit day it is the couplers. After a fridge cycle it is whatever the cycle moved, which is a different list again."
+      ],
+      "story": "The morning calibration cannot do everything before the users arrive. The queue is worked to one priority, and Raghavan changes it as the day's plan changes — after the fridge cycles, after the two-qubit run is booked, after a qubit drifts out.",
+      "game": {
+        "type": "SPOT",
+        "title": "What the morning calibration is chasing",
+        "setup": "Control Rack",
+        "play": "Work the calibration queue while the priority changes.",
+        "task": "Work the calibration queue while the priority changes.",
+        "question": "Calibrate to the priority on the rack board, and keep watching the board.",
+        "answer": "Read the board rather than the queue. Every change leaves a few minutes in which the old priority still looks like this morning's.",
+        "why": "Three priorities run across the morning and each wants a different part of the queue. Anything for readout, then anything for the two-qubit gates, then anything the fridge cycle moved. A routine can answer two at once, which is what makes the change cost real. The panel scores the window either side of each change, because most of the queue is wanted by neither priority and is correctly left for the afternoon by somebody who has read nothing. The rack's own version is the ten minutes after a two-qubit run is booked: the priority has changed to couplers, and the calibration still running is the single-qubit sweep that mattered when it started.",
+        "spot": {
+          "targets": [
+            {
+              "id": "r1",
+              "label": "Readout discriminator",
+              "tags": [
+                "readout"
+              ]
+            },
+            {
+              "id": "r2",
+              "label": "Coupler zero point",
+              "tags": [
+                "twoqubit"
+              ]
+            },
+            {
+              "id": "r3",
+              "label": "Readout after cycle",
+              "tags": [
+                "readout",
+                "cycled"
+              ]
+            },
+            {
+              "id": "r4",
+              "label": "Qubit frequency, cycled",
+              "tags": [
+                "cycled"
+              ]
+            },
+            {
+              "id": "r5",
+              "label": "Two-qubit phase",
+              "tags": [
+                "twoqubit"
+              ]
+            },
+            {
+              "id": "r6",
+              "label": "Amplifier bias",
+              "tags": [
+                "readout"
+              ]
+            },
+            {
+              "id": "r7",
+              "label": "Coupler, cycled",
+              "tags": [
+                "twoqubit",
+                "cycled"
+              ]
+            },
+            {
+              "id": "r8",
+              "label": "Single-qubit amplitude",
+              "tags": [
+                "routine"
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "say": "Anything for readout",
+              "want": [
+                "readout"
+              ]
+            },
+            {
+              "say": "Anything for two-qubit gates",
+              "want": [
+                "twoqubit"
+              ]
+            },
+            {
+              "say": "Anything the fridge cycle moved",
+              "want": [
+                "cycled"
+              ]
+            }
+          ],
+          "duration": 40,
+          "switchEvery": 12,
+          "pass": 0.75,
+          "hint": "The priority is on the rack board, and it changes without an announcement.",
+          "commit": "Open the queue"
+        }
+      },
+      "assumes": [
+        "a calibration is only good for a while"
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Calibration drift, and the tuning that has to happen daily",
+        "of": 30,
+        "rests": [
+          "Resonance, detuning, and finding a qubit frequency"
+        ]
+      }
+    },
+    {
+      "day": 13,
       "title": "A twelve-qubit projection from three measured qubits",
       "scene": "\"The rerun's first held-out results are in for three qubits: their single-qubit readout fidelities cluster around 0.941 rather than the 0.962 reported before. Petrova asks for a clearly labelled twelve-qubit projection under the toy assumption that every qubit has the same independent readout fidelity.\"",
       "takeaway": "Exponentiating a per-qubit fidelity gives a projection only after you state the independence and identical-performance assumptions.",
       "place": "Control & Readout",
+      "guide": "Five numbers, and two of them are readout fidelities. One is the figure first reported and one is the corrected one. Two others belong to the gate arithmetic from an earlier day. The projection is about readout across a register, so both the quantity and its source have to match. Using the number the correction replaced makes the register look healthier and reinstates the error the rerun was for.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "\"The rerun's first held-out results are in for three qubits: their single-qubit readout fidelities cluster around 0.941 rather than the 0.962 reported before. Petrova asks for a clearly labelled twelve-qubit projection under the toy assumption that every qubit has the same independent readout fidelity.\"",
       "game": {
         "type": "BALLPARK",
@@ -1626,7 +2179,7 @@ export const CURRICULUM = {
           "The projection assumes 12 identical, independent readouts"
         ],
         "relationship": "\"Toy model: P(all 12 read correctly) = (per-qubit readout fidelity)^12.\"\n",
-        "calcKey": "CTRL-12"
+        "calcKey": "CTRL-13"
       },
       "assumes": [
         "for this estimate only, all 12 qubits have identical independent readout fidelity of 0.941"
@@ -1652,17 +2205,31 @@ export const CURRICULUM = {
           "s": "Errors multiply rather than add, so a gate that is right 99.9 per cent of the time is useless a few thousand gates deep.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Probability from amplitude, and why one shot tells you nothing",
+        "of": 30,
+        "rests": [
+          "Measurement collapses the state and returns one outcome"
+        ]
+      }
     }
   ],
   "VER": [
     {
       "day": 1,
       "title": "Energy out, or phase scrambled",
-      "scene": "The qubit can now be found and flipped, but Holm still does not know how long its state remains useful. He has two measurements running at every delay: one for excitation left behind, the other for phase coherence. Neither curve has been read yet.",
+      "scene": "Two measurements run at every delay. One asks how much excitation is left in the qubit. The other asks how much phase coherence is left. Both start near one and fall as the delay grows. By convention a decay time is read where a quantity has dropped to about a third of where it started, and Holm needs the phase curve's time.",
       "takeaway": "Comparing T1 with T2 tells you whether energy loss alone can explain the observed loss of coherence.",
       "place": "Error & Verification",
-      "story": "The qubit can now be found and flipped, but Holm still does not know how long its state remains useful. He has two measurements running at every delay: one for excitation left behind, the other for phase coherence. Neither curve has been read yet.",
+      "guide": "Drag the delay. Both curves are plotted wherever you stop, and each readout gives that curve's value there. You want the delay at which the phase curve, the Ramsey contrast, has fallen to about a third of its starting value. Read it off the plot rather than working it out, then mark that delay and commit. Only the position you mark is graded.",
+      "background": [
+        "What the two curves are. One is energy: a qubit in the excited state eventually gives its energy away, and the excited population decays as it does. The other is phase. A qubit can keep all of its energy and still lose the phase relationship that makes it useful for computing, because the phase advances at a rate set by its frequency, and anything that shifts that frequency between repetitions scrambles it. The two are separate losses with separate cures.",
+        "Why they are read at the same place. A decay is described by the time it takes to fall to about a third of its starting value — one factor of e — and reading both curves at the same fraction is what makes the two times comparable. Read one at a third and the other at a half and the ratio between them means nothing.",
+        "Why the ratio is the point. Energy loss also destroys phase, so the phase time can never be much more than twice the energy time. If it is far shorter than that ceiling, something is scrambling phase without taking any energy — and that something is usually noise slow enough to look like a small frequency shift from one repetition to the next."
+      ],
+      "story": "Two measurements run at every delay. One asks how much excitation is left in the qubit. The other asks how much phase coherence is left. Both start near one and fall as the delay grows. By convention a decay time is read where a quantity has dropped to about a third of where it started, and Holm needs the phase curve's time.",
       "game": {
         "type": "SWEEP",
         "title": "Energy out, or phase scrambled",
@@ -1823,7 +2390,16 @@ export const CURRICULUM = {
           ],
           "s": "Coherence is limited both by energy leaving and by phase being scrambled, and T₂ can never be more than twice T₁ however quiet the phase noise is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Relaxation time T1 — energy leaving the system",
+        "of": 30,
+        "rests": [
+          "Energy quantisation, and why a level spacing sets everything else",
+          "Measurement collapses the state and returns one outcome"
+        ]
+      }
     },
     {
       "day": 2,
@@ -1831,6 +2407,12 @@ export const CURRICULUM = {
       "scene": "The first end-to-end diagnostic is in. It reports 8% wrong outcomes. Separate calibration experiments estimate about 4% readout error and less than 1% preparation error. Holm asks what Ridgeway can honestly infer about the remaining circuit contribution.",
       "takeaway": "An observed error rate is only a diagnosis after you state the model used to separate preparation, gates and measurement.",
       "place": "Error & Verification",
+      "guide": "The left column is four terms of one error budget; the right says what kind of evidence each one is. They differ in how each was got: measured on its own, seen only inside a total, or inferred once the others are modelled. Ask of each which of those three it is. A budget that quotes an inferred term as a measurement sends a pulse engineer to optimise what the readout chain is doing.",
+      "background": [
+        "Why explanations rather than labels. Naming a finding is not accounting for it, and a plausible-sounding mechanism attached to the wrong observation is the commonest way a wrong story survives. Committing an explanation to one clue means claiming it accounts for that clue specifically and not for its neighbour, which is where the two come apart.",
+        "How to use the one-each rule. The explanations are a set to be distributed, not a list to be sampled, so every join constrains the rest. Settling the two you are confident of can decide the remaining pair by elimination. Where it does not, two explanations are still competing for one clue, and that competition is the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every explanation used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "The first end-to-end diagnostic is in. It reports 8% wrong outcomes. Separate calibration experiments estimate about 4% readout error and less than 1% preparation error. Holm asks what Ridgeway can honestly infer about the remaining circuit contribution.",
       "game": {
         "type": "CASEBOOK",
@@ -1893,7 +2475,16 @@ export const CURRICULUM = {
           ],
           "s": "Every error might be an eavesdropper, so the protocol throws away enough key to cover it, and above about eleven per cent errors nothing is left."
         }
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Gate fidelity, and how error compounds with depth",
+        "of": 30,
+        "rests": [
+          "Rabi oscillation: driving a transition",
+          "Dephasing time T2 — the phase going before the energy does"
+        ]
+      }
     },
     {
       "day": 3,
@@ -1901,6 +2492,12 @@ export const CURRICULUM = {
       "scene": "An email from Delft is open on Holm's screen: their independent-device slot begins in ten days, and the next opening is a quarter away. Holm starts a list of exactly what Ridgeway would have to send, and what would have to come back.",
       "takeaway": "A useful replication shares enough method to repeat the experiment while keeping independent the choices that are actually being tested.",
       "place": "Error & Verification",
+      "guide": "The four items differ in one respect. Does sharing each one make the second run a repeat of the experiment, or a repeat of Ridgeway's own assumptions? Ask whether Delft could reach the same conclusion without it. A replication that shares the analysis as well as the method can only agree. It has given up the independence that made a disagreement worth having.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "An email from Delft is open on Holm's screen: their independent-device slot begins in ten days, and the next opening is a quarter away. Holm starts a list of exactly what Ridgeway would have to send, and what would have to come back.",
       "game": {
         "type": "PROTOCOL",
@@ -1941,8 +2538,24 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "a second measurement is only a check if it could disagree"
-      ]
+        "a second measurement is only a check if it could disagree",
+        "calibration drift, and the tuning that has to happen daily — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 15,
+          "c": "Calibration drift, and the tuning that has to happen daily"
+        }
+      ],
+      "concept": {
+        "n": 29,
+        "c": "Reproducibility: a result on one device is not a result",
+        "of": 30,
+        "rests": [
+          "Randomised benchmarking: what it measures and what it does not",
+          "Calibration drift, and the tuning that has to happen daily"
+        ]
+      }
     },
     {
       "day": 4,
@@ -1950,6 +2563,12 @@ export const CURRICULUM = {
       "scene": "The oxidation change raised the fraction of usable chips from about half to nearly three quarters. It also appears to have produced these defects.",
       "takeaway": "A process change can improve one metric while degrading another, so causation needs a controlled comparison rather than a retrospective correlation.",
       "place": "Error & Verification",
+      "guide": "All four options are defensible, and they differ in what each treats as already established. One correlation across three chips from a single window is a reason to run a test, not a finding. Ask of each option what evidence it would need before it became the right move. Trading a measured yield gain for an unmeasured coherence gain is the kind of decision that looks careful and costs a quarter.",
+      "background": [
+        "Why first is a different question from most important. When several calls compete for the same hour, what a choice is worth is not its own importance but the difference between doing it now and doing it later. A serious problem that will be no worse in an hour costs nothing to defer. A smaller one that closes a door costs everything behind that door.",
+        "What to look for in the options. Two things separate them: which is still changing, and which is a precondition for the others. A situation that is deteriorating has a cost per hour attached to it, and a step that unblocks the rest multiplies the value of the hours after it. Everything else is a preference about where to start.",
+        "Why only one answer is marked. In the situation these options describe all of them eventually happen; what is being tested is the head of the queue, because that is where the reasoning is visible. The verdict names what each of the others was waiting on, which is worth reading even when the choice was right — the ordering behind the first place is the rest of the answer."
+      ],
       "story": "The oxidation change raised the fraction of usable chips from about half to nearly three quarters. It also appears to have produced these defects.",
       "game": {
         "type": "TRIAGE",
@@ -1996,15 +2615,29 @@ export const CURRICULUM = {
           ],
           "s": "An excited qubit loses its energy at random, so the population falls by the same fraction in every equal interval and T₁ is the time it takes to fall to about a third."
         }
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Materials and fabrication: junctions, oxide and yield",
+        "of": 30,
+        "rests": [
+          "Energy quantisation, and why a level spacing sets everything else"
+        ]
+      }
     },
     {
       "day": 5,
       "title": "Why a long sequence tells you more",
-      "scene": "Holm can run a sequence of any length, from a single gate up to a few hundred, each one ending with the gate that should return the qubit to where it started. Every run either comes back or does not.",
+      "scene": "Every run applies a sequence of gates and finishes with one that should return the qubit to where it started. So each run either comes back or does not. Errors accumulate along the way: the longer the sequence, the smaller the fraction that returns. Holm can run any length from a single gate up to a few hundred.",
       "takeaway": "A quantity read from a trend survives a constant offset that would swamp a single reading.",
       "place": "Error & Verification",
-      "story": "Holm can run a sequence of any length, from a single gate up to a few hundred, each one ending with the gate that should return the qubit to where it started. Every run either comes back or does not.",
+      "guide": "Drag the sequence length. The readout is the fraction of runs that came back, and only the lengths you stop at get plotted. You want the length at which half the runs fail to return — where the curve crosses one half. Read it off the plot, mark it and commit. The error per gate follows from that length afterwards, and is not what you report.",
+      "background": [
+        "Why a length rather than a single measurement. If the survival per gate is p, then the fraction returning after n gates is p multiplied by itself n times. A readout error adds a constant offset to every point on that curve — it shifts the whole thing down — but it does not change how fast the curve falls. So a number read from the trend survives an offset that would swamp any single reading, which is the whole reason this experiment is run at many lengths instead of one.",
+        "Why the sequence ends by inverting itself. The final gate is chosen to undo everything before it, so a perfect qubit would always come back and the only thing being measured is the error. It also means the answer is the same whatever the sequence was, which is what lets the runs be averaged together.",
+        "What this is called and where it goes. Sequences of random gates that invert at the end are the standard benchmark for gate quality, because the number they produce can be compared between laboratories that share no hardware. It is the number a customer asks for."
+      ],
+      "story": "Every run applies a sequence of gates and finishes with one that should return the qubit to where it started. So each run either comes back or does not. Errors accumulate along the way: the longer the sequence, the smaller the fraction that returns. Holm can run any length from a single gate up to a few hundred.",
       "game": {
         "type": "SWEEP",
         "title": "Why a long sequence tells you more",
@@ -2131,7 +2764,16 @@ export const CURRICULUM = {
           ],
           "s": "Errors multiply rather than add, so a gate that is right 99.9 per cent of the time is useless a few thousand gates deep."
         }
-      ]
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Randomised benchmarking: what it measures and what it does not",
+        "of": 30,
+        "rests": [
+          "Gate fidelity, and how error compounds with depth",
+          "Probability from amplitude, and why one shot tells you nothing"
+        ]
+      }
     },
     {
       "day": 6,
@@ -2139,6 +2781,12 @@ export const CURRICULUM = {
       "scene": "Petrova wants to write one sentence about error correction. For the simplified stochastic error model used in her code study, the quoted threshold is about 1%  in a per-gate error metric intended to match the benchmark. The direct single-gate number and the randomized-benchmarking number sit on opposite sides of it.",
       "takeaway": "A threshold comparison is meaningful only when the experimental error metric and the code's assumed error metric are actually comparable.",
       "place": "Error & Verification",
+      "guide": "Four numbers, all real, all measured on this device, and each produced by a different procedure. A threshold is defined against a particular error metric, so the question is which of these was measured the way that threshold assumes. Match by procedure, not by size or by which side of one per cent a number falls on. Comparing two figures that share a unit but not a definition is how a machine gets declared above threshold on paper.",
+      "background": [
+        "Why explanations rather than labels. Naming a finding is not accounting for it, and a plausible-sounding mechanism attached to the wrong observation is the commonest way a wrong story survives. Committing an explanation to one clue means claiming it accounts for that clue specifically and not for its neighbour, which is where the two come apart.",
+        "How to use the one-each rule. The explanations are a set to be distributed, not a list to be sampled, so every join constrains the rest. Settling the two you are confident of can decide the remaining pair by elimination. Where it does not, two explanations are still competing for one clue, and that competition is the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every explanation used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Petrova wants to write one sentence about error correction. For the simplified stochastic error model used in her code study, the quoted threshold is about 1%  in a per-gate error metric intended to match the benchmark. The direct single-gate number and the randomized-benchmarking number sit on opposite sides of it.",
       "game": {
         "type": "CASEBOOK",
@@ -2220,15 +2868,29 @@ export const CURRICULUM = {
           ],
           "s": "Error correction only works below a threshold error rate, and above it every qubit you add makes the logical qubit worse rather than better."
         }
-      ]
+      ],
+      "concept": {
+        "n": 21,
+        "c": "Quantum error correction and the threshold idea",
+        "of": 30,
+        "rests": [
+          "Gate fidelity, and how error compounds with depth"
+        ]
+      }
     },
     {
       "day": 7,
       "title": "Four correlations, one number",
-      "scene": "Holm has left one blank line in the review deck for the Bell result. Two entangled qubits are ready, four analyser settings are loaded, and the room is waiting on a number that does not exist yet. Every shot returns two outcomes.",
+      "scene": "Two entangled qubits, four analyser settings. Every shot returns two outcomes, and they either agree or disagree. A correlation is how often they agree minus how often they disagree, so it runs from minus one to plus one. Four of those combine into one statistic. The review deck has a blank line where that number goes.",
       "takeaway": "The CHSH statistic combines four measured correlations; the classical bound and quantum prediction are comparisons made after the data are combined.",
       "place": "Error & Verification",
-      "story": "Holm has left one blank line in the review deck for the Bell result. Two entangled qubits are ready, four analyser settings are loaded, and the room is waiting on a number that does not exist yet. Every shot returns two outcomes.",
+      "guide": "The trace is the statistic as the shots came in, and the question is where it converges. Early movement is the sample size, not the physics. Each row also carries its own spread, which falls as one over the square root of that row's shots, so the row with the widest spread is the one still moving the total. Twenty-four batches is the whole stop. Report the value you had when you said it had stopped moving.",
+      "background": [
+        "How the four go together. The statistic adds three of the correlations and subtracts one. The signs are not a convention: they are chosen so that any explanation in which each qubit carries its own predetermined answers has a hard ceiling on the total, whatever those answers are. Getting a sign wrong measures a different quantity that means nothing.",
+        "Why the number wanders at first. Each correlation is a proportion measured from a finite number of shots, and a proportion scatters around its true value by about 1 over the square root of the number of trials. Four of them combined scatter a little more. Two hundred shots gives a number that will still move; a few thousand gives one that will not.",
+        "What the comparison afterwards is for. The ceiling for any local, predetermined explanation is 2. The experiment exists to find out which side of that the measured statistic falls on, and that comparison is only worth making once the number has stopped moving — which is the decision this panel actually asks you to make."
+      ],
+      "story": "Two entangled qubits, four analyser settings. Every shot returns two outcomes, and they either agree or disagree. A correlation is how often they agree minus how often they disagree, so it runs from minus one to plus one. Four of those combine into one statistic. The review deck has a blank line where that number goes.",
       "game": {
         "type": "TALLY",
         "title": "Four correlations, one number",
@@ -2262,7 +2924,7 @@ export const CURRICULUM = {
             }
           ],
           "batch": 100,
-          "minShots": 400,
+          "minShots": 100,
           "target": 2.78,
           "tolerance": 0.14,
           "bound": 2,
@@ -2270,13 +2932,15 @@ export const CURRICULUM = {
           "formula": "S = E(a,b) − E(a,b′) + E(a′,b) + E(a′,b′)",
           "formulaLabel": "CHSH statistic",
           "readoutLabel": "Correlation",
-          "commit": "Report S",
-          "readyNote": "Every pair has 400 shots. Keep going if the number is still wandering — nobody can tell you when it has settled except the number itself."
+          "commit": "Report where it settled",
+          "readyNote": "Every pair has a batch behind it, so the trace has started. Keep spending while it is still wandering — nobody can tell you it has settled except the trace itself.",
+          "budget": 24
         }
       },
       "assumes": [
         "a correlation between two detectors can be measured as a number between minus one and one",
-        "a proportion measured from a finite number of trials scatters around its true value"
+        "a proportion measured from a finite number of trials scatters around its true value",
+        "superposition as an amplitude, not a mixture — taken as read"
       ],
       "equations": [
         {
@@ -2299,7 +2963,22 @@ export const CURRICULUM = {
           "s": "No pre-agreed instruction set can push S above 2, so measuring more than that rules out the whole class of explanations rather than supporting one.",
           "computed": true
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 4,
+          "c": "Superposition as an amplitude, not a mixture"
+        }
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Entanglement as a correlation stronger than any shared instruction",
+        "of": 30,
+        "rests": [
+          "Superposition as an amplitude, not a mixture",
+          "Measurement collapses the state and returns one outcome"
+        ]
+      }
     },
     {
       "day": 8,
@@ -2307,6 +2986,12 @@ export const CURRICULUM = {
       "scene": "The paper reports a sampled distribution, a fidelity estimate, and a runtime for the best known classical algorithm on the largest machine the authors could get time on.",
       "takeaway": "Measured outputs, model-dependent fidelity estimates and classical-runtime estimates are different kinds of evidence even when they appear in one headline.",
       "place": "Error & Verification",
+      "guide": "Four items out of one headline, and they are not the same kind of thing. One is data the device produced. Some are estimates that lean on a model. One is conditional on what classical computers can do this year. Ask of each what would have to change for it to change. A runtime a better algorithm can overturn does not have the standing of a measured distribution.",
+      "background": [
+        "Why explanations rather than labels. Naming a finding is not accounting for it, and a plausible-sounding mechanism attached to the wrong observation is the commonest way a wrong story survives. Committing an explanation to one clue means claiming it accounts for that clue specifically and not for its neighbour, which is where the two come apart.",
+        "How to use the one-each rule. The explanations are a set to be distributed, not a list to be sampled, so every join constrains the rest. Settling the two you are confident of can decide the remaining pair by elimination. Where it does not, two explanations are still competing for one clue, and that competition is the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every explanation used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "The paper reports a sampled distribution, a fidelity estimate, and a runtime for the best known classical algorithm on the largest machine the authors could get time on.",
       "game": {
         "type": "CASEBOOK",
@@ -2369,7 +3054,16 @@ export const CURRICULUM = {
           ],
           "s": "Errors multiply rather than add, so a gate that is right 99.9 per cent of the time is useless a few thousand gates deep."
         }
-      ]
+      ],
+      "concept": {
+        "n": 22,
+        "c": "What a quantum advantage claim actually claims",
+        "of": 30,
+        "rests": [
+          "Gate fidelity, and how error compounds with depth",
+          "Randomised benchmarking: what it measures and what it does not"
+        ]
+      }
     },
     {
       "day": 9,
@@ -2377,6 +3071,12 @@ export const CURRICULUM = {
       "scene": "Holm lists the numbers this fortnight produced and asks which of them passed through the discriminator and which did not.",
       "takeaway": "A pipeline fault propagates only into quantities downstream of that step, and the dependency graph matters more than how important a number feels.",
       "place": "Error & Verification",
+      "guide": "Four numbers, and the question is dependency rather than importance. Ask of each whether the faulty step sits upstream. Was the quantity built out of classified bits, or out of how a signal changed with delay? A fitted decay constant and a raw outcome probability inherit a readout bias very differently. Rerunning everything wastes a fortnight, and rerunning too little leaves a corrected record that is still wrong.",
+      "background": [
+        "Why explanations rather than labels. Naming a finding is not accounting for it, and a plausible-sounding mechanism attached to the wrong observation is the commonest way a wrong story survives. Committing an explanation to one clue means claiming it accounts for that clue specifically and not for its neighbour, which is where the two come apart.",
+        "How to use the one-each rule. The explanations are a set to be distributed, not a list to be sampled, so every join constrains the rest. Settling the two you are confident of can decide the remaining pair by elimination. Where it does not, two explanations are still competing for one clue, and that competition is the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every explanation used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Holm lists the numbers this fortnight produced and asks which of them passed through the discriminator and which did not.",
       "game": {
         "type": "CASEBOOK",
@@ -2498,14 +3198,199 @@ export const CURRICULUM = {
           "s": "No pre-agreed instruction set can push S above 2, so measuring more than that rules out the whole class of explanations rather than supporting one.",
           "card": false
         }
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Superposition as an amplitude, not a mixture",
+        "of": 30,
+        "rests": [
+          "The two-level approximation, and when it fails"
+        ]
+      }
     },
     {
       "day": 10,
+      "title": "A qubit, or the amplifier",
+      "scene": "The night produced two hundred thousand shots and the fit runs at eight. Some of the structure in them is the qubit. The rest is the measurement chain, and both arrive as numbers in the same file.",
+      "takeaway": "A feature that does not depend on the qubit was not made by the qubit.",
+      "place": "Verification Bench",
+      "guide": "Two bins. Something the qubit did depends on what the qubit was asked to do — it moves with the drive, the delay, the frequency. Something the chain did does not: it is there when the drive is off, it tracks the room, or it sits at a fixed frequency whatever the qubit is doing. Sort on what it depends on.",
+      "background": [
+        "Why this is the first question of every measurement. A readout chain has amplifiers, mixers, cables and a room around them, and every one of them can produce structure that looks like physics. The test is dependence: change what the qubit is doing and see whether the feature follows.",
+        "What chain artifacts look like. A feature at the same frequency whatever the qubit is tuned to. A drift that follows the room temperature. A rate that changes when somebody opens a door. Something present with the drive switched off entirely."
+      ],
+      "story": "The night produced two hundred thousand shots and the fit runs at eight. Some of the structure in them is the qubit. The rest is the measurement chain, and both arrive as numbers in the same file.",
+      "game": {
+        "type": "BELT",
+        "title": "A qubit, or the amplifier",
+        "setup": "Verification Bench",
+        "play": "Sort the night's shots before the fit runs.",
+        "task": "Sort the night's shots before the fit runs.",
+        "question": "Send each feature to the bin that says what produced it.",
+        "answer": "Anything that follows the drive, the delay or the frequency is the qubit. Anything present with the drive off, fixed in frequency or tracking the room is the chain.",
+        "why": "Everything in the file has been through the readout chain, so the only way to tell the physics from the instrument is dependence. A real qubit feature moves when you change what the qubit is asked to do: an oscillation whose rate follows drive amplitude, a decay whose time constant is the same on repeat, a resonance that moves when the flux bias moves. Chain artifacts do not care. A spur sits at the same frequency whatever the qubit is tuned to; an amplifier's gain ripple is there with the drive switched off; a slow drift follows the room's air conditioning rather than anything on the chip. That is why the discipline is to change one thing and look, rather than to fit first and interpret afterwards — a good fit to an artifact is the most convincing wrong result a laboratory can produce, and the fit will not tell you.",
+        "belt": {
+          "left": {
+            "name": "The qubit"
+          },
+          "right": {
+            "name": "The chain"
+          },
+          "items": [
+            {
+              "name": "Rabi follows drive",
+              "bin": "left"
+            },
+            {
+              "name": "Decay repeats identically",
+              "bin": "left"
+            },
+            {
+              "name": "Resonance follows flux",
+              "bin": "left"
+            },
+            {
+              "name": "Ramsey fringes",
+              "bin": "left"
+            },
+            {
+              "name": "Population follows delay",
+              "bin": "left"
+            },
+            {
+              "name": "Anharmonicity as predicted",
+              "bin": "left"
+            },
+            {
+              "name": "Splitting near a",
+              "bin": "left"
+            },
+            {
+              "name": "Contrast falls deeper",
+              "bin": "left"
+            },
+            {
+              "name": "Phase follows detuning",
+              "bin": "left"
+            },
+            {
+              "name": "Echo recovers coherence",
+              "bin": "left"
+            },
+            {
+              "name": "Rate scales with",
+              "bin": "left"
+            },
+            {
+              "name": "Shifts with temperature",
+              "bin": "left"
+            },
+            {
+              "name": "Fixed-frequency spur",
+              "bin": "right"
+            },
+            {
+              "name": "Survives drive off",
+              "bin": "right"
+            },
+            {
+              "name": "Gain ripple",
+              "bin": "right"
+            },
+            {
+              "name": "Follows room temperature",
+              "bin": "right"
+            },
+            {
+              "name": "Door changes it",
+              "bin": "right"
+            },
+            {
+              "name": "Mixer image",
+              "bin": "right"
+            },
+            {
+              "name": "Cable resonance",
+              "bin": "right"
+            },
+            {
+              "name": "Amplifier saturation",
+              "bin": "right"
+            },
+            {
+              "name": "Digitiser offset",
+              "bin": "right"
+            },
+            {
+              "name": "Trigger jitter",
+              "bin": "right"
+            },
+            {
+              "name": "Ground loop hum",
+              "bin": "right"
+            },
+            {
+              "name": "Pump leakage tone",
+              "bin": "right"
+            },
+            {
+              "name": "Clock drift",
+              "bin": "right"
+            },
+            {
+              "name": "Discriminator threshold drift",
+              "bin": "right"
+            }
+          ],
+          "need": 20,
+          "lives": 3,
+          "pass": 0.8,
+          "hint": "Change what the qubit is doing and ask whether the feature follows.",
+          "commit": "Start the line"
+        }
+      },
+      "assumes": [
+        "a measurement passes through an instrument before it becomes a number"
+      ],
+      "equations": [
+        {
+          "e": "t_π = 1 / (2 f_Rabi)",
+          "c": "drive strength to pulse length",
+          "v": [
+            [
+              "t_π",
+              "length of a pulse that flips the qubit, in seconds"
+            ],
+            [
+              "f_Rabi",
+              "Rabi frequency, set by how hard you drive, in hertz"
+            ]
+          ],
+          "s": "Driving harder makes the qubit turn over faster, so the pulse that flips it gets shorter in proportion."
+        }
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Readout, discriminators, and how a classifier can cheat",
+        "of": 30,
+        "rests": [
+          "Measurement collapses the state and returns one outcome",
+          "Probability from amplitude, and why one shot tells you nothing"
+        ]
+      }
+    },
+    {
+      "day": 11,
       "title": "What a correction is for",
       "scene": "The correction window closes today. Petrova has the draft open while the held-out rerun is still running in the next room. If Ridgeway waits for the final number, the window closes; if it files now, the correction must state exactly what is known.",
       "takeaway": "A useful correction tells readers what changed, why it changed, and which conclusions the mechanism can and cannot affect.",
       "place": "Error & Verification",
+      "guide": "The left column is four things a correction could contain; the right says what each is worth to a reader. Pair them by asking who uses that part, and for what. A corrected number repairs one record and nothing else. The mechanism lets another group find the same fault in their own pipeline. The scope is what stops every other result in the paper falling under the same doubt.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "The correction window closes today. Petrova has the draft open while the held-out rerun is still running in the next room. If Ridgeway waits for the final number, the window closes; if it files now, the correction must state exactly what is known.",
       "game": {
         "type": "PROTOCOL",
@@ -2547,14 +3432,29 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a correction is read by people deciding whether to trust the next result"
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Readout, discriminators, and how a classifier can cheat",
+        "of": 30,
+        "rests": [
+          "Measurement collapses the state and returns one outcome",
+          "Probability from amplitude, and why one shot tells you nothing"
+        ]
+      }
     },
     {
-      "day": 11,
+      "day": 12,
       "title": "Measured, inferred, projected",
       "scene": "Holm puts four of the fortnight's statements on the board. The group believes all four. They are not held for the same reasons.",
       "takeaway": "Evidence labels tell the audience what would have to be repeated, assumed or extrapolated to challenge each claim.",
       "place": "Error & Verification",
+      "guide": "Four statements the group believes, held for four different reasons. Sort them by what an opponent would have to do to challenge each one. The choices are repeat a measurement, run a controlled comparison, or dispute a model. Belief is not the variable here. A projection quoted with the confidence of a measurement is how a fortnight of careful work becomes a claim the group cannot defend.",
+      "background": [
+        "Why explanations rather than labels. Naming a finding is not accounting for it, and a plausible-sounding mechanism attached to the wrong observation is the commonest way a wrong story survives. Committing an explanation to one clue means claiming it accounts for that clue specifically and not for its neighbour, which is where the two come apart.",
+        "How to use the one-each rule. The explanations are a set to be distributed, not a list to be sampled, so every join constrains the rest. Settling the two you are confident of can decide the remaining pair by elimination. Where it does not, two explanations are still competing for one clue, and that competition is the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every explanation used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Holm puts four of the fortnight's statements on the board. The group believes all four. They are not held for the same reasons.",
       "game": {
         "type": "CASEBOOK",
@@ -2656,7 +3556,15 @@ export const CURRICULUM = {
           "s": "Error correction only works below a threshold error rate, and above it every qubit you add makes the logical qubit worse rather than better.",
           "card": false
         }
-      ]
+      ],
+      "concept": {
+        "n": 21,
+        "c": "Quantum error correction and the threshold idea",
+        "of": 30,
+        "rests": [
+          "Gate fidelity, and how error compounds with depth"
+        ]
+      }
     }
   ],
   "SENSE": [
@@ -2666,6 +3574,13 @@ export const CURRICULUM = {
       "scene": "Elena Barros, who runs Ridgeway's sensing group and ships calibrated numbers to a hospital every month, has the least romantic view of the Delft offer: if somebody else will depend on Ridgeway's work, the method has to leave the building before the opportunity does.",
       "takeaway": "Sharing a reproducible method before the final claim is settled can create evidence without committing to the final answer.",
       "place": "Quantum Sensing",
+      "guide": "Delft's window begins in ten days and the next is a quarter away. Their device is a different design, which is the whole reason a second run counts as independent. Ridgeway's result has been measured on one device by one group. Delft has asked for sequences, not for results. Knowing the expected number before freezing an analysis changes every choice made along the way. The external review follows soon after the run. A result published first is one the second run is compared against rather than tested against.",
+      "rules": "Spread the hundred points across the 4 proposals. At least 75 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "background": [
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
+      ],
       "story": "Elena Barros, who runs Ridgeway's sensing group and ships calibrated numbers to a hospital every month, has the least romantic view of the Delft offer: if somebody else will depend on Ridgeway's work, the method has to leave the building before the opportunity does.",
       "game": {
         "type": "SCIENCETANK",
@@ -2698,19 +3613,41 @@ export const CURRICULUM = {
           "A": 60,
           "B": 15
         },
-        "research": "Delft's independent-device slot begins in ten days and the next is a quarter away. Their device is a different design, which is what makes it an independent check. Ridgeway's own result has been measured on one device by one group. The external review follows soon after the Delft run. Delft has asked for sequences only, not for results."
+        "research": ""
       },
       "assumes": [
-        "a result can be shared at different levels of completeness"
-      ]
+        "a result can be shared at different levels of completeness",
+        "calibration drift, and the tuning that has to happen daily — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 15,
+          "c": "Calibration drift, and the tuning that has to happen daily"
+        }
+      ],
+      "concept": {
+        "n": 29,
+        "c": "Reproducibility: a result on one device is not a result",
+        "of": 30,
+        "rests": [
+          "Randomised benchmarking: what it measures and what it does not",
+          "Calibration drift, and the tuning that has to happen daily"
+        ]
+      }
     },
     {
       "day": 2,
       "title": "What averaging buys",
-      "scene": "Each measurement takes 100 milliseconds and resolves 40 picotesla on its own. Barros can average as many as she likes into one number, and she has an hour of instrument time.",
+      "scene": "One measurement takes 100 milliseconds and resolves 40 picotesla. Averaging independent measurements reduces random error, so averaging more of them resolves a smaller field. Here the smaller number is the better one. Barros has an hour of instrument time, and wants to know how much of it is worth spending.",
       "takeaway": "For independent measurements, random uncertainty falls only as 1/√N, so time buys precision with diminishing returns.",
       "place": "Quantum Sensing",
-      "story": "Each measurement takes 100 milliseconds and resolves 40 picotesla on its own. Barros can average as many as she likes into one number, and she has an hour of instrument time.",
+      "guide": "Drag the integration time. The readout is the field the instrument can still resolve, in picotesla, and lower is better. Averaging helps only while the measurements stay independent, and the curve will show you where that stops being true. Mark the integration time you would actually use, then commit. You are graded on the time you choose, not on the resolution you reach.",
+      "background": [
+        "Why averaging works, and what it costs. Random noise on N independent measurements averages down as the square root of N, so the resolution improves as 1 over root N. That is a harsh exchange rate: the first factor of ten in resolution costs a hundred measurements, and the next factor of ten costs ten thousand. Sensing is a patience problem rather than a precision problem, and the arithmetic is why.",
+        "What breaks the independence. The formula assumes each measurement's noise is unrelated to the last one's. Real instruments drift — temperature, bias, the field of the room itself — and a drift is shared by every measurement taken during it. Once the drift is bigger than the averaged noise, more averaging makes the number worse rather than better, because you are averaging in something that is not noise.",
+        "What the readout means. The resolvable field is the size of a change this instrument could still see: roughly one standard deviation of the averaged noise. Reporting a field smaller than that is reporting the noise."
+      ],
+      "story": "One measurement takes 100 milliseconds and resolves 40 picotesla. Averaging independent measurements reduces random error, so averaging more of them resolves a smaller field. Here the smaller number is the better one. Barros has an hour of instrument time, and wants to know how much of it is worth spending.",
       "game": {
         "type": "SWEEP",
         "title": "What averaging buys",
@@ -2833,7 +3770,15 @@ export const CURRICULUM = {
           ],
           "s": "Averaging independent measurements improves a sensor only as the square root of their number, which is the wall entanglement is used to get past."
         }
-      ]
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Probability from amplitude, and why one shot tells you nothing",
+        "of": 30,
+        "rests": [
+          "Measurement collapses the state and returns one outcome"
+        ]
+      }
     },
     {
       "day": 3,
@@ -2841,6 +3786,12 @@ export const CURRICULUM = {
       "scene": "Whitfield arrives with the reference source at two. Barros measures it, writes the ratio in the log, and only then measures anything anybody wants.",
       "takeaway": "Precision describes scatter; calibration against a reference is what connects that scatter to an accurate scale.",
       "place": "Quantum Sensing",
+      "guide": "Every option here describes something a measurement can genuinely establish. They differ in whether the subject is scatter, scale, or the sample itself. Repetition tells you how much a number moves; it cannot tell you whether the whole scale is displaced. Decide which of those two a reference is for. In a study running over years, an untested scale lets a drift in the instrument arrive looking like a trend in the patients.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Whitfield arrives with the reference source at two. Barros measures it, writes the ratio in the log, and only then measures anything anybody wants.",
       "game": {
         "type": "CHOICE",
@@ -2865,8 +3816,23 @@ export const CURRICULUM = {
         "correctChoice": "That today's readings tie to a standard, so last year's compare."
       },
       "assumes": [
-        "an instrument's reading is a comparison"
-      ]
+        "an instrument's reading is a comparison",
+        "resonance, detuning, and finding a qubit frequency — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 8,
+          "c": "Resonance, detuning, and finding a qubit frequency"
+        }
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Calibration drift, and the tuning that has to happen daily",
+        "of": 30,
+        "rests": [
+          "Resonance, detuning, and finding a qubit frequency"
+        ]
+      }
     },
     {
       "day": 4,
@@ -2874,6 +3840,12 @@ export const CURRICULUM = {
       "scene": "Whitfield's monthly comparison agrees with the national standard to within the uncertainty, as it has for 11 months. She writes it in the log with the same care as if it had not.",
       "takeaway": "A calibration that agrees with its reference is a quantitative bound on drift, not an absence of information.",
       "place": "Quantum Sensing",
+      "guide": "Every option is a reading of the same quiet result, and they differ in what a passing comparison is evidence for. One treats it as paperwork, one as proof, one as a statement about the reference itself. Ask what the comparison constrains, and over what interval. A month with no check is an unbounded month. The value of a quiet result is a number on how far things could have moved.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Whitfield's monthly comparison agrees with the national standard to within the uncertainty, as it has for 11 months. She writes it in the log with the same care as if it had not.",
       "game": {
         "type": "CHOICE",
@@ -2898,8 +3870,23 @@ export const CURRICULUM = {
         "correctChoice": "It bounds the drift since the last one, which is what makes the readings between usable."
       },
       "assumes": [
-        "a calibration can pass or fail and both are results"
-      ]
+        "a calibration can pass or fail and both are results",
+        "resonance, detuning, and finding a qubit frequency — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 8,
+          "c": "Resonance, detuning, and finding a qubit frequency"
+        }
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Calibration drift, and the tuning that has to happen daily",
+        "of": 30,
+        "rests": [
+          "Resonance, detuning, and finding a qubit frequency"
+        ]
+      }
     },
     {
       "day": 5,
@@ -2907,6 +3894,12 @@ export const CURRICULUM = {
       "scene": "If the clock really has drifted, every frequency measured in the building since the last comparison is off by the same fraction — including the qubit frequencies in the review pack.",
       "takeaway": "A shared-reference error is dangerous because it can move many instruments coherently while leaving their internal comparisons apparently consistent.",
       "place": "Quantum Sensing",
+      "guide": "All four options give a reason a shared drift is hard to see, and only one is about the mechanism rather than the size. Ask what the building's own cross-checks are comparing against. A common reference does not add scatter; it moves everything the same way. That is why an internal comparison can stay perfectly consistent while every number in it is displaced together.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "If the clock really has drifted, every frequency measured in the building since the last comparison is off by the same fraction — including the qubit frequencies in the review pack.",
       "game": {
         "type": "CHOICE",
@@ -2931,7 +3924,8 @@ export const CURRICULUM = {
         "correctChoice": "Because everything shifts together, so no internal check disagrees."
       },
       "assumes": [
-        "a measurement is a ratio against a reference"
+        "a measurement is a ratio against a reference",
+        "resonance, detuning, and finding a qubit frequency — taken as read"
       ],
       "equations": [
         {
@@ -2953,7 +3947,22 @@ export const CURRICULUM = {
           ],
           "s": "Errors multiply rather than add, so a gate that is right 99.9 per cent of the time is useless a few thousand gates deep."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 8,
+          "c": "Resonance, detuning, and finding a qubit frequency"
+        }
+      ],
+      "concept": {
+        "n": 25,
+        "c": "Atomic clocks and what frequency accuracy buys",
+        "of": 30,
+        "rests": [
+          "Resonance, detuning, and finding a qubit frequency",
+          "Interferometry as a phase measurement"
+        ]
+      }
     },
     {
       "day": 6,
@@ -2961,6 +3970,12 @@ export const CURRICULUM = {
       "scene": "Barros has ten minutes and one number: a field sensitivity, going to a hospital that will act on it. She wants the uncertainty in the sentence rather than in a footnote.",
       "takeaway": "A figure handed to somebody else has to carry enough with it for them to judge it.",
       "place": "Quantum Sensing",
+      "guide": "All four options are reasons an uncertainty might belong in the sentence, and they differ in who it is for. One is about tone, one about the number looking worse, one about completeness. Ask instead what the hospital has to decide tomorrow with this figure in front of it. Without a noise floor they cannot tell a change in a patient from a change in the instrument.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Barros has ten minutes and one number: a field sensitivity, going to a hospital that will act on it. She wants the uncertainty in the sentence rather than in a footnote.",
       "game": {
         "type": "CHOICE",
@@ -3003,7 +4018,16 @@ export const CURRICULUM = {
           ],
           "s": "Averaging independent measurements improves a sensor only as the square root of their number, which is the wall entanglement is used to get past."
         }
-      ]
+      ],
+      "concept": {
+        "n": 26,
+        "c": "Magnetometry: NV centres and SQUIDs",
+        "of": 30,
+        "rests": [
+          "Relaxation time T1 — energy leaving the system",
+          "Interferometry as a phase measurement"
+        ]
+      }
     }
   ],
   "NET": [
@@ -3013,6 +4037,12 @@ export const CURRICULUM = {
       "scene": "Yusuf Sadiq points out that Delft does not need Ridgeway's physical quantum state at all; it needs the recipe for preparing its own. An arbitrary unknown state cannot be turned into a classical file that produces two perfect copies.",
       "takeaway": "The no-cloning theorem forbids making a perfect duplicate of an arbitrary unknown quantum state; it does not forbid transferring quantum information.",
       "place": "Networks & Security",
+      "guide": "All four options agree that something cannot be sent, and disagree about what. The candidates are the size of a description, the transfer itself, and what copying a recipe does. Separate the classical object here, the preparation instructions, from the physical object, the prepared state. Then ask which of the two each option is really about. Whether quantum networks are possible at all turns on that distinction.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Yusuf Sadiq points out that Delft does not need Ridgeway's physical quantum state at all; it needs the recipe for preparing its own. An arbitrary unknown state cannot be turned into a classical file that produces two perfect copies.",
       "game": {
         "type": "CHOICE",
@@ -3038,7 +4068,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "classical descriptions can be copied freely, while an arbitrary unknown quantum state cannot be perfectly cloned"
-      ]
+      ],
+      "concept": {
+        "n": 28,
+        "c": "Loss in fibre, and why a repeater is hard",
+        "of": 30,
+        "rests": [
+          "Quantum key distribution, and where its security comes from"
+        ]
+      }
     },
     {
       "day": 2,
@@ -3046,6 +4084,12 @@ export const CURRICULUM = {
       "scene": "Sadiq points out that his key link has the same property: somebody else's system depends on it, so its failures have to be visible to them rather than only to him.",
       "takeaway": "Once another person acts on a measurement, uncertainty, alarms and change history become part of the information you are delivering.",
       "place": "Networks & Security",
+      "guide": "The left column is four things a delivered measurement has to carry with it. The right column is four ways a user gets hurt. Pair them by asking which failure each obligation makes impossible, not which one sounds most responsible. None of these makes the instrument more sensitive. They decide whether somebody outside the building can tell when the sensitivity has stopped applying.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Sadiq points out that his key link has the same property: somebody else's system depends on it, so its failures have to be visible to them rather than only to him.",
       "game": {
         "type": "PROTOCOL",
@@ -3086,7 +4130,8 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "a service somebody relies on has different obligations from an experiment"
+        "a service somebody relies on has different obligations from an experiment",
+        "superposition as an amplitude, not a mixture — taken as read"
       ],
       "equations": [
         {
@@ -3104,7 +4149,21 @@ export const CURRICULUM = {
           ],
           "s": "Averaging independent measurements improves a sensor only as the square root of their number, which is the wall entanglement is used to get past."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 4,
+          "c": "Superposition as an amplitude, not a mixture"
+        }
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Measurement collapses the state and returns one outcome",
+        "of": 30,
+        "rests": [
+          "Superposition as an amplitude, not a mixture"
+        ]
+      }
     },
     {
       "day": 3,
@@ -3112,6 +4171,12 @@ export const CURRICULUM = {
       "scene": "S is 2.78, comfortably above 2. Sadiq asks Holm to say in one sentence what that establishes, and then asks him to say what it does not.",
       "takeaway": "A Bell inequality rules out a class of models only to the extent that the experiment satisfies the assumptions used to derive and test the inequality.",
       "place": "Networks & Security",
+      "guide": "The four options differ in how much they claim the number rules out. The candidates are one class of model, every classical model, a claim about signalling, and a whole theory. Each was derived under stated assumptions, so ask what those assumptions forbid. An inequality rules out only what it was built to rule out. Claiming more is how a real result becomes the overclaim a careful reader takes apart.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "S is 2.78, comfortably above 2. Sadiq asks Holm to say in one sentence what that establishes, and then asks him to say what it does not.",
       "game": {
         "type": "CHOICE",
@@ -3158,7 +4223,16 @@ export const CURRICULUM = {
           ],
           "s": "No pre-agreed instruction set can push S above 2, so measuring more than that rules out the whole class of explanations rather than supporting one."
         }
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "The Bell inequality as a number you measure",
+        "of": 30,
+        "rests": [
+          "Entanglement as a correlation stronger than any shared instruction",
+          "Probability from amplitude, and why one shot tells you nothing"
+        ]
+      }
     },
     {
       "day": 4,
@@ -3166,6 +4240,13 @@ export const CURRICULUM = {
       "scene": "Raghavan wants a paragraph for the review. The options on the table run from a full rebuttal to silence, and the group has one genuinely new thing to offer.",
       "takeaway": "A constructive critique is strongest when it contributes a testable method or benchmark rather than a verdict unsupported by your own data.",
       "place": "Networks & Security",
+      "guide": "Ridgeway has twelve qubits against the paper's sixty-seven, and an exact classical simulation at twelve qubits takes seconds. Nobody has published a validation of this estimator against an answer that is exactly known. Two previous advantage claims were overturned by better classical algorithms rather than by experimental error. A classical runtime is therefore a statement about this year. Delft is testing a different question and its window is ten days out. The review is in three days, and silence until then is itself a position.",
+      "rules": "Spread the hundred points across the 4 proposals. At least 75 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "background": [
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
+      ],
       "story": "Raghavan wants a paragraph for the review. The options on the table run from a full rebuttal to silence, and the group has one genuinely new thing to offer.",
       "game": {
         "type": "SCIENCETANK",
@@ -3198,11 +4279,20 @@ export const CURRICULUM = {
           "A": 55,
           "B": 20
         },
-        "research": "Ridgeway has 12 qubits against the paper's 67. An exact classical simulation at 12 qubits takes\nseconds. Nobody has published a validation of this estimator against exact results. Two previous\nadvantage claims were overturned by better classical algorithms rather than by experimental error.\nThe review is in three days.\n"
+        "research": ""
       },
       "assumes": [
         "a public statement can be about a method rather than about a rival"
-      ]
+      ],
+      "concept": {
+        "n": 22,
+        "c": "What a quantum advantage claim actually claims",
+        "of": 30,
+        "rests": [
+          "Gate fidelity, and how error compounds with depth",
+          "Randomised benchmarking: what it measures and what it does not"
+        ]
+      }
     },
     {
       "day": 5,
@@ -3210,6 +4300,12 @@ export const CURRICULUM = {
       "scene": "Within 20 minutes, the QKD fibre goes dark, the review pack comes back with a deadline warning, and Whitfield reports a clock discrepancy. Raghavan puts all three on the board. The group can move on all three, but not equally.",
       "takeaway": "Urgency is a product of ongoing damage, downstream reach and time-to-containment, not simply deadline pressure.",
       "place": "Networks & Security",
+      "guide": "Three real problems, all urgent, and a deadline is only one kind of urgency. Ask of each whether the damage is still growing while you attend to the others, and how quickly it could be bounded. A hard deadline with a known workflow is not the same as an unbounded set of measurements quietly inheriting one error. Time to containment belongs in the ranking, not after it.",
+      "background": [
+        "Why first is a different question from most important. When several calls compete for the same hour, what a choice is worth is not its own importance but the difference between doing it now and doing it later. A serious problem that will be no worse in an hour costs nothing to defer. A smaller one that closes a door costs everything behind that door.",
+        "What to look for in the options. Two things separate them: which is still changing, and which is a precondition for the others. A situation that is deteriorating has a cost per hour attached to it, and a step that unblocks the rest multiplies the value of the hours after it. Everything else is a preference about where to start.",
+        "Why only one answer is marked. In the situation these options describe all of them eventually happen; what is being tested is the head of the queue, because that is where the reasoning is visible. The verdict names what each of the others was waiting on, which is worth reading even when the choice was right — the ordering behind the first place is the rest of the answer."
+      ],
       "story": "Within 20 minutes, the QKD fibre goes dark, the review pack comes back with a deadline warning, and Whitfield reports a clock discrepancy. Raghavan puts all three on the board. The group can move on all three, but not equally.",
       "game": {
         "type": "TRIAGE",
@@ -3256,7 +4352,16 @@ export const CURRICULUM = {
           ],
           "s": "Every error might be an eavesdropper, so the protocol throws away enough key to cover it, and above about eleven per cent errors nothing is left."
         }
-      ]
+      ],
+      "concept": {
+        "n": 27,
+        "c": "Quantum key distribution, and where its security comes from",
+        "of": 30,
+        "rests": [
+          "Measurement collapses the state and returns one outcome",
+          "Entanglement as a correlation stronger than any shared instruction"
+        ]
+      }
     },
     {
       "day": 6,
@@ -3264,6 +4369,12 @@ export const CURRICULUM = {
       "scene": "The link failed while the current block was partway through sifting and before parameter estimation, error correction and privacy amplification were complete. Sadiq is asked whether the stored bits are already a key, whether they must automatically be destroyed, or whether the protocol can still process a completed subset.",
       "takeaway": "Sifted or raw QKD bits become usable secret key only after the protocol has bounded leakage and completed authenticated post-processing.",
       "place": "Networks & Security",
+      "guide": "The four options differ in how much of the protocol they treat as optional. Two would use the bits in proportion to how far the exchange got, one destroys them, one waits. Ask what each later stage of the protocol is actually for, and what stays unknown if it never runs. A string of bits is not a key until something has bounded what an eavesdropper could have learned.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The link failed while the current block was partway through sifting and before parameter estimation, error correction and privacy amplification were complete. Sadiq is asked whether the stored bits are already a key, whether they must automatically be destroyed, or whether the protocol can still process a completed subset.",
       "game": {
         "type": "CHOICE",
@@ -3329,7 +4440,16 @@ export const CURRICULUM = {
           ],
           "s": "Every error might be an eavesdropper, so the protocol throws away enough key to cover it, and above about eleven per cent errors nothing is left."
         }
-      ]
+      ],
+      "concept": {
+        "n": 27,
+        "c": "Quantum key distribution, and where its security comes from",
+        "of": 30,
+        "rests": [
+          "Measurement collapses the state and returns one outcome",
+          "Entanglement as a correlation stronger than any shared instruction"
+        ]
+      }
     },
     {
       "day": 7,
@@ -3337,6 +4457,12 @@ export const CURRICULUM = {
       "scene": "Raghavan closes the conference-room door and puts two versions on the screen. One changes the headline before the correction window closes; the other leaves it standing. Before anybody signs, he wants the cost of each choice written underneath it.",
       "takeaway": "When both action and inaction have costs, compare their reversible and irreversible consequences rather than treating silence as the zero-cost option.",
       "place": "Networks & Security",
+      "guide": "Four courses of action on the left, and on the right what each one actually costs. Pair them by consequence rather than by how the choice feels from inside the room. Silence is not the zero-cost option; it spends a window that does not reopen. Ask of each which costs are recoverable later and which are not. That asymmetry is the argument, and embarrassment is not.",
+      "background": [
+        "Why explanations rather than labels. Naming a finding is not accounting for it, and a plausible-sounding mechanism attached to the wrong observation is the commonest way a wrong story survives. Committing an explanation to one clue means claiming it accounts for that clue specifically and not for its neighbour, which is where the two come apart.",
+        "How to use the one-each rule. The explanations are a set to be distributed, not a list to be sampled, so every join constrains the rest. Settling the two you are confident of can decide the remaining pair by elimination. Where it does not, two explanations are still competing for one clue, and that competition is the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every explanation used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Raghavan closes the conference-room door and puts two versions on the screen. One changes the headline before the correction window closes; the other leaves it standing. Before anybody signs, he wants the cost of each choice written underneath it.",
       "game": {
         "type": "CASEBOOK",
@@ -3378,7 +4504,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a decision not to act is also a decision with consequences"
-      ]
+      ],
+      "concept": {
+        "n": 30,
+        "c": "Provenance of data, and what a shared calibration hides",
+        "of": 30,
+        "rests": [
+          "Calibration drift, and the tuning that has to happen daily",
+          "Randomised benchmarking: what it measures and what it does not"
+        ]
+      }
     }
   ]
 };
@@ -3444,7 +4579,7 @@ export const BALLPARK_CALCS = {
     "solution": "t_π = 84 ÷ 2 = 42 ns.",
     "explanation": "42 nanoseconds. The qubit frequency is what you drive at rather than how long for, and the fridge temperature and the qubit count belong to other questions entirely.\n"
   },
-  "CRYO-3": {
+  "CRYO-4": {
     "prompt": "T2 is 32 microseconds and T1 is 90. The relation is 1/T2 = 1/(2·T1) + 1/T_φ, so 1/T_φ = 1/32 − 1/180 per microsecond.\n",
     "question": "Choose the measured coherence time and the relaxation ceiling.",
     "labels": [
@@ -3504,7 +4639,7 @@ export const BALLPARK_CALCS = {
     "solution": "0.988^400 ≈ 0.008.",
     "explanation": "About 0.8%, or roughly 1 run in 125, in the independent-identical-error toy model. Real circuit fidelity need not equal this product when errors are coherent, correlated or gate-dependent.\n"
   },
-  "CTRL-12": {
+  "CTRL-13": {
     "prompt": "\"Toy model: each of 12 qubits has independent readout fidelity 0.941. Estimate the probability that all 12 are read correctly.\"\n",
     "question": "Choose the per-qubit fidelity and the number of qubits.",
     "labels": [

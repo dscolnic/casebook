@@ -1,0 +1,348 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>The Trial — Conversion Plan</title>
+<style>
+  @page { size: A4; margin: 15mm 14mm 16mm; }
+  :root {
+    --ink:#15171a; --ink2:#4c5158; --muted:#868b92; --rule:#dcded9; --sunk:#f2f3ef;
+    --acc:#804f6c; --acc-soft:#cf7fae;
+    --s:#2c7a4b; --m:#9a6f14; --d:#767b70; --r:#a4453a;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; color:var(--ink); background:#fff;
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif; font-size:9.6pt; line-height:1.5; }
+  .mono,.k,code { font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; }
+  code,.k { font-size:.9em; background:var(--sunk); padding:0 3px; border-radius:2px; }
+  em { font-style:normal; font-weight:640; }
+  strong { font-weight:680; }
+
+  header { border-bottom:2.5pt solid var(--acc); padding-bottom:7pt; margin-bottom:12pt; }
+  .eyebrow { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--acc); }
+  h1 { margin:2pt 0 3pt; font-size:24pt; line-height:1.02; letter-spacing:-.02em; font-weight:660; }
+  .sub { color:var(--ink2); font-size:9.6pt; max-width:150mm; }
+  .place { color:var(--muted); font-size:8.4pt; font-style:italic; margin-top:2pt; }
+
+  .facts { display:flex; gap:0; border:.6pt solid var(--rule); margin-top:8pt; }
+  .fact { flex:1; padding:4pt 7pt 5pt; border-right:.6pt solid var(--rule); }
+  .fact:last-child { border-right:none; }
+  .fact b { display:block; font-family:ui-monospace,Menlo,monospace; font-size:14pt; font-weight:640; letter-spacing:-.02em; }
+  .fact span { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); }
+
+  h2 { font-size:12pt; margin:15pt 0 4pt; font-weight:660; letter-spacing:-.01em;
+    border-bottom:.6pt solid var(--ink); padding-bottom:3pt; break-after:avoid; }
+  h2 .ph { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--acc); margin-right:6pt; }
+  p { margin:6pt 0; max-width:170mm; }
+
+  table { border-collapse:collapse; width:100%; font-size:8.4pt; margin:6pt 0; }
+  th,td { text-align:left; padding:3pt 6pt 3pt 0; border-bottom:.5pt solid var(--rule); vertical-align:top; }
+  thead th { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--muted); font-weight:500; border-bottom:.7pt solid var(--ink); }
+  td.n,th.n { text-align:right; padding-right:8pt; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .flag { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.06em;
+    border:.5pt solid currentColor; padding:0 3pt; border-radius:2pt; white-space:nowrap; }
+  .flag.sus { color:var(--m); } .flag.real { color:var(--r); }
+
+  .mixbar { display:flex; height:9pt; border:.6pt solid var(--rule); margin:5pt 0 3pt; }
+  .mixbar i { display:block; }
+  .mixkey { font-family:ui-monospace,Menlo,monospace; font-size:6.6pt; color:var(--ink2);
+    display:flex; flex-wrap:wrap; gap:2pt 9pt; }
+
+  .callout { border-left:2pt solid var(--acc); background:var(--sunk); padding:6pt 9pt; margin:8pt 0;
+    break-inside:avoid; }
+  .callout p { margin:3pt 0; }
+  .callout .tag { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--acc); display:block; margin-bottom:3pt; }
+  .callout.warn { border-left-color:var(--r); }
+  .callout.warn .tag { color:var(--r); }
+
+  .card { border-left:2pt solid var(--d); padding:5pt 0 6pt 8pt; margin:7pt 0; break-inside:avoid; }
+  .card.v-s { border-left-color:var(--s); } .card.v-m { border-left-color:var(--m); }
+  .card.v-d { border-left-color:var(--d); } .card.v-r { border-left-color:var(--r); }
+  .card .top { display:flex; align-items:baseline; gap:7pt; }
+  .card h4 { margin:0; font-family:ui-monospace,Menlo,monospace; font-size:9.6pt; font-weight:660; letter-spacing:.03em; }
+  .vd { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.12em;
+    text-transform:uppercase; border:.5pt solid currentColor; padding:0 3pt; border-radius:2pt; }
+  .v-s .vd { color:var(--s); } .v-m .vd { color:var(--m); }
+  .v-d .vd { color:var(--d); } .v-r .vd { color:var(--r); }
+  .card .at { margin-left:auto; color:var(--muted); font-size:7.4pt; }
+  .card p { margin:3pt 0 0; font-size:9pt; }
+  .card dl { margin:3pt 0 0; font-size:8pt; color:var(--ink2); }
+  .card dt { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); display:inline; }
+  .card dd { display:inline; margin:0; }
+  .card dd::after { content:""; display:block; }
+
+  .slate { border:.6pt solid var(--rule); padding:6pt 8pt 7pt; margin:7pt 0; break-inside:avoid; }
+  .slate .sh { display:flex; align-items:baseline; gap:8pt; border-bottom:.6pt solid var(--rule); padding-bottom:3pt; }
+  .slate h4 { margin:0; font-size:10.5pt; font-weight:660; }
+  .slate .n2 { font-family:ui-monospace,Menlo,monospace; font-size:6.6pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); }
+  table.mini { font-size:8pt; margin:4pt 0 5pt; }
+  table.mini td { border-bottom:.4pt solid var(--sunk); padding:2pt 6pt 2pt 0; }
+  table.mini .dy,.gp { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; color:var(--muted); white-space:nowrap; }
+  table.mini .fm { font-family:ui-monospace,Menlo,monospace; font-size:7.2pt; white-space:nowrap; }
+  table.mini .was { color:var(--muted); } .ar { color:var(--muted); }
+  table.mini .ti { color:var(--ink2); }
+  table.mini .nt { display:block; color:var(--muted); font-size:7.2pt; }
+  .out { border-top:.6pt solid var(--rule); padding-top:4pt; font-size:7.8pt; color:var(--ink2); }
+  .out b { color:var(--ink); font-variant-numeric:tabular-nums; }
+
+  footer { margin-top:14pt; padding-top:5pt; border-top:.6pt solid var(--rule);
+    color:var(--muted); font-size:7pt; }
+  .avoid { break-inside:avoid; }
+</style></head><body>
+
+<header>
+  <div class="eyebrow">Alamos · conversion plan · Maths &amp; Stats · grade 9–12</div>
+  <h1>The Trial</h1>
+  <div class="sub">AP Statistics · trial design</div>
+  <div class="place">One long floor, where walking north is distance from the patient.</div>
+  <div class="facts">
+    <div class="fact"><b>45</b><span>stops</span></div>
+    <div class="fact"><b>24</b><span>choice (53%)</span></div>
+    <div class="fact"><b>3.2</b><span>effective formats</span></div>
+    <div class="fact"><b>6/11</b><span>equations computed</span></div>
+    <div class="fact"><b>3</b><span>select-only concepts</span></div>
+    <div class="fact"><b>26·18·1</b><span>select·construct·operate</span></div>
+  </div>
+</header>
+
+<h2><span class="ph">Reading</span>Where this campaign stands</h2>
+<p>Twenty-four CHOICE stops out of 45 and 5 of 11 equations computed. Three gaps sit on
+      instruments and may clear in Phase 0; three do not, and they are the three that decide whether
+      a trial can answer its question — alpha spending, the events formula, and conditional power.
+      The place is the hardest constraint in the set: one long floor, no vehicles, and the walk down
+      it is distance from the patient. That rules out the driven formats and leaves the ones that
+      run on data, which is fortunate, because this is AP Statistics.</p>
+
+
+<div class="avoid">
+<h2><span class="ph">Now</span>The mix as it ships</h2>
+<div class="mixbar"><i style="flex:24;background:#c9ccc4"></i><i style="flex:4;background:#e2e4de"></i><i style="flex:4;background:#e2e4de"></i><i style="flex:3;background:#e2e4de"></i><i style="flex:2;background:#e2e4de"></i><i style="flex:2;background:#cf7fae"></i><i style="flex:1;background:#cf7fae"></i><i style="flex:1;background:#cf7fae"></i><i style="flex:1;background:#cf7fae"></i><i style="flex:1;background:#cf7fae"></i><i style="flex:1;background:#cf7fae"></i><i style="flex:1;background:#cf7fae"></i></div>
+<div class="mixkey"><span>CHOICE 24</span><span>BALLPARK 4</span><span>PROTOCOL 4</span><span>SEQUENCE 3</span><span>TRIAGE 2</span><span>VALUE 2</span><span>CONTROL 1</span><span>ALLOCATE 1</span><span>ATTEST 1</span><span>TRACE 1</span><span>DELEGATE 1</span><span>DEGENERACY 1</span></div>
+</div>
+
+<h2><span class="ph">Curriculum</span>What the syllabus is not getting</h2>
+<table><thead><tr><th>Equation the course owes</th><th>What it carries</th><th>Mentioned at</th><th class="n">Status</th></tr></thead><tbody>
+<tr>
+  <td class="k">RR = p_treatment / p_control</td><td>relative risk, and why it hides how big the effect is</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">29·BALLPARK  43·DEGENERACY</td>
+  <td class="n"><span class="flag sus">verify first</span></td>
+</tr><tr>
+  <td class="k">CI ≈ estimate ± 1.96 × SE</td><td>a confidence interval, and what its width says</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">29·BALLPARK  36·VALUE  44·CHOICE</td>
+  <td class="n"><span class="flag sus">verify first</span></td>
+</tr><tr>
+  <td class="k">Σ α_spent ≤ α</td><td>alpha spending — a budget for error that does not refill</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">10·CHOICE  40·PROTOCOL  41·CHOICE  44·CHOICE</td>
+  <td class="n"><span class="flag real">real gap</span></td>
+</tr><tr>
+  <td class="k">events ≈ 4 (z_{α/2} + z_β)² / (ln HR)²</td><td>how many events a trial has to see to answer its question</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">16·BALLPARK  20·CHOICE  40·PROTOCOL  41·CHOICE</td>
+  <td class="n"><span class="flag real">real gap</span></td>
+</tr><tr>
+  <td class="k">conditional power = P(significant at the end | data so far)</td><td>what a futility forecast is, and what it is not</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">40·PROTOCOL  41·CHOICE</td>
+  <td class="n"><span class="flag real">real gap</span></td>
+</tr></tbody></table>
+<p style="font-size:8.4pt;color:var(--ink2)">2 of 5 sit on an instrument stop, whose
+board arithmetic the coverage check cannot yet read — expect Phase 0 to clear those. <strong>3</strong>
+are unaffected by it.</p>
+
+<div class="avoid">
+<h2><span class="ph">Tier</span>Concepts the player only ever picks from a list</h2>
+<table><thead><tr><th class="n">#</th><th>Mechanism concept</th><th class="n">Stops</th></tr></thead><tbody>
+<tr><td class="n">8</td><td>The primary endpoint, named in advance, and everything else</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">2, 44</td></tr><tr><td class="n">22</td><td>Intention to treat against per-protocol</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">20</td></tr><tr><td class="n">29</td><td>Unblinding an individual for their own care</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">12</td></tr>
+</tbody></table>
+<p style="font-size:8.4pt;color:var(--ink2)">Reported, never failed. Select-tier can be exactly right;
+these are the candidates, not the defects.</p></div>
+
+<h2><span class="ph">Fun</span>What this subject and this place can carry</h2>
+<div class="card v-s">
+  <div class="top"><h4>SWEEP</h4><span class="vd">strong</span><span class="at">stop 29 or 34 · STAT</span></div>
+  <p>Drag the sample size and watch the interval narrow — and it narrows as the square root,
+          which is the one thing about precision every student gets wrong. "How big, and how wide" is
+          currently a BALLPARK; the curve is the answer and it is plotted only where you look.</p>
+  <dl><dt>serves</dt> <dd>SE = √(p(1−p)/n) and CI ≈ estimate ± 1.96 × SE — two gaps in one panel</dd></dl>
+  <dl><dt>needs</dt> <dd>the diminishing return visible in the shape, not stated in the hint</dd></dl>
+  
+</div><div class="card v-s">
+  <div class="top"><h4>TALLY</h4><span class="vd">strong</span><span class="at">stop 16 · STAT</span></div>
+  <p>Events accumulate and the analysis becomes possible. "How much of the trial has
+          happened" is a BALLPARK about exactly this, and TALLY’s own subject — when is there enough
+          to report — <em>is</em> interim analysis.</p>
+  <dl><dt>serves</dt> <dd>the events formula and alpha spending</dd></dl>
+  <dl><dt>needs</dt> <dd>an early look that flatters the result</dd></dl>
+  
+</div><div class="card v-s">
+  <div class="top"><h4>SPOT</h4><span class="vd">strong</span><span class="at">stop 10 or 40 · STAT / SAFE</span></div>
+  <p>A stopping rule replaced mid-trial with nothing announcing it. This is the sharpest
+          statistical version of the format anywhere: an unannounced change to a stopping rule is
+          how alpha gets spent without anybody deciding to spend it.</p>
+  <dl><dt>serves</dt> <dd>Σ α_spent ≤ α — a budget for error that does not refill</dd></dl>
+  
+  <dl><dt>risk</dt> <dd>score only the discriminating items</dd></dl>
+</div><div class="card v-s">
+  <div class="top"><h4>HOLDOUT</h4><span class="vd">strong</span><span class="at">stop 34 · STAT</span></div>
+  <p>"The subgroup that crossed" is a CHOICE, and subgroup analysis is the canonical
+          overfitting story in clinical research. Fit the subgroup rule on one half, freeze it, score
+          it on the half it never saw, and the flattering answer costs the stop.</p>
+  <dl><dt>serves</dt> <dd>multiplicity and subgroup discipline</dd></dl>
+  <dl><dt>needs</dt> <dd>a spike in the fitting curve that beats the honest answer</dd></dl>
+  
+</div><div class="card v-m">
+  <div class="top"><h4>BELT</h4><span class="vd">medium</span><span class="at">SITE · monitoring</span></div>
+  <p>Case report forms sorted against one criterion — protocol deviation or not — at the
+          speed a monitoring visit runs. Real trial work, and one honest bit. Medium because the
+          criterion in practice needs more than one clause.</p>
+  
+  
+  <dl><dt>risk</dt> <dd>a definition needing two clauses is not a BELT</dd></dl>
+</div><div class="card v-d">
+  <div class="top"><h4>TRIAL</h4><span class="vd">defer</span><span class="at">the long floor</span></div>
+  <p>The corridor is walkable and its length is the theme, so a driven order is not absurd.
+          Deferred because a coordinating centre has nothing to drive and the gates would be doors.</p>
+  
+  
+  
+</div><div class="card v-r">
+  <div class="top"><h4>HOLD</h4><span class="vd">reject</span><span class="at">—</span></div>
+  <p>No physical quantity to hold. Reject on geometry.</p>
+  
+  
+  
+</div><div class="card v-r">
+  <div class="top"><h4>LOB</h4><span class="vd">reject</span><span class="at">—</span></div>
+  <p>Reject.</p>
+  
+  
+  
+</div>
+
+<h2><span class="ph">Slates</span>Three appetites — the campaign is zero-sum</h2>
+<p style="font-size:8.8pt">No conversion adds a stop. Each changes what an existing stop <em>does</em>
+while leaving what it <em>teaches</em> alone. Snapshot before, diff after:
+<code>curriculumDelivery.mjs the_trial --snapshot before.json</code>, then <code>--against before.json</code>.</p>
+<div class="slate">
+    <div class="sh"><h4>Minimum honest</h4><span class="n2">3 stops · one sitting</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">29</td><td class="dy">d10</td><td class="gp">STAT</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>SWEEP</b></td>
+      <td class="ti">How big, and how wide<span class="nt">how big and how wide — the square root, as a shape</span></td>
+    </tr><tr>
+      <td class="n">16</td><td class="dy">d6</td><td class="gp">STAT</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>TALLY</b></td>
+      <td class="ti">How much of the trial has happened<span class="nt">events accumulated until the interim can be read</span></td>
+    </tr><tr>
+      <td class="n">34</td><td class="dy">d12</td><td class="gp">STAT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>HOLDOUT</b></td>
+      <td class="ti">The subgroup that crossed<span class="nt">the subgroup that crossed, scored on data it never saw</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>24 → 23</b> (51%) ·
+      moves <b>26·18·1 → 25·16·4</b> ·
+      effective formats <b>3.2 → 3.5</b> · <b>3</b> new operate stops
+    </div>
+  </div>
+<div class="slate">
+    <div class="sh"><h4>Balanced</h4><span class="n2">6 stops · the recommendation</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">29</td><td class="dy">d10</td><td class="gp">STAT</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>SWEEP</b></td>
+      <td class="ti">How big, and how wide</td>
+    </tr><tr>
+      <td class="n">16</td><td class="dy">d6</td><td class="gp">STAT</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>TALLY</b></td>
+      <td class="ti">How much of the trial has happened</td>
+    </tr><tr>
+      <td class="n">34</td><td class="dy">d12</td><td class="gp">STAT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>HOLDOUT</b></td>
+      <td class="ti">The subgroup that crossed</td>
+    </tr><tr>
+      <td class="n">10</td><td class="dy">d4</td><td class="gp">STAT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>SPOT</b></td>
+      <td class="ti">What an extra look spends<span class="nt">what an extra look spends, under a rule that changes</span></td>
+    </tr><tr>
+      <td class="n">20</td><td class="dy">d7</td><td class="gp">STAT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>ATTEST</b></td>
+      <td class="ti">Everyone as assigned<span class="nt">everyone as assigned — the record is not the condition</span></td>
+    </tr><tr>
+      <td class="n">2</td><td class="dy">d1</td><td class="gp">ENDP</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>TRIGGER</b></td>
+      <td class="ti">One outcome, named in advance<span class="nt">one outcome named in advance, written as a rule before the data moves</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>24 → 20</b> (44%) ·
+      moves <b>26·18·1 → 22·18·5</b> ·
+      effective formats <b>3.2 → 4.5</b> · <b>4</b> new operate stops, 1 of them arcade
+    </div>
+  </div>
+<div class="slate">
+    <div class="sh"><h4>Ambitious</h4><span class="n2">9 stops · adds world work</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">29</td><td class="dy">d10</td><td class="gp">STAT</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>SWEEP</b></td>
+      <td class="ti">How big, and how wide</td>
+    </tr><tr>
+      <td class="n">16</td><td class="dy">d6</td><td class="gp">STAT</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>TALLY</b></td>
+      <td class="ti">How much of the trial has happened</td>
+    </tr><tr>
+      <td class="n">34</td><td class="dy">d12</td><td class="gp">STAT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>HOLDOUT</b></td>
+      <td class="ti">The subgroup that crossed</td>
+    </tr><tr>
+      <td class="n">10</td><td class="dy">d4</td><td class="gp">STAT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>SPOT</b></td>
+      <td class="ti">What an extra look spends</td>
+    </tr><tr>
+      <td class="n">20</td><td class="dy">d7</td><td class="gp">STAT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>ATTEST</b></td>
+      <td class="ti">Everyone as assigned</td>
+    </tr><tr>
+      <td class="n">2</td><td class="dy">d1</td><td class="gp">ENDP</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>TRIGGER</b></td>
+      <td class="ti">One outcome, named in advance</td>
+    </tr><tr>
+      <td class="n">41</td><td class="dy">d14</td><td class="gp">STAT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>CLOUD</b></td>
+      <td class="ti">What the rest of the trial would probably do<span class="nt">what the rest of the trial would probably do, as a band</span></td>
+    </tr><tr>
+      <td class="n">44</td><td class="dy">d15</td><td class="gp">ENDP</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>BALANCE</b></td>
+      <td class="ti">What can be claimed<span class="nt">what can be claimed — closed as a ledger</span></td>
+    </tr><tr>
+      <td class="n">12</td><td class="dy">d4</td><td class="gp">RAND</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>BELT</b></td>
+      <td class="ti">When the blind is opened for one person<span class="nt">deviation or not, at monitoring-visit speed</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>24 → 17</b> (38%) ·
+      moves <b>26·18·1 → 19·20·6</b> ·
+      effective formats <b>3.2 → 5.9</b> · <b>5</b> new operate stops, 2 of them arcade
+    </div>
+  </div>
+
+<div class="callout"><span class="tag">The order of work</span>
+<p><strong>1.</strong> Phase 0 — teach the coverage check to read an instrument’s own board, and
+re-baseline <code>curriculum-debt.json</code>. Rewriting a stop that already teaches the thing is the
+exact failure the check exists to prevent.
+<strong>2.</strong> Snapshot. <strong>3.</strong> Edit the book, never the generated content —
+<code>tools/import-book.mjs books/the_trial.yml the_trial --verify</code>.
+<strong>4.</strong> <code>npm run traps</code>: every instrument’s trap must fire.
+<strong>5.</strong> <code>npm run check the_trial</code> and <code>npm run drive the_trial</code>, right
+answer and wrong — ask what a player who understood nothing would score before believing any pass mark.
+<strong>6.</strong> <code>--against</code> the snapshot. A changed format is reported; a changed
+objective fails.</p></div>
+
+<footer>
+  Counts computed from <code>themes/the_trial/content/</code> via <code>engine/dev/curriculumDelivery.mjs</code>;
+  concept and equation lists authored in <code>tools/syllabus.js</code>. Format verdicts and slates are
+  editorial. Run it with <code>THEME=the_trial npm run dev</code>.
+</footer>
+</body></html>

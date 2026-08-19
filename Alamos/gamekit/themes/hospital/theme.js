@@ -18,7 +18,7 @@ import { BALLPARK_BY_TITLE } from './content/shared.js';
 import { plan } from './plan.js';
 import { OUTFITS, roleToOutfit } from './outfits.js';
 import { fitOutRoom, fitOutSpine } from './props.js';
-import { MISSIONS as MISSION_DEFS } from './content/missions.js';
+import { MISSIONS as MISSION_DEFS, WARMUPS } from './content/missions.js';
 import { GROUPS as GROUP_DEFS } from './content/groups.js';
 import { ROSTER as HISTORIC_CHARACTERS, LEADERS } from './content/roster.js';
 
@@ -54,6 +54,7 @@ export default {
     // Applied across each lesson and its reviews by engine/content/normalize.js.
     BALLPARK_BY_TITLE,
     MISSIONS: MISSION_DEFS,
+    WARMUPS,
     GROUPS: GROUP_DEFS,
     ROSTER: HISTORIC_CHARACTERS,
     LEADERS,

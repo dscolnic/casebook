@@ -127,11 +127,22 @@ function carve(src){
 
 const BLOCKS = new Map([...carve(core('questionUI.js')), ...carve(core('instruments.js'))]);
 
-/** Every `ch.x` / `lesson.x` / `l.x` / `ch['x']` read in one block. */
+/**
+ * Every `ch.x` / `lesson.x` / `l.x` / `ch['x']` read in one block.
+ *
+ * **`?.` counts.** The first version matched a literal dot, so `lesson?.guide` was
+ * not a read — and eight fields in these two files are reached ONLY that way,
+ * `guide`, `rules`, `assumes` and `equations` among them. It is the same mistake
+ * as the carver not knowing `const ask = () => …`: a checker that reads source has
+ * to know every spelling the source is allowed to use, and the ones it does not
+ * know are silently invisible rather than loudly missing. This is `readabilityParity`'s
+ * rule in a different file — a measurement must not be able to tell `lesson.guide`
+ * from `lesson?.guide`, because the player cannot.
+ */
 function readsIn(body){
   const found = new Set();
-  for(const m of body.matchAll(/\b(?:ch|lesson|l)\.([A-Za-z_]\w*)/g)) found.add(m[1]);
-  for(const m of body.matchAll(/\b(?:ch|lesson|l)\[\s*['"]([A-Za-z_]\w*)['"]\s*\]/g)) found.add(m[1]);
+  for(const m of body.matchAll(/\b(?:ch|lesson|l)\??\.([A-Za-z_]\w*)/g)) found.add(m[1]);
+  for(const m of body.matchAll(/\b(?:ch|lesson|l)\??\[\s*['"]([A-Za-z_]\w*)['"]\s*\]/g)) found.add(m[1]);
   return found;
 }
 
@@ -192,7 +203,7 @@ const FORMATS = {
 // question, the hint behind the assist, the verdict and the grading.
 const SHARED = ['challengePrefix', 'askCard', 'askContextHTML', 'equationRow', 'figureBlock',
                 'withAssist', 'visitAssistHTML', 'scientificHint', 'solutionText',
-                'reasoningHTML', 'verdictFigureHTML', 'finishVisit',
+                'reasoningHTML', 'reasoningFoldHTML', 'verdictFigureHTML', 'finishVisit',
                 'storyBriefText', 'missionLessonForStop'];
 // `showChallengeForStop` is deliberately NOT in that list even though every stop
 // goes through it, because it is the dispatch: its body calls all twelve
@@ -375,6 +386,18 @@ function selftest(){
     // shown, an alias that has drifted is not. This is the whole rule, and it is
     // the one that turns a thousand harmless aliases into four real findings.
     ['identical alias text counts as shown', squash('A B') === squash('a  b'), true],
+    // `?.` is a read. Eight fields in these two files are reached only that way, so
+    // a `readsIn` that matches a literal dot reports four authored keys — `guide`,
+    // `rules`, `assumes`, `equations` — as reaching no screen while the player is
+    // looking at them. Two cases, because one alone cannot tell the fix from the
+    // bug: the first says the optional form is seen at all, the second says the two
+    // spellings of the same read are indistinguishable, which is the actual rule.
+    ['an optional-chained read counts', readsIn('lesson?.guide').has('guide'), true],
+    ['and scores the same as the plain one',
+      readsIn('lesson?.guide').has('guide') === readsIn('lesson.guide').has('guide'), true],
+    // The key concept door. It is the only place `concept` reaches a screen, so if
+    // `askConceptHTML` falls off the card this is what says so.
+    ['the ask card shows `concept`', sharedReads.has('concept'), true],
   ];
   let bad = 0;
   for(const [what, got, want] of cases){

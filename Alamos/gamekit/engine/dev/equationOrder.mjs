@@ -28,6 +28,7 @@
 // equation a question gets a number out of is the one the player has actually used,
 // which is the same distinction `computed` makes everywhere else in this file's
 // neighbourhood.
+import { readFileSync, existsSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 import { themeDir as resolveTheme, themeNames } from './registry.mjs';
@@ -35,6 +36,8 @@ import { EQUATIONS } from '../../tools/syllabus.js';
 
 const args = process.argv.slice(2);
 const wanted = args.includes('--all') || !args[0] ? themeNames() : [args[0]];
+const DEBT_FILE = 'engine/dev/equation-debt.json';
+const debt = existsSync(DEBT_FILE) ? JSON.parse(readFileSync(DEBT_FILE, 'utf8')) : {};
 let failures = 0;
 
 for(const themeName of wanted){
@@ -109,13 +112,34 @@ for(const themeName of wanted){
     }
   }
 
-  if(!bad.length){
-    console.log(`✓ ${themeName}: every equation a question asks has its prerequisites asked first`);
+  // DEBT, for the same reason `curriculum-debt.json` exists.
+  //
+  // This file had no recorded baseline, which was fine while every graph in the repo
+  // predated the games it measured. It stopped being fine the moment somebody wrote a
+  // truthful `needs` list on a shipping game: Midway had none, and authoring twelve
+  // turned a green check into seven failures, all of them true — an AP Physics 1
+  // campaign that computes everything built on ΣF = ma and never computes ΣF = ma.
+  // With no debt path the only ways forward are to fix the content in the same commit
+  // or to write a graph you know is wrong, and the second is what actually happens.
+  // Same two properties as everywhere else: a row not on the list fails immediately,
+  // and a row on the list that has since been fixed also fails, naming the line to
+  // delete. It only shrinks.
+  const allowed = new Set(debt[themeName] ?? []);
+  const key = (b) => `${b.eq.e} ← ${b.need}`;
+  const fresh = bad.filter(b => !allowed.has(key(b)));
+  const stale = [...allowed].filter(k => !bad.some(b => key(b) === k));
+  for(const k of stale){
+    console.log(`✗ ${themeName}: ${DEBT_FILE} lists "${k}", which is in order now — delete the line`);
+    failures++;
+  }
+  if(!fresh.length){
+    console.log(`✓ ${themeName}: every equation a question asks has its prerequisites asked first`
+      + (allowed.size ? `  (${allowed.size} known inversion(s) recorded)` : ''));
     continue;
   }
-  failures += bad.length;
-  console.log(`✗ ${themeName}: ${bad.length} equation(s) asked before what they are built on`);
-  for(const b of bad){
+  failures += fresh.length;
+  console.log(`✗ ${themeName}: ${fresh.length} equation(s) asked before what they are built on`);
+  for(const b of fresh){
     console.log(`    ${b.eq.e} — asked ${where.get(b.eq.e)}`);
     console.log(`      built on ${b.need}, ` + (b.dep
       ? `which no question asks until day ${b.dep}`

@@ -10,6 +10,12 @@ export const CURRICULUM = {
       "scene": "The wall shows the frequency dropping for eight seconds, then flattening out low. Beside it the power is in MW, which means megawatts, millions of watts at once. Aaron Whitlock has the log open, and two people have already named a cause.",
       "takeaway": "Frequency belongs to the whole system. Voltage belongs to one place.",
       "place": "System Operations",
+      "guide": "Four readings on the left, and what each is evidence of on the right. Pair them by asking one question. Is this one number for the whole system, or one number for a place? Frequency is the same everywhere. Voltage is not. That is what lets one of them say whether something happened, and the other say where.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If three lines are right, the fourth response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
       "story": "The wall shows the frequency dropping for eight seconds, then flattening out low. Beside it the power is in MW, which means megawatts, millions of watts at once. Aaron Whitlock has the log open, and two people have already named a cause.",
       "game": {
         "type": "PROTOCOL",
@@ -22,27 +28,23 @@ export const CURRICULUM = {
         "why": "Every generator on the grid turns in step, like a line of dancers. Frequency is the speed they are all turning at, so it is one number for the whole system. Take a generator away and the rest have to carry its share, which slows them all down together. How fast it falls says how big the gap is. Flattening out low is not recovery. It is the machines settling at a new, slower speed with the gap still there.",
         "rebuttals": [
           "The same frequency everywhere is the machines turning in step, not a coincidence between meters.",
-          "How fast it fell measures the size of the gap. That is why it is the first thing to read.",
           "Flattening out low is a new balance at a lower speed. It is not the system recovering.",
           "Voltage is the local one. It says where, which is why it disagrees between substations."
         ],
         "scenarios": [
           "Every substation reports the same frequency, to two decimal places.",
-          "It fell steeply for two seconds, and then more slowly.",
           "The frequency has stopped falling, and is sitting below where it started.",
           "Two substations report voltages three per cent apart."
         ],
         "choices": [
           "One number for the whole system, because every machine turns in step.",
-          "The size of the gap, against what was spinning.",
           "A new balance at a slower speed, not the system getting better.",
           "A local number, which is what makes it useful for saying where."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -68,7 +70,15 @@ export const CURRICULUM = {
           ],
           "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
         }
-      ]
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Supply has to match demand, minute by minute",
+        "of": 16,
+        "rests": [
+          "Energy used is power multiplied by time"
+        ]
+      }
     },
     {
       "day": 2,
@@ -76,6 +86,12 @@ export const CURRICULUM = {
       "scene": "Reyes wants a decision. The line is inside its short-term limit for another half hour. The question on the table is what happens elsewhere if this one trips.",
       "takeaway": "A limit only matters alongside what the flow does when that line is gone.",
       "place": "System Operations",
+      "guide": "All four options give a reason to act, and three of them are about this line alone. Ask of each whether it describes what is happening now, or what happens if this line trips. A short-term limit exists so somebody can decide. What makes it dangerous is where the flow goes next. Reyes wants an answer in half an hour.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Reyes wants a decision. The line is inside its short-term limit for another half hour. The question on the table is what happens elsewhere if this one trips.",
       "game": {
         "type": "CHOICE",
@@ -101,7 +117,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a network is supposed to survive losing any single line"
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Something can be protected too eagerly, and cost you the supply",
+        "of": 16,
+        "rests": [
+          "A safety device breaks the circuit before something is damaged"
+        ]
+      }
     },
     {
       "day": 3,
@@ -109,6 +133,12 @@ export const CURRICULUM = {
       "scene": "Three crews, eleven dead feeders, and a list in front of Reyes that mixes household counts with a clinic and a pumping station. The phone is already ringing.",
       "takeaway": "The first crew goes where waiting costs most, not where the count is biggest.",
       "place": "System Operations",
+      "guide": "Four feeders, and the number of houses is only one of two things that matter. Ask of each what waiting costs, and how long the work takes. A one-hour job frees the crew for the next fault. A four-hour job does not. One of these is already on a standby supply.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Three crews, eleven dead feeders, and a list in front of Reyes that mixes household counts with a clinic and a pumping station. The phone is already ringing.",
       "game": {
         "type": "CHOICE",
@@ -134,7 +164,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a crew can only work on one fault at a time"
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "A circuit is a loop, and a break anywhere stops it",
+        "of": 16
+      }
     },
     {
       "day": 4,
@@ -142,6 +177,12 @@ export const CURRICULUM = {
       "scene": "Reyes has a small budget and four things she could find out before the evening peak. Only some of them would change what she does about the reserve.",
       "takeaway": "A measurement is worth buying when its answer could still change what you do.",
       "place": "System Operations",
+      "guide": "Five credits, four things you could find out, and a decision at six o'clock. Open each card and ask what its result would change. A measurement that confirms something already decided is not worth a credit. Buy the ones that could still change what Reyes does about the reserve.",
+      "background": [
+        "What makes evidence worth buying. Two possible results that would lead to different actions. If both answers leave you doing the same thing, the measurement is interesting and not useful, and tonight that difference is a credit you cannot get back.",
+        "Why the clock is part of the question. A result that arrives after six is a result about a decision already made. So a rough answer in time can be worth more than a careful one that is late.",
+        "What the reserve is. Spare generation held back so it can be used if something fails. Deciding how much to hold is a bet on what might go wrong, which is why evidence about what might go wrong is what changes it."
+      ],
       "story": "Reyes has a small budget and four things she could find out before the evening peak. Only some of them would change what she does about the reserve.",
       "game": {
         "type": "VALUE",
@@ -217,7 +258,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what the system can make and what it is being asked for is the whole of its safety margin."
         }
-      ]
+      ],
+      "concept": {
+        "n": 9,
+        "c": "A graph of demand across a day, and why the peak matters",
+        "of": 16,
+        "rests": [
+          "Supply has to match demand, minute by minute"
+        ]
+      }
     },
     {
       "day": 5,
@@ -225,6 +274,12 @@ export const CURRICULUM = {
       "scene": "Four plants and an order to sign. Reyes wants each one matched to the real reason it sits where it does, rather than to its price.",
       "takeaway": "Cheapest first is the rule, and three things bend it: where a plant is, how fast it moves, and whether it can be relied on.",
       "place": "System Operations",
+      "guide": "Four plants and four reasons for their place in the queue. Only one of those reasons is price. Pair them by asking what else matters: whether the output can be promised, whether the machine can move fast, or where it sits. A machine at full output has nothing spare to offer.",
+      "background": [
+        "Why a clue needs an explanation and not a name. Saying what a clue is called is not saying what produced it. The board makes you commit to a cause, and a cause has to account for that clue and not for the one next to it. That is the difference between recognising something and explaining it.",
+        "How to use the one-each rule. Every explanation goes with exactly one clue. So the pairs you are sure about are worth more than themselves — each one you settle leaves fewer explanations for the clues you are unsure of. Two you trust can decide the other two.",
+        "Why one wrong line is impossible. If three lines are right, the last explanation has nowhere else to go, so it is right too. Being wrong always means two are wrong at once. When a join feels forced, look again at one you made early and stopped questioning."
+      ],
       "story": "Four plants and an order to sign. Reyes wants each one matched to the real reason it sits where it does, rather than to its price.",
       "game": {
         "type": "CASEBOOK",
@@ -238,26 +293,22 @@ export const CURRICULUM = {
         "rebuttals": [
           "Costing nothing to run puts it first, and output nobody can promise is why something reliable stays behind it.",
           "Holding a fast machine at half output is buying spare. A machine at full output has none to sell.",
-          "Being in the right place can be worth more than being cheap, when the cheap one overloads a line.",
           "Dear and slow means last. It is the plant the system is trying not to need."
         ],
         "scenarios": [
           "The ridge fleet, almost free to run, with output nobody can promise.",
           "A gas machine that can move fast, deliberately left at half output.",
-          "Old, on the wrong side of the line, kept off.",
           "Old, on the right side of the squeeze, run anyway."
         ],
         "choices": [
           "First in the queue on cost, with something reliable kept behind it.",
           "Held at half output, because only that leaves spare.",
-          "Held back, because starting it overloads something downstream.",
           "Run out of turn for where it is, not its price."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "The plant",
@@ -287,7 +338,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what the system can make and what it is being asked for is the whole of its safety margin."
         }
-      ]
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Supply has to match demand, minute by minute",
+        "of": 16,
+        "rests": [
+          "Energy used is power multiplied by time"
+        ]
+      }
     },
     {
       "day": 6,
@@ -295,6 +354,12 @@ export const CURRICULUM = {
       "scene": "One hydro machine that can start with no outside power. A dead network. And a room that wants the big station back first. Nothing gets switched until the order is written down.",
       "takeaway": "The biggest machine is useless until something smaller can wake it up.",
       "place": "System Operations",
+      "guide": "Build the path in the order the power really travels, starting from the machine that can start with no outside power. Then name the required link that decides it. The biggest station is not the answer, and neither is the largest number on the board. A path is limited by the link with the least to give.",
+      "background": [
+        "Why most machines cannot start themselves. A generator needs power before it can make power: for pumps, for controls, for the magnets that make the field. In a blackout there is none. A hydro machine with a battery and water behind it does not need any, so it is where the network has to begin.",
+        "Why the order is not a preference. Switching a path on means feeding the lines and the machines along it in an order the equipment can survive. Ask for too much at once and the small starting machine stalls, and everything is dark again with less left to try.",
+        "Why the room wants the wrong thing. The big station is what everybody is waiting for. That is a reason to write the order down before anybody touches a switch, not a reason to put it first."
+      ],
       "story": "One hydro machine that can start with no outside power. A dead network. And a room that wants the big station back first. Nothing gets switched until the order is written down.",
       "game": {
         "type": "CHAIN",
@@ -303,43 +368,42 @@ export const CURRICULUM = {
         "play": "Build the restart path, then name the link that decides it.",
         "task": "Build the restart path, then name the link that decides it.",
         "question": "How does starting power reach the big station, and which link decides it?",
-        "answer": "Water, hydro turbine, hydro generator, small feeder, the big station's own pumps and fans, then the big generator. The small feeder decides it.",
+        "answer": "Hydro turbine, hydro generator, small feeder, the big station's own pumps and fans, then the big generator. The small feeder decides it, even though three links upstream carry more.",
         "why": "A dead network cannot start from its biggest generator, because that machine needs power before it can make any. Pumps, fans, controls. The hydro machine is different: water pushes the turbine round with no electricity involved at all. So it goes first, and its output travels down a small feeder to wake the big station's own equipment. That small feeder is the link everything waits on. It only has to carry the auxiliaries.",
         "chain": {
           "links": [
             {
-              "id": "gate",
-              "label": "Reservoir gate",
-              "transfers": "water flow"
-            },
-            {
               "id": "turbine",
               "label": "Hydro turbine",
-              "transfers": "mechanical torque"
+              "transfers": "mechanical torque",
+              "reading": "24 MW"
             },
             {
               "id": "hydro-gen",
               "label": "Hydro generator",
-              "transfers": "electrical power"
+              "transfers": "electrical power",
+              "reading": "20 MW"
             },
             {
               "id": "startup-feeder",
               "label": "Black-start feeder",
-              "transfers": "electrical power to station auxiliaries"
+              "transfers": "electrical power to station auxiliaries",
+              "reading": "8 MW"
             },
             {
               "id": "auxiliaries",
               "label": "Large-station pumps and fans",
-              "transfers": "startup services"
+              "transfers": "startup services",
+              "reading": "needs 6 MW"
             },
             {
               "id": "large-gen",
               "label": "Large station generator",
-              "transfers": "electrical output after startup"
+              "transfers": "electrical output after startup",
+              "reading": "500 MW"
             }
           ],
           "order": [
-            "gate",
             "turbine",
             "hydro-gen",
             "startup-feeder",
@@ -355,14 +419,114 @@ export const CURRICULUM = {
       "assumes": [
         "the big station needs electricity for its own pumps and fans before it can start",
         "the hydro machine can start with no supply at all"
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Restarting a system that has stopped, in the right order",
+        "of": 16,
+        "rests": [
+          "Supply has to match demand, minute by minute"
+        ]
+      }
     },
     {
       "day": 7,
+      "title": "Fifty, through the evening",
+      "scene": "The evening rise is starting and the number on the wall is drifting down with it. The regulating set is the one control left on the desk.",
+      "takeaway": "A mismatch you do not answer does not go away on its own.",
+      "place": "Control Room",
+      "guide": "Hold the frequency inside the band on the display. The band narrows as the evening goes on, because there is less spare generation at the peak. Each block of load that comes on keeps pulling until generation answers it. Set the control where it matches, not where it catches up.",
+      "background": [
+        "Why the number moves at all. Frequency is the balance between what is being made and what is being used. More being used than made, and the machines slow down.",
+        "Why a block of load is not one push. It keeps drawing power for as long as it is switched on. So the frequency keeps falling until generation is raised to match it."
+      ],
+      "story": "The evening rise is starting and the number on the wall is drifting down with it. The regulating set is the one control left on the desk.",
+      "game": {
+        "type": "HOLD",
+        "title": "Fifty, through the evening",
+        "setup": "Control Room",
+        "play": "Hold the frequency while the evening load comes on.",
+        "task": "Hold the frequency while the evening load comes on.",
+        "question": "Hold the system at fifty through the evening rise.",
+        "answer": "Inside the band for most of the rise, with the set moved to answer each block rather than nudged after the number has already fallen.",
+        "why": "Frequency is a balance. When more power is being used than made, the machines slow down and the number falls. Every block of load in this evening keeps drawing for as long as it is on, so the number keeps falling until generation is raised to match. That is why the control is moved to a new setting and left there. Nudging it and letting go is chasing a needle rather than fixing a mismatch. The band narrows later because there is less spare generation spinning at the peak, so the same drop is closer to the point where protection starts switching customers off by itself. And that is the thing nobody wants: the system does the shedding for you, and it does not choose who.",
+        "hold": {
+          "quantity": "System frequency",
+          "control": "Regulating set",
+          "unit": "Hz",
+          "hold": 50,
+          "band": 0.4,
+          "narrowTo": 0.2,
+          "duration": 45,
+          "authority": 0.1,
+          "pass": 0.8,
+          "direction": "raise",
+          "disturbances": [
+            {
+              "label": "Evening block comes on",
+              "at": 4,
+              "amount": -0.03
+            },
+            {
+              "label": "Import steps up",
+              "at": 20,
+              "amount": 0.05
+            },
+            {
+              "label": "A second block, and a unit trips",
+              "at": 38,
+              "amount": -0.045
+            }
+          ],
+          "hint": "Each block of load keeps pulling. Set the control to match it.",
+          "commit": "Report the evening"
+        }
+      },
+      "assumes": [
+        "frequency falls when more power is used than is being made"
+      ],
+      "equations": [
+        {
+          "e": "spare = what can be made − what is being used",
+          "c": "how much room is left on the system",
+          "v": [
+            [
+              "spare",
+              "in megawatts"
+            ],
+            [
+              "what can be made",
+              "the total that can be run up"
+            ],
+            [
+              "what is being used",
+              "the demand right now"
+            ]
+          ],
+          "s": "The gap between what the system can make and what it is being asked for is the whole of its safety margin."
+        }
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Supply has to match demand, minute by minute",
+        "of": 16,
+        "rests": [
+          "Energy used is power multiplied by time"
+        ]
+      }
+    },
+    {
+      "day": 8,
       "title": "Which of the three cannot wait",
       "scene": "Reyes has three live problems on the board and can only keep one herself. Whitlock is ready to take a handover, and she will not accept an instruction that amounts to watch it.",
       "takeaway": "Urgency is about how fast something is getting worse and whether somebody else can own the next move.",
       "place": "System Operations",
+      "guide": "Three problems, and you keep one. For each of the other two, name who takes it, the first real thing they will do, and the reading or event that brings it back to you. Reyes will not accept anything that amounts to watch it. Then take the watch on the one that needs your own judgement.",
+      "background": [
+        "Why watch it fails. Somebody told to observe will come back for orders at the moment you are busiest. A first action is what lets them hold the problem without you, and naming it is the difference between handing something over and putting it off.",
+        "What a return condition is. Not a promise to check in. It is the number or event at which the problem stops being theirs, agreed now, so nobody has to decide in the moment whether this is bad enough to interrupt you.",
+        "How to choose what to keep. Ask which is getting worse fastest, which is already contained, and what happens if nobody acts. The one that needs a judgement rather than a procedure is the one you cannot hand over."
+      ],
       "story": "Reyes has three live problems on the board and can only keep one herself. Whitlock is ready to take a handover, and she will not accept an instruction that amounts to watch it.",
       "game": {
         "type": "DELEGATE",
@@ -452,11 +616,17 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 8,
+      "day": 9,
       "title": "What outlives the emergency",
       "scene": "Four things the room started doing under pressure. Reyes asks which are worth their cost on an ordinary Monday, when nothing at all is going wrong.",
       "takeaway": "Keep what would have caught it early. Drop what only paid off because the fortnight was strange.",
       "place": "System Operations",
+      "guide": "All four changes are fair, and all four cost something every day. Ask of each whether it would have caught this fortnight's mistake. Then ask whether the room will still be doing it in March. The sensor was wrong for months because nothing was ever compared with it. More reports of a wrong number are not more information.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Four things the room started doing under pressure. Reyes asks which are worth their cost on an ordinary Monday, when nothing at all is going wrong.",
       "game": {
         "type": "CHOICE",
@@ -513,6 +683,11 @@ export const CURRICULUM = {
       "scene": "Haddad needs a number before starting anything. The demand has not moved. What has changed is how much the units still running can make between them.",
       "takeaway": "The gap between what is needed and what is being made is the whole problem.",
       "place": "Generation Hall",
+      "guide": "Four numbers, and two of them are about the frequency. Those describe what the shortfall did, not how big it is. Ask of each number whether it is an amount of power. Demand has not moved. What changed is how much the units left running can make. A gap is one of those taken from the other.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Haddad needs a number before starting anything. The demand has not moved. What has changed is how much the units still running can make between them.",
       "game": {
         "type": "BALLPARK",
@@ -532,18 +707,32 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the grid has to make exactly as much as it is using, every second"
-      ]
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Supply has to match demand, minute by minute",
+        "of": 16,
+        "rests": [
+          "Energy used is power multiplied by time"
+        ]
+      }
     },
     {
       "day": 2,
-      "title": "Four things that have to agree",
+      "title": "Three things that have to agree",
       "scene": "Haddad has a machine at rest and a grid running normally. She wants the order written down before anybody is standing at the panel with a hand on the switch.",
       "takeaway": "Every mismatch gets removed before the switch closes, and there is only one order that works.",
       "place": "Generation Hall",
+      "guide": "All three of these happen at the panel, so nothing is missing from the list. Ask of each what difference it removes. Then ask what that difference would do if the switch closed while it was still there. A speed difference and a voltage difference break things in different ways. One of these three only works once the others are right.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Haddad has a machine at rest and a grid running normally. She wants the order written down before anybody is standing at the panel with a hand on the switch.",
       "game": {
         "type": "SEQUENCE",
-        "title": "Four things that have to agree",
+        "title": "Three things that have to agree",
         "setup": "Generation Hall",
         "play": "Put the steps of joining a machine to the grid in order.",
         "task": "Put the steps of joining a machine to the grid in order.",
@@ -553,19 +742,25 @@ export const CURRICULUM = {
         "cards": [
           "Bring the machine up to the grid's speed.",
           "Match its voltage to the grid's.",
-          "Wait until the two waves line up.",
-          "Close the switch."
+          "Wait until the two waves line up."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
         "a generator joined to a live grid is forced to turn at the grid's speed"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "A generator turns motion into electricity, and a magnet is how",
+        "of": 16,
+        "rests": [
+          "A circuit is a loop, and a break anywhere stops it"
+        ]
+      }
     },
     {
       "day": 3,
@@ -573,6 +768,12 @@ export const CURRICULUM = {
       "scene": "A visitor asks Haddad why the machine makes power at twenty thousand volts and the line outside runs at four hundred thousand.",
       "takeaway": "The same power can be delivered in more than one way, and the ways waste very different amounts.",
       "place": "Generation Hall",
+      "guide": "All four options pair a change in current with a change in waste. Two of them get the current right and disagree about the waste. Ask what the waste depends on, and how strongly. Current falls in step with the voltage rising. Waste follows the current squared. Work out both halves, because three of these get one half right.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "A visitor asks Haddad why the machine makes power at twenty thousand volts and the line outside runs at four hundred thousand.",
       "game": {
         "type": "CHOICE",
@@ -598,7 +799,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "for the same power, a higher voltage means less current"
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Current is the flow, and voltage is the push behind it",
+        "of": 16,
+        "rests": [
+          "A circuit is a loop, and a break anywhere stops it"
+        ]
+      }
     },
     {
       "day": 4,
@@ -606,6 +815,13 @@ export const CURRICULUM = {
       "scene": "Sarraf can make 340 megawatts on the ridge tonight. The line out of the valley carries about 190. There is no second way out.",
       "takeaway": "Electricity that cannot reach anybody is not electricity, whatever it cost to make.",
       "place": "Generation Hall",
+      "guide": "The ridge can make 340 megawatts tonight. The line out is rated at about 190. Nights like this happen about 40 times a winter. A store on the ridge would be 50 megawatts for four hours, and it gives back 85 of every 100 units put in. The second circuit has been on the list for two years with no date, and takes about three years once it starts. Curtailment payments come out of the same budget every night like this one. Running a line above its rating heats the wire, and heat is what makes it sag.",
+      "rules": "Give each of the 4 proposals some of your hundred points. At least 70 points have to go out. A panel that funds almost nothing has not chosen anything. Your biggest number has to be 35 or more, and it has to sit on the proposal the evidence backs best. Put under fifteen points in total on proposals the evidence does not back. And do not leave a proposal it does back under twenty.",
+      "background": [
+        "Why every number is graded. Funding is not a vote for one idea. Where you put the small numbers says what you think is worth a hedge and what is not worth doing at all. Backing the right proposal and quietly funding a bad one is still a bad answer.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead. Below it you have hedged instead of chosen. Fifteen is the most that can sit on work the evidence does not back before it counts as a second opinion. Twenty keeps strong work funded well enough to finish, because half-funding it spends the money and buys nothing.",
+        "Why you cannot hold points back. Unspent points are not caution. They are a decision not to decide, made with somebody else's money and somebody else's deadline. The floor is what makes the panel say something."
+      ],
       "story": "Sarraf can make 340 megawatts on the ridge tonight. The line out of the valley carries about 190. There is no second way out.",
       "game": {
         "type": "SCIENCETANK",
@@ -638,11 +854,19 @@ export const CURRICULUM = {
           "A": 45,
           "C": 25
         },
-        "research": "The ridge can produce 340 MW tonight. The corridor is rated at about 190 MW continuous. Nights like\nthis occur perhaps 40 times a winter. Storage at the ridge would be about 50 MW for 4 hours,\nat 85% round trip. The corridor's second circuit has been on the reinforcement list for\ntwo years without a date."
+        "research": ""
       },
       "assumes": [
         "power has to have a path to wherever it is used"
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Some sources can be turned up on demand and some cannot",
+        "of": 16,
+        "rests": [
+          "Supply has to match demand, minute by minute"
+        ]
+      }
     },
     {
       "day": 5,
@@ -650,6 +874,11 @@ export const CURRICULUM = {
       "scene": "The valley was drawing about 300 megawatts when it went dark. Haddad expects two and a half hours to bring it back, and the report wants energy rather than power.",
       "takeaway": "Power is the rate. Energy is the amount, and everything is settled in energy.",
       "place": "Generation Hall",
+      "guide": "Four numbers, and two of them belong to other questions. The household count and the frequency are not in this sum. Ask of each whether it is a power or a length of time. Power says how fast. Energy says how much, and it grows with every hour. Both get called demand, which is where this goes wrong.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The valley was drawing about 300 megawatts when it went dark. Haddad expects two and a half hours to bring it back, and the report wants energy rather than power.",
       "game": {
         "type": "BALLPARK",
@@ -669,7 +898,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "power kept up over a stretch of time delivers energy"
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Restarting a system that has stopped, in the right order",
+        "of": 16,
+        "rests": [
+          "Supply has to match demand, minute by minute"
+        ]
+      }
     }
   ],
   "TRANS": [
@@ -679,6 +916,12 @@ export const CURRICULUM = {
       "scene": "The line is carrying eight per cent more than it is rated for, and rising slowly. Novak wants a plan he can hand to the switching operator before the protection makes the choice for them.",
       "takeaway": "A rule has to fire early enough for the slow action to arrive in time.",
       "place": "Transmission Control",
+      "guide": "One rule, written before the trend arrives. Once you release it the number cannot change. Moving 200 MW off the corridor takes six hours from the moment it is called. At 120 % the protection switches the line off itself. So your line has to sit far enough below 120 that the move is finished first — and not so low that you move power for a corridor that has shown nothing.",
+      "background": [
+        "Why act before the protection. The protection will disconnect the line when its limit is reached, and it will not care what that leaves switched off. Anything you do first is a choice. Anything after is a consequence.",
+        "Why two numbers rather than one. Moving generation around takes minutes. Shedding load takes seconds. One threshold set for the slow action fires far too early for the fast one, and set for the fast one leaves no time for the slow one.",
+        "What the operator needs. Somebody acting at three in the morning needs a rule, not a judgement. Numbers agreed beforehand are what make the night defensible, and what stop the decision belonging to whoever happens to be awake."
+      ],
       "story": "The line is carrying eight per cent more than it is rated for, and rising slowly. Novak wants a plan he can hand to the switching operator before the protection makes the choice for them.",
       "game": {
         "type": "TRIGGER",
@@ -686,27 +929,37 @@ export const CURRICULUM = {
         "setup": "Transmission Control",
         "play": "Set the thresholds before the trend is released.",
         "task": "Set the thresholds before the trend is released.",
-        "question": "At what loading should each action be committed, given how long each takes?",
-        "answer": "Start moving generation at 110 per cent and shed load at 118. On this trend both then arrive before the ceiling at 120.",
+        "question": "At what loading do you commit the redispatch, when the move takes six hours?",
+        "answer": "Commit the redispatch near 111 % of continuous rating. It fires with the six hours the move needs, and the corridor is unloaded before the ceiling at 120 %.",
         "why": "The short-term limit exists so somebody can decide, not so everybody can wait. The response comes in stages because the actions take different times. Moving generation about takes minutes, so it has to start while there is still room. Shedding load is quick, so it can wait for a higher number. Writing both down before the trend runs stops hindsight becoming policy. A sensible threshold that fires too late for its own action is still a failed rule.",
         "trigger": {
           "scale": {
-            "label": "",
+            "label": "Loading on the corridor",
             "unit": "% of continuous rating",
             "min": 100,
             "max": 125,
-            "step": 0.25
+            "step": 0.25,
+            "anchors": [
+              {
+                "at": 108,
+                "means": "over its rating and warming up, with hours of margin left"
+              },
+              {
+                "at": 120,
+                "means": "the emergency ceiling — protection switches the line off itself"
+              }
+            ]
           },
+          "direction": "rising",
           "conditions": [
             {
               "id": "redispatch",
               "label": "Redispatch 200 MW away from the corridor",
-              "leadHours": 6
-            },
-            {
-              "id": "shed",
-              "label": "Shed 8% of downstream load",
-              "leadHours": 1
+              "leadHours": 6,
+              "window": {
+                "min": 110,
+                "max": 113
+              }
             }
           ],
           "stream": [
@@ -753,7 +1006,42 @@ export const CURRICULUM = {
               "hoursLeft": 0
             }
           ],
-          "hint": "Choose a loading threshold for each action, then release the trend. The action begins only after its lead time, so a threshold can be correct in principle and still arrive too late.",
+          "consequenceLimit": 120,
+          "rehearsal": {
+            "note": "the same corridor last August",
+            "stream": [
+              {
+                "value": 105,
+                "hoursLeft": 576
+              },
+              {
+                "value": 107,
+                "hoursLeft": 480
+              },
+              {
+                "value": 112,
+                "hoursLeft": 384
+              },
+              {
+                "value": 116,
+                "hoursLeft": 288
+              },
+              {
+                "value": 114,
+                "hoursLeft": 192
+              },
+              {
+                "value": 109,
+                "hoursLeft": 96
+              },
+              {
+                "value": 106,
+                "hoursLeft": 0
+              }
+            ]
+          },
+          "objective": "The redispatch is finished before the corridor reaches the 120 % ceiling.",
+          "hint": "Choose the loading at which the redispatch is committed, then release the trend. It starts when your rule fires and takes six hours after that.",
           "release": "Release the board",
           "commit": "Stand by the board"
         }
@@ -782,7 +1070,16 @@ export const CURRICULUM = {
           ],
           "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
         }
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "A safety device breaks the circuit before something is damaged",
+        "of": 16,
+        "rests": [
+          "Something in the way makes it harder for current to flow",
+          "Current is the flow, and voltage is the push behind it"
+        ]
+      }
     },
     {
       "day": 2,
@@ -790,6 +1087,12 @@ export const CURRICULUM = {
       "scene": "Novak has been asked to allow more current down a circuit for the afternoon. He wants each reason for saying no matched to the thing it is really about.",
       "takeaway": "Current makes the heat. Voltage decides the spacing. They are separate limits.",
       "place": "Transmission & Protection",
+      "guide": "Four observations, and each one is limited by something different. Ask of each whether it is about current, voltage, or where the wire hangs. Heat comes from current and does not care about voltage. Insulation cares about voltage and not about current. One of these four is where heat turns into safety.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If three lines are right, the fourth response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
       "story": "Novak has been asked to allow more current down a circuit for the afternoon. He wants each reason for saying no matched to the thing it is really about.",
       "game": {
         "type": "PROTOCOL",
@@ -803,26 +1106,22 @@ export const CURRICULUM = {
         "rebuttals": [
           "Heating comes from the current, and it is the same whatever voltage the wire sits at.",
           "Insulation and spacing are set by voltage, and they do not care how much current flows.",
-          "The drop comes from current along the line, and it reaches the customer before it reaches any limit.",
           "Sag is the wire getting longer as it heats. It is the one place a heat limit becomes a clearance one."
         ],
         "scenarios": [
           "The wire is at 78 degrees, on a limit of 75.",
           "The circuit is on a higher voltage than it was built for.",
-          "Customers at the end report low voltage in the evening.",
           "The span over the road has dropped a metre since morning."
         ],
         "choices": [
           "A heat limit, set by current and not by voltage at all.",
           "An insulation limit, set by voltage and not by current.",
-          "A drop along the line, which is what current does over distance.",
           "A clearance limit, and the one place where heat turns into safety."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "What somebody has noticed",
@@ -831,7 +1130,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a wire warms up as current passes through it"
-      ]
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Current through something makes heat, and that is why wires have limits",
+        "of": 16,
+        "rests": [
+          "Current is the flow, and voltage is the push behind it",
+          "Something in the way makes it harder for current to flow"
+        ]
+      }
     },
     {
       "day": 3,
@@ -839,6 +1147,12 @@ export const CURRICULUM = {
       "scene": "A scope on the busbar shows the voltage peaking at 325 volts. The panel meter beside it reads 230. Both were checked last month and neither has been touched.",
       "takeaway": "An alternating voltage has no single value, so the number quoted has to say which one it is.",
       "place": "Transmission & Protection",
+      "guide": "Four relations, and both instruments are working. So ask what each number is a summary of. The voltage is changing all the time, so there is no single value. One instrument reports the highest it reaches. The other reports the steady voltage that would heat something the same. Two of these options have the conversion the wrong way round.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "A scope on the busbar shows the voltage peaking at 325 volts. The panel meter beside it reads 230. Both were checked last month and neither has been touched.",
       "game": {
         "type": "CHOICE",
@@ -864,7 +1178,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an alternating voltage rises and falls, over and over, rather than sitting still"
-      ]
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Measuring instruments need checking against a standard",
+        "of": 16,
+        "rests": [
+          "Averages, and why one reading is not a measurement"
+        ]
+      }
     },
     {
       "day": 4,
@@ -872,6 +1194,11 @@ export const CURRICULUM = {
       "scene": "The cable failed and shorted to earth. The push behind it is 6,350 volts, and the whole path back to the source resists 0.42 ohms. Novak wants the current the switchgear had to break.",
       "takeaway": "A fault current is set by the path back to the source, and by nothing else.",
       "place": "Transmission & Protection",
+      "guide": "Four numbers, and two of them belong to the healthy circuit. The normal load is set by equipment using power, and a fault goes around that equipment. Ask of each number whether it describes the load or the path back to the source. The clearing time says how long the current lasted, not how big it was.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The cable failed and shorted to earth. The push behind it is 6,350 volts, and the whole path back to the source resists 0.42 ohms. Novak wants the current the switchgear had to break.",
       "game": {
         "type": "BALLPARK",
@@ -891,7 +1218,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a short circuit is a path with almost nothing in the way"
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Something in the way makes it harder for current to flow",
+        "of": 16,
+        "rests": [
+          "Current is the flow, and voltage is the push behind it"
+        ]
+      }
     },
     {
       "day": 5,
@@ -899,6 +1234,11 @@ export const CURRICULUM = {
       "scene": "With the feeder out, the flow has shifted and the line is carrying more than it was. Novak wants the heat figure before deciding whether the evening needs a switching change.",
       "takeaway": "When something counts twice over, a small rise in it is a big rise in the result.",
       "place": "Transmission & Protection",
+      "guide": "Four numbers, and two of them describe an hour ago. Ask of each whether it is about the line now. A share of waste has to go with the amount carried at the same time. Both have gone up. That is why a small rise in what the line carries is a bigger rise in the heat than it looks.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "With the feeder out, the flow has shifted and the line is carrying more than it was. Novak wants the heat figure before deciding whether the evening needs a switching change.",
       "game": {
         "type": "BALLPARK",
@@ -959,7 +1299,16 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what the system can make and what it is being asked for is the whole of its safety margin."
         }
-      ]
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Current through something makes heat, and that is why wires have limits",
+        "of": 16,
+        "rests": [
+          "Current is the flow, and voltage is the push behind it",
+          "Something in the way makes it harder for current to flow"
+        ]
+      }
     }
   ],
   "DIST": [
@@ -969,6 +1318,11 @@ export const CURRICULUM = {
       "scene": "The substation end of the feeder is at its proper voltage. Customers four kilometres out are complaining. The only meter is back at the substation.",
       "takeaway": "A voltage measured at one end says nothing about the far end of a loaded line.",
       "place": "Distribution Depot",
+      "guide": "Four numbers, and two of them belong to other questions. The current and the distance are not in this sum. Ask of each number whether it is a drop, or what the feeder should be. A share compares the two. The only meter is back at the substation, and the customers four kilometres out are the ones complaining.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The substation end of the feeder is at its proper voltage. Customers four kilometres out are complaining. The only meter is back at the substation.",
       "game": {
         "type": "BALLPARK",
@@ -1010,7 +1364,15 @@ export const CURRICULUM = {
           ],
           "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
         }
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Something in the way makes it harder for current to flow",
+        "of": 16,
+        "rests": [
+          "Current is the flow, and voltage is the push behind it"
+        ]
+      }
     },
     {
       "day": 2,
@@ -1018,6 +1380,12 @@ export const CURRICULUM = {
       "scene": "The cable is cut off at both ends and a tester reads dead at the work point. Kowalczyk stops the crew, because one step is still missing. There is live equipment nearby.",
       "takeaway": "Isolating and testing say what is true now. Earthing keeps it true.",
       "place": "Distribution Depot",
+      "guide": "All four options are things a crew could do next, and three of them sound careful. Ask of each what it would protect against. Something you already know about, or something that arrives later? Cutting it off removes the known sources. A dead test proves one moment. Neither of them holds the cable down if a switch moves nearby.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The cable is cut off at both ends and a tester reads dead at the work point. Kowalczyk stops the crew, because one step is still missing. There is live equipment nearby.",
       "game": {
         "type": "CHOICE",
@@ -1043,7 +1411,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a conductor can be brought back to life from more than one direction"
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "A safety device breaks the circuit before something is damaged",
+        "of": 16,
+        "rests": [
+          "Something in the way makes it harder for current to flow",
+          "Current is the flow, and voltage is the push behind it"
+        ]
+      }
     },
     {
       "day": 3,
@@ -1051,6 +1428,12 @@ export const CURRICULUM = {
       "scene": "Obi has crews asking why the restart is moving a few streets at a time. The substation is live and the whole feeder could be closed in one movement.",
       "takeaway": "Every step is limited by something different, and rushing the wrong one collapses it again.",
       "place": "Distribution Depot",
+      "guide": "Four steps of the restart, and four different limits. Pair them by asking what is small at that moment. The live system? The load on the line? The agreement between two systems? One of these is the opposite of what most people expect. A long line with nothing on it pushes the far end up, not down.",
+      "background": [
+        "Why a clue needs an explanation and not a name. Saying what a clue is called is not saying what produced it. The board makes you commit to a cause, and a cause has to account for that clue and not for the one next to it. That is the difference between recognising something and explaining it.",
+        "How to use the one-each rule. Every explanation goes with exactly one clue. So the pairs you are sure about are worth more than themselves — each one you settle leaves fewer explanations for the clues you are unsure of. Two you trust can decide the other two.",
+        "Why one wrong line is impossible. If three lines are right, the last explanation has nowhere else to go, so it is right too. Being wrong always means two are wrong at once. When a join feels forced, look again at one you made early and stopped questioning."
+      ],
       "story": "Obi has crews asking why the restart is moving a few streets at a time. The substation is live and the whole feeder could be closed in one movement.",
       "game": {
         "type": "CASEBOOK",
@@ -1064,26 +1447,22 @@ export const CURRICULUM = {
         "rebuttals": [
           "Early on the island is small, so any block is a large share of it. That is a frequency limit.",
           "A long line with little on it pushes the voltage up rather than down, which is a voltage limit.",
-          "Cold load comes back above normal, because every heater in the street is calling at once.",
-          "Joining two live systems is about matching them, not about how much either can carry."
+          "Cold load comes back above normal, because every heater in the street is calling at once."
         ],
         "scenarios": [
           "Adding the first blocks of load to a very small live island.",
           "Energising a long line with almost nothing on it.",
-          "Restoring a street that has been off for two hours in winter.",
-          "Joining the restored island back to its neighbour."
+          "Restoring a street that has been off for two hours in winter."
         ],
         "choices": [
           "A frequency limit, because a small system cannot take a big step.",
           "A voltage limit, since a quiet line pushes the end up.",
-          "A cold-load limit, because everything that was off comes back at once.",
-          "A matching limit, since both sides must agree first."
+          "A cold-load limit, because everything that was off comes back at once."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "The step",
@@ -1132,7 +1511,138 @@ export const CURRICULUM = {
           ],
           "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
         }
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Restarting a system that has stopped, in the right order",
+        "of": 16,
+        "rests": [
+          "Supply has to match demand, minute by minute"
+        ]
+      }
+    },
+    {
+      "day": 4,
+      "title": "What the desk is chasing now",
+      "scene": "Faults arrive on the board all evening. The desk works to one priority, and it is changed as the picture changes.",
+      "takeaway": "The cost of a rule that has changed is paid by whoever is still using the old one.",
+      "place": "Distribution Control",
+      "guide": "Take the faults the priority asks for and leave the rest. The priority at the top of the board changes during the evening and nobody announces it. What counts is the faults either side of a change.",
+      "background": [
+        "Why the priority changes. Early on it is getting the most customers back. Then a hospital goes onto its generator, and it becomes that hospital. Later it is whatever cannot be left out overnight in bad weather.",
+        "Why the change is where it goes wrong. A desk still using the old priority sends its last free crew to the job that mattered an hour ago."
+      ],
+      "story": "Faults arrive on the board all evening. The desk works to one priority, and it is changed as the picture changes.",
+      "game": {
+        "type": "SPOT",
+        "title": "What the desk is chasing now",
+        "setup": "Distribution Control",
+        "play": "Work the fault board while the priority changes.",
+        "task": "Work the fault board while the priority changes.",
+        "question": "Send crews to the priority on the board, and keep checking the board.",
+        "answer": "Read the top of the board, not the fault list. Every change leaves a few minutes when the old priority still feels right.",
+        "why": "Three priorities run across the evening and each wants different faults. Most customers back first, then anything with a vulnerable customer behind it, then anything that cannot be left out overnight in the weather. A fault can match two at once, and that is what makes a change cost something. What the panel scores is the faults either side of a change. Everything else on the board is wanted by neither priority, so ignoring those proves nothing. The desk's own version is the ten minutes after a hospital calls. The priority has changed, and the crews already driving are driving to the order that was in force when they left.",
+        "spot": {
+          "targets": [
+            {
+              "id": "f1",
+              "label": "Feeder, 4000 customers",
+              "tags": [
+                "many"
+              ]
+            },
+            {
+              "id": "f2",
+              "label": "Spur, hospital behind",
+              "tags": [
+                "vulnerable"
+              ]
+            },
+            {
+              "id": "f3",
+              "label": "Line down, many off",
+              "tags": [
+                "weather",
+                "many"
+              ]
+            },
+            {
+              "id": "f4",
+              "label": "Village spur",
+              "tags": [
+                "few"
+              ]
+            },
+            {
+              "id": "f5",
+              "label": "Care home spur",
+              "tags": [
+                "vulnerable",
+                "few"
+              ]
+            },
+            {
+              "id": "f6",
+              "label": "Pole fire, road shut",
+              "tags": [
+                "weather"
+              ]
+            },
+            {
+              "id": "f7",
+              "label": "Town centre feeder",
+              "tags": [
+                "many",
+                "few"
+              ]
+            },
+            {
+              "id": "f8",
+              "label": "Farm supply, flooded",
+              "tags": [
+                "weather",
+                "few"
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "say": "Most customers back first",
+              "want": [
+                "many"
+              ]
+            },
+            {
+              "say": "Anything with a vulnerable customer",
+              "want": [
+                "vulnerable"
+              ]
+            },
+            {
+              "say": "Anything that cannot wait out the weather",
+              "want": [
+                "weather"
+              ]
+            }
+          ],
+          "duration": 40,
+          "switchEvery": 12,
+          "pass": 0.75,
+          "hint": "The priority is at the top of the board and changes without warning.",
+          "commit": "Open the board"
+        }
+      },
+      "assumes": [
+        "a control desk works to a priority somebody can change"
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Restarting a system that has stopped, in the right order",
+        "of": 16,
+        "rests": [
+          "Supply has to match demand, minute by minute"
+        ]
+      }
     }
   ],
   "LOAD": [
@@ -1142,6 +1652,11 @@ export const CURRICULUM = {
       "scene": "Sten Lindgren, who forecasts the demand, wants the loss figure before the morning call. The argument about moving generation about is really an argument about waste. The yard radio is still live beside them.",
       "takeaway": "A wire warms up because some of the power is being spent on the wire itself.",
       "place": "Load & Forecasting",
+      "guide": "Four numbers, and two of them belong to other questions. The ohms and the voltage are not in this sum. Ask of each number whether it is what the line carries, or what share of it is wasted. A share is per hundred, so it has to be applied to the amount carried. The waste is heat, and heat is what limits the wire.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Sten Lindgren, who forecasts the demand, wants the loss figure before the morning call. The argument about moving generation about is really an argument about waste. The yard radio is still live beside them.",
       "game": {
         "type": "BALLPARK",
@@ -1183,14 +1698,180 @@ export const CURRICULUM = {
           ],
           "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
         }
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Current is the flow, and voltage is the push behind it",
+        "of": 16,
+        "rests": [
+          "A circuit is a loop, and a break anywhere stops it"
+        ]
+      }
     },
     {
       "day": 2,
+      "title": "Can it come off, or not",
+      "scene": "The order needs a list in ten minutes. Some places can lose power for an hour and be fine. Others have something behind them that cannot simply be switched off.",
+      "takeaway": "What can be switched off depends on what is behind the wire.",
+      "place": "Load Dispatch",
+      "guide": "Two bins. Ask what happens behind the wire while the power is off. If it can wait an hour and come back the same, it can come off. If something behind it is unsafe without power, or cannot be started again on demand, it cannot.",
+      "background": [
+        "Why big does not mean important. A large factory with its own generator can come off. A small clinic on one supply cannot. Size and money have nothing to do with it.",
+        "What makes a place impossible to switch off. Something that fails badly without power, or something that cannot be restarted when you want. A furnace that sets solid. A pump holding water back."
+      ],
+      "story": "The order needs a list in ten minutes. Some places can lose power for an hour and be fine. Others have something behind them that cannot simply be switched off.",
+      "game": {
+        "type": "BELT",
+        "title": "Can it come off, or not",
+        "setup": "Load Dispatch",
+        "play": "Sort the list before the order goes out.",
+        "task": "Sort the list before the order goes out.",
+        "question": "Send each place to the bin that says whether the order can take it.",
+        "answer": "Anything that can wait an hour and come back the same can come off. Anything that fails badly without power cannot.",
+        "why": "The list is written from what is behind each wire. On one side are the places that lose an hour and are fine afterwards. A cold store stays cold. An office is dark. A works with its own generator carries on. On the other side are places where an hour without power is not an inconvenience. A hospital on one supply. A furnace whose metal sets solid and has to be broken out. A pump holding water out of a town. A machine part way through a run that cannot be stopped. None of that follows from how big a customer is or how much they pay, which is why the list is written in advance and not argued about at four in the morning with somebody shouting down a phone.",
+        "belt": {
+          "left": {
+            "name": "Can come off"
+          },
+          "right": {
+            "name": "Cannot"
+          },
+          "items": [
+            {
+              "name": "Street lights",
+              "bin": "left"
+            },
+            {
+              "name": "Shopping park",
+              "bin": "left"
+            },
+            {
+              "name": "Cold store",
+              "bin": "left"
+            },
+            {
+              "name": "Offices",
+              "bin": "left"
+            },
+            {
+              "name": "Works with generator",
+              "bin": "left"
+            },
+            {
+              "name": "Sawmill",
+              "bin": "left"
+            },
+            {
+              "name": "Leisure centre",
+              "bin": "left"
+            },
+            {
+              "name": "Car plant",
+              "bin": "left"
+            },
+            {
+              "name": "Bus chargers",
+              "bin": "left"
+            },
+            {
+              "name": "Quarry crusher",
+              "bin": "left"
+            },
+            {
+              "name": "Grain drier",
+              "bin": "left"
+            },
+            {
+              "name": "Data hall backup",
+              "bin": "left"
+            },
+            {
+              "name": "Single-supply hospital",
+              "bin": "right"
+            },
+            {
+              "name": "Metal smelter",
+              "bin": "right"
+            },
+            {
+              "name": "Town drainage pumps",
+              "bin": "right"
+            },
+            {
+              "name": "Railway signals",
+              "bin": "right"
+            },
+            {
+              "name": "Water treatment",
+              "bin": "right"
+            },
+            {
+              "name": "Dialysis unit",
+              "bin": "right"
+            },
+            {
+              "name": "Furnace mid-pour",
+              "bin": "right"
+            },
+            {
+              "name": "Airport lights",
+              "bin": "right"
+            },
+            {
+              "name": "Mine ventilation",
+              "bin": "right"
+            },
+            {
+              "name": "Glass tank",
+              "bin": "right"
+            },
+            {
+              "name": "Care home oxygen",
+              "bin": "right"
+            },
+            {
+              "name": "Canal lock gates",
+              "bin": "right"
+            },
+            {
+              "name": "Cable pressure system",
+              "bin": "right"
+            },
+            {
+              "name": "Reactor mid-batch",
+              "bin": "right"
+            }
+          ],
+          "need": 20,
+          "lives": 3,
+          "pass": 0.8,
+          "hint": "Ask what happens behind the wire during the hour.",
+          "commit": "Start the line"
+        }
+      },
+      "assumes": [
+        "some places can lose power for a while and some cannot"
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Something can be protected too eagerly, and cost you the supply",
+        "of": 16,
+        "rests": [
+          "A safety device breaks the circuit before something is damaged"
+        ]
+      }
+    },
+    {
+      "day": 3,
       "title": "What comes out against what went in",
       "scene": "The battery charged overnight on Saturday and gave it back into Sunday's peak. Alvarez has both totals and the brochure figure, and the three do not agree.",
       "takeaway": "What a store is worth is the share that comes back, not the size on the label.",
       "place": "Load & Forecasting",
+      "guide": "Four numbers, and two of them are the power rating and how long it can run. Those say how fast and for how long, not how much came back. Ask of each whether it is an amount of energy. A round trip compares what went in with what came out. Three numbers on the desk disagree, and one is from a brochure.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The battery charged overnight on Saturday and gave it back into Sunday's peak. Alvarez has both totals and the brochure figure, and the three do not agree.",
       "game": {
         "type": "BALLPARK",
@@ -1206,7 +1887,7 @@ export const CURRICULUM = {
           "Energy returned was 187 MWh"
         ],
         "relationship": "Share = energy out ÷ energy in.",
-        "calcKey": "LOAD-2"
+        "calcKey": "LOAD-3"
       },
       "assumes": [
         "putting energy into a store and taking it out again both waste some of it"
@@ -1231,14 +1912,28 @@ export const CURRICULUM = {
           ],
           "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
         }
-      ]
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Current through something makes heat, and that is why wires have limits",
+        "of": 16,
+        "rests": [
+          "Current is the flow, and voltage is the push behind it",
+          "Something in the way makes it harder for current to flow"
+        ]
+      }
     },
     {
-      "day": 3,
+      "day": 4,
       "title": "The peak, and what the cold adds",
       "scene": "A normal Friday this week of the year peaks at 6,400 megawatts. Lindgren's own figure for this winter is 120 megawatts more for every degree below zero. Tomorrow is minus four.",
       "takeaway": "A forecast is a normal shape plus what the weather adds, and the second part gets measured.",
       "place": "Load & Forecasting",
+      "guide": "Four numbers, and one of them is the reserve, which is about how wrong the forecast might be. Ask of each whether it is a normal peak, an amount per degree, or a number of degrees. An amount per degree has to be multiplied by the degrees. What comes out is the middle of a forecast, not the worst case.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A normal Friday this week of the year peaks at 6,400 megawatts. Lindgren's own figure for this winter is 120 megawatts more for every degree below zero. Tomorrow is minus four.",
       "game": {
         "type": "BALLPARK",
@@ -1255,19 +1950,33 @@ export const CURRICULUM = {
           "Tomorrow is four degrees below zero"
         ],
         "relationship": "Peak = the normal peak + what one degree adds × how many degrees below zero.",
-        "calcKey": "LOAD-3"
+        "calcKey": "LOAD-4"
       },
       "assumes": [
         "demand goes up as the temperature goes down, roughly in step"
-      ]
+      ],
+      "concept": {
+        "n": 9,
+        "c": "A graph of demand across a day, and why the peak matters",
+        "of": 16,
+        "rests": [
+          "Supply has to match demand, minute by minute"
+        ]
+      }
     },
     {
-      "day": 4,
+      "day": 5,
       "title": "An order that survives being carried out",
-      "scene": "Lindgren has four moves for the evening and no view on the order. Two of them change what the others are worth, and one cannot be undone inside the shift.",
+      "scene": "Lindgren has three moves for the evening and no view on the order. One of them changes what the other two are worth, and one cannot be undone inside the shift.",
       "takeaway": "Do what improves your information first, and what you cannot undo last.",
       "place": "Load & Forecasting",
-      "story": "Lindgren has four moves for the evening and no view on the order. Two of them change what the others are worth, and one cannot be undone inside the shift.",
+      "guide": "All three moves could be made right now, so this is not a clock. Ask of each two things. What does it improve about the numbers you are working from? And how easily can it be undone? One of these sizes every other figure in the shift. One of them cannot be taken back once the shift has moved on.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
+      "story": "Lindgren has three moves for the evening and no view on the order. One of them changes what the other two are worth, and one cannot be undone inside the shift.",
       "game": {
         "type": "SEQUENCE",
         "title": "An order that survives being carried out",
@@ -1276,20 +1985,18 @@ export const CURRICULUM = {
         "task": "Put the evening's four moves in order.",
         "question": "Put the evening's four moves in order.",
         "answer": "",
-        "why": "Fix the forecast first, because every other number is sized against it. Get that wrong and you do the right thing in the wrong amount. Bring the reserve forward next. It costs money rather than customers, and it can be handed back. Then start loading the replacement plant, which needs real minutes and has to be underway before the fuel runs down. Reconfiguring the network goes last, because it is the one nobody can quietly undo.",
+        "why": "Fix the forecast first. Every other number is sized against it. Get it wrong and you do the right thing in the wrong amount. Start loading the replacement plant next. It needs real minutes, and it has to be under way before the fuel runs down. Reconfiguring the network goes last. Nobody can quietly undo it, so it waits until the numbers behind it have stopped moving.",
         "cards": [
           "Fix the forecast, so every other number is sized against something real.",
-          "Bring the reserve forward, to cover the machine coming off at six.",
           "Start loading the replacement plant, which needs the minutes.",
           "Reconfigure the network around the faulted feeder."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ],
-        "axis": "This is not a clock. You could do any of the four right now. Order them by how easily each one can be undone, easiest first.",
+        "axis": "This is not a clock. You could do any of the three right now. Order them by how easily each one can be undone, easiest first.",
         "ends": [
           "Easy to take back",
           "Nobody can undo it"
@@ -1298,34 +2005,27 @@ export const CURRICULUM = {
       "assumes": [
         "some actions change what the actions after them are worth"
       ],
-      "equations": [
-        {
-          "e": "spare = what can be made − what is being used",
-          "c": "how much room is left on the system",
-          "v": [
-            [
-              "spare",
-              "in megawatts"
-            ],
-            [
-              "what can be made",
-              "the total that can be run up"
-            ],
-            [
-              "what is being used",
-              "the demand right now"
-            ]
-          ],
-          "s": "The gap between what the system can make and what it is being asked for is the whole of its safety margin."
-        }
-      ]
+      "concept": {
+        "n": 9,
+        "c": "A graph of demand across a day, and why the peak matters",
+        "of": 16,
+        "rests": [
+          "Supply has to match demand, minute by minute"
+        ]
+      }
     },
     {
-      "day": 5,
+      "day": 6,
       "title": "The number that has to be a range",
       "scene": "Lindgren's winter peak goes into the report. He wants the width written into the sentence, and Reyes wants to know what the width is for.",
       "takeaway": "A prediction is only usable by a planner if it says how wrong it might be.",
       "place": "Load & Forecasting",
+      "guide": "Four reasons for a range, and they differ in what the width is for. Ask of each whether it is about blame, measuring, or planning. Reserve is not held for the expected peak. It is held for how far above it the peak might land, and that is the width. One figure deletes the only thing a planner needs.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Lindgren's winter peak goes into the report. He wants the width written into the sentence, and Reyes wants to know what the width is for.",
       "game": {
         "type": "CHOICE",
@@ -1372,7 +2072,15 @@ export const CURRICULUM = {
           ],
           "s": "The gap between what the system can make and what it is being asked for is the whole of its safety margin."
         }
-      ]
+      ],
+      "concept": {
+        "n": 9,
+        "c": "A graph of demand across a day, and why the peak matters",
+        "of": 16,
+        "rests": [
+          "Supply has to match demand, minute by minute"
+        ]
+      }
     }
   ],
   "METER": [
@@ -1382,6 +2090,12 @@ export const CURRICULUM = {
       "scene": "June Farrow has three records of the same eight seconds, and they disagree about what happened first. The three of them are stamped by two different clocks.",
       "takeaway": "Being sure something happened and being sure when it happened are two separate pieces of work.",
       "place": "Metering & Standards",
+      "guide": "All four options pair two things that would have to be true. Ask of each whether both halves are about this claim. A record saying the alarm came first depends on the alarm happening, and on the clock that stamped it. New wiring and a loud noise are about other things. Three records disagree, and two clocks stamped them.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "A timestamp is a measurement and a clock, glued together and written as one number. The measurement can be sound while the clock is months out, and the record will still look exactly like a fact. June Farrow's three records of the same eight seconds do not agree, and none of the relays is faulty. Knowing what a timestamp is made of is what turns that from a mystery into a question about clocks.",
       "game": {
         "type": "CHOICE",
@@ -1407,7 +2121,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a written-down time is a measurement plus a clock"
-      ]
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Measuring instruments need checking against a standard",
+        "of": 16,
+        "rests": [
+          "Averages, and why one reading is not a measurement"
+        ]
+      }
     },
     {
       "day": 2,
@@ -1415,6 +2137,11 @@ export const CURRICULUM = {
       "scene": "Farrow has what the circuit was delivering on the night of the event, and how long it ran for. The report claims an energy figure nobody has been able to reproduce.",
       "takeaway": "Power is a rate. Energy is what the rate delivers over time, and the bill is in energy.",
       "place": "Metering & Standards",
+      "guide": "Four numbers, and two of them are the voltage and the current. Those were used to work out the power already. Ask which two the question needs. Power says how fast energy arrives. Energy says how much arrived, and it needs a length of time. A report already claims a figure nobody can reproduce.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Farrow has what the circuit was delivering on the night of the event, and how long it ran for. The report claims an energy figure nobody has been able to reproduce.",
       "game": {
         "type": "BALLPARK",
@@ -1456,7 +2183,15 @@ export const CURRICULUM = {
           ],
           "s": "A store divided by the rate it is drawn at gives the time before it runs out."
         }
-      ]
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Energy used is power multiplied by time",
+        "of": 16,
+        "rests": [
+          "Current through something makes heat, and that is why wires have limits"
+        ]
+      }
     },
     {
       "day": 3,
@@ -1464,6 +2199,12 @@ export const CURRICULUM = {
       "scene": "June Farrow has a safe low-voltage test rig beside the yard diagram. It shows the current going in, the signal coming out, and a core she can open. She wants a cause rather than a definition.",
       "takeaway": "What makes a signal appear here is change. A steady current makes a field and no signal.",
       "place": "Metering & Standards",
+      "guide": "The rig is a current transformer. A wire carries current, and a ring of iron around it holds a coil that reports a copy of it. The number you watch is what that coil reports. Three controls can be changed. A change counts only if the number moves more than it wanders on its own. Change one, run the test, undo it, and name the control the reading follows.",
+      "background": [
+        "How the rig works, and why nothing touches the wire. Current in the wire makes a magnetic field. The iron ring carries that field around the coil. When the field changes, it pushes a current through the coil. Nothing is connected to the wire itself, which is what makes the meter safe to use on a live line.",
+        "Why a steady current reads nothing. The coil only answers to a field that is changing. Hold the current still and the field stops changing, so the coil reports nothing while the wire is still carrying full load. The meter looks broken and is working exactly as designed.",
+        "Why the iron ring is one of the controls. Open the ring and the field no longer reaches the coil. The reading falls away even though the current is still changing. So two different changes can kill the reading for two different reasons, and putting each one back is how you tell them apart."
+      ],
       "story": "June Farrow has a safe low-voltage test rig beside the yard diagram. It shows the current going in, the signal coming out, and a core she can open. She wants a cause rather than a definition.",
       "game": {
         "type": "CONTROL",
@@ -1505,7 +2246,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a changing magnetic field can make a voltage appear in a nearby coil"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "A generator turns motion into electricity, and a magnet is how",
+        "of": 16,
+        "rests": [
+          "A circuit is a loop, and a break anywhere stops it"
+        ]
+      }
     },
     {
       "day": 4,
@@ -1513,6 +2262,12 @@ export const CURRICULUM = {
       "scene": "June Farrow has four statements ready for the final report and two checks left before it is signed. Some are already backed. Others are still a suspicion.",
       "takeaway": "A signature is only worth the evidence behind it, so check the important claims that have none.",
       "place": "Metering & Standards",
+      "guide": "Four statements are ready for the report and you have two checks. Open each claim and read what already backs it. Some are measured, some are worked out from something measured, and some are only suspected. Hold the ones the backing does not support, and spend the checks where a wrong claim would do the most damage.",
+      "background": [
+        "The three kinds, and why they look the same. A measured claim points at a record. A worked-out claim is a chain of reasoning from a record, and it is only as good as its weakest step. A suspicion has neither. In a report all three are just sentences.",
+        "Why damage decides the spend, not doubt. The weakest claim is not automatically the one to check. A shaky statement nobody will act on costs little. A confident one that will send somebody to replace a piece of equipment costs a lot if it is wrong.",
+        "What holding a claim means. Not deleting it. Marking it as not yet supported, so the report says what it can stand behind. A finding is something the author is willing to be wrong about in public."
+      ],
       "story": "June Farrow has four statements ready for the final report and two checks left before it is signed. Some are already backed. Others are still a suspicion.",
       "game": {
         "type": "ATTEST",
@@ -1563,7 +2318,15 @@ export const CURRICULUM = {
       "assumes": [
         "a claim can be measured, worked out, or still only suspected",
         "there is not enough time to check everything"
-      ]
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Measuring instruments need checking against a standard",
+        "of": 16,
+        "rests": [
+          "Averages, and why one reading is not a measurement"
+        ]
+      }
     }
   ]
 };
@@ -1681,7 +2444,7 @@ export const BALLPARK_CALCS = {
     "solution": "5.6 × 4 is 22.4 megawatt hours.",
     "explanation": "The voltage and the current are how the power was worked out. Neither of them belongs in this sum, which is only about the rate and the hours."
   },
-  "LOAD-2": {
+  "LOAD-3": {
     "prompt": "The store took in 220 megawatt hours overnight, and gave back 187 into Sunday's peak.",
     "question": "What share of the energy put in comes back out?",
     "labels": [
@@ -1737,7 +2500,7 @@ export const BALLPARK_CALCS = {
     "solution": "6,350 ÷ 0.42 is about 15,000 amps.",
     "explanation": "The normal load does not limit a fault, because the fault has gone round it. The clearing time decides how much damage it does, not how big it gets."
   },
-  "LOAD-3": {
+  "LOAD-4": {
     "prompt": "A normal Friday peaks at 6,400 megawatts. This winter, demand rises 120 megawatts for every degree below zero. Tomorrow is four degrees below.",
     "question": "What should tomorrow's evening peak be?",
     "labels": [

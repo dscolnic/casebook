@@ -91,7 +91,19 @@ function stopOf(group, lesson, stop){
     scene: (lesson.scene ?? '').trim() || (lesson.story ?? '').trim(),
     ...(lesson.story && lesson.story.trim() !== ((lesson.scene ?? '').trim() || (lesson.story ?? '').trim())
         ? { story: lesson.story } : {}),
-    ...(lesson.assumes?.length ? { assumes: lesson.assumes } : {}),
+    // `takesAsRead` is authored, and the importer ALSO renders each declaration as an
+    // `assumes` line so the player reads the same sentence the checker reads. Exporting
+    // only `assumes` therefore loses the field while producing byte-identical content —
+    // so `bookParity` cannot see the loss, and `conceptOrder` fails on a book that was
+    // recovered from a game. Write the declaration back out, and drop the line the
+    // importer will re-derive from it.
+    ...(lesson.takesAsRead?.length ? { takesAsRead: lesson.takesAsRead.map(r => r.c) } : {}),
+    ...((() => {
+      const derived = new Set((lesson.takesAsRead ?? [])
+        .map(r => `${r.c.charAt(0).toLowerCase()}${r.c.slice(1)} — taken as read`));
+      const kept = (lesson.assumes ?? []).filter(a => !derived.has(a));
+      return kept.length ? { assumes: kept } : {};
+    })()),
     takeaway: lesson.takeaway ?? '',
     ...(stop?.why ? { motivation: stop.why } : {}),
     format,
@@ -125,6 +137,27 @@ function stopOf(group, lesson, stop){
   } else {
     Object.assign(out, drop({ choices: g.choices, answer: g.correctChoice }));
   }
+  // Every instrument keeps its board in a block named after the format —
+  // `g.stress`, `g.trace`, `g.belt`, `g.chain` — and none of them were exported,
+  // so a book recovered from a game came back with 244 instrument stops whose
+  // panels had been deleted. It surfaced as an import crash on a STRESS with no
+  // candidates, which was luck: most of the blocks would have imported as an
+  // empty panel. The branches above are the six formats that predate the
+  // registry; this line is the rest of it, by name rather than by list, so a
+  // twenty-first instrument is exported the day it is authored.
+  const block = format.toLowerCase();
+  if(g[block] !== undefined) out[block] = g[block];
+  // The card the sweep wrote. `guide` and `background` are lesson-level and
+  // authored, and dropping them turned a briefed stop back into a bare one.
+  if(lesson.guide) out.guide = lesson.guide;
+  if(lesson.background?.length) out.background = lesson.background;
+  if(g.rules) out.rules = g.rules;
+  if(g.hint) out.hint = g.hint;
+  if(g.goals) out.goals = g.goals;
+  // The concept this stop is about, where the book pinned it by name rather than
+  // letting `pickKeyConcept` choose: a re-derived pick can land elsewhere, and the
+  // difference is a silently different card.
+  if(lesson.concept?.c) out.concept = lesson.concept.c;
   // An answer string the format does not otherwise carry (the printed key).
   if(g.answer && out.answer === undefined) out.answerText = g.answer;
   return drop(out);
@@ -167,6 +200,11 @@ const book = drop({
   avatars: C.AVATARS ?? {},
   glossary: (C.JARGON ?? []).map(t => drop({ name: t.name, aliases: t.aliases, def: t.def })),
   missions,
+  // The seven world-graded runs' own words. Recovering a book from a game and
+  // getting back a campaign with no warm-up stories is the `takesAsRead` mistake
+  // in a second field: this file is the documented way back from a lost book, so
+  // anything the importer accepts it has to write.
+  warmups: C.WARMUPS ?? {},
   lessons,
   packs: C.DIAGNOSIS_PACKS ?? {},
   specialRequests: C.SPECIAL_REQUESTS ?? {},
@@ -186,6 +224,7 @@ const text = emitYaml(book, {
   roster: 'The cast. `division` is what makes a person a valid person stop.',
   glossary: 'Terms the game may explain in place.',
   missions: 'The campaign: one working day each, three stops and a callback from day 3.',
+  warmups: 'Why this campaign takes each of the seven runs that open a morning.',
   lessons: 'Lessons no mission stop points at — review variants and spares. Reachable as callbacks.',
   packs: 'Diagnosis panels shared by several lessons, expanded at load by normalize.js.',
   specialRequests: 'Between-mission funding vignettes.',

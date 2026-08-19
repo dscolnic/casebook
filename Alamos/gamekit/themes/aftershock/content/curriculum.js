@@ -10,6 +10,12 @@ export const CURRICULUM = {
       "scene": "Inês Cardoso has the vault record from the bench and the field station record from Bay Road. Same event, same minute, 1100 metres apart. One trace is short and sharp, the other is three times taller and goes on for half a minute longer.",
       "takeaway": "A record describes one place, so two records of one earthquake can disagree and both be right.",
       "place": "Seismic Network",
+      "guide": "All four options explain two records that disagree. They differ in what they blame: the instrument, the ground, the distance, or the timing. Two of them are checkable from the scene. Same event, same minute, 1100 metres apart. Ask what 1100 metres can and cannot account for. Which one is right decides whether the Flats get a stronger design value or a service call.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Inês Cardoso has the vault record from the bench and the field station record from Bay Road. Same event, same minute, 1100 metres apart. One trace is short and sharp, the other is three times taller and goes on for half a minute longer.",
       "game": {
         "type": "CHOICE",
@@ -36,42 +42,15 @@ export const CURRICULUM = {
       "assumes": [
         "an instrument records the shaking where it stands, not the earthquake itself"
       ],
-      "equations": [
-        {
-          "e": "n(t) = K / (c + t)^p",
-          "c": "aftershock rate, falling as a power law",
-          "v": [
-            [
-              "n(t)",
-              "aftershocks per day at time t"
-            ],
-            [
-              "t",
-              "days since the mainshock"
-            ],
-            [
-              "K, c, p",
-              "constants fitted to this sequence, with p usually near 1"
-            ]
-          ],
-          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
-        },
-        {
-          "e": "A_soft / A_rock",
-          "c": "site amplification — the same wave on two grounds",
-          "v": [
-            [
-              "A_soft",
-              "shaking measured on the soft site"
-            ],
-            [
-              "A_rock",
-              "shaking measured on rock nearby, in the same units"
-            ]
-          ],
-          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town."
-        }
-      ]
+      "concept": {
+        "n": 5,
+        "c": "Intensity against magnitude — one event, many shakings",
+        "of": 30,
+        "rests": [
+          "Magnitude as a logarithmic scale",
+          "Peak ground acceleration and what a building feels"
+        ]
+      }
     },
     {
       "day": 2,
@@ -79,6 +58,11 @@ export const CURRICULUM = {
       "scene": "The vault trace shows the P arrival at 04:12:19 and the S arrival at 04:12:32. Cardoso wants the distance before anybody draws a circle on a map.",
       "takeaway": "The gap between the two arrivals grows with distance, so one station gives a distance and three give a place.",
       "place": "Seismic Network",
+      "guide": "Five numbers, and two of them belong to the earthquake rather than to this station: the magnitude and the depth. Two others are clock readings, and only the gap between them carries distance. Ask of each whether it describes the source or the arrival. And note what one station can give: a radius, not a position. The circle still needs other stations before anybody draws on a map.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The vault trace shows the P arrival at 04:12:19 and the S arrival at 04:12:32. Cardoso wants the distance before anybody draws a circle on a map.",
       "game": {
         "type": "BALLPARK",
@@ -120,7 +104,12 @@ export const CURRICULUM = {
           "s": "The S wave travels slower than the P wave, so the gap between them grows with distance and one station can say how far away the source was.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "P and S waves, and what the gap between them measures",
+        "of": 30
+      }
     },
     {
       "day": 3,
@@ -128,33 +117,72 @@ export const CURRICULUM = {
       "scene": "There is an accelerograph in the hospital basement, installed in 1998 and never used in anger. Cardoso has the record. It shows a peak of 0.31 g, and the building was designed for 0.35.",
       "takeaway": "A building-mounted accelerograph measures one part of the demand directly; it does not turn a code design value into a damage threshold.",
       "place": "Seismic Network",
+      "guide": "Turn the recorded acceleration into the sideways force the frame actually had to carry, so the two numbers can be compared as forces rather than as fractions of gravity. The base shear is the seismic coefficient times the building's weight. One tile is the coefficient the building was designed to and another is the weight of one floor, which is not what the whole frame carries.",
+      "background": [
+        "What a base shear is. The total horizontal force at the foundations, and the number a frame is proportioned against. It is the seismic coefficient — the design acceleration as a fraction of gravity, after the code's factors — multiplied by the weight the building brings to the shaking.",
+        "Why 0.31 against 0.35 is not a verdict. It is one input, measured directly, which is worth a great deal in a fortnight where most numbers are inferred. What a building feels also depends on which frequencies arrived, how long the shaking lasted, and how the frame and its parts are detailed. None of that is in a peak.",
+        "What the record cannot reach. It says nothing about the plant-room restraint, nothing about what the inspection found, and nothing about the parts of the building that respond at their own period rather than the ground's. A design value is not a threshold below which nothing breaks."
+      ],
       "story": "There is an accelerograph in the hospital basement, installed in 1998 and never used in anger. Cardoso has the record. It shows a peak of 0.31 g, and the building was designed for 0.35.",
       "game": {
-        "type": "CHOICE",
+        "type": "BALLPARK",
         "title": "The instrument in the basement",
         "setup": "Seismic Network",
         "play": "Check what the hospital actually experienced",
         "task": "Check what the hospital actually experienced",
-        "question": "What can the 0.31 g basement record legitimately add to the assessment?",
-        "answer": "That this building saw a little less than it was designed for.",
-        "why": "The basement record takes the biggest unknown off the table: the ground under this building peaked at 0.31 g. The design input was 0.35 g. That is worth knowing, and it is not a line below which nothing breaks. What a building actually feels depends as well on which frequencies arrived, how long the shaking went on, and how the frame and its parts are put together. So the record says the motion here was not obviously past what the building was designed for. It says nothing about the plant-room restraint, and nothing about what the inspection found.",
-        "rebuttals": [
-          "Staying below a design value makes damage less likely, and does not prove there is none.",
-          "One record from one earthquake is not grounds to revise a design standard.",
-          "The plant room is still unopened, so the inspection is not finished."
+        "question": "What sideways force did the recorded motion put into the frame, against what it was designed for?",
+        "answer": "About 26 meganewtons (MN) against a design base shear of 30 MN — a little under, and the record's real value is that one input is now measured rather than assumed.",
+        "why": "The hospital is four storeys, so its natural period is about T ≈ 0.1 N = 0.4 s, and that is the period at which the design coefficient is read off the spectrum. Base shear is then V = C_s · W: that coefficient times the weight the building brings to the shaking. The hospital's seismic weight is about 85 meganewtons, and the recorded peak of 0.31 g gives a coefficient of 0.31, so the frame saw roughly 0.31 × 85 ≈ 26 MN. The design value of 0.35 g gives 0.35 × 85 ≈ 30 MN. So the demand was about 12 per cent under what the frame was proportioned for, which is worth knowing and is not a clearance. Three things the number does not carry: which frequencies arrived, how long the shaking went on, and how the building and its contents are detailed — the plant-room restraint responds to its own motion, not to the basement's. A design value is a proportioning input, not a line below which nothing breaks. What the record genuinely removes is the largest unknown of the fortnight: for once, the ground motion at a specific building was measured instead of inferred from a ratio.",
+        "givens": [
+          "four storeys, so the natural period is T ≈ 0.1 × 4 = 0.4 s",
+          "seismic weight about 85 meganewtons",
+          "recorded peak 0.31 g, design value 0.35 g"
         ],
-        "choices": [
-          "That the building is undamaged, since the shaking stayed below the design value.",
-          "That this building saw a little less than it was designed for.",
-          "That the design value was too low and should be revised upward.",
-          "That no further inspection is needed anywhere in the building."
-        ],
-        "correctChoice": "That this building saw a little less than it was designed for."
+        "relationship": "An N-storey building has a natural period T ≈ 0.1 N. The coefficient is read off the spectrum there, and the base shear is V = C_s · W.",
+        "calcKey": "SEIS-3"
       },
       "assumes": [
-        "a building can be instrumented, and the record is about that building"
+        "a building can be instrumented, and the record is about that building",
+        "peak ground acceleration and what a building feels — taken as read",
+        "p and S waves, and what the gap between them measures — taken as read"
       ],
       "equations": [
+        {
+          "e": "T ≈ 0.1 N",
+          "c": "a building's natural period from its storeys",
+          "v": [
+            [
+              "T",
+              "natural period, in seconds"
+            ],
+            [
+              "N",
+              "number of storeys"
+            ]
+          ],
+          "s": "A rule of thumb: about a tenth of a second per floor, which is how you know whether a building and the ground it stands on want to swing at the same rate.",
+          "computed": true
+        },
+        {
+          "e": "V = C_s · W",
+          "c": "base shear — the sideways force it is designed for",
+          "v": [
+            [
+              "V",
+              "base shear, in kilonewtons"
+            ],
+            [
+              "C_s",
+              "seismic coefficient, a fraction of weight"
+            ],
+            [
+              "W",
+              "the weight of the building above the base, in kilonewtons"
+            ]
+          ],
+          "s": "Design treats the earthquake as a fraction of the building's own weight pushed sideways at its base.",
+          "computed": true
+        },
         {
           "e": "FoS = capacity / demand",
           "c": "factor of safety as a ratio, not a feeling",
@@ -172,9 +200,29 @@ export const CURRICULUM = {
               "what the earthquake asked of it, in the same units"
             ]
           ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
+          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up.",
+          "card": false
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 6,
+          "c": "Peak ground acceleration and what a building feels"
+        },
+        {
+          "n": 1,
+          "c": "P and S waves, and what the gap between them measures"
+        }
+      ],
+      "concept": {
+        "n": 24,
+        "c": "Instruments: what an accelerograph actually records",
+        "of": 30,
+        "rests": [
+          "Peak ground acceleration and what a building feels",
+          "P and S waves, and what the gap between them measures"
+        ]
+      }
     },
     {
       "day": 4,
@@ -182,31 +230,32 @@ export const CURRICULUM = {
       "scene": "The notice draft says the aftershocks will have stopped by the end of the month. Cardoso points at the sentence and asks where the month came from. The sentence is due for the afternoon public bulletin.",
       "takeaway": "A rate says how often, not when or how large, and writing it as a date makes a promise nobody can keep.",
       "place": "Seismic Network",
+      "guide": "Put the fitted numbers through the decay law and see what day thirty actually gives. The rate falls as a power of the time since the mainshock, so pick the productivity, the time offset and the elapsed days, and read the answer as events per day. One tile is the exponent, which goes in the power and not in the denominator on its own.",
+      "background": [
+        "What the law says. The rate of aftershocks per day falls roughly as one over the elapsed time raised to a power near one, with a small offset that keeps the first hours finite. It is a decay, not a countdown: the curve approaches zero and never arrives, which is why no end date can be read off it.",
+        "Why a fitted rate is not a schedule. The number that comes out is an expectation over an interval — so many per day on average. Actual counts scatter around it, some days three and some days none, and a rate of a tenth of an event per day does not promise the tenth day is the one.",
+        "Why size is a separate question. The decay law describes how often, and the magnitude distribution describes how large. A falling rate lowers the chance of a large aftershock in the same proportion as a small one, and rules nothing out. Publishing a month is therefore two mistakes: an end where there is a fade, and a date where there is a rate."
+      ],
       "story": "The notice draft says the aftershocks will have stopped by the end of the month. Cardoso points at the sentence and asks where the month came from. The sentence is due for the afternoon public bulletin.",
       "game": {
-        "type": "CHOICE",
+        "type": "BALLPARK",
         "title": "A rate is not a schedule",
         "setup": "Seismic Network",
         "play": "Say what a forecast does not claim",
         "task": "Say what a forecast does not claim",
-        "question": "What can the forecast honestly say?",
-        "answer": "That the rate is falling, with a number per week and a range.",
-        "why": "The fit gives an expected rate and uncertainty, not an end date. A power law fades rather than stops, so the forecast cannot name the day aftershocks finish. It also cannot rule out a larger event; larger aftershocks are simply less common. Daily counts will wander above and below the smooth fitted curve because the sequence is random. The useful statement is therefore a rate over a stated interval, with a range, rather than a calendar promise about the next event or the end of the sequence.",
-        "rebuttals": [
-          "A power-law decay fades into the background and has no end date to promise.",
-          "Magnitudes follow their own distribution, so a larger event is always possible and never ruled out.",
-          "The rate is an average and events are random around it, so a quiet day proves nothing about the next."
+        "question": "At day 30 after the mainshock, what does the fitted decay law give as the expected rate?",
+        "answer": "About 2.7 events a day above magnitude 2, falling and never reaching zero. That is a rate with a range, not an end date — and the draft's month cannot be read off this curve at all.",
+        "why": "The Omori–Utsu law is n(t) = K / (c + t)^p, and the fitted values for this sequence are K = 84, c = 0.2 days and p = 1.05. At t = 30 days the denominator is 30.2^1.05 ≈ 35.6, so the expected rate is 84 ÷ 35.6 ≈ 2.4 to 2.7 events a day above magnitude 2, depending on how the fit is rounded. That is an expectation over an interval, and daily counts will land either side of it. What the curve cannot do is reach zero: a power law fades, and the day it 'stops' does not exist. Publishing a month therefore makes two errors at once — an end date where the mathematics gives a fade, and a certainty where it gives a rate. The right sentence names a number per week and a range, and says nothing about the largest event, because how often and how large are different distributions.",
+        "givens": [
+          "K = 84, c = 0.2 days, p = 1.05",
+          "the bulletin is for day 30 after the mainshock"
         ],
-        "choices": [
-          "That the sequence will be over by the end of the month.",
-          "That the rate is falling, with a number per week and a range.",
-          "That no aftershock larger than magnitude 5 will occur.",
-          "That each day is safer than the one before it, without exception."
-        ],
-        "correctChoice": "That the rate is falling, with a number per week and a range."
+        "relationship": "The aftershock rate is n(t) = K / (c + t)^p — a power law that decays and never reaches zero.",
+        "calcKey": "SEIS-4"
       },
       "assumes": [
-        "a forecast states what is expected on average"
+        "a forecast states what is expected on average",
+        "aftershock decay as a power law — taken as read"
       ],
       "equations": [
         {
@@ -226,9 +275,24 @@ export const CURRICULUM = {
               "constants fitted to this sequence, with p usually near 1"
             ]
           ],
-          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
+          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day.",
+          "computed": true
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 19,
+          "c": "Aftershock decay as a power law"
+        }
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Probability of a larger event after a mainshock",
+        "of": 30,
+        "rests": [
+          "Aftershock decay as a power law"
+        ]
+      }
     },
     {
       "day": 5,
@@ -236,6 +300,13 @@ export const CURRICULUM = {
       "scene": "Nothing on the Parade is dangerous today. The same parapets, on the same walls, will be here for the next earthquake, and the recurrence interval on this fault is about 140 years.",
       "takeaway": "Fix a repeatedly observed, low-cost life-safety failure mode while access is already in place; do not let an average recurrence interval become a countdown clock.",
       "place": "Seismic Network",
+      "guide": "Every parapet on the Parade came down and no wall behind one did. Tying back costs about £8,000 a building while the scaffolding stands, and about £25,000 once it is gone. A detailed assessment of one building takes three weeks and produces no strengthening. The grant scheme opens in eleven months and is oversubscribed in its first week. Lightweight replacement needs the parapets down first and a consented design, which is next summer at the earliest. The last event was six days ago.",
+      "rules": "Spread the hundred points across the 4 proposals. At least 75 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "background": [
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
+      ],
       "story": "Nothing on the Parade is dangerous today. The same parapets, on the same walls, will be here for the next earthquake, and the recurrence interval on this fault is about 140 years.",
       "game": {
         "type": "SCIENCETANK",
@@ -268,7 +339,7 @@ export const CURRICULUM = {
           "A": 55,
           "D": 20
         },
-        "research": "Every parapet on the Parade came down and no wall behind one did. Tying back costs about\n£8,000 a building with scaffolding already standing, and about £25,000 without. The\nrecurrence interval on this fault is roughly 140 years and the last event was 6 days ago.\nThe grant scheme opens in 11 months and is oversubscribed in its first week each year."
+        "research": ""
       },
       "assumes": [
         "a hazard that has occurred will occur again"
@@ -293,7 +364,16 @@ export const CURRICULUM = {
           ],
           "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
         }
-      ]
+      ],
+      "concept": {
+        "n": 27,
+        "c": "Recurrence intervals and what \"the big one\" means",
+        "of": 30,
+        "rests": [
+          "Aftershock decay as a power law",
+          "Probability of a larger event after a mainshock"
+        ]
+      }
     },
     {
       "day": 6,
@@ -301,6 +381,12 @@ export const CURRICULUM = {
       "scene": "Cardoso's five-day side-by-side check is finished, and the benchmark used since day one no longer stands unchanged. Navarro lays five fortnight conclusions beside the corrected station report. Some may survive untouched; others may force a redraw before the next briefing.",
       "takeaway": "A shared reference error propagates only through conclusions that depend on it; independent measurements should not be discarded with the common source.",
       "place": "Seismic Network",
+      "guide": "Open a conclusion and the panel shows what it was computed from. Keep the ones that stand on a measurement of their own, and untick the ones whose chain runs through the corrected reference. Then name the source the failing ones share. Both halves are graded: throwing away an independent conclusion costs you as much as keeping a dependent one.",
+      "background": [
+        "What a shared reference is. Every station's record is interpreted against an assumed site response, and one station's has been corrected after five days of side-by-side comparison. Anything computed through that station inherits the correction; anything measured elsewhere does not. The error is not in the instrument — it is in one number every dependent conclusion was divided by.",
+        "Why untangling matters more than caution. The safe-looking move is to withdraw the whole fortnight, and it is wrong twice over: it throws away conclusions that were never affected, and it tells the next briefing that nothing is known when several things are. A retraction is a claim too, and it should be as narrow as the evidence.",
+        "How to read a chain. A conclusion is supported if some path to it never touches the suspect source. That is a question about the graph rather than about the size of the numbers, which is why the panel makes you open each one instead of judging by how alarming it looks."
+      ],
       "story": "Cardoso's five-day side-by-side check is finished, and the benchmark used since day one no longer stands unchanged. Navarro lays five fortnight conclusions beside the corrected station report. Some may survive untouched; others may force a redraw before the next briefing.",
       "game": {
         "type": "TRACE",
@@ -309,14 +395,14 @@ export const CURRICULUM = {
         "play": "Open the dependency chain behind each conclusion, keep the ones that stand independently, and identify the shared reference source behind the conclusions that must be revised.",
         "task": "Open the dependency chain behind each conclusion, keep the ones that stand independently, and identify the shared reference source behind the conclusions that must be revised.",
         "question": "Which conclusions actually inherit the bad reference, and which remain supported by independent evidence?",
-        "answer": "Revise the Flats amplitude ratio and any planning factor copied from it. With the vault itself amplified by about 1.6, a threefold Flats-to-vault ratio becomes roughly 4.8 relative to competent rock. Keep the hospital 0.31 g, the network M_w 6.8 and the Marina Court diagnosis; their evidence chains do not use the vault.",
-        "why": "A ratio inherits errors from both its numerator and denominator. The Flats-to-vault value near 3 therefore changes when the vault is found to amplify by about 1.6. The corrected competent-rock ratio is roughly 3 × 1.6 = 4.8. Any planning factor copied from that ratio shares the same reference dependency. By contrast, the hospital basement accelerograph, the network moment magnitude and Marina Court's survey evidence do not use the vault. Dependency tracing limits the correction to the conclusions that actually share the bad reference.",
+        "answer": "Revise the Flats motion comparison and the rebuilding demand factor copied from it. Both were measured against the station the panel says now reads ×1.6 instead of ×1.0, so the ×3.0 ratio is ×4.8 relative to competent rock. Keep the hospital's 0.31 g, the network M_w 6.8 and the Marina Court diagnosis; their evidence chains do not run through that station.",
+        "why": "A ratio inherits the error of whatever sits under the line, and the panel gives you both terms: a published ×3.0 and a reference station that reads ×1.6 where ×1.0 was assumed. The corrected value is 3.0 × 1.6 ≈ 4.8 times competent rock, and the demand factor copied from that ratio carries the same dependency. The hospital basement accelerograph measured 0.31 g on its own instrument, the moment magnitude came off a multi-station solution and Marina Court was surveyed on the ground, so none of the three moves. Dependency tracing limits the correction to the conclusions that actually share the bad reference.",
         "trace": {
           "channels": [
             {
               "id": "ratio",
               "label": "Flats motion comparison",
-              "reading": "3.0 (expected value published in the fortnight report)",
+              "reading": "×3.0 peak-velocity ratio, dimensionless (fortnight report)",
               "depends": [
                 "flats_record",
                 "vault_ref"
@@ -325,7 +411,7 @@ export const CURRICULUM = {
             {
               "id": "planning_factor",
               "label": "Rebuilding demand factor",
-              "reading": "3.0 (expected value carried in the district planning memo)",
+              "reading": "×3.0 design demand factor, dimensionless (district planning memo)",
               "depends": [
                 "flats_record",
                 "vault_ref"
@@ -334,7 +420,7 @@ export const CURRICULUM = {
             {
               "id": "hospital_pga",
               "label": "Hospital base acceleration",
-              "reading": "0.31 g (expected hospital instrument record)",
+              "reading": "0.31 g peak horizontal acceleration (basement instrument record)",
               "depends": [
                 "hospital_record"
               ]
@@ -342,7 +428,7 @@ export const CURRICULUM = {
             {
               "id": "magnitude",
               "label": "Final event magnitude",
-              "reading": "M_w 6.8 (expected final agency bulletin)",
+              "reading": "M_w 6.8 moment magnitude (final agency bulletin)",
               "depends": [
                 "network_solution"
               ]
@@ -350,7 +436,7 @@ export const CURRICULUM = {
             {
               "id": "marina",
               "label": "Marina Court failure diagnosis",
-              "reading": "settlement, heave and sand ejecta documented (expected field assessment record)",
+              "reading": "settlement, heave and sand ejecta documented (field assessment record)",
               "depends": [
                 "marina_survey"
               ]
@@ -384,6 +470,13 @@ export const CURRICULUM = {
             "marina"
           ],
           "target": "vault_ref",
+          "correction": {
+            "what": "Site response of the reference station on the bench",
+            "was": "×1.0 — founded on competent granite, no amplification",
+            "now": "×1.6 — four metres of weathered granite, measured over five days side by side",
+            "corrected": "The ×3.0 Flats ratio is ×3.0 × 1.6 ≈ ×4.8 relative to competent rock, and the demand factor copied from it moves with it.",
+            "effect": "Any value measured against this station is low by that factor."
+          },
           "hint": "Open each conclusion and inspect the sources underneath it. Keep conclusions whose evidence chain does not pass through the suspect reference, then name the source shared by the conclusions that fail.",
           "commit": "Correct it"
         }
@@ -435,22 +528,34 @@ export const CURRICULUM = {
           "s": "One unit of magnitude is about thirty-two times the energy, so a 7 is not a bit worse than a 6."
         },
         {
-          "e": "A_soft / A_rock",
-          "c": "site amplification — the same wave on two grounds",
+          "e": "FoS = capacity / demand",
+          "c": "factor of safety as a ratio, not a feeling",
           "v": [
             [
-              "A_soft",
-              "shaking measured on the soft site"
+              "FoS",
+              "factor of safety, no units"
             ],
             [
-              "A_rock",
-              "shaking measured on rock nearby, in the same units"
+              "capacity",
+              "what the element can carry"
+            ],
+            [
+              "demand",
+              "what the earthquake asked of it, in the same units"
             ]
           ],
-          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town.",
+          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up.",
           "card": false
         }
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Moment magnitude, and what it is made of",
+        "of": 30,
+        "rests": [
+          "Magnitude as a logarithmic scale"
+        ]
+      }
     },
     {
       "day": 7,
@@ -458,6 +563,12 @@ export const CURRICULUM = {
       "scene": "Cardoso lays out four of the fortnight's statements. The office believes all four. They are not held for the same reasons and she will not let them into the report as equals.",
       "takeaway": "Sorting findings by their evidence is what lets a later reader know which ones to check first.",
       "place": "Seismic Network",
+      "guide": "Four statements the office believes, held for four different reasons. Sort them by what an opponent would have to produce to challenge each: a second log, another event, a borehole, or a future earthquake. Belief is not the variable. The weakest of the four is the one the plan clause rests on, and saying so in the report is what makes it usable.",
+      "background": [
+        "Why explanations rather than labels. Naming a finding is not accounting for it, and a plausible-sounding mechanism attached to the wrong observation is the commonest way a wrong story survives. Committing an explanation to one clue means claiming it accounts for that clue specifically and not for its neighbour, which is where the two come apart.",
+        "How to use the one-each rule. The explanations are a set to be distributed, not a list to be sampled, so every join constrains the rest. Settling the two you are confident of can decide the remaining pair by elimination. Where it does not, two explanations are still competing for one clue, and that competition is the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every explanation used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Cardoso lays out four of the fortnight's statements. The office believes all four. They are not held for the same reasons and she will not let them into the report as equals.",
       "game": {
         "type": "CASEBOOK",
@@ -535,7 +646,16 @@ export const CURRICULUM = {
           ],
           "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town."
         }
-      ]
+      ],
+      "concept": {
+        "n": 30,
+        "c": "Documentation: the record somebody inherits",
+        "of": 30,
+        "rests": [
+          "Rapid assessment against detailed evaluation",
+          "Sampling and testing damaged material"
+        ]
+      }
     }
   ],
   "STRUCT": [
@@ -545,6 +665,12 @@ export const CURRICULUM = {
       "scene": "Six assessors are free for one day. 400 displaced households are waiting on decisions in the Flats. Marina Court and the Parade are already cordoned, while Upper Town is mostly occupied. The team board shows six assessor-days available.",
       "takeaway": "A finite inspection team should be spent on the questions whose answers can still change what happens today.",
       "place": "Structural Assessment",
+      "guide": "Six assessor-days is the whole pool, and each package you drag in spends some of it. Watch the answers list rather than the buildings: it shows which questions the current plan can answer, and every package you buy is a question you can answer and one you have given up. The cordons already in place cost nothing. Commit the plan when the answers you can give are the ones today needs.",
+      "background": [
+        "Why the pool is the constraint. Six assessors for one day is a fixed quantity of attention, and the Flats alone could absorb all of it. The decision is not what is worth inspecting — nearly everything is — but which inspections change what happens before tonight.",
+        "What makes an answer worth buying today. Four hundred households are waiting on a re-occupancy decision. An inspection that can produce that decision by this evening is worth more than one that produces a better answer next week, because the second one has already been made for them by the delay.",
+        "Why the existing cordons are on the board at zero. They are already in force, so they cost nothing to keep and they answer nothing new. They are there to be noticed: a plan that spends assessor-days re-establishing what is already closed has bought a question it had already answered."
+      ],
       "story": "Six assessors are free for one day. 400 displaced households are waiting on decisions in the Flats. Marina Court and the Parade are already cordoned, while Upper Town is mostly occupied. The team board shows six assessor-days available.",
       "game": {
         "type": "ALLOCATE",
@@ -622,7 +748,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an assessment programme is a queue, and the order is a decision"
-      ]
+      ],
+      "concept": {
+        "n": 29,
+        "c": "Cordons, lifelines and the cost of keeping people out",
+        "of": 30,
+        "rests": [
+          "Placarding as a decision under uncertainty",
+          "Rapid assessment against detailed evaluation"
+        ]
+      }
     },
     {
       "day": 2,
@@ -630,6 +765,12 @@ export const CURRICULUM = {
       "scene": "Whitcombe's form has 11 boxes and a place for the colour. He filled 400 of them in 2 days, and he has kept a second list of everything he did not look at.",
       "takeaway": "A rapid assessment is triage: it records observed hazards and access limits, not a complete structural evaluation.",
       "place": "Structural Assessment",
+      "guide": "The left column is four things about a building. The right column says whether six minutes outside it could have reached them. Ask of each: could somebody see this from the footpath? A form with a colour on it will be read later as a claim about the whole building. So what was not looked at has to be recorded as carefully as what was, and Whitcombe kept that second list.",
+      "background": [
+        "Why explanations rather than labels. Naming a finding is not accounting for it, and a plausible-sounding mechanism attached to the wrong observation is the commonest way a wrong story survives. Committing an explanation to one clue means claiming it accounts for that clue specifically and not for its neighbour, which is where the two come apart.",
+        "How to use the one-each rule. The explanations are a set to be distributed, not a list to be sampled, so every join constrains the rest. Settling the two you are confident of can decide the remaining pair by elimination. Where it does not, two explanations are still competing for one clue, and that competition is the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every explanation used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Whitcombe's form has 11 boxes and a place for the colour. He filled 400 of them in 2 days, and he has kept a second list of everything he did not look at.",
       "game": {
         "type": "CASEBOOK",
@@ -672,23 +813,15 @@ export const CURRICULUM = {
       "assumes": [
         "an inspection covers what the inspector could see"
       ],
-      "equations": [
-        {
-          "e": "A_soft / A_rock",
-          "c": "site amplification — the same wave on two grounds",
-          "v": [
-            [
-              "A_soft",
-              "shaking measured on the soft site"
-            ],
-            [
-              "A_rock",
-              "shaking measured on rock nearby, in the same units"
-            ]
-          ],
-          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town."
-        }
-      ]
+      "concept": {
+        "n": 22,
+        "c": "Rapid assessment against detailed evaluation",
+        "of": 30,
+        "rests": [
+          "Load path, and what happens where it stops",
+          "Unreinforced masonry, and why it fails outward"
+        ]
+      }
     },
     {
       "day": 3,
@@ -696,6 +829,12 @@ export const CURRICULUM = {
       "scene": "Okonkwo has the column loads. At eight degrees the weight above each column no longer lands over its centre, and the offset grows with height up the building. The survey sheet and column plan are open beside him.",
       "takeaway": "The lean matters because gravity now acts with eccentricity, creating P–Δ effects and extra bending demand in the frame.",
       "place": "Structural Assessment",
+      "guide": "All four options are true things about a leaning building. They differ in whether they name a load path or a feeling. Ask of each whether an engineer could put a number on it from the survey sheet and the column plan. A column carries weight best along its own axis. Eight degrees moves that weight off the axis, and the offset grows with height.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Okonkwo has the column loads. At eight degrees the weight above each column no longer lands over its centre, and the offset grows with height up the building. The survey sheet and column plan are open beside him.",
       "game": {
         "type": "CHOICE",
@@ -722,42 +861,14 @@ export const CURRICULUM = {
       "assumes": [
         "a leaning column carries its load off-centre"
       ],
-      "equations": [
-        {
-          "e": "σ' = σ − u",
-          "c": "effective stress, and how liquefaction happens",
-          "v": [
-            [
-              "σ'",
-              "effective stress holding the grains together, in kilopascals"
-            ],
-            [
-              "σ",
-              "total stress from the weight above, in kilopascals"
-            ],
-            [
-              "u",
-              "pore water pressure between the grains, in kilopascals"
-            ]
-          ],
-          "s": "Soil carries load through grain contact; when shaking drives the water pressure up to the total stress, the grains stop touching and the ground behaves as a liquid."
-        },
-        {
-          "e": "A_soft / A_rock",
-          "c": "site amplification — the same wave on two grounds",
-          "v": [
-            [
-              "A_soft",
-              "shaking measured on the soft site"
-            ],
-            [
-              "A_rock",
-              "shaking measured on rock nearby, in the same units"
-            ]
-          ],
-          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town."
-        }
-      ]
+      "concept": {
+        "n": 10,
+        "c": "Load path, and what happens where it stops",
+        "of": 30,
+        "rests": [
+          "Base shear — the horizontal force a building is designed for"
+        ]
+      }
     },
     {
       "day": 4,
@@ -765,6 +876,12 @@ export const CURRICULUM = {
       "scene": "Bay Road School's gym has a long roof, heavy precast wall panels and no interior bracing line. The structural drawings are pinned across a table. One panel connection tested poorly, but the larger members look undamaged.",
       "takeaway": "A lateral system works only when every required transfer carries force continuously from the moving mass to the foundation.",
       "place": "Structural Assessment",
+      "guide": "Build the path the sideways force actually takes, in order, from the moving mass to the ground. Then name the one required transfer that would break the path if it went. The largest member is not automatically the answer: a path is only as good as its weakest handover, and the readings on each link tell you which handover that is.",
+      "background": [
+        "What a lateral system is. In an earthquake the mass of the building wants to keep going sideways while the ground moves under it. That inertia has to be carried by something, handed on, and eventually delivered to the foundation. Each of those handovers is a connection, and a connection that cannot carry its share ends the path there.",
+        "Why a gym is the hard case. A long roof with heavy precast panels and no interior bracing line has very few paths available: the roof has to act as a horizontal plate and hand its load to the end walls, and the panels have to be tied into that plate. Remove one tie and the panel is a free-standing wall carrying its own inertia.",
+        "Why undamaged members are not reassurance. The beams and columns can be in perfect condition while the connection between them is not, and a connection is exactly what the drawings say least about. One panel connection tested poorly, which is a statement about the class of connection rather than about that panel."
+      ],
       "story": "Bay Road School's gym has a long roof, heavy precast wall panels and no interior bracing line. The structural drawings are pinned across a table. One panel connection tested poorly, but the larger members look undamaged.",
       "game": {
         "type": "CHAIN",
@@ -847,7 +964,15 @@ export const CURRICULUM = {
           ],
           "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
         }
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Load path, and what happens where it stops",
+        "of": 30,
+        "rests": [
+          "Base shear — the horizontal force a building is designed for"
+        ]
+      }
     },
     {
       "day": 5,
@@ -855,6 +980,12 @@ export const CURRICULUM = {
       "scene": "90 patients remain on the ground floor while 2 upper floors sit empty. The hospital is still yellow after three days. Frame, cladding and stair are documented. The roof plant room remains locked, with two full water tanks above it.",
       "takeaway": "A signed or checked record is useful only to the extent that it is backed by observation of the condition it claims.",
       "place": "Structural Assessment",
+      "guide": "Each claim on the list is signed or checked by somebody. Open the backing before you spend anything: some claims rest on an inspection of the thing they describe, and some rest on a document, an assumption or a locked door. You have one physical verification. Hold the claims the evidence does not support, and spend the visit where being wrong would cost the most.",
+      "background": [
+        "What a record is and is not. A signature says somebody took responsibility for a statement. It does not say the condition was observed, and on a building three days after an earthquake those two come apart constantly: drawings are checked, cladding is looked at from the street, and a locked plant room is written up from the last inspection before the shake.",
+        "Why the tanks matter. Two full water tanks are mass, high up, in a room nobody has entered since the earthquake. If their supports have moved, the consequence lands on the floor below — where ninety patients are. The claim about that room is therefore the one whose being wrong costs the most, whatever its paperwork says.",
+        "Why one check rather than four. Verification costs time the hospital does not have while it stays yellow. Choosing which claim to check is the actual professional judgement, and it is a judgement about consequence rather than about which record looks flimsiest."
+      ],
       "story": "90 patients remain on the ground floor while 2 upper floors sit empty. The hospital is still yellow after three days. Frame, cladding and stair are documented. The roof plant room remains locked, with two full water tanks above it.",
       "game": {
         "type": "ATTEST",
@@ -905,14 +1036,202 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a building's parts can be cleared separately"
-      ]
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Peak ground acceleration and what a building feels",
+        "of": 30,
+        "rests": [
+          "P and S waves, and what the gap between them measures"
+        ]
+      }
     },
     {
       "day": 6,
+      "title": "The frame, or the finish",
+      "scene": "Four hundred photographs came in from the rapid assessment and the panel sits at four. Some of what is in them is the structure. The rest is what was hung on it, and the two produce the same alarm in a caption.",
+      "takeaway": "What decides occupancy is what is in the load path, not what looks worst.",
+      "place": "Structural Assessment",
+      "guide": "Two bins. Structural damage is to the things carrying load down to the ground — columns, beams, walls that hold something up, connections between them. Non-structural damage is to what the building carries: cladding, ceilings, partitions, services. Sort on whether the item is in the load path.",
+      "background": [
+        "Why the split decides the placard rather than the repair bill. A cracked partition is expensive and does not change whether the building stands up in the next aftershock. A cracked column does, and it can be behind a partition that looks fine.",
+        "Why non-structural damage still kills people. Falling cladding, a collapsed ceiling grid and a toppled bookcase all injure. They are dealt with by clearing and securing rather than by shoring, which is a different crew and a different day."
+      ],
+      "story": "Four hundred photographs came in from the rapid assessment and the panel sits at four. Some of what is in them is the structure. The rest is what was hung on it, and the two produce the same alarm in a caption.",
+      "game": {
+        "type": "BELT",
+        "title": "The frame, or the finish",
+        "setup": "Structural Assessment",
+        "play": "Sort the damage photographs before the panel sits.",
+        "task": "Sort the damage photographs before the panel sits.",
+        "question": "Send each photograph to the bin that says whether it is in the load path.",
+        "answer": "Anything carrying load to the ground is structural. Anything the building carries is not, however alarming it looks.",
+        "why": "The placard question is whether the building will stand up to the next shake, and only what carries load answers it. Columns, beams, shear walls and their connections are the path down to the foundation, and damage to any of them changes capacity. A shattered partition, a collapsed ceiling grid, cladding hanging off a facade and a toppled bookcase are all carried *by* that path, and none of them makes the frame weaker. That is why the sort matters more than it sounds: the alarming photographs are mostly non-structural, and the photograph that decides the placard is often a hairline diagonal on a column behind an intact wall. Non-structural damage still injures people — falling cladding is the commonest injury in a moderate earthquake — so the answer is not that it does not matter. It is that it wants a different crew, a different urgency, and no shoring.",
+        "belt": {
+          "left": {
+            "name": "In the load path"
+          },
+          "right": {
+            "name": "Carried by it"
+          },
+          "items": [
+            {
+              "name": "Column diagonal crack",
+              "bin": "left"
+            },
+            {
+              "name": "Beam-column joint",
+              "bin": "left"
+            },
+            {
+              "name": "Shear wall crack",
+              "bin": "left"
+            },
+            {
+              "name": "Foundation settlement",
+              "bin": "left"
+            },
+            {
+              "name": "Buckled brace",
+              "bin": "left"
+            },
+            {
+              "name": "Spalled column cover",
+              "bin": "left"
+            },
+            {
+              "name": "Slab-beam separation",
+              "bin": "left"
+            },
+            {
+              "name": "Bearing pad displaced",
+              "bin": "left"
+            },
+            {
+              "name": "Cracked pier",
+              "bin": "left"
+            },
+            {
+              "name": "Sheared bolt group",
+              "bin": "left"
+            },
+            {
+              "name": "Masonry pier crack",
+              "bin": "left"
+            },
+            {
+              "name": "Corbel crack",
+              "bin": "left"
+            },
+            {
+              "name": "Ceiling grid down",
+              "bin": "right"
+            },
+            {
+              "name": "Cladding panel hanging",
+              "bin": "right"
+            },
+            {
+              "name": "Partition crack",
+              "bin": "right"
+            },
+            {
+              "name": "Toppled bookcase",
+              "bin": "right"
+            },
+            {
+              "name": "Broken window",
+              "bin": "right"
+            },
+            {
+              "name": "Light fitting down",
+              "bin": "right"
+            },
+            {
+              "name": "Sprinkler pipe burst",
+              "bin": "right"
+            },
+            {
+              "name": "Parapet coping loose",
+              "bin": "right"
+            },
+            {
+              "name": "Suspended duct swinging",
+              "bin": "right"
+            },
+            {
+              "name": "Roof tiles off",
+              "bin": "right"
+            },
+            {
+              "name": "Shop sign down",
+              "bin": "right"
+            },
+            {
+              "name": "Plaster crack",
+              "bin": "right"
+            },
+            {
+              "name": "Lift door jammed",
+              "bin": "right"
+            },
+            {
+              "name": "Cabinet spilled",
+              "bin": "right"
+            }
+          ],
+          "need": 20,
+          "lives": 3,
+          "pass": 0.8,
+          "hint": "Ask whether the thing in the photograph is holding something up.",
+          "commit": "Start the line"
+        }
+      },
+      "assumes": [
+        "some parts of a building hold it up and some are carried by it"
+      ],
+      "equations": [
+        {
+          "e": "FoS = capacity / demand",
+          "c": "factor of safety as a ratio, not a feeling",
+          "v": [
+            [
+              "FoS",
+              "factor of safety, no units"
+            ],
+            [
+              "capacity",
+              "what the element can carry"
+            ],
+            [
+              "demand",
+              "what the earthquake asked of it, in the same units"
+            ]
+          ],
+          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
+        }
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Load path, and what happens where it stops",
+        "of": 30,
+        "rests": [
+          "Base shear — the horizontal force a building is designed for"
+        ]
+      }
+    },
+    {
+      "day": 7,
       "title": "Damaged, and waiting to be asked again",
       "scene": "Okonkwo has 11 buildings with cracked shear walls that are still standing. Each has less capacity than it had a week ago, and the sequence has not finished. The shoring list is pinned beside the new forecast.",
       "takeaway": "Damage lowers the capacity, so the same aftershock that was survivable last week may not be this week.",
       "place": "Structural Assessment",
+      "guide": "All four options give a reason the eleven buildings stay urgent. They differ in what is changing: the hazard, the buildings, or both. Ask of each whether the falling aftershock rate contradicts it. Two of these say the shaking will get worse, and the forecast says otherwise. What has changed since Friday is on the other side of the comparison.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Okonkwo has 11 buildings with cracked shear walls that are still standing. Each has less capacity than it had a week ago, and the sequence has not finished. The shoring list is pinned beside the new forecast.",
       "game": {
         "type": "CHOICE",
@@ -978,14 +1297,28 @@ export const CURRICULUM = {
           ],
           "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
         }
-      ]
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Aftershock decay as a power law",
+        "of": 30,
+        "rests": [
+          "Magnitude as a logarithmic scale"
+        ]
+      }
     },
     {
-      "day": 7,
+      "day": 8,
       "title": "Which way the cracks run",
       "scene": "The cracks run diagonally, in both directions, crossing each other in an X across the middle third of each column. They are fine, numerous and evenly spaced. Photographs of all three columns are clipped to the sheet.",
       "takeaway": "The shape and repetition of damage can narrow the failure mechanism, but pattern recognition alone cannot establish remaining strength.",
       "place": "Structural Assessment",
+      "guide": "Four options, and the pattern has to be explained in full. The cracks are diagonal, in both directions, crossing in the middle third. They are fine, numerous and evenly spaced. Ask of each option what pattern it would leave instead. Crushing and settlement do not reverse direction. And note the limit: a pattern names a mechanism, not a remaining capacity.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The cracks run diagonally, in both directions, crossing each other in an X across the middle third of each column. They are fine, numerous and evenly spaced. Photographs of all three columns are clipped to the sheet.",
       "game": {
         "type": "CHOICE",
@@ -1022,7 +1355,8 @@ export const CURRICULUM = {
         "correctChoice": "Shear from reversing earthquake load"
       },
       "assumes": [
-        "a crack runs across the direction of the tension that opened it"
+        "a crack runs across the direction of the tension that opened it",
+        "stress, strain and the yield point — taken as read"
       ],
       "equations": [
         {
@@ -1044,14 +1378,34 @@ export const CURRICULUM = {
           ],
           "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 12,
+          "c": "Stress, strain and the yield point"
+        }
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Ductility: bending without breaking",
+        "of": 30,
+        "rests": [
+          "Stress, strain and the yield point"
+        ]
+      }
     },
     {
-      "day": 8,
+      "day": 9,
       "title": "A real crack, and an unknown building",
       "scene": "The photograph has already been passed around town. It shows a basement column with a horizontal crack, pipework and no daylight. There is no scale, no building number and no way to tell which column it is.",
       "takeaway": "An authenticated photograph can establish an observation while leaving scale, location, age and mechanism unresolved.",
       "place": "Structural Assessment",
+      "guide": "Four options, and they differ in how much a photograph can carry. There is no scale, no building number and no earlier picture. Ask of each option what it would need that the image does not have: a width, an age, a location, a cause. Accepting the crack as real is not the same as knowing what it means, and it is already all over town.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The photograph has already been passed around town. It shows a basement column with a horizontal crack, pipework and no daylight. There is no scale, no building number and no way to tell which column it is.",
       "game": {
         "type": "CHOICE",
@@ -1077,64 +1431,125 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a photograph records what was in front of the lens"
-      ]
+      ],
+      "concept": {
+        "n": 30,
+        "c": "Documentation: the record somebody inherits",
+        "of": 30,
+        "rests": [
+          "Rapid assessment against detailed evaluation",
+          "Sampling and testing damaged material"
+        ]
+      }
     },
     {
-      "day": 9,
+      "day": 10,
       "title": "Walls that fall outward",
       "scene": "Owners are asking when the Parade can reopen. Every parapet fell outward into the street, while the buildings behind them remain standing. Timber floors are still connected. The fallen masonry is tagged by frontage, and the barriers are still up.",
       "takeaway": "Unreinforced masonry fails out of plane, so the free top of a wall goes first and the tied part stays.",
       "place": "Structural Assessment",
+      "guide": "Follow the sideways force from the shaking ground up through the building and name the link that gave way. Each step carries a reading saying what restraint it can actually provide. The heaviest element on the board is not automatically the one that failed, and neither is the first step in the path.",
+      "background": [
+        "Why out of plane. Masonry is strong in compression and weak in tension, so a wall pushed sideways cannot hold itself up by bending. It stays standing only while something ties it back at intervals — a floor, a roof, or a strap into the diaphragm. Where the tie stops, the wall is a free cantilever.",
+        "Why the parapet and not the wall. The wall below is held by the timber floors, which are still connected and did their job. The parapet projects above the roof line with nothing above it and nothing behind it, so the whole horizontal force it collects has to be resisted at its base, in bending, by mortar.",
+        "Why this is the useful kind of failure. It is local, repeatable and explained by one missing connection, so the retrofit targets the tie rather than the building. A frontage whose parapet is anchored back to the roof structure is a different proposition from one whose whole wall needs work."
+      ],
       "story": "Owners are asking when the Parade can reopen. Every parapet fell outward into the street, while the buildings behind them remain standing. Timber floors are still connected. The fallen masonry is tagged by frontage, and the barriers are still up.",
       "game": {
-        "type": "CHOICE",
+        "type": "CHAIN",
         "title": "Walls that fall outward",
         "setup": "Structural Assessment",
         "play": "Say why the masonry failed the way it did",
         "task": "Say why the masonry failed the way it did",
-        "question": "Why did the parapets fall and the walls below them stay?",
-        "answer": "The parapet has nothing tying its top back, and the wall below is held by the floors.",
-        "why": "Unreinforced masonry parapets are vulnerable because they project above the roof line and may be poorly tied back. Horizontal shaking produces out-of-plane inertia. Gravity can then carry a detached parapet into the street. The walls below may survive because floors and roofs restrain them at lower levels. Tying the top of the wall back to the roof or floor system directly repairs that missing restraint. The observed failure is local and repeatable, so the retrofit can target the connection rather than treating the whole building as equally deficient.",
-        "rebuttals": [
-          "The mortar is continuous through both on these buildings; there is no later work.",
-          "Amplification with height is real and small, and a tied parapet of the same brick survives it.",
-          "Thinness matters less than restraint — what is missing at the top is anything to pull against."
-        ],
-        "choices": [
-          "The parapets were built later and with weaker mortar than the walls.",
-          "The parapet has nothing tying its top back, and the wall below is held by the floors.",
-          "The shaking was stronger at parapet height because the building amplified it.",
-          "Parapets are thinner than walls, so they were the weakest part."
-        ],
-        "correctChoice": "The parapet has nothing tying its top back, and the wall below is held by the floors."
+        "question": "Trace the sideways force through the frontage and name the link that failed.",
+        "answer": "The mortar bed at the parapet's base, resisting the whole force in bending because nothing ties the top back. Every other link in the path had the capacity it needed.",
+        "why": "Horizontal shaking gives every part of the frontage an inertia force proportional to its mass, and that force has to travel somewhere. Below roof level it goes into the timber floors, which are connected and stiff enough in their own plane to carry it to the cross walls and down to the foundations — every one of those links had capacity to spare. Above roof level the path stops. A parapet has nothing tying its top back and nothing above it, so the entire force it collects must be resisted at its base by mortar in bending, which is the one thing unreinforced masonry cannot do. That is why every parapet on the Parade went and the walls below them stayed. It also decides the repair: the missing link is a connection, so the retrofit is an anchor into the roof structure rather than work on the wall.",
+        "chain": {
+          "links": [
+            {
+              "id": "mass",
+              "label": "Parapet mass collecting horizontal inertia",
+              "transfers": "1.1 m of free-standing brickwork, about 9 kN per metre of frontage"
+            },
+            {
+              "id": "bed",
+              "label": "Mortar bed at the parapet base, resisting that force in bending",
+              "transfers": "about 2 kN per metre in tension across the bed, with no tie above it"
+            },
+            {
+              "id": "wall",
+              "label": "Wall below roof level, held by the timber floors",
+              "transfers": "restrained every 3.2 m, capacity about 34 kN per metre of wall"
+            },
+            {
+              "id": "floors",
+              "label": "Timber floor diaphragms into the cross walls",
+              "transfers": "still connected, carrying an estimated 210 kN in plane"
+            },
+            {
+              "id": "crosswalls",
+              "label": "Cross walls down to the footings",
+              "transfers": "640 kN capacity, the heaviest element on the frontage"
+            }
+          ],
+          "order": [
+            "mass",
+            "bed",
+            "wall",
+            "floors",
+            "crosswalls"
+          ],
+          "governing": "bed",
+          "distractor": "crosswalls",
+          "commit": "Name the governing transfer"
+        }
       },
       "assumes": [
         "masonry is strong in compression and weak in tension"
       ],
       "equations": [
         {
-          "e": "A_soft / A_rock",
-          "c": "site amplification — the same wave on two grounds",
+          "e": "FoS = capacity / demand",
+          "c": "factor of safety as a ratio, not a feeling",
           "v": [
             [
-              "A_soft",
-              "shaking measured on the soft site"
+              "FoS",
+              "factor of safety, no units"
             ],
             [
-              "A_rock",
-              "shaking measured on rock nearby, in the same units"
+              "capacity",
+              "what the element can carry"
+            ],
+            [
+              "demand",
+              "what the earthquake asked of it, in the same units"
             ]
           ],
-          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town."
+          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
         }
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Unreinforced masonry, and why it fails outward",
+        "of": 30,
+        "rests": [
+          "Load path, and what happens where it stops",
+          "Ductility: bending without breaking"
+        ]
+      }
     },
     {
-      "day": 10,
+      "day": 11,
       "title": "A smaller shake against a weaker building",
       "scene": "The 5.1 was about a tenth of the mainshock's ground motion in the Flats. 11 buildings have been shored since Friday, and 2 of them have new cracking this afternoon.",
       "takeaway": "New cracking during a smaller aftershock is evidence that residual capacity or detailing deserves escalation; it is not a complete diagnosis by itself.",
       "place": "Structural Assessment",
+      "guide": "Four readings of the same afternoon. Ask of each what the shoring was for. It is temporary support, not a repair, so new cracking is not automatically a failure of it. What has changed since Friday is on the other side of the comparison. Eleven buildings have less capacity, and two of them responded.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The 5.1 was about a tenth of the mainshock's ground motion in the Flats. 11 buildings have been shored since Friday, and 2 of them have new cracking this afternoon.",
       "game": {
         "type": "CHOICE",
@@ -1159,7 +1574,8 @@ export const CURRICULUM = {
         "correctChoice": "That these two are near their reduced capacity, which is what shoring bought time against."
       },
       "assumes": [
-        "a shored building is being held rather than repaired"
+        "a shored building is being held rather than repaired",
+        "p and S waves, and what the gap between them measures — taken as read"
       ],
       "equations": [
         {
@@ -1200,14 +1616,34 @@ export const CURRICULUM = {
           ],
           "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "P and S waves, and what the gap between them measures"
+        }
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Peak ground acceleration and what a building feels",
+        "of": 30,
+        "rests": [
+          "P and S waves, and what the gap between them measures"
+        ]
+      }
     },
     {
-      "day": 11,
+      "day": 12,
       "title": "What outlives the emergency",
       "scene": "Four things the office started doing under pressure. Okonkwo asks which of them is worth its cost on an ordinary Tuesday, when nothing has happened. The emergency procedures are being rewritten into the permanent manual.",
       "takeaway": "An unknown only becomes safer when it has an owner, a deadline and a rule that prevents final clearance from silently forgetting it.",
       "place": "Structural Assessment",
+      "guide": "All four practices are good ones. Two questions separate them. Does it block the failure that actually happened? And will the office still be doing it in a quiet month? Trace each back to the mechanism. The gym, the plant room and the basement were all outside the first inspection. All three omissions were written down, and nobody acted on the list.",
+      "background": [
+        "Why first is a different question from most important. When several calls compete for the same hour, what a choice is worth is not its own importance but the difference between doing it now and doing it later. A serious problem that will be no worse in an hour costs nothing to defer. A smaller one that closes a door costs everything behind that door.",
+        "What to look for in the options. Two things separate them: which is still changing, and which is a precondition for the others. A situation that is deteriorating has a cost per hour attached to it, and a step that unblocks the rest multiplies the value of the hours after it. Everything else is a preference about where to start.",
+        "Why only one answer is marked. In the situation these options describe all of them eventually happen; what is being tested is the head of the queue, because that is where the reasoning is visible. The verdict names what each of the others was waiting on, which is worth reading even when the choice was right — the ordering behind the first place is the rest of the answer."
+      ],
       "story": "Four things the office started doing under pressure. Okonkwo asks which of them is worth its cost on an ordinary Tuesday, when nothing has happened. The emergency procedures are being rewritten into the permanent manual.",
       "game": {
         "type": "TRIAGE",
@@ -1254,7 +1690,16 @@ export const CURRICULUM = {
           ],
           "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
         }
-      ]
+      ],
+      "concept": {
+        "n": 28,
+        "c": "Communicating risk to people who have to act on it",
+        "of": 30,
+        "rests": [
+          "Probability of a larger event after a mainshock",
+          "Placarding as a decision under uncertainty"
+        ]
+      }
     }
   ],
   "GEO": [
@@ -1264,6 +1709,12 @@ export const CURRICULUM = {
       "scene": "Navarro has an 1892 survey and a photograph from 1948. Where Bay Road now runs there was a tidal creek, and the port was pumped into place out of the dredger over four summers.",
       "takeaway": "Liquefaction needs susceptible soil, enough saturation and strong cyclic loading; young hydraulic fill often supplies the first two.",
       "place": "Geotechnical",
+      "guide": "Four descriptions of ground, and four behaviours under shaking. Pair them by asking two things of each: how loose is it, and can the water get out. Age is not the variable it looks like. One of these is the wettest and loosest of all. It is a line on an 1892 survey, invisible from the street.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Navarro has an 1892 survey and a photograph from 1948. Where Bay Road now runs there was a tidal creek, and the port was pumped into place out of the dredger over four summers.",
       "game": {
         "type": "PROTOCOL",
@@ -1306,70 +1757,14 @@ export const CURRICULUM = {
       "assumes": [
         "ground can be natural or placed by people"
       ],
-      "equations": [
-        {
-          "e": "σ = F / A, ε = ΔL / L",
-          "c": "stress and strain, and the yield point between them",
-          "v": [
-            [
-              "σ",
-              "stress, in megapascals"
-            ],
-            [
-              "F",
-              "force carried, in newtons"
-            ],
-            [
-              "A",
-              "cross-sectional area, in square metres"
-            ],
-            [
-              "ε",
-              "strain, a ratio with no units"
-            ],
-            [
-              "ΔL / L",
-              "how much it stretched over how long it was"
-            ]
-          ],
-          "s": "Stress is force spread over area and strain is the stretch it causes; up to the yield point the material comes back, and past it the deformation stays."
-        },
-        {
-          "e": "σ' = σ − u",
-          "c": "effective stress, and how liquefaction happens",
-          "v": [
-            [
-              "σ'",
-              "effective stress holding the grains together, in kilopascals"
-            ],
-            [
-              "σ",
-              "total stress from the weight above, in kilopascals"
-            ],
-            [
-              "u",
-              "pore water pressure between the grains, in kilopascals"
-            ]
-          ],
-          "s": "Soil carries load through grain contact; when shaking drives the water pressure up to the total stress, the grains stop touching and the ground behaves as a liquid."
-        },
-        {
-          "e": "A_soft / A_rock",
-          "c": "site amplification — the same wave on two grounds",
-          "v": [
-            [
-              "A_soft",
-              "shaking measured on the soft site"
-            ],
-            [
-              "A_rock",
-              "shaking measured on rock nearby, in the same units"
-            ]
-          ],
-          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town.",
-          "card": false
-        }
-      ]
+      "concept": {
+        "n": 15,
+        "c": "Liquefaction: when saturated fill stops behaving as a solid",
+        "of": 30,
+        "rests": [
+          "Effective stress, and why water pressure matters"
+        ]
+      }
     },
     {
       "day": 2,
@@ -1377,6 +1772,12 @@ export const CURRICULUM = {
       "scene": "Navarro's survey: the raft is intact, level within itself, and rotated. 1 side has gone down 340 millimetres and the other has come up 90. The sand fans are worst on the low side.",
       "takeaway": "A structure can fail without anything in the structure breaking.",
       "place": "Geotechnical",
+      "guide": "Four options, and the survey above has to be explained whole. Ask of each option how many of its four readings it covers. The intact raft. The level within itself. The rotation. And where the sand came up. A frame that failed would distort rather than rotate as one piece.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Navarro's survey: the raft is intact, level within itself, and rotated. 1 side has gone down 340 millimetres and the other has come up 90. The sand fans are worst on the low side.",
       "game": {
         "type": "CHOICE",
@@ -1413,76 +1814,24 @@ export const CURRICULUM = {
         "correctChoice": "The ground liquefied and lost bearing capacity under one side"
       },
       "assumes": [
-        "a foundation spreads a building's weight into the ground"
+        "a foundation spreads a building's weight into the ground",
+        "stress, strain and the yield point — taken as read"
       ],
-      "equations": [
+      "takesAsRead": [
         {
-          "e": "σ = F / A, ε = ΔL / L",
-          "c": "stress and strain, and the yield point between them",
-          "v": [
-            [
-              "σ",
-              "stress, in megapascals"
-            ],
-            [
-              "F",
-              "force carried, in newtons"
-            ],
-            [
-              "A",
-              "cross-sectional area, in square metres"
-            ],
-            [
-              "ε",
-              "strain, a ratio with no units"
-            ],
-            [
-              "ΔL / L",
-              "how much it stretched over how long it was"
-            ]
-          ],
-          "s": "Stress is force spread over area and strain is the stretch it causes; up to the yield point the material comes back, and past it the deformation stays."
-        },
-        {
-          "e": "σ' = σ − u",
-          "c": "effective stress, and how liquefaction happens",
-          "v": [
-            [
-              "σ'",
-              "effective stress holding the grains together, in kilopascals"
-            ],
-            [
-              "σ",
-              "total stress from the weight above, in kilopascals"
-            ],
-            [
-              "u",
-              "pore water pressure between the grains, in kilopascals"
-            ]
-          ],
-          "s": "Soil carries load through grain contact; when shaking drives the water pressure up to the total stress, the grains stop touching and the ground behaves as a liquid."
-        },
-        {
-          "e": "n(t) = K / (c + t)^p",
-          "c": "aftershock rate, falling as a power law",
-          "v": [
-            [
-              "n(t)",
-              "aftershocks per day at time t"
-            ],
-            [
-              "t",
-              "days since the mainshock"
-            ],
-            [
-              "K, c, p",
-              "constants fitted to this sequence, with p usually near 1"
-            ]
-          ],
-          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day.",
-          "card": false
+          "n": 12,
+          "c": "Stress, strain and the yield point"
         }
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Bearing capacity and settlement",
+        "of": 30,
+        "rests": [
+          "Stress, strain and the yield point",
+          "Liquefaction: when saturated fill stops behaving as a solid"
+        ]
+      }
     },
     {
       "day": 3,
@@ -1490,6 +1839,12 @@ export const CURRICULUM = {
       "scene": "Thandi Mbeki has been on Ferry Street with a hand auger. The sand fans have dried, the water table has dropped back, and the surface bears a person easily and a truck not at all.",
       "takeaway": "Liquefaction is transient, but the ground left behind can have settlement, voids and uncertain bearing capacity even after pore pressure dissipates.",
       "place": "Geotechnical",
+      "guide": "Four options describing the same street, from ruined to recovered. Ask of each which observation supports it and which contradicts it. The fans have dried and the water table has dropped, so the excess pressure has gone. The surface takes a person and not a truck. A dry surface says nothing about heavy loads, and drained is not the same as unchanged.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Thandi Mbeki has been on Ferry Street with a hand auger. The sand fans have dried, the water table has dropped back, and the surface bears a person easily and a truck not at all.",
       "game": {
         "type": "CHOICE",
@@ -1537,25 +1892,6 @@ export const CURRICULUM = {
           "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
         },
         {
-          "e": "σ' = σ − u",
-          "c": "effective stress, and how liquefaction happens",
-          "v": [
-            [
-              "σ'",
-              "effective stress holding the grains together, in kilopascals"
-            ],
-            [
-              "σ",
-              "total stress from the weight above, in kilopascals"
-            ],
-            [
-              "u",
-              "pore water pressure between the grains, in kilopascals"
-            ]
-          ],
-          "s": "Soil carries load through grain contact; when shaking drives the water pressure up to the total stress, the grains stop touching and the ground behaves as a liquid."
-        },
-        {
           "e": "n(t) = K / (c + t)^p",
           "c": "aftershock rate, falling as a power law",
           "v": [
@@ -1572,17 +1908,118 @@ export const CURRICULUM = {
               "constants fitted to this sequence, with p usually near 1"
             ]
           ],
-          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day.",
-          "card": false
+          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
         }
-      ]
+      ],
+      "concept": {
+        "n": 17,
+        "c": "Lateral spreading toward a free face",
+        "of": 30,
+        "rests": [
+          "Liquefaction: when saturated fill stops behaving as a solid",
+          "Bearing capacity and settlement"
+        ]
+      }
     },
     {
       "day": 4,
+      "title": "The water table, while the trench is open",
+      "scene": "The trench for the temporary shoring has to stand open for an afternoon in ground that liquefied nine days ago. The wellpoints hold the water down. If the water comes back up the sides do not wait to be asked.",
+      "takeaway": "A trench is held open by a pressure balance, and the balance is held by a pump.",
+      "place": "Geotechnical",
+      "guide": "Hold the water table below the trench floor, inside the band on the gauge. The band narrows as the afternoon goes on, because each hour the sides stand open they lose a little of what was holding them. The wellpoint pumps are your control, and every inflow keeps arriving until the pumps answer it.",
+      "background": [
+        "Why the water is what matters. The sand is held together by the pressure between grains, and that is the weight above less the water pressure between them. Let the water rise and the grains stop pressing on each other while nothing about the sand has changed.",
+        "Why an inflow is a rate. Rain on the fill, a leaking main, the tide in the harbour — each of them keeps feeding water in for as long as it lasts, so the table does not settle at a new level. It keeps rising until pumping matches the inflow.",
+        "Why the margin shrinks. An open trench face creeps: it loses a little strength every hour it stands, so the same rise in water is a bigger fraction of what is left by the end of the afternoon than it was at the start."
+      ],
+      "story": "The trench for the temporary shoring has to stand open for an afternoon in ground that liquefied nine days ago. The wellpoints hold the water down. If the water comes back up the sides do not wait to be asked.",
+      "game": {
+        "type": "HOLD",
+        "title": "The water table, while the trench is open",
+        "setup": "Geotechnical",
+        "play": "Hold the dewatering while the excavation stands open.",
+        "task": "Hold the dewatering while the excavation stands open.",
+        "question": "Hold the water table below the trench floor while the shoring goes in.",
+        "answer": "Inside the band for most of the afternoon, with the pumps set to match each inflow rather than started after the gauge has already risen.",
+        "why": "Sandy ground holds together because the grains press on one another, and that pressure is the weight above less the water pressure between them. Raise the water and the grains stop pressing, though nothing about the sand has changed — which is the same mechanism that liquefied this ground nine days ago, arriving slowly instead of in forty seconds. Every disturbance here is a rate. Rain on the fill keeps arriving, the leaking main keeps leaking, the tide keeps coming in, so the table does not settle at a new level and a pump started briefly buys nothing. Set the pumps to match the inflow and leave them there. The band narrows because an open face creeps: it loses a little strength every hour it stands, so the rise that was tolerable at one o'clock is most of the remaining margin by four.",
+        "hold": {
+          "quantity": "Water table below the trench floor",
+          "control": "Wellpoint pumps",
+          "unit": "m",
+          "hold": 1.5,
+          "band": 0.4,
+          "narrowTo": 0.2,
+          "duration": 45,
+          "authority": 0.1,
+          "pass": 0.8,
+          "direction": "raise",
+          "disturbances": [
+            {
+              "label": "Rain starts on the fill",
+              "at": 4,
+              "amount": -0.03
+            },
+            {
+              "label": "Tide goes out in the harbour",
+              "at": 20,
+              "amount": 0.05
+            },
+            {
+              "label": "The leaking main is found",
+              "at": 38,
+              "amount": -0.045
+            }
+          ],
+          "hint": "Each inflow keeps arriving. Set the pumps to match it rather than starting them when the gauge moves.",
+          "commit": "Report the afternoon"
+        }
+      },
+      "assumes": [
+        "water pressure between grains reduces the strength of sandy ground"
+      ],
+      "equations": [
+        {
+          "e": "FoS = capacity / demand",
+          "c": "factor of safety as a ratio, not a feeling",
+          "v": [
+            [
+              "FoS",
+              "factor of safety, no units"
+            ],
+            [
+              "capacity",
+              "what the element can carry"
+            ],
+            [
+              "demand",
+              "what the earthquake asked of it, in the same units"
+            ]
+          ],
+          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
+        }
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Effective stress, and why water pressure matters",
+        "of": 30,
+        "rests": [
+          "Stress, strain and the yield point"
+        ]
+      }
+    },
+    {
+      "day": 5,
       "title": "What still stands",
       "scene": "Navarro puts four of the fortnight's conclusions on the board and asks which of them leaned on the vault ratio and which did not. The corrected vault report is clipped beside the board.",
       "takeaway": "A bad reference invalidates what was measured against it and leaves what was measured directly alone.",
       "place": "Geotechnical",
+      "guide": "Four conclusions from the fortnight, and the reference station turns out to be founded on weathered granite. Trace each conclusion back to its evidence and ask whether the vault is in it. A survey, a heave and a field of ejecta do not need a reference station. Neither does a basement instrument. One bad denominator invalidates what divided by it and nothing else.",
+      "background": [
+        "Why explanations rather than labels. Naming a finding is not accounting for it, and a plausible-sounding mechanism attached to the wrong observation is the commonest way a wrong story survives. Committing an explanation to one clue means claiming it accounts for that clue specifically and not for its neighbour, which is where the two come apart.",
+        "How to use the one-each rule. The explanations are a set to be distributed, not a list to be sampled, so every join constrains the rest. Settling the two you are confident of can decide the remaining pair by elimination. Where it does not, two explanations are still competing for one clue, and that competition is the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every explanation used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Navarro puts four of the fortnight's conclusions on the board and asks which of them leaned on the vault ratio and which did not. The corrected vault report is clipped beside the board.",
       "game": {
         "type": "CASEBOOK",
@@ -1660,36 +2097,45 @@ export const CURRICULUM = {
           ],
           "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town."
         }
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Unreinforced masonry, and why it fails outward",
+        "of": 30,
+        "rests": [
+          "Load path, and what happens where it stops",
+          "Ductility: bending without breaking"
+        ]
+      }
     },
     {
-      "day": 5,
+      "day": 6,
       "title": "Wetting ground that has already failed",
       "scene": "Mbeki is on Ferry Street with a standpipe. The water table under the road has risen three quarters of a metre since the main went, and the ground surface is soft again underfoot.",
       "takeaway": "Raising the water table reduces effective stress in susceptible fill, increasing liquefaction susceptibility during renewed shaking without causing liquefaction by itself.",
       "place": "Geotechnical",
+      "guide": "Put a number on what the leak did. The grains are held together by the effective stress, which is the total weight above them less the water pressure between them. Pick the total stress at three metres and the pore pressure the risen water table now gives, and take one from the other. Two tiles are the pressures before the main burst, which is the comparison rather than the answer.",
+      "background": [
+        "What effective stress is. The soil skeleton carries the difference between the total stress pressing down and the water pressure in the pores pushing the grains apart. Strength lives in that difference, which is why a saturated fill can be strong one day and behave like a liquid the next without a gram of it moving away.",
+        "What the leak did and did not do. A higher water table raises the pore pressure and takes the margin down. It liquefies nothing on its own — cyclic shaking is still required to build the pressure the rest of the way. What has changed is how much shaking that now takes.",
+        "Why Upper Town is different. On competent granite the same burst main is a plumbing problem. There is no loose saturated skeleton whose grain contacts can be unloaded by water pressure, so the mechanism has nothing to act on."
+      ],
       "story": "Mbeki is on Ferry Street with a standpipe. The water table under the road has risen three quarters of a metre since the main went, and the ground surface is soft again underfoot.",
       "game": {
-        "type": "CHOICE",
+        "type": "BALLPARK",
         "title": "Wetting ground that has already failed",
         "setup": "Geotechnical",
         "play": "Say what water does to fill",
         "task": "Say what water does to fill",
-        "question": "Why does the burst main matter more here than it would in Upper Town?",
-        "answer": "Because a higher water table in loose fill raises pore pressure before any shaking starts.",
-        "why": "Soil skeleton strength depends on effective stress at the grain contacts. In the simple relation σ' = σ − u, raising pore-water pressure u lowers effective stress σ' if total stress σ is unchanged. A burst main can therefore reduce the margin in loose saturated fill before another strong aftershock. The leak alone does not cause liquefaction; cyclic shaking is still required. On competent granite, the same water leak is an infrastructure problem without this pore-pressure failure mechanism.",
-        "rebuttals": [
-          "Pipe age explains why it burst and not why the consequence is worse on this ground.",
-          "Washing sand about is a nuisance; the pore pressure is the mechanism that matters.",
-          "Sand does not dissolve, and the fill is not going anywhere — its strength is the issue."
+        "question": "At three metres down under Ferry Street, what is the effective stress now the water table has risen?",
+        "answer": "About 39 kilopascals (kPa), down from 47 before the main burst — the grains are carrying 16 per cent less, and it takes a correspondingly smaller aftershock to finish the job.",
+        "why": "Effective stress is σ' = σ − u. The fill weighs about 18 kN per cubic metre, so at three metres the total vertical stress is 18 × 3 = 54 kPa, and that has not changed. What has changed is the water. The table was 2.25 m down, giving a pore pressure at three metres of 9.81 × 0.75 ≈ 7.4 kPa and an effective stress of 54 − 7.4 ≈ 47 kPa. It is now 1.5 m down, so u = 9.81 × 1.5 ≈ 14.7 kPa and σ' = 54 − 14.7 ≈ 39 kPa. The skeleton is carrying about 16 per cent less than it was on Monday, and everything the ground can resist scales with that number. The leak has liquefied nothing by itself; cyclic shaking is still required to raise u the rest of the way to σ. It has simply moved the starting point closer, which is why the same aftershock forecast means something different on Ferry Street this week. On granite there is no loose saturated skeleton for the mechanism to act on at all.",
+        "givens": [
+          "fill at about 18 kN/m³, so σ = 54 kPa at three metres",
+          "the water table is now 1.5 m down, giving u ≈ 14.7 kPa"
         ],
-        "choices": [
-          "Because the Flats have older pipes and more of them will burst.",
-          "Because a higher water table in loose fill raises pore pressure before any shaking starts.",
-          "Because water washes away the sand that was ejected in the first event.",
-          "Because the fill will dissolve if it stays wet for long enough."
-        ],
-        "correctChoice": "Because a higher water table in loose fill raises pore pressure before any shaking starts."
+        "relationship": "Effective stress is σ' = σ − u — the total stress less the pore-water pressure, and the strength of the soil lives in the difference.",
+        "calcKey": "GEO-6"
       },
       "assumes": [
         "liquefaction requires saturated ground"
@@ -1720,26 +2166,8 @@ export const CURRICULUM = {
               "how much it stretched over how long it was"
             ]
           ],
-          "s": "Stress is force spread over area and strain is the stretch it causes; up to the yield point the material comes back, and past it the deformation stays."
-        },
-        {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
-          "v": [
-            [
-              "FoS",
-              "factor of safety, no units"
-            ],
-            [
-              "capacity",
-              "what the element can carry"
-            ],
-            [
-              "demand",
-              "what the earthquake asked of it, in the same units"
-            ]
-          ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
+          "s": "Stress is force spread over area and strain is the stretch it causes; up to the yield point the material comes back, and past it the deformation stays.",
+          "computed": true
         },
         {
           "e": "σ' = σ − u",
@@ -1759,6 +2187,23 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Soil carries load through grain contact; when shaking drives the water pressure up to the total stress, the grains stop touching and the ground behaves as a liquid.",
+          "computed": true
+        },
+        {
+          "e": "A_soft / A_rock",
+          "c": "site amplification — the same wave on two grounds",
+          "v": [
+            [
+              "A_soft",
+              "shaking measured on the soft site"
+            ],
+            [
+              "A_rock",
+              "shaking measured on rock nearby, in the same units"
+            ]
+          ],
+          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town.",
+          "computed": true,
           "card": false
         },
         {
@@ -1780,31 +2225,29 @@ export const CURRICULUM = {
           ],
           "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day.",
           "card": false
-        },
-        {
-          "e": "A_soft / A_rock",
-          "c": "site amplification — the same wave on two grounds",
-          "v": [
-            [
-              "A_soft",
-              "shaking measured on the soft site"
-            ],
-            [
-              "A_rock",
-              "shaking measured on rock nearby, in the same units"
-            ]
-          ],
-          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town.",
-          "card": false
         }
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Effective stress, and why water pressure matters",
+        "of": 30,
+        "rests": [
+          "Stress, strain and the yield point"
+        ]
+      }
     },
     {
-      "day": 6,
+      "day": 7,
       "title": "Fixing the ground instead of the building",
       "scene": "Navarro has three options costed: stone columns, deep densification, and doing nothing to the ground while designing stiffer foundations on top of it. The council wants one approach written into the rebuild guidance.",
       "takeaway": "Ground improvement reduces liquefaction susceptibility or its consequences; structural foundations can instead bypass or accommodate some ground deformation.",
       "place": "Geotechnical",
+      "guide": "Three costed options and four readings of what separates them. Ask of each option where in the system it acts: on the soil, on the structure, or on neither. A stiff foundation can carry a building across ground that moves. It does nothing for the road, the buried services or the site next door. Both approaches can be right, and the council is writing one of them into guidance.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Navarro has three options costed: stone columns, deep densification, and doing nothing to the ground while designing stiffer foundations on top of it. The council wants one approach written into the rebuild guidance.",
       "game": {
         "type": "CHOICE",
@@ -1866,7 +2309,15 @@ export const CURRICULUM = {
           ],
           "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town."
         }
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Liquefaction: when saturated fill stops behaving as a solid",
+        "of": 30,
+        "rests": [
+          "Effective stress, and why water pressure matters"
+        ]
+      }
     }
   ],
   "MAT": [
@@ -1876,6 +2327,11 @@ export const CURRICULUM = {
       "scene": "Kirsten Sørensen has pulled two cast-in anchors from a spare panel in the yard. The design drawing says 40 kilonewtons each. The first came out at 24, the second at 27.",
       "takeaway": "Two pull tests can show a serious capacity shortfall; they do not by themselves establish a code-level factor of safety for every anchor in the building.",
       "place": "Materials & Testing",
+      "guide": "Five numbers, and two of them belong to other questions: the roof span and the number of panels. One is what the drawing promised rather than what the wall got. Ask of each whether it describes what the anchors carried or what the wall asks of them. And note what two pulls cannot carry: a ratio is not a factor of safety, whatever it comes out at.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Kirsten Sørensen has pulled two cast-in anchors from a spare panel in the yard. The design drawing says 40 kilonewtons each. The first came out at 24, the second at 27.",
       "game": {
         "type": "BALLPARK",
@@ -1917,7 +2373,15 @@ export const CURRICULUM = {
           "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Stress, strain and the yield point",
+        "of": 30,
+        "rests": [
+          "Peak ground acceleration and what a building feels"
+        ]
+      }
     },
     {
       "day": 2,
@@ -1925,28 +2389,28 @@ export const CURRICULUM = {
       "scene": "4 cores, 100 mm across, cut from the cracked columns. Sørensen caps and crushes them: 28, 31, 24 and 30 megapascals. The 1974 drawing calls for 25. The four labelled specimens are still on the testing bench.",
       "takeaway": "Core tests characterize sampled concrete; they do not certify the residual capacity of the cracked columns.",
       "place": "Materials & Testing",
+      "guide": "Work the third core's strength out from the machine's own numbers rather than reading it off the report. Stress is the crushing force divided by the area the force acted on, and the area is the circle the core presents — not its diameter. One tile is that diameter, left for somebody who divides by the wrong thing.",
+      "background": [
+        "Why the area and not the diameter. A stress is a force spread over a surface, so the number underneath has to be an area in square metres. A 100 mm core presents a circle of about 0.00785 m², and using 0.1 instead gives an answer twelve times too small with no unit to warn you.",
+        "What the strain is doing. The machine also records shortening: 0.42 mm over a 200 mm gauge length is a strain of 0.0021, which is dimensionless because it is a length over a length. Stress against strain up to the yield point is what the material's stiffness is, and it is the pair that makes a stress–strain curve.",
+        "What a core does not settle. A member's capacity depends on the force it actually carried, on its reinforcement and on how well that steel confines the concrete — none of which travels in a cylinder. Four cores near the specified strength argue against grossly weak concrete and say nothing about a cracked column's remaining capacity."
+      ],
       "story": "4 cores, 100 mm across, cut from the cracked columns. Sørensen caps and crushes them: 28, 31, 24 and 30 megapascals. The 1974 drawing calls for 25. The four labelled specimens are still on the testing bench.",
       "game": {
-        "type": "CHOICE",
+        "type": "BALLPARK",
         "title": "A number, with a method attached",
         "setup": "Materials & Testing",
         "play": "Get a strength from a damaged column",
         "task": "Get a strength from a damaged column",
-        "question": "What is the strongest claim these four core results support?",
-        "answer": "That the concrete meets the strength the design assumed, which is one input and not the answer.",
-        "why": "The 4 cores are 28, 31, 24 and 30 MPa, centred near the specified 25 MPa strength. That argues against grossly weak concrete as the main explanation. Stress is σ = F/A and strain is ε = ΔL/L. A core test does not reconstruct the in-place force, strain, reinforcement or confinement of the damaged column. Member capacity therefore remains a separate question. The cores narrow the diagnosis; they do not prove every column met its design strength or retained its original capacity.",
-        "rebuttals": [
-          "Cracking is a structural observation; a core says nothing about it either way.",
-          "One building's concrete exceeding its specification says nothing about whether the design was conservative.",
-          "Diagonal cracking in a ground-floor column during an earthquake has an obvious cause."
+        "question": "The third core failed at 244 kN. What compressive strength is that, and what does it settle?",
+        "answer": "About 31 MPa — above the 25 the 1974 drawing specifies. It settles the concrete's strength as one input, and not the cracked column's remaining capacity.",
+        "why": "Stress is σ = F / A. The core is 100 mm across, so the area carrying the load is π × 0.05² ≈ 0.00785 m², and 244 kN over that area is 244,000 ÷ 0.00785 ≈ 31 MPa. The machine's other channel gives the strain: ε = ΔL / L, and 0.42 mm of shortening over a 200 mm gauge is 0.0021. Together those two numbers are a point on the stress–strain curve, and the ratio between them up to yield is the stiffness. What none of it reaches is the column: capacity depends on the load path, the reinforcement and the confinement that steel provides, and a cylinder carries none of them. Four cores centred on the specified 25 MPa rule out grossly weak concrete as the explanation for the cracking. That is one input removed from the list, which is worth having and is not the answer.",
+        "givens": [
+          "the core failed at 244 kN and is 100 mm across",
+          "the machine recorded 0.42 mm of shortening over a 200 mm gauge"
         ],
-        "choices": [
-          "That the columns are undamaged, since the concrete exceeds its specified strength.",
-          "That the concrete meets the strength the design assumed, which is one input and not the answer.",
-          "That the design was too conservative and the building is stronger than it needs to be.",
-          "That the cracking must have come from something other than the earthquake."
-        ],
-        "correctChoice": "That the concrete meets the strength the design assumed, which is one input and not the answer."
+        "relationship": "Stress is σ = F / A and strain is ε = ΔL / L, and the two together give the concrete's stiffness up to yield.",
+        "calcKey": "MAT-2"
       },
       "assumes": [
         "concrete strength is measured by crushing a sample of known size"
@@ -1977,7 +2441,8 @@ export const CURRICULUM = {
               "how much it stretched over how long it was"
             ]
           ],
-          "s": "Stress is force spread over area and strain is the stretch it causes; up to the yield point the material comes back, and past it the deformation stays."
+          "s": "Stress is force spread over area and strain is the stretch it causes; up to the yield point the material comes back, and past it the deformation stays.",
+          "computed": true
         },
         {
           "e": "FoS = capacity / demand",
@@ -1998,7 +2463,16 @@ export const CURRICULUM = {
           ],
           "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
         }
-      ]
+      ],
+      "concept": {
+        "n": 25,
+        "c": "Sampling and testing damaged material",
+        "of": 30,
+        "rests": [
+          "Stress, strain and the yield point",
+          "Rapid assessment against detailed evaluation"
+        ]
+      }
     },
     {
       "day": 3,
@@ -2006,6 +2480,12 @@ export const CURRICULUM = {
       "scene": "In the basement: the crack is 0.4 mm and horizontal, a metre above the floor. Five more columns along the row carry one that looks the same. The original construction drawings are open on a crate nearby.",
       "takeaway": "When the same feature repeats at the same place in many members, look first for a shared detail before assuming separate failures.",
       "place": "Materials & Testing",
+      "guide": "Four explanations, and one fact constrains all of them. Six columns in a row carry the same feature at the same height and the same width. Ask of each option whether it would produce that repetition. Six independent failures rarely agree to a millimetre. The drawings are open on a crate, which is where a shared construction detail would show up.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "In the basement: the crack is 0.4 mm and horizontal, a metre above the floor. Five more columns along the row carry one that looks the same. The original construction drawings are open on a crate nearby.",
       "game": {
         "type": "CHOICE",
@@ -2031,7 +2511,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a defect that repeats in a pattern usually has a construction cause"
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Bearing capacity and settlement",
+        "of": 30,
+        "rests": [
+          "Stress, strain and the yield point",
+          "Liquefaction: when saturated fill stops behaving as a solid"
+        ]
+      }
     },
     {
       "day": 4,
@@ -2039,6 +2528,12 @@ export const CURRICULUM = {
       "scene": "Ferreira has four test proposals for the Parade's listed brickwork. The scaffold permit allows one small trial location this week, and owners will not accept large-scale destructive sampling. A tie-back design still needs a defensible capacity number.",
       "takeaway": "A precise test is valuable only when it measures the property that the pending design decision actually needs.",
       "place": "Materials & Testing",
+      "guide": "Four tests are on the table and the permit allows one trial location. Open each card: it says what the test measures and how much listed fabric it consumes. The tie-back design needs a defensible pull-out capacity, so the test worth buying is the one that measures that property — not the one that produces the most precise number about something else.",
+      "background": [
+        "What the design actually needs. A tie-back is only as good as what it is anchored into, so the number the drawing needs is how much force an anchor in this brickwork can carry before it pulls out. Compressive strength, mortar composition and moisture content are all real properties of the wall, and none of them is that number.",
+        "Why precision is not value. A laboratory can give three significant figures on a property the design does not use, and the report will look better than a crude pull-out test with wide scatter. The question is which measurement changes the decision, which is the same question VALUE asks in every game that has one.",
+        "Why the fabric cost is on the card. This is listed brickwork: every test damages something that cannot be replaced, and the owners have already refused large-scale sampling. A test's cost here is not money but heritage, which makes choosing well a conservation decision as much as an engineering one."
+      ],
       "story": "Ferreira has four test proposals for the Parade's listed brickwork. The scaffold permit allows one small trial location this week, and owners will not accept large-scale destructive sampling. A tie-back design still needs a defensible capacity number.",
       "game": {
         "type": "VALUE",
@@ -2113,7 +2608,16 @@ export const CURRICULUM = {
           ],
           "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
         }
-      ]
+      ],
+      "concept": {
+        "n": 26,
+        "c": "Retrofit: what is worth doing before the next one",
+        "of": 30,
+        "rests": [
+          "Factor of safety, and what it is protecting against",
+          "Load path, and what happens where it stops"
+        ]
+      }
     },
     {
       "day": 5,
@@ -2121,6 +2625,11 @@ export const CURRICULUM = {
       "scene": "Ferreira has cone penetration results from a trial panel: the fill tested at 4 MPa before the stone columns went in and 11 after. The two CPT traces lie side by side on the desk.",
       "takeaway": "CPT resistance is a measurable quality-control indicator; a 2.75-fold increase in qc is not automatically a 2.75-fold increase in liquefaction resistance.",
       "place": "Materials & Testing",
+      "guide": "Five numbers, and three belong elsewhere: the depth of the fill, the amplification factor and a concrete strength. Ask of each whether it came from these two cone traces. And note what the factor is and is not. Cone resistance is an input to a liquefaction assessment, so 2.75 times the resistance is not 2.75 times the margin.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Ferreira has cone penetration results from a trial panel: the fill tested at 4 MPa before the stone columns went in and 11 after. The two CPT traces lie side by side on the desk.",
       "game": {
         "type": "BALLPARK",
@@ -2196,7 +2705,16 @@ export const CURRICULUM = {
           "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town.",
           "card": false
         }
-      ]
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Factor of safety, and what it is protecting against",
+        "of": 30,
+        "rests": [
+          "Stress, strain and the yield point",
+          "Base shear — the horizontal force a building is designed for"
+        ]
+      }
     }
   ],
   "HAZ": [
@@ -2206,31 +2724,32 @@ export const CURRICULUM = {
       "scene": "Tanaka has both agency bulletins on the desk. The early one used the first stations to report; the later one used the whole network and the long-period part of the record.",
       "takeaway": "A magnitude revision means the estimate changed as the available waveform and network coverage improved; the earthquake itself did not change.",
       "place": "Hazard & Forecasting",
+      "guide": "The later solution has a fault model behind it: an area and an average slip. Build the seismic moment from the rigidity, the area and the slip, and the verdict turns that into a magnitude. Watch the units — the area is given in square kilometres and the moment needs square metres, so one of the tiles is the conversion already done and another is the same area unconverted.",
+      "background": [
+        "What the moment is made of. Rigidity times ruptured area times average slip. It is a physical quantity with units of newton metres, and it is what a long-period record measures — which is why a bulletin written from the first few seconds of short-period data can be revised once the whole waveform has arrived.",
+        "Why the scale is logarithmic. Magnitude is two thirds of the base-ten logarithm of the moment, less a constant, so one step of 0.2 in magnitude is a factor of about two in moment. Nothing about the earthquake changed between the bulletins; the estimate of how much fault moved by how much did.",
+        "Why this matters for the notice. A town told the number went from 6.6 to 6.8 hears that the earthquake grew. What actually happened is that the second estimate saw twice as much moment as the first one could, and the difference is a property of networks and waveforms rather than of the ground."
+      ],
       "story": "Tanaka has both agency bulletins on the desk. The early one used the first stations to report; the later one used the whole network and the long-period part of the record.",
       "game": {
-        "type": "CHOICE",
+        "type": "BALLPARK",
         "title": "Why the number moved",
         "setup": "Hazard & Forecasting",
         "play": "Explain what changed between the 6.6 and 6.8 solutions",
         "task": "Explain what changed between the 6.6 and 6.8 solutions",
-        "question": "Which explanation of the 6.6-to-6.8 revision is scientifically defensible?",
-        "answer": "The later 6.8 estimate uses more complete waveform and network information. From the moment-magnitude relation, a 0.2 increase gives 10^(1.5×0.2) ≈ 2 times the seismic moment. The earthquake itself did not grow during the six hours between bulletins.",
-        "why": "Rapid magnitude estimates use the stations and waveform available in the first minutes. Later solutions can use more stations and longer-period motion, so the estimate may change. Seismic moment is M₀ = μAD: rigidity times fault area times average slip. Moment magnitude is logarithmic: M_w = ⅔ log₁₀ M₀ − 6.06 when M₀ is in newton metres. A 0.2 rise gives a moment ratio 10^(1.5×0.2) ≈ 2, so the revision is physically meaningful without implying the earthquake grew later.",
-        "rebuttals": [
-          "The earthquake was over in under a minute; nothing about it changed six hours later.",
-          "Neither agency was wrong — each stated what its data supported at the time it was issued.",
-          "Both figures are moment magnitudes on the same scale, which is why they can be compared at all."
+        "question": "From the later solution's fault model, what seismic moment does the 6.8 estimate correspond to?",
+        "answer": "About 2.0 × 10¹⁹ newton metres, which is M_w 6.8. The first bulletin's 6.6 corresponds to roughly half that moment — the estimate doubled, the earthquake did not.",
+        "why": "Seismic moment is M₀ = μAD — rigidity times ruptured area times average slip. The later solution's model is 600 km² of fault, which is 6.0 × 10⁸ m², slipping an average of 1.1 m through crust with a rigidity of 3.0 × 10¹⁰ Pa, so M₀ = 3.0 × 10¹⁰ × 6.0 × 10⁸ × 1.1 ≈ 2.0 × 10¹⁹ N·m. Moment magnitude is M_w = ⅔ log₁₀ M₀ − 6.06, and ⅔ × 19.30 − 6.06 = 6.80. The first bulletin's 6.6 is 10^(1.5 × 0.2) ≈ 2 times smaller in moment, which is exactly what a rapid short-period estimate misses: the long-period part of the record is where a large slow rupture shows up. So the revision is a statement about network coverage and waveform bandwidth, and the fault moved once.",
+        "givens": [
+          "600 km² of ruptured fault, average slip 1.1 m",
+          "rigidity of the crust 3.0 × 10¹⁰ Pa"
         ],
-        "choices": [
-          "The earthquake grew stronger during the six hours between the two bulletins.",
-          "The later figure used more stations and the long-period signal.",
-          "One of the two agencies made an error that should be corrected publicly.",
-          "The two figures are on different scales and cannot be compared at all."
-        ],
-        "correctChoice": "The later figure used more stations and the long-period signal."
+        "relationship": "M₀ = μ · A · D, and then M_w = ⅔ log₁₀ M₀ − 6.06 with the moment in newton metres.",
+        "calcKey": "HAZ-1"
       },
       "assumes": [
-        "a magnitude is computed from records, so more records can change it"
+        "a magnitude is computed from records, so more records can change it",
+        "magnitude as a logarithmic scale — taken as read"
       ],
       "equations": [
         {
@@ -2254,7 +2773,8 @@ export const CURRICULUM = {
               "average slip on it, in metres"
             ]
           ],
-          "s": "The size of an earthquake is the area that moved times how far it moved times how stiff the rock is, which is why a long rupture matters more than a violent one."
+          "s": "The size of an earthquake is the area that moved times how far it moved times how stiff the rock is, which is why a long rupture matters more than a violent one.",
+          "computed": true
         },
         {
           "e": "M_w = ⅔ log₁₀ M₀ − 6.06",
@@ -2275,7 +2795,21 @@ export const CURRICULUM = {
           ],
           "s": "One unit of magnitude is about thirty-two times the energy, so a 7 is not a bit worse than a 6."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 3,
+          "c": "Magnitude as a logarithmic scale"
+        }
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Moment magnitude, and what it is made of",
+        "of": 30,
+        "rests": [
+          "Magnitude as a logarithmic scale"
+        ]
+      }
     },
     {
       "day": 2,
@@ -2283,6 +2817,12 @@ export const CURRICULUM = {
       "scene": "The field roster locks in ten minutes. Two engineers are free tomorrow, four addresses are on Tanaka's board, and each has somebody waiting for an answer. Once the roster closes, the other three wait another day.",
       "takeaway": "Re-inspect where the first look was least able to see and the consequence of being wrong is largest.",
       "place": "Hazard & Forecasting",
+      "guide": "All four buildings deserve an answer and only two engineers are free. Ask of each two things: what did the first visit fail to see, and what is the cost of being wrong. An empty red building is already restricted, so a second visit changes little today. An anxious owner needs a conversation, which is not the same resource as an engineer-day.",
+      "background": [
+        "Why first is a different question from most important. When several calls compete for the same hour, what a choice is worth is not its own importance but the difference between doing it now and doing it later. A serious problem that will be no worse in an hour costs nothing to defer. A smaller one that closes a door costs everything behind that door.",
+        "What to look for in the options. Two things separate them: which is still changing, and which is a precondition for the others. A situation that is deteriorating has a cost per hour attached to it, and a step that unblocks the rest multiplies the value of the hours after it. Everything else is a preference about where to start.",
+        "Why only one answer is marked. In the situation these options describe all of them eventually happen; what is being tested is the head of the queue, because that is where the reasoning is visible. The verdict names what each of the others was waiting on, which is worth reading even when the choice was right — the ordering behind the first place is the rest of the answer."
+      ],
       "story": "The field roster locks in ten minutes. Two engineers are free tomorrow, four addresses are on Tanaka's board, and each has somebody waiting for an answer. Once the roster closes, the other three wait another day.",
       "game": {
         "type": "TRIAGE",
@@ -2308,7 +2848,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a second inspection is a scarce thing to spend"
-      ]
+      ],
+      "concept": {
+        "n": 22,
+        "c": "Rapid assessment against detailed evaluation",
+        "of": 30,
+        "rests": [
+          "Load path, and what happens where it stops",
+          "Unreinforced masonry, and why it fails outward"
+        ]
+      }
     },
     {
       "day": 3,
@@ -2316,6 +2865,12 @@ export const CURRICULUM = {
       "scene": "Tanaka has the aftershock rate for the coming week. Ives has the transfer log. Halvorsen wants both of them stated as consequences rather than as principles. The review board meets again at the end of the week.",
       "takeaway": "A decision to wait is a decision with an outcome, and it has to be compared with the outcome of deciding now.",
       "place": "Hazard & Forecasting",
+      "guide": "All four options are ways of weighing four days. They differ in what they count. Ask of each whether it prices the delay, the evidence, or neither. The frame has already been inspected and the unresolved item is a roof plant room nobody has entered. So the real test is what this evidence could change, and coring answers a different question.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Tanaka has the aftershock rate for the coming week. Ives has the transfer log. Halvorsen wants both of them stated as consequences rather than as principles. The review board meets again at the end of the week.",
       "game": {
         "type": "CHOICE",
@@ -2342,54 +2897,14 @@ export const CURRICULUM = {
       "assumes": [
         "a delay has consequences that can be counted"
       ],
-      "equations": [
-        {
-          "e": "σ = F / A, ε = ΔL / L",
-          "c": "stress and strain, and the yield point between them",
-          "v": [
-            [
-              "σ",
-              "stress, in megapascals"
-            ],
-            [
-              "F",
-              "force carried, in newtons"
-            ],
-            [
-              "A",
-              "cross-sectional area, in square metres"
-            ],
-            [
-              "ε",
-              "strain, a ratio with no units"
-            ],
-            [
-              "ΔL / L",
-              "how much it stretched over how long it was"
-            ]
-          ],
-          "s": "Stress is force spread over area and strain is the stretch it causes; up to the yield point the material comes back, and past it the deformation stays."
-        },
-        {
-          "e": "n(t) = K / (c + t)^p",
-          "c": "aftershock rate, falling as a power law",
-          "v": [
-            [
-              "n(t)",
-              "aftershocks per day at time t"
-            ],
-            [
-              "t",
-              "days since the mainshock"
-            ],
-            [
-              "K, c, p",
-              "constants fitted to this sequence, with p usually near 1"
-            ]
-          ],
-          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
-        }
-      ]
+      "concept": {
+        "n": 12,
+        "c": "Stress, strain and the yield point",
+        "of": 30,
+        "rests": [
+          "Peak ground acceleration and what a building feels"
+        ]
+      }
     },
     {
       "day": 4,
@@ -2397,6 +2912,11 @@ export const CURRICULUM = {
       "scene": "Day 1 had 96 events above magnitude 3. Day 2 had 52, day 3 41, day 4 26. Tanaka's fit has the rate roughly halving as the elapsed time doubles.",
       "takeaway": "A simple Omori-style decay gives a central rate estimate; the real forecast also needs uncertainty around that curve.",
       "place": "Hazard & Forecasting",
+      "guide": "Five numbers, and two of them belong to other questions: the magnitude and the running total. One is day one, which is four doublings back rather than one. Ask of each whether it is a count, a time, or a ratio of times. And note what comes out: an expected rate, not a quota. Real days scatter either side of a fitted curve.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Day 1 had 96 events above magnitude 3. Day 2 had 52, day 3 41, day 4 26. Tanaka's fit has the rate roughly halving as the elapsed time doubles.",
       "game": {
         "type": "BALLPARK",
@@ -2437,7 +2957,15 @@ export const CURRICULUM = {
           ],
           "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
         }
-      ]
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Aftershock decay as a power law",
+        "of": 30,
+        "rests": [
+          "Magnitude as a logarithmic scale"
+        ]
+      }
     },
     {
       "day": 5,
@@ -2469,7 +2997,9 @@ export const CURRICULUM = {
         "correctChoice": "A condition — each stretch lifts when its recorded hazard is resolved."
       },
       "assumes": [
-        "a commitment can be tied to a date or to an event"
+        "a commitment can be tied to a date or to an event",
+        "peak ground acceleration and what a building feels — taken as read",
+        "p and S waves, and what the gap between them measures — taken as read"
       ],
       "equations": [
         {
@@ -2491,7 +3021,26 @@ export const CURRICULUM = {
           ],
           "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 6,
+          "c": "Peak ground acceleration and what a building feels"
+        },
+        {
+          "n": 1,
+          "c": "P and S waves, and what the gap between them measures"
+        }
+      ],
+      "concept": {
+        "n": 24,
+        "c": "Instruments: what an accelerograph actually records",
+        "of": 30,
+        "rests": [
+          "Peak ground acceleration and what a building feels",
+          "P and S waves, and what the gap between them measures"
+        ]
+      }
     },
     {
       "day": 6,
@@ -2499,52 +3048,34 @@ export const CURRICULUM = {
       "scene": "If the Flats amplify by five rather than three, the shaking a future earthquake will deliver there is much larger than the figure in the district plan. The revised district map is waiting for a replacement number.",
       "takeaway": "Correcting site response changes forward-looking hazard and design assumptions; it does not rewrite damage that was observed directly.",
       "place": "Hazard & Forecasting",
+      "guide": "Two instruments recorded the same earthquake, one on the Flats and one on rock above the town. The amplification is the ratio between what they measured, so pick the two peak accelerations and divide. One tile is the figure the district plan currently carries, which is the number being replaced rather than an input to it.",
+      "background": [
+        "What the ratio is. Site amplification is the peak motion on soft ground over the peak motion on competent rock for the same event. It is dimensionless, so both readings have to be in the same units, and it is a property of the ground rather than of the earthquake.",
+        "Why one number is not a spectrum. Soft ground amplifies some frequencies far more than others, so a single ratio is a summary. It is the summary the district plan uses, which is why replacing three with five moves every design value that plan feeds — and why the full answer is a curve somebody still has to measure.",
+        "What the correction cannot touch. The placards came from what inspectors saw in buildings, and the cracks are already photographed. A revised ratio changes the shaking a future earthquake is expected to deliver, and rewrites nothing that has already been observed."
+      ],
       "story": "If the Flats amplify by five rather than three, the shaking a future earthquake will deliver there is much larger than the figure in the district plan. The revised district map is waiting for a replacement number.",
       "game": {
-        "type": "CHOICE",
+        "type": "BALLPARK",
         "title": "Five times, not three",
         "setup": "Hazard & Forecasting",
         "play": "Decide what a bigger amplification changes",
         "task": "Decide what a bigger amplification changes",
-        "question": "What does the corrected amplification change?",
-        "answer": "The design values for rebuilding in the Flats, and the case for ground improvement there.",
-        "why": "Placards came from observed building conditions, so a corrected site-amplification ratio does not automatically change them. Future design work is different. The Flats site-response model, rebuilding values and case for ground improvement must all be reconsidered. One amplification number is not a complete design spectrum because response also varies with frequency. The correction changes assumptions about future shaking demand. It does not change the earthquake magnitude already measured or the cracks already documented.",
-        "rebuttals": [
-          "Placards came from inspecting damage, not from a predicted amplification factor.",
-          "The magnitude is a property of the source and is computed from many stations.",
-          "The buildings that survived did so under this shaking, which says nothing about a future one on the corrected figure."
+        "question": "From the two records of the same earthquake, what is the Flats' amplification over rock?",
+        "answer": "About 5.0 — 0.41 g on the Flats against 0.082 g at the vault on granite. The district plan's 3 is the number being replaced, and what it changes is future design, not the placards already issued.",
+        "why": "Site amplification is A_soft / A_rock: the peak acceleration recorded on soft ground divided by the peak on competent rock for the same event. The Flats instrument recorded 0.41 g and the vault instrument on granite recorded 0.082 g, so the ratio is 0.41 ÷ 0.082 ≈ 5.0, against the 3 the district plan assumes. Both readings are in g, so the answer is dimensionless, which is what makes it a property of the ground rather than of this earthquake. Two things follow and one does not. The design values for rebuilding in the Flats rise, and the case for ground improvement gets much stronger. What does not change is anything already observed: the placards came from inspections of real buildings, and the magnitude of the earthquake was measured from waveforms, not inferred from a ratio. And one number is still only a summary — amplification varies with frequency, so the Flats need a response curve before anything is designed against them.",
+        "givens": [
+          "0.41 g on the Flats and 0.082 g on granite, same event",
+          "the district plan currently assumes 3"
         ],
-        "choices": [
-          "The placards issued this fortnight, which were based on the wrong figure.",
-          "The design values for rebuilding in the Flats, and the case for ground improvement there.",
-          "The magnitude of the earthquake that has already happened.",
-          "Nothing, because the buildings have already been through the real shaking."
-        ],
-        "correctChoice": "The design values for rebuilding in the Flats, and the case for ground improvement there."
+        "relationship": "Site amplification is A_soft / A_rock — the peak on soft ground over the peak on rock for the same event, so it is dimensionless.",
+        "calcKey": "HAZ-6"
       },
       "assumes": [
-        "design values are chosen from expected shaking"
+        "design values are chosen from expected shaking",
+        "peak ground acceleration and what a building feels — taken as read"
       ],
       "equations": [
-        {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
-          "v": [
-            [
-              "FoS",
-              "factor of safety, no units"
-            ],
-            [
-              "capacity",
-              "what the element can carry"
-            ],
-            [
-              "demand",
-              "what the earthquake asked of it, in the same units"
-            ]
-          ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
-        },
         {
           "e": "A_soft / A_rock",
           "c": "site amplification — the same wave on two grounds",
@@ -2558,9 +3089,24 @@ export const CURRICULUM = {
               "shaking measured on rock nearby, in the same units"
             ]
           ],
-          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town."
+          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town.",
+          "computed": true
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 6,
+          "c": "Peak ground acceleration and what a building feels"
+        }
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Site effect: soft ground amplifies",
+        "of": 30,
+        "rests": [
+          "Peak ground acceleration and what a building feels"
+        ]
+      }
     },
     {
       "day": 7,
@@ -2568,6 +3114,12 @@ export const CURRICULUM = {
       "scene": "Tanaka's aftershock forecast goes into the report. She wants the range in the sentence and Okonkwo wants to know what the range is for. The staffing appendix cannot be signed until she chooses the wording.",
       "takeaway": "A forecast without a range cannot size a decision, because the decision is sized against the range.",
       "place": "Hazard & Forecasting",
+      "guide": "Four reasons to publish a range, and they differ in who the range is for. Ask of each whether it is about caution, honesty, defensibility, or planning. Nobody staffs an emergency to the average week. A single number tells a planner nothing about how far the sequence might run above it, so they invent a margin instead. The staffing appendix cannot be signed until the wording is chosen.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Tanaka's aftershock forecast goes into the report. She wants the range in the sentence and Okonkwo wants to know what the range is for. The staffing appendix cannot be signed until she chooses the wording.",
       "game": {
         "type": "CHOICE",
@@ -2633,7 +3185,15 @@ export const CURRICULUM = {
           ],
           "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
         }
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Probability of a larger event after a mainshock",
+        "of": 30,
+        "rests": [
+          "Aftershock decay as a power law"
+        ]
+      }
     }
   ],
   "SAFE": [
@@ -2643,6 +3203,12 @@ export const CURRICULUM = {
       "scene": "Adeyemi has 200 words and an audience that has heard 2 numbers and a rumour about a bigger 1 coming. She wants to know what the notice has to contain.",
       "takeaway": "A notice earns its place by changing what somebody does, and everything else in it competes with that.",
       "place": "Public Safety",
+      "guide": "All four of these will be in the notice, so nothing is being left out. Ask instead which one somebody can act on while standing in the street, and which is a fact they will repeat later. Two hundred words are read in the order they are printed. A revision from 6.6 to 6.8 changes nothing about what to do outside this building, and a rate is not a prediction.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Adeyemi has 200 words and an audience that has heard 2 numbers and a rumour about a bigger 1 coming. She wants to know what the notice has to contain.",
       "game": {
         "type": "SEQUENCE",
@@ -2667,29 +3233,23 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "a public notice is read once, quickly, by somebody who is tired"
+        "a public notice is read once, quickly, by somebody who is tired",
+        "p and S waves, and what the gap between them measures — taken as read"
       ],
-      "equations": [
+      "takesAsRead": [
         {
-          "e": "n(t) = K / (c + t)^p",
-          "c": "aftershock rate, falling as a power law",
-          "v": [
-            [
-              "n(t)",
-              "aftershocks per day at time t"
-            ],
-            [
-              "t",
-              "days since the mainshock"
-            ],
-            [
-              "K, c, p",
-              "constants fitted to this sequence, with p usually near 1"
-            ]
-          ],
-          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
+          "n": 1,
+          "c": "P and S waves, and what the gap between them measures"
         }
-      ]
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Magnitude as a logarithmic scale",
+        "of": 30,
+        "rests": [
+          "P and S waves, and what the gap between them measures"
+        ]
+      }
     },
     {
       "day": 2,
@@ -2697,6 +3257,12 @@ export const CURRICULUM = {
       "scene": "Delacroix has three residents outside with green placards and one question between them: is my house all right? Adeyemi will not say yes and needs a sentence that is not a dodge.",
       "takeaway": "A placard is an occupancy decision based on a defined inspection, not a warranty that every hidden part is undamaged.",
       "place": "Public Safety",
+      "guide": "All four options are things a resident might hear as reassurance. They differ in how much they claim. Ask of each whether the rapid inspection could have established it. Three residents are outside asking whether their house is all right. A sentence that promises more than the inspection did is not kindness, and the placard will be quoted back later.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Delacroix has three residents outside with green placards and one question between them: is my house all right? Adeyemi will not say yes and needs a sentence that is not a dodge.",
       "game": {
         "type": "CHOICE",
@@ -2723,27 +3289,15 @@ export const CURRICULUM = {
       "assumes": [
         "people read a colour as a verdict"
       ],
-      "equations": [
-        {
-          "e": "n(t) = K / (c + t)^p",
-          "c": "aftershock rate, falling as a power law",
-          "v": [
-            [
-              "n(t)",
-              "aftershocks per day at time t"
-            ],
-            [
-              "t",
-              "days since the mainshock"
-            ],
-            [
-              "K, c, p",
-              "constants fitted to this sequence, with p usually near 1"
-            ]
-          ],
-          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
-        }
-      ]
+      "concept": {
+        "n": 21,
+        "c": "Placarding as a decision under uncertainty",
+        "of": 30,
+        "rests": [
+          "Factor of safety, and what it is protecting against",
+          "Rapid assessment against detailed evaluation"
+        ]
+      }
     },
     {
       "day": 3,
@@ -2751,6 +3305,12 @@ export const CURRICULUM = {
       "scene": "Halvorsen wants Marina Court demolished this week. Delacroix has 12 neighbouring buildings on the same reclaimed ground and 5 investigation-days before the cordon review. Four proposed uses of that window are written across the site map.",
       "takeaway": "The best next measurement is the one that can change the decision you still have to make, not the one that studies the most visible damage.",
       "place": "Public Safety",
+      "guide": "Five investigation-days, four proposals, and a demolition somebody wants this week. Open each proposal to see what decision its result could change. Marina Court is already cordoned, so evidence about that one building changes nothing that is not already decided — the twelve neighbours on the same reclaimed ground are where the open decision is. Commit the window you would spend.",
+      "background": [
+        "What is already decided and what is not. Marina Court is cordoned; nobody is going back in this week whatever a test says. The open question is whether the ground condition that damaged it requires action on the twelve buildings around it, and that is a question about the ground rather than about the building.",
+        "Why the most visible damage is the trap. A proposal to instrument the worst-damaged structure produces vivid results and answers a question that has been closed. It is the most defensible-sounding way to spend five days and learn nothing that changes a decision.",
+        "What generalising means here. A campaign of cone tests and boreholes across the Flats measures the fill itself, which every one of the thirteen buildings sits on. One result then bears on twelve open decisions instead of one closed one — the same money, an order of magnitude more use."
+      ],
       "story": "Halvorsen wants Marina Court demolished this week. Delacroix has 12 neighbouring buildings on the same reclaimed ground and 5 investigation-days before the cordon review. Four proposed uses of that window are written across the site map.",
       "game": {
         "type": "VALUE",
@@ -2804,7 +3364,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a decision can treat a symptom or a cause"
-      ]
+      ],
+      "concept": {
+        "n": 21,
+        "c": "Placarding as a decision under uncertainty",
+        "of": 30,
+        "rests": [
+          "Factor of safety, and what it is protecting against",
+          "Rapid assessment against detailed evaluation"
+        ]
+      }
     },
     {
       "day": 4,
@@ -2812,6 +3381,12 @@ export const CURRICULUM = {
       "scene": "400 children are due back Monday. The classrooms are sound and the gym is not. Halvorsen has parents calling, the district has no spare campus, and the morning bus schedule depends on whatever answer comes off this table.",
       "takeaway": "The useful question is which parts can be occupied, not whether the site is open or shut.",
       "place": "Public Safety",
+      "guide": "All four options are defensible readings of one site with two different buildings on it. Ask of each whether it treats the site as one thing or as parts. The classrooms and the gym have different evidence behind them. Four hundred children arrive Monday and there is no spare campus. A decision that covers both buildings equally is ignoring half of what was measured.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "400 children are due back Monday. The classrooms are sound and the gym is not. Halvorsen has parents calling, the district has no spare campus, and the morning bus schedule depends on whatever answer comes off this table.",
       "game": {
         "type": "CHOICE",
@@ -2858,7 +3433,16 @@ export const CURRICULUM = {
           ],
           "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
         }
-      ]
+      ],
+      "concept": {
+        "n": 21,
+        "c": "Placarding as a decision under uncertainty",
+        "of": 30,
+        "rests": [
+          "Factor of safety, and what it is protecting against",
+          "Rapid assessment against detailed evaluation"
+        ]
+      }
     },
     {
       "day": 5,
@@ -2866,6 +3450,12 @@ export const CURRICULUM = {
       "scene": "Monday's public meeting has 200 residents registered and no backup venue. The library is the only hall large enough. Three ground-floor columns are cracked, and the route plan has to be settled before the doors can be advertised.",
       "takeaway": "Restricted use is a real option between open and shut, and it has to name what the restriction is protecting against.",
       "place": "Public Safety",
+      "guide": "All four of these will happen, so the order is what is being decided. Ask of each what has to be settled before it can mean anything. A number of people is only enforceable once the permitted area is defined. A review date on a restriction is what stops it drifting into permanence. Two hundred residents are registered for Monday and there is no other hall.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Monday's public meeting has 200 residents registered and no backup venue. The library is the only hall large enough. Three ground-floor columns are cracked, and the route plan has to be settled before the doors can be advertised.",
       "game": {
         "type": "SEQUENCE",
@@ -2891,7 +3481,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "occupancy can be limited by number, by area or by time"
-      ]
+      ],
+      "concept": {
+        "n": 28,
+        "c": "Communicating risk to people who have to act on it",
+        "of": 30,
+        "rests": [
+          "Probability of a larger event after a mainshock",
+          "Placarding as a decision under uncertainty"
+        ]
+      }
     },
     {
       "day": 6,
@@ -2899,6 +3498,12 @@ export const CURRICULUM = {
       "scene": "Shopkeepers are waiting at the tape with deliveries and keys in hand. Delacroix walks the cordon with the boundary log. Three stretches have written reasons. The southern leg is still closed, but nobody can point to the hazard it is controlling.",
       "takeaway": "Every cordon segment is a claim about a current hazard, and each claim should remain traceable to evidence that can be rechecked.",
       "place": "Public Safety",
+      "guide": "Each stretch of cordon is a claim that a hazard is there now. Open the evidence behind each one before spending anything: some rest on an inspection, some on a hazard that has since been removed, and one has no written reason at all. You can recheck one stretch physically. Hold the claims the evidence does not support, and choose the recheck where opening the wrong street would cost the most.",
+      "background": [
+        "A cordon is a claim, not a decision. Tape is put up for a reason, and the reason is a statement about a present condition — falling glass, an unstable parapet, ground that may still move. Conditions change and reasons expire, so a boundary nobody has revisited is a claim nobody has retested.",
+        "What the cost of a stale cordon is. Shopkeepers are at the tape with keys and deliveries. Every day a stretch stays closed without a hazard behind it, the cordon as a whole loses authority, and the stretches that do control real hazards get walked around. Over-closing is not the safe error it looks like.",
+        "Why the unwritten leg is not automatically the answer. A stretch with no logged reason may still be controlling a genuine hazard that somebody saw on day one and never wrote down. The point of the check is to find out, which is why the panel makes you spend the verification rather than infer from the paperwork."
+      ],
       "story": "Shopkeepers are waiting at the tape with deliveries and keys in hand. Delacroix walks the cordon with the boundary log. Three stretches have written reasons. The southern leg is still closed, but nobody can point to the hazard it is controlling.",
       "game": {
         "type": "ATTEST",
@@ -2950,7 +3555,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a boundary can be drawn for more than one reason"
-      ]
+      ],
+      "concept": {
+        "n": 21,
+        "c": "Placarding as a decision under uncertainty",
+        "of": 30,
+        "rests": [
+          "Factor of safety, and what it is protecting against",
+          "Rapid assessment against detailed evaluation"
+        ]
+      }
     },
     {
       "day": 7,
@@ -2958,6 +3572,12 @@ export const CURRICULUM = {
       "scene": "200 people are already in the hall. One photograph has been forwarded all over town. The office has to explain what it found tonight, what it did not see on day one, and what happens next before anyone goes home.",
       "takeaway": "Say what was found, what it means and what the process missed, in that order, and commit to the part you control.",
       "place": "Public Safety",
+      "guide": "All four of these have to be said tonight, so nothing is being withheld. Ask which one the hall came to hear, and which one it will only accept afterwards. Two hundred people are already seated and the photograph has been forwarded all over town. An explanation offered before the finding reads as a defence, and the admission is the part that has to be plain.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "200 people are already in the hall. One photograph has been forwarded all over town. The office has to explain what it found tonight, what it did not see on day one, and what happens next before anyone goes home.",
       "game": {
         "type": "SEQUENCE",
@@ -2983,15 +3603,192 @@ export const CURRICULUM = {
       },
       "assumes": [
         "trust is affected by how a process handles being wrong"
-      ]
+      ],
+      "concept": {
+        "n": 30,
+        "c": "Documentation: the record somebody inherits",
+        "of": 30,
+        "rests": [
+          "Rapid assessment against detailed evaluation",
+          "Sampling and testing damaged material"
+        ]
+      }
     },
     {
       "day": 8,
+      "title": "What the teams are being sent to",
+      "scene": "Buildings queue for assessment faster than the teams can reach them. The office works to one priority, and Okonkwo changes it as the fortnight does — after the aftershock, after the schools ask, after the cordon goes up.",
+      "takeaway": "The cost of a withdrawn instruction is paid by whoever is still working to it.",
+      "place": "Assessment Office",
+      "guide": "Send teams to what the current priority wants and leave the rest queued. The priority on the office board changes during the day and nobody announces it. What is scored is the buildings either side of a change, because they are the only ones that show whether the office is reading the board.",
+      "background": [
+        "Why the priority changes. Early it is occupied buildings, because people are in them. After an aftershock it is anything already placarded yellow, because their capacity has fallen and the same shake now does more. When the schools ask it is schools, because a decision is waiting on the answer rather than on the risk.",
+        "Why the changeover costs. A team sent under the old priority spends half a day on a building nobody is waiting for, and the building that the new priority named waits another night with people in it."
+      ],
+      "story": "Buildings queue for assessment faster than the teams can reach them. The office works to one priority, and Okonkwo changes it as the fortnight does — after the aftershock, after the schools ask, after the cordon goes up.",
+      "game": {
+        "type": "SPOT",
+        "title": "What the teams are being sent to",
+        "setup": "Assessment Office",
+        "play": "Work the assessment queue while the priority changes.",
+        "task": "Work the assessment queue while the priority changes.",
+        "question": "Dispatch to the priority on the board, and keep watching the board.",
+        "answer": "Read the board rather than the queue. Every change leaves an hour in which the old priority still looks like today's.",
+        "why": "Three priorities run across the fortnight and each wants a different part of the queue. Occupied buildings, then anything already placarded yellow, then schools. A building can answer two at once, which is what makes the change cost real rather than notional, and the panel scores the window either side of each change because most of the queue is wanted by neither priority and is correctly left waiting by somebody who has read nothing. The office's own version is the hour after an aftershock: the priority has changed to the yellow placards, whose capacity has just fallen again, and the teams already in the vans are driving to the list that was current before the shake.",
+        "spot": {
+          "targets": [
+            {
+              "id": "b1",
+              "label": "Flats, occupied",
+              "tags": [
+                "occupied"
+              ]
+            },
+            {
+              "id": "b2",
+              "label": "Yellow placard, empty",
+              "tags": [
+                "yellow"
+              ]
+            },
+            {
+              "id": "b3",
+              "label": "School, occupied",
+              "tags": [
+                "school",
+                "occupied"
+              ]
+            },
+            {
+              "id": "b4",
+              "label": "Yellow placard, occupied",
+              "tags": [
+                "yellow",
+                "occupied"
+              ]
+            },
+            {
+              "id": "b5",
+              "label": "Warehouse, empty",
+              "tags": [
+                "empty"
+              ]
+            },
+            {
+              "id": "b6",
+              "label": "School, closed",
+              "tags": [
+                "school"
+              ]
+            },
+            {
+              "id": "b7",
+              "label": "Shop row, empty",
+              "tags": [
+                "empty"
+              ]
+            },
+            {
+              "id": "b8",
+              "label": "Church hall, yellow",
+              "tags": [
+                "yellow"
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "say": "Anything occupied",
+              "want": [
+                "occupied"
+              ]
+            },
+            {
+              "say": "Anything already yellow",
+              "want": [
+                "yellow"
+              ]
+            },
+            {
+              "say": "Any school",
+              "want": [
+                "school"
+              ]
+            }
+          ],
+          "duration": 40,
+          "switchEvery": 12,
+          "pass": 0.75,
+          "hint": "The priority is on the office board, and it is changed without an announcement.",
+          "commit": "Open the queue"
+        }
+      },
+      "assumes": [
+        "an office decides which buildings are assessed first"
+      ],
+      "equations": [
+        {
+          "e": "FoS = capacity / demand",
+          "c": "factor of safety as a ratio, not a feeling",
+          "v": [
+            [
+              "FoS",
+              "factor of safety, no units"
+            ],
+            [
+              "capacity",
+              "what the element can carry"
+            ],
+            [
+              "demand",
+              "what the earthquake asked of it, in the same units"
+            ]
+          ],
+          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
+        },
+        {
+          "e": "n(t) = K / (c + t)^p",
+          "c": "aftershock rate, falling as a power law",
+          "v": [
+            [
+              "n(t)",
+              "aftershocks per day at time t"
+            ],
+            [
+              "t",
+              "days since the mainshock"
+            ],
+            [
+              "K, c, p",
+              "constants fitted to this sequence, with p usually near 1"
+            ]
+          ],
+          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
+        }
+      ],
+      "concept": {
+        "n": 22,
+        "c": "Rapid assessment against detailed evaluation",
+        "of": 30,
+        "rests": [
+          "Load path, and what happens where it stops",
+          "Unreinforced masonry, and why it fails outward"
+        ]
+      }
+    },
+    {
+      "day": 9,
       "title": "Which of the three cannot wait",
-      "scene": "Three calls land within minutes: a burst main is feeding water into the Flats, several vulnerable buildings need checks after the M5.1 aftershock, and Bay Road School needs its reopening message issued. Four engineers are available.",
+      "scene": "Three calls land within minutes. A burst main is feeding water into the Flats. Several vulnerable buildings need checks after the M5.1 aftershock, and Bay Road School needs its reopening message issued. Four engineers are available.",
       "takeaway": "Good delegation couples every handoff to a first action and a condition for returning the problem, while scarce expert attention stays on the judgment that cannot be automated.",
       "place": "Public Safety",
-      "story": "Three calls land within minutes: a burst main is feeding water into the Flats, several vulnerable buildings need checks after the M5.1 aftershock, and Bay Road School needs its reopening message issued. Four engineers are available.",
+      "guide": "Three calls, four engineers, and one of the three you have to keep yourself. For each of the others, choose an owner who can take a real first action and the reading or event that brings the problem back to you. A handover with an owner and no return condition is not a handover. Then take the watch on the one that needs your own judgement.",
+      "background": [
+        "Which one to keep. One of these is getting worse while you decide, one has a life-safety consequence that has to be checked, and one is a deadline that is stable — the message will still need issuing in an hour. Keeping the stable one is the classic error: it is the easiest to finish, and finishing it costs the field response its hours.",
+        "Why a first action is required. \"Watch it\" is not a handover. An owner who cannot take a concrete step is a person who will come back for instructions at the worst moment, so the panel asks for the action they will take before they need to ask anybody.",
+        "Why a return condition is the other half. Delegation is not disposal: the problem comes back if it crosses a threshold, and naming that threshold now is what lets somebody else hold it without checking in. A burst main over liquefiable fill and a reopening message have very different triggers, and both need one."
+      ],
+      "story": "Three calls land within minutes. A burst main is feeding water into the Flats. Several vulnerable buildings need checks after the M5.1 aftershock, and Bay Road School needs its reopening message issued. Four engineers are available.",
       "game": {
         "type": "DELEGATE",
         "title": "Which of the three cannot wait",
@@ -3085,14 +3882,28 @@ export const CURRICULUM = {
           ],
           "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
         }
-      ]
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Aftershock decay as a power law",
+        "of": 30,
+        "rests": [
+          "Magnitude as a logarithmic scale"
+        ]
+      }
     },
     {
-      "day": 9,
+      "day": 10,
       "title": "What the next five years hold",
       "scene": "The clause goes in or it does not, and nobody can reopen it for five years. Delacroix is holding the spring rebuild schedule beside the draft ordinance. The geotechnical section is the last unresolved page.",
       "takeaway": "Science can define the hazard and performance target; the rebuilding policy must also specify affordability, phasing and who carries the cost.",
       "place": "Public Safety",
+      "guide": "Four versions of the clause on the left, and what each one actually produces on the right. Pair them by asking who has to pay and how soon. A requirement nobody can afford stops rebuilding instead of improving ground. No requirement rebuilds the same vulnerability on the same fill. And the last pairing is about time: nobody can reopen this for five years.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "The clause goes in or it does not, and nobody can reopen it for five years. Delacroix is holding the spring rebuild schedule beside the draft ordinance. The geotechnical section is the last unresolved page.",
       "game": {
         "type": "PROTOCOL",
@@ -3188,6 +3999,37 @@ export const BALLPARK_CALCS = {
     "solution": "d = (32 − 19) × 8 = 104 km.",
     "explanation": "About 100 kilometres to the source. The magnitude and the depth are both real numbers about this earthquake and neither belongs in this calculation — one is how big it was, the other is how deep, and this is how far."
   },
+  "HAZ-1": {
+    "prompt": "The later solution models 600 km² of ruptured fault slipping an average of 1.1 m, in crust with a rigidity of 3.0 × 10¹⁰ Pa.",
+    "question": "Choose the rigidity, the ruptured area in square metres, and the average slip.",
+    "labels": [
+      "3.0e10  (μ, rigidity of the crust in Pa)",
+      "6.0e8  (A, ruptured area in m² — the 600 km² converted)",
+      "1.1  (D, average slip in m)",
+      "600  (A, the ruptured area still in km²)",
+      "6.8  (the revised magnitude)"
+    ],
+    "values": [
+      30000000000,
+      600000000,
+      1.1,
+      600,
+      6.8
+    ],
+    "slots": 3,
+    "template": "{0} × {1} × {2}",
+    "formula": "a*b*c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 19800000000000000000,
+    "tolerance": 2000000000000000000,
+    "units": "N·m of seismic moment",
+    "solution": "3.0 × 10¹⁰ × 6.0 × 10⁸ × 1.1 ≈ 2.0 × 10¹⁹ N·m, and M_w = ⅔ log₁₀(2.0 × 10¹⁹) − 6.06 = 6.80.",
+    "explanation": "The moment doubled between bulletins because the second one could see the long-period signal. The fault moved once."
+  },
   "MAT-1": {
     "prompt": "The 2 anchors tested at 24 kN and 27 kN. The assessed demand on each anchor from this earthquake is 31 kN.",
     "question": "Choose the tested capacity and the demand.",
@@ -3218,6 +4060,36 @@ export const BALLPARK_CALCS = {
     "solution": "Observed ratio = 25.5 ÷ 31 ≈ 0.82.",
     "explanation": "About 0.82, below 1. This is an observed ratio from two specimens, not by itself a formal code factor of safety; variability and design resistance factors still matter."
   },
+  "SEIS-3": {
+    "prompt": "The hospital's seismic weight is about 85 MN. The basement record peaked at 0.31 g; the building was designed for 0.35 g.",
+    "question": "Choose the recorded coefficient and the building's seismic weight.",
+    "labels": [
+      "0.31  (C_s from the recorded peak, in g)",
+      "85  (W, the building's seismic weight in MN)",
+      "0.35  (C_s the building was designed to, in g)",
+      "14  (the weight of one floor, in MN)",
+      "1998  (the year the instrument was installed)"
+    ],
+    "values": [
+      0.31,
+      85,
+      0.35,
+      14,
+      1998
+    ],
+    "slots": 2,
+    "template": "{0} × {1}",
+    "formula": "a*b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 26.35,
+    "tolerance": 2,
+    "units": "meganewtons (MN) of base shear",
+    "solution": "0.31 × 85 ≈ 26 MN, against a design base shear of 0.35 × 85 ≈ 30 MN.",
+    "explanation": "About 12 per cent under the design force. One input measured, and not a clearance for the building."
+  },
   "HAZ-4": {
     "prompt": "Day 4 had 26 events above magnitude 3, and the rate falls roughly as 1 over elapsed time. Day eight is twice as far from the mainshock as day four.",
     "question": "Choose the day-four count and the ratio of the two times.",
@@ -3247,6 +4119,126 @@ export const BALLPARK_CALCS = {
     "units": "events",
     "solution": "n ≈ 26 ÷ 2 ≈ 13 events on day 8.",
     "explanation": "About 13. The day-one count and the running total describe the sequence so far, and the magnitude is the size of the mainshock rather than anything about the rate."
+  },
+  "SEIS-4": {
+    "prompt": "The fit for this sequence is K = 84, c = 0.2 days, p = 1.05. The bulletin is being written for day 30 after the mainshock.",
+    "question": "Choose the productivity, and the elapsed-time term raised to the fitted power.",
+    "labels": [
+      "84  (K, the fitted productivity)",
+      "35.6  ((c + t)^p at 30 days, with p = 1.05)",
+      "30.2  (c + t at 30 days, before the power is applied)",
+      "1.05  (p, the fitted exponent)",
+      "0.2  (c, the offset in days)"
+    ],
+    "values": [
+      84,
+      35.6,
+      30.2,
+      1.05,
+      0.2
+    ],
+    "slots": 2,
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 2.36,
+    "tolerance": 0.4,
+    "units": "events a day above magnitude 2",
+    "solution": "84 ÷ 30.2^1.05 = 84 ÷ 35.6 ≈ 2.4 a day, falling and never reaching zero.",
+    "explanation": "The aftershock rate is a fading expectation with a range around it. No end date falls out of a power law."
+  },
+  "MAT-2": {
+    "prompt": "The third core is 100 mm in diameter and failed at 244 kN. Its area is π × 0.05² ≈ 0.00785 m².",
+    "question": "Choose the crushing force in newtons and the area it acted on.",
+    "labels": [
+      "244000  (F, the crushing force in N)",
+      "0.00785  (A, the core's cross-section in m²)",
+      "0.1  (the core's diameter in m)",
+      "25  (the strength the 1974 drawing specifies, MPa)",
+      "0.0021  (the strain at failure, ΔL over L)"
+    ],
+    "values": [
+      244000,
+      0.00785,
+      0.1,
+      25,
+      0.0021
+    ],
+    "slots": 2,
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 31082802,
+    "tolerance": 1500000,
+    "units": "Pa (about 31 MPa)",
+    "solution": "244,000 ÷ 0.00785 ≈ 31 MPa, against a specified 25. The strain channel gives ε = ΔL / L = 0.42 ÷ 200 = 0.0021.",
+    "explanation": "31 MPa is the concrete's strength, not the column's capacity. The cores remove one explanation and leave the member question open."
+  },
+  "HAZ-6": {
+    "prompt": "The same earthquake was recorded at 0.41 g on the Flats and 0.082 g at the vault instrument on granite above Upper Town.",
+    "question": "Choose the soft-ground peak and the rock peak.",
+    "labels": [
+      "0.41  (peak acceleration on the Flats, in g)",
+      "0.082  (peak acceleration on granite, in g)",
+      "3  (the amplification the district plan currently assumes)",
+      "0.31  (the basement record inside the hospital, in g)",
+      "6.8  (the moment magnitude of the event)"
+    ],
+    "values": [
+      0.41,
+      0.082,
+      3,
+      0.31,
+      6.8
+    ],
+    "slots": 2,
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 5,
+    "tolerance": 0.4,
+    "units": "times (dimensionless)",
+    "solution": "0.41 ÷ 0.082 ≈ 5.0 against the plan's 3, and the ratio is dimensionless because both records are in g.",
+    "explanation": "Five rather than three moves every design value the district plan feeds, and rewrites nothing already observed."
+  },
+  "GEO-6": {
+    "prompt": "The fill weighs about 18 kN/m³. The water table under Ferry Street is now 1.5 m down, so at 3 m the pore pressure is 9.81 × 1.5 ≈ 14.7 kPa.",
+    "question": "Choose the total vertical stress at three metres and the pore pressure there now.",
+    "labels": [
+      "54  (σ, total vertical stress at 3 m, in kPa)",
+      "14.7  (u, pore pressure at 3 m now, in kPa)",
+      "7.4  (u before the main burst, in kPa)",
+      "47  (σ' before the main burst, in kPa)",
+      "0.75  (metres the water table has risen)"
+    ],
+    "values": [
+      54,
+      14.7,
+      7.4,
+      47,
+      0.75
+    ],
+    "slots": 2,
+    "template": "{0} − {1}",
+    "formula": "a-b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 39.3,
+    "tolerance": 3,
+    "units": "kilopascals (kPa) of effective stress",
+    "solution": "54 − 14.7 ≈ 39 kPa, against 54 − 7.4 ≈ 47 kPa before the main burst.",
+    "explanation": "The grains carry 16 per cent less than they did. Shaking is still needed to liquefy the fill; less of it than before."
   },
   "MAT-5": {
     "prompt": "The trial panel tested at 4 MPa cone resistance before treatment and 11 MPa after.",
@@ -3385,6 +4377,14 @@ export const JARGON = [
       "load paths"
     ],
     "def": "The route a force takes down through a building to the ground; if it stops anywhere, that is where the damage goes."
+  },
+  {
+    "name": "Kilopascal",
+    "aliases": [
+      "kPa",
+      "kilopascals"
+    ],
+    "def": "A unit of pressure or stress — a thousand newtons spread over a square metre. Soil stresses on this site run to a few tens of them."
   },
   {
     "name": "Soft storey",

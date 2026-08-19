@@ -10,6 +10,12 @@ export const CURRICULUM = {
       "scene": "Your first morning on the Hill. The Theoretical Division hands you four nuclide labels with no explanation and expects you to pull the right quantity out of each one before anybody calculates anything.",
       "takeaway": "Nuclear reasoning starts by translating notation into particles and conserved quantities.",
       "place": "",
+      "guide": "Four things you need and four ways to get them. Pair them by asking what each symbol counts. One counts protons. One counts protons and neutrons together. So one of these answers is a subtraction rather than a symbol on the label. And a neutral atom's electron count follows from its protons.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Your first morning on the Hill. The Theoretical Division hands you four nuclide labels with no explanation and expects you to pull the right quantity out of each one before anybody calculates anything.",
       "game": {
         "type": "PROTOCOL",
@@ -51,7 +57,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an atom has a nucleus of protons and neutrons, with electrons around it"
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Nuclear structure: protons, neutrons, isotopes, nuclide notation",
+        "of": 30
+      }
     },
     {
       "day": 2,
@@ -59,6 +70,11 @@ export const CURRICULUM = {
       "scene": "A theorist at the blackboard wants a number before lunch: how tightly a medium-heavy nucleus is bound. The arithmetic is small enough for one line, but the energy scale is the reason this laboratory exists at all.",
       "takeaway": "Tiny changes in mass correspond to large nuclear energies.",
       "place": "",
+      "guide": "Four numbers, and two of them are the same defect written a thousand times apart. Ask of each whether it is per nucleon or per nucleus. The conversion turns mass into energy, so it belongs beside the mass term. And work out the per-nucleon figure before the total.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A theorist at the blackboard wants a number before lunch: how tightly a medium-heavy nucleus is bound. The arithmetic is small enough for one line, but the energy scale is the reason this laboratory exists at all.",
       "game": {
         "type": "BALLPARK",
@@ -117,7 +133,15 @@ export const CURRICULUM = {
           "s": "Binding energy per nucleon says how tightly an average particle is held, and nuclei move toward the peak of that curve by splitting or by fusing.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Mass defect, binding energy and E = mc²",
+        "of": 30,
+        "rests": [
+          "Nuclear structure: protons, neutrons, isotopes, nuclide notation"
+        ]
+      }
     },
     {
       "day": 3,
@@ -125,6 +149,11 @@ export const CURRICULUM = {
       "scene": "A tracer sample has been sitting through a six-hour shift and somebody needs to know what is left in it. Every count taken here is a count of something that has been decaying since it was made.",
       "takeaway": "Half-life fixes both how a population falls with time and, through the decay constant, its activity at any moment.",
       "place": "",
+      "guide": "Four numbers, and two of them are counts of half-lives that differ by a factor of ten. Ask of each whether it is a population, a fraction, or a number of halvings. Six hours of two-hour halvings is not thirty of them. And each halving multiplies by the same fraction.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A tracer sample has been sitting through a six-hour shift and somebody needs to know what is left in it. Every count taken here is a count of something that has been decaying since it was made.",
       "game": {
         "type": "BALLPARK",
@@ -143,7 +172,9 @@ export const CURRICULUM = {
         "calcKey": "T-3"
       },
       "assumes": [
-        "a half-life is the time for half of a large population to decay"
+        "a half-life is the time for half of a large population to decay",
+        "radioactive decay modes: alpha, beta, gamma — taken as read",
+        "exponential decay and logarithms — taken as read"
       ],
       "equations": [
         {
@@ -190,7 +221,26 @@ export const CURRICULUM = {
           "s": "The decay constant and the half-life are the same fact written two ways.",
           "computed": true
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 4,
+          "c": "Radioactive decay modes: alpha, beta, gamma"
+        },
+        {
+          "n": 6,
+          "c": "Exponential decay and logarithms"
+        }
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Decay constant, half-life and activity",
+        "of": 30,
+        "rests": [
+          "Radioactive decay modes: alpha, beta, gamma",
+          "Exponential decay and logarithms"
+        ]
+      }
     },
     {
       "day": 4,
@@ -198,6 +248,11 @@ export const CURRICULUM = {
       "scene": "The Theoretical Division needs a reaction rate and has a cross section written in barns. Nearly every number this laboratory argues about is built out of the multiplication that follows.",
       "takeaway": "Number density turns a microscopic cross section into an interaction probability per length, which sets both mean free path and exponential attenuation.",
       "place": "",
+      "guide": "Four numbers, and two of them are areas thirty powers of ten apart. Ask of each whether it is a density, an area, or a bare one. Check the units before choosing, because a cross section is an area. One parameter comes out of the first step and then does all three jobs.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The Theoretical Division needs a reaction rate and has a cross section written in barns. Nearly every number this laboratory argues about is built out of the multiplication that follows.",
       "game": {
         "type": "BALLPARK",
@@ -216,7 +271,8 @@ export const CURRICULUM = {
         "calcKey": "T-4"
       },
       "assumes": [
-        "a cross section is expressed as an area"
+        "a cross section is expressed as an area",
+        "fission, neutron multiplication and chain reactions — taken as read"
       ],
       "equations": [
         {
@@ -280,7 +336,21 @@ export const CURRICULUM = {
           "computed": true,
           "card": false
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 7,
+          "c": "Fission, neutron multiplication and chain reactions"
+        }
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Cross sections and mean free path",
+        "of": 30,
+        "rests": [
+          "Fission, neutron multiplication and chain reactions"
+        ]
+      }
     },
     {
       "day": 5,
@@ -288,6 +358,12 @@ export const CURRICULUM = {
       "scene": "A neutron leaving a fission event carries a great deal of energy, and what happens next depends entirely on what it hits. Confusing the possibilities is how a shielding calculation goes quietly wrong.",
       "takeaway": "Energy management and neutron removal are not interchangeable.",
       "place": "",
+      "guide": "Four things that can happen to a neutron, and four processes. Pair them by asking two questions. Is the neutron still there afterwards? And how much energy did it give up? A heavy target barely recoils, so it takes almost nothing away. One of these removes the neutron entirely.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "A neutron leaving a fission event carries a great deal of energy, and what happens next depends entirely on what it hits. Confusing the possibilities is how a shielding calculation goes quietly wrong.",
       "game": {
         "type": "PROTOCOL",
@@ -328,7 +404,8 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "a light ball loses more energy hitting something its own size"
+        "a light ball loses more energy hitting something its own size",
+        "fission, neutron multiplication and chain reactions — taken as read"
       ],
       "equations": [
         {
@@ -354,7 +431,22 @@ export const CURRICULUM = {
           ],
           "s": "Shielding removes a fixed fraction per centimetre, so intensity falls exponentially rather than linearly with thickness."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 7,
+          "c": "Fission, neutron multiplication and chain reactions"
+        }
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Criticality: mass, geometry, reflectors, moderation",
+        "of": 30,
+        "rests": [
+          "Fission, neutron multiplication and chain reactions",
+          "Cross sections and mean free path"
+        ]
+      }
     },
     {
       "day": 6,
@@ -362,6 +454,11 @@ export const CURRICULUM = {
       "scene": "A sample on the bench is emitting neutrons all by itself, at a rate the counters can measure. 2 assembly schemes are on the table, and 1 takes 1000 times longer than the other.",
       "takeaway": "The same background source term is negligible or decisive depending on how long the system is exposed to it.",
       "place": "",
+      "guide": "Four numbers: two rates and two windows. Ask of each which assembly it belongs to. The rate is the same either way and the window is not. A thousandth of a second gives a thousand times as many chances as a millionth. The material stays identical while the verdict changes.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A sample on the bench is emitting neutrons all by itself, at a rate the counters can measure. 2 assembly schemes are on the table, and 1 takes 1000 times longer than the other.",
       "game": {
         "type": "BALLPARK",
@@ -381,8 +478,24 @@ export const CURRICULUM = {
         "calcKey": "T-6"
       },
       "assumes": [
-        "some heavy nuclei split without being hit by anything"
-      ]
+        "some heavy nuclei split without being hit by anything",
+        "radioactive decay modes: alpha, beta, gamma — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 4,
+          "c": "Radioactive decay modes: alpha, beta, gamma"
+        }
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Fission, neutron multiplication and chain reactions",
+        "of": 30,
+        "rests": [
+          "Nuclear structure: protons, neutrons, isotopes, nuclide notation",
+          "Radioactive decay modes: alpha, beta, gamma"
+        ]
+      }
     },
     {
       "day": 7,
@@ -390,6 +503,11 @@ export const CURRICULUM = {
       "scene": "The Theoretical Division is calculating work done on a material at pressures nothing in the laboratory has ever measured. An error in the units looks exactly like an error in the physics.",
       "takeaway": "Extreme-state calculations require both thermodynamic relationships and careful unit scaling.",
       "place": "",
+      "guide": "Four numbers: two pressures and two volumes, each pair a hundredfold apart. Ask of each whether it describes this regime or handbook conditions. Work is a pressure times a volume change, so an error in either is an error of the same size in the answer.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The Theoretical Division is calculating work done on a material at pressures nothing in the laboratory has ever measured. An error in the units looks exactly like an error in the physics.",
       "game": {
         "type": "BALLPARK",
@@ -407,8 +525,23 @@ export const CURRICULUM = {
         "calcKey": "T-7"
       },
       "assumes": [
-        "pressure times a volume change is work"
-      ]
+        "pressure times a volume change is work",
+        "units and conversions: MeV, u, barns, scientific notation — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 16,
+          "c": "Units and conversions: MeV, u, barns, scientific notation"
+        }
+      ],
+      "concept": {
+        "n": 26,
+        "c": "Pressure, temperature and equations of state",
+        "of": 30,
+        "rests": [
+          "Units and conversions: MeV, u, barns, scientific notation"
+        ]
+      }
     },
     {
       "day": 8,
@@ -416,6 +549,11 @@ export const CURRICULUM = {
       "scene": "Several physical clocks run at once during rapid compression, and the design problem lives in the gaps between them. On a test fixture, two initiation channels have different timestamps, and the team has the measured wave speed and a ruler.",
       "takeaway": "Processes separated by many orders of magnitude often require different numerical or experimental treatments.",
       "place": "",
+      "guide": "Four numbers, and two of them are channel spreads a hundred apart. Ask of each which spread the measurement gave. And note why this matters at all. Several clocks run at once here, and a timing disagreement becomes a distance the wave has already travelled.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Several physical clocks run at once during rapid compression, and the design problem lives in the gaps between them. On a test fixture, two initiation channels have different timestamps, and the team has the measured wave speed and a ruler.",
       "game": {
         "type": "BALLPARK",
@@ -436,7 +574,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a wave crosses a distance in a time set by its speed"
-      ]
+      ],
+      "concept": {
+        "n": 17,
+        "c": "Order-of-magnitude estimation from givens",
+        "of": 30
+      }
     },
     {
       "day": 9,
@@ -444,6 +587,11 @@ export const CURRICULUM = {
       "scene": "A predicted reaction rate rests on a cross section known to a few per cent and a flux known to a few more. Theory is being asked how well the prediction is known.",
       "takeaway": "Adding independent uncertainties linearly is usually too pessimistic; ignoring correlation can be too optimistic.",
       "place": "",
+      "guide": "Four numbers, and one of them is the two others added straight. Ask whether independent uncertainties add that way. They do not: they combine in quadrature. And note what the answer is for. The larger term dominates, so improving the small one barely moves the total.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A predicted reaction rate rests on a cross section known to a few per cent and a flux known to a few more. Theory is being asked how well the prediction is known.",
       "game": {
         "type": "BALLPARK",
@@ -498,14 +646,143 @@ export const CURRICULUM = {
           ],
           "s": "Counting is random, so the uncertainty is the square root of the count and four times the counting time buys only twice the precision."
         }
-      ]
+      ],
+      "concept": {
+        "n": 17,
+        "c": "Order-of-magnitude estimation from givens",
+        "of": 30
+      }
     },
     {
       "day": 10,
+      "title": "What the shop is making today",
+      "scene": "The machine shop takes work from every division and cannot take it all. The priority is set on a card at the window, and it is changed when the schedule changes — after the test date moves, after the assay comes back, after somebody senior walks in.",
+      "takeaway": "The cost of a withdrawn instruction is paid by whoever is still working to it.",
+      "place": "Theoretical Division",
+      "guide": "Release the jobs the current priority wants and hold the rest. The card at the window is changed during the day and nobody announces it. What is scored is the jobs either side of a change, because they are the only ones that show whether the window is reading the card.",
+      "background": [
+        "Why a shop priority changes. Early it is whatever the test date needs. When an assay comes back wrong it is whatever the re-measurement needs, because a number nobody trusts stops every calculation resting on it. When a division head appears it is whatever that division wants, which is a different rule and worth naming honestly.",
+        "Why the changeover costs here. A machined part is hours of a scarce machinist and a scarcer piece of material. A job released under the old priority is not merely late — it has consumed the capacity the new priority was written to buy."
+      ],
+      "story": "The machine shop takes work from every division and cannot take it all. The priority is set on a card at the window, and it is changed when the schedule changes — after the test date moves, after the assay comes back, after somebody senior walks in.",
+      "game": {
+        "type": "SPOT",
+        "title": "What the shop is making today",
+        "setup": "Theoretical Division",
+        "play": "Work the shop queue while the priority changes.",
+        "task": "Work the shop queue while the priority changes.",
+        "question": "Release to the priority on the card, and keep watching the card.",
+        "answer": "Read the card rather than the queue. Every change leaves an hour in which the old priority still looks like today's.",
+        "why": "Three priorities run across the day and each wants a different part of the queue. Anything the test date needs, then anything a re-measurement needs, then anything a division head has asked for in person. A job can answer two at once, which is what makes the change cost real. The panel scores the window either side of each change, because most of the queue is wanted by neither priority and is correctly held by somebody who has read nothing. And the cost here is material as well as time: a part released under yesterday's priority has used a machinist, a lathe and a piece of metal that the new priority was written to spend on something else, and none of the three comes back at the end of the day.",
+        "spot": {
+          "targets": [
+            {
+              "id": "j1",
+              "label": "Test fixture, dated",
+              "tags": [
+                "testdate"
+              ]
+            },
+            {
+              "id": "j2",
+              "label": "Assay standard, remeasure",
+              "tags": [
+                "remeasure"
+              ]
+            },
+            {
+              "id": "j3",
+              "label": "Fixture for the remeasure",
+              "tags": [
+                "testdate",
+                "remeasure"
+              ]
+            },
+            {
+              "id": "j4",
+              "label": "Division head's rig",
+              "tags": [
+                "asked"
+              ]
+            },
+            {
+              "id": "j5",
+              "label": "Spare tooling",
+              "tags": [
+                "routine"
+              ]
+            },
+            {
+              "id": "j6",
+              "label": "Asked for, dated too",
+              "tags": [
+                "asked",
+                "testdate"
+              ]
+            },
+            {
+              "id": "j7",
+              "label": "Shop maintenance part",
+              "tags": [
+                "routine"
+              ]
+            },
+            {
+              "id": "j8",
+              "label": "Calibration block",
+              "tags": [
+                "remeasure"
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "say": "Anything the test date needs",
+              "want": [
+                "testdate"
+              ]
+            },
+            {
+              "say": "Anything a re-measurement needs",
+              "want": [
+                "remeasure"
+              ]
+            },
+            {
+              "say": "Anything asked for in person",
+              "want": [
+                "asked"
+              ]
+            }
+          ],
+          "duration": 40,
+          "switchEvery": 12,
+          "pass": 0.75,
+          "hint": "The priority is on the card at the window, and it changes without an announcement.",
+          "commit": "Open the window"
+        }
+      },
+      "assumes": [
+        "a workshop with limited capacity decides what to make first"
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Experimental method: controls, calibration, systematic vs random error",
+        "of": 30
+      }
+    },
+    {
+      "day": 11,
       "title": "Where the energy in fission comes from",
       "scene": "A visitor asks why splitting a heavy nucleus releases energy while splitting a light one costs energy. The blackboard has the binding-energy curve on it and nobody has used it to answer.",
       "takeaway": "The binding-energy-per-nucleon curve says which way a nuclear reaction releases energy.",
       "place": "Theoretical Division",
+      "guide": "Four accounts of where the energy comes from. Ask of each whether it uses the shape of the binding-energy curve. It rises steeply, peaks near iron, and falls slowly to uranium. So what matters is whether the products sit higher on it than the reactants, and two of these options ignore that.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "A visitor asks why splitting a heavy nucleus releases energy while splitting a light one costs energy. The blackboard has the binding-energy curve on it and nobody has used it to answer.",
       "game": {
         "type": "CHOICE",
@@ -567,14 +844,28 @@ export const CURRICULUM = {
           ],
           "s": "Binding energy per nucleon says how tightly an average particle is held, and nuclei move toward the peak of that curve by splitting or by fusing."
         }
-      ]
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Binding energy per nucleon and the stability curve",
+        "of": 30,
+        "rests": [
+          "Mass defect, binding energy and E = mc²"
+        ]
+      }
     },
     {
-      "day": 11,
+      "day": 12,
       "title": "Spend the follow-up checks on independence",
       "scene": "Theory and experiment disagree by three standard deviations. The division can complete two follow-up checks before the next review, and every extra run that repeats the same dependency consumes one of those chances.",
       "takeaway": "When theory and experiment disagree, the next measurements should attack shared systematics and add evidence based on different dependencies.",
       "place": "",
+      "guide": "Two follow-up checks, and a three-sigma disagreement between theory and experiment. Open each check and ask what it depends on. A run that repeats a dependency the disagreement already contains cannot resolve it, however much data it returns. Buy the two that could change the interpretation rather than the precision.",
+      "background": [
+        "What three standard deviations is and is not. It is unlikely to be chance and it is not proof of new physics. Most disagreements that size turn out to be a shared assumption — a cross-section, a calibration, a background model — used on both sides or wrong on one.",
+        "Why repeating the measurement rarely helps. More runs on the same apparatus reduce the statistical part of the error and leave every systematic exactly where it was. If the disagreement is systematic, better statistics make it sharper and no more explicable.",
+        "What independence looks like here. A check that uses a different detector, a different reaction, or a different calibration path constrains the same quantity through different assumptions. Only that can tell a real discrepancy from a shared mistake."
+      ],
       "story": "Theory and experiment disagree by three standard deviations. The division can complete two follow-up checks before the next review, and every extra run that repeats the same dependency consumes one of those chances.",
       "game": {
         "type": "VALUE",
@@ -630,14 +921,25 @@ export const CURRICULUM = {
       "assumes": [
         "a systematic error does not average away with more repeats",
         "independent measurements should not share the same critical calibration"
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Experimental method: controls, calibration, systematic vs random error",
+        "of": 30
+      }
     },
     {
-      "day": 12,
+      "day": 13,
       "title": "Why light nuclei release energy too",
       "scene": "The binding-energy curve on the board rises steeply from light nuclei toward iron. A younger theorist has noticed that fusion moves uphill on that same curve and asks why an energy-releasing reaction does not simply happen whenever light nuclei meet.",
       "takeaway": "Fusion of light nuclei releases energy for the same reason fission of heavy ones does, and it is harder to start.",
       "place": "Theoretical Division",
+      "guide": "Four accounts of why fusion is hard. Ask of each whether it is about the energy released or about getting there. Two positive nuclei repel, and the force that binds them reaches only about a femtometre. So the difficulty is closing that gap, which costs temperature rather than a neutron.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The binding-energy curve on the board rises steeply from light nuclei toward iron. A younger theorist has noticed that fusion moves uphill on that same curve and asks why an energy-releasing reaction does not simply happen whenever light nuclei meet.",
       "game": {
         "type": "CHOICE",
@@ -699,14 +1001,28 @@ export const CURRICULUM = {
           ],
           "s": "Binding energy per nucleon says how tightly an average particle is held, and nuclei move toward the peak of that curve by splitting or by fusing."
         }
-      ]
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Fusion",
+        "of": 30,
+        "rests": [
+          "Mass defect, binding energy and E = mc²"
+        ]
+      }
     },
     {
-      "day": 13,
+      "day": 14,
       "title": "The binding-energy curve",
       "scene": "Nuclei near the middle of the periodic table are bound more tightly per particle than very heavy nuclei. When a heavy nucleus splits into medium-mass fragments, the products sit lower in energy and the difference is released. This binding-energy curve gives Los Alamos scientists the broad physical reason fission can power a bomb, while reminding them that energy comes from comparing the starting and ending nuclei.",
       "takeaway": "Energy release is a difference between states, not a property of one isolated point.",
       "place": "",
+      "guide": "These four are one argument, and it only reaches an answer by comparison. Ask of each card what has to be located first. Nothing can be called more tightly bound before both states are on the curve. And the energy released is the difference, which is the last step rather than the first.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Nuclei near the middle of the periodic table are bound more tightly per particle than very heavy nuclei. When a heavy nucleus splits into medium-mass fragments, the products sit lower in energy and the difference is released. This binding-energy curve gives Los Alamos scientists the broad physical reason fission can power a bomb, while reminding them that energy comes from comparing the starting and ending nuclei.",
       "game": {
         "type": "SEQUENCE",
@@ -729,14 +1045,28 @@ export const CURRICULUM = {
           2,
           3
         ]
+      },
+      "concept": {
+        "n": 27,
+        "c": "Chemical explosives: energy release and detonation velocity",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
       }
     },
     {
-      "day": 14,
+      "day": 15,
       "title": "Activity and count rate",
       "scene": "Activity is the number of nuclear decays occurring each second, but a detector records only some of them and also records background events from the room and electronics. The bomb program depends on turning detector counts into trustworthy estimates of what a source is actually doing. That requires separating source behavior from efficiency, geometry, and background instead of treating the displayed count rate as the whole truth.",
       "takeaway": "A detector does not observe every decay, and it also observes events that are not from the source.",
       "place": "",
+      "guide": "Four conversions and four operations. Pair them by asking what belongs to the source and what belongs to the instrument. Activity is the source's. A count rate belongs to the source and the detector together. So one of these multiplies by an instrument property, and one divides by it before comparing.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Activity is the number of nuclear decays occurring each second, but a detector records only some of them and also records background events from the room and electronics. The bomb program depends on turning detector counts into trustworthy estimates of what a source is actually doing. That requires separating source behavior from efficiency, geometry, and background instead of treating the displayed count rate as the whole truth.",
       "game": {
         "type": "PROTOCOL",
@@ -809,14 +1139,28 @@ export const CURRICULUM = {
           ],
           "s": "How radioactive something is depends on both how unstable it is and how much of it there is."
         }
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Detectors: ionisation, count rate, efficiency, dead time",
+        "of": 30,
+        "rests": [
+          "Decay constant, half-life and activity"
+        ]
+      }
     },
     {
-      "day": 15,
+      "day": 16,
       "title": "Exponential attenuation and mean free path",
       "scene": "A neutron moving through matter has some chance of interacting in every small distance it travels, so the surviving population falls exponentially rather than linearly. The mean free path is the average distance between interactions, not a fixed distance traveled by every neutron. For bomb theory, attenuation and mean free path help predict how many neutrons will remain available as they cross different materials and geometries.",
       "takeaway": "Exponential attenuation is a probability model, not a guarantee that every particle travels exactly one mean free path.",
       "place": "",
+      "guide": "These four are one argument, and the exponential is the conclusion rather than the assumption. Ask of each card what has to be true before it. Probabilities multiply along a path only once each interval has one. And that repeated multiplication is what makes the shape exponential.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "A neutron moving through matter has some chance of interacting in every small distance it travels, so the surviving population falls exponentially rather than linearly. The mean free path is the average distance between interactions, not a fixed distance traveled by every neutron. For bomb theory, attenuation and mean free path help predict how many neutrons will remain available as they cross different materials and geometries.",
       "game": {
         "type": "SEQUENCE",
@@ -879,15 +1223,28 @@ export const CURRICULUM = {
           ],
           "s": "Shielding removes a fixed fraction per centimetre, so intensity falls exponentially rather than linearly with thickness."
         }
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Cross sections and mean free path",
+        "of": 30,
+        "rests": [
+          "Fission, neutron multiplication and chain reactions"
+        ]
+      }
     },
     {
-      "day": 16,
+      "day": 17,
       "title": "Diffusion and leakage",
-      "scene": "After many random collisions, a neutron’s total path can be long even though its net displacement is modest. This random-walk behavior is called diffusion, and boundaries allow some neutrons to leak out before they cause another reaction. Because a bomb is finite rather than an infinite block of material, the theory group must estimate the competition between collisions inside the assembly and escape through its surface.",
+      "scene": "A bomb is finite rather than an infinite block of material. So the theory group has to estimate a competition: collisions inside the assembly against escape through its surface.",
       "takeaway": "Many collisions can produce a modest net displacement because directions randomize.",
       "place": "",
-      "story": "After many random collisions, a neutron’s total path can be long even though its net displacement is modest. This random-walk behavior is called diffusion, and boundaries allow some neutrons to leak out before they cause another reaction. Because a bomb is finite rather than an infinite block of material, the theory group must estimate the competition between collisions inside the assembly and escape through its surface.",
+      "guide": "Four numbers, and two of them are the total path rather than a step, and a step count ten times too small. Ask of each which the relationship needs. A random walk does not go as far as it travels. The net distance grows with the square root of the steps, not with the steps.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
+      "story": "A bomb is finite rather than an infinite block of material. So the theory group has to estimate a competition: collisions inside the assembly against escape through its surface.",
       "game": {
         "type": "BALLPARK",
         "title": "Diffusion and leakage",
@@ -901,7 +1258,7 @@ export const CURRICULUM = {
           "Root-mean-square displacement is roughly step length x sqrt(number of steps)"
         ],
         "relationship": "A random walk goes net distance ≈ step length × the square root of the number of steps.",
-        "calcKey": "T-16"
+        "calcKey": "T-17"
       },
       "equations": [
         {
@@ -920,14 +1277,24 @@ export const CURRICULUM = {
           "s": "Counting is random, so the uncertainty is the square root of the count and four times the counting time buys only twice the precision.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 17,
+        "c": "Order-of-magnitude estimation from givens",
+        "of": 30
+      }
     },
     {
-      "day": 17,
+      "day": 18,
       "title": "Neutron multiplication factor",
       "scene": "The multiplication factor k compares the number of neutrons in one generation with the number in the previous generation. If k is below one the chain fades, at one it stays steady, and above one it grows. A bomb requires a rapidly growing chain for a very short time, so even a small change in k can have a large effect after many generations.",
       "takeaway": "Small deviations of k from one compound over many generations.",
       "place": "",
+      "guide": "Four numbers, and two of them are multiplication factors. Only one belongs to this system. Ask of each whether it describes the generation, the population, or how many generations. And note what happens with a factor below one: each generation is smaller than the last.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The multiplication factor k compares the number of neutrons in one generation with the number in the previous generation. If k is below one the chain fades, at one it stays steady, and above one it grows. A bomb requires a rapidly growing chain for a very short time, so even a small change in k can have a large effect after many generations.",
       "game": {
         "type": "BALLPARK",
@@ -943,15 +1310,30 @@ export const CURRICULUM = {
           "After 2 generations N2=k^2 N0"
         ],
         "relationship": "After n generations, the population = the starting number × kⁿ.",
-        "calcKey": "T-17"
+        "calcKey": "T-18"
+      },
+      "concept": {
+        "n": 7,
+        "c": "Fission, neutron multiplication and chain reactions",
+        "of": 30,
+        "rests": [
+          "Nuclear structure: protons, neutrons, isotopes, nuclide notation",
+          "Radioactive decay modes: alpha, beta, gamma"
+        ]
       }
     },
     {
-      "day": 18,
+      "day": 19,
       "title": "Prompt and delayed neutron timescales",
       "scene": "Most fission neutrons appear almost immediately, while a small fraction are emitted later by radioactive fragments. Delayed neutrons make reactors controllable on human timescales, but a bomb’s energy release is governed mainly by prompt neutrons because the assembly changes in microseconds. The theory team therefore must separate two very different clocks that come from the same fission process.",
       "takeaway": "A small component can dominate controllability when its timescale is very different.",
       "place": "",
+      "guide": "All four steps happen, and the small population matters out of proportion to its size. Ask of each card what would be missing without it. A delay is useless without knowing what fraction carries it. And a response cannot be predicted before both populations have their timescales attached.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Most fission neutrons appear almost immediately, while a small fraction are emitted later by radioactive fragments. Delayed neutrons make reactors controllable on human timescales, but a bomb’s energy release is governed mainly by prompt neutrons because the assembly changes in microseconds. The theory team therefore must separate two very different clocks that come from the same fission process.",
       "game": {
         "type": "SEQUENCE",
@@ -974,14 +1356,29 @@ export const CURRICULUM = {
           2,
           3
         ]
+      },
+      "concept": {
+        "n": 27,
+        "c": "Chemical explosives: energy release and detonation velocity",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
       }
     },
     {
-      "day": 19,
+      "day": 20,
       "title": "Criticality safety as a systems concept",
       "scene": "A system can become dangerous long before anyone intends to build a weapon if enough fissile material, reflection, moderation, or favorable geometry brings k close to one. Criticality safety treats those factors as a connected system rather than relying on a single rule. At Los Alamos, scientists must study chain reactions while also designing handling arrangements that prevent an accidental self-sustaining reaction.",
       "takeaway": "Criticality safety is achieved by layered limits and verified process control, not by one calculation.",
       "place": "",
+      "guide": "k depends on mass, reflection, moderation and geometry together, and an accident needs only one of them to move. Mass accounting is independent of the operator's own arithmetic, so it catches a limit being exceeded before geometry matters at all. Accidental moderation and geometry changes are the least measured terms here and the hardest to see in a logbook. A warning display adds no measurement and no limit. It reports what is already known to whoever is reading it.",
+      "rules": "Spread the hundred points across the 3 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "background": [
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
+      ],
       "story": "A system can become dangerous long before anyone intends to build a weapon if enough fissile material, reflection, moderation, or favorable geometry brings k close to one. Criticality safety treats those factors as a connected system rather than relying on a single rule. At Los Alamos, scientists must study chain reactions while also designing handling arrangements that prevent an accidental self-sustaining reaction.",
       "game": {
         "type": "SCIENCETANK",
@@ -1011,14 +1408,28 @@ export const CURRICULUM = {
           "B": 50
         },
         "research": ""
+      },
+      "concept": {
+        "n": 30,
+        "c": "Criticality safety: administrative limits and controls",
+        "of": 30,
+        "rests": [
+          "Criticality: mass, geometry, reflectors, moderation",
+          "Experimental method: controls, calibration, systematic vs random error"
+        ]
       }
     },
     {
-      "day": 20,
+      "day": 21,
       "title": "Energy released in fission",
       "scene": "A single fission releases energy in several forms, and multiplying that microscopic energy by an enormous number of nuclei produces a macroscopic explosion. Estimating the total energy requires the theory group to move carefully from energy per event to number of events. This scale conversion helps connect nuclear physics to the blast, heat, and radiation that a bomb can produce.",
       "takeaway": "Macroscopic nuclear energy comes from an immense number of microscopic events.",
       "place": "",
+      "guide": "Four numbers, and two of them are conversions. One belongs to atomic mass units rather than to joules. Ask of each what units it carries. And note the scale of the answer. It is tiny for a laboratory and enormous for one atom, which is the whole point of the arithmetic.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A single fission releases energy in several forms, and multiplying that microscopic energy by an enormous number of nuclei produces a macroscopic explosion. Estimating the total energy requires the theory group to move carefully from energy per event to number of events. This scale conversion helps connect nuclear physics to the blast, heat, and radiation that a bomb can produce.",
       "game": {
         "type": "BALLPARK",
@@ -1033,15 +1444,29 @@ export const CURRICULUM = {
           "Energy per event = 200 x 1.60 x 10^-13 J"
         ],
         "relationship": "Energy in joules = energy in MeV × the number of joules in one MeV.",
-        "calcKey": "T-20"
+        "calcKey": "T-21"
+      },
+      "concept": {
+        "n": 27,
+        "c": "Chemical explosives: energy release and detonation velocity",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
       }
     },
     {
-      "day": 21,
+      "day": 22,
       "title": "Fission fragments and heat deposition",
       "scene": "Most fission energy first appears as the kinetic energy of two heavy fragments, which stop quickly and heat nearby material. Neutrons and gamma rays travel farther, while later radioactive decays continue to release energy after the initial event. Understanding these channels is essential for predicting both the rapid heating that drives an explosion and the radiation hazards that remain afterward.",
       "takeaway": "Energy accounting must include both immediate deposition and later decay heat.",
       "place": "",
+      "guide": "Four carriers and four behaviours. Pair them by asking two things of each: how far it travels before it stops, and for how long it keeps arriving. One stops within microns, which is why it heats locally. One keeps releasing energy for years, which is why the products need cooling long afterwards.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Most fission energy first appears as the kinetic energy of two heavy fragments, which stop quickly and heat nearby material. Neutrons and gamma rays travel farther, while later radioactive decays continue to release energy after the initial event. Understanding these channels is essential for predicting both the rapid heating that drives an explosion and the radiation hazards that remain afterward.",
       "game": {
         "type": "PROTOCOL",
@@ -1074,14 +1499,29 @@ export const CURRICULUM = {
           "Which product carries the energy",
           "Where that energy ends up"
         ]
+      },
+      "concept": {
+        "n": 7,
+        "c": "Fission, neutron multiplication and chain reactions",
+        "of": 30,
+        "rests": [
+          "Nuclear structure: protons, neutrons, isotopes, nuclide notation",
+          "Radioactive decay modes: alpha, beta, gamma"
+        ]
       }
     },
     {
-      "day": 22,
+      "day": 23,
       "title": "Neutron spectra",
       "scene": "Neutrons are not all born with the same energy, and reaction probabilities can change sharply across the neutron-energy spectrum. A useful prediction must combine how many neutrons exist at each energy with the cross section at that energy. For bomb design, this prevents the theory group from replacing a broad spectrum with one misleading ‘average neutron.’",
       "takeaway": "Reaction rates depend on the overlap of the spectrum with the cross-section curve.",
       "place": "",
+      "guide": "These four are one calculation, and the point of it is that one average energy is not enough. Ask of each card what has to exist before it. A cross section cannot be chosen before the energies are known. And multiplying inside a range only means something if the ranges are separate.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Neutrons are not all born with the same energy, and reaction probabilities can change sharply across the neutron-energy spectrum. A useful prediction must combine how many neutrons exist at each energy with the cross section at that energy. For bomb design, this prevents the theory group from replacing a broad spectrum with one misleading ‘average neutron.’",
       "game": {
         "type": "SEQUENCE",
@@ -1125,14 +1565,29 @@ export const CURRICULUM = {
           ],
           "s": "One nucleus offers a small target, and packing many of them into a centimetre of material is what makes an interaction likely."
         }
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Cross sections and mean free path",
+        "of": 30,
+        "rests": [
+          "Fission, neutron multiplication and chain reactions"
+        ]
+      }
     },
     {
-      "day": 23,
+      "day": 24,
       "title": "Resonances and thresholds",
       "scene": "Some nuclear reactions become especially likely at resonance energies, while others require a threshold energy before they can occur at all. These features make reaction rates sensitive to the neutron spectrum and material composition. Los Alamos needs to know where such sharp changes occur because a small shift in energy can alter whether neutrons multiply, scatter, or disappear.",
       "takeaway": "When the physics may vary rapidly with energy, coverage can matter more than one exquisitely precise point.",
       "place": "",
+      "guide": "Cross sections can change by orders of magnitude across a narrow band of energy, and nobody yet knows where the structure sits. A single precise point away from a resonance measures the smooth part of the curve very well. A coarse scan has poorer precision per point and covers energies nobody has looked at. Repeating a known thermal point tests the apparatus against a value that is already established. Beam time is the limit, and each of these spends it differently.",
+      "rules": "Spread the hundred points across the 3 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "background": [
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
+      ],
       "story": "Some nuclear reactions become especially likely at resonance energies, while others require a threshold energy before they can occur at all. These features make reaction rates sensitive to the neutron spectrum and material composition. Los Alamos needs to know where such sharp changes occur because a small shift in energy can alter whether neutrons multiply, scatter, or disappear.",
       "game": {
         "type": "SCIENCETANK",
@@ -1162,14 +1617,25 @@ export const CURRICULUM = {
           "A": 20
         },
         "research": ""
+      },
+      "concept": {
+        "n": 20,
+        "c": "Experimental method: controls, calibration, systematic vs random error",
+        "of": 30
       }
     },
     {
-      "day": 24,
+      "day": 25,
       "title": "Branching processes",
       "scene": "A neutron chain reaction is a branching process: each neutron may produce zero, one, or several descendants. Even when the average grows, individual chains can die out by chance, while others become unusually large. This statistical picture helps Los Alamos scientists understand why averages alone cannot describe the early generations of a bomb’s chain reaction.",
       "takeaway": "Near a threshold, fluctuations matter as much as the mean.",
       "place": "",
+      "guide": "These four are one procedure, and an average multiplication factor is not what it produces. Ask of each card what has to be defined first. Nothing can be sampled before there is a distribution to sample from. What comes out is a spread of outcomes, including the ones that die out.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "A neutron chain reaction is a branching process: each neutron may produce zero, one, or several descendants. Even when the average grows, individual chains can die out by chance, while others become unusually large. This statistical picture helps Los Alamos scientists understand why averages alone cannot describe the early generations of a bomb’s chain reaction.",
       "game": {
         "type": "SEQUENCE",
@@ -1192,14 +1658,24 @@ export const CURRICULUM = {
           2,
           3
         ]
+      },
+      "concept": {
+        "n": 24,
+        "c": "Descriptive statistics: mean, spread, standard deviation",
+        "of": 30
       }
     },
     {
-      "day": 25,
+      "day": 26,
       "title": "Geometry and neutron leakage",
       "scene": "A compact shape has less surface area relative to its volume than an elongated or fragmented shape, so fewer neutrons reach a boundary and escape. Geometry therefore changes neutron leakage even when the material is unchanged. Bomb theorists must connect shape and compression to multiplication because increasing density and reducing leakage can push the system into a rapidly growing chain reaction.",
       "takeaway": "Geometry influences neutron economy through boundary leakage, not merely through total mass.",
       "place": "",
+      "guide": "Four numbers, and two of them are radii. Only one is this sphere's. Ask of each whether the relationship needs it. Leakage follows the surface and production follows the volume, so the ratio between them is what matters. And note which way it goes as the body grows.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A compact shape has less surface area relative to its volume than an elongated or fragmented shape, so fewer neutrons reach a boundary and escape. Geometry therefore changes neutron leakage even when the material is unchanged. Bomb theorists must connect shape and compression to multiplication because increasing density and reducing leakage can push the system into a rapidly growing chain reaction.",
       "game": {
         "type": "BALLPARK",
@@ -1215,15 +1691,26 @@ export const CURRICULUM = {
           "Surface scales as L^2 and volume as L^3"
         ],
         "relationship": "For a sphere, surface-to-volume ratio = 3 ÷ radius. Leakage follows surface; production follows volume.",
-        "calcKey": "T-25"
+        "calcKey": "T-26"
+      },
+      "concept": {
+        "n": 17,
+        "c": "Order-of-magnitude estimation from givens",
+        "of": 30
       }
     },
     {
-      "day": 26,
+      "day": 27,
       "title": "Monte Carlo transport",
       "scene": "Neutron transport through a complicated assembly involves many possible collisions and paths, so scientists use Monte Carlo methods to follow large numbers of simulated neutrons chosen by random sampling. The result is a statistical estimate rather than one exact trajectory. This gives Los Alamos a way to study complex geometry and rare paths that are difficult to solve with pencil-and-paper equations alone.",
       "takeaway": "Monte Carlo is a numerical experiment whose uncertainty decreases with the number of histories.",
       "place": "",
+      "guide": "These four are one history repeated many times, and the order is physical. Ask of each card what has to happen first. A particle cannot interact where it has not arrived. And the interaction type cannot be sampled before the interaction point is fixed.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Neutron transport through a complicated assembly involves many possible collisions and paths, so scientists use Monte Carlo methods to follow large numbers of simulated neutrons chosen by random sampling. The result is a statistical estimate rather than one exact trajectory. This gives Los Alamos a way to study complex geometry and rare paths that are difficult to solve with pencil-and-paper equations alone.",
       "game": {
         "type": "SEQUENCE",
@@ -1271,14 +1758,29 @@ export const CURRICULUM = {
           ],
           "s": "Shielding removes a fixed fraction per centimetre, so intensity falls exponentially rather than linearly with thickness."
         }
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Attenuation of radiation through matter",
+        "of": 30,
+        "rests": [
+          "Cross sections and mean free path"
+        ]
+      }
     },
     {
-      "day": 27,
+      "day": 28,
       "title": "Sensitivity analysis",
       "scene": "Sensitivity analysis changes one input at a time to see which uncertain quantity most strongly changes the prediction. A parameter can be poorly known yet unimportant, or precisely known yet crucial. With limited wartime time and equipment, the bomb program needs sensitivity studies to decide which measurements or calculations will most reduce risk.",
       "takeaway": "The largest-looking uncertainty is not always the most important one.",
       "place": "",
+      "guide": "Decision value is uncertainty multiplied by sensitivity, and the two are quoted separately here. One parameter carries the widest uncertainty on the list and moves the output almost not at all. One is already the best known of the three, and the output is very sensitive to it. The third sits between them on both terms. Nothing here is badly measured in absolute terms. What differs is how much of the prediction's error each one owns.",
+      "rules": "Spread the hundred points across the 3 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "background": [
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
+      ],
       "story": "Sensitivity analysis changes one input at a time to see which uncertain quantity most strongly changes the prediction. A parameter can be poorly known yet unimportant, or precisely known yet crucial. With limited wartime time and equipment, the bomb program needs sensitivity studies to decide which measurements or calculations will most reduce risk.",
       "game": {
         "type": "SCIENCETANK",
@@ -1312,11 +1814,17 @@ export const CURRICULUM = {
       }
     },
     {
-      "day": 28,
+      "day": 29,
       "title": "Transport equations and approximations",
       "scene": "No single transport method is best for every problem. Diffusion gives quick estimates when scattering smooths the neutron population, deterministic solvers treat equations directly, and Monte Carlo follows individual random histories. Los Alamos must choose the simplest method that still captures the physics, then check it against more detailed calculations where the approximation might fail.",
       "takeaway": "Model choice should follow the question and required fidelity.",
       "place": "",
+      "guide": "Four needs and four methods, and no method is best everywhere. Pair them by asking what each one costs and what it assumes. One needs scattering to have smoothed the angles first. One scales with how many histories you run rather than with the geometry. And one is a hand estimate.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "No single transport method is best for every problem. Diffusion gives quick estimates when scattering smooths the neutron population, deterministic solvers treat equations directly, and Monte Carlo follows individual random histories. Los Alamos must choose the simplest method that still captures the physics, then check it against more detailed calculations where the approximation might fail.",
       "game": {
         "type": "PROTOCOL",
@@ -1349,14 +1857,25 @@ export const CURRICULUM = {
           "What you want to compute",
           "Which method computes it"
         ]
+      },
+      "concept": {
+        "n": 17,
+        "c": "Order-of-magnitude estimation from givens",
+        "of": 30
       }
     },
     {
-      "day": 29,
+      "day": 30,
       "title": "Shock waves and conservation laws",
       "scene": "A shock wave is a very thin region where pressure, density, and velocity change abruptly. Conservation of mass, momentum, and energy connects the material before and after the shock. Implosion depends on using shocks to compress material inward, so theory must predict how those waves change at boundaries and whether they produce the intended density increase.",
       "takeaway": "Shock physics is conservation plus constitutive information.",
       "place": "",
+      "guide": "These four are one derivation. Ask of each card what has to be chosen or applied first. Conservation laws cannot be applied across a front before the two states either side of it are named. And the laws alone do not close the system; something has to supply the material's own behaviour.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "A shock wave is a very thin region where pressure, density, and velocity change abruptly. Conservation of mass, momentum, and energy connects the material before and after the shock. Implosion depends on using shocks to compress material inward, so theory must predict how those waves change at boundaries and whether they produce the intended density increase.",
       "game": {
         "type": "SEQUENCE",
@@ -1379,14 +1898,28 @@ export const CURRICULUM = {
           2,
           3
         ]
+      },
+      "concept": {
+        "n": 19,
+        "c": "Shock waves, compression and hydrodynamics",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
       }
     },
     {
-      "day": 30,
+      "day": 31,
       "title": "Symmetry and perturbations",
       "scene": "A perfectly spherical implosion is an idealization; real systems contain timing errors, material variations, gaps, and surface roughness. Scientists describe those departures as perturbations with different spatial patterns. Because asymmetries can grow during compression and prevent the core from reaching the required state, Los Alamos must identify which patterns are harmless and which can spoil the bomb.",
       "takeaway": "Symmetry errors are best diagnosed by decomposing them into modes.",
       "place": "",
+      "guide": "Four shapes and four mode names. Pair them by asking what each one does to the assembly. Changes its size and not its shape? Moves its centre? Keeps the volume and spoils the shape? Or grows from small roughness? Mode language turns a complicated shape into something you can talk about.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "A perfectly spherical implosion is an idealization; real systems contain timing errors, material variations, gaps, and surface roughness. Scientists describe those departures as perturbations with different spatial patterns. Because asymmetries can grow during compression and prevent the core from reaching the required state, Los Alamos must identify which patterns are harmless and which can spoil the bomb.",
       "game": {
         "type": "PROTOCOL",
@@ -1419,6 +1952,14 @@ export const CURRICULUM = {
           "What the compression looks like",
           "Which mode that is"
         ]
+      },
+      "concept": {
+        "n": 19,
+        "c": "Shock waves, compression and hydrodynamics",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
       }
     }
   ],
@@ -1429,6 +1970,12 @@ export const CURRICULUM = {
       "scene": "The Physics Division cannot see a single neutron or alpha particle, and neither can anybody else. Everything the Hill will claim about cross sections, backgrounds and yields rests on a chain of conversions working in order.",
       "takeaway": "A detector measures the consequences of an interaction, not radiation directly.",
       "place": "",
+      "guide": "These four are one chain, and a detector never measures the radiation itself. Ask of each card what has to exist before it. Nothing is amplified before something is set free. And nothing is set free before energy is deposited. That middle step decides what the instrument can see at all.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "The Physics Division cannot see a single neutron or alpha particle, and neither can anybody else. Everything the Hill will claim about cross sections, backgrounds and yields rests on a chain of conversions working in order.",
       "game": {
         "type": "SEQUENCE",
@@ -1459,8 +2006,23 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "radiation deposits energy in whatever it passes through"
-      ]
+        "radiation deposits energy in whatever it passes through",
+        "decay constant, half-life and activity — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 5,
+          "c": "Decay constant, half-life and activity"
+        }
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Detectors: ionisation, count rate, efficiency, dead time",
+        "of": 30,
+        "rests": [
+          "Decay constant, half-life and activity"
+        ]
+      }
     },
     {
       "day": 2,
@@ -1468,6 +2030,12 @@ export const CURRICULUM = {
       "scene": "Two Physics groups bring spectra from different instruments, and the peaks refuse to line up. Each group trusts its own axis. An afternoon comparison meeting is approaching, and somebody has to decide whether the disagreement belongs to the samples or to the instruments.",
       "takeaway": "One calibration point cannot determine both a slope and an offset; a second independent point breaks that degeneracy.",
       "place": "",
+      "guide": "Two controls, gain and offset, slide along a family of calibrations that all put one reference line where it belongs. Find out how wide that family is before deciding anything. Then bring in the second reference line, which does not permit the same trade, and watch the family collapse.",
+      "background": [
+        "Why one line cannot calibrate an axis. A linear axis has two unknowns: how much a step is worth, and where zero sits. One known peak gives one equation. Every gain paired with the offset that puts that peak in the right place fits equally well, which is exactly the family the controls slide along.",
+        "Why the second line is not a repeat. It constrains the same two unknowns through a different combination, so the pairs that satisfied the first no longer satisfy this one. Where the two constraints cross is the calibration, and it is why standards come with more than one line.",
+        "What is at stake this afternoon. If the axes can be reconciled, the spectra agree and the disagreement was instrumental. If they cannot, the difference is in the samples. Both groups trusting their own axis is how a meeting spends an afternoon arguing about the wrong thing."
+      ],
       "story": "Two Physics groups bring spectra from different instruments, and the peaks refuse to line up. Each group trusts its own axis. An afternoon comparison meeting is approaching, and somebody has to decide whether the disagreement belongs to the samples or to the instruments.",
       "game": {
         "type": "DEGENERACY",
@@ -1563,14 +2131,186 @@ export const CURRICULUM = {
       "assumes": [
         "a straight-line calibration can have both a slope and an offset",
         "one equation cannot determine two unknowns"
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Experimental method: controls, calibration, systematic vs random error",
+        "of": 30
+      }
     },
     {
       "day": 3,
+      "title": "Will it hold a chain, or will it not",
+      "scene": "A shipment has arrived and the vault wants it sorted before anything is stored together. Some of what is on this bench will sustain a chain reaction given enough of it. The rest will not, whatever you do with it.",
+      "takeaway": "What sustains a chain is decided by the nuclide, not by how radioactive a thing is.",
+      "place": "Physics Division",
+      "guide": "Two bins. A nuclide that fissions on slow neutrons will hold a chain given enough mass and the right geometry. One that only fissions on fast neutrons, or not at all, will not — however heavy the piece is. Sort on the nuclide, not on how dangerous the label looks.",
+      "background": [
+        "Why the distinction is the whole of storage policy. Two pieces that each hold no chain can hold one together, so the rule about what may sit next to what is written from this sort. Nothing about mass or radioactivity substitutes for it.",
+        "Why radioactive and fissile are different words. Cobalt-60 will make a counter scream across the room and will never sustain anything. Natural uranium is barely active and contains the isotope everything here is about."
+      ],
+      "story": "A shipment has arrived and the vault wants it sorted before anything is stored together. Some of what is on this bench will sustain a chain reaction given enough of it. The rest will not, whatever you do with it.",
+      "game": {
+        "type": "BELT",
+        "title": "Will it hold a chain, or will it not",
+        "setup": "Physics Division",
+        "play": "Sort the shipment before it goes to the vault.",
+        "task": "Sort the shipment before it goes to the vault.",
+        "question": "Send each item to the bin that says whether it can sustain a chain reaction.",
+        "answer": "Anything that fissions on slow neutrons can hold a chain given enough of it. Everything else cannot, however active it is.",
+        "why": "A chain reaction needs a nuclide that fissions when it absorbs a neutron and then releases enough neutrons to do it again. Uranium-235 and plutonium-239 do that with slow neutrons, so a large enough piece in the right shape sustains itself. Uranium-238 fissions only on fast neutrons and absorbs the slow ones, so it damps a chain rather than carrying one — which is why natural uranium is nine-tenths a moderator by mass. Everything else on this bench is a different property entirely. Cobalt-60 and radium are intensely radioactive and cannot sustain anything. Beryllium and graphite are not radioactive at all and change everything, because they reflect and slow neutrons, which is why they are stored under the same rule. That is the point of sorting this way rather than by how loud a counter gets: the storage policy is written about what can happen when two pieces are put near each other.",
+        "belt": {
+          "left": {
+            "name": "Can hold a chain"
+          },
+          "right": {
+            "name": "Cannot"
+          },
+          "items": [
+            {
+              "name": "Uranium-235 metal",
+              "bin": "left"
+            },
+            {
+              "name": "Plutonium-239 button",
+              "bin": "left"
+            },
+            {
+              "name": "Enriched uranium foil",
+              "bin": "left"
+            },
+            {
+              "name": "Uranium-233 sample",
+              "bin": "left"
+            },
+            {
+              "name": "Highly enriched solution",
+              "bin": "left"
+            },
+            {
+              "name": "Plutonium nitrate",
+              "bin": "left"
+            },
+            {
+              "name": "Enriched-plant tailings",
+              "bin": "right"
+            },
+            {
+              "name": "Reactor-grade plutonium",
+              "bin": "left"
+            },
+            {
+              "name": "Uranium-235 hemisphere",
+              "bin": "left"
+            },
+            {
+              "name": "Enriched hexafluoride",
+              "bin": "left"
+            },
+            {
+              "name": "Fissile foil stack",
+              "bin": "left"
+            },
+            {
+              "name": "Uranium-235 solution",
+              "bin": "left"
+            },
+            {
+              "name": "Uranium-238 metal",
+              "bin": "right"
+            },
+            {
+              "name": "Depleted uranium slug",
+              "bin": "right"
+            },
+            {
+              "name": "Natural uranium oxide",
+              "bin": "right"
+            },
+            {
+              "name": "Cobalt-60 source",
+              "bin": "right"
+            },
+            {
+              "name": "Radium needle",
+              "bin": "right"
+            },
+            {
+              "name": "Graphite block",
+              "bin": "right"
+            },
+            {
+              "name": "Beryllium reflector",
+              "bin": "right"
+            },
+            {
+              "name": "Polonium-beryllium source",
+              "bin": "right"
+            },
+            {
+              "name": "Plutonium-238 heater",
+              "bin": "right"
+            },
+            {
+              "name": "Enriched boron sheet",
+              "bin": "right"
+            },
+            {
+              "name": "Boron carbide",
+              "bin": "right"
+            },
+            {
+              "name": "Heavy water flask",
+              "bin": "right"
+            },
+            {
+              "name": "Thorium-232 metal",
+              "bin": "right"
+            },
+            {
+              "name": "Tritium ampoule",
+              "bin": "right"
+            }
+          ],
+          "need": 20,
+          "lives": 3,
+          "pass": 0.8,
+          "hint": "Ask whether it fissions on slow neutrons, not how active it is.",
+          "commit": "Start the line"
+        }
+      },
+      "assumes": [
+        "some heavy nuclei split when they absorb a neutron",
+        "fission, neutron multiplication and chain reactions — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 7,
+          "c": "Fission, neutron multiplication and chain reactions"
+        }
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Criticality: mass, geometry, reflectors, moderation",
+        "of": 30,
+        "rests": [
+          "Fission, neutron multiplication and chain reactions",
+          "Cross sections and mean free path"
+        ]
+      }
+    },
+    {
+      "day": 4,
       "title": "Find what carries the background",
       "scene": "A weak sample has been counting for an hour and the question is whether it is emitting anything at all. This is where an experimental group either establishes a real signal or convinces itself of one.",
       "takeaway": "A suspected cause is strongest when changing only that cause moves the reading and reversing the change restores it.",
       "place": "",
+      "guide": "The number you are watching is the counting rate with no sample in the station, and the excess is how much of it cannot be accounted for. A change has told you something only when it moves that excess by more than the rate wanders on its own between runs. Several parts of the station changed when it was built, so choose one, run it, and put it back. Name the part the excess follows.",
+      "background": [
+        "What a background is. A detector counts things whether or not you gave it anything to count: cosmic rays, activity in the concrete, contamination on the housing, noise in the electronics. The rate with no sample in place is the sum of all of those, and a weak sample is only detectable to the extent that its own counts stand above that sum.",
+        "Why one change at a time. Change two things and a response tells you only that one of them mattered. The station has a shield, a room and a detector, and each of them can carry background for its own reason, so the only reading that names a part is the one where nothing else moved.",
+        "Why putting it back matters. A rate that drops when you shield the detector and stays down when you unshield it was falling for some other reason — drift, a decaying source, somebody switching off a pump down the corridor. A cause has to follow the change in both directions, and that is the whole of what reversal tests."
+      ],
       "story": "A weak sample has been counting for an hour and the question is whether it is emitting anything at all. This is where an experimental group either establishes a real signal or convinces itself of one.",
       "game": {
         "type": "CONTROL",
@@ -1613,14 +2353,27 @@ export const CURRICULUM = {
       "assumes": [
         "background is measured with no sample present",
         "one changed variable can be tested against a stable baseline"
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Attenuation of radiation through matter",
+        "of": 30,
+        "rests": [
+          "Cross sections and mean free path"
+        ]
+      }
     },
     {
-      "day": 4,
+      "day": 5,
       "title": "Poisson counting statistics",
       "scene": "A run has finished with 400 net counts and somebody wants to know how well the result is known. Beam time, detector time, material, and shift hours are all scarce here.",
       "takeaway": "Four times as many counts are needed to cut statistical uncertainty in half.",
       "place": "",
+      "guide": "Four numbers, and three of them are count totals. Only one belongs to this run. Ask of each whether it is the numerator or the total. And note how slowly this improves. Halving the uncertainty needs four times the counts, which makes run length a planning decision.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A run has finished with 400 net counts and somebody wants to know how well the result is known. Beam time, detector time, material, and shift hours are all scarce here.",
       "game": {
         "type": "BALLPARK",
@@ -1636,10 +2389,11 @@ export const CURRICULUM = {
           "Fractional uncertainty is sqrt(N)/N"
         ],
         "relationship": "Fractional uncertainty = 1 ÷ the square root of the number of counts.",
-        "calcKey": "P-4"
+        "calcKey": "P-5"
       },
       "assumes": [
-        "radioactive decays arrive at random"
+        "radioactive decays arrive at random",
+        "descriptive statistics: mean, spread, standard deviation — taken as read"
       ],
       "equations": [
         {
@@ -1658,14 +2412,35 @@ export const CURRICULUM = {
           "s": "Counting is random, so the uncertainty is the square root of the count and four times the counting time buys only twice the precision.",
           "computed": true
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 24,
+          "c": "Descriptive statistics: mean, spread, standard deviation"
+        }
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Counting statistics and uncertainty",
+        "of": 30,
+        "rests": [
+          "Detectors: ionisation, count rate, efficiency, dead time",
+          "Descriptive statistics: mean, spread, standard deviation"
+        ]
+      }
     },
     {
-      "day": 5,
+      "day": 6,
       "title": "Are the neutrons missing, or the counts?",
       "scene": "A neutron counter is reading well below prediction and nobody yet knows whether the physics or the instrument is at fault. The measurement about to be built on this counter is one the whole plutonium programme depends on.",
       "takeaway": "Independent evidence can separate a missing physical signal from a failure in the instrument that reports it.",
       "place": "",
+      "guide": "Open each reading to see what it was computed from. Keep the ones that could still see neutrons arriving without passing through the discriminator, and untick the rest. Then name the dependency the failed readouts share. Both halves count: discarding an independent measurement costs as much as keeping a dependent one.",
+      "background": [
+        "Why the two explanations look identical on the console. Fewer neutrons arriving and fewer neutrons being counted produce the same low number. Nothing about the number itself separates them, which is why the answer has to come from what each channel depended on rather than from its value.",
+        "What the counting chain contains. A detector, a discriminator that decides whether a pulse is large enough to count, an amplifier, a scaler. A threshold set too high silently rejects real events, and every channel downstream of it reports the same shortfall convincingly.",
+        "Why an independent channel is worth so much here. An activation foil or a geometry check sees neutrons arriving without the electronics deciding anything. One such measurement settles a question no number of counter runs can."
+      ],
       "story": "A neutron counter is reading well below prediction and nobody yet knows whether the physics or the instrument is at fault. The measurement about to be built on this counter is one the whole plutonium programme depends on.",
       "game": {
         "type": "TRACE",
@@ -1782,14 +2557,28 @@ export const CURRICULUM = {
           ],
           "s": "The same energy spreads over a sphere that grows as the square of distance, so doubling the distance quarters the intensity."
         }
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Detectors: ionisation, count rate, efficiency, dead time",
+        "of": 30,
+        "rests": [
+          "Decay constant, half-life and activity"
+        ]
+      }
     },
     {
-      "day": 6,
+      "day": 7,
       "title": "Find where timing jitter enters",
       "scene": "A timing array is disagreeing with itself, and until that is settled no symmetry claim from it means anything. The Hill is about to spend months measuring differences of nanoseconds.",
       "takeaway": "A controlled substitution localizes an instrument error only when one change removes the effect and reversing that change brings it back.",
       "place": "",
+      "guide": "The number you are watching is the spread in arrival times between channels, and the live path gives about fourteen nanoseconds of it. Substituting a reference part asks a specific question: if that part were perfect, how much spread would be left? A substitution that leaves the spread where it was has cleared that part. Run one at a time, restore it, and name the stage the spread follows.",
+      "background": [
+        "What the spread is made of. Every stage between the particle and the recorded time adds its own variation: how the detector forms a pulse, how the cable carries it, how the discriminator decides when the pulse crossed a threshold. Those add in quadrature, so the largest one dominates and the others are nearly invisible until it is removed.",
+        "Why substitution rather than adjustment. A reference pulse injected at the electronics input is a known, jitter-free signal. Feeding it in replaces one stage with something whose contribution is negligible, so what remains is everything else. That makes the measurement subtractive: the drop when a stage is bypassed is that stage's own contribution.",
+        "What is riding on it. Months of measurement here are differences of nanoseconds, so a timing path that adds fourteen of them is not a detail. Until the array agrees with itself, no asymmetry it reports can be separated from its own jitter, which is why this is settled before the physics starts."
+      ],
       "story": "A timing array is disagreeing with itself, and until that is settled no symmetry claim from it means anything. The Hill is about to spend months measuring differences of nanoseconds.",
       "game": {
         "type": "CONTROL",
@@ -1832,14 +2621,24 @@ export const CURRICULUM = {
       "assumes": [
         "a fixed delay shifts a distribution while random jitter broadens it",
         "a controlled substitution changes one part of a measurement chain at a time"
-      ]
+      ],
+      "concept": {
+        "n": 28,
+        "c": "Timing, synchronisation and simultaneity of events",
+        "of": 30
+      }
     },
     {
-      "day": 7,
+      "day": 8,
       "title": "High-speed imaging and radiography",
       "scene": "On the analysis table are high-speed photographs from yesterday’s implosion test. Beside them sit several radiographs of the opaque assembly. Each image is labeled with its exposure time. The notebook also lists estimated object speeds and the feature sizes the team wants measured.",
       "takeaway": "Exposure time sets a direct spatial-blur limit for rapidly moving objects.",
       "place": "",
+      "guide": "Four numbers, and two of them are exposure times a thousand apart. Ask of each which one this camera used. And note what the answer is: a limit the optics cannot beat. Anything moving during the exposure travels a real distance, and that distance is the blur.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "On the analysis table are high-speed photographs from yesterday’s implosion test. Beside them sit several radiographs of the opaque assembly. Each image is labeled with its exposure time. The notebook also lists estimated object speeds and the feature sizes the team wants measured.",
       "game": {
         "type": "BALLPARK",
@@ -1854,18 +2653,29 @@ export const CURRICULUM = {
           "Blur distance = speed x exposure time"
         ],
         "relationship": "Motion blur = speed × exposure time. Multiply by 1,000 to turn metres into millimetres.",
-        "calcKey": "P-7"
+        "calcKey": "P-8"
       },
       "assumes": [
         "a photograph records everything that happened while the shutter was open"
-      ]
+      ],
+      "concept": {
+        "n": 17,
+        "c": "Order-of-magnitude estimation from givens",
+        "of": 30
+      }
     },
     {
-      "day": 8,
+      "day": 9,
       "title": "Where the fragments go",
       "scene": "A nucleus initially at rest splits into a heavy fragment and a light fragment. The team has measured the fragment masses and is arguing about which one should carry the larger share of kinetic energy before looking at the detector data.",
       "takeaway": "Momentum conservation fixes the ratio of fragment speeds, and energy follows from it.",
       "place": "Diagnostics Bay",
+      "guide": "Four answers, and the nucleus started at rest. Ask of each whether it respects that. Total momentum was zero, so the two fragments leave with equal and opposite momentum. From there the question is what equal momentum does to two different masses, and one option refuses to decide at all.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "A nucleus initially at rest splits into a heavy fragment and a light fragment. The team has measured the fragment masses and is arguing about which one should carry the larger share of kinetic energy before looking at the detector data.",
       "game": {
         "type": "CHOICE",
@@ -1891,14 +2701,28 @@ export const CURRICULUM = {
       },
       "assumes": [
         "momentum is conserved in an isolated system"
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Conservation of energy and momentum in reactions",
+        "of": 30,
+        "rests": [
+          "Mass defect, binding energy and E = mc²"
+        ]
+      }
     },
     {
-      "day": 9,
+      "day": 10,
       "title": "Buy the test that can decide",
       "scene": "Three team leads are waiting outside the facility office, each with a test they say cannot wait. There is one week of access left in the schedule, and only one proposal can take it. The scheduler needs one name before Monday.",
       "takeaway": "A test is valuable when its possible outcomes distinguish competing explanations, not when it merely produces more data.",
       "place": "",
+      "guide": "One week of access, three tests, and one name needed before Monday. Open each proposal and ask what decision its result would change. A test that everybody agrees is important but whose result changes nothing this month has not earned the week. Commit to the one that moves the programme's next decision.",
+      "background": [
+        "What makes a test decisive rather than valuable. Two possible outcomes leading to different actions. A test whose likely result confirms the current plan is worth running eventually and not worth the only week of access left.",
+        "Why the leads all say theirs cannot wait. Each is right about their own programme and none of them is holding the schedule. The scheduler is the only person looking at what the next decision actually requires, which is why the choice sits there.",
+        "Why Monday. A name given late costs the week itself, so an imperfect choice made in time beats a better one made after the access has lapsed."
+      ],
       "story": "Three team leads are waiting outside the facility office, each with a test they say cannot wait. There is one week of access left in the schedule, and only one proposal can take it. The scheduler needs one name before Monday.",
       "game": {
         "type": "VALUE",
@@ -1953,14 +2777,29 @@ export const CURRICULUM = {
       "assumes": [
         "an experiment is useful when different explanations predict different outcomes",
         "facility time is limited"
-      ]
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Counting statistics and uncertainty",
+        "of": 30,
+        "rests": [
+          "Detectors: ionisation, count rate, efficiency, dead time",
+          "Descriptive statistics: mean, spread, standard deviation"
+        ]
+      }
     },
     {
-      "day": 10,
+      "day": 11,
       "title": "The plot that makes a decay a straight line",
       "scene": "Two counters have produced a table of count rate against time, and the notebook has it plotted on ordinary axes as a curve that nobody can read a number off.",
       "takeaway": "Plotting a logarithm turns an exponential into a straight line, and its slope is the decay constant.",
       "place": "Diagnostics Bay",
+      "guide": "Four ways to plot the same data. Ask of each what shape it turns an exponential into. Then ask what the slope of that shape means. One option takes the logarithm of both axes, which suits a power law rather than a decay. And a straight line is easy to check by eye, which is the point.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Two counters have produced a table of count rate against time, and the notebook has it plotted on ordinary axes as a curve that nobody can read a number off.",
       "game": {
         "type": "CHOICE",
@@ -2030,14 +2869,29 @@ export const CURRICULUM = {
           ],
           "s": "The decay constant and the half-life are the same fact written two ways."
         }
-      ]
+      ],
+      "concept": {
+        "n": 25,
+        "c": "Graphical analysis: semi-log plots and slopes",
+        "of": 30,
+        "rests": [
+          "Exponential decay and logarithms",
+          "Descriptive statistics: mean, spread, standard deviation"
+        ]
+      }
     },
     {
-      "day": 11,
+      "day": 12,
       "title": "Final diagnostic readiness review",
       "scene": "The final readiness review asks whether the instruments will actually record what happens. There is exactly one event to record, no repeat shot to recover a missed observable, and a diagnostic that saturates or loses timing can erase an answer permanently.",
       "takeaway": "The final product is a trustworthy evidence system, not merely a collection of sensors.",
       "place": "",
+      "guide": "All four steps happen, so ask what each one proves that the others cannot. An instrument nobody can describe afterwards produces data nobody can use. A chain of working parts is not a working chain. And independent coverage means one failure does not take a whole answer with it.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "The final readiness review asks whether the instruments will actually record what happens. There is exactly one event to record, no repeat shot to recover a missed observable, and a diagnostic that saturates or loses timing can erase an answer permanently.",
       "game": {
         "type": "SEQUENCE",
@@ -2069,14 +2923,29 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an instrument can be working and still miss the event"
-      ]
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Criticality: mass, geometry, reflectors, moderation",
+        "of": 30,
+        "rests": [
+          "Fission, neutron multiplication and chain reactions",
+          "Cross sections and mean free path"
+        ]
+      }
     },
     {
-      "day": 12,
+      "day": 13,
       "title": "Gas-filled detectors",
       "scene": "A gas-filled detector collects charge created when radiation ionizes gas molecules. Depending on the applied voltage, the same tube can measure average current, amplify individual ionization events, or produce nearly identical large pulses. Choosing the correct operating region matters because the bomb program needs different instruments for dose, counting, and pulse information rather than one detector used beyond its useful range.",
       "takeaway": "Operating voltage determines what information a gas detector preserves.",
       "place": "",
+      "guide": "Four needs and four operating regions. Pair them by asking what the field strength does to the signal. No multiplication gives a steady current. Large but linear multiplication keeps the pulse height meaningful. And beyond that every event gives the same pulse, whatever arrived.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "A gas-filled detector collects charge created when radiation ionizes gas molecules. Depending on the applied voltage, the same tube can measure average current, amplify individual ionization events, or produce nearly identical large pulses. Choosing the correct operating region matters because the bomb program needs different instruments for dose, counting, and pulse information rather than one detector used beyond its useful range.",
       "game": {
         "type": "PROTOCOL",
@@ -2109,14 +2978,27 @@ export const CURRICULUM = {
           "What you want to measure",
           "Which operating region measures it"
         ]
+      },
+      "concept": {
+        "n": 12,
+        "c": "Detectors: ionisation, count rate, efficiency, dead time",
+        "of": 30,
+        "rests": [
+          "Decay constant, half-life and activity"
+        ]
       }
     },
     {
-      "day": 13,
+      "day": 14,
       "title": "Scintillation detectors",
       "scene": "A scintillator gives off tiny flashes of light when radiation deposits energy, and a photosensor converts those flashes into electrical pulses. Different scintillators vary in speed, brightness, and sensitivity to particle type. Los Alamos uses fast scintillation signals when timing is crucial, but must separate real flashes from electronic noise and understand how light output relates to deposited energy.",
       "takeaway": "More detected photons usually improve statistical energy resolution.",
       "place": "",
+      "guide": "Four numbers, and three of them are photoelectron counts. Only one belongs to this measurement. Ask of each whether it is the numerator or the count. And note how the answer improves: a hundred times more light halves the noise ten times over, not a hundred.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A scintillator gives off tiny flashes of light when radiation deposits energy, and a photosensor converts those flashes into electrical pulses. Different scintillators vary in speed, brightness, and sensitivity to particle type. Los Alamos uses fast scintillation signals when timing is crucial, but must separate real flashes from electronic noise and understand how light output relates to deposited energy.",
       "game": {
         "type": "BALLPARK",
@@ -2131,7 +3013,7 @@ export const CURRICULUM = {
           "Statistical fractional fluctuation is roughly 1/sqrt(N)"
         ],
         "relationship": "Counting fluctuation is Poisson: the fractional noise = 1 ÷ the square root of the number counted.",
-        "calcKey": "P-13"
+        "calcKey": "P-14"
       },
       "equations": [
         {
@@ -2150,14 +3032,28 @@ export const CURRICULUM = {
           "s": "Counting is random, so the uncertainty is the square root of the count and four times the counting time buys only twice the precision.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Detectors: ionisation, count rate, efficiency, dead time",
+        "of": 30,
+        "rests": [
+          "Decay constant, half-life and activity"
+        ]
+      }
     },
     {
-      "day": 14,
+      "day": 15,
       "title": "Semiconductor detectors",
       "scene": "In a semiconductor detector, radiation creates mobile electrons and holes inside a solid crystal. An electric field sweeps those charges to electrodes, producing a pulse whose size can measure energy very precisely. Such detectors illustrate the same basic challenge that appears throughout the bomb program: preserve a small physical signal while preventing leakage current, noise, and imperfect charge collection from distorting it.",
       "takeaway": "Semiconductors provide excellent energy information because little energy is required per charge pair.",
       "place": "",
+      "guide": "These four are one chain, and each step has to work before the next means anything. Ask of each card what it needs first. Carriers cannot be collected before they exist, and they do not exist without a sensitive region. Charge has to be created, moved and measured before any energy can be inferred.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "In a semiconductor detector, radiation creates mobile electrons and holes inside a solid crystal. An electric field sweeps those charges to electrodes, producing a pulse whose size can measure energy very precisely. Such detectors illustrate the same basic challenge that appears throughout the bomb program: preserve a small physical signal while preventing leakage current, noise, and imperfect charge collection from distorting it.",
       "game": {
         "type": "SEQUENCE",
@@ -2180,14 +3076,27 @@ export const CURRICULUM = {
           2,
           3
         ]
+      },
+      "concept": {
+        "n": 12,
+        "c": "Detectors: ionisation, count rate, efficiency, dead time",
+        "of": 30,
+        "rests": [
+          "Decay constant, half-life and activity"
+        ]
       }
     },
     {
-      "day": 15,
+      "day": 16,
       "title": "Efficiency and geometry",
       "scene": "Detector efficiency is the fraction of emitted particles that are actually recorded, and geometry controls how many particles travel toward the detector at all. Moving a detector farther away can reduce the count even though the source has not changed. Los Alamos must correct for both effects before comparing experiments or using count rates to test bomb calculations.",
       "takeaway": "A highly efficient material can still record few events if it covers little solid angle.",
       "place": "",
+      "guide": "Four numbers, in two pairs, and only one of each pair belongs here. Ask of each whether it describes how much of the emission reaches the detector, or what the detector does with what arrives. Those are two separate fractions, and the answer is their product.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Detector efficiency is the fraction of emitted particles that are actually recorded, and geometry controls how many particles travel toward the detector at all. Moving a detector farther away can reduce the count even though the source has not changed. Los Alamos must correct for both effects before comparing experiments or using count rates to test bomb calculations.",
       "game": {
         "type": "BALLPARK",
@@ -2202,15 +3111,25 @@ export const CURRICULUM = {
           "Absolute efficiency = geometric fraction x intrinsic efficiency"
         ],
         "relationship": "Absolute efficiency = geometric acceptance × intrinsic efficiency.",
-        "calcKey": "P-15"
+        "calcKey": "P-16"
+      },
+      "concept": {
+        "n": 17,
+        "c": "Order-of-magnitude estimation from givens",
+        "of": 30
       }
     },
     {
-      "day": 16,
+      "day": 17,
       "title": "Background subtraction uncertainty",
       "scene": "A corrected signal is often the sample count minus a separately measured background count. Both measurements fluctuate, so their uncertainties must be combined rather than assigning all uncertainty to the sample alone. In bomb experiments, weak diagnostic signals can be overwhelmed by an uncertain background even when the subtraction produces a positive number.",
       "takeaway": "Subtracted backgrounds add uncertainty even though they reduce the central value.",
       "place": "",
+      "guide": "Four numbers, in two pairs, and only one of each belongs to this run. Ask of each whether it is the sample or the background. And note what happens to the uncertainty. Subtracting removes counts from the net and adds noise to it, because both totals carry their own scatter.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A corrected signal is often the sample count minus a separately measured background count. Both measurements fluctuate, so their uncertainties must be combined rather than assigning all uncertainty to the sample alone. In bomb experiments, weak diagnostic signals can be overwhelmed by an uncertain background even when the subtraction produces a positive number.",
       "game": {
         "type": "BALLPARK",
@@ -2226,7 +3145,7 @@ export const CURRICULUM = {
           "Variance of independent difference = 1000 + 100"
         ],
         "relationship": "Each count has Poisson noise, and the two are independent, so the uncertainty on the difference = √(sample + background).",
-        "calcKey": "P-16"
+        "calcKey": "P-17"
       },
       "equations": [
         {
@@ -2245,14 +3164,24 @@ export const CURRICULUM = {
           "s": "Counting is random, so the uncertainty is the square root of the count and four times the counting time buys only twice the precision.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 24,
+        "c": "Descriptive statistics: mean, spread, standard deviation",
+        "of": 30
+      }
     },
     {
-      "day": 17,
+      "day": 18,
       "title": "Dead time",
       "scene": "After recording an event, a detector or electronic circuit may need a short recovery time during which it cannot record another event. At high rates, this dead time causes the measured count to fall below the true rate. Los Alamos must correct or avoid dead-time losses because the most important bomb experiments can produce signals far faster than ordinary laboratory measurements.",
       "takeaway": "High observed rates can understate the true rate because the system is temporarily blind after each event.",
       "place": "",
+      "guide": "Four numbers, and two of them are dead times a hundred apart. Ask of each which one this detector has. And note what the answer is for. It says what fraction of the time the instrument was actually listening. The correction only stays simple while that fraction is close to one.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "After recording an event, a detector or electronic circuit may need a short recovery time during which it cannot record another event. At high rates, this dead time causes the measured count to fall below the true rate. Los Alamos must correct or avoid dead-time losses because the most important bomb experiments can produce signals far faster than ordinary laboratory measurements.",
       "game": {
         "type": "BALLPARK",
@@ -2267,15 +3196,28 @@ export const CURRICULUM = {
           "Live fraction is about 1 - R tau while R tau stays small"
         ],
         "relationship": "Live fraction = 1 − (event rate × dead time per event). Multiply by 100 for a percentage.",
-        "calcKey": "P-17"
+        "calcKey": "P-18"
+      },
+      "concept": {
+        "n": 12,
+        "c": "Detectors: ionisation, count rate, efficiency, dead time",
+        "of": 30,
+        "rests": [
+          "Decay constant, half-life and activity"
+        ]
       }
     },
     {
-      "day": 18,
+      "day": 19,
       "title": "Energy resolution",
       "scene": "Energy resolution describes whether a detector can distinguish two nearby energies. Even a perfectly monoenergetic source produces a peak with finite width because charge production, light collection, and electronics fluctuate. Los Alamos needs enough resolution to tell whether a broad feature represents one process, several overlapping processes, or an instrument that is performing poorly.",
       "takeaway": "Resolution should be quoted relative to energy when comparing peaks at different energies.",
       "place": "",
+      "guide": "Four numbers, and two of them are widths ten times apart. Ask of each which one this line has. And note what the answer compares. A width means nothing on its own; it is only informative against the energy it sits at.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Energy resolution describes whether a detector can distinguish two nearby energies. Even a perfectly monoenergetic source produces a peak with finite width because charge production, light collection, and electronics fluctuate. Los Alamos needs enough resolution to tell whether a broad feature represents one process, several overlapping processes, or an instrument that is performing poorly.",
       "game": {
         "type": "BALLPARK",
@@ -2290,15 +3232,25 @@ export const CURRICULUM = {
           "Percent resolution = FWHM / peak energy x 100%"
         ],
         "relationship": "Resolution = peak width ÷ peak energy, as a percentage.",
-        "calcKey": "P-18"
+        "calcKey": "P-19"
+      },
+      "concept": {
+        "n": 17,
+        "c": "Order-of-magnitude estimation from givens",
+        "of": 30
       }
     },
     {
-      "day": 19,
+      "day": 20,
       "title": "Coincidence measurements",
       "scene": "Coincidence measurements ask whether two detectors recorded events within the same short time window. True coincidences can reveal that signals came from one physical event, while random coincidences occur by chance. The bomb program uses coincidence logic to reject background and to connect different measurements to the same rapidly changing experiment.",
       "takeaway": "Coincidence is powerful only when the accidental rate is quantified.",
       "place": "",
+      "guide": "Four numbers, and two of them are windows a thousand apart. Ask of each which one this system uses. And note why the answer matters. Accidentals are events that were never related, so this number is the floor the real signal has to stand above.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Coincidence measurements ask whether two detectors recorded events within the same short time window. True coincidences can reveal that signals came from one physical event, while random coincidences occur by chance. The bomb program uses coincidence logic to reject background and to connect different measurements to the same rapidly changing experiment.",
       "game": {
         "type": "BALLPARK",
@@ -2313,15 +3265,25 @@ export const CURRICULUM = {
           "Accidental rate is roughly R1 R2 Delta t"
         ],
         "relationship": "Accidental coincidences = rate in one detector × rate in the other × the width of the coincidence window.",
-        "calcKey": "P-19"
+        "calcKey": "P-20"
+      },
+      "concept": {
+        "n": 17,
+        "c": "Order-of-magnitude estimation from givens",
+        "of": 30
       }
     },
     {
-      "day": 20,
+      "day": 21,
       "title": "Time of flight",
       "scene": "Time of flight estimates particle speed by measuring how long it takes to cross a known distance. The method requires a start signal, a stop signal, and a carefully measured path. Los Alamos uses timing to infer neutron energies and other fast processes, so a clock error can masquerade as a change in the physics.",
       "takeaway": "Time-of-flight converts precise timing and known geometry into kinematic information.",
       "place": "",
+      "guide": "Four numbers, in two pairs, and only one of each belongs to this measurement. Ask of each whether it is a distance or a time. And check the powers of ten before dividing, because a factor of a hundred in either one moves the answer by the same factor.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Time of flight estimates particle speed by measuring how long it takes to cross a known distance. The method requires a start signal, a stop signal, and a carefully measured path. Los Alamos uses timing to infer neutron energies and other fast processes, so a clock error can masquerade as a change in the physics.",
       "game": {
         "type": "BALLPARK",
@@ -2336,15 +3298,26 @@ export const CURRICULUM = {
           "Speed = distance/time"
         ],
         "relationship": "Speed = distance ÷ time.",
-        "calcKey": "P-20"
+        "calcKey": "P-21"
+      },
+      "concept": {
+        "n": 17,
+        "c": "Order-of-magnitude estimation from givens",
+        "of": 30
       }
     },
     {
-      "day": 21,
+      "day": 22,
       "title": "Gamma-ray spectroscopy",
       "scene": "Gamma-ray spectroscopy identifies nuclear transitions by measuring the energies of penetrating photons. Peaks can reveal which radioactive nuclei are present, but background, detector resolution, and efficiency all affect the spectrum. Los Alamos uses gamma measurements to study fission products and materials, making careful calibration essential for turning peaks into physical conclusions.",
       "takeaway": "A spectral line is evidence only after instrumental response and background are understood.",
       "place": "",
+      "guide": "All four steps happen, so ask what each one would spoil if it came later. A peak found before the background is modelled may be background. And a peak found before the energy scale is calibrated cannot be compared with anything. Identification is the last step rather than the first.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Gamma-ray spectroscopy identifies nuclear transitions by measuring the energies of penetrating photons. Peaks can reveal which radioactive nuclei are present, but background, detector resolution, and efficiency all affect the spectrum. Los Alamos uses gamma measurements to study fission products and materials, making careful calibration essential for turning peaks into physical conclusions.",
       "game": {
         "type": "SEQUENCE",
@@ -2367,14 +3340,29 @@ export const CURRICULUM = {
           2,
           3
         ]
+      },
+      "concept": {
+        "n": 22,
+        "c": "Penetrating power and range of alpha, beta, gamma",
+        "of": 30,
+        "rests": [
+          "Attenuation of radiation through matter",
+          "Radioactive decay modes: alpha, beta, gamma"
+        ]
       }
     },
     {
-      "day": 22,
+      "day": 23,
       "title": "Alpha and beta counting",
       "scene": "Alpha particles deposit energy densely but travel only a short distance, while beta particles travel farther and are more sensitive to source thickness and backing material. A poorly prepared sample can absorb its own radiation and distort the count. The bomb program needs thin, reproducible samples so measured differences reflect nuclear composition rather than sample geometry.",
       "takeaway": "Good sample preparation is part of the detector, not an afterthought.",
       "place": "",
+      "guide": "Four symptoms and four fixes. Pair them by asking where in the arrangement the problem lives. In the sample itself? In what it sits on? In the air between? Or in the window? Geometry and materials can dominate a charged-particle measurement, which is why none of these fixes is about the source's activity.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Alpha particles deposit energy densely but travel only a short distance, while beta particles travel farther and are more sensitive to source thickness and backing material. A poorly prepared sample can absorb its own radiation and distort the count. The bomb program needs thin, reproducible samples so measured differences reflect nuclear composition rather than sample geometry.",
       "game": {
         "type": "PROTOCOL",
@@ -2407,14 +3395,28 @@ export const CURRICULUM = {
           "What the counter shows",
           "What you do about it"
         ]
+      },
+      "concept": {
+        "n": 4,
+        "c": "Radioactive decay modes: alpha, beta, gamma",
+        "of": 30,
+        "rests": [
+          "Nuclear structure: protons, neutrons, isotopes, nuclide notation"
+        ]
       }
     },
     {
-      "day": 23,
+      "day": 24,
       "title": "Activation analysis",
       "scene": "Activation analysis exposes a material to neutrons and later measures the radiation from newly created radioactive nuclei. The observed signal depends on neutron flux, reaction probability, irradiation time, cooling time, decay, and detector efficiency. Los Alamos uses this chain of reasoning to infer material content and neutron exposure from measurements made after an experiment.",
       "takeaway": "Activation turns an otherwise hard-to-detect interaction into a delayed radioactive signature.",
       "place": "",
+      "guide": "All four steps happen, and the product is being created and decaying throughout. Ask of each card what has to be defined before it. A cooling interval only means something if it is stated. And the correction at the end needs the whole time history, not just the count.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Activation analysis exposes a material to neutrons and later measures the radiation from newly created radioactive nuclei. The observed signal depends on neutron flux, reaction probability, irradiation time, cooling time, decay, and detector efficiency. Los Alamos uses this chain of reasoning to infer material content and neutron exposure from measurements made after an experiment.",
       "game": {
         "type": "SEQUENCE",
@@ -2437,14 +3439,29 @@ export const CURRICULUM = {
           2,
           3
         ]
+      },
+      "concept": {
+        "n": 12,
+        "c": "Detectors: ionisation, count rate, efficiency, dead time",
+        "of": 30,
+        "rests": [
+          "Decay constant, half-life and activity"
+        ]
       }
     },
     {
-      "day": 24,
+      "day": 25,
       "title": "Signal-to-noise optimization",
       "scene": "Signal-to-noise optimization is not simply making the signal larger; it is improving the ability to distinguish the desired effect from random fluctuations and systematic backgrounds. Shielding, geometry, timing windows, and detector choice can all help. With limited test opportunities, Los Alamos must design diagnostics that answer a clear question rather than merely produces impressive traces.",
       "takeaway": "The best improvement depends on whether the measurement is signal-limited or background-limited.",
       "place": "",
+      "guide": "Doubling detector area raises signal and background together, so the ratio improves only where counting statistics are the limit. Running four times longer improves statistics as the square root of time, which is a factor of two, and changes no background. Targeted shielding and a narrower energy window cut background without adding running time, and cost acceptance. Which of these helps depends on whether the measurement is signal-limited or background-limited, and that has not been established.",
+      "rules": "Spread the hundred points across the 3 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "background": [
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
+      ],
       "story": "Signal-to-noise optimization is not simply making the signal larger; it is improving the ability to distinguish the desired effect from random fluctuations and systematic backgrounds. Shielding, geometry, timing windows, and detector choice can all help. With limited test opportunities, Los Alamos must design diagnostics that answer a clear question rather than merely produces impressive traces.",
       "game": {
         "type": "SCIENCETANK",
@@ -2500,14 +3517,29 @@ export const CURRICULUM = {
           ],
           "s": "Shielding removes a fixed fraction per centimetre, so intensity falls exponentially rather than linearly with thickness."
         }
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Shielding, dose and radiation protection",
+        "of": 30,
+        "rests": [
+          "Attenuation of radiation through matter",
+          "Decay constant, half-life and activity"
+        ]
+      }
     },
     {
-      "day": 25,
+      "day": 26,
       "title": "Saturation and dynamic range",
       "scene": "Every instrument has a finite dynamic range between signals too small to distinguish from noise and signals so large that the electronics saturate. Pulse pileup, clipping, and slow recovery can make a strong signal look deceptively simple. Bomb tests require overlapping high- and low-sensitivity channels so at least one instrument remains useful when the true signal differs from predictions.",
       "takeaway": "A flat-topped signal is usually an instrument warning, not a new law of physics.",
       "place": "",
+      "guide": "Four symptoms and four diagnoses. Pair them by asking which stage of the chain ran out of range. An amplifier that cannot represent a larger voltage? A shaping time too long to separate two events? A baseline still recovering? Each pattern points at a different stage.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Every instrument has a finite dynamic range between signals too small to distinguish from noise and signals so large that the electronics saturate. Pulse pileup, clipping, and slow recovery can make a strong signal look deceptively simple. Bomb tests require overlapping high- and low-sensitivity channels so at least one instrument remains useful when the true signal differs from predictions.",
       "game": {
         "type": "PROTOCOL",
@@ -2543,11 +3575,17 @@ export const CURRICULUM = {
       }
     },
     {
-      "day": 26,
+      "day": 27,
       "title": "Gain drift and environmental control",
       "scene": "Detector gain can drift as temperature, voltage, or electronics change, causing the same physical event to produce a different pulse size later. Reference pulses and environmental records reveal that drift. Los Alamos needs these checks because a changing instrument can otherwise be mistaken for changing nuclear behavior.",
       "takeaway": "Stability is demonstrated through references and logs, not assumed from one successful calibration.",
       "place": "",
+      "guide": "All four steps happen, so ask what each one has to come after. A correction applied before the shift is confirmed corrects for something that may not be there. And a correction nobody checked on separate data is a claim rather than a fix.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Detector gain can drift as temperature, voltage, or electronics change, causing the same physical event to produce a different pulse size later. Reference pulses and environmental records reveal that drift. Los Alamos needs these checks because a changing instrument can otherwise be mistaken for changing nuclear behavior.",
       "game": {
         "type": "SEQUENCE",
@@ -2570,14 +3608,26 @@ export const CURRICULUM = {
           2,
           3
         ]
+      },
+      "concept": {
+        "n": 20,
+        "c": "Experimental method: controls, calibration, systematic vs random error",
+        "of": 30
       }
     },
     {
-      "day": 27,
+      "day": 28,
       "title": "Redundancy and common-mode failure",
       "scene": "Redundant instruments help only when they do not share the same hidden failure. Two channels using one clock, one power supply, or one analysis assumption can agree and still be wrong. The bomb program therefore seeks independent diagnostics based on different physical principles so agreement carries real evidential weight.",
       "takeaway": "Three copies of one instrument can still behave like one instrument.",
       "place": "",
+      "guide": "Two channels agreeing is evidence only if they can fail apart. The existing channels share one clock, one power supply and one analysis assumption, so a fault in any of the three moves both together. A third identical detector on the same electronics raises the count and leaves all three shared. A different detector type with its own clock breaks all three, and costs more to build and to calibrate. A larger display changes how the traces are read and adds no channel.",
+      "rules": "Spread the hundred points across the 3 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "background": [
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
+      ],
       "story": "Redundant instruments help only when they do not share the same hidden failure. Two channels using one clock, one power supply, or one analysis assumption can agree and still be wrong. The bomb program therefore seeks independent diagnostics based on different physical principles so agreement carries real evidential weight.",
       "game": {
         "type": "SCIENCETANK",
@@ -2607,14 +3657,28 @@ export const CURRICULUM = {
           "A": 15
         },
         "research": ""
+      },
+      "concept": {
+        "n": 12,
+        "c": "Detectors: ionisation, count rate, efficiency, dead time",
+        "of": 30,
+        "rests": [
+          "Decay constant, half-life and activity"
+        ]
       }
     },
     {
-      "day": 28,
+      "day": 29,
       "title": "Data acquisition architecture",
       "scene": "A data-acquisition system carries a signal from sensor to amplifier, trigger, digitizer, timestamp, and recorded file. Each stage can change or lose information, and the configuration must be stored with the data. The bomb program’s fast experiments required the entire chain to work once, so end-to-end tests are as important as the detector itself.",
       "takeaway": "Data quality includes the record of how the data were produced.",
       "place": "",
+      "guide": "These four are one path from a sensor to a stored file. Ask of each card what it needs first. Nothing can be triggered on a signal too small to see. And a waveform stored without its configuration and timing may be impossible to interpret later.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "A data-acquisition system carries a signal from sensor to amplifier, trigger, digitizer, timestamp, and recorded file. Each stage can change or lose information, and the configuration must be stored with the data. The bomb program’s fast experiments required the entire chain to work once, so end-to-end tests are as important as the detector itself.",
       "game": {
         "type": "SEQUENCE",
@@ -2637,14 +3701,25 @@ export const CURRICULUM = {
           2,
           3
         ]
+      },
+      "concept": {
+        "n": 20,
+        "c": "Experimental method: controls, calibration, systematic vs random error",
+        "of": 30
       }
     },
     {
-      "day": 29,
+      "day": 30,
       "title": "Field instrumentation",
       "scene": "Field instruments face vibration, long cables, weather, electromagnetic interference, uncertain power, and limited access. A detector that works on a laboratory bench may fail at a remote test site. Los Alamos must qualify complete field packages and plan backups because Trinity offers no convenient second attempt for a missing measurement.",
       "takeaway": "A field instrument must survive, synchronize, and explain its own health.",
       "place": "",
+      "guide": "Four field problems and four responses. Pair them by asking where the problem arises: in the cable, in the surrounding electrical noise, in the access, or in the mechanics. None of these exists on a laboratory bench, which is why field design starts from the failure modes rather than from the measurement.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Field instruments face vibration, long cables, weather, electromagnetic interference, uncertain power, and limited access. A detector that works on a laboratory bench may fail at a remote test site. Los Alamos must qualify complete field packages and plan backups because Trinity offers no convenient second attempt for a missing measurement.",
       "game": {
         "type": "PROTOCOL",
@@ -2702,14 +3777,25 @@ export const CURRICULUM = {
           ],
           "s": "Shielding removes a fixed fraction per centimetre, so intensity falls exponentially rather than linearly with thickness."
         }
-      ]
+      ],
+      "concept": {
+        "n": 28,
+        "c": "Timing, synchronisation and simultaneity of events",
+        "of": 30
+      }
     },
     {
-      "day": 30,
+      "day": 31,
       "title": "Blind analysis and data integrity",
       "scene": "Blind analysis hides selected information from analysts until methods and quality checks are fixed. The goal is to reduce the temptation to adjust choices until the result matches expectations. In a high-pressure bomb program, preserving data integrity helps distinguish genuine agreement with theory from unconscious tuning.",
       "takeaway": "Data integrity is both a technical and organizational property.",
       "place": "",
+      "guide": "All four steps happen, so ask which of them cannot be reversed. Once you have seen the answer-sensitive data, no later care restores the state you were in before. So the selections, the tuning and the freeze all belong on one side of that moment, and the result on the other.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Blind analysis hides selected information from analysts until methods and quality checks are fixed. The goal is to reduce the temptation to adjust choices until the result matches expectations. In a high-pressure bomb program, preserving data integrity helps distinguish genuine agreement with theory from unconscious tuning.",
       "game": {
         "type": "SEQUENCE",
@@ -2732,6 +3818,11 @@ export const CURRICULUM = {
           2,
           3
         ]
+      },
+      "concept": {
+        "n": 20,
+        "c": "Experimental method: controls, calibration, systematic vs random error",
+        "of": 30
       }
     }
   ],
@@ -2742,6 +3833,12 @@ export const CURRICULUM = {
       "scene": "Chemistry and Metallurgy is being asked what it can and cannot deliver, and the answer turns on one fact about isotopes. Everything shipped here has both a chemical form and an isotopic composition.",
       "takeaway": "Materials work must track both chemical form and isotopic composition.",
       "place": "",
+      "guide": "Four questions and four answers, and three of them say yes. Ask of each whether the property lives in the electrons or in the nucleus. Bonding is electrons, and extra neutrons barely disturb them. Stability is nuclear. So ordinary chemistry has almost no handle here, and mass does.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Chemistry and Metallurgy is being asked what it can and cannot deliver, and the answer turns on one fact about isotopes. Everything shipped here has both a chemical form and an isotopic composition.",
       "game": {
         "type": "PROTOCOL",
@@ -2783,7 +3880,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "chemical bonding is done by electrons"
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Nuclear structure: protons, neutrons, isotopes, nuclide notation",
+        "of": 30
+      }
     },
     {
       "day": 2,
@@ -2791,6 +3893,11 @@ export const CURRICULUM = {
       "scene": "Chemistry and Metallurgy is running separations on quantities too small to weigh and needs to know how much is being lost. Every percent lost is weeks of production at Hanford.",
       "takeaway": "A tracer turns invisible material loss into a measurable fraction.",
       "place": "",
+      "guide": "Four numbers, in two pairs, and only one pair belongs to this separation. Ask of each whether it is what went in or what came out. And note what makes a raw ratio dishonest here. The tracer decayed throughout, so both counts have to be corrected to the same moment.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Chemistry and Metallurgy is running separations on quantities too small to weigh and needs to know how much is being lost. Every percent lost is weeks of production at Hanford.",
       "game": {
         "type": "BALLPARK",
@@ -2810,7 +3917,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a radioactive sample announces itself through its own radiation"
-      ]
+      ],
+      "concept": {
+        "n": 17,
+        "c": "Order-of-magnitude estimation from givens",
+        "of": 30
+      }
     },
     {
       "day": 3,
@@ -2818,6 +3930,12 @@ export const CURRICULUM = {
       "scene": "A separation batch has come back and the numbers do not close. Downstream, somebody is going to cast this material assuming the report meant what they thought it meant, so Chemistry has to close the ledger before release.",
       "takeaway": "A purity result cannot substitute for a closed material balance; losses outside measured process streams must still be counted.",
       "place": "",
+      "guide": "Read every stream first, because reading costs nothing. Then count only the masses that belong to the same material ledger. The batch does not close, and the missing mass has gone somewhere real — an uncounted route rather than an arithmetic slip. Report the total when the ledger closes.",
+      "background": [
+        "Why a balance has to close. Material is conserved, so a batch that does not add up is a statement that something has not been measured, not that some of it stopped existing. Every unclosed ledger is a location nobody has looked at yet.",
+        "Where material actually goes. Holdup in the equipment, residue on filters and vessel walls, a side stream taken for analysis, losses to a scrubber. Each is ordinary and each is invisible in the streams somebody thought to weigh.",
+        "Why it matters downstream. Somebody is going to cast this material assuming the report means what they think it means. In this programme, an assay that is quietly wrong about how much is present is the kind of error that ends with a criticality rather than a memo."
+      ],
       "story": "A separation batch has come back and the numbers do not close. Downstream, somebody is going to cast this material assuming the report meant what they thought it meant, so Chemistry has to close the ledger before release.",
       "game": {
         "type": "BALANCE",
@@ -2872,7 +3990,12 @@ export const CURRICULUM = {
       "assumes": [
         "percent of input material can be added across mutually exclusive output routes",
         "purity and recovered quantity are different measurements"
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Units and conversions: MeV, u, barns, scientific notation",
+        "of": 30
+      }
     },
     {
       "day": 4,
@@ -2880,6 +4003,12 @@ export const CURRICULUM = {
       "scene": "A metallurgist has a microstructure under the microscope that the phase diagram says should not be there. Everything the laboratory does with this metal is an argument with a diagram drawn from very little data.",
       "takeaway": "Composition and temperature jointly determine which phases are possible.",
       "place": "",
+      "guide": "A phase diagram is drawn for one composition. Ask of each candidate whether it questions the map, or what the map was drawn for. Plutonium has several solid phases and large volume changes between them, so a crossed boundary is a real effect. But check you still have the material the diagram describes.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "A metallurgist has a microstructure under the microscope that the phase diagram says should not be there. Everything the laboratory does with this metal is an argument with a diagram drawn from very little data.",
       "game": {
         "type": "DIAGNOSIS",
@@ -2893,8 +4022,23 @@ export const CURRICULUM = {
         "pack": "cm12"
       },
       "assumes": [
-        "a metal can exist in more than one solid form"
-      ]
+        "a metal can exist in more than one solid form",
+        "units and conversions: MeV, u, barns, scientific notation — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 16,
+          "c": "Units and conversions: MeV, u, barns, scientific notation"
+        }
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Materials: phases, allotropes, alloys, density",
+        "of": 30,
+        "rests": [
+          "Units and conversions: MeV, u, barns, scientific notation"
+        ]
+      }
     },
     {
       "day": 5,
@@ -2902,6 +4046,12 @@ export const CURRICULUM = {
       "scene": "A component has failed in service and the failure analysis has landed on your bench. This programme cannot spare either the material or the weeks, so the question is what changed between the qualified coupon and this actual part.",
       "takeaway": "Strength, stiffness, hardness, and toughness should not be treated as synonyms.",
       "place": "",
+      "guide": "Four properties, and none of them is a synonym for another. Ask of each what it actually measures. Deflection under load? Where permanent bending begins? Resistance to being dented? Or energy absorbed before it breaks? A material can be hard and brittle, and that is how a part passes a test and fails in service.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "A component has failed in service and the failure analysis has landed on your bench. This programme cannot spare either the material or the weeks, so the question is what changed between the qualified coupon and this actual part.",
       "game": {
         "type": "DIAGNOSIS",
@@ -2915,8 +4065,23 @@ export const CURRICULUM = {
         "pack": "cm17"
       },
       "assumes": [
-        "a material can be strong in one sense and weak in another"
-      ]
+        "a material can be strong in one sense and weak in another",
+        "units and conversions: MeV, u, barns, scientific notation — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 16,
+          "c": "Units and conversions: MeV, u, barns, scientific notation"
+        }
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Materials: phases, allotropes, alloys, density",
+        "of": 30,
+        "rests": [
+          "Units and conversions: MeV, u, barns, scientific notation"
+        ]
+      }
     },
     {
       "day": 6,
@@ -2924,6 +4089,11 @@ export const CURRICULUM = {
       "scene": "A property has to be at least 100 units and the measurement reads 102, plus or minus 3. Material this scarce cannot be scrapped casually, or accepted on hope.",
       "takeaway": "Acceptance criteria need explicit rules for uncertainty and borderline results.",
       "place": "",
+      "guide": "Four numbers, and two of them are uncertainties ten times apart. Ask of each which one this measurement carries. And note what gets compared with the threshold. Not the central value, but the lowest the result could plausibly be. That rule has to be agreed before the number is known.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A property has to be at least 100 units and the measurement reads 102, plus or minus 3. Material this scarce cannot be scrapped casually, or accepted on hope.",
       "game": {
         "type": "BALLPARK",
@@ -2942,7 +4112,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a measurement has a range, not just a value"
-      ]
+      ],
+      "concept": {
+        "n": 17,
+        "c": "Order-of-magnitude estimation from givens",
+        "of": 30
+      }
     },
     {
       "day": 7,
@@ -2950,6 +4125,12 @@ export const CURRICULUM = {
       "scene": "At Chemistry and Metallurgy, a production planner brings a request to enrich uranium-235 relative to uranium-238 by an ordinary chemical route. The division has been asked to decide whether the two isotopes give chemistry enough contrast to make that plan practical.",
       "takeaway": "Isotopes of one element have nearly the same electron structure, so practical enrichment must exploit a tiny isotope-dependent physical difference.",
       "place": "Chemistry and Metallurgy Building",
+      "guide": "Four explanations, and all four mention a difference. Ask of each whether that difference is chemical or physical. The electron structures are almost identical, which is what ordinary chemistry answers to. What is left is about one part in 235 of mass, and that is what a physical process can grip.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "At Chemistry and Metallurgy, a production planner brings a request to enrich uranium-235 relative to uranium-238 by an ordinary chemical route. The division has been asked to decide whether the two isotopes give chemistry enough contrast to make that plan practical.",
       "game": {
         "type": "CHOICE",
@@ -2975,7 +4156,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "chemical behaviour is set by electrons, and isotopes differ only in the nucleus"
-      ]
+      ],
+      "concept": {
+        "n": 21,
+        "c": "Isotope separation and enrichment",
+        "of": 30,
+        "rests": [
+          "Nuclear structure: protons, neutrons, isotopes, nuclide notation",
+          "Materials: phases, allotropes, alloys, density"
+        ]
+      }
     },
     {
       "day": 8,
@@ -2983,6 +4173,12 @@ export const CURRICULUM = {
       "scene": "The final dossier has to show more than that components existed. The division has one last hundred credits of improvement to spend, and the choice says what it thinks a materials capability is.",
       "takeaway": "A durable materials programme links process conditions to composition, structure, properties, and traceable batch records.",
       "place": "",
+      "guide": "One hundred credits, and the choice says what the division thinks a materials capability is. Open each investment and ask what it leaves behind when the programme ends. Better numbers on the current components are worth something; a method, a standard or a trained group is worth it next year too.",
+      "background": [
+        "What a capability is, as distinct from a result. A result answers today's question. A capability answers questions nobody has asked yet: a calibrated technique, a documented procedure, a set of reference materials, people who know how to use them. The dossier is being read by people deciding what to fund next.",
+        "Why the temptation is to buy numbers. Precision on an existing measurement is visible, defensible and easy to write up. It is also spent the moment the component it describes is superseded.",
+        "Why this is the last hundred credits. Nothing follows it, so anything that needs a second round to be useful is worth nothing here. That constraint is what separates the durable investments from the promising ones."
+      ],
       "story": "The final dossier has to show more than that components existed. The division has one last hundred credits of improvement to spend, and the choice says what it thinks a materials capability is.",
       "game": {
         "type": "VALUE",
@@ -3037,7 +4233,12 @@ export const CURRICULUM = {
       "assumes": [
         "future batches may differ from today's batch",
         "a record is useful when it preserves relationships, not only isolated measurements"
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Experimental method: controls, calibration, systematic vs random error",
+        "of": 30
+      }
     },
     {
       "day": 9,
@@ -3045,6 +4246,12 @@ export const CURRICULUM = {
       "scene": "Mass balance accounts for material entering, leaving, remaining, and being lost from a process. If the numbers do not close within uncertainty, material may be hidden in waste, equipment, samples, or measurement error. In the bomb program, careful balances protect scarce material and help detect contamination or procedural failures.",
       "takeaway": "Missing mass is often missing measurement or an undefined boundary.",
       "place": "",
+      "guide": "All four steps happen, so ask what each one needs defined before it. Nothing can be counted as coming in until there is a boundary for it to cross. And a balance cannot be closed until the inventory change is known, which is the part people leave out.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Mass balance accounts for material entering, leaving, remaining, and being lost from a process. If the numbers do not close within uncertainty, material may be hidden in waste, equipment, samples, or measurement error. In the bomb program, careful balances protect scarce material and help detect contamination or procedural failures.",
       "game": {
         "type": "SEQUENCE",
@@ -3067,6 +4274,11 @@ export const CURRICULUM = {
           2,
           3
         ]
+      },
+      "concept": {
+        "n": 17,
+        "c": "Order-of-magnitude estimation from givens",
+        "of": 30
       }
     },
     {
@@ -3075,6 +4287,12 @@ export const CURRICULUM = {
       "scene": "An element can exist in several oxidation states, meaning it has lost or gained different numbers of electrons. Those states can change solubility, color, reactivity, and which chemical separation will work. Los Alamos chemists need control of oxidation state because a small chemical change can redirect valuable material into the wrong phase or waste stream.",
       "takeaway": "Separation chemistry is controlled manipulation of equilibrium, not magic filtration.",
       "place": "",
+      "guide": "Four aims and four actions. Pair them by asking what each action changes about where the element sits. Its charge? What is bound to it? Whether it stays dissolved at all? Or what the air can do to it? Oxidation state and complexation are usually what decide where an element ends up.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "An element can exist in several oxidation states, meaning it has lost or gained different numbers of electrons. Those states can change solubility, color, reactivity, and which chemical separation will work. Los Alamos chemists need control of oxidation state because a small chemical change can redirect valuable material into the wrong phase or waste stream.",
       "game": {
         "type": "PROTOCOL",
@@ -3115,6 +4333,12 @@ export const CURRICULUM = {
       "scene": "Precipitation turns dissolved ions into a solid when solution conditions make the solid less soluble. Temperature, acidity, concentration, mixing, and competing ions affect how completely and cleanly the material precipitates. The bomb program uses controlled precipitation to separate and purify materials, but must avoid trapping impurities inside the growing solid.",
       "takeaway": "A precipitate is both a chemical product and a potential collector of impurities.",
       "place": "",
+      "guide": "All four steps happen, so ask what each one leaves for the next. A solid cannot be separated before it has grown. And a yield measured before washing includes whatever came out with it. Purity and yield are two different numbers, and only one of them is flattered by skipping a step.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Precipitation turns dissolved ions into a solid when solution conditions make the solid less soluble. Temperature, acidity, concentration, mixing, and competing ions affect how completely and cleanly the material precipitates. The bomb program uses controlled precipitation to separate and purify materials, but must avoid trapping impurities inside the growing solid.",
       "game": {
         "type": "SEQUENCE",
@@ -3145,6 +4369,11 @@ export const CURRICULUM = {
       "scene": "Solvent extraction moves a dissolved species between two liquids that do not mix, such as an aqueous phase and an organic phase. Chemical conditions determine which phase the desired species prefers. Los Alamos uses repeated extraction stages to purify materials, so chemists must balance recovery against contamination carried along with the product.",
       "takeaway": "Several modest stages can outperform one imperfect separation.",
       "place": "",
+      "guide": "Four numbers, in two pairs, and only one of each belongs here. Ask of each whether it is a distribution ratio or a phase-volume ratio. Both are ratios, which is why the labels matter more than the values. And note what one stage can and cannot achieve.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Solvent extraction moves a dissolved species between two liquids that do not mix, such as an aqueous phase and an organic phase. Chemical conditions determine which phase the desired species prefers. Los Alamos uses repeated extraction stages to purify materials, so chemists must balance recovery against contamination carried along with the product.",
       "game": {
         "type": "BALLPARK",
@@ -3160,6 +4389,11 @@ export const CURRICULUM = {
         ],
         "relationship": "Fraction extracted = D ÷ (D + phase-volume ratio), as a percentage.",
         "calcKey": "CM-12"
+      },
+      "concept": {
+        "n": 17,
+        "c": "Order-of-magnitude estimation from givens",
+        "of": 30
       }
     },
     {
@@ -3168,6 +4402,12 @@ export const CURRICULUM = {
       "scene": "Ion exchange uses a solid resin whose charged sites selectively hold ions from a solution. Changing acidity or chemical composition can wash unwanted species away and later release the target. The method is valuable for separating small amounts of nuclear material, but resin capacity and incomplete washing can reduce yield or purity.",
       "takeaway": "Breakthrough signals that the process is outrunning the resin capacity.",
       "place": "",
+      "guide": "All four steps happen, so ask what each one needs to be true first. A resin in the wrong chemical form has no selectivity to offer. Loading past capacity means the front is already at the outlet. And washing has to come before elution, or it takes the target with it.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Ion exchange uses a solid resin whose charged sites selectively hold ions from a solution. Changing acidity or chemical composition can wash unwanted species away and later release the target. The method is valuable for separating small amounts of nuclear material, but resin capacity and incomplete washing can reduce yield or purity.",
       "game": {
         "type": "SEQUENCE",
@@ -3198,6 +4438,12 @@ export const CURRICULUM = {
       "scene": "Radioactive contamination can spread invisibly through dust, liquids, tools, clothing, and airflow. The first task is to stop movement, survey where the material went, and contain it before cleanup. In the bomb program, contamination control protects workers and prevents small traces from corrupting precision measurements or material accounts.",
       "takeaway": "Contamination control protects both people and the validity of samples.",
       "place": "",
+      "guide": "All four steps happen, so ask which one stops things getting worse. Spreading continues while anybody is still moving through the area. And nothing can be cleaned to a standard before it has been surveyed against one. Clearance is a measurement, not a decision.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Radioactive contamination can spread invisibly through dust, liquids, tools, clothing, and airflow. The first task is to stop movement, survey where the material went, and contain it before cleanup. In the bomb program, contamination control protects workers and prevents small traces from corrupting precision measurements or material accounts.",
       "game": {
         "type": "SEQUENCE",
@@ -3220,6 +4466,11 @@ export const CURRICULUM = {
           2,
           3
         ]
+      },
+      "concept": {
+        "n": 24,
+        "c": "Descriptive statistics: mean, spread, standard deviation",
+        "of": 30
       }
     },
     {
@@ -3228,6 +4479,12 @@ export const CURRICULUM = {
       "scene": "A glovebox is a sealed workspace that lets operators handle hazardous material through fixed gloves while controlling air pressure and atmosphere. Negative pressure keeps contamination from escaping, while an inert gas can keep reactive material away from oxygen or moisture. Los Alamos needs both kinds of control for materials that are radioactive, chemically reactive, or scarce.",
       "takeaway": "Confinement protects the room; atmosphere control protects the material.",
       "place": "",
+      "guide": "Four aims and four features. Pair them by asking what each feature actually controls. Which way a leak goes? What the atmosphere contains? How things cross the boundary? Or whether anybody would know? One of them removes the reactant rather than containing the product.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "A glovebox is a sealed workspace that lets operators handle hazardous material through fixed gloves while controlling air pressure and atmosphere. Negative pressure keeps contamination from escaping, while an inert gas can keep reactive material away from oxygen or moisture. Los Alamos needs both kinds of control for materials that are radioactive, chemically reactive, or scarce.",
       "game": {
         "type": "PROTOCOL",
@@ -3268,6 +4525,13 @@ export const CURRICULUM = {
       "scene": "Corrosion is a chemical or electrochemical reaction that changes a material at its surface. A metal may attack another metal, react with moisture, or form brittle products that weaken an interface. Because bomb components must fit and remain reliable during storage and transport, Los Alamos needs compatibility tests for every material combination and environment.",
       "takeaway": "Compatibility must be demonstrated under the chemical, thermal, and mechanical conditions of use.",
       "place": "",
+      "guide": "Corrosion at an interface can be fast and obvious, or slow and assisted by stress, and only the second kind survives a short test. Short coupon tests across many candidate pairs are cheap and clear the obvious failures within weeks. Longer exposures under temperature and stress reach the slow mechanisms, and each one occupies a rig for months. Waiting for a failure in service costs a component and produces no mechanism. Storage and transport are the conditions these parts have to survive.",
+      "rules": "Spread the hundred points across the 3 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "background": [
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
+      ],
       "story": "Corrosion is a chemical or electrochemical reaction that changes a material at its surface. A metal may attack another metal, react with moisture, or form brittle products that weaken an interface. Because bomb components must fit and remain reliable during storage and transport, Los Alamos needs compatibility tests for every material combination and environment.",
       "game": {
         "type": "SCIENCETANK",
@@ -3305,6 +4569,12 @@ export const CURRICULUM = {
       "scene": "Allotropy or polymorphism means one material can adopt different crystal structures. A transformation between structures may change density, volume, and mechanical behavior even though the chemical composition stays the same. This is critical for plutonium metallurgy because temperature history can alter the shape and properties of a component intended for precise assembly.",
       "takeaway": "Structure is a material variable alongside composition.",
       "place": "",
+      "guide": "All four steps happen, and the composition never changes. Ask of each card what has to be known first. A boundary crossed means nothing until you know which structure you started in. And the dimension change is the consequence, which is why it is measured last.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Allotropy or polymorphism means one material can adopt different crystal structures. A transformation between structures may change density, volume, and mechanical behavior even though the chemical composition stays the same. This is critical for plutonium metallurgy because temperature history can alter the shape and properties of a component intended for precise assembly.",
       "game": {
         "type": "SEQUENCE",
@@ -3327,6 +4597,14 @@ export const CURRICULUM = {
           2,
           3
         ]
+      },
+      "concept": {
+        "n": 18,
+        "c": "Materials: phases, allotropes, alloys, density",
+        "of": 30,
+        "rests": [
+          "Units and conversions: MeV, u, barns, scientific notation"
+        ]
       }
     },
     {
@@ -3335,6 +4613,12 @@ export const CURRICULUM = {
       "scene": "During casting, solidification begins at cool surfaces and advances inward. Grain growth, shrinkage, trapped gas, and uneven cooling can create voids or distorted regions. Los Alamos must connect casting conditions to internal defects because an apparently smooth component can contain hidden flaws that affect machining or implosion symmetry.",
       "takeaway": "A visually smooth casting can still contain internal porosity or segregation.",
       "place": "",
+      "guide": "These four are a history rather than a list. Ask of each card what has to have happened before it. Solute cannot redistribute before grains start growing. Contraction and trapped gas come from that growth. And the inspection at the end links a defect back to the cooling that made it.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "During casting, solidification begins at cool surfaces and advances inward. Grain growth, shrinkage, trapped gas, and uneven cooling can create voids or distorted regions. Los Alamos must connect casting conditions to internal defects because an apparently smooth component can contain hidden flaws that affect machining or implosion symmetry.",
       "game": {
         "type": "SEQUENCE",
@@ -3357,6 +4641,14 @@ export const CURRICULUM = {
           2,
           3
         ]
+      },
+      "concept": {
+        "n": 19,
+        "c": "Shock waves, compression and hydrodynamics",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
       }
     },
     {
@@ -3365,6 +4657,11 @@ export const CURRICULUM = {
       "scene": "Density is mass divided by volume, but measuring either quantity becomes difficult for small, irregular, reactive, or radioactive samples. A density change can signal porosity, phase transformation, or composition differences. For an implosion weapon, density matters because it affects both neutron behavior and how the material responded to compression.",
       "takeaway": "Density measurements can reveal voids, phase changes, or composition differences.",
       "place": "",
+      "guide": "Four numbers, in two pairs, and each pair differs by a factor of ten. Ask of each whether it is a mass or a volume. Then check which pair goes together. Two of these would give an answer that looks reasonable and is out by a hundred.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Density is mass divided by volume, but measuring either quantity becomes difficult for small, irregular, reactive, or radioactive samples. A density change can signal porosity, phase transformation, or composition differences. For an implosion weapon, density matters because it affects both neutron behavior and how the material responded to compression.",
       "game": {
         "type": "BALLPARK",
@@ -3380,6 +4677,11 @@ export const CURRICULUM = {
         ],
         "relationship": "Density = mass ÷ volume.",
         "calcKey": "CM-19"
+      },
+      "concept": {
+        "n": 17,
+        "c": "Order-of-magnitude estimation from givens",
+        "of": 30
       }
     },
     {
@@ -3388,6 +4690,11 @@ export const CURRICULUM = {
       "scene": "Thermal expansion, heat capacity, and thermal conductivity describe how a material changes size, stores heat, and spreads temperature. Temperature differences during fabrication or storage can create stress and misalignment. Los Alamos engineers need these properties to keep precisely fitted components within tolerance and to predict how materials behaved during rapid heating.",
       "takeaway": "Small expansion coefficients can create meaningful dimensional changes over large temperature swings.",
       "place": "",
+      "guide": "Four numbers, and two of them are temperature changes ten times apart. Ask of each which one this part saw. And watch the units: the coefficient is per kelvin, the length is in millimetres, and the answer is wanted in millimetres too.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Thermal expansion, heat capacity, and thermal conductivity describe how a material changes size, stores heat, and spreads temperature. Temperature differences during fabrication or storage can create stress and misalignment. Los Alamos engineers need these properties to keep precisely fitted components within tolerance and to predict how materials behaved during rapid heating.",
       "game": {
         "type": "BALLPARK",
@@ -3403,6 +4710,11 @@ export const CURRICULUM = {
         ],
         "relationship": "Length change = expansion coefficient × original length × temperature change.",
         "calcKey": "CM-20"
+      },
+      "concept": {
+        "n": 17,
+        "c": "Order-of-magnitude estimation from givens",
+        "of": 30
       }
     },
     {
@@ -3411,6 +4723,12 @@ export const CURRICULUM = {
       "scene": "Crystals contain defects such as dislocations, vacancies, and grain boundaries. Processing changes how easily those defects move, which changes strength and ductility. Los Alamos uses mechanical tests and microscope work to connect heat treatment and fabrication history to the reliability of nuclear and high-explosive components.",
       "takeaway": "Many material properties are controlled by defects rather than the perfect crystal.",
       "place": "",
+      "guide": "These four are one chain from processing to a measured property. Ask of each card what has to change before it. Dislocations move more or less easily because the microstructure changed, not the other way round. And the test at the end confirms the chain rather than starting it.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Crystals contain defects such as dislocations, vacancies, and grain boundaries. Processing changes how easily those defects move, which changes strength and ductility. Los Alamos uses mechanical tests and microscope work to connect heat treatment and fabrication history to the reliability of nuclear and high-explosive components.",
       "game": {
         "type": "SEQUENCE",
@@ -3433,6 +4751,14 @@ export const CURRICULUM = {
           2,
           3
         ]
+      },
+      "concept": {
+        "n": 18,
+        "c": "Materials: phases, allotropes, alloys, density",
+        "of": 30,
+        "rests": [
+          "Units and conversions: MeV, u, barns, scientific notation"
+        ]
       }
     },
     {
@@ -3441,6 +4767,13 @@ export const CURRICULUM = {
       "scene": "Heat treatment changes a material’s microscopic structure by controlling temperature and time, then cooling at a chosen rate. The same composition can become harder, softer, stronger, or more brittle depending on that history. The bomb program needs controlled coupons and records rather than arbitrary heating because reproducible properties are essential for assembly and shock response.",
       "takeaway": "Heat treatment is a reproducible path through temperature and time, not a single temperature setting.",
       "place": "",
+      "guide": "One composition can end up harder, softer or more brittle depending on its thermal history. The record of that history is therefore part of the result. Mapping time and temperature against microstructure gives a process another shop can reproduce. Varying the cooling rate on small samples reaches the part of the history a fixed schedule holds still. Hardness alone is one number, and it can rise while toughness falls. Assembly and shock response both need properties that repeat between batches.",
+      "rules": "Spread the hundred points across the 3 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "background": [
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
+      ],
       "story": "Heat treatment changes a material’s microscopic structure by controlling temperature and time, then cooling at a chosen rate. The same composition can become harder, softer, stronger, or more brittle depending on that history. The bomb program needs controlled coupons and records rather than arbitrary heating because reproducible properties are essential for assembly and shock response.",
       "game": {
         "type": "SCIENCETANK",
@@ -3470,6 +4803,11 @@ export const CURRICULUM = {
           "C": 50
         },
         "research": ""
+      },
+      "concept": {
+        "n": 20,
+        "c": "Experimental method: controls, calibration, systematic vs random error",
+        "of": 30
       }
     },
     {
@@ -3478,6 +4816,12 @@ export const CURRICULUM = {
       "scene": "Machining creates the final dimensions and surface of a component, but cutting forces, heat, tool wear, coolant, and burrs can damage the material. A part can meet a simple diameter measurement while still carrying surface cracks or contamination. Los Alamos therefore treats machining as a controlled materials process, not merely shaping metal.",
       "takeaway": "A dimension can be correct while the surface or contamination state is unacceptable.",
       "place": "",
+      "guide": "Four problems and four controls. Pair them by asking what each problem damages: the dimensions, the surface beneath them, the chemistry, or the fit. A part can be dimensionally perfect and carry a transformed surface layer. And one of these drifts gradually, so nothing fails and parts leave tolerance one at a time.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Machining creates the final dimensions and surface of a component, but cutting forces, heat, tool wear, coolant, and burrs can damage the material. A part can meet a simple diameter measurement while still carrying surface cracks or contamination. Los Alamos therefore treats machining as a controlled materials process, not merely shaping metal.",
       "game": {
         "type": "PROTOCOL",
@@ -3518,6 +4862,12 @@ export const CURRICULUM = {
       "scene": "Nondestructive evaluation looks for flaws without cutting apart the finished component. Surface inspection, dye penetrant, ultrasound, radiography, and eddy currents reveal different kinds and depths of defects. Since bomb components are scarce and often cannot be sacrificed for testing, the program needs multiple inspection methods matched to the flaw being sought.",
       "takeaway": "No single nondestructive test sees every defect.",
       "place": "",
+      "guide": "Four flaws and four methods. Pair them by asking where the flaw is and what the material allows. Does it reach the surface? Is it deep in the bulk? Just under a conductive skin? Or is the whole shape wrong? A surface method cannot see into a thick part however good it is.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Nondestructive evaluation looks for flaws without cutting apart the finished component. Surface inspection, dye penetrant, ultrasound, radiography, and eddy currents reveal different kinds and depths of defects. Since bomb components are scarce and often cannot be sacrificed for testing, the program needs multiple inspection methods matched to the flaw being sought.",
       "game": {
         "type": "PROTOCOL",
@@ -3558,6 +4908,11 @@ export const CURRICULUM = {
       "scene": "Assay measures how much nuclear material is present, while inventory records where it is and who is responsible for it. Measurements have uncertainty, and transfers must preserve identity. Los Alamos needs assay and inventory together because losing track of material is both a scientific problem and a severe safety and security failure.",
       "takeaway": "An inventory difference is a question requiring uncertainty analysis, not automatic evidence of loss.",
       "place": "",
+      "guide": "Four numbers, and two of them are waste figures ten times apart. Ask of each which one this run produced. And note what the answer is. It is what the balance cannot account for, which is the number the whole exercise exists to produce.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Assay measures how much nuclear material is present, while inventory records where it is and who is responsible for it. Measurements have uncertainty, and transfers must preserve identity. Los Alamos needs assay and inventory together because losing track of material is both a scientific problem and a severe safety and security failure.",
       "game": {
         "type": "BALLPARK",
@@ -3573,6 +4928,11 @@ export const CURRICULUM = {
         ],
         "relationship": "Mass balance: what is unaccounted for = what went in − product − waste.",
         "calcKey": "CM-25"
+      },
+      "concept": {
+        "n": 17,
+        "c": "Order-of-magnitude estimation from givens",
+        "of": 30
       }
     },
     {
@@ -3581,6 +4941,12 @@ export const CURRICULUM = {
       "scene": "A thick radioactive sample can absorb some of its own emitted particles before they reach the detector, a problem called self-absorption. Sample thickness, uniformity, and geometry therefore change the measured count. The bomb program needs standardized preparation, blanks, and reference standards so analytical results reflect composition rather than sample shape.",
       "takeaway": "Analytical accuracy can be lost before the sample reaches the instrument.",
       "place": "",
+      "guide": "All four steps happen, so ask what each one has to be decided against. Sample form follows from the measurement rather than the other way round. And a thickness prepared inconsistently makes standards and sample no longer comparable, which is the point of preparing them at all.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "A thick radioactive sample can absorb some of its own emitted particles before they reach the detector, a problem called self-absorption. Sample thickness, uniformity, and geometry therefore change the measured count. The bomb program needs standardized preparation, blanks, and reference standards so analytical results reflect composition rather than sample shape.",
       "game": {
         "type": "SEQUENCE",
@@ -3603,6 +4969,14 @@ export const CURRICULUM = {
           2,
           3
         ]
+      },
+      "concept": {
+        "n": 12,
+        "c": "Detectors: ionisation, count rate, efficiency, dead time",
+        "of": 30,
+        "rests": [
+          "Decay constant, half-life and activity"
+        ]
       }
     },
     {
@@ -3611,6 +4985,12 @@ export const CURRICULUM = {
       "scene": "Chemical processes can release heat, generate gas, build pressure, or combine incompatible materials. Small-scale compatibility tests, controlled addition, ventilation, and emergency shutdowns reveal and limit those hazards. Los Alamos must develop processes quickly without allowing schedule pressure to replace basic chemical safety.",
       "takeaway": "A chemically successful reaction can still be an unsafe process.",
       "place": "",
+      "guide": "Four hazards and four controls. Pair them by asking what each control bounds. The rate of energy release? Where pressure can go? How much is at risk? Or what the air is doing? One of them works by keeping the trial small enough to contain whatever happens.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Chemical processes can release heat, generate gas, build pressure, or combine incompatible materials. Small-scale compatibility tests, controlled addition, ventilation, and emergency shutdowns reveal and limit those hazards. Los Alamos must develop processes quickly without allowing schedule pressure to replace basic chemical safety.",
       "game": {
         "type": "PROTOCOL",
@@ -3643,6 +5023,14 @@ export const CURRICULUM = {
           "The hazard",
           "How you control it"
         ]
+      },
+      "concept": {
+        "n": 27,
+        "c": "Chemical explosives: energy release and detonation velocity",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
       }
     },
     {
@@ -3651,6 +5039,12 @@ export const CURRICULUM = {
       "scene": "Radioactive and chemical wastes remain hazardous after the useful material has been removed. Different wastes may react with one another or require different containment, treatment, and records. The bomb program’s environmental legacy begins with these routine choices about segregation, storage, and disposal, not only with the final weapon.",
       "takeaway": "Environmental responsibility is part of the process design, not a final cleanup step.",
       "place": "",
+      "guide": "All four steps happen, so ask what each one needs known first. Nothing can be segregated by category before the categories are established. And nothing can be treated by an approved process before anybody knows what it is. Labelling comes last because it records all of it.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Radioactive and chemical wastes remain hazardous after the useful material has been removed. Different wastes may react with one another or require different containment, treatment, and records. The bomb program’s environmental legacy begins with these routine choices about segregation, storage, and disposal, not only with the final weapon.",
       "game": {
         "type": "SEQUENCE",
@@ -3681,6 +5075,13 @@ export const CURRICULUM = {
       "scene": "Two batches produced by the same written process can differ because temperature, composition, mixing, timing, or equipment drifts. Final inspection may find the difference but does not reveal its cause. Los Alamos needs process measurements and designed experiments to learn which variables controlled material properties and to make production reproducible.",
       "takeaway": "Quality improves fastest when variation is traced to controllable process variables.",
       "place": "",
+      "guide": "Two batches made to one written process differ because something drifted, and final inspection sees the difference without seeing the cause. Measuring temperature, composition and timing during a run makes a batch traceable to its own history, and costs instruments and record-keeping on every run. Varying the suspected controls deliberately separates their effects and their interactions, and costs material and time. More inspection catches more bad batches and explains none of them. Production has to become reproducible, not merely screened.",
+      "rules": "Spread the hundred points across the 3 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "background": [
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
+      ],
       "story": "Two batches produced by the same written process can differ because temperature, composition, mixing, timing, or equipment drifts. Final inspection may find the difference but does not reveal its cause. Los Alamos needs process measurements and designed experiments to learn which variables controlled material properties and to make production reproducible.",
       "game": {
         "type": "SCIENCETANK",
@@ -3711,6 +5112,11 @@ export const CURRICULUM = {
           "A": 10
         },
         "research": ""
+      },
+      "concept": {
+        "n": 20,
+        "c": "Experimental method: controls, calibration, systematic vs random error",
+        "of": 30
       }
     },
     {
@@ -3719,6 +5125,12 @@ export const CURRICULUM = {
       "scene": "Chain of custody records who handled a sample or component, when it moved, and whether its identity remained secure. Technical records connect that identity to processing, inspection, and test results. Los Alamos needs this traceability because a perfect measurement is useless if no one can prove which part or batch it describes.",
       "takeaway": "A technically good result without provenance may be unusable.",
       "place": "",
+      "guide": "Four failures and four responses. Pair them by asking what has been lost: the identity, the configuration, the approval, or the version. A number without the instrument settings behind it cannot be obtained again years later. And an unsigned transfer is a gap rather than a formality.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Chain of custody records who handled a sample or component, when it moved, and whether its identity remained secure. Technical records connect that identity to processing, inspection, and test results. Los Alamos needs this traceability because a perfect measurement is useless if no one can prove which part or batch it describes.",
       "game": {
         "type": "PROTOCOL",
@@ -3751,6 +5163,11 @@ export const CURRICULUM = {
           "The gap in the record",
           "How you close it"
         ]
+      },
+      "concept": {
+        "n": 20,
+        "c": "Experimental method: controls, calibration, systematic vs random error",
+        "of": 30
       }
     }
   ],
@@ -3761,6 +5178,12 @@ export const CURRICULUM = {
       "scene": "Oppenheimer has asked Ordnance for a recommendation before the next program meeting. Two assembly concepts are still alive, but choosing between them commits people, buildings, and months of work. The room is waiting for a decision that will reshape the Hill.",
       "takeaway": "Weapon architecture determines the entire downstream engineering program.",
       "place": "",
+      "guide": "Four situations and four responses, and both designs chase the same goal. Ask of each whether it is about the geometry of the assembly or about its timing. One route drives two pieces along a line. One squeezes inward, and nobody has built one. A measurement decides between them.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Oppenheimer has asked Ordnance for a recommendation before the next program meeting. Two assembly concepts are still alive, but choosing between them commits people, buildings, and months of work. The room is waiting for a decision that will reshape the Hill.",
       "game": {
         "type": "PROTOCOL",
@@ -3801,8 +5224,24 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "a chain reaction needs the material held together long enough to grow"
-      ]
+        "a chain reaction needs the material held together long enough to grow",
+        "fission, neutron multiplication and chain reactions — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 7,
+          "c": "Fission, neutron multiplication and chain reactions"
+        }
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Criticality: mass, geometry, reflectors, moderation",
+        "of": 30,
+        "rests": [
+          "Fission, neutron multiplication and chain reactions",
+          "Cross sections and mean free path"
+        ]
+      }
     },
     {
       "day": 2,
@@ -3810,6 +5249,12 @@ export const CURRICULUM = {
       "scene": "Thin Man was the plutonium gun design and much of the site's effort was pointed at it. Then the counters returned a number the concept could not survive, and within weeks the laboratory reorganised.",
       "takeaway": "In complex engineering, one new measurement can invalidate an entire development path.",
       "place": "",
+      "guide": "These four are one chain, from a measurement to a decision that cost a year. Ask of each card what has to be known before it. Nothing is unacceptable before it is understood, and nothing is understood before it is measured. The reorganisation is the consequence rather than the argument.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Thin Man was the plutonium gun design and much of the site's effort was pointed at it. Then the counters returned a number the concept could not survive, and within weeks the laboratory reorganised.",
       "game": {
         "type": "SEQUENCE",
@@ -3840,8 +5285,23 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "a measurement can rule out a design without anybody being wrong"
-      ]
+        "a measurement can rule out a design without anybody being wrong",
+        "pressure, temperature and equations of state — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 26,
+          "c": "Pressure, temperature and equations of state"
+        }
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Shock waves, compression and hydrodynamics",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
+      }
     },
     {
       "day": 3,
@@ -3849,6 +5309,11 @@ export const CURRICULUM = {
       "scene": "Several initiation channels have to act so nearly together that their separate wavefronts merge into one coordinated event. On the timing bench, path length is one measurable source of delay, and the conversion from length to time has to be explicit.",
       "takeaway": "Timing synchronization is a physical interface, not merely a clock-setting problem.",
       "place": "",
+      "guide": "Four numbers, and two of them are signal speeds a hundred times apart. Ask of each whether it could carry a pulse down a cable. And note what the answer is about. A path difference is an arrival difference, so a small delay makes an asymmetric implosion rather than a slightly worse one.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Several initiation channels have to act so nearly together that their separate wavefronts merge into one coordinated event. On the timing bench, path length is one measurable source of delay, and the conversion from length to time has to be explicit.",
       "game": {
         "type": "BALLPARK",
@@ -3869,7 +5334,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a signal travels along a cable at a finite speed"
-      ]
+      ],
+      "concept": {
+        "n": 28,
+        "c": "Timing, synchronisation and simultaneity of events",
+        "of": 30
+      }
     },
     {
       "day": 4,
@@ -3877,6 +5347,12 @@ export const CURRICULUM = {
       "scene": "Two half-assemblies go on the same bench this afternoon. The procedure sets a mass limit and a spacing, both comfortably inside the calculated physical boundary, and the crew wants to know why the written margin is deliberately larger.",
       "takeaway": "Administrative limits create margin against combinations of mass, geometry, reflection, moderation, and ordinary handling error.",
       "place": "Chemistry and Metallurgy Building",
+      "guide": "Four arguments for a written limit. Ask of each what it assumes about the other terms. Criticality answers to mass, geometry, reflection and moderation, and any of those can move by accident. So a limit on mass alone cannot make a piece safe in isolation. And a written number does not depend on who is on shift.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Two half-assemblies go on the same bench this afternoon. The procedure sets a mass limit and a spacing, both comfortably inside the calculated physical boundary, and the crew wants to know why the written margin is deliberately larger.",
       "game": {
         "type": "CHOICE",
@@ -3902,7 +5378,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "criticality depends on geometry and surroundings as well as on mass"
-      ]
+      ],
+      "concept": {
+        "n": 30,
+        "c": "Criticality safety: administrative limits and controls",
+        "of": 30,
+        "rests": [
+          "Criticality: mass, geometry, reflectors, moderation",
+          "Experimental method: controls, calibration, systematic vs random error"
+        ]
+      }
     },
     {
       "day": 5,
@@ -3910,6 +5395,12 @@ export const CURRICULUM = {
       "scene": "The detonator programme has competing requests and 100 points of test credit. A production lot is waiting for a release decision, while the bench holds one carefully built prototype, inspection records, and access to a full-system trial.",
       "takeaway": "Reliability is a property of a manufactured population, so acceptance evidence must measure its distribution rather than its best member.",
       "place": "",
+      "guide": "One hundred points of test credit, and a production lot waiting on a release decision. Open each option and ask what it would tell you about the lot rather than about the design. A carefully built prototype and a full-system trial are both evidence about something, and only one kind of evidence is about the units in the box.",
+      "background": [
+        "Why a prototype cannot qualify a lot. It was built by the best person available, slowly, with attention nobody can repeat a thousand times. It measures what the design can do, not what the production line did. Those are different questions and the release decision is about the second.",
+        "What inspection records can and cannot show. They record that units passed the checks somebody chose. If the failure mode is not among those checks, a perfect record is consistent with a bad lot — which is why sampled functional testing exists at all.",
+        "Why the full-system trial is seductive and expensive. It exercises everything at once, so a pass is reassuring and a failure is hard to attribute. Spending most of the credit on one integrated result can leave you knowing that something worked without knowing whether this lot will."
+      ],
       "story": "The detonator programme has competing requests and 100 points of test credit. A production lot is waiting for a release decision, while the bench holds one carefully built prototype, inspection records, and access to a full-system trial.",
       "game": {
         "type": "VALUE",
@@ -3964,7 +5455,12 @@ export const CURRICULUM = {
       "assumes": [
         "a sample can estimate the spread of a production population",
         "a component test is more diagnostic than an integrated test when the component itself is the question"
-      ]
+      ],
+      "concept": {
+        "n": 24,
+        "c": "Descriptive statistics: mean, spread, standard deviation",
+        "of": 30
+      }
     },
     {
       "day": 6,
@@ -3972,6 +5468,11 @@ export const CURRICULUM = {
       "scene": "Three chains of work are running in parallel, and the integrated trial cannot happen until the longest one finishes. Fat Man's schedule is managed this way: the calendar is controlled by dependencies, not by how many tasks look busy.",
       "takeaway": "Schedule management starts with dependencies, not activity counts.",
       "place": "",
+      "guide": "Four numbers, and two of them belong to other questions: one task, and both chains added together. Ask of each whether it is a chain length. Only the longest chain moves the date. The gap between the two is what a parallel chain can lose before it becomes the one that matters.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Three chains of work are running in parallel, and the integrated trial cannot happen until the longest one finishes. Fat Man's schedule is managed this way: the calendar is controlled by dependencies, not by how many tasks look busy.",
       "game": {
         "type": "BALLPARK",
@@ -3992,7 +5493,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "work that can happen in parallel does not add up"
-      ]
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Criticality: mass, geometry, reflectors, moderation",
+        "of": 30,
+        "rests": [
+          "Fission, neutron multiplication and chain reactions",
+          "Cross sections and mean free path"
+        ]
+      }
     },
     {
       "day": 7,
@@ -4000,6 +5510,12 @@ export const CURRICULUM = {
       "scene": "The desert crew has the tower, cables, cameras, power, and communications spread across a schedule that is running out of room. Bainbridge has a forecast that closes the window in four days, whatever is unfinished. Every team wants to know whether the field is truly ready.",
       "takeaway": "Field integration is ordered so that every interface is proved before the thing that needs it arrives.",
       "place": "",
+      "guide": "All four will happen, and field work succeeds or fails on interfaces. Ask of each card what has to be proved before the thing that depends on it arrives. An interface inspected while replacement is still possible is a different thing from one inspected afterwards.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "The desert crew has the tower, cables, cameras, power, and communications spread across a schedule that is running out of room. Bainbridge has a forecast that closes the window in four days, whatever is unfinished. Every team wants to know whether the field is truly ready.",
       "game": {
         "type": "SEQUENCE",
@@ -4031,7 +5547,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a schedule set by weather cannot be extended"
-      ]
+      ],
+      "concept": {
+        "n": 24,
+        "c": "Descriptive statistics: mean, spread, standard deviation",
+        "of": 30
+      }
     },
     {
       "day": 8,
@@ -4039,6 +5560,12 @@ export const CURRICULUM = {
       "scene": "Trinity has produced new evidence, and a last-minute improvement is already being argued over. Drawings are moving toward production while engineers are still proposing changes. The room has one uncomfortable question: what can still change without severing the link to what was tested?",
       "takeaway": "A freeze comes before the paperwork, or the paperwork describes something still changing.",
       "place": "",
+      "guide": "All four will happen, so ask what each one is the input to. There is nothing to compare with a prediction until the separate records agree with each other. And nothing can be frozen before the evidence has been weighed. Naming what stays unexplained is part of the comparison, not an afterthought.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Trinity has produced new evidence, and a last-minute improvement is already being argued over. Drawings are moving toward production while engineers are still proposing changes. The room has one uncomfortable question: what can still change without severing the link to what was tested?",
       "game": {
         "type": "SEQUENCE",
@@ -4070,7 +5597,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "what was tested and what gets built can drift apart"
-      ]
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Shock waves, compression and hydrodynamics",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
+      }
     },
     {
       "day": 9,
@@ -4078,6 +5613,12 @@ export const CURRICULUM = {
       "scene": "A physical idea becomes an engineering program only after it is translated into requirements: what must fit, what must happen in sequence, what must remain safe, and what evidence will count as success. For Fat Man, the implosion assembly, firing system, casing, aircraft, and field procedures all must agree at their interfaces. The team must connect each broad need to a concrete requirement that can be inspected or tested.",
       "takeaway": "A requirement becomes useful only when its owner and verification method are clear.",
       "place": "",
+      "guide": "Four situations and four kinds of requirement. Pair them by asking who has to agree with whom. The aircraft and the device? Two subsystems at a boundary? Several conditions that all have to hold? Or a claim and the evidence behind it? A requirement nobody can verify is a wish.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "A physical idea becomes an engineering program only after it is translated into requirements: what must fit, what must happen in sequence, what must remain safe, and what evidence will count as success. For Fat Man, the implosion assembly, firing system, casing, aircraft, and field procedures all must agree at their interfaces. The team must connect each broad need to a concrete requirement that can be inspected or tested.",
       "game": {
         "type": "PROTOCOL",
@@ -4110,6 +5651,14 @@ export const CURRICULUM = {
           "What the statement demands",
           "Which kind of requirement that is"
         ]
+      },
+      "concept": {
+        "n": 19,
+        "c": "Shock waves, compression and hydrodynamics",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
       }
     },
     {
@@ -4118,6 +5667,11 @@ export const CURRICULUM = {
       "scene": "Fat Man is not only a nuclear assembly; it is a large object that must fit inside a modified B-29, remain balanced, and separate safely from the aircraft. Center of gravity describes where the object’s weight effectively acts, and a shift can change flight or release behavior. Engineers use inert shapes and weight distributions to study packaging without exposing nuclear components.",
       "takeaway": "Packaging decisions affect handling, suspension, and flight behavior even when every component works individually.",
       "place": "",
+      "guide": "Four numbers, and one of them is the light module, which the relationship does not use directly. Ask of each what the balance depends on. The centre of mass sits nearer the heavier side, so check your answer against that before believing it.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Fat Man is not only a nuclear assembly; it is a large object that must fit inside a modified B-29, remain balanced, and separate safely from the aircraft. Center of gravity describes where the object’s weight effectively acts, and a shift can change flight or release behavior. Engineers use inert shapes and weight distributions to study packaging without exposing nuclear components.",
       "game": {
         "type": "BALLPARK",
@@ -4134,6 +5688,11 @@ export const CURRICULUM = {
         ],
         "relationship": "Centre of mass from the light module = separation × heavy mass ÷ total mass.",
         "calcKey": "E-10"
+      },
+      "concept": {
+        "n": 17,
+        "c": "Order-of-magnitude estimation from givens",
+        "of": 30
       }
     },
     {
@@ -4142,6 +5701,13 @@ export const CURRICULUM = {
       "scene": "The Silverplate B-29 is modified to carry and release the unusually shaped Fat Man weapon. Aircraft structure, bomb-bay clearances, electrical connections, crew procedures, and flight performance all become part of the weapon system. A design that works on a laboratory stand will still fail as a weapon if it cannot be loaded, carried, armed, and released reliably from the aircraft.",
       "takeaway": "Integration funding should target evidence at the boundary between systems.",
       "place": "",
+      "guide": "The failures at issue are at the boundary between two systems: bay clearance, electrical connections, loads, vibration, separation. An inert full-scale shape carried and released takes instruments through all of them at once, and needs an aircraft and a range. An internal bracket can be optimised now, but the interface drawing it has to match is not yet frozen. Casing work that changes neither fit nor loads nor release changes nothing at the boundary. A laboratory stand exercises none of it.",
+      "rules": "Spread the hundred points across the 3 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "background": [
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
+      ],
       "story": "The Silverplate B-29 is modified to carry and release the unusually shaped Fat Man weapon. Aircraft structure, bomb-bay clearances, electrical connections, crew procedures, and flight performance all become part of the weapon system. A design that works on a laboratory stand will still fail as a weapon if it cannot be loaded, carried, armed, and released reliably from the aircraft.",
       "game": {
         "type": "SCIENCETANK",
@@ -4180,6 +5746,11 @@ export const CURRICULUM = {
       "scene": "Before using a live weapon, crews dropped inert ‘pumpkin bombs’ with a similar external shape and weight to Fat Man. These tests measure release behavior, fall time, aircraft handling, and bombing procedures without a nuclear core. The program needs estimates from rough flight conditions because the weapon’s fuzing and crew timing depends on how long it will fall after release.",
       "takeaway": "Ballistic mockups convert a paper release concept into measured flight evidence.",
       "place": "",
+      "guide": "Four numbers, and two of them are altitudes ten times apart. Ask of each which one the aircraft flew at. And note what the answer is worth. It ignores the air entirely, which is exactly why inert drop tests were flown instead of trusting it.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Before using a live weapon, crews dropped inert ‘pumpkin bombs’ with a similar external shape and weight to Fat Man. These tests measure release behavior, fall time, aircraft handling, and bombing procedures without a nuclear core. The program needs estimates from rough flight conditions because the weapon’s fuzing and crew timing depends on how long it will fall after release.",
       "game": {
         "type": "BALLPARK",
@@ -4197,6 +5768,11 @@ export const CURRICULUM = {
         ],
         "relationship": "For a drop from rest, time = the square root of (2 × height ÷ g).",
         "calcKey": "E-12"
+      },
+      "concept": {
+        "n": 17,
+        "c": "Order-of-magnitude estimation from givens",
+        "of": 30
       }
     },
     {
@@ -4205,6 +5781,12 @@ export const CURRICULUM = {
       "scene": "The Fat Man firing chain carries an authorized command through power, switching, timing, and many output channels. Each link must remain disabled during handling but work reliably after release. Engineers treat the chain as a sequence because an error in order—power too early, a missing permissive, or a late pulse—can make the weapon unsafe or ineffective.",
       "takeaway": "No single casual action should bridge the entire path from safe state to firing.",
       "place": "",
+      "guide": "All four stages exist, so ask what each one has to be separated from. A stored device has to be inhibited, which is a different state from an armed one. Arming conditions have to arrive before a command can be conditioned. Each stage is traceable because it is separate.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "The Fat Man firing chain carries an authorized command through power, switching, timing, and many output channels. Each link must remain disabled during handling but work reliably after release. Engineers treat the chain as a sequence because an error in order—power too early, a missing permissive, or a late pulse—can make the weapon unsafe or ineffective.",
       "game": {
         "type": "SEQUENCE",
@@ -4227,6 +5809,15 @@ export const CURRICULUM = {
           2,
           3
         ]
+      },
+      "concept": {
+        "n": 8,
+        "c": "Criticality: mass, geometry, reflectors, moderation",
+        "of": 30,
+        "rests": [
+          "Fission, neutron multiplication and chain reactions",
+          "Cross sections and mean free path"
+        ]
       }
     },
     {
@@ -4235,6 +5826,12 @@ export const CURRICULUM = {
       "scene": "Arming and fuzing are different jobs. Arming changes the system from a safe state toward readiness, while fuzing decides when conditions such as release, time, or altitude permit firing. Interlocks require independent conditions to agree before a dangerous command can pass. Fat Man needs these layers so normal transport or a single fault cannot accidentally initiate the firing chain.",
       "takeaway": "A safe system makes its state constrained, visible, and independently checkable.",
       "place": "",
+      "guide": "Four situations and four controls, and they solve different parts of one problem. Pair them by asking when each control acts: during handling, after release, at the final command, or afterwards for the record. Two independent conditions agreeing is a different guarantee from one condition holding.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Arming and fuzing are different jobs. Arming changes the system from a safe state toward readiness, while fuzing decides when conditions such as release, time, or altitude permit firing. Interlocks require independent conditions to agree before a dangerous command can pass. Fat Man needs these layers so normal transport or a single fault cannot accidentally initiate the firing chain.",
       "game": {
         "type": "PROTOCOL",
@@ -4275,6 +5872,12 @@ export const CURRICULUM = {
       "scene": "Fat Man’s explosive system is assembled from many manufactured segments whose surfaces must meet in controlled positions. A gap, reversed piece, missing identity mark, or conflicting drawing can change how the wave crosses an interface. Engineers use configuration records, inspection limits, and quarantine procedures because ‘making it fit’ by an unapproved adjustment can hide a serious symmetry error.",
       "takeaway": "Configuration control is part of the physical design.",
       "place": "",
+      "guide": "Four situations and four responses. Ask of each what has become informal: the identity, the geometry, the limit, or who is allowed to authorise a change. A precision assembly fails when any one of those four stops being written down, and none of these is a paperwork problem.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Fat Man’s explosive system is assembled from many manufactured segments whose surfaces must meet in controlled positions. A gap, reversed piece, missing identity mark, or conflicting drawing can change how the wave crosses an interface. Engineers use configuration records, inspection limits, and quarantine procedures because ‘making it fit’ by an unapproved adjustment can hide a serious symmetry error.",
       "game": {
         "type": "PROTOCOL",
@@ -4307,6 +5910,11 @@ export const CURRICULUM = {
           "What you find on the floor",
           "What you do about it"
         ]
+      },
+      "concept": {
+        "n": 20,
+        "c": "Experimental method: controls, calibration, systematic vs random error",
+        "of": 30
       }
     },
     {
@@ -4315,6 +5923,13 @@ export const CURRICULUM = {
       "scene": "An explosive lens uses materials with different detonation speeds and shaped boundaries to bend an outward detonation wave into a converging one. Engineers must choose materials not only for speed but also for stability, manufacturability, compatibility, and reproducibility. The best theoretical pair will be useless if production cannot hold its properties consistently from segment to segment.",
       "takeaway": "A material is suitable only when its performance and its production process are both controlled.",
       "place": "",
+      "guide": "A lens works only if the wave behaviour and the castings both hold from segment to segment. Detonation velocity is one property and can be optimised on its own. Stability, compatibility, aging and casting quality are the others, and each is measured separately. Machinability is real and immediate, and says nothing about how a wave crosses a boundary. Inert characterisation with small authorized tests and aging observations is the slowest route. It is also the only one that reports on more than one property at a time.",
+      "rules": "Spread the hundred points across the 3 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "background": [
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
+      ],
       "story": "An explosive lens uses materials with different detonation speeds and shaped boundaries to bend an outward detonation wave into a converging one. Engineers must choose materials not only for speed but also for stability, manufacturability, compatibility, and reproducibility. The best theoretical pair will be useless if production cannot hold its properties consistently from segment to segment.",
       "game": {
         "type": "SCIENCETANK",
@@ -4344,6 +5959,11 @@ export const CURRICULUM = {
           "A": 5
         },
         "research": ""
+      },
+      "concept": {
+        "n": 20,
+        "c": "Experimental method: controls, calibration, systematic vs random error",
+        "of": 30
       }
     },
     {
@@ -4352,6 +5972,12 @@ export const CURRICULUM = {
       "scene": "The X-unit stores electrical energy and releases it as a short, synchronized pulse to the detonators. It must remain safely inhibited during handling, verify its state, and then distribute a closely timed command through many channels. This pulsed-power problem connects ordinary electrical engineering directly to the symmetry of the implosion.",
       "takeaway": "A pulsed-power unit is an interface between mission logic and precise physical timing.",
       "place": "",
+      "guide": "All four functions exist and each is tested separately as well as together. Ask of each card what has to be true before it. Energy cannot be stored safely unless the outputs are inhibited. And a command cannot be acted on before the state it acts from has been confirmed.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "The X-unit stores electrical energy and releases it as a short, synchronized pulse to the detonators. It must remain safely inhibited during handling, verify its state, and then distribute a closely timed command through many channels. This pulsed-power problem connects ordinary electrical engineering directly to the symmetry of the implosion.",
       "game": {
         "type": "SEQUENCE",
@@ -4374,6 +6000,11 @@ export const CURRICULUM = {
           2,
           3
         ]
+      },
+      "concept": {
+        "n": 28,
+        "c": "Timing, synchronisation and simultaneity of events",
+        "of": 30
       }
     },
     {
@@ -4382,6 +6013,11 @@ export const CURRICULUM = {
       "scene": "A fast electrical pulse can be distorted by cable length, impedance mismatch, poor connections, or electromagnetic interference. If channels receive different pulse shapes or arrival times, detonators may not act together. Fat Man engineers therefore controlled cable routing, connector identity, shielding, and calibration as carefully as the explosive components themselves.",
       "takeaway": "Seemingly passive hardware can carry critical timing information.",
       "place": "",
+      "guide": "Four numbers, and two of them are signal speeds a factor of two apart. Ask of each which cable this is. And note what the answer turns into. A timing tolerance becomes a length in centimetres, which makes cable geometry part of the timing system rather than an installation detail.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A fast electrical pulse can be distorted by cable length, impedance mismatch, poor connections, or electromagnetic interference. If channels receive different pulse shapes or arrival times, detonators may not act together. Fat Man engineers therefore controlled cable routing, connector identity, shielding, and calibration as carefully as the explosive components themselves.",
       "game": {
         "type": "BALLPARK",
@@ -4424,7 +6060,16 @@ export const CURRICULUM = {
           ],
           "s": "Shielding removes a fixed fraction per centimetre, so intensity falls exponentially rather than linearly with thickness."
         }
-      ]
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Criticality: mass, geometry, reflectors, moderation",
+        "of": 30,
+        "rests": [
+          "Fission, neutron multiplication and chain reactions",
+          "Cross sections and mean free path"
+        ]
+      }
     },
     {
       "day": 19,
@@ -4432,6 +6077,12 @@ export const CURRICULUM = {
       "scene": "At V-Site, crews must assemble large high-explosive and mechanical components in a controlled sequence. Identity checks, approved tooling, cleanliness, inspections, and independent sign-offs prevent one hidden mistake from being sealed inside the assembly. Fat Man’s complexity makes the assembly procedure part of the engineering design, not an afterthought.",
       "takeaway": "Assembly is the moment when documentation becomes hardware.",
       "place": "",
+      "guide": "All four steps happen, so ask what each one has to be true before it. A component of unknown identity cannot be assembled into a controlled configuration. And an electrical test proves the configuration that exists rather than the one on the drawing. The records are sealed last because they record all of it.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "At V-Site, crews must assemble large high-explosive and mechanical components in a controlled sequence. Identity checks, approved tooling, cleanliness, inspections, and independent sign-offs prevent one hidden mistake from being sealed inside the assembly. Fat Man’s complexity makes the assembly procedure part of the engineering design, not an afterthought.",
       "game": {
         "type": "SEQUENCE",
@@ -4454,6 +6105,14 @@ export const CURRICULUM = {
           2,
           3
         ]
+      },
+      "concept": {
+        "n": 27,
+        "c": "Chemical explosives: energy release and detonation velocity",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
       }
     },
     {
@@ -4462,6 +6121,11 @@ export const CURRICULUM = {
       "scene": "A jig holds a part in a repeatable position, and a tolerance is the allowed variation in a dimension. When several parts are assembled, their small variations can add into a tolerance stack-up that produces a large final misalignment. Fat Man engineers need tooling and dimensional analysis to make sure acceptable individual parts still form an acceptable complete assembly.",
       "takeaway": "Precision comes from the full datum and tooling system.",
       "place": "",
+      "guide": "Four numbers, in two pairs, and only one of each belongs here. Ask of each whether it is a per-interface tolerance or a count of interfaces. And note what the answer is for. A fixture has to control the assembly-level stack, not each part on its own.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A jig holds a part in a repeatable position, and a tolerance is the allowed variation in a dimension. When several parts are assembled, their small variations can add into a tolerance stack-up that produces a large final misalignment. Fat Man engineers need tooling and dimensional analysis to make sure acceptable individual parts still form an acceptable complete assembly.",
       "game": {
         "type": "BALLPARK",
@@ -4479,6 +6143,11 @@ export const CURRICULUM = {
         ],
         "relationship": "Worst-case stack-up = tolerance per interface × the number of interfaces.",
         "calcKey": "E-20"
+      },
+      "concept": {
+        "n": 17,
+        "c": "Order-of-magnitude estimation from givens",
+        "of": 30
       }
     },
     {
@@ -4487,6 +6156,12 @@ export const CURRICULUM = {
       "scene": "Inspection records show what is measured, lot travelers trace a component through production, and as-built records identify the exact configuration that is being tested. If a part fails inspection, a nonconformance record documents what happened and who authorized the disposition. This traceability allows Los Alamos to connect a test result to the actual Fat Man hardware rather than to an ideal drawing.",
       "takeaway": "The historical record of a complex device is itself an engineering instrument.",
       "place": "",
+      "guide": "Four questions and four records. Pair them by asking what each record follows. A part from raw stock? A measurement against a drawing? One particular unit that was fired? Or something that failed? Without these, a success cannot be repeated and a failure cannot be bounded.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Inspection records show what is measured, lot travelers trace a component through production, and as-built records identify the exact configuration that is being tested. If a part fails inspection, a nonconformance record documents what happened and who authorized the disposition. This traceability allows Los Alamos to connect a test result to the actual Fat Man hardware rather than to an ideal drawing.",
       "game": {
         "type": "PROTOCOL",
@@ -4519,6 +6194,11 @@ export const CURRICULUM = {
           "What you want to know",
           "Which record tells you"
         ]
+      },
+      "concept": {
+        "n": 20,
+        "c": "Experimental method: controls, calibration, systematic vs random error",
+        "of": 30
       }
     },
     {
@@ -4527,6 +6207,13 @@ export const CURRICULUM = {
       "scene": "Fat Man subsystems must survive transportation, vibration, temperature changes, humidity, and aircraft operation before they enter service. Environmental qualification exposes hardware to representative conditions and then checks whether performance changes. A component that works only in a quiet laboratory cannot be considered ready for Tinian or a combat mission.",
       "takeaway": "Qualification is a ladder of evidence, not one final ordeal.",
       "place": "",
+      "guide": "The conditions this hardware has to survive are transport vibration, temperature swings, humidity and aircraft operation, and in service they arrive together. One full-system trial exercises all of them at once and tells you only whether it passed. A staged programme finds cheap failures at component level first, and spends the integrated test on the coupled effects that appear late. Testing at room temperature costs least and leaves the temperature and humidity terms untried. The mission is short; the storage and transit before it are not.",
+      "rules": "Spread the hundred points across the 3 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "background": [
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
+      ],
       "story": "Fat Man subsystems must survive transportation, vibration, temperature changes, humidity, and aircraft operation before they enter service. Environmental qualification exposes hardware to representative conditions and then checks whether performance changes. A component that works only in a quiet laboratory cannot be considered ready for Tinian or a combat mission.",
       "game": {
         "type": "SCIENCETANK",
@@ -4561,10 +6248,15 @@ export const CURRICULUM = {
     {
       "day": 23,
       "title": "Reliability of a series firing chain",
-      "scene": "In a series firing chain, every required link must work for the final command to pass, so the reliability of the complete chain can be lower than the reliability of any one part. Adding more necessary components can reduce total success probability unless each is exceptionally reliable. Engineers use this logic to identify weak links and decide where redundancy or redesign matters most.",
+      "scene": "In a series firing chain, every required link has to work for the final command to pass. That means the reliability of the whole chain can be lower than the reliability of any single part in it.",
       "takeaway": "System reliability cannot be inferred from the best component.",
       "place": "",
-      "story": "In a series firing chain, every required link must work for the final command to pass, so the reliability of the complete chain can be lower than the reliability of any one part. Adding more necessary components can reduce total success probability unless each is exceptionally reliable. Engineers use this logic to identify weak links and decide where redundancy or redesign matters most.",
+      "guide": "Four numbers, in two pairs, and only one of each belongs here. Ask of each whether it is a per-link reliability or a number of links. And note what the arithmetic does. Each required element is another chance to fail, even when every one looks reliable on its own.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
+      "story": "In a series firing chain, every required link has to work for the final command to pass. That means the reliability of the whole chain can be lower than the reliability of any single part in it.",
       "game": {
         "type": "BALLPARK",
         "title": "Reliability of a series firing chain",
@@ -4581,6 +6273,11 @@ export const CURRICULUM = {
         ],
         "relationship": "A chain works only if every link does, so reliability = the per-link reliability raised to the number of links.",
         "calcKey": "E-23"
+      },
+      "concept": {
+        "n": 17,
+        "c": "Order-of-magnitude estimation from givens",
+        "of": 30
       }
     },
     {
@@ -4589,6 +6286,12 @@ export const CURRICULUM = {
       "scene": "Failure-modes-and-effects analysis begins by imagining how each part can fail, what causes that failure, how it will be detected, and what the system will do next. For Fat Man, failures ranged from a safe abort to an undetected asymmetry. The value of the analysis is not predicting every accident, but forcing the team to connect component faults to system consequences before deployment.",
       "takeaway": "FMEA turns surprise into an organized decision.",
       "place": "",
+      "guide": "Four anomalies and four dispositions. Pair them by asking what each one threatens: safety, the mission function, the evidence, or only the schedule. One of them leaves the true state unknown, which is different from knowing it is bad. Each needs a path decided in advance.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Failure-modes-and-effects analysis begins by imagining how each part can fail, what causes that failure, how it will be detected, and what the system will do next. For Fat Man, failures ranged from a safe abort to an undetected asymmetry. The value of the analysis is not predicting every accident, but forcing the team to connect component faults to system consequences before deployment.",
       "game": {
         "type": "PROTOCOL",
@@ -4621,6 +6324,15 @@ export const CURRICULUM = {
           "What you observe",
           "Which kind of problem it is"
         ]
+      },
+      "concept": {
+        "n": 8,
+        "c": "Criticality: mass, geometry, reflectors, moderation",
+        "of": 30,
+        "rests": [
+          "Fission, neutron multiplication and chain reactions",
+          "Cross sections and mean free path"
+        ]
       }
     },
     {
@@ -4629,6 +6341,13 @@ export const CURRICULUM = {
       "scene": "Redundancy does not protect a system when several channels share the same power supply, clock, connector design, or manufacturing defect. That shared vulnerability is a common-mode failure. Since Fat Man relies on many simultaneous initiation channels, engineers must look for one fault capable of making all channels late, weak, or silent together.",
       "takeaway": "The hardest reliability risks often hide in shared infrastructure.",
       "place": "",
+      "guide": "Many channels have to fire together, and at present they share a trigger path, a power supply and a procedure. Adding channels on that same path multiplies the count and not the independence. Independent timing references measure whether the channels can fail apart. Testing the shared power and procedure is what finds a fault that makes all of them late at once. Physical separation is not independence: two boxes a metre apart can still run off one supply.",
+      "rules": "Spread the hundred points across the 3 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "background": [
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
+      ],
       "story": "Redundancy does not protect a system when several channels share the same power supply, clock, connector design, or manufacturing defect. That shared vulnerability is a common-mode failure. Since Fat Man relies on many simultaneous initiation channels, engineers must look for one fault capable of making all channels late, weak, or silent together.",
       "game": {
         "type": "SCIENCETANK",
@@ -4658,6 +6377,11 @@ export const CURRICULUM = {
           "C": 0
         },
         "research": ""
+      },
+      "concept": {
+        "n": 28,
+        "c": "Timing, synchronisation and simultaneity of events",
+        "of": 30
       }
     },
     {
@@ -4666,6 +6390,12 @@ export const CURRICULUM = {
       "scene": "After a design change, drawings, parts, procedures, training materials, and test records must all refer to the same revision. Configuration control prevents a team from assembling one version while interpreting evidence from another. As Trinity approached, Los Alamos needs strict change authority because even a sensible local improvement can invalidate earlier qualification work.",
       "takeaway": "A design is not changed until the whole evidence system is changed with it.",
       "place": "",
+      "guide": "All four steps happen, so ask what each one has to cover. A change reviewed by one division misses the interfaces it shares with the others. And a revision approved before the affected test results are identified leaves earlier evidence attached to a configuration that no longer exists.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "After a design change, drawings, parts, procedures, training materials, and test records must all refer to the same revision. Configuration control prevents a team from assembling one version while interpreting evidence from another. As Trinity approached, Los Alamos needs strict change authority because even a sensible local improvement can invalidate earlier qualification work.",
       "game": {
         "type": "SEQUENCE",
@@ -4696,6 +6426,13 @@ export const CURRICULUM = {
       "scene": "Jumbo is a massive steel vessel considered as a way to contain scarce plutonium if the Trinity high explosives fail to produce a nuclear explosion. Using it might protect material, but it can interfere with diagnostics and create new hazards. The decision forces engineers to compare uncertain failure risk with the scientific value of an unobstructed full-scale test.",
       "takeaway": "Good engineering retires or reshapes contingencies when their decision value changes.",
       "place": "",
+      "guide": "Jumbo would protect scarce plutonium if the high explosives fail, and it stands between the device and several of the diagnostics. The evidence for a successful test has moved since the vessel was ordered. The vessel's own hazards have not been assessed at the site. Diagnostics, site safety and recovery planning are needed whatever the test does. Cancelling every contingency saves the most and leaves no plan for a failure that is unlikely rather than impossible. A bounded assessment costs weeks, not months.",
+      "rules": "Spread the hundred points across the 3 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "background": [
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
+      ],
       "story": "Jumbo is a massive steel vessel considered as a way to contain scarce plutonium if the Trinity high explosives fail to produce a nuclear explosion. Using it might protect material, but it can interfere with diagnostics and create new hazards. The decision forces engineers to compare uncertain failure risk with the scientific value of an unobstructed full-scale test.",
       "game": {
         "type": "SCIENCETANK",
@@ -4725,6 +6462,14 @@ export const CURRICULUM = {
           "A": 15
         },
         "research": ""
+      },
+      "concept": {
+        "n": 27,
+        "c": "Chemical explosives: energy release and detonation velocity",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
       }
     },
     {
@@ -4733,6 +6478,12 @@ export const CURRICULUM = {
       "scene": "Trinity diagnostics need shared timing marks, known viewing directions, calibrated cables, and enough dynamic range to record unexpectedly large or small signals. A measurement without a common time or coordinate reference cannot be compared with the firing sequence or another instrument. Engineers therefore treat diagnostic interfaces as part of the test configuration.",
       "takeaway": "Measurement interfaces deserve the same control as hardware interfaces.",
       "place": "",
+      "guide": "Four problems and four fixes. Pair them by asking what has become unrelatable: the times, the positions, the ranges, or the wiring a calibration belongs to. A record that cannot be tied to the event is a record of something else, however good the instrument was.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Trinity diagnostics need shared timing marks, known viewing directions, calibrated cables, and enough dynamic range to record unexpectedly large or small signals. A measurement without a common time or coordinate reference cannot be compared with the firing sequence or another instrument. Engineers therefore treat diagnostic interfaces as part of the test configuration.",
       "game": {
         "type": "PROTOCOL",
@@ -4765,6 +6516,11 @@ export const CURRICULUM = {
           "What is wrong with the record",
           "How you fix it"
         ]
+      },
+      "concept": {
+        "n": 20,
+        "c": "Experimental method: controls, calibration, systematic vs random error",
+        "of": 30
       }
     },
     {
@@ -4773,6 +6529,12 @@ export const CURRICULUM = {
       "scene": "Project Alberta moves Fat Man components, records, trained specialists, and Silverplate aircraft support to Tinian. Transport must preserve identity and condition, while final assembly must occur under strict technical and security control far from Los Alamos. The weapon is not truly deployable until the field team can reproduce the approved configuration and diagnose problems on site.",
       "takeaway": "Deployment is a new integration phase, not merely transportation.",
       "place": "",
+      "guide": "Four needs and four arrangements. Pair them by asking what each one has to survive. A journey? An outside depot? A base with no laboratory behind it? An anomaly nobody at home can be asked about? Each answer moves a piece of the laboratory rather than a piece of paper.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Project Alberta moves Fat Man components, records, trained specialists, and Silverplate aircraft support to Tinian. Transport must preserve identity and condition, while final assembly must occur under strict technical and security control far from Los Alamos. The weapon is not truly deployable until the field team can reproduce the approved configuration and diagnose problems on site.",
       "game": {
         "type": "PROTOCOL",
@@ -4813,6 +6575,13 @@ export const CURRICULUM = {
       "scene": "The final engineering review asks whether Fat Man can be assembled, carried, armed, released, and initiated in the exact configuration supported by tests. It combines hardware reliability, records, crew training, aircraft interfaces, and unresolved risks. A successful physics concept is only one part of declaring the complete weapon ready.",
       "takeaway": "A weapon-system readiness decision is broader than proof of its central physical concept.",
       "place": "",
+      "guide": "Readiness is a claim about assembly, carriage, arming, release and initiation in one configuration, and Trinity tested a device rather than a mission. An evidence matrix names each mission-critical claim and the test, inspection, rehearsal or signature behind it. It is weeks of clerical work, and it exposes what is missing. Reviewing the Trinity result alone covers the physics and none of the interfaces. A fixed schedule is a constraint on the review and not evidence inside it.",
+      "rules": "Spread the hundred points across the 3 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "background": [
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
+      ],
       "story": "The final engineering review asks whether Fat Man can be assembled, carried, armed, released, and initiated in the exact configuration supported by tests. It combines hardware reliability, records, crew training, aircraft interfaces, and unresolved risks. A successful physics concept is only one part of declaring the complete weapon ready.",
       "game": {
         "type": "SCIENCETANK",
@@ -4841,6 +6610,14 @@ export const CURRICULUM = {
           "B": 90
         },
         "research": ""
+      },
+      "concept": {
+        "n": 19,
+        "c": "Shock waves, compression and hydrodynamics",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
       }
     }
   ],
@@ -4851,6 +6628,12 @@ export const CURRICULUM = {
       "scene": "Measurements on reactor-produced plutonium have come back from the counters and Ordnance has been called in. The result changes not one component but the direction of the entire programme, and the reason has to be understood before the reorganization makes sense.",
       "takeaway": "Material physics can determine the required system architecture.",
       "place": "",
+      "guide": "Four situations and four responses. Ask of each whether it is about the material or about the engineering. This material emits neutrons on its own, at a rate nobody chose. So the clock every assembly has to beat is set by what comes out unprompted, not by a design decision.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Measurements on reactor-produced plutonium have come back from the counters and Ordnance has been called in. The result changes not one component but the direction of the entire programme, and the reason has to be understood before the reorganization makes sense.",
       "game": {
         "type": "PROTOCOL",
@@ -4891,8 +6674,23 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "a chain reaction started early releases energy early"
-      ]
+        "a chain reaction started early releases energy early",
+        "pressure, temperature and equations of state — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 26,
+          "c": "Pressure, temperature and equations of state"
+        }
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Shock waves, compression and hydrodynamics",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
+      }
     },
     {
       "day": 2,
@@ -4900,6 +6698,12 @@ export const CURRICULUM = {
       "scene": "Ordinary high explosive detonates outward from wherever it was lit, and every intuition anybody on the Hill has comes from that. Implosion needs the opposite, and nobody has done it before.",
       "takeaway": "The central challenge is controlled convergence, not simply a larger explosion.",
       "place": "",
+      "guide": "These four are one chain, and the problem is convergence rather than power. Ask of each card what has to happen first. One point of initiation gives one outward wave. Waves have to exist before they can be redirected. And the density change is the point of all of it.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Ordinary high explosive detonates outward from wherever it was lit, and every intuition anybody on the Hill has comes from that. Implosion needs the opposite, and nobody has done it before.",
       "game": {
         "type": "SEQUENCE",
@@ -4930,8 +6734,23 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "a detonation travels outward from where it starts"
-      ]
+        "a detonation travels outward from where it starts",
+        "pressure, temperature and equations of state — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 26,
+          "c": "Pressure, temperature and equations of state"
+        }
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Shock waves, compression and hydrodynamics",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
+      }
     },
     {
       "day": 3,
@@ -4939,6 +6758,12 @@ export const CURRICULUM = {
       "scene": "The lens programme has been given the problem of shaping a detonation front, and the name is a deliberate analogy. Every part of that analogy has to be earned against real firing data.",
       "takeaway": "A conceptual analogy must still be tested against the actual nonlinear physics.",
       "place": "",
+      "guide": "Four questions and four ways to answer them. Pair them by asking what each measurement isolates. One material alone? Two acting together? The joints between segments? Or the whole wave around the assembly? Manufacturing is physics here, because a gap distorts the wave crossing it.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "The lens programme has been given the problem of shaping a detonation front, and the name is a deliberate analogy. Every part of that analogy has to be earned against real firing data.",
       "game": {
         "type": "PROTOCOL",
@@ -4979,8 +6804,23 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "a lens bends light by slowing it in some places more than others"
-      ]
+        "a lens bends light by slowing it in some places more than others",
+        "pressure, temperature and equations of state — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 26,
+          "c": "Pressure, temperature and equations of state"
+        }
+      ],
+      "concept": {
+        "n": 27,
+        "c": "Chemical explosives: energy release and detonation velocity",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
+      }
     },
     {
       "day": 4,
@@ -4988,6 +6828,11 @@ export const CURRICULUM = {
       "scene": "A sample counted at 8,000 counts a minute reads 500 today, and the notebook does not say how long ago the first count was taken. The half-life is on the chart at 12 hours.",
       "takeaway": "Exponential decay is counted in half-lives, and logarithms are how you get the number of them.",
       "place": "Diagnostics Bay",
+      "guide": "Six numbers, and three of them are steps of the working: a ratio, a count of halvings, and a base. Ask of each whether the relationship needs it or produces it. And note the habit. Work in ratios rather than differences, because a drop of 7,500 counts means nothing on its own.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A sample counted at 8,000 counts a minute reads 500 today, and the notebook does not say how long ago the first count was taken. The half-life is on the chart at 12 hours.",
       "game": {
         "type": "BALLPARK",
@@ -5049,14 +6894,98 @@ export const CURRICULUM = {
           ],
           "s": "A fixed fraction decays each second, so the population falls by the same proportion in every equal interval."
         }
-      ]
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Exponential decay and logarithms",
+        "of": 30
+      }
     },
     {
       "day": 5,
+      "title": "Just critical, for as long as it takes",
+      "scene": "The pile has to sit exactly critical while a foil is irradiated on the other side of the shield. The control rod is the only thing that answers it, and everything else in the room is quietly changing the balance.",
+      "takeaway": "A balance with no stable point is one somebody has to keep making.",
+      "place": "Experimental Area",
+      "guide": "Hold the pile at the neutron level on the meter, inside the band. The band narrows as the run goes on, because the foil's exposure has to be known to a few per cent and every excursion has to be accounted for afterwards. The control rod is your control, and every change in the pile is a change in the rate rather than a step.",
+      "background": [
+        "Why a pile does not sit still. Exactly critical means each generation produces the same number of neutrons as the last. A little above and the population grows without limit; a little below and it dies away. There is no stable place except the one you hold.",
+        "What is moving it. The graphite warms and moderates a little differently. A xenon product builds up and absorbs neutrons. Somebody walks past the reflector. Each is a slow push in one direction, and it does not stop.",
+        "Why the rod is set rather than tapped. A rod moved and returned changes the population and leaves it changed. Holding the level means finding the rod position where growth and loss balance under whatever is currently pushing."
+      ],
+      "story": "The pile has to sit exactly critical while a foil is irradiated on the other side of the shield. The control rod is the only thing that answers it, and everything else in the room is quietly changing the balance.",
+      "game": {
+        "type": "HOLD",
+        "title": "Just critical, for as long as it takes",
+        "setup": "Experimental Area",
+        "play": "Hold the pile while the experiment runs.",
+        "task": "Hold the pile while the experiment runs.",
+        "question": "Hold the pile at the neutron level while the foil is irradiated.",
+        "answer": "Inside the band for most of the run, with the rod set where growth and loss balance rather than tapped after the meter has already climbed.",
+        "why": "Exactly critical is not a place a pile rests. Each generation either produces more neutrons than the last or fewer, so the level grows or decays and the only steady state is the one an operator makes continuously. That is why the rod is set to a position and held rather than tapped: every push here is a rate, and a rod returned to where it was leaves the population somewhere new. The pushes themselves are the physics of the pile. Warming graphite moderates a little differently, so the multiplication drifts as the run heats up. Fission products build up and absorb neutrons, which is a slow, one-way pressure downward that will not stop when you stop watching. And the band narrows because the foil is the experiment: an exposure known to a few per cent is a result, and one that wandered is a foil somebody has to irradiate again.",
+        "hold": {
+          "quantity": "Neutron level",
+          "control": "Control rod",
+          "unit": "relative",
+          "hold": 1,
+          "band": 0.4,
+          "narrowTo": 0.2,
+          "duration": 45,
+          "authority": 0.1,
+          "pass": 0.8,
+          "direction": "raise",
+          "disturbances": [
+            {
+              "label": "Graphite warms as the run goes on",
+              "at": 4,
+              "amount": -0.03
+            },
+            {
+              "label": "Reflector wheeled back into place",
+              "at": 20,
+              "amount": 0.05
+            },
+            {
+              "label": "Fission products build up",
+              "at": 38,
+              "amount": -0.045
+            }
+          ],
+          "hint": "Every push here keeps pushing. Find the rod position that balances it rather than correcting the meter.",
+          "commit": "Report the run"
+        }
+      },
+      "assumes": [
+        "a chain reaction can grow, hold steady or die away",
+        "radioactive decay modes: alpha, beta, gamma — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 4,
+          "c": "Radioactive decay modes: alpha, beta, gamma"
+        }
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Fission, neutron multiplication and chain reactions",
+        "of": 30,
+        "rests": [
+          "Nuclear structure: protons, neutrons, isotopes, nuclide notation",
+          "Radioactive decay modes: alpha, beta, gamma"
+        ]
+      }
+    },
+    {
+      "day": 6,
       "title": "Synchronizing many channels",
       "scene": "The timing-budget meeting has stalled. Each subsystem lead insists that their contribution is small, yet the combined requirement is close enough that nobody wants to sign it. The system cannot move to the next review until one number closes the argument.",
       "takeaway": "A timing budget must include the full measurement chain.",
       "place": "",
+      "guide": "Four numbers, and one of them is the other three added straight. Ask whether independent errors add that way. They do not. They combine in quadrature, so the largest term dominates. The straight sum is offered because it is the intuitive answer, and it overstates the total.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The timing-budget meeting has stalled. Each subsystem lead insists that their contribution is small, yet the combined requirement is close enough that nobody wants to sign it. The system cannot move to the next review until one number closes the argument.",
       "game": {
         "type": "BALLPARK",
@@ -5073,18 +7002,29 @@ export const CURRICULUM = {
           "Do not add signs, because these are uncertainty scales"
         ],
         "relationship": "Independent timing errors add in quadrature: the root of the sum of the squares. They do not add straight.",
-        "calcKey": "X-5"
+        "calcKey": "X-6"
       },
       "assumes": [
         "independent errors do not simply add"
-      ]
+      ],
+      "concept": {
+        "n": 28,
+        "c": "Timing, synchronisation and simultaneity of events",
+        "of": 30
+      }
     },
     {
-      "day": 6,
+      "day": 7,
       "title": "Build the implosion uncertainty budget",
       "scene": "An implosion trial has returned two anomalies, and the next development cycle can afford only one major push. Division leads are waiting outside the analysis room to learn where the effort goes. Name the wrong source and weeks disappear into the wrong fix.",
       "takeaway": "Improvement starts by naming the dominant source of uncertainty.",
       "place": "",
+      "guide": "The panel has more than one thing wrong, so no single cause covers it. Ask of each candidate which readings it leaves unexplained. A budget's value is the ranking rather than the total: improvement starts with the dominant source, and effort anywhere else changes nothing.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "An implosion trial has returned two anomalies, and the next development cycle can afford only one major push. Division leads are waiting outside the analysis room to learn where the effort goes. Name the wrong source and weeks disappear into the wrong fix.",
       "game": {
         "type": "DIAGNOSIS",
@@ -5124,14 +7064,28 @@ export const CURRICULUM = {
           ],
           "s": "Shielding removes a fixed fraction per centimetre, so intensity falls exponentially rather than linearly with thickness."
         }
-      ]
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Shock waves, compression and hydrodynamics",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
+      }
     },
     {
-      "day": 7,
+      "day": 8,
       "title": "What a scaled shot can and cannot tell you",
       "scene": "A half-scale shot is proposed: an eighth of the explosive and a much shorter schedule. The material detonation velocity is listed at both scales, and the team has geometric dimensions, reaction-zone measurements, and timing records spread across the table.",
       "takeaway": "A scaled experiment reproduces the dimensionless quantities, and only what depends on them transfers.",
       "place": "Implosion Test Range",
+      "guide": "Four claims about a half-scale shot. Ask of each what it assumes scales. Ratios do, and the phenomena they govern come with them. A detonation velocity, a diffusion length and a reaction time do not, because halving the geometry does not halve them. So one option is too generous and one too harsh.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "A half-scale shot is proposed: an eighth of the explosive and a much shorter schedule. The material detonation velocity is listed at both scales, and the team has geometric dimensions, reaction-zone measurements, and timing records spread across the table.",
       "game": {
         "type": "CHOICE",
@@ -5156,15 +7110,37 @@ export const CURRICULUM = {
         "correctChoice": "Transfer only conclusions governed by matched dimensionless ratios; re-check effects tied to fixed material length or time scales."
       },
       "assumes": [
-        "a dimensionless ratio has the same value at any scale"
-      ]
+        "a dimensionless ratio has the same value at any scale",
+        "units and conversions: MeV, u, barns, scientific notation — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 16,
+          "c": "Units and conversions: MeV, u, barns, scientific notation"
+        }
+      ],
+      "concept": {
+        "n": 29,
+        "c": "Dimensional analysis and scaling laws",
+        "of": 30,
+        "rests": [
+          "Units and conversions: MeV, u, barns, scientific notation",
+          "Order-of-magnitude estimation from givens"
+        ]
+      }
     },
     {
-      "day": 8,
+      "day": 9,
       "title": "What Trinity had to answer",
       "scene": "Trinity is being written as a set of questions before it becomes an event. One full-system attempt will carry dozens of expectations, and every division wants its own result treated as decisive. There will be no second shot to clarify what the first one meant.",
       "takeaway": "A full-system test should be written as a set of questions before it becomes an event.",
       "place": "",
+      "guide": "Four questions and four kinds of evidence. Pair them by asking what each question needs: the whole event, one subsystem's traces, a comparison with something written beforehand, or measurements taken afterwards. A test without its questions written down first becomes an argument later about what it proved.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Trinity is being written as a set of questions before it becomes an event. One full-system attempt will carry dozens of expectations, and every division wants its own result treated as decisive. There will be no second shot to clarify what the first one meant.",
       "game": {
         "type": "PROTOCOL",
@@ -5206,14 +7182,24 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a test proves what it was designed to ask"
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Experimental method: controls, calibration, systematic vs random error",
+        "of": 30
+      }
     },
     {
-      "day": 9,
+      "day": 10,
       "title": "Compare a prediction band with an observation",
       "scene": "A model predicts an observable between 40 units. The measurement reads 21, plus or minus 2. The temptation after Trinity is to read one comparison as a verdict on everything.",
       "takeaway": "Evidence should update a model claim by claim, not by declaring total victory.",
       "place": "",
+      "guide": "Four numbers, and two of them describe the band rather than the measurement: its midpoint and its lower edge. Ask of each what the comparison needs. A gap is measured in units of the measurement's own uncertainty. And note that a wide band would have accommodated almost anything.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "A model predicts an observable between 40 units. The measurement reads 21, plus or minus 2. The temptation after Trinity is to read one comparison as a verdict on everything.",
       "game": {
         "type": "BALLPARK",
@@ -5229,18 +7215,29 @@ export const CURRICULUM = {
           "Measurement: 21 +/- 2"
         ],
         "relationship": "Distance in sigma = |observed − predicted| ÷ the measurement uncertainty.",
-        "calcKey": "X-9"
+        "calcKey": "X-10"
       },
       "assumes": [
         "a wide prediction is easy to agree with"
-      ]
+      ],
+      "concept": {
+        "n": 17,
+        "c": "Order-of-magnitude estimation from givens",
+        "of": 30
+      }
     },
     {
-      "day": 10,
+      "day": 11,
       "title": "Scientific responsibility after Trinity",
       "scene": "After Trinity, reports of yield, fallout, and measurement uncertainty are spread across the laboratory. Officials outside the site are asking what the results mean. Scientists now have to decide what belongs in their technical assessment before it leaves Los Alamos.",
       "takeaway": "Technical expertise carries a duty to communicate consequences and uncertainty clearly without turning expertise into political authority.",
       "place": "",
+      "guide": "Four ways to draw one line. Ask of each what it gives away. One keeps the laboratory to raw readings, which leaves officials judging consequences nobody has shown them. One treats knowing the facts as authority to decide. The useful version separates the account from the recommendation and labels both.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "After Trinity, reports of yield, fallout, and measurement uncertainty are spread across the laboratory. Officials outside the site are asking what the results mean. Scientists now have to decide what belongs in their technical assessment before it leaves Los Alamos.",
       "game": {
         "type": "CHOICE",
@@ -5266,14 +7263,24 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a technical question and a decision about its use are different questions"
-      ]
+      ],
+      "concept": {
+        "n": 24,
+        "c": "Descriptive statistics: mean, spread, standard deviation",
+        "of": 30
+      }
     },
     {
-      "day": 11,
+      "day": 12,
       "title": "Spherical compression and density",
       "scene": "Compressing a sphere increases its density and reduces the distance neutrons travel before finding another nucleus, while the smaller effective leakage helps the chain reaction grow. But compression must occur throughout the volume rather than merely crushing the surface. Implosion scientists therefore study how radius, density, mass conservation, and wave motion fit together.",
       "takeaway": "Three-dimensional convergence amplifies small radial changes.",
       "place": "",
+      "guide": "Four numbers, and two of them are radius ratios. Only one describes this compression. Ask of each what the relationship needs. Volume goes as the cube of radius, so a modest squeeze in radius is a much larger change in density. Check the direction of your answer before believing it.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Compressing a sphere increases its density and reduces the distance neutrons travel before finding another nucleus, while the smaller effective leakage helps the chain reaction grow. But compression must occur throughout the volume rather than merely crushing the surface. Implosion scientists therefore study how radius, density, mass conservation, and wave motion fit together.",
       "game": {
         "type": "BALLPARK",
@@ -5290,15 +7297,30 @@ export const CURRICULUM = {
           "Density scales as 1/radius^3"
         ],
         "relationship": "Density = mass ÷ volume, and volume goes as radius³. At fixed mass, the density ratio = 1 ÷ (radius ratio)³.",
-        "calcKey": "X-11"
+        "calcKey": "X-12"
+      },
+      "concept": {
+        "n": 19,
+        "c": "Shock waves, compression and hydrodynamics",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
       }
     },
     {
-      "day": 12,
+      "day": 13,
       "title": "Invest in multipoint initiation evidence",
       "scene": "Multipoint initiation requires many detonators, cables, and firing channels to act together, but testing every possible failure is impossible. The team must invest in evidence that separates detonator variation from cable delay, firing-unit error, and measurement error. That knowledge determines whether the implosion program is improving the physical system or merely improving one instrument.",
       "takeaway": "Precision must be demonstrated statistically and diagnostically.",
       "place": "",
+      "guide": "Four things spread here: the detonators, the cables, the firing units, and the measurement itself. None of the four is presently separated from the others. A hand-selected set can be tuned until it performs, and says nothing about the lots the rest will come from. Several sets with independent timing, controlled cables and lot traceability separate the four terms. They cost detonators and range time. More initiation points on unimproved measurement adds channels the diagnostics cannot resolve.",
+      "rules": "Spread the hundred points across the 3 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "background": [
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
+      ],
       "story": "Multipoint initiation requires many detonators, cables, and firing channels to act together, but testing every possible failure is impossible. The team must invest in evidence that separates detonator variation from cable delay, firing-unit error, and measurement error. That knowledge determines whether the implosion program is improving the physical system or merely improving one instrument.",
       "game": {
         "type": "SCIENCETANK",
@@ -5328,14 +7350,25 @@ export const CURRICULUM = {
           "A": 5
         },
         "research": ""
+      },
+      "concept": {
+        "n": 28,
+        "c": "Timing, synchronisation and simultaneity of events",
+        "of": 30
       }
     },
     {
-      "day": 13,
+      "day": 14,
       "title": "Hydrodynamic scaling with inert mock materials",
       "scene": "Hydrodynamic tests use inert materials to reproduce the motion of solids and explosives without a nuclear chain reaction. Scaling laws compare dimensions, times, densities, and wave speeds to decide what a smaller or safer test can teach about the full assembly. Los Alamos relies on these repeated mock shots to develop implosion before risking plutonium or a nuclear test.",
       "takeaway": "Similarity is an argument supported by evidence, not a visual resemblance.",
       "place": "",
+      "guide": "All four steps happen, so ask what each one has to be settled before it. Materials cannot be chosen before you know which quantities the model has to preserve. And the assumptions are revised against what the diagnostics saw, which is why several independent ones are used.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Hydrodynamic tests use inert materials to reproduce the motion of solids and explosives without a nuclear chain reaction. Scaling laws compare dimensions, times, densities, and wave speeds to decide what a smaller or safer test can teach about the full assembly. Los Alamos relies on these repeated mock shots to develop implosion before risking plutonium or a nuclear test.",
       "game": {
         "type": "SEQUENCE",
@@ -5358,14 +7391,28 @@ export const CURRICULUM = {
           2,
           3
         ]
+      },
+      "concept": {
+        "n": 19,
+        "c": "Shock waves, compression and hydrodynamics",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
       }
     },
     {
-      "day": 14,
+      "day": 15,
       "title": "Shock impedance at material boundaries",
       "scene": "When a shock wave reaches a boundary between materials, part of the wave can reflect and part can transmit with a changed speed and pressure. The outcome depends on shock impedance, which combines material density and response. Fat Man contains many interfaces, so a void, wrong material, or poor contact can create a local disturbance that grows into asymmetric compression.",
       "takeaway": "In an implosion system, every interface is part of the physics.",
       "place": "",
+      "guide": "Four observations and four causes. Pair them by asking what differs across the boundary in each case. The density and shock response? The stress each solid answers with? A local defect? Or the as-built condition? An interface transmits, reflects and reshapes according to both sides of it.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "When a shock wave reaches a boundary between materials, part of the wave can reflect and part can transmit with a changed speed and pressure. The outcome depends on shock impedance, which combines material density and response. Fat Man contains many interfaces, so a void, wrong material, or poor contact can create a local disturbance that grows into asymmetric compression.",
       "game": {
         "type": "PROTOCOL",
@@ -5398,14 +7445,28 @@ export const CURRICULUM = {
           "What the record shows",
           "What causes it"
         ]
+      },
+      "concept": {
+        "n": 19,
+        "c": "Shock waves, compression and hydrodynamics",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
       }
     },
     {
-      "day": 15,
+      "day": 16,
       "title": "Density, geometry, and neutron multiplication",
       "scene": "Neutron multiplication depends on density, geometry, and leakage as well as the amount of fissile material. Implosion is valuable because compression puts nuclei closer together and makes it harder for neutrons to escape before causing another fission. The integration group must connect hydrodynamic measurements of compression to nuclear predictions of how rapidly the chain reaction will grow.",
       "takeaway": "Hydrodynamics and neutron physics are coupled during the assembly.",
       "place": "",
+      "guide": "These four are one chain, and compression changes two things at once. Ask of each card what has to happen before it. Leakage paths cannot shorten before the volume does. And the multiplication condition moves only once a larger share of neutrons stays inside.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Neutron multiplication depends on density, geometry, and leakage as well as the amount of fissile material. Implosion is valuable because compression puts nuclei closer together and makes it harder for neutrons to escape before causing another fission. The integration group must connect hydrodynamic measurements of compression to nuclear predictions of how rapidly the chain reaction will grow.",
       "game": {
         "type": "SEQUENCE",
@@ -5428,14 +7489,28 @@ export const CURRICULUM = {
           2,
           3
         ]
+      },
+      "concept": {
+        "n": 19,
+        "c": "Shock waves, compression and hydrodynamics",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
       }
     },
     {
-      "day": 16,
+      "day": 17,
       "title": "Reflector and tamper functions",
       "scene": "A surrounding layer can serve several roles at once: scatter some escaping neutrons back inward, add inertia that delays expansion, and transmit the imploding pressure wave. These neutron-reflector and tamper functions cannot be chosen independently because changing the material also changes shock behavior and interfaces. Fat Man design therefore requires a coupled nuclear and hydrodynamic tradeoff.",
       "takeaway": "Subsystem labels should not hide coupled functions.",
       "place": "",
+      "guide": "Four functions and four ways one layer serves them. Pair them by asking which physics each belongs to: neutron transport, inertia, or the explosive train. The same shell does all three at once. So it has to be qualified as part of the wave, not only as a wrapper.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "A surrounding layer can serve several roles at once: scatter some escaping neutrons back inward, add inertia that delays expansion, and transmit the imploding pressure wave. These neutron-reflector and tamper functions cannot be chosen independently because changing the material also changes shock behavior and interfaces. Fat Man design therefore requires a coupled nuclear and hydrodynamic tradeoff.",
       "game": {
         "type": "PROTOCOL",
@@ -5468,14 +7543,29 @@ export const CURRICULUM = {
           "What the layer has to do",
           "How it does it"
         ]
+      },
+      "concept": {
+        "n": 8,
+        "c": "Criticality: mass, geometry, reflectors, moderation",
+        "of": 30,
+        "rests": [
+          "Fission, neutron multiplication and chain reactions",
+          "Cross sections and mean free path"
+        ]
       }
     },
     {
-      "day": 17,
+      "day": 18,
       "title": "The modulated neutron initiator as a timing problem",
       "scene": "A neutron initiator is intended to provide neutrons at a controlled point late in the implosion rather than rely entirely on random background neutrons. The important idea is timing: too early can encourage pre-initiation, while too late will fail to influence the first chain-reaction generations. Los Alamos treats the initiator as one element in the larger synchronization problem.",
       "takeaway": "In a fast transient system, source timing can be as important as source strength.",
       "place": "",
+      "guide": "All four steps happen, and two separate risks live here. Ask of each card whether it is about when neutrons should arrive, or about when they might arrive uninvited. The initiator answers the first. The second is still there, and the comparison at the end is what tests either.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "A neutron initiator is intended to provide neutrons at a controlled point late in the implosion rather than rely entirely on random background neutrons. The important idea is timing: too early can encourage pre-initiation, while too late will fail to influence the first chain-reaction generations. Los Alamos treats the initiator as one element in the larger synchronization problem.",
       "game": {
         "type": "SEQUENCE",
@@ -5498,14 +7588,27 @@ export const CURRICULUM = {
           2,
           3
         ]
+      },
+      "concept": {
+        "n": 18,
+        "c": "Materials: phases, allotropes, alloys, density",
+        "of": 30,
+        "rests": [
+          "Units and conversions: MeV, u, barns, scientific notation"
+        ]
       }
     },
     {
-      "day": 18,
+      "day": 19,
       "title": "Pre-initiation probability as a time-window problem",
       "scene": "Pre-initiation risk depends on both the neutron background and the length of time the material remains vulnerable during assembly. A faster implosion shortens that time window, reducing the chance that a random neutron begins the reaction too soon. This probability argument explains why measuring plutonium’s spontaneous-neutron rate changes the entire Fat Man program.",
       "takeaway": "The plutonium problem was fundamentally a race between random neutrons and assembly speed.",
       "place": "",
+      "guide": "Four numbers, and two of them are windows a thousand apart. Ask of each which assembly this is. And note what the answer says. For a fixed random rate, the only lever is the length of the window. So the timing decides the risk rather than the material.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Pre-initiation risk depends on both the neutron background and the length of time the material remains vulnerable during assembly. A faster implosion shortens that time window, reducing the chance that a random neutron begins the reaction too soon. This probability argument explains why measuring plutonium’s spontaneous-neutron rate changes the entire Fat Man program.",
       "game": {
         "type": "BALLPARK",
@@ -5522,15 +7625,26 @@ export const CURRICULUM = {
           "Expected events lambda = r t"
         ],
         "relationship": "Probability ≈ the event rate × the length of the vulnerable window. Multiply by 100 for a percentage.",
-        "calcKey": "X-18"
+        "calcKey": "X-19"
+      },
+      "concept": {
+        "n": 17,
+        "c": "Order-of-magnitude estimation from givens",
+        "of": 30
       }
     },
     {
-      "day": 19,
+      "day": 20,
       "title": "RaLa: seeing an implosion with gamma rays",
       "scene": "The RaLa experiments place a strong gamma-ray source inside an imploding mock assembly and measure how much radiation passed through as the material compresses. Greater density absorbs more gamma rays, so changing detector signals reveal the motion indirectly. This gives Los Alamos a way to see inside an opaque implosion and compare different lens designs without a nuclear core.",
       "takeaway": "A decisive diagnostic converts an invisible internal process into multiple measurable traces.",
       "place": "",
+      "guide": "All four steps happen, so ask what each one needs first. Nothing can be recorded before there are detectors placed to record it. And a symmetry comparison needs more than one viewing direction, which is why the placement step matters as much as the source.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "The RaLa experiments place a strong gamma-ray source inside an imploding mock assembly and measure how much radiation passed through as the material compresses. Greater density absorbs more gamma rays, so changing detector signals reveal the motion indirectly. This gives Los Alamos a way to see inside an opaque implosion and compare different lens designs without a nuclear core.",
       "game": {
         "type": "SEQUENCE",
@@ -5578,14 +7692,28 @@ export const CURRICULUM = {
           ],
           "s": "Shielding removes a fixed fraction per centimetre, so intensity falls exponentially rather than linearly with thickness."
         }
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Radioactive decay modes: alpha, beta, gamma",
+        "of": 30,
+        "rests": [
+          "Nuclear structure: protons, neutrons, isotopes, nuclide notation"
+        ]
+      }
     },
     {
-      "day": 20,
+      "day": 21,
       "title": "Betatron and high-speed radiography",
       "scene": "A betatron produces energetic x-rays that can photograph dense material during a rapid event. High-speed radiography requires a short exposure, precise synchronization, enough penetration, and viewing angles that separate possible shapes. These images help determine whether an implosion stays symmetric rather than relying only on external flashes or fragments.",
       "takeaway": "A picture becomes evidence only when its formation process is understood.",
       "place": "",
+      "guide": "Four problems and four fixes. Pair them by asking which property of the image each is about. The time resolution? The range of brightness it can hold? Its registration against the event? Or the geometry it was taken from? One viewing angle cannot separate two possible asymmetries, whatever the exposure.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "A betatron produces energetic x-rays that can photograph dense material during a rapid event. High-speed radiography requires a short exposure, precise synchronization, enough penetration, and viewing angles that separate possible shapes. These images help determine whether an implosion stays symmetric rather than relying only on external flashes or fragments.",
       "game": {
         "type": "PROTOCOL",
@@ -5618,14 +7746,29 @@ export const CURRICULUM = {
           "What is wrong with the image",
           "How you fix it"
         ]
+      },
+      "concept": {
+        "n": 22,
+        "c": "Penetrating power and range of alpha, beta, gamma",
+        "of": 30,
+        "rests": [
+          "Attenuation of radiation through matter",
+          "Radioactive decay modes: alpha, beta, gamma"
+        ]
       }
     },
     {
-      "day": 21,
+      "day": 22,
       "title": "Hydrodynamic shots with surrogate cores",
       "scene": "Hydrodynamic shots replace the fissile core with surrogate materials chosen to mimic important mass and shock properties. Multiple diagnostics then measure wave arrival, density, and shape. The purpose is to test the mechanical implosion repeatedly so that Trinity’s one nuclear test will not be the first time the full geometry had been examined.",
       "takeaway": "A safe analog is useful only when its limits are explicit.",
       "place": "",
+      "guide": "All four steps happen, so ask what each one has to state before it. A surrogate is only interpretable if what it cannot reproduce is written down first. And the comparison at the end is against models, which is where the substitution's own uncertainty arrives.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Hydrodynamic shots replace the fissile core with surrogate materials chosen to mimic important mass and shock properties. Multiple diagnostics then measure wave arrival, density, and shape. The purpose is to test the mechanical implosion repeatedly so that Trinity’s one nuclear test will not be the first time the full geometry had been examined.",
       "game": {
         "type": "SEQUENCE",
@@ -5648,14 +7791,29 @@ export const CURRICULUM = {
           2,
           3
         ]
+      },
+      "concept": {
+        "n": 19,
+        "c": "Shock waves, compression and hydrodynamics",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
       }
     },
     {
-      "day": 22,
+      "day": 23,
       "title": "Control jets and hydrodynamic instabilities",
       "scene": "A narrow jet of material can form when shocks interact with a void, gap, or surface imperfection, while hydrodynamic instabilities can amplify small ripples during acceleration. Such effects break spherical symmetry and mix materials. Fat Man development therefore requires both smooth manufacturing and experiments that can reveal how small defects grew under implosion.",
       "takeaway": "The correct response to a small anomalous feature is an experiment that tells the explanations apart, not more energy or less resolution.",
       "place": "",
+      "guide": "A narrow feature in the radiograph comes either from a real void, gap or surface imperfection, or from the imaging. Controlled defect studies put a known imperfection in and watch what it grows into. That needs better radiography and a model to compare against. More explosive energy changes the drive and leaves the source of the feature unlocated. Averaging the image raises the signal to noise and removes narrow structure along with the noise.",
+      "rules": "Spread the hundred points across the 3 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "background": [
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
+      ],
       "story": "A narrow jet of material can form when shocks interact with a void, gap, or surface imperfection, while hydrodynamic instabilities can amplify small ripples during acceleration. Such effects break spherical symmetry and mix materials. Fat Man development therefore requires both smooth manufacturing and experiments that can reveal how small defects grew under implosion.",
       "game": {
         "type": "SCIENCETANK",
@@ -5685,14 +7843,28 @@ export const CURRICULUM = {
           "C": 0
         },
         "research": ""
+      },
+      "concept": {
+        "n": 19,
+        "c": "Shock waves, compression and hydrodynamics",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
       }
     },
     {
-      "day": 23,
+      "day": 24,
       "title": "Model-test correlation",
       "scene": "Model-test correlation compares a calculated quantity with a measurement that represents the same physical feature. Agreement in one observable does not guarantee the entire model is correct, while disagreement may come from either physics or diagnostics. Los Alamos needs carefully matched comparisons to use hydrodynamic tests as evidence for the Fat Man design.",
       "takeaway": "Post hoc agreement is weaker than a successful pre-test prediction.",
       "place": "",
+      "guide": "All four steps happen, so ask which of them cannot be reordered. A prediction made after the data is not a prediction. And a model updated on one set of data has to be tested on another, because a fit is not a forecast. That is how a model earns any authority at all.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Model-test correlation compares a calculated quantity with a measurement that represents the same physical feature. Agreement in one observable does not guarantee the entire model is correct, while disagreement may come from either physics or diagnostics. Los Alamos needs carefully matched comparisons to use hydrodynamic tests as evidence for the Fat Man design.",
       "game": {
         "type": "SEQUENCE",
@@ -5715,14 +7887,28 @@ export const CURRICULUM = {
           2,
           3
         ]
+      },
+      "concept": {
+        "n": 19,
+        "c": "Shock waves, compression and hydrodynamics",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
       }
     },
     {
-      "day": 24,
+      "day": 25,
       "title": "The Christy design simplification",
       "scene": "The Christy design simplifies the internal core geometry into a more nearly solid configuration, reducing interfaces and making calculations and experiments easier to compare. Simplification does not make implosion easy, but it removes sources of uncertainty that are difficult to manufacture and model. This helps the program converge on one configuration for Trinity and Fat Man.",
       "takeaway": "Robust design often wins by reducing the number of ways reality can differ from the model.",
       "place": "",
+      "guide": "Four problems and four things the simplification buys. Pair them by asking who each one helps: the machinists, the theorists, the test programme, or the programme's need to freeze one configuration. Fewer manufactured interfaces is a physics answer and a systems answer at the same time.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "The Christy design simplifies the internal core geometry into a more nearly solid configuration, reducing interfaces and making calculations and experiments easier to compare. Simplification does not make implosion easy, but it removes sources of uncertainty that are difficult to manufacture and model. This helps the program converge on one configuration for Trinity and Fat Man.",
       "game": {
         "type": "PROTOCOL",
@@ -5755,14 +7941,29 @@ export const CURRICULUM = {
           "What the program needs",
           "What the simplification gives it"
         ]
+      },
+      "concept": {
+        "n": 19,
+        "c": "Shock waves, compression and hydrodynamics",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
       }
     },
     {
-      "day": 25,
+      "day": 26,
       "title": "Freeze the implosion architecture",
       "scene": "Freezing the implosion architecture means selecting one controlled arrangement of lenses, initiation, core geometry, surrounding layers, and interfaces for final qualification. Without a baseline, each successful test might describe a different system. The freeze allows Trinity evidence to support the actual Fat Man configuration rather than a moving target.",
       "takeaway": "A design freeze is a decision about evidence, schedule, and residual risk.",
       "place": "",
+      "guide": "Trinity can only test the configuration that is actually frozen. Every week without a baseline is a week of tests describing slightly different systems. One diagnostic discrepancy is still open, and it is the largest on the list. Carrying every concept equally keeps the options and buys qualification for none of them. Concentrating on one while a small team keeps challenging it costs the challenge team and slows nothing else. A freeze taken now settles the schedule and leaves the discrepancy inside the baseline.",
+      "rules": "Spread the hundred points across the 3 proposals. At least 75 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "background": [
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
+      ],
       "story": "Freezing the implosion architecture means selecting one controlled arrangement of lenses, initiation, core geometry, surrounding layers, and interfaces for final qualification. Without a baseline, each successful test might describe a different system. The freeze allows Trinity evidence to support the actual Fat Man configuration rather than a moving target.",
       "game": {
         "type": "SCIENCETANK",
@@ -5791,14 +7992,29 @@ export const CURRICULUM = {
           "B": 75
         },
         "research": ""
+      },
+      "concept": {
+        "n": 19,
+        "c": "Shock waves, compression and hydrodynamics",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
       }
     },
     {
-      "day": 26,
+      "day": 27,
       "title": "Design the Trinity diagnostic portfolio",
       "scene": "Because no instrument is guaranteed to survive or stay within range at Trinity, the diagnostic plan uses several independent methods for timing, radiation, blast, photography, and energy release. Redundancy across different physical principles makes the result interpretable even if one channel fails. The team must choose breadth of evidence over dependence on one expected ‘best’ measurement.",
       "takeaway": "High-consequence experiments need independent observables and dynamic-range redundancy.",
       "place": "",
+      "guide": "No instrument at Trinity is guaranteed to survive the event or to stay inside its range. Methods resting on different physical principles fail for different reasons, so several together can still be read when one is lost. One expected best measurement is the cheapest to build well, and leaves nothing if it saturates. Photography produces a record anybody can read, and it is qualitative. Radiation and fallout monitoring answer a question about the site rather than about the yield.",
+      "rules": "Spread the hundred points across the 3 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "background": [
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
+      ],
       "story": "Because no instrument is guaranteed to survive or stay within range at Trinity, the diagnostic plan uses several independent methods for timing, radiation, blast, photography, and energy release. Redundancy across different physical principles makes the result interpretable even if one channel fails. The team must choose breadth of evidence over dependence on one expected ‘best’ measurement.",
       "game": {
         "type": "SCIENCETANK",
@@ -5827,14 +8043,28 @@ export const CURRICULUM = {
           "B": 85
         },
         "research": ""
+      },
+      "concept": {
+        "n": 27,
+        "c": "Chemical explosives: energy release and detonation velocity",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
       }
     },
     {
-      "day": 27,
+      "day": 28,
       "title": "Trinity countdown and decision gates",
       "scene": "A countdown is a series of decision gates, not simply a clock reaching zero. Weather, evacuation, communications, diagnostic readiness, configuration, and firing-system status each had a hold point and responsible authority. Trinity can produce useful evidence only if schedule pressure does not override an unresolved condition.",
       "takeaway": "The authority to hold is as important as the authority to proceed.",
       "place": "",
+      "guide": "All four stages happen, and the countdown exists to stop schedule pressure overriding an unresolved condition. Ask of each card what it holds open. A configuration confirmed before the holds. Conditions reviewed at them. And a release that belongs to one named authority rather than to the clock.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "A countdown is a series of decision gates, not simply a clock reaching zero. Weather, evacuation, communications, diagnostic readiness, configuration, and firing-system status each had a hold point and responsible authority. Trinity can produce useful evidence only if schedule pressure does not override an unresolved condition.",
       "game": {
         "type": "SEQUENCE",
@@ -5860,11 +8090,17 @@ export const CURRICULUM = {
       }
     },
     {
-      "day": 28,
+      "day": 29,
       "title": "From the Gadget to Fat Man",
       "scene": "The Trinity Gadget demonstrates the central implosion principle, but Fat Man also needs a casing, aircraft interfaces, fuzing, safety systems, field assembly, and controlled records. Moving from test device to weapon means preserving the validated core design while qualifying everything required for delivery. The transition joins Los Alamos science with Project Alberta engineering and logistics.",
       "takeaway": "Demonstrating physics is not the same as fielding a system.",
       "place": "",
+      "guide": "All four steps happen, and the two devices share a principle rather than a configuration. Ask of each card what has to be settled first. Nothing can be frozen before the results are reconciled with the predictions. And the aircraft and field interfaces are the layer combat adds.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "The Trinity Gadget demonstrates the central implosion principle, but Fat Man also needs a casing, aircraft interfaces, fuzing, safety systems, field assembly, and controlled records. Moving from test device to weapon means preserving the validated core design while qualifying everything required for delivery. The transition joins Los Alamos science with Project Alberta engineering and logistics.",
       "game": {
         "type": "SEQUENCE",
@@ -5887,14 +8123,28 @@ export const CURRICULUM = {
           2,
           3
         ]
+      },
+      "concept": {
+        "n": 19,
+        "c": "Shock waves, compression and hydrodynamics",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
       }
     },
     {
-      "day": 29,
+      "day": 30,
       "title": "Radiation, blast, and fallout consequences",
       "scene": "A nuclear explosion releases energy through several channels: a pressure wave from rapidly expanding hot material, intense thermal radiation, prompt neutrons and gamma rays, and later radiation from fission products and activated material. Understanding these channels is essential not only for predicting weapon effects but also for recognizing the human and environmental consequences of Fat Man.",
       "takeaway": "Technical understanding must include what the device does to people and environments.",
       "place": "",
+      "guide": "Four channels and four behaviours. Pair them by asking how fast each one travels and how far it reaches. Light arrives first and is stopped by anything opaque. A pressure wave moves at roughly the speed of sound. Prompt radiation is attenuated by air. And one of them arrives long afterwards.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "A nuclear explosion releases energy through several channels: a pressure wave from rapidly expanding hot material, intense thermal radiation, prompt neutrons and gamma rays, and later radiation from fission products and activated material. Understanding these channels is essential not only for predicting weapon effects but also for recognizing the human and environmental consequences of Fat Man.",
       "game": {
         "type": "PROTOCOL",
@@ -5927,14 +8177,29 @@ export const CURRICULUM = {
           "What the explosion produces",
           "Which effect that is"
         ]
+      },
+      "concept": {
+        "n": 4,
+        "c": "Radioactive decay modes: alpha, beta, gamma",
+        "of": 30,
+        "rests": [
+          "Nuclear structure: protons, neutrons, isotopes, nuclide notation"
+        ]
       }
     },
     {
-      "day": 30,
+      "day": 31,
       "title": "Final Fat Man implosion synthesis",
       "scene": "Fat Man brings together plutonium measurements, rapid compression, explosive lenses, synchronized initiation, neutron multiplication, diagnostics, aircraft engineering, and field operations. Its history cannot be understood as one clever device; it is a tightly linked scientific and institutional system. A final synthesis must connect how the bomb works with how it is tested, deployed, and used.",
       "takeaway": "The complete lesson is how science, systems, institutions, and human consequences became inseparable.",
       "place": "",
+      "guide": "The three chains on the board are not alternatives to one another. The weapon existed because all three held at once. The physics chain is what a measurement can settle, and it is the best documented of the three. The engineering chain is where reproducibility, timing and configuration control decide whether a principle becomes a device anybody can deliver. The third covers Trinity, Nagasaki, radiation effects, secrecy and dissent. Its evidence is the only kind here that is not a laboratory record.",
+      "rules": "Spread the hundred points across the 3 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "background": [
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
+      ],
       "story": "Fat Man brings together plutonium measurements, rapid compression, explosive lenses, synchronized initiation, neutron multiplication, diagnostics, aircraft engineering, and field operations. Its history cannot be understood as one clever device; it is a tightly linked scientific and institutional system. A final synthesis must connect how the bomb works with how it is tested, deployed, and used.",
       "game": {
         "type": "SCIENCETANK",
@@ -5965,6 +8230,14 @@ export const CURRICULUM = {
           "C": 30
         },
         "research": ""
+      },
+      "concept": {
+        "n": 19,
+        "c": "Shock waves, compression and hydrodynamics",
+        "of": 30,
+        "rests": [
+          "Pressure, temperature and equations of state"
+        ]
       }
     }
   ]
@@ -6086,7 +8359,7 @@ export const BALLPARK_CALCS = {
     "solution": "Σ = 10²²×10⁻²⁴ = 10⁻² cm⁻¹. mfp = 1/Σ = 100 cm. At x = 100 cm, I/I₀ = e⁻¹ ≈ 0.37.",
     "explanation": "Here Σ is 0.01 cm⁻¹, so the mean free path is about 100 cm. Setting x equal to that mean free path makes Σx = 1, leaving e⁻¹ ≈ 0.37 of the uncollided beam."
   },
-  "P-4": {
+  "P-5": {
     "prompt": "A counting run records 400 net counts, and Poisson fluctuations are about √N. Estimate the fractional statistical uncertainty.",
     "question": "Choose the numerator and the count total.",
     "labels": [
@@ -6232,7 +8505,7 @@ export const BALLPARK_CALCS = {
     "solution": "0.4 m ÷ 2×10⁸ m/s × 10⁹ ns/s ≈ 2 ns.",
     "explanation": "0.4 m of extra cable is 2 ns of delay. That is the number that turns \"fire together\" into an inspectable requirement: nobody measures simultaneity directly on a rack, but anyone can measure cable. Signals move at about two-thirds the speed of light in cable, so roughly every 20 cm costs a nanosecond — a rule worth carrying to the bench."
   },
-  "P-7": {
+  "P-8": {
     "prompt": "An object moving at 500 m/s is recorded with a 1-microsecond (10⁻⁶ s) exposure. Estimate the motion blur in millimetres.",
     "question": "Choose the speed, the exposure time, and the metres-to-millimetres conversion.",
     "labels": [
@@ -6290,7 +8563,7 @@ export const BALLPARK_CALCS = {
     "solution": "8×10³ m/s × 5×10⁻⁷ s × 1,000 mm/m ≈ 4 mm.",
     "explanation": "Half a microsecond of disagreement puts 1 side of the front 4 mm ahead of the other — a visible dent in a convergence that was supposed to be spherical. The timing requirement is written in nanoseconds not because that is what the electronics can manage, but because that is how far the physics moves while the channels argue. Every timing contribution combined later gets judged against this millimetre-scale yardstick."
   },
-  "X-5": {
+  "X-6": {
     "prompt": "3 independent timing contributions — a shared trigger at 2 ns, cable delay at 3 ns, and diagnostic registration at 4 ns — must be combined. Estimate the total timing uncertainty.",
     "question": "Choose the three component uncertainties to combine in quadrature.",
     "labels": [
@@ -6403,7 +8676,7 @@ export const BALLPARK_CALCS = {
     "solution": "9 weeks − 7 weeks = 2 weeks of float.",
     "explanation": "The parallel chain carries two weeks of slack: two weeks of trouble there costs the programme nothing, and a third week makes it the new critical path. This is why adding people to work off the critical path buys no schedule at all — the effort is spent on float that already existed. Manage the float, not just the length."
   },
-  "X-9": {
+  "X-10": {
     "prompt": "A model predicts an observable between 15 and 25 units, so its midpoint is 20. The measurement reads 21 units with an uncertainty of ±2. Estimate the offset in units of the measurement uncertainty.",
     "question": "Choose the observed value, the band midpoint, and the measurement uncertainty.",
     "labels": [
@@ -6432,7 +8705,7 @@ export const BALLPARK_CALCS = {
     "solution": "|21 − 20| ÷ 2 ≈ 0.5σ.",
     "explanation": "Half a sigma is no disagreement at all — at this precision the observation and the midpoint are indistinguishable. Be careful what that licenses: it says the measurement is consistent with the model, not that the model is confirmed. A band 10 units wide is easy to agree with, so consistency here is weak evidence, and diagnostics that disagree with each other still need explaining."
   },
-  "T-16": {
+  "T-17": {
     "prompt": "A neutron in a large water tank scatters about 100 times, travelling about 2 cm between collisions. Random-walk displacement is roughly the step length times the square root of the number of steps. Estimate its net displacement.",
     "question": "Choose the step length and the number of steps.",
     "labels": [
@@ -6460,7 +8733,7 @@ export const BALLPARK_CALCS = {
     "solution": "2 cm × √100 ≈ 20 cm.",
     "explanation": "The neutron covers 200 cm of path but ends up only about 20 cm from where it started. That gap between path length and net displacement is why a moderator can be far smaller than the total distance a neutron travels inside it."
   },
-  "T-17": {
+  "T-18": {
     "prompt": "A system starts with 1,000 neutrons and is slightly subcritical at k = 0.95. Estimate the population 2 generations later.",
     "question": "Choose the initial population, the multiplication factor, and the generation count.",
     "labels": [
@@ -6489,7 +8762,7 @@ export const BALLPARK_CALCS = {
     "solution": "1,000 × 0.95² ≈ 900 neutrons.",
     "explanation": "A system described as only slightly subcritical should have k just below one, so the population declines gently over a few generations."
   },
-  "T-20": {
+  "T-21": {
     "prompt": "1 fission releases about 200 MeV, and 1 MeV is 1.6×10⁻¹³ joule. Estimate the energy of a single fission in joules.",
     "question": "Choose the energy per fission and the MeV-to-joule conversion.",
     "labels": [
@@ -6517,7 +8790,7 @@ export const BALLPARK_CALCS = {
     "solution": "200 MeV × 1.6×10⁻¹³ J/MeV ≈ 3.2×10⁻¹¹ J.",
     "explanation": "A fission releases a few hundred MeV. 1 MeV is about 1.6×10⁻¹³ joule."
   },
-  "T-25": {
+  "T-26": {
     "prompt": "Leakage is set by how much boundary a body has per unit of volume. For a sphere that ratio is 3/R. Estimate it for a sphere of radius 5 cm.",
     "question": "Choose the sphere factor and the radius.",
     "labels": [
@@ -6545,7 +8818,7 @@ export const BALLPARK_CALCS = {
     "solution": "3 ÷ 5 cm ≈ 0.6 cm⁻¹.",
     "explanation": "A 10 cm sphere gives 3 ÷ 10 = 0.3 cm⁻¹, half as much surface per unit of volume. Surface grows as L² while volume grows as L³, so doubling the size halves the boundary available for leakage — which is why a larger assembly reaches criticality on less material."
   },
-  "P-13": {
+  "P-14": {
     "prompt": "A scintillation event releases about 10,000 detected photoelectrons, and counting fluctuations scale as 1/√N. Estimate the fractional noise.",
     "question": "Choose the numerator and the photoelectron count.",
     "labels": [
@@ -6573,7 +8846,7 @@ export const BALLPARK_CALCS = {
     "solution": "1/√10,000 ≈ 0.01, or 1%.",
     "explanation": "Photoelectron statistics are approximately Poisson, so fractional noise decreases as one over the square root of the count."
   },
-  "P-15": {
+  "P-16": {
     "prompt": "A detector intercepts 1% of the particles leaving an isotropic source and records 50% of those that reach it. Estimate its absolute efficiency.",
     "question": "Choose the geometric acceptance and the intrinsic efficiency.",
     "labels": [
@@ -6601,7 +8874,7 @@ export const BALLPARK_CALCS = {
     "solution": "0.01 × 0.50 ≈ 0.005, or 0.5%.",
     "explanation": "Absolute efficiency is the product of how many particles reach the detector and how many entering particles are recorded."
   },
-  "P-16": {
+  "P-17": {
     "prompt": "A sample run records 1,000 counts and an equal-length background run records 100 counts. Estimate the standard deviation of the background-subtracted net counts.",
     "question": "Choose the sample total and the background total.",
     "labels": [
@@ -6629,7 +8902,7 @@ export const BALLPARK_CALCS = {
     "solution": "√(1,000 + 100) ≈ 33 counts.",
     "explanation": "Subtracting the background removes 100 counts from the net but adds its variance: the uncertainty comes from 1,000 + 100, not 1,000 − 100. Net counts are 900 ± 33, so subtraction never improves precision even when it corrects the answer."
   },
-  "P-17": {
+  "P-18": {
     "prompt": "A detector with a 10-microsecond (10⁻⁵ s) dead time records 2,000 counts per second. To first order the live fraction is 1 − R tau. Estimate it as a percentage.",
     "question": "Choose the leading factor, the count rate, and the dead time.",
     "labels": [
@@ -6658,7 +8931,7 @@ export const BALLPARK_CALCS = {
     "solution": "(1 − 2,000×10⁻⁵)×100 ≈ 98%.",
     "explanation": "R tau is 0.02 here, so the linear correction is trustworthy and the detector is live 98% of the time. 10 times the rate would put R tau at 0.2, where the first-order form breaks down and the full nonparalyzable expression is needed — the formula carries its own validity limit."
   },
-  "P-18": {
+  "P-19": {
     "prompt": "A gamma-ray line at 1 MeV is recorded with a full width at half maximum of 0.05 MeV. Estimate the detector’s percent energy resolution.",
     "question": "Choose the line width, the line energy, and the percent conversion.",
     "labels": [
@@ -6687,7 +8960,7 @@ export const BALLPARK_CALCS = {
     "solution": "(0.05 MeV ÷ 1 MeV)×100 ≈ 5%.",
     "explanation": "Energy resolution is the peak width divided by the peak energy, expressed as a percentage."
   },
-  "P-19": {
+  "P-20": {
     "prompt": "2 detectors count independently at 100 s⁻¹ and 200 s⁻¹ through a 1-microsecond (10⁻⁶ s) coincidence window. Estimate the accidental coincidence rate.",
     "question": "Choose the two rates and the coincidence window.",
     "labels": [
@@ -6716,7 +8989,7 @@ export const BALLPARK_CALCS = {
     "solution": "100×200×10⁻⁶ ≈ 0.02 accidental coincidences per second.",
     "explanation": "For independent streams, accidental coincidence rate scales with both count rates and the width of the coincidence window."
   },
-  "P-20": {
+  "P-21": {
     "prompt": "A particle crosses a 3 m flight path in 100 ns (10⁻⁷ s). Estimate its speed.",
     "question": "Choose the path length and the travel time.",
     "labels": [
@@ -7001,7 +9274,7 @@ export const BALLPARK_CALCS = {
     "solution": "0.98⁴ ≈ 0.92.",
     "explanation": "Series-system reliability declines as more required components are added, even when each component is highly reliable."
   },
-  "X-11": {
+  "X-12": {
     "prompt": "A sphere is compressed until its radius is 0.90 of the original, with mass unchanged, and density scales as 1/R³. Estimate the ratio of final to initial density.",
     "question": "Choose the mass ratio, the radius ratio, and the spatial exponent.",
     "labels": [
@@ -7030,7 +9303,7 @@ export const BALLPARK_CALCS = {
     "solution": "1 ÷ 0.90³ ≈ 1.37.",
     "explanation": "Sphere volume scales with the cube of radius, so a modest radial reduction produces a larger fractional density increase."
   },
-  "X-18": {
+  "X-19": {
     "prompt": "Random events arrive at 200 per second and the vulnerable window is 10 microseconds (10⁻⁵ s). When the expected number is small, the probability of at least one event is about the expected number. Estimate it as a percentage.",
     "question": "Choose the event rate, the time window, and the percent conversion.",
     "labels": [

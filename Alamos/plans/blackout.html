@@ -1,0 +1,336 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Blackout — Conversion Plan</title>
+<style>
+  @page { size: A4; margin: 15mm 14mm 16mm; }
+  :root {
+    --ink:#15171a; --ink2:#4c5158; --muted:#868b92; --rule:#dcded9; --sunk:#f2f3ef;
+    --acc:#876e25; --acc-soft:#d9b23c;
+    --s:#2c7a4b; --m:#9a6f14; --d:#767b70; --r:#a4453a;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; color:var(--ink); background:#fff;
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif; font-size:9.6pt; line-height:1.5; }
+  .mono,.k,code { font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; }
+  code,.k { font-size:.9em; background:var(--sunk); padding:0 3px; border-radius:2px; }
+  em { font-style:normal; font-weight:640; }
+  strong { font-weight:680; }
+
+  header { border-bottom:2.5pt solid var(--acc); padding-bottom:7pt; margin-bottom:12pt; }
+  .eyebrow { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--acc); }
+  h1 { margin:2pt 0 3pt; font-size:24pt; line-height:1.02; letter-spacing:-.02em; font-weight:660; }
+  .sub { color:var(--ink2); font-size:9.6pt; max-width:150mm; }
+  .place { color:var(--muted); font-size:8.4pt; font-style:italic; margin-top:2pt; }
+
+  .facts { display:flex; gap:0; border:.6pt solid var(--rule); margin-top:8pt; }
+  .fact { flex:1; padding:4pt 7pt 5pt; border-right:.6pt solid var(--rule); }
+  .fact:last-child { border-right:none; }
+  .fact b { display:block; font-family:ui-monospace,Menlo,monospace; font-size:14pt; font-weight:640; letter-spacing:-.02em; }
+  .fact span { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); }
+
+  h2 { font-size:12pt; margin:15pt 0 4pt; font-weight:660; letter-spacing:-.01em;
+    border-bottom:.6pt solid var(--ink); padding-bottom:3pt; break-after:avoid; }
+  h2 .ph { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--acc); margin-right:6pt; }
+  p { margin:6pt 0; max-width:170mm; }
+
+  table { border-collapse:collapse; width:100%; font-size:8.4pt; margin:6pt 0; }
+  th,td { text-align:left; padding:3pt 6pt 3pt 0; border-bottom:.5pt solid var(--rule); vertical-align:top; }
+  thead th { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--muted); font-weight:500; border-bottom:.7pt solid var(--ink); }
+  td.n,th.n { text-align:right; padding-right:8pt; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .flag { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.06em;
+    border:.5pt solid currentColor; padding:0 3pt; border-radius:2pt; white-space:nowrap; }
+  .flag.sus { color:var(--m); } .flag.real { color:var(--r); }
+
+  .mixbar { display:flex; height:9pt; border:.6pt solid var(--rule); margin:5pt 0 3pt; }
+  .mixbar i { display:block; }
+  .mixkey { font-family:ui-monospace,Menlo,monospace; font-size:6.6pt; color:var(--ink2);
+    display:flex; flex-wrap:wrap; gap:2pt 9pt; }
+
+  .callout { border-left:2pt solid var(--acc); background:var(--sunk); padding:6pt 9pt; margin:8pt 0;
+    break-inside:avoid; }
+  .callout p { margin:3pt 0; }
+  .callout .tag { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--acc); display:block; margin-bottom:3pt; }
+  .callout.warn { border-left-color:var(--r); }
+  .callout.warn .tag { color:var(--r); }
+
+  .card { border-left:2pt solid var(--d); padding:5pt 0 6pt 8pt; margin:7pt 0; break-inside:avoid; }
+  .card.v-s { border-left-color:var(--s); } .card.v-m { border-left-color:var(--m); }
+  .card.v-d { border-left-color:var(--d); } .card.v-r { border-left-color:var(--r); }
+  .card .top { display:flex; align-items:baseline; gap:7pt; }
+  .card h4 { margin:0; font-family:ui-monospace,Menlo,monospace; font-size:9.6pt; font-weight:660; letter-spacing:.03em; }
+  .vd { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.12em;
+    text-transform:uppercase; border:.5pt solid currentColor; padding:0 3pt; border-radius:2pt; }
+  .v-s .vd { color:var(--s); } .v-m .vd { color:var(--m); }
+  .v-d .vd { color:var(--d); } .v-r .vd { color:var(--r); }
+  .card .at { margin-left:auto; color:var(--muted); font-size:7.4pt; }
+  .card p { margin:3pt 0 0; font-size:9pt; }
+  .card dl { margin:3pt 0 0; font-size:8pt; color:var(--ink2); }
+  .card dt { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); display:inline; }
+  .card dd { display:inline; margin:0; }
+  .card dd::after { content:""; display:block; }
+
+  .slate { border:.6pt solid var(--rule); padding:6pt 8pt 7pt; margin:7pt 0; break-inside:avoid; }
+  .slate .sh { display:flex; align-items:baseline; gap:8pt; border-bottom:.6pt solid var(--rule); padding-bottom:3pt; }
+  .slate h4 { margin:0; font-size:10.5pt; font-weight:660; }
+  .slate .n2 { font-family:ui-monospace,Menlo,monospace; font-size:6.6pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); }
+  table.mini { font-size:8pt; margin:4pt 0 5pt; }
+  table.mini td { border-bottom:.4pt solid var(--sunk); padding:2pt 6pt 2pt 0; }
+  table.mini .dy,.gp { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; color:var(--muted); white-space:nowrap; }
+  table.mini .fm { font-family:ui-monospace,Menlo,monospace; font-size:7.2pt; white-space:nowrap; }
+  table.mini .was { color:var(--muted); } .ar { color:var(--muted); }
+  table.mini .ti { color:var(--ink2); }
+  table.mini .nt { display:block; color:var(--muted); font-size:7.2pt; }
+  .out { border-top:.6pt solid var(--rule); padding-top:4pt; font-size:7.8pt; color:var(--ink2); }
+  .out b { color:var(--ink); font-variant-numeric:tabular-nums; }
+
+  footer { margin-top:14pt; padding-top:5pt; border-top:.6pt solid var(--rule);
+    color:var(--muted); font-size:7pt; }
+  .avoid { break-inside:avoid; }
+</style></head><body>
+
+<header>
+  <div class="eyebrow">Alamos · conversion plan · Engineering · grade 9–12</div>
+  <h1>Blackout</h1>
+  <div class="sub">AP Physics 2 · circuits &amp; induction</div>
+  <div class="place">Calder Switching Station, and two circuits of lattice towers walking off the edge of the map.</div>
+  <div class="facts">
+    <div class="fact"><b>45</b><span>stops</span></div>
+    <div class="fact"><b>11</b><span>choice (24%)</span></div>
+    <div class="fact"><b>6.6</b><span>effective formats</span></div>
+    <div class="fact"><b>9/11</b><span>equations computed</span></div>
+    <div class="fact"><b>2</b><span>select-only concepts</span></div>
+    <div class="fact"><b>16·27·2</b><span>select·construct·operate</span></div>
+  </div>
+</header>
+
+<h2><span class="ph">Reading</span>Where this campaign stands</h2>
+<p>In good shape: 9 of 11 computed, the third-best mix in the set, and only two
+      select-only concepts. One gap sits on a CONTROL and may be a Phase 0 phantom; the voltage-drop
+      equation on stops 7 and 8 probably is not. The two select-only concepts are the two that
+      matter most for a switching station — earthing and step-and-touch potential, and cascading
+      failure — and both are currently one stop of multiple choice.
+      <strong>Read <code>plans/blackout-sequence.html</code> first.</strong> Format mix and equations
+      owed are this document's question; <em>when</em> the course teaches each concept against where
+      the story is standing is a different one, and it is the worse of the two here — day 1 asks about
+      droop control and the concept droop is built out of is claimed by no stop until day 12. Twelve of
+      those inversions rest on material this campaign itself teaches later, and the fix is not a
+      re-order.</p>
+
+
+<div class="avoid">
+<h2><span class="ph">Now</span>The mix as it ships</h2>
+<div class="mixbar"><i style="flex:11;background:#e2e4de"></i><i style="flex:11;background:#c9ccc4"></i><i style="flex:6;background:#e2e4de"></i><i style="flex:3;background:#e2e4de"></i><i style="flex:2;background:#e2e4de"></i><i style="flex:2;background:#d9b23c"></i><i style="flex:2;background:#e2e4de"></i><i style="flex:1;background:#d9b23c"></i><i style="flex:1;background:#d9b23c"></i><i style="flex:1;background:#d9b23c"></i><i style="flex:1;background:#d9b23c"></i><i style="flex:1;background:#d9b23c"></i><i style="flex:1;background:#d9b23c"></i><i style="flex:1;background:#d9b23c"></i><i style="flex:1;background:#d9b23c"></i></div>
+<div class="mixkey"><span>BALLPARK 11</span><span>CHOICE 11</span><span>PROTOCOL 6</span><span>CASEBOOK 3</span><span>SEQUENCE 2</span><span>VALUE 2</span><span>SCIENCETANK 2</span><span>DELEGATE 1</span><span>TRACE 1</span><span>TRIGGER 1</span><span>CONTROL 1</span><span>DEGENERACY 1</span><span>CHAIN 1</span><span>SWEEP 1</span><span>ATTEST 1</span></div>
+</div>
+
+<h2><span class="ph">Curriculum</span>What the syllabus is not getting</h2>
+<table><thead><tr><th>Equation the course owes</th><th>What it carries</th><th>Mentioned at</th><th class="n">Status</th></tr></thead><tbody>
+<tr>
+  <td class="k">N₁/N₂ = V₁/V₂</td><td>the transformer ratio, and why transmission is at high voltage</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">2·CHOICE  23·CONTROL  26·PROTOCOL</td>
+  <td class="n"><span class="flag sus">verify first</span></td>
+</tr><tr>
+  <td class="k">ΔV ≈ I(R cos φ + X sin φ)</td><td>voltage drop along a line, and why reactive power moves it</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">14·PROTOCOL  21·BALLPARK</td>
+  <td class="n"><span class="flag real">real gap</span></td>
+</tr></tbody></table>
+<p style="font-size:8.4pt;color:var(--ink2)">1 of 2 sit on an instrument stop, whose
+board arithmetic the coverage check cannot yet read — expect Phase 0 to clear those. <strong>1</strong>
+is unaffected by it.</p>
+
+<div class="avoid">
+<h2><span class="ph">Tier</span>Concepts the player only ever picks from a list</h2>
+<table><thead><tr><th class="n">#</th><th>Mechanism concept</th><th class="n">Stops</th></tr></thead><tbody>
+<tr><td class="n">25</td><td>Earthing, step-and-touch potential and safety</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">37</td></tr><tr><td class="n">28</td><td>Cascading failure and the sequence of events</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">34</td></tr>
+</tbody></table>
+<p style="font-size:8.4pt;color:var(--ink2)">Reported, never failed. Select-tier can be exactly right;
+these are the candidates, not the defects. The syllabus also lists
+1 concept no stop touches at all —
+<em>Real, reactive and apparent power</em> — which is expected, and is a different
+conversation from this one.</p></div>
+
+<h2><span class="ph">Fun</span>What this subject and this place can carry</h2>
+<div class="card v-s">
+  <div class="top"><h4>HOLD</h4><span class="vd">strong</span><span class="at">OPS · System Operations</span></div>
+  <p>Hold frequency inside a closing band while load steps arrive. The game <em>opens</em>
+          on the swing equation; HOLD is that equation with the player’s hand on it, and grid
+          control is the canonical instance of the format anywhere in the catalogue.</p>
+  <dl><dt>serves</dt> <dd>the swing equation as a rate rather than a formula</dd></dl>
+  <dl><dt>needs</dt> <dd>disturbances integrated with the control untouched; a do-nothing run must fail</dd></dl>
+  
+</div><div class="card v-s">
+  <div class="top"><h4>TRIAL</h4><span class="vd">strong</span><span class="at">the switchyard</span></div>
+  <p>A switching order driven through the yard, graded on order and not the clock: isolate,
+          prove dead, earth, then work. Getting that order wrong is the accident the industry is
+          built around, and concept 25 is select-only.</p>
+  <dl><dt>serves</dt> <dd>concept 25 — earthing, step-and-touch potential and safety</dd></dl>
+  
+  <dl><dt>risk</dt> <dd>world work; the yard and gatehouse already exist</dd></dl>
+</div><div class="card v-s">
+  <div class="top"><h4>PROBE</h4><span class="vd">strong</span><span class="at">stop 6 or 7 · OPS / DIST</span></div>
+  <p>Take readings feeder by feeder along a line and find where the voltage collapses —
+          which is not the point with the lowest number. Concept 28, cascading failure, is
+          select-only, and a cascade is a chain you walk.</p>
+  <dl><dt>serves</dt> <dd>concept 28 and the voltage-drop equation</dd></dl>
+  <dl><dt>needs</dt> <dd>one honest break and a decoy</dd></dl>
+  
+</div><div class="card v-s">
+  <div class="top"><h4>SPOT</h4><span class="vd">strong</span><span class="at">a TRANS or DIST stop</span></div>
+  <p>A switching instruction replaced mid-shift. Control-room work runs on standing
+          instructions and the cost of missing a revision is measured in seconds, which is what the
+          format weights.</p>
+  <dl><dt>serves</dt> <dd>operating discipline</dd></dl>
+  
+  
+</div><div class="card v-m">
+  <div class="top"><h4>TALLY</h4><span class="vd">medium</span><span class="at">LOAD · Forecasting</span></div>
+  <p>Demand samples accumulate into a forecast that firms up. Right subject; competes with
+          the game’s existing SWEEP and its ten BALLPARKs.</p>
+  
+  
+  
+</div><div class="card v-d">
+  <div class="top"><h4>BELT</h4><span class="vd">defer</span><span class="at">—</span></div>
+  <p>A spares-and-cable store is a sort, and it teaches inventory rather than electricity.
+          Defer.</p>
+  
+  
+  
+</div><div class="card v-r">
+  <div class="top"><h4>LOB</h4><span class="vd">reject</span><span class="at">—</span></div>
+  <p>Nothing is aimed. Reject.</p>
+  
+  
+  
+</div>
+
+<h2><span class="ph">Slates</span>Three appetites — the campaign is zero-sum</h2>
+<p style="font-size:8.8pt">No conversion adds a stop. Each changes what an existing stop <em>does</em>
+while leaving what it <em>teaches</em> alone. Snapshot before, diff after:
+<code>curriculumDelivery.mjs blackout --snapshot before.json</code>, then <code>--against before.json</code>.</p>
+<div class="slate">
+    <div class="sh"><h4>Minimum honest</h4><span class="n2">3 stops · one sitting</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">37</td><td class="dy">d13</td><td class="gp">DIST</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>SWEEP</b></td>
+      <td class="ti">The ground is not at one voltage<span class="nt">the ground is not at one voltage — plot it and see</span></td>
+    </tr><tr>
+      <td class="n">34</td><td class="dy">d12</td><td class="gp">OPS</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>PROBE</b></td>
+      <td class="ti">The failure that has not happened<span class="nt">the contingency found by walking the feeders rather than read off a screen</span></td>
+    </tr><tr>
+      <td class="n">2</td><td class="dy">d1</td><td class="gp">GEN</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>CONTROL</b></td>
+      <td class="ti">The reason the wires are not at wall voltage<span class="nt">why the wires are not at wall voltage — change one thing, reverse it</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>11 → 8</b> (18%) ·
+      moves <b>16·27·2 → 13·27·5</b> ·
+      effective formats <b>6.6 → 7.9</b> · <b>3</b> new operate stops
+    </div>
+  </div>
+<div class="slate">
+    <div class="sh"><h4>Balanced</h4><span class="n2">6 stops · the recommendation</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">37</td><td class="dy">d13</td><td class="gp">DIST</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>SWEEP</b></td>
+      <td class="ti">The ground is not at one voltage</td>
+    </tr><tr>
+      <td class="n">34</td><td class="dy">d12</td><td class="gp">OPS</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>PROBE</b></td>
+      <td class="ti">The failure that has not happened</td>
+    </tr><tr>
+      <td class="n">2</td><td class="dy">d1</td><td class="gp">GEN</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>CONTROL</b></td>
+      <td class="ti">The reason the wires are not at wall voltage</td>
+    </tr><tr>
+      <td class="n">21</td><td class="dy">d7</td><td class="gp">DIST</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>HOLD</b></td>
+      <td class="ti">Why the far end sits low<span class="nt">the far end held up while load steps arrive</span></td>
+    </tr><tr>
+      <td class="n">26</td><td class="dy">d9</td><td class="gp">METER</td>
+      <td class="fm"><span class="was">PROTOCOL</span> <span class="ar">→</span> <b>ATTEST</b></td>
+      <td class="ti">What is stored, and for how long<span class="nt">what is stored and for how long — the record is not the condition</span></td>
+    </tr><tr>
+      <td class="n">14</td><td class="dy">d5</td><td class="gp">TRANS</td>
+      <td class="fm"><span class="was">PROTOCOL</span> <span class="ar">→</span> <b>CHAIN</b></td>
+      <td class="ti">What actually limits a conductor<span class="nt">what actually limits a conductor</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>11 → 8</b> (18%) ·
+      moves <b>16·27·2 → 13·26·6</b> ·
+      effective formats <b>6.6 → 9.1</b> · <b>4</b> new operate stops, 1 of them arcade
+    </div>
+  </div>
+<div class="slate">
+    <div class="sh"><h4>Ambitious</h4><span class="n2">9 stops · adds world work</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">37</td><td class="dy">d13</td><td class="gp">DIST</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>SWEEP</b></td>
+      <td class="ti">The ground is not at one voltage</td>
+    </tr><tr>
+      <td class="n">34</td><td class="dy">d12</td><td class="gp">OPS</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>PROBE</b></td>
+      <td class="ti">The failure that has not happened</td>
+    </tr><tr>
+      <td class="n">2</td><td class="dy">d1</td><td class="gp">GEN</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>CONTROL</b></td>
+      <td class="ti">The reason the wires are not at wall voltage</td>
+    </tr><tr>
+      <td class="n">21</td><td class="dy">d7</td><td class="gp">DIST</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>HOLD</b></td>
+      <td class="ti">Why the far end sits low</td>
+    </tr><tr>
+      <td class="n">26</td><td class="dy">d9</td><td class="gp">METER</td>
+      <td class="fm"><span class="was">PROTOCOL</span> <span class="ar">→</span> <b>ATTEST</b></td>
+      <td class="ti">What is stored, and for how long</td>
+    </tr><tr>
+      <td class="n">14</td><td class="dy">d5</td><td class="gp">TRANS</td>
+      <td class="fm"><span class="was">PROTOCOL</span> <span class="ar">→</span> <b>CHAIN</b></td>
+      <td class="ti">What actually limits a conductor</td>
+    </tr><tr>
+      <td class="n">23</td><td class="dy">d8</td><td class="gp">METER</td>
+      <td class="fm"><span class="was">CONTROL</span> <span class="ar">→</span> <b>TRIAL</b></td>
+      <td class="ti">A reading taken without a connection<span class="nt">the switching order, driven — isolate, prove dead, earth</span></td>
+    </tr><tr>
+      <td class="n">30</td><td class="dy">d10</td><td class="gp">DIST</td>
+      <td class="fm"><span class="was">CASEBOOK</span> <span class="ar">→</span> <b>SPOT</b></td>
+      <td class="ti">Why it cannot go faster<span class="nt">an instruction revised mid-shift</span></td>
+    </tr><tr>
+      <td class="n">40</td><td class="dy">d14</td><td class="gp">METER</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>TALLY</b></td>
+      <td class="ti">Hours over limit, added up<span class="nt">demand accumulated until the forecast can be signed</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>11 → 7</b> (16%) ·
+      moves <b>16·27·2 → 11·26·8</b> ·
+      effective formats <b>6.6 → 10.0</b> · <b>7</b> new operate stops, 3 of them arcade
+    </div>
+  </div>
+
+<div class="callout"><span class="tag">The order of work</span>
+<p><strong>1.</strong> Phase 0 — teach the coverage check to read an instrument’s own board, and
+re-baseline <code>curriculum-debt.json</code>. Rewriting a stop that already teaches the thing is the
+exact failure the check exists to prevent.
+<strong>2.</strong> Snapshot. <strong>3.</strong> Edit the book, never the generated content —
+<code>tools/import-book.mjs books/blackout.yml blackout --verify</code>.
+<strong>4.</strong> <code>npm run traps</code>: every instrument’s trap must fire.
+<strong>5.</strong> <code>npm run check blackout</code> and <code>npm run drive blackout</code>, right
+answer and wrong — ask what a player who understood nothing would score before believing any pass mark.
+<strong>6.</strong> <code>--against</code> the snapshot. A changed format is reported; a changed
+objective fails.</p></div>
+
+<footer>
+  Counts computed from <code>themes/blackout/content/</code> via <code>engine/dev/curriculumDelivery.mjs</code>;
+  concept and equation lists authored in <code>tools/syllabus.js</code>. Format verdicts and slates are
+  editorial. Run it with <code>THEME=blackout npm run dev</code>.
+</footer>
+</body></html>

@@ -1,0 +1,343 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>The Contaminated City — Conversion Plan</title>
+<style>
+  @page { size: A4; margin: 15mm 14mm 16mm; }
+  :root {
+    --ink:#15171a; --ink2:#4c5158; --muted:#868b92; --rule:#dcded9; --sunk:#f2f3ef;
+    --acc:#306586; --acc-soft:#4ea3d8;
+    --s:#2c7a4b; --m:#9a6f14; --d:#767b70; --r:#a4453a;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; color:var(--ink); background:#fff;
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif; font-size:9.6pt; line-height:1.5; }
+  .mono,.k,code { font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; }
+  code,.k { font-size:.9em; background:var(--sunk); padding:0 3px; border-radius:2px; }
+  em { font-style:normal; font-weight:640; }
+  strong { font-weight:680; }
+
+  header { border-bottom:2.5pt solid var(--acc); padding-bottom:7pt; margin-bottom:12pt; }
+  .eyebrow { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--acc); }
+  h1 { margin:2pt 0 3pt; font-size:24pt; line-height:1.02; letter-spacing:-.02em; font-weight:660; }
+  .sub { color:var(--ink2); font-size:9.6pt; max-width:150mm; }
+  .place { color:var(--muted); font-size:8.4pt; font-style:italic; margin-top:2pt; }
+
+  .facts { display:flex; gap:0; border:.6pt solid var(--rule); margin-top:8pt; }
+  .fact { flex:1; padding:4pt 7pt 5pt; border-right:.6pt solid var(--rule); }
+  .fact:last-child { border-right:none; }
+  .fact b { display:block; font-family:ui-monospace,Menlo,monospace; font-size:14pt; font-weight:640; letter-spacing:-.02em; }
+  .fact span { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); }
+
+  h2 { font-size:12pt; margin:15pt 0 4pt; font-weight:660; letter-spacing:-.01em;
+    border-bottom:.6pt solid var(--ink); padding-bottom:3pt; break-after:avoid; }
+  h2 .ph { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--acc); margin-right:6pt; }
+  p { margin:6pt 0; max-width:170mm; }
+
+  table { border-collapse:collapse; width:100%; font-size:8.4pt; margin:6pt 0; }
+  th,td { text-align:left; padding:3pt 6pt 3pt 0; border-bottom:.5pt solid var(--rule); vertical-align:top; }
+  thead th { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--muted); font-weight:500; border-bottom:.7pt solid var(--ink); }
+  td.n,th.n { text-align:right; padding-right:8pt; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .flag { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.06em;
+    border:.5pt solid currentColor; padding:0 3pt; border-radius:2pt; white-space:nowrap; }
+  .flag.sus { color:var(--m); } .flag.real { color:var(--r); }
+
+  .mixbar { display:flex; height:9pt; border:.6pt solid var(--rule); margin:5pt 0 3pt; }
+  .mixbar i { display:block; }
+  .mixkey { font-family:ui-monospace,Menlo,monospace; font-size:6.6pt; color:var(--ink2);
+    display:flex; flex-wrap:wrap; gap:2pt 9pt; }
+
+  .callout { border-left:2pt solid var(--acc); background:var(--sunk); padding:6pt 9pt; margin:8pt 0;
+    break-inside:avoid; }
+  .callout p { margin:3pt 0; }
+  .callout .tag { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--acc); display:block; margin-bottom:3pt; }
+  .callout.warn { border-left-color:var(--r); }
+  .callout.warn .tag { color:var(--r); }
+
+  .card { border-left:2pt solid var(--d); padding:5pt 0 6pt 8pt; margin:7pt 0; break-inside:avoid; }
+  .card.v-s { border-left-color:var(--s); } .card.v-m { border-left-color:var(--m); }
+  .card.v-d { border-left-color:var(--d); } .card.v-r { border-left-color:var(--r); }
+  .card .top { display:flex; align-items:baseline; gap:7pt; }
+  .card h4 { margin:0; font-family:ui-monospace,Menlo,monospace; font-size:9.6pt; font-weight:660; letter-spacing:.03em; }
+  .vd { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.12em;
+    text-transform:uppercase; border:.5pt solid currentColor; padding:0 3pt; border-radius:2pt; }
+  .v-s .vd { color:var(--s); } .v-m .vd { color:var(--m); }
+  .v-d .vd { color:var(--d); } .v-r .vd { color:var(--r); }
+  .card .at { margin-left:auto; color:var(--muted); font-size:7.4pt; }
+  .card p { margin:3pt 0 0; font-size:9pt; }
+  .card dl { margin:3pt 0 0; font-size:8pt; color:var(--ink2); }
+  .card dt { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); display:inline; }
+  .card dd { display:inline; margin:0; }
+  .card dd::after { content:""; display:block; }
+
+  .slate { border:.6pt solid var(--rule); padding:6pt 8pt 7pt; margin:7pt 0; break-inside:avoid; }
+  .slate .sh { display:flex; align-items:baseline; gap:8pt; border-bottom:.6pt solid var(--rule); padding-bottom:3pt; }
+  .slate h4 { margin:0; font-size:10.5pt; font-weight:660; }
+  .slate .n2 { font-family:ui-monospace,Menlo,monospace; font-size:6.6pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); }
+  table.mini { font-size:8pt; margin:4pt 0 5pt; }
+  table.mini td { border-bottom:.4pt solid var(--sunk); padding:2pt 6pt 2pt 0; }
+  table.mini .dy,.gp { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; color:var(--muted); white-space:nowrap; }
+  table.mini .fm { font-family:ui-monospace,Menlo,monospace; font-size:7.2pt; white-space:nowrap; }
+  table.mini .was { color:var(--muted); } .ar { color:var(--muted); }
+  table.mini .ti { color:var(--ink2); }
+  table.mini .nt { display:block; color:var(--muted); font-size:7.2pt; }
+  .out { border-top:.6pt solid var(--rule); padding-top:4pt; font-size:7.8pt; color:var(--ink2); }
+  .out b { color:var(--ink); font-variant-numeric:tabular-nums; }
+
+  footer { margin-top:14pt; padding-top:5pt; border-top:.6pt solid var(--rule);
+    color:var(--muted); font-size:7pt; }
+  .avoid { break-inside:avoid; }
+</style></head><body>
+
+<header>
+  <div class="eyebrow">Alamos · conversion plan · Chemistry · grade 9–12</div>
+  <h1>The Contaminated City</h1>
+  <div class="sub">AP Chemistry → college analytical</div>
+  <div class="place">A wide river city, three days after a freight-yard fire.</div>
+  <div class="facts">
+    <div class="fact"><b>45</b><span>stops</span></div>
+    <div class="fact"><b>10</b><span>choice (22%)</span></div>
+    <div class="fact"><b>6.7</b><span>effective formats</span></div>
+    <div class="fact"><b>7/12</b><span>equations computed</span></div>
+    <div class="fact"><b>2</b><span>select-only concepts</span></div>
+    <div class="fact"><b>13·31·1</b><span>select·construct·operate</span></div>
+  </div>
+</header>
+
+<h2><span class="ph">Reading</span>Where this campaign stands</h2>
+<p>Curriculum is in reasonable shape — 7 of 12 equations computed and only three
+      select-only concepts — and the mix is already the fourth-best in the set. Three of the five
+      gaps sit on stops that look like they compute the thing (a BALLPARK that predicts a freezing
+      point, a BALLPARK that audits charge passed), so Phase 0 is likely to clear them. The one
+      that will survive is the solubility product, which lives on a CHOICE and nowhere else.</p>
+
+
+<div class="avoid">
+<h2><span class="ph">Now</span>The mix as it ships</h2>
+<div class="mixbar"><i style="flex:10;background:#c9ccc4"></i><i style="flex:9;background:#e2e4de"></i><i style="flex:8;background:#e2e4de"></i><i style="flex:6;background:#e2e4de"></i><i style="flex:3;background:#e2e4de"></i><i style="flex:2;background:#4ea3d8"></i><i style="flex:1;background:#4ea3d8"></i><i style="flex:1;background:#4ea3d8"></i><i style="flex:1;background:#4ea3d8"></i><i style="flex:1;background:#4ea3d8"></i><i style="flex:1;background:#4ea3d8"></i><i style="flex:1;background:#4ea3d8"></i><i style="flex:1;background:#4ea3d8"></i></div>
+<div class="mixkey"><span>CHOICE 10</span><span>BALLPARK 9</span><span>PROTOCOL 8</span><span>SEQUENCE 6</span><span>DIAGNOSIS 3</span><span>VALUE 2</span><span>TRACE 1</span><span>ALLOCATE 1</span><span>VERIFY 1</span><span>TRIGGER 1</span><span>STRESS 1</span><span>BALANCE 1</span><span>CLOUD 1</span></div>
+</div>
+
+<h2><span class="ph">Curriculum</span>What the syllabus is not getting</h2>
+<table><thead><tr><th>Equation the course owes</th><th>What it carries</th><th>Mentioned at</th><th class="n">Status</th></tr></thead><tbody>
+<tr>
+  <td class="k">ΔTf = i·Kf·m</td><td>how far dissolved salt drops a freezing point</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">24·BALLPARK</td>
+  <td class="n"><span class="flag real">real gap</span></td>
+</tr><tr>
+  <td class="k">n = It ÷ (zF)</td><td>how much a current can deposit or remove</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">31·PROTOCOL  44·BALLPARK</td>
+  <td class="n"><span class="flag real">real gap</span></td>
+</tr><tr>
+  <td class="k">A = εlc</td><td>Beer–Lambert, and the calibration curve it justifies</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">17·VERIFY</td>
+  <td class="n"><span class="flag sus">verify first</span></td>
+</tr><tr>
+  <td class="k">Kₛₚ = [Aᵃ][Bᵇ]</td><td>the solubility product and the common-ion effect</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">14·CHOICE</td>
+  <td class="n"><span class="flag real">real gap</span></td>
+</tr><tr>
+  <td class="k">rate = k[A]ⁿ</td><td>a rate law, and the order it asserts</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">9·BALLPARK  34·PROTOCOL  35·SEQUENCE  36·STRESS</td>
+  <td class="n"><span class="flag sus">verify first</span></td>
+</tr></tbody></table>
+<p style="font-size:8.4pt;color:var(--ink2)">2 of 5 sit on an instrument stop, whose
+board arithmetic the coverage check cannot yet read — expect Phase 0 to clear those. <strong>3</strong>
+are unaffected by it.</p>
+
+<div class="avoid">
+<h2><span class="ph">Tier</span>Concepts the player only ever picks from a list</h2>
+<table><thead><tr><th class="n">#</th><th>Mechanism concept</th><th class="n">Stops</th></tr></thead><tbody>
+<tr><td class="n">25</td><td>Solubility product and the common-ion effect</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">14</td></tr><tr><td class="n">27</td><td>Mass spectrometry and molecular mass</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">40</td></tr>
+</tbody></table>
+<p style="font-size:8.4pt;color:var(--ink2)">Reported, never failed. Select-tier can be exactly right;
+these are the candidates, not the defects. The syllabus also lists
+1 concept no stop touches at all —
+<em>Colligative properties</em> — which is expected, and is a different
+conversation from this one.</p></div>
+
+<h2><span class="ph">Fun</span>What this subject and this place can carry</h2>
+<div class="card v-s">
+  <div class="top"><h4>PROBE</h4><span class="vd">strong</span><span class="at">a new WATER or GASES stop</span></div>
+  <p>The place is a river city with an intake laboratory at one end and a plume station at
+          the other. PROBE hands over no readings: you sample station by station down the river and
+          name where the pattern changes — which is not the station with the worst number on it.</p>
+  <dl><dt>serves</dt> <dd>transport and dilution; the plume as a gradient rather than a value</dd></dl>
+  <dl><dt>needs</dt> <dd>a chain of stations with authored readings and one honest break</dd></dl>
+  
+</div><div class="card v-s">
+  <div class="top"><h4>SWEEP</h4><span class="vd">strong</span><span class="at">stop 22 or 24 · ENERGY</span></div>
+  <p>A rate law is a slope, and it is the one thing on this syllabus that nothing computes.
+          Drag concentration across its range and the response is plotted only where you look; the
+          order is the shape you built.</p>
+  <dl><dt>serves</dt> <dd>rate = k[A]ⁿ — the gap with the most mentions in the game</dd></dl>
+  <dl><dt>needs</dt> <dd>a plateau that beats a spike, and showControls() so the sticky row does not eat the slider</dd></dl>
+  
+</div><div class="card v-s">
+  <div class="top"><h4>HOLD</h4><span class="vd">strong</span><span class="at">TREAT · the pilot plant</span></div>
+  <p>Hold pH inside a closing band while a load of acid arrives. A buffer is exactly a
+          quantity that resists being pushed until it does not, and the band closing as capacity is
+          consumed is the lesson.</p>
+  <dl><dt>serves</dt> <dd>buffers and titration, currently taught only as prose</dd></dl>
+  <dl><dt>needs</dt> <dd>the band’s closing rate authored from buffer capacity, not chosen for difficulty</dd></dl>
+  
+</div><div class="card v-m">
+  <div class="top"><h4>SPOT</h4><span class="vd">medium</span><span class="at">QUANT · sample intake</span></div>
+  <p>A QA acceptance criterion replaced mid-run with nothing announcing it. Real, and it is
+          what a quality office does. Weaker here than elsewhere only because the syllabus item it
+          carries is method rather than chemistry.</p>
+  <dl><dt>serves</dt> <dd>chain of custody and acceptance criteria</dd></dl>
+  
+  <dl><dt>risk</dt> <dd>score only the discriminating items, or a run that ignores the change passes</dd></dl>
+</div><div class="card v-m">
+  <div class="top"><h4>BELT</h4><span class="vd">medium</span><span class="at">RECORDS or QUANT</span></div>
+  <p>A receiving bench sorting arrivals into destructive and non-destructive workflows. The
+          game already has an ordering stop about exactly that axis, so the one bit of subject
+          matter is available and pre-argued.</p>
+  <dl><dt>serves</dt> <dd>analytical workflow order</dd></dl>
+  
+  <dl><dt>risk</dt> <dd>must be decidable at a glance or it becomes dexterity</dd></dl>
+</div><div class="card v-m">
+  <div class="top"><h4>TRIAL</h4><span class="vd">medium</span><span class="at">the city</span></div>
+  <p>Sampling order across a city — upstream before downstream, air before water — driven
+          rather than sequenced. It works, but Riverton is wide and the drive is long for one stop.</p>
+  <dl><dt>serves</dt> <dd>sampling design</dd></dl>
+  
+  <dl><dt>risk</dt> <dd>the most expensive item here; gates must stand off each door or they render under the floor</dd></dl>
+</div><div class="card v-r">
+  <div class="top"><h4>LOB</h4><span class="vd">reject</span><span class="at">—</span></div>
+  <p>Nothing in analytical chemistry is aimed. Rejected on subject, not on taste.</p>
+  
+  
+  
+</div>
+
+<h2><span class="ph">Slates</span>Three appetites — the campaign is zero-sum</h2>
+<p style="font-size:8.8pt">No conversion adds a stop. Each changes what an existing stop <em>does</em>
+while leaving what it <em>teaches</em> alone. Snapshot before, diff after:
+<code>curriculumDelivery.mjs contamcity --snapshot before.json</code>, then <code>--against before.json</code>.</p>
+<div class="slate">
+    <div class="sh"><h4>Minimum honest</h4><span class="n2">3 stops · one sitting</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">14</td><td class="dy">d5</td><td class="gp">WATER</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>CLOUD</b></td>
+      <td class="ti">Use the common-ion effect to clear the limit<span class="nt">the solubility product against a limit, where the common ion narrows nothing</span></td>
+    </tr><tr>
+      <td class="n">34</td><td class="dy">d12</td><td class="gp">ENERGY</td>
+      <td class="fm"><span class="was">PROTOCOL</span> <span class="ar">→</span> <b>SWEEP</b></td>
+      <td class="ti">What changes the rate?<span class="nt">the rate law as a slope you build by looking</span></td>
+    </tr><tr>
+      <td class="n">10</td><td class="dy">d4</td><td class="gp">IDENT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>TRIGGER</b></td>
+      <td class="ti">What the position in the table tells you<span class="nt">periodic trends as a rule written before the element arrives</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>10 → 8</b> (18%) ·
+      moves <b>13·31·1 → 11·32·2</b> ·
+      effective formats <b>6.7 → 7.9</b> · <b>1</b> new operate stop
+    </div>
+  </div>
+<div class="slate">
+    <div class="sh"><h4>Balanced</h4><span class="n2">6 stops · the recommendation</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">14</td><td class="dy">d5</td><td class="gp">WATER</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>CLOUD</b></td>
+      <td class="ti">Use the common-ion effect to clear the limit</td>
+    </tr><tr>
+      <td class="n">34</td><td class="dy">d12</td><td class="gp">ENERGY</td>
+      <td class="fm"><span class="was">PROTOCOL</span> <span class="ar">→</span> <b>SWEEP</b></td>
+      <td class="ti">What changes the rate?</td>
+    </tr><tr>
+      <td class="n">10</td><td class="dy">d4</td><td class="gp">IDENT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>TRIGGER</b></td>
+      <td class="ti">What the position in the table tells you</td>
+    </tr><tr>
+      <td class="n">40</td><td class="dy">d14</td><td class="gp">QUANT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>PROBE</b></td>
+      <td class="ti">Reading a mass spectrum<span class="nt">a mass spectrum read peak by peak rather than picked from four</span></td>
+    </tr><tr>
+      <td class="n">31</td><td class="dy">d11</td><td class="gp">TREAT</td>
+      <td class="fm"><span class="was">PROTOCOL</span> <span class="ar">→</span> <b>CHAIN</b></td>
+      <td class="ti">Find the anode and cathode<span class="nt">the electrode path, and the step that governs the deposit</span></td>
+    </tr><tr>
+      <td class="n">36</td><td class="dy">d12</td><td class="gp">ENERGY</td>
+      <td class="fm"><span class="was">STRESS</span> <span class="ar">→</span> <b>HOLD</b></td>
+      <td class="ti">Define the safe operating envelope<span class="nt">the safe envelope held rather than defined</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>10 → 7</b> (16%) ·
+      moves <b>13·31·1 → 10·31·4</b> ·
+      effective formats <b>6.7 → 8.8</b> · <b>3</b> new operate stops, 1 of them arcade
+    </div>
+  </div>
+<div class="slate">
+    <div class="sh"><h4>Ambitious</h4><span class="n2">9 stops · adds world work</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">14</td><td class="dy">d5</td><td class="gp">WATER</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>CLOUD</b></td>
+      <td class="ti">Use the common-ion effect to clear the limit</td>
+    </tr><tr>
+      <td class="n">34</td><td class="dy">d12</td><td class="gp">ENERGY</td>
+      <td class="fm"><span class="was">PROTOCOL</span> <span class="ar">→</span> <b>SWEEP</b></td>
+      <td class="ti">What changes the rate?</td>
+    </tr><tr>
+      <td class="n">10</td><td class="dy">d4</td><td class="gp">IDENT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>TRIGGER</b></td>
+      <td class="ti">What the position in the table tells you</td>
+    </tr><tr>
+      <td class="n">40</td><td class="dy">d14</td><td class="gp">QUANT</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>PROBE</b></td>
+      <td class="ti">Reading a mass spectrum</td>
+    </tr><tr>
+      <td class="n">31</td><td class="dy">d11</td><td class="gp">TREAT</td>
+      <td class="fm"><span class="was">PROTOCOL</span> <span class="ar">→</span> <b>CHAIN</b></td>
+      <td class="ti">Find the anode and cathode</td>
+    </tr><tr>
+      <td class="n">36</td><td class="dy">d12</td><td class="gp">ENERGY</td>
+      <td class="fm"><span class="was">STRESS</span> <span class="ar">→</span> <b>HOLD</b></td>
+      <td class="ti">Define the safe operating envelope</td>
+    </tr><tr>
+      <td class="n">35</td><td class="dy">d12</td><td class="gp">ENERGY</td>
+      <td class="fm"><span class="was">SEQUENCE</span> <span class="ar">→</span> <b>SPOT</b></td>
+      <td class="ti">Build a runaway feedback loop<span class="nt">a runaway whose acceptance criterion changes under you</span></td>
+    </tr><tr>
+      <td class="n">17</td><td class="dy">d6</td><td class="gp">QUANT</td>
+      <td class="fm"><span class="was">VERIFY</span> <span class="ar">→</span> <b>TALLY</b></td>
+      <td class="ti">Protect the calibration<span class="nt">calibration points accumulated until the curve is defensible</span></td>
+    </tr><tr>
+      <td class="n">9</td><td class="dy">d3</td><td class="gp">ENERGY</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>BELT</b></td>
+      <td class="ti">Heat release is not the spontaneity test<span class="nt">exotherm or not, sorted at the speed a receiving bench works at</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>10 → 7</b> (16%) ·
+      moves <b>13·31·1 → 10·29·6</b> ·
+      effective formats <b>6.7 → 9.9</b> · <b>6</b> new operate stops, 3 of them arcade
+    </div>
+  </div>
+
+<div class="callout"><span class="tag">The order of work</span>
+<p><strong>1.</strong> Phase 0 — teach the coverage check to read an instrument’s own board, and
+re-baseline <code>curriculum-debt.json</code>. Rewriting a stop that already teaches the thing is the
+exact failure the check exists to prevent.
+<strong>2.</strong> Snapshot. <strong>3.</strong> Edit the book, never the generated content —
+<code>tools/import-book.mjs books/contamcity.yml contamcity --verify</code>.
+<strong>4.</strong> <code>npm run traps</code>: every instrument’s trap must fire.
+<strong>5.</strong> <code>npm run check contamcity</code> and <code>npm run drive contamcity</code>, right
+answer and wrong — ask what a player who understood nothing would score before believing any pass mark.
+<strong>6.</strong> <code>--against</code> the snapshot. A changed format is reported; a changed
+objective fails.</p></div>
+
+<footer>
+  Counts computed from <code>themes/contamcity/content/</code> via <code>engine/dev/curriculumDelivery.mjs</code>;
+  concept and equation lists authored in <code>tools/syllabus.js</code>. Format verdicts and slates are
+  editorial. Run it with <code>THEME=contamcity npm run dev</code>.
+</footer>
+</body></html>

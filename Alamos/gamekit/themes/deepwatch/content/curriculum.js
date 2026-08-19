@@ -10,6 +10,12 @@ export const CURRICULUM = {
       "scene": "Four traces sit on the broadband display while the watch calls them out. The boat slowed four minutes ago, and one trace changed with it. The others kept their own patterns. Rask wants each source identified before the next sweep rolls across.",
       "takeaway": "A source that changes when the boat changes belongs to the boat.",
       "place": "Sonar Room",
+      "guide": "Each trace carries more than one clue. How steady is the bearing? How wide is the spectrum? How long does it last? And did it follow the boat's own change of speed? Pair on the combination, not on which trace is loudest. The boat slowed four minutes ago, and that is a test one of these has already taken.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Four traces sit on the broadband display while the watch calls them out. The boat slowed four minutes ago, and one trace changed with it. The others kept their own patterns. Rask wants each source identified before the next sweep rolls across.",
       "game": {
         "type": "PROTOCOL",
@@ -50,7 +56,8 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "passive sonar listens and does not transmit"
+        "passive sonar listens and does not transmit",
+        "sound as a wave: frequency, wavelength, speed — taken as read"
       ],
       "equations": [
         {
@@ -72,7 +79,22 @@ export const CURRICULUM = {
           ],
           "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Sound as a wave: frequency, wavelength, speed"
+        }
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Spectra: broadband and narrowband",
+        "of": 30,
+        "rests": [
+          "Sound as a wave: frequency, wavelength, speed",
+          "Resonance and harmonics"
+        ]
+      }
     },
     {
       "day": 2,
@@ -80,6 +102,12 @@ export const CURRICULUM = {
       "scene": "The fourth trace is faint, has held nearly the same bearing for 11 minutes, and does not appear on narrowband at all. The boat has not changed speed or depth since it appeared.",
       "takeaway": "Refraction can weaken a received path, but it does not selectively erase the source’s spectral content.",
       "place": "Sonar Room",
+      "guide": "Two facts have to be explained together: the trace is faint, and it has no narrowband line. Ask of each option whether it accounts for both. A layer can bend a path and make a source weak. It does not strip machinery tones away selectively. Eleven minutes is a long life for a processor artefact, and nothing aboard changed when the trace appeared.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The fourth trace is faint, has held nearly the same bearing for 11 minutes, and does not appear on narrowband at all. The boat has not changed speed or depth since it appeared.",
       "game": {
         "type": "CHOICE",
@@ -147,7 +175,16 @@ export const CURRICULUM = {
           ],
           "s": "Sound bends toward the slower water when it crosses a layer, which is what makes a shadow zone."
         }
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Signal-to-noise and detection thresholds",
+        "of": 30,
+        "rests": [
+          "Spectra: broadband and narrowband",
+          "Decibels and logarithmic scales"
+        ]
+      }
     },
     {
       "day": 3,
@@ -155,6 +192,12 @@ export const CURRICULUM = {
       "scene": "The sound-speed trace reads 1505 metres per second above 60 metres and 1485 below it. A contact held for 40 minutes while this boat stayed at 20 metres, then vanished in 1 sweep while every other trace remained unchanged.",
       "takeaway": "Sound bends toward slower water, which leaves regions a sonar cannot hear into at all.",
       "place": "Sonar Shack",
+      "guide": "The contact vanished in one sweep while every other trace held. Ask of each option whether it explains that suddenness. Range and shutdown both take effect gradually. The baffles are a direction rather than an event. The sound-speed numbers are what do the work here. Rays bend toward slower water, and a region can be left that rays from this depth never reach.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The sound-speed trace reads 1505 metres per second above 60 metres and 1485 below it. A contact held for 40 minutes while this boat stayed at 20 metres, then vanished in 1 sweep while every other trace remained unchanged.",
       "game": {
         "type": "CHOICE",
@@ -206,7 +249,15 @@ export const CURRICULUM = {
           ],
           "s": "Sound bends toward the slower water when it crosses a layer, which is what makes a shadow zone."
         }
-      ]
+      ],
+      "concept": {
+        "n": 25,
+        "c": "Snell's law, ray paths and shadow zones",
+        "of": 30,
+        "rests": [
+          "Sound in water: refraction, layers, propagation paths"
+        ]
+      }
     },
     {
       "day": 4,
@@ -214,6 +265,12 @@ export const CURRICULUM = {
       "scene": "Rask closes the sonar-room door and lays out the passage checks. The narrows are already on the next chart panel. Once the boat commits, the channel leaves little room to turn around and recover something the watch forgot.",
       "takeaway": "A passage plan is ordered by what each measurement needs in order to mean anything.",
       "place": "Sonar Room",
+      "guide": "Each of these four makes the next one readable, so ask what would be uninterpretable without it. A new sound is only new against a baseline. A missing tonal line means nothing until you know where the layer is. Bearing rates take minutes, so they cannot begin at the entrance. And one of these is agreed early for a different reason: afterwards, everybody is busy.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Rask closes the sonar-room door and lays out the passage checks. The narrows are already on the next chart panel. Once the boat commits, the channel leaves little room to turn around and recover something the watch forgot.",
       "game": {
         "type": "SEQUENCE",
@@ -270,7 +327,12 @@ export const CURRICULUM = {
           ],
           "s": "Sound bends toward the slower water when it crosses a layer, which is what makes a shadow zone."
         }
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Dependency order and interlocks",
+        "of": 30
+      }
     },
     {
       "day": 5,
@@ -278,6 +340,12 @@ export const CURRICULUM = {
       "scene": "Broadband rises across every bearing at once. A new 212-hertz line also appears everywhere, and its frequency shifts slightly when the seawater-pump speed changes. The weather and sound-speed profile are steady. 1 pump was started 20 minutes ago.",
       "takeaway": "A signal that follows an own-ship control is evidence of an own-ship source.",
       "place": "Sonar Room",
+      "guide": "Two facts have to be explained together: a rise on every bearing at once, and a tonal line whose frequency follows the pump's speed. Ask of each option whether it has access to that control. An external source does not. Weather and sound speed do not track pump revolutions. A direction is what an outside contact occupies; the hull is what couples into every bearing.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Broadband rises across every bearing at once. A new 212-hertz line also appears everywhere, and its frequency shifts slightly when the seawater-pump speed changes. The weather and sound-speed profile are steady. 1 pump was started 20 minutes ago.",
       "game": {
         "type": "CHOICE",
@@ -319,7 +387,8 @@ export const CURRICULUM = {
         "correctChoice": "A machinery fault"
       },
       "assumes": [
-        "a contact out in the water lies in some direction"
+        "a contact out in the water lies in some direction",
+        "sound as a wave: frequency, wavelength, speed — taken as read"
       ],
       "equations": [
         {
@@ -388,7 +457,21 @@ export const CURRICULUM = {
           "s": "Sound bends toward the slower water when it crosses a layer, which is what makes a shadow zone.",
           "card": false
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Sound as a wave: frequency, wavelength, speed"
+        }
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Bearings, triangulation and geometry",
+        "of": 30,
+        "rests": [
+          "Sound as a wave: frequency, wavelength, speed"
+        ]
+      }
     },
     {
       "day": 6,
@@ -396,6 +479,11 @@ export const CURRICULUM = {
       "scene": "After the 212-hertz own-ship line is removed, a separate contact on bearing 064° resolves at 149.7 hertz. Boats of that class produce the same machinery line at 150.0 hertz. The operator asks what the small frequency shift says about range rate.",
       "takeaway": "A one-way Doppler shift measures line-of-sight relative speed; the sign tells whether the range is opening or closing.",
       "place": "Sonar Shack",
+      "guide": "Four numbers, and one is a conversion into knots rather than a term. Note which frequency is the reference and which is the measurement. Their difference is what carries the information, and the sign matters as much as the size. Note whose line this is now. The own-ship tonal was removed first, because a machine aboard shares the receiver's motion and shows no Doppler at all.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "After the 212-hertz own-ship line is removed, a separate contact on bearing 064° resolves at 149.7 hertz. Boats of that class produce the same machinery line at 150.0 hertz. The operator asks what the small frequency shift says about range rate.",
       "game": {
         "type": "BALLPARK",
@@ -411,7 +499,8 @@ export const CURRICULUM = {
         "calcKey": "SONAR-6"
       },
       "assumes": [
-        "sound travels at about 1500 metres a second in sea water"
+        "sound travels at about 1500 metres a second in sea water",
+        "sound as a wave: frequency, wavelength, speed — taken as read"
       ],
       "equations": [
         {
@@ -456,14 +545,187 @@ export const CURRICULUM = {
           ],
           "s": "A contact closing on you raises the frequency you hear, by a fraction equal to the closing speed over the speed of sound."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Sound as a wave: frequency, wavelength, speed"
+        }
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Doppler shift",
+        "of": 30,
+        "rests": [
+          "Sound as a wave: frequency, wavelength, speed"
+        ]
+      }
     },
     {
       "day": 7,
+      "title": "Ours, or somebody else's",
+      "scene": "The night's held contacts have to be logged before the watch changes. Some of what the array heard came from this boat. The rest came from the water outside it.",
+      "takeaway": "A sound that turns with the boat was made by the boat.",
+      "place": "Sonar Room",
+      "guide": "Two bins. A sound made by this boat rides with it — the bearing does not change however the boat turns, and it comes and goes with what the engineers are doing. A sound from outside has a bearing of its own. Sort on where the sound is made, not on what it sounds like.",
+      "background": [
+        "Why own noise is the hard case. It arrives on the same array as everything else and can be louder than a real contact. What separates it is that it does not move: turn the boat thirty degrees and an outside contact's bearing changes, and the pump's does not.",
+        "Why it matters for the log. Own noise logged as a contact puts a ghost on the plot that the next watch has to disprove. An outside contact logged as own noise is a boat nobody is tracking."
+      ],
+      "story": "The night's held contacts have to be logged before the watch changes. Some of what the array heard came from this boat. The rest came from the water outside it.",
+      "game": {
+        "type": "BELT",
+        "title": "Ours, or somebody else's",
+        "setup": "Sonar Room",
+        "play": "Sort the night's contacts before the log goes up.",
+        "task": "Sort the night's contacts before the log goes up.",
+        "question": "Send each sound to the bin that says where it was made.",
+        "answer": "Anything whose bearing turns with the boat is our own. Anything that holds its own bearing came from the water outside.",
+        "why": "The array cannot tell where a sound was made; the geometry can. A sound generated on this boat arrives at the array from the same relative direction whatever the boat is doing, so the bearing follows the hull round a turn. A sound made in the water holds its own bearing while the boat turns under it, which is why a thirty-degree course change is the standard test and why it is worth the time it costs. The second clue is correlation: own noise starts and stops with something the crew did — a pump cut in, a shaft order, a hatch. A biologic or another vessel has no reason to be synchronised with the engine room. Getting the bin wrong costs in both directions. Own noise in the log is a ghost the next watch has to spend hours disproving; a real contact filed as own noise is a vessel nobody is tracking, on a night when the boat is trying to stay unheard.",
+        "belt": {
+          "left": {
+            "name": "Made by us"
+          },
+          "right": {
+            "name": "Made outside"
+          },
+          "items": [
+            {
+              "name": "Trim pump",
+              "bin": "left"
+            },
+            {
+              "name": "Shaft rate line",
+              "bin": "left"
+            },
+            {
+              "name": "Galley extractor",
+              "bin": "left"
+            },
+            {
+              "name": "Hydraulic ram",
+              "bin": "left"
+            },
+            {
+              "name": "Air compressor",
+              "bin": "left"
+            },
+            {
+              "name": "Hull popping",
+              "bin": "left"
+            },
+            {
+              "name": "Loose deck plate",
+              "bin": "left"
+            },
+            {
+              "name": "Coolant pump",
+              "bin": "left"
+            },
+            {
+              "name": "Fan bearing whine",
+              "bin": "left"
+            },
+            {
+              "name": "Torpedo tube drain",
+              "bin": "left"
+            },
+            {
+              "name": "Ballast vent",
+              "bin": "left"
+            },
+            {
+              "name": "Steering gear",
+              "bin": "left"
+            },
+            {
+              "name": "Distant merchant",
+              "bin": "right"
+            },
+            {
+              "name": "Whale call",
+              "bin": "right"
+            },
+            {
+              "name": "Shrimp crackle",
+              "bin": "right"
+            },
+            {
+              "name": "Trawler winch",
+              "bin": "right"
+            },
+            {
+              "name": "Surface swell",
+              "bin": "right"
+            },
+            {
+              "name": "Surface rain",
+              "bin": "right"
+            },
+            {
+              "name": "Ice cracking",
+              "bin": "right"
+            },
+            {
+              "name": "Seismic airgun",
+              "bin": "right"
+            },
+            {
+              "name": "Echo sounder",
+              "bin": "right"
+            },
+            {
+              "name": "Ferry propeller",
+              "bin": "right"
+            },
+            {
+              "name": "Cable thruster",
+              "bin": "right"
+            },
+            {
+              "name": "Dolphin whistles",
+              "bin": "right"
+            },
+            {
+              "name": "Standby vessel",
+              "bin": "right"
+            },
+            {
+              "name": "Buoy chain rattle",
+              "bin": "right"
+            }
+          ],
+          "need": 20,
+          "lives": 3,
+          "pass": 0.8,
+          "hint": "Turn the boat. What turns with it was made on it.",
+          "commit": "Start the line"
+        }
+      },
+      "assumes": [
+        "a hydrophone hears the boat it is mounted on as well as the sea"
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Signal-to-noise and detection thresholds",
+        "of": 30,
+        "rests": [
+          "Spectra: broadband and narrowband",
+          "Decibels and logarithmic scales"
+        ]
+      }
+    },
+    {
+      "day": 8,
       "title": "What silence buys, term by term",
       "scene": "After the quiet lineup, target source level is 145 dB and one-way transmission loss is 55 dB. Ambient noise is 85 dB, with 20 dB of array gain. The operator needs 10 dB signal-to-noise ratio for detection.",
       "takeaway": "Passive detection is a one-way budget: source level minus one transmission loss and effective noise, with array gain helping the receiver.",
       "place": "Sonar Shack",
+      "guide": "Six numbers, and one of them is target strength, which belongs to an echo. This is a passive listen, so nothing here comes back. Ask of each term whether it helps the signal or hurts it, and how many times the sound crosses the water. Transmission loss appears once, not twice. The threshold is what the answer is measured against, so keep it separate from the budget that produces it.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "After the quiet lineup, target source level is 145 dB and one-way transmission loss is 55 dB. Ambient noise is 85 dB, with 20 dB of array gain. The operator needs 10 dB signal-to-noise ratio for detection.",
       "game": {
         "type": "BALLPARK",
@@ -481,11 +743,12 @@ export const CURRICULUM = {
         ],
         "givens": [],
         "relationship": "SNR = SL − TL − (NL − AG). Signal excess = SNR − DT.",
-        "calcKey": "SONAR-7"
+        "calcKey": "SONAR-8"
       },
       "assumes": [
         "passive sonar receives a one-way signal from a source",
-        "array gain reduces the effective noise seen by a directional receiver"
+        "array gain reduces the effective noise seen by a directional receiver",
+        "decibels and logarithmic scales — taken as read"
       ],
       "equations": [
         {
@@ -534,14 +797,35 @@ export const CURRICULUM = {
           ],
           "s": "The ping goes out and comes back, so the range is half of what the travel time would otherwise give."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 24,
+          "c": "Decibels and logarithmic scales"
+        }
+      ],
+      "concept": {
+        "n": 26,
+        "c": "The sonar equation: source level, transmission loss, noise",
+        "of": 30,
+        "rests": [
+          "Reflection, absorption and transmission loss",
+          "Signal-to-noise and detection thresholds",
+          "Decibels and logarithmic scales"
+        ]
+      }
     },
     {
-      "day": 8,
+      "day": 9,
       "title": "What 12 decibels is worth",
       "scene": "The yard quotes a 12 dB reduction in the boat’s radiated acoustic power level from new pump mounts. The wardroom has described that as “about a tenth quieter” and is weighing it against the other refits.",
       "takeaway": "A decibel difference is a logarithmic power ratio: 12 dB corresponds to about a sixteen-fold change in power.",
       "place": "Sonar Shack",
+      "guide": "Four numbers, and two are two ways of doing the same arithmetic. One counts factors of two per three decibels. One works in powers of ten. Either is legitimate, and mixing them is not. Decibels are logarithmic, so a level difference is a ratio and never a subtraction. A tenth quieter and the true factor are not the same claim, and this refit is being weighed against others.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The yard quotes a 12 dB reduction in the boat’s radiated acoustic power level from new pump mounts. The wardroom has described that as “about a tenth quieter” and is weighing it against the other refits.",
       "game": {
         "type": "BALLPARK",
@@ -554,7 +838,7 @@ export const CURRICULUM = {
         "why": "For a power ratio, ΔL = 10 log₁₀(P₂/P₁). A 12 dB reduction means the original-to-new power ratio is 10^(12/10) ≈ 15.85. So the new radiated power is about 1/15.85, or 6.3%, of the old value. The common “3 dB is a doubling” shortcut gives nearly the same answer: 4 3 dB steps are about a factor of 16. The exact logarithmic calculation is better here because the equation is what the course is supposed to teach.",
         "givens": [],
         "relationship": "Reduction factor = 10^(ΔL/10) for a power-level difference in decibels.",
-        "calcKey": "SONAR-8"
+        "calcKey": "SONAR-9"
       },
       "assumes": [
         "decibels here are being used for an acoustic power ratio"
@@ -580,14 +864,24 @@ export const CURRICULUM = {
           "s": "Decibels are a logarithm, so adding 3 dB is doubling the power and adding 10 dB is ten times it.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 24,
+        "c": "Decibels and logarithmic scales",
+        "of": 30
+      }
     },
     {
-      "day": 9,
+      "day": 10,
       "title": "Why the level pulses three times a second",
       "scene": "2 narrowband components sit at 147 and 150 hertz on the same bearing. In seawater the sound speed is about 1500 metres per second. The audio level swells and fades regularly while both spectral lines themselves remain steady.",
       "takeaway": "Two nearby frequencies beat at their difference frequency because their relative phase cycles steadily.",
       "place": "Sonar Shack",
+      "guide": "Three numbers, and one of them is the sound speed, which the pulsing rate does not need at all. It belongs to the wavelengths rather than to the beat. Ask of each number whether the swelling depends on it. Both spectral lines are steady, so nothing is changing frequency. What is changing is how the two patterns line up, and that comes from the gap between them.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "2 narrowband components sit at 147 and 150 hertz on the same bearing. In seawater the sound speed is about 1500 metres per second. The audio level swells and fades regularly while both spectral lines themselves remain steady.",
       "game": {
         "type": "BALLPARK",
@@ -605,11 +899,12 @@ export const CURRICULUM = {
         ],
         "givens": [],
         "relationship": "fbeat = |f₁ − f₂|.",
-        "calcKey": "SONAR-9"
+        "calcKey": "SONAR-10"
       },
       "assumes": [
         "waves add when they arrive together",
-        "sound speed is approximately the same for these two nearby frequencies"
+        "sound speed is approximately the same for these two nearby frequencies",
+        "sound as a wave: frequency, wavelength, speed — taken as read"
       ],
       "equations": [
         {
@@ -650,7 +945,22 @@ export const CURRICULUM = {
           ],
           "s": "Two close tones rise and fall together at the difference of their frequencies, which is how two machines are told from one."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Sound as a wave: frequency, wavelength, speed"
+        }
+      ],
+      "concept": {
+        "n": 21,
+        "c": "Interference, beats and phase",
+        "of": 30,
+        "rests": [
+          "Sound as a wave: frequency, wavelength, speed",
+          "Resonance and harmonics"
+        ]
+      }
     }
   ],
   "NAV": [
@@ -660,6 +970,12 @@ export const CURRICULUM = {
       "scene": "The navigator sends you from control to machinery with a sealed note. On the return trip one watertight door will be shut and the marker lights will be off. You have walked the route once, with labels still visible.",
       "takeaway": "A route remembered as places can be recovered after an interruption; a count or turn list usually cannot.",
       "place": "Control Room",
+      "guide": "You walk the route once with the labels showing. Then the labels go and you run it back from memory. One watertight door will be shut and the marker lights will be off. When that happens, find the landmark in the compartment you are actually in and work out where the detour has put you. You are graded on the compartments you reach, not the time.",
+      "background": [
+        "Why places beat counting. A remembered count of turns survives only while nothing interrupts it. Miss one and every number after it is wrong, with nothing to tell you so. A place is different: two helm wheels means Control whether you arrived as planned or by a detour.",
+        "What the landmarks are for. Every compartment holds something that is nowhere else on the boat — the wheels, the radio racks, the long mess table, a particular pump. That is how a crew navigates in smoke or darkness, and it is what the second run is testing.",
+        "Why the door is shut without warning. Routes are learned in good conditions and used in bad ones. A route that only works when every door is open is not a route, it is a memory of one particular walk."
+      ],
       "story": "The navigator sends you from control to machinery with a sealed note. On the return trip one watertight door will be shut and the marker lights will be off. You have walked the route once, with labels still visible.",
       "game": {
         "type": "ROUTE",
@@ -727,7 +1043,15 @@ export const CURRICULUM = {
       "assumes": [
         "a submarine is divided into named compartments",
         "a route can be remembered as a sequence of places"
-      ]
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Relative motion, vectors and dead reckoning",
+        "of": 30,
+        "rests": [
+          "Bearings, triangulation and geometry"
+        ]
+      }
     },
     {
       "day": 2,
@@ -735,6 +1059,12 @@ export const CURRICULUM = {
       "scene": "The contact has stayed within half a degree of the same bearing for six minutes. Its level rises on every sweep. The boat is still making eight knots, and the officer of the deck wants an answer before the channel narrows ahead.",
       "takeaway": "A constant bearing with a rising level is a collision geometry, not a quiet one.",
       "place": "Control Room",
+      "guide": "A bearing is a direction and not a range, so no option here can be settled by bearing alone. Ask what each one would require you to already know. Steady bearing with a rising level does not prove a collision. What it does is remove the comfortable reading, that the contact is sliding safely across the bow. The channel narrows ahead and the boat is still making eight knots.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The contact has stayed within half a degree of the same bearing for six minutes. Its level rises on every sweep. The boat is still making eight knots, and the officer of the deck wants an answer before the channel narrows ahead.",
       "game": {
         "type": "CHOICE",
@@ -759,8 +1089,23 @@ export const CURRICULUM = {
         "correctChoice": "We are on a collision course, and the range is closing."
       },
       "assumes": [
-        "passive sonar gives a direction and no range at all"
-      ]
+        "passive sonar gives a direction and no range at all",
+        "sound as a wave: frequency, wavelength, speed — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Sound as a wave: frequency, wavelength, speed"
+        }
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Bearings, triangulation and geometry",
+        "of": 30,
+        "rests": [
+          "Sound as a wave: frequency, wavelength, speed"
+        ]
+      }
     },
     {
       "day": 3,
@@ -768,6 +1113,11 @@ export const CURRICULUM = {
       "scene": "The last trusted fix was three and a half hours ago. The forecast set for this area is about half a knot, and nobody has applied it to the plot because nobody has measured it.",
       "takeaway": "Dead reckoning tells you where you would be if nothing pushed you.",
       "place": "Control Room",
+      "guide": "Five numbers, and three belong to the boat rather than the water: own speed, depth and course. Ask of each whether it moves the boat through the water or carries the water itself. Speed through the water cannot see a current. Half a knot for three and a half hours is nearly two miles. This is the plot the boat enters the narrows on.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The last trusted fix was three and a half hours ago. The forecast set for this area is about half a knot, and nobody has applied it to the plot because nobody has measured it.",
       "game": {
         "type": "BALLPARK",
@@ -784,7 +1134,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the log measures speed through the water, not over the ground"
-      ]
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Relative motion, vectors and dead reckoning",
+        "of": 30,
+        "rests": [
+          "Bearings, triangulation and geometry"
+        ]
+      }
     },
     {
       "day": 4,
@@ -792,6 +1150,12 @@ export const CURRICULUM = {
       "scene": "The chart overlay and electronic repeat agree to within 100 yards. The depth sounder returns an echo after 0.120 seconds; sound speed is 1500 metres per second. The chart says 102 metres here. The last trusted position fix was 3.5 hours ago.",
       "takeaway": "Agreement only counts as confirmation when the second measurement can fail differently.",
       "place": "Control Room",
+      "guide": "Two of the readings here come from one source shown twice, so their agreement is not a second opinion. Sort the evidence by how many independent measurements stand behind it. The sounder is the only genuinely separate one. Work out what it says before choosing. A disagreement between an independent measurement and a repeated one tells you which needs checking, not which is wrong.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The chart overlay and electronic repeat agree to within 100 yards. The depth sounder returns an echo after 0.120 seconds; sound speed is 1500 metres per second. The chart says 102 metres here. The last trusted position fix was 3.5 hours ago.",
       "game": {
         "type": "CHOICE",
@@ -856,7 +1220,15 @@ export const CURRICULUM = {
           ],
           "s": "The ping goes out and comes back, so the range is half of what the travel time would otherwise give."
         }
-      ]
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Instruments versus indicators: validating a reading",
+        "of": 30,
+        "rests": [
+          "Signal-to-noise and detection thresholds"
+        ]
+      }
     },
     {
       "day": 5,
@@ -864,6 +1236,11 @@ export const CURRICULUM = {
       "scene": "The narrows fill the next chart panel. They are four nautical miles across, the plotted-position uncertainty is a circle about two miles wide, and the bank lies on the left side. The navigator asks for the surviving clearance before committing the centerline route.",
       "takeaway": "A route is chosen against the uncertainty, not against the plotted line.",
       "place": "Control Room",
+      "guide": "Four numbers, and one is own speed, which does not enter a clearance at all. Another is the number of halves, a step rather than a measurement. The circle around a plotted position is the honest width of where the boat might be. So the whole circle has to fit inside safe water. Four miles sounds generous until the uncertainty is on the same scale.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The narrows fill the next chart panel. They are four nautical miles across, the plotted-position uncertainty is a circle about two miles wide, and the bank lies on the left side. The navigator asks for the surviving clearance before committing the centerline route.",
       "game": {
         "type": "BALLPARK",
@@ -880,7 +1257,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a plotted position is the centre of a probability, not a fact"
-      ]
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Relative motion, vectors and dead reckoning",
+        "of": 30,
+        "rests": [
+          "Bearings, triangulation and geometry"
+        ]
+      }
     },
     {
       "day": 6,
@@ -888,6 +1273,11 @@ export const CURRICULUM = {
       "scene": "The degraded plot is still being rebuilt while the boat makes eight knots toward a bank nine miles ahead. The officer of the deck can slow to three knots now. Whitfield wants to know how much thinking time that buys before anything harder to reverse.",
       "takeaway": "Slowing the boat converts a distance problem into a time budget.",
       "place": "Control Room",
+      "guide": "Five numbers, and two of them are not distances or speeds: the minutes since the plot degraded, and the difference between the two speeds. A difference in knots is not a difference in time, because time is distance divided by speed. Work out each speed's time and compare them. Slowing costs progress and buys everything else, and the passage will still be there afterwards.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The degraded plot is still being rebuilt while the boat makes eight knots toward a bank nine miles ahead. The officer of the deck can slow to three knots now. Whitfield wants to know how much thinking time that buys before anything harder to reverse.",
       "game": {
         "type": "BALLPARK",
@@ -904,7 +1294,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "distance divided by speed is time"
-      ]
+      ],
+      "concept": {
+        "n": 27,
+        "c": "Speed, time, distance and closest point of approach",
+        "of": 30,
+        "rests": [
+          "Relative motion, vectors and dead reckoning"
+        ]
+      }
     },
     {
       "day": 7,
@@ -912,6 +1310,12 @@ export const CURRICULUM = {
       "scene": "The depth needle is still moving deeper even though the planes are already at rise. Trim shows the boat heavy forward, speed has not changed, and the aft depth gauge disagrees with control by four metres. The next depth report is due now.",
       "takeaway": "The instrument that disagrees is a candidate, not automatically the culprit.",
       "place": "Control Room",
+      "guide": "Three gauges disagree and one cause has to cover all of them. The planes are already at rise. The trim is heavy forward. Four metres separate the two depth gauges. Ask of each option how many of those it explains. A gauge fault explains one. Neither depth reading is truth while they disagree, so the answer has to separate what is real from what is indication.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The depth needle is still moving deeper even though the planes are already at rise. Trim shows the boat heavy forward, speed has not changed, and the aft depth gauge disagrees with control by four metres. The next depth report is due now.",
       "game": {
         "type": "CHOICE",
@@ -979,14 +1383,149 @@ export const CURRICULUM = {
           ],
           "s": "The upward force equals the weight of the water pushed aside, so flooding a compartment removes buoyancy the boat was relying on."
         }
-      ]
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Instruments versus indicators: validating a reading",
+        "of": 30,
+        "rests": [
+          "Signal-to-noise and detection thresholds"
+        ]
+      }
     },
     {
       "day": 8,
+      "title": "What the picture is for tonight",
+      "scene": "Contacts come onto the board through the watch. The officer of the watch holds one standing order about which of them matter, and rewrites it as the passage changes — after the fishing fleet, after the range closes, after the boat goes quiet.",
+      "takeaway": "The cost of a withdrawn instruction is paid by whoever is still working to it.",
+      "place": "Control Room",
+      "guide": "Hold the contacts the standing order currently wants and let the rest go. The order is changed during the watch and nobody announces it. What is scored is the contacts either side of a change, because they are the only ones that show whether the plot is being kept to tonight's order or to the last one.",
+      "background": [
+        "Why a standing order changes. In open water the plot is about anything that could close the boat. Through a fishing fleet it is about anything under way rather than drifting. Once the boat is rigged for quiet it is about anything that could hear us, which is a different list again.",
+        "Why the changeover is where a plot goes wrong. A team holding to the old order for ten more minutes drops the contacts the new order was written to keep, and a contact dropped from the plot leaves nothing behind to say it was ever there."
+      ],
+      "story": "Contacts come onto the board through the watch. The officer of the watch holds one standing order about which of them matter, and rewrites it as the passage changes — after the fishing fleet, after the range closes, after the boat goes quiet.",
+      "game": {
+        "type": "SPOT",
+        "title": "What the picture is for tonight",
+        "setup": "Control Room",
+        "play": "Work the contact board while the standing order changes.",
+        "task": "Work the contact board while the standing order changes.",
+        "question": "Hold the contacts tonight's order wants, and keep watching the order.",
+        "answer": "Read the order rather than the board. Every rewrite leaves a few minutes in which the old order still feels like the right one.",
+        "why": "Three orders run across the watch and each wants a different part of the board. Anything closing, then anything under way, then anything with active sonar. A contact can answer two at once, which is what makes the switch cost real. The panel scores the window either side of each change, because most of what is on the board is wanted by neither order and is correctly let go by somebody who has read nothing. The control room's own version is the ten minutes after the boat is rigged for quiet: the order has changed to anything that could hear us, and the plot being maintained is still the one that was tracking anything that could hit us.",
+        "spot": {
+          "targets": [
+            {
+              "id": "t1",
+              "label": "Merchant, closing",
+              "tags": [
+                "closing"
+              ]
+            },
+            {
+              "id": "t2",
+              "label": "Trawler, nets down",
+              "tags": [
+                "drifting"
+              ]
+            },
+            {
+              "id": "t3",
+              "label": "Warship, active sonar",
+              "tags": [
+                "active",
+                "underway"
+              ]
+            },
+            {
+              "id": "t4",
+              "label": "Trawler, under way",
+              "tags": [
+                "underway"
+              ]
+            },
+            {
+              "id": "t5",
+              "label": "Fishing boat, drifting",
+              "tags": [
+                "drifting"
+              ]
+            },
+            {
+              "id": "t6",
+              "label": "Survey ship, closing",
+              "tags": [
+                "closing",
+                "underway"
+              ]
+            },
+            {
+              "id": "t7",
+              "label": "Ferry, active sounder",
+              "tags": [
+                "active"
+              ]
+            },
+            {
+              "id": "t8",
+              "label": "Buoy, adrift",
+              "tags": [
+                "drifting"
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "say": "Anything closing on us",
+              "want": [
+                "closing"
+              ]
+            },
+            {
+              "say": "Anything under way",
+              "want": [
+                "underway"
+              ]
+            },
+            {
+              "say": "Anything transmitting",
+              "want": [
+                "active"
+              ]
+            }
+          ],
+          "duration": 40,
+          "switchEvery": 12,
+          "pass": 0.75,
+          "hint": "The standing order is on the board, and the officer of the watch rewrites it without calling it out.",
+          "commit": "Open the board"
+        }
+      },
+      "assumes": [
+        "a watch works to a stated order about which contacts are held"
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Relative motion, vectors and dead reckoning",
+        "of": 30,
+        "rests": [
+          "Bearings, triangulation and geometry"
+        ]
+      }
+    },
+    {
+      "day": 9,
       "title": "The value of a different failure",
       "scene": "The proposed second sounder costs £2.4m and has its own transducer and power path. The existing depth display and its repeater both use one transducer, so those two readings can agree even if that shared source is wrong.",
       "takeaway": "Redundancy is valuable when the backup has a different failure path, not merely another display.",
       "place": "Control Room",
+      "guide": "The existing display and its repeater share one transducer. So they can agree perfectly and be wrong together. Ask of each option whether it adds precision, adds a spare, or adds a different way to fail. Those are three different purchases. Only a measurement that fails differently can contradict a bad shared source. £2.4m is being weighed against other refits.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The proposed second sounder costs £2.4m and has its own transducer and power path. The existing depth display and its repeater both use one transducer, so those two readings can agree even if that shared source is wrong.",
       "game": {
         "type": "CHOICE",
@@ -1012,14 +1551,28 @@ export const CURRICULUM = {
       },
       "assumes": [
         "two displays sharing one sensor share that sensor’s failures"
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Risk, redundancy and failure propagation",
+        "of": 30,
+        "rests": [
+          "Dependency order and interlocks"
+        ]
+      }
     },
     {
-      "day": 9,
+      "day": 10,
       "title": "Five small problems",
       "scene": "Nothing on the board is red. The plot is four hours old, the contact is faint, the forward bilge is wet, one scrubber train is down, and a bearing is warm. The constrained passage is still ahead, and Whitfield asks what changes first.",
       "takeaway": "A set of small problems can be worse than a big one, because none of them demands attention.",
       "place": "Control Room",
+      "guide": "Nothing on the board is red, so severity will not rank these. Ask of each what is growing: uncertainty, consequence, or neither. A faint contact needs time before it can be read at all. A wet bilge matters if the level is moving. One scrubber train down is a deadline rather than an emergency. Constrained water is ahead, and one of these gets worse simply by the boat continuing.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Nothing on the board is red. The plot is four hours old, the contact is faint, the forward bilge is wet, one scrubber train is down, and a bearing is warm. The constrained passage is still ahead, and Whitfield asks what changes first.",
       "game": {
         "type": "CHOICE",
@@ -1062,7 +1615,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "trend and time-to-limit matter more than whether a reading merely looks abnormal"
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Risk, redundancy and failure propagation",
+        "of": 30,
+        "rests": [
+          "Dependency order and interlocks"
+        ]
+      }
     }
   ],
   "DC": [
@@ -1072,6 +1633,12 @@ export const CURRICULUM = {
       "scene": "Chief Ferro walks you into the forward space and asks you to learn it. Equipment down both sides, deck plates over a recess, a hose reel on the bulkhead, two ways out. He is not telling you what to take in first.",
       "takeaway": "A compartment is a pressure boundary first; everything you learn about it hangs off that.",
       "place": "Forward Equipment & Handling",
+      "guide": "All four of these can be done in the same minute, so this is not a timetable. Ask instead what each fact lets you interpret. A locker of shoring means nothing until you know what this space can do to you. A hatch you have not tried is an assumption. At ninety metres, one of these decides whether a casualty is this compartment's or the next one's.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Chief Ferro walks you into the forward space and asks you to learn it. Equipment down both sides, deck plates over a recess, a hose reel on the bulkhead, two ways out. He is not telling you what to take in first.",
       "game": {
         "type": "SEQUENCE",
@@ -1111,6 +1678,12 @@ export const CURRICULUM = {
       "scene": "The forward bilge alarm has sounded twice, and water is visible through the deck-plate slots. Hallam marks the level one minute apart while the drain pump runs. Fresh-water level and sonar-cooling flow stay steady. Command wants the inflow now.",
       "takeaway": "Accumulation equals inflow minus removal, so a removal already running has to be added back to recover the true inflow.",
       "place": "Forward Equipment & Handling",
+      "guide": "Reading a stream costs nothing, so read them all. Then count only the ones in the units command asked for: water entering the compartment, before the pump takes any out. The level is rising while the drain pump runs, so the pump belongs in the sum. Fresh-water level and sonar cooling are steady, which is information about what to leave out.",
+      "background": [
+        "Why the rise is not the inflow. What accumulates is what came in minus what has been removed. The pump runs throughout the minute Hallam is timing, so the observed rise already has the pump's contribution subtracted. Adding it back gives the number command asked for.",
+        "What counting a stream claims. Reading is neutral; counting says this quantity belongs in the same ledger. A steady fresh-water level and a steady cooling flow are not sources of the flooding, and including them would answer a different question.",
+        "Why the inflow rather than the level. The level says how bad it is now. The inflow says how long there is and whether the pumps can win, which is what the decision to blow ballast or shut the compartment is made on."
+      ],
       "story": "The forward bilge alarm has sounded twice, and water is visible through the deck-plate slots. Hallam marks the level one minute apart while the drain pump runs. Fresh-water level and sonar-cooling flow stay steady. Command wants the inflow now.",
       "game": {
         "type": "BALANCE",
@@ -1162,8 +1735,23 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a measured level rise is accumulation, not total inflow",
-        "a running pump removes water during the same measurement"
-      ]
+        "a running pump removes water during the same measurement",
+        "pressure, depth and hydrostatics — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 11,
+          "c": "Pressure, depth and hydrostatics"
+        }
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Fluid flow and cavitation",
+        "of": 30,
+        "rests": [
+          "Pressure, depth and hydrostatics"
+        ]
+      }
     },
     {
       "day": 3,
@@ -1171,6 +1759,11 @@ export const CURRICULUM = {
       "scene": "The suspected hull connection is 90 metres below the surface. Ferro writes seawater density as 1025 kilograms per cubic metre and g as 9.81 metres per second squared. He wants the gauge pressure on the sea side of the fitting.",
       "takeaway": "Hydrostatic gauge pressure rises in direct proportion to depth.",
       "place": "Forward Equipment & Handling",
+      "guide": "Five numbers, and they are not all about the same thing. Two describe the bilge: how fast the level rose, and what a centimetre of it holds. One is what the drain pump can shift at this head. One is the depth, and one is where the level started. Ask of each whether it describes the water coming in or the water going out. A rate the pump cannot beat is a different situation from one it can.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The suspected hull connection is 90 metres below the surface. Ferro writes seawater density as 1025 kilograms per cubic metre and g as 9.81 metres per second squared. He wants the gauge pressure on the sea side of the fitting.",
       "game": {
         "type": "BALLPARK",
@@ -1186,7 +1779,8 @@ export const CURRICULUM = {
         "calcKey": "DC-3"
       },
       "assumes": [
-        "gauge pressure counts the pressure added by the water column above the surface value"
+        "gauge pressure counts the pressure added by the water column above the surface value",
+        "buoyancy and Archimedes — taken as read"
       ],
       "equations": [
         {
@@ -1213,7 +1807,21 @@ export const CURRICULUM = {
           "s": "Pressure rises steadily with depth, which is why the same hole floods faster the deeper you go.",
           "computed": true
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 10,
+          "c": "Buoyancy and Archimedes"
+        }
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Pressure, depth and hydrostatics",
+        "of": 30,
+        "rests": [
+          "Buoyancy and Archimedes"
+        ]
+      }
     },
     {
       "day": 4,
@@ -1221,6 +1829,12 @@ export const CURRICULUM = {
       "scene": "Four reports hit control almost together. Water is forward and a bus is lost aft. The plot has degraded, and a crewman is down with a broken wrist. The alarm is still sounding. Every team leader is looking at you for the first move.",
       "takeaway": "You order casualties by how fast they get worse, not by how loud they are.",
       "place": "Forward Equipment & Handling",
+      "guide": "All four of these are real and all four need owners. What separates them is how fast each changes while you deal with the others. Ask of each whether it grows by itself, and whether waiting makes it irreversible. A stable fracture hurts and does not spread. The boat is still closing on shallow water, so the plot has a clock too. It is not the fastest clock here.",
+      "background": [
+        "Why first is a different question from most important. When several calls compete for the same hour, what a choice is worth is not its own importance but the difference between doing it now and doing it later. A serious problem that will be no worse in an hour costs nothing to defer. A smaller one that closes a door costs everything behind that door.",
+        "What to look for in the options. Two things separate them: which is still changing, and which is a precondition for the others. A situation that is deteriorating has a cost per hour attached to it, and a step that unblocks the rest multiplies the value of the hours after it. Everything else is a preference about where to start.",
+        "Why only one answer is marked. In the situation these options describe all of them eventually happen; what is being tested is the head of the queue, because that is where the reasoning is visible. The verdict names what each of the others was waiting on, which is worth reading even when the choice was right — the ordering behind the first place is the rest of the answer."
+      ],
       "story": "Four reports hit control almost together. Water is forward and a bus is lost aft. The plot has degraded, and a crewman is down with a broken wrist. The alarm is still sounding. Every team leader is looking at you for the first move.",
       "game": {
         "type": "TRIAGE",
@@ -1246,7 +1860,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "some problems get worse on their own and some do not"
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Buoyancy and Archimedes",
+        "of": 30
+      }
     },
     {
       "day": 5,
@@ -1254,6 +1873,11 @@ export const CURRICULUM = {
       "scene": "The forward bilge geometry gives about 1.6 cubic metres of seawater aboard. Ferro wants the force scale before command chooses how much ballast water to expel. Use seawater density 1025 kilograms per cubic metre and g = 9.81 metres per second squared.",
       "takeaway": "For seawater, ρVg gives both the weight of a known water volume and the buoyant force on an equal displaced volume.",
       "place": "Forward Equipment & Handling",
+      "guide": "Four numbers, and one of them is what a tonne weighs, which is a conversion rather than a measurement of this flood. Ask of each whether it describes the water aboard or the units the answer is wanted in. A submerged boat has no simple tonnes-per-metre rule, so the depth change is not the measurement here. The volume of water actually aboard is, and command is choosing how much ballast to expel from it.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The forward bilge geometry gives about 1.6 cubic metres of seawater aboard. Ferro wants the force scale before command chooses how much ballast water to expel. Use seawater density 1025 kilograms per cubic metre and g = 9.81 metres per second squared.",
       "game": {
         "type": "BALLPARK",
@@ -1297,7 +1921,12 @@ export const CURRICULUM = {
           "s": "The upward force equals the weight of the water pushed aside, so flooding a compartment removes buoyancy the boat was relying on.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Buoyancy and Archimedes",
+        "of": 30
+      }
     },
     {
       "day": 6,
@@ -1305,6 +1934,12 @@ export const CURRICULUM = {
       "scene": "The rig-for-dive sheet has four signed claims. A hull valve operates; every bilge has a baseline; the drain pump builds pressure; both escape routes are clear. You have time to physically verify only two before the dive.",
       "takeaway": "A signed record is evidence about what someone reported; it is not the same thing as the physical condition now.",
       "place": "Forward Equipment & Handling",
+      "guide": "Four signed claims on the rig-for-dive sheet, and time to physically verify two. Open each and read what backs it. A signature says somebody took responsibility; it does not say anybody operated the valve or walked the escape route. Hold what the evidence does not support, and spend the checks where being wrong would matter most once the boat is dived.",
+      "background": [
+        "Why diving changes the arithmetic. On the surface a wrong claim is an inconvenience. Dived, the same claim is a compartment nobody can leave or a valve nobody can reach. The consequence of each claim being false is what should decide the two checks, not how doubtful each looks.",
+        "What a checklist is actually asking. Not 'is this true' but 'has somebody confirmed it since the last time it mattered'. Items get signed from memory of the last dive, especially the ones that are almost always fine.",
+        "Why the escape routes are tempting to skip. They are the claim least likely to be false and the most expensive to be wrong about. That tension is the whole judgement, and it has no formula."
+      ],
       "story": "The rig-for-dive sheet has four signed claims. A hull valve operates; every bilge has a baseline; the drain pump builds pressure; both escape routes are clear. You have time to physically verify only two before the dive.",
       "game": {
         "type": "ATTEST",
@@ -1355,7 +1990,15 @@ export const CURRICULUM = {
       "assumes": [
         "a signature records a claim made earlier",
         "a physical verification can fail even when the record is signed"
-      ]
+      ],
+      "concept": {
+        "n": 30,
+        "c": "Human factors: checklists, handover and communication",
+        "of": 30,
+        "rests": [
+          "Dependency order and interlocks"
+        ]
+      }
     },
     {
       "day": 7,
@@ -1363,6 +2006,12 @@ export const CURRICULUM = {
       "scene": "You keep the degraded plot yourself while four other problems remain open. Whitfield stands beside the watch bill with names ready, but nobody is assigned yet. This is the last watch of the patrol, and the handoff has to work without you hovering.",
       "takeaway": "An assignment that names a threshold can be acted on alone; one that says watch it cannot.",
       "place": "Forward Equipment & Handling",
+      "guide": "Four open problems and four assignments, and the pairing is about what each person is meant to notice. Ask of each item what the useful report would be: a change, a rate, an hour, or a cost. A number logged with no threshold is a number nobody acts on. This is the last watch of the patrol, so an assignment that still needs you standing over it has not been made.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "You keep the degraded plot yourself while four other problems remain open. Whitfield stands beside the watch bill with names ready, but nobody is assigned yet. This is the last watch of the patrol, and the handoff has to work without you hovering.",
       "game": {
         "type": "PROTOCOL",
@@ -1404,7 +2053,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an instruction has to be actable by the person who receives it"
-      ]
+      ],
+      "concept": {
+        "n": 30,
+        "c": "Human factors: checklists, handover and communication",
+        "of": 30,
+        "rests": [
+          "Dependency order and interlocks"
+        ]
+      }
     }
   ],
   "FIRE": [
@@ -1414,6 +2071,12 @@ export const CURRICULUM = {
       "scene": "Chief Okonkwo puts the three legs of the fire on the board. The fault that keeps lighting it, the insulation that burns, the air in the compartment. He asks what removes each one.",
       "takeaway": "For an electrical fire, de-energizing removes continuing electrical heating and shock hazard; the burning fuel still has to be cooled and controlled.",
       "place": "Electrical Distribution",
+      "guide": "Three items on the left are legs of the fire. One is evidence about the space next door. Pair each by asking what it supplies: energy, fuel, or oxygen. Removing a leg is not the same as monitoring a symptom. An isolated cable can still be hot enough to relight. So proving a circuit dead and cooling the insulation are two actions with two tools.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Chief Okonkwo puts the three legs of the fire on the board. The fault that keeps lighting it, the insulation that burns, the air in the compartment. He asks what removes each one.",
       "game": {
         "type": "PROTOCOL",
@@ -1455,7 +2118,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a fire needs fuel, oxygen and a source of energy"
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Circuits, grounding and electrical faults",
+        "of": 30
+      }
     },
     {
       "day": 2,
@@ -1463,6 +2131,12 @@ export const CURRICULUM = {
       "scene": "Smoke is pushing through the compartment door. The switchboard indicator says the bus is open, but a meter on the cable reads 440 volts. The hose team is masked up at the threshold, waiting for your call before anyone steps inside.",
       "takeaway": "An indicator reports a belief; a meter reports a condition.",
       "place": "Electrical Distribution",
+      "guide": "The switchboard lamp and the meter disagree, and the sequence has to survive that. Ask of each card what it proves rather than what it believes. A lamp reports the switchboard's opinion of the circuit. A meter reports the conductor. Water on a live cable carries current back to the hose team. They are masked up at the threshold, and this order is what stands between them and the fault.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "Smoke is pushing through the compartment door. The switchboard indicator says the bus is open, but a meter on the cable reads 440 volts. The hose team is masked up at the threshold, waiting for your call before anyone steps inside.",
       "game": {
         "type": "SEQUENCE",
@@ -1496,7 +2170,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a bus can be fed from more than one source"
-      ]
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Instruments versus indicators: validating a reading",
+        "of": 30,
+        "rests": [
+          "Signal-to-noise and detection thresholds"
+        ]
+      }
     },
     {
       "day": 3,
@@ -1504,6 +2186,12 @@ export const CURRICULUM = {
       "scene": "The flooding is now falling because the pump removes 60 litres a minute against 40 coming in. A fire boundary aft is heating, the atmosphere is stable, and a crewman has a fractured wrist. The executive officer needs assignments now.",
       "takeaway": "Delegation is complete only when an owner knows what to do first and when to report back.",
       "place": "Electrical Distribution",
+      "guide": "Three problems and you keep one. For each of the others, name an owner, the first real action they will take, and the reading or event that brings it back to you. The flooding is now losing — sixty litres a minute out against forty in — so it is contained. The boundary aft is heating, which is not.",
+      "background": [
+        "How to rank the three. Trend, containment, consequence. Flooding that is losing is trending the right way. A heating fire boundary is trending the wrong way and has the worst consequence if it is ignored. A fractured wrist hurts and is stable.",
+        "Why a first action is required. An owner told to watch something comes back for instructions at the worst possible moment. Naming what they will do first is what lets them hold it without you.",
+        "Why a return condition is the other half. It is the number or event at which the problem stops being theirs, agreed now so nobody has to judge in the moment whether to interrupt you."
+      ],
       "story": "The flooding is now falling because the pump removes 60 litres a minute against 40 coming in. A fire boundary aft is heating, the atmosphere is stable, and a crewman has a fractured wrist. The executive officer needs assignments now.",
       "game": {
         "type": "DELEGATE",
@@ -1583,8 +2271,23 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a problem’s trend matters as much as its present size",
-        "a complete delegation names an owner, a first action and a return condition"
-      ]
+        "a complete delegation names an owner, a first action and a return condition",
+        "sound as a wave: frequency, wavelength, speed — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Sound as a wave: frequency, wavelength, speed"
+        }
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Reflection, absorption and transmission loss",
+        "of": 30,
+        "rests": [
+          "Sound as a wave: frequency, wavelength, speed"
+        ]
+      }
     },
     {
       "day": 4,
@@ -1592,6 +2295,12 @@ export const CURRICULUM = {
       "scene": "The second seawater pump did not trip; its breaker is open at the switchboard. The quiet-running lineup from two watches ago is still in force and nobody wrote down what it turned off.",
       "takeaway": "A configuration nobody recorded is a configuration nobody will restore.",
       "place": "Electrical Distribution",
+      "guide": "All four options are defensible readings of an open breaker. They differ in where the failure was. Ask of each whether it addresses the trade itself or the record of the trade. Securing the pump was a reasonable decision at the time. What did not survive the watch change was why. A later watch sees an open breaker and cannot tell a valid lineup from a fault.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The second seawater pump did not trip; its breaker is open at the switchboard. The quiet-running lineup from two watches ago is still in force and nobody wrote down what it turned off.",
       "game": {
         "type": "CHOICE",
@@ -1617,7 +2326,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a watch hands over to a watch that was not there"
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Circuits, grounding and electrical faults",
+        "of": 30
+      }
     },
     {
       "day": 5,
@@ -1625,6 +2339,12 @@ export const CURRICULUM = {
       "scene": "The switchboard shows two breakers open from maintenance last week, but the log says one was restored. A work party is already collecting tools for that cable. Before they touch it, the chief asks you to settle which source deserves to be trusted.",
       "takeaway": "A document and a lamp both report what somebody expects, which is a weaker thing than a reading.",
       "place": "Electrical Distribution",
+      "guide": "Two records disagree and a work party is collecting tools. Ask of each option what it is actually in contact with. A log records what somebody intended at the end of a watch. A lamp records what the switchboard believes about itself. Neither touches the conductor. One option would act on the disagreement rather than resolve it, which is how an inherited isolation becomes an injury.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The switchboard shows two breakers open from maintenance last week, but the log says one was restored. A work party is already collecting tools for that cable. Before they touch it, the chief asks you to settle which source deserves to be trusted.",
       "game": {
         "type": "CHOICE",
@@ -1650,7 +2370,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a record and an indicator are both claims about a circuit"
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Circuits, grounding and electrical faults",
+        "of": 30
+      }
     }
   ],
   "ATMO": [
@@ -1660,6 +2385,12 @@ export const CURRICULUM = {
       "scene": "Visibility is under half a metre. The far bulkhead is eight metres away. Temperature at head height reads 60 degrees against 28 at deck level. The team has air masks, and the fire is behind a panel where nobody can see it directly.",
       "takeaway": "Smoke removes the instrument you were relying on, which is your own eyes.",
       "place": "Auxiliary Machinery & Bilge",
+      "guide": "All four options are true of a smoke-filled compartment in some way. They differ in what the smoke has taken away. Masks solve breathing and nothing else. Thirty-two degrees between deck and head height says the heat is layered. So conditions above the layer can worsen while the floor stays cool. The fire is behind a panel, so nobody will see it whatever they do.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "Visibility is under half a metre. The far bulkhead is eight metres away. Temperature at head height reads 60 degrees against 28 at deck level. The team has air masks, and the fire is behind a panel where nobody can see it directly.",
       "game": {
         "type": "CHOICE",
@@ -1684,7 +2415,8 @@ export const CURRICULUM = {
         "correctChoice": "The space can no longer be read by eye, so the boundaries have to be measured instead."
       },
       "assumes": [
-        "a fire inside a structure does not show you where it is"
+        "a fire inside a structure does not show you where it is",
+        "sound as a wave: frequency, wavelength, speed — taken as read"
       ],
       "equations": [
         {
@@ -1710,7 +2442,21 @@ export const CURRICULUM = {
           ],
           "s": "Sound bends toward the slower water when it crosses a layer, which is what makes a shadow zone."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Sound as a wave: frequency, wavelength, speed"
+        }
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Sound in water: refraction, layers, propagation paths",
+        "of": 30,
+        "rests": [
+          "Sound as a wave: frequency, wavelength, speed"
+        ]
+      }
     },
     {
       "day": 2,
@@ -1718,6 +2464,12 @@ export const CURRICULUM = {
       "scene": "The scrubber plant is running and its outlet reads clean. A handheld meter in berthing reads far higher than the sensor installed there, while control and machinery both read normal on handhelds.",
       "takeaway": "Ventilation decides which compartments the plant is actually treating.",
       "place": "Auxiliary Machinery & Bilge",
+      "guide": "Four readings have to be explained at once. A clean plant outlet. A high handheld in berthing. A low installed sensor there. Normal handhelds everywhere else. Ask of each option how many of the four it covers. One fault does not have to explain everything when the evidence supports two. A scrubber can only treat air that reaches it.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The scrubber plant is running and its outlet reads clean. A handheld meter in berthing reads far higher than the sensor installed there, while control and machinery both read normal on handhelds.",
       "game": {
         "type": "CHOICE",
@@ -1760,7 +2512,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a plant can only treat air that reaches it"
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Gas laws and life support",
+        "of": 30,
+        "rests": [
+          "Pressure, depth and hydrostatics"
+        ]
+      }
     },
     {
       "day": 3,
@@ -1768,6 +2528,11 @@ export const CURRICULUM = {
       "scene": "Navarro has 9 people in a 36-cubic-metre berthing space at 293 kelvin and about 1 atmosphere. With the damper shut, each person adds about 0.9 mole of carbon dioxide per hour. She wants the time for carbon dioxide to rise by one percentage point.",
       "takeaway": "The ideal gas law turns a concentration limit into a number of moles, and a production rate turns that amount into a deadline.",
       "place": "Berthing, Mess & Medical",
+      "guide": "Seven numbers, and one of them is the oxygen fraction, which this question is not about. Two are the crew: how many people, and what each produces per hour. Ask of each whether it belongs to the gas law or to the rate afterwards. The two halves are separate: first how many moles a one-point rise takes, then how long the crew needs to make them. A deadline in hours is what command can plan around.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Navarro has 9 people in a 36-cubic-metre berthing space at 293 kelvin and about 1 atmosphere. With the damper shut, each person adds about 0.9 mole of carbon dioxide per hour. She wants the time for carbon dioxide to rise by one percentage point.",
       "game": {
         "type": "BALLPARK",
@@ -1815,7 +2580,15 @@ export const CURRICULUM = {
           "s": "The air aboard is a fixed quantity of gas, so pressure, volume and temperature cannot be changed independently.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Gas laws and life support",
+        "of": 30,
+        "rests": [
+          "Pressure, depth and hydrostatics"
+        ]
+      }
     },
     {
       "day": 4,
@@ -1823,6 +2596,11 @@ export const CURRICULUM = {
       "scene": "With one scrubber train secured, the remaining train removes less carbon dioxide than the crew produces. Lindqvist wants the number of hours before the boat has to make a noise to fix that.",
       "takeaway": "A slow problem with a known rate is a deadline, and a deadline can be planned around.",
       "place": "Auxiliary Machinery & Bilge",
+      "guide": "Four numbers. One is the length of the transit, which the answer is compared against rather than built from. Two are rates that point in opposite directions. Ask of each whether it adds carbon dioxide, removes it, or measures the room left. A net rate is the difference between two of these. A deadline in hours is what command can plan around.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "With one scrubber train secured, the remaining train removes less carbon dioxide than the crew produces. Lindqvist wants the number of hours before the boat has to make a noise to fix that.",
       "game": {
         "type": "BALLPARK",
@@ -1839,7 +2617,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a net rate is what is produced minus what is removed"
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Gas laws and life support",
+        "of": 30,
+        "rests": [
+          "Pressure, depth and hydrostatics"
+        ]
+      }
     },
     {
       "day": 5,
@@ -1847,6 +2633,12 @@ export const CURRICULUM = {
       "scene": "The ventilation has been open to the surface all week. Before diving, the boat has to be closed up and the internal air path lined up, and the order of those two things matters.",
       "takeaway": "The air path has to be proved before the boat is sealed, not after.",
       "place": "Auxiliary Machinery & Bilge",
+      "guide": "Ask of each card what would be much harder to correct once the hull is sealed. A missed damper and a plant that will not start are both cheap to find while the surface is still available. A baseline reading is only a baseline if it is taken before anything changes. One of these four closes the door, and everything it makes difficult it makes difficult for the whole dive.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
       "story": "The ventilation has been open to the surface all week. Before diving, the boat has to be closed up and the internal air path lined up, and the order of those two things matters.",
       "game": {
         "type": "SEQUENCE",
@@ -1878,7 +2670,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "once the hull is sealed, the air aboard is the only air there is"
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Dependency order and interlocks",
+        "of": 30
+      }
     }
   ],
   "ENG": [
@@ -1888,6 +2685,12 @@ export const CURRICULUM = {
       "scene": "Chief Haruki stops beside four fittings on the same bulkhead and asks what each one is for. None carries a purpose label, only a number. He steps back from the valves and waits for you to make the distinctions.",
       "takeaway": "What a fitting is for is decided by what is on the other side of it, and at what pressure.",
       "place": "Propulsion Machinery",
+      "guide": "None of these four carries a purpose label, only a number. So work from shape, height and what lies beyond. Ask of each what is on the far side of it, and what opening it would admit or supply. The consequence is the clue. At ninety metres one of these has the sea behind it at ten atmospheres, and the wrong wheel is not a small mistake.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Chief Haruki stops beside four fittings on the same bulkhead and asks what each one is for. None carries a purpose label, only a number. He steps back from the valves and waits for you to make the distinctions.",
       "game": {
         "type": "PROTOCOL",
@@ -1928,8 +2731,23 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "pressure rises about one atmosphere for every ten metres of depth"
-      ]
+        "pressure rises about one atmosphere for every ten metres of depth",
+        "pressure, depth and hydrostatics — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 11,
+          "c": "Pressure, depth and hydrostatics"
+        }
+      ],
+      "concept": {
+        "n": 28,
+        "c": "Materials under pressure: stress, strength, the pressure hull",
+        "of": 30,
+        "rests": [
+          "Pressure, depth and hydrostatics"
+        ]
+      }
     },
     {
       "day": 2,
@@ -1937,6 +2755,12 @@ export const CURRICULUM = {
       "scene": "At 92 revolutions the after compartment rings loudly enough to hear through a bulkhead. At 85 and at 100 it does not. Nothing else about the plant changes between them.",
       "takeaway": "A structure has natural vibration frequencies, and forcing near one of them can make a small input produce a large response.",
       "place": "Machinery Room",
+      "guide": "All four options are real machinery faults and three of them get steadily worse with speed. Ask of each whether it would come and go at one speed and nowhere else. Imbalance grows, bearings degrade, cavitation starts and stays. Only something that depends on matching a frequency can be loud at ninety-two revolutions and quiet at eighty-five and a hundred. That distinction decides whether the fix is a repair or an avoided speed band.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "At 92 revolutions the after compartment rings loudly enough to hear through a bulkhead. At 85 and at 100 it does not. Nothing else about the plant changes between them.",
       "game": {
         "type": "CHOICE",
@@ -1961,7 +2785,8 @@ export const CURRICULUM = {
         "correctChoice": "At that speed the blade rate matches a natural frequency of the structure, so the response is amplified."
       },
       "assumes": [
-        "every structure has frequencies at which it prefers to vibrate"
+        "every structure has frequencies at which it prefers to vibrate",
+        "sound as a wave: frequency, wavelength, speed — taken as read"
       ],
       "equations": [
         {
@@ -1983,7 +2808,21 @@ export const CURRICULUM = {
           ],
           "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other."
         }
-      ]
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Sound as a wave: frequency, wavelength, speed"
+        }
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Resonance and harmonics",
+        "of": 30,
+        "rests": [
+          "Sound as a wave: frequency, wavelength, speed"
+        ]
+      }
     },
     {
       "day": 3,
@@ -1991,6 +2830,12 @@ export const CURRICULUM = {
       "scene": "Two valves will stop the water: the outboard hull valve and the inboard supply valve. The header they sit on also feeds the sonar-array cooling. Haruki wants each action matched to what it actually achieves.",
       "takeaway": "Every isolation stops something else, and the order decides what that is.",
       "place": "Machinery Control Room",
+      "guide": "Four actions, and every one of them takes something away from somebody. The header that feeds the break also cools the sonar array. Ask of each action which side of the hull it acts on, and what stops as a result. Only one cut separates the boat from the sea. Two of the others change how fast the compartment fills without changing whether it fills.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "Two valves will stop the water: the outboard hull valve and the inboard supply valve. The header they sit on also feeds the sonar-array cooling. Haruki wants each action matched to what it actually achieves.",
       "game": {
         "type": "PROTOCOL",
@@ -2031,8 +2876,29 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "one header can serve more than one system"
-      ]
+        "one header can serve more than one system",
+        "sound as a wave: frequency, wavelength, speed — taken as read",
+        "interference, beats and phase — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Sound as a wave: frequency, wavelength, speed"
+        },
+        {
+          "n": 21,
+          "c": "Interference, beats and phase"
+        }
+      ],
+      "concept": {
+        "n": 23,
+        "c": "Diffraction, beamwidth and array directivity",
+        "of": 30,
+        "rests": [
+          "Sound as a wave: frequency, wavelength, speed",
+          "Interference, beats and phase"
+        ]
+      }
     },
     {
       "day": 4,
@@ -2040,6 +2906,12 @@ export const CURRICULUM = {
       "scene": "The ventilation drawing shows one fan feeding the scrubber and the after spaces through a common trunk. The watch bill treats them as two independent systems, and the atmosphere plan assumes both.",
       "takeaway": "Two systems sharing one component are one system for the purpose of a failure.",
       "place": "Machinery Room",
+      "guide": "All four options treat one fan as a real constraint, and they differ in what they do about it. Ask of each whether it changes the number of ways the service can be lost. Running the scrubber harder does not add a path. Sealing the after spaces removes one need instead of adding redundancy. Two boxes on a watch bill are not independence; a different fan, power path or route is.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The ventilation drawing shows one fan feeding the scrubber and the after spaces through a common trunk. The watch bill treats them as two independent systems, and the atmosphere plan assumes both.",
       "game": {
         "type": "CHOICE",
@@ -2065,7 +2937,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a system is only as independent as the things it shares"
-      ]
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Risk, redundancy and failure propagation",
+        "of": 30,
+        "rests": [
+          "Dependency order and interlocks"
+        ]
+      }
     },
     {
       "day": 5,
@@ -2073,6 +2953,12 @@ export const CURRICULUM = {
       "scene": "4 machines are running when a new 212-hertz line appears across the array. Only the seawater pump was started in the last half hour. Haruki will let you change one machine at a time, but sonar must report before each next change.",
       "takeaway": "A correlation becomes a causal test when one variable changes, the response follows, and the response returns when the variable is restored.",
       "place": "Propulsion Machinery",
+      "guide": "The number you are watching is the strength of the 212-hertz line on the sonar array. Four machines are running, and only one of them has to be the source. Stop a machine and sonar reports again: a machine that matters takes the line down with it, and a machine that does not leaves it where it was. Restart what you stopped before the next change, then name the machine the line follows.",
+      "background": [
+        "Why one machine at a time. Two machines stopped together and a line that disappears tells you nothing about which one did it, and on a boat there is a further cost: every machine you leave stopped is a system somebody else needs. The rule is also a rule about the boat, not only about the measurement.",
+        "Why the timing is suggestive and not evidence. The seawater pump was started in the half hour before the line appeared, which makes it the obvious suspect and not a proven one. Plenty of things change in half an hour aboard a submarine, and a coincidence in time is exactly what this format exists to separate from a cause.",
+        "What the line is. A rotating machine radiates at frequencies set by its shaft rate and the number of blades or vanes, and a mount that has loosened couples that sound into the hull far more efficiently than it should. So the tone is a fingerprint: its frequency says what kind of machine, and switching says which one."
+      ],
       "story": "4 machines are running when a new 212-hertz line appears across the array. Only the seawater pump was started in the last half hour. Haruki will let you change one machine at a time, but sonar must report before each next change.",
       "game": {
         "type": "CONTROL",
@@ -2118,8 +3004,23 @@ export const CURRICULUM = {
       },
       "assumes": [
         "changing several variables at once makes a causal result ambiguous",
-        "a suspected cause should reproduce the effect when restored"
-      ]
+        "a suspected cause should reproduce the effect when restored",
+        "sound as a wave: frequency, wavelength, speed — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Sound as a wave: frequency, wavelength, speed"
+        }
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Reflection, absorption and transmission loss",
+        "of": 30,
+        "rests": [
+          "Sound as a wave: frequency, wavelength, speed"
+        ]
+      }
     },
     {
       "day": 6,
@@ -2127,6 +3028,12 @@ export const CURRICULUM = {
       "scene": "The depth is still increasing and 4 actions are available in the next 30 seconds. Planes, speed, ballast air and the trim pump can all change the boat. Two actions are hard to take back at this depth, and command wants their effects named first.",
       "takeaway": "Speed and angle buy time; blowing buys depth and gives away position.",
       "place": "Machinery Control Room",
+      "guide": "Four actions in thirty seconds, and two of them are hard to take back at this depth. Pair each by asking what it changes: the lift the planes can make, or the weight the boat is carrying. Then ask what it costs. One removes weight in seconds and is heard for miles. One removes it quietly, and only if the pump can outrun the leak. One of the four moves the boat the wrong way.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
       "story": "The depth is still increasing and 4 actions are available in the next 30 seconds. Planes, speed, ballast air and the trim pump can all change the boat. Two actions are hard to take back at this depth, and command wants their effects named first.",
       "game": {
         "type": "PROTOCOL",
@@ -2168,14 +3075,96 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the planes only work while water is flowing past them"
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Trim, stability and centre of gravity",
+        "of": 30,
+        "rests": [
+          "Pressure, depth and hydrostatics",
+          "Buoyancy and Archimedes"
+        ]
+      }
     },
     {
       "day": 7,
+      "title": "Ordered depth, while the boat changes weight",
+      "scene": "The boat has to hold sixty metres while the galley pumps out, the torpedo tubes are flooded for a drill, and the sea gets colder over the shelf. The trim pump is what answers all of it.",
+      "takeaway": "A boat that has changed weight is not a boat that has changed depth once.",
+      "place": "Engine Room",
+      "guide": "Hold the boat at ordered depth, inside the band on the gauge. The band narrows as the passage goes on, because a boat under a layer has less room to wander than one in open water. The trim pump moves water between tanks and the sea, and every change in the boat's weight keeps pushing until you answer it.",
+      "background": [
+        "Why a boat drifts off depth at all. A submarine at ordered depth is balanced: the weight of the boat against the weight of the water it displaces. Pump a tonne of galley waste over the side and the boat is a tonne light, so it rises — and goes on rising.",
+        "Why the sea itself moves you. Colder, saltier water is denser, so the same boat displaces more weight in it and floats up. Crossing a front is a change in the water rather than in the boat, and it feels identical on the gauge.",
+        "Why the pump has to be set rather than tapped. Every one of these is a step in the rate. A boat a tonne light does not rise by two metres and stop; it keeps rising until the trim is put back, which is why the answer is a new pump setting held for a while."
+      ],
+      "story": "The boat has to hold sixty metres while the galley pumps out, the torpedo tubes are flooded for a drill, and the sea gets colder over the shelf. The trim pump is what answers all of it.",
+      "game": {
+        "type": "HOLD",
+        "title": "Ordered depth, while the boat changes weight",
+        "setup": "Engine Room",
+        "play": "Hold the trim while the boat works.",
+        "task": "Hold the trim while the boat works.",
+        "question": "Hold sixty metres while the boat's weight and the water both change.",
+        "answer": "Inside the band for most of the passage, with the trim pump set to answer each change in weight rather than tapped after the depth has already gone.",
+        "why": "A submarine at ordered depth is a balance between what it weighs and what it displaces, and everything in this passage disturbs one side of that. Pumping the galley over the side makes the boat lighter, so it rises and keeps rising. Flooding the tubes makes it heavier, so it sinks and keeps sinking. Crossing onto the shelf changes neither: the water gets denser, the same hull displaces more weight, and the boat floats up exactly as though somebody had pumped. All three are steps in the rate rather than steps in the depth, which is why the trim pump is set to a new rate and held rather than tapped and released. The band narrowing is the other half — under a layer, holding depth is what keeps the boat quiet and keeps the sonar picture usable, so the same skill has to be exercised more tightly exactly where it is hardest.",
+        "hold": {
+          "quantity": "Depth off ordered depth",
+          "control": "Trim pump",
+          "unit": "m",
+          "hold": 60,
+          "band": 0.4,
+          "narrowTo": 0.2,
+          "duration": 45,
+          "authority": 0.1,
+          "pass": 0.8,
+          "direction": "lower",
+          "disturbances": [
+            {
+              "label": "Galley pumps out over the side",
+              "at": 4,
+              "amount": -0.03
+            },
+            {
+              "label": "Tubes flooded for the drill",
+              "at": 20,
+              "amount": 0.05
+            },
+            {
+              "label": "Colder water over the shelf",
+              "at": 38,
+              "amount": -0.045
+            }
+          ],
+          "hint": "Each change in weight keeps pushing. Set the pump to answer the change, not the gauge.",
+          "commit": "Report the passage"
+        }
+      },
+      "assumes": [
+        "a submarine is balanced between its weight and the water it displaces"
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Trim, stability and centre of gravity",
+        "of": 30,
+        "rests": [
+          "Pressure, depth and hydrostatics",
+          "Buoyancy and Archimedes"
+        ]
+      }
+    },
+    {
+      "day": 8,
       "title": "From the sea to the bearing",
       "scene": "The bearing is running warm at its usual load. Haruki puts the cooling diagram on the table before anyone touches a valve: bearing, lube oil, oil cooler, fresh-water loop, seawater cooler, and overboard discharge. One link is failing.",
       "takeaway": "A transfer chain is limited by the weakest required handoff, not necessarily by the hottest or largest component.",
       "place": "Propulsion Machinery",
+      "guide": "Put the six stages in the order the heat actually travels, from the bearing out to the sea. Then read what each handover is doing and name the one that is limiting the chain. The bearing is hottest because it is where the heat is made; that would be true even if everything downstream were perfect.",
+      "background": [
+        "What each handover is. The bearing makes heat. Lube oil carries it away. The oil cooler hands it to the fresh-water loop, the seawater cooler hands that to seawater, and the discharge carries it overboard. Every one of those has to pass on as much as arrives, or heat backs up behind it.",
+        "How to find the limiting one. Compare what each stage is receiving against what it is passing on. The stage that has fallen behind — a fouled cooler, a throttled valve, a low flow — is the one setting the temperature everywhere upstream of it.",
+        "Why the diagram comes out before anybody touches a valve. Changing a flow in the middle of a chain moves the symptom without fixing the cause, and on a submarine an unnecessary valve movement is also a noise transient."
+      ],
       "story": "The bearing is running warm at its usual load. Haruki puts the cooling diagram on the table before anyone touches a valve: bearing, lube oil, oil cooler, fresh-water loop, seawater cooler, and overboard discharge. One link is failing.",
       "game": {
         "type": "CHAIN",
@@ -2191,32 +3180,38 @@ export const CURRICULUM = {
             {
               "id": "bearing",
               "label": "Bearing",
-              "transfers": "creates heat into lube oil"
+              "transfers": "creates heat into lube oil",
+              "reading": "load normal; temperature rising"
             },
             {
               "id": "lube",
               "label": "Lube-oil flow",
-              "transfers": "carries heat from bearing to oil cooler"
+              "transfers": "carries heat from bearing to oil cooler",
+              "reading": "flow 100% reference"
             },
             {
               "id": "oil_cooler",
               "label": "Oil cooler",
-              "transfers": "moves heat from oil to fresh water"
+              "transfers": "moves heat from oil to fresh water",
+              "reading": "fresh-water side warms normally"
             },
             {
               "id": "fresh_loop",
               "label": "Fresh-water loop",
-              "transfers": "carries heat to seawater cooler"
+              "transfers": "carries heat to seawater cooler",
+              "reading": "flow 98% reference"
             },
             {
               "id": "sea_flow",
               "label": "Seawater through cooler",
-              "transfers": "carries heat across hull cooling stage"
+              "transfers": "carries heat across hull cooling stage",
+              "reading": "flow 45% reference"
             },
             {
               "id": "overboard",
               "label": "Overboard discharge",
-              "transfers": "carries rejected heat into the sea"
+              "transfers": "carries rejected heat into the sea",
+              "reading": "outlet present"
             }
           ],
           "order": [
@@ -2236,14 +3231,25 @@ export const CURRICULUM = {
       "assumes": [
         "heat must be transferred through every required link before it can leave the boat",
         "a hot component is not automatically the failed link"
-      ]
+      ],
+      "concept": {
+        "n": 18,
+        "c": "Dependency order and interlocks",
+        "of": 30
+      }
     },
     {
-      "day": 8,
+      "day": 9,
       "title": "One link is not handing the heat on",
       "scene": "The lube oil and fresh-water loop are both hot. Seawater enters the cooler at 9 °C and leaves at 23 °C; its normal outlet is about 12 °C at this load. The seawater flow indicator reads 45%, and 1 of 2 pumps is secured.",
       "takeaway": "For a similar heat load, lower coolant mass flow makes each kilogram of coolant warm more, so the outlet temperature rise gets larger.",
       "place": "Machinery Control Room",
+      "guide": "Follow the heat along the chain and ask where it stops being handed on. Two facts constrain it. The fresh-water loop is hot, so heat is reaching the cooler. The seawater leaves fourteen degrees warmer instead of three. Ask of each option what it would do to that outlet temperature. Poor transfer across the exchanger gives a small rise, not a large one.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
       "story": "The lube oil and fresh-water loop are both hot. Seawater enters the cooler at 9 °C and leaves at 23 °C; its normal outlet is about 12 °C at this load. The seawater flow indicator reads 45%, and 1 of 2 pumps is secured.",
       "game": {
         "type": "CHOICE",
@@ -2286,14 +3292,28 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a heat exchanger needs flow on both sides to move heat"
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Thermodynamics and heat engines",
+        "of": 30,
+        "rests": [
+          "Gas laws and life support"
+        ]
+      }
     },
     {
-      "day": 9,
+      "day": 10,
       "title": "Four hours of quiet",
       "scene": "2 narrowband components sit at 147 and 150 hertz on the same bearing. In seawater the sound speed is about 1500 metres per second. The audio level swells and fades regularly while both spectral lines themselves remain steady.",
       "takeaway": "A robust choice still works when the margin you thought you had disappears.",
       "place": "Machinery Control Room",
+      "guide": "Move the two-hour schedule margin down to zero and watch which lineups go dark. A lineup that works only with margin in hand is not a lineup. Sound speed in seawater is about 1500 metres a second, and both lines stay steady while the level swells and fades — those are the facts the surviving plan has to be consistent with.",
+      "background": [
+        "What the swelling and fading is. Two steady tones close in frequency add and cancel as they drift in and out of phase, at a rate set by their difference — three hertz here, so a swell every third of a second. It sounds like a machine changing load and it is two machines that are not.",
+        "Why the margin is the thing to stress. A schedule with two hours spare hides a lot: a slow transit, a delayed evolution, a repair that runs long. Testing at zero is what separates plans that work from plans that have been lucky.",
+        "Why sound speed appears in a scheduling problem. It sets how long the boat is detectable at a given range as the geometry changes, so the acoustic constraint and the timetable are the same constraint written twice."
+      ],
       "story": "2 narrowband components sit at 147 and 150 hertz on the same bearing. In seawater the sound speed is about 1500 metres per second. The audio level swells and fades regularly while both spectral lines themselves remain steady.",
       "game": {
         "type": "STRESS",
@@ -2367,14 +3387,29 @@ export const CURRICULUM = {
       "assumes": [
         "a robust plan is tested at the pessimistic end of a stated uncertainty",
         "quieting measures can trade acoustic benefit against equipment endurance"
-      ]
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Spectra: broadband and narrowband",
+        "of": 30,
+        "rests": [
+          "Sound as a wave: frequency, wavelength, speed",
+          "Resonance and harmonics"
+        ]
+      }
     },
     {
-      "day": 10,
+      "day": 11,
       "title": "What the boat should buy",
       "scene": "The yard can complete two major jobs. Pump isolators cut radiated power by 12 dB. An independent depth sounder adds a separate transducer and power path. Faster scrubber media adds air margin; a larger drain pump raises flood-removal rate. The patrol needs two capabilities most.",
       "takeaway": "A resource plan is a set of questions it can answer and questions it deliberately leaves unanswered.",
       "place": "Machinery Control Room",
+      "guide": "The yard can do two jobs and four are on the table. Watch the capability list rather than the equipment: it shows what the patrol plan can still do under the current pair. Every job you buy is a capability you keep and one you have given up, and the patrol needs two particular ones most.",
+      "background": [
+        "Why 12 dB is not a small number. Radiated acoustic power on a logarithmic scale: twelve decibels is a factor of about sixteen in power. That is the difference between being detectable at one range and at a quarter of it, which changes where the boat can go rather than how comfortable it is.",
+        "Why redundancy competes with performance. An independent depth sounder adds nothing on a good day and everything on the day the first one fails. Scrubber media and a larger drain pump both buy margin in a casualty. Only the patrol plan says which of those matters more.",
+        "Why two rather than three. A refit window is fixed and the yard is not yours. The choice is what makes this a decision, and the third job is not wrong — it is the one whose absence the plan can survive."
+      ],
       "story": "The yard can complete two major jobs. Pump isolators cut radiated power by 12 dB. An independent depth sounder adds a separate transducer and power path. Faster scrubber media adds air margin; a larger drain pump raises flood-removal rate. The patrol needs two capabilities most.",
       "game": {
         "type": "ALLOCATE",
@@ -2469,7 +3504,12 @@ export const CURRICULUM = {
           ],
           "s": "Decibels are a logarithm, so adding 3 dB is doubling the power and adding 10 dB is ten times it."
         }
-      ]
+      ],
+      "concept": {
+        "n": 24,
+        "c": "Decibels and logarithmic scales",
+        "of": 30
+      }
     }
   ]
 };
@@ -2720,7 +3760,7 @@ export const BALLPARK_CALCS = {
     "solution": "The net gain is 0.3 m³/h; 6.0 ÷ 0.3 = 20 hours to the limit.",
     "explanation": "20 hours against a four-hour transit is a comfortable margin, and knowing it is what makes securing the train a decision rather than a gamble. Had the answer been three hours, the same action would have been reckless."
   },
-  "SONAR-7": {
+  "SONAR-8": {
     "prompt": "SL = 145 dB, TL = 55 dB, NL = 85 dB, AG = 20 dB, and DT = 10 dB.",
     "question": "Estimate the passive-sonar signal excess above threshold.",
     "labels": [
@@ -2755,7 +3795,7 @@ export const BALLPARK_CALCS = {
     "solution": "SNR = 145 − 55 − (85 − 20) = 25 dB. Signal excess = 25 − 10 = 15 dB.",
     "explanation": "Passive sonar has one propagation leg. Array gain lowers effective noise; target strength does not appear because there is no echo."
   },
-  "SONAR-8": {
+  "SONAR-9": {
     "prompt": "The mounts reduce radiated acoustic power level by 12 dB.",
     "question": "By what factor is radiated power reduced?",
     "labels": [
@@ -2784,7 +3824,7 @@ export const BALLPARK_CALCS = {
     "solution": "12 dB is four steps of 3 dB, and each step halves the power: 2^4 = 16 times lower, or about 6% of the original.",
     "explanation": "A logarithmic level difference turns subtraction in decibels into a power ratio."
   },
-  "SONAR-9": {
+  "SONAR-10": {
     "prompt": "2 tones are 147 Hz and 150 Hz in water where v ≈ 1500 m/s.",
     "question": "Estimate the beat frequency.",
     "labels": [

@@ -1,0 +1,339 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Safety Factor — Conversion Plan</title>
+<style>
+  @page { size: A4; margin: 15mm 14mm 16mm; }
+  :root {
+    --ink:#15171a; --ink2:#4c5158; --muted:#868b92; --rule:#dcded9; --sunk:#f2f3ef;
+    --acc:#7d5d27; --acc-soft:#c9963f;
+    --s:#2c7a4b; --m:#9a6f14; --d:#767b70; --r:#a4453a;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; color:var(--ink); background:#fff;
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif; font-size:9.6pt; line-height:1.5; }
+  .mono,.k,code { font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; }
+  code,.k { font-size:.9em; background:var(--sunk); padding:0 3px; border-radius:2px; }
+  em { font-style:normal; font-weight:640; }
+  strong { font-weight:680; }
+
+  header { border-bottom:2.5pt solid var(--acc); padding-bottom:7pt; margin-bottom:12pt; }
+  .eyebrow { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--acc); }
+  h1 { margin:2pt 0 3pt; font-size:24pt; line-height:1.02; letter-spacing:-.02em; font-weight:660; }
+  .sub { color:var(--ink2); font-size:9.6pt; max-width:150mm; }
+  .place { color:var(--muted); font-size:8.4pt; font-style:italic; margin-top:2pt; }
+
+  .facts { display:flex; gap:0; border:.6pt solid var(--rule); margin-top:8pt; }
+  .fact { flex:1; padding:4pt 7pt 5pt; border-right:.6pt solid var(--rule); }
+  .fact:last-child { border-right:none; }
+  .fact b { display:block; font-family:ui-monospace,Menlo,monospace; font-size:14pt; font-weight:640; letter-spacing:-.02em; }
+  .fact span { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); }
+
+  h2 { font-size:12pt; margin:15pt 0 4pt; font-weight:660; letter-spacing:-.01em;
+    border-bottom:.6pt solid var(--ink); padding-bottom:3pt; break-after:avoid; }
+  h2 .ph { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--acc); margin-right:6pt; }
+  p { margin:6pt 0; max-width:170mm; }
+
+  table { border-collapse:collapse; width:100%; font-size:8.4pt; margin:6pt 0; }
+  th,td { text-align:left; padding:3pt 6pt 3pt 0; border-bottom:.5pt solid var(--rule); vertical-align:top; }
+  thead th { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--muted); font-weight:500; border-bottom:.7pt solid var(--ink); }
+  td.n,th.n { text-align:right; padding-right:8pt; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .flag { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.06em;
+    border:.5pt solid currentColor; padding:0 3pt; border-radius:2pt; white-space:nowrap; }
+  .flag.sus { color:var(--m); } .flag.real { color:var(--r); }
+
+  .mixbar { display:flex; height:9pt; border:.6pt solid var(--rule); margin:5pt 0 3pt; }
+  .mixbar i { display:block; }
+  .mixkey { font-family:ui-monospace,Menlo,monospace; font-size:6.6pt; color:var(--ink2);
+    display:flex; flex-wrap:wrap; gap:2pt 9pt; }
+
+  .callout { border-left:2pt solid var(--acc); background:var(--sunk); padding:6pt 9pt; margin:8pt 0;
+    break-inside:avoid; }
+  .callout p { margin:3pt 0; }
+  .callout .tag { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--acc); display:block; margin-bottom:3pt; }
+  .callout.warn { border-left-color:var(--r); }
+  .callout.warn .tag { color:var(--r); }
+
+  .card { border-left:2pt solid var(--d); padding:5pt 0 6pt 8pt; margin:7pt 0; break-inside:avoid; }
+  .card.v-s { border-left-color:var(--s); } .card.v-m { border-left-color:var(--m); }
+  .card.v-d { border-left-color:var(--d); } .card.v-r { border-left-color:var(--r); }
+  .card .top { display:flex; align-items:baseline; gap:7pt; }
+  .card h4 { margin:0; font-family:ui-monospace,Menlo,monospace; font-size:9.6pt; font-weight:660; letter-spacing:.03em; }
+  .vd { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.12em;
+    text-transform:uppercase; border:.5pt solid currentColor; padding:0 3pt; border-radius:2pt; }
+  .v-s .vd { color:var(--s); } .v-m .vd { color:var(--m); }
+  .v-d .vd { color:var(--d); } .v-r .vd { color:var(--r); }
+  .card .at { margin-left:auto; color:var(--muted); font-size:7.4pt; }
+  .card p { margin:3pt 0 0; font-size:9pt; }
+  .card dl { margin:3pt 0 0; font-size:8pt; color:var(--ink2); }
+  .card dt { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); display:inline; }
+  .card dd { display:inline; margin:0; }
+  .card dd::after { content:""; display:block; }
+
+  .slate { border:.6pt solid var(--rule); padding:6pt 8pt 7pt; margin:7pt 0; break-inside:avoid; }
+  .slate .sh { display:flex; align-items:baseline; gap:8pt; border-bottom:.6pt solid var(--rule); padding-bottom:3pt; }
+  .slate h4 { margin:0; font-size:10.5pt; font-weight:660; }
+  .slate .n2 { font-family:ui-monospace,Menlo,monospace; font-size:6.6pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); }
+  table.mini { font-size:8pt; margin:4pt 0 5pt; }
+  table.mini td { border-bottom:.4pt solid var(--sunk); padding:2pt 6pt 2pt 0; }
+  table.mini .dy,.gp { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; color:var(--muted); white-space:nowrap; }
+  table.mini .fm { font-family:ui-monospace,Menlo,monospace; font-size:7.2pt; white-space:nowrap; }
+  table.mini .was { color:var(--muted); } .ar { color:var(--muted); }
+  table.mini .ti { color:var(--ink2); }
+  table.mini .nt { display:block; color:var(--muted); font-size:7.2pt; }
+  .out { border-top:.6pt solid var(--rule); padding-top:4pt; font-size:7.8pt; color:var(--ink2); }
+  .out b { color:var(--ink); font-variant-numeric:tabular-nums; }
+
+  footer { margin-top:14pt; padding-top:5pt; border-top:.6pt solid var(--rule);
+    color:var(--muted); font-size:7pt; }
+  .avoid { break-inside:avoid; }
+</style></head><body>
+
+<header>
+  <div class="eyebrow">Alamos · conversion plan · Physics · grade 9–12</div>
+  <h1>Safety Factor</h1>
+  <div class="sub">AP Physics 1 · all eight units</div>
+  <div class="place">Seven rides at Corbin Park, and an inspector who will not take a number nobody can derive.</div>
+  <div class="facts">
+    <div class="fact"><b>45</b><span>stops</span></div>
+    <div class="fact"><b>14</b><span>choice (31%)</span></div>
+    <div class="fact"><b>4.9</b><span>effective formats</span></div>
+    <div class="fact"><b>10/12</b><span>equations computed</span></div>
+    <div class="fact"><b>3</b><span>select-only concepts</span></div>
+    <div class="fact"><b>17·27·1</b><span>select·construct·operate</span></div>
+  </div>
+</header>
+
+<h2><span class="ph">Reading</span>Where this campaign stands</h2>
+<p>All three equation gaps are mentioned on DERIVE stops, which means all three are
+      almost certainly Phase 0 phantoms — a derivation of ΣF = ma <em>is</em> the arithmetic, and
+      the check cannot currently see a DERIVE’s own lines for these keywords. Expect the real gap
+      count to be zero or one. What is real is three <em>absent</em> concepts — free-body thinking,
+      what supplies the centripetal force in each case, and work as force times distance — and
+      three select-only ones. So this campaign’s plan is almost entirely about the fun side, which
+      is fortunate, because its place is the best arcade fit in the catalogue.</p>
+<div class="callout warn"><span class="tag">Protected — do not convert</span><p>All ten DERIVE stops stay. They are the course: an inspector who will not take a
+      number nobody can derive is the premise of the game, and the format is the premise rendered.
+      Nothing in any slate below touches one.</p></div>
+
+<div class="avoid">
+<h2><span class="ph">Now</span>The mix as it ships</h2>
+<div class="mixbar"><i style="flex:14;background:#c9ccc4"></i><i style="flex:10;background:#c9963f"></i><i style="flex:10;background:#e2e4de"></i><i style="flex:3;background:#e2e4de"></i><i style="flex:2;background:#e2e4de"></i><i style="flex:1;background:#e2e4de"></i><i style="flex:1;background:#c9963f"></i><i style="flex:1;background:#c9963f"></i><i style="flex:1;background:#c9963f"></i><i style="flex:1;background:#e2e4de"></i><i style="flex:1;background:#c9963f"></i></div>
+<div class="mixkey"><span>CHOICE 14</span><span>DERIVE 10</span><span>BALLPARK 10</span><span>SEQUENCE 3</span><span>DIAGNOSIS 2</span><span>PROTOCOL 1</span><span>TRIGGER 1</span><span>VERIFY 1</span><span>DELEGATE 1</span><span>CASEBOOK 1</span><span>VALUE 1</span></div>
+</div>
+
+<h2><span class="ph">Curriculum</span>What the syllabus is not getting</h2>
+<table><thead><tr><th>Equation the course owes</th><th>What it carries</th><th>Mentioned at</th><th class="n">Status</th></tr></thead><tbody>
+<tr>
+  <td class="k">ΣF = ma</td><td>what a net force is for</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">1·DERIVE  3·CHOICE  5·BALLPARK  9·CHOICE  10·DERIVE</td>
+  <td class="n"><span class="flag sus">verify first</span></td>
+</tr><tr>
+  <td class="k">safety factor = capacity ÷ demand</td><td>the number this whole job is about</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">7·DERIVE  26·CHOICE  29·CHOICE  40·CASEBOOK  44·CHOICE</td>
+  <td class="n"><span class="flag sus">verify first</span></td>
+</tr></tbody></table>
+<p style="font-size:8.4pt;color:var(--ink2)">2 of 2 sit on an instrument stop, whose
+board arithmetic the coverage check cannot yet read — expect Phase 0 to clear those. <strong>0</strong>
+are unaffected by it.</p>
+
+<div class="avoid">
+<h2><span class="ph">Tier</span>Concepts the player only ever picks from a list</h2>
+<table><thead><tr><th class="n">#</th><th>Mechanism concept</th><th class="n">Stops</th></tr></thead><tbody>
+<tr><td class="n">24</td><td>Rotational inertia, and that where the mass is matters more than how much</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">18</td></tr><tr><td class="n">29</td><td>Resonance and damping: driving an oscillator in step or out of it</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">27, 35</td></tr><tr><td class="n">30</td><td>Measuring g from a period, and why it belongs to the place</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">3, 21</td></tr>
+</tbody></table>
+<p style="font-size:8.4pt;color:var(--ink2)">Reported, never failed. Select-tier can be exactly right;
+these are the candidates, not the defects. The syllabus also lists
+3 concepts no stop touches at all —
+<em>Free-body thinking: one object, every force on it, nothing else</em>; <em>What supplies the centripetal force in each case — a rail, a chain, a seat</em>; <em>Work as a force times a distance along it</em> — which is expected, and is a different
+conversation from this one.</p></div>
+
+<h2><span class="ph">Fun</span>What this subject and this place can carry</h2>
+<div class="card v-s">
+  <div class="top"><h4>SWEEP</h4><span class="vd">strong</span><span class="at">stop 27 or 35 · SHIP</span></div>
+  <p>Concept 29 — resonance and damping, driving an oscillator in step or out of it — is
+          select-only across two stops, and the pirate ship is a driven pendulum. Drag the drive
+          frequency and the amplitude curve appears only where you looked.</p>
+  <dl><dt>serves</dt> <dd>concept 29, off the select-only list, on the ride that is literally the apparatus</dd></dl>
+  <dl><dt>needs</dt> <dd>a peak that is findable and not marked</dd></dl>
+  
+</div><div class="card v-s">
+  <div class="top"><h4>TRIAL</h4><span class="vd">strong</span><span class="at">the park</span></div>
+  <p>Seven rides, a front gate, a workshop, and an inspection round whose order is the
+          answer — cold checks before the ride runs, brakes before the lift hill. This is the format
+          using the whole site as the question.</p>
+  <dl><dt>serves</dt> <dd>inspection order and ride dependency</dd></dl>
+  
+  <dl><dt>risk</dt> <dd>world work, and gates must stand off each door by d/2 + 10</dd></dl>
+</div><div class="card v-s">
+  <div class="top"><h4>PROBE</h4><span class="vd">strong</span><span class="at">stop 21 · TOWER</span></div>
+  <p>Carry an accelerometer round the coaster and take readings station by station: the
+          place where the pattern changes is not the place with the biggest number. "Measuring
+          gravity with a boat" is a CHOICE and concept 30 is select-only.</p>
+  <dl><dt>serves</dt> <dd>concept 30 — measuring g from a period, and why it belongs to the place</dd></dl>
+  <dl><dt>needs</dt> <dd>a break in the pattern that is not the peak</dd></dl>
+  
+</div><div class="card v-s">
+  <div class="top"><h4>HOLD</h4><span class="vd">strong</span><span class="at">FLUME or TOWER</span></div>
+  <p>Hold the flume level, or the drop-tower brake pressure, inside a closing band while
+          load steps arrive. A ride operator’s whole job, and the disturbances are the riders.</p>
+  <dl><dt>serves</dt> <dd>work and energy against a real load</dd></dl>
+  
+  
+</div><div class="card v-s">
+  <div class="top"><h4>SPOT</h4><span class="vd">strong</span><span class="at">a WHEEL or BUMPER stop</span></div>
+  <p>An inspection criterion replaced mid-round with nothing announcing it — which is what
+          happens when a bulletin arrives at nine in the morning. The park is full of items that
+          only one criterion wants.</p>
+  <dl><dt>serves</dt> <dd>acceptance criteria and the cost of not noticing</dd></dl>
+  
+  
+</div><div class="card v-m">
+  <div class="top"><h4>BELT</h4><span class="vd">medium</span><span class="at">BUMPER pavilion</span></div>
+  <p>Sorting riders against one restraint criterion at the speed a queue moves. Physically
+          exact and thin on physics — one bit, and the bit is a threshold rather than a mechanism.</p>
+  
+  
+  <dl><dt>risk</dt> <dd>must be decidable at a glance, or it is dexterity</dd></dl>
+</div><div class="card v-d">
+  <div class="top"><h4>LOB</h4><span class="vd">defer</span><span class="at">the ARCADE building</span></div>
+  <p>There is a literal arcade on this site, and a ball-toss booth is the one place where a
+          withheld launch speed is diegetic rather than dishonest — a midway game is <em>designed</em>
+          so you cannot compute it. But AP Physics 1 asks the student to compute projectiles, so the
+          stop would teach the opposite of its unit. Defer, and argue it again if the withheld
+          quantity can be the booth’s rigging rather than the physics.</p>
+  
+  
+  
+</div>
+
+<h2><span class="ph">Slates</span>Three appetites — the campaign is zero-sum</h2>
+<p style="font-size:8.8pt">No conversion adds a stop. Each changes what an existing stop <em>does</em>
+while leaving what it <em>teaches</em> alone. Snapshot before, diff after:
+<code>curriculumDelivery.mjs midway --snapshot before.json</code>, then <code>--against before.json</code>.</p>
+<div class="slate">
+    <div class="sh"><h4>Minimum honest</h4><span class="n2">3 stops · one sitting</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">35</td><td class="dy">d12</td><td class="gp">SHIP</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>SWEEP</b></td>
+      <td class="ti">Three tenths of a second<span class="nt">three tenths of a second — the ship as a driven pendulum</span></td>
+    </tr><tr>
+      <td class="n">18</td><td class="dy">d6</td><td class="gp">WHEEL</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>BALLPARK</b></td>
+      <td class="ti">Where the mass is<span class="nt">where the mass is — computed, since rotational inertia is select-only</span></td>
+    </tr><tr>
+      <td class="n">21</td><td class="dy">d7</td><td class="gp">TOWER</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>PROBE</b></td>
+      <td class="ti">Measuring gravity with a boat<span class="nt">g measured round the site rather than picked</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>14 → 11</b> (24%) ·
+      moves <b>17·27·1 → 14·28·3</b> ·
+      effective formats <b>4.9 → 5.6</b> · <b>2</b> new operate stops
+    </div>
+  </div>
+<div class="slate">
+    <div class="sh"><h4>Balanced</h4><span class="n2">6 stops · the recommendation</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">35</td><td class="dy">d12</td><td class="gp">SHIP</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>SWEEP</b></td>
+      <td class="ti">Three tenths of a second</td>
+    </tr><tr>
+      <td class="n">18</td><td class="dy">d6</td><td class="gp">WHEEL</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>BALLPARK</b></td>
+      <td class="ti">Where the mass is</td>
+    </tr><tr>
+      <td class="n">21</td><td class="dy">d7</td><td class="gp">TOWER</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>PROBE</b></td>
+      <td class="ti">Measuring gravity with a boat</td>
+    </tr><tr>
+      <td class="n">3</td><td class="dy">d1</td><td class="gp">SHIP</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>HOLD</b></td>
+      <td class="ti">60 people and the same 5 seconds<span class="nt">60 people and the same 5 seconds, held rather than described</span></td>
+    </tr><tr>
+      <td class="n">29</td><td class="dy">d10</td><td class="gp">COASTER</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>SPOT</b></td>
+      <td class="ti">A margin that moves<span class="nt">a margin that moves, under a criterion that also moves</span></td>
+    </tr><tr>
+      <td class="n">23</td><td class="dy">d8</td><td class="gp">BUMPER</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>TRIGGER</b></td>
+      <td class="ti">The tenth of a second that matters<span class="nt">the tenth of a second, written as a rule before it matters</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>14 → 8</b> (18%) ·
+      moves <b>17·27·1 → 11·29·5</b> ·
+      effective formats <b>4.9 → 6.5</b> · <b>4</b> new operate stops, 2 of them arcade
+    </div>
+  </div>
+<div class="slate">
+    <div class="sh"><h4>Ambitious</h4><span class="n2">9 stops · adds world work</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">35</td><td class="dy">d12</td><td class="gp">SHIP</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>SWEEP</b></td>
+      <td class="ti">Three tenths of a second</td>
+    </tr><tr>
+      <td class="n">18</td><td class="dy">d6</td><td class="gp">WHEEL</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>BALLPARK</b></td>
+      <td class="ti">Where the mass is</td>
+    </tr><tr>
+      <td class="n">21</td><td class="dy">d7</td><td class="gp">TOWER</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>PROBE</b></td>
+      <td class="ti">Measuring gravity with a boat</td>
+    </tr><tr>
+      <td class="n">3</td><td class="dy">d1</td><td class="gp">SHIP</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>HOLD</b></td>
+      <td class="ti">60 people and the same 5 seconds</td>
+    </tr><tr>
+      <td class="n">29</td><td class="dy">d10</td><td class="gp">COASTER</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>SPOT</b></td>
+      <td class="ti">A margin that moves</td>
+    </tr><tr>
+      <td class="n">23</td><td class="dy">d8</td><td class="gp">BUMPER</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>TRIGGER</b></td>
+      <td class="ti">The tenth of a second that matters</td>
+    </tr><tr>
+      <td class="n">26</td><td class="dy">d9</td><td class="gp">TOWER</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>TRIAL</b></td>
+      <td class="ti">What a safety factor says<span class="nt">the inspection round, driven, in the order that is the answer</span></td>
+    </tr><tr>
+      <td class="n">9</td><td class="dy">d3</td><td class="gp">BUMPER</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>BELT</b></td>
+      <td class="ti">100 collisions an hour<span class="nt">the restraint criterion at queue speed</span></td>
+    </tr><tr>
+      <td class="n">42</td><td class="dy">d14</td><td class="gp">FLUME</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>CLOUD</b></td>
+      <td class="ti">Four adults, and why not five<span class="nt">four adults and why not five — a distribution against a limit</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>14 → 5</b> (11%) ·
+      moves <b>17·27·1 → 8·30·7</b> ·
+      effective formats <b>4.9 → 7.4</b> · <b>6</b> new operate stops, 4 of them arcade
+    </div>
+  </div>
+
+<div class="callout"><span class="tag">The order of work</span>
+<p><strong>1.</strong> Phase 0 — teach the coverage check to read an instrument’s own board, and
+re-baseline <code>curriculum-debt.json</code>. Rewriting a stop that already teaches the thing is the
+exact failure the check exists to prevent.
+<strong>2.</strong> Snapshot. <strong>3.</strong> Edit the book, never the generated content —
+<code>tools/import-book.mjs books/midway.yml midway --verify</code>.
+<strong>4.</strong> <code>npm run traps</code>: every instrument’s trap must fire.
+<strong>5.</strong> <code>npm run check midway</code> and <code>npm run drive midway</code>, right
+answer and wrong — ask what a player who understood nothing would score before believing any pass mark.
+<strong>6.</strong> <code>--against</code> the snapshot. A changed format is reported; a changed
+objective fails.</p></div>
+
+<footer>
+  Counts computed from <code>themes/midway/content/</code> via <code>engine/dev/curriculumDelivery.mjs</code>;
+  concept and equation lists authored in <code>tools/syllabus.js</code>. Format verdicts and slates are
+  editorial. Run it with <code>THEME=midway npm run dev</code>.
+</footer>
+</body></html>

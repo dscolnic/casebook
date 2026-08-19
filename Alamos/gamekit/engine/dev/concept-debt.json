@@ -1,0 +1,250 @@
+{
+  "_": [
+    "Concept-ordering inversions that exist today, per theme, as \"<claim> ← <prerequisite>\".",
+    "Same two properties as curriculum-debt.json: a row that is NOT on this list fails",
+    "immediately, so nothing new drifts in; and a row on this list that has since been",
+    "fixed also fails, naming the line to delete, so the file cannot become a standing",
+    "excuse. It only shrinks.",
+    "Blackout is empty because slate B ordered its twelve in-course inversions and slate A",
+    "declared the rest; ContamCity and Hospital were re-ordered, Headwater and four editions",
+    "swapped stops. What is left is mostly structural: a game whose days are an event",
+    "calendar (Aftershock, Red Sand) or a topic list (Midway, Ground Truth) cannot be",
+    "re-ordered without breaking the story, so those rows are paid by declaring",
+    "takesAsRead on the stop or by writing the missing question."
+  ],
+  "blackout_fable": [
+    "Cascading failure and the sequence of events ← Contingency analysis and the N-1 criterion",
+    "Cascading failure and the sequence of events ← Fault current and short-circuit analysis",
+    "Cascading failure and the sequence of events ← Transmission losses and conductor sizing",
+    "Frequency as the balance of supply and demand ← Synchronous machines and synchronisation",
+    "Real, reactive and apparent power ← Reactance, impedance and phasors",
+    "Voltage drop, regulation and reactive support ← Reactance, impedance and phasors"
+  ],
+  "headwater": [
+    "Concavity, the second derivative and points of inflection ← Critical points, the first derivative test and optimisation",
+    "Reading a quantity off the graph of its own derivative ← Concavity, the second derivative and points of inflection"
+  ],
+  "groundtruth": [
+    "Dielectrics, dielectric strength and breakdown ← Parallel plates: capacitance from the field between them",
+    "Field of a charged sheet, line and sphere ← Gauss's law, and choosing a surface it can be used on",
+    "Instrument bandwidth: what a slow instrument cannot see ← The RC circuit, and what a time constant means",
+    "Mutual inductance: one circuit talking to another ← Faraday's law: an EMF from a changing flux",
+    "Parallel plates: capacitance from the field between them ← Capacitance as a ratio, before it is a formula",
+    "The LR transient, and inductive volts against resistive volts ← Kirchhoff's rules on a real network",
+    "The LR transient, and inductive volts against resistive volts ← Self-inductance, and why a straight wire has it",
+    "The RC circuit, and what a time constant means ← Kirchhoff's rules on a real network"
+  ],
+  "midway": [
+    "Acceleration as the rate a velocity changes, whichever part of it changes ← Velocity against speed: direction is part of the quantity",
+    "Conservation of mechanical energy, and dividing the mass out of it ← Gravitational potential energy as weight times height",
+    "Conservation of mechanical energy, and dividing the mass out of it ← Kinetic energy, and why the square matters",
+    "Friction as a force along a surface, and the coefficient that bounds it ← Free-body thinking: one object, every force on it, nothing else",
+    "Friction as negative work, and measuring it as the gap between ideal and actual ← Friction as a force along a surface, and the coefficient that bounds it",
+    "Friction as negative work, and measuring it as the gap between ideal and actual ← Work as a force times a distance along it",
+    "Gravitational potential energy as weight times height ← Work as a force times a distance along it",
+    "Kinetic energy, and why the square matters ← Work as a force times a distance along it",
+    "Measuring g from a period, and why it belongs to the place ← The pendulum period, and the cancellation that removes the mass from it",
+    "Pascal's principle, and the distance a hydraulic gives up ← Work as a force times a distance along it",
+    "Power as work each second, and what a motor rating is ← Work as a force times a distance along it",
+    "Simple harmonic motion: a restoring force proportional to displacement ← Newton's second law as the definition of a net force",
+    "Simple harmonic motion: a restoring force proportional to displacement ← Work as a force times a distance along it",
+    "Static equilibrium: forces and torques both adding to zero ← Free-body thinking: one object, every force on it, nothing else",
+    "The conical pendulum: an angle set by speed and radius, not by mass ← Friction as a force along a surface, and the coefficient that bounds it",
+    "The conical pendulum: an angle set by speed and radius, not by mass ← What supplies the centripetal force in each case — a rail, a chain, a seat",
+    "The normal force, and what a rider actually feels ← Free-body thinking: one object, every force on it, nothing else",
+    "The pendulum period, and the cancellation that removes the mass from it ← The small-angle approximation, and where it stops being true",
+    "The vertical loop, and the limiting case where the rail stops pushing ← The normal force, and what a rider actually feels",
+    "The vertical loop, and the limiting case where the rail stops pushing ← What supplies the centripetal force in each case — a rail, a chain, a seat",
+    "Torque as force times the perpendicular distance ← Free-body thinking: one object, every force on it, nothing else",
+    "Torque as force times the perpendicular distance ← Work as a force times a distance along it"
+  ],
+  "contamcity": [
+    "Buffers and titration ← Acids, bases and pH",
+    "Buffers and titration ← Equilibrium and Le Chatelier",
+    "Concentration units and conversions: ppm, mg/L, molarity ← Solutions, molarity and dilution",
+    "Entropy, free energy and spontaneity ← Equilibrium and Le Chatelier",
+    "Entropy, free energy and spontaneity ← Thermochemistry: enthalpy, calorimetry, energy balance",
+    "Gas laws and the ideal gas equation ← The mole, molar mass and stoichiometry",
+    "Kinetic molecular theory, diffusion and volatility ← Gas laws and the ideal gas equation",
+    "Kinetic molecular theory, diffusion and volatility ← Molecular geometry, polarity and intermolecular forces",
+    "Limiting reactant and percent yield ← The mole, molar mass and stoichiometry",
+    "Measurement: significant figures, blanks, detection limits, uncertainty ← Solutions, molarity and dilution",
+    "Phase changes, vapour pressure and phase diagrams ← Molecular geometry, polarity and intermolecular forces",
+    "Quality control: standards, spikes and recovery ← Solutions, molarity and dilution",
+    "Reaction mechanisms and the rate-determining step ← Reaction kinetics, rate laws and activation energy",
+    "Solubility product and the common-ion effect ← Equilibrium and Le Chatelier",
+    "Solubility product and the common-ion effect ← Solubility, precipitation and complexation",
+    "Spectroscopy, Beer–Lambert and calibration curves ← Solutions, molarity and dilution"
+  ],
+  "redsand": [
+    "Current efficiency: the gap between charge passed and product collected ← Faraday's law: charge is moles, exactly",
+    "Current efficiency: the gap between charge passed and product collected ← Overpotential: the voltage above the minimum, and where it goes",
+    "Deposition: gas straight to solid, with no liquid in between ← Vapour pressure, and reading a cryogenic tank by it",
+    "Equilibrium as a balance still running both ways ← The Sabatier reaction: what this plant actually makes and from what",
+    "Exothermic and endothermic, and heat as something on one side of the equation ← Stoichiometry as a feed rate: turning a production target into kilograms in",
+    "Le Châtelier: pressure, temperature and taking a product away ← Exothermic and endothermic, and heat as something on one side of the equation",
+    "Le Châtelier: pressure, temperature and taking a product away ← The equilibrium constant, and that temperature is what moves it",
+    "Overpotential: the voltage above the minimum, and where it goes ← Electrolysis: driving a reaction that will not run on its own",
+    "The temperature at which a spontaneous reaction stops being one ← Free energy: enthalpy against entropy, and which way a change runs",
+    "What a catalyst does, and the two things it cannot do ← Activation energy and the fraction of collisions that clear it"
+  ],
+  "quantum": [
+    "Atomic clocks and what frequency accuracy buys ← Interferometry as a phase measurement",
+    "Dephasing time T2 — the phase going before the energy does ← Relaxation time T1 — energy leaving the system",
+    "Loss in fibre, and why a repeater is hard ← Quantum key distribution, and where its security comes from",
+    "Magnetometry: NV centres and SQUIDs ← Interferometry as a phase measurement",
+    "Measurement collapses the state and returns one outcome ← Superposition as an amplitude, not a mixture",
+    "Relaxation time T1 — energy leaving the system ← Measurement collapses the state and returns one outcome",
+    "Reproducibility: a result on one device is not a result ← Randomised benchmarking: what it measures and what it does not",
+    "The Bell inequality as a number you measure ← Entanglement as a correlation stronger than any shared instruction",
+    "Where decoherence comes from: two-level defects, photons, flux noise ← Dephasing time T2 — the phase going before the energy does",
+    "Where decoherence comes from: two-level defects, photons, flux noise ← Relaxation time T1 — energy leaving the system"
+  ],
+  "seedbank": [
+    "Backcrossing a gene into an existing line, one generation at a time ← Controlled crossing: emasculation, bagging and knowing the father",
+    "In situ against ex situ conservation, and what each preserves ← Founder effects and bottlenecks in a stored collection"
+  ],
+  "the_trial": [
+    "Allocation concealment: protecting the moment of entry ← Randomisation: what chance assignment buys, and what it cannot buy",
+    "Event-driven trials, and information fraction as progress ← Sample size and statistical power",
+    "External evidence, replication and how a new result is weighed ← p-values, and what significance is not",
+    "Missing data, and why it matters why it is missing ← Intention to treat against per-protocol",
+    "Protocol deviations: what they do to the comparison ← Randomisation: what chance assignment buys, and what it cannot buy",
+    "Randomisation: what chance assignment buys, and what it cannot buy ← Why a comparison needs a control arm at all",
+    "Reporting honestly: what a sentence claims beyond its evidence ← p-values, and what significance is not",
+    "The monitoring committee and the firewall around it ← Interim analysis, alpha spending and stopping boundaries"
+  ],
+  "deepwatch": [
+    "Relative motion, vectors and dead reckoning ← Bearings, triangulation and geometry",
+    "Signal-to-noise and detection thresholds ← Decibels and logarithmic scales",
+    "Signal-to-noise and detection thresholds ← Spectra: broadband and narrowband",
+    "Snell's law, ray paths and shadow zones ← Sound in water: refraction, layers, propagation paths",
+    "Spectra: broadband and narrowband ← Resonance and harmonics",
+    "Spectra: broadband and narrowband ← Sound as a wave: frequency, wavelength, speed"
+  ],
+  "bring_them_home": [
+    "Simple harmonic motion and resonance ← Springs and Hooke's law"
+  ],
+  "outbreak_riverton": [
+    "Ecology, vectors and zoonoses ← Natural selection and evolution"
+  ],
+  "aftershock": [
+    "Cordons, lifelines and the cost of keeping people out ← Placarding as a decision under uncertainty",
+    "Cordons, lifelines and the cost of keeping people out ← Rapid assessment against detailed evaluation",
+    "Factor of safety, and what it is protecting against ← Base shear — the horizontal force a building is designed for",
+    "Intensity against magnitude — one event, many shakings ← Magnitude as a logarithmic scale",
+    "Intensity against magnitude — one event, many shakings ← Peak ground acceleration and what a building feels",
+    "Liquefaction: when saturated fill stops behaving as a solid ← Effective stress, and why water pressure matters",
+    "Load path, and what happens where it stops ← Base shear — the horizontal force a building is designed for",
+    "Placarding as a decision under uncertainty ← Factor of safety, and what it is protecting against",
+    "Placarding as a decision under uncertainty ← Rapid assessment against detailed evaluation",
+    "Rapid assessment against detailed evaluation ← Load path, and what happens where it stops",
+    "Rapid assessment against detailed evaluation ← Unreinforced masonry, and why it fails outward",
+    "Retrofit: what is worth doing before the next one ← Factor of safety, and what it is protecting against",
+    "Stress, strain and the yield point ← Peak ground acceleration and what a building feels"
+  ],
+  "icecore": [
+    "Annual layer counting, and where counting fails ← Accumulation rate, and what a site with little snow buys and costs",
+    "Model against data, and what a mismatch can mean ← Correlation between two records is not attribution",
+    "Radiative forcing: turning a concentration into a temperature push ← Carbon dioxide and methane records, and what a ppm is",
+    "Resolution against record length — what choosing a site decides ← Thinning with depth: flow, and where a record runs out",
+    "Volcanic sulphate horizons as dated tie points ← Depth–age scales, and putting two cores on one clock"
+  ],
+  "sightline": [
+    "Confidence and accuracy: a relationship that survives only at the moment ← Retrieval is reconstruction, not playback",
+    "False confession: minimisation, maximisation and the innocent person's arithmetic ← Suggestibility, repeated questioning and the child witness",
+    "Simultaneous against sequential presentation ← How a lineup is built: fillers, and the ones nobody would pick",
+    "The misinformation effect: what arrives after the event gets in ← Retrieval is reconstruction, not playback",
+    "Weapon focus, and what an arousing object does to a description ← Arousal and encoding: the amygdala, cortisol and the inverted U"
+  ],
+  "projecty": [
+    "Attenuation of radiation through matter ← Cross sections and mean free path",
+    "Criticality: mass, geometry, reflectors, moderation ← Cross sections and mean free path"
+  ],
+  "contamcity_ms": [
+    "A blank and a standard: how a laboratory knows a number is real ← Measuring the same thing several times, and averaging",
+    "A sample stands for a place and a moment, and only those ← Measuring the same thing several times, and averaging",
+    "A treatment can move a problem rather than remove it ← Separating a mixture, using a difference between the parts",
+    "Dissolving, and why some things dissolve and others do not ← A mixture is things sharing a space without becoming one another",
+    "Saying what you know and how well you know it ← A blank and a standard: how a laboratory knows a number is real",
+    "Saying what you know and how well you know it ← Measuring the same thing several times, and averaging"
+  ],
+  "deepwatch_ms": [
+    "Adding weight changes what floats, and how fast it changes ← Density: why one thing floats and another sinks",
+    "Deciding under pressure: what can be undone, and what cannot ← Change one thing at a time, and watch what follows",
+    "Hearing something quiet next to something loud ← Loud and quiet, high and low: what a sound tells you about its source",
+    "Listening from two places to find where a sound came from ← An echo gives a distance, once you know the speed and the time",
+    "Loud and quiet, high and low: what a sound tells you about its source ← Sound is a wave, and it travels through water as well as air",
+    "Two instruments that share a source are really one instrument ← Reading a gauge, and taking a measurement more than once",
+    "Water pressure grows with depth ← Density: why one thing floats and another sinks"
+  ],
+  "aftershock_ms": [
+    "A building carries its weight down a path, and the weakest needed link governs ← Plates move, and a fault is the crack where they slip past each other",
+    "Aftershocks get rarer as time passes, and a chance is not a promise ← How big the earthquake was, and how hard the shaking felt, are two different things",
+    "An earthquake sends waves through the ground, and some arrive first ← Plates move, and a fault is the crack where they slip past each other",
+    "Counting damage as a share, not as a number of buildings ← Reading a map, a scale and a contour",
+    "One sample is not the whole building ← Materials: what a crack means, and what a strength test can tell you",
+    "The ground itself changes the shaking: soft ground shakes more ← Distance from the fault changes what a place feels"
+  ],
+  "icecore_ms": [
+    "A ratio can be turned into a temperature using a known relationship ← Something measured today can stand in for something nobody measured then",
+    "Averages, and why one year proves nothing on its own ← Reading a graph: what the axes say, and what the wiggles mean",
+    "Contamination: a sample that has been got at tells you about the getting ← Air trapped in bubbles is a sample of the sky from long ago",
+    "Counting layers is counting years, and deeper means older ← Snow that never melts piles up in layers, one year at a time",
+    "Keeping a record somebody else can use ← What a measurement can honestly say, and what it cannot",
+    "Rates: how fast something builds up, and how long a job will take ← Reading a graph: what the axes say, and what the wiggles mean",
+    "Something measured today can stand in for something nobody measured then ← Reading a graph: what the axes say, and what the wiggles mean"
+  ],
+  "seedbank_ms": [
+    "Choosing which plants to breed from, and what that costs ← Counting the offspring, and comparing counts with what was expected",
+    "How many plants you need to keep a kind going ← Variety inside a collection, and why losing it is hard to undo",
+    "Repeats and averages: one plant proves nothing ← A fair test needs a control and everything else kept the same",
+    "Same seed, different field: what a plant looks like depends on where it grew ← Living things pass traits to their offspring",
+    "Two parents each give half, so the young are not copies ← Living things pass traits to their offspring"
+  ],
+  "outbreak_riverton_ms": [
+    "A germ has to get from one person into another somehow ← Some illnesses are caused by living things too small to see",
+    "A test can be wrong in two different directions ← Counting cases as a rate, not just as a number",
+    "Breaking one step of the chain stops the spread ← One person passing it to more than one is why it grows",
+    "Deciding while the answer is still unknown ← What a measurement can honestly say, and what it cannot",
+    "Germs change, and a change can beat a treatment ← Some illnesses are caused by living things too small to see"
+  ],
+  "bring_them_home_ms": [
+    "A budget: a finite store shared between competing demands ← Rates: how fast something is used up, and how long it lasts",
+    "Circuits: a break, a short, and why a battery has limits ← Rates: how fast something is used up, and how long it lasts",
+    "Ordering work when several things are wrong at once ← A budget: a finite store shared between competing demands",
+    "Ordering work when several things are wrong at once ← Deciding with a deadline that does not move",
+    "Repeats and averages, and what one reading is worth ← Reading a graph and spotting what changed at the moment it changed",
+    "Signals take time to travel, and distance costs strength ← Speed, distance and time, and how they give each other",
+    "Spinning things keep spinning, and a nudge takes a while to show ← A push changes motion, and a bigger push changes it faster",
+    "What a measurement can honestly say, and what it cannot ← Repeats and averages, and what one reading is worth"
+  ],
+  "planetary_defense_ms": [
+    "Brightness and distance: the same object is fainter further away ← Scale and distance in the solar system",
+    "Changing motion with a push, and why an early push does more ← Impact energy: mass and speed, and why speed matters more",
+    "Choosing the measurement that tells two explanations apart ← Size and albedo: two explanations for one brightness",
+    "Choosing the measurement that tells two explanations apart ← Uncertainty as a range, not a mistake",
+    "Size and albedo: two explanations for one brightness ← Brightness and distance: the same object is fainter further away",
+    "Uncertainty as a range, not a mistake ← Repeated measurements and their average"
+  ],
+  "blackout_ms": [
+    "A safety device breaks the circuit before something is damaged ← Current is the flow, and voltage is the push behind it",
+    "A safety device breaks the circuit before something is damaged ← Something in the way makes it harder for current to flow",
+    "Current is the flow, and voltage is the push behind it ← A circuit is a loop, and a break anywhere stops it",
+    "Current through something makes heat, and that is why wires have limits ← Something in the way makes it harder for current to flow",
+    "Measuring instruments need checking against a standard ← Averages, and why one reading is not a measurement",
+    "Something can be protected too eagerly, and cost you the supply ← A safety device breaks the circuit before something is damaged",
+    "Supply has to match demand, minute by minute ← Energy used is power multiplied by time"
+  ],
+  "hospital": [
+    "Body temperature and fever ← Homeostasis and feedback",
+    "Digestion and absorption ← Levels of organisation: cells, tissues, organs, systems",
+    "Emergency assessment and triage ← Vital signs, measurement and normal ranges",
+    "Fluids, hydration and dehydration ← Kidneys and waste",
+    "Germs, transmission and hand hygiene ← Immune defence and inflammation",
+    "Imaging: X-rays and pictures of the inside ← Skeletal system",
+    "Immune defence and inflammation ← Blood and its components",
+    "Nutrition and energy ← Digestion and absorption",
+    "Pulse and blood pressure ← Heart and circulation"
+  ]
+}

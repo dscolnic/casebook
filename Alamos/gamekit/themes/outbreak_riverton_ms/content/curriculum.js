@@ -10,6 +10,12 @@ export const CURRICULUM = {
       "scene": "Pathology has four results from the same samples and still cannot name what this is. The samples are waiting under the hood. Ortiz needs a broad answer before the overnight run is booked.",
       "takeaway": "What something is gets settled by several tests together, not by one striking picture.",
       "place": "Hospital Pathology Suite",
+      "guide": "Four options, and three results on the bench are negatives. Nothing cell-shaped on the slide. No bacterial marker. No fungal wall. Ask of each option how many of those it fits. Bacteria and fungi are cells, so a clean slide is a strong statement. The blank being clean rules out the last one.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Pathology has four results from the same samples and still cannot name what this is. The samples are waiting under the hood. Ortiz needs a broad answer before the overnight run is booked.",
       "game": {
         "type": "CHOICE",
@@ -69,14 +75,146 @@ export const CURRICULUM = {
           ],
           "s": "Doubling looks slow for a week and then is not slow at all, which is why a small outbreak is worth acting on."
         }
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Some illnesses are caused by living things too small to see",
+        "of": 16
+      }
     },
     {
       "day": 2,
+      "title": "What the marquee is taking now",
+      "scene": "People arrive through the marquee all afternoon. One rule on the whiteboard says who is seen first, and it is rewritten as the ward fills.",
+      "takeaway": "The cost of a rule that has changed is paid by whoever is still using the old one.",
+      "place": "Triage Marquee",
+      "guide": "Sort arrivals by the rule on the board and leave the rest. The rule changes during the afternoon and nobody calls it out. What counts is the arrivals either side of a change.",
+      "background": [
+        "Why the rule changes. It starts with how ill somebody is. When the isolation beds fill, it becomes who cannot safely wait at home. When the swabs come back, it becomes who is confirmed.",
+        "Why the change is where harm happens. Ten minutes on the old rule sends confirmed patients into the queue the new rule was written to clear."
+      ],
+      "story": "People arrive through the marquee all afternoon. One rule on the whiteboard says who is seen first, and it is rewritten as the ward fills.",
+      "game": {
+        "type": "SPOT",
+        "title": "What the marquee is taking now",
+        "setup": "Triage Marquee",
+        "play": "Sort arrivals to the rule on the board.",
+        "task": "Sort arrivals to the rule on the board.",
+        "question": "Sort arrivals to the rule on the whiteboard, and keep checking it.",
+        "answer": "Read the board, not the patient in front of you. Every change leaves a few minutes when the old rule still feels right.",
+        "why": "Three rules run across the afternoon and each wants different people. Anybody short of breath, then anybody who cannot stay away from others at home, then anybody with a confirmed test. A person can match two at once, and that is what makes a change cost something real. What the panel scores is the arrivals either side of a change. Most people who come through are wanted by neither rule, so handling those correctly proves nothing. The marquee's own version is the quarter hour after the isolation beds fill. The rule has changed, and the people already being walked down the corridor are being walked there under the rule from before.",
+        "spot": {
+          "targets": [
+            {
+              "id": "a1",
+              "label": "Breathless, no test",
+              "tags": [
+                "breathless"
+              ]
+            },
+            {
+              "id": "a2",
+              "label": "Confirmed, walking",
+              "tags": [
+                "confirmed"
+              ]
+            },
+            {
+              "id": "a3",
+              "label": "Breathless and confirmed",
+              "tags": [
+                "breathless",
+                "confirmed"
+              ]
+            },
+            {
+              "id": "a4",
+              "label": "Well, shared kitchen",
+              "tags": [
+                "cannotisolate"
+              ]
+            },
+            {
+              "id": "a5",
+              "label": "Confirmed, lives alone",
+              "tags": [
+                "confirmed"
+              ]
+            },
+            {
+              "id": "a6",
+              "label": "Breathless, lives alone",
+              "tags": [
+                "breathless"
+              ]
+            },
+            {
+              "id": "a7",
+              "label": "Well, care home",
+              "tags": [
+                "cannotisolate"
+              ]
+            },
+            {
+              "id": "a8",
+              "label": "Mild, hostel bed",
+              "tags": [
+                "cannotisolate",
+                "mild"
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "say": "Anybody short of breath",
+              "want": [
+                "breathless"
+              ]
+            },
+            {
+              "say": "Anybody who cannot stay apart at home",
+              "want": [
+                "cannotisolate"
+              ]
+            },
+            {
+              "say": "Anybody with a confirmed test",
+              "want": [
+                "confirmed"
+              ]
+            }
+          ],
+          "duration": 40,
+          "switchEvery": 12,
+          "pass": 0.75,
+          "hint": "The rule is on the whiteboard by the entrance and changes without warning.",
+          "commit": "Open the board"
+        }
+      },
+      "assumes": [
+        "a sorting rule can be changed while people are still arriving"
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Deciding while the answer is still unknown",
+        "of": 16,
+        "rests": [
+          "What a measurement can honestly say, and what it cannot"
+        ]
+      }
+    },
+    {
+      "day": 3,
       "title": "Where the oxygen stops getting through",
       "scene": "A patient's oxygen is dropping while Dr. Lena Ortiz reads the bedside screen. The blood carries plenty. The heart is pumping normally. The new lung pictures are not normal at all.",
       "takeaway": "A chain is found by checking every handover, and the normal ones narrow it down as much as the odd ones.",
       "place": "Intensive Care Unit",
+      "guide": "Build the path oxygen takes, in order, from the air in the room to the tissues that use it. Then name the link where it is failing for this patient. Read the screen rather than guessing: the blood is carrying plenty and the heart is pumping normally, and each of those rules a link out.",
+      "background": [
+        "What the path is. Air comes into the lungs. Oxygen crosses from the tiny air sacs into the blood. The blood carries it, the heart moves it around, and the tissues take it up. Each step can fail on its own, and each failure needs different treatment.",
+        "How the numbers rule links out. Plenty of oxygen carried in the blood means the carrying step is fine. A heart pumping normally means the delivery step is fine. So the failure has to be somewhere those two do not cover.",
+        "Why the lung pictures matter most. They point at the step where oxygen crosses from the air into the blood. That is the one link the other measurements cannot clear, and it is treated very differently from the others."
+      ],
       "story": "A patient's oxygen is dropping while Dr. Lena Ortiz reads the bedside screen. The blood carries plenty. The heart is pumping normally. The new lung pictures are not normal at all.",
       "game": {
         "type": "CHAIN",
@@ -92,27 +230,32 @@ export const CURRICULUM = {
             {
               "id": "ventilation",
               "label": "Ventilation to the alveoli",
-              "transfers": "fresh gas from the airways to the alveoli"
+              "transfers": "fresh gas from the airways to the alveoli",
+              "reading": "PaCO₂ 39 mmHg"
             },
             {
               "id": "gas_exchange",
               "label": "Air–blood gas exchange",
-              "transfers": "oxygen across the alveolar-capillary interface"
+              "transfers": "oxygen across the alveolar-capillary interface",
+              "reading": "arterial oxygen low; diffuse alveolar involvement on imaging"
             },
             {
               "id": "hemoglobin",
               "label": "Haemoglobin carriage",
-              "transfers": "oxygen bound in circulating blood"
+              "transfers": "oxygen bound in circulating blood",
+              "reading": "haemoglobin 14 g/dL"
             },
             {
               "id": "circulation",
               "label": "Cardiac flow",
-              "transfers": "oxygenated blood through the systemic circulation"
+              "transfers": "oxygenated blood through the systemic circulation",
+              "reading": "cardiac output 5.2 L/min"
             },
             {
               "id": "tissue_delivery",
               "label": "Tissue delivery and use",
-              "transfers": "oxygen from capillary blood to cells"
+              "transfers": "oxygen from capillary blood to cells",
+              "reading": "downstream metabolic evidence not yet complete"
             }
           ],
           "order": [
@@ -134,11 +277,17 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 3,
+      "day": 4,
       "title": "Which measurement is still missing",
       "scene": "The oxygen path points at the lungs, and the team wants one more measurement before rounds. Three of the four on offer have already been taken, in one form or another.",
       "takeaway": "The measurement worth taking is the one nobody can already answer from the chart.",
       "place": "Clinical Chemistry Bench",
+      "guide": "All four options are real measurements. Ask of each whether the team already has it, in one form or another. Three of these repeat something on the chart. Repeating the same reading on three machines tells you about the machines. One option looks somewhere nobody has looked yet, further along the path.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The oxygen path points at the lungs, and the team wants one more measurement before rounds. Three of the four on offer have already been taken, in one form or another.",
       "game": {
         "type": "CHOICE",
@@ -164,7 +313,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a measurement adds nothing if the chart already answers it"
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "What a measurement can honestly say, and what it cannot",
+        "of": 16,
+        "rests": [
+          "Repeats and numbers: a handful of cases proves little"
+        ]
+      }
     }
   ],
   "CELL": [
@@ -174,6 +331,12 @@ export const CURRICULUM = {
       "scene": "Only some kinds of cell in the airway are affected. The culture wing has four cards about getting into a cell, and nobody has put them in order.",
       "takeaway": "A cell's outside decides what can get in, which is why only some cells are affected.",
       "place": "Cell Culture Wing",
+      "guide": "These four are one chain, so ask what has to happen before each one. Nothing gets in until something on the surface recognises it. A cell without the right piece cannot be got into, however much arrives. That is why only some kinds of cell are affected. Everything after that is downstream of a door already opened.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Only some kinds of cell in the airway are affected. The culture wing has four cards about getting into a cell, and nobody has put them in order.",
       "game": {
         "type": "SEQUENCE",
@@ -205,7 +368,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a cell's outer layer lets some things through and keeps others out"
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "A germ has to get from one person into another somehow",
+        "of": 16,
+        "rests": [
+          "Some illnesses are caused by living things too small to see"
+        ]
+      }
     },
     {
       "day": 2,
@@ -213,6 +384,12 @@ export const CURRICULUM = {
       "scene": "Four things from the culture bench, each about something crossing a cell's outer layer. The cell biologist wants each one named before the model goes further.",
       "takeaway": "How something crosses is worked out from the rules it obeys, not from what it is called.",
       "place": "Membrane Biology Lab",
+      "guide": "Four observations and four ways of crossing. Pair them with three questions. Is it going downhill or uphill? Is anything helping it through? And is it too big to fit through anything? The energy being spent is the clue for one of them. The name of the thing crossing tells you nothing.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If three lines are right, the fourth response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
       "story": "Four things from the culture bench, each about something crossing a cell's outer layer. The cell biologist wants each one named before the model goes further.",
       "game": {
         "type": "PROTOCOL",
@@ -255,7 +432,15 @@ export const CURRICULUM = {
       "assumes": [
         "things spread from where there is more of them to where there is less",
         "a cell has to spend energy to move something the other way"
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "A germ has to get from one person into another somehow",
+        "of": 16,
+        "rests": [
+          "Some illnesses are caused by living things too small to see"
+        ]
+      }
     },
     {
       "day": 3,
@@ -263,6 +448,12 @@ export const CURRICULUM = {
       "scene": "Dr. Maya Chen has a test that counts how much gets into airway cells. Three changes are ready to try, and the treatment meeting needs to know about the first step.",
       "takeaway": "A cause is proved when changing one thing changes the result, and putting it back brings it back.",
       "place": "Structural Biology Room",
+      "guide": "The number you watch is how much gets inside the cells. Three changes are ready. Only one of them acts on the step the meeting is asking about. A change counts only if the number moves more than it wanders between wells. Change one thing, run the test, put it back, and name the change the number follows.",
+      "background": [
+        "What the test measures. The label only shows up when a particle has got inside a cell. Sticking to the outside does not count. That is the point of the test: landing on the cell and getting into it are two different steps, and a treatment that stops one may not stop the other.",
+        "Why one of the changes is meant to do nothing. The matched antibody is the same kind of antibody, but it does not target the landing site. Adding it controls for everything else that handling an antibody involves. If the real blocker changes the number and this one does not, the change came from the blocker.",
+        "Why the dose is on the list. Add more particles and more get in. The number moves, but nothing has been learned about the step. It is the trap: a change that moves the readout for the wrong reason."
+      ],
       "story": "Dr. Maya Chen has a test that counts how much gets into airway cells. Three changes are ready to try, and the treatment meeting needs to know about the first step.",
       "game": {
         "type": "CONTROL",
@@ -313,6 +504,12 @@ export const CURRICULUM = {
       "scene": "The stain shows the landing site all over the airway cells, and nowhere on the muscle cells two millimetres away. Same patient, same slice, same instructions inside every cell.",
       "takeaway": "Every cell carries the same instructions and reads a different part of them.",
       "place": "Cell Biology Laboratory",
+      "guide": "Four options, and both kinds of cell came from one patient, one slice, stained together. Ask of each whether having an instruction and using it are the same thing. Every cell holds all of them. So what has to differ is which ones get read, and that is what makes an airway cell an airway cell.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The stain shows the landing site all over the airway cells, and nowhere on the muscle cells two millimetres away. Same patient, same slice, same instructions inside every cell.",
       "game": {
         "type": "CHOICE",
@@ -338,7 +535,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "every cell in a body carries the same set of instructions"
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Some illnesses are caused by living things too small to see",
+        "of": 16
+      }
     }
   ],
   "MOL": [
@@ -348,6 +550,12 @@ export const CURRICULUM = {
       "scene": "A test works after being warmed to thirty-seven degrees. After the same part is held at fifty-five, it mostly stops working. Nothing else was changed.",
       "takeaway": "Change one thing and hold the rest, and what changes belongs to the thing you changed.",
       "place": "Molecular Diagnostics Bench",
+      "guide": "Four options, and only one thing was changed between the two runs. Ask of each whether it names something that was actually varied. The sample was not heated. The thing being looked for was not heated. Nothing else changed at all. So the answer has to be about the part that was warmed.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "A test works after being warmed to thirty-seven degrees. After the same part is held at fifty-five, it mostly stops working. Nothing else was changed.",
       "game": {
         "type": "CHOICE",
@@ -373,7 +581,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the working part of a test can be a protein, and a protein has to keep its shape to work"
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Germs change, and a change can beat a treatment",
+        "of": 16,
+        "rests": [
+          "Some illnesses are caused by living things too small to see"
+        ]
+      }
     },
     {
       "day": 2,
@@ -381,6 +597,12 @@ export const CURRICULUM = {
       "scene": "Hospitals want a test by sunrise and the room has four hours. Four steps are on the whiteboard. The machine multiplies whatever is in the tube a billion times, which is why the order is argued about.",
       "takeaway": "A test result is what a controlled process produced, not what a machine displayed.",
       "place": "Sample Processing Room",
+      "guide": "All four steps will happen, so ask what each one protects. Whatever is in the tube gets multiplied, including anything that drifted in from the room. Whose sample it is has to survive the first step. And the controls have to be in the run, not added afterwards. That is why this is about order.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Hospitals want a test by sunrise and the room has four hours. Four steps are on the whiteboard. The machine multiplies whatever is in the tube a billion times, which is why the order is argued about.",
       "game": {
         "type": "SEQUENCE",
@@ -412,7 +634,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the machine copies whatever is in the tube, wanted or not"
-      ]
+      ],
+      "concept": {
+        "n": 8,
+        "c": "A test can be wrong in two different directions",
+        "of": 16,
+        "rests": [
+          "Counting cases as a rate, not just as a number"
+        ]
+      }
     },
     {
       "day": 3,
@@ -420,6 +650,12 @@ export const CURRICULUM = {
       "scene": "Dr. Ravi Patel has patient tubes, two controls and a separate machine on one screen. One ward has already cleared isolation rooms. If this run is wrong, patients get moved before morning.",
       "takeaway": "Agreement is not evidence when everything agreeing came down the same pipe.",
       "place": "PCR Diagnostics Lab",
+      "guide": "Open each result to see what its run depended on. Keep the ones that would still stand if one step of the process were contaminated, and untick the rest. Then name the step the failing ones share. A ward is already clearing rooms, so both halves matter.",
+      "background": [
+        "How one shared step makes results agree wrongly. Tubes handled in the same batch go through the same liquids, the same machine and the same hands. Contamination anywhere in that chain shows up in every tube after it, and it looks exactly like a cluster of real positives.",
+        "What the controls do. A negative control that stays negative says the whole batch was not contaminated. A positive control says the chemistry worked. Neither can catch contamination that arrived after the controls were set, which is why the separate machine is on the screen.",
+        "Why a repeat is not enough. Running the same test again on the same tube goes through the same steps, so a contaminated result repeats perfectly. A different machine on a different sample is the evidence that survives the question."
+      ],
       "story": "Dr. Ravi Patel has patient tubes, two controls and a separate machine on one screen. One ward has already cleared isolation rooms. If this run is wrong, patients get moved before morning.",
       "game": {
         "type": "TRACE",
@@ -456,8 +692,7 @@ export const CURRICULUM = {
               "label": "Known positive control",
               "reading": "amplifies as expected (expected chemistry can amplify target)",
               "depends": [
-                "amp_chemistry",
-                "control_template"
+                "amp_chemistry"
               ]
             },
             {
@@ -466,8 +701,7 @@ export const CURRICULUM = {
               "reading": "target not detected in the same patients (expected separate preparation and chemistry)",
               "depends": [
                 "patient_material",
-                "orthogonal_chemistry",
-                "independent_prep"
+                "independent_platform"
               ]
             }
           ],
@@ -485,16 +719,8 @@ export const CURRICULUM = {
               "label": "Amplification-workflow carryover"
             },
             {
-              "id": "control_template",
-              "label": "Known positive-control template"
-            },
-            {
-              "id": "orthogonal_chemistry",
-              "label": "Independent platform chemistry"
-            },
-            {
-              "id": "independent_prep",
-              "label": "Independent sample preparation"
+              "id": "independent_platform",
+              "label": "The other platform's own preparation and chemistry"
             }
           ],
           "independent": [
@@ -509,7 +735,15 @@ export const CURRICULUM = {
       "assumes": [
         "a blank tube has no patient sample in it",
         "two machines with different chemistry fail in different ways"
-      ]
+      ],
+      "concept": {
+        "n": 8,
+        "c": "A test can be wrong in two different directions",
+        "of": 16,
+        "rests": [
+          "Counting cases as a rate, not just as a number"
+        ]
+      }
     }
   ],
   "IMM": [
@@ -519,6 +753,12 @@ export const CURRICULUM = {
       "scene": "Isolation has held for nine days and cases keep appearing. Four streams of information are on the table at the water plant, and each one saw a different slice of the city.",
       "takeaway": "Each stream watches a different group of people, and what it can show follows from which group.",
       "place": "Wastewater Treatment Plant",
+      "guide": "Four streams, and each one looked at a different slice of the city. Pair them by asking who is in that group, and what the stream can and cannot show. A reading from the sewer does not name a person, and it does not say how the germ travels. And a ward stays full while people are still getting better.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If three lines are right, the fourth response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
       "story": "Isolation has held for nine days and cases keep appearing. Four streams of information are on the table at the water plant, and each one saw a different slice of the city.",
       "game": {
         "type": "PROTOCOL",
@@ -560,7 +800,80 @@ export const CURRICULUM = {
       },
       "assumes": [
         "who ends up in a set of numbers is decided by how they were collected"
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "What a measurement can honestly say, and what it cannot",
+        "of": 16,
+        "rests": [
+          "Repeats and numbers: a handful of cases proves little"
+        ]
+      }
+    },
+    {
+      "day": 2,
+      "title": "Keeping the air going the right way",
+      "scene": "The isolation room has to stay at lower pressure than the corridor, so air moves in rather than out. Staff come and go, and a door is propped while a patient is turned.",
+      "takeaway": "A leak you do not answer does not close itself.",
+      "place": "Isolation Ward",
+      "guide": "Hold the pressure difference inside the band on the gauge. The band narrows as the ward fills. Every door that opens keeps letting pressure away for as long as it is open, so set the fan to answer it rather than waiting.",
+      "background": [
+        "Why lower pressure. Air moves from higher pressure to lower. A room kept below the corridor pulls air in under the door instead of pushing it out, so what is in the room stays there and leaves through a filter.",
+        "Why a propped door keeps costing. It is not one drop and done. It leaves a path open, and the pressure keeps leaking away until the fan works harder."
+      ],
+      "story": "The isolation room has to stay at lower pressure than the corridor, so air moves in rather than out. Staff come and go, and a door is propped while a patient is turned.",
+      "game": {
+        "type": "HOLD",
+        "title": "Keeping the air going the right way",
+        "setup": "Isolation Ward",
+        "play": "Hold the isolation room while the doors open.",
+        "task": "Hold the isolation room while the doors open.",
+        "question": "Hold the room below the corridor while the shift runs.",
+        "answer": "Inside the band for most of the shift, with the fan set to answer each door rather than turned up after the gauge has crossed.",
+        "why": "Air moves from higher pressure to lower. A room held below the corridor draws air in under its door, so what is in the room stays in the room and leaves through the filter. Everything in this shift works against that, and none of it is a single push. A propped door leaves a path open and the pressure keeps leaking away while it stands. So the fan is set to a new speed and left there rather than nudged. The band narrows as the ward fills, because a difference that is just about enough with two patients in the room is not enough with six. And the failure is quiet. A room that has gone the wrong way is pushing its air into the corridor and looks exactly like a room that has not, which is why somebody reads the gauge instead of assuming.",
+        "hold": {
+          "quantity": "Room pressure below the corridor",
+          "control": "Extract fan",
+          "unit": "Pa",
+          "hold": 8,
+          "band": 0.4,
+          "narrowTo": 0.2,
+          "duration": 45,
+          "authority": 0.1,
+          "pass": 0.8,
+          "direction": "raise",
+          "disturbances": [
+            {
+              "label": "Door propped for a turn",
+              "at": 4,
+              "amount": -0.03
+            },
+            {
+              "label": "Corridor window shut",
+              "at": 20,
+              "amount": 0.05
+            },
+            {
+              "label": "Second door opens",
+              "at": 38,
+              "amount": -0.045
+            }
+          ],
+          "hint": "Each door keeps leaking. Set the fan to answer it.",
+          "commit": "Report the shift"
+        }
+      },
+      "assumes": [
+        "air moves from higher pressure towards lower pressure"
+      ],
+      "concept": {
+        "n": 2,
+        "c": "A germ has to get from one person into another somehow",
+        "of": 16,
+        "rests": [
+          "Some illnesses are caused by living things too small to see"
+        ]
+      }
     }
   ],
   "POP": [
@@ -570,6 +883,12 @@ export const CURRICULUM = {
       "scene": "Seven patients across three hospitals in four days, with the same four symptoms. Dr. Sofia Morales has the printouts, and the press office has asked twice whether to say anything.",
       "takeaway": "A count becomes a signal only when something says what was expected instead.",
       "place": "Emergency Department Network",
+      "guide": "Four options, and one of them says nothing can be known at all. Ask of each what it would take to be true. A count on its own is not a signal. It becomes one when you have something to compare it with, and this city normally sees about two a year. Two of the seven were found another way, outside the alert rule.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Seven patients across three hospitals in four days, with the same four symptoms. Dr. Sofia Morales has the printouts, and the press office has asked twice whether to say anything.",
       "game": {
         "type": "CHOICE",
@@ -608,7 +927,12 @@ export const CURRICULUM = {
       "assumes": [
         "a rate counts cases against how many people there are and how long it took",
         "the system only sees the patients who reached a hospital"
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Repeats and numbers: a handful of cases proves little",
+        "of": 16
+      }
     },
     {
       "day": 2,
@@ -616,6 +940,12 @@ export const CURRICULUM = {
       "scene": "Three hospitals start counting at six in the morning. Each has written its own idea of what counts. Dr. Lena Ortiz, who leads the ward side, wants one on every desk before the night shift leaves.",
       "takeaway": "A definition turns a worry into something two people can count the same way.",
       "place": "Epidemiology Operations Room",
+      "guide": "All four steps will happen. Ask of each what it lets you check. A rule for what counts is a tool, and it can be wrong in two directions. Too narrow and you miss the spread. Too wide and it fills up with ordinary coughs. So it gets tried on known cases and on clear non-cases, and those catch opposite mistakes.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Three hospitals start counting at six in the morning. Each has written its own idea of what counts. Dr. Lena Ortiz, who leads the ward side, wants one on every desk before the night shift leaves.",
       "game": {
         "type": "SEQUENCE",
@@ -648,7 +978,15 @@ export const CURRICULUM = {
       "assumes": [
         "a graph of cases only means something if everybody counted the same thing",
         "a definition can be too narrow or too wide, and both are wrong"
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "A germ has to get from one person into another somehow",
+        "of": 16,
+        "rests": [
+          "Some illnesses are caused by living things too small to see"
+        ]
+      }
     },
     {
       "day": 3,
@@ -656,6 +994,12 @@ export const CURRICULUM = {
       "scene": "Morales can start one thing this afternoon. Four are ready to go, and tomorrow's hospital numbers will land before any second one can start.",
       "takeaway": "The best first measurement is the one that makes everything measured later comparable.",
       "place": "Clinical Data Office",
+      "guide": "All four options are real facts about a case. Ask of each whether three hospitals could add their numbers together without agreeing on it. Two hospitals counting different things produce a total that means nothing. The name, the place and the time are all worth having, and none of them changes what the number is a count of.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Morales can start one thing this afternoon. Four are ready to go, and tomorrow's hospital numbers will land before any second one can start.",
       "game": {
         "type": "CHOICE",
@@ -681,7 +1025,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "three hospitals can only be added together if they counted the same way"
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Deciding while the answer is still unknown",
+        "of": 16,
+        "rests": [
+          "What a measurement can honestly say, and what it cannot"
+        ]
+      }
     },
     {
       "day": 4,
@@ -689,6 +1041,12 @@ export const CURRICULUM = {
       "scene": "The bench has patient material, healthy tissue and a blank on it. There are four things it could do with them, and two of them use up what they measure.",
       "takeaway": "A first answer is built out of several observations, not printed by one machine.",
       "place": "Microscopy Core",
+      "guide": "All four steps will be done, and two of them use up what they measure. Ask of each what has to be true first. Measure something in a dirty sample and you have measured the dirt, close up. And asking whether it can copy itself alone only means something once you know whether it is a cell.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "The bench has patient material, healthy tissue and a blank on it. There are four things it could do with them, and two of them use up what they measure.",
       "game": {
         "type": "SEQUENCE",
@@ -720,7 +1078,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "measuring a dirty sample measures the dirt"
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Some illnesses are caused by living things too small to see",
+        "of": 16
+      }
     },
     {
       "day": 5,
@@ -728,6 +1091,11 @@ export const CURRICULUM = {
       "scene": "The mayor's office wants to test the whole town, and to treat every positive as a case. The desk has a table from ten thousand people, with the true answer beside the test's.",
       "takeaway": "When something is rare, most positives can be wrong even with a very good test.",
       "place": "Clinical Statistics Desk",
+      "guide": "Five numbers, and two of them are the whole town split into ill and well. Those were used to work out the flags. Ask which two this share needs. A share compares part with a whole. The whole here is everybody the test flagged, not everybody who is really ill.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The mayor's office wants to test the whole town, and to treat every positive as a case. The desk has a table from ten thousand people, with the true answer beside the test's.",
       "game": {
         "type": "BALLPARK",
@@ -784,7 +1152,15 @@ export const CURRICULUM = {
           ],
           "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
         }
-      ]
+      ],
+      "concept": {
+        "n": 8,
+        "c": "A test can be wrong in two different directions",
+        "of": 16,
+        "rests": [
+          "Counting cases as a rate, not just as a number"
+        ]
+      }
     },
     {
       "day": 6,
@@ -792,6 +1168,11 @@ export const CURRICULUM = {
       "scene": "The bedside argument has stalled on which of two patients is worse. Each litre of their blood carries the same oxygen. One moves three litres a minute and the other moves five.",
       "takeaway": "A full tank means nothing until something says how fast it is being delivered.",
       "place": "Cardiopulmonary Physiology Lab",
+      "guide": "Five numbers, and three belong elsewhere. The other patient's pump, how full the blood is, and how much carrier there is. Ask of each whether this sum needs it. Both patients carry the same oxygen in every litre, so that cannot tell them apart. What differs is how fast the blood moves.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The bedside argument has stalled on which of two patients is worse. Each litre of their blood carries the same oxygen. One moves three litres a minute and the other moves five.",
       "game": {
         "type": "BALLPARK",
@@ -816,6 +1197,12 @@ export const CURRICULUM = {
       "scene": "Dr. Arjun Singh has one field campaign and twenty sampling slots. Likely animals, comparison places and a second visit later all want the same crews.",
       "takeaway": "A field plan is defined by the explanations it can rule out with the samples it chooses.",
       "place": "Comparative Genomics Lab",
+      "guide": "One campaign, twenty sampling slots, and more animals, places and visits than the crews can cover. Watch the list of questions rather than the map. It shows which comparisons your plan can still make, and a plan that samples the most animals while keeping no comparison cannot tell the stories apart.",
+      "background": [
+        "Why comparisons rather than counts. Finding the germ in an animal shows it can carry it. It does not show that animal is the source. That needs a contrast: this animal against others, this place against another place, now against later.",
+        "What a comparison place is for. If the germ turns up everywhere, the finding says nothing about this outbreak. Finding it here and not there is what connects the animals to the people who got ill, and it costs half the campaign to be able to say so.",
+        "Why a second visit is worth so much. A single visit is a snapshot. It cannot tell a settled source from a one-off, and that difference decides whether anything has to change about how people live near these animals."
+      ],
       "story": "Dr. Arjun Singh has one field campaign and twenty sampling slots. Likely animals, comparison places and a second visit later all want the same crews.",
       "game": {
         "type": "ALLOCATE",
@@ -905,7 +1292,15 @@ export const CURRICULUM = {
       "assumes": [
         "a sample stands for the group it was drawn from",
         "telling where a germ lives from where it merely arrived needs a comparison"
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "A germ has to get from one person into another somehow",
+        "of": 16,
+        "rests": [
+          "Some illnesses are caused by living things too small to see"
+        ]
+      }
     },
     {
       "day": 8,
@@ -913,6 +1308,12 @@ export const CURRICULUM = {
       "scene": "A treatment that worked is failing, and another patient got worse overnight. The ward has the drug levels, the counts over time, and the germ's own readout from before and after.",
       "takeaway": "Something living can change while you watch, if what you are doing decides which ones survive.",
       "place": "Clinical Ward",
+      "guide": "Five readings, and the ordinary ones do the work. The drug got to a level that works. The count fell. The doses were all given. Ask of each option how many of the five it fits. What happened next is a rebound while the patient was still taking it. The reference sample staying sensitive says the test is fine.",
+      "background": [
+        "Why the quiet readings matter. It is easy to build a story around the number that is out of range. But most wrong explanations fail on something that did not move. If a cause would have pushed a second reading up and that reading is where it should be, the cause is not what happened, however well it explains the first one.",
+        "How to use the candidates. Take each one and ask what the panel would look like if it were true. Then compare that with the panel in front of you. Doing it in that order stops you fitting the story to the numbers, which is easy to do without noticing.",
+        "Why there is only one answer. More than one candidate will fit part of the panel, and that is on purpose. Only one fits every part of it. If two still look possible, find the reading they disagree about and let that reading choose."
+      ],
       "story": "A treatment that worked is failing, and another patient got worse overnight. The ward has the drug levels, the counts over time, and the germ's own readout from before and after.",
       "game": {
         "type": "DIAGNOSIS",
@@ -988,7 +1389,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a drug only works if it reaches the germ in a large enough amount"
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Germs change, and a change can beat a treatment",
+        "of": 16,
+        "rests": [
+          "Some illnesses are caused by living things too small to see"
+        ]
+      }
     },
     {
       "day": 9,
@@ -996,6 +1405,12 @@ export const CURRICULUM = {
       "scene": "The treatment worked for six weeks, and now fails in one patient in four. The failures cluster on the wards where it has been used longest. Somebody has said the germ learned to beat it.",
       "takeaway": "Nothing learns. What changes is which ones leave descendants.",
       "place": "Microbiology and Evolution Lab",
+      "guide": "These four are one chain, and somebody has said the germ learned. Ask of each card what has to be true before it. A few of them are already different before any drug arrives. What the drug changes is which ones are left to multiply. The wards where it has been used longest have simply had longer.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "The treatment worked for six weeks, and now fails in one patient in four. The failures cluster on the wards where it has been used longest. Somebody has said the germ learned to beat it.",
       "game": {
         "type": "SEQUENCE",
@@ -1027,7 +1442,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a population is never all the same, before anything acts on it"
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Germs change, and a change can beat a treatment",
+        "of": 16,
+        "rests": [
+          "Some illnesses are caused by living things too small to see"
+        ]
+      }
     },
     {
       "day": 10,
@@ -1035,6 +1458,12 @@ export const CURRICULUM = {
       "scene": "The treatment worked in eighty-two patients in a hundred nine weeks ago, and in fifty-one now. Eleven of the failures had their doses recorded and their drug levels checked.",
       "takeaway": "Compare the failures with matched successes, or the finding is just a description of the failures.",
       "place": "Pharmacology Unit",
+      "guide": "Four options, and a treatment can fail in three places. Not given properly. Not taken up by the body. Or no longer working where it acts. Ask of each which of the three it tests. Recorded doses and checked levels already weaken the first two. And matched patients who got better are what make the last option a test.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The treatment worked in eighty-two patients in a hundred nine weeks ago, and in fifty-one now. Eleven of the failures had their doses recorded and their drug levels checked.",
       "game": {
         "type": "CHOICE",
@@ -1060,7 +1489,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a comparison group is what turns a finding into evidence"
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Breaking one step of the chain stops the spread",
+        "of": 16,
+        "rests": [
+          "A germ has to get from one person into another somehow",
+          "One person passing it to more than one is why it grows"
+        ]
+      }
     },
     {
       "day": 11,
@@ -1068,6 +1506,12 @@ export const CURRICULUM = {
       "scene": "The city wants something done, and the room is arguing as if only one thing can be chosen. Four proposals are on the table, and each acts at a different moment.",
       "takeaway": "Measures that act at different moments are stronger together than more of any one of them.",
       "place": "Vaccine Design Lab",
+      "guide": "Four aims and four measures. Pair them by asking when each one acts. Before anybody meets it? As it gets in? After somebody is already ill? Or between people? The room is arguing as if only one can be chosen. Each of them fails in a different way, which is the argument for having several.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If three lines are right, the fourth response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
       "story": "The city wants something done, and the room is arguing as if only one thing can be chosen. Four proposals are on the table, and each acts at a different moment.",
       "game": {
         "type": "PROTOCOL",
@@ -1109,7 +1553,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an illness has a before, a during and an after, and different tools act at each"
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Breaking one step of the chain stops the spread",
+        "of": 16,
+        "rests": [
+          "A germ has to get from one person into another somehow",
+          "One person passing it to more than one is why it grows"
+        ]
+      }
     },
     {
       "day": 12,
@@ -1117,6 +1570,12 @@ export const CURRICULUM = {
       "scene": "Two things look promising in the dish, and the city wants one of them in patients within the month. Neither has been tried in an animal, and the plan on the table says nothing about when to stop.",
       "takeaway": "Being in a hurry changes how fast the steps go, not which steps there are.",
       "place": "Therapeutics Group",
+      "guide": "All four steps will happen, and hurrying changes their speed rather than their order. Ask of each what the next step would mean without it. Saying what it should do comes before finding out if it does. And without a rule for when to stop, a trial cannot be stopped when it should be.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Two things look promising in the dish, and the city wants one of them in patients within the month. Neither has been tried in an animal, and the plan on the table says nothing about when to stop.",
       "game": {
         "type": "SEQUENCE",
@@ -1148,7 +1607,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "working in a dish is not evidence of helping a person"
-      ]
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Comparing a group who had something with a group who did not",
+        "of": 16,
+        "rests": [
+          "A test can be wrong in two different directions",
+          "Repeats and numbers: a handful of cases proves little"
+        ]
+      }
     },
     {
       "day": 13,
@@ -1156,6 +1624,12 @@ export const CURRICULUM = {
       "scene": "Dr. Nia Okafor has six workable ideas and three slots to fund. Some can work this month. Others take longer, and some fail for exactly the same reasons as each other.",
       "takeaway": "A set of measures is stronger when they do not all depend on the same thing going right.",
       "place": "Public Health Strategy Room",
+      "guide": "Six workable ideas, three slots. Watch which response questions your current three can still answer. Ideas that fail for the same reason look like two defences and behave like one, so a set that holds when one assumption turns out wrong is worth more than three strong ideas that fall together.",
+      "background": [
+        "What layers are for. No single measure works perfectly, so you use several whose weaknesses are different. Two ideas that both depend on people reporting symptoms quickly are not two layers. They are one, paid for twice.",
+        "Why timing splits them too. Some can work this month and some take a season to set up. A set made only of slow ones leaves the next four weeks uncovered, whatever it achieves later.",
+        "How to test a set. Take each assumption in turn — people follow the advice, supplies arrive, the germ behaves as expected — and ask what still works if it is wrong. The set that survives each single failure is the one to fund."
+      ],
       "story": "Dr. Nia Okafor has six workable ideas and three slots to fund. Some can work this month. Others take longer, and some fail for exactly the same reasons as each other.",
       "game": {
         "type": "ALLOCATE",
@@ -1252,7 +1726,15 @@ export const CURRICULUM = {
       "assumes": [
         "things that work in different ways fail for different reasons",
         "a plan with three slots gives up three good ideas"
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Deciding while the answer is still unknown",
+        "of": 16,
+        "rests": [
+          "What a measurement can honestly say, and what it cannot"
+        ]
+      }
     },
     {
       "day": 14,
@@ -1260,6 +1742,12 @@ export const CURRICULUM = {
       "scene": "The emergency is closing, and four signed claims are going into the city's record. Two checks are left. The evidence under the four is not equally strong.",
       "takeaway": "Say each claim at the strength its own evidence can carry.",
       "place": "Scientific Review Hall",
+      "guide": "Four signed claims are going into the city's record and two checks are left. Open each claim and read what backs it now. Some rest on measurements from this outbreak, some on a chain of reasoning, and some on how confidently they are written. Hold what the evidence does not support, and check where a wrong claim would do the most damage.",
+      "background": [
+        "Why the record raises the bar. People will use these claims later without being able to see the evidence behind them. A claim taken back afterwards has already done its work, and the correction rarely travels as far as the claim did.",
+        "What full strength means. The same finding can be written as 'this is what happened', or 'this fits what happened', or 'we cannot rule it out'. Checking decides which of those it has earned, so a claim can pass by being written more carefully instead.",
+        "Why choosing is the real skill. Two checks and four claims means picking. Ask which one, if it is wrong, would send the next response in the wrong direction. That is not always the one with the weakest evidence."
+      ],
       "story": "The emergency is closing, and four signed claims are going into the city's record. Two checks are left. The evidence under the four is not equally strong.",
       "game": {
         "type": "ATTEST",
@@ -1309,7 +1797,15 @@ export const CURRICULUM = {
       "assumes": [
         "a signature records that somebody said it, not that anybody checked it",
         "a strong claim can survive one of its sources being wrong"
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "What a measurement can honestly say, and what it cannot",
+        "of": 16,
+        "rests": [
+          "Repeats and numbers: a handful of cases proves little"
+        ]
+      }
     },
     {
       "day": 15,
@@ -1317,6 +1813,12 @@ export const CURRICULUM = {
       "scene": "The mayor goes live in an hour. How it spreads is settled. The animal question is not. The treatment has eight weeks behind it. Every sentence will be replayed for years.",
       "takeaway": "A public account is ordered by the strength of its evidence, not by the order the work happened in.",
       "place": "City Command",
+      "guide": "All four things will be said, so the order is what is being chosen. Ask of each how much its evidence can carry. Three streams that agree? One small group of patients? Or a question still open? Every sentence gets replayed for years. Saying the open part as firmly as the settled part is what makes the whole briefing hard to believe later.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "The mayor goes live in an hour. How it spreads is settled. The animal question is not. The treatment has eight weeks behind it. Every sentence will be replayed for years.",
       "game": {
         "type": "SEQUENCE",
@@ -1342,7 +1844,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "people judge a claim by how it was supported, once they find out"
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Telling people what to do, and why it has to be doable",
+        "of": 16,
+        "rests": [
+          "Breaking one step of the chain stops the spread"
+        ]
+      }
     },
     {
       "day": 16,
@@ -1350,6 +1860,12 @@ export const CURRICULUM = {
       "scene": "The emergency budget ends in three weeks, and anything not protected stops with it. Four programmes want the last line. The council votes this month.",
       "takeaway": "Keep the system that spots the next one, not the instrument that starred in this one.",
       "place": "Public Briefing Room",
+      "guide": "Four programmes, and three of them worked this time. Ask of each whether it would work on a different outbreak. Each stream sees a different part, and the value comes from putting them side by side. Note what the cheapest thing on the list costs too. Records are nearly free, and they are the first to go.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The emergency budget ends in three weeks, and anything not protected stops with it. Four programmes want the last line. The council votes this month.",
       "game": {
         "type": "CHOICE",
@@ -1375,16 +1891,184 @@ export const CURRICULUM = {
       },
       "assumes": [
         "anything not funded to continue stops when the emergency does"
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Telling people what to do, and why it has to be doable",
+        "of": 16,
+        "rests": [
+          "Breaking one step of the chain stops the spread"
+        ]
+      }
     }
   ],
   "FIELD": [
     {
       "day": 1,
+      "title": "Clean side, dirty side",
+      "scene": "The courier leaves in ten minutes and the tray has to be sorted. One side of the bench has touched nothing outside the cabinet. The other has been open to the room, a glove, or a patient.",
+      "takeaway": "What decides clean is where a thing has been, not what it looks like.",
+      "place": "Container Laboratory",
+      "guide": "Two bins. Ask where the thing has been since it was last clean. If it has been open to the room, it cannot go back to the clean side, however clean it looks.",
+      "background": [
+        "Why looking clean is not the test. Germs are too small to see. Once something has been open to the room it can carry what the room carries, and it looks exactly the same.",
+        "Why it is worth ten minutes. One dirty item put back on the clean side puts the room's germs into every sample that follows it."
+      ],
+      "story": "The courier leaves in ten minutes and the tray has to be sorted. One side of the bench has touched nothing outside the cabinet. The other has been open to the room, a glove, or a patient.",
+      "game": {
+        "type": "BELT",
+        "title": "Clean side, dirty side",
+        "setup": "Container Laboratory",
+        "play": "Sort the tray before the courier goes.",
+        "task": "Sort the tray before the courier goes.",
+        "question": "Send each item to the side its history puts it on.",
+        "answer": "Anything open to the room, a glove or a patient goes to the dirty side. Anything that stayed in the cabinet or a sealed pack stays clean.",
+        "why": "The clean side is about where a thing has been. Not about how it looks. Something kept inside the running cabinet has only met filtered air. So has something still sealed. Anything that has met the room can carry what the room carries. And it looks exactly the same afterwards. That is why a sealed swab dropped on the floor is dirty on the outside. It is also why an open plate that sat in a working cabinet for an hour is still clean. Getting it wrong does not spoil one sample. It puts the room's germs into every sample that follows. Later, nobody can tell which results were real.",
+        "belt": {
+          "left": {
+            "name": "Clean side"
+          },
+          "right": {
+            "name": "Dirty side"
+          },
+          "items": [
+            {
+              "name": "Sealed swab pack",
+              "bin": "left"
+            },
+            {
+              "name": "Autoclaved loop",
+              "bin": "left"
+            },
+            {
+              "name": "Cabinet plate",
+              "bin": "left"
+            },
+            {
+              "name": "Unopened bottle",
+              "bin": "left"
+            },
+            {
+              "name": "Fresh tips",
+              "bin": "left"
+            },
+            {
+              "name": "Filtered air line",
+              "bin": "left"
+            },
+            {
+              "name": "Flamed forceps",
+              "bin": "left"
+            },
+            {
+              "name": "Sealed tube",
+              "bin": "left"
+            },
+            {
+              "name": "New gloves",
+              "bin": "left"
+            },
+            {
+              "name": "Sterile bag",
+              "bin": "left"
+            },
+            {
+              "name": "Cabinet rack",
+              "bin": "left"
+            },
+            {
+              "name": "Sealed vial",
+              "bin": "left"
+            },
+            {
+              "name": "Dropped sealed swab",
+              "bin": "right"
+            },
+            {
+              "name": "Loop left out",
+              "bin": "right"
+            },
+            {
+              "name": "Plate carried open",
+              "bin": "right"
+            },
+            {
+              "name": "Opened bottle",
+              "bin": "right"
+            },
+            {
+              "name": "Used tips",
+              "bin": "right"
+            },
+            {
+              "name": "Left in the",
+              "bin": "right"
+            },
+            {
+              "name": "Forceps on bench",
+              "bin": "right"
+            },
+            {
+              "name": "Cracked seal",
+              "bin": "right"
+            },
+            {
+              "name": "Worn gloves",
+              "bin": "right"
+            },
+            {
+              "name": "Bag opened yesterday",
+              "bin": "right"
+            },
+            {
+              "name": "Corridor trolley",
+              "bin": "right"
+            },
+            {
+              "name": "Pierced vial",
+              "bin": "right"
+            },
+            {
+              "name": "Ward thermometer",
+              "bin": "right"
+            },
+            {
+              "name": "Doorway trolley",
+              "bin": "right"
+            }
+          ],
+          "need": 20,
+          "lives": 3,
+          "pass": 0.8,
+          "hint": "Ask where it has been, not what it looks like.",
+          "commit": "Start the line"
+        }
+      },
+      "assumes": [
+        "something can be clean and stop being clean without looking different"
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Breaking one step of the chain stops the spread",
+        "of": 16,
+        "rests": [
+          "A germ has to get from one person into another somehow",
+          "One person passing it to more than one is why it grows"
+        ]
+      }
+    },
+    {
+      "day": 2,
       "title": "Carrier, carrier-of-it, or bystander",
       "scene": "Sequences from three patients sit close to something found in animals along the river. The field station has four patterns on the board, and a trapper waiting outside with more animals.",
       "takeaway": "What an animal's role is comes from what it does over time, not from being close by.",
       "place": "One Health Field Station",
+      "guide": "Four patterns and four roles. Pair them by asking what the animal does, not how close it is. Does the germ live in it? Does it pass it on? Does the chain stop there? One animal is simply common near cases and always tests clean. Sharing the ground is not sharing the germ.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If three lines are right, the fourth response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
       "story": "Sequences from three patients sit close to something found in animals along the river. The field station has four patterns on the board, and a trapper waiting outside with more animals.",
       "game": {
         "type": "PROTOCOL",
@@ -1426,14 +2110,28 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an animal can carry a germ, move it about, or simply be nearby"
-      ]
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Animals and people share some illnesses",
+        "of": 16,
+        "rests": [
+          "A germ has to get from one person into another somehow"
+        ]
+      }
     },
     {
-      "day": 2,
+      "day": 3,
       "title": "Test where it lives",
       "scene": "Trappers report sick animals on the flood plain. Nobody has sampled in a way that could tell where the germ lives from an animal that caught it from people.",
       "takeaway": "A claim about where something lives needs a design that could have found it somewhere else.",
       "place": "Wildlife Ecology Site",
+      "guide": "All four steps will happen, and the campaign gets paid for once. A positive animal is not where the germ lives. What makes it that is a search that could have found it somewhere else and did not. Ask of each step what makes the next one mean anything. Comparison places are what make a figure worth having.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Trappers report sick animals on the flood plain. Nobody has sampled in a way that could tell where the germ lives from an animal that caught it from people.",
       "game": {
         "type": "SEQUENCE",
@@ -1486,7 +2184,15 @@ export const CURRICULUM = {
           ],
           "s": "Two towns of different sizes can only be compared once the counts are turned into rates."
         }
-      ]
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Animals and people share some illnesses",
+        "of": 16,
+        "rests": [
+          "A germ has to get from one person into another somehow"
+        ]
+      }
     }
   ]
 };

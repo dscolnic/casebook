@@ -204,6 +204,42 @@ const WRONG = {
       balSum: counted.reduce((n, i) => n + +g.balance.streams[i].value, 0) };
   },
   VERIFY: g => ({ verPred: +g.verify.prediction.min, verMeasured: null }),
+  // A run that finished with three in the wrong tray. The verdict is made of
+  // those three, so a belt with none of them has nothing to show.
+  // Two marks hit and the far one missed short — the shape the verdict's last
+  // line is about: a mark near the limit of the charge has no margin.
+  LOB: (g) => ({ lobHits: Math.max(0, g.lob.targets.length - 1),
+    lobResults: g.lob.targets.map((m, i) => ({ mark: m.label,
+      hit: i < g.lob.targets.length - 1, shots: i + 2,
+      off: i < g.lob.targets.length - 1 ? 0.6 : -9.4 })) }),
+  // A run that answered most of the rail and cleared almost nothing — the shape
+  // the verdict is written to talk about.
+  STACK: (g) => ({ stackRight: 6, stackAsked: +g.stack.need, stackLines: 1,
+    stackNeed: +g.stack.need }),
+  // A run whose errors are bunched after the instruction changed — the shape the
+  // verdict exists to point at.
+  SPOT: () => ({ spotAcc: 0.61, spotWrongTakes: 5, spotMisses: 3, spotLate: 6, spotTook: 14 }),
+  // A run that drifted out and stayed out: the do-nothing run the format's own
+  // trap is written against.
+  HOLD: (g) => ({ holdHeld: 0.42, holdWorst: +g.hold.band * 2.4, holdMissed: 900 }),
+  // A run that took every gate but swapped the middle two. The verdict is made
+  // of the comparison, so an order identical to the authored one shows nothing.
+  TRIAL: (g) => {
+    const o = g.trial.order.slice();
+    if(o.length > 2){ const t = o[1]; o[1] = o[2]; o[2] = t; }
+    return { trialOrder: o, trialSeconds: 41.6 };
+  },
+  BELT: (g) => {
+    const upName = g.belt.left.name, downName = g.belt.right.name;
+    const missorted = g.belt.items.slice(0, 3).map((it, i) => ({
+      name: it.name,
+      belongs: it.bin === 'left' ? upName : downName,
+      sentTo: it.bin === 'left' ? downName : upName,
+      missed: i === 2,
+    }));
+    return { beltRight: (g.belt.need ?? 20) - 3, beltResolved: g.belt.need ?? 20,
+      beltBest: 7, beltWrong: missorted };
+  },
 };
 const NOTE = {
   TRIGGER: 'every threshold written at the top of the scale',
@@ -218,6 +254,12 @@ const NOTE = {
   CHAIN: 'named the largest member as the governing one',
   BALANCE: 'counted every stream that had a gauge on it',
   VERIFY: 'reported the prediction without measuring',
+  LOB: 'the far mark left short, with nothing in reserve',
+  STACK: 'two wrong, and a row packed in under the stack for each',
+  SPOT: 'kept sending up what the withdrawn instruction wanted',
+  HOLD: 'waited for the needle to come back on its own',
+  TRIAL: 'measured before zeroing, and the clock says nothing about it',
+  BELT: 'three went to the wrong tray, one of them straight past',
 };
 for(const { l, g, kind } of found){
   if(!WRONG[kind]) continue;

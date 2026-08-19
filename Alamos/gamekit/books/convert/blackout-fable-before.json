@@ -1,0 +1,530 @@
+{
+ "theme": "blackout_fable",
+ "computed": [
+  "E = Pt",
+  "P = IV, and P = I²R",
+  "P = √3 · V_L · I_L · cos φ",
+  "S = √(P² + Q²), pf = P/S",
+  "V = IR",
+  "V_rms = V_peak / √2",
+  "df/dt = (P_gen − P_load) / 2H",
+  "peak = base peak + sensitivity × degrees below",
+  "η = E_out / E_in"
+ ],
+ "concepts": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26,
+  27,
+  28,
+  29,
+  30,
+  31,
+  32
+ ],
+ "stops": {
+  "OPS:0": {
+   "day": 1,
+   "format": "PROTOCOL",
+   "title": "What a frequency trend is evidence of",
+   "takeaway": "Frequency is a system-wide balance signal; its rate of change depends on both the power mismatch and stored kinetic energy.",
+   "assumes": [
+    "an alternating supply has a frequency measured in cycles per second"
+   ],
+   "computes": []
+  },
+  "GEN:0": {
+   "day": 1,
+   "format": "BALLPARK",
+   "title": "How much power actually left the system",
+   "takeaway": "The initial rate of frequency change measures the size of the imbalance, given the inertia.",
+   "assumes": [
+    "a rate of change can be read off the steep part of a trend"
+   ],
+   "computes": [
+    "df/dt = (P_gen − P_load) / 2H"
+   ]
+  },
+  "METER:0": {
+   "day": 1,
+   "format": "TRACE",
+   "title": "The order the records claim things happened in",
+   "takeaway": "Agreement is independent evidence only when the channels do not share the same dependency.",
+   "assumes": [
+    "a timestamp combines a measured event with a clock reference",
+    "two channels can agree because they share the same source"
+   ],
+   "computes": []
+  },
+  "TRANS:0": {
+   "day": 2,
+   "format": "TRIGGER",
+   "title": "What you do before a relay does it for you",
+   "takeaway": "A protection plan must be written before the number moves, with earlier thresholds for actions that take longer to arrive.",
+   "assumes": [
+    "continuous and emergency ratings are different limits",
+    "redispatch is slower than automatic or operator load shedding"
+   ],
+   "computes": []
+  },
+  "LOAD:0": {
+   "day": 2,
+   "format": "BALLPARK",
+   "title": "The power that never arrives",
+   "takeaway": "Loss rises with the square of current, which is why a small overload costs more than it looks.",
+   "assumes": [
+    "current through a resistance dissipates power as heat"
+   ],
+   "computes": [
+    "P = IV, and P = I²R",
+    "V = IR",
+    "V_rms = V_peak / √2"
+   ]
+  },
+  "OPS:1": {
+   "day": 2,
+   "format": "CHOICE",
+   "title": "The contingency you are actually protecting against",
+   "takeaway": "A rating is only interesting alongside what the flow does when that element is gone.",
+   "assumes": [
+    "a network is required to survive the loss of any single element"
+   ],
+   "computes": []
+  },
+  "DIST:0": {
+   "day": 3,
+   "format": "BALLPARK",
+   "title": "Why the far end sits low",
+   "takeaway": "Volt drop is set by the current and by both parts of the line's impedance.",
+   "assumes": [
+    "current flowing through a resistance produces a drop in voltage"
+   ],
+   "computes": [
+    "S = √(P² + Q²), pf = P/S",
+    "V = IR"
+   ]
+  },
+  "TRANS:1": {
+   "day": 3,
+   "format": "PROTOCOL",
+   "title": "What actually limits a conductor",
+   "takeaway": "Current sets the heat, voltage sets the insulation, and the two limits are separate.",
+   "assumes": [
+    "a conductor warms up as current passes through it"
+   ],
+   "computes": []
+  },
+  "OPS:2": {
+   "day": 3,
+   "format": "CHOICE",
+   "title": "The order somebody will read back to you",
+   "takeaway": "The first crew goes where the consequence of waiting is worst, not where the count is biggest.",
+   "assumes": [
+    "a crew can only work one fault at a time"
+   ],
+   "computes": []
+  },
+  "METER:1": {
+   "day": 4,
+   "format": "BALLPARK",
+   "title": "What three phases actually add up to",
+   "takeaway": "Three-phase power from line quantities carries a factor of root three, and it is not three.",
+   "assumes": [
+    "a three-phase supply carries power on three conductors at once"
+   ],
+   "computes": [
+    "P = √3 · V_L · I_L · cos φ",
+    "S = √(P² + Q²), pf = P/S"
+   ]
+  },
+  "GEN:1": {
+   "day": 4,
+   "format": "SEQUENCE",
+   "title": "Four things that have to agree before the breaker closes",
+   "takeaway": "Speed, then voltage, then phase angle, and only then the breaker.",
+   "assumes": [
+    "a generator joined to a live system is forced to turn at the system's speed"
+   ],
+   "computes": []
+  },
+  "TRANS:2": {
+   "day": 4,
+   "format": "CHOICE",
+   "title": "Two instruments, two quantities",
+   "takeaway": "Peak and RMS are different quantities, and one is the other divided by root two.",
+   "assumes": [
+    "an alternating voltage changes continuously through each cycle"
+   ],
+   "computes": []
+  },
+  "LOAD:1": {
+   "day": 5,
+   "format": "BALLPARK",
+   "title": "What comes out against what went in",
+   "takeaway": "Round-trip efficiency is measured on the energy, not on the power rating.",
+   "assumes": [
+    "storing energy and recovering it both lose some of it"
+   ],
+   "computes": [
+    "η = E_out / E_in"
+   ]
+  },
+  "GEN:2": {
+   "day": 5,
+   "format": "CHOICE",
+   "title": "The reason the wires are not at wall voltage",
+   "takeaway": "The same power can be delivered in more than one way, and the ways are not equally wasteful.",
+   "assumes": [
+    "a transformer changes voltage in proportion to its turns"
+   ],
+   "computes": []
+  },
+  "OPS:3": {
+   "day": 5,
+   "format": "VALUE",
+   "title": "What is worth knowing before the peak",
+   "takeaway": "The value of a measurement is the decision it can change, not how precise or interesting it sounds.",
+   "assumes": [
+    "reserve is held against uncertainty rather than only the forecast centre",
+    "storage power and storage deliverability are separate claims"
+   ],
+   "computes": []
+  },
+  "TRANS:3": {
+   "day": 6,
+   "format": "BALLPARK",
+   "title": "How the flow splits between two paths",
+   "takeaway": "The lower-impedance path takes the larger share, in inverse proportion.",
+   "assumes": [
+    "two paths between the same two points carry the same voltage across them"
+   ],
+   "computes": []
+  },
+  "OPS:4": {
+   "day": 6,
+   "format": "CHOICE",
+   "title": "What a node has to add up to",
+   "takeaway": "A conservation law bounds the parts of a system without identifying any of them.",
+   "assumes": [
+    "charge does not accumulate at a junction"
+   ],
+   "computes": []
+  },
+  "DIST:1": {
+   "day": 6,
+   "format": "PROTOCOL",
+   "title": "What is common and what divides",
+   "takeaway": "Series shares the current and divides the voltage; parallel shares the voltage and divides the current.",
+   "assumes": [
+    "a circuit can be connected end to end or side by side"
+   ],
+   "computes": []
+  },
+  "TRANS:4": {
+   "day": 7,
+   "format": "BALLPARK",
+   "title": "What a short circuit is limited by",
+   "takeaway": "Fault current is the driving voltage over the impedance of the path, and nothing else limits it.",
+   "assumes": [
+    "a short circuit leaves almost no impedance in the path"
+   ],
+   "computes": []
+  },
+  "METER:2": {
+   "day": 7,
+   "format": "CONTROL",
+   "title": "A reading taken without a connection",
+   "takeaway": "A current transformer responds to changing magnetic flux; a steady primary current produces no sustained secondary signal.",
+   "assumes": [
+    "a changing magnetic field can induce voltage in a nearby coil",
+    "the bench current transformer has 1 primary turn and 20 secondary turns"
+   ],
+   "computes": []
+  },
+  "DIST:2": {
+   "day": 7,
+   "format": "CHOICE",
+   "title": "The ground is not at one voltage",
+   "takeaway": "Isolation is not proof of safety, and earthing is what makes it provable.",
+   "assumes": [
+    "a conductor can be re-energised from more than one direction"
+   ],
+   "computes": []
+  },
+  "LOAD:2": {
+   "day": 8,
+   "format": "BALLPARK",
+   "title": "The peak, and how far the cold moves it",
+   "takeaway": "A forecast is a base shape plus a sensitivity, and the sensitivity is measured rather than assumed.",
+   "assumes": [
+    "demand rises as the temperature falls, roughly in step"
+   ],
+   "computes": [
+    "peak = base peak + sensitivity × degrees below"
+   ]
+  },
+  "OPS:5": {
+   "day": 8,
+   "format": "CASEBOOK",
+   "title": "Cheapest first, and the exceptions that are not exceptions",
+   "takeaway": "Merit order is cost order, corrected for what the system also needs from a machine.",
+   "assumes": [
+    "generation is scheduled in order of what it costs to run"
+   ],
+   "computes": []
+  },
+  "GEN:3": {
+   "day": 8,
+   "format": "SCIENCETANK",
+   "title": "When the cheapest power cannot get out",
+   "takeaway": "Curtailment is what a network limit looks like from the generator's end.",
+   "assumes": [
+    "power has to have a path to where it is used"
+   ],
+   "computes": []
+  },
+  "OPS:6": {
+   "day": 9,
+   "format": "DEGENERACY",
+   "title": "Why the island's frequency is falling slowly",
+   "takeaway": "A frequency slope constrains the ratio of power imbalance to stored kinetic energy; it does not determine either one by itself.",
+   "assumes": [
+    "the island is near 50 Hz",
+    "the initial frequency slope follows df/dt = f₀ΔP/(2E_k)"
+   ],
+   "computes": []
+  },
+  "METER:3": {
+   "day": 9,
+   "format": "PROTOCOL",
+   "title": "What is stored, and for how long",
+   "takeaway": "Every store has a timescale, and matching the store to the timescale is the whole trick.",
+   "assumes": [
+    "energy can be stored in a spinning mass, in a magnetic field or in a chemical cell"
+   ],
+   "computes": []
+  },
+  "DIST:3": {
+   "day": 9,
+   "format": "CHOICE",
+   "title": "Keeping it, or collapsing it on purpose",
+   "takeaway": "Shedding some load to keep an island alive is usually cheaper than restoring it from nothing.",
+   "assumes": [
+    "restoring a collapsed island takes longer than holding a live one"
+   ],
+   "computes": []
+  },
+  "GEN:4": {
+   "day": 10,
+   "format": "BALLPARK",
+   "title": "What the dark hours actually cost",
+   "takeaway": "Power is a rate and energy is the amount, and the settlement is always in energy.",
+   "assumes": [
+    "power sustained over a period of time delivers energy"
+   ],
+   "computes": [
+    "E = Pt"
+   ]
+  },
+  "OPS:7": {
+   "day": 10,
+   "format": "CHAIN",
+   "title": "The order physics allows",
+   "takeaway": "A black start is a dependency chain: the largest generator is useless until a smaller source can energise its auxiliaries through a complete path.",
+   "assumes": [
+    "the large station needs electrical auxiliaries before it can start",
+    "the hydro unit can start without an outside electrical supply"
+   ],
+   "computes": []
+  },
+  "DIST:4": {
+   "day": 10,
+   "format": "CASEBOOK",
+   "title": "Why it cannot go faster",
+   "takeaway": "Every restoration step is limited by something different, and hurrying the wrong one collapses it again.",
+   "assumes": [
+    "a small live system is disturbed more by a given block of load than a large one"
+   ],
+   "computes": []
+  },
+  "METER:4": {
+   "day": 11,
+   "format": "CHOICE",
+   "title": "The sensor that was confident and wrong",
+   "takeaway": "Precision is repeatability; accuracy is being right. A drifted sensor has the first and not the second.",
+   "assumes": [
+    "an instrument can be precise and still be offset from the truth"
+   ],
+   "computes": []
+  },
+  "TRANS:5": {
+   "day": 11,
+   "format": "SWEEP",
+   "title": "What a rating is a statement about",
+   "takeaway": "A rating is a temperature expressed as a current, so a wrong temperature makes the current limit meaningless.",
+   "assumes": [
+    "a conductor's rating is a limit on temperature rather than on current",
+    "resistive heating rises faster than the current that causes it"
+   ],
+   "computes": []
+  },
+  "OPS:8": {
+   "day": 11,
+   "format": "CASEBOOK",
+   "title": "What survives a bad number",
+   "takeaway": "A bad input invalidates what rested on it and leaves the rest standing, and telling them apart is the work.",
+   "assumes": [
+    "a conclusion can depend on one input or on several"
+   ],
+   "computes": []
+  },
+  "OPS:9": {
+   "day": 12,
+   "format": "CHOICE",
+   "title": "The failure that has not happened",
+   "takeaway": "An N-1 check is a statement about single failures, and it says nothing about 2.",
+   "assumes": [
+    "a system is required to survive any one credible failure"
+   ],
+   "computes": []
+  },
+  "LOAD:3": {
+   "day": 12,
+   "format": "PROTOCOL",
+   "title": "The trend with nothing wrong with it",
+   "takeaway": "One good night is not evidence about the method, because the width was never a claim about tonight.",
+   "assumes": [
+    "a forecast can be right by luck as easily as by skill on any one day"
+   ],
+   "computes": []
+  },
+  "GEN:5": {
+   "day": 12,
+   "format": "VALUE",
+   "title": "Which of these is a measurement",
+   "takeaway": "An old assumption deserves priority when it is load-bearing, likely to have changed, and cheap enough to check.",
+   "assumes": [
+    "stored kinetic energy affects the initial rate of frequency change",
+    "inverter-connected generation may add power without adding synchronous inertia"
+   ],
+   "computes": []
+  },
+  "OPS:10": {
+   "day": 13,
+   "format": "DELEGATE",
+   "title": "Which of the three cannot wait",
+   "takeaway": "Urgency comes from how fast a condition is worsening, how reversible it is, and whether somebody else can own the next move.",
+   "assumes": [
+    "a stable problem can be severe without becoming more urgent each minute",
+    "reserve actions need lead time before the peak"
+   ],
+   "computes": []
+  },
+  "TRANS:6": {
+   "day": 13,
+   "format": "BALLPARK",
+   "title": "Loss when the load turns up anyway",
+   "takeaway": "When a quantity enters squared, a small change in it is a large change in the result.",
+   "assumes": [
+    "loss in a conductor rises with the square of the current"
+   ],
+   "computes": [
+    "V = IR",
+    "V_rms = V_peak / √2"
+   ]
+  },
+  "LOAD:4": {
+   "day": 13,
+   "format": "SEQUENCE",
+   "title": "An order that survives being carried out",
+   "takeaway": "Do the moves that improve your information first and the moves you cannot undo last.",
+   "assumes": [
+    "some actions change the value of the actions that follow them"
+   ],
+   "computes": []
+  },
+  "METER:5": {
+   "day": 14,
+   "format": "CHOICE",
+   "title": "Hours over limit, added up",
+   "takeaway": "Thermal damage integrates over time, so 90 scattered hours count as 90 hours.",
+   "assumes": [
+    "time spent above a thermal limit accumulates rather than resetting"
+   ],
+   "computes": []
+  },
+  "TRANS:7": {
+   "day": 14,
+   "format": "SCIENCETANK",
+   "title": "What the window is worth",
+   "takeaway": "When one path closes today, its value includes everything the eighteen-month delay would cost.",
+   "assumes": [
+    "an option with an expiry date is worth more than the same option without one"
+   ],
+   "computes": []
+  },
+  "OPS:11": {
+   "day": 14,
+   "format": "PROTOCOL",
+   "title": "The 18 months you just bought",
+   "takeaway": "Committing to a fix commits you to running the system without it until it arrives, and that has to be planned too.",
+   "assumes": [
+    "a decision to build something is also a decision about the years before it exists"
+   ],
+   "computes": []
+  },
+  "METER:6": {
+   "day": 15,
+   "format": "ATTEST",
+   "title": "Measured, inferred, assumed",
+   "takeaway": "A signed claim is still only as strong as the evidence behind it; verification should go first to critical claims that remain unbacked.",
+   "assumes": [
+    "a report claim can be measured, inferred or still assumed",
+    "verification time is limited before the report closes"
+   ],
+   "computes": []
+  },
+  "LOAD:5": {
+   "day": 15,
+   "format": "CHOICE",
+   "title": "The number that has to be a range",
+   "takeaway": "A prediction is only usable by a planner if it says how wrong it might be.",
+   "assumes": [
+    "a forecast is a distribution rather than a single value"
+   ],
+   "computes": []
+  },
+  "OPS:12": {
+   "day": 15,
+   "format": "CHOICE",
+   "title": "What outlives the emergency",
+   "takeaway": "Keep the practices that would have caught the fault early, and drop the ones that only paid off because the fortnight was abnormal.",
+   "assumes": [
+    "a practice adopted under pressure has a cost that only shows up later"
+   ],
+   "computes": []
+  }
+ }
+}

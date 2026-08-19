@@ -6,65 +6,16 @@ export const CURRICULUM = {
   "SEIS": [
     {
       "day": 1,
-      "title": "The same event, recorded twice",
-      "scene": "Inês Cardoso has two records of the same earthquake, from stations eleven hundred metres apart. One trace is short and sharp. The other is three times taller and runs half a minute longer.",
-      "takeaway": "A record describes one place, so two records of one earthquake can disagree and both be right.",
-      "place": "Seismic Network",
-      "story": "Inês Cardoso has two records of the same earthquake, from stations eleven hundred metres apart. One trace is short and sharp. The other is three times taller and runs half a minute longer.",
-      "game": {
-        "type": "CHOICE",
-        "title": "The same event, recorded twice",
-        "setup": "Seismic Network",
-        "play": "Say what the difference between the two records means.",
-        "task": "Say what the difference between the two records means.",
-        "question": "What does the difference between the two records mean?",
-        "answer": "The Flats record is about three times the rock one, because the ground there is soft fill. Same earthquake, different ground underneath.",
-        "why": "The earthquake was one event. What each instrument recorded is what its own ground did. The bench is granite, and granite passes shaking on nearly unchanged. The Flats are soft fill, and soft ground shakes harder and for longer. Here the soft site moved about three times as far as the rock site. That is the ground, not a bigger earthquake under one town. It is also why one number for a whole town is a poor number.",
-        "rebuttals": [
-          "Both instruments checked out against a third sensor this morning. The difference is real.",
-          "Eleven hundred metres is nothing against a source twenty kilometres away. Distance cannot make it three times bigger.",
-          "Both records cover the same ninety seconds, and the aftershocks are on separate traces."
-        ],
-        "choices": [
-          "One instrument is faulty, and its record should go.",
-          "The soft ground under the Flats shook harder, and for longer.",
-          "The Flats are closer, so the shaking there was stronger.",
-          "The Flats record has aftershocks in it that the other station missed."
-        ],
-        "correctChoice": "The soft ground under the Flats shook harder, and for longer."
-      },
-      "assumes": [
-        "an instrument records the shaking where it stands, not the earthquake itself"
-      ],
-      "equations": [
-        {
-          "e": "how many times = bigger ÷ smaller",
-          "c": "comparing two shakings, or two strengths",
-          "v": [
-            [
-              "how many times",
-              "the ratio"
-            ],
-            [
-              "bigger",
-              "the larger measurement"
-            ],
-            [
-              "smaller",
-              "the one it is compared with"
-            ]
-          ],
-          "s": "Dividing one measurement by another says how many times bigger it is, which is usually the useful comparison."
-        }
-      ]
-    },
-    {
-      "day": 2,
       "title": "How far away it started",
-      "scene": "The vault trace shows the first wave at 04:12:19 and the strong shaking at 04:12:32. Cardoso wants a distance before anybody draws a circle on a map.",
+      "scene": "The vault trace shows the first wave at 04:12:19 and the strong shaking at 04:12:32. Inês Cardoso, the network technician, wants a distance before anybody draws a circle on a map.",
       "takeaway": "The gap between the two arrivals grows with distance, so one station gives a distance and three give a place.",
       "place": "Seismic Network",
-      "story": "The vault trace shows the first wave at 04:12:19 and the strong shaking at 04:12:32. Cardoso wants a distance before anybody draws a circle on a map.",
+      "guide": "Five numbers, and two belong to the earthquake and not to this station. The magnitude, and how deep it started. Two more are clock times, and only the gap between them carries distance. Ask of each what it measures. And note what one station gives you. A distance, not a place. The circle still needs other stations.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
+      "story": "The vault trace shows the first wave at 04:12:19 and the strong shaking at 04:12:32. Inês Cardoso, the network technician, wants a distance before anybody draws a circle on a map.",
       "game": {
         "type": "BALLPARK",
         "title": "How far away it started",
@@ -79,7 +30,7 @@ export const CURRICULUM = {
           "Count about eight kilometres for each second of that gap"
         ],
         "relationship": "Distance = the gap in seconds × eight kilometres.",
-        "calcKey": "SEIS-2"
+        "calcKey": "SEIS-1"
       },
       "assumes": [
         "the first wave travels faster than the strong shaking that follows it"
@@ -104,7 +55,78 @@ export const CURRICULUM = {
           ],
           "s": "The gap between the first wave and the strong shaking grows with distance, so timing it gives a distance."
         }
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "An earthquake sends waves through the ground, and some arrive first",
+        "of": 16,
+        "rests": [
+          "Plates move, and a fault is the crack where they slip past each other"
+        ]
+      }
+    },
+    {
+      "day": 2,
+      "title": "The same event, recorded twice",
+      "scene": "Inês Cardoso has two records of the same earthquake, from stations eleven hundred metres apart. One trace is short and sharp. The other is three times taller and runs half a minute longer.",
+      "takeaway": "A record describes one place, so two records of one earthquake can disagree and both be right.",
+      "place": "Seismic Network",
+      "guide": "The same wave reached both stations. Work out how fast it travelled, from how far apart they are and how much later it arrived at the second one. Speed is the distance divided by the time. One tile is how much taller the second trace is, which is a different question about the same two records.",
+      "background": [
+        "Why the speed is worth knowing. It tells you what the wave travelled through. A wave through solid rock runs fast, around three or four kilometres a second. The same wave slows right down in loose wet ground, and that slowing is part of why it grows.",
+        "Why the two traces look so different. The far station stands on the Flats, where the ground is soft. Soft ground shakes further and for longer, so the trace is taller and runs on after the rock has gone quiet. Neither instrument is broken.",
+        "What each record is. A measurement of the shaking where that instrument stands. It is not a measurement of the earthquake, which is why two records of one earthquake can disagree and both be right."
+      ],
+      "story": "Inês Cardoso has two records of the same earthquake, from stations eleven hundred metres apart. One trace is short and sharp. The other is three times taller and runs half a minute longer.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "The same event, recorded twice",
+        "setup": "Seismic Network",
+        "play": "Say what the difference between the two records means.",
+        "task": "Say what the difference between the two records means.",
+        "question": "How fast did the wave travel between the two stations?",
+        "answer": "About 2,750 metres a second — 1,100 metres in 0.4 of a second. Fast, which means it came through rock for most of the way, and it slowed and grew when it reached the soft ground.",
+        "why": "Both instruments caught the same wave. The far one caught it 0.4 of a second after the near one. Speed is distance ÷ time, so 1,100 ÷ 0.4 = 2,750 metres a second. That is fast, and it tells you what the wave came through: solid rock carries a wave at thousands of metres a second, and loose wet ground carries it far more slowly. The wave spent most of its journey in rock. The rest of the difference between the two records is about where the instruments stand. The far station stands on soft ground, so its trace is taller and it runs on for longer. Neither instrument is wrong. Each one recorded the shaking in its own place, which is what an instrument does, and it is why two records of one earthquake can disagree and both be right.",
+        "givens": [
+          "the stations are 1,100 m apart",
+          "the wave arrived 0.4 s later at the far station"
+        ],
+        "relationship": "Speed = distance ÷ time. How fast a wave travels through the ground tells you what it travelled through.",
+        "calcKey": "SEIS-2"
+      },
+      "assumes": [
+        "an instrument records the shaking where it stands, not the earthquake itself"
+      ],
+      "equations": [
+        {
+          "e": "speed = distance ÷ time",
+          "c": "how fast a wave travels through the ground",
+          "v": [
+            [
+              "speed",
+              "in kilometres per second"
+            ],
+            [
+              "distance",
+              "in kilometres"
+            ],
+            [
+              "time",
+              "in seconds"
+            ]
+          ],
+          "s": "A wave covers ground at a steady speed, so distance and time give each other.",
+          "computed": true
+        }
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Distance from the fault changes what a place feels",
+        "of": 16,
+        "rests": [
+          "An earthquake sends waves through the ground, and some arrive first"
+        ]
+      }
     },
     {
       "day": 3,
@@ -112,32 +134,64 @@ export const CURRICULUM = {
       "scene": "There is an instrument in the hospital basement, fitted in 1998 and never needed until now. Cardoso has its record. It peaked at 0.31 g. The building was designed for 0.35.",
       "takeaway": "A record of what happened is evidence, and it is never a line under which damage is impossible.",
       "place": "Seismic Network",
+      "guide": "Say what the second instrument outside the hospital should read, then go and read it. Write the number down first. An instrument that has sat in a basement since 1998 has never been checked against anything, and the only way to find out whether it is telling the truth is another instrument that could disagree with it.",
+      "background": [
+        "Why a second reading. One instrument on its own cannot be checked. If it is reading low, nothing in its own record says so. Another instrument nearby, on the same kind of ground, gives a number that either matches or does not.",
+        "What to expect. The car park instrument stands about eighty metres away on the same ground, so it should read close to the basement one — not exactly the same, because a basement is stiffer than open ground, but within about a fifth either way.",
+        "What 0.31 against 0.35 does not mean. The building was designed for 0.35, and coming in under a design figure is not a line below which nothing breaks. It says the shaking was about what the building was built for, which is worth knowing and is not a clean bill of health."
+      ],
       "story": "There is an instrument in the hospital basement, fitted in 1998 and never needed until now. Cardoso has its record. It peaked at 0.31 g. The building was designed for 0.35.",
       "game": {
-        "type": "CHOICE",
+        "type": "VERIFY",
         "title": "The instrument in the basement",
         "setup": "Seismic Network",
         "play": "Say what the basement record can and cannot settle.",
         "task": "Say what the basement record can and cannot settle.",
-        "question": "What can the basement record honestly add to the assessment?",
-        "answer": "That this building felt a little less than it was built for.",
-        "why": "The record takes the biggest unknown away. The ground under this building peaked at 0.31 g, and it was built for 0.35. That is worth a lot, and it is not a line under which nothing breaks. What a building feels also depends on which rhythms arrived and how long they lasted. So the record says the shaking was not obviously past the design. It says nothing about the tanks nobody has seen.",
-        "rebuttals": [
-          "Staying under a design figure makes damage less likely. It does not prove there is none.",
-          "One record from one earthquake is not grounds to change a design standard.",
-          "The plant room is still locked, so the inspection is not finished."
-        ],
-        "choices": [
-          "It is undamaged, since the shaking stayed under the design figure.",
-          "That this building felt a little less than it was built for.",
-          "That the design figure was too low and should be raised.",
-          "That no more inspection is needed anywhere in the building."
-        ],
-        "correctChoice": "That this building felt a little less than it was built for."
+        "question": "Predict what the car park instrument read, then go and read it.",
+        "answer": "About 0.33 g — close to the basement's 0.31, which is what tells you the basement instrument is working. A reading of 0.6 would have meant the basement one was wrong.",
+        "why": "One instrument cannot check itself. The basement record says 0.31 g, and if that instrument has been drifting low since 1998 there is nothing in its own record to say so. The car park instrument stands eighty metres away on the same ground, and it reads 0.33 g. Those two agree, which is the useful result: the basement number can be trusted, and the hospital really did see about what it was designed for. Had the car park read 0.6, the basement instrument would have been the problem rather than the building. Two things the record still does not settle. Coming in under a design figure of 0.35 is not a line below which nothing breaks — it means the shaking was about the size the building was built for. And it says nothing about the plant room upstairs, which shakes differently from the basement it sits above.",
+        "verify": {
+          "prediction": {
+            "label": "What the car park instrument read",
+            "unit": "g",
+            "min": 0.05,
+            "max": 0.8,
+            "step": 0.01
+          },
+          "truth": 0.33,
+          "passRatio": [
+            0.6,
+            1.6
+          ],
+          "intervention": {
+            "label": "Walk out to the car park instrument and download its record",
+            "note": "eighty metres from the basement, on the same ground, fitted in the same year",
+            "outcome": "The record downloads and the peak for the same minute is on the screen."
+          },
+          "measurement": {
+            "label": "Read the peak for the same minute",
+            "note": "same event, same clock",
+            "cost": 20,
+            "costUnit": "minutes"
+          },
+          "unmeasuredMoral": "Reporting the basement number without checking it against anything is reporting one instrument's word for itself, which is the whole thing this stop is about.",
+          "lock": "Lock the prediction",
+          "run": "Commit it",
+          "measure": "Take the measurement",
+          "commit": "Report"
+        }
       },
       "assumes": [
         "an instrument inside a building measures the shaking that building got"
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "An instrument that is wrong needs a check from something else",
+        "of": 16,
+        "rests": [
+          "Measure it more than once, and average the readings"
+        ]
+      }
     },
     {
       "day": 4,
@@ -145,6 +199,12 @@ export const CURRICULUM = {
       "scene": "Cardoso's five-day check is finished. The station everything was compared against shakes more than it should. Navarro lays five of the fortnight's conclusions beside it.",
       "takeaway": "A bad reference spoils whatever leaned on it, and leaves what was measured directly alone.",
       "place": "Seismic Network",
+      "guide": "Open a conclusion and the panel shows what it was worked out from. Keep the ones that stand on a measurement of their own. Untick the ones whose evidence runs through the bad station. Then name the source the failing ones share. Both halves count: throwing away a good conclusion costs you as much as keeping a bad one.",
+      "background": [
+        "What went wrong. Every station's record is read against an assumed idea of how much that ground shakes. For one station that idea was wrong, and the five-day check has just proved it. Anything worked out through that station is wrong by the same amount. Anything measured somewhere else is not.",
+        "Why you should not throw out the lot. Withdrawing the whole fortnight looks careful. It is wrong twice. It throws away work that was never affected, and it tells the briefing that nothing is known when several things are. A retraction is a claim too, and it should be no bigger than the evidence.",
+        "How to read the chain. A conclusion is still good if there is some path to it that never touches the bad station. That is a question about the path, not about how big or alarming the number is — which is why you have to open each one."
+      ],
       "story": "Cardoso's five-day check is finished. The station everything was compared against shakes more than it should. Navarro lays five of the fortnight's conclusions beside it.",
       "game": {
         "type": "TRACE",
@@ -153,14 +213,14 @@ export const CURRICULUM = {
         "play": "Open what each conclusion rests on, keep the ones that stand alone, and name what the rest share.",
         "task": "Open what each conclusion rests on, keep the ones that stand alone, and name what the rest share.",
         "question": "Which conclusions inherit the bad reference, and which stand on their own?",
-        "answer": "Redo the Flats figure and anything copied from it. Three times a vault that is itself 1.6 times rock is about five times rock. Keep the hospital's 0.31 g, the magnitude and the Marina Court diagnosis — none of them used the vault.",
-        "why": "Every conclusion has a chain under it, and the question is whether the vault sits in that chain. The Flats figure was measured against the vault, so it moves. The vault itself shakes about 1.6 times what solid rock does, so three times the vault is nearer five times rock. Anything copied from that figure moves too. The hospital's own record and the Marina Court survey never touched it.",
+        "answer": "Redo the Flats figure and the planning factor copied from it. The panel says the station shakes 1.6 times, not 1.0, so 3.0 times that station is about 4.8 times solid rock. Keep the hospital's 0.31 g and the Marina Court diagnosis. Neither of them used the station.",
+        "why": "Every conclusion has a chain under it. The question is whether the bad station sits in that chain. The Flats figure was measured against that station, so it moves. The panel gives you both numbers you need. The station shakes 1.6 times what solid rock does, so 3.0 times the station is about 4.8 times rock. Anything copied from that figure moves as well. The hospital's own record and the Marina Court survey never touched the station.",
         "trace": {
           "channels": [
             {
               "id": "ratio",
               "label": "Flats motion comparison",
-              "reading": "3.0 (expected value published in the fortnight report)",
+              "reading": "3.0 times as much shaking (a ratio, so it has no unit)",
               "depends": [
                 "flats_record",
                 "vault_ref"
@@ -169,7 +229,7 @@ export const CURRICULUM = {
             {
               "id": "planning_factor",
               "label": "Rebuilding demand factor",
-              "reading": "3.0 (expected value carried in the district planning memo)",
+              "reading": "3.0 times, copied into the planning memo (also a ratio)",
               "depends": [
                 "flats_record",
                 "vault_ref"
@@ -178,23 +238,15 @@ export const CURRICULUM = {
             {
               "id": "hospital_pga",
               "label": "Hospital base acceleration",
-              "reading": "0.31 g (expected hospital instrument record)",
+              "reading": "0.31 g, measured in the hospital basement",
               "depends": [
                 "hospital_record"
               ]
             },
             {
-              "id": "magnitude",
-              "label": "Final event magnitude",
-              "reading": "M_w 6.8 (expected final agency bulletin)",
-              "depends": [
-                "network_solution"
-              ]
-            },
-            {
               "id": "marina",
               "label": "Marina Court failure diagnosis",
-              "reading": "settlement, heave and sand ejecta documented (expected field assessment record)",
+              "reading": "sinking, heaving and ejected sand, all seen and written down",
               "depends": [
                 "marina_survey"
               ]
@@ -214,27 +266,37 @@ export const CURRICULUM = {
               "label": "Hospital basement accelerograph"
             },
             {
-              "id": "network_solution",
-              "label": "Multi-station source solution"
-            },
-            {
               "id": "marina_survey",
               "label": "Marina Court survey and ground observations"
             }
           ],
           "independent": [
             "hospital_pga",
-            "magnitude",
             "marina"
           ],
           "target": "vault_ref",
+          "correction": {
+            "what": "How much the reference station's own ground shakes",
+            "was": "1.0 times — solid rock, no extra shaking",
+            "now": "1.6 times — four metres of broken granite under it",
+            "corrected": "The Flats figure of 3.0 becomes 3.0 × 1.6, which is about 4.8 times solid rock. The planning factor copied from it moves too.",
+            "effect": "Anything measured against this station is too small by that much."
+          },
           "hint": "Open each conclusion and inspect the sources underneath it. Keep conclusions whose evidence chain does not pass through the suspect reference, then name the source shared by the conclusions that fail.",
           "commit": "Correct it"
         }
       },
       "assumes": [
         "a comparison is only as good as the thing you compared against"
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "An instrument that is wrong needs a check from something else",
+        "of": 16,
+        "rests": [
+          "Measure it more than once, and average the readings"
+        ]
+      }
     },
     {
       "day": 5,
@@ -242,6 +304,12 @@ export const CURRICULUM = {
       "scene": "Cardoso lays out four statements from the fortnight. The office believes all four. They are not believed for the same reasons, and she will not let them into the report as equals.",
       "takeaway": "Sorting findings by their evidence is what lets the next reader know which one to check first.",
       "place": "Seismic Network",
+      "guide": "Four statements the office believes, believed for four different reasons. Sort them by what somebody would have to produce to argue back. A second log? Another earthquake? A hole dug under the slab? Believing them is not the difference. The weakest of the four is the one the plan rests on, and the report has to say so.",
+      "background": [
+        "Why a clue needs an explanation and not a name. Saying what a clue is called is not saying what produced it. The board makes you commit to a cause, and a cause has to account for that clue and not for the one next to it. That is the difference between recognising something and explaining it.",
+        "How to use the one-each rule. Every explanation goes with exactly one clue. So the pairs you are sure about are worth more than themselves — each one you settle leaves fewer explanations for the clues you are unsure of. Two you trust can decide the other two.",
+        "Why one wrong line is impossible. If three lines are right, the last explanation has nowhere else to go, so it is right too. Being wrong always means two are wrong at once. When a join feels forced, look again at one you made early and stopped questioning."
+      ],
       "story": "Cardoso lays out four statements from the fortnight. The office believes all four. They are not believed for the same reasons, and she will not let them into the report as equals.",
       "game": {
         "type": "CASEBOOK",
@@ -283,7 +351,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a claim can rest on a measurement, on reasoning, or on nothing much yet"
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Saying what you know and what you do not",
+        "of": 16,
+        "rests": [
+          "Measure it more than once, and average the readings"
+        ]
+      }
     }
   ],
   "STRUCT": [
@@ -293,6 +369,12 @@ export const CURRICULUM = {
       "scene": "Six assessors are free for one day. Four hundred families are waiting on a decision in the Flats. Marina Court and the Parade are already fenced off, and Upper Town is mostly lived in.",
       "takeaway": "Spend a team on the questions whose answers can still change what happens today.",
       "place": "Structural Assessment",
+      "guide": "Six assessor-days is all you have, and each package you drag in spends some. Watch the list of questions rather than the buildings: it shows which ones your plan can answer. Every package you buy is a question you can answer and one you have given up. The fences already up cost nothing. Commit when the answers you can give are the ones today needs.",
+      "background": [
+        "Why the pool is the whole problem. Six assessors for one day is a fixed amount of attention, and the Flats alone could use all of it. The question is not what is worth checking — nearly everything is. It is which checks change what happens before tonight.",
+        "What makes an answer worth buying today. Four hundred families are waiting to hear whether they can go home. A check that can answer that by this evening is worth more than a better answer next week, because the delay has already made the decision for them.",
+        "Why the fences are on the board at zero. They are already up. They cost nothing to keep and they answer nothing new. They are there to be noticed: a plan that spends days re-checking what is already closed has bought a question it had already answered."
+      ],
       "story": "Six assessors are free for one day. Four hundred families are waiting on a decision in the Flats. Marina Court and the Parade are already fenced off, and Upper Town is mostly lived in.",
       "game": {
         "type": "ALLOCATE",
@@ -370,7 +452,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an inspection queue is a decision, not a list"
-      ]
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Counting damage as a share, not as a number of buildings",
+        "of": 16,
+        "rests": [
+          "Reading a map, a scale and a contour"
+        ]
+      }
     },
     {
       "day": 2,
@@ -378,6 +468,12 @@ export const CURRICULUM = {
       "scene": "Okonkwo has the column loads out. At eight degrees the weight above each column no longer lands over the middle of it. The gap grows the higher you go.",
       "takeaway": "A column carrying its load off to one side is doing a job it was not built for.",
       "place": "Structural Assessment",
+      "guide": "All four options say something true about a leaning building. They differ in whether they name a force or a feeling. Ask of each whether an engineer could put a number on it. A column carries weight best straight down its middle. Eight degrees moves the weight off the middle, and the gap grows higher up.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Okonkwo has the column loads out. At eight degrees the weight above each column no longer lands over the middle of it. The gap grows the higher you go.",
       "game": {
         "type": "CHOICE",
@@ -403,7 +499,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a column is built to be pushed straight down, along its own length"
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "A building carries its weight down a path, and the weakest needed link governs",
+        "of": 16,
+        "rests": [
+          "Plates move, and a fault is the crack where they slip past each other"
+        ]
+      }
     },
     {
       "day": 3,
@@ -411,6 +515,12 @@ export const CURRICULUM = {
       "scene": "The gym at Bay Road School has a long roof, heavy wall panels and nothing bracing it in the middle. One panel fixing tested badly. Everything big in there looks fine.",
       "takeaway": "A load path works only if every link in it carries the force onward to the ground.",
       "place": "Structural Assessment",
+      "guide": "Put the handovers in the order the sideways push really travels, from the moving panel to the ground. Then name the one required handover that would break the path if it failed. The biggest part is not the answer. A path is only as good as its weakest handover, and the readings on each link tell you which one that is.",
+      "background": [
+        "What is being handed on. In an earthquake the ground moves and the building's mass wants to stay put. That push has to be carried by something, passed along, and finally delivered to the foundation. Each pass is a fixing or a member. If one of them cannot carry its share, the path stops there.",
+        "Why a gym is the hard case. A long roof with heavy wall panels and nothing bracing the middle has very few paths available. The roof has to act as one big flat plate and hand the push to the end walls, and the panels have to be tied into that plate. Lose one tie and the panel is on its own.",
+        "Why undamaged parts are not comfort. The beams and columns can be perfect while the fixings between them are not, and a fixing is the thing the drawings say least about. One panel fixing already tested badly, which says something about that kind of fixing everywhere in the building."
+      ],
       "story": "The gym at Bay Road School has a long roof, heavy wall panels and nothing bracing it in the middle. One panel fixing tested badly. Everything big in there looks fine.",
       "game": {
         "type": "CHAIN",
@@ -430,13 +540,13 @@ export const CURRICULUM = {
             },
             {
               "id": "panel_tie",
-              "label": "Tie between the precast panel and the roof",
-              "transfers": "panel force into the roof diaphragm"
+              "label": "Tie between panel and roof",
+              "transfers": "panel force into the diaphragm"
             },
             {
               "id": "roof_diaphragm",
-              "label": "Roof diaphragm carrying force toward the end wall",
-              "transfers": "collected lateral force across the roof"
+              "label": "Roof diaphragm",
+              "transfers": "collected lateral force toward the end wall"
             },
             {
               "id": "end_wall",
@@ -473,34 +583,180 @@ export const CURRICULUM = {
       "assumes": [
         "a sideways push has to travel through a building to reach the ground"
       ],
-      "equations": [
-        {
-          "e": "load on each metre = total weight ÷ length",
-          "c": "what a wall or a footing is carrying",
-          "v": [
-            [
-              "load on each metre",
-              "in tonnes per metre"
-            ],
-            [
-              "total weight",
-              "in tonnes"
-            ],
-            [
-              "length",
-              "in metres"
-            ]
-          ],
-          "s": "Spreading a weight over more support means each part carries less of it."
-        }
-      ]
+      "concept": {
+        "n": 10,
+        "c": "A building carries its weight down a path, and the weakest needed link governs",
+        "of": 16,
+        "rests": [
+          "Plates move, and a fault is the crack where they slip past each other"
+        ]
+      }
     },
     {
       "day": 4,
+      "title": "Holding it up, or hung on it",
+      "scene": "Four hundred photographs came in this morning and the panel meets at four. Some of them show the parts that hold the building up. The rest show things the building holds, and both look bad in a photograph.",
+      "takeaway": "What decides if people can go in is what carries the weight, not what looks worst.",
+      "place": "Structural Assessment",
+      "guide": "Two bins. Ask whether the thing in the picture is holding something up. Columns, beams and walls that carry weight are. Ceilings, cladding, partitions and shelves are carried by the building instead.",
+      "background": [
+        "Why it decides the placard. A cracked column changes whether the building stands up in the next shake. A cracked partition costs money and does not.",
+        "Why the other pile still matters. Falling cladding and ceilings hurt people. They need clearing and making safe, which is a different crew and a different day."
+      ],
+      "story": "Four hundred photographs came in this morning and the panel meets at four. Some of them show the parts that hold the building up. The rest show things the building holds, and both look bad in a photograph.",
+      "game": {
+        "type": "BELT",
+        "title": "Holding it up, or hung on it",
+        "setup": "Structural Assessment",
+        "play": "Sort the damage photographs before the panel meets.",
+        "task": "Sort the damage photographs before the panel meets.",
+        "question": "Send each photograph to the bin that says whether it carries weight.",
+        "answer": "Anything carrying weight down to the ground goes left. Anything the building carries goes right, however bad it looks.",
+        "why": "The question the panel has to answer is whether the building will stand up to the next shake, and only the parts that carry weight decide that. Columns, beams, load-bearing walls and the joints between them make a path from the roof down to the ground. Damage anywhere on that path makes the building weaker. A smashed partition, a ceiling on the floor, cladding hanging off the front and a toppled shelf are all carried by the building. None of them makes the frame weaker. That is why the worst-looking photographs are usually the ones that do not change the placard, and the photograph that does is often a thin crack on a column behind a wall that looks fine. The second pile still matters. Falling cladding hurts more people in a medium earthquake than anything else. It just wants a different crew, not shoring.",
+        "belt": {
+          "left": {
+            "name": "Holds weight"
+          },
+          "right": {
+            "name": "Is carried"
+          },
+          "items": [
+            {
+              "name": "Cracked column",
+              "bin": "left"
+            },
+            {
+              "name": "Beam-column joint",
+              "bin": "left"
+            },
+            {
+              "name": "Cracked shear wall",
+              "bin": "left"
+            },
+            {
+              "name": "Foundation settled",
+              "bin": "left"
+            },
+            {
+              "name": "Buckled brace",
+              "bin": "left"
+            },
+            {
+              "name": "Spalled column",
+              "bin": "left"
+            },
+            {
+              "name": "Slab pulling away",
+              "bin": "left"
+            },
+            {
+              "name": "Bearing pad moved",
+              "bin": "left"
+            },
+            {
+              "name": "Cracked pier",
+              "bin": "left"
+            },
+            {
+              "name": "Sheared bolts",
+              "bin": "left"
+            },
+            {
+              "name": "Masonry pier cracked",
+              "bin": "left"
+            },
+            {
+              "name": "Cracked corbel",
+              "bin": "left"
+            },
+            {
+              "name": "Ceiling down",
+              "bin": "right"
+            },
+            {
+              "name": "Cladding hanging",
+              "bin": "right"
+            },
+            {
+              "name": "Cracked partition",
+              "bin": "right"
+            },
+            {
+              "name": "Toppled shelf",
+              "bin": "right"
+            },
+            {
+              "name": "Broken window",
+              "bin": "right"
+            },
+            {
+              "name": "Light fitting down",
+              "bin": "right"
+            },
+            {
+              "name": "Burst sprinkler pipe",
+              "bin": "right"
+            },
+            {
+              "name": "Loose coping",
+              "bin": "right"
+            },
+            {
+              "name": "Swinging duct",
+              "bin": "right"
+            },
+            {
+              "name": "Roof tiles off",
+              "bin": "right"
+            },
+            {
+              "name": "Shop sign down",
+              "bin": "right"
+            },
+            {
+              "name": "Cracked plaster",
+              "bin": "right"
+            },
+            {
+              "name": "Jammed lift door",
+              "bin": "right"
+            },
+            {
+              "name": "Spilled cabinet",
+              "bin": "right"
+            }
+          ],
+          "need": 20,
+          "lives": 3,
+          "pass": 0.8,
+          "hint": "Ask whether it is holding something up.",
+          "commit": "Start the line"
+        }
+      },
+      "assumes": [
+        "some parts of a building hold it up and some are carried by it"
+      ],
+      "concept": {
+        "n": 10,
+        "c": "A building carries its weight down a path, and the weakest needed link governs",
+        "of": 16,
+        "rests": [
+          "Plates move, and a fault is the crack where they slip past each other"
+        ]
+      }
+    },
+    {
+      "day": 5,
       "title": "The part nobody has seen",
       "scene": "Ninety patients are still on the ground floor, and two floors above them stand empty. The hospital has been yellow for three days. The roof plant room is locked, with two full water tanks in it.",
       "takeaway": "A signed record is worth whatever the looking behind it was worth.",
       "place": "Structural Assessment",
+      "guide": "Each claim on the list was signed or checked by somebody. Open the backing before you spend anything. Some claims rest on somebody looking at the thing they describe. Some rest on a drawing, an assumption, or a locked door. You get one visit. Hold the claims the evidence does not support, and spend the visit where being wrong would cost the most.",
+      "background": [
+        "What a signature does and does not say. It says somebody took responsibility for a sentence. It does not say anybody looked. Three days after an earthquake those two come apart all the time: drawings get checked, cladding gets looked at from the street, and a locked room gets written up from the last visit before the shake.",
+        "Why the tanks matter. Two full water tanks are a lot of weight, high up, in a room nobody has been into since the earthquake. If their supports have shifted, what happens next happens to the floor below — where ninety patients are. So that claim is the one that costs the most if it is wrong, whatever the paperwork says.",
+        "Why only one check. Every visit costs time the hospital does not have while it stays yellow. Choosing which claim to check is the real decision, and it is about consequence rather than about which record looks weakest."
+      ],
       "story": "Ninety patients are still on the ground floor, and two floors above them stand empty. The hospital has been yellow for three days. The roof plant room is locked, with two full water tanks in it.",
       "game": {
         "type": "ATTEST",
@@ -552,14 +808,29 @@ export const CURRICULUM = {
       "assumes": [
         "a building's parts can be cleared one at a time",
         "a signature says somebody approved it, not that somebody looked"
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Deciding with a cordon: how likely, and how bad, against what it costs people",
+        "of": 16,
+        "rests": [
+          "Aftershocks get rarer as time passes, and a chance is not a promise",
+          "Counting damage as a share, not as a number of buildings"
+        ]
+      }
     },
     {
-      "day": 5,
+      "day": 6,
       "title": "Which way the cracks run",
       "scene": "The cracks run diagonally, both ways, crossing in an X across the middle of each column. They are fine, there are many, and they sit evenly apart.",
       "takeaway": "A pattern can point at the cause. It cannot tell you what is left.",
       "place": "Structural Assessment",
+      "guide": "Four options, and the pattern has to be explained in full. The cracks go both ways. They cross. They are fine, many, and evenly spaced. Ask of each option what pattern it would leave instead. Crushing and settling do not change direction. And note the limit. A pattern names a cause, not what is left in the column.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The cracks run diagonally, both ways, crossing in an X across the middle of each column. They are fine, there are many, and they sit evenly apart.",
       "game": {
         "type": "CHOICE",
@@ -597,47 +868,91 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a crack opens across the direction something is being pulled apart"
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Materials: what a crack means, and what a strength test can tell you",
+        "of": 16,
+        "rests": [
+          "A building carries its weight down a path, and the weakest needed link governs"
+        ]
+      }
     },
     {
-      "day": 6,
+      "day": 7,
       "title": "A smaller shake against a weaker building",
       "scene": "The 5.1 shook the Flats about a tenth as hard as the first earthquake. Eleven buildings have been propped since Friday, and two of them have new cracks this afternoon.",
       "takeaway": "A small shake that still does damage is telling you how little the building has left.",
       "place": "Structural Assessment",
+      "guide": "Work out how much wall each metre of footing is holding up. Take the whole weight the wall puts down and share it along the length the footing runs. One tile is the height of the wall, which is part of why it is heavy and not part of this sum.",
+      "background": [
+        "Why per metre. A footing does not carry the weight in one place. It carries it spread along its whole length, so what matters is how much each metre has to hold, and that is the total shared out.",
+        "Why the new cracks matter so much. This shake was about a tenth as hard as the first one. A building that cracks under a tenth of what it already survived is not being hit harder — it is holding less.",
+        "What a prop does. It takes some of the load off, which is why the props went in on Friday. It does not put strength back into the wall, so the wall is still carrying what is left and still losing a little each time."
+      ],
       "story": "The 5.1 shook the Flats about a tenth as hard as the first earthquake. Eleven buildings have been propped since Friday, and two of them have new cracks this afternoon.",
       "game": {
-        "type": "CHOICE",
+        "type": "BALLPARK",
         "title": "A smaller shake against a weaker building",
         "setup": "Structural Assessment",
         "play": "Say what the new cracks tell the office.",
         "task": "Say what the new cracks tell the office.",
-        "question": "What do the two buildings with new cracks tell the office?",
-        "answer": "Those two are near their limit, which the props bought time against.",
-        "why": "Props hold a building up. They do not put back what the earthquake took out of it. So a shake a tenth the size doing fresh damage says something specific. Those two are working near the limit of what they have left. That is a reason to tighten the restrictions and look again before anybody talks about repairs. It is not proof that the props failed, and it does not say how close to falling either building is.",
-        "rebuttals": [
-          "The props are still standing and doing their job. Nothing about them failed.",
-          "Stations either side of those streets recorded the same shaking, so it was not worse there.",
-          "The first assessment said those buildings had little left, which is exactly what this confirms."
+        "question": "How much weight is each metre of the footing holding?",
+        "answer": "About 54 kilonewtons per metre — 650 shared along 12 metres. The wall was built for about 90, so it still has room, and cracking under a tenth of Friday's shake means it is losing what it had.",
+        "why": "A footing carries its load spread along its length, so the number that matters is the load on each metre: total weight ÷ length. This wall puts 650 kilonewtons down along 12 metres of footing, which is 650 ÷ 12 ≈ 54 kilonewtons per metre. The wall was built to carry about 90, so on paper it has room. That is what makes the new cracks the important thing in the room. Today's shake was about a tenth as hard as the one on Friday, and a wall that cracks under a tenth of what it already stood up to is not being pushed harder — it is holding less than it was. The props help by taking some of the load off. They do not put strength back, so the wall keeps carrying what is left, and each shake takes a little more.",
+        "givens": [
+          "the wall puts 650 kN down along 12 m of footing",
+          "each metre was built to carry about 90 kN"
         ],
-        "choices": [
-          "That the props failed, and should be swapped for something else.",
-          "Those two are near their limit, which the props bought time against.",
-          "The aftershock was much bigger in those two streets.",
-          "That the first assessment of both buildings was wrong."
-        ],
-        "correctChoice": "Those two are near their limit, which the props bought time against."
+        "relationship": "Load on each metre = total weight ÷ length. A footing carries its load spread along it, not in one place.",
+        "calcKey": "STRUCT-7"
       },
       "assumes": [
         "a propped building is being held up, not repaired"
-      ]
+      ],
+      "equations": [
+        {
+          "e": "load on each metre = total weight ÷ length",
+          "c": "what a wall or a footing is carrying",
+          "v": [
+            [
+              "load on each metre",
+              "in tonnes per metre"
+            ],
+            [
+              "total weight",
+              "in tonnes"
+            ],
+            [
+              "length",
+              "in metres"
+            ]
+          ],
+          "s": "Spreading a weight over more support means each part carries less of it.",
+          "computed": true
+        }
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Materials: what a crack means, and what a strength test can tell you",
+        "of": 16,
+        "rests": [
+          "A building carries its weight down a path, and the weakest needed link governs"
+        ]
+      }
     },
     {
-      "day": 7,
+      "day": 8,
       "title": "What outlives the emergency",
       "scene": "Four things the office started doing under pressure. Okonkwo asks which is worth its cost on an ordinary Tuesday, when nothing has happened.",
       "takeaway": "An unknown gets safer only when it has an owner, a date, and a rule that stops it being forgotten.",
       "place": "Structural Assessment",
+      "guide": "All four practices are good ones. Two questions separate them. Does it stop the thing that actually went wrong? And will the office still do it in a quiet month? Trace each back to the mechanism. The gym, the roof room and the basement were all outside the first inspection. All three were written down, and nobody acted.",
+      "background": [
+        "Why first is a different question from best. When there is more than one call on the same hour, the value of doing something now is not how much it matters. It is how much is lost by doing it later. Something important that will be just as fixable in an hour can wait. Something small that will not be fixable can not.",
+        "What to look for in the options. Ask which one changes if you wait — a reading that is still moving, a person who is getting worse, a window that closes. Then ask which ones can only be done after something else. Those two questions usually leave one option standing.",
+        "Why only one answer is marked. Real shifts do all of these, in some order. The stop asks for the front of that order because that is the only part where the reasoning shows. Read the verdict afterwards even when you are right — it says what the others were waiting on, which is the rest of the answer."
+      ],
       "story": "Four things the office started doing under pressure. Okonkwo asks which is worth its cost on an ordinary Tuesday, when nothing has happened.",
       "game": {
         "type": "TRIAGE",
@@ -694,6 +1009,12 @@ export const CURRICULUM = {
       "scene": "Elena Navarro, the ground engineer, has an 1892 survey and a photograph from 1948. Where Bay Road runs now there was a tidal creek. The port was pumped into place out of a dredger over four summers.",
       "takeaway": "Loose, wet, young ground behaves in a way old rock does not.",
       "place": "Geotechnical",
+      "guide": "Four kinds of ground on the left. Four ways ground behaves on the right. Pair them by asking two things. How loose is it? Can the water get out? Age is not the clue it looks like. One of these is the loosest and wettest of all. It is a line on an old survey, and you cannot see it from the street.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If three lines are right, the fourth response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
       "story": "Elena Navarro, the ground engineer, has an 1892 survey and a photograph from 1948. Where Bay Road runs now there was a tidal creek. The port was pumped into place out of a dredger over four summers.",
       "game": {
         "type": "PROTOCOL",
@@ -736,7 +1057,15 @@ export const CURRICULUM = {
       "assumes": [
         "ground can be natural, or it can be put there by people",
         "saturated means every gap between the grains is already full of water"
-      ]
+      ],
+      "concept": {
+        "n": 5,
+        "c": "The ground itself changes the shaking: soft ground shakes more",
+        "of": 16,
+        "rests": [
+          "Distance from the fault changes what a place feels"
+        ]
+      }
     },
     {
       "day": 2,
@@ -744,6 +1073,12 @@ export const CURRICULUM = {
       "scene": "Navarro's survey: the slab is whole and level within itself, and the whole block has tipped. One side is down three hundred and forty millimetres, the other up ninety. Sand fans on the low side.",
       "takeaway": "A building can fail without anything in the building breaking.",
       "place": "Geotechnical",
+      "guide": "Four options, and the survey has to be explained whole. The slab is not broken. It is level within itself. One side is down and the other is up. Sand came up on the low side. Ask of each option how many of those it covers. A frame that broke would bend, not tip in one piece.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Navarro's survey: the slab is whole and level within itself, and the whole block has tipped. One side is down three hundred and forty millimetres, the other up ninety. Sand fans on the low side.",
       "game": {
         "type": "CHOICE",
@@ -781,7 +1116,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a foundation spreads a building's weight out into the ground"
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "A building carries its weight down a path, and the weakest needed link governs",
+        "of": 16,
+        "rests": [
+          "Plates move, and a fault is the crack where they slip past each other"
+        ]
+      }
     },
     {
       "day": 3,
@@ -789,60 +1132,148 @@ export const CURRICULUM = {
       "scene": "Thandi Mbeki has been out on Ferry Street with a hand auger. The sand has dried and the water has dropped back. The surface carries a person, and not a truck.",
       "takeaway": "The liquid part is over quickly. What it leaves behind is not.",
       "place": "Geotechnical",
+      "guide": "Four things are different about the street since Friday, and the plate test will give you a strength reading for whatever you set up. Change one of them and run the test. Change several and the reading cannot tell you which one did it. Then put your one back the way it was, because a change that does not undo itself was never the cause.",
+      "background": [
+        "What went liquid and what came back. Shaking pushed the water between the sand grains until the grains stopped touching, and the ground behaved like a liquid. As the water pressure dropped the grains came back into contact, so the strength came back too.",
+        "What did not come back. The grains settled into new places, leaving the ground looser in some spots and hollow in others. That is why the surface carries a person and not a truck, and why it can go again if it is shaken while it is still wet.",
+        "Why one thing at a time. Water level, how packed the sand is, how heavy the load is and how long it sits are all different between Friday and today. A test that changes two of them at once gives a number that fits either story."
+      ],
       "story": "Thandi Mbeki has been out on Ferry Street with a hand auger. The sand has dried and the water has dropped back. The surface carries a person, and not a truck.",
       "game": {
-        "type": "CHOICE",
+        "type": "CONTROL",
         "title": "Soft ground, three days on",
         "setup": "Geotechnical",
         "play": "Say what state Ferry Street is really in.",
         "task": "Say what state Ferry Street is really in.",
-        "question": "The sand has dried and the water has dropped back. What can the street carry now?",
-        "answer": "Drained and disturbed. Walkable, no heavy vehicles, and liable to go again.",
-        "why": "Ground goes liquid while the water in it is under pressure, and that pressure drains away within hours. So the liquid part is finished. The ground it left is not the ground that was there before. It has settled unevenly, spread sideways, and lost sand up through the surface, which leaves holes underneath. Dry on top says nothing about whether a truck is safe. And the same layer can go again in a big aftershock.",
-        "rebuttals": [
-          "The water pressure drains away in hours, so it is not still liquid three days later.",
-          "Dry on top is not recovered underneath. The ground has been rearranged.",
-          "Nothing here says the street is beyond repair, and most ground like this is repaired rather than replaced."
-        ],
-        "choices": [
-          "Still liquid, and dangerous to anybody walking on it.",
-          "Drained and disturbed. Walkable, no heavy vehicles, and liable to go again.",
-          "Fully recovered, since the water has gone and the surface is dry.",
-          "Ruined for good, and the street must be rebuilt."
-        ],
-        "correctChoice": "Drained and disturbed. Walkable, no heavy vehicles, and liable to go again."
+        "question": "Which difference is actually deciding how much weight Ferry Street will carry?",
+        "answer": "How high the water sits. Drop the water table and the plate reading nearly triples; put the water back and it falls again — the packing and the load do almost nothing on their own.",
+        "why": "Four things about the street have changed since Friday. Only one of them moves the strength reading. Drop the water by three quarters of a metre, with everything else the same, and the plate test goes from 38 to 104. Let the water back up and it falls again. That is what makes it a real cause: the reading follows the change both ways. How tightly the sand is packed, and how long the load sits, move the reading less than the test's own wobble. This is the first day's mechanism run backwards. Water pressure between the grains is what let go. Taking the water away puts the grains back in touch. But the street is still weaker than it was before the earthquake, because the grains have settled somewhere new. So the honest answer is drained and disturbed. Walk on it. Keep trucks off it. Expect it to go again if it is shaken while wet.",
+        "control": {
+          "observable": {
+            "label": "Strength under the plate test",
+            "unit": "kilopascals"
+          },
+          "variables": [
+            {
+              "id": "water",
+              "label": "How high the water sits under the street"
+            },
+            {
+              "id": "packing",
+              "label": "How tightly the sand is packed"
+            },
+            {
+              "id": "load",
+              "label": "How heavy a load is put on the plate"
+            },
+            {
+              "id": "time",
+              "label": "How long the load is left in place"
+            }
+          ],
+          "held": [
+            "the same patch of street",
+            "the same plate and the same rig",
+            "the same weather that day"
+          ],
+          "truth": "water",
+          "baseline": 38,
+          "response": 66,
+          "noise": 8,
+          "hint": "The rig can be set up again for each test. Change what you want, run it, and watch the reading.",
+          "run": "Run the plate test",
+          "commit": "Name the one that is deciding it"
+        }
       },
       "assumes": [
         "ground that went liquid gets its strength back as the water pressure drops"
       ],
-      "equations": [
-        {
-          "e": "load on each metre = total weight ÷ length",
-          "c": "what a wall or a footing is carrying",
-          "v": [
-            [
-              "load on each metre",
-              "in tonnes per metre"
-            ],
-            [
-              "total weight",
-              "in tonnes"
-            ],
-            [
-              "length",
-              "in metres"
-            ]
-          ],
-          "s": "Spreading a weight over more support means each part carries less of it."
-        }
-      ]
+      "concept": {
+        "n": 6,
+        "c": "Wet sandy ground can behave like a liquid when it is shaken",
+        "of": 16,
+        "rests": [
+          "The ground itself changes the shaking: soft ground shakes more"
+        ]
+      }
     },
     {
       "day": 4,
+      "title": "Keeping the water out of the trench",
+      "scene": "A trench has to stand open for an afternoon in ground that went liquid nine days ago. Pumps hold the water down. If the water comes back up, the sides do not wait.",
+      "takeaway": "A leak that keeps arriving is not answered by turning a pump on once.",
+      "place": "Geotechnical",
+      "guide": "Hold the water level below the trench floor, inside the band on the gauge. The band gets narrower through the afternoon, because an open trench gets a little weaker every hour. Each thing that lets water in keeps letting it in. Set the pumps to match it.",
+      "background": [
+        "Why the water matters. Sand holds together because the grains press on each other. Water between the grains pushes them apart, and then the sand behaves like a liquid.",
+        "Why rain is not one push. Rain keeps falling, a leaking pipe keeps leaking, and the tide keeps coming in. The water level does not settle at a new place. It keeps rising until the pumps match what is arriving."
+      ],
+      "story": "A trench has to stand open for an afternoon in ground that went liquid nine days ago. Pumps hold the water down. If the water comes back up, the sides do not wait.",
+      "game": {
+        "type": "HOLD",
+        "title": "Keeping the water out of the trench",
+        "setup": "Geotechnical",
+        "play": "Hold the water down while the trench is open.",
+        "task": "Hold the water down while the trench is open.",
+        "question": "Hold the water below the trench floor while the shoring goes in.",
+        "answer": "Inside the band for most of the afternoon, with the pumps set to match each inflow rather than started once the gauge has risen.",
+        "why": "Sand holds together because the grains press on one another. Water between them pushes them apart, and once that happens the sand behaves like a liquid. That is exactly what happened to this ground nine days ago, in forty seconds. This afternoon it can happen slowly instead. Everything pushing the water up keeps pushing. Rain keeps falling, the leaking main keeps leaking, the tide keeps coming in. So the pumps are set to match what is arriving, and left there. A pump switched on for a minute buys a minute. The band gets narrower because an open trench loses a little strength every hour it stands. The same rise in water is a bigger problem at four o'clock than it was at one.",
+        "hold": {
+          "quantity": "Water level below the trench floor",
+          "control": "Pumps",
+          "unit": "m",
+          "hold": 1.5,
+          "band": 0.4,
+          "narrowTo": 0.2,
+          "duration": 45,
+          "authority": 0.1,
+          "pass": 0.8,
+          "direction": "raise",
+          "disturbances": [
+            {
+              "label": "Rain starts",
+              "at": 4,
+              "amount": -0.03
+            },
+            {
+              "label": "Tide goes out",
+              "at": 20,
+              "amount": 0.05
+            },
+            {
+              "label": "The leaking main is found",
+              "at": 38,
+              "amount": -0.045
+            }
+          ],
+          "hint": "Each inflow keeps arriving. Set the pumps to match it.",
+          "commit": "Report the afternoon"
+        }
+      },
+      "assumes": [
+        "water between sand grains makes the ground weaker"
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Wet sandy ground can behave like a liquid when it is shaken",
+        "of": 16,
+        "rests": [
+          "The ground itself changes the shaking: soft ground shakes more"
+        ]
+      }
+    },
+    {
+      "day": 5,
       "title": "What still stands",
       "scene": "Navarro puts four of the fortnight's conclusions on the board and asks which of them leaned on the vault. The corrected vault report is clipped up beside them.",
       "takeaway": "A bad reference spoils what was measured against it, and leaves what was measured directly.",
       "place": "Geotechnical",
+      "guide": "Four conclusions on the left, and what the vault error does to each on the right. Trace each one back to its evidence. Then ask whether the vault is in that evidence. A survey and a field of sand do not need a reference station. Neither does an instrument in a basement. One bad comparison spoils what was compared, and nothing else.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If three lines are right, the fourth response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
       "story": "Navarro puts four of the fortnight's conclusions on the board and asks which of them leaned on the vault. The corrected vault report is clipped up beside them.",
       "game": {
         "type": "PROTOCOL",
@@ -884,14 +1315,28 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a conclusion can rest on one measurement or on several"
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Saying what you know and what you do not",
+        "of": 16,
+        "rests": [
+          "Measure it more than once, and average the readings"
+        ]
+      }
     },
     {
-      "day": 5,
+      "day": 6,
       "title": "Wetting ground that has already failed",
       "scene": "Mbeki is on Ferry Street with a standpipe. The water under the road has risen three quarters of a metre since the main went. The surface is soft underfoot again.",
       "takeaway": "Wetting loose ground uses up the margin it had before the next shake.",
       "place": "Geotechnical",
+      "guide": "Four options for why a burst main matters more here. They differ in the reason. The pipes? The water pressure between the grains? Washing? The material itself? Ask of each whether it would also be true on granite. The leak on its own turns nothing to liquid. And the aftershocks have not finished.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Mbeki is on Ferry Street with a standpipe. The water under the road has risen three quarters of a metre since the main went. The surface is soft underfoot again.",
       "game": {
         "type": "CHOICE",
@@ -938,7 +1383,15 @@ export const CURRICULUM = {
           ],
           "s": "Spreading a weight over more support means each part carries less of it."
         }
-      ]
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Wet sandy ground can behave like a liquid when it is shaken",
+        "of": 16,
+        "rests": [
+          "The ground itself changes the shaking: soft ground shakes more"
+        ]
+      }
     }
   ],
   "MAT": [
@@ -948,6 +1401,11 @@ export const CURRICULUM = {
       "scene": "Kirsten Sørensen has pulled two fixings out of a spare panel in the yard. The drawing says forty kilonewtons each. The first came out at twenty-four, the second at twenty-seven.",
       "takeaway": "Two tests can show something is short. They cannot show a building is safe.",
       "place": "Materials & Testing",
+      "guide": "Five numbers, and two belong to other questions. The roof span, and the number of panels. One is what the drawing promised, not what the wall got. Ask of each whether it is what the fixings carried or what the wall asks of them. And note the limit. Two pulls is not enough to call anything safe.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Kirsten Sørensen has pulled two fixings out of a spare panel in the yard. The drawing says forty kilonewtons each. The first came out at twenty-four, the second at twenty-seven.",
       "game": {
         "type": "BALLPARK",
@@ -989,7 +1447,12 @@ export const CURRICULUM = {
           "s": "Measuring the same thing several times and averaging pulls the random part of each reading toward zero.",
           "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Measure it more than once, and average the readings",
+        "of": 16
+      }
     },
     {
       "day": 2,
@@ -997,6 +1460,12 @@ export const CURRICULUM = {
       "scene": "Four cores, cut from the cracked columns. Sørensen crushes them: twenty-eight, thirty-one, twenty-four and thirty megapascals. The 1974 drawing asks for twenty-five.",
       "takeaway": "A test tells you about the concrete. It does not tell you about the column.",
       "place": "Materials & Testing",
+      "guide": "Four cores, and every option is a claim about what they settle. Ask of each how far it travels from four crushed cylinders. Strength is a fact about the concrete. What a column can carry also depends on the steel inside it and the load on it. The cores narrow the question rather than closing it.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Four cores, cut from the cracked columns. Sørensen crushes them: twenty-eight, thirty-one, twenty-four and thirty megapascals. The 1974 drawing asks for twenty-five.",
       "game": {
         "type": "CHOICE",
@@ -1043,7 +1512,16 @@ export const CURRICULUM = {
           ],
           "s": "Measuring the same thing several times and averaging pulls the random part of each reading toward zero."
         }
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "One sample is not the whole building",
+        "of": 16,
+        "rests": [
+          "Measure it more than once, and average the readings",
+          "Materials: what a crack means, and what a strength test can tell you"
+        ]
+      }
     }
   ],
   "HAZ": [
@@ -1053,6 +1531,12 @@ export const CURRICULUM = {
       "scene": "Tanaka has both bulletins on the desk. The early one used the first stations to report. The later one used the whole network, hours afterwards.",
       "takeaway": "A number that changes means the measurement improved. The event did not change.",
       "place": "Hazard & Forecasting",
+      "guide": "All four options explain a number that moved. They differ in what changed. The earthquake? The data? The sums? The scale? Only one of those can change six hours later. Ask what the second bulletin had that the first did not. Get it wrong and the town hears that the earthquake grew overnight.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Tanaka has both bulletins on the desk. The early one used the first stations to report. The later one used the whole network, hours afterwards.",
       "game": {
         "type": "CHOICE",
@@ -1078,7 +1562,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a magnitude is worked out from records, so more records can change it"
-      ]
+      ],
+      "concept": {
+        "n": 3,
+        "c": "How big the earthquake was, and how hard the shaking felt, are two different things",
+        "of": 16,
+        "rests": [
+          "An earthquake sends waves through the ground, and some arrive first"
+        ]
+      }
     },
     {
       "day": 2,
@@ -1086,6 +1578,12 @@ export const CURRICULUM = {
       "scene": "Tanaka has the aftershock rate for the week, and the hospital transfer log beside it. The office wants both stated as what they cost, rather than as principles. The board meets on Friday.",
       "takeaway": "Waiting is a decision, and it has to be compared with the decision to act now.",
       "place": "Hazard & Forecasting",
+      "guide": "All four options are ways of weighing four days. They differ in what they count. Ask of each whether it prices the waiting, the evidence, or neither. The frame has already been inspected. What nobody has entered is a room on the roof. So ask what four days of evidence would actually change.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Tanaka has the aftershock rate for the week, and the hospital transfer log beside it. The office wants both stated as what they cost, rather than as principles. The board meets on Friday.",
       "game": {
         "type": "CHOICE",
@@ -1132,7 +1630,15 @@ export const CURRICULUM = {
           ],
           "s": "Dividing one measurement by another says how many times bigger it is, which is usually the useful comparison."
         }
-      ]
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Wet sandy ground can behave like a liquid when it is shaken",
+        "of": 16,
+        "rests": [
+          "The ground itself changes the shaking: soft ground shakes more"
+        ]
+      }
     },
     {
       "day": 3,
@@ -1140,6 +1646,12 @@ export const CURRICULUM = {
       "scene": "Halvorsen wants a date on the fence. Delacroix wants a condition instead. A date is a promise about the ground, and a condition is a promise about the office.",
       "takeaway": "Tie a decision to something somebody can check, and it stays honest whatever the ground does next.",
       "place": "Hazard & Forecasting",
+      "guide": "Four options, and they differ in what the office would be promising. Ask of each whether the promise is about the ground or about the office's own work. A date promises something nobody controls. A rate is about the whole town, not one street. Residents want to see progress, and a written condition is progress they can check.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Halvorsen wants a date on the fence. Delacroix wants a condition instead. A date is a promise about the ground, and a condition is a promise about the office.",
       "game": {
         "type": "CHOICE",
@@ -1165,7 +1677,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a promise can be tied to a day, or to something anybody can check"
-      ]
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Aftershocks get rarer as time passes, and a chance is not a promise",
+        "of": 16,
+        "rests": [
+          "How big the earthquake was, and how hard the shaking felt, are two different things"
+        ]
+      }
     },
     {
       "day": 4,
@@ -1173,32 +1693,80 @@ export const CURRICULUM = {
       "scene": "If the Flats shake five times as hard as rock rather than three, a future earthquake delivers far more there. The district map is waiting on a new number.",
       "takeaway": "Fixing what you expect changes what gets built next. It does not change what already happened.",
       "place": "Hazard & Forecasting",
+      "guide": "Two instruments recorded the same earthquake. One stood on the soft ground of the Flats, one on the rock above the town. How many times harder the Flats shook is the bigger reading divided by the smaller one. One tile is the old figure from the map, which is the number you are replacing.",
+      "background": [
+        "Why you divide. Asking how many times bigger one thing is than another is always a division. Both readings are in the same units, so the answer has no units at all — it is just a number of times.",
+        "What it means for the Flats. The rock and the soft ground got the same earthquake. The soft ground turned it into something much larger, and that is a fact about the ground rather than about the earthquake.",
+        "What the new number changes. Everything still to be built there, because the design figures come from the shaking that is expected. It changes nothing about the cracks already in the walls, which were made by shaking that has already happened."
+      ],
       "story": "If the Flats shake five times as hard as rock rather than three, a future earthquake delivers far more there. The district map is waiting on a new number.",
       "game": {
-        "type": "CHOICE",
+        "type": "BALLPARK",
         "title": "Five times, not three",
         "setup": "Hazard & Forecasting",
         "play": "Say what the corrected figure changes.",
         "task": "Say what the corrected figure changes.",
-        "question": "What does the corrected figure change?",
-        "answer": "The rebuilding figures, and the case for improving the ground.",
-        "why": "The placards came from people looking at buildings, so a corrected figure does not move them. What it moves is everything still to be decided. Rebuilding in the Flats is designed against expected shaking, and that expectation just went up. So has the case for improving the ground first. One number is not a whole design either. It changes the future, not the past.",
-        "rebuttals": [
-          "Placards came from looking at damage, not from a predicted figure.",
-          "The magnitude belongs to the earthquake, and it is worked out from many stations.",
-          "Buildings that survived did so under this shaking, which says nothing about the next one."
+        "question": "How many times harder did the Flats shake than the rock?",
+        "answer": "Five times. The Flats read 41 and the rock read 8.2, in per cent of gravity, and 41 divided by 8.2 is 5. The map says 3, so the map is wrong.",
+        "why": "Both instruments recorded the same earthquake. Written in per cent of gravity, the one on the Flats read 41 and the one on rock above the town read 8.2. How many times bigger is a division: 41 ÷ 8.2 = 5. Both numbers are in the same units, so the answer is just a number of times, with no units on it. That is the whole finding, and it is about the ground and not about the earthquake — the same shaking arrived at both places, and the soft ground made it five times larger. The district map says three. Fixing it changes what gets designed for the Flats from now on, and the case for improving the ground there. It changes nothing that has already happened: the cracks in the walls were made by the real shaking, which the instruments measured directly.",
+        "givens": [
+          "the Flats read 41 and the rock read 8.2, in per cent of gravity"
         ],
-        "choices": [
-          "The placards issued this fortnight, which used the wrong figure.",
-          "The rebuilding figures, and the case for improving the ground.",
-          "The size of the earthquake that has already happened.",
-          "Nothing, because the buildings have already been through the real shaking."
-        ],
-        "correctChoice": "The rebuilding figures, and the case for improving the ground."
+        "relationship": "How many times = bigger ÷ smaller. Both readings are in the same units, so the answer is a number of times.",
+        "calcKey": "HAZ-4"
       },
       "assumes": [
         "design figures come from the shaking that is expected"
-      ]
+      ],
+      "equations": [
+        {
+          "e": "part = whole × share",
+          "c": "a share of the buildings, or of the people",
+          "v": [
+            [
+              "part",
+              "how many that share comes to"
+            ],
+            [
+              "whole",
+              "the whole number of them"
+            ],
+            [
+              "share",
+              "the percentage, written as a decimal"
+            ]
+          ],
+          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it.",
+          "computed": true
+        },
+        {
+          "e": "how many times = bigger ÷ smaller",
+          "c": "comparing two shakings, or two strengths",
+          "v": [
+            [
+              "how many times",
+              "the ratio"
+            ],
+            [
+              "bigger",
+              "the larger measurement"
+            ],
+            [
+              "smaller",
+              "the one it is compared with"
+            ]
+          ],
+          "s": "Dividing one measurement by another says how many times bigger it is, which is usually the useful comparison."
+        }
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Counting damage as a share, not as a number of buildings",
+        "of": 16,
+        "rests": [
+          "Reading a map, a scale and a contour"
+        ]
+      }
     },
     {
       "day": 5,
@@ -1206,6 +1774,12 @@ export const CURRICULUM = {
       "scene": "Tanaka's aftershock forecast goes into the report. She wants the range in the sentence. Okonkwo wants to know what the range is for. The staffing appendix waits on the wording.",
       "takeaway": "A forecast with no range cannot size a decision, because the decision is sized against the range.",
       "place": "Hazard & Forecasting",
+      "guide": "Four reasons to publish a range, and they differ in who it is for. Ask of each whether it is about being careful, being honest, being safe from blame, or planning. Nobody staffs an emergency for an average week. One number says nothing about how bad the bad week could be. The staffing appendix waits on this wording.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Tanaka's aftershock forecast goes into the report. She wants the range in the sentence. Okonkwo wants to know what the range is for. The staffing appendix waits on the wording.",
       "game": {
         "type": "CHOICE",
@@ -1252,7 +1826,15 @@ export const CURRICULUM = {
           ],
           "s": "Measuring the same thing several times and averaging pulls the random part of each reading toward zero."
         }
-      ]
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Aftershocks get rarer as time passes, and a chance is not a promise",
+        "of": 16,
+        "rests": [
+          "How big the earthquake was, and how hard the shaking felt, are two different things"
+        ]
+      }
     }
   ],
   "SAFE": [
@@ -1262,6 +1844,12 @@ export const CURRICULUM = {
       "scene": "Adeyemi has two hundred words, and a town that has heard two different numbers and a rumour about a bigger one coming.",
       "takeaway": "A notice earns its place by changing what somebody does, and everything else in it competes with that.",
       "place": "Public Safety",
+      "guide": "All four of these go in the notice. Nothing is being left out. Ask which one somebody can act on while standing in the street. Then ask which is a fact they will repeat later. Two hundred words are read in the order they are printed. A number going from 6.6 to 6.8 changes nothing about what to do now.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Adeyemi has two hundred words, and a town that has heard two different numbers and a rumour about a bigger one coming.",
       "game": {
         "type": "SEQUENCE",
@@ -1287,7 +1875,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a public notice is read once, quickly, by somebody who is tired"
-      ]
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Aftershocks get rarer as time passes, and a chance is not a promise",
+        "of": 16,
+        "rests": [
+          "How big the earthquake was, and how hard the shaking felt, are two different things"
+        ]
+      }
     },
     {
       "day": 2,
@@ -1295,6 +1891,12 @@ export const CURRICULUM = {
       "scene": "The mayor's office wants Marina Court pulled down this week. Delacroix has twelve blocks next to it on the same made ground, and five days before the fence is reviewed.",
       "takeaway": "The best measurement is the one that could change a decision you have not made yet.",
       "place": "Public Safety",
+      "guide": "Five days, four proposals, and somebody wanting a demolition this week. Open each proposal to see what decision its result could change. Marina Court is already fenced off, so evidence about that one building changes nothing. The twelve blocks next to it on the same made ground are where the open decision is. Commit the days you would spend.",
+      "background": [
+        "What is already decided. Nobody is going back into Marina Court this week whatever a test says. The open question is whether the ground that damaged it also needs action on the twelve blocks around it — and that is a question about the ground, not about the building.",
+        "Why the worst damage is the trap. Instrumenting the most damaged building gives dramatic results and answers a question that is already closed. It is the most sensible-sounding way to spend five days and learn nothing that changes anything.",
+        "What made ground is. The Flats were built on fill — soil brought in to make the land usable. Fill shakes differently from natural ground, and all thirteen buildings sit on the same fill. So one campaign of ground tests bears on twelve open decisions instead of one closed one."
+      ],
       "story": "The mayor's office wants Marina Court pulled down this week. Delacroix has twelve blocks next to it on the same made ground, and five days before the fence is reviewed.",
       "game": {
         "type": "VALUE",
@@ -1348,7 +1950,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a decision can treat what you can see, or what caused it"
-      ]
+      ],
+      "concept": {
+        "n": 5,
+        "c": "The ground itself changes the shaking: soft ground shakes more",
+        "of": 16,
+        "rests": [
+          "Distance from the fault changes what a place feels"
+        ]
+      }
     },
     {
       "day": 3,
@@ -1356,6 +1966,12 @@ export const CURRICULUM = {
       "scene": "Four hundred children are due back Monday. The classrooms are sound and the gym is not. Bram Halvorsen, who runs the district's emergency work, has parents calling, and there is no spare school to move anybody to.",
       "takeaway": "The question is which parts can be used, not whether the site is open or shut.",
       "place": "Public Safety",
+      "guide": "All four options are fair readings of one site with two buildings on it. Ask of each whether it treats the site as one thing or as parts. The classrooms and the gym have different evidence behind them. Four hundred children arrive Monday and there is nowhere else. An answer that covers both buildings ignores half of what was measured.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Four hundred children are due back Monday. The classrooms are sound and the gym is not. Bram Halvorsen, who runs the district's emergency work, has parents calling, and there is no spare school to move anybody to.",
       "game": {
         "type": "CHOICE",
@@ -1381,7 +1997,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a building can be used in part"
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Deciding with a cordon: how likely, and how bad, against what it costs people",
+        "of": 16,
+        "rests": [
+          "Aftershocks get rarer as time passes, and a chance is not a promise",
+          "Counting damage as a share, not as a number of buildings"
+        ]
+      }
     },
     {
       "day": 4,
@@ -1389,6 +2014,12 @@ export const CURRICULUM = {
       "scene": "Monday's public meeting has two hundred people booked. There is no other hall big enough. Three ground-floor columns in the library are cracked.",
       "takeaway": "Restricted use is a real answer between open and shut, and it has to say what it is protecting against.",
       "place": "Public Safety",
+      "guide": "All four of these will happen. The order is what is being decided. Ask of each what has to be settled before it means anything. A limit on numbers only works once you have said which part of the building. A review date is what stops a limit lasting for ever. Two hundred people are booked and there is no other hall.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
       "story": "Monday's public meeting has two hundred people booked. There is no other hall big enough. Three ground-floor columns in the library are cracked.",
       "game": {
         "type": "SEQUENCE",
@@ -1414,7 +2045,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "use can be limited by how many people, by which rooms, and for how long"
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Materials: what a crack means, and what a strength test can tell you",
+        "of": 16,
+        "rests": [
+          "A building carries its weight down a path, and the weakest needed link governs"
+        ]
+      }
     },
     {
       "day": 5,
@@ -1422,6 +2061,12 @@ export const CURRICULUM = {
       "scene": "Shopkeepers wait at the tape with keys in their hands. Delacroix walks the line with the log. Three stretches have written reasons. The southern leg has none that anybody can point to.",
       "takeaway": "Every stretch of fence is a claim about a hazard, and a claim should be checkable.",
       "place": "Public Safety",
+      "guide": "Each stretch of tape is a claim that there is a hazard there now. Open the evidence behind each one first. Some rest on somebody looking. Some rest on a hazard that has since been cleared. One has no written reason at all. You can go and check one stretch. Hold the claims the evidence does not support, and check the one where opening the wrong street would cost the most.",
+      "background": [
+        "A closure is a claim. Tape goes up for a reason, and the reason is about a condition right now — falling glass, a loose parapet, ground that may still move. Conditions change and reasons expire, so a stretch nobody has been back to is a claim nobody has retested.",
+        "What a stale closure costs. Shopkeepers are at the tape with keys and deliveries. Every day a stretch stays shut with no hazard behind it, people trust the tape less — and then they walk around the stretches that do matter. Closing too much is not the safe mistake it looks like.",
+        "Why the unwritten one is not automatically the answer. A stretch with no logged reason may still be holding back something real that somebody saw on day one and never wrote down. Finding out is the point, which is why you spend the check instead of guessing from the log."
+      ],
       "story": "Shopkeepers wait at the tape with keys in their hands. Delacroix walks the line with the log. Three stretches have written reasons. The southern leg has none that anybody can point to.",
       "game": {
         "type": "ATTEST",
@@ -1474,7 +2119,12 @@ export const CURRICULUM = {
       "assumes": [
         "a fence can be up for more than one reason",
         "checking costs time, and there is one check left before the map is reissued"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Reading a map, a scale and a contour",
+        "of": 16
+      }
     },
     {
       "day": 6,
@@ -1482,6 +2132,12 @@ export const CURRICULUM = {
       "scene": "Three calls land within minutes. A burst main is pouring water into the Flats. Buildings need checking after the 5.1. The school reopening message has to go out. Four engineers are free.",
       "takeaway": "Keep the judgement nobody else can make, and hand the rest over with a first move and a number.",
       "place": "Public Safety",
+      "guide": "Three calls, four engineers, and one problem you keep yourself. For each of the others, choose somebody who can take a real first action, and say what reading or event brings it back to you. An owner with no first action will come back for orders at the worst moment. Then take the watch on the one that needs your own judgement.",
+      "background": [
+        "Which one to keep. One of these is getting worse while you decide. One could hurt somebody and needs checking. One is a deadline that is not going anywhere — the message will still need sending in an hour. Keeping the deadline is the usual mistake, because it is the one that finishes, and finishing it costs the field team its hours.",
+        "What a first action is. Not \"keep an eye on it\". Something the owner can do without asking you: shut the valve, take a reading at the boundary, put out the message. A handover made of instructions to think is not a handover.",
+        "Why every handover needs a way back. You are lending the problem, not giving it away. Saying which reading brings it back means somebody else can hold it without checking in, and you hear about it at the moment it matters."
+      ],
       "story": "Three calls land within minutes. A burst main is pouring water into the Flats. Buildings need checking after the 5.1. The school reopening message has to go out. Four engineers are free.",
       "game": {
         "type": "DELEGATE",
@@ -1555,13 +2211,143 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a problem still getting worse is different from one that has finished"
-      ]
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Wet sandy ground can behave like a liquid when it is shaken",
+        "of": 16,
+        "rests": [
+          "The ground itself changes the shaking: soft ground shakes more"
+        ]
+      }
+    },
+    {
+      "day": 7,
+      "title": "What the teams are being sent to",
+      "scene": "More buildings are waiting than the teams can reach. The office works to one priority. Marisol Okonkwo changes it as the fortnight goes on, and nobody announces it.",
+      "takeaway": "The cost of a rule that has changed is paid by whoever is still using the old one.",
+      "place": "Assessment Office",
+      "guide": "Send teams to what the priority asks for and leave the rest waiting. The priority on the office board changes during the day. What counts is the buildings either side of a change, because they show whether you are reading the board.",
+      "background": [
+        "Why the priority changes. It starts with buildings people are living in. After an aftershock it becomes anything already marked yellow, because those have less strength left. When the schools ask, it becomes schools.",
+        "Why the change is where it goes wrong. A team sent under the old priority spends half a day on a building nobody is waiting for, and the one that mattered waits another night with people inside."
+      ],
+      "story": "More buildings are waiting than the teams can reach. The office works to one priority. Marisol Okonkwo changes it as the fortnight goes on, and nobody announces it.",
+      "game": {
+        "type": "SPOT",
+        "title": "What the teams are being sent to",
+        "setup": "Assessment Office",
+        "play": "Send the teams where the rule says.",
+        "task": "Send the teams where the rule says.",
+        "question": "Send teams to the priority on the board, and keep checking the board.",
+        "answer": "Read the board, not the queue. Every change leaves an hour when the old priority still looks right.",
+        "why": "Three priorities run across the fortnight. Buildings people are in, then buildings already marked yellow, then schools. A building can match two at once, and that is what makes a change cost something real. What the panel scores is the buildings either side of a change. Most of the queue is wanted by neither priority, so leaving those waiting proves nothing. The office's own version of this is the hour after an aftershock. The priority has changed to the yellow placards, because their strength has just dropped again, and the teams already in the vans are driving to the list from before the shake.",
+        "spot": {
+          "targets": [
+            {
+              "id": "b1",
+              "label": "Flats, people inside",
+              "tags": [
+                "occupied"
+              ]
+            },
+            {
+              "id": "b2",
+              "label": "Yellow placard, empty",
+              "tags": [
+                "yellow"
+              ]
+            },
+            {
+              "id": "b3",
+              "label": "School, in use",
+              "tags": [
+                "school",
+                "occupied"
+              ]
+            },
+            {
+              "id": "b4",
+              "label": "Yellow placard, occupied",
+              "tags": [
+                "yellow",
+                "occupied"
+              ]
+            },
+            {
+              "id": "b5",
+              "label": "Warehouse, empty",
+              "tags": [
+                "empty"
+              ]
+            },
+            {
+              "id": "b6",
+              "label": "School, closed",
+              "tags": [
+                "school"
+              ]
+            },
+            {
+              "id": "b7",
+              "label": "Shops, empty",
+              "tags": [
+                "empty"
+              ]
+            },
+            {
+              "id": "b8",
+              "label": "Church hall, yellow",
+              "tags": [
+                "yellow"
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "say": "Anywhere people are living",
+              "want": [
+                "occupied"
+              ]
+            },
+            {
+              "say": "Anything already yellow",
+              "want": [
+                "yellow"
+              ]
+            },
+            {
+              "say": "Any school",
+              "want": [
+                "school"
+              ]
+            }
+          ],
+          "duration": 40,
+          "switchEvery": 12,
+          "pass": 0.75,
+          "hint": "The priority is on the office board and changes without warning.",
+          "commit": "Open the queue"
+        }
+      },
+      "assumes": [
+        "somebody decides which buildings are checked first"
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Deciding with a cordon: how likely, and how bad, against what it costs people",
+        "of": 16,
+        "rests": [
+          "Aftershocks get rarer as time passes, and a chance is not a promise",
+          "Counting damage as a share, not as a number of buildings"
+        ]
+      }
     }
   ]
 };
 
 export const BALLPARK_CALCS = {
-  "SEIS-2": {
+  "SEIS-1": {
     "prompt": "The first wave arrived at nineteen seconds past, and the strong shaking at thirty-two. Count about eight kilometres for each second between them.",
     "question": "How far away did it start?",
     "labels": [
@@ -1592,6 +2378,34 @@ export const BALLPARK_CALCS = {
     "solution": "Thirty-two take away nineteen is thirteen seconds. Thirteen times eight is a hundred and four kilometres.",
     "explanation": "The magnitude and the depth are both real numbers about this earthquake, and neither belongs here. One is how big it was. One is how deep. This is how far."
   },
+  "SEIS-2": {
+    "prompt": "The stations are 1,100 metres apart. The wave arrived at the far station 0.4 of a second later than at the near one.",
+    "question": "Choose the distance between the stations and the delay between the arrivals.",
+    "labels": [
+      "1100  (metres between the stations)",
+      "0.4  (seconds later at the far station)",
+      "3  (times taller the far trace is)",
+      "30  (seconds longer the far trace runs)"
+    ],
+    "values": [
+      1100,
+      0.4,
+      3,
+      30
+    ],
+    "slots": 2,
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 2750,
+    "tolerance": 200,
+    "units": "metres a second",
+    "solution": "1,100 ÷ 0.4 = 2,750 metres a second, which is rock speed rather than soft-ground speed.",
+    "explanation": "A fast wave means it came through rock. The taller, longer trace is about where that station stands."
+  },
   "MAT-1": {
     "prompt": "The two fixings pulled out at twenty-four and twenty-seven kilonewtons. The wall asks about thirty-one kilonewtons of each of them.",
     "question": "How does what they carried compare with what is asked of them?",
@@ -1621,6 +2435,62 @@ export const BALLPARK_CALCS = {
     "units": "(ratio)",
     "solution": "Twenty-four and twenty-seven average twenty-five and a half. That divided by thirty-one is about 0.8.",
     "explanation": "About eight tenths, which is under one. Two pulls do not settle the building. They settle whether this is worth acting on today."
+  },
+  "HAZ-4": {
+    "prompt": "The Flats instrument read 41 per cent of gravity. The instrument on rock above the town read 8.2. Same earthquake, same units.",
+    "question": "Choose the reading on the soft ground and the reading on the rock.",
+    "labels": [
+      "41  (the Flats, on soft ground)",
+      "8.2  (the rock above the town)",
+      "3  (the old figure on the district map)",
+      "31  (the hospital basement)"
+    ],
+    "values": [
+      41,
+      8.2,
+      3,
+      31
+    ],
+    "slots": 2,
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 5,
+    "tolerance": 0.4,
+    "units": "times harder",
+    "solution": "41 ÷ 8.2 = 5 times, against the 3 on the map.",
+    "explanation": "Five, not three. The number is about the ground, and it changes what gets built rather than what has happened."
+  },
+  "STRUCT-7": {
+    "prompt": "The wall puts 650 kilonewtons down onto a footing 12 metres long. It was built to carry about 90 kilonewtons on each metre.",
+    "question": "Choose the total weight and the length it is shared along.",
+    "labels": [
+      "650  (the whole weight the wall puts down, in kN)",
+      "12  (the length of the footing, in m)",
+      "90  (what each metre was built to carry, in kN)",
+      "6  (the height of the wall, in m)"
+    ],
+    "values": [
+      650,
+      12,
+      90,
+      6
+    ],
+    "slots": 2,
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 54,
+    "tolerance": 4,
+    "units": "kilonewtons on each metre",
+    "solution": "650 ÷ 12 ≈ 54 kilonewtons per metre, against about 90 it was built for.",
+    "explanation": "There is room on paper. Cracking under a tenth of Friday's shake says the wall is holding less than it was."
   }
 };
 

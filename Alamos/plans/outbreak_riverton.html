@@ -1,0 +1,334 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Outbreak: Riverton — Conversion Plan</title>
+<style>
+  @page { size: A4; margin: 15mm 14mm 16mm; }
+  :root {
+    --ink:#15171a; --ink2:#4c5158; --muted:#868b92; --rule:#dcded9; --sunk:#f2f3ef;
+    --acc:#3b6c3d; --acc-soft:#5fae63;
+    --s:#2c7a4b; --m:#9a6f14; --d:#767b70; --r:#a4453a;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; color:var(--ink); background:#fff;
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif; font-size:9.6pt; line-height:1.5; }
+  .mono,.k,code { font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; }
+  code,.k { font-size:.9em; background:var(--sunk); padding:0 3px; border-radius:2px; }
+  em { font-style:normal; font-weight:640; }
+  strong { font-weight:680; }
+
+  header { border-bottom:2.5pt solid var(--acc); padding-bottom:7pt; margin-bottom:12pt; }
+  .eyebrow { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--acc); }
+  h1 { margin:2pt 0 3pt; font-size:24pt; line-height:1.02; letter-spacing:-.02em; font-weight:660; }
+  .sub { color:var(--ink2); font-size:9.6pt; max-width:150mm; }
+  .place { color:var(--muted); font-size:8.4pt; font-style:italic; margin-top:2pt; }
+
+  .facts { display:flex; gap:0; border:.6pt solid var(--rule); margin-top:8pt; }
+  .fact { flex:1; padding:4pt 7pt 5pt; border-right:.6pt solid var(--rule); }
+  .fact:last-child { border-right:none; }
+  .fact b { display:block; font-family:ui-monospace,Menlo,monospace; font-size:14pt; font-weight:640; letter-spacing:-.02em; }
+  .fact span { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); }
+
+  h2 { font-size:12pt; margin:15pt 0 4pt; font-weight:660; letter-spacing:-.01em;
+    border-bottom:.6pt solid var(--ink); padding-bottom:3pt; break-after:avoid; }
+  h2 .ph { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--acc); margin-right:6pt; }
+  p { margin:6pt 0; max-width:170mm; }
+
+  table { border-collapse:collapse; width:100%; font-size:8.4pt; margin:6pt 0; }
+  th,td { text-align:left; padding:3pt 6pt 3pt 0; border-bottom:.5pt solid var(--rule); vertical-align:top; }
+  thead th { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--muted); font-weight:500; border-bottom:.7pt solid var(--ink); }
+  td.n,th.n { text-align:right; padding-right:8pt; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .flag { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.06em;
+    border:.5pt solid currentColor; padding:0 3pt; border-radius:2pt; white-space:nowrap; }
+  .flag.sus { color:var(--m); } .flag.real { color:var(--r); }
+
+  .mixbar { display:flex; height:9pt; border:.6pt solid var(--rule); margin:5pt 0 3pt; }
+  .mixbar i { display:block; }
+  .mixkey { font-family:ui-monospace,Menlo,monospace; font-size:6.6pt; color:var(--ink2);
+    display:flex; flex-wrap:wrap; gap:2pt 9pt; }
+
+  .callout { border-left:2pt solid var(--acc); background:var(--sunk); padding:6pt 9pt; margin:8pt 0;
+    break-inside:avoid; }
+  .callout p { margin:3pt 0; }
+  .callout .tag { font-family:ui-monospace,Menlo,monospace; font-size:6.4pt; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--acc); display:block; margin-bottom:3pt; }
+  .callout.warn { border-left-color:var(--r); }
+  .callout.warn .tag { color:var(--r); }
+
+  .card { border-left:2pt solid var(--d); padding:5pt 0 6pt 8pt; margin:7pt 0; break-inside:avoid; }
+  .card.v-s { border-left-color:var(--s); } .card.v-m { border-left-color:var(--m); }
+  .card.v-d { border-left-color:var(--d); } .card.v-r { border-left-color:var(--r); }
+  .card .top { display:flex; align-items:baseline; gap:7pt; }
+  .card h4 { margin:0; font-family:ui-monospace,Menlo,monospace; font-size:9.6pt; font-weight:660; letter-spacing:.03em; }
+  .vd { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.12em;
+    text-transform:uppercase; border:.5pt solid currentColor; padding:0 3pt; border-radius:2pt; }
+  .v-s .vd { color:var(--s); } .v-m .vd { color:var(--m); }
+  .v-d .vd { color:var(--d); } .v-r .vd { color:var(--r); }
+  .card .at { margin-left:auto; color:var(--muted); font-size:7.4pt; }
+  .card p { margin:3pt 0 0; font-size:9pt; }
+  .card dl { margin:3pt 0 0; font-size:8pt; color:var(--ink2); }
+  .card dt { font-family:ui-monospace,Menlo,monospace; font-size:6.2pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); display:inline; }
+  .card dd { display:inline; margin:0; }
+  .card dd::after { content:""; display:block; }
+
+  .slate { border:.6pt solid var(--rule); padding:6pt 8pt 7pt; margin:7pt 0; break-inside:avoid; }
+  .slate .sh { display:flex; align-items:baseline; gap:8pt; border-bottom:.6pt solid var(--rule); padding-bottom:3pt; }
+  .slate h4 { margin:0; font-size:10.5pt; font-weight:660; }
+  .slate .n2 { font-family:ui-monospace,Menlo,monospace; font-size:6.6pt; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted); }
+  table.mini { font-size:8pt; margin:4pt 0 5pt; }
+  table.mini td { border-bottom:.4pt solid var(--sunk); padding:2pt 6pt 2pt 0; }
+  table.mini .dy,.gp { font-family:ui-monospace,Menlo,monospace; font-size:6.8pt; color:var(--muted); white-space:nowrap; }
+  table.mini .fm { font-family:ui-monospace,Menlo,monospace; font-size:7.2pt; white-space:nowrap; }
+  table.mini .was { color:var(--muted); } .ar { color:var(--muted); }
+  table.mini .ti { color:var(--ink2); }
+  table.mini .nt { display:block; color:var(--muted); font-size:7.2pt; }
+  .out { border-top:.6pt solid var(--rule); padding-top:4pt; font-size:7.8pt; color:var(--ink2); }
+  .out b { color:var(--ink); font-variant-numeric:tabular-nums; }
+
+  footer { margin-top:14pt; padding-top:5pt; border-top:.6pt solid var(--rule);
+    color:var(--muted); font-size:7pt; }
+  .avoid { break-inside:avoid; }
+</style></head><body>
+
+<header>
+  <div class="eyebrow">Alamos · conversion plan · Biology · grade 9–12</div>
+  <h1>Outbreak: Riverton</h1>
+  <div class="sub">AP Biology · public health</div>
+  <div class="place">A hospital campus in week three: triage marquees, container labs, and a fence with one gate.</div>
+  <div class="facts">
+    <div class="fact"><b>45</b><span>stops</span></div>
+    <div class="fact"><b>7</b><span>choice (16%)</span></div>
+    <div class="fact"><b>6.6</b><span>effective formats</span></div>
+    <div class="fact"><b>3/7</b><span>equations computed</span></div>
+    <div class="fact"><b>2</b><span>select-only concepts</span></div>
+    <div class="fact"><b>12·32·1</b><span>select·construct·operate</span></div>
+  </div>
+</header>
+
+<h2><span class="ph">Reading</span>Where this campaign stands</h2>
+<p>Two of the four gaps are not gaps but absences: <em>Rₑ = R₀ × S</em> and
+      <em>CFR = deaths / cases</em> are mentioned at no stop at all. An AP Biology public-health
+      course that never reaches the effective reproduction number is missing its spine. The mix is
+      healthy — SEQUENCE-led, twelve of them — so this campaign’s work is almost entirely
+      curriculum.</p>
+
+
+<div class="avoid">
+<h2><span class="ph">Now</span>The mix as it ships</h2>
+<div class="mixbar"><i style="flex:12;background:#e2e4de"></i><i style="flex:7;background:#c9ccc4"></i><i style="flex:7;background:#e2e4de"></i><i style="flex:5;background:#e2e4de"></i><i style="flex:5;background:#e2e4de"></i><i style="flex:2;background:#5fae63"></i><i style="flex:2;background:#5fae63"></i><i style="flex:1;background:#5fae63"></i><i style="flex:1;background:#5fae63"></i><i style="flex:1;background:#5fae63"></i><i style="flex:1;background:#5fae63"></i><i style="flex:1;background:#5fae63"></i></div>
+<div class="mixkey"><span>SEQUENCE 12</span><span>CHOICE 7</span><span>BALLPARK 7</span><span>DIAGNOSIS 5</span><span>PROTOCOL 5</span><span>VALUE 2</span><span>ALLOCATE 2</span><span>CONTROL 1</span><span>TRACE 1</span><span>CHAIN 1</span><span>TRIGGER 1</span><span>ATTEST 1</span></div>
+</div>
+
+<h2><span class="ph">Curriculum</span>What the syllabus is not getting</h2>
+<table><thead><tr><th>Equation the course owes</th><th>What it carries</th><th>Mentioned at</th><th class="n">Status</th></tr></thead><tbody>
+<tr>
+  <td class="k">Rₑ = R₀ × S</td><td>effective reproduction number against a susceptible fraction</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">— no stop at all</td>
+  <td class="n"><span class="flag real">real gap</span></td>
+</tr><tr>
+  <td class="k">PPV = (prev·sens) / (prev·sens + (1−prev)(1−spec))</td><td>why a good test fails at low prevalence</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">15·BALLPARK  22·PROTOCOL  26·SEQUENCE</td>
+  <td class="n"><span class="flag real">real gap</span></td>
+</tr><tr>
+  <td class="k">CFR = deaths / cases</td><td>case fatality, and what its denominator hides</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">— no stop at all</td>
+  <td class="n"><span class="flag real">real gap</span></td>
+</tr><tr>
+  <td class="k">pH = pKa + log([A⁻]/[HA])</td><td>Henderson–Hasselbalch — buffering in a body</td>
+  <td class="mono" style="font-size:7.2pt;color:var(--ink2)">6·CHOICE  18·BALLPARK</td>
+  <td class="n"><span class="flag real">real gap</span></td>
+</tr></tbody></table>
+<p style="font-size:8.4pt;color:var(--ink2)">0 of 4 sit on an instrument stop, whose
+board arithmetic the coverage check cannot yet read — expect Phase 0 to clear those. <strong>4</strong>
+are unaffected by it.</p>
+
+<div class="avoid">
+<h2><span class="ph">Tier</span>Concepts the player only ever picks from a list</h2>
+<table><thead><tr><th class="n">#</th><th>Mechanism concept</th><th class="n">Stops</th></tr></thead><tbody>
+<tr><td class="n">3</td><td>Enzymes and metabolism</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">6</td></tr><tr><td class="n">23</td><td>Gene regulation and expression control</td>
+  <td class="n mono" style="font-size:7.2pt;color:var(--muted)">24</td></tr>
+</tbody></table>
+<p style="font-size:8.4pt;color:var(--ink2)">Reported, never failed. Select-tier can be exactly right;
+these are the candidates, not the defects.</p></div>
+
+<h2><span class="ph">Fun</span>What this subject and this place can carry</h2>
+<div class="card v-s">
+  <div class="top"><h4>TALLY</h4><span class="vd">strong</span><span class="at">a POP stop</span></div>
+  <p>Cases accumulate into bins and the statistic moves because there is not enough behind
+          it yet, not because the epidemic changed. That confusion is the single most consequential
+          error in outbreak reporting, and it is what TALLY grades.</p>
+  <dl><dt>serves</dt> <dd>Rₑ and CFR — the two equations the game does not have</dd></dl>
+  <dl><dt>needs</dt> <dd>a run where an early batch flatters the number, and a pass mark that stays unprinted</dd></dl>
+  
+</div><div class="card v-s">
+  <div class="top"><h4>TRIAL</h4><span class="vd">strong</span><span class="at">the decon tunnel</span></div>
+  <p>The place already has the lesson built into it: courtyards, triage marquees, container
+          labs, a decon tunnel on the main route and a fence with one gate. Driving that route in
+          the wrong order is how a campus infects itself.</p>
+  <dl><dt>serves</dt> <dd>transmission and barrier practice; the place stops being scenery</dd></dl>
+  
+  <dl><dt>risk</dt> <dd>gates stood off each door by d/2 + 10, or every ring renders under the floor</dd></dl>
+</div><div class="card v-s">
+  <div class="top"><h4>SPOT</h4><span class="vd">strong</span><span class="at">CLIN or the marquees</span></div>
+  <p>A triage criterion replaced mid-shift with nothing announcing it. This is not a game
+          conceit — it is week three of an outbreak, and the case definition changes.</p>
+  <dl><dt>serves</dt> <dd>case definition, and concept 11 — homeostasis and feedback, currently select-only</dd></dl>
+  
+  <dl><dt>risk</dt> <dd>score only the discriminating items</dd></dl>
+</div><div class="card v-s">
+  <div class="top"><h4>BELT</h4><span class="vd">strong</span><span class="at">the one gate</span></div>
+  <p>A fence with one gate is a sorting line whether anybody designed it as one. Sort
+          arrivals against the case definition at the speed people actually arrive.</p>
+  <dl><dt>serves</dt> <dd>case definition as one bit, held at speed</dd></dl>
+  
+  <dl><dt>risk</dt> <dd>must be decidable at a glance; a definition needing two clauses is not a BELT</dd></dl>
+</div><div class="card v-m">
+  <div class="top"><h4>PROBE</h4><span class="vd">medium</span><span class="at">FIELD · One Health</span></div>
+  <p>Sample ward by ward or village by village and find where the chain breaks. Strong on
+          subject; medium only because the campus is compact and the chain would be diagrammatic
+          rather than walked.</p>
+  <dl><dt>serves</dt> <dd>reservoir and transmission chain</dd></dl>
+  
+  
+</div><div class="card v-d">
+  <div class="top"><h4>HOLD</h4><span class="vd">defer</span><span class="at">—</span></div>
+  <p>Isolation-room pressure held against a closing band is real hospital engineering and
+          thin biology. Defer.</p>
+  
+  
+  
+</div><div class="card v-r">
+  <div class="top"><h4>LOB</h4><span class="vd">reject</span><span class="at">—</span></div>
+  <p>Nothing here is aimed.</p>
+  
+  
+  
+</div>
+
+<h2><span class="ph">Slates</span>Three appetites — the campaign is zero-sum</h2>
+<p style="font-size:8.8pt">No conversion adds a stop. Each changes what an existing stop <em>does</em>
+while leaving what it <em>teaches</em> alone. Snapshot before, diff after:
+<code>curriculumDelivery.mjs outbreak_riverton --snapshot before.json</code>, then <code>--against before.json</code>.</p>
+<div class="slate">
+    <div class="sh"><h4>Minimum honest</h4><span class="n2">3 stops · one sitting</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">15</td><td class="dy">d5</td><td class="gp">POP</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>TALLY</b></td>
+      <td class="ti">What does a positive mean?<span class="nt">accumulate tests until a positive means something — and PPV with it</span></td>
+    </tr><tr>
+      <td class="n">24</td><td class="dy">d8</td><td class="gp">CELL</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>CHAIN</b></td>
+      <td class="ti">The same genome, different cells<span class="nt">the same genome, different cells: name the step that governs expression</span></td>
+    </tr><tr>
+      <td class="n">6</td><td class="dy">d2</td><td class="gp">MOL</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>HOLD</b></td>
+      <td class="ti">When heat changes an enzyme assay<span class="nt">the enzyme assay held in its band while the heat rises</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>7 → 5</b> (11%) ·
+      moves <b>12·32·1 → 10·32·3</b> ·
+      effective formats <b>6.6 → 7.4</b> · <b>2</b> new operate stops, 1 of them arcade
+    </div>
+  </div>
+<div class="slate">
+    <div class="sh"><h4>Balanced</h4><span class="n2">6 stops · the recommendation</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">15</td><td class="dy">d5</td><td class="gp">POP</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>TALLY</b></td>
+      <td class="ti">What does a positive mean?</td>
+    </tr><tr>
+      <td class="n">24</td><td class="dy">d8</td><td class="gp">CELL</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>CHAIN</b></td>
+      <td class="ti">The same genome, different cells</td>
+    </tr><tr>
+      <td class="n">6</td><td class="dy">d2</td><td class="gp">MOL</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>HOLD</b></td>
+      <td class="ti">When heat changes an enzyme assay</td>
+    </tr><tr>
+      <td class="n">22</td><td class="dy">d8</td><td class="gp">IMM</td>
+      <td class="fm"><span class="was">PROTOCOL</span> <span class="ar">→</span> <b>SPOT</b></td>
+      <td class="ti">Match the surveillance signal<span class="nt">a surveillance signal under a case definition that changes</span></td>
+    </tr><tr>
+      <td class="n">26</td><td class="dy">d9</td><td class="gp">FIELD</td>
+      <td class="fm"><span class="was">SEQUENCE</span> <span class="ar">→</span> <b>PROBE</b></td>
+      <td class="ti">Test the reservoir hypothesis<span class="nt">the reservoir found station by station rather than hypothesised</span></td>
+    </tr><tr>
+      <td class="n">18</td><td class="dy">d6</td><td class="gp">CLIN</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>BALLPARK</b></td>
+      <td class="ti">Read the downstream acid–base signal<span class="nt">the acid–base signal computed, not described</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>7 → 5</b> (11%) ·
+      moves <b>12·32·1 → 10·30·5</b> ·
+      effective formats <b>6.6 → 8.3</b> · <b>4</b> new operate stops, 2 of them arcade
+    </div>
+  </div>
+<div class="slate">
+    <div class="sh"><h4>Ambitious</h4><span class="n2">9 stops · adds world work</span></div>
+    <table class="mini"><tbody><tr>
+      <td class="n">15</td><td class="dy">d5</td><td class="gp">POP</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>TALLY</b></td>
+      <td class="ti">What does a positive mean?</td>
+    </tr><tr>
+      <td class="n">24</td><td class="dy">d8</td><td class="gp">CELL</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>CHAIN</b></td>
+      <td class="ti">The same genome, different cells</td>
+    </tr><tr>
+      <td class="n">6</td><td class="dy">d2</td><td class="gp">MOL</td>
+      <td class="fm"><span class="was">CHOICE</span> <span class="ar">→</span> <b>HOLD</b></td>
+      <td class="ti">When heat changes an enzyme assay</td>
+    </tr><tr>
+      <td class="n">22</td><td class="dy">d8</td><td class="gp">IMM</td>
+      <td class="fm"><span class="was">PROTOCOL</span> <span class="ar">→</span> <b>SPOT</b></td>
+      <td class="ti">Match the surveillance signal</td>
+    </tr><tr>
+      <td class="n">26</td><td class="dy">d9</td><td class="gp">FIELD</td>
+      <td class="fm"><span class="was">SEQUENCE</span> <span class="ar">→</span> <b>PROBE</b></td>
+      <td class="ti">Test the reservoir hypothesis</td>
+    </tr><tr>
+      <td class="n">18</td><td class="dy">d6</td><td class="gp">CLIN</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>BALLPARK</b></td>
+      <td class="ti">Read the downstream acid–base signal</td>
+    </tr><tr>
+      <td class="n">4</td><td class="dy">d2</td><td class="gp">CLIN</td>
+      <td class="fm"><span class="was">DIAGNOSIS</span> <span class="ar">→</span> <b>TRIAL</b></td>
+      <td class="ti">What kind of agent fits the whole panel?<span class="nt">the decon route, driven</span></td>
+    </tr><tr>
+      <td class="n">9</td><td class="dy">d3</td><td class="gp">CELL</td>
+      <td class="fm"><span class="was">CONTROL</span> <span class="ar">→</span> <b>BELT</b></td>
+      <td class="ti">Separate binding from entry<span class="nt">the gate, sorting against the definition in force</span></td>
+    </tr><tr>
+      <td class="n">30</td><td class="dy">d10</td><td class="gp">POP</td>
+      <td class="fm"><span class="was">BALLPARK</span> <span class="ar">→</span> <b>CLOUD</b></td>
+      <td class="ti">Track a rising variant<span class="nt">a case-fatality estimate as a band, not a number</span></td>
+    </tr></tbody></table>
+    <div class="out">
+      CHOICE <b>7 → 5</b> (11%) ·
+      moves <b>12·32·1 → 9·30·6</b> ·
+      effective formats <b>6.6 → 9.0</b> · <b>6</b> new operate stops, 4 of them arcade
+    </div>
+  </div>
+
+<div class="callout"><span class="tag">The order of work</span>
+<p><strong>1.</strong> Phase 0 — teach the coverage check to read an instrument’s own board, and
+re-baseline <code>curriculum-debt.json</code>. Rewriting a stop that already teaches the thing is the
+exact failure the check exists to prevent.
+<strong>2.</strong> Snapshot. <strong>3.</strong> Edit the book, never the generated content —
+<code>tools/import-book.mjs books/outbreak-riverton.yml outbreak_riverton --verify</code>.
+<strong>4.</strong> <code>npm run traps</code>: every instrument’s trap must fire.
+<strong>5.</strong> <code>npm run check outbreak_riverton</code> and <code>npm run drive outbreak_riverton</code>, right
+answer and wrong — ask what a player who understood nothing would score before believing any pass mark.
+<strong>6.</strong> <code>--against</code> the snapshot. A changed format is reported; a changed
+objective fails.</p></div>
+
+<footer>
+  Counts computed from <code>themes/outbreak_riverton/content/</code> via <code>engine/dev/curriculumDelivery.mjs</code>;
+  concept and equation lists authored in <code>tools/syllabus.js</code>. Format verdicts and slates are
+  editorial. Run it with <code>THEME=outbreak_riverton npm run dev</code>.
+</footer>
+</body></html>

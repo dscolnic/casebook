@@ -70,6 +70,13 @@ export function normaliseNumerals(text){
     // Swallow the rest of the run, including any `and` that sits inside it.
     let j = i, last = i;
     while(j < words.length){
+      // Never swallow across a sentence boundary. "…into the second one. Three
+      // features…" is two sentences, and merging "one." with "Three" into a single
+      // token deleted the full stop between them — so words-per-sentence for that
+      // card was computed over 38 words instead of 22, and the grade came out a
+      // point and a half high. Found by a guide that measured over the brief's
+      // 28-word cap while containing no sentence longer than 22.
+      if(/[.!?][)\"']*$/.test(words[j])) break;
       const nxt = words[j + 2];                       // skip the whitespace token
       if(nxt === undefined) break;
       const bare = nxt.toLowerCase().replace(/[^a-z-]/g, '');

@@ -105,7 +105,14 @@ const FEATURES = [
     evidence: () => (site.horizon ?? []).some(r => (r.height ?? 0) >= 40) || built('ridge', 'mountain') },
   { id: 'a valley',      words: ['valley', 'basin', 'canyon', 'gorge'],
     evidence: () => built('valley', 'canyon', 'opening(', 'rim') },
-  { id: 'a fence or boundary', words: ['fence', 'cordon', 'perimeter', 'checkpoint', 'gatehouse'],
+  // `checkpoint` was in this list and is not a boundary word. Ice Core reached
+  // ice too thin to count annual layers and needed "other checkpoints that can
+  // still anchor the timeline" — a dated marker, three times, in a game with no
+  // fence and no reason to have one. The rest are unambiguous; a word that is
+  // also ordinary scientific vocabulary makes this checker ask for scenery the
+  // story never mentioned. `barrier` is out for the same reason — an air–blood
+  // barrier and a particulate barrier are both in these books already.
+  { id: 'a fence or boundary', words: ['fence', 'cordon', 'perimeter', 'gatehouse', 'guard post'],
     evidence: () => built('fencerun', 'fence') },
   { id: 'a road out',    words: ['road', 'highway', 'convoy', 'truck route'],
     evidence: () => (site.paths ?? []).length > 0 || built('road') },

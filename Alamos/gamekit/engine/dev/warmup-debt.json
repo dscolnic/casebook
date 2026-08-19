@@ -1,0 +1,9 @@
+{
+  "_": [
+    "Warm-up runs that are scheduled and have no story yet, per campaign, by slot.",
+    "The schedule is engine logic and cannot be in debt; what is recorded here is the",
+    "authoring. Same two properties as every other debt file: a slot not listed fails",
+    "immediately, and a listed slot that has since been written fails too, naming the",
+    "line to delete. It only shrinks."
+  ]
+}

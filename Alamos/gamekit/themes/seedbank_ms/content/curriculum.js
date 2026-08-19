@@ -10,6 +10,12 @@ export const CURRICULUM = {
       "scene": "Mbaye has two lots of the same seed on the bench. One spent four years dried, at minus eighteen degrees. The other sat in a warm shed, and only three in ten still grow.",
       "takeaway": "Keeping something alive for decades is a matter of slowing down what damages it.",
       "place": "Seed Vault",
+      "guide": "Four accounts of why cold and dry works. Ask of each whether it treats the seed as alive or as dead. A dried seed is still slowly changing inside, so damage builds up over years. Two of these options have something being blocked or killed instead. And a clean sealed packet still lasts far longer when it is cold.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Mbaye has two lots of the same seed on the bench. One spent four years dried, at minus eighteen degrees. The other sat in a warm shed, and only three in ten still grow.",
       "game": {
         "type": "CHOICE",
@@ -35,14 +41,108 @@ export const CURRICULUM = {
       },
       "assumes": [
         "some seeds can survive being dried out and frozen"
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "A seed is alive, and it can be kept alive or let die",
+        "of": 16
+      }
     },
     {
       "day": 2,
+      "title": "Six per cent, while the lorries arrive",
+      "scene": "Seed has to be dried to six per cent before it goes into the vault. Wet lots keep arriving off the field. The dehumidifier is the only thing that takes water out of the air.",
+      "takeaway": "A load that keeps arriving is not answered by one correction.",
+      "place": "Seed Vault",
+      "guide": "Hold the room at six per cent, inside the band on the dial. The band gets narrower later in the week, because seed that is nearly dry is spoiled by less. Each wet lot keeps adding water for as long as it stands there. Set the dehumidifier to answer the load, not the reading.",
+      "background": [
+        "Why a lot is not a single push. A lorry does not add water once and stop. The wet seed keeps giving water to the air while it sits in the room.",
+        "Why dry matters. A seed is alive. Cold and dry both slow it down, so it stays alive for longer. The freezer holds itself. The drying is held by whoever is on the floor."
+      ],
+      "story": "Seed has to be dried to six per cent before it goes into the vault. Wet lots keep arriving off the field. The dehumidifier is the only thing that takes water out of the air.",
+      "game": {
+        "type": "HOLD",
+        "title": "Six per cent, while the lorries arrive",
+        "setup": "Seed Vault",
+        "play": "Hold the drying room while the lots come in.",
+        "task": "Hold the drying room while the lots come in.",
+        "question": "Hold the drying room at six per cent while the week's seed comes in.",
+        "answer": "Inside the band most of the week, with the dehumidifier set to match each load rather than nudged after the dial has moved.",
+        "why": "Every lot that arrives is a load that keeps working. Wet seed gives up water to the air for as long as it stands in the room, so the reading climbs and keeps climbing. One nudge on the dehumidifier does nothing that lasts. Set it where it matches what is coming in, and leave it there. Later in the week the band narrows. Early on, the seed is wet and a tenth of a point either way makes no difference. Near six per cent it is the difference between seed that keeps for decades and seed that keeps for years. That is the whole job of a vault. Cold and dry each slow a seed down, and they multiply together. The freezer holds itself. The dryness is held by a person.",
+        "hold": {
+          "quantity": "Drying room moisture",
+          "control": "Dehumidifier",
+          "unit": "%",
+          "hold": 6,
+          "band": 0.4,
+          "narrowTo": 0.2,
+          "duration": 45,
+          "authority": 0.1,
+          "pass": 0.8,
+          "direction": "lower",
+          "disturbances": [
+            {
+              "label": "Wet lot in from the field",
+              "at": 4,
+              "amount": 0.03
+            },
+            {
+              "label": "Drain backs up",
+              "at": 20,
+              "amount": 0.05
+            },
+            {
+              "label": "The wet intake finishes",
+              "at": 38,
+              "amount": -0.045
+            }
+          ],
+          "hint": "Each lot keeps adding water. Set the dehumidifier to match it.",
+          "commit": "Report the week"
+        }
+      },
+      "assumes": [
+        "seed is dried before it goes into store"
+      ],
+      "equations": [
+        {
+          "e": "part = whole × share",
+          "c": "how many of a batch will do something",
+          "v": [
+            [
+              "part",
+              "how many"
+            ],
+            [
+              "whole",
+              "how many there are altogether"
+            ],
+            [
+              "share",
+              "the percentage, written as a decimal"
+            ]
+          ],
+          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
+        }
+      ],
+      "concept": {
+        "n": 2,
+        "c": "A seed is alive, and it can be kept alive or let die",
+        "of": 16
+      }
+    },
+    {
+      "day": 3,
       "title": "Write the rule before it falls",
       "scene": "Mbaye has eleven germination tests on one batch, falling from ninety-eight per cent to eighty-five. The rule says grow it out at eighty-five. Booking a field takes time, and so does the grow-out.",
       "takeaway": "A threshold has to fire early enough for the thing it starts to arrive in time.",
       "place": "Seed Vault",
+      "guide": "One rule, written before the results arrive. Once you release it the number cannot change. The grow-out takes one reading to get going from the moment it is called. Below 85 % germination the lot is past the floor. So your line has to sit above 85 by however far the number falls in one reading — and not so far above it that a healthy lot is grown out for nothing.",
+      "background": [
+        "Why a floor is not a trigger. The floor is where the seed must already have been grown out and replaced. Everything that has to happen first takes weeks, so the trigger has to sit above the floor by however long the work takes.",
+        "What the falling numbers tell you. Eleven tests falling from ninety-eight to eighty-five is a trend, not scatter. How fast it is falling is what turns a threshold into a date, and a rule written against the level alone ignores that.",
+        "Why the rules go first. Test results arrive one at a time. A threshold moved as they arrive is just a description of what somebody already decided, and the next person to run the vault cannot follow it."
+      ],
       "story": "Mbaye has eleven germination tests on one batch, falling from ninety-eight per cent to eighty-five. The rule says grow it out at eighty-five. Booking a field takes time, and so does the grow-out.",
       "game": {
         "type": "TRIGGER",
@@ -50,27 +150,37 @@ export const CURRICULUM = {
         "setup": "Seed Vault",
         "play": "Set the thresholds before replaying the record.",
         "task": "Set the thresholds before replaying the record.",
-        "question": "Where should each threshold sit, so the grow-out is ready before the seed drops below the floor?",
-        "answer": "Reserve the field at ninety per cent and start the grow-out at eighty-six. Waiting for eighty-five is too late, once the time each step takes is counted.",
+        "question": "At what germination do you start the grow-out, when it takes one reading to get going?",
+        "answer": "Start the grow-out near 88 % germination. It fires with the reading the grow-out needs, and the lot is under way before viability reaches the 85 % floor.",
         "why": "The floor is where the seed stops being good enough. It is the wrong moment to start planning, because everything you would do next takes time. Booking a field takes several updates. Starting the grow-out takes another. Set the thresholds before the numbers arrive, and hindsight cannot quietly move them later. Reserve at ninety and start at eighty-six, and both land in time. Wait for eighty-five and the work begins after the line has been crossed.",
         "trigger": {
           "scale": {
-            "label": "",
-            "unit": "% germination",
+            "label": "Germination of the stored lot",
+            "unit": "%",
             "min": 80,
             "max": 100,
-            "step": 0.2
+            "step": 0.2,
+            "anchors": [
+              {
+                "at": 98,
+                "means": "the lot as it went into the vault"
+              },
+              {
+                "at": 84,
+                "means": "under the floor — grow it out now or the lot is gone"
+              }
+            ]
           },
+          "direction": "falling",
           "conditions": [
-            {
-              "id": "reserve",
-              "label": "Reserve regeneration field",
-              "leadHours": 3
-            },
             {
               "id": "start",
               "label": "Start regeneration grow-out",
-              "leadHours": 1
+              "leadHours": 1,
+              "window": {
+                "min": 86,
+                "max": 88
+              }
             }
           ],
           "stream": [
@@ -147,7 +257,42 @@ export const CURRICULUM = {
               "hoursLeft": 0
             }
           ],
-          "hint": "Set both rules before release. Reserving field space takes three updates to take effect; starting the grow-out takes one.",
+          "consequenceLimit": 85,
+          "rehearsal": {
+            "note": "the lot grown out two winters ago",
+            "stream": [
+              {
+                "value": 96,
+                "hoursLeft": 11
+              },
+              {
+                "value": 94,
+                "hoursLeft": 9
+              },
+              {
+                "value": 92,
+                "hoursLeft": 7
+              },
+              {
+                "value": 90,
+                "hoursLeft": 5
+              },
+              {
+                "value": 88,
+                "hoursLeft": 3
+              },
+              {
+                "value": 86,
+                "hoursLeft": 1
+              },
+              {
+                "value": 85,
+                "hoursLeft": 0
+              }
+            ]
+          },
+          "objective": "The grow-out has started before germination falls to the 85 % floor.",
+          "hint": "Set the rule before release. The grow-out takes one reading to get going, and the numbers only fall.",
           "release": "Release the board",
           "commit": "Stand by the board"
         }
@@ -176,68 +321,90 @@ export const CURRICULUM = {
           ],
           "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
         }
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "A seed is alive, and it can be kept alive or let die",
+        "of": 16
+      }
     },
     {
-      "day": 3,
+      "day": 4,
       "title": "What the store did right",
       "scene": "Qureshi wants one sentence for the board. It has to name what failed, rather than the room it happened near. The vault log covers twenty-eight years with no fault.",
       "takeaway": "Storage held what it was handed. The loss happened in the field, on the way back in.",
       "place": "Seed Vault",
+      "guide": "Follow the seed's path from the freezer back into the store, and name the step where it lost what it lost. Each step has a note saying how well it did its job. The freezer is the biggest thing on the board and it is not automatically the answer.",
+      "background": [
+        "What the freezer does. Cold keeps seed alive for longer. The log covers twenty-eight years with no fault, and seed from the affected packets still grows well, which is what a working freezer looks like from outside.",
+        "What a grow-out is. Growing a batch out to make fresh seed. It is a sampling step, so how many plants went into it decides how much of the batch came back.",
+        "Why naming the step matters. The fix follows the step. Call this a storage failure and the money goes to a freezer that worked; call it a grow-out failure and the money goes to plant counts and pollen distance, which is where it was lost."
+      ],
       "story": "Qureshi wants one sentence for the board. It has to name what failed, rather than the room it happened near. The vault log covers twenty-eight years with no fault.",
       "game": {
-        "type": "CHOICE",
+        "type": "CHAIN",
         "title": "What the store did right",
         "setup": "Seed Vault",
         "play": "Name the step that failed.",
         "task": "Name the step that failed.",
-        "question": "The vault log shows twenty-eight years with no fault. What does that rule out?",
-        "answer": "Storage kept the seed alive. Repeated small grow-outs changed what was in it, by letting too few plants be the parents.",
-        "why": "The fix depends on naming the step that failed. The vault kept the seed cold, and the seed still grows. What changed tracks the number of grow-outs, where a few plants stood in for a whole population. Call it a storage failure and money goes to freezers that already worked. Call it a grow-out failure and attention goes where it belongs. The same packet can hold healthy seed and be a poor copy of what it came from.",
-        "rebuttals": [
-          "The old records predict the less-regrown batches correctly, so their roughness is not the pattern.",
-          "Controls and archived comparisons show no drift in the method that follows the number of grow-outs.",
-          "The affected packets still grow well, and death in store would follow storage history rather than grow-outs."
-        ],
-        "choices": [
-          "Storage kept it alive. Repeated grow-outs changed what was in it.",
-          "The old records are too rough for any comparison of this kind.",
-          "The testing method has drifted over the years and invented the difference.",
-          "Seed died in store, and that decided which plants survived."
-        ],
-        "correctChoice": "Storage kept it alive. Repeated grow-outs changed what was in it."
+        "question": "Follow the seed's path and name the step where the batch lost what it lost.",
+        "answer": "The grow-out. Too few plants went into it, so what came back was a sample of a sample — and the freezer held that faithfully for thirty years.",
+        "why": "A store keeps what it is handed. The freezer log covers twenty-eight years without a fault and seed from the affected packets still grows well, so the cold end of this path did its job. The step that did not is the grow-out. Growing a batch out to make fresh seed means taking a sample of it, and this one used thirty plants where two hundred were needed. Whatever those thirty did not carry was gone before the packets went back on the shelf, and no freezer restores it. The label and the record are part of the seed, which is why this matters for the sentence Qureshi wants: naming the room sends money to equipment that worked. Naming the step sends it to plant counts and pollen distance, which is where the collection is actually losing things.",
+        "chain": {
+          "links": [
+            {
+              "id": "intake",
+              "label": "Seed dried and packed",
+              "transfers": "6 per cent moisture, as specified"
+            },
+            {
+              "id": "freezer",
+              "label": "Held in the freezer",
+              "transfers": "28 years, no fault"
+            },
+            {
+              "id": "growout",
+              "label": "Grown out for fresh seed",
+              "transfers": "30 plants, needed 200"
+            },
+            {
+              "id": "back",
+              "label": "Packed and shelved again",
+              "transfers": "91 in 100 still grow"
+            }
+          ],
+          "order": [
+            "intake",
+            "freezer",
+            "growout",
+            "back"
+          ],
+          "governing": "growout",
+          "distractor": "freezer",
+          "commit": "Name the governing transfer"
+        }
       },
       "assumes": [
         "a store keeps what it is given rather than improving it"
       ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of several plots or plants",
-          "v": [
-            [
-              "average",
-              "the mean"
-            ],
-            [
-              "total",
-              "the values added up"
-            ],
-            [
-              "how many",
-              "the number of them"
-            ]
-          ],
-          "s": "One plant is an accident. An average over many is a property of the seed."
-        }
-      ]
+      "concept": {
+        "n": 2,
+        "c": "A seed is alive, and it can be kept alive or let die",
+        "of": 16
+      }
     },
     {
-      "day": 4,
+      "day": 5,
       "title": "The copy that was never in the vault",
       "scene": "Fenn's old wheats are growing in the station plots. His family has grown one of them without a break since before Wellmere existed. Rust arrives there most years.",
       "takeaway": "A population kept in the ground keeps being tested by the thing you might one day need it for.",
       "place": "Seed Vault",
+      "guide": "Four reasons the field copy might hold what the vault lost. Ask of each whether it names a reason or just a difference. Fresher and bigger are not reasons. Rust arriving every year means resistant plants leave more seed. In a clean nursery, resistance had no advantage at all.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Fenn's old wheats are growing in the station plots. His family has grown one of them without a break since before Wellmere existed. Rust arrives there most years.",
       "game": {
         "type": "CHOICE",
@@ -303,61 +470,53 @@ export const CURRICULUM = {
           ],
           "s": "One plant is an accident. An average over many is a property of the seed."
         }
-      ]
+      ],
+      "concept": {
+        "n": 13,
+        "c": "How many plants you need to keep a kind going",
+        "of": 16,
+        "rests": [
+          "Variety inside a collection, and why losing it is hard to undo"
+        ]
+      }
     },
     {
-      "day": 5,
+      "day": 6,
       "title": "What the catalogue says and what is there",
       "scene": "Ninety batches were tested. Thirty had changed, and every one of those had been regrown at least twice. The sixty regrown once or never still match. Nine thousand batches have been regrown twice or more.",
       "takeaway": "A sample can point at a risky group without proving how many in it are affected.",
       "place": "Seed Vault",
+      "guide": "Turn the test into a number for the risky group, and only for that group. Every batch that had changed was one that had been regrown twice or more, and the store holds nine thousand of those. One tile is the whole collection, which is the number the board must not be given.",
+      "background": [
+        "What the test showed. All thirty of the changed batches came from the regrown-twice group, and none of the sixty from outside it had changed. That points hard at regrowing as the risky step.",
+        "What it did not show. How many batches nobody tested have changed. Most of the collection has never been regrown at all, and that is the group where nothing was found.",
+        "What the honest sentence sounds like. A share, the group it applies to, and the size of that group: about a third of nine thousand regrown batches, which is around three thousand. That is not the same sentence as a third of the collection."
+      ],
       "story": "Ninety batches were tested. Thirty had changed, and every one of those had been regrown at least twice. The sixty regrown once or never still match. Nine thousand batches have been regrown twice or more.",
       "game": {
-        "type": "CHOICE",
+        "type": "BALLPARK",
         "title": "What the catalogue says and what is there",
         "setup": "Seed Vault",
         "play": "Say what the season established about the collection.",
         "task": "Say what the season established about the collection.",
-        "question": "What can Wellmere honestly say to its board on Monday?",
-        "answer": "That repeated regrowing marks the risky group. Audit those first and change the method now, while a bigger sample says how common it is.",
-        "why": "The sample splits cleanly on one thing: how often a batch was regrown. All thirty of the repeatedly regrown ones had changed, and the sixty others had not. That is strong evidence that regrowing is what marks a batch as risky. It does not license saying a third of the whole collection has changed, because the two groups had different histories. Nor does thirty batches prove that all nine thousand are affected.",
-        "rebuttals": [
-          "The one-third figure mixes batches with very different histories, so it cannot be spread across the collection.",
-          "The sample points beyond the thirty packets, even though it cannot name every affected batch.",
-          "All thirty tested ones had changed, and thirty is not enough to claim every one of nine thousand has."
+        "question": "What number of batches does this season's test put at risk?",
+        "answer": "About three thousand — a third of the nine thousand that have been regrown twice or more. Not a third of the whole collection, which is the sentence the board must not be handed.",
+        "why": "Thirty of the ninety tested batches had changed, and every one of the thirty had been regrown twice or more. So the share that matters is a third, and the group it applies to is the nine thousand batches that have been regrown twice or more: 9,000 × 0.33 ≈ 3,000. That is the honest number. Doing the same sum on the whole collection gives thirteen thousand, and it is a claim about batches nobody tested — most of which have never been regrown at all, which is exactly the group where nothing was found. Both numbers come from the same test. Only one of them is a statement the test supports, and the board will quote whichever sentence it is given. That is why the group has to travel with the share every time it is written down.",
+        "givens": [
+          "thirty of ninety tested batches had changed, all of them regrown twice or more",
+          "nine thousand batches have been regrown twice or more"
         ],
-        "choices": [
-          "Repeatedly regrown batches are the risky group, and should be audited first.",
-          "About a third of the whole forty-one thousand has changed.",
-          "Only the thirty tested batches can be treated as affected.",
-          "All nine thousand regrown batches should be assumed to have changed."
-        ],
-        "correctChoice": "About a third of the whole forty-one thousand has changed."
+        "relationship": "Part = whole × share, and the whole here is the group the sample came from rather than the whole collection.",
+        "calcKey": "VAULT-6"
       },
       "assumes": [
         "a sample can support a statement about the group it came from"
       ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of several plots or plants",
-          "v": [
-            [
-              "average",
-              "the mean"
-            ],
-            [
-              "total",
-              "the values added up"
-            ],
-            [
-              "how many",
-              "the number of them"
-            ]
-          ],
-          "s": "One plant is an accident. An average over many is a property of the seed."
-        }
-      ]
+      "concept": {
+        "n": 14,
+        "c": "A label and a record are part of the seed",
+        "of": 16
+      }
     }
   ],
   "CROSS": [
@@ -367,6 +526,12 @@ export const CURRICULUM = {
       "scene": "Volpe has two parents pinned above the bench. One is a modern wheat that yields well. The other is an old local kind that came through the 2018 drought. Bengtsson asks what she wants.",
       "takeaway": "A cross is a request for a combination, and it takes generations to find out whether it was granted.",
       "place": "Crossing Hall",
+      "guide": "Four accounts of what a cross is for. Ask of each whether it could happen when each parent passes on half its genes. The offspring get a mix, not an average. Neither parent already has the combination being looked for. And many of the offspring will be worse than both, because the bad genes get shuffled too.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Volpe has two parents pinned above the bench. One is a modern wheat that yields well. The other is an old local kind that came through the 2018 drought. Bengtsson asks what she wants.",
       "game": {
         "type": "CHOICE",
@@ -392,41 +557,69 @@ export const CURRICULUM = {
       },
       "assumes": [
         "young plants get half their genes from each parent"
-      ]
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Two parents each give half, so the young are not copies",
+        "of": 16,
+        "rests": [
+          "Living things pass traits to their offspring"
+        ]
+      }
     },
     {
       "day": 2,
       "title": "Counting a generation",
-      "scene": "Four hundred plants from the second generation. Three hundred and six shrug the disease off, and ninety-four do not. Bengtsson asks what that number was supposed to be.",
+      "scene": "Four hundred plants from the second generation. Three hundred and six shrug the disease off, and ninety-four do not. The breeder asks what that number was supposed to be.",
       "takeaway": "The proportions across a whole generation carry information that no single plant does.",
       "place": "Crossing Hall",
-      "story": "Four hundred plants from the second generation. Three hundred and six shrug the disease off, and ninety-four do not. Bengtsson asks what that number was supposed to be.",
+      "guide": "Work out what number was expected before looking at what came. Each parent carries one resistant copy and one that is not, so three plants in four should shrug the disease off. That is a share of the four hundred. One tile is the count that actually came, which is what you are comparing against.",
+      "background": [
+        "Where three in four comes from. Each parent gives one of its two copies to each seed. There are four ways the copies can pair up, and three of those four contain a resistant copy. One resistant copy is enough, so three in four look resistant.",
+        "Why the whole generation is the evidence. Any single plant is resistant or not, and tells you nothing. Four hundred of them make a proportion, and a proportion is what a breeding rule predicts.",
+        "Why close is the right answer. Nobody expects exactly three hundred. Coin tosses do not come out exactly half, and four hundred plants is enough for the count to land near the expected number rather than on it."
+      ],
+      "story": "Four hundred plants from the second generation. Three hundred and six shrug the disease off, and ninety-four do not. The breeder asks what that number was supposed to be.",
       "game": {
-        "type": "CHOICE",
+        "type": "BALLPARK",
         "title": "Counting a generation",
         "setup": "Crossing Hall",
         "play": "Say what the counts show about the resistance.",
         "task": "Say what the counts show about the resistance.",
-        "question": "What do 306 resistant and 94 not tell you about this resistance?",
-        "answer": "One gene, with the resistant copy winning. Three in four of four hundred is three hundred, and the count came in at 306.",
-        "why": "The first generation carried one resistant copy and one that is not. Each parent passes on one copy at random, so three in four of their children get at least one resistant copy. In four hundred plants that is three hundred resistant and a hundred not. The count came in at 306 and 94, which is as close as counting ever gets. Two genes, with either one enough, would predict 375 and 25 instead.",
-        "rebuttals": [
-          "Two genes, with either one enough, gives about one plant in sixteen falling ill. Not one in four.",
-          "The bay is infected deliberately. A plant can escape, and that would not give a clean pattern.",
-          "A wrong test in the parents would break the pattern rather than produce a textbook one."
+        "question": "How many of the four hundred plants should shrug the disease off?",
+        "answer": "Three hundred. Three plants in four is 0.75 of 400, and 306 came in — close enough to say one gene is doing it, with the resistant copy the stronger one.",
+        "why": "Each parent has two copies of the gene and gives one to each seed. There are four ways those copies can pair up, and three of the four include a resistant copy. One copy is enough to shrug the disease off, so three plants in four should manage it. Three quarters of four hundred is 400 × 0.75 = 300. The tray gave 306, which is as close as anybody should expect — a proportion lands near its expected number, not exactly on it, in the same way a hundred coin tosses rarely give exactly fifty heads. That is what makes the count evidence. If two genes were doing the work, and either one was enough, the expected number would be 375 instead, and 306 is nowhere near it. No single plant in the tray could have told you any of this.",
+        "givens": [
+          "four hundred plants, 306 of them resistant",
+          "three in four expected when each parent carries one resistant copy"
         ],
-        "choices": [
-          "One gene, and the resistant copy wins when both are present.",
-          "Two genes are doing it, and either one of them is enough.",
-          "The resistance is partly the glasshouse rather than the plants.",
-          "The test used to pick the parents was wrong."
-        ],
-        "correctChoice": "One gene, and the resistant copy wins when both are present."
+        "relationship": "Expected number = how many × the fraction expected, which is a part = whole × share: 0.75 is the share of the plants expected to be resistant.",
+        "calcKey": "CROSS-2"
       },
       "assumes": [
         "a plant carries two copies of each gene and passes on one of them"
       ],
       "equations": [
+        {
+          "e": "part = whole × share",
+          "c": "how many of a batch will do something",
+          "v": [
+            [
+              "part",
+              "how many"
+            ],
+            [
+              "whole",
+              "how many there are altogether"
+            ],
+            [
+              "share",
+              "the percentage, written as a decimal"
+            ]
+          ],
+          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it.",
+          "computed": true
+        },
         {
           "e": "expected number = how many × the fraction expected",
           "c": "what a cross should produce",
@@ -444,42 +637,66 @@ export const CURRICULUM = {
               "the share the square predicts"
             ]
           ],
-          "s": "A square says what share of the offspring should carry a trait; multiplying by how many there are turns that share into a count you can check."
+          "s": "A square says what share of the offspring should carry a trait; multiplying by how many there are turns that share into a count you can check.",
+          "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Living things pass traits to their offspring",
+        "of": 16
+      }
     },
     {
       "day": 3,
-      "title": "What a season costs",
-      "scene": "Volpe has the pipeline on the board. Cross to release is seven years, and everything behind WM-712 moves back with it. Qureshi asks what a year of a wheat variety is worth.",
-      "takeaway": "The cost of holding something back is rarely paid by the thing being held back.",
+      "title": "An extra generation in the bay",
+      "scene": "Bengtsson can run one more generation over the winter in the warm bay. A generation there takes three months instead of twelve. There is room for one population.",
+      "takeaway": "A generation indoors is for moving material along, not for judging it.",
       "place": "Crossing Hall",
-      "story": "Volpe has the pipeline on the board. Cross to release is seven years, and everything behind WM-712 moves back with it. Qureshi asks what a year of a wheat variety is worth.",
+      "guide": "Three jobs want the bay, and the rail is not a clock. Put them in order by what the winter can never give back: the job that only works indoors goes first, and the job that the field will do just as well in spring goes last.",
+      "background": [
+        "What the bay is good for. Getting a generation finished out of season, so a cross moves one step closer while the fields are empty. Three months instead of twelve, four times a year instead of once.",
+        "What the bay is bad for. Judging anything. Plants in a warm bay grow in light, water and temperature nothing like a field, so a yield measured there is a fact about the bay. Any judgement has to wait for ground outside.",
+        "Why multiplying seed goes last. It works perfectly well in the bay and it works perfectly well in a field in spring, so spending the winter on it spends a scarce thing on a job that has an easy alternative."
+      ],
+      "story": "Bengtsson can run one more generation over the winter in the warm bay. A generation there takes three months instead of twelve. There is room for one population.",
       "game": {
-        "type": "CHOICE",
-        "title": "What a season costs",
+        "type": "SEQUENCE",
+        "title": "An extra generation in the bay",
         "setup": "Crossing Hall",
-        "play": "Say what holding the release back really costs.",
-        "task": "Say what holding the release back really costs.",
-        "question": "Why does holding it one season cost more than one season?",
-        "answer": "Everything behind it waits too. One season of delay is paid for by lines that had nothing to do with the argument.",
-        "why": "A breeding programme is a queue sharing the same seasons, the same ground and the same people. Hold this line for a year and its seed increase waits. So does the trial that would have used that ground, and the crosses behind it. The bill lands on lines that were never part of the argument. That does not settle whether releasing is right. It makes the price of waiting something everybody can see.",
-        "rebuttals": [
-          "Other wheat does improve, slowly, and that is not what makes one season expensive.",
-          "A year in a cold store costs a well-dried sample almost nothing.",
-          "Trial results do not go out of date. They become another year in the series."
+        "play": "Decide what the extra generation is for.",
+        "task": "Decide what the extra generation is for.",
+        "question": "Order the three jobs by how much the winter in the bay is worth to each.",
+        "answer": "The backcross first, the overdue batch second, and the seed multiplication last. Only the first gains something the field cannot give it this winter.",
+        "why": "The bay does one thing nothing else can do. It finishes a generation out of season, in three months instead of twelve. So the job that belongs there is the one where a generation is the whole point. That is the backcross. It needs one more round before it can be tested outside, and every winter it is not run adds a year to the programme. The overdue batch comes next. It does need regrowing, and it needs enough plants to keep what is in it, which the bay can just manage. Multiplying seed for the merchant goes last. Not because it does not matter — it works just as well in a field in spring. Putting it in the bay spends the scarce thing on the job with an easy alternative. And nothing in there can be judged. Yield in a warm bay is a fact about the bay, so any measuring still waits for ground outside.",
+        "cards": [
+          "Push the backcross on one more generation",
+          "Grow out the overdue landrace batch",
+          "Multiply seed of WM-712 for the merchant"
         ],
-        "choices": [
-          "Everything behind it in the queue waits as well.",
-          "The line loses its edge as everybody else's wheat improves.",
-          "Seed held for a year does not grow as well afterwards.",
-          "The trial results go out of date and have to be repeated."
+        "order": [
+          0,
+          1,
+          2
         ],
-        "correctChoice": "Everything behind it in the queue waits as well."
+        "axis": "Order the three by how much the winter is worth to each one, most first. This is not a clock — all three could start in the bay this week, and the question is which one gains something the field cannot give it.",
+        "ends": [
+          "Only the bay can do it",
+          "The field does it just as well"
+        ]
       },
       "assumes": [
-        "a breeding programme moves one generation at a time"
-      ]
+        "a glasshouse can finish a generation out of season"
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Choosing which plants to breed from, and what that costs",
+        "of": 16,
+        "rests": [
+          "Living things pass traits to their offspring",
+          "Counting the offspring, and comparing counts with what was expected"
+        ]
+      }
     },
     {
       "day": 4,
@@ -487,6 +704,12 @@ export const CURRICULUM = {
       "scene": "Every line carrying the resistance is twelve to fifteen centimetres shorter than its sisters without it. The parent it came from was short. The parent it was bred back into is tall.",
       "takeaway": "A chromosome is passed on in stretches, so a wanted gene arrives with its neighbours.",
       "place": "Crossing Hall",
+      "guide": "Four explanations for shorter resistant plants. Ask of each whether it would affect every plant or only the ones carrying the new gene. Genes that sit close together on a chromosome tend to travel together. Splitting them needs a rare swap, which is why so many offspring get grown.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Every line carrying the resistance is twelve to fifteen centimetres shorter than its sisters without it. The parent it came from was short. The parent it was bred back into is tall.",
       "game": {
         "type": "CHOICE",
@@ -512,40 +735,84 @@ export const CURRICULUM = {
       },
       "assumes": [
         "genes sit in fixed places along a chromosome, in a fixed order"
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Choosing for one trait can drag another along with it",
+        "of": 16,
+        "rests": [
+          "Choosing which plants to breed from, and what that costs"
+        ]
+      }
     },
     {
       "day": 5,
-      "title": "An extra generation in the bay",
-      "scene": "Bengtsson can run one more generation over the winter in the warm bay. A generation there takes three months instead of twelve. There is room for one population.",
-      "takeaway": "A generation indoors is for moving material along, not for judging it.",
+      "title": "What a season costs",
+      "scene": "Volpe has the pipeline on the board. Cross to release is seven years, and everything behind WM-712 moves back with it. Qureshi asks what a year of a wheat variety is worth.",
+      "takeaway": "The cost of holding something back is rarely paid by the thing being held back.",
       "place": "Crossing Hall",
-      "story": "Bengtsson can run one more generation over the winter in the warm bay. A generation there takes three months instead of twelve. There is room for one population.",
+      "guide": "Four accounts of what a season costs. Ask of each whether it is about this line or about everything behind it. The programme shares seasons, ground and people. Holding one line back holds back its seed increase, the trial that would have used the ground, and the crosses waiting. That lands on lines nobody was arguing about.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
+      "story": "Volpe has the pipeline on the board. Cross to release is seven years, and everything behind WM-712 moves back with it. Qureshi asks what a year of a wheat variety is worth.",
       "game": {
         "type": "CHOICE",
-        "title": "An extra generation in the bay",
+        "title": "What a season costs",
         "setup": "Crossing Hall",
-        "play": "Decide what the extra generation is for.",
-        "task": "Decide what the extra generation is for.",
-        "question": "What should the warm bay be used for this winter?",
-        "answer": "Advancing the backcross. It buys another generation and another chance at the rare swap, without pretending a glasshouse can stand in for a field.",
-        "why": "The warm bay is worth most when time is the thing in short supply. Splitting the resistance from the short-stem genes needs more generations, because each one is another chance at a rare swap. So that work uses the bay well. A yield figure from a glasshouse means nothing, because no field is like a glasshouse. Regrowing an old kind in there would quietly select for whatever suits a glasshouse. Multiplying seed needs area, which the bay has least of.",
+        "play": "Say what holding the release back really costs.",
+        "task": "Say what holding the release back really costs.",
+        "question": "Why does holding it one season cost more than one season?",
+        "answer": "Everything behind it waits too. One season of delay is paid for by lines that had nothing to do with the argument.",
+        "why": "A breeding programme is a queue sharing the same seasons, the same ground and the same people. Hold this line for a year and its seed increase waits. So does the trial that would have used that ground, and the crosses behind it. The bill lands on lines that were never part of the argument. That does not settle whether releasing is right. It makes the price of waiting something everybody can see.",
         "rebuttals": [
-          "A yield figure from a glasshouse is measured under conditions no field ever offers.",
-          "Regrowing an old kind under glass selects for whatever suits a glasshouse, and nobody chose that.",
-          "Multiplying seed needs area, and the bay is the smallest ground on the station."
+          "Other wheat does improve, slowly, and that is not what makes one season expensive.",
+          "A year in a cold store costs a well-dried sample almost nothing.",
+          "Trial results do not go out of date. They become another year in the series."
         ],
         "choices": [
-          "Advancing the backcross that needs a rare swap.",
-          "Yield-testing the twenty chosen lines early.",
-          "Growing out the old kind that is overdue.",
-          "Multiplying seed of WM-712 for the merchant."
+          "Everything behind it in the queue waits as well.",
+          "The line loses its edge as everybody else's wheat improves.",
+          "Seed held for a year does not grow as well afterwards.",
+          "The trial results go out of date and have to be repeated."
         ],
-        "correctChoice": "Advancing the backcross that needs a rare swap."
+        "correctChoice": "Everything behind it in the queue waits as well."
       },
       "assumes": [
-        "a glasshouse can finish a generation out of season"
-      ]
+        "a breeding programme moves one generation at a time"
+      ],
+      "equations": [
+        {
+          "e": "average = total ÷ how many",
+          "c": "the mean of several plots or plants",
+          "v": [
+            [
+              "average",
+              "the mean"
+            ],
+            [
+              "total",
+              "the values added up"
+            ],
+            [
+              "how many",
+              "the number of them"
+            ]
+          ],
+          "s": "One plant is an accident. An average over many is a property of the seed."
+        }
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Deciding with a season that does not come round again",
+        "of": 16,
+        "rests": [
+          "A fair test needs a control and everything else kept the same",
+          "Repeats and averages: one plant proves nothing"
+        ]
+      }
     },
     {
       "day": 6,
@@ -553,6 +820,12 @@ export const CURRICULUM = {
       "scene": "The crossing board has eight slots for the next two years. Volpe wants yield crosses. Qureshi wants new resistance brought in. The elite line still needs the second gene.",
       "takeaway": "A breeding plan is the set of questions it chooses to answer, and every slot spent delays another.",
       "place": "Crossing Hall",
+      "guide": "Eight slots for two years, and more requests than slots. Watch the list of questions rather than the board: it shows what the programme can still answer with your plan. Every package you commit is a question answered and one given up, and one request can wait a season without costing anything.",
+      "background": [
+        "What defended means here. One resistance gene gets beaten eventually. A line carrying two takes far longer to beat. Getting the second gene into the best line is what keeps everything else the programme has built worth using.",
+        "Why new resistance is worth slots at all. Bringing resistance in from an unrelated plant is slow and produces nothing sellable for years. It is also the only way to have a third gene ready when the second one fails.",
+        "Why some work can wait. A question whose answer will be just as useful next season is not competing with one that has to be answered before the elite line is released."
+      ],
       "story": "The crossing board has eight slots for the next two years. Volpe wants yield crosses. Qureshi wants new resistance brought in. The elite line still needs the second gene.",
       "game": {
         "type": "ALLOCATE",
@@ -626,7 +899,16 @@ export const CURRICULUM = {
       "assumes": [
         "a cross ties up glasshouse space and staff for several seasons",
         "closely related parents share the same weaknesses"
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Choosing which plants to breed from, and what that costs",
+        "of": 16,
+        "rests": [
+          "Living things pass traits to their offspring",
+          "Counting the offspring, and comparing counts with what was expected"
+        ]
+      }
     }
   ],
   "POP": [
@@ -636,6 +918,11 @@ export const CURRICULUM = {
       "scene": "Last year's grow-out used a hundred and twenty plants. Only eighteen of them gave pollen, and a hundred and two set seed. Ivanescu wants that looked at before the next plan.",
       "takeaway": "A crowd of plants can pass on as little as a handful, if one side of the family is small.",
       "place": "Genetic Resources Office",
+      "guide": "Four numbers, and two of them belong to other questions. The seed plants, and half the plot. Ask which two a share needs. A share compares one group with the whole, so the total is the plants standing rather than any part of it. The pollen side is much the smaller group here.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "Last year's grow-out used a hundred and twenty plants. Only eighteen of them gave pollen, and a hundred and two set seed. Ivanescu wants that looked at before the next plan.",
       "game": {
         "type": "BALLPARK",
@@ -677,7 +964,15 @@ export const CURRICULUM = {
           ],
           "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
         }
-      ]
+      ],
+      "concept": {
+        "n": 13,
+        "c": "How many plants you need to keep a kind going",
+        "of": 16,
+        "rests": [
+          "Variety inside a collection, and why losing it is hard to undo"
+        ]
+      }
     },
     {
       "day": 2,
@@ -685,6 +980,12 @@ export const CURRICULUM = {
       "scene": "Thirty of ninety batches no longer match their records from the 1990s. Nakagawa has four kinds of evidence on the board. The shelf checks are clean.",
       "takeaway": "Several results can agree because they share one history, and that is not several reasons.",
       "place": "Genetic Resources Office",
+      "guide": "Open each kind of evidence to see what it was worked out from. Keep the ones that stand apart from the repeated small grow-outs, and untick the ones that inherit them. Then name what the failing ones share. The shelf checks being clean is itself evidence about where the drift did not come from.",
+      "background": [
+        "What repeated small grow-outs do. Growing a batch back from only a few plants loses some of its variety by chance, and doing that again and again keeps losing more. The result looks exactly like a collection that has drifted away from its old records — because it has, through its own upkeep.",
+        "Why clean shelves matter. If the storage or the labelling were at fault, the shelf checks would show it. Clean shelves point away from an accident and towards something in how the seed has been renewed.",
+        "Why some evidence survives. Germination tests and the vault log record how seed was handled, not what genes it carries. That is why they can test the grow-out history instead of repeating it."
+      ],
       "story": "Thirty of ninety batches no longer match their records from the 1990s. Nakagawa has four kinds of evidence on the board. The shelf checks are clean.",
       "game": {
         "type": "TRACE",
@@ -702,8 +1003,7 @@ export const CURRICULUM = {
               "label": "Allele-frequency comparison",
               "reading": "18 of 30 loci have moved more than 5 percentage points from the 1994 record",
               "depends": [
-                "passport",
-                "current_genotype",
+                "genotype_records",
                 "regen_history"
               ]
             },
@@ -712,8 +1012,7 @@ export const CURRICULUM = {
               "label": "Rare-variant comparison",
               "reading": "9 alleles recorded in 1994 at under 5% are absent from the current sample",
               "depends": [
-                "passport",
-                "current_genotype",
+                "genotype_records",
                 "regen_history"
               ]
             },
@@ -723,7 +1022,7 @@ export const CURRICULUM = {
               "reading": "The archived subsample matches the current panel, not the 1994 record",
               "depends": [
                 "archive_subsample",
-                "current_genotype",
+                "genotype_records",
                 "regen_history"
               ]
             },
@@ -732,8 +1031,7 @@ export const CURRICULUM = {
               "label": "Germination panel",
               "reading": "Germination 91%, and the store has held minus 18 for 28 years",
               "depends": [
-                "germination",
-                "vault_log"
+                "store_records"
               ]
             }
           ],
@@ -743,24 +1041,16 @@ export const CURRICULUM = {
               "label": "Recorded grow-out history"
             },
             {
-              "id": "passport",
-              "label": "1990s genotype and allele-frequency record"
-            },
-            {
-              "id": "current_genotype",
-              "label": "Current genotype panel"
+              "id": "genotype_records",
+              "label": "The 1994 record and the current genotype panel"
             },
             {
               "id": "archive_subsample",
               "label": "Archived comparison subsample"
             },
             {
-              "id": "germination",
-              "label": "Current germination assay"
-            },
-            {
-              "id": "vault_log",
-              "label": "Twenty-eight-year temperature and storage log"
+              "id": "store_records",
+              "label": "The germination assay and the storage log"
             }
           ],
           "independent": [
@@ -814,7 +1104,12 @@ export const CURRICULUM = {
           ],
           "s": "One plant is an accident. An average over many is a property of the seed."
         }
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Living things pass traits to their offspring",
+        "of": 16
+      }
     },
     {
       "day": 3,
@@ -822,73 +1117,62 @@ export const CURRICULUM = {
       "scene": "Ivanescu has the 1994 field notes for the drifted batch. The collector saw rust on the crop, and noted that about one plant in twenty stayed clean. Today's sample has none.",
       "takeaway": "A gene that has vanished was not necessarily destroyed. It may only have failed to be picked.",
       "place": "Genetic Resources Office",
+      "guide": "Work out how many resistant plants a grow-out of thirty should have picked up. Five plants in every hundred carried the resistance, so take the thirty plants, multiply by five, and share the answer across the hundred. One tile is the two hundred plants the standard asks for, which is the number nobody used.",
+      "background": [
+        "What one in twenty means. Five plants in every hundred carried the resistance in 1994. It was there, and it was rare, and rare is the whole problem.",
+        "What a grow-out of thirty does. It takes thirty plants and lets them make the next batch. With one in twenty carrying the gene, thirty plants are expected to include one or two — and quite often none at all, the way five coin tosses sometimes give no heads.",
+        "Why nothing notices. The seed that comes back germinates well, looks right and passes every routine check. What is missing is a gene nobody tested for, and no freezer puts it back once none of the plants that went in carried it."
+      ],
       "story": "Ivanescu has the 1994 field notes for the drifted batch. The collector saw rust on the crop, and noted that about one plant in twenty stayed clean. Today's sample has none.",
       "game": {
-        "type": "DIAGNOSIS",
+        "type": "BALLPARK",
         "title": "What was lost, and when",
         "setup": "Genetic Resources Office",
         "play": "Work out what happened to the resistance in this batch.",
         "task": "Work out what happened to the resistance in this batch.",
-        "question": "Work out what happened to the resistance in this batch.",
-        "answer": "Lost by chance, across three small grow-outs. The old note shows the resistance was rare, and rare things get missed when only a few plants are taken.",
-        "why": "The 1994 note says about one plant in twenty stayed clean. So the resistance was there, and it was rare. Take thirty plants at random from a crop where one in twenty carries something, and there is a real chance of taking none. Do that three times and losing it altogether gets likely. Nothing in a clean nursery gives a resistant plant any advantage, so nothing was holding on to it.",
-        "headline": "The 1994 notes describe resistant plants in this batch. Today's sample has none.",
-        "readings": [
-          {
-            "zone": "1994 notes",
-            "label": "Resistant plants observed",
-            "value": "about 1 in 20",
-            "status": "normal"
-          },
-          {
-            "zone": "Today",
-            "label": "Resistant plants in sample",
-            "value": "none in 300",
-            "status": "alarm"
-          },
-          {
-            "zone": "Regeneration log",
-            "label": "Grow-outs since 1994",
-            "value": "three",
-            "status": "alarm"
-          },
-          {
-            "zone": "Grow-out size",
-            "label": "Contributing plants each time",
-            "value": "20 to 40",
-            "status": "alarm"
-          },
-          {
-            "zone": "Selection",
-            "label": "Rust present at grow-outs",
-            "value": "never",
-            "status": "normal",
-            "note": "grown in a clean nursery"
-          }
+        "question": "How many resistant plants should a grow-out of thirty have picked up?",
+        "answer": "One or two — and often none. With two hundred plants it would have been ten, which is why the size of a grow-out decides what survives it.",
+        "why": "In 1994 five plants in every hundred were resistant, which is one in twenty. A grow-out of thirty plants is therefore expected to include 30 × 5 ÷ 100 = 1.5 of them — one or two, and often none, in the same way five coin tosses sometimes give no heads. So the gene did not have to be destroyed to disappear. It only had to be missed. Two hundred plants would have picked up about ten of them, which is why the standard says two hundred and why the missing plant count on the 1994 sheet matters so much. And nothing about the batch that came back looks wrong: it germinates well, it looks right, and it passes every routine check, because what is gone is a gene nobody tests for until a rust arrives that needs it.",
+        "givens": [
+          "five plants in every hundred were resistant in 1994",
+          "the grow-out used thirty plants, against a standard of two hundred"
         ],
-        "choices": [
-          {
-            "label": "Chance removed it across three small grow-outs.",
-            "mechanism": "Something in one plant in twenty can easily be missed when thirty are taken, three times over."
-          },
-          {
-            "label": "The 1994 collector wrote it down wrongly.",
-            "mechanism": "A mistaken note would not fit the rest of that collecting trip."
-          },
-          {
-            "label": "The grow-outs actively selected against it.",
-            "mechanism": "Selecting against a gene needs something acting on it, and the nurseries had no rust in them."
-          },
-          {
-            "label": "It is still there, and the test cannot see it here.",
-            "mechanism": "A failed test would show in the controls, and the controls came out right."
-          }
-        ],
-        "correctChoice": "Chance removed it across three small grow-outs."
+        "relationship": "Expected number = how many × the fraction expected, counted out of a hundred. A small grow-out expects one or two of anything rare, and often none.",
+        "calcKey": "POP-3"
       },
       "assumes": [
         "something rare in a population can be missed altogether when a few plants are taken"
-      ]
+      ],
+      "equations": [
+        {
+          "e": "expected number = how many × the fraction expected",
+          "c": "what a cross should produce",
+          "v": [
+            [
+              "expected number",
+              "how many of that kind to expect"
+            ],
+            [
+              "how many",
+              "the number of offspring"
+            ],
+            [
+              "fraction expected",
+              "the share the square predicts"
+            ]
+          ],
+          "s": "A square says what share of the offspring should carry a trait; multiplying by how many there are turns that share into a count you can check.",
+          "computed": true
+        }
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Variety inside a collection, and why losing it is hard to undo",
+        "of": 16,
+        "rests": [
+          "Choosing which plants to breed from, and what that costs"
+        ]
+      }
     },
     {
       "day": 4,
@@ -896,32 +1180,192 @@ export const CURRICULUM = {
       "scene": "Ivanescu has six elite parents' family trees across the wall. Four share a recent grandparent. All six carry the same resistance gene, and the new rust is beating it east of here.",
       "takeaway": "A programme that keeps crossing its best with its best is narrowing what it can still draw on.",
       "place": "Genetic Resources Office",
+      "guide": "Say how many of the six lines will lose to the new rust, then infect all six and count. Write the number down first. Four of them come down from one grandparent and carry that plant's resistance gene, and the new rust is already beating that gene east of here.",
+      "background": [
+        "Why the family tree matters. Related parents share more of their genes than unrelated ones do. Four of these six share a grandparent, so a gene that came from that grandparent is in all four of them.",
+        "What one gene beaten means. A rust race that gets past a gene gets past it in every plant carrying it, on the same afternoon. It has to be beaten once, not four times.",
+        "Why the other two are worth so much. Their resistance came from somewhere else, so a rust that beats the first gene has said nothing about theirs. Two different sources are worth more than six copies of one."
+      ],
       "story": "Ivanescu has six elite parents' family trees across the wall. Four share a recent grandparent. All six carry the same resistance gene, and the new rust is beating it east of here.",
       "game": {
-        "type": "CHOICE",
+        "type": "VERIFY",
         "title": "How narrow the base has become",
         "setup": "Genetic Resources Office",
         "play": "Say what the pedigree board shows about the programme.",
         "task": "Say what the pedigree board shows about the programme.",
-        "question": "What is the risk in the current elite parents?",
-        "answer": "A narrow set of choices, and one shared weak point — every parent carries the resistance gene that is now failing.",
-        "why": "Related parents share more of the same genes. So crossing best with best, over and over, leaves fewer different genes to choose from later. That is the slow problem. The fast one is sharper. All six of these parents carry the same resistance gene, and that gene is being beaten now. There is no back-up sitting in the programme. Bringing in unrelated wheat rebuilds the choices.",
-        "rebuttals": [
-          "Wheat pollinates itself and copes with close relatives. The problem is a short list of alternatives.",
-          "A narrow base slows progress. It does not make choosing impossible.",
-          "How long seed lasts depends on how it was dried and stored, not on whose grandparent it shares."
-        ],
-        "choices": [
-          "A narrow set of choices, and one gene shared by all six.",
-          "Serious weakening, because four parents share a recent grandparent.",
-          "No room left to improve yield by choosing among their offspring.",
-          "Faster loss of seed in store, because related parents store alike."
-        ],
-        "correctChoice": "Serious weakening, because four parents share a recent grandparent."
+        "question": "Predict how many of the six lines the new rust gets past, then infect them and count.",
+        "answer": "Four of the six. They share one grandparent and one resistance gene, and the new rust beats that gene — so beating it once beats all four.",
+        "why": "Four of the six parents come down from the same 1998 grandparent, and the resistance all four carry is that one plant's gene. The new rust has already got past that gene east of here. So it does not have to beat four defences; it has to beat one, and four lines fall together. Infected in the screenhouse, that is exactly what happens: four go down and two hold. The two that hold got their resistance from somewhere else — one from a cross with a Chinese wheat, one from an Anatolian landrace — and a rust that beats the first gene has said nothing about either of those. That is what a narrowing base costs, and it is why the pedigree board is worth having on the wall. Every line in the nursery scoring resistant looked like strength. Once you know where the resistance came from, it looks like one gene counted six times.",
+        "verify": {
+          "prediction": {
+            "label": "How many of the six lines the new rust gets past",
+            "unit": "lines",
+            "min": 0,
+            "max": 6,
+            "step": 1
+          },
+          "truth": 4,
+          "passRatio": [
+            0.7,
+            1.4
+          ],
+          "intervention": {
+            "label": "Infect all six lines in the screenhouse with the new rust race",
+            "note": "same spore load on every line, seedlings at the same stage",
+            "outcome": "All six are infected and scored fourteen days later."
+          },
+          "measurement": {
+            "label": "Count how many lines lost their resistance",
+            "note": "scored on leaf area affected, same scale as the field",
+            "cost": 14,
+            "costUnit": "days"
+          },
+          "unmeasuredMoral": "Reporting from the family tree without infecting anything is reasoning about a gene nobody has tested against this rust. The point of the board is what to test, not what to conclude.",
+          "lock": "Lock the prediction",
+          "run": "Commit it",
+          "measure": "Take the measurement",
+          "commit": "Report"
+        }
       },
       "assumes": [
         "related parents share more of their genes than unrelated ones do"
-      ]
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Variety inside a collection, and why losing it is hard to undo",
+        "of": 16,
+        "rests": [
+          "Choosing which plants to breed from, and what that costs"
+        ]
+      }
+    },
+    {
+      "day": 5,
+      "title": "What the crew is pulling today",
+      "scene": "The rogueing crew works to one rule, chalked at the end of the row. It gets rewritten when the season turns. Nobody walks the rows to tell them.",
+      "takeaway": "The cost of a rule that has changed is paid by whoever is still using the old one.",
+      "place": "Genetic Resources Office",
+      "guide": "Pull what the rule asks for and leave the rest. The chalk changes during the morning and nobody says so. What counts is the plants either side of a change, because they show whether you are reading the board or working from memory.",
+      "background": [
+        "Why the rule changes. Early on the crew is pulling anything that is not the line. Once rust arrives they are looking for something else, and the plants that were being pulled an hour ago are now the ones worth keeping.",
+        "Why it is hard to spot. A pulled plant leaves a gap and nothing else. Nobody can tell afterwards which rule it was pulled under."
+      ],
+      "story": "The rogueing crew works to one rule, chalked at the end of the row. It gets rewritten when the season turns. Nobody walks the rows to tell them.",
+      "game": {
+        "type": "SPOT",
+        "title": "What the crew is pulling today",
+        "setup": "Genetic Resources Office",
+        "play": "Pull the plants the rule asks for.",
+        "task": "Pull the plants the rule asks for.",
+        "question": "Pull to the chalk at the end of the row, and keep checking the chalk.",
+        "answer": "Read the chalk, not the row. Every change leaves a few minutes when the old rule still feels right.",
+        "why": "Three rules run across the morning and each one wants different plants. Anything that is not the line, then anything flowering early, then anything with rust on it. A plant can match two rules at once, and that is what makes the change cost something. What the panel scores is the plants either side of a change. Most of the row is wanted by neither rule, so leaving those alone proves nothing. The damage is hard to see afterwards. A plant pulled under the old rule leaves a gap in the row, and the gap does not say why it is there. That is why the nursery rule is to read the chalk at the start of every row, not at the start of the morning.",
+        "spot": {
+          "targets": [
+            {
+              "id": "p1",
+              "label": "Off-type, flowering early",
+              "tags": [
+                "offtype",
+                "early"
+              ]
+            },
+            {
+              "id": "p2",
+              "label": "Off-type, no rust",
+              "tags": [
+                "offtype",
+                "clean"
+              ]
+            },
+            {
+              "id": "p3",
+              "label": "True to type, rusted",
+              "tags": [
+                "totype",
+                "rusted"
+              ]
+            },
+            {
+              "id": "p4",
+              "label": "True to type, early",
+              "tags": [
+                "totype",
+                "early"
+              ]
+            },
+            {
+              "id": "p5",
+              "label": "Volunteer from last year",
+              "tags": [
+                "offtype",
+                "volunteer"
+              ]
+            },
+            {
+              "id": "p6",
+              "label": "True to type, clean",
+              "tags": [
+                "totype",
+                "clean"
+              ]
+            },
+            {
+              "id": "p7",
+              "label": "Tall off-type, rusted",
+              "tags": [
+                "offtype",
+                "rusted"
+              ]
+            },
+            {
+              "id": "p8",
+              "label": "Late flowering, clean",
+              "tags": [
+                "totype",
+                "late"
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "say": "Anything that is not the line",
+              "want": [
+                "offtype"
+              ]
+            },
+            {
+              "say": "Anything flowering early",
+              "want": [
+                "early"
+              ]
+            },
+            {
+              "say": "Anything with rust",
+              "want": [
+                "rusted"
+              ]
+            }
+          ],
+          "duration": 40,
+          "switchEvery": 12,
+          "pass": 0.75,
+          "hint": "The chalk at the end of the row is the rule, and it changes without warning.",
+          "commit": "Open the row"
+        }
+      },
+      "assumes": [
+        "a work rule can be changed while the work is still going on"
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Disease arrives, and resistance is a trait like any other",
+        "of": 16,
+        "rests": [
+          "Living things pass traits to their offspring",
+          "Choosing which plants to breed from, and what that costs"
+        ]
+      }
     }
   ],
   "TRIAL": [
@@ -931,6 +1375,12 @@ export const CURRICULUM = {
       "scene": "Meera Quiroga has the plot map on the wall. Two hundred and forty plots, each line sown four times across four blocks, in scrambled order. The north end is visibly wetter.",
       "takeaway": "Repeating a thing in different places is how you find out which part of the answer was the place.",
       "place": "Field Laboratory",
+      "guide": "Four things four plots might buy. Ask of each whether it is about the comparison or about safety. A field is not the same everywhere: drainage, depth and shelter all vary. So one plot's yield is the seed and the ground together. Spreading a line across the field is what separates them.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Meera Quiroga has the plot map on the wall. Two hundred and forty plots, each line sown four times across four blocks, in scrambled order. The north end is visibly wetter.",
       "game": {
         "type": "CHOICE",
@@ -956,7 +1406,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the same crop grows differently in different parts of a field"
-      ]
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Repeats and averages: one plant proves nothing",
+        "of": 16,
+        "rests": [
+          "A fair test needs a control and everything else kept the same"
+        ]
+      }
     },
     {
       "day": 2,
@@ -964,28 +1422,27 @@ export const CURRICULUM = {
       "scene": "Four seasons, one site, four plots each. WM-712 is ahead by eleven per cent in the two dry years and by two in the wet ones. The leaflet says eleven per cent higher yielding.",
       "takeaway": "A number from a trial carries the conditions it was measured in, or it is a different claim.",
       "place": "Field Laboratory",
+      "guide": "Work out how many times bigger the dry-year gain is than the wet-year one. It is the bigger figure divided by the smaller one. One tile is the number of seasons, which is how much evidence there is rather than part of this sum.",
+      "background": [
+        "What a trial measures. Four plots per line over four seasons separate the line from the piece of ground it grew on. They do it under the weather those seasons happened to bring, and that weather is part of the answer.",
+        "Why the leaflet's number is a problem. Eleven per cent is true, and it is true of two dry years. A farmer in a wet season gets two, so a number quoted without its conditions is a different claim wearing the same digits.",
+        "What to write instead. The gain, and the seasons it belongs to, in one sentence. It is longer and it stays true whatever next summer does."
+      ],
       "story": "Four seasons, one site, four plots each. WM-712 is ahead by eleven per cent in the two dry years and by two in the wet ones. The leaflet says eleven per cent higher yielding.",
       "game": {
-        "type": "CHOICE",
+        "type": "BALLPARK",
         "title": "What the trial can actually claim",
         "setup": "Field Laboratory",
         "play": "Say what four seasons of trials support.",
         "task": "Say what four seasons of trials support.",
-        "question": "What does this trial support saying about WM-712?",
-        "answer": "That its advantage here was far bigger in the two dry years than in the wet ones. Eleven per cent on its own is a different claim.",
-        "why": "The eleven per cent belongs to two dry years on one farm. In the wet years it was two. Strip the conditions off and the sentence turns into a claim nobody tested. So the honest version carries its weather with it. This line did especially well in dry seasons, on this ground. That is a good reason to try it in other dry places, and it is not a substitute for doing so.",
-        "rebuttals": [
-          "In the wet years the advantage was two per cent, so eleven is not a number that holds whatever the season.",
-          "One site can suggest that idea. It cannot test it anywhere else.",
-          "The trial separates dry years from wet ones here. It does not set a rainfall line that guarantees anything."
+        "question": "How many times bigger is the dry-year gain than the wet-year gain?",
+        "answer": "Five and a half times. Eleven per cent in dry years against two in wet ones, and only one of those numbers is on the leaflet.",
+        "why": "The two figures come from the same trial and the same four plots. In the two dry seasons WM-712 was eleven per cent ahead. In the wet ones it was two. How many times bigger is a division: 11 ÷ 2 = 5.5. So the gain a farmer gets depends on the season more than five times over, and the leaflet prints the larger of the two numbers with nothing attached to it. Nobody made that number up, which is what makes it a hard problem: it is a true figure that becomes a false claim once the conditions are dropped. The sentence that survives says both parts at once — a big gain in dry seasons, a small one in wet, at this site. It is longer, it costs the headline, and it is still correct next summer whatever the weather does.",
+        "givens": [
+          "eleven per cent ahead in dry seasons, two per cent in wet ones"
         ],
-        "choices": [
-          "Here, its advantage is much bigger in dry seasons.",
-          "Across four seasons it is eleven per cent better here.",
-          "Its dry-year result shows it suits dry regions everywhere.",
-          "It should beat the standard whenever the rain is below average."
-        ],
-        "correctChoice": "Here, its advantage is much bigger in dry seasons."
+        "relationship": "How many times = bigger ÷ smaller, compared with each other across the seasons the trial actually had.",
+        "calcKey": "TRIAL-2"
       },
       "assumes": [
         "a trial measures what happened under the conditions it happened in"
@@ -1008,9 +1465,38 @@ export const CURRICULUM = {
               "the percentage, written as a decimal"
             ]
           ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
+          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it.",
+          "computed": true
+        },
+        {
+          "e": "how many times = bigger ÷ smaller",
+          "c": "comparing two yields, or two counts",
+          "v": [
+            [
+              "how many times",
+              "the ratio"
+            ],
+            [
+              "bigger",
+              "the larger number"
+            ],
+            [
+              "smaller",
+              "the one it is compared with"
+            ]
+          ],
+          "s": "Dividing one measurement by another says how many times bigger it is, which is usually the comparison worth making.",
+          "computed": true
         }
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Same seed, different field: what a plant looks like depends on where it grew",
+        "of": 16,
+        "rests": [
+          "Living things pass traits to their offspring"
+        ]
+      }
     },
     {
       "day": 3,
@@ -1018,32 +1504,64 @@ export const CURRICULUM = {
       "scene": "Last season two pure lines differed by nine centimetres in height, clearly. This season the same lines went onto different plots, and now they do not differ at all. The seed has not changed.",
       "takeaway": "A result that does not survive being grown somewhere else was probably about the somewhere.",
       "place": "Field Laboratory",
+      "guide": "Say what the height difference will be this year before the plots are measured. Write a number down first. If last year's nine centimetres was the seed, it comes back wherever the lines are sown. If it was the ground, it goes away when the ground changes.",
+      "background": [
+        "Why a prediction first. Any result can be explained afterwards. A number written before the measuring is a test of the explanation, and the two explanations here predict different numbers.",
+        "What the two explanations are. Either the lines really do differ in height, in which case the difference travels with the seed, or last year's plots differed — deeper soil, more water, less wind — in which case the difference stays with the plots.",
+        "Why the same line is sown four times. Four plots per line, spread around the field, so that no line's score is really a score for one corner of the ground. It is the same idea as taking an average instead of measuring one plant."
+      ],
       "story": "Last season two pure lines differed by nine centimetres in height, clearly. This season the same lines went onto different plots, and now they do not differ at all. The seed has not changed.",
       "game": {
-        "type": "CHOICE",
+        "type": "VERIFY",
         "title": "A difference that was the field",
         "setup": "Field Laboratory",
         "play": "Say why last year's height difference has gone.",
         "task": "Say why last year's height difference has gone.",
-        "question": "What is the most likely explanation?",
-        "answer": "Last year's difference was mostly the plots. It did not follow the seed onto new ground, so it was not the seed.",
-        "why": "One season's comparison holds the seed, and whatever was odd about the plots each line got. Scrambling the layout makes deliberate favouring unlikely. One layout can still be lucky. Growing them again on new ground asks whether the difference follows the seed. Here it did not. So last year's nine centimetres was mostly the ground. This is what growing things twice is for.",
-        "rebuttals": [
-          "Pure lines do not change in a single season.",
-          "Careless measuring adds scatter. It does not remove a nine-centimetre difference.",
-          "Height is strongly passed on, which is exactly why this disappearance is worth explaining."
-        ],
-        "choices": [
-          "Last year's difference was partly the plots those lines landed on.",
-          "The lines have changed between one season and the next.",
-          "This year's measurements were taken less carefully.",
-          "Height is not passed on in wheat."
-        ],
-        "correctChoice": "Last year's difference was partly the plots those lines landed on."
+        "question": "Predict this year's height difference between the two lines, then measure the plots.",
+        "answer": "About one centimetre — near enough to nothing. Last year's nine centimetres was the plots, and it did not travel with the seed.",
+        "why": "Two explanations were available and they predicted different numbers. If the two lines really differ in height, the difference travels with the seed and shows up again wherever they are sown. If last year's plots differed — deeper soil at that end, more water, some shelter — the difference stays behind with the plots. Measured this season, on new ground, the lines differ by about a centimetre, which is nothing. So last year's nine centimetres was the field. Nobody did anything wrong last season: the plots were measured correctly and the number was real. It was just a number about a piece of ground rather than about a kind of wheat. That is what sowing each line in four scattered plots is for, and why a result that does not survive being grown somewhere else is treated as being about the somewhere.",
+        "verify": {
+          "prediction": {
+            "label": "Height difference between the two lines this season",
+            "unit": "cm",
+            "min": 0,
+            "max": 15,
+            "step": 0.5
+          },
+          "truth": 1,
+          "passRatio": [
+            0.4,
+            2.5
+          ],
+          "intervention": {
+            "label": "Grow both lines again, on four new plots each",
+            "note": "same seed, new ground, everything else kept the same",
+            "outcome": "Both lines come up and reach full height on all eight plots."
+          },
+          "measurement": {
+            "label": "Measure the height of every plot and take the averages",
+            "note": "four plots each, averaged",
+            "cost": 1,
+            "costUnit": "afternoons"
+          },
+          "unmeasuredMoral": "Deciding the lines differ and never growing them again is how a fact about one corner of a field becomes a fact about a variety.",
+          "lock": "Lock the prediction",
+          "run": "Commit it",
+          "measure": "Take the measurement",
+          "commit": "Report"
+        }
       },
       "assumes": [
         "the same line grown in two places can give two different answers"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Same seed, different field: what a plant looks like depends on where it grew",
+        "of": 16,
+        "rests": [
+          "Living things pass traits to their offspring"
+        ]
+      }
     },
     {
       "day": 4,
@@ -1051,6 +1569,11 @@ export const CURRICULUM = {
       "scene": "The trial averages 7.4 tonnes a hectare. The twenty plots Volpe wants to keep average 9.1. Quiroga says about a third of that head start gets passed on.",
       "takeaway": "Only the inherited share of an advantage is passed on, and for yield that share is small.",
       "place": "Field Laboratory",
+      "guide": "Five numbers, and two belong elsewhere: the number of plots, and a head start already worked out for you. Ask what this sum needs. The chosen plots were ahead for two reasons, and only one of them gets passed on. So their own average is not what the next generation will do.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
       "story": "The trial averages 7.4 tonnes a hectare. The twenty plots Volpe wants to keep average 9.1. Quiroga says about a third of that head start gets passed on.",
       "game": {
         "type": "BALLPARK",
@@ -1111,7 +1634,12 @@ export const CURRICULUM = {
           ],
           "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
         }
-      ]
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Living things pass traits to their offspring",
+        "of": 16
+      }
     },
     {
       "day": 5,
@@ -1119,6 +1647,12 @@ export const CURRICULUM = {
       "scene": "The trial is scored and the lines are chosen. The summary goes to a board that will remember one number. It was a dry season, at one site.",
       "takeaway": "The sentence worth writing is the one that survives being quoted on its own.",
       "place": "Field Laboratory",
+      "guide": "Four ways to write one result. Ask of each where the conditions sit next to the number. A footnote is not the same sentence. The chosen plots are worse as a headline, because they were picked partly for their ground. And holding it back treats a limited result as no result.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "The trial is scored and the lines are chosen. The summary goes to a board that will remember one number. It was a dry season, at one site.",
       "game": {
         "type": "CHOICE",
@@ -1165,7 +1699,15 @@ export const CURRICULUM = {
           ],
           "s": "One plant is an accident. An average over many is a property of the seed."
         }
-      ]
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Repeats and averages: one plant proves nothing",
+        "of": 16,
+        "rests": [
+          "A fair test needs a control and everything else kept the same"
+        ]
+      }
     }
   ],
   "LAB": [
@@ -1175,6 +1717,12 @@ export const CURRICULUM = {
       "scene": "Nakagawa is screening fifty batches for a second resistance gene. Twenty-two of them are on the drifted list, and their test controls are clean. She wants to know what a clean result still means.",
       "takeaway": "A screen finds what is in front of it, and what is in front of it is what survived the last grow-out.",
       "place": "Molecular Laboratory",
+      "guide": "Four readings of what drift does to a test. Ask of each whether it changes clean results, positive results, or both. Chance can remove a gene that was rare, so a clean result now has two stories and the test cannot tell them apart. Chance cannot invent the gene, so a positive still means something.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Nakagawa is screening fifty batches for a second resistance gene. Twenty-two of them are on the drifted list, and their test controls are clean. She wants to know what a clean result still means.",
       "game": {
         "type": "CHOICE",
@@ -1200,15 +1748,29 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a gene that is rare in a population may be missing from a small sample of it"
-      ]
+      ],
+      "concept": {
+        "n": 4,
+        "c": "A trait can hide in one generation and show up in the next",
+        "of": 16,
+        "rests": [
+          "Two parents each give half, so the young are not copies"
+        ]
+      }
     },
     {
       "day": 2,
       "title": "A test fitted where it worked",
-      "scene": "The test reads DNA, which is the set of instructions inside every seed. It was worked out on the first population, and it has picked plants right for three seasons. Nakagawa has a new cross, and a hundred plants scored both ways.",
+      "scene": "DNA is the set of instructions inside every seed. A marker is a short piece of DNA that sits near the gene you care about. Testing the marker is a cheap way to ask about the gene. This marker was worked out on the first population. Nakagawa now has a new cross, and a hundred plants scored both ways. A cut-off's score is how many of a hundred plants it calls right.",
       "takeaway": "A rule fitted on one set of plants has to be scored on a set it has never seen.",
       "place": "Molecular Laboratory",
-      "story": "The test reads DNA, which is the set of instructions inside every seed. It was worked out on the first population, and it has picked plants right for three seasons. Nakagawa has a new cross, and a hundred plants scored both ways.",
+      "guide": "Drag the cut-off and watch the score on the first population. Remember what that score is. The marker was worked out on these plants, so a cut-off tuned on them fits these plants as well as the trait. When you have picked one, press freeze. Freezing locks your cut-off and opens the new cross, which it has never seen. Report what it gets there.",
+      "background": [
+        "Why a marker works at all. The marker is not the gene. It is a piece of DNA close enough to the gene that the two are usually passed on together. So a plant with the marker usually has the gene. How well that holds depends on how close the two are in that family of plants.",
+        "Why a new parent changes the answer. Bring the trait in from a different parent and the DNA around the gene comes too. The marker and the gene may now sit further apart, or the marker may travel with the wrong copy of the gene. The marker did not change. The plants did.",
+        "Why you freeze before you look. A cut-off picked on the first population is flattered by it, because it was picked using those plants. The new cross is the honest test, and it is only a test while the cut-off was chosen without it. That is what pressing freeze means: you have decided, and now you find out."
+      ],
+      "story": "DNA is the set of instructions inside every seed. A marker is a short piece of DNA that sits near the gene you care about. Testing the marker is a cheap way to ask about the gene. This marker was worked out on the first population. Nakagawa now has a new cross, and a hundred plants scored both ways. A cut-off's score is how many of a hundred plants it calls right.",
       "game": {
         "type": "HOLDOUT",
         "title": "A test fitted where it worked",
@@ -1334,7 +1896,12 @@ export const CURRICULUM = {
           ],
           "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
         }
-      ]
+      ],
+      "concept": {
+        "n": 8,
+        "c": "A fair test needs a control and everything else kept the same",
+        "of": 16
+      }
     },
     {
       "day": 3,
@@ -1342,6 +1909,12 @@ export const CURRICULUM = {
       "scene": "Two of the fifty batches carry the resistance gene, and the screenhouse can grow only one this season. The full vial has been grown out three times. The thin one has never been grown out at all.",
       "takeaway": "Copies of copies drift. The one nobody has copied is the one that still holds what was collected.",
       "place": "Molecular Laboratory",
+      "guide": "Four options, and two facts to weigh: how much seed there is, and how many times it has been grown out. Ask of each which of the two it uses. The amount in the vial says nothing about what is in it. Every grow-out is another chance for rare things to be left out.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Two of the fifty batches carry the resistance gene, and the screenhouse can grow only one this season. The full vial has been grown out three times. The thin one has never been grown out at all.",
       "game": {
         "type": "CHOICE",
@@ -1368,7 +1941,12 @@ export const CURRICULUM = {
       "assumes": [
         "every grow-out is a chance for a batch to drift from what it was",
         "a small lot of living seed can usually be built back up"
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "A seed is alive, and it can be kept alive or let die",
+        "of": 16
+      }
     },
     {
       "day": 4,
@@ -1376,6 +1954,12 @@ export const CURRICULUM = {
       "scene": "Nakagawa can run the DNA test on two-leaf seedlings. On final plants she can also check whether the gene is switched on after rust, and put real rust on the leaves.",
       "takeaway": "DNA says what a plant carries. Only a real test says whether it works.",
       "place": "Molecular Laboratory",
+      "guide": "Four ways to order the tests. Ask of each what a DNA test can and cannot show. Carrying a gene is not the same as using it. Between the gene and a plant that survives rust sit several steps, and only one kind of test asks whether the whole chain works.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
       "story": "Nakagawa can run the DNA test on two-leaf seedlings. On final plants she can also check whether the gene is switched on after rust, and put real rust on the leaves.",
       "game": {
         "type": "CHOICE",
@@ -1402,7 +1986,16 @@ export const CURRICULUM = {
       "assumes": [
         "a nearby marker can come apart from the gene it stands for",
         "a gene has to be switched on before it does anything"
-      ]
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Disease arrives, and resistance is a trait like any other",
+        "of": 16,
+        "rests": [
+          "Living things pass traits to their offspring",
+          "Choosing which plants to breed from, and what that costs"
+        ]
+      }
     },
     {
       "day": 5,
@@ -1410,6 +2003,12 @@ export const CURRICULUM = {
       "scene": "Nakagawa has four hundred plants scored two ways: by a DNA test, and by whether they fell ill. Eleven carry the marker and still fell ill. The test's own controls look clean.",
       "takeaway": "A test can be right about the marker and still be wrong about the plant.",
       "place": "Molecular Laboratory",
+      "guide": "Two controls slide the amount of swapping and the amount of test error along a family of mixes that all give eleven disagreements in four hundred plants. See how wide that family is before naming a cause. Then bring in the direct gene test, which fails for one explanation and not the other.",
+      "background": [
+        "Why the disagreement rate alone cannot decide. The marker sits near the gene but not on it, so sometimes they are separated when plants are made. A test that occasionally misreads produces the same number of disagreements. Eleven in four hundred fits several mixtures of the two.",
+        "What the direct gene test does. It asks about the gene itself instead of the marker nearby, so swapping cannot affect it. A plant that has the gene and still fell ill is a test error. A plant that does not have the gene was a swap.",
+        "Why clean controls are not enough. Controls show the test worked on known material. They cannot catch a failure in one particular plant's sample, which is exactly what produces a handful of odd results in four hundred."
+      ],
       "story": "Nakagawa has four hundred plants scored two ways: by a DNA test, and by whether they fell ill. Eleven carry the marker and still fell ill. The test's own controls look clean.",
       "game": {
         "type": "DEGENERACY",
@@ -1498,38 +2097,47 @@ export const CURRICULUM = {
         "a DNA test looks for a chosen stretch of DNA",
         "a marker sits near a gene rather than inside it",
         "a plant swaps pieces between its two copies of a chromosome when it makes seed"
-      ]
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Punnett squares: writing down what a cross can produce",
+        "of": 16,
+        "rests": [
+          "Two parents each give half, so the young are not copies",
+          "A trait can hide in one generation and show up in the next"
+        ]
+      }
     }
   ],
   "DRY": [
     {
       "day": 1,
       "title": "Where a tonne of grain comes from",
-      "scene": "Osman Toft, the agronomist, has eleven tonnes of grain from one field on the weighbridge slip. A trainee has just said the crop got it out of the soil. He would like that settled.",
+      "scene": "The agronomist has eleven tonnes of grain from one field on the weighbridge slip. A trainee has just said the crop got it out of the soil. He would like that settled.",
       "takeaway": "A harvest weighs what it weighs because of something that was not there when it started.",
       "place": "Drying & Processing Hall",
-      "story": "Osman Toft, the agronomist, has eleven tonnes of grain from one field on the weighbridge slip. A trainee has just said the crop got it out of the soil. He would like that settled.",
+      "guide": "Work out how much of the eleven tonnes is the stuff the plant built out of air. About nine tenths of dry grain is sugar and starch, and all of that came in through the leaves as carbon dioxide. One tile is the share that came out of the soil, which is the small part and not the answer.",
+      "background": [
+        "What grain is made of. Once it is dry, about nine parts in ten are carbohydrate — sugars and starch, built out of carbon dioxide from the air and water, using light. That is where almost all the weight comes from.",
+        "What the soil gives. Minerals, and only a few per cent of the weight. They matter enormously, because a crop short of nitrogen cannot build much of anything, and they are not what the harvest is made of.",
+        "Where the water goes. Most of the water a crop takes up leaves again through its leaves as vapour. It is not in the weighbridge figure at all, because the grain is weighed dry."
+      ],
+      "story": "The agronomist has eleven tonnes of grain from one field on the weighbridge slip. A trainee has just said the crop got it out of the soil. He would like that settled.",
       "game": {
-        "type": "CHOICE",
+        "type": "BALLPARK",
         "title": "Where a tonne of grain comes from",
         "setup": "Drying & Processing Hall",
         "play": "Say where the weight in the harvest came from.",
         "task": "Say where the weight in the harvest came from.",
-        "question": "Where does almost all the dry weight of that grain come from?",
-        "answer": "Almost all of it came out of the air, as carbon dioxide taken in through the leaves.",
-        "why": "Nearly all the dry weight of grain is carbohydrate, and the carbon in it walked in through the leaves as carbon dioxide. Light supplies the energy and water supplies the rest, and the plant builds sugars out of the two. Those sugars become stem, root and grain. Water moves through the plant in enormous amounts and leaves again as vapour. Minerals decide how much can be built, rather than what it is built from.",
-        "rebuttals": [
-          "Minerals matter, and they are a few per cent of the dry weight at most.",
-          "Water is most of a living plant, and nearly all of it has gone by the time grain is dry.",
-          "Nitrogen changes how much the crop can build. What it adds to the weight is small."
+        "question": "How much of the eleven tonnes came in through the leaves, out of the air?",
+        "answer": "About ten tonnes of it. Nine tenths of dry grain is sugar and starch built out of carbon dioxide, and the soil's share is a few hundred kilos of minerals.",
+        "why": "Dry grain is about nine parts in ten carbohydrate — sugar and starch. The plant builds all of it out of carbon dioxide taken in through its leaves, with water and light. So the part of the harvest that came out of the air is 11 × 0.9 ≈ 9.9 tonnes, near enough ten. The soil's contribution is the other part: minerals, a few per cent of the weight, a few hundred kilograms across the whole field. That small share is not unimportant — a crop short of nitrogen cannot build much of anything — but it is not what the harvest is made of. The water is not in the figure at all. Most of what the crop took up left again through its leaves as vapour, and the grain on the slip has been weighed dry. So the trainee has it backwards: the field gave the minerals, and the air gave the weight.",
+        "givens": [
+          "eleven tonnes of dry grain from one field",
+          "about nine tenths of dry grain is carbohydrate"
         ],
-        "choices": [
-          "Carbon dioxide, taken out of the air through the leaves.",
-          "Minerals, taken out of the soil by the roots.",
-          "Water, taken out of the soil by the roots.",
-          "The nitrogen fertiliser spread in the spring."
-        ],
-        "correctChoice": "Carbon dioxide, taken out of the air through the leaves."
+        "relationship": "Part = whole × share, and the share that is carbohydrate came in as carbon dioxide.",
+        "calcKey": "DRY-1"
       },
       "assumes": [
         "plants build sugars out of carbon dioxide and water, using light"
@@ -1554,40 +2162,83 @@ export const CURRICULUM = {
           ],
           "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
         }
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Same seed, different field: what a plant looks like depends on where it grew",
+        "of": 16,
+        "rests": [
+          "Living things pass traits to their offspring"
+        ]
+      }
     },
     {
       "day": 2,
       "title": "What the crop cannot do without water",
-      "scene": "Toft has eleven years of yield against summer rain, and a roughly straight line through it. A trainee asks why a plant built out of air minds a dry summer at all.",
+      "scene": "Osman Toft, the agronomist, has eleven years of yield against summer rain, and a roughly straight line through it. A trainee asks why a plant built out of air minds a dry summer at all.",
       "takeaway": "The opening a leaf takes carbon in through is the opening it loses water through.",
       "place": "Drying & Processing Hall",
-      "story": "Toft has eleven years of yield against summer rain, and a roughly straight line through it. A trainee asks why a plant built out of air minds a dry summer at all.",
+      "guide": "Four steps carry carbon from the air into the grain. Each one has a number beside it saying how much it is passing today. Put them in the order the carbon travels, then name the step that is holding everything up. The biggest number on the board is not the answer, and neither is the first step.",
+      "background": [
+        "What a governing step is. Along any path, the step passing the least decides the total. Improving any other step changes nothing at all, which is why naming the right one matters more than describing the path.",
+        "Why the pores are the awkward step. A leaf takes carbon dioxide in through tiny pores, and loses water out through the same pores. There is no way to open them for one and not the other. In a dry summer the plant shuts them to save water, and the carbon stops coming in.",
+        "What the other steps are doing. The leaves are catching as much light as ever, and the machinery inside them still works. The roots are moving water, not carbon. The number beside each step is what separates a suspect from the answer."
+      ],
+      "story": "Osman Toft, the agronomist, has eleven years of yield against summer rain, and a roughly straight line through it. A trainee asks why a plant built out of air minds a dry summer at all.",
       "game": {
-        "type": "CHOICE",
+        "type": "CHAIN",
         "title": "What the crop cannot do without water",
         "setup": "Drying & Processing Hall",
         "play": "Say why a dry summer costs yield.",
         "task": "Say why a dry summer costs yield.",
-        "question": "Why does drought cut the yield, when the weight comes from the air?",
-        "answer": "Closing the pores to save water shuts the carbon dioxide out at the same time, so the crop stops building.",
-        "why": "A leaf takes carbon dioxide in through pores, and water vapour goes out through the same pores. A crop loses far more water that way than it ever uses for building. When the soil dries, the plant closes those pores to hold on to the water. That saves the plant and shuts the carbon out, so the building stops. Drought brings other troubles as well. This is the trade that costs the yield.",
-        "rebuttals": [
-          "Taking up minerals does suffer in dry soil, and it is not the main road from drought to lost yield.",
-          "Heat damage is real, and it is a separate problem that often arrives at the same time.",
-          "The water actually used in photosynthesis is a tiny fraction of what the crop loses."
-        ],
-        "choices": [
-          "Closing the pores to save water shuts the carbon dioxide out too.",
-          "The roots cannot take up the minerals the grain is built from.",
-          "The plant cannot keep itself cool, and the heat wrecks it.",
-          "Photosynthesis needs liquid water in large amounts as a raw material."
-        ],
-        "correctChoice": "Closing the pores to save water shuts the carbon dioxide out too."
+        "question": "Trace the path carbon takes into the grain, and name the step holding it up in a dry summer.",
+        "answer": "The pores. They are shut to save water, so carbon dioxide cannot get in — and nothing the leaves or the roots do can make up for it.",
+        "why": "Almost all the weight of a harvest arrives as carbon dioxide through tiny pores in the leaves. Water vapour leaves through those same pores. In a dry summer the plant shuts them, which is the right choice for staying alive and stops the carbon coming in at the same moment. Look at the numbers on the board. The leaves are catching light as well as ever, the machinery inside them could handle far more carbon than is arriving, and the roots are busy with water. Only one step has fallen, and it has fallen a long way. That is what a governing step means: the step passing the least decides the total, so improving any of the others changes nothing while the pores are shut. Toft's straight line is the same fact drawn over eleven summers, and it is why breeders talk about getting more grain per drop of water rather than about beating drought.",
+        "chain": {
+          "links": [
+            {
+              "id": "light",
+              "label": "Light caught",
+              "transfers": "780 units, same as a wet year"
+            },
+            {
+              "id": "pores",
+              "label": "Carbon let in",
+              "transfers": "6 units, was 21"
+            },
+            {
+              "id": "inside",
+              "label": "Sugar made",
+              "transfers": "room for 24 units"
+            },
+            {
+              "id": "grain",
+              "label": "Sugar to the grain",
+              "transfers": "room for 19 units"
+            }
+          ],
+          "order": [
+            "light",
+            "pores",
+            "inside",
+            "grain"
+          ],
+          "governing": "pores",
+          "distractor": "light",
+          "commit": "Name the governing transfer"
+        }
       },
       "assumes": [
         "plants take carbon dioxide in through tiny pores in their leaves"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Same seed, different field: what a plant looks like depends on where it grew",
+        "of": 16,
+        "rests": [
+          "Living things pass traits to their offspring"
+        ]
+      }
     },
     {
       "day": 3,
@@ -1595,28 +2246,28 @@ export const CURRICULUM = {
       "scene": "Toft points out that shorter wheats were the whole point of the 1960s. Less stem, more grain, and they stand up in the rain. Volpe still did not ask for fifteen centimetres.",
       "takeaway": "What matters is the share of what a plant built that ends up in the grain.",
       "place": "Drying & Processing Hall",
+      "guide": "Work out what share of everything the plant built ended up in the grain. Take the grain weight and divide it by the whole weight the plant made, stem and roots and all. One tile is the weight of the stem on its own, which is part of the total rather than the thing you divide by.",
+      "background": [
+        "What the share means. A plant builds a fixed amount in a season, and then divides it between stem, leaves, roots and grain. The share that ends up in the grain is what a farmer takes away, and shorter wheats raised it by spending less on stem.",
+        "Why the stem is not waste. It holds the ear up, carries water and sugar to it, and keeps the crop off the ground in August rain. A stem strong enough to stand in weather is paid for out of the same total as the grain.",
+        "Why a shorter plant is not a better plant. It does not build more. It divides what it builds differently, which is a gain until the stem is too weak to hold the ear up in bad weather."
+      ],
       "story": "Toft points out that shorter wheats were the whole point of the 1960s. Less stem, more grain, and they stand up in the rain. Volpe still did not ask for fifteen centimetres.",
       "game": {
-        "type": "CHOICE",
+        "type": "BALLPARK",
         "title": "Short is not simply worse",
         "setup": "Drying & Processing Hall",
         "play": "Say what shorter plants do to the harvest.",
         "task": "Say what shorter plants do to the harvest.",
-        "question": "Why can a shorter wheat outyield a taller one?",
-        "answer": "More of what it builds ends up in grain instead of stem — and short stems stay standing, so the grain can be collected.",
-        "why": "A plant builds a certain amount over a season, and then shares it out. A shorter wheat spends less of it on stem, so more can go into grain. Short stems also stay standing through wind and rain, and grain that stays upright is grain the combine can collect. That is why the short wheats of the 1960s changed everything. It does not follow that every short plant is better, which is exactly what Volpe still has to find out.",
-        "rebuttals": [
-          "How fast a leaf works is not what height changes.",
-          "Water use follows leaf area and how long the season is, rather than how tall the stem is.",
-          "Lifting leaves away from soil spores does help with some diseases. It is not the yield story."
+        "question": "What share of everything the plant built ended up in the grain?",
+        "answer": "About 0.45, or a little under half. The tall wheat manages 0.33, and the difference is stem the short plant did not build.",
+        "why": "A crop builds a certain amount in a season and then divides it up. This short wheat built 19.6 tonnes across the field, and 8.6 tonnes of that is grain: 8.6 ÷ 19.6 ≈ 0.45. A little under half. The tall wheat beside it built about the same total and got 0.33 of it into the ear, because more went into stem. That is the whole gain of the 1960s, and it is a gain in sharing rather than in building — neither plant photosynthesises faster than the other. It is also why the trade has a limit. The stem holds the ear up, carries water and sugar to it, and keeps the crop out of the mud in August rain, and all of that is bought out of the same total. Volpe's fifteen centimetres is not a rounding error either: it is stem, paid for with grain.",
+        "givens": [
+          "the crop built 19.6 tonnes, of which 8.6 is grain",
+          "a tall wheat gets about 0.33 into the ear"
         ],
-        "choices": [
-          "More of what it builds goes into grain rather than stem.",
-          "It builds faster than a tall plant does.",
-          "It uses less water, because there is less of it.",
-          "It keeps its leaves clear of the soil and dodges disease."
-        ],
-        "correctChoice": "More of what it builds goes into grain rather than stem."
+        "relationship": "The share is grain ÷ everything the plant built. A shorter plant builds no more; it divides what it builds differently.",
+        "calcKey": "DRY-3"
       },
       "assumes": [
         "a plant shares out what it builds between stem, leaf and grain"
@@ -1641,7 +2292,15 @@ export const CURRICULUM = {
           ],
           "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
         }
-      ]
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Choosing for one trait can drag another along with it",
+        "of": 16,
+        "rests": [
+          "Choosing which plants to breed from, and what that costs"
+        ]
+      }
     },
     {
       "day": 4,
@@ -1649,28 +2308,59 @@ export const CURRICULUM = {
       "scene": "Two of the twenty chosen plots covered the ground eleven days before the rest and flowered four days earlier. Their yields are the best in the trial, and the season went dry after flowering.",
       "takeaway": "An early crop catches light while there is still water to use it with.",
       "place": "Drying & Processing Hall",
+      "guide": "Four things are different about those two plots, and the yield sheet will give you a figure for whatever you set up. Change one of them and grow it. Change two and the figure cannot say which one did it. Then set your one back the way it was, because a difference that does not come back was never the reason.",
+      "background": [
+        "Why one thing at a time. Any two plots differ in dozens of ways at once. A test that changes several of them gives a number that fits every story, which is the same as having no answer.",
+        "What covering the ground early buys. Leaves catch light. Covering the ground eleven days sooner means eleven more days of catching it while there is still water in the soil to use it with, and this season went dry after flowering.",
+        "Why setting it back matters. If the yield falls again when the early cover goes, the early cover was doing it. If it stays up, something else was, and the test has saved a season of breeding for the wrong thing."
+      ],
       "story": "Two of the twenty chosen plots covered the ground eleven days before the rest and flowered four days earlier. Their yields are the best in the trial, and the season went dry after flowering.",
       "game": {
-        "type": "CHOICE",
+        "type": "CONTROL",
         "title": "Why those two did well",
         "setup": "Drying & Processing Hall",
         "play": "Say what explains the best two plots.",
         "task": "Say what explains the best two plots.",
-        "question": "Why did the early lines yield best in this season?",
-        "answer": "They caught their light and filled their grain before the water ran out. In a wet year that head start could vanish.",
-        "why": "A crop's yield comes down to three things. How much light it catches, how well it turns that into growth, and how much of the growth reaches the grain. This season the water ran out after flowering. The two lines that covered the ground early caught more light while their pores could still stay open. They also filled their grain in the wetter half. That is dodging this weather.",
-        "rebuttals": [
-          "How hard a leaf works is not what flowering date changes.",
-          "The rust came nowhere near this trial, and dodging it would show as health rather than yield.",
-          "Shading weeds out is a real gain from early cover, and it is not worth this much yield."
-        ],
-        "choices": [
-          "They set their grain before the soil dried out.",
-          "Flowering early makes each leaf work harder.",
-          "They dodged the rust, which arrived late.",
-          "Early cover shades the weeds out."
-        ],
-        "correctChoice": "They set their grain before the soil dried out."
+        "question": "Which difference between those plots is actually raising the yield?",
+        "answer": "Covering the ground early. Sow the same line to cover early and the yield goes up by a third; take the early cover away and it drops back.",
+        "why": "Four things were different about the best two plots. Only one of them holds up when it is tested on its own. Sow plots that cover the ground eleven days early. Keep the seed, the date, the water and the nitrogen the same. The yield goes from 6.2 tonnes to 8.3. Take the early cover away and it drops back to 6.4. That is a real cause. The figure follows the change both ways, and it moves far more than the trial's own wobble. The others do nothing on their own. Flowering four days early is worth less than the wobble. So is where the plot sits, and so is the extra nitrogen. Leaves catch light. This season went dry after flowering. So eleven extra days of catching light, while there was still water to use it with, is eleven days the other plots never got.",
+        "control": {
+          "observable": {
+            "label": "Yield from the plot",
+            "unit": "tonnes"
+          },
+          "variables": [
+            {
+              "id": "cover",
+              "label": "How early the crop covers the ground"
+            },
+            {
+              "id": "flower",
+              "label": "How early it flowers"
+            },
+            {
+              "id": "place",
+              "label": "Where in the field the plot sits"
+            },
+            {
+              "id": "nitrogen",
+              "label": "How much nitrogen the plot got"
+            }
+          ],
+          "held": [
+            "the same line of wheat",
+            "the same sowing date",
+            "the same water",
+            "the same plot size"
+          ],
+          "truth": "cover",
+          "baseline": 6.2,
+          "response": 2.1,
+          "noise": 0.3,
+          "hint": "The trial can be set up again each season. Change what you want, grow it, and read the yield.",
+          "run": "Grow the plot",
+          "commit": "Name the one that is doing it"
+        }
       },
       "assumes": [
         "a crop builds most of its grain from light caught after it flowers"
@@ -1695,36 +2385,215 @@ export const CURRICULUM = {
           ],
           "s": "One plant is an accident. An average over many is a property of the seed."
         }
-      ]
+      ],
+      "concept": {
+        "n": 8,
+        "c": "A fair test needs a control and everything else kept the same",
+        "of": 16
+      }
     },
     {
       "day": 5,
+      "title": "Covered early, or open to the wind",
+      "scene": "Two hours of bags have to be cleared. A head that was bagged before it flowered could only pollinate itself. A head left open took whatever the wind brought.",
+      "takeaway": "What fathered a seed was decided before the flower opened.",
+      "place": "Drying & Processing Hall",
+      "guide": "Two bins. Ask when the cover went on. Before the flowers opened, the plant pollinated itself and the line stays the same. Open at flowering, and the father could be any plant upwind. The words on the label will not tell you.",
+      "background": [
+        "Why the date decides it. A cover put on before flowering keeps other pollen out. A cover put on afterwards keeps nothing out, because the pollination has already happened.",
+        "Why it matters at the store door. Seed from a selfed head grows into the same line again. Seed with an unknown father is something else, and it looks exactly the same in the bag."
+      ],
+      "story": "Two hours of bags have to be cleared. A head that was bagged before it flowered could only pollinate itself. A head left open took whatever the wind brought.",
+      "game": {
+        "type": "BELT",
+        "title": "Covered early, or open to the wind",
+        "setup": "Drying & Processing Hall",
+        "play": "Sort the harvest bags before the store closes.",
+        "task": "Sort the harvest bags before the store closes.",
+        "question": "Send each bag to the bin that says what fathered its seed.",
+        "answer": "Covered before the flowers opened means the plant pollinated itself. Open at flowering means the father is unknown, whatever went over it later.",
+        "why": "One moment decides which bin a bag belongs in. Was the head covered before its flowers opened? If it was, the only pollen that could reach it was its own, and the seed grows into the same line next year. If it was open when it flowered, pollen came from whatever was flowering upwind, and here that means the trial plots eighty metres away. A cover put on afterwards changes nothing at all. That is why the labels are no help and are not meant to be. Covers, sleeves and sheets turn up on both sides of the floor. The date is the category, and nothing else is.",
+        "belt": {
+          "left": {
+            "name": "Covered early"
+          },
+          "right": {
+            "name": "Open at flowering"
+          },
+          "items": [
+            {
+              "name": "Bagged before flowers",
+              "bin": "left"
+            },
+            {
+              "name": "Sleeved early",
+              "bin": "left"
+            },
+            {
+              "name": "Covered in bud",
+              "bin": "left"
+            },
+            {
+              "name": "Glasshouse selfed",
+              "bin": "left"
+            },
+            {
+              "name": "Isolation tent",
+              "bin": "left"
+            },
+            {
+              "name": "Sheeted early",
+              "bin": "left"
+            },
+            {
+              "name": "Hand pollinated",
+              "bin": "left"
+            },
+            {
+              "name": "Cabinet grown",
+              "bin": "left"
+            },
+            {
+              "name": "Skirted in bud",
+              "bin": "left"
+            },
+            {
+              "name": "Bagged nursery row",
+              "bin": "left"
+            },
+            {
+              "name": "Screenhouse single",
+              "bin": "left"
+            },
+            {
+              "name": "Early cover on",
+              "bin": "left"
+            },
+            {
+              "name": "Sheeted after flowering",
+              "bin": "right"
+            },
+            {
+              "name": "Bagged at harvest",
+              "bin": "right"
+            },
+            {
+              "name": "Open plot centre",
+              "bin": "right"
+            },
+            {
+              "name": "Field edge row",
+              "bin": "right"
+            },
+            {
+              "name": "Sleeve split",
+              "bin": "right"
+            },
+            {
+              "name": "Cover blown off",
+              "bin": "right"
+            },
+            {
+              "name": "Windward margin",
+              "bin": "right"
+            },
+            {
+              "name": "Skirted too late",
+              "bin": "right"
+            },
+            {
+              "name": "Trial block strip",
+              "bin": "right"
+            },
+            {
+              "name": "Bagged next day",
+              "bin": "right"
+            },
+            {
+              "name": "Causeway headland",
+              "bin": "right"
+            },
+            {
+              "name": "Glasshouse door propped",
+              "bin": "right"
+            },
+            {
+              "name": "Cabinet vent open",
+              "bin": "right"
+            },
+            {
+              "name": "Nursery gap row",
+              "bin": "right"
+            }
+          ],
+          "need": 20,
+          "lives": 3,
+          "pass": 0.8,
+          "hint": "Ask when the cover went on, not whether there is one.",
+          "commit": "Start the line"
+        }
+      },
+      "assumes": [
+        "a flower can be pollinated by its own plant or by another one"
+      ],
+      "equations": [
+        {
+          "e": "average = total ÷ how many",
+          "c": "the mean of several plots or plants",
+          "v": [
+            [
+              "average",
+              "the mean"
+            ],
+            [
+              "total",
+              "the values added up"
+            ],
+            [
+              "how many",
+              "the number of them"
+            ]
+          ],
+          "s": "One plant is an accident. An average over many is a property of the seed."
+        }
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Two parents each give half, so the young are not copies",
+        "of": 16,
+        "rests": [
+          "Living things pass traits to their offspring"
+        ]
+      }
+    },
+    {
+      "day": 6,
       "title": "Twelve years, and what they are for",
       "scene": "Toft's records of cover, flowering and weather now run to twelve seasons. Nobody has ever asked for the whole series. This year two of them explained why the best plots pulled away.",
       "takeaway": "A series of measurements is worth more every year, and it can only be started early.",
       "place": "Drying & Processing Hall",
+      "guide": "Work out what an ordinary summer's rain is here, by averaging the twelve seasons on the sheet. The total is given; share it out across the number of seasons. One tile is this summer's rain, which is the number you are trying to place rather than part of the average.",
+      "background": [
+        "Why one season cannot be read alone. This summer gave 118 millimetres. On its own that is just a number. Against twelve seasons it turns out to be the second driest, and that is what makes the yield difference mean something.",
+        "What an average is for. It says what is ordinary, so anything can be compared with it. Twelve numbers give a fair idea. Two or three would not, because one odd season would pull the answer around.",
+        "Why it can only be started early. The weather record can be borrowed from the airfield. Cover and flowering cannot be borrowed from anywhere, because those crops are gone. A measurement nobody asked for in 2014 is the reason this season can be read at all."
+      ],
       "story": "Toft's records of cover, flowering and weather now run to twelve seasons. Nobody has ever asked for the whole series. This year two of them explained why the best plots pulled away.",
       "game": {
-        "type": "CHOICE",
+        "type": "BALLPARK",
         "title": "Twelve years, and what they are for",
         "setup": "Drying & Processing Hall",
         "play": "Say what the long record is worth keeping for.",
         "task": "Say what the long record is worth keeping for.",
-        "question": "What makes the twelve-year record valuable?",
-        "answer": "It says how ordinary a season was. And nobody can go back and measure a season that has already gone.",
-        "why": "One season's result is hard to read without knowing how ordinary that season was. A long record says exactly that. It can show this year was unusually dry, or unusually early, which is what explains why some traits paid off now. And it cannot be built later. Last year's cover and flowering are gone. Routine measurements feel pointless in any one year.",
-        "rebuttals": [
-          "Each year's measurement is as accurate as its instrument, however many years there are.",
-          "Nothing about publishing requires it, which is why it is the first thing cut.",
-          "Yield still has to be measured. The record explains it rather than replacing it."
+        "question": "What does an ordinary summer give here, across the twelve seasons on the sheet?",
+        "answer": "About 196 millimetres. This summer gave 118, which makes it the second driest of the twelve — and that is only knowable because somebody wrote down the other eleven.",
+        "why": "An average says what is ordinary. The twelve summers on Toft's sheet add up to 2,352 millimetres of rain, so the average is 2,352 ÷ 12 = 196 millimetres. This summer gave 118. That is a long way below ordinary — the second driest of the twelve — and it is the fact that makes the rest of the season readable. Without the twelve, 118 is just a number, and the best plots pulling away is just something that happened. With them, the station can say the good plots did well in a season near the dry end of what this place does, which is a sentence somebody can use when choosing what to sow next year. And note which half of the record could have been rebuilt later. The rain can be borrowed from the airfield. Cover and flowering cannot, because those crops are gone, so the measurements nobody asked for in 2014 are the ones doing the work now.",
+        "givens": [
+          "the twelve summers add up to 2,352 mm",
+          "this summer gave 118 mm"
         ],
-        "choices": [
-          "It lets any one season be read against how ordinary it was.",
-          "It makes each year's measurements more accurate.",
-          "It is required before the trial results can be published.",
-          "It removes the need to measure yield at all."
-        ],
-        "correctChoice": "It lets any one season be read against how ordinary it was."
+        "relationship": "Average = total ÷ how many. Twelve seasons give a fair idea of ordinary; two or three would not.",
+        "calcKey": "DRY-6"
       },
       "assumes": [
         "a long record lets one season be compared against the others"
@@ -1747,7 +2616,8 @@ export const CURRICULUM = {
               "the number of them"
             ]
           ],
-          "s": "One plant is an accident. An average over many is a property of the seed."
+          "s": "One plant is an accident. An average over many is a property of the seed.",
+          "computed": true
         },
         {
           "e": "how many times = bigger ÷ smaller",
@@ -1768,12 +2638,133 @@ export const CURRICULUM = {
           ],
           "s": "Dividing one measurement by another says how many times bigger it is, which is usually the comparison worth making."
         }
-      ]
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Deciding with a season that does not come round again",
+        "of": 16,
+        "rests": [
+          "A fair test needs a control and everything else kept the same",
+          "Repeats and averages: one plant proves nothing"
+        ]
+      }
     }
   ]
 };
 
 export const BALLPARK_CALCS = {
+  "CROSS-2": {
+    "prompt": "Four hundred plants in the second generation. Each parent carries one resistant copy and one that is not, so three plants in four are expected to be resistant.",
+    "question": "Choose the number of plants and the share expected to be resistant.",
+    "labels": [
+      "400  (plants in the tray)",
+      "0.75  (three in four, the share expected)",
+      "306  (plants that shrugged it off)",
+      "0.94  (the share expected if two genes did it)"
+    ],
+    "values": [
+      400,
+      0.75,
+      306,
+      0.94
+    ],
+    "slots": 2,
+    "template": "{0} × {1}",
+    "formula": "a*b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 300,
+    "tolerance": 12,
+    "units": "resistant plants expected",
+    "solution": "400 × 0.75 = 300 expected, against 306 counted.",
+    "explanation": "Three hundred expected, three hundred and six counted. One gene, with the resistant copy the stronger one."
+  },
+  "DRY-1": {
+    "prompt": "Eleven tonnes of dry grain. About nine tenths of dry grain is carbohydrate, built out of carbon dioxide from the air.",
+    "question": "Choose the harvest weight and the share of it that is carbohydrate.",
+    "labels": [
+      "11  (tonnes of dry grain)",
+      "0.9  (the share that is sugar and starch)",
+      "0.03  (the share that came from the soil)",
+      "4000  (tonnes of water the crop used)"
+    ],
+    "values": [
+      11,
+      0.9,
+      0.03,
+      4000
+    ],
+    "slots": 2,
+    "template": "{0} × {1}",
+    "formula": "a*b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 9.9,
+    "tolerance": 0.6,
+    "units": "tonnes built out of air",
+    "solution": "11 × 0.9 ≈ 9.9 tonnes out of the air, against a few hundred kilos of minerals from the soil.",
+    "explanation": "The air gave the weight and the field gave the minerals. The water left again through the leaves."
+  },
+  "TRIAL-2": {
+    "prompt": "WM-712 was eleven per cent ahead in the two dry seasons and two per cent ahead in the wet ones, over four seasons at one site.",
+    "question": "Pick the dry-year gain and the wet-year gain.",
+    "labels": [
+      "11  (per cent ahead in the dry seasons)",
+      "2  (per cent ahead in the wet seasons)",
+      "4  (seasons in the trial)",
+      "16  (plots in the trial)"
+    ],
+    "values": [
+      11,
+      2,
+      4,
+      16
+    ],
+    "slots": 2,
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 5.5,
+    "tolerance": 0.4,
+    "units": "times bigger",
+    "solution": "11 ÷ 2 = 5.5 times bigger in a dry season than a wet one.",
+    "explanation": "A true number becomes a false claim once the conditions are dropped from it."
+  },
+  "DRY-3": {
+    "prompt": "The crop built 19.6 tonnes across the field. 8.6 tonnes of that is grain. The stem accounts for 5.2 tonnes.",
+    "question": "Choose the grain weight and the whole weight the plant built.",
+    "labels": [
+      "8.6  (tonnes of grain)",
+      "19.6  (tonnes the plant built in total)",
+      "5.2  (tonnes of stem)",
+      "0.33  (the share a tall wheat manages)"
+    ],
+    "values": [
+      8.6,
+      19.6,
+      5.2,
+      0.33
+    ],
+    "slots": 2,
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 0.44,
+    "tolerance": 0.04,
+    "units": "share that ended up as grain",
+    "solution": "8.6 ÷ 19.6 ≈ 0.45, against about 0.33 for the tall wheat.",
+    "explanation": "A gain in sharing, not in building. The stem is paid for out of the same total."
+  },
   "POP-1": {
     "prompt": "A hundred and twenty plants stood in the plot. Eighteen of them gave pollen, and a hundred and two set seed.",
     "question": "What share of the plants gave pollen?",
@@ -1832,6 +2823,91 @@ export const BALLPARK_CALCS = {
     "units": "t/ha next generation",
     "solution": "7.4 + 0.3 × 1.7 is about 7.9 tonnes a hectare.",
     "explanation": "The chosen plots are 1.7 above average, and most of that was the ground they stood on. Only the inherited share travels."
+  },
+  "POP-3": {
+    "prompt": "In 1994 about one plant in twenty was resistant. The grow-out used thirty plants. The standard is two hundred.",
+    "question": "Pick the number of plants, how many in every hundred were resistant, and the hundred.",
+    "labels": [
+      "30  (plants used in the grow-out)",
+      "5  (resistant in every hundred, which is one in twenty)",
+      "100  (the hundred they are counted out of)",
+      "200  (plants the standard asks for)"
+    ],
+    "values": [
+      30,
+      5,
+      100,
+      200
+    ],
+    "slots": 3,
+    "template": "{0} × {1} ÷ {2}",
+    "formula": "a*b/c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 1.5,
+    "tolerance": 0.3,
+    "units": "resistant plants expected",
+    "solution": "30 × 5 ÷ 100 = 1.5 plants — one or two, often none. Two hundred plants would give 10.",
+    "explanation": "The gene did not have to be destroyed to disappear. It only had to be missed."
+  },
+  "VAULT-6": {
+    "prompt": "A third of the tested batches had changed, and all of them came from the regrown-twice group. The store holds nine thousand batches regrown twice or more, and forty-one thousand in total.",
+    "question": "Pick the group the test applies to, and the share of it that had changed.",
+    "labels": [
+      "9000  (batches regrown twice or more)",
+      "0.33  (the share of those that had changed)",
+      "41000  (batches in the whole collection)",
+      "60  (tested batches that still match)"
+    ],
+    "values": [
+      9000,
+      0.33,
+      41000,
+      60
+    ],
+    "slots": 2,
+    "template": "{0} × {1}",
+    "formula": "a*b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 2970,
+    "tolerance": 200,
+    "units": "batches at risk",
+    "solution": "9,000 × 0.33 ≈ 3,000 batches in the regrown group. The same sum on 41,000 gives 13,500, which the test cannot support.",
+    "explanation": "A third of the risky group is about three thousand. A third of the collection is a claim about batches nobody tested."
+  },
+  "DRY-6": {
+    "prompt": "The twelve summers on the sheet add up to 2,352 millimetres of rain. This summer gave 118.",
+    "question": "Pick the total rain across the twelve seasons and the number of seasons.",
+    "labels": [
+      "2352  (millimetres, all twelve summers added up)",
+      "12  (seasons on the sheet)",
+      "118  (millimetres this summer)",
+      "2  (records that explained the best plots)"
+    ],
+    "values": [
+      2352,
+      12,
+      118,
+      2
+    ],
+    "slots": 2,
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 196,
+    "tolerance": 8,
+    "units": "millimetres in an ordinary summer",
+    "solution": "2,352 ÷ 12 = 196 millimetres, against 118 this summer.",
+    "explanation": "An average says what is ordinary. It is what makes a single season readable."
   }
 };
 

@@ -22,14 +22,19 @@ import * as room from './room.js';
  * a campaign starts and saved with it.
  */
 const runSeed = () => Number(getState()?.runSeed) || 0;
-import { formatCountdown } from './day.js';
+import { formatCountdown, PANEL_PACE } from './day.js';
 import { renderFigure, readingsPanel, dataTable, readout, estimateScale, timeline, matchBoard,
          lineChart } from './figures.js';
 // The twelve formats the six interaction documents converged on. They live in
 // their own module because this file already holds the modal, the verdict, the
 // hint economy and eight formats — a thirteenth branch in here is how the next
 // fork starts. Everything they need from this file arrives through `ctx`.
-import { INSTRUMENTS, isInstrument } from './instruments.js';
+import { INSTRUMENTS, isInstrument, methodBlock, goalBlock } from './instruments.js';
+// `methodBlock` and `goalBlock` are the two lines every panel in instruments.js
+// prints before it asks anything: what kind of move this is, and what counts as
+// done. The four panels below — SWEEP, HOLDOUT, TALLY, PROBE — are older than
+// that registry and printed neither, which is how a player reached HOLDOUT with
+// two labelled data sets and no way to tell what either of them was.
 
 let activeChallenge = null;
 let activeOrder = null;
@@ -62,7 +67,15 @@ const kindOf = (ch) => String(ch?.type ?? '').toUpperCase().replace(/[\s_-]+/g, 
  * rule as `primeMissions` in engine/content/normalize.js and as `make-book.mjs`,
  * deliberately: a chip the player can click is a term the card named.
  */
-function jargonMatches(text, max=12){
+/**
+ * `list` is the running theme's glossary in a game. The standalone harness
+ * (engine/dev/lessons.html) shows one stop out of each of eighteen games, so the
+ * glossary a card is matched against is the *source* game's, not the one the dev
+ * server happens to be serving. Passing the list rather than reading the module's
+ * is the whole of what that needed — a second copy of this rule in the harness is
+ * a second answer to "which words does this card name".
+ */
+function jargonMatches(text, max=12, list=JARGON){
   const normalized=` ${String(text||'').toLowerCase()} `;
   const hit=(a)=>{
     const w=String(a).toLowerCase().trim();
@@ -71,7 +84,7 @@ function jargonMatches(text, max=12){
     return new RegExp(`(^|[^a-z0-9])${e}${w.length<=3?'([^a-z0-9]|$)':''}`).test(normalized);
   };
   const found=[];
-  for(const item of JARGON){
+  for(const item of (list ?? [])){
     if([item.name,...(item.aliases??[])].filter(Boolean).some(hit)){ found.push(item); if(found.length>=max) break; }
   }
   return found;
@@ -118,7 +131,7 @@ function allChallengeText(lesson,ch,includeAnswer=false){
   if(Array.isArray(ch.readings)) ch.readings.forEach(r=> parts.push(r.zone, r.label, r.value, r.note));
   if(Array.isArray(ch.proposals)) ch.proposals.forEach(p=>parts.push(p.text));
   if(kindOf(ch)==='BALLPARK'){
-    const spec=BALLPARK_CALCS[`${activeChallenge?activeChallenge.id:''}-${lesson.day}`];
+    const spec=calcSpec();
     if(spec) parts.push(spec.prompt,spec.question,...spec.labels,includeAnswer?spec.solution:'',includeAnswer?spec.explanation:'');
   }
   if(includeAnswer) parts.push(ch.answer,ch.why);
@@ -132,7 +145,7 @@ function scientificHint(ch, lesson){
   if(kindOf(ch)==='SEQUENCE') return `Begin with "${ch.cards[ch.order[0]]}." That step establishes the condition the later steps depend on.`;
   if(kindOf(ch)==='PROTOCOL') return `One secure match is: "${ch.scenarios[0]}" → "${ch.choices[ch.mapping[0]]}." Use the same cause-and-effect reasoning for the remaining rows.`;
   if(kindOf(ch)==='BALLPARK'){
-    const spec=BALLPARK_CALCS[`${activeChallenge.id}-${lesson.day}`];
+    const spec=calcSpec();
     return spec?`Anchor the estimate with "${spec.labels[spec.correct[0]]}." Then choose the remaining scale that makes the displayed relationship physically sensible.`:'Start by identifying the physical scale that should dominate the estimate.';
   }
   if(kindOf(ch)==='DIAGNOSIS'){
@@ -159,7 +172,7 @@ function scientificHint(ch, lesson){
 function solutionText(ch){
   if(kindOf(ch)==='SEQUENCE') return ch.order.map((i,n)=>`${n+1}. ${ch.cards[i]}`).join(' → ');
   if(kindOf(ch)==='PROTOCOL') return ch.scenarios.map((s,i)=>`${s} → ${ch.choices[ch.mapping[i]]}`).join('; ');
-  if(kindOf(ch)==='BALLPARK'){ const spec=BALLPARK_CALCS[`${activeChallenge.id}-${activeChallenge.lesson.day}`]; return spec?spec.solution:ch.answer; }
+  if(kindOf(ch)==='BALLPARK'){ const spec=calcSpec(); return spec?spec.solution:ch.answer; }
   if(ch.recommended) return Object.entries(ch.recommended).map(([k,v])=>`Proposal ${k}: about ${v} points`).join('; ');
   return ch.answer;
 }
@@ -236,7 +249,53 @@ function leaderPortrait(gs){
   return portraitSvg({ id: l?.id, name: l?.name }, def(gs?.id)?.color);
 }
 
+/**
+ * Whether the panel that is open stops the day's countdown dead.
+ *
+ * A format may declare `pausesClock`. BELT does, because it carries its own
+ * pressure — a belt that speeds up while the day also runs down charges the
+ * player twice for the one format that was supposed to be the fun one.
+ *
+ * The entry point reads this every frame through `pace()`. It is a function
+ * rather than a flag on the state because the state is saved and this is not:
+ * a campaign reloaded with a stale "the clock is frozen" would freeze for ever.
+ *
+ * **The clock now stops for every panel in every game** — `PANEL_PACE` is 0 in
+ * `day.js`, which is the one number that means "how fast the day runs while
+ * somebody is reading". This flag therefore changes nothing today, and is kept
+ * for the case where that number is ever put back: a format that declares
+ * `pausesClock` was built against a stopped clock and must keep one.
+ */
+let clockFrozen = false;
+export function panelFreezesClock(){ return clockFrozen; }
+
+/**
+ * The world, for the one format that is graded against it.
+ *
+ * TRIAL hands the player back to the place they are standing in and grades the
+ * order they take a set of gates in. That needs the scene, the player and the
+ * spawn, none of which this file has ever imported and none of which it should:
+ * `instruments.js` is loaded in Node by `instrumentGoals.mjs` and in a page with
+ * no scene by `instruments.html`, so a three.js import anywhere on that path
+ * breaks both. The entry point registers a handle instead, every harness
+ * registers nothing, and the format renders with its button disabled.
+ */
+let worldHandle = null;
+export function setWorldHandle(h){ worldHandle = h ?? null; }
+
+/** Anything a panel wants torn down when it closes — a frame loop, a listener. */
+let panelCleanup = [];
+function runPanelCleanup(){
+  for(const fn of panelCleanup.splice(0)){
+    try { fn(); } catch (e) { console.error('[questionUI] panel cleanup threw', e); }
+  }
+}
+
 function openModal(title, bodyHTML){
+  // Whatever was up before is gone: its loop stops here, not when the next thing
+  // to touch the DOM happens to notice.
+  runPanelCleanup();
+  clockFrozen = false;
   const overlay=document.getElementById('overlay');
   const titleEl=document.getElementById('modalTitle');
   const body=document.getElementById('modalBody');
@@ -252,17 +311,31 @@ function openModal(title, bodyHTML){
   // the server is the only party that can know whether anybody is. Telling it
   // here rather than at each caller means every format is covered, including the
   // twenty in instruments.js.
-  room.setPanel(true);
+  // The server applies the panel rate, because it is the only party that knows
+  // whether ANYBODY is reading — so a room learns here that the day is stopped
+  // rather than slowed. A server that has not been taught `frozen` ignores it
+  // and keeps its own rate, which is the behaviour before this.
+  room.setPanel(true, PANEL_PACE === 0);
   // bind term chips
   bindTerms(body);
 }
 export function closeVerdict(){
   const v=document.getElementById('verdictOverlay');
   if(v) v.classList.remove('show');
+  // A TRIAL keeps the clock frozen across its suspension — the overlay is down
+  // while the route is driven — so the freeze outlives the panel and has to be
+  // let go here as well as in closeModal. Harmless for every other format:
+  // PANEL_PACE is 0, so an unfrozen panel and a frozen one tick the same.
+  clockFrozen = false;
 }
 export function closeModal(){
   const overlay=document.getElementById('overlay');
   if(overlay) overlay.classList.remove('show');
+  // A frame loop nobody cancelled keeps drawing into a detached canvas for the
+  // rest of the session, and keeps eating the arrow keys that now belong to the
+  // world. Before anything else, because the rest of this can throw.
+  runPanelCleanup();
+  clockFrozen = false;
   room.setPanel(false);
   // Walking away from a question hands the stop back to the room. Without this
   // a player who opened a door, read the scene and left would hold that call for
@@ -323,7 +396,7 @@ function coopBusy(stopIndex, what){
     + `The verdict comes to everyone when it lands — take one of the others in the meantime.</div>`);
   return true;
 }
-function bindTerms(container){
+function bindTerms(container, list=JARGON){
   container.querySelectorAll('.termChip').forEach(btn=>{
     // Idempotent, because several paths bind the same chips: openModal binds
     // when it writes the body, and the challenge renderers bind again after
@@ -335,7 +408,7 @@ function bindTerms(container){
     btn.addEventListener('click', (e)=>{
       e.stopPropagation();
       const idx=+btn.dataset.term;
-      const term=JARGON[idx];
+      const term=(list ?? [])[idx];
       if(!term) return;
       const wrap=btn.closest('.termStrip');
       const panel=wrap?wrap.querySelector('.termDefinition'):null;
@@ -450,6 +523,7 @@ function bindOrder(){
   };
 }
 function rerenderOrder(){
+  if(standalone){ standaloneRepaint(orderHTML(activeChallenge.ch)); return; }
   const state=getState();
   const gs=state.groups.find(x=>x.id===activeChallenge.id);
   const lesson=activeChallenge.lesson;
@@ -561,8 +635,18 @@ function bindProtocol(){
 }
 
 // ——— Ballpark ———
-function ballparkSpec(){
-  return BALLPARK_CALCS[`${activeChallenge.id}-${activeChallenge.lesson.day}`];
+/**
+ * The numeric spec behind an estimate.
+ *
+ * Stamped onto the active challenge when the panel opens, not looked up again in
+ * each of the five places that want it. The key was written out four separate
+ * times — `${id}-${day}` in the panel, in the glossary sweep, in the reasoning
+ * and in the verdict figure — which is four chances for one of them to disagree,
+ * and the reason the harness in engine/dev/lessons.html could not show an
+ * estimate from a game other than the one the dev server was serving.
+ */
+function calcSpec(){
+  return activeChallenge?.calc ?? null;
 }
 function formatCalc(v){
   if(!Number.isFinite(v)) return '—';
@@ -630,26 +714,29 @@ function ballparkBody(ch,spec){
   return `<div class="ballparkBox"><div class="question">${esc(spec.prompt)}</div><div class="question" style="margin-top:8px;font-weight:700">${esc(spec.question)}</div>${ch.relationship?`<div class="calcLaw"><span class="calcLawLabel">Governing relationship</span><span class="calcLawBody">${esc(ch.relationship)}</span></div>`:''}<div class="numberBank">${bank}</div><div class="calcEquation">${lhs?`<span class="calcLhs">${esc(lhs)}</span><span class="calcEquals">=</span>`:''}${equation}${spec.units?`<span class="calcUnits">${esc(spec.units)}</span>`:''}</div><div class="calcReadout">${preview}</div><div class="calcActions"><button class="btn small" id="calcClear" type="button">Clear</button><button class="btn primary small" id="calcSubmit" type="button">Check estimate</button></div></div><div id="visitFeedback"></div>`;
 }
 function ballparkHTML(ch){
-  const spec=ballparkSpec();
-  const state=getState();
-  activeCalc={ chosen:[], order: shuffleSeeded(spec?spec.labels.map((_,i)=>i):[], state.week*79 + GROUP_DEFS.findIndex(d=>d.id===activeChallenge.id)*13 + activeChallenge.lesson.day + runSeed()) };
+  const spec=calcSpec();
+  // `?? 0` because the panel also draws outside a campaign — engine/dev/lessons.html
+  // mounts one stop with no state behind it, and a shuffle seed is the only thing
+  // any of these three renderers wanted the week for.
+  activeCalc={ chosen:[], order: shuffleSeeded(spec?spec.labels.map((_,i)=>i):[], (getState()?.week ?? 0)*79 + GROUP_DEFS.findIndex(d=>d.id===activeChallenge.id)*13 + activeChallenge.lesson.day + runSeed()) };
   if(!spec) return `<div class="ballparkBox"><div class="question">${esc(ch.task||'Estimate')}</div><div class="feedback bad"><p>This estimate has not yet been converted to the number-tile format. Use the supplied givens to produce a rounded result.</p></div></div><div id="visitFeedback"></div>`;
   return ballparkBody(ch,spec);
 }
 function rerenderBallpark(){
+  if(standalone){ standaloneRepaint(ballparkBody(activeChallenge.ch, calcSpec())); return; }
   const state=getState();
   const gs=state.groups.find(x=>x.id===activeChallenge.id);
   const lesson=activeChallenge.lesson;
   const ch=activeChallenge.ch;
   const person=activeChallenge.person || null;
-  const spec=ballparkSpec();
+  const spec=calcSpec();
   const body=document.getElementById('modalBody');
   if(!body) return;
   body.innerHTML = challengePrefix(gs, lesson, ch, person) + withAssist(ballparkBody(ch,spec));
   bindBallpark(); bindVisitAssist(); bindTerms(body);
 }
 function bindBallpark(){
-  const spec=ballparkSpec();
+  const spec=calcSpec();
   if(!spec) return;
   document.querySelectorAll('[data-calc-tile]').forEach(b=> b.onclick=()=>{
     if(activeCalc.chosen.length>=spec.slots) return;
@@ -684,7 +771,7 @@ function bindBallpark(){
 
 // ——— Science Tank ———
 function tankHTML(ch){
-  return `<div class="compactInstruction">Spend most of the 100 points across the proposals. The whole distribution is graded, not just your top pick: fund every proposal the evidence supports, and starve the ones it does not.</div><div class="tankGrid">${ch.proposals.map(p=>`<label class="tankProposal"><div><b>Proposal ${esc(p.label)}</b><p>${esc(p.text)}</p></div><input type="number" min="0" max="100" step="5" value="0" data-tank="${esc(p.label)}"><span>points</span></label>`).join('')}</div>${ch.research?`<details class="researchReveal"><summary>Evidence available</summary><div style="white-space:pre-wrap">${esc(ch.research)}</div></details>`:''}<div class="tankTotal">Allocated: <b id="tankTotal">0</b> / 100</div><div id="visitFeedback"></div><div class="modalActions"><button class="btn primary" id="tankCheck" type="button">Check</button></div>`;
+  return `<div class="compactInstruction">Spend most of the 100 points across the proposals. The whole distribution is graded, not just your top pick: fund every proposal the evidence supports, and starve the ones it does not.</div><div class="tankGrid">${ch.proposals.map(p=>`<label class="tankProposal"><div><b>Proposal ${esc(p.label)}</b><p>${esc(p.text)}</p></div><input type="number" min="0" max="100" step="5" value="0" data-tank="${esc(p.label)}"><span>points</span></label>`).join('')}</div>${ch.research && !hasRules()?`<details class="researchReveal"><summary>Evidence available</summary><div style="white-space:pre-wrap">${esc(ch.research)}</div></details>`:''}<div class="tankTotal">Allocated: <b id="tankTotal">0</b> / 100</div><div id="visitFeedback"></div><div class="modalActions"><button class="btn primary" id="tankCheck" type="button">Check</button></div>`;
 }
 
 /**
@@ -710,6 +797,70 @@ function tankHTML(ch){
  * had every panel plotting the last one's visited points. One panel per visit is
  * all the game ever shows, so this cost nothing to make right.
  */
+/**
+ * Bring a panel's controls into view, once, after the body exists.
+ *
+ * `.modalBody .modalActions` is `position:sticky; bottom:0`, so on a panel taller
+ * than the modal the action row pins itself over whatever is between the current
+ * scroll position and the bottom — on these four that is the slider and the
+ * readouts, which is how a sweep once came to look like an empty box with a
+ * button under it. It happened again the day SWEEP, HOLDOUT, TALLY and PROBE were
+ * given their "what you are doing" and "what counts as done" blocks: 150 px of
+ * explanation is 150 px the controls no longer had.
+ *
+ * `scrollIntoView({ block: 'nearest' })` is NOT enough, and that is the whole
+ * reason this is a function rather than a line. An element whose bottom edge is one
+ * pixel inside the scroll container is "in view" by that definition and completely
+ * hidden by the bar pinned over it, so the browser scrolls by six pixels and
+ * declares the job done — which is exactly what it did here, and the readouts
+ * stayed invisible. The bar's own height has to come off the bottom of the box.
+ *
+ * Nothing happens when the panel already fits, which is most of them.
+ */
+/**
+ * Whether the stop's own card has already said what to do.
+ *
+ * A stop carrying `guide` has one paragraph whose whole job is the instruction, so
+ * the panel's three lines — what you are doing, the hint, what counts as done —
+ * are the same sentence three more times. They stay for every stop that does not,
+ * which is all but one of the 1,300 today.
+ */
+const briefed = () => !!String(activeChallenge?.lesson?.guide ?? '').trim();
+
+/**
+ * Whether this stop has been converted to the rules-behind-a-door shape.
+ *
+ * A tank stop that has been rewritten carries its evidence as the card's second
+ * paragraph and its spending rules behind the Rules button, so the panel's own
+ * "Evidence available" disclosure would be the same prose a second time. A stop
+ * that has NOT been converted still keeps it, which is why this asks for `rules`
+ * rather than for `guide`: every tank stop has a guide, and only a converted one
+ * has moved the evidence up.
+ */
+const hasRules = () => !!String(activeChallenge?.lesson?.rules ?? '').trim();
+
+function showControls(panel, selector){
+  if(!panel) return;
+  requestAnimationFrame(() => {
+    const el = panel.querySelector(selector);
+    if(!el) return;
+    // The scroll container is `.modal` in the game and in every harness, but
+    // finding it by class would tie this to one shell. Whatever actually scrolls
+    // is what has to be moved.
+    let box = el.parentElement;
+    while(box && box !== document.body){
+      const oy = getComputedStyle(box).overflowY;
+      if((oy === 'auto' || oy === 'scroll') && box.scrollHeight > box.clientHeight + 1) break;
+      box = box.parentElement;
+    }
+    if(!box || box === document.body){ el.scrollIntoView({ block: 'nearest' }); return; }
+    const bar = panel.querySelector('.modalActions');
+    const clear = (bar ? bar.getBoundingClientRect().height : 0) + 10;
+    const over = (el.getBoundingClientRect().bottom + clear) - box.getBoundingClientRect().bottom;
+    if(over > 0) box.scrollTop += over;
+  });
+}
+
 const sweepState = new WeakMap();
 
 /** Linear interpolation between the authored points, flat outside them. */
@@ -770,7 +921,10 @@ export function sweepHTML(ch){
     + `<div class="sweepPanel" data-min="${a.min}" data-max="${a.max}" data-step="${a.step}">`
     + `<div class="sweepHead"><span class="sweepAxisLabel">${esc(a.label)}</span>`
     + `<b class="sweepAt">${num(w.start, ad)}${unit}</b></div>`
-    + `<div class="sweepHint">Drag the slider across the range. Only the positions you visit are plotted.</div>`
+    + (briefed() ? '' : methodBlock('SWEEP')
+       + `<div class="sweepHint">${esc(w.hint
+           ?? 'Drag the slider across the range. Only the positions you visit are plotted.')}</div>`
+       + goalBlock(w.goals))
     + `<svg class="sweepPlot" viewBox="0 0 320 120" role="img" aria-label="Response against ${esc(a.label)}">`
     + `<rect width="320" height="120" fill="#f7f9fa"/>`
     + series.map((x, i) =>
@@ -965,8 +1119,7 @@ export function bindSweep(container, ch){
   // the current scroll position and that row is pinned *behind* it. On a sweep
   // that is the readouts, which is how the format came to look like an empty box
   // with a button under it.
-  requestAnimationFrame(() => panel.querySelector('.sweepReadouts')
-    ?.scrollIntoView({ block: 'nearest' }));
+  showControls(panel, '.sweepReadouts');
 
   panel.querySelector('#sweepCommit')?.addEventListener('click', () => {
     if(st.committed) return;
@@ -1014,12 +1167,30 @@ export function holdoutHTML(ch){
   const unit = a.unit ? ' ' + esc(a.unit) : '';
   return `<div class="sweepAsk">${esc(ch.question || ch.task || 'Fit it, freeze it, and test it.')}</div>`
     + `<div class="holdoutPanel" data-min="${a.min}" data-max="${a.max}">`
-    + `<div class="holdoutTabs"><b class="holdoutTab on" data-set="fit">${esc(h.fitLabel ?? 'Calibration set')}</b>`
-    + `<b class="holdoutTab" data-set="test">${esc(h.testLabel ?? 'Held-out set')}</b></div>`
+    // The two sets, each allowed a line saying what it IS. A tab reading
+    // "Calibration shots" is a name, not an explanation, and the whole judgment
+    // this format asks for depends on knowing that the two are separate batches of
+    // the same thing. `fitNote` / `testNote` are authored per stop, because what a
+    // batch is differs by game — shots, samples, patients, storm seasons.
+    + `<div class="holdoutTabs">`
+    + `<b class="holdoutTab on" data-set="fit">${esc(h.fitLabel ?? 'Calibration set')}`
+    + (h.fitNote ? `<span class="holdoutTabNote">${esc(h.fitNote)}</span>` : '') + `</b>`
+    + `<b class="holdoutTab" data-set="test">${esc(h.testLabel ?? 'Held-out set')}`
+    + (h.testNote ? `<span class="holdoutTabNote">${esc(h.testNote)}</span>` : '')
+    // Why the second column is empty, said in the second column. It reads as a
+    // broken panel otherwise — two tabs, one of them blank, no way to click it.
+    + `<span class="holdoutLock">no number until you freeze</span></b></div>`
     + `<div class="sweepHead"><span class="sweepAxisLabel">${esc(a.label)}</span>`
     + `<b class="sweepAt">${num(h.start ?? a.min, ad)}${unit}</b></div>`
-    + `<div class="sweepHint" id="holdoutHint">Move the line and watch what it scores on the`
-    + ` ${esc((h.fitLabel ?? 'calibration set').toLowerCase())}. Freeze it when you are satisfied.</div>`
+    + (briefed() ? '' : methodBlock('HOLDOUT')
+       + goalBlock(h.goals))
+    // The hint stays either way: `afterFreeze` is written into it, so it is the
+    // line that changes when the line is frozen. On a briefed stop it starts empty
+    // and fills in at that moment.
+    + `<div class="sweepHint" id="holdoutHint">${esc(briefed() ? '' : (h.hint
+        ?? `Move the line and watch what it scores on the `
+           + `${(h.fitLabel ?? 'calibration set').toLowerCase()}. `
+           + `Freeze it when you are satisfied.`))}</div>`
     + `<svg class="sweepPlot" viewBox="0 0 320 120" role="img" aria-label="Score against ${esc(a.label)}">`
     + `<rect width="320" height="120" fill="#f7f9fa"/>`
     + `<polyline class="holdoutTrace" fill="none" stroke="${SWEEP_INK[0]}" stroke-width="2" points=""/>`
@@ -1028,6 +1199,15 @@ export function holdoutHTML(ch){
     + `<circle class="sweepDot" r="2.6" cx="-20" cy="-20" fill="${SWEEP_INK[0]}"/>`
     + `<line class="sweepHandle" x1="0" y1="0" x2="0" y2="120" stroke="#c0392b" stroke-width="1.5"/>`
     + `<g class="sweepScale"></g></svg>`
+    // What the two axes are, in words. The plot carries a label along the top and
+    // two bare numbers up the side, which tells somebody who already knows what is
+    // plotted that it is plotted. A player asked what the 95 was.
+    // The label is a tab caption written in its own case — "Tray A", "The week it
+    // was fitted on" — so it cannot be dropped into the middle of a sentence. The
+    // sentence points at it instead.
+    + `<div class="sweepAxisNote">Up the side: the score${h.unit ? `, in ${esc(h.unit)}` : ''},`
+    + ` on the set named above. Higher is better.`
+    + ` Along the bottom: ${esc(a.label)}${a.unit ? `, in ${esc(a.unit)}` : ''}.</div>`
     + `<input class="sweepRange" type="range" min="${a.min}" max="${a.max}" step="${a.step}" value="${h.start ?? a.min}">`
     + `<div class="sweepEnds"><span>${num(a.min, ad)}${unit}</span><span>${num(a.max, ad)}${unit}</span></div>`
     + `<div class="sweepReadouts">`
@@ -1100,6 +1280,7 @@ export function bindHoldout(container, ch){
   };
   range.addEventListener('input', draw);
   draw();
+  showControls(panel, '.sweepReadouts');
 
   freezeBtn.addEventListener('click', () => {
     if(st.frozen !== null) return;
@@ -1108,6 +1289,7 @@ export function bindHoldout(container, ch){
     freezeBtn.disabled = true;
     commitBtn.disabled = false;
     tabs.forEach(t => t.classList.toggle('on', t.dataset.set === 'test'));
+    panel.querySelector('.holdoutLock')?.remove();
     const v = scoreAt(test, st.frozen);
     st.testScore = v;
     testEl.textContent = `${num(v, vd)}${h.unit ? ' ' + h.unit : ''}`;
@@ -1157,6 +1339,7 @@ export function tallyHTML(ch){
     + `<td class="tallyCount" data-cell="diff">0</td>`
     + `<td class="tallyCount" data-cell="n">0</td>`
     + `<td class="tallyE">—</td>`
+    + `<td class="tallySigmaCell">—</td>`
     // The measured correlation and the term it becomes are different numbers, and
     // one column tried to be both: a setting entering negatively with a negative
     // correlation printed "− −0.730", which is a puzzle rather than a readout.
@@ -1165,18 +1348,45 @@ export function tallyHTML(ch){
     + `</tr>`).join('');
   return `<div class="sweepAsk">${esc(ch.question || ch.task || 'Acquire the correlations.')}</div>`
     + `<div class="tallyPanel">`
-    + `<div class="sweepHint">Each batch is ${t.batch ?? 100} shots. A correlation is the`
-    + ` probability the two outcomes agree minus the probability they disagree, so it runs from`
-    + ` −1 to +1.</div>`
+    + (briefed() ? '' : methodBlock('TALLY')
+       + `<div class="sweepHint">${esc(t.hint
+           ?? `Each batch is ${t.batch ?? 100} shots. A correlation is the probability the two `
+              + `outcomes agree minus the probability they disagree, so it runs from −1 to +1.`)}</div>`
+       + goalBlock(t.goals))
+    // THE CONVERGENCE PLOT. The subject of this format is when a statistic has
+    // enough data behind it, and for most of this engine's life the only picture of
+    // that arrived in the verdict — after the decision it was evidence for. A
+    // column of counts cannot show a number settling; a trace can, and it is the
+    // same `lineChart` the verdict draws, redrawn as the batches come in. What it
+    // must not carry is the target or the tolerance: the bound is the constraint
+    // the answer is written against and is drawn, the answer is not.
+    + `<div class="tallyPlot" id="tallyPlot"></div>`
     + `<table class="tallyTable"><thead><tr><th>Settings</th><th>Same</th><th>Different</th>`
-    + `<th>Shots</th><th>${esc(t.readoutLabel ?? 'Correlation')}</th><th>Enters as</th><th></th></tr></thead>`
+    + `<th>Shots</th><th>${esc(t.readoutLabel ?? 'Correlation')}</th>`
+    // The per-pair spread is the "where" half of the question. The trace says
+    // whether the combination has settled; this says which row is still moving it,
+    // which is the whole of how a finite budget should be split.
+    + `<th class="tallySpreadHead">± 1&sigma;</th><th>Enters as</th><th></th></tr></thead>`
     + `<tbody>${rows}</tbody></table>`
     + `<div class="tallyCombo"><span>${esc(t.formulaLabel ?? 'Combination')}</span>`
-    + `<code>${esc(t.formula ?? '')}</code><b class="tallyValue">—</b></div>`
+    + `<code>${esc(t.formula ?? '')}</code><b class="tallyValue">—</b>`
+    + `<em class="tallySigma">spread —</em></div>`
+    // The budget, if the stop has one. Without it this format had no decision in
+    // it: shots were free, the clock is stopped behind a panel, and the commit
+    // button unlocked only once every pair was past a minimum that was already
+    // enough — so the panel made the judgment and the player clicked until it let
+    // them submit. A finite pot of batches is what turns "when is there enough
+    // data" back into a question somebody has to answer.
+    + (t.budget
+        ? `<div class="tallyBudget"><span>Batches left</span>`
+          + `<b id="tallyLeft">${t.budget}</b>`
+          + `<em>${t.budget} batches of ${t.batch ?? 100} shots for the whole stop,`
+          + ` across ${(t.settings ?? []).length} pairs</em></div>`
+        : '')
     + `<div class="tallyNote" id="tallyNote">Every setting pair needs at least ${t.minShots ?? 400}`
     + ` shots before the combination can be reported.</div>`
     + `<div class="modalActions"><button class="btn primary" id="tallyCommit" type="button" disabled>`
-    + `${esc(t.commit ?? 'Report the number')}</button></div>`
+    + `${esc(t.commit ?? 'Report where it settled')}</button></div>`
     + `<div id="visitFeedback"></div></div>`;
 }
 
@@ -1187,8 +1397,14 @@ export function bindTally(container, ch){
   const settings = t.settings ?? [];
   const batch = t.batch ?? 100;
   const minShots = t.minShots ?? 400;
-  const st = { bins: settings.map(() => ({ same: 0, diff: 0 })), history: [], committed: false };
+  // No `budget` means the old behaviour, unlimited batches, which is what every
+  // harness and any book written before this expects.
+  const budget = Number.isFinite(+t.budget) && +t.budget > 0 ? +t.budget : null;
+  const st = { bins: settings.map(() => ({ same: 0, diff: 0 })), history: [], used: 0,
+               committed: false };
   tallyState.set(panel, st);
+  // The Run buttons are the controls here, and they are in the table.
+  showControls(panel, '.tallyTable');
   // Seeded on the campaign's own run seed and the batch index, so a replay of the
   // same day scatters the same way and a reload cannot be used to reroll a
   // statistic into range.
@@ -1196,12 +1412,33 @@ export function bindTally(container, ch){
   const rng = () => seeded(runSeed() * 7919 + (draws++) * 104729 + settings.length);
 
   const valueEl = panel.querySelector('.tallyValue');
+  const sigmaEl = panel.querySelector('.tallySigma');
+  const plotEl = panel.querySelector('#tallyPlot');
   const note = panel.querySelector('#tallyNote');
+  const leftEl = panel.querySelector('#tallyLeft');
   const commitBtn = panel.querySelector('#tallyCommit');
+  const spent = () => (budget === null ? false : st.used >= budget);
 
   const eOf = (i) => {
     const b = st.bins[i], n = b.same + b.diff;
     return n ? (b.same - b.diff) / n : null;
+  };
+  // The spread of one pair's correlation, and of the combination, from the counts
+  // the player actually has. E = (same − diff)/n is 2p̂ − 1, so var(E) = 4p̂(1 − p̂)/n
+  // and the terms of a sum add in quadrature whatever their signs. This is the
+  // player's OWN uncertainty rather than the authored tolerance — printing it is
+  // the constraint the answer is written against, and printing the tolerance would
+  // be an invitation to stop at the edge of it.
+  const sigmaOf = (i) => {
+    const b = st.bins[i], n = b.same + b.diff;
+    if(!n) return null;
+    const p = b.same / n;
+    return Math.sqrt(4 * p * (1 - p) / n);
+  };
+  const sigmaCombined = () => {
+    const vs = settings.map((_, i) => sigmaOf(i));
+    if(vs.some(v => v === null)) return null;
+    return Math.sqrt(vs.reduce((a, v) => a + v * v, 0));
   };
   const combined = () => {
     const es = settings.map((_, i) => eOf(i));
@@ -1210,7 +1447,31 @@ export function bindTally(container, ch){
     // and one minus, and which one is negative is a property of the settings.
     return es.reduce((acc, e, i) => acc + (settings[i].sign === -1 ? -e : e), 0);
   };
-  const ready = () => settings.every((_, i) => st.bins[i].same + st.bins[i].diff >= minShots);
+  // Reportable once every pair has its minimum — or once the pot is empty, whatever
+  // state the pairs are in. Without that second clause a player who spent the whole
+  // budget on one pair would be locked out of the panel with no way forward, which
+  // is the one thing the day model promises never happens.
+  const ready = () => spent()
+    || settings.every((_, i) => st.bins[i].same + st.bins[i].diff >= minShots);
+
+  // Redrawn from the history on every batch. Two points is the minimum a trace can
+  // be made of, and until then the box says what will appear rather than sitting
+  // blank — an empty plot on an untouched panel reads as a broken panel.
+  const drawPlot = () => {
+    if(!plotEl) return;
+    if(st.history.length < 2){
+      plotEl.innerHTML = `<p class="tallyPlotWait">The trace appears here once every pair has`
+        + ` a batch behind it. Watch where it stops moving.</p>`;
+      return;
+    }
+    plotEl.innerHTML = lineChart({
+      series: [{ name: t.formulaLabel ?? 'Combination',
+                 points: st.history.map(p => [p.shots, p.value]) }],
+      ...(Number.isFinite(t.bound)
+        ? { limit: { at: t.bound, label: t.boundLabel || `bound ${t.bound}` } } : {}),
+      xLabel: 'Shots taken', yLabel: t.formulaLabel ?? '',
+    }, { w: 520, h: 190 });
+  };
 
   const refresh = () => {
     settings.forEach((s, i) => {
@@ -1224,20 +1485,30 @@ export function bindTally(container, ch){
       row.querySelector('.tallyE').textContent = e === null ? '—' : signed(e);
       row.querySelector('.tallyTerm').textContent = e === null ? '—'
         : signed(s.sign === -1 ? -e : e);
+      const sg = sigmaOf(i);
+      row.querySelector('.tallySigmaCell').textContent = sg === null ? '—' : sg.toFixed(3);
     });
     const s = combined();
+    const sg = sigmaCombined();
     valueEl.textContent = s === null ? '—' : s.toFixed(3);
+    if(sigmaEl) sigmaEl.textContent = sg === null ? 'spread —' : `spread ± ${sg.toFixed(3)}`;
+    drawPlot();
     const short = settings.filter((_, i) => st.bins[i].same + st.bins[i].diff < minShots).length;
     commitBtn.disabled = !ready();
-    note.textContent = ready()
-      ? (t.readyNote ?? 'Every pair has enough shots. Report it when the number has stopped moving.')
-      : `${short} setting pair(s) still under ${minShots} shots.`;
+    if(leftEl) leftEl.textContent = String(Math.max(0, (budget ?? 0) - st.used));
+    panel.querySelectorAll('.tallyRun').forEach(b => { b.disabled = spent() || st.committed; });
+    note.textContent = spent()
+      ? (t.spentNote ?? 'The batches are gone. Report where the trace you bought has settled.')
+      : ready()
+        ? (t.readyNote ?? 'Every pair has its minimum. Read the trace: report when it has stopped moving, not when it first looks right.')
+        : `${short} setting pair(s) still under ${minShots} shots.`;
   };
   refresh();
 
   panel.querySelectorAll('.tallyRun').forEach(btn => {
     btn.addEventListener('click', () => {
-      if(st.committed) return;
+      if(st.committed || spent()) return;
+      st.used += 1;
       const i = +btn.dataset.run;
       const p = clamp(settings[i].pSame ?? 0.5, 0, 1);
       let same = 0;
@@ -1246,7 +1517,8 @@ export function bindTally(container, ch){
       st.bins[i].diff += batch - same;
       const s = combined();
       if(s !== null){
-        st.history.push({ shots: st.bins.reduce((n, b) => n + b.same + b.diff, 0), value: s });
+        st.history.push({ shots: st.bins.reduce((n, b) => n + b.same + b.diff, 0), value: s,
+                          sigma: sigmaCombined() });
       }
       refresh();
     });
@@ -1258,10 +1530,15 @@ export function bindTally(container, ch){
     st.committed = true;
     const s = combined();
     const ok = Math.abs(s - t.target) <= t.tolerance;
+    const shots = st.bins.map(b => b.same + b.diff);
     activeChallenge.userAnswer = `${s.toFixed(3)}, from `
-      + `${st.bins.reduce((n, b) => n + b.same + b.diff, 0)} shots`;
+      + `${shots.reduce((n, x) => n + x, 0)} shots`
+      + (budget ? ` — ${st.used} of ${budget} batches, ${shots.join('/')} per pair` : '');
     activeChallenge.userValue = s;
     activeChallenge.tallyHistory = st.history;
+    // What the spend was, for the verdict: an uneven split is a worse statistic for
+    // the same money, and the card should be able to say so.
+    activeChallenge.tallySpend = budget ? { used: st.used, budget, shots } : null;
     finishVisit(ok);
   });
 }
@@ -1326,8 +1603,10 @@ export function probeHTML(ch){
     + `</div>`).join('');
   return `<div class="sweepAsk">${esc(ch.question || ch.task || 'Find where the pattern breaks.')}</div>`
     + `<div class="probePanel">`
-    + `<div class="sweepHint">${esc(p.hint ?? 'Take a reading at any station. Each one reports what it'
-      + ' is at now, what it was on the last run, and what its cooling is having to do.')}</div>`
+    + (briefed() ? '' : methodBlock('PROBE')
+       + `<div class="sweepHint">${esc(p.hint ?? 'Take a reading at any station. Each one reports what it'
+         + ' is at now, what it was on the last run, and what its cooling is having to do.')}</div>`
+       + goalBlock(p.goals))
     + `<div class="probeChain">${rows}</div>`
     + `<div class="probeCount" id="probeCount">No readings taken.</div>`
     + `<div class="modalActions"><button class="btn primary" id="probeCommit" type="button" disabled>`
@@ -1340,6 +1619,7 @@ export function bindProbe(container, ch, opts = {}){
   const panel = container.querySelector('.probePanel');
   if(!panel) return;
   const stations = p.stations ?? [];
+  showControls(panel, '.probeChain');
   // The key is the area and the day, which is what the room's posts use too. In
   // the dev harness there is no active visit, so the panel keeps its own state and
   // its own Read buttons.
@@ -1465,8 +1745,19 @@ export function probeVerdictFigure(ch, named){
   });
 }
 
+/**
+ * TRIAGE is the one choice-shaped format that never learned the object form.
+ *
+ * Every other renderer takes `choices` as either a string or `{ label, … }`.
+ * This one interpolated the raw member, so an authored `{ label, mechanism }`
+ * rendered as the literal text "[object Object]" — and `bindTriage` graded with
+ * `choices.indexOf(correctChoice)`, which is -1 against objects, so every answer
+ * was marked wrong. Both went unnoticed because nothing had authored a TRIAGE
+ * that way until sixty of them arrived in one conversion pass.
+ */
+const triageLabel = (c) => (typeof c === 'string' ? c : c?.label ?? '');
 function triageHTML(ch){
-  const opts=(ch.choices||[]).map((c,i)=>`<button class="orderItem" data-triage="${i}" type="button"><b>${String.fromCharCode(65+i)}.</b> ${esc(c)}</button>`).join('');
+  const opts=(ch.choices||[]).map((c,i)=>`<button class="orderItem" data-triage="${i}" type="button"><b>${String.fromCharCode(65+i)}.</b> ${esc(triageLabel(c))}</button>`).join('');
   return `<div class="compactInstruction">${esc(ch.task||ch.question||'Choose who needs help first.')}</div><div class="orderBank" style="display:grid;gap:8px">${opts}</div><div id="visitFeedback"></div><div class="modalActions"><button class="btn primary" id="triageCheck" type="button" disabled>Choose</button></div>`;
 }
 /**
@@ -1486,9 +1777,8 @@ function diagnosisHTML(ch){
   // Display order is shuffled, and `order` maps display position back to the
   // real index. Authored packs tend to put the correct explanation first; a
   // player who notices that stops reading the panel, which is the whole game.
-  const state=getState();
   const order=shuffleSeeded(all.map((_,i)=>i),
-    state.week*63 + GROUP_DEFS.findIndex(d=>d.id===activeChallenge?.id)*17 + 5 + runSeed());
+    (getState()?.week ?? 0)*63 + GROUP_DEFS.findIndex(d=>d.id===activeChallenge?.id)*17 + 5 + runSeed());
   activeDiagnosis={ order };
   const opts=order.map((real,i)=>{
     const c=all[real];
@@ -1530,9 +1820,8 @@ function diagnosisHTML(ch){
  */
 function choiceHTML(ch){
   const all=(ch.choices||[]).map(c=> typeof c==='string' ? { label:c, mechanism:'' } : c);
-  const state=getState();
   const order=shuffleSeeded(all.map((_,i)=>i),
-    state.week*41 + GROUP_DEFS.findIndex(d=>d.id===activeChallenge?.id)*13 + 7 + runSeed());
+    (getState()?.week ?? 0)*41 + GROUP_DEFS.findIndex(d=>d.id===activeChallenge?.id)*13 + 7 + runSeed());
   const opts=order.map((real,i)=>{
     const c=all[real];
     return `<button class="candidate" data-choice="${real}" type="button">`
@@ -1567,20 +1856,40 @@ function bindChoice(){
  *
  * It had the same three-times-over problem: a select per clue, every
  * explanation inside every select, and then a "Choices" list underneath.
+ *
+ * The right column is DEALT, exactly as PROTOCOL's is. It was not: `order` was
+ * the identity and the explanations were drawn in the order the content carried
+ * them.
+ *
+ * What that did NOT mean, and the first version of this comment said it did: the
+ * boards were not answerable by joining row to row. All 44 authored CASEBOOKs
+ * key 1→A, 2→B, 3→C, 4→D in the book — but `normalize.js` `deidentifyMapping`
+ * re-lays the options at load whenever a mapping is exactly the identity, so the
+ * game has never shown that board. The census that found "44 of 44 identity" was
+ * taken on the content before normalisation, which is not what anybody plays.
+ *
+ * What it did mean is smaller and still worth fixing: the layout was fixed per
+ * stop, so a player who got it wrong and retried met the identical board, where
+ * PROTOCOL re-deals on a seed that includes the retry. Two formats on one board
+ * behaving differently is also how the next difference goes unnoticed.
+ * `activeProtocol.order` maps display position back to the real choice index, so
+ * the deal is now the only thing the two share rather than the only thing they
+ * did not.
  */
-function casebookHTML(ch){
+function casebookHTML(ch, seed=0){
   if(ch.proposals) return tankHTML(ch);
-  activeProtocol={ order:(ch.choices||[]).map((_,j)=>j), links:{}, selected:null };
+  activeProtocol={ order: shuffleSeeded((ch.choices||[]).map((_,j)=>j), seed), links:{}, selected:null };
   return `<div class="compactInstruction">${esc(ch.task||'Join each clue to what explains it.')}</div>`
     + `<div id="protoBoard">${casebookBoardHTML(ch)}</div>`
     + `<div id="visitFeedback"></div><div class="modalActions"><button class="btn primary" id="casebookCheck" type="button">Check</button></div>`;
 }
 function casebookBoardHTML(ch){
   const links=Object.entries(activeProtocol?.links ?? {}).map(([from,to])=>({ from:+from, to }));
+  const display=(activeProtocol&&activeProtocol.order)||(ch.choices||[]).map((_,j)=>j);
   return matchBoard({
     leftTitle: ch.columns?.[0], rightTitle: ch.columns?.[1],
     left: ch.scenarios||ch.cards||[],
-    right: ch.choices||[],
+    right: display.map(real=>(ch.choices||[])[real]),
     links,
     selected: activeProtocol?.selected ?? null,
     accent: def(activeChallenge?.id)?.color,
@@ -1633,18 +1942,218 @@ function bindTank(){
 function askCard(gs, lesson, ch, person){
   const d = def(gs.id);
   const who = person || leader(gs.leaderId);
-  const art = person ? portraitSvg(person, d?.color) : leaderPortrait(gs);
-  const role = person ? (person.role || '') : `${d?.name ?? ''} lead`;
+  return askCardHTML({
+    name: who.name,
+    role: person ? (person.role || '') : `${d?.name ?? ''} lead`,
+    art: person ? portraitSvg(person, d?.color) : leaderPortrait(gs),
+    accent: d?.color,
+  }, lesson, ch);
+}
+/**
+ * The card above the question, from an already-resolved asker.
+ *
+ * Split from `askCard` for the harness in engine/dev/lessons.html, which shows a
+ * stop out of each of eighteen games: the person asking, their colour and their
+ * glossary all belong to the *source* game, and none of the three can be looked
+ * up through `def()` and `JARGON`, which are the running theme's.
+ *
+ * `jargon` defaults to the running theme's, so the game path is unchanged.
+ */
+export function askCardHTML(who, lesson, ch, jargon=JARGON){
   const brief = storyBriefText(lesson);
+  const guide = String(lesson?.guide ?? '').trim();
+  // FOLD BY DEFAULT. `cardLoad` measured 841 of 1,334 stops showing more than four
+  // things above the controls — the situation, the assumptions, the principle, a row
+  // of syllabus equation chips, a row of glossary chips, the question, and on four
+  // formats three more lines from the panel. The reading was never long (a median of
+  // 75 words); it was chopped into pieces that competed, and none of them owned what
+  // the player had to do. So the chips and the assumptions go behind one button on
+  // every stop, authored `background` or not.
+  //
+  // What stays on the face of an unbriefed card is `takeaway` — "what this is
+  // about". It is deliberately printed BEFORE the question rather than after, since
+  // said afterwards it reads as a moral rather than as help, and folding it away
+  // would take that from 1,300 stops to buy a block. A stop with a `guide` has
+  // something better in that place, so there it moves inside with the rest.
+  const fold = foldsCard(lesson, ch, jargon);
   return `<div class="askCard">`
-    + `<div class="askWho" style="--accent:${d?.color || '#3b566b'}">${art}`
-    + `<div class="askName">${esc(who.name)}</div><div class="askRole">${esc(role)}</div></div>`
+    + `<div class="askWho" style="--accent:${who.accent || '#3b566b'}">${who.art ?? ''}`
+    + `<div class="askName">${esc(who.name)}</div><div class="askRole">${esc(who.role ?? '')}</div></div>`
     + `<div class="askBody">`
     + `<p class="askBrief">${esc(brief)}</p>`
-    + askContextHTML(lesson)
-    + equationRow(lesson)
-    + termsRow(allChallengeText(lesson, ch, false))
+    // Two paragraphs, and then a door. See askMoreHTML.
+    + (guide ? `<p class="askBrief askGuide">${esc(guide)}</p>` : '')
+    + (!guide ? aboutRow(lesson) : '')
+    // One row of doors, so the player sees at a glance everything that is one press
+    // away. Three at most: how the panel is scored, what the course calls this, and
+    // everything true but not urgent.
+    + doorRow(askRulesHTML(lesson), askConceptHTML(lesson),
+        fold ? askMoreHTML(lesson, ch, jargon, { takeaway: !!guide }) : '')
+    + (fold ? '' : askContextHTML(lesson) + equationRow(lesson)
+              + termsRow(allChallengeText(lesson, ch, false), jargon))
     + `</div></div>`;
+}
+
+/** The doors, side by side. Nothing at all if there are none. */
+function doorRow(...doors){
+  const open = doors.filter(Boolean);
+  return open.length ? `<div class="askDoors">${open.join('')}</div>` : '';
+}
+
+/**
+ * What the course calls this question, and what the idea is for.
+ *
+ * The concept is stamped per lesson at import from `tools/syllabus.js`, scored on
+ * where in the stop its keywords landed and on how rare it is across the campaign
+ * — a concept named in the title is what a question is about, one that appears
+ * only in a distractor's label is scenery, and a concept twenty stops mention is
+ * the course's background hum. The engine does not import the syllabus, for the
+ * same reason it does not import `tools/` for the equations.
+ *
+ * What it shows is the concept's OWN takeaway, which is fixed: every stop that
+ * lands on `Protection: relays, breakers and coordination` opens onto the same two
+ * sentences. That is deliberate and it is the difference between this door and
+ * everything else on the card. `takeaway` is the principle THIS question is an
+ * instance of, written once for one stop; this is what the course says the idea is,
+ * and a player who meets it on the third stop out of six should be reading the
+ * sentence they have already read twice.
+ *
+ * It is a door and not a chip because the name alone teaches nobody anything —
+ * "Reactance, impedance and phasors" printed on a card is a label on a box, and
+ * the two sentences inside are the reason to open it.
+ */
+function askConceptHTML(lesson){
+  const con = lesson?.concept;
+  const t = String(con?.t ?? '').trim();
+  if(!con?.c || !t) return '';
+  // THE NUMBER USED TO BE PRINTED HERE, AND IT WAS A CLAIM NOBODY HAD EARNED.
+  //
+  // It read "Concept 19 of 32 on this course", which a player on day 1 reads as the
+  // nineteenth thing they are being taught — and says so about a card that is right.
+  // The syllabus list is grouped by topic, not ordered by dependency: it puts
+  // transformers at 13 and Faraday's law at 17, so its index cannot mean "how far in
+  // this is". The count is fine and the ordinal is not.
+  //
+  // What is worth saying is what the idea rests on, which `needs` now knows, and
+  // whether this stop takes any of that as read rather than teaching it — the two
+  // facts a player would actually use to work out where they are.
+  const where = con.of ? `One of ${con.of} concepts on this course` : 'On this course';
+  const asRead = new Set((lesson?.takesAsRead ?? []).map(x => x.c));
+  const rests = (con.rests ?? []).map(r => asRead.has(r) ? `${r} (taken as read here)` : r);
+  return `<details class="askMore askConcept"><summary>Key concept</summary>`
+    + `<div class="askMoreBody">`
+    + `<h4>${esc(where)}</h4>`
+    + `<p class="askConceptName">${esc(con.c)}</p>`
+    + `<p>${esc(t)}</p>`
+    + (rests.length ? `<p class="askConceptRests">Rests on ${esc(rests.join('; '))}.</p>` : '')
+    + `</div></details>`;
+}
+
+/**
+ * The rules of the panel, behind a door of their own.
+ *
+ * SCIENCETANK is the format this was written for. Its second paragraph was the
+ * spending rules — commit at least eighty of the hundred, put thirty-five or more
+ * on one proposal, keep the unsupported ones under fifteen — which is how the
+ * board is graded and not how the board is read. It sat where the evidence should
+ * have been, so a player met the arithmetic of the allocation before meeting a
+ * single fact about what they were allocating between.
+ *
+ * So `rules` is the door for how the panel is scored, and `guide` goes back to
+ * being what the player needs in order to think: on a tank stop, the evidence.
+ * The rules are not hidden — they are one press away, and they are the same every
+ * time, which is exactly what makes them the wrong thing to read first.
+ */
+function askRulesHTML(lesson){
+  const rules = String(lesson?.rules ?? '').trim();
+  if(!rules) return '';
+  return `<details class="askMore askRules"><summary>Rules</summary>`
+    + `<div class="askMoreBody"><p>${esc(rules)}</p></div></details>`;
+}
+
+/** "What this is about", alone, for a card with no guide to say it better. */
+function aboutRow(lesson){
+  const takeaway = String(lesson?.takeaway ?? '').trim();
+  if(!takeaway) return '';
+  return `<div class="askContext"><p class="askAbout"><span>What this is about</span>`
+    + ` ${esc(takeaway)}</p></div>`;
+}
+
+/**
+ * Whether this card has anything to put behind the button.
+ *
+ * Everything except the situation, the guide and the question: the assumptions, the
+ * course equations, the glossary, and — on a briefed stop — the principle. A stop
+ * with none of those (a bare CHOICE with no jargon in it) shows no button.
+ */
+function foldsCard(lesson, ch, jargon){
+  return (lesson?.background ?? []).length > 0
+    || (lesson?.assumes ?? []).length > 0
+    || (lesson?.equations ?? []).filter(x => x?.e && x.card !== false).length > 0
+    || jargonMatches(allChallengeText(lesson, ch, false), 8, jargon).length > 0
+    || (!!String(lesson?.guide ?? '').trim() && !!String(lesson?.takeaway ?? '').trim());
+}
+
+/**
+ * Everything that is true, useful, and not what the player needs in the next
+ * thirty seconds — behind one button.
+ *
+ * The card had grown to six competing blocks: the situation, "takes as read",
+ * "what this is about", a row of equation chips stamped on by the syllabus, a row
+ * of glossary chips, and then the panel's own three lines underneath. On Quantum's
+ * HOLDOUT two of the equations did not apply to the question at all, and the
+ * player's report was the honest one — too much to read, and no way to tell which
+ * part was the instruction.
+ *
+ * So a stop may instead carry two paragraphs and this: `scene` says what has
+ * happened and what a word means, `guide` says what to do, and `background` is the
+ * course material that would otherwise crowd them out. Nothing is deleted — the
+ * assumptions, the principle, the equations and the glossary are all in here, and
+ * the equations are spelled out in prose rather than left as a chip reading
+ * `n_phys ≈ d²`, because a chip is only useful to somebody who already knows what
+ * it says.
+ *
+ * A stop with no `background` renders exactly as it always did.
+ */
+function askMoreHTML(lesson, ch, jargon, { takeaway: withTakeaway = true } = {}){
+  const paras = (lesson.background ?? []).map(p => String(p ?? '').trim()).filter(Boolean);
+  const eqs = (lesson?.equations ?? []).filter(x => x?.e && x.card !== false);
+  const terms = jargonMatches(allChallengeText(lesson, ch, false), 8, jargon);
+  const assumes = (lesson?.assumes ?? []).map(a => String(a).trim()).filter(Boolean);
+  const takeaway = String(lesson?.takeaway ?? '').trim();
+  const eqBlock = eqs.length
+    ? `<div class="askMoreEqs"><h4>The equations on this course</h4>`
+      + eqs.map(x => {
+          const vars = (x.v ?? []).map(([sym, mean]) => `<b>${esc(sym)}</b> is ${esc(mean)}`);
+          return `<p class="askEq"><code>${esc(x.e)}</code>`
+            + (x.c ? ` — ${esc(x.c)}` : '')
+            + (vars.length ? `. In it, ${vars.join(', ')}` : '')
+            + (x.s ? `. ${esc(x.s)}` : '') + `</p>`;
+        }).join('') + `</div>`
+    : '';
+  const termBlock = terms.length
+    ? `<div class="askMoreTerms"><h4>Words on this card</h4>`
+      + terms.map(t => `<p class="askEq"><b>${esc(t.name)}</b> — ${esc(t.def)}</p>`).join('')
+      + `</div>`
+    : '';
+  const shownTakeaway = withTakeaway ? takeaway : '';
+  const listBlock = (assumes.length || shownTakeaway)
+    ? `<div class="askMoreTerms"><h4>What this question assumes${shownTakeaway
+        ? ', and what it is about' : ''}</h4>`
+      + assumes.map(a => `<p class="askEq">${esc(a)}</p>`).join('')
+      + (shownTakeaway ? `<p class="askEq"><b>The principle</b> — ${esc(shownTakeaway)}</p>` : '')
+      + `</div>`
+    : '';
+  // ONE WORD. The label used to name everything inside it — "Background — where this
+  // fits, the words, the equations, what it assumes" — on the argument that a label
+  // promising equations to a card with none teaches a player not to press it again.
+  // That argument is still right and the tail is still gone, because the door now has
+  // a neighbour: two pills of five words each read as a paragraph of controls rather
+  // than as two things to press, and the Key concept door was invisible beside it.
+  return `<details class="askMore"><summary>Background</summary><div class="askMoreBody">`
+    + paras.map(p => `<p>${esc(p)}</p>`).join('')
+    + eqBlock + termBlock + listBlock
+    + `</div></details>`;
 }
 
 /**
@@ -1697,11 +2206,11 @@ function equationRow(lesson){
     + `<div class="eqNote hidden"></div></div>`;
 }
 /** The glossary, as one quiet line rather than a labelled box of chips. */
-function termsRow(text){
-  const terms = jargonMatches(text, 8);
+function termsRow(text, list=JARGON){
+  const terms = jargonMatches(text, 8, list);
   if(!terms.length) return '';
   return `<div class="termStrip inline"><div class="termButtons">${terms.map(t =>
-    `<button type="button" class="termChip" data-term="${JARGON.indexOf(t)}">${esc(t.name)}</button>`).join('')}</div>`
+    `<button type="button" class="termChip" data-term="${(list ?? []).indexOf(t)}">${esc(t.name)}</button>`).join('')}</div>`
     + `<div class="termDefinition hidden"></div></div>`;
 }
 
@@ -1790,18 +2299,32 @@ function bindVisitAssist(){
   };
 }
 
-function reasoningHTML(ch, lesson, solution, whyText){
+/**
+ * The reasoning behind the "Show the full reasoning" fold.
+ *
+ * It must not restate the blurb. Both callers print `whyText` on the verdict
+ * card itself, above the fold, and this used to print it twice more — once as
+ * the generic detail body and again as a trailing "Why:" line — so a CHOICE
+ * verdict read the same paragraph three times in a row. What belongs here is
+ * only what the card does not already say: the format's own worked answer, the
+ * rebuttals, the takeaway and the solution.
+ *
+ * Returns '' when it has nothing of its own, and the callers drop the fold
+ * rather than opening an empty one.
+ */
+function reasoningHTML(ch, lesson, solution, whyText, showAnswer){
   let detail='';
-  if(kindOf(ch)==='SEQUENCE') detail=`<ol class="reasonList">${ch.order.map((idx,n)=>`<li><b>${n+1}.</b> ${esc(ch.cards[idx])}</li>`).join('')}</ol>`;
-  else if(kindOf(ch)==='PROTOCOL') detail=`<div class="answerMappings">${ch.scenarios.map((s,i)=>`<div><b>${esc(s)}</b><span>${esc(ch.choices[ch.mapping[i]])}</span></div>`).join('')}</div>`;
-  else if(kindOf(ch)==='BALLPARK'){
-    const spec=BALLPARK_CALCS[`${activeChallenge.id}-${lesson.day}`];
-    detail=spec?`<p>The appropriate estimates are <b>${spec.correct.map(i=>esc(spec.labels[i])).join(', ')}</b>. Inserting them into the displayed relationship gives <b>${esc(spec.solution)}</b>. ${esc(spec.explanation)}</p>`:`<p>${esc(whyText)}</p>`;
+  // SEQUENCE and PROTOCOL are deliberately absent: `verdictFigureHTML` already
+  // draws the working order and the joins that hold, marked against what the
+  // player did, so a list of the same steps under the fold is the third copy of
+  // one answer on one card.
+  if(kindOf(ch)==='BALLPARK'){
+    const spec=calcSpec();
+    // The explanation is the ballpark's own whyText, already on the card.
+    detail=spec?`<p>The appropriate estimates are <b>${spec.correct.map(i=>esc(spec.labels[i])).join(', ')}</b>. Inserting them into the displayed relationship gives <b>${esc(spec.solution)}</b>.</p>`:'';
   } else if(kindOf(ch)==='SCIENCETANK'){
     const rec=ch.recommended||{};
     detail=`<div class="proposalReview">${(ch.proposals||[]).map(p=>`<div><b>Proposal ${esc(p.label)}</b><span>${esc(p.text)}</span><em>${rec[p.label]!==undefined?`Recommended weight: ${rec[p.label]} points`:''}</em></div>`).join('')}</div>`;
-  } else {
-    detail=`<p>${esc(whyText)}</p>`;
   }
   // Why each wrong answer is wrong, where the book wrote it. Being told only
   // the right answer leaves the player's own reasoning untouched.
@@ -1809,8 +2332,28 @@ function reasoningHTML(ch, lesson, solution, whyText){
     detail += `<div class="rebuttals"><div class="rebuttalsLabel">Why the others do not hold</div>`
       + `<ul>${ch.rebuttals.map(r=>`<li>${esc(r)}</li>`).join('')}</ul></div>`;
   }
-  const takeaway=lesson.takeaway?`<div class="answerScienceLead">${esc(lesson.takeaway)}</div>`:'';
-  return `${detail}${takeaway}<p style="margin-top:8px"><b>Correct answer:</b> ${esc(solution)}</p><p><b>Why:</b> ${esc(whyText)}</p>`;
+  // The takeaway is on the card only when the book wrote no why, in which case
+  // repeating it here is the same defect one field over.
+  // Both callers fall back to the takeaway on the card when the book wrote no
+  // `why`, so printing it here as well is the same duplication one field over.
+  const takeaway=(lesson.takeaway && whyText && lesson.takeaway!==whyText)?`<div class="answerScienceLead">${esc(lesson.takeaway)}</div>`:'';
+  // A wrong call already shows the solution in the compare box on the card, so
+  // printing it again inside the fold is the same duplication one field over.
+  const answer=(solution && showAnswer!==false)?`<p style="margin-top:8px"><b>Correct answer:</b> ${esc(solution)}</p>`:'';
+  const body=`${detail}${takeaway}${answer}`;
+  return body.trim();
+}
+
+/**
+ * The fold, or nothing at all.
+ *
+ * An empty `<details>` labelled "Show the full reasoning" is worse than no
+ * fold: it promises the player something and opens onto blank space.
+ */
+function reasoningFoldHTML(ch, lesson, solution, whyText, open, showAnswer){
+  const body=reasoningHTML(ch, lesson, solution, whyText, showAnswer);
+  if(!body) return '';
+  return `<details class="verdictDetail"${open?' open':''}><summary>Show the full reasoning</summary>${body}</details>`;
 }
 
 /**
@@ -1824,7 +2367,7 @@ function reasoningHTML(ch, lesson, solution, whyText){
  */
 function verdictFigureHTML(ch, lesson, ok){
   if(kindOf(ch)==='BALLPARK'){
-    const spec=BALLPARK_CALCS[`${activeChallenge.id}-${lesson.day}`];
+    const spec=calcSpec();
     const yours=activeChallenge.userValue;
     if(spec && Number.isFinite(spec.target) && spec.target>0 && Number.isFinite(yours) && yours>0){
       const within=Math.abs(yours-spec.target)<=spec.tolerance;
@@ -1901,8 +2444,12 @@ function bindTriage(){
   if(!check) return;
   check.onclick=()=>{
     const ch=activeChallenge.ch;
-    const correctIdx = ch.choices.indexOf(ch.correctChoice);
-    const ok = chosen===correctIdx;
+    // By label, like every other format. Grading is by label throughout the
+    // engine — `validateContent` asserts `choices` contains `correctChoice`
+    // verbatim — and an identity `indexOf` cannot see that through an object.
+    const correctIdx = (ch.choices||[]).findIndex(c =>
+      triageLabel(c) === (ch.correctChoice ?? ch.answer));
+    const ok = chosen===correctIdx && correctIdx>=0;
     finishVisit(ok);
   };
 }
@@ -1968,14 +2515,22 @@ function bindCasebook(){
       finishVisit(ok);
       return;
     }
-    // the match-board variant
+    // the match-board variant. `links` is keyed by DISPLAY position on the right,
+    // and the column is dealt, so every index has to come back through `display`
+    // before it is compared with the authored mapping — the same translation
+    // bindProtocol does, and the reason grading did not have to change when the
+    // deal was added.
     const clues=(ch.scenarios||ch.cards||[]);
-    const picked=clues.map((_,i)=> activeProtocol.links[i] ?? -1);
+    const display=(activeProtocol&&activeProtocol.order)||(ch.choices||[]).map((_,j)=>j);
+    const picked=clues.map((_,i)=>{
+      const shown=activeProtocol.links[i];
+      return shown===undefined ? -1 : display[shown];
+    });
     if(picked.includes(-1)){ alert('Every clue still needs an explanation.'); return; }
     activeChallenge.userAnswer=clues.map((c,i)=>`${c} → ${(ch.choices||[])[picked[i]]}`).join('; ');
-    activeChallenge.userLinks=picked.map((to,i)=>({ from:i, to, ok: to===ch.mapping[i] }));
-    activeChallenge.rightLinks=(ch.mapping||[]).map((to,i)=>({ from:i, to, ok:true }));
-    activeChallenge.matchRight=(ch.choices||[]);
+    activeChallenge.userLinks=picked.map((real,i)=>({ from:i, to:display.indexOf(real), ok: real===ch.mapping[i] }));
+    activeChallenge.rightLinks=(ch.mapping||[]).map((real,i)=>({ from:i, to:display.indexOf(real), ok:true }));
+    activeChallenge.matchRight=display.map(real=>(ch.choices||[])[real]);
     finishVisit(picked.every((v,i)=> v===ch.mapping[i]));
   };
 }
@@ -1986,6 +2541,19 @@ function fundingCostForStop(stopIndex, lesson){
   return Math.min(3, Math.max(1, base));
 }
 function finishVisit(ok){
+  // The harness. Every format's Check button arrives here, so this is the one
+  // place a grade has to be intercepted — and intercepting it here is what lets
+  // engine/dev/lessons.html grade a stop with the game's own renderer and the
+  // game's own grading, rather than a second opinion about both.
+  if(standalone){
+    const { host, onGrade } = standalone;
+    // Same lock the game applies: the answer is in, and reference stays live.
+    host.querySelectorAll('button,select,input,textarea').forEach(b=>{
+      if(!b.classList.contains('termChip') && !b.classList.contains('eqChip')) b.disabled=true;
+    });
+    onGrade(!!ok, { answer: activeChallenge.userAnswer, verdict: standaloneVerdictHTML(!!ok) });
+    return;
+  }
   const state=getState();
   const gs=state.groups.find(x=>x.id===activeChallenge.id);
   const d=def(gs.id);
@@ -2049,7 +2617,7 @@ function finishVisit(ok){
     milestoneDone: gs.milestone > milestoneBefore,
   };
   const solution=solutionText(ch);
-  const bp=kindOf(ch)==='BALLPARK'? BALLPARK_CALCS[`${activeChallenge.id}-${lesson.day}`]:null;
+  const bp=kindOf(ch)==='BALLPARK'? calcSpec():null;
   const whyText=kindOf(ch)==='BALLPARK' ? (bp?.explanation || ch.why) : ch.why;
   // Nothing on the correct path: the block this is nested inside already prints
   // the "Correct" heading, and reasoningHTML below already prints the why. It
@@ -2115,8 +2683,7 @@ function finishVisit(ok){
         : `<p class="verdictWhy">That call is closed. ${openStopIndices(state).length} still open — take them in any order.</p>`)
     : `<p class="verdictWhy"><b>This call stays open.</b> It closes for an hour and reopens on its own, or $${RETRY_COST} has it back now. The clock keeps running either way.</p>`;
 
-  const detail = `<details class="verdictDetail"><summary>Show the full reasoning</summary>` +
-    reasoningHTML(ch, lesson, solution, whyText) + `</details>`;
+  const detail = reasoningFoldHTML(ch, lesson, solution, whyText, false, ok);
 
   // A wrong call costs money and only money: the day is already running down
   // by itself, so charging hours as well would bill the same mistake twice.
@@ -2352,21 +2919,27 @@ function renderPersonFundingModal(charName, division, cost, lessonTitle, onFund,
   const d=document.getElementById('declinePersonBtn');
   if(d) d.onclick=onDecline;
 }
-function showChallengeForStop(id, stop, isRetry, person=null){
-  const state=getState();
-  const gs=state.groups.find(x=>x.id===id);
-  const d=def(id);
-  const lesson=CURRICULUM[id][stop.lesson];
-  const ch=lesson.game;
-  activeChallenge={ id, lesson, ch, type:ch.type, hadIssue:!!gs.issue, userAnswer:'', isRetry, stopIndex: stop.index, person };
-  let bodyPrefix = challengePrefix(gs, lesson, ch, person);
+/**
+ * The panel for a format, and the shuffle state it needs to draw.
+ *
+ * Split out of showChallengeForStop so that the harness in
+ * engine/dev/lessons.html — one stop out of each of eighteen games, answerable,
+ * graded — renders through this same dispatch rather than a second copy of it.
+ * A second copy is how the passage quiz shipped working in one entry point and
+ * invisible in two, and there is no reason for a harness to know the list of
+ * formats at all.
+ *
+ * `seed` is the per-playthrough shuffle seed. The game derives it from the week,
+ * the area and the retry; a harness passes whatever it likes, and the same seed
+ * deals the same order twice.
+ */
+function challengeBodyHTML(ch, seed=0){
   let challengeHTML='';
   if(kindOf(ch)==='SEQUENCE'){
-    const orderSeed = state.week*31 + GROUP_DEFS.indexOf(d)*7 + (isRetry?101:0) + runSeed();
-    activeOrder={ chosen:[], seed: orderSeed, bank: shuffleSeeded(ch.cards.map((_,i)=>i), orderSeed) };
+    activeOrder={ chosen:[], seed, bank: shuffleSeeded(ch.cards.map((_,i)=>i), seed) };
     challengeHTML = orderHTML(ch);
   } else if(kindOf(ch)==='PROTOCOL'){
-    activeProtocol={ order: shuffleSeeded(ch.choices.map((_,j)=>j), state.week*57 + GROUP_DEFS.indexOf(d)*11 + lesson.day*3 + (isRetry?101:0) + runSeed()) };
+    activeProtocol={ order: shuffleSeeded(ch.choices.map((_,j)=>j), seed) };
     challengeHTML = protocolHTML(ch);
   } else if(kindOf(ch)==='BALLPARK'){
     challengeHTML = ballparkHTML(ch);
@@ -2385,7 +2958,7 @@ function showChallengeForStop(id, stop, isRetry, person=null){
   } else if(isInstrument(kindOf(ch))){
     challengeHTML = INSTRUMENTS[kindOf(ch)].html(ch);
   } else if(kindOf(ch)==='CASEBOOK'){
-    challengeHTML = casebookHTML(ch);
+    challengeHTML = casebookHTML(ch, seed);
   } else if(kindOf(ch)==='CHOICE'){
     challengeHTML = choiceHTML(ch);
   } else {
@@ -2395,14 +2968,24 @@ function showChallengeForStop(id, stop, isRetry, person=null){
       challengeHTML = tankHTML(ch);
     }
   }
-  // The title is the question, not the filing reference. Who is asking and
-  // which area it belongs to are both on the card underneath.
-  const titlePrefix = lesson.title || ch.title || def(id).name;
-  openModal(titlePrefix, bodyPrefix + withAssist(challengeHTML));
+  return challengeHTML;
+}
+
+/**
+ * Wire the panel that `challengeBodyHTML` drew.
+ *
+ * `host` is the element the body was written into. Every classic format still
+ * finds its own controls through `document`, which is why one panel at a time is
+ * all any caller may have on the page.
+ *
+ * Grading goes out through `finishVisit`, in both the game and the harness — see
+ * the `standalone` hook there. Nothing in here knows which it is running in.
+ */
+function bindChallengeBody(ch, host){
+  const live = () => host ?? document.getElementById('modalBody') ?? document;
   // The sweep needs its handle wired after the body exists. Every other format
   // is bound inside its own renderer or by openModal; this one owns a live
   // control, so it binds here where the DOM is known to be in place.
-  const live = () => document.getElementById('modalBody') ?? document;
   if(kindOf(ch)==='SWEEP') bindSweep(live(), ch);
   else if(kindOf(ch)==='HOLDOUT') bindHoldout(live(), ch);
   else if(kindOf(ch)==='TALLY') bindTally(live(), ch);
@@ -2412,16 +2995,55 @@ function showChallengeForStop(id, stop, isRetry, person=null){
   // record what the player answered, keep whatever the verdict will need, finish
   // the visit. The dev harness passes a context that does none of it.
   else if(isInstrument(kindOf(ch))){
-    INSTRUMENTS[kindOf(ch)].bind(live(), ch, {
+    const inst = INSTRUMENTS[kindOf(ch)];
+    // A format that runs — a belt, a needle, a flow — carries its own pressure,
+    // and charging the day for it as well makes the fun one the expensive one.
+    // The room is told too: the server applies the panel rate, because it is the
+    // only party that knows whether anybody has a panel open, so a client that
+    // freezes locally and says nothing would drift from everybody else's clock.
+    // Redundant while PANEL_PACE is 0 and deliberately kept: a format that
+    // declares it must go on freezing if the global rate is ever put back.
+    if(inst.pausesClock){
+      clockFrozen = true;
+      room.setPanel(true, true);
+    }
+    inst.bind(live(), ch, {
       commit(ok, answerText, extra = {}){
         if(!activeChallenge) return;
         activeChallenge.userAnswer = String(answerText ?? '');
         activeChallenge.instrumentResult = extra;
         finishVisit(!!ok);
       },
+      // The only teardown hook a panel has. `bind` returns nothing and always
+      // has, so a format with a frame loop had nowhere to put its cancel.
+      onClose(fn){ if(typeof fn === 'function') panelCleanup.push(fn); },
+      // The three TRIAL needs, and nothing else uses. `world` is absent in every
+      // harness on purpose; see setWorldHandle above.
+      ...(worldHandle ? { world: worldHandle } : {}),
+      /**
+       * Hide the panel without ending the visit.
+       *
+       * Not `closeModal`: that releases the stop back to the room and runs the
+       * panel's teardown, both of which are wrong for a player who is still
+       * answering — they have gone out to drive the route and the panel is
+       * coming back. The clock stays frozen across the suspension, because the
+       * run has its own.
+       */
+      suspend(){
+        const ov = document.getElementById('overlay');
+        if(ov) ov.classList.remove('show');
+      },
+      /** Bring it back with new content, and re-bind whatever it contains. */
+      resume(html){
+        const body = document.getElementById('modalBody');
+        if(body) body.innerHTML = html;
+        const ov = document.getElementById('overlay');
+        if(ov) ov.classList.add('show');
+        if(document.pointerLockElement) document.exitPointerLock();
+        if(body) bindTerms(body);
+      },
     });
   }
-  const body=document.getElementById('modalBody');
   if(kindOf(ch)==='SEQUENCE') { bindOrder(); }
   else if(kindOf(ch)==='PROTOCOL') { bindProtocol(); }
   else if(kindOf(ch)==='BALLPARK') { bindBallpark(); }
@@ -2434,9 +3056,123 @@ function showChallengeForStop(id, stop, isRetry, person=null){
     const btn=document.getElementById('visitCloseFallback');
     if(btn) btn.onclick=()=> closeModal();
   }
+}
+
+function showChallengeForStop(id, stop, isRetry, person=null){
+  const state=getState();
+  const gs=state.groups.find(x=>x.id===id);
+  const d=def(id);
+  const lesson=CURRICULUM[id][stop.lesson];
+  const ch=lesson.game;
+  activeChallenge={ id, lesson, ch, type:ch.type, hadIssue:!!gs.issue, userAnswer:'', isRetry,
+    stopIndex: stop.index, person,
+    // The estimate's numbers, stamped once. See calcSpec().
+    calc: BALLPARK_CALCS[`${id}-${lesson.day}`] ?? null };
+  const bodyPrefix = challengePrefix(gs, lesson, ch, person);
+  // One shuffle seed per format, because the two that shuffle want different
+  // ones — an order dealt the same way as its own protocol board would pair the
+  // two panels of a day together for the rest of the campaign.
+  const seed = kindOf(ch)==='PROTOCOL'
+    ? state.week*57 + GROUP_DEFS.indexOf(d)*11 + lesson.day*3 + (isRetry?101:0) + runSeed()
+    : state.week*31 + GROUP_DEFS.indexOf(d)*7 + (isRetry?101:0) + runSeed();
+  const challengeHTML = challengeBodyHTML(ch, seed);
+  // The title is the question, not the filing reference. Who is asking and
+  // which area it belongs to are both on the card underneath.
+  const titlePrefix = lesson.title || ch.title || def(id).name;
+  openModal(titlePrefix, bodyPrefix + withAssist(challengeHTML));
+  const body=document.getElementById('modalBody');
+  bindChallengeBody(ch, body);
   bindVisitAssist();
   bindTerms(body);
 }
+
+/* ============================================================ the harness ===
+ *
+ * One stop, mounted outside a campaign, answerable and graded.
+ *
+ * `engine/dev/lessons.html` shows one question of every format the engine
+ * renders, each pulled from the game that authored it, and it has no state, no
+ * day, no roster and no map — the eighteen games it draws from are not the theme
+ * the dev server is serving. What it must not have is its own copy of any of
+ * this: a harness that renders a panel its own way is a harness that passes
+ * while the game is broken, which is exactly the hole `engine/dev/instruments.html`
+ * was written to close for the live panels.
+ *
+ * So there is one hook, `standalone`, read in three places: `finishVisit`, which
+ * is where every format's Check button ends up, and the two rerender paths, which
+ * are the only ones that rebuild the card around a half-answered panel. Nothing
+ * else in the file knows the harness exists, and with the hook null every line
+ * below is dead.
+ */
+let standalone = null;
+
+/**
+ * Draw the card and the panel into the harness's host, and wire them.
+ *
+ * `who` is the resolved asker, `jargon` the source game's glossary and `calc` the
+ * estimate's numbers, because all three belong to the game the stop came from and
+ * none of them can be looked up here.
+ */
+export function mountStandalone(host, lesson, ch, opts = {}){
+  const { who = {}, jargon = [], calc = null, seed = 0,
+          onGrade = () => {}, onRender = () => {} } = opts;
+  unmountStandalone();
+  activeChallenge = { id: lesson.group ?? null, lesson, ch, type: ch.type, userAnswer: '',
+                      stopIndex: 0, person: null, calc };
+  standalone = { host, jargon, onGrade, onRender,
+    prefix: () => askCardHTML(who, lesson, ch, jargon)
+      + (kindOf(ch) === 'DIAGNOSIS' ? '' : figureBlock(lesson, ch)) };
+  standaloneRepaint(challengeBodyHTML(ch, seed));
+}
+
+/** Take the panel down, running whatever teardown it registered. */
+export function unmountStandalone(){
+  runPanelCleanup();
+  standalone = null;
+}
+
+/**
+ * The card plus a freshly rendered panel body.
+ *
+ * The whole card, not the panel alone: SEQUENCE and BALLPARK rebuild themselves
+ * on every tile placed, and in the game that redraw goes through `modalBody`,
+ * which holds the ask card too. A harness that repainted only the panel would
+ * lose the situation the moment the player touched anything.
+ */
+function standaloneRepaint(bodyHTML){
+  const { host, jargon, onRender } = standalone;
+  host.innerHTML = standalone.prefix() + bodyHTML;
+  bindChallengeBody(activeChallenge.ch, host);
+  bindTerms(host, jargon);
+  onRender(host);
+}
+
+/**
+ * The verdict, without the campaign half of it.
+ *
+ * The game's card also carries readiness, the countdown, the projection and the
+ * priced ways out of a wrong call, all of which are answers about a day that is
+ * running. What is left is the part that teaches: right or wrong, what the player
+ * said against what the evidence supports, the picture of how wrong it was, and
+ * the full reasoning.
+ */
+function standaloneVerdictHTML(ok){
+  const ch = activeChallenge.ch, lesson = activeChallenge.lesson;
+  const solution = solutionText(ch);
+  const whyText = kindOf(ch) === 'BALLPARK' ? (calcSpec()?.explanation || ch.why) : ch.why;
+  const consequence = ok
+    ? `<p class="verdictWhy">${esc(whyText || lesson.takeaway || '')}</p>`
+    : `<div class="wrongAnswerCompare"><div class="answerCompareBox user"><b>Your answer</b>`
+      + `${esc(activeChallenge.userAnswer || '(no answer)')}</div>`
+      + `<div class="answerCompareBox correct"><b>What the evidence supports</b>${esc(solution)}</div></div>`
+      + `<p class="verdictWhy">${esc(whyText || '')}</p>`;
+  return `<div class="verdictHead">`
+    + `<div class="verdictKicker">${ok ? 'The call holds' : 'The call does not hold'}</div>`
+    + `<h3 class="verdictTitle">${ok ? 'Correct' : 'Incorrect'}</h3></div>`
+    + `<div class="verdictBody">${verdictFigureHTML(ch, lesson, ok)}${consequence}`
+    + reasoningFoldHTML(ch, lesson, solution, whyText, true, ok) + `</div>`;
+}
+
 /**
  * Talking to somebody the day wants: ask them their call's question.
  *

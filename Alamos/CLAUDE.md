@@ -15,6 +15,19 @@ game, and add to it when the next rule turns up.
 and the candidate games worked up against them, each with its course, its place
 and the argument it turns on.
 
+**`gamekit/SEQUENCING_PASS.md` is how to fix *when* a shipping game teaches each
+idea** — the smaller pass beside the rewrite: leave every question where it is and
+put the concepts in an order the player can follow. It carries the rollout for the
+other twenty-seven courses, ranked, and the two checkers that lie during the pass.
+The price of admission is `t` on a syllabus concept, and that is **64 of 724**
+today, so it is 26,000 words of curriculum prose rather than an engine project.
+
+**`gamekit/REWRITE_PASS.md` is how to re-author a game that already ships** —
+a parallel edition at the same grade, sandboxed so the shipping game cannot be
+damaged, with the delivery snapshot as the invariant and a teardown that costs
+one `rm -rf` and three reverted lines. Ranked candidates are in it; the trigger
+is equations the course never computes, never format mix.
+
 **`README.md` is the landing page** — start there for a new game: it names the
 two documents to read first and the order the work goes in.
 
@@ -282,6 +295,18 @@ The books remain free to spell numbers however they like; nothing enforces a
 convention, and the choice is a voice decision. What is enforced is that the
 measurement cannot see the difference.
 
+**And it bit a third time, at the sentence boundary.** `normaliseNumerals` collapses
+a run of number words into one dotless token so that "eleven point four" and `11.4`
+cost the same. It did that across sentence ends: "…survive into the second one.
+Three features…" became "…the second 0 features…", so two sentences were counted as
+one and that card's words-per-sentence read 38 where the text has 18. It surfaced
+because a guide written for `QUESTION_BRIEF.md` measured over the 28-word cap while
+containing no sentence longer than 22 — the prose was right and the ruler was
+wrong. The swallower now stops at terminal punctuation, `readabilityParity` carries
+the pair both ways, and it also asserts the sentence *count* directly, because
+parity alone cannot see a boundary that both forms lose identically. Putting the bug
+back fails that case and only that case.
+
 **And the same rule cost the whole thing again, one level up.** Nine
 middle-school editions shipped with every passage at Flesch–Kincaid 4 to 6, all
 sixteen checks green — and the first sixth grader to play one found it much too
@@ -304,6 +329,31 @@ independence", ATTEST is "the record is not the condition" — so they are
 budgeted rather than banned. CONTROL and VERIFY are deliberately not budgeted:
 the fair test and predict-act-measure are what a middle-school science course is
 about, and a young player should meet them more often, not less.
+
+**And then the same failure, one level in: the budget counted the instruments
+and nobody measured one.** A sixth grader stopped on Bring Them Home's day-9
+TRACE, whose prose is fine — scene at Flesch–Kincaid 7.4, verdict at 6.3 — and
+whose *board* was the twelfth-grade board, unchanged: five channels, four
+sources, name one source **and** tick exactly two of the five, all-or-nothing.
+Sweeping the nine grade-6 editions against the games they came from, **37 of 38
+instrument boards were identical in size to their AP parents** —
+`derive-edition` rewrites the words and copies the block, and nothing looked at
+the block. Two more numbers in `questionLoad`: **four items in any list graded
+as an exact subset** with no feedback until commit (TRACE channels, TRACE
+sources, ATTEST claims, VALUE options), the same argument as the twelve-word
+option; and **six** where you compare the list and pick one, or the panel
+narrows live as you work. Eight stops across six editions failed, every one of
+them TRACE or ATTEST, and all eight are fixed by dropping the second distractor
+rather than the argument.
+
+Two things that cost a revision. **The importer floors a TRACE at four channels
+and an ATTEST at four claims**, so a junior board sits *at* the limit, not under
+it — and a first attempt also capped `sources × 2^channels` at 32, which no legal
+TRACE can reach. A limit the format's own minimum cannot satisfy is a ban on the
+format, not a limit on its size; that number is reported now, not enforced. And
+**conjunctive grading is reported, never failed**: TRACE marks "name the source"
+and "keep the right channels" together, so partial understanding scores as zero —
+but CHAIN and ROUTE are two-part by construction, and failing it would ban them.
 
 **Two more things a sixth grader found that no check could see.** The first is a
 term built out of ordinary words. `checkJargon`'s lexicon is morphemes, so
@@ -391,6 +441,45 @@ is a gate that acquires a permanent `--advisory` flag.
   Either fold what each one adds into its scene or delete it, but a stop should
   not carry two situations.
 
+**And `fieldCoverage` cannot see the other end of the pipe.** It compares the
+content a theme ships against the renderers, so a field the *importer* drops is
+invisible to it: nothing is in the content to be uncovered. CHAIN's per-link
+`reading` — the observed state of that link, and the only thing that makes
+"which one governs" answerable rather than a guess — was authored in eleven of
+the fifteen books, under three different names (`reading`; `capacity` + `unit`;
+`evidence`, once as a chain-level map keyed by link id with a key naming no link
+at all), and `import-book.mjs` mapped none of them. It had never rendered.
+Meanwhile three of those games printed hints saying "inspect the link readings",
+"use each reading" and "the largest number on the screen is not automatically
+the governing one", with no numbers on the screen. The fix is one name —
+`reading` — with the other three *refused* by the importer rather than aliased,
+because an alias is how a field ends up under four names next time, and four
+traps in `npm run traps` that make each refusal fire. **The rule: when a book
+key stops reaching the game, look at the importer before the renderer.** A
+`need()` that refuses an unknown key is cheap; a key silently dropped is a
+sentence nobody will ever read.
+
+**And it happened a second time, in the format written for exactly this.** A
+player answering Aftershock's day-6 TRACE was told the verdict "a threefold
+Flats-to-vault ratio becomes roughly 4.8 relative to competent rock" against a
+board that printed neither the 1.6 nor the 4.8, and whose two dependent channels
+read `3.0 (expected value published in the fortnight report)` — a provenance note
+with no statement of what 3.0 counts. The book had authored the correction, as
+`originalRatio` / `referenceAmplification` / `correctedRockRatio`; `import-book.mjs`
+mapped none of the three and no renderer had ever read the block. So the one fact
+the whole stop is about — what the reference turned out to be — was in the book,
+in the answer text and on no screen. `correction` is now `what` / `was` / `now` /
+`effect` / `corrected`, **all strings**, printed as a given above the channels
+with `corrected` held back for the verdict. Strings because a numeric
+`referenceAmplification: 1.6` rendered by the engine is how `3.0` got onto a board
+meaning nothing: **a correction is a factor in one game and a clock offset in
+another, and the unit is the author's to state.** Three refusals, all trapped —
+the old numeric keys by name rather than aliased, a correction whose `was` equals
+its `now`, and a channel `reading` that is a bare number. Two dead keys came out
+with it: `tolerance` on a TRACE (nothing about a trace is graded numerically) and
+a channel's own `independent:` flag, which was a second description of the
+`independent` list the grade actually reads, dropped on the floor in six books.
+
 The selftest is the load-bearing part, and it earned that on its first run by
 failing an assertion its own author had written backwards — that the ask card
 shows `scene`. Two of its cases would otherwise invert silently: if the sink list
@@ -436,6 +525,79 @@ answer is known. That is not ceremony — the selftest failed the first time it
 ran and found two real holes, one of them a gate that only fired on BALLPARK and
 so could not see senior-high arithmetic left on a retyped stop.
 
+## No format holds more than a third of a campaign
+
+**`gamekit/DIVERSITY_PASS.md` is the pass**, and the rule is one line: at a 45-stop
+campaign no answer format may hold more than **15** stops, 10 at a 30-stop junior
+edition, 18 at Hospital's 55. `engine/dev/formatMix.mjs` is the gate, inside
+`npm run check`, with `format-debt.json` recording the campaigns still over it —
+**75 stops across 10 campaigns** when the pass started.
+
+**The cap is the gate and nothing else is**, because the two obvious numbers are
+worthless as targets: across the seventeen senior campaigns the effective format count
+scores **ρ −0.07** against whether the syllabus equations are computed, and CHOICE
+share −0.01, where the **share of stops carrying arithmetic scores +0.69**. So a
+conversion has to pay for itself in teaching — an equation the syllabus lists and no
+question computes, or a mechanism concept the player only ever picks off a list — and
+the format is chosen from what the stop is already about. A stop that cannot support
+one honestly stays as it is and a different stop moves instead.
+
+**Why the catalogue looked like that, measured rather than guessed.** The books
+authored it — `grep format: books/seedbank.yml` gives 29 CHOICE of 45, and nothing was
+retyped by the engine. The first nine books average **33%** CHOICE among their board
+stops and the last six average **59%**, because the early ones had a source document
+carrying exercise shapes (the seven FPS interaction guides in `books/copy/`, and the
+two docx design books whose activity types map onto PROTOCOL, SEQUENCE, BALLPARK and
+TRIAGE) while the late ones were written straight from a one-paragraph idea in
+`GAME_IDEAS.md`. Two controls settle it: Outbreak had no interaction guide and has the
+best mix in the repo, because it came from a design book; and Quantum had no source
+document either but its book header states its own rule — *every question is about an
+instrument, a number or a choice* — and it has the best board diversity in the
+catalogue. **Writing the distribution down before writing 45 stops is the whole
+mechanism**, and `tools/BOOK_TEMPLATE.md` never asked for one: grep it for mix,
+variety or distribution and there are no hits, while the nineteen instruments live in
+a different file an author has to know to open.
+
+**The pass is done: 76 conversions across ten campaigns, and every campaign in the
+catalogue is inside the cap.** What it bought, besides the histogram: **five campaigns
+now compute every equation on their syllabus** where four of them did not (Aftershock
+2/10 → 10/10, The Trial 6/11 → 11/11, Wellmere 3/6 → 6/6, Red Sand 8/9 → 9/9, junior
+Wellmere 1/4 → 4/4), **26 rows left `curriculum-debt.json`**, and select-only mechanism
+concepts went 7 → 1 in Wellmere, 3 → 0 in The Trial, 5 → 0 in Ground Truth, 7 → 2 in
+Sightline. Ground Truth's OPERATE tier went from 2 stops to 13, Sightline's from 4 to 14.
+
+**The junior editions needed four rules the senior games never hit**, and each one is a
+`questionLoad` gate doing its job. The **judgement budget is per campaign and per day** —
+TRACE, ATTEST, VALUE, STRESS, DEGENERACY, DIAGNOSIS and HOLDOUT are all format-demanding,
+so a pass that reaches for instruments reaches into that budget; junior Wellmere went to
+30% against a 20% limit and three conversions had to be re-authored as CHAIN, VERIFY and
+BALLPARK (CONTROL, VERIFY, CHAIN and the boards are free). **Nothing under 0.1 in the
+arithmetic** — the fix is a different unit, per cent of gravity instead of g, "five in
+every hundred" instead of 0.05. **Four items is the board limit and it counts the label** —
+a junior CHAIN card is twelve words *including* what it transfers. And **grade 2 is a
+different language**: all eight Hospital conversions failed the reading gate first time,
+one at grade 8, and what passes is one clause per sentence with no subordination.
+
+**A conversion can create an ordering defect, so run `equationOrder` after every one.**
+Red Sand's day-3 assay stop became a BALLPARK that computes the reaction quotient,
+which paid the cap and the last equation gap together — and immediately failed, because
+Q against K is built on ΔG = ΔH − TΔS and nothing computed that until day 5. The fix
+was a second conversion putting the base on day 2, not a new debt row. A stop that
+starts computing something starts owing its prerequisites.
+
+**And two measurement forks turned up while doing it, both of the kind this file keeps
+paying for.** `export-book.mjs` wrote each `takesAsRead` declaration out as the
+player-facing `assumes` line the importer derives from it, so a book recovered from a
+game silently lost the field four checkers read — and `bookParity` could not see it,
+because the generated content is byte-identical either way. And `import-book.mjs` kept
+its **own copy of the keyword matcher**: when `keywordHit` learned that `3 : 1` and
+`3:1` are the same ratio, the gate saw a computed equation while the importer stamped
+it as merely mentioned, so one stop was simultaneously teaching the monohybrid ratio
+and reported as asking a derived equation before its base. The importer imports the
+shared function now. Both are `readabilityParity`'s rule in a new file: a measurement
+must not be able to tell one spelling of a thing from another, and two copies of one
+rule will drift the first time either is corrected.
+
 ## Checks — one command, several tools
 
 ```sh
@@ -458,16 +620,119 @@ node engine/dev/placeStory.mjs    <theme>    # the landscape matches the story t
 node engine/dev/checkPassages.mjs <theme>    # talking to somebody teaches something
 node engine/dev/personStops.mjs    <theme>    # every mission person opens their question
 node engine/dev/equationOrder.mjs  <theme>    # nothing is asked before the equation it is built out of
+node engine/dev/conceptOrder.mjs   <theme>    # and nothing is claimed before the concept it is built out of
+node engine/dev/conceptOrder.mjs --selftest   # and it can tell an earlier day from the same day
 node engine/dev/placement.mjs      <theme>    # everything hung is on a wall, not in it or over a doorway
 node engine/dev/questionLoad.mjs   <theme>    # the questions are as small as the sentences (grade 8 and below)
 node engine/dev/questionLoad.mjs --sweep      # every game: estimates that smush two equations together
 node engine/dev/questionLoad.mjs --selftest   # and that gate can tell a hard campaign from an easy one
+node engine/dev/worldFormats.mjs --selftest    # the six world-graded formats measure the place correctly
 node engine/dev/fieldCoverage.mjs  <theme>    # the sentences the book wrote that no panel prints
 node engine/dev/fieldCoverage.mjs --selftest  # and it knows which end of an alias the engine reads
+node engine/dev/instrumentGoals.mjs <theme>   # the panel says what counts as done before it is done
+node engine/dev/instrumentGoals.mjs --selftest # and it can tell a panel that says so from one that does not
+node engine/dev/curriculumDelivery.mjs <theme> # every equation on the syllabus is computed, not just mentioned
+node engine/dev/curriculumDelivery.mjs --selftest # and it can tell computing one from talking about it
+node engine/dev/curriculumDelivery.mjs <theme> --snapshot before.json   # the conversion invariant:
+node engine/dev/curriculumDelivery.mjs <theme> --against  before.json   # objective fixed, format variable
 node engine/dev/checkStyles.mjs               # no game stylesheet re-declares the engine's
 node engine/dev/readabilityParity.mjs         # the reading grade cannot tell 11.4 from "eleven point four"
 node engine/dev/worldParity.mjs               # every group has somewhere to happen in the data
 ```
+
+## Diversity is not the measurement; delivery is
+
+**The obvious gate does not survive contact with the numbers.** The catalogue is
+63% four formats and 28% CHOICE alone, so the response that suggests itself is a
+variety gate — no format over a quarter of a campaign, an effective format count
+of six, six distinct instruments. That gate was written down, and then the mix was
+crossed against `syllabusEquations`:
+
+| | CHOICE share | mix rank | equations a question **computes** |
+| --- | --- | --- | --- |
+| Ground Truth | 51% | second-worst | 11/11 |
+| Sightline | 47% | third-worst | 7/7 |
+| Quantum | 20% | **best in the repo** | 5/10 |
+| Outbreak: Riverton | 16% | fourth-best | 3/7 |
+
+Format variety does not predict whether the course is taught, and the variety
+gate would have sent the work at the four games needing it least. Same shape as
+Flesch–Kincaid ranking house style, as nine junior editions passing sixteen checks
+with twelfth-grade demand, and as an instrument budget that counted instruments
+and measured none of them: a number that is plausible, cheap and *adjacent* to the
+thing.
+
+So **`engine/dev/curriculumDelivery.mjs` is the gate and format mix is the
+diagnosis** you run when it fails. It gates on one rule that is not a matter of
+taste — *an equation the syllabus lists must be computed by some question* —
+where computed means a number came out of it: the `relationship`, the template,
+the worked solution or a DERIVE's own lines. This is house rule 21 as a check.
+CHOICE has none of those fields, so it cannot compute by construction, and a
+CHOICE-heavy game whose equations are all computed passes, correctly.
+
+**Ninety-seven equations across 23 themes fail that rule today**, which is too
+many to gate on cold — and the answer is *not* an `--advisory` flag, because a
+gate in front of unfinished work acquires a permanent flag and stops being read.
+`engine/dev/curriculum-debt.json` records the gaps that exist now. A gap not on
+the list fails immediately, so nothing new drifts in; **a gap on the list that has
+since been fixed also fails**, naming the line to delete, so the file cannot
+become a standing excuse. It only shrinks.
+
+What it reports and never fails: the 30-concept syllabus, by the **tier of move**
+its stops demand — SELECT (the answer is on screen and you pick it), CONSTRUCT
+(you build it out of parts), OPERATE (you drive an instrument). A mechanism
+concept reached only at SELECT is the diversification work list. It is a report
+because select-tier is often right — Sightline is AP Psychology and "identify the
+bias" *is* a discrimination — and because uncovered concepts are expected:
+twenty-five of thirty is a syllabus map, thirty of thirty is a flattering one.
+
+**The conversion invariant is the other half, and it is what makes a
+diversification pass safe.** `--snapshot` before, `--against` after: a changed
+takeaway, a dropped `assumes`, a concept the campaign no longer touches or an
+equation it no longer computes all fail. A changed **format** is reported and
+allowed. The rule in one line: *the objective is fixed, the format is the
+variable.* Without it a sweep rewrites the syllabus while every other check stays
+green, because every other check reads the content as it now is.
+
+**And the detector was wrong twice, both found by pointing it at a real game.**
+Wellmere reported four uncomputed equations and has two.
+
+- **An instrument keeps its numbers in its own block**, so nothing a player
+  computes on a board reached the strict haystack — the same hole `deriveWork()`
+  was written to close for DERIVE, one format wider. `instrumentWork()` is the
+  general form. **Its first version harvested captions and was worse than the
+  bug**: a caption is both the name of a quantity and the name of the topic, so a
+  STRESS row reading "Temperature rise that doubles reaction rate" cleared
+  `rate = k[A]ⁿ` on a board that computes no order, and a TRIGGER axis reading
+  "98 % germination" cleared `part = whole × share`. Three of the eight gaps it
+  cleared were wrong. What survives is the two things that cannot be a topic
+  word: an authored `formula` field, and the board's own numbers — where a
+  "number" is a value with at most a short unit, because `"98 % germination"`
+  leads with a digit and is a sentence.
+- **A keyword list is prose, and prose goes stale.** Wellmere's stop 16 authors
+  `Ne = 4NmNf ÷ (Nm + Nf)` in its `relationship`; the list asked for
+  "contributing plants". Eighteen equations across the set had a stop whose
+  arithmetic states them and whose keywords miss. `symbolSignature()` reduces an
+  equation to its notation — subscripts to plain letters, `÷` to `/`, `≈` to `=`,
+  spacing gone — and a stop that *writes the equation* computes it whatever the
+  keywords say. This is `readabilityParity`'s rule one level up: **a measurement
+  must not be able to tell `11.4` from "eleven point four"**, and it must not be
+  able to tell `Nₑ ≈ 4NmNf / (Nm + Nf)` from `Ne = 4NmNf ÷ (Nm + Nf)`. The
+  selftest asserts exactly that, plus the case that keeps it honest — a
+  relationship writing a *different* equation must not match.
+
+Between them: **97 recorded gaps → 88**, nine of which were the measurement and
+not the content. Every flip was inspected by hand before the baseline moved, and
+three proposed flips were rejected on inspection. Do that; a debt file that
+shrinks because the detector got looser is worse than one that never shrinks.
+
+Both halves have a selftest, and it earned its place immediately: the first run
+failed four cases, and three of them were the *fixture's* fault — the prose wrote
+the monohybrid ratio as `3 : 1` where the syllabus keyword is `3:1`, and a bland-
+looking distractor ("Two genes", then "The plot was unusual") matched a second
+syllabus concept off the option list alone, so a clean conversion "lost" a concept
+the question had never taught. A checker that can be fooled by how a person types
+a ratio is the readability defect again.
 
 `placement` is the one that fires rays. Four rounds of play-testing were spent on
 the same defect — boards floating in doorways, boards hung *inside* the wall so
@@ -489,12 +754,375 @@ Two reports that are not part of `check`, because they answer "is this good
 enough" rather than "is this broken":
 
 ```sh
-npm run traps                                 # break every instrument trap; all 35 must fire
+npm run traps                                 # break every instrument trap; all 72 must fire
 npm run drive <theme>                         # drive every live panel in Chrome, right and wrong
+npm run laps <theme>                          # take every warm-up run in the real game, morning by morning
 node engine/dev/pieceDensity.mjs --all        # how furnished every room is, thinnest first
 node engine/dev/syllabusEquations.mjs quantum # which equations a question computes, and when
 npm run shots <theme>                         # a picture of every room, and a contact sheet
+npm run lessons                               # harvest two real stops of every format, then
+                                              # /engine/dev/lessons.html — answer them yourself
+node engine/dev/cardLoad.mjs --all            # how much a player reads before they can act
+node engine/dev/cardLoad.mjs <theme>          # the sweep's work list, heaviest card first
+node engine/dev/cardLoad.mjs --selftest       # and it can tell a heavy card from a light one
 ```
+
+**A panel that enforces the player's decision has removed it.** TALLY's whole
+subject is *when is there enough data to report* — and a player came back with "I
+just keep clicking until it lets me submit, there is no challenge." They were
+right. The commit button unlocked at `minShots`, and at Quantum's authored numbers
+that floor already put the statistic inside its own tolerance about 95% of the
+time: σ = √(Σ4p(1−p)/n) is 0.072 at 400 shots a pair against a tolerance of 0.14.
+Lowering the floor alone does not fix it either, because shots are free and the
+clock is stopped behind a panel, so the correct play becomes clicking forty times —
+tedium, not judgment. **`tally.budget` is the fix**: a finite pot of batches for the
+whole stop, spent across the pairs, with the Run buttons dying when it is gone and
+commit allowed the moment the pot is empty whatever state the pairs are in (a
+player who dumps the budget on one row must not be locked in a panel). All four
+correlations enter the combination with equal weight, so an even split buys a
+better statistic than the same pot poured into the noisiest-looking row — the
+strategy is real and it is in the background rather than the guide. Two importer
+refusals make it stick, both trapped: a floor whose scatter is already inside the
+tolerance, and a budget too small for an even split to pass. Quantum's is 24
+batches of 100 with a floor of 1 batch: reporting at the floor is a coin toss,
+full even spend is 2.4σ.
+
+**The second paragraph of a card is for the question, not for the controls.** 836 of
+the 1,045 board and CHOICE stops carried a mechanics paragraph — "choose one of the 4
+and press Check; the options are dealt in a fresh order each time, so the lettering
+carries nothing" — in six distinct texts across the whole catalogue. Every word of it
+was already on the screen: each board format prints its own `compactInstruction` a few
+pixels below, so the one place a player looks for help with the *question* was spent
+explaining a control they could see. All 1,045 are rewritten to `QUESTION_BRIEF.md`
+§7a: what the options disagree about, the test that separates them, and what the
+distinction costs. No mechanics, never the answer, and never a restatement of the
+scene — the last of which needs measuring rather than trusting, because thirty-three
+guides quoted a run of their own scene back at the player and every one of them read
+well in isolation.
+
+**SCIENCETANK had it backwards twice, and `rules` is the fix.** A tank stop's second
+paragraph was the *scoring* rule — commit eighty of the hundred, thirty-five on one
+proposal — while the `evidence` the allocation is argued from sat behind a collapsed
+disclosure inside the panel. So the player met the arithmetic before meeting a single
+fact. `rules` is a new authorable field rendered as its own **Rules** button, the
+evidence moves up into `guide`, and the panel drops its own "Evidence available"
+disclosure when a stop carries `rules` so nothing is printed twice. The editorial half
+matters as much: **evidence that only describes the proposals worth funding is a hint,
+not evidence.** Fourteen of the 31 tank stops had no evidence at all.
+
+**TALLY's subject is convergence, and for most of this engine's life the only picture
+of it arrived in the verdict** — after the decision it was evidence for. A column of
+counts cannot show a number settling. The panel now draws the statistic against shots
+taken with the same `lineChart` the verdict uses, redrawn as each batch lands, plus a
+per-pair ±1σ column and a combined spread: the trace answers *when* it has converged
+and the column answers *which row is still moving it*, which is the whole of how a
+finite budget should be split. The bound is drawn and the target and tolerance are
+not — instrument rule 2, where a goal is the constraint the answer is written against
+and grading slack stays unprinted. Quantum's stop had also lost its `budget` and had
+`minShots` at 400, which is the trap the importer refuses; restored to 24 batches with
+a floor of one, where reporting at the floor is a coin toss and a full even spend is
+2.4σ.
+
+**And CLOUD printed the two numbers it was supposed to be teaching.** Its whole
+subject is that a spread is a spread rather than a number with a decoration on it —
+and its readouts said `nominal 6.90` and `spread (1σ) 0.90`, straight off the
+book, with a bell drawn with its peak on the answer. A player read the centre and
+the width off the panel, bought actions until the "inside the limits" percentage
+cleared the pass mark, and never once had to find either number in the scatter.
+The cloud was scenery. Now **the mean and the uncertainty are reported by placing
+them**: three bars over the points — the middle, and ±1σ either side — dragged on
+the plot or driven from two sliders, with live counts of how many points fall
+below the middle, how many above, and how many between the σ bars. Placed right,
+a pair halves the cloud and holds about 68% of it, which is what one sigma *means*
+and what no version of this panel had ever asked anybody to notice. Four things
+that keep it honest: dragging the middle bar carries both σ bars with it and
+dragging either σ bar moves the other one the same distance the other way, so the
+controls are the format's own moral (moving the nominal moves the whole band and
+changes nothing about its width, and an uncertainty is one number); the drawn bell
+is the player's *report*, never the truth; the samples are standardised to the
+authored mean and spread, so the report is graded against the cloud on the screen
+and a seed cannot decide a right answer; and an action makes the report stale, so
+both bars have to be placed again and the strip under the plot says which is
+outstanding rather than greying the button and saying nothing. `report:
+{ centreTol, spreadTol }` is the placement slack — 0.3 of the finishing spread by
+default, so a narrowed cloud has to be located better — and it stays unprinted,
+because grading slack on a value the player reports is not a goal. Two importer
+refusals, both trapped: a tolerance wider than half the finishing spread, and one
+that is not a positive number.
+
+**A card names the concept it is an instance of, and says what the idea is for.**
+`Key concept` is a second door beside `Background`, and the two sit in one row —
+`.askDoors`, a closed door is a pill and an open one takes the width, because a
+`<details>` body squeezed into a flex column is a paragraph two words wide. The
+Background label lost its tail on the way (`Background — where this fits, the
+words, the equations, what it assumes` is now one word): two pills of five words
+each read as a paragraph of controls rather than as two things to press, and the
+new door was invisible beside it.
+
+**Which concept a stop is about has to be picked, and the pick is the whole of
+the work.** `conceptCoverage` answers "which stops touch this concept", which is
+what the syllabus audit asks; the card asks the opposite question and it is not
+that lookup inverted. The matcher is keywords over the whole question, so across
+838 senior stops the median matches **three** concepts, the worst thirteen, and
+19 match none. `pickKeyConcept` scores on two things a bare keyword hit cannot
+see — **where it landed** (title 5, ask and takeaway 4, scene and why 2, an
+option label 1, and an option-only match can never win) and **how rare it is
+across the campaign**, since a concept twenty stops mention is the course's
+background hum and one that three mention is what those three are for. Rarity
+needs the whole campaign, so it is a post-pass in `import-book.mjs` next to the
+equation one, and the engine reads a stamped `lesson.concept` rather than
+reaching into `tools/` for a syllabus.
+
+**A mechanism bonus was tried and removed, and it is the one term that made the
+pick worse.** The argument for it was that "how you report it" is rarely what a
+player is stuck on. What it did on Blackout was hand three method stops to a
+mechanism that was not their subject — the TRACE on what order the records claim
+and the CHOICE on the sensor that was confident and wrong both went to a
+transmission concept over `Metering, instrument transformers and measurement
+error`, which is what those two questions are about. Half this catalogue's
+instruments have method as their subject, so a standing thumb against method
+concepts is a thumb against the formats. Two rarity curves were tried against the
+same 45 stops and moved nothing, so the scoring is the simplest thing that works.
+Two of Blackout's 41 picks still land on a neighbouring concept, and the honest
+name for the field is *the concept this stop is most likely about*.
+
+**And "two of 41" was itself the picker grading its own homework.** Read by hand
+against the scenes rather than sampled, **nine** of Blackout's 41 were wrong — and
+three of those were not reachable by keyword at all, so no matcher was ever going
+to find them: the stop whose subject is synchronising says only that four
+quantities have to agree, and the one about the turns ratio asks why the machine
+makes 20 kV and the line outside runs at 400. **`concept:` is authorable on a stop
+now**, taking the concept's number or its exact title, with `pickKeyConcept` as the
+fallback. Three properties earn their keep. A name that is not on the theme's
+syllabus is **refused** rather than dropped, because a near-miss title falling back
+to the picker is indistinguishable from having authored nothing. A concept with no
+`t` written is refused too — asking for the door by name and getting silence is not
+the same as never asking. And prefer the **title** over the number in a book: a
+number silently follows a syllabus reorder to whatever concept lands at that index,
+where a title fails loudly.
+
+**Nothing could gate on this while the field was derived**, which is the reason to
+have built it. `plans/blackout-sequence.html` is the sequencing audit — when a
+campaign teaches a concept against where the story is standing — and its rule is
+`equationOrder`'s, one field over: *every concept a stop claims has a base claimed
+on an earlier day, or the stop says in `assumes` that it takes it as read.* Earlier
+and not the same day, because `openStopIndices()` opens a day's stops in any order,
+so a prerequisite beside its dependent is one half the players meet second.
+Blackout's day 1 asked what a falling frequency trend is evidence of and named
+*droop control*, whose base arrived on day 12; **twelve of its 28 inversions rested
+on material the campaign itself teaches later, and that is now one** — eleven
+authored claims, two swaps and one rewritten question, with no mission re-ordered
+and no scene touched. The 26 that remain all rest on the bottom of the graph (what
+a volt is, Ohm's law, RMS, induction), which an AP Physics 2 course may take as
+read and must therefore *say* it takes as read.
+
+**The gate exists now, and it is per stop rather than per concept.**
+`engine/dev/conceptOrder.mjs`, inside `npm run check`, with `needs` authored on
+Blackout's 32 concepts in `tools/syllabus.js` beside the equation `needs` that were
+already there. A course whose concepts carry no dependency is not checked at all,
+which is why the other 27 themes are silent. `takesAsRead:` is the hatch and the
+importer refuses two things about it: a title not on the syllabus, and — the one that
+keeps it honest — **a concept the stop's own claim is not built out of**, because
+without that the field is a place to park anything and a declaration left behind by a
+re-claimed stop would go on excusing a prerequisite the stop no longer has. A stale
+exemption is indistinguishable from a considered one. Each declaration is printed to
+the player as an `assumes` line, so the sentence they read and the fact the checker
+reads are the same authored line.
+
+**Per stop is not the same audit as per concept, and the difference was six real
+rows.** Two stops can claim one concept and each has to answer for its own
+prerequisites; the concept-level count in `plans/blackout-sequence.html` had collapsed
+those, and hid a stop standing *beside* its own base on day 6 rather than after it.
+The document reads `orderRows` out of the gate now rather than keeping its own copy of
+the rule. Of the six, four were declarations and two were ordering — and one of those
+is the shape worth copying: day 10's dark-hours estimate claims *energy from power over
+time*, which is what `E = Pt` is, and that single re-claim put the base under two later
+stops at once. **Prefer a re-claim to a move**: it costs no scene and no story.
+
+**And the card was printing a claim nobody had earned.** The Key concept door said
+`Concept 19 of 32 on this course`, which a player on day 1 reads as the nineteenth
+thing they are being taught — and said it about a card that was right. The syllabus
+list is grouped by topic, not ordered by dependency: it puts transformers at 13 and
+Faraday's law at 17, so its index cannot mean "how far in this is". The count is fine
+and the ordinal is not. It reads `One of 32 concepts on this course` now, followed by
+what the idea **rests on**, with anything the stop takes as read marked as such —
+which is the pair of facts a player would actually use to work out where they are.
+Found by playing the game, after every check was green.
+
+**All sixteen senior campaigns are sequenced now, and the graphs are the asset.**
+494 concepts across 18 themes carry a `needs`, up from 62, and `conceptOrder` is green
+on every one — every claim's prerequisites arrive on an earlier day or are declared on
+the card. Most of the residue was bottom-of-graph and became declarations (Outbreak 29,
+Red Sand 33, Ice Core 23), which is a senior course leaning on a first course, said out
+loud. What is left is 132 lines in `concept-debt.json`, concentrated in three games:
+**Midway 21, ContamCity 21, Aftershock 11.**
+
+**Midway is what the pass was for.** AP Physics 1 taught in derivations across an
+amusement park, where the day is set by which ride you are standing at — so the
+teaching order follows the rides. Writing its equation graph (it had *none* of twelve)
+turned up the bigger thing: **`ΣF = ma` is shown on a card from day 1 and computed by no
+question in the game**, while centripetal force, the energy books, torque, the pendulum
+and fluid pressure are all computed from it. Seven equation-order inversions out of one
+missing stop. Headwater has the calculus twin: the chain rule claimed on day 2, the
+power rule not until day 5 — the exact sentence `equationOrder` was written for, one
+field over.
+
+**Every registered theme carries a graph now — 637 concepts of 724 — and the nine
+junior editions are the part that needed a different policy.** "Taken as read" needs an
+earlier course to take it as read from: an AP course may open on frequency without
+teaching what a volt is, and a grade-6 edition has nothing in front of it, so a
+prerequisite it declares is one it has quietly decided not to teach. That is the
+middle-school failure this file already records twice, through a third door. Junior rows
+go in the debt file instead, and `conceptOrder` reports any declaration at grade 8 or
+below rather than accepting it. Thirty-four declarations were stripped from two editions
+when the policy was corrected. `engine/dev/concept-debt.json` is **186 rows across 26
+themes** now, concentrated in Midway (22), ContamCity (16) and Aftershock (13). Its own
+`_` key is eight lines of header, and counting those as debt is how the total read 194
+for an afternoon — a file whose length is the metric needs to say which lines are not
+data.
+
+**Working the debt down took it 236 → 206, and the more useful outcome was finding the
+measurement wrong again.** Thirty rows were foundations no card claimed, restored to the
+stop that teaches them — Midway's net force and simple harmonic motion, Aftershock's
+stress and strain, Quantum's T1, Groundtruth's charged-sheet field, the junior editions'
+matter and averaging. Two batches made the number *worse* and were reverted: a claim that
+clears three rows can raise four, so re-measure after every batch. **Then: three analysis
+scripts read `row.pday` — the day a prerequisite is claimed — and `conceptOrder` never
+emitted that field.** A missing field reads as `undefined`, so every row classified as
+"claimed by nothing" and the summary said all 326 needed a question written. Plausible,
+confident, wrong: these campaigns do have coverage gaps. Only the gate's `why` string
+carried the truth, as prose, and the disagreement between the per-theme table and the
+summary is what surfaced it. `pday` exists now.
+
+**With it fixed, the residue is an ordering problem, not a labelling one:** of 269 rows,
+**208 are prerequisites taught later** (want a re-order or a swap), 27 want a claim, and
+34 are never mentioned at all. A free re-order would take ContamCity 22 → 11, Hospital
+15 → 9, Red Sand 11 → 5, Headwater and Quantum 12 → 8 — but a *free* re-order will move a
+carousel stop into the closing-report day, so it needs each game's chronology read off its
+fifteen stakes, which is Blackout's slate C done twenty-five more times.
+**Midway is the exception:** its rows are not order at all — *work as a force times a
+distance* and *free-body thinking* are mentioned at no stop in an AP Physics 1 game whose
+torque, power, friction-as-negative-work, PE and KE all rest on them. Two written stops,
+not a permutation.
+
+**And the re-order half is far smaller than the search says.** ContamCity and Hospital
+were re-ordered (22 → 16 and 15 → 9), Headwater swapped four stops, and then the pairwise
+swap search was run on the six themes with the largest offers: **twelve of sixteen
+proposals were story-wrong**, and the way to see it is the day's own stake rather than
+the row count. Aftershock offered four and lost all four — "What eight degrees does" *is*
+Marina Court, which is day 4, and a stop whose scene names the day's event cannot move.
+Junior Blackout offered three and lost all three. What landed was one swap each in junior
+Aftershock, Ice Core and Wellmere, plus the fable taking Blackout's own slate-B pair
+instead of the optimiser's. **A game whose days are an event calendar (Aftershock, Red
+Sand) or a topic list (Midway, Ground Truth) is not re-orderable at all**, so its rows are
+paid by declaring `takesAsRead` or by writing the missing question — which makes the
+residue mostly writing work, not permutation work. `gamekit/SEQUENCING_PASS.md` carries
+the test.
+
+**And `derive-edition` overwrote a shipping edition without saying so.** Run on
+`blackout` to check one line of its output, it rewrote the nine days it was handed over
+the ten `blackout_ms` ships — book and generated content both — and nothing failed,
+because a nine-day campaign is a valid campaign and `npm run check` passed on it. The
+only evidence was a mission count in a file nobody was reading, which is house rule 14's
+shape one directory over. It refuses now unless `--force`, and it prints how many days
+the edition currently ships. It also strips `concept:`/`takesAsRead:` on the way across,
+because a junior concept list shares no title with its parent's — carried over, every one
+of those lines is a title the importer refuses, after the edition has been written.
+
+**Two engine gaps the rollout exposed.** A claim no longer waits on its takeaway: the
+importer used to skip a concept with no `t`, so 26 of 28 courses claimed nothing and
+this gate had nothing to read — claims are recorded now and the door still appears only
+when `t` is written, which separates *the course is in a teachable order* from the
+26,000 words of curriculum prose. And **`equationOrder` had no debt file**, so authoring
+a truthful graph on a shipping game turned green into red in the same commit; the
+realistic outcome of that is a graph somebody has quietly made wrong.
+`engine/dev/equation-debt.json` exists now, same two properties as the others.
+
+**And a `needs` graph can be non-terminating rather than wrong.** Five of the sixteen
+courses came out with a cycle on the first pass — intermolecular forces ⇄ phase changes,
+rate constants ⇄ activation energy, reliability ⇄ validity, α/β ⇄ sample size, decibels
+⇄ signal-to-noise — each a pair where the physics runs one way and the prose reads both
+ways. A cycle overflows the depth calculation instead of reporting anything, so **check
+for cycles the moment a graph is authored**, before another tool reads it. Three more
+were self-references, which the applier refuses outright now.
+
+**Two things that pass every check and are still wrong, both found here.**
+`diffSnapshots` keys a stop by `group:index`, so **exchanging two stops of one area
+reads as both of them losing their objective** — six of the eight losses reported
+after this pass were two DIST stops trading places, and the two equations it called
+lost are computed by the other half of the swap. It was settled by matching every
+before-objective against the after-content by takeaway: exactly one had left the
+campaign, the one deliberately rewritten. Match by identity and report an exchange
+as an exchange; a wall of false failures is how a gate stops being read. And
+**a slate row in `plans/plansData.mjs` names a stop by number, and stop numbers
+move**: the same two swaps renumbered four stops, and three rows went on pointing
+at the number while meaning the question — one of them at a stop that had been
+rewritten into something else. Every row carries the title it was written against
+now, and `render.mjs` throws on a mismatch.
+
+**The takeaway is authored, and it is fixed per concept rather than per stop.**
+`t` on each syllabus concept, two sentences and 30–45 words: what the idea says,
+then what it lets you decide. Every stop that scores to `Protection: relays,
+breakers and coordination` opens onto the same two sentences, which is the
+difference between this door and everything else on the card — `takeaway` is the
+principle *this* question is an instance of, written once for one stop, and this
+is what the course says the idea is for. **A concept with no `t` stamps nothing
+and shows no door**, which is why adding this changed the generated content of
+exactly one game: an empty door is worse than none, and it teaches a player not
+to press the next one. 32 of the 692 concepts across 27 courses are written
+(Blackout); the other 660 are the work list.
+
+**And it is a leak the existing probe could not see.** A per-stop takeaway that
+gives the answer away costs one question; a *concept* takeaway that does costs
+every stop the picker sends to it, and nobody rewriting the stop would think to
+look at the syllabus. `probeQuestions` now runs the takeaway's own LEAK test
+against `concept.t` as well — the shared-content-word fraction at a higher
+threshold, since 40 words collect more of anything by chance, plus a verbatim-run
+test that is insensitive to length. Planting a stop's keyed answer as its
+concept's takeaway fires both, on every stop that concept reaches.
+
+**`fieldCoverage` could not see the new field, and the reason was a spelling.**
+`readsIn` matched a literal dot, so `lesson?.concept` was not a read — and eight
+fields in `questionUI.js` and `instruments.js` are reached only that way,
+`guide`, `rules`, `assumes` and `equations` among them. Same class as the carver
+not knowing `const ask = () => …`: a checker that reads source has to know every
+spelling the source is allowed to use, and the ones it does not know are silently
+invisible rather than loudly missing. This is `readabilityParity`'s rule in a
+different file — a measurement must not be able to tell `lesson.guide` from
+`lesson?.guide`, because the player cannot. Three selftest cases, and putting
+each bug back fails those cases and only those.
+
+**`gamekit/QUESTION_BRIEF.md` is the sweep brief** — the card shape every stop is
+being rewritten to, the six mechanics a guide has to answer, the line between a
+caution and the answer, and §5, which is the rule that authored numbers have to be
+*possible*. `cardLoad` is its measurement: 1,334 stops, and the median card was 75 words in 5 to
+6 blocks — so the defect is fragmentation, not length. The tiers are 19 live panels,
+244 instruments, 728 boards and 343 CHOICE, in that order of need.
+
+**Two things about that measurement are worth keeping.** It reported 0 stops over
+target the moment fold-by-default landed, which was flattery: it modelled the three
+lines the four questionUI panels print and never looked at the 24 in instruments.js,
+so every instrument stop was counted three blocks light. It renders those panels now
+and the true figure was 244. And the target has to be per tier — 4 blocks for a
+card, 6 for a stop with an instrument, which keeps its own hint and its "what counts
+as done" — because one number either excuses the fragmentation or bans two blocks
+worth keeping. A briefed stop drops only the format's generic lecture, through
+`game.briefed`, stamped in `normalize.js` and read by `method()`.
+
+Sweep progress: **262 of 1,333 briefed, and tier 1 is finished — every instrument stop in all 27 games.** Tier 1a is complete (all 19
+live panels) and tier 1b with it: all 244 instrument stops, across every game and
+every junior edition. What is left is tier 2 — the 728 board stops, of which
+BALLPARK's 206 always need a guide — and tier 3, the 343 CHOICE stops, which need
+only the fold they already have.
+
+**The sweep broke its own reading rule and needed a second pass.** The first 84
+guides carried 42 sentences over the 28-word cap, every one of them a compound
+joined by an em dash, a semicolon or ", so" — fluent to write and over the bar. They
+were cut at the joint and re-measured, which is the only reason it was found: the
+prose read well enough that nothing but `cardLoad`'s own column objected. And
+`tools/brief-stop.mjs` now refuses to write a book whose bytes changed since it read
+them, because it clobbers a concurrent session otherwise — Meridian's stop count
+moved twice mid-sweep and the only visible symptom was a total dropping by one.
 
 **Quote any inline `{ … }` value containing a comma.** `tools/yaml-lite.mjs` used
 to split a flow map on every top-level comma and silently skip any fragment
@@ -526,6 +1154,109 @@ a turn on the spot at the spawn. A hand-built world should have a `shots.js`;
 `themes/bring_them_home/shots.js` is the worked example, and that game has no
 other automatic check on where anything is.
 
+**And the first thing it found was a format nobody could play.** Quantum's day-10
+HOLDOUT asks you to choose a threshold on one batch of shots, freeze it, and report
+what it scores on a batch it never saw. Its two tabs said "Calibration shots" and
+"Shots it has never seen", and *nothing on the panel said what either of those
+was*, what a shot is, or why a broad plateau in the curve should be trusted where a
+tall narrow spike should not. All of that was in `why`, which arrives after the
+answer. The reason is structural: **SWEEP, HOLDOUT, TALLY and PROBE print no
+`METHOD` line and no goal line**, because both come from `instruments.js` and those
+four predate that registry and live in `questionUI.js`. The four most
+instrument-like panels in the engine were the four that never said what kind of
+move they were. Three of them also hardcoded their hint, so a book could not
+explain its own panel.
+
+Fixed for all four, not for the one stop: `METHOD` gained their four lines,
+`methodBlock` and `goalBlock` are exported from `instruments.js` so the markup and
+the classes stay single, and `hint` + `goals` are authorable on all four blocks
+(`panelWords` in the importer). HOLDOUT also takes `fitNote` / `testNote` — what
+each batch *is*, per stop, since a batch is shots in one game and patients in
+another — and its idle tab now says "no number until you freeze" rather than
+sitting blank. Quantum's stop is rewritten around tray A and tray B, with the
+counting-noise-versus-separated-clouds argument on the panel where it can be used.
+The pass mark stays unprinted, and `npm run traps` has a case that fires when a
+book puts it in the hint.
+
+**And then the fix was the wrong shape, which is the more useful finding.** With
+the method line and the goal line added, the card carried *six* blocks before the
+player touched anything: the scene, "takes as read", "what this is about", a row
+of syllabus equation chips — two of which, `F_total ≈ F^n` and `n_phys ≈ d² per
+logical qubit`, have nothing to do with the question — a row of glossary chips,
+then the panel's own three lines, one of which restated the question. Every block
+was defensible on its own and the sum was unreadable. Explaining a format is not
+the same as adding a block that explains it.
+
+So a stop may now carry **two paragraphs and a door**: `scene` says what has
+happened and defines any word the question needs, `guide` says what the player
+does and what the numbers mean, and `background` is a list of paragraphs behind
+one button. The button holds what was crowding the card, in prose: the background
+paragraphs, then **each syllabus equation spelled out in a sentence** with its
+symbols named, then the glossary definitions, then `assumes` and `takeaway`. A
+chip reading `n_phys ≈ d²` is useful only to somebody who already knows what it
+says. A stop with a `guide` also suppresses the panel's own three lines, and
+authoring a panel hint beside one is refused rather than dropped. Quantum's
+HOLDOUT is the worked example: scene at Flesch–Kincaid 6.8, guide at 4.0,
+background 4.4 to 6.3, and every block that used to compete now either the
+instruction or behind the button. Nothing is deleted and nothing is dumbed down —
+the coin-flip explanation of why a 4,000-shot percentage wobbles is *more* physics
+than the card had before, it is just not in the way.
+
+**`- >-` inside a sequence had never worked**, and the background list is what
+found it: `tools/yaml-lite.mjs` handled a block scalar after a key and not after a
+dash, so all four paragraphs arrived as the literal string ">-" with the prose
+under them skipped as a deeper block. Quantum's is the only book that had ever
+used the form. Same class as the comma-split flow map — what reaches the game is a
+valid string, so nothing downstream can tell.
+
+**Adding those two blocks then broke the panel, in the way this repo has already
+paid for twice.** `.modalBody .modalActions` is `position:sticky; bottom:0`, so
+150 px of explanation pushed the slider, the axis labels and both readouts *under*
+the pinned action row: a plot, a gap, and a button. And `scrollIntoView({ block:
+'nearest' })` — the remedy SWEEP already carried — **does not fix it**, because an
+element one pixel inside the scroll container is "in view" by that definition and
+entirely hidden by the bar over it; the browser scrolled six pixels and stopped.
+`showControls()` subtracts the bar's own height, and all four panels call it. The
+lesson is the screenshot rule again, one level in: the DOM had every element, the
+checks were green, and only a picture showed the controls were gone.
+
+`lessons` is the answer to "what does one of these actually feel like to answer",
+across all 35 formats at once. `engine/dev/lessonGallery.mjs` reads every
+registered game, picks the best authored instance of each format — the richest
+card, from a real game rather than from Meridian, from the senior edition rather
+than the junior one — and writes `engine/dev/lessons.json`;
+`engine/dev/lessons.html` mounts one at a time, answerable and graded, and keeps
+a tally of what you got right.
+
+**Every format is shown twice, the second card from a different campaign**, because
+one card cannot separate the renderer from the book that authored it — a SEQUENCE
+ordered by time and a SEQUENCE ordered by cost are the same panel asking different
+questions, and the second card is what shows which half is the engine. The pair
+must come from different *families*, not merely different theme ids: a grade-6
+edition is the senior book with shorter sentences, so ROUTE's pair was deepwatch
+and deepwatch_ms until `editionBase` was folded into the choice. Where no other
+book authors the format the second card comes from `instruments`, and where there
+is no second stop at all — TALLY, TRIANGULATE — the page says so rather than
+inventing one. Six formats are still authored nowhere: BELT, TRIAL, HOLD, SPOT,
+STACK, LOB. Any theme can be serving: the person asking, their
+colour, the source game's glossary and the estimate's numbers all arrive with the
+stop, because they belong to the game it came from.
+
+**Nothing on that page renders or grades anything.** `questionUI.mountStandalone`
+is one hook — `finishVisit` diverted, plus the two rerender paths — so the card,
+the panel, the shuffle, the grading, the verdict figure and the reasoning are all
+the engine's own code, and a panel that is broken there is broken in the game.
+That is the same argument as `engine/dev/instruments.html`, and it is worth
+restating because the tempting version of this page is a harness with its own
+copy of eight renderers, which would pass while the game was broken. What the
+page does *not* have is the campaign half: no clock, no money, so no hint and no
+priced way out, and the verdict carries the teaching without the readiness
+ledger. Three things it found on the first run: the verdict's own CSS lived in
+`index.html` rather than in the engine sheet (moved), the estimate's numeric spec
+was looked up from a key written out in five places (stamped once on the active
+challenge now), and `themes/instruments` had been titled "Template" since it was
+scaffolded.
+
 `pieceDensity` builds each place headless — `engine/dev/headless.mjs` stubs the
 canvas and the renderer, since three.js touches no GPU until something renders —
 and counts placed pieces per room against floor area. It is how "the rooms feel
@@ -545,6 +1276,251 @@ reportAudit(gamekit.scene, gamekit.renderer, {
 
 `smokeCampaign` exists because a theme once had entirely valid content and two
 thirds of its campaign unreachable. `validateContent` cannot see that.
+
+## Two tiers of ground, and the two laps that teach them
+
+**A site with a far half opens it on day 4, with the keys.** `engine/core/orientation.js`
+measures every area from the spawn, and a **far tier exists only when the split is
+real**: the nearest far area must be at least twice the distance of the furthest
+near one *and* at least 120 m out. Both terms are load-bearing. The ratio alone
+called Calder Switching Station two-tier, where the "far" metering hut is 48 m
+from the gate and visible from it; the distance alone would have split a site
+that is uniformly spread. Nothing is authored — same argument as
+`budgetForRoute`, move a building and the split follows it, and a `tier: 'far'`
+in site.js is a second description of the map.
+
+Eight themes have a far tier: Outbreak, Planetary Defense, Aftershock, Wellmere
+and their four grade-6 editions. **Every other theme is untouched with no flag to
+set**, which is the right answer for reasons that are not geometric — there is no
+far ground on a submarine and no vehicle to unlock in Mission Control.
+
+- **Before day 1, a lap of the near ground; on day 4, a lap of the far ground.**
+  Both are TRIAL, the one format graded against the world. The gates are the
+  areas' own entry points — the same positions the budget walks and the map
+  draws — so a lap needs no authoring and cannot repeat the mistake TRIAL has
+  already made once, where a gate resolved to a building's *centre* rendered
+  under the floor with a collider between the player and all of them.
+- **The lap grades nothing, and it can be skipped.** TRIAL-the-format grades
+  order because order is its subject; there is no science in "which of these six
+  sheds is which", and on day 1 the player has been taught nothing to order it
+  by. A second-campaign player who is made to sit through a tutorial is a player
+  who stops on day 1, and the day model already says there is always a free way
+  forward. Skipping marks it done; so does abandoning it half way.
+- **The far ground is walkable from the first morning — it is just not *called*.**
+  Locking it would be house rule 8 with a schedule attached: a player who walks
+  somewhere and meets an invisible wall has learned the world is smaller than it
+  looks, which is the opposite of what a lap teaches.
+- **The vehicles come out on the same day, and that is now general.**
+  `AIRCRAFT_FROM_DAY` already existed for one theme's helicopter; scooters and
+  cars were never gated at all. Both are `VEHICLES_FROM_DAY` now, driven by the
+  tier rule where there is one. Signing them out earlier would let a player drive
+  to ground with nothing open on it, which teaches that the far half of the map
+  is empty.
+- **`shapeMissions` trades far calls out of the opening days rather than moving
+  them.** Every two-tier campaign teaches in its far half on day 1 — Wellmere had
+  seven of its first ten calls out past the glasshouses — so something had to
+  give. A far call on day 2 swaps places with a near call from a later day: both
+  days keep their stop count, every lesson is still taught, the books are
+  untouched, and only the order two lessons are met in changes. Wellmere went
+  7 far calls in days 1–3 → 4, Aftershock 6 → 1, Planetary Defense 3 → 2,
+  Outbreak was already 0.
+- **It reasons about equations not at all, deliberately.** The syllabus lives in
+  `tools/`, the engine does not import it, and a second dependency solver in
+  `normalize.js` would be a second description of a rule `equationOrder` owns. So
+  the swap is conservative — it prefers the *latest* partner, pushing lessons
+  later rather than earlier, because a course is written so later work depends on
+  earlier work — and `equationOrder` is the guard. It passes on all four.
+- **What cannot be traded is reported, not dropped.** Wellmere's spawn sits
+  beside the vault and the lab and everything else is out in the rings, so only
+  two areas are near: a day can hold at most two near calls before the third
+  becomes a person hunt, and four far calls in days 1–3 have nowhere to go. That
+  is a limit of the place, it is printed as a change, and a silent exception is
+  how a rule stops meaning anything.
+- **The tiers are stamped on the content, not passed at each call site.**
+  `theme.js` normalises once with the site; every checker that imports a theme
+  and re-normalises reads the same `content.TIERS`. A tool that hand-builds a
+  campaign gets one tier and today's behaviour.
+
+**Not yet play-tested.** The logic is verified across all 28 themes and every
+game builds, but nobody has watched a lap run — which is the one thing this repo
+says you may not conclude from a green check. `THEME=seedbank npm run dev`, and
+watch the gates actually stand where the doors are.
+
+## Seven runs open the campaign, and each one needs a reason
+
+**`engine/core/warmups.js` is the schedule and it is the only copy of it.** The
+seven world-graded formats — TRIAL, GREET, FOLLOW, HUNT, CANVASS, EVADE, TAG —
+run *before* a day's plan card, and which one runs when is now a property of the
+campaign rather than of the ground:
+
+    before day 1 and day 2   TRIAL and GREET, in either order
+    before the unlock day    TRIAL again, and only where there is far ground
+    after that               FOLLOW, HUNT, CANVASS, EVADE, TAG, one a day, in
+                             order, spread evenly over every morning that is
+                             left — first as early as it can be, last on the
+                             final day of the campaign
+
+**Spread, not stacked, and the first version got this wrong.** Handing the five
+out on the next five free mornings put all seven runs inside the first week of a
+fifteen-day campaign and left the back half opening on nothing — blocked practice
+in the one part of the day a player meets before anything else, which is the
+mistake `shapeMissions` already fixes for lessons. Blackout now runs on days 1, 2,
+3, 6, 9, 12 and 15: a run about every third morning, right through. Three selftest
+cases hold it — the last run lands on the last day, no two land on consecutive
+days, and at least two fall in the second half — and putting the old loop back
+fails those three and only those.
+
+**Either order is decided rather than left open.** A two-tier site opens on TRIAL,
+because what a player cannot read on that first plan card is the ground; a
+one-tier site opens on GREET, because its ground is one building and what they
+cannot read is who everybody is. Both slots are always filled — only which one
+leads is geometry. The second TRIAL is the far lap and exists nowhere else, so a
+one-tier campaign simply has one fewer morning taken and nothing is authored to
+make that happen.
+
+**The save key is the slot, not the format.** `trial-near` and `trial-far` are
+separate keys because the old two-key scheme would have let one lap mark the other
+done the moment a third existed.
+
+**The schedule is engine logic; the reason is authored.** `warmups:` in the book
+gives each slot a title and a `why` — worried about spies, six earths and a log
+that says five, catch Whitlock before she drives off. A run with no reason is a
+tutorial, and the day model has a rule against those. The importer refuses a slot
+name that is not one of the seven, a `why` under twelve words, and a `trial-far`
+authored on a site with one tier of ground. Everything the run itself needs
+defaults from the campaign's own data — gates from the areas, a GREET roster from
+the cast, HUNT positions from the area entries — so a book that writes only the
+story still gets a working run.
+
+**`engine/dev/warmupOrder.mjs` checks both halves, and only one of them can be in
+debt.** It asserts the *properties* the schedule has to have rather than comparing
+against a table, because a table would be a second description of the rule. The
+authoring is `warmup-debt.json`: **204 slots across 28 campaigns** when the
+schedule landed, three campaigns written (Blackout, Deep Watch, Aftershock).
+Fifteen selftest cases, including the two that would otherwise invert silently —
+the two laps sharing a save slot, and a five-day campaign being asked for five
+tail runs it has no room for.
+
+**The debt is paid: 204 slots across 28 campaigns → nothing, and the file holds no
+rows.** Every one of the 29 campaigns now authors all seven runs (eight where there
+is far ground), so an unwritten slot fails immediately rather than being waved
+through as a known gap. What the writing turned up is that the reason is
+campaign-specific in a way the schedule is not: HUNT is six earths at Calder, eleven
+bagged heads at Wellmere, fourteen ventilators at Riverton and nine spare tapes in
+Mission Control, and the same slot in the same order reads as a different job in each.
+That is the argument for authoring the reason at all — the generic `DEFAULT_WORDS`
+render a run that works and a run nobody is doing for a reason.
+
+**`npm run laps <theme>` drives them in the real game, and it found three things
+no check could.** `warmupOrder` asserts the schedule and `worldFormats` asserts the
+formats against a fake world; neither can see `runLap` in `src/main.js`, which is
+the wiring between them. `engine/dev/lapDrive.mjs` boots the actual game in
+headless Chrome, opens the plan on every morning, reads the card, takes the run,
+checks a HUD appeared and gives it up with Esc.
+
+- **EVADE was handed a `quarry` where the format reads `pursuer`.** So `npcById`
+  found nobody, the run started and finished on its first frame, and the lap was
+  marked done — from the plan card indistinguishable from a format that does not
+  exist. One word. Both EVADE and TAG now **refuse to start** with nobody in them,
+  because a run that ends immediately and a run that never mounted look the same,
+  and `main.js`'s own `if(!started) onDone()` then says so out loud. Two selftest
+  cases, and the TAG one needs its **own rig**: `begin` also refuses while a run is
+  already going, so on the shared rig it passed for that reason instead of its own.
+- **All four `warmups:` refusals were recorded below the line that reports them.**
+  The validation sat inside the emit block, which runs *after*
+  `if(problems.length)`, so a slot name that is not one of the seven imported
+  clean and always had. Moved above the gate, and all four are now trapped in
+  `npm run traps` — a refusal nothing exercises is a comment.
+- **The story named a count the run cannot place.** HUNT puts one item at each
+  area entry, so "Eleven bagged heads" on a six-area site is a card that lies
+  about its own run; **twenty of the twenty-nine campaigns were wrong**, and only
+  the HUD ever put the two numbers side by side. All twenty rewritten, the count
+  is now an importer refusal, and `item: { name, plural }` is authorable so the
+  HUD reads "0 of 6 earths" rather than "0 of 6 marker".
+
+Two traps were also firing on the wrong refusal — a BELT mutation that tripped the
+duplicate-name guard and a SPOT one that tripped the wanted-by-every-instruction
+guard before reaching the rule each was written for. Both now say what they meant
+to test. This is the measurement rule again: a trap that fires is not thereby a
+trap that works.
+
+**Ten things a person found by playing the runs, none of which a check could see.**
+They are grouped because they are one lesson: a warm-up is read and walked, and
+everything wrong with it was wrong in a way only that tells you.
+
+- **A finished run said "That is the round" and a summary.** It says *Congrats! You
+  are now ready to start the day* and nothing else — the tally is already on the HUD
+  the player was looking at. And the card that offers a run no longer carries "nothing
+  here is graded, the clock does not start until you take the plan": two sentences of
+  mechanics on the one card whose job is the reason for the run.
+- **TRIAL's gates carried a name board four metres up.** A panel with no post under
+  it reads as a hoarding on the roof of the building it names, and from any angle but
+  head-on it floats. It is gone, and putting the name on the beacon instead only
+  printed it under the building's own sign — so the gate says "here" and the HUD and
+  the map carry the names.
+- **The clock ran up.** A stopwatch with no number to beat is a readout, so TRIAL
+  counts **down**, from the route the gates actually make: nearest-neighbour from the
+  spawn at walking pace with half again on top, capped at fifteen minutes, driven pace
+  on the far lap. Nothing authored — same argument as `budgetForRoute`. A run that
+  ends on the clock is short of gates, and `instruments.js` now refuses to commit a
+  partial order as a route rather than grading it against a full one.
+- **The near lap was handed the whole site.** At Planetary Defense — base camp inside
+  200 m, outstations 1.6 km down the ridge — the first morning's lap was the entire
+  range and its countdown came out at **eighty-one minutes**. The tiers already exist;
+  the near lap is `TIERS.near` and the far lap is `TIERS.far`, which is what makes the
+  second lap worth taking.
+- **A windowed map drew nothing for the gates it had cut off.** `mapRadius` is 170 m
+  at Planetary Defense, so the far lap's four gates were simply absent — a lap of
+  ground the map denied existed. A running format's pins now get the edge arrows that
+  buildings and wanted people already had, first in the queue.
+- **The day's own markers stayed up during a run.** The waypoint post over the next
+  building, the cones over the next person — the one thing in these games allowed to
+  draw through walls — and the "Still open" banner, all pointing at work that has
+  nothing to do with the run. `showDayMarkers(false)` for the length of it, in one
+  call because there are three of them in three files and a fourth would be
+  forgotten. Both run HUDs also moved out of the stat bar they were sitting on.
+- **GREET labelled people with a four-letter area code.** `OPS`, `TRI`, `SONAR` — what
+  the save file needs, not what a person would say about themselves. The subtitle over
+  somebody's head is their `role`. Two roster entries had a department where the job
+  should be (*Metering & Standards*, *Load Forecasting*) and read as nonsense the
+  moment anything printed them in a sentence.
+- **The cards promised everybody.** GREET's target is about 70% of the roster, and
+  eighteen books said "put a name to everybody" — the run then ends with the job
+  apparently half done. All of them now ask for as many as you can get round.
+- **A card named a stranger.** "Farrow wants you known to both" is read on the first
+  morning of the campaign, when nobody is anybody yet. Every name a warm-up uses is
+  introduced on that card, with the job beside it, and `warmupOrder` fails a campaign
+  that does not — four accepted shapes (apposition, full name, role-then-name, or a
+  verb that states the job). Two selftest cases exist because the first version passed
+  for the wrong reason: `Dr.` read as a first name, so "Dr. Patel has the notes"
+  counted as a full-name introduction while saying nothing about what she does.
+- **TAG and EVADE inherited whatever gap the crowd had wandered into.** On Blackout's
+  day 15 the quarry was standing two metres from the spawn, so the run was won on its
+  first frame — the same "already over" failure as the wrong spec key, arriving through
+  geometry instead of wiring. Both now set the gap up: a quarry too close is stood back
+  to twelve metres, a pursuer who starts clear is brought inside the ring, and a person
+  already at a fair distance is left alone, because teleporting somebody the player can
+  see is worse than the problem.
+
+**`export-book.mjs` was lossy in a way that only shows when you need it.** It knew
+the six formats that predate the instrument registry, so a book recovered from a
+game came back with **every instrument board deleted** — and with no `guide`, no
+`background` and no `warmups`, which is the whole of the card sweep and the whole of
+the run stories. This was found the worst way: `git checkout` on a book with a day's
+uncommitted work in it, and the recovery path was the only way back. ContamCity was
+recovered and is parity-clean, at the cost of the book's comments and its line
+wrapping. The exporter now writes each format's own block by name — `g[format]`, so
+a twenty-first instrument exports the day it is authored — plus `guide`,
+`background`, `rules`, `hint`, `goals`, `concept` and `warmups`. **A recovery path
+nobody has exercised is not a recovery path**, and the way to exercise this one is
+export → import → `bookParity`, which is now the documented test of it.
+
+**The junior editions do not inherit the senior's warm-ups**, and `derive-edition`
+does not carry the block across. The prose has to come down two grades like every
+other paragraph in the edition, and a `why` written for an AP reader is exactly the
+demand-stays-put failure this file records three times over. Junior Blackout's HUNT
+says the same thing as its parent's in half the words; Hospital's, at grade 2, is
+one clause per sentence.
 
 ## A mission is a day, and a day is a countdown
 
@@ -566,10 +1542,16 @@ Each mission is now one working day:
   under half the day. Spread-out days get more hours; a day that never leaves
   one building gets the floor of five. Move a building and the budget follows.
 - **Time runs in real time, one game minute a second** while the player is
-  walking or driving, and **a quarter of that while a panel is open**
-  (`PANEL_PACE`). Nothing is charged. Thinking is not free — but reading the
-  evidence is the part the games are about, and at full rate a Diagnosis panel
-  costs more of the day than the walk to reach it.
+  walking, driving or flying, and **stops dead while a panel is open**
+  (`PANEL_PACE`, now 0 in every game). Nothing is charged. It was a quarter rate
+  for most of this engine's life, on the argument that thinking is not free, and
+  that argument was about the wrong thing: **the clock exists to make the route a
+  decision** — which calls to take, in what order, how far to walk, who to talk
+  to on the way — and none of that is happening while a question is up. What the
+  quarter rate actually charged was reading the evidence, hardest of all to the
+  player who most needed to re-read the scene. Time is spent getting places, not
+  spent reading. Nothing else about the day changed: the budget still comes from
+  the route, a day still ends, running out still restarts it.
 - **The stops are open in any order.** `openStopIndices()` is the truth;
   `nextMissionStopIndex` survives only as "the first still open". Every open
   room's case beacon is lit at once and the map outlines all of them.
@@ -657,6 +1639,130 @@ wrote, at load, for every theme — so a re-import cannot lose it.
   dust-storm sol against seven loads that want more than that between them — and
   `npm run drive redsand` drives it right and wrong. The other fourteen author
   none, which is content work rather than engine work.
+- **Seven formats are graded against the place rather than against a board.**
+  TRIAL was the first and the exception; GREET (get round a list of people before
+  the hour is out), FOLLOW (stay inside a band behind somebody who will not
+  wait), HUNT (find enough of the same thing, all of them drawn on the map),
+  CANVASS (ask a yes-or-no question until the sample can answer it), EVADE (hold
+  a clear radius for a stretch of time) and TAG (the same test the other way
+  round — close on somebody walking away, which a straight line cannot do,
+  because two people walking the same way close at the *difference* of their
+  paces) followed. The panel is a briefing;
+  pressing the button **suspends** it and hands the player back to the site with
+  the run going on around them. All six share one lifecycle in
+  `engine/world/worldFormats.js` — teleport to the spawn, hang something in the
+  scene, run a clock, watch a distance, tear it down however it ends — because
+  five copies of that is house rule 1 in a new directory. **Four of them borrow a
+  person the crowd already owns** (`npc.scripted`, honoured by `crowd.js`) rather
+  than building a figure, which would draw a look from the world's own seeded
+  generator and move every later draw. **Their trap is one sentence in five
+  currencies**: *a run whose goal is reached by standing still, or by walking to
+  whatever is nearest, asks nothing* — so all five read the theme's `site.js`, as
+  TRIAL's does, and settle it in closed form the way HOLD's does. Eighteen cases in
+  `npm run traps`. And the measurement that matters is the one a browser cannot
+  make: `npm run drive` plays all six through a **stub world** that hands back
+  whatever the play asked for, so it is blind to whether walking up to somebody
+  counts as a greeting or whether EVADE's clock stops while you are caught.
+  `engine/dev/worldFormats.mjs --selftest` is that half, in Node, inside
+  `npm run check` — and its first FOLLOW case passed while measuring the wrong
+  thing, which is why the case that survives is walking at the guide's shoulder.
+- **Five more formats are fun first, and they are in the same registry on
+  purpose.** BELT — a binary category sorted against a line that speeds up —
+  TRIAL — the theme's own world, driven through gates and graded on the order
+  rather than the clock — HOLD — one quantity held inside a closing band while
+  scripted loads push it out — SPOT — a standing instruction replaced mid-run
+  without announcement — STACK — the `spectrum_stack.html` port, a question
+  rail over a filling well where a wrong answer packs a row — and LOB — angle and
+  charge against a mark, with the launch speed deliberately withheld so it cannot
+  be computed — did not come from the six documents. The move it renders is the *player's* rather than the
+  scientist's, and it exists because a stop a child replays is worth as much as
+  one a specification asked for. `gamekit/ARCADE.md` is the argument and the plan
+  for one more, and `ARCADE.md` §16 is the argument that FLOW as specified should
+  not be one of them. They are entries in
+  `INSTRUMENTS`, not a second system, because a second registry is a second thing
+  **STACK is suspended** — reported broken in play, and `SUSPENDED_FORMATS` in
+  `engine/content/normalize.js` is the list that says so. A suspended format keeps
+  its panel, its METHOD line and its traps; what is refused is *authoring* one, at
+  both ends — `import-book.mjs` fails the stop and `validateContent` fails a theme
+  that ships one through a stale generated file. `books/instruments.yml` keeps its
+  STACK stop commented rather than deleted, because deleting it would mean
+  rewriting the bank to lift the suspension, and `npm run traps` skips its four
+  cases *out loud* rather than passing them vacuously — a blanket refusal would
+  otherwise satisfy every "the importer refuses this" assertion for the wrong
+  reason. Lifting it is deleting one line.
+  `questionUI`, `fieldCoverage`, `instrumentGoals`, `instrumentTraps`,
+  `instruments.html` and `instrumentDrive` each have to learn about — and six
+  tools learning a special case is how the engine got forked the first time.
+  **The line it must not cross is rule 3, difficulty is judgment never
+  dexterity**: speed is the pressure and accuracy is the grade, so
+  `ctx.commit(ok)` fires on the fraction sorted right and never on the score.
+  **SPOT is the argued exception**: the cost of a withdrawn instruction is
+  measured in seconds and a version with no clock measures nothing, so it weights
+  the seconds either side of a change while refusing to grade reaction speed —
+  and for Sightline that is the AP Psychology syllabus rather than flavour.
+  Two new pieces of engine came with it and both are general: `playSurface.js`,
+  a canvas that repaints every frame and pauses itself when the tab
+  backgrounds — `figures.js` draws a picture once, which is the wrong shape for
+  anything that moves — and `ctx.onClose(fn)`, the first teardown hook a panel
+  has ever had, because `bind()` returns nothing and a frame loop nobody cancels
+  draws into a detached canvas for the rest of the session. TRIAL needed three
+  more, all optional and all absent in every harness: `ctx.world`,
+  `ctx.suspend()` and `ctx.resume(html)`, so a format can hand the player back to
+  the place they are standing in and take the panel down while they drive.
+  `engine/world/trial.js` owns the gates and knows nothing about the right order;
+  `instruments.js` still imports no three.js, which is what keeps it loadable in
+  Node and on a page with no scene.
+- **A gate is not a building's centre, and a screenshot is the only thing that
+  said so.** TRIAL gates resolved by building id were placed at `x, z` — the
+  middle of the building — so every ring rendered under the floor with its beacon
+  inside the roof, and a solid collider stood between the player and all of them.
+  The importer's geometry check passed, the driver passed, the run completed and
+  the order came back correct, **because every harness teleports**. Gates now
+  stand off the door by `d / 2 + 10` on `kit.js`'s own `facing` convention. The
+  same lesson as the gable roof, in a feature whose entire content is where
+  things are.
+- **A frame count is not a clock, and a `requestAnimationFrame` promise is not
+  guaranteed to settle.** Both cost a day on HOLD, and both are in
+  `instrumentDrive.mjs` rather than in any game. The driver budgeted a 45-second
+  run at 4200 frames on the assumption of 60 fps; headless Chrome ran at 123, so
+  it bought 34 seconds and reported a working format as broken. And a headless
+  page sitting behind twenty mounted panels stops being given frames at all, so a
+  bare await on rAF never resolves and the whole driver hangs at 0% CPU with
+  nothing printed. Waits are bounded by wall time and raced against a timer now,
+  and a format whose panel runs for authored seconds is driven on a **rescaled
+  copy** — HOLD's physics is rate × time, so every time ÷ 15 and every rate × 15
+  traces the same curve through the same band in three seconds. Any future format
+  that runs on its own clock needs the same treatment.
+- **Ask what a player who understood nothing would score, before believing any
+  pass mark.** Three formats in a row shipped a first version that was too
+  generous in the same way, and the wrong-answer path in `npm run drive` is what
+  caught each one. SPOT's was the sharpest: scoring every item on the board, a
+  run that went on applying the *withdrawn* instruction scored 86% and passed,
+  because most of what arrives is wanted by neither instruction and is correctly
+  ignored by somebody who has understood nothing. Only the **discriminating**
+  items are scored now — wanted by the instruction in force, wanted by the one it
+  replaced, or taken by the player — and the same run scores 55%.
+- **A step in the load is a step in the rate.** HOLD's whole subject, and the
+  reason its trap can be settled in closed form: integrate the authored
+  disturbances with the control untouched and compare the *fraction* of the run
+  inside the band against the pass mark. The first version asked only "does the
+  needle ever leave", which a board a player passes by doing nothing satisfies —
+  the same too-weak-measurement mistake as everything else in this file.
+- **The day's clock is stopped while any panel is open, in every game.**
+  `PANEL_PACE` in `day.js` is the one number; it is 0, and putting 0.25 back
+  charges every panel again. BELT is what made the case — a format with its own
+  rising pressure running against a day that also ran down charges the player
+  twice — and the same objection turned out to hold for a Diagnosis panel with
+  six readings and for any junior edition whose reader is eleven. A format may
+  also declare `pausesClock: true`, which BELT does; that is redundant today and
+  kept deliberately, so that restoring the global rate cannot silently un-fix the
+  format the decision was made for. **`tickDay` read `pace > 0 ? pace : 1`**, so
+  the one value meaning "stop" was the one value that ran at full speed — every
+  caller would have looked correct while the day drained four times faster behind
+  a panel than while walking. Zero is a rate now; only negative and non-finite
+  fall back. In a room the clock is the server's, so the client says so through
+  `setPanel(open, frozen)` — additive, ignored by a casebook that has not
+  deployed the other half, which degrades to the server's own panel rate.
 - **Every instrument carries a trap, and the trap is an importer check.** A
   cloud whose pass mark a re-target reaches, an allocation board affordable
   whole, a chain whose distractor governs, a verify whose every prediction is
@@ -675,6 +1781,31 @@ wrote, at load, for every theme — so a re-import cannot lose it.
   `engine/dev/instruments.html` draws every one in a theme on a single page, which
   is the only sane way to look at them — reaching one in the game means playing to
   the right day with time left on the clock.
+- **A panel that grades against a number has to print that number, and a panel
+  that simulates has to let you simulate twice.** Both halves were found by one
+  player on one stop. Bring Them Home's FLY graded a pulse-and-brake plan against
+  four criteria — arrive at 90 ± 3 degrees, be turning under 1 deg/s when you get
+  there, spend no more than 16 s of thruster — and printed none of them until
+  after the *single* run it allowed; the target line was parked off-canvas until
+  then. So the player set two sliders with no idea what either was for, watched a
+  trace, and was finished. Every check was green, because every check reads the
+  book and the book had all four numbers in it.
+  **The distinction that makes this safe** is against rule 2 in
+  `instruments.js` — *the panel never prints the target*. The target there is the
+  **answer**; a goal is the **constraint the answer is written against**, and
+  they are not the same object. Print "at least 95% inside the corridor"; never
+  print BALANCE's total, which *is* the answer. And grading slack on a value the
+  player reports — a BALLPARK tolerance, a VERIFY band, a HOLDOUT pass mark —
+  stays unprinted: knowing it changes nothing about how you get there and invites
+  aiming at the edge of it. `engine/dev/instrumentGoals.mjs` is the check, with a
+  selftest, and it fired on four panels the first time it ran.
+  **The second half cost a leak nobody was looking for.** CONTROL's commit button
+  was gated on having isolated *the culprit* and reversed it — so the button
+  lighting up announced which machine was the answer, rule 1 broken by the
+  enabling rule of a button. The gate is now about the variable the player has
+  **named**: isolate it, put it back, then commit. A greyed-out button is only
+  fair when the panel says what is missing, which is what the strip under the
+  rows now does.
   **CHOICE exists because importers guess.** An activity that is a plain
   multiple-choice question gets typed as the nearest format the importer knows,
   which is how the hospital ended up with 36 "diagnoses" that had no instrument

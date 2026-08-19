@@ -427,7 +427,11 @@ for(const [group, lessons] of Object.entries(CURRICULUM)){
       TRACE: 'trace', ATTEST: 'attest', CONTROL: 'control', TRIANGULATE: 'triangulate',
       DEGENERACY: 'degeneracy', CHAIN: 'chain', BALANCE: 'balance', VERIFY: 'verify',
       PROPAGATE: 'propagate', STRESS: 'stress', DELEGATE: 'delegate', FLY: 'fly',
-      RESIDUAL: 'residual', INJECT: 'inject', ROUTE: 'route' };
+      RESIDUAL: 'residual', INJECT: 'inject', ROUTE: 'route',
+      BELT: 'belt', TRIAL: 'trial', HOLD: 'hold', SPOT: 'spot', STACK: 'stack',
+      LOB: 'lob',
+      GREET: 'greet', FOLLOW: 'follow', HUNT: 'hunt', CANVASS: 'canvass', EVADE: 'evade',
+      TAG: 'tag' };
     if(INST[kind]){
       const b = l.game?.[INST[kind]];
       if(!b) fail(`${at}: ${kind} with no \`${INST[kind]}\` block — it renders un-answerable`);
@@ -437,7 +441,12 @@ for(const [group, lessons] of Object.entries(CURRICULUM)){
         const num = (v) => Number.isFinite(+v);
         if(kind === 'TRIGGER'){
           const top = Math.max(...(b.stream ?? []).map(x => +x.value));
-          if(!((b.conditions ?? []).length >= 2)) fail(`${at}: a trigger needs at least two stages`);
+          // One rule to a board — see the note on the same check in import-book.mjs.
+          // Two stages made a scheduling exercise out of a single idea.
+          if((b.conditions ?? []).length !== 1){
+            fail(`${at}: a trigger board is one rule, and this one has `
+              + `${(b.conditions ?? []).length}`);
+          }
           if(!(+b.scale?.max > top)) fail(`${at}: every trigger threshold fires — the scale has to`
             + ` reach above the stream's highest value (${top})`);
           for(const c of b.conditions ?? []){
