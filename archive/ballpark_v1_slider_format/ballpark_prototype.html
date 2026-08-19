@@ -1,0 +1,219 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ballpark</title>
+<style>
+:root{--paper:#fbfaf7;--ink:#1a1a1a;--gray:#5b5b5b;--line:#dcd8d0;--accent:#2f6f8f;
+  --m1:#e3a72f;--m2:#2e8b7a;--m3:#8a6fb0;--good:#1a7a4c;--bad:#b0402f;--mut:#efece6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.5}
+.wrap{max-width:760px;margin:auto;padding:26px 20px 80px}
+.kick{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray);font-family:-apple-system,Helvetica,Arial,sans-serif}
+h1{font-size:30px;margin:.1em 0 .05em}
+.q{font-size:20px;font-weight:700;margin:10px 0 4px}
+.sub{color:var(--gray);font-size:14.5px;margin:0 0 14px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+.cards{display:grid;gap:12px;margin-top:16px}
+.card{border:1px solid var(--line);background:#fff;border-radius:12px;padding:16px 18px;cursor:pointer}
+.card:hover{border-color:var(--accent)}.card .qt{font-size:18px;font-weight:700}.card .cd{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:12.5px;color:var(--gray);margin-top:3px}
+.sans{font-family:-apple-system,Helvetica,Arial,sans-serif}
+.pool{border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px 14px;margin-bottom:16px}
+.pool .hd{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-bottom:8px}
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.tile{border:1px solid var(--line);background:#fdfcfa;border-radius:10px;padding:10px 12px;cursor:grab;text-align:left;transition:border-color .12s,background .12s}
+.tile:hover{border-color:var(--accent)}.tile.sel{outline:2px solid var(--accent);background:#eef4f7}
+.tile .lb{font-weight:700;font-size:14.5px}.tile .un{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:12px;color:var(--gray);margin-top:2px}
+.eqn{display:flex;align-items:stretch;gap:8px;margin:10px 0;flex-wrap:wrap}
+.slot{flex:1 1 200px;min-width:180px;border:2px dashed var(--line);border-radius:11px;padding:10px 12px;background:#fff;min-height:70px}
+.slot.filled{border-style:solid;background:#fbfaf7}
+.slot.over{border-color:var(--accent);background:#eef4f7}
+.slot .empty{color:var(--gray);font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;display:grid;place-items:center;height:48px}
+.slot .sname{font-weight:700;font-size:14px;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.slot .sname .x{border:0;background:none;cursor:pointer;color:var(--bad);font-size:14px}
+.slot .row{display:flex;gap:8px;align-items:center;margin-top:5px}
+.slot input[type=range]{flex:1;accent-color:var(--accent)}
+.slot .fv{flex:none;width:70px;text-align:right;font-weight:800;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px}
+.optog{flex:none;align-self:center;width:44px;height:44px;border:1px solid var(--ink);background:#fff;border-radius:10px;font-size:22px;font-weight:800;cursor:pointer}
+.eqtail{flex:none;align-self:center;display:flex;align-items:center;gap:8px;font-weight:800}
+.eqtail .eq{font-size:22px}
+.eqres{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:15px;min-width:110px}
+.vflag{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:12px;margin-left:4px}
+.vflag.ok{color:var(--good)}.vflag.no{color:var(--bad)}
+.controls{display:flex;gap:10px;align-items:center;margin-top:14px;flex-wrap:wrap}
+.btn{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:15px;padding:10px 18px;border:1px solid var(--ink);background:var(--ink);color:#fff;border-radius:8px;cursor:pointer}
+.btn.ghost{background:#fff;color:var(--ink)}.btn:disabled{opacity:.35;cursor:default}
+.conv{margin-top:10px;padding:10px 13px;border-radius:9px;background:var(--mut);font-size:14.5px}.conv b{color:var(--accent)}
+.hintbox{background:var(--mut);border-radius:9px;padding:11px 13px;margin-top:10px;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:14px}
+.reveal{border:1px solid var(--line);background:#fff;border-radius:14px;padding:18px 20px;margin-top:10px}
+.reveal h2{margin:0 0 6px;font-size:24px}.reveal .truth{font-size:15px;color:var(--gray);font-family:-apple-system,Helvetica,Arial,sans-serif}
+.rrow{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding:9px 0;font-size:14px;font-family:-apple-system,Helvetica,Arial,sans-serif}
+.rrow .lab{font-weight:700}.rrow .exp{color:var(--gray)}.dotp{color:var(--good);font-weight:800}
+.score{font-size:40px;font-weight:800;margin:12px 0 2px}
+.take{border-left:3px solid var(--accent);background:#eef4f7;padding:11px 14px;border-radius:8px;margin-top:12px;font-size:15px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="wrap">
+<div class="kick">Ballpark · estimation</div>
+<h1>Ballpark</h1>
+<div id="app"></div>
+</div>
+<script>
+const QUESTIONS = [
+ { id:'stations', q:"How many gas stations are in the United States?", target:'station', unitName:'stations',
+   trueVal:145000, trueLabel:"≈ 145,000 gas stations", cd:"everyday · people · cars · towns",
+   blocks:[
+    {id:'pop', lb:'U.S. population',       un:'people',           unit:{n:['person'],d:[]},          exp:340e6, lo:1e6,hi:1e9},
+    {id:'pps', lb:'People per station',    un:'people / station', unit:{n:['person'],d:['station']}, exp:2300,  lo:1e2,hi:1e5},
+    {id:'cars',lb:'Registered cars',       un:'cars',             unit:{n:['car'],d:[]},             exp:290e6, lo:1e6,hi:1e9},
+    {id:'cps', lb:'Cars per station',      un:'cars / station',   unit:{n:['car'],d:['station']},    exp:2000,  lo:1e2,hi:1e5},
+    {id:'town',lb:'Number of U.S. towns',  un:'towns',            unit:{n:['town'],d:[]},            exp:19000, lo:1e3,hi:1e6},
+    {id:'spt', lb:'Stations per town',     un:'stations / town',  unit:{n:['station'],d:['town']},   exp:7,     lo:1,hi:1e3},
+    {id:'gpy', lb:'Gallons sold per year', un:'gallons / year',   unit:{n:['gallon'],d:['year']},    exp:1.35e11,lo:1e9,hi:1e12},
+    {id:'mi',  lb:'Miles of U.S. road',    un:'miles',            unit:{n:['mile'],d:[]},            exp:4.2e6, lo:1e5,hi:1e8} ] },
+
+ { id:'bible', q:"How many letters are in the Bible (King James)?", target:'letter', unitName:'letters',
+   trueVal:3.1e6, trueLabel:"≈ 3.1 million letters", cd:"humanities · words · verses · pages",
+   blocks:[
+    {id:'words', lb:'Words in the Bible',      un:'words',           unit:{n:['word'],d:[]},          exp:783000, lo:1e4,hi:1e7},
+    {id:'lpw',   lb:'Letters per word',        un:'letters / word',  unit:{n:['letter'],d:['word']},  exp:4,      lo:1,hi:1e2},
+    {id:'verses',lb:'Verses in the Bible',     un:'verses',          unit:{n:['verse'],d:[]},         exp:31100,  lo:1e3,hi:1e6},
+    {id:'lpv',   lb:'Letters per verse',       un:'letters / verse', unit:{n:['letter'],d:['verse']}, exp:100,    lo:1e1,hi:1e4},
+    {id:'pages', lb:'Pages in a print Bible',  un:'pages',           unit:{n:['page'],d:[]},          exp:1200,   lo:1e2,hi:1e5},
+    {id:'lpp',   lb:'Letters per page',        un:'letters / page',  unit:{n:['letter'],d:['page']},  exp:2600,   lo:1e2,hi:1e5},
+    {id:'trans', lb:'English translations',    un:'translations',    unit:{n:['translation'],d:[]},   exp:100,    lo:1,hi:1e4},
+    {id:'span',  lb:'Years the text spans',    un:'years',           unit:{n:['year'],d:[]},          exp:1500,   lo:1e2,hi:1e4} ] },
+
+ { id:'pyramid', q:"How many stone blocks are in the Great Pyramid of Giza?", target:'block', unitName:'blocks',
+   trueVal:2.3e6, trueLabel:"≈ 2.3 million blocks", cd:"history · volume · mass · courses",
+   blocks:[
+    {id:'vol',    lb:'Volume of the pyramid',   un:'cubic meters',    unit:{n:['m3'],d:[]},           exp:2.6e6, lo:1e5,hi:1e8},
+    {id:'vpb',    lb:'Volume per block',        un:'m³ / block',      unit:{n:['m3'],d:['block']},    exp:1.1,   lo:0.1,hi:1e2},
+    {id:'mass',   lb:'Total mass',              un:'tons',            unit:{n:['ton'],d:[]},          exp:6e6,   lo:1e5,hi:1e8},
+    {id:'mpb',    lb:'Mass per block',          un:'tons / block',    unit:{n:['ton'],d:['block']},   exp:2.5,   lo:0.1,hi:1e2},
+    {id:'courses',lb:'Number of stone courses', un:'courses',         unit:{n:['course'],d:[]},       exp:210,   lo:1e1,hi:1e4},
+    {id:'bpc',    lb:'Blocks per course',       un:'blocks / course', unit:{n:['block'],d:['course']},exp:11000, lo:1e2,hi:1e5},
+    {id:'yrs',    lb:'Years to build',          un:'years',           unit:{n:['year'],d:[]},         exp:20,    lo:1,hi:1e3},
+    {id:'wk',     lb:'Number of workers',       un:'workers',         unit:{n:['worker'],d:[]},       exp:20000, lo:1e2,hi:1e6} ] }
+];
+const OPS=['×','÷','+'];
+
+function net(n,d){ n=n.slice();d=d.slice(); for(let i=n.length-1;i>=0;i--){const j=d.indexOf(n[i]); if(j>=0){n.splice(i,1);d.splice(j,1);}} return {n,d}; }
+const isTarget=(r,t)=>r.n.length===1&&r.n[0]===t&&r.d.length===0;
+const sameUnit=(A,B)=>JSON.stringify([A.unit.n.slice().sort(),A.unit.d.slice().sort()])===JSON.stringify([B.unit.n.slice().sort(),B.unit.d.slice().sort()]);
+function eqUnit(A,op,B){
+  if(op==='×') return net(A.unit.n.concat(B.unit.n), A.unit.d.concat(B.unit.d));
+  if(op==='÷') return net(A.unit.n.concat(B.unit.d), A.unit.d.concat(B.unit.n));
+  return sameUnit(A,B)? net(A.unit.n,A.unit.d) : {n:['+mismatch'],d:[]};   // add only if like units
+}
+const couldWork=(A,B,t)=>{ // any op/order cancels? (for the nudge)
+  return [['×',A,B],['÷',A,B],['÷',B,A]].some(([o,x,y])=>isTarget(eqUnit(x,o,y),t)); };
+const fmt=n=>{if(!isFinite(n))return'—';const a=Math.abs(n),s=v=>(Math.abs(v)<10?v.toFixed(1):Math.round(v)).toString();
+  if(a>=1e12)return s(n/1e12)+'T';if(a>=1e9)return s(n/1e9)+'B';if(a>=1e6)return s(n/1e6)+'M';if(a>=1e3)return s(n/1e3)+'k';return s(n);};
+
+const app=document.getElementById('app');
+let Q=null, eqs=[], vals={}, selBlock=null, hintsUsed=0, revealed=new Set();
+const bk=id=>Q.blocks.find(b=>b.id===id);
+const LO=b=>b.lo!=null?b.lo:Math.max(b.exp/1000,1e-3), HI=b=>b.hi!=null?b.hi:b.exp*1000;
+const unitWord=()=>Q.target==='dollar'?'':' '+Q.unitName;
+const targetWord=()=>Q.target==='dollar'?'dollars':Q.unitName;
+function resetQ(){ eqs=[{a:null,b:null,op:'×'},{a:null,b:null,op:'×'},{a:null,b:null,op:'×'}]; vals={}; selBlock=null; hintsUsed=0; revealed=new Set(); }
+const placedIds=()=>eqs.flatMap(e=>[e.a,e.b]).filter(Boolean);
+const opResult=(a,op,b,va,vb)=> op==='×'?va*vb : op==='÷'?va/vb : va+vb;
+function eqResult(e){ if(!e.a||!e.b)return NaN; const va=vals[e.a],vb=vals[e.b]; if(!isFinite(va)||!isFinite(vb))return NaN; return opResult(e.a,e.op,e.b,va,vb); }
+function eqValid(e){ return e.a&&e.b && isTarget(eqUnit(bk(e.a),e.op,bk(e.b)),Q.target); }
+
+function home(){ Q=null;
+  app.innerHTML=`<div class="sub">Nobody knows these cold. Estimate them by breaking the question into factors, several independent ways, and checking the answers agree.</div>
+   <div class="cards">${QUESTIONS.map((x,i)=>`<div class="card" data-i="${i}"><div class="qt">${x.q}</div><div class="cd">${x.cd}</div></div>`).join('')}</div>`;
+  app.querySelectorAll('.card').forEach(c=>c.onclick=()=>{Q=QUESTIONS[+c.dataset.i];resetQ();play();});
+}
+
+function play(){
+  const pool=Q.blocks.map(b=>b.id).filter(id=>!placedIds().includes(id));
+  app.innerHTML=`
+   <div class="q">${Q.q}</div>
+   <div class="sub">Drag factors into the three equations so the <b>units cancel to “${targetWord()}”</b> (tap the operator to change × ÷ +), then slide each estimate until the three answers <b>agree</b>. Two tiles are decoys.</div>
+   <div class="pool"><div class="hd">Factors — drag into an equation</div>
+     <div class="tiles">${pool.map(id=>{const b=bk(id);return `<div class="tile ${selBlock===id?'sel':''}" draggable="true" data-id="${id}"><div class="lb">${b.lb}</div><div class="un">${b.un}</div></div>`;}).join('')||'<div class="sub" style="margin:0">all factors placed</div>'}</div>
+   </div>
+   ${eqs.map((e,i)=>eqRow(e,i)).join('')}
+   <div id="spread"></div><div id="hint"></div>
+   <div class="controls">
+     <button class="btn" id="reveal" ${eqs.every(eqValid)?'':'disabled'}>See how close →</button>
+     <button class="btn ghost" id="hintbtn" ${placedIds().length?'':'disabled'}>Hint · check a factor</button>
+     <button class="btn ghost" id="home">↩ questions</button>
+   </div>`;
+  // pool: drag + click-select
+  app.querySelectorAll('.tile').forEach(t=>{
+    t.ondragstart=ev=>ev.dataTransfer.setData('text',t.dataset.id);
+    t.onclick=()=>{selBlock=selBlock===t.dataset.id?null:t.dataset.id;play();};
+  });
+  // slots: drop + click-place
+  app.querySelectorAll('.slot').forEach(sl=>{
+    sl.ondragover=ev=>{ev.preventDefault();sl.classList.add('over');};
+    sl.ondragleave=()=>sl.classList.remove('over');
+    sl.ondrop=ev=>{ev.preventDefault();place(ev.dataTransfer.getData('text'),+sl.dataset.eq,sl.dataset.pos);};
+    sl.onclick=ev=>{ if(ev.target.closest('input,.x'))return; if(selBlock) place(selBlock,+sl.dataset.eq,sl.dataset.pos); };
+  });
+  app.querySelectorAll('.x').forEach(x=>x.onclick=()=>{const [i,p]=x.dataset.rm.split('-');eqs[+i][p]=null;play();});
+  app.querySelectorAll('.optog').forEach(o=>o.onclick=()=>{const e=eqs[+o.dataset.eq];e.op=OPS[(OPS.indexOf(e.op)+1)%3];play();});
+  app.querySelectorAll('input[type=range]').forEach(s=>s.oninput=()=>{const b=bk(s.dataset.id);vals[s.dataset.id]=LO(b)*Math.pow(HI(b)/LO(b),s.value/1000);document.getElementById('fv_'+s.dataset.id).textContent=fmt(vals[s.dataset.id]);recompute();});
+  document.getElementById('reveal').onclick=reveal;
+  document.getElementById('hintbtn').onclick=doHint;
+  document.getElementById('home').onclick=home;
+  recompute();
+}
+function slotHTML(e,i,pos){
+  const id=e[pos];
+  if(!id) return `<div class="slot" data-eq="${i}" data-pos="${pos}"><div class="empty">drop a factor</div></div>`;
+  const b=bk(id); if(vals[id]==null)vals[id]=Math.sqrt(LO(b)*HI(b));
+  const t=Math.log(vals[id]/LO(b))/Math.log(HI(b)/LO(b));
+  return `<div class="slot filled" data-eq="${i}" data-pos="${pos}">
+    <div class="sname">${b.lb}<button class="x" data-rm="${i}-${pos}">✕</button></div>
+    <div class="un sans" style="font-size:12px;color:var(--gray)">${b.un}</div>
+    <div class="row"><input type="range" min="0" max="1000" value="${Math.round(t*1000)}" data-id="${id}"><span class="fv" id="fv_${id}">${fmt(vals[id])}</span></div></div>`;
+}
+function eqRow(e,i){
+  const filled=e.a&&e.b, ok=eqValid(e);
+  let flag=''; if(filled) flag = ok?'<span class="vflag ok">✓ units → '+targetWord()+'</span>'
+    : (couldWork(bk(e.a),bk(e.b),Q.target)?'<span class="vflag no">✕ close — try another operator or swap</span>':'<span class="vflag no">✕ units don\'t cancel</span>');
+  return `<div class="eqn">${slotHTML(e,i,'a')}
+    <button class="optog" data-eq="${i}">${e.op}</button>
+    ${slotHTML(e,i,'b')}
+    <div class="eqtail"><span class="eq">=</span><span class="eqres" id="res_${i}">${filled&&ok?fmt(eqResult(e))+unitWord():'?'}</span>${flag}</div></div>`;
+}
+function place(id,i,pos){ if(!id)return; eqs.forEach(e=>{if(e.a===id)e.a=null;if(e.b===id)e.b=null;}); eqs[i][pos]=id; selBlock=null; play(); }
+function recompute(){
+  eqs.forEach((e,i)=>{const el=document.getElementById('res_'+i); if(el&&eqValid(e))el.textContent=fmt(eqResult(e))+unitWord();});
+  const el=document.getElementById('spread'); if(!el)return;
+  const rs=eqs.filter(eqValid).map(eqResult).filter(isFinite);
+  if(rs.length===3){const sp=Math.max(...rs)/Math.min(...rs);
+    el.innerHTML=`<div class="conv">Your three answers span <b>${sp.toFixed(1)}×</b> — ${sp<2?'tight, they agree.':sp<5?'getting close — nudge them together.':'far apart — one factor is off.'}</div>`;}
+  else el.innerHTML='';
+}
+function doHint(){
+  const fids=[...new Set(placedIds())].filter(f=>isFinite(vals[f])&&!revealed.has(f));
+  const box=document.getElementById('hint');
+  if(!fids.length){box.innerHTML='<div class="hintbox">Place factors and set them first.</div>';return;}
+  const w=fids.map(f=>{const e=bk(f).exp,v=vals[f];return{f,dev:Math.max(v/e,e/v),hi:v>e};}).sort((a,b)=>b.dev-a.dev)[0];
+  hintsUsed++;revealed.add(w.f);const b=bk(w.f);
+  box.innerHTML='<div class="hintbox"><b>Hint</b> (−2 pts): '+(w.dev<1.5?`Your <b>${b.lb}</b> looks about right.`:`Your <b>${b.lb}</b> looks <b>${w.hi?'too high':'too low'}</b> — slide it ${w.hi?'lower':'higher'}.`)+'</div>';
+}
+function reveal(){
+  const T=Q.trueVal, results=eqs.map(eqResult);
+  const fold=r=>isFinite(r)?Math.max(r/T,T/r):Infinity, ptsOf=f=>f<2?3:f<5?2:f<10?1:0;
+  let pts=results.reduce((s,r)=>s+ptsOf(fold(r)),0);
+  const fin=results.filter(isFinite), spread=fin.length===3?Math.max(...fin)/Math.min(...fin):Infinity;
+  const conv=spread<3; if(conv)pts+=2; const penalty=hintsUsed*2; pts=Math.max(0,pts-penalty);
+  app.innerHTML=`<div class="reveal"><div class="kick">the reveal</div><h2>${Q.trueLabel}</h2>
+    <div class="truth">Every method should land near this. Your three roads:</div>
+    ${eqs.map((e,i)=>{const a=bk(e.a),b=bk(e.b),r=results[i],f=fold(r),p=ptsOf(f),ex=opResult(e.a,e.op,e.b,a.exp,b.exp);
+      return `<div class="rrow"><span class="lab" style="color:var(--m${i+1})">${a.lb} ${e.op} ${b.lb}</span>
+        <span>you: <b>${fmt(r)}</b> ${p?`<span class="dotp">+${p}</span>`:`<span style="color:var(--bad)">off ${isFinite(f)?Math.round(f)+'×':''}</span>`}</span>
+        <span class="exp">expert ≈ ${fmt(ex)}</span></div>`;}).join('')}
+    <div class="conv">${conv?`<b>Convergence bonus +2.</b> Your three methods agree to within ${spread.toFixed(1)}× — independent roads landing together means you can trust the number.`:`Your methods spread over ${isFinite(spread)?spread.toFixed(0)+'×':'a wide range'}. When independent estimates disagree, one factor is off.`}</div>
+    <div class="score">${pts} / 11</div>${hintsUsed?`<div class="sub" style="margin:0">−${penalty} for ${hintsUsed} hint${hintsUsed>1?'s':''}</div>`:''}
+    <div class="take"><b>The move:</b> build the estimate as an equation whose units cancel, dial each factor on a log scale, and check that independent methods converge.</div>
+    <div class="controls"><button class="btn" id="again">Try again</button><button class="btn ghost" id="home">↩ other questions</button></div></div>`;
+  document.getElementById('again').onclick=()=>{resetQ();play();};
+  document.getElementById('home').onclick=home;
+}
+home();
+</script></body></html>

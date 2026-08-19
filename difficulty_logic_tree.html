@@ -1,0 +1,156 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Difficulty as a logic tree</title>
+<style>
+:root{--bg:#07121d;--line:#385b70;--text:#eef7fb;--muted:#afc2cd;--blue:#70c9f2;--steel:#2e77a4;
+  --gold:#efca72;--green:#78d69a;--red:#ff9292;--orange:#f0ad67}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:radial-gradient(circle at 12% 0%,rgba(47,116,164,.28),transparent 31%),linear-gradient(180deg,#05101a,#0a1f30 55%,#05101a)}
+.wrap{max-width:960px;margin:auto;padding:24px 20px 70px}
+.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);font-weight:900}
+h1{font-size:28px;margin:6px 0 4px;letter-spacing:-.02em}
+.sub{color:var(--muted);margin:0 0 6px;font-size:15px;line-height:1.55;max-width:760px}
+.case{font-size:14px;color:#d8e7ef;border-left:3px solid var(--gold);background:rgba(239,202,114,.07);padding:9px 12px;border-radius:8px;margin:12px 0 16px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tab{border:1px solid var(--line);background:#12304559;color:var(--text);padding:10px 16px;border-radius:9px;cursor:pointer;font:inherit;font-size:14px;font-weight:700}
+.tab:hover{background:#1c3f58}.tab.on{background:#2e77a4;border-color:#4d95bf}
+.tab small{display:block;font-weight:400;color:var(--muted);font-size:11px;margin-top:2px}
+.tab.on small{color:#dbeaf2}
+.panel{border:1px solid var(--line);background:rgba(13,34,51,.9);border-radius:16px;padding:14px 16px}
+svg{width:100%;height:auto;display:block}
+.cap{font-size:14.5px;line-height:1.6;color:#d8e7ef;margin:14px 0 0}
+.cap b{color:var(--gold)}
+.sel{margin-top:14px;border:1px dashed var(--line);border-radius:12px;padding:14px 16px;background:#0d2233}
+.sel h3{margin:0 0 10px;font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--blue)}
+.selrow{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;line-height:1.45;margin:8px 0}
+.selrow .h{flex:none;width:150px;color:var(--muted)}
+.selrow .t{min-width:0}.selrow .t b{color:var(--text)}
+.selrow.pick{color:var(--green)} .selrow.pick .h{color:var(--green)} .selrow.pick .t b{color:var(--green)}
+.pill{display:inline-block;font-size:11px;font-weight:800;border-radius:6px;padding:1px 7px;margin-left:6px}
+.pill.pick{background:var(--green);color:#07121d}
+/* svg node styles */
+.enode{fill:#173e59;stroke:var(--steel);stroke-width:1.5}
+.enode.dim{fill:#0e2233;stroke:var(--line);stroke-dasharray:4 3;opacity:.5}
+.enode.pick{stroke:var(--green);stroke-width:2}
+.etxt{fill:var(--text);font-size:11.5px;font-weight:700}
+.eval{fill:var(--orange);font-size:11px;font-weight:800}
+.etxt.dim,.eval.dim{opacity:.55}
+.ans{fill:rgba(120,214,154,.14);stroke:var(--green);stroke-width:2.5}
+.anstxt{fill:var(--green);font-size:14px;font-weight:900;text-anchor:middle}
+.rival{fill:#160e12;stroke:#5a3236;stroke-width:1.3}
+.rivaltxt{fill:var(--red);font-size:11px;font-weight:700;text-anchor:middle;text-decoration:line-through}
+.edge{stroke:var(--green);stroke-width:2.5;fill:none;opacity:.85}
+.edgek{stroke:#5a3236;stroke-width:1.2;fill:none;stroke-dasharray:3 3;opacity:.6}
+.qmark{fill:var(--muted);font-size:14px;font-weight:900;text-anchor:middle}
+</style></head><body><div class="wrap">
+<div class="kicker">Diagnosis · difficulty design</div>
+<h1>Difficulty = how much of the logic tree you're handed</h1>
+<p class="sub">Same case, same right answer. What changes across levels is how many lines of reasoning you're
+given — and whether you have to <i>choose</i> which evidence to look at.</p>
+<div class="case"><b>The case:</b> a reactor tripped, and RCS pressure is falling. Four possible causes —
+<b>loss-of-coolant accident (LOCA)</b>, lost heat sink, a faulted instrument, or a normal post-trip transient.
+Which is it?</div>
+
+<div class="tabs" id="tabs">
+  <button class="tab on" data-m="easy">Easy<small>many lines converge</small></button>
+  <button class="tab" data-m="medium">Medium<small>one discriminating line</small></button>
+  <button class="tab" data-m="hard">Hard<small>one line — if you choose it</small></button>
+</div>
+
+<div class="panel">
+  <svg id="tree" viewBox="0 0 640 360" role="img" aria-label="Diagnostic logic tree"></svg>
+  <div class="cap" id="cap"></div>
+  <div id="sel"></div>
+</div>
+
+<script>
+// Evidence for the LOCA case. kills = rivals it rules out.
+const EV=[
+ {id:'sump', label:'Containment sump', val:'rising', kills:['heat','inst','trans'],
+   confirms:'coolant is physically leaving the loop', y:26},
+ {id:'pressure', label:'RCS pressure', val:'falling', kills:['heat'], alarm:true,
+   confirms:'consistent with a leak', y:92},
+ {id:'level', label:'Pressurizer level', val:'falling', kills:[],
+   confirms:'consistent with a leak', y:158},
+ {id:'sg', label:'Steam generator level', val:'normal', kills:['heat'],
+   confirms:'', y:224},
+ {id:'redun', label:'Redundant pressure channel', val:'agrees', kills:['inst'],
+   confirms:'', y:290}
+];
+const RIVALS=[{id:'heat',label:'Lost heat sink',y:60},{id:'inst',label:'Instrument fault',y:150},{id:'trans',label:'Normal transient',y:240}];
+const ANS={x:330,y:150,w:150,h:66};   // LOCA box
+const EX=15, EW=200, EH=50;           // evidence column
+const RX=505, RW=120, RH=40;          // rivals
+
+// which evidence is "active" (contributing lines) per mode
+const ACTIVE={ easy:['sump','pressure','level','sg','redun'], medium:['pressure','sump'], hard:['pressure','sump','redun'] };
+const HARD_PICKS=['sump','redun'];    // the two you must choose at Hard (pressure is the free alarm)
+
+let mode='easy';
+const tree=document.getElementById('tree'), cap=document.getElementById('cap'), selEl=document.getElementById('sel');
+const tabs=document.getElementById('tabs');
+tabs.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{mode=b.dataset.m;tabs.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.m===mode));render();});
+
+function render(){
+  const active=ACTIVE[mode];
+  const ansCx=ANS.x+ANS.w/2, ansCy=ANS.y+ANS.h/2;
+  let s='';
+
+  // edges first (behind nodes)
+  EV.forEach(e=>{
+    const show = mode==='hard' ? (e.alarm||HARD_PICKS.includes(e.id)) : active.includes(e.id);
+    if(show){ s+=`<path class="edge" d="M${EX+EW},${e.y+EH/2} C ${EX+EW+55},${e.y+EH/2} ${ANS.x-55},${ansCy} ${ANS.x},${ansCy}"/>`; }
+  });
+
+  // evidence nodes
+  EV.forEach(e=>{
+    let cls='enode', tcls='etxt', vcls='eval', locked=false, pick=false;
+    if(mode==='hard'){
+      if(e.alarm){ /* given */ }
+      else if(HARD_PICKS.includes(e.id)){ pick=true; cls+=' pick'; }
+      else { locked=true; cls+=' dim'; tcls+=' dim'; vcls+=' dim'; }
+    } else if(!active.includes(e.id)){ locked=true; cls+=' dim'; tcls+=' dim'; vcls+=' dim'; }
+    s+=`<rect class="${cls}" x="${EX}" y="${e.y}" width="${EW}" height="${EH}" rx="9"/>`;
+    s+=`<text class="${tcls}" x="${EX+12}" y="${e.y+21}">${e.label}</text>`;
+    if(mode==='hard'&&locked){ s+=`<text class="qmark" x="${EX+EW-18}" y="${e.y+30}">?</text>`;
+      s+=`<text class="${tcls}" x="${EX+12}" y="${e.y+39}" style="font-size:10px;fill:var(--muted)">hidden — costs a pull</text>`; }
+    else { s+=`<text class="${vcls}" x="${EX+12}" y="${e.y+39}">reads: ${e.val}</text>`;
+      if(e.alarm) s+=`<text x="${EX+EW-12}" y="${e.y+21}" style="fill:var(--red);font-size:10px;font-weight:800;text-anchor:end">THE ALARM</text>`;
+      if(pick) s+=`<text x="${EX+EW-12}" y="${e.y+21}" style="fill:var(--green);font-size:10px;font-weight:800;text-anchor:end">YOU CHOSE</text>`; }
+  });
+
+  // answer box
+  s+=`<rect class="ans" x="${ANS.x}" y="${ANS.y}" width="${ANS.w}" height="${ANS.h}" rx="12"/>`;
+  s+=`<text class="anstxt" x="${ansCx}" y="${ansCy-4}">LOCA ✓</text>`;
+  s+=`<text x="${ansCx}" y="${ansCy+15}" style="fill:#bfe6cd;font-size:10.5px;text-anchor:middle">the leak</text>`;
+
+  // rivals (all ruled out once active evidence is in)
+  RIVALS.forEach(r=>{
+    s+=`<path class="edgek" d="M${ANS.x+ANS.w},${ansCy} L${RX},${r.y+RH/2}"/>`;
+    s+=`<rect class="rival" x="${RX}" y="${r.y}" width="${RW}" height="${RH}" rx="8"/>`;
+    s+=`<text class="rivaltxt" x="${RX+RW/2}" y="${r.y+25}">${r.label}</text>`;
+  });
+
+  tree.innerHTML=s;
+
+  // captions
+  const caps={
+    easy:`<b>Easy — redundant confirmation.</b> Five readings, and each one independently points at LOCA or rules out a rival. Miss most of them and the survivors still get you there. There is no single make-or-break clue, so it is nearly impossible to go wrong.`,
+    medium:`<b>Medium — one discriminating line.</b> Only the alarm (pressure falling) plus one decisive check — the <b>sump rising</b> — is in play. That single pair rules out all three rivals at once (nothing else makes water pool on the floor). One path to the answer, and you have to find it.`,
+    hard:`<b>Hard — one line, but you must choose to look at it.</b> The panel is hidden; you can pull only two readings. The answer is still reachable — but only if you pick the right two. And picking well is its <i>own</i> logic tree ↓`
+  };
+  cap.innerHTML=caps[mode];
+
+  // hard selection sub-logic
+  if(mode==='hard'){
+    selEl.innerHTML=`<div class="sel"><h3>The choice has its own logic — what would each rival predict?</h3>
+      <div class="selrow pick"><div class="h">Is it a leak? (LOCA)</div><div class="t">coolant must go somewhere → <b>check the sump</b><span class="pill pick">PULL</span></div></div>
+      <div class="selrow pick"><div class="h">Is the gauge lying? (instrument)</div><div class="t">an independent channel would disagree → <b>check the redundant channel</b><span class="pill pick">PULL</span></div></div>
+      <div class="selrow"><div class="h">Lost heat sink?</div><div class="t">pressure would be <i>rising</i>, not falling, and the steam generators dry — already contradicted by the alarm.</div></div>
+      <div class="selrow"><div class="h">Just settling? (transient)</div><div class="t">the trend would be flattening — but pressure is still dropping.</div></div>
+      <p class="cap" style="margin-top:12px">Two tests each kill the most live rivals: the <b>sump</b> (proves the leak, and no gauge fault or settling makes real water appear) and the <b>redundant channel</b> (proves the alarm itself is honest). Pull those two and the single line to LOCA lights up. Pull the wrong two and you commit half-blind.</p></div>`;
+  } else selEl.innerHTML='';
+}
+render();
+</script></body></html>

@@ -1,0 +1,1779 @@
+module.exports = { PACK: {
+  "id": "e_storm",
+  "title": "The Halloway Landfall",
+  "discipline": "Meteorology & Storm Forecasting",
+  "teaser": "Halloway's hurricane killed along the coast and inland. Did category wind dominate the losses, or did extreme rainfall become the principal hazard? The fatality timeline must decide.",
+  "overclaimTag": "category-wind destruction",
+  "truthTag": "storm-surge mortality before peak winds",
+  "venue": "the Halloway storm inquiry",
+  "agent": {
+    "name": "Investigator Cole Renard",
+    "role": "Investigator's Notepad"
+  },
+  "standingLabel": "Inquiry credibility",
+  "readingShort": "Pioneers",
+  "readingLabel": "Meteorology Pioneers",
+  "dossierName": "METEOROLOGY PIONEERS",
+  "enterLabel": "Open the inquiry",
+  "subt": "A deduction game inside the Halloway storm inquiry",
+  "DAYS_TOTAL": 5,
+  "boardNarr": "You have ${days} before your inquiry ends. A hop costs a day or two; each stop is one appointment. All three informants move throughout — travel to a location and choose whom to meet.",
+  "placeNarr": "You have arrived. Choose one informant to keep an appointment with. A dossier from the Bureau will reach you on the way in.",
+  "overclaimTease": "Wind category and rainfall totals are powerful summaries; neither should be allowed to stand in for the actual fatality timeline.",
+  "CATS": {
+    "who": {
+      "title": "Who is behind it",
+      "truth": "official",
+      "items": [
+        {
+          "id": "official",
+          "label": "Delia Marsh — regional emergency-management chief"
+        },
+        {
+          "id": "forecaster",
+          "label": "The lead hurricane forecaster"
+        },
+        {
+          "id": "mayor",
+          "label": "The resort-town mayor"
+        }
+      ]
+    },
+    "where": {
+      "title": "Where it culminates",
+      "truth": "office",
+      "items": [
+        {
+          "id": "coast",
+          "label": "The Coast & Tide Gauges"
+        },
+        {
+          "id": "forecastfloor",
+          "label": "The Hurricane Forecast Floor"
+        },
+        {
+          "id": "office",
+          "label": "The Emergency-Management Office"
+        }
+      ]
+    },
+    "what": {
+      "title": "Which hazard caused most of the fatalities?",
+      "truth": "downgraded",
+      "items": [
+        {
+          "id": "weapon",
+          "label": "Peak category wind caused the dominant structural destruction."
+        },
+        {
+          "id": "freak",
+          "label": "Extreme rainfall overwhelmed rivers after the center moved inland."
+        },
+        {
+          "id": "downgraded",
+          "label": "Storm surge raised coastal water before peak winds arrived."
+        }
+      ]
+    }
+  },
+  "PLACES": {
+    "coast": {
+      "name": "The Coast & Tide Gauges",
+      "xy": [
+        140,
+        90
+      ]
+    },
+    "forecastfloor": {
+      "name": "The Hurricane Forecast Floor",
+      "xy": [
+        330,
+        240
+      ]
+    },
+    "office": {
+      "name": "The Emergency-Management Office",
+      "xy": [
+        520,
+        90
+      ]
+    }
+  },
+  "EDGES": [
+    [
+      "coast",
+      "forecastfloor"
+    ],
+    [
+      "forecastfloor",
+      "office"
+    ]
+  ],
+  "CHARACTERS": {
+    "spotter": {
+      "name": "Storm Spotter Vane",
+      "role": "Volunteer storm spotter",
+      "face": "🌀",
+      "badge": "V",
+      "legend": "the coast",
+      "hint": "Knows coastal observation sites and can identify who received field reports from each location."
+    },
+    "radar": {
+      "name": "The Radar Analyst",
+      "role": "Radar analyst",
+      "face": "📡",
+      "badge": "R",
+      "legend": "the forecast floor",
+      "hint": "Preserves forecast-floor products and can place analysts and offices within the warning chronology."
+    },
+    "clerk": {
+      "name": "The Clerk",
+      "role": "Emergency-office clerk",
+      "face": "🗂",
+      "badge": "C",
+      "legend": "the office",
+      "hint": "Holds emergency assignments, public notices, and the administrative chain behind regional decisions."
+    }
+  },
+  "TOPICMAP": {
+    "coast": {
+      "spotter": [
+        "beaufort",
+        "coriolis"
+      ],
+      "radar": [
+        "ferrel",
+        "abbe"
+      ],
+      "clerk": [
+        "shaw",
+        "vbjerknes"
+      ]
+    },
+    "forecastfloor": {
+      "spotter": [
+        "bergeron",
+        "jbjerknes"
+      ],
+      "radar": [
+        "rossby",
+        "petterssen"
+      ],
+      "clerk": [
+        "wexler",
+        "rsimpson"
+      ]
+    },
+    "office": {
+      "spotter": [
+        "saffir",
+        "charney"
+      ],
+      "radar": [
+        "lorenz",
+        "fujita"
+      ],
+      "clerk": [
+        "jsimpson",
+        "atlas"
+      ]
+    }
+  },
+  "TOPICS": {
+    "beaufort": {
+      "sci": "Francis Beaufort (1774-1857)",
+      "topic": "The wind-force scale",
+      "lede": "Francis Beaufort brought the wind-force scale into the maps, equations, and instruments of modern forecasting.",
+      "no": 1,
+      "profile": "Today’s forecast-room memorandum profiles Francis Beaufort through the wind-force scale. Francis Beaufort developed a practical scale that related observed effects at sea to wind force. Later standardized in terms of wind speed, the Beaufort scale let observers communicate conditions consistently before modern anemometers were widespread. Meteorology converts scattered observations into a changing three-dimensional atmosphere. Beaufort’s contribution explains one step between the instrument reading and the warning heard by the public.\n\nThe forecasting discipline is to translate qualitative observations into a shared operational scale while keeping the measurement limits visible. Surface reports, upper-air structure, radar, satellite data, model ensembles, and local exposure should be compared without allowing a preferred message to erase conflicting evidence.\n\nStorm uncertainty grows from incomplete initial conditions and nonlinear dynamics, yet uncertainty is not ignorance. Probabilities, scenarios, and thresholds can preserve action while the exact track and intensity remain unsettled. The warning process fails when scientific nuance is converted into unwarranted reassurance.\n\nThe operational conclusion: standard terms make warnings useful only when observers apply them consistently. A forecast earns trust when revisions follow evidence and communication preserves the hazard rather than the convenience of the moment. Wind category, rainfall, surge, storm size, and forward speed describe different pathways to damage. An ensemble spread should widen the decision discussion, not disappear from the public summary. Observation times and forecast issue times should be preserved because a correct warning delivered late is still an operational failure. Local officials need impact language tied to roads, buildings, and evacuation zones rather than abstract wind alone.",
+      "frame": "Storm Spotter Vane freezes the radar loop at The Coast & Tide Gauges. \"The eye moved after this frame. Explain the wind-force scale before you read the warning log.\"",
+      "q": [
+        {
+          "q": "Which meteorological explanation best captures Francis Beaufort’s work on the wind-force scale?",
+          "o": [
+            {
+              "t": "Francis Beaufort developed a practical scale that related observed effects at sea to wind force. The warning logic remains visible. Surge and wind risks stay separately documented.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Francis Beaufort's storm work emphasizes one deterministic track and the headline category. The category offers a clear signal. The leading track looks authoritative. The storm record fits.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Francis Beaufort's storm work supports the hurricane category as the primary basis for surge, rainfall, and evacuation decisions. The leading track looks authoritative. The storm record fits.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Francis Beaufort's authority is invoked in storm practice to justify publishing the least disruptive credible track until the forecast models converge. The category offers a clear signal.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "Which forecast practice best follows the pioneer’s work?",
+          "o": [
+            {
+              "t": "Follow this forecasting practice: translate qualitative observations into a shared operational scale while keeping the measurement limits visible.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Blend radar with the leading deterministic model, then treat ensemble spread and exposure as later refinements. Storm timing supports this storm claim.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Infer that a weakening wind category substantially reduces evacuation urgency even as storm size and rainfall increase. Storm records fit this storm account.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Rewrite the bulletin around the least disruptive track and wait for landfall to resolve the remaining disagreement. Storm records fit this storm account.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "What is the sound forecasting conclusion?",
+          "o": [
+            {
+              "t": "The forecast lesson is that standard terms make warnings useful only when observers apply them consistently. The warning logic remains visible. Storm fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Base public action on the most likely track even when a lower-probability scenario carries much greater loss. Storm timing supports this storm claim.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Treat model divergence as making the forecast too unstable to support strong protective action. The leading track looks authoritative. The storm record fits.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Attribute the storm to deliberate modification or exceptional unpredictability before examining how the warning changed. Storm records fit this storm account.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        }
+      ]
+    },
+    "coriolis": {
+      "sci": "Gaspard-Gustave de Coriolis (1792-1843)",
+      "topic": "The Coriolis effect",
+      "lede": "A changing atmosphere became more legible through Gaspard-Gustave de Coriolis’s work on the coriolis effect.",
+      "no": 2,
+      "profile": "Today’s forecast-room memorandum profiles Gaspard-Gustave de Coriolis through the coriolis effect. Coriolis analyzed motion in rotating systems and identified the apparent acceleration now bearing his name. On Earth, the Coriolis effect deflects moving air and water and helps organize large-scale circulation, though it does not start the motion itself. Meteorology converts scattered observations into a changing three-dimensional atmosphere. Coriolis’s contribution explains one step between the instrument reading and the warning heard by the public.\n\nThe forecasting discipline is to separate pressure-gradient acceleration from rotational deflection and friction. Surface reports, upper-air structure, radar, satellite data, model ensembles, and local exposure should be compared without allowing a preferred message to erase conflicting evidence.\n\nStorm uncertainty grows from incomplete initial conditions and nonlinear dynamics, yet uncertainty is not ignorance. Probabilities, scenarios, and thresholds can preserve action while the exact track and intensity remain unsettled. The warning process fails when scientific nuance is converted into unwarranted reassurance.\n\nThe operational conclusion: rotation shapes storm tracks and winds but is not a mysterious force aimed at a location. A forecast earns trust when revisions follow evidence and communication preserves the hazard rather than the convenience of the moment. Wind category, rainfall, surge, storm size, and forward speed describe different pathways to damage. An ensemble spread should widen the decision discussion, not disappear from the public summary. Observation times and forecast issue times should be preserved because a correct warning delivered late is still an operational failure. Local officials need impact language tied to roads, buildings, and evacuation zones rather than abstract wind alone.",
+      "frame": "Storm Spotter Vane holds two forecast tracks together. \"Uncertainty is not permission to choose the convenient line. Show me the coriolis effect.\"",
+      "q": [
+        {
+          "q": "Which meteorological explanation best captures Gaspard-Gustave de Coriolis’s work on the coriolis effect?",
+          "o": [
+            {
+              "t": "Coriolis analyzed motion in rotating systems and identified the apparent acceleration now bearing his name. The warning logic remains visible. Surge and wind risks stay separately documented.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Gaspard-Gustave de Coriolis's storm work emphasizes one deterministic track and the headline category. The category offers a clear signal. The leading track looks authoritative. The storm record fits.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Gaspard-Gustave de Coriolis's storm work supports the hurricane category as the primary basis for surge, rainfall, and evacuation decisions. The leading track looks authoritative. The storm record fits.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Gaspard-Gustave de Coriolis's authority is invoked in storm practice to justify publishing the least disruptive credible track until the forecast models converge. The category offers a clear signal.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "Which forecast practice best follows the pioneer’s work?",
+          "o": [
+            {
+              "t": "Follow this forecasting practice: separate pressure-gradient acceleration from rotational deflection and friction. Impact pathways stay separate.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Blend radar with the leading deterministic model, then treat ensemble spread and exposure as later refinements. Storm timing supports this storm claim.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Infer that a weakening wind category substantially reduces evacuation urgency even as storm size and rainfall increase. Storm records fit this storm account.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Rewrite the bulletin around the least disruptive track and wait for landfall to resolve the remaining disagreement. Storm records fit this storm account.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "What is the sound forecasting conclusion?",
+          "o": [
+            {
+              "t": "The forecast lesson is that rotation shapes storm tracks and winds but is not a mysterious force aimed at a location. Impact pathways stay separate.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Base public action on the most likely track even when a lower-probability scenario carries much greater loss. The category offers a clear signal. Storm fits.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Treat model divergence as making the forecast too unstable to support strong protective action. The leading track looks authoritative. The storm record fits.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Attribute the storm to deliberate modification or exceptional unpredictability before examining how the warning changed. Storm timing supports this storm claim.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        }
+      ]
+    },
+    "ferrel": {
+      "sci": "William Ferrel (1817-1891)",
+      "topic": "The circulation of the atmosphere",
+      "lede": "William Ferrel used the circulation of the atmosphere to narrow uncertainty without pretending weather was certain.",
+      "no": 3,
+      "profile": "Today’s forecast-room memorandum profiles William Ferrel through the circulation of the atmosphere. William Ferrel developed theories of atmospheric circulation that incorporated Earth's rotation and explained midlatitude westerlies and the secondary circulation now called the Ferrel cell. His work helped move meteorology toward dynamics. Meteorology converts scattered observations into a changing three-dimensional atmosphere. Ferrel’s contribution explains one step between the instrument reading and the warning heard by the public.\n\nThe forecasting discipline is to balance pressure gradients, rotation, and friction at the appropriate spatial scale. Surface reports, upper-air structure, radar, satellite data, model ensembles, and local exposure should be compared without allowing a preferred message to erase conflicting evidence.\n\nStorm uncertainty grows from incomplete initial conditions and nonlinear dynamics, yet uncertainty is not ignorance. Probabilities, scenarios, and thresholds can preserve action while the exact track and intensity remain unsettled. The warning process fails when scientific nuance is converted into unwarranted reassurance.\n\nThe operational conclusion: storm motion emerges from large-scale flow as well as local weather. A forecast earns trust when revisions follow evidence and communication preserves the hazard rather than the convenience of the moment. Wind category, rainfall, surge, storm size, and forward speed describe different pathways to damage. An ensemble spread should widen the decision discussion, not disappear from the public summary. Observation times and forecast issue times should be preserved because a correct warning delivered late is still an operational failure. Local officials need impact language tied to roads, buildings, and evacuation zones rather than abstract wind alone. Post-storm verification should compare every major forecast change with the evidence available at that moment.",
+      "frame": "The Radar Analyst points from the tide gauge to the wind field. \"One category cannot carry all this. Start with the circulation of the atmosphere.\"",
+      "q": [
+        {
+          "q": "Which meteorological explanation best captures William Ferrel’s work on the circulation of the atmosphere?",
+          "o": [
+            {
+              "t": "William Ferrel developed theories of atmospheric circulation that incorporated Earth's rotation and explained midlatitude westerlies and the secondary circulation now called the Ferrel cell. The warning logic remains visible. Storm fits. Fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "William Ferrel's storm work emphasizes one deterministic track and the headline category. Storm records fit this storm account. Storm context supports the view. Storm practice makes the storm view plausible. Storm timing supports this storm claim.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "William Ferrel's storm work is read within storm practice as support for the hurricane category as the primary basis for surge, rainfall, and evacuation decisions. Storm practice makes the storm view plausible. Storm timing supports this storm claim.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "William Ferrel's authority is invoked in storm practice to justify publishing the least disruptive credible track until the forecast models converge. The leading track looks authoritative. Storm timing supports this storm claim. Storm fits.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "Which forecast practice best follows the pioneer’s work?",
+          "o": [
+            {
+              "t": "Follow this forecasting practice: balance pressure gradients, rotation, and friction at the appropriate spatial scale. Impact pathways stay separate.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Blend radar with the leading deterministic model, then treat ensemble spread and exposure as later refinements. The category offers a clear signal.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Infer that a weakening wind category substantially reduces evacuation urgency even as storm size and rainfall increase. Storm timing supports this storm claim.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Rewrite the bulletin around the least disruptive track and wait for landfall to resolve the remaining disagreement. Storm timing supports this storm claim.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "What is the sound forecasting conclusion?",
+          "o": [
+            {
+              "t": "The forecast lesson is that storm motion emerges from large-scale flow as well as local weather. Surge and wind risks stay separately documented. Storm fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Base public action on the most likely track even when a lower-probability scenario carries much greater loss. Storm timing supports this storm claim.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Treat model divergence as making the forecast too unstable to support strong protective action. The leading track looks authoritative. The storm record fits.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Attribute the storm to deliberate modification or exceptional unpredictability before examining how the warning changed. Storm records fit this storm account.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        }
+      ]
+    },
+    "abbe": {
+      "sci": "Cleveland Abbe (1838-1916)",
+      "topic": "The first weather forecasts",
+      "lede": "Cleveland Abbe brought the first weather forecasts into the maps, equations, and instruments of modern forecasting.",
+      "no": 4,
+      "profile": "Today’s forecast-room memorandum profiles Cleveland Abbe through the first weather forecasts. Cleveland Abbe organized regular weather reports and forecasts in the United States, first in Cincinnati and later for the federal weather service. Telegraphic observations allowed simultaneous maps of pressure, wind, and weather across a wide region. Meteorology converts scattered observations into a changing three-dimensional atmosphere. Abbe’s contribution explains one step between the instrument reading and the warning heard by the public.\n\nThe forecasting discipline is to collect observations at a common time, map them, and issue a forecast with stated uncertainty. Surface reports, upper-air structure, radar, satellite data, model ensembles, and local exposure should be compared without allowing a preferred message to erase conflicting evidence.\n\nStorm uncertainty grows from incomplete initial conditions and nonlinear dynamics, yet uncertainty is not ignorance. Probabilities, scenarios, and thresholds can preserve action while the exact track and intensity remain unsettled. The warning process fails when scientific nuance is converted into unwarranted reassurance.\n\nThe operational conclusion: forecasting requires communication infrastructure as surely as instruments. A forecast earns trust when revisions follow evidence and communication preserves the hazard rather than the convenience of the moment. Wind category, rainfall, surge, storm size, and forward speed describe different pathways to damage. An ensemble spread should widen the decision discussion, not disappear from the public summary. Observation times and forecast issue times should be preserved because a correct warning delivered late is still an operational failure. Local officials need impact language tied to roads, buildings, and evacuation zones rather than abstract wind alone.",
+      "frame": "The Radar Analyst freezes the radar loop at The Coast & Tide Gauges. \"The eye moved after this frame. Explain the first weather forecasts before you read the warning log.\"",
+      "q": [
+        {
+          "q": "Which meteorological explanation best captures Cleveland Abbe’s work on the first weather forecasts?",
+          "o": [
+            {
+              "t": "Cleveland Abbe organized regular weather reports and forecasts in the United States, first in Cincinnati and later for the federal weather service. The warning logic remains visible. Storm fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Cleveland Abbe's storm work relies on one deterministic track and the headline category. Storm records fit this storm account. Storm context supports the view. The category offers a clear signal.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Cleveland Abbe's storm work is read within storm practice as support for the hurricane category as the primary basis for surge, rainfall, and evacuation decisions. The category offers a clear signal.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Cleveland Abbe's authority is invoked in storm practice to justify publishing the least disruptive credible track until the forecast models converge. Storm records fit this storm account.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "Which forecast practice best follows the pioneer’s work?",
+          "o": [
+            {
+              "t": "Follow this forecasting practice: collect observations at a common time, map them, and issue a forecast with stated uncertainty. Impact pathways stay separate.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Blend radar with the leading deterministic model, then treat ensemble spread and exposure as later refinements. The leading track looks authoritative.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Infer that a weakening wind category substantially reduces evacuation urgency even as storm size and rainfall increase. The leading track looks authoritative.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Rewrite the bulletin around the least disruptive track and wait for landfall to resolve the remaining disagreement. The leading track looks authoritative.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "What is the sound forecasting conclusion?",
+          "o": [
+            {
+              "t": "The forecast lesson is that forecasting requires communication infrastructure as surely as instruments. Surge and wind risks stay separately documented. Storm fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Base public action on the most likely track even when a lower-probability scenario carries much greater loss. The leading track looks authoritative. Storm fits. Storm fits.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Treat model divergence as making the forecast too unstable to support strong protective action. Storm records fit this storm account. Storm timing supports this storm claim.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Attribute the storm to deliberate modification or exceptional unpredictability before examining how the warning changed. The category offers a clear signal. Storm fits.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        }
+      ]
+    },
+    "shaw": {
+      "sci": "Napier Shaw (1854-1945)",
+      "topic": "Dynamic meteorology & the upper air",
+      "lede": "A changing atmosphere became more legible through Napier Shaw’s work on dynamic meteorology and the upper air.",
+      "no": 5,
+      "profile": "Today’s forecast-room memorandum profiles Napier Shaw through dynamic meteorology and the upper air. Napier Shaw advanced dynamic meteorology, upper-air observation, and professional weather services in Britain. He promoted the tephigram, a thermodynamic chart that helps forecasters interpret temperature, moisture, and atmospheric stability. Meteorology converts scattered observations into a changing three-dimensional atmosphere. Shaw’s contribution explains one step between the instrument reading and the warning heard by the public.\n\nThe forecasting discipline is to analyze a vertical sounding for stability, moisture, and the energy available to rising air. Surface reports, upper-air structure, radar, satellite data, model ensembles, and local exposure should be compared without allowing a preferred message to erase conflicting evidence.\n\nStorm uncertainty grows from incomplete initial conditions and nonlinear dynamics, yet uncertainty is not ignorance. Probabilities, scenarios, and thresholds can preserve action while the exact track and intensity remain unsettled. The warning process fails when scientific nuance is converted into unwarranted reassurance.\n\nThe operational conclusion: surface conditions alone cannot reveal the full structure of a storm. A forecast earns trust when revisions follow evidence and communication preserves the hazard rather than the convenience of the moment. Wind category, rainfall, surge, storm size, and forward speed describe different pathways to damage. An ensemble spread should widen the decision discussion, not disappear from the public summary. Observation times and forecast issue times should be preserved because a correct warning delivered late is still an operational failure. Local officials need impact language tied to roads, buildings, and evacuation zones rather than abstract wind alone.",
+      "frame": "The Clerk holds two forecast tracks together. \"Uncertainty is not permission to choose the convenient line. Show me dynamic meteorology and the upper air.\"",
+      "q": [
+        {
+          "q": "Which meteorological explanation best captures Napier Shaw’s work on dynamic meteorology and the upper air?",
+          "o": [
+            {
+              "t": "Napier Shaw advanced dynamic meteorology, upper-air observation, and professional weather services in Britain. Surge and wind risks stay separately documented.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Napier Shaw's storm work emphasizes one deterministic track and the headline category. The category offers a clear signal. Storm timing supports this storm claim.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Napier Shaw's storm work supports the hurricane category as the primary basis for surge, rainfall, and evacuation decisions. Storm records fit this storm account.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Napier Shaw's storm authority supports publishing the least disruptive credible track until the forecast models converge. Storm timing supports this storm claim.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "Which forecast practice best follows the pioneer’s work?",
+          "o": [
+            {
+              "t": "Follow this forecasting practice: analyze a vertical sounding for stability, moisture, and the energy available to rising air. Impact pathways stay separate.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Blend radar with the leading deterministic model, then treat ensemble spread and exposure as later refinements. The leading track looks authoritative.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Infer that a weakening wind category substantially reduces evacuation urgency even as storm size and rainfall increase. The leading track looks authoritative.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Rewrite the bulletin around the least disruptive track and wait for landfall to resolve the remaining disagreement. The leading track looks authoritative.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "What is the sound forecasting conclusion?",
+          "o": [
+            {
+              "t": "The forecast lesson is that surface conditions alone cannot reveal the full structure of a storm. Surge and wind risks stay separately documented.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Base public action on the most likely track even when a lower-probability scenario carries much greater loss. Storm practice makes the storm view plausible.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Treat model divergence as making the forecast too unstable to support strong protective action. The leading track looks authoritative. The storm record fits.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Attribute the storm to deliberate modification or exceptional unpredictability before examining how the warning changed. Storm records fit this storm account.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        }
+      ]
+    },
+    "vbjerknes": {
+      "sci": "Vilhelm Bjerknes (1862-1951)",
+      "topic": "The equations of weather prediction",
+      "lede": "Vilhelm Bjerknes used the equations of weather prediction to narrow uncertainty without pretending weather was certain.",
+      "no": 6,
+      "profile": "Today’s forecast-room memorandum profiles Vilhelm Bjerknes through the equations of weather prediction. Vilhelm Bjerknes argued that weather prediction could be posed as an initial-value problem governed by physical equations. His program required enough observations to define the atmosphere's state and numerical methods to advance it forward. Meteorology converts scattered observations into a changing three-dimensional atmosphere. Bjerknes’s contribution explains one step between the instrument reading and the warning heard by the public.\n\nThe forecasting discipline is to measure the initial atmosphere and solve conservation equations rather than extrapolating one local trend. Surface reports, upper-air structure, radar, satellite data, model ensembles, and local exposure should be compared without allowing a preferred message to erase conflicting evidence.\n\nStorm uncertainty grows from incomplete initial conditions and nonlinear dynamics, yet uncertainty is not ignorance. Probabilities, scenarios, and thresholds can preserve action while the exact track and intensity remain unsettled. The warning process fails when scientific nuance is converted into unwarranted reassurance.\n\nThe operational conclusion: a forecast is limited by both the model and the completeness of the starting data. A forecast earns trust when revisions follow evidence and communication preserves the hazard rather than the convenience of the moment. Wind category, rainfall, surge, storm size, and forward speed describe different pathways to damage. An ensemble spread should widen the decision discussion, not disappear from the public summary. Observation times and forecast issue times should be preserved because a correct warning delivered late is still an operational failure. Local officials need impact language tied to roads, buildings, and evacuation zones rather than abstract wind alone.",
+      "frame": "The Clerk points from the tide gauge to the wind field. \"One category cannot carry all this. Start with the equations of weather prediction.\"",
+      "q": [
+        {
+          "q": "Which meteorological explanation best captures Vilhelm Bjerknes’s work on the equations of weather prediction?",
+          "o": [
+            {
+              "t": "Vilhelm Bjerknes argued that weather prediction could be posed as an initial-value problem governed by physical equations. Surge and wind risks stay separately documented.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Vilhelm Bjerknes's storm work emphasizes one deterministic track and the headline category. The category offers a clear signal. The leading track looks authoritative.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Vilhelm Bjerknes's storm work supports the hurricane category as the primary basis for surge, rainfall, and evacuation decisions. The leading track looks authoritative.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Vilhelm Bjerknes's storm authority supports publishing the least disruptive credible track until the forecast models converge. The leading track looks authoritative.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "Which forecast practice best follows the pioneer’s work?",
+          "o": [
+            {
+              "t": "Follow this forecasting practice: measure the initial atmosphere and solve conservation equations rather than extrapolating one local trend. Storm fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Blend radar with the leading deterministic model, then treat ensemble spread and exposure as later refinements. Storm records fit this storm account.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Infer that a weakening wind category substantially reduces evacuation urgency even as storm size and rainfall increase. Storm records fit this storm account.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Rewrite the bulletin around the least disruptive track and wait for landfall to resolve the remaining disagreement. Storm records fit this storm account.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "What is the sound forecasting conclusion?",
+          "o": [
+            {
+              "t": "The forecast lesson is that a forecast is limited by both the model and the completeness of the starting data. Impact pathways stay separate. Storm fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Base public action on the most likely track even when a lower-probability scenario carries much greater loss. Storm records fit this storm account.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Treat model divergence as making the forecast too unstable to support strong protective action. The leading track looks authoritative. The storm record fits.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Attribute the storm to deliberate modification or exceptional unpredictability before examining how the warning changed. Storm records fit this storm account.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        }
+      ]
+    },
+    "bergeron": {
+      "sci": "Tor Bergeron (1891-1977)",
+      "topic": "The Bergen school & precipitation",
+      "lede": "Tor Bergeron brought the bergen school and precipitation into the maps, equations, and instruments of modern forecasting.",
+      "no": 7,
+      "profile": "Today’s forecast-room memorandum profiles Tor Bergeron through the bergen school and precipitation. Tor Bergeron helped develop the air-mass and frontal ideas of the Bergen school and explained important precipitation processes in mixed-phase clouds. The Bergeron process describes ice crystals growing at the expense of supercooled droplets. Meteorology converts scattered observations into a changing three-dimensional atmosphere. Bergeron’s contribution explains one step between the instrument reading and the warning heard by the public.\n\nThe forecasting discipline is to identify air masses, fronts, and cloud microphysics before interpreting precipitation intensity. Surface reports, upper-air structure, radar, satellite data, model ensembles, and local exposure should be compared without allowing a preferred message to erase conflicting evidence.\n\nStorm uncertainty grows from incomplete initial conditions and nonlinear dynamics, yet uncertainty is not ignorance. Probabilities, scenarios, and thresholds can preserve action while the exact track and intensity remain unsettled. The warning process fails when scientific nuance is converted into unwarranted reassurance.\n\nThe operational conclusion: storm structure is three-dimensional and changes as air masses interact. A forecast earns trust when revisions follow evidence and communication preserves the hazard rather than the convenience of the moment. Wind category, rainfall, surge, storm size, and forward speed describe different pathways to damage. An ensemble spread should widen the decision discussion, not disappear from the public summary. Observation times and forecast issue times should be preserved because a correct warning delivered late is still an operational failure. Local officials need impact language tied to roads, buildings, and evacuation zones rather than abstract wind alone.",
+      "frame": "Storm Spotter Vane freezes the radar loop at The Hurricane Forecast Floor. \"The eye moved after this frame. Explain the bergen school and precipitation before you read the warning log.\"",
+      "q": [
+        {
+          "q": "Which meteorological explanation best captures Tor Bergeron’s work on the bergen school and precipitation?",
+          "o": [
+            {
+              "t": "Tor Bergeron helped develop the air-mass and frontal ideas of the Bergen school and explained important precipitation processes in mixed-phase clouds. Surge and wind risks stay separately documented.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Tor Bergeron's storm work emphasizes one deterministic track and the headline category. The category offers a clear signal. The leading track looks authoritative. Storm timing supports this storm claim.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Tor Bergeron's storm work supports the hurricane category as the primary basis for surge, rainfall, and evacuation decisions. Officials may prefer that clarity. Storm practice makes the storm view plausible.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Tor Bergeron's storm authority supports publishing the least disruptive credible track until the forecast models converge. The leading track looks authoritative. Storm timing supports this storm claim.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "Which forecast practice best follows the pioneer’s work?",
+          "o": [
+            {
+              "t": "Follow this forecasting practice: identify air masses, fronts, and cloud microphysics before interpreting precipitation intensity. Impact pathways stay separate.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Blend radar with the leading deterministic model, then treat ensemble spread and exposure as later refinements. The leading track looks authoritative.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Infer that a weakening wind category substantially reduces evacuation urgency even as storm size and rainfall increase. The leading track looks authoritative.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Rewrite the bulletin around the least disruptive track and wait for landfall to resolve the remaining disagreement. The leading track looks authoritative.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "What is the sound forecasting conclusion?",
+          "o": [
+            {
+              "t": "The forecast lesson is that storm structure is three-dimensional and changes as air masses interact. Surge and wind risks stay separately documented. Storm fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Base public action on the most likely track even when a lower-probability scenario carries much greater loss. The leading track looks authoritative. Storm fits. Storm fits.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Treat model divergence as making the forecast too unstable to support strong protective action. Storm records fit this storm account. Storm timing supports this storm claim.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Attribute the storm to deliberate modification or exceptional unpredictability before examining how the warning changed. Storm timing supports this storm claim. Storm fits.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        }
+      ]
+    },
+    "jbjerknes": {
+      "sci": "Jacob Bjerknes (1897-1975)",
+      "topic": "Fronts & the life of cyclones",
+      "lede": "A changing atmosphere became more legible through Jacob Bjerknes’s work on fronts and the life of cyclones.",
+      "no": 8,
+      "profile": "Today’s forecast-room memorandum profiles Jacob Bjerknes through fronts and the life of cyclones. Jacob Bjerknes described the life cycle of midlatitude cyclones in terms of fronts and later linked tropical Pacific conditions to global atmospheric variability. His frontal model made evolving boundaries central to synoptic forecasting. Meteorology converts scattered observations into a changing three-dimensional atmosphere. Bjerknes’s contribution explains one step between the instrument reading and the warning heard by the public.\n\nThe forecasting discipline is to track fronts and pressure tendencies through repeated maps rather than treating a storm as a fixed object. Surface reports, upper-air structure, radar, satellite data, model ensembles, and local exposure should be compared without allowing a preferred message to erase conflicting evidence.\n\nStorm uncertainty grows from incomplete initial conditions and nonlinear dynamics, yet uncertainty is not ignorance. Probabilities, scenarios, and thresholds can preserve action while the exact track and intensity remain unsettled. The warning process fails when scientific nuance is converted into unwarranted reassurance.\n\nThe operational conclusion: warnings must evolve as the cyclone reorganizes. A forecast earns trust when revisions follow evidence and communication preserves the hazard rather than the convenience of the moment. Wind category, rainfall, surge, storm size, and forward speed describe different pathways to damage. An ensemble spread should widen the decision discussion, not disappear from the public summary. Observation times and forecast issue times should be preserved because a correct warning delivered late is still an operational failure. Local officials need impact language tied to roads, buildings, and evacuation zones rather than abstract wind alone.",
+      "frame": "Storm Spotter Vane holds two forecast tracks together. \"Uncertainty is not permission to choose the convenient line. Show me fronts and the life of cyclones.\"",
+      "q": [
+        {
+          "q": "Which meteorological explanation best captures Jacob Bjerknes’s work on fronts and the life of cyclones?",
+          "o": [
+            {
+              "t": "Jacob Bjerknes described the life cycle of midlatitude cyclones in terms of fronts and later linked tropical Pacific conditions to global atmospheric variability.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Jacob Bjerknes's storm work emphasizes one deterministic track and the headline category. The category offers a clear signal. Storm timing supports this storm claim.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Jacob Bjerknes's storm work supports the hurricane category as the primary basis for surge, rainfall, and evacuation decisions. Storm records fit this storm account.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Jacob Bjerknes's storm authority supports publishing the least disruptive credible track until the forecast models converge. Storm timing supports this storm claim.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "Which forecast practice best follows the pioneer’s work?",
+          "o": [
+            {
+              "t": "Follow this forecasting practice: track fronts and pressure tendencies through repeated maps rather than treating a storm as a fixed object. Storm fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Blend radar with the leading deterministic model, then treat ensemble spread and exposure as later refinements. Storm records fit this storm account.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Infer that a weakening wind category substantially reduces evacuation urgency even as storm size and rainfall increase. Storm records fit this storm account.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Rewrite the bulletin around the least disruptive track and wait for landfall to resolve the remaining disagreement. Storm records fit this storm account.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "What is the sound forecasting conclusion?",
+          "o": [
+            {
+              "t": "The forecast lesson is that warnings must evolve as the cyclone reorganizes. The warning logic remains visible. Impact pathways stay separate. Storm fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Base public action on the most likely track even when a lower-probability scenario carries much greater loss. Storm records fit this storm account.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Treat model divergence as making the forecast too unstable to support strong protective action. The leading track looks authoritative. The storm record fits.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Attribute the storm to deliberate modification or exceptional unpredictability before examining how the warning changed. Storm records fit this storm account.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        }
+      ]
+    },
+    "rossby": {
+      "sci": "Carl-Gustaf Rossby (1898-1957)",
+      "topic": "Rossby waves & the jet stream",
+      "lede": "Carl-Gustaf Rossby used rossby waves and the jet stream to narrow uncertainty without pretending weather was certain.",
+      "no": 9,
+      "profile": "Today’s forecast-room memorandum profiles Carl-Gustaf Rossby through rossby waves and the jet stream. Carl-Gustaf Rossby identified large planetary waves in the atmosphere produced by the variation of the Coriolis effect with latitude. Rossby waves help steer weather systems and explain persistent large-scale patterns. Meteorology converts scattered observations into a changing three-dimensional atmosphere. Rossby’s contribution explains one step between the instrument reading and the warning heard by the public.\n\nThe forecasting discipline is to diagnose the planetary-scale flow that guides smaller storms. Surface reports, upper-air structure, radar, satellite data, model ensembles, and local exposure should be compared without allowing a preferred message to erase conflicting evidence.\n\nStorm uncertainty grows from incomplete initial conditions and nonlinear dynamics, yet uncertainty is not ignorance. Probabilities, scenarios, and thresholds can preserve action while the exact track and intensity remain unsettled. The warning process fails when scientific nuance is converted into unwarranted reassurance.\n\nThe operational conclusion: a local landfall forecast depends on distant changes in the jet stream. A forecast earns trust when revisions follow evidence and communication preserves the hazard rather than the convenience of the moment. Wind category, rainfall, surge, storm size, and forward speed describe different pathways to damage. An ensemble spread should widen the decision discussion, not disappear from the public summary. Observation times and forecast issue times should be preserved because a correct warning delivered late is still an operational failure. Local officials need impact language tied to roads, buildings, and evacuation zones rather than abstract wind alone. Post-storm verification should compare every major forecast change with the evidence available at that moment.",
+      "frame": "The Radar Analyst points from the tide gauge to the wind field. \"One category cannot carry all this. Start with rossby waves and the jet stream.\"",
+      "q": [
+        {
+          "q": "Which meteorological explanation best captures Carl-Gustaf Rossby’s work on rossby waves and the jet stream?",
+          "o": [
+            {
+              "t": "Carl-Gustaf Rossby identified large planetary waves in the atmosphere produced by the variation of the Coriolis effect with latitude. Impact pathways stay separate.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Carl-Gustaf Rossby's storm work emphasizes one deterministic track and the headline category. The category offers a clear signal. Storm records fit this storm account.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Carl-Gustaf Rossby's storm work supports the hurricane category as the primary basis for surge, rainfall, and evacuation decisions. Storm records fit this storm account.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Carl-Gustaf Rossby's storm authority supports publishing the least disruptive credible track until the forecast models converge. Storm timing supports this storm claim.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "Which forecast practice best follows the pioneer’s work?",
+          "o": [
+            {
+              "t": "Follow this forecasting practice: diagnose the planetary-scale flow that guides smaller storms. Surge and wind risks stay separately documented. Storm fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Blend radar with the leading deterministic model, then treat ensemble spread and exposure as later refinements. Storm records fit this storm account.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Infer that a weakening wind category substantially reduces evacuation urgency even as storm size and rainfall increase. Storm records fit this storm account.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Rewrite the bulletin around the least disruptive track and wait for landfall to resolve the remaining disagreement. Storm records fit this storm account.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "What is the sound forecasting conclusion?",
+          "o": [
+            {
+              "t": "The forecast lesson is that a local landfall forecast depends on distant changes in the jet stream. Surge and wind risks stay separately documented.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Base public action on the most likely track even when a lower-probability scenario carries much greater loss. The category offers a clear signal. Storm fits.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Treat model divergence as making the forecast too unstable to support strong protective action. The leading track looks authoritative. The storm record fits.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Attribute the storm to deliberate modification or exceptional unpredictability before examining how the warning changed. Storm timing supports this storm claim.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        }
+      ]
+    },
+    "petterssen": {
+      "sci": "Sverre Petterssen (1898-1974)",
+      "topic": "Weather analysis & forecasting",
+      "lede": "Sverre Petterssen brought weather analysis and forecasting into the maps, equations, and instruments of modern forecasting.",
+      "no": 10,
+      "profile": "Today’s forecast-room memorandum profiles Sverre Petterssen through weather analysis and forecasting. Sverre Petterssen developed rigorous synoptic-analysis methods and played a major role in forecasting for the Allied invasion of Normandy. He combined upper-air data, fronts, pressure development, and experienced judgment. Meteorology converts scattered observations into a changing three-dimensional atmosphere. Petterssen’s contribution explains one step between the instrument reading and the warning heard by the public.\n\nThe forecasting discipline is to integrate surface maps, upper-air observations, and model guidance while documenting competing scenarios. Surface reports, upper-air structure, radar, satellite data, model ensembles, and local exposure should be compared without allowing a preferred message to erase conflicting evidence.\n\nStorm uncertainty grows from incomplete initial conditions and nonlinear dynamics, yet uncertainty is not ignorance. Probabilities, scenarios, and thresholds can preserve action while the exact track and intensity remain unsettled. The warning process fails when scientific nuance is converted into unwarranted reassurance.\n\nThe operational conclusion: high-stakes forecasts need explicit reasoning, not a softened summary chosen for convenience. A forecast earns trust when revisions follow evidence and communication preserves the hazard rather than the convenience of the moment. Wind category, rainfall, surge, storm size, and forward speed describe different pathways to damage. An ensemble spread should widen the decision discussion, not disappear from the public summary. Observation times and forecast issue times should be preserved because a correct warning delivered late is still an operational failure. Local officials need impact language tied to roads, buildings, and evacuation zones rather than abstract wind alone. Post-storm verification should compare every major forecast change with the evidence available at that moment.",
+      "frame": "The Radar Analyst freezes the radar loop at The Hurricane Forecast Floor. \"The eye moved after this frame. Explain weather analysis and forecasting before you read the warning log.\"",
+      "q": [
+        {
+          "q": "Which meteorological explanation best captures Sverre Petterssen’s work on weather analysis and forecasting?",
+          "o": [
+            {
+              "t": "Sverre Petterssen developed rigorous synoptic-analysis methods and played a major role in forecasting for the Allied invasion of Normandy. Impact pathways stay separate.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Sverre Petterssen's storm work relies on one deterministic track and the headline category. The leading track looks authoritative. Storm practice makes the storm view plausible.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Sverre Petterssen's storm work supports the hurricane category as the primary basis for surge, rainfall, and evacuation decisions. Storm practice makes the storm view plausible.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Sverre Petterssen's storm authority supports publishing the least disruptive credible track until the forecast models converge. The leading track looks authoritative.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "Which forecast practice best follows the pioneer’s work?",
+          "o": [
+            {
+              "t": "Follow this forecasting practice: integrate surface maps, upper-air observations, and model guidance while documenting competing scenarios. Storm fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Blend radar with the leading deterministic model, then treat ensemble spread and exposure as later refinements. Storm records fit this storm account.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Infer that a weakening wind category substantially reduces evacuation urgency even as storm size and rainfall increase. Storm records fit this storm account.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Rewrite the bulletin around the least disruptive track and wait for landfall to resolve the remaining disagreement. Storm records fit this storm account.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "What is the sound forecasting conclusion?",
+          "o": [
+            {
+              "t": "The forecast lesson is that high-stakes forecasts need explicit reasoning, not a softened summary chosen for convenience. Impact pathways stay separate. Storm fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Base public action on the most likely track even when a lower-probability scenario carries much greater loss. The leading track looks authoritative. Storm fits. Storm fits.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Treat model divergence as making the forecast too unstable to support strong protective action. Storm records fit this storm account. Storm timing supports this storm claim.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Attribute the storm to deliberate modification or exceptional unpredictability before examining how the warning changed. The category offers a clear signal. Storm fits.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        }
+      ]
+    },
+    "wexler": {
+      "sci": "Harry Wexler (1911-1962)",
+      "topic": "Hurricanes & weather satellites",
+      "lede": "A changing atmosphere became more legible through Harry Wexler’s work on hurricanes and weather satellites.",
+      "no": 11,
+      "profile": "Today’s forecast-room memorandum profiles Harry Wexler through hurricanes and weather satellites. Harry Wexler led research on hurricanes, atmospheric circulation, and the emerging use of satellites in meteorology. He championed global observation from space as a way to see storms over oceans where conventional data were sparse. Meteorology converts scattered observations into a changing three-dimensional atmosphere. Wexler’s contribution explains one step between the instrument reading and the warning heard by the public.\n\nThe forecasting discipline is to use satellite observations to fill oceanic gaps while calibrating them against direct measurements. Surface reports, upper-air structure, radar, satellite data, model ensembles, and local exposure should be compared without allowing a preferred message to erase conflicting evidence.\n\nStorm uncertainty grows from incomplete initial conditions and nonlinear dynamics, yet uncertainty is not ignorance. Probabilities, scenarios, and thresholds can preserve action while the exact track and intensity remain unsettled. The warning process fails when scientific nuance is converted into unwarranted reassurance.\n\nThe operational conclusion: warning quality falls when the observing system leaves the storm unseen. A forecast earns trust when revisions follow evidence and communication preserves the hazard rather than the convenience of the moment. Wind category, rainfall, surge, storm size, and forward speed describe different pathways to damage. An ensemble spread should widen the decision discussion, not disappear from the public summary. Observation times and forecast issue times should be preserved because a correct warning delivered late is still an operational failure. Local officials need impact language tied to roads, buildings, and evacuation zones rather than abstract wind alone.",
+      "frame": "The Clerk holds two forecast tracks together. \"Uncertainty is not permission to choose the convenient line. Show me hurricanes and weather satellites.\"",
+      "q": [
+        {
+          "q": "Which meteorological explanation best captures Harry Wexler’s work on hurricanes and weather satellites?",
+          "o": [
+            {
+              "t": "Harry Wexler led research on hurricanes, atmospheric circulation, and the emerging use of satellites in meteorology. Surge and wind risks stay separately documented.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Harry Wexler's storm work emphasizes one deterministic track and the headline category. The leading track looks authoritative. Storm practice makes the storm view plausible.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Harry Wexler's storm work supports the hurricane category as the primary basis for surge, rainfall, and evacuation decisions. The category offers a clear signal.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Harry Wexler's storm authority supports publishing the least disruptive credible track until the forecast models converge. The leading track looks authoritative.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "Which forecast practice best follows the pioneer’s work?",
+          "o": [
+            {
+              "t": "Follow this forecasting practice: use satellite observations to fill oceanic gaps while calibrating them against direct measurements. Surge and wind risks stay separately documented.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Blend radar with the leading deterministic model, then treat ensemble spread and exposure as later refinements. The category offers a clear signal. Storm timing supports this storm claim.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Infer that a weakening wind category substantially reduces evacuation urgency even as storm size and rainfall increase. The category offers a clear signal. Storm records fit this storm account.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Rewrite the bulletin around the least disruptive track and wait for landfall to resolve the remaining disagreement. Storm context supports the view. Storm timing supports this storm claim.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "What is the sound forecasting conclusion?",
+          "o": [
+            {
+              "t": "The forecast lesson is that warning quality falls when the observing system leaves the storm unseen. Surge and wind risks stay separately documented. Storm fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Base public action on the most likely track even when a lower-probability scenario carries much greater loss. The leading track looks authoritative. Storm fits. Storm fits.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Treat model divergence as making the forecast too unstable to support strong protective action. Storm records fit this storm account. Storm timing supports this storm claim.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Attribute the storm to deliberate modification or exceptional unpredictability before examining how the warning changed. Storm timing supports this storm claim. Storm fits.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        }
+      ]
+    },
+    "rsimpson": {
+      "sci": "Robert Simpson (1912-2014)",
+      "topic": "The Saffir-Simpson hurricane scale",
+      "lede": "Robert Simpson used the saffir-simpson hurricane scale to narrow uncertainty without pretending weather was certain.",
+      "no": 12,
+      "profile": "Today’s forecast-room memorandum profiles Robert Simpson through the saffir-simpson hurricane scale. Robert Simpson was a hurricane researcher and director of the U.S. National Hurricane Center. With Herbert Saffir he developed the Saffir-Simpson scale to communicate wind-related hurricane intensity, while recognizing that surge and rainfall require separate assessment. Meteorology converts scattered observations into a changing three-dimensional atmosphere. Simpson’s contribution explains one step between the instrument reading and the warning heard by the public.\n\nThe forecasting discipline is to report wind category alongside surge, rainfall, size, speed, and local exposure. Surface reports, upper-air structure, radar, satellite data, model ensembles, and local exposure should be compared without allowing a preferred message to erase conflicting evidence.\n\nStorm uncertainty grows from incomplete initial conditions and nonlinear dynamics, yet uncertainty is not ignorance. Probabilities, scenarios, and thresholds can preserve action while the exact track and intensity remain unsettled. The warning process fails when scientific nuance is converted into unwarranted reassurance.\n\nThe operational conclusion: one category cannot summarize every mechanism of hurricane danger. A forecast earns trust when revisions follow evidence and communication preserves the hazard rather than the convenience of the moment. Wind category, rainfall, surge, storm size, and forward speed describe different pathways to damage. An ensemble spread should widen the decision discussion, not disappear from the public summary. Observation times and forecast issue times should be preserved because a correct warning delivered late is still an operational failure. Local officials need impact language tied to roads, buildings, and evacuation zones rather than abstract wind alone.\n\nSimpson's hurricane scale is famous precisely because it compresses one hazard—maximum sustained wind—into a category. It does not measure storm surge, rainfall, tornadoes, or the size and forward speed that shape them. A high category can overpredict one kind of loss and underdescribe another. If fatalities occur in rapidly rising coastal water before peak winds, category alone is an attractive but incomplete causal explanation.",
+      "frame": "The Clerk points from the tide gauge to the wind field. \"One category cannot carry all this. Start with the saffir-simpson hurricane scale.\"",
+      "q": [
+        {
+          "q": "Which meteorological explanation best captures Robert Simpson’s work on the saffir-simpson hurricane scale?",
+          "o": [
+            {
+              "t": "Robert Simpson was a hurricane researcher and director of the U.S. Ensemble evidence remains beside the issued message. Surge and wind risks stay separately documented.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Robert Simpson's storm work emphasizes one deterministic track and the headline category. The category offers a clear signal. The leading track looks authoritative.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Robert Simpson's storm work supports the hurricane category as the primary basis for surge, rainfall, and evacuation decisions. The category offers a clear signal.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Robert Simpson's storm authority supports publishing the least disruptive credible track until the forecast models converge. The leading track looks authoritative.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "Which forecast practice best follows the pioneer’s work?",
+          "o": [
+            {
+              "t": "Follow this forecasting practice: report wind category alongside surge, rainfall, size, speed, and local exposure. Impact pathways stay separate.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Blend radar with the leading deterministic model, then treat ensemble spread and exposure as later refinements. Storm timing supports this storm claim.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Infer that a weakening wind category substantially reduces evacuation urgency even as storm size and rainfall increase. Storm records fit this storm account.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Rewrite the bulletin around the least disruptive track and wait for landfall to resolve the remaining disagreement. Storm records fit this storm account.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "What is the sound forecasting conclusion?",
+          "o": [
+            {
+              "t": "The forecast lesson is that one category cannot summarize every mechanism of hurricane danger. Surge and wind risks stay separately documented. Storm fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Base public action on the most likely track even when a lower-probability scenario carries much greater loss. Storm timing supports this storm claim.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Treat model divergence as making the forecast too unstable to support strong protective action. The leading track looks authoritative. The storm record fits.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Attribute the storm to deliberate modification or exceptional unpredictability before examining how the warning changed. Storm records fit this storm account.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        }
+      ]
+    },
+    "saffir": {
+      "sci": "Herbert Saffir (1917-2007)",
+      "topic": "Hurricane wind & structural damage",
+      "lede": "Herbert Saffir brought hurricane wind and structural damage into the maps, equations, and instruments of modern forecasting.",
+      "no": 13,
+      "profile": "Today’s forecast-room memorandum profiles Herbert Saffir through hurricane wind and structural damage. Herbert Saffir was a structural engineer who studied how hurricane winds damage buildings and proposed a five-category scale based on expected effects. Simpson adapted it for operational hurricane communication. Meteorology converts scattered observations into a changing three-dimensional atmosphere. Saffir’s contribution explains one step between the instrument reading and the warning heard by the public.\n\nThe forecasting discipline is to connect wind speed to structural vulnerability without treating the category as a complete loss forecast. Surface reports, upper-air structure, radar, satellite data, model ensembles, and local exposure should be compared without allowing a preferred message to erase conflicting evidence.\n\nStorm uncertainty grows from incomplete initial conditions and nonlinear dynamics, yet uncertainty is not ignorance. Probabilities, scenarios, and thresholds can preserve action while the exact track and intensity remain unsettled. The warning process fails when scientific nuance is converted into unwarranted reassurance.\n\nThe operational conclusion: hazard scales are communication tools, not substitutes for local impact analysis. A forecast earns trust when revisions follow evidence and communication preserves the hazard rather than the convenience of the moment. Wind category, rainfall, surge, storm size, and forward speed describe different pathways to damage. An ensemble spread should widen the decision discussion, not disappear from the public summary. Observation times and forecast issue times should be preserved because a correct warning delivered late is still an operational failure. Local officials need impact language tied to roads, buildings, and evacuation zones rather than abstract wind alone.",
+      "frame": "Storm Spotter Vane freezes the radar loop at The Emergency-Management Office. \"The eye moved after this frame. Explain hurricane wind and structural damage before you read the warning log.\"",
+      "q": [
+        {
+          "q": "Which meteorological explanation best captures Herbert Saffir’s work on hurricane wind and structural damage?",
+          "o": [
+            {
+              "t": "Herbert Saffir was a structural engineer who studied how hurricane winds damage buildings and proposed a five-category scale based on expected effects. Surge and wind risks stay separately documented. Storm fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Herbert Saffir's storm work emphasizes one deterministic track and the headline category. The leading track looks authoritative. Storm practice makes the storm view plausible. Storm timing supports this storm claim.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Herbert Saffir's storm work supports the hurricane category as the primary basis for surge, rainfall, and evacuation decisions. The category offers a clear signal. Storm timing supports this storm claim.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Herbert Saffir's storm authority supports publishing the least disruptive credible track until the forecast models converge. The leading track looks authoritative. Storm timing supports this storm claim.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "Which forecast practice best follows the pioneer’s work?",
+          "o": [
+            {
+              "t": "Follow this forecasting practice: connect wind speed to structural vulnerability without treating the category as a complete loss forecast. Storm fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Blend radar with the leading deterministic model, then treat ensemble spread and exposure as later refinements. Storm records fit this storm account.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Infer that a weakening wind category substantially reduces evacuation urgency even as storm size and rainfall increase. Storm records fit this storm account.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Rewrite the bulletin around the least disruptive track and wait for landfall to resolve the remaining disagreement. Storm records fit this storm account.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "What is the sound forecasting conclusion?",
+          "o": [
+            {
+              "t": "The forecast lesson is that hazard scales are communication tools, not substitutes for local impact analysis. The warning logic remains visible. Storm fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Base public action on the most likely track even when a lower-probability scenario carries much greater loss. Storm timing supports this storm claim.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Treat model divergence as making the forecast too unstable to support strong protective action. The leading track looks authoritative. The storm record fits.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Attribute the storm to deliberate modification or exceptional unpredictability before examining how the warning changed. Storm records fit this storm account.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        }
+      ]
+    },
+    "charney": {
+      "sci": "Jule Charney (1917-1981)",
+      "topic": "Numerical weather prediction",
+      "lede": "A changing atmosphere became more legible through Jule Charney’s work on numerical weather prediction.",
+      "no": 14,
+      "profile": "Today’s forecast-room memorandum profiles Jule Charney through numerical weather prediction. Jule Charney helped make numerical weather prediction practical by simplifying atmospheric equations, designing early computer forecasts, and clarifying large-scale dynamical instability. His work connected theory, observation, and computation. Meteorology converts scattered observations into a changing three-dimensional atmosphere. Charney’s contribution explains one step between the instrument reading and the warning heard by the public.\n\nThe forecasting discipline is to choose equations and resolution suited to the forecast scale, then verify output against observations. Surface reports, upper-air structure, radar, satellite data, model ensembles, and local exposure should be compared without allowing a preferred message to erase conflicting evidence.\n\nStorm uncertainty grows from incomplete initial conditions and nonlinear dynamics, yet uncertainty is not ignorance. Probabilities, scenarios, and thresholds can preserve action while the exact track and intensity remain unsettled. The warning process fails when scientific nuance is converted into unwarranted reassurance.\n\nThe operational conclusion: models gain authority from tested skill, not from computational complexity alone. A forecast earns trust when revisions follow evidence and communication preserves the hazard rather than the convenience of the moment. Wind category, rainfall, surge, storm size, and forward speed describe different pathways to damage. An ensemble spread should widen the decision discussion, not disappear from the public summary. Observation times and forecast issue times should be preserved because a correct warning delivered late is still an operational failure. Local officials need impact language tied to roads, buildings, and evacuation zones rather than abstract wind alone. Post-storm verification should compare every major forecast change with the evidence available at that moment.",
+      "frame": "Storm Spotter Vane holds two forecast tracks together. \"Uncertainty is not permission to choose the convenient line. Show me numerical weather prediction.\"",
+      "q": [
+        {
+          "q": "Which meteorological explanation best captures Jule Charney’s work on numerical weather prediction?",
+          "o": [
+            {
+              "t": "Jule Charney helped make numerical weather prediction practical by simplifying atmospheric equations, designing early computer forecasts, and clarifying large-scale dynamical instability. Impact pathways stay separate. Storm fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Jule Charney's storm work relies on one deterministic track and the headline category. The public message stays simple. Storm records fit this storm account. Storm context supports the view. Storm timing supports this storm claim.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Jule Charney's storm work is read within storm practice as support for the hurricane category as the primary basis for surge, rainfall, and evacuation decisions. Storm records fit this storm account. Storm timing supports this storm claim.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Jule Charney's authority is invoked in storm practice to justify publishing the least disruptive credible track until the forecast models converge. The category offers a clear signal. Storm records fit this storm account. Fits.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "Which forecast practice best follows the pioneer’s work?",
+          "o": [
+            {
+              "t": "Follow this forecasting practice: choose equations and resolution suited to the forecast scale, then verify output against observations. Storm fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Blend radar with the leading deterministic model, then treat ensemble spread and exposure as later refinements. Storm records fit this storm account.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Infer that a weakening wind category substantially reduces evacuation urgency even as storm size and rainfall increase. The storm practice fits.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Rewrite the bulletin around the least disruptive track and wait for landfall to resolve the remaining disagreement. Storm records fit this storm account.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "What is the sound forecasting conclusion?",
+          "o": [
+            {
+              "t": "The forecast lesson is that models gain authority from tested skill, not from computational complexity alone. The warning logic remains visible. Storm fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Base public action on the most likely track even when a lower-probability scenario carries much greater loss. Storm timing supports this storm claim.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Treat model divergence as making the forecast too unstable to support strong protective action. The leading track looks authoritative. The storm record fits.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Attribute the storm to deliberate modification or exceptional unpredictability before examining how the warning changed. Storm records fit this storm account.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        }
+      ]
+    },
+    "lorenz": {
+      "sci": "Edward Lorenz (1917-2008)",
+      "topic": "Chaos & the limits of prediction",
+      "lede": "Edward Lorenz used chaos and the limits of prediction to narrow uncertainty without pretending weather was certain.",
+      "no": 15,
+      "profile": "Today’s forecast-room memorandum profiles Edward Lorenz through chaos and the limits of prediction. Edward Lorenz discovered sensitive dependence on initial conditions while studying a simplified atmospheric model. Tiny differences in starting values could grow into very different outcomes, a foundation of chaos theory. Meteorology converts scattered observations into a changing three-dimensional atmosphere. Lorenz’s contribution explains one step between the instrument reading and the warning heard by the public.\n\nThe forecasting discipline is to use ensembles and probabilistic ranges to represent growth of initial-condition uncertainty. Surface reports, upper-air structure, radar, satellite data, model ensembles, and local exposure should be compared without allowing a preferred message to erase conflicting evidence.\n\nStorm uncertainty grows from incomplete initial conditions and nonlinear dynamics, yet uncertainty is not ignorance. Probabilities, scenarios, and thresholds can preserve action while the exact track and intensity remain unsettled. The warning process fails when scientific nuance is converted into unwarranted reassurance.\n\nThe operational conclusion: limited predictability does not mean no forecast is possible or no warning is justified. A forecast earns trust when revisions follow evidence and communication preserves the hazard rather than the convenience of the moment. Wind category, rainfall, surge, storm size, and forward speed describe different pathways to damage. An ensemble spread should widen the decision discussion, not disappear from the public summary. Observation times and forecast issue times should be preserved because a correct warning delivered late is still an operational failure. Local officials need impact language tied to roads, buildings, and evacuation zones rather than abstract wind alone.",
+      "frame": "The Radar Analyst points from the tide gauge to the wind field. \"One category cannot carry all this. Start with chaos and the limits of prediction.\"",
+      "q": [
+        {
+          "q": "Which meteorological explanation best captures Edward Lorenz’s work on chaos and the limits of prediction?",
+          "o": [
+            {
+              "t": "Edward Lorenz discovered sensitive dependence on initial conditions while studying a simplified atmospheric model. Surge and wind risks stay separately documented.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Edward Lorenz's storm work emphasizes one deterministic track and the headline category. The category offers a clear signal. Storm practice makes the storm view plausible.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Edward Lorenz's storm work supports the hurricane category as the primary basis for surge, rainfall, and evacuation decisions. Storm timing supports this storm claim.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Edward Lorenz's storm authority supports publishing the least disruptive credible track until the forecast models converge. The category offers a clear signal.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "Which forecast practice best follows the pioneer’s work?",
+          "o": [
+            {
+              "t": "Follow this forecasting practice: use ensembles and probabilistic ranges to represent growth of initial-condition uncertainty. Impact pathways stay separate.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Blend radar with the leading deterministic model, then treat ensemble spread and exposure as later refinements. The leading track looks authoritative.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Infer that a weakening wind category substantially reduces evacuation urgency even as storm size and rainfall increase. The leading track looks authoritative.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Rewrite the bulletin around the least disruptive track and wait for landfall to resolve the remaining disagreement. The leading track looks authoritative.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "What is the sound forecasting conclusion?",
+          "o": [
+            {
+              "t": "The forecast lesson is that limited predictability does not mean no forecast is possible or no warning is justified. Impact pathways stay separate.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Base public action on the most likely track even when a lower-probability scenario carries much greater loss. The category offers a clear signal. Storm fits.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Treat model divergence as making the forecast too unstable to support strong protective action. The leading track looks authoritative. The storm record fits.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Attribute the storm to deliberate modification or exceptional unpredictability before examining how the warning changed. Storm records fit this storm account.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        }
+      ]
+    },
+    "fujita": {
+      "sci": "Tetsuya Ted Fujita (1920-1998)",
+      "topic": "The tornado intensity scale",
+      "lede": "Tetsuya Ted Fujita brought the tornado intensity scale into the maps, equations, and instruments of modern forecasting.",
+      "no": 16,
+      "profile": "Today’s forecast-room memorandum profiles Tetsuya Ted Fujita through the tornado intensity scale. Tetsuya Theodore Fujita reconstructed tornado and downburst damage from meticulous surveys and developed the Fujita scale for tornado intensity. His work showed how ground patterns can reveal wind structure after a storm. Meteorology converts scattered observations into a changing three-dimensional atmosphere. Fujita’s contribution explains one step between the instrument reading and the warning heard by the public.\n\nThe forecasting discipline is to map damage continuously and distinguish convergent tornado paths from divergent downburst signatures. Surface reports, upper-air structure, radar, satellite data, model ensembles, and local exposure should be compared without allowing a preferred message to erase conflicting evidence.\n\nStorm uncertainty grows from incomplete initial conditions and nonlinear dynamics, yet uncertainty is not ignorance. Probabilities, scenarios, and thresholds can preserve action while the exact track and intensity remain unsettled. The warning process fails when scientific nuance is converted into unwarranted reassurance.\n\nThe operational conclusion: careful post-event evidence can correct dramatic but inaccurate explanations. A forecast earns trust when revisions follow evidence and communication preserves the hazard rather than the convenience of the moment. Wind category, rainfall, surge, storm size, and forward speed describe different pathways to damage. An ensemble spread should widen the decision discussion, not disappear from the public summary. Observation times and forecast issue times should be preserved because a correct warning delivered late is still an operational failure. Local officials need impact language tied to roads, buildings, and evacuation zones rather than abstract wind alone. Post-storm verification should compare every major forecast change with the evidence available at that moment.",
+      "frame": "The Radar Analyst freezes the radar loop at The Emergency-Management Office. \"The eye moved after this frame. Explain the tornado intensity scale before you read the warning log.\"",
+      "q": [
+        {
+          "q": "Which meteorological explanation best captures Tetsuya Ted Fujita’s work on the tornado intensity scale?",
+          "o": [
+            {
+              "t": "Tetsuya Theodore Fujita reconstructed tornado and downburst damage from meticulous surveys and developed the Fujita scale for tornado intensity. The warning logic remains visible. Impact pathways stay separate.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Tetsuya Ted Fujita's treatment of the tornado intensity scale uses a storm simplification: one deterministic track and the headline category, with ensemble spread and coastal exposure treated as secondary.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Tetsuya Ted Fujita's storm work supports the hurricane category as the primary basis for surge, rainfall, and evacuation decisions. The category offers a clear signal. The leading track looks authoritative.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Tetsuya Ted Fujita's storm authority supports publishing the least disruptive credible track until the forecast models converge. The category offers a clear signal. The leading track looks authoritative.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "Which forecast practice best follows the pioneer’s work?",
+          "o": [
+            {
+              "t": "Follow this forecasting practice: map damage continuously and distinguish convergent tornado paths from divergent downburst signatures. Storm fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Blend radar with the leading deterministic model, then treat ensemble spread and exposure as later refinements. Storm records fit this storm account.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Infer that a weakening wind category substantially reduces evacuation urgency even as storm size and rainfall increase. The storm practice fits.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Rewrite the bulletin around the least disruptive track and wait for landfall to resolve the remaining disagreement. Storm records fit this storm account.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "What is the sound forecasting conclusion?",
+          "o": [
+            {
+              "t": "The forecast lesson is that careful post-event evidence can correct dramatic but inaccurate explanations. Forecast revisions retain their scientific rationale. Storm fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Base public action on the most likely track even when a lower-probability scenario carries much greater loss. The leading track looks authoritative. Storm fits. Storm fits.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Treat model divergence as making the forecast too unstable to support strong protective action. Storm records fit this storm account. Storm timing supports this storm claim.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Attribute the storm to deliberate modification or exceptional unpredictability before examining how the warning changed. The leading track looks authoritative. Storm fits.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        }
+      ]
+    },
+    "jsimpson": {
+      "sci": "Joanne Simpson (1923-2010)",
+      "topic": "Hurricane structure & cloud towers",
+      "lede": "A changing atmosphere became more legible through Joanne Simpson’s work on hurricane structure and cloud towers.",
+      "no": 17,
+      "profile": "Today’s forecast-room memorandum profiles Joanne Simpson through hurricane structure and cloud towers. Joanne Simpson pioneered research on tropical convection, hot towers, and hurricane structure using observations, theory, and cloud models. She showed how deep convective towers help transport heat and sustain tropical systems. Meteorology converts scattered observations into a changing three-dimensional atmosphere. Simpson’s contribution explains one step between the instrument reading and the warning heard by the public.\n\nThe forecasting discipline is to connect radar and satellite observations of convection to the larger storm circulation. Surface reports, upper-air structure, radar, satellite data, model ensembles, and local exposure should be compared without allowing a preferred message to erase conflicting evidence.\n\nStorm uncertainty grows from incomplete initial conditions and nonlinear dynamics, yet uncertainty is not ignorance. Probabilities, scenarios, and thresholds can preserve action while the exact track and intensity remain unsettled. The warning process fails when scientific nuance is converted into unwarranted reassurance.\n\nThe operational conclusion: changes inside cloud towers can alter storm intensity before surface reports catch up. A forecast earns trust when revisions follow evidence and communication preserves the hazard rather than the convenience of the moment. Wind category, rainfall, surge, storm size, and forward speed describe different pathways to damage. An ensemble spread should widen the decision discussion, not disappear from the public summary. Observation times and forecast issue times should be preserved because a correct warning delivered late is still an operational failure. Local officials need impact language tied to roads, buildings, and evacuation zones rather than abstract wind alone.\n\nJoanne Simpson's work on hurricane structure helps connect winds to storm surge. Persistent onshore wind stress and low pressure pile water toward the coast, while shelf shape and storm size control depth; the surge can arrive before the strongest eyewall winds. High-water marks, tide-gauge timing, and coastal fatality times can therefore identify surge independently of category. That sequence separates ocean water driven ashore from wind-only destruction or later rainfall flooding.",
+      "frame": "The Clerk holds two forecast tracks together. \"Uncertainty is not permission to choose the convenient line. Show me hurricane structure and cloud towers.\"",
+      "q": [
+        {
+          "q": "Which meteorological explanation best captures Joanne Simpson’s work on hurricane structure and cloud towers?",
+          "o": [
+            {
+              "t": "Joanne Simpson pioneered research on tropical convection, hot towers, and hurricane structure using observations, theory, and cloud models. Impact pathways stay separate.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Joanne Simpson's storm work emphasizes one deterministic track and the headline category. The category offers a clear signal. The leading track looks authoritative.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Joanne Simpson's storm work supports the hurricane category as the primary basis for surge, rainfall, and evacuation decisions. The leading track looks authoritative.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Joanne Simpson's storm authority supports publishing the least disruptive credible track until the forecast models converge. The leading track looks authoritative.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "Which forecast practice best follows the pioneer’s work?",
+          "o": [
+            {
+              "t": "Follow this forecasting practice: connect radar and satellite observations of convection to the larger storm circulation. Impact pathways stay separate.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Blend radar with the leading deterministic model, then treat ensemble spread and exposure as later refinements. The leading track looks authoritative.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Infer that a weakening wind category substantially reduces evacuation urgency even as storm size and rainfall increase. The category offers a clear signal.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Rewrite the bulletin around the least disruptive track and wait for landfall to resolve the remaining disagreement. Storm practice makes the storm view plausible.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "What is the sound forecasting conclusion?",
+          "o": [
+            {
+              "t": "The forecast lesson is that changes inside cloud towers can alter storm intensity before surface reports catch up. Impact pathways stay separate. Storm fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Base public action on the most likely track even when a lower-probability scenario carries much greater loss. Storm timing supports this storm claim.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Treat model divergence as making the forecast too unstable to support strong protective action. The leading track looks authoritative. The storm record fits.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Attribute the storm to deliberate modification or exceptional unpredictability before examining how the warning changed. Storm records fit this storm account.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        }
+      ]
+    },
+    "atlas": {
+      "sci": "David Atlas (1924-2015)",
+      "topic": "Radar meteorology & storm detection",
+      "lede": "David Atlas used radar meteorology and storm detection to narrow uncertainty without pretending weather was certain.",
+      "no": 18,
+      "profile": "Today’s forecast-room memorandum profiles David Atlas through radar meteorology and storm detection. David Atlas was a founder of radar meteorology who studied how radar signals relate to precipitation particles and storm structure. He advanced interpretation of reflectivity, attenuation, and Doppler measurements. Meteorology converts scattered observations into a changing three-dimensional atmosphere. Atlas’s contribution explains one step between the instrument reading and the warning heard by the public.\n\nThe forecasting discipline is to convert radar measurements into meteorological quantities while checking beam geometry and artifacts. Surface reports, upper-air structure, radar, satellite data, model ensembles, and local exposure should be compared without allowing a preferred message to erase conflicting evidence.\n\nStorm uncertainty grows from incomplete initial conditions and nonlinear dynamics, yet uncertainty is not ignorance. Probabilities, scenarios, and thresholds can preserve action while the exact track and intensity remain unsettled. The warning process fails when scientific nuance is converted into unwarranted reassurance.\n\nThe operational conclusion: a bright radar image is evidence that must be interpreted, not a warning decision by itself. A forecast earns trust when revisions follow evidence and communication preserves the hazard rather than the convenience of the moment. Wind category, rainfall, surge, storm size, and forward speed describe different pathways to damage. An ensemble spread should widen the decision discussion, not disappear from the public summary. Observation times and forecast issue times should be preserved because a correct warning delivered late is still an operational failure. Local officials need impact language tied to roads, buildings, and evacuation zones rather than abstract wind alone.\n\nAtlas's radar meteorology provides the rainfall test. Radar reflectivity and gauge correction can estimate where intense precipitation persisted; river and flash-flood peaks then follow catchment travel times. A rainfall-dominated death pattern should cluster beneath those echoes or downstream after the storm center moves inland. Coastal deaths occurring earlier, outside the largest accumulated rainfall, cannot be assigned to freshwater flooding simply because the final storm total was extreme.",
+      "frame": "The Clerk points from the tide gauge to the wind field. \"One category cannot carry all this. Start with radar meteorology and storm detection.\"",
+      "q": [
+        {
+          "q": "Which meteorological explanation best captures David Atlas’s work on radar meteorology and storm detection?",
+          "o": [
+            {
+              "t": "David Atlas was a founder of radar meteorology who studied how radar signals relate to precipitation particles and storm structure. Impact pathways stay separate.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "David Atlas's storm work emphasizes one deterministic track and the headline category. The leading track looks authoritative. Storm timing supports this storm claim.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "David Atlas's storm work supports the hurricane category as the primary basis for surge, rainfall, and evacuation decisions. Storm timing supports this storm claim.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "David Atlas's storm authority supports publishing the least disruptive credible track until the forecast models converge. The category offers a clear signal.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "Which forecast practice best follows the pioneer’s work?",
+          "o": [
+            {
+              "t": "Follow this forecasting practice: convert radar measurements into meteorological quantities while checking beam geometry and artifacts. Storm fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Blend radar with the leading deterministic model, then treat ensemble spread and exposure as later refinements. Storm records fit this storm account.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Infer that a weakening wind category substantially reduces evacuation urgency even as storm size and rainfall increase. The storm practice fits.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Rewrite the bulletin around the least disruptive track and wait for landfall to resolve the remaining disagreement. Storm records fit this storm account.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        },
+        {
+          "q": "What is the sound forecasting conclusion?",
+          "o": [
+            {
+              "t": "The forecast lesson is that a bright radar image is evidence that must be interpreted, not a warning decision by itself. Impact pathways stay separate. Storm fits.",
+              "v": "expert",
+              "fb": "Correct: it combines observations, dynamics, uncertainty, and public communication without softening the hazard."
+            },
+            {
+              "t": "Base public action on the most likely track even when a lower-probability scenario carries much greater loss. The leading track looks authoritative. Storm fits. Storm fits.",
+              "v": "partial",
+              "fb": "This is relevant but omits a major data source or impact pathway needed for the warning."
+            },
+            {
+              "t": "Treat model divergence as making the forecast too unstable to support strong protective action. Storm records fit this storm account. Storm timing supports this storm claim.",
+              "v": "wrong",
+              "fb": "That claim misstates the atmospheric mechanism or what the measurement can establish."
+            },
+            {
+              "t": "Attribute the storm to deliberate modification or exceptional unpredictability before examining how the warning changed. Storm practice makes the storm view plausible.",
+              "v": "danger",
+              "fb": "That response lets political or operational convenience replace the forecast evidence."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "STORIES": {
+    "spotter": {
+      "coast": "Storm Spotter Vane chooses The Coast & Tide Gauges for the tide inquiry and lays out the surveyed high-water marks. \"Weather evidence needs disciplined readers; earn the observation log through the profile.\"",
+      "forecastfloor": "Storm Spotter Vane chooses The Hurricane Forecast Floor for the tide inquiry and lays out the archived radar loop. \"Weather evidence needs disciplined readers; earn the observation log through the profile.\"",
+      "office": "Storm Spotter Vane chooses The Emergency-Management Office for the tide inquiry and lays out the warning and evacuation log. \"Weather evidence needs disciplined readers; earn the observation log through the profile.\""
+    },
+    "radar": {
+      "coast": "The Radar Analyst chooses The Coast & Tide Gauges for the tide inquiry and lays out the surveyed high-water marks. \"The forecast products come after you demonstrate command of today's meteorologist.\"",
+      "forecastfloor": "The Radar Analyst chooses The Hurricane Forecast Floor for the tide inquiry and lays out the archived radar loop. \"The forecast products come after you demonstrate command of today's meteorologist.\"",
+      "office": "The Radar Analyst chooses The Emergency-Management Office for the tide inquiry and lays out the warning and evacuation log. \"The forecast products come after you demonstrate command of today's meteorologist.\""
+    },
+    "clerk": {
+      "coast": "The Clerk chooses The Coast & Tide Gauges for the tide inquiry and lays out the surveyed high-water marks. \"Read the pioneer closely, and the warning correspondence is yours to inspect.\"",
+      "forecastfloor": "The Clerk chooses The Hurricane Forecast Floor for the tide inquiry and lays out the archived radar loop. \"Read the pioneer closely, and the warning correspondence is yours to inspect.\"",
+      "office": "The Clerk chooses The Emergency-Management Office for the tide inquiry and lays out the warning and evacuation log. \"Read the pioneer closely, and the warning correspondence is yours to inspect.\""
+    }
+  },
+  "story": [
+    "<b>Water marks cross the resort facades while radar loops and rain gauges replay the storm inland.</b>",
+    "<b>Storm Spotter Vane</b> supplies coastal observations, <b>The Radar Analyst</b> interprets the hazard timeline products, and <b>The Clerk</b> preserves public-warning decisions.",
+    "The administrative trail names Delia Marsh — regional emergency-management chief, The lead hurricane forecaster, and The resort-town mayor. The hazard analysis still must weigh <b>Peak category wind caused the dominant structural destruction</b> against <b>Extreme rainfall overwhelmed rivers after the center moved inland</b>.",
+    "<b>The public inquiry opens in eight days, before repaired gauges and cleared debris obscure the hazard sequence.</b>"
+  ],
+  "endings": {
+    "overclaimWhat": "weapon",
+    "dismissalWhat": "freak",
+    "win": {
+      "expertTitle": "The Water Arrived Before the Peak Wind",
+      "expert": [
+        "Investigator Cole Renard names Delia Marsh — regional emergency-management chief, The Emergency-Management Office, and Storm surge raised coastal water before peak winds arrived. Not Peak category wind caused the dominant structural destruction. Not Extreme rainfall overwhelmed rivers after the center moved inland.",
+        "The readings show that peak wind, freshwater flooding, and storm surge have distinct measurements and timing; fatality locations and water arrival identify which hazard dominated."
+      ],
+      "soundTitle": "A Defensible Hazard Finding",
+      "sound": [
+        "Tide evidence fixes the trio: Delia Marsh — regional emergency-management chief; The Emergency-Management Office; Storm surge raised coastal water before peak winds arrived.",
+        "The hazard timeline supports the answer; public-warning responsibility still lacks every requested record."
+      ],
+      "namedTitle": "Correct Hazard, Limited Attribution",
+      "named": [
+        "Tide evidence points to Delia Marsh — regional emergency-management chief, The Emergency-Management Office, and Storm surge raised coastal water before peak winds arrived; tide support remains incomplete.",
+        "The dominant hazard is identified; the warning inquiry still rests on too few collected documents."
+      ]
+    },
+    "overclaim": {
+      "title": "The Category-Wind Explanation",
+      "body": [
+        "Investigator Cole Renard attributes deaths to Peak category wind caused the dominant structural destruction. Location and timing do not follow category wind.",
+        "Saffir-Simpson categories describe maximum sustained wind, not surge depth or rainfall. Structural wind damage alone cannot explain early coastal drowning above the mapped wind-failure zone."
+      ]
+    },
+    "dismissal": {
+      "title": "The Inland-Rainfall Explanation",
+      "body": [
+        "Investigator Cole Renard instead selects Extreme rainfall overwhelmed rivers after the center moved inland. River peaks arrive after the coastal deaths.",
+        "Radar and river gauges document severe inland rainfall, but most deaths occurred on the coast before the center moved inland and before river peaks developed."
+      ]
+    },
+    "wrongNames": {
+      "title": "Right Hazard, Wrong Names",
+      "body": [
+        "Storm surge is the correct hazard, while the accusation misplaces responsibility. Complete the warning clues before judgment."
+      ]
+    }
+  }
+}
+};

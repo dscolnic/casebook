@@ -1,0 +1,465 @@
+[
+  {
+    "schemaVersion": 3,
+    "mode": "three_informants_three_readings",
+    "id": "nc_greywake_case",
+    "title": "The Greywake Shoal",
+    "discipline": "Navigation Science & Bridge Systems",
+    "venue": "the Greywake grounding inquiry",
+    "agent": {
+      "name": "Lt. Rowan Hale",
+      "role": "navigation-safety investigator"
+    },
+    "standingLabel": "Inquiry credibility",
+    "readingShort": "Navigators",
+    "readingLabel": "Navigation & Measurement Pioneers",
+    "dossierName": "NAVIGATION & MEASUREMENT PIONEERS",
+    "enterLabel": "Open the inquiry",
+    "subt": "A deduction game inside the Greywake grounding inquiry",
+    "DAYS_TOTAL": 3,
+    "teaser": "A destroyer passes dangerously close to a charted shoal after its electronic chart and radar overlay appear to agree. Was the ship deliberately spoofed, carried helplessly by an exceptional current, or guided by a heading error that independent fixes would have exposed?",
+    "overclaimTag": "a hostile satellite-navigation spoofing attack",
+    "truthTag": "a wrong gyro correction left unchallenged after independent fixes were suspended",
+    "emblem": "<svg viewBox=\"0 0 660 140\" role=\"img\" aria-label=\"A ship track bending toward a shoal while a compass heading and radar overlay disagree\"><path d=\"M30 104 C180 90 300 72 610 38\" fill=\"none\" stroke=\"#326891\" stroke-width=\"4\"/><path d=\"M30 112 C210 104 360 104 610 100\" fill=\"none\" stroke=\"#121212\" stroke-width=\"3\" stroke-dasharray=\"10 7\"/><path d=\"M470 80 l18 -18 18 18 -18 18z\" fill=\"#B3261E\"/><circle cx=\"120\" cy=\"62\" r=\"24\" fill=\"none\" stroke=\"#121212\" stroke-width=\"3\"/><path d=\"M120 38 V86 M96 62 H144\" stroke=\"#121212\" stroke-width=\"2\"/></svg>",
+    "overclaimTease": "Compare heading, position, radar range, and current evidence. Spoofing, set and drift, and a common heading-reference error do not disagree in the same channels.",
+    "CATS": {
+      "who": {
+        "title": "Who let the risk persist",
+        "truth": "nc_navoff",
+        "items": [
+          {
+            "id": "nc_navoff",
+            "label": "Lt. Mara Voss — navigation officer"
+          },
+          {
+            "id": "nc_tech",
+            "label": "Chief Eli Mercer — gyro technician"
+          },
+          {
+            "id": "nc_helm",
+            "label": "QM2 Nia Cole — helmsman"
+          }
+        ]
+      },
+      "where": {
+        "title": "Where it culminates",
+        "truth": "nc_console",
+        "items": [
+          {
+            "id": "nc_console",
+            "label": "The Radar–Electronic Chart Integration Console"
+          },
+          {
+            "id": "nc_bridgewing",
+            "label": "The Starboard Bridge Wing"
+          },
+          {
+            "id": "nc_forecast",
+            "label": "The Ocean Forecast Desk"
+          }
+        ]
+      },
+      "what": {
+        "title": "What happened",
+        "truth": "nc_crosscheck",
+        "items": [
+          {
+            "id": "nc_spoof",
+            "label": "A hostile transmitter shifted every satellite position toward the shoal"
+          },
+          {
+            "id": "nc_crosscheck",
+            "label": "A wrong gyro correction biased the overlay while independent fixes were waived"
+          },
+          {
+            "id": "nc_current",
+            "label": "An exceptional current carried a correctly navigated ship off track"
+          }
+        ]
+      }
+    },
+    "READING_ORDER": [
+      "nc_anschutz",
+      "nc_sumner",
+      "nc_maury"
+    ],
+    "CHARACTERS": {
+      "nc_qm": {
+        "name": "QM1 Tessa Ward",
+        "role": "Navigation plot supervisor",
+        "face": "🧭",
+        "badge": "T",
+        "legend": "the chart table",
+        "hint": "The written night order suspended radar-range and visual-bearing fixes after the overlay was declared reliable.",
+        "reading": "nc_sumner"
+      },
+      "nc_radar": {
+        "name": "OS2 Malik Chen",
+        "role": "Surface-search radar operator",
+        "face": "◉",
+        "badge": "M",
+        "legend": "the radar console",
+        "hint": "Fixed lighthouse ranges drifted away from the chart overlay even while satellite positions remained smooth and internally consistent.",
+        "reading": "nc_anschutz"
+      },
+      "nc_ocean": {
+        "name": "Dr. Lena Ortiz",
+        "role": "Embarked oceanographer",
+        "face": "≋",
+        "badge": "L",
+        "legend": "the current profile",
+        "hint": "The measured cross-current could explain less than one-third of the final cross-track error.",
+        "reading": "nc_maury"
+      }
+    },
+    "TOPICS": {
+      "nc_anschutz": {
+        "sci": "Hermann Anschütz-Kaempfe (1872–1931)",
+        "topic": "The practical gyrocompass",
+        "lede": "The engineer whose north-seeking gyroscope gave steel ships a heading reference independent of magnetic disturbance.",
+        "no": 1,
+        "profile": "Hermann Anschütz-Kaempfe developed one of the first practical gyrocompasses after recognizing that a magnetic compass could be unreliable near large masses of steel and electrical equipment. A gyrocompass uses a rapidly spinning rotor, Earth rotation, gravity, and controlled damping to settle toward true north rather than magnetic north. Its usefulness is not that it can never be wrong, but that its errors have different causes and can be checked against celestial, visual, magnetic, or inertial references.\n\nA modern bridge may distribute one gyro heading to radar stabilization, an electronic chart, autopilot, and other consumers. That convenience creates a common-mode risk: two displays can agree because they share the same wrong input. Independent evidence must therefore come from a source that does not inherit the same heading reference.\n\nOn Greywake, radar video and the electronic-chart overlay appeared aligned because both used the same entered gyro correction. Raw radar ranges to fixed lighthouses did not need that correction and began rejecting the displayed track. The integrated console preserved the misleading agreement while the fix log recorded the missing independent challenge.",
+        "frame": "Points to a compass repeater and two displays fed from the same heading bus. “Agreement is only evidence when the channels are actually independent.”",
+        "q": [
+          {
+            "q": "Why can a gyrocompass be preferable to a magnetic compass on a steel ship?",
+            "o": [
+              {
+                "t": "It measures water current directly beneath the hull.",
+                "v": "wrong",
+                "fb": "A gyrocompass provides heading, not current."
+              },
+              {
+                "t": "It seeks true north without relying on Earth’s local magnetic field.",
+                "v": "expert",
+                "fb": "Its north reference comes from gyroscopic dynamics, Earth rotation, gravity, and damping."
+              },
+              {
+                "t": "It receives true north continuously from navigation satellites.",
+                "v": "partial",
+                "fb": "Modern systems may combine sources, but the gyrocompass principle is self-contained."
+              },
+              {
+                "t": "It cannot develop systematic error once spun up.",
+                "v": "danger",
+                "fb": "Gyrocompasses require correction and comparison; treating them as infallible creates common-mode risk."
+              }
+            ],
+            "clue": {
+              "category": "what",
+              "label": "WHAT — heading reference",
+              "text": "The maintenance entry applied a 2.8-degree correction with the wrong sign, biasing every display that consumed the gyro heading."
+            }
+          },
+          {
+            "q": "When radar overlay and electronic chart agree, what must be checked before calling them independent?",
+            "o": [
+              {
+                "t": "Whether both displays use the same heading, position, or timing input.",
+                "v": "expert",
+                "fb": "Shared inputs can create agreement without independent confirmation."
+              },
+              {
+                "t": "Whether their screens use the same brightness setting.",
+                "v": "wrong",
+                "fb": "Brightness affects presentation, not navigation independence."
+              },
+              {
+                "t": "Whether both are located on the bridge.",
+                "v": "partial",
+                "fb": "Location does not determine whether their data sources are independent."
+              },
+              {
+                "t": "Whether the newer display has priority over the older one.",
+                "v": "danger",
+                "fb": "Recency is not a substitute for measurement independence."
+              }
+            ],
+            "clue": {
+              "category": "where",
+              "label": "WHERE — common mode",
+              "text": "The misleading agreement was strongest at the integrated radar–chart console because both layers were stabilized by the same biased gyro input."
+            }
+          },
+          {
+            "q": "Which observation most directly tests a heading-reference error?",
+            "o": [
+              {
+                "t": "A larger-than-forecast engine fuel rate.",
+                "v": "wrong",
+                "fb": "Fuel rate does not directly test heading."
+              },
+              {
+                "t": "A smooth satellite-position trace by itself.",
+                "v": "partial",
+                "fb": "Position smoothness does not reveal a shared heading bias."
+              },
+              {
+                "t": "A difference between gyro heading and an independent visual or celestial azimuth.",
+                "v": "expert",
+                "fb": "An external azimuth tests the heading reference without inheriting its error."
+              },
+              {
+                "t": "The absence of an equipment alarm.",
+                "v": "danger",
+                "fb": "Calibration and sign errors can remain plausible and alarm-free."
+              }
+            ],
+            "clue": {
+              "category": "who",
+              "label": "WHO — authority",
+              "text": "Lt. Mara Voss signed the order treating the integrated overlay as sufficient and suspending the independent visual-bearing check."
+            }
+          }
+        ]
+      },
+      "nc_sumner": {
+        "sci": "Thomas Hubbard Sumner (1807–1876)",
+        "topic": "The line of position",
+        "lede": "The sea captain who realized that one celestial observation can define a whole line on which the ship must lie.",
+        "no": 2,
+        "profile": "Thomas Hubbard Sumner’s 1837 Atlantic landfall produced a foundational navigation insight. When uncertain of latitude, he computed several positions from the same celestial observation and found that they lay along a line. The ship did not need a complete position from one measurement; it needed the geometric constraint that the observation actually supplied. Intersections with later or different lines could then fix position.\n\nThe deeper lesson survives in radar and electronic navigation. A range to a charted lighthouse defines a circle; a visual bearing defines a line; a depth contour constrains location; a satellite receiver supplies a position estimate. The strongest fix comes from constraints with different error mechanisms and useful crossing geometry.\n\nOn Greywake, fixed radar ranges formed circles that moved away from the electronic-chart symbol as the ship approached the shoal. Those ranges did not depend on the entered gyro correction. The navigation officer’s order removed the very observations that would have forced the integrated display to answer an independent geometric question.",
+        "frame": "Draws a range circle crossing a bearing line. “A fix is not a decorated dot. It is the intersection of constraints that could disagree.”",
+        "q": [
+          {
+            "q": "What is a line of position?",
+            "o": [
+              {
+                "t": "A route the ship has been ordered to follow.",
+                "v": "partial",
+                "fb": "A planned track is not a measured positional constraint."
+              },
+              {
+                "t": "A set of possible positions consistent with one observation.",
+                "v": "expert",
+                "fb": "One observation often constrains position to a line or curve rather than a single point."
+              },
+              {
+                "t": "The line connecting two satellites in orbit.",
+                "v": "wrong",
+                "fb": "Satellite geometry is different from the navigation meaning."
+              },
+              {
+                "t": "A guarantee that every instrument agrees.",
+                "v": "danger",
+                "fb": "A line of position is useful precisely because it can challenge other evidence."
+              }
+            ],
+            "clue": {
+              "category": "where",
+              "label": "WHERE — independent geometry",
+              "text": "Raw radar ranges to two fixed lighthouses rejected the ship symbol at the radar–electronic chart integration console."
+            }
+          },
+          {
+            "q": "Why are two differently generated lines of position valuable?",
+            "o": [
+              {
+                "t": "Their intersection can locate the ship while exposing incompatible measurements.",
+                "v": "expert",
+                "fb": "Independent constraints produce a fix and reveal disagreement."
+              },
+              {
+                "t": "They allow the navigator to average away any large mistake automatically.",
+                "v": "danger",
+                "fb": "Averaging can hide a systematic error instead of diagnosing it."
+              },
+              {
+                "t": "They make current and wind physically disappear.",
+                "v": "wrong",
+                "fb": "Environmental forces remain; fixes only measure their effect."
+              },
+              {
+                "t": "They ensure the ship follows the planned course between fixes.",
+                "v": "partial",
+                "fb": "They reveal position at observation times, not automatic compliance between them."
+              }
+            ],
+            "clue": {
+              "category": "what",
+              "label": "WHAT — cross-check",
+              "text": "The fix log shows that radar-range and visual-bearing lines were omitted after the integrated overlay was declared reliable."
+            }
+          },
+          {
+            "q": "Who is accountable for deciding whether the fix method is sufficient?",
+            "o": [
+              {
+                "t": "Only the radar manufacturer.",
+                "v": "wrong",
+                "fb": "Equipment design does not replace shipboard navigation authority."
+              },
+              {
+                "t": "The person at the helm, regardless of orders.",
+                "v": "partial",
+                "fb": "The helmsman executes steering but does not own the fix policy."
+              },
+              {
+                "t": "The navigation officer who approves the fix interval and independent sources.",
+                "v": "expert",
+                "fb": "The policy decision belongs to the officer responsible for the navigation plan and team."
+              },
+              {
+                "t": "No one, because electronic charts are self-validating.",
+                "v": "danger",
+                "fb": "Electronic presentation cannot validate its own shared inputs."
+              }
+            ],
+            "clue": {
+              "category": "who",
+              "label": "WHO — fix policy",
+              "text": "Lt. Mara Voss approved the night order that replaced independent fixes with confidence in the common display."
+            }
+          }
+        ]
+      },
+      "nc_maury": {
+        "sci": "Matthew Fontaine Maury (1806–1873)",
+        "topic": "Winds, currents, and evidence at sea",
+        "lede": "The U.S. naval officer who turned thousands of ship logs into systematic wind and current charts.",
+        "no": 3,
+        "profile": "Matthew Fontaine Maury organized observations from ships’ logs to map prevailing winds and currents, showing that scattered operational records could become a predictive science. His charts shortened voyages by helping mariners choose routes that worked with recurring environmental patterns rather than treating the ocean as featureless.\n\nA current forecast is not a command to believe a number. It is a prior estimate to be updated with measured set and drift. Navigators compare predicted motion through the water with observed motion over the ground, then determine how much cross-track displacement the current can physically accumulate over time.\n\nOn Greywake, the embarked oceanographer measured a cross-current stronger than the forecast but not remotely large enough to create the full error. Integrating the measured current over the interval accounted for 0.8 nautical mile of set; the ship missed the intended track by 2.7 nautical miles. Current mattered, but it could not rescue the claim that the navigation references were correct.",
+        "frame": "Places a current vector beside a longer observed displacement. “An environmental explanation must pay the full distance budget, not merely point in the right direction.”",
+        "q": [
+          {
+            "q": "What made Maury’s wind and current work scientifically useful?",
+            "o": [
+              {
+                "t": "He replaced observations with one universal ocean model.",
+                "v": "danger",
+                "fb": "His contribution depended on aggregating many observations, not ignoring them."
+              },
+              {
+                "t": "He compiled repeated ship reports into patterns that could be tested and used.",
+                "v": "expert",
+                "fb": "Systematic aggregation made environmental regularities operationally useful."
+              },
+              {
+                "t": "He proved currents never vary from their averages.",
+                "v": "wrong",
+                "fb": "Charts describe patterns and variability, not immutable flow."
+              },
+              {
+                "t": "He invented the gyrocompass.",
+                "v": "partial",
+                "fb": "His work concerned oceanography and route planning, not gyrocompass engineering."
+              }
+            ],
+            "clue": {
+              "category": "what",
+              "label": "WHAT — distance budget",
+              "text": "Measured current integrated over the interval accounts for about 0.8 nautical mile, while the observed cross-track error reached 2.7 nautical miles."
+            }
+          },
+          {
+            "q": "How should a navigator test whether current explains an off-track position?",
+            "o": [
+              {
+                "t": "Check whether the current direction is vaguely toward the error.",
+                "v": "partial",
+                "fb": "Direction alone does not establish sufficient magnitude."
+              },
+              {
+                "t": "Multiply measured drift by exposure time and compare the resulting displacement with the full error.",
+                "v": "expert",
+                "fb": "The environmental cause must close the quantitative displacement budget."
+              },
+              {
+                "t": "Assume the largest forecast value occurred for the entire watch.",
+                "v": "danger",
+                "fb": "Choosing an extreme without measurement can manufacture an explanation."
+              },
+              {
+                "t": "Ignore current whenever satellite navigation is available.",
+                "v": "wrong",
+                "fb": "Current still determines motion over ground and should be measured or estimated."
+              }
+            ],
+            "clue": {
+              "category": "where",
+              "label": "WHERE — measured environment",
+              "text": "The ocean forecast desk recorded a real but insufficient current; the unresolved discrepancy remained visible at the navigation console."
+            }
+          },
+          {
+            "q": "Which decision turned a manageable environmental uncertainty into a near grounding?",
+            "o": [
+              {
+                "t": "The helmsman held the ordered heading.",
+                "v": "partial",
+                "fb": "The helmsman followed the command and could not see the full reference problem."
+              },
+              {
+                "t": "The technician documented the maintenance action.",
+                "v": "wrong",
+                "fb": "The sign error began there, but independent fixes could still have caught it."
+              },
+              {
+                "t": "The navigation officer waived the independent fixes that would separate current from reference error.",
+                "v": "expert",
+                "fb": "That policy allowed a correctable discrepancy to persist."
+              },
+              {
+                "t": "No decision; current makes precise navigation impossible.",
+                "v": "danger",
+                "fb": "Measured current and independent fixes make the uncertainty manageable."
+              }
+            ],
+            "clue": {
+              "category": "who",
+              "label": "WHO — persistence",
+              "text": "Lt. Mara Voss retained the no-fix order after the first radar-range discrepancy was reported."
+            }
+          }
+        ]
+      }
+    },
+    "story": [
+      "<b>Greywake did not lose every navigation source. It lost the habit of making them disagree productively.</b>",
+      "QM1 Ward holds the fix log and night orders. OS2 Chen has the radar-range history. Dr. Ortiz has the current observations.",
+      "A spoofing attack, an exceptional current, and a shared heading-reference error create different patterns across satellite position, radar ranges, visual bearings, and ship heading.",
+      "The case turns on who waived independent fixes, where the misleading agreement was displayed, and what common reference quietly biased two systems at once."
+    ],
+    "endings": {
+      "overclaimWhat": "nc_spoof",
+      "dismissalWhat": "nc_current",
+      "win": {
+        "expertTitle": "The Agreement That Wasn’t Independent",
+        "expert": [
+          "You connect Lt. Mara Voss, the Radar–Electronic Chart Integration Console, and the wrong gyro correction left unchallenged after independent fixes were suspended.",
+          "Satellite positions stayed smooth while radar ranges to fixed objects and visual bearings rejected the displayed track. The chart and radar overlay agreed only because both consumed the same biased heading reference."
+        ],
+        "soundTitle": "The Missing Cross-Check",
+        "sound": [
+          "Your accusation identifies the navigation officer, the integrated console, and the shared heading-reference error.",
+          "Some details of the maintenance entry or current budget remain incomplete, but the independent measurements support the conclusion."
+        ],
+        "namedTitle": "Right Mechanism, Thin Plot",
+        "named": [
+          "You select the correct person, place, and mechanism.",
+          "The verdict holds, though missed clues leave the precise order chain or sensor-reference dependency less complete."
+        ]
+      },
+      "overclaim": {
+        "title": "No Common Satellite Shift",
+        "body": [
+          "A spoofing attack should move satellite-derived position itself or create inconsistencies among receivers. The recorded satellite fixes remained smooth and matched an independent portable receiver.",
+          "The disagreement followed heading-dependent radar overlay and visual bearing, not a common displacement of every position source."
+        ]
+      },
+      "dismissal": {
+        "title": "The Current Was Real but Too Small",
+        "body": [
+          "The measured set contributed to cross-track motion, but its integrated displacement was less than one-third of the final error.",
+          "A forecast miss does not explain the 2.8-degree heading-reference discrepancy or why fixed radar ranges rejected the displayed track."
+        ]
+      },
+      "wrongNames": {
+        "title": "The Error, Misassigned",
+        "body": [
+          "You recognize a navigation-reference failure but place responsibility or culmination away from the officer and integrated console that turned a correctable discrepancy into a near grounding."
+        ]
+      }
+    }
+  }
+]

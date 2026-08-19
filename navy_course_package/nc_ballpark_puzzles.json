@@ -1,0 +1,1108 @@
+[
+  {
+    "id": "nc_bp_sonar",
+    "title": "Underwater Sound by the Numbers",
+    "casebookTitle": "The Distant Tonal",
+    "tag": "sonar · wavelength · travel time",
+    "context": "The four estimates are chosen as reusable sonar benchmarks: metre-scale wavelength at a kilohertz, multi-second propagation across tactical distances, hundreds of metres of depth per second of echo delay, and the inverse-square penalty from geometric spreading.",
+    "terms": [
+      [
+        "Wavelength",
+        "Distance occupied by one cycle of a wave."
+      ],
+      [
+        "Travel time",
+        "Elapsed time between emission and reception."
+      ],
+      [
+        "Echo sounding",
+        "Depth measurement from two-way acoustic travel time."
+      ],
+      [
+        "Spherical spreading",
+        "Ideal dilution of energy across an expanding spherical area."
+      ]
+    ],
+    "eqs": [
+      {
+        "id": "nc_sonar_wavelength",
+        "q": "Training-tone wavelength: estimate the physical length of one cycle.",
+        "unit": "metres",
+        "factors": [
+          {
+            "label": "Approximate sound speed in seawater",
+            "unit": "metres per second",
+            "value": 1500,
+            "display": "1,500",
+            "desc": "A useful Navy approximation for seawater sound speed.",
+            "source": {
+              "label": "U.S. Navy — SURTASS LFA glossary",
+              "url": "https://www.nepa.navy.mil/Completed-Projects/SURTASS-LFA-Sonar/glossary/",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_sonar_wavelength_f0",
+            "playDesc": "A useful Navy approximation for seawater sound speed."
+          },
+          {
+            "label": "Training-tone frequency",
+            "unit": "cycles per second",
+            "value": 1000,
+            "display": "1,000",
+            "desc": "Defined one-kilohertz training tone.",
+            "source": {
+              "label": "Defined course scenario",
+              "url": "navy_course.html#week-2",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_sonar_wavelength_f1",
+            "playDesc": "Defined one-kilohertz training tone."
+          }
+        ],
+        "ops": [
+          "÷"
+        ],
+        "answer": 1.5,
+        "answerDisplay": "≈ 1.5",
+        "explain": "Estimate 1,500 ÷ 1,000. A one-kilohertz tone therefore has a wavelength of about 1.5 metres—a useful reminder that low-frequency sonar wavelengths are physically large.",
+        "revealQ": "What wavelength corresponds to the one-kilohertz training tone?",
+        "sources": [
+          {
+            "label": "U.S. Navy — SURTASS LFA glossary",
+            "url": "https://www.nepa.navy.mil/Completed-Projects/SURTASS-LFA-Sonar/glossary/",
+            "accessed": "2026-07-23"
+          },
+          {
+            "label": "Defined course scenario",
+            "url": "navy_course.html#week-2",
+            "accessed": "2026-07-23"
+          }
+        ],
+        "purpose": "Memorable benchmark: in seawater, a one-kilohertz acoustic wave is roughly one and a half metres long.",
+        "prompt": "How large is one wavelength of the training tone?"
+      },
+      {
+        "id": "nc_sonar_oneway",
+        "q": "Passive-sonar latency: estimate the one-way propagation delay.",
+        "unit": "seconds",
+        "factors": [
+          {
+            "label": "Exercise source range",
+            "unit": "kilometres",
+            "value": 15,
+            "display": "15",
+            "desc": "Defined source-to-array separation for the exercise.",
+            "source": {
+              "label": "Defined course scenario",
+              "url": "navy_course.html#week-2",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_sonar_oneway_f0",
+            "playDesc": "Defined source-to-array separation for the exercise."
+          },
+          {
+            "label": "Travel time per kilometre",
+            "unit": "seconds per kilometre",
+            "value": 0.6666666666666666,
+            "display": "0.667",
+            "desc": "Reciprocal of approximately 1.5 kilometres per second.",
+            "source": {
+              "label": "Defined conversion from U.S. Navy sound speed",
+              "url": "https://www.nepa.navy.mil/Completed-Projects/SURTASS-LFA-Sonar/glossary/",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_sonar_oneway_f1",
+            "playDesc": "Reciprocal of approximately 1.5 kilometres per second."
+          }
+        ],
+        "ops": [
+          "×"
+        ],
+        "answer": 10.0,
+        "answerDisplay": "≈ 10",
+        "explain": "Sound covers about 1.5 kilometres each second. Fifteen kilometres is ten such chunks, so the event is heard roughly ten seconds after it occurs.",
+        "revealQ": "About how much propagation delay does the exercise range create?",
+        "sources": [
+          {
+            "label": "Defined course scenario",
+            "url": "navy_course.html#week-2",
+            "accessed": "2026-07-23"
+          },
+          {
+            "label": "U.S. Navy — SURTASS LFA glossary",
+            "url": "https://www.nepa.navy.mil/Completed-Projects/SURTASS-LFA-Sonar/glossary/",
+            "accessed": "2026-07-23"
+          }
+        ],
+        "purpose": "Memorable benchmark: underwater sound needs about ten seconds to travel fifteen kilometres.",
+        "prompt": "How much delay should the array expect at the exercise range?"
+      },
+      {
+        "id": "nc_sonar_depth",
+        "q": "Bottom-echo sounding: estimate the water depth beneath the ship.",
+        "unit": "metres",
+        "factors": [
+          {
+            "label": "Measured bottom-echo round-trip time",
+            "unit": "seconds",
+            "value": 4,
+            "display": "4",
+            "desc": "Defined transmission-to-return interval.",
+            "source": {
+              "label": "Defined course scenario",
+              "url": "navy_course.html#week-2",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_sonar_depth_f0",
+            "playDesc": "Defined transmission-to-return interval."
+          },
+          {
+            "label": "One-way depth per second of round-trip delay",
+            "unit": "metres per second of echo delay",
+            "value": 750,
+            "display": "750",
+            "desc": "Half of the approximate 1,500-metre-per-second sound speed because the pulse travels down and back.",
+            "source": {
+              "label": "Defined echo-sounding conversion from NOAA and Navy sound speed",
+              "url": "https://www.ngdc.noaa.gov/mgg/fliers/84mgg18.html",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_sonar_depth_f1",
+            "playDesc": "Half of the approximate 1,500-metre-per-second sound speed because the pulse travels down and back."
+          }
+        ],
+        "ops": [
+          "×"
+        ],
+        "answer": 3000,
+        "answerDisplay": "≈ 3,000",
+        "explain": "A one-second round trip corresponds to about 750 metres of one-way depth. Four seconds therefore indicates roughly 3,000 metres of water.",
+        "revealQ": "What depth corresponds to the measured bottom-echo delay?",
+        "sources": [
+          {
+            "label": "Defined course scenario",
+            "url": "navy_course.html#week-2",
+            "accessed": "2026-07-23"
+          },
+          {
+            "label": "NOAA — Echo-sounding correction tables",
+            "url": "https://www.ngdc.noaa.gov/mgg/fliers/84mgg18.html",
+            "accessed": "2026-07-23"
+          },
+          {
+            "label": "U.S. Navy — SURTASS LFA glossary",
+            "url": "https://www.nepa.navy.mil/Completed-Projects/SURTASS-LFA-Sonar/glossary/",
+            "accessed": "2026-07-23"
+          }
+        ],
+        "purpose": "Memorable benchmark: each second of round-trip echo delay represents about 750 metres of depth.",
+        "prompt": "How deep is the seabed beneath the ship?"
+      },
+      {
+        "id": "nc_sonar_spread",
+        "q": "Ideal spherical spreading: estimate the remaining intensity fraction.",
+        "unit": "fraction of reference intensity",
+        "factors": [
+          {
+            "label": "Reference intensity fraction",
+            "unit": "fraction",
+            "value": 1,
+            "display": "1",
+            "desc": "Normalized intensity at the nearer reference range.",
+            "source": {
+              "label": "Defined normalized reference",
+              "url": "navy_course.html#week-2",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_sonar_spread_f0",
+            "playDesc": "Normalized intensity at the nearer reference range."
+          },
+          {
+            "label": "Area increase for a tenfold range increase",
+            "unit": "times",
+            "value": 100,
+            "display": "100",
+            "desc": "A sphere's area scales with range squared, so ten times the range gives one hundred times the area.",
+            "source": {
+              "label": "Defined inverse-square geometric relationship",
+              "url": "https://www.nist.gov/pml/special-publication-811",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_sonar_spread_f1",
+            "playDesc": "A sphere's area scales with range squared, so ten times the range gives one hundred times the area."
+          }
+        ],
+        "ops": [
+          "÷"
+        ],
+        "answer": 0.01,
+        "answerDisplay": "0.01 (1%)",
+        "explain": "Ten times the range spreads the same idealized energy over one hundred times the area. The intensity therefore falls to one hundredth, or about one percent.",
+        "revealQ": "What fraction of ideal intensity remains after the tenfold range increase?",
+        "sources": [
+          {
+            "label": "Defined inverse-square geometric relationship",
+            "url": "https://www.nist.gov/pml/special-publication-811",
+            "accessed": "2026-07-23"
+          }
+        ],
+        "purpose": "Memorable benchmark: a tenfold increase in range produces a hundredfold ideal spherical-spreading loss.",
+        "prompt": "What fraction of the reference intensity remains at the farther range?"
+      }
+    ],
+    "sourceSummary": "Every playable value is linked to an official source or an explicit conversion from a cited constant.",
+    "mission": "Build four mental benchmarks for underwater acoustics. Choose the quantities that let an operator estimate wave scale, latency, depth, and ideal spreading without a calculator.",
+    "goals": [
+      "Wave scale: connect a kilohertz tone with a metre-scale wavelength.",
+      "Latency: estimate how long sound needs to cross a tactical ocean distance.",
+      "Depth: turn a bottom-echo delay into an ocean-depth scale.",
+      "Spreading: recognize the intensity penalty from a tenfold increase in range."
+    ]
+  },
+  {
+    "id": "nc_bp_navigation",
+    "title": "Dead Reckoning and Current by the Numbers",
+    "casebookTitle": "The Greywake Shoal",
+    "tag": "navigation · knots · set and drift",
+    "context": "The four estimates follow the core dead-reckoning questions a watch team repeatedly asks: how far the ship advanced, how far current set it sideways, how much heading correction the current requires, and how long remains to the waypoint.",
+    "terms": [
+      [
+        "Knot",
+        "One nautical mile per hour."
+      ],
+      [
+        "Dead reckoning",
+        "Advancing a known position using course, speed, and elapsed time."
+      ],
+      [
+        "Set and drift",
+        "The direction and speed with which current carries a vessel."
+      ],
+      [
+        "Speed over ground",
+        "The vessel's actual rate of progress across the chart after current is included."
+      ]
+    ],
+    "eqs": [
+      {
+        "id": "nc_nav_run",
+        "q": "Bridge-watch advance: estimate the dead-reckoning distance.",
+        "unit": "nautical miles",
+        "factors": [
+          {
+            "label": "Steady ship speed",
+            "unit": "nautical miles per hour",
+            "value": 20,
+            "display": "20",
+            "desc": "Defined representative underway speed.",
+            "source": {
+              "label": "Defined course scenario",
+              "url": "navy_course.html#week-4",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_nav_run_f0",
+            "playDesc": "Defined representative underway speed."
+          },
+          {
+            "label": "Bridge-watch duration",
+            "unit": "hours",
+            "value": 4,
+            "display": "4",
+            "desc": "Defined four-hour watch interval.",
+            "source": {
+              "label": "Defined course scenario",
+              "url": "navy_course.html#week-4",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_nav_run_f1",
+            "playDesc": "Defined four-hour watch interval."
+          }
+        ],
+        "ops": [
+          "×"
+        ],
+        "answer": 80,
+        "answerDisplay": "≈ 80",
+        "explain": "At twenty knots, the ship covers about twenty nautical miles each hour. Over a four-hour watch, advance the plot by roughly eighty nautical miles.",
+        "revealQ": "How far should the dead-reckoning position advance during the bridge watch?",
+        "sources": [
+          {
+            "label": "Defined course scenario",
+            "url": "navy_course.html#week-4",
+            "accessed": "2026-07-23"
+          }
+        ],
+        "purpose": "Memorable benchmark: a ship at twenty knots travels about eighty nautical miles in a four-hour watch.",
+        "prompt": "How far should the plot advance during one bridge watch?"
+      },
+      {
+        "id": "nc_nav_set",
+        "q": "Cross-current set: estimate the lateral displacement before the next fix.",
+        "unit": "nautical miles",
+        "factors": [
+          {
+            "label": "Cross-current drift",
+            "unit": "nautical miles per hour",
+            "value": 2.5,
+            "display": "2.5",
+            "desc": "Defined current perpendicular to the intended track.",
+            "source": {
+              "label": "Defined course scenario",
+              "url": "navy_course.html#week-4",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_nav_set_f0",
+            "playDesc": "Defined current perpendicular to the intended track."
+          },
+          {
+            "label": "Time without an external fix",
+            "unit": "hours",
+            "value": 2,
+            "display": "2",
+            "desc": "Defined interval between reliable position fixes.",
+            "source": {
+              "label": "Defined course scenario",
+              "url": "navy_course.html#week-4",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_nav_set_f1",
+            "playDesc": "Defined interval between reliable position fixes."
+          }
+        ],
+        "ops": [
+          "×"
+        ],
+        "answer": 5,
+        "answerDisplay": "≈ 5",
+        "explain": "A two-and-a-half-knot cross-current moves the vessel about two and a half nautical miles sideways each hour. In two hours, the uncorrected set grows to about five nautical miles.",
+        "revealQ": "How much cross-track error can accumulate before the next external fix?",
+        "sources": [
+          {
+            "label": "Defined course scenario",
+            "url": "navy_course.html#week-4",
+            "accessed": "2026-07-23"
+          }
+        ],
+        "purpose": "Memorable benchmark: even a modest current can create several nautical miles of cross-track error between fixes.",
+        "prompt": "How large can the cross-track error become before the next fix?"
+      },
+      {
+        "id": "nc_nav_crab",
+        "q": "Current correction: estimate the small heading offset in degrees.",
+        "unit": "degrees",
+        "factors": [
+          {
+            "label": "Cross-current speed",
+            "unit": "knots",
+            "value": 1.8,
+            "display": "1.8",
+            "desc": "Defined current perpendicular to the intended ground track.",
+            "source": {
+              "label": "Defined course scenario",
+              "url": "navy_course.html#week-4",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_nav_crab_f0",
+            "playDesc": "Defined current perpendicular to the intended ground track."
+          },
+          {
+            "label": "Ship speed through water",
+            "unit": "knots",
+            "value": 18,
+            "display": "18",
+            "desc": "Defined steady speed through the water.",
+            "source": {
+              "label": "Defined course scenario",
+              "url": "navy_course.html#week-4",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_nav_crab_f1",
+            "playDesc": "Defined steady speed through the water."
+          },
+          {
+            "label": "Degrees per radian",
+            "unit": "degrees per radian",
+            "value": 57.3,
+            "display": "57.3",
+            "desc": "Standard angular conversion used with the small-angle estimate.",
+            "source": {
+              "label": "Defined angular conversion",
+              "url": "https://www.nist.gov/pml/owm/si-units-information",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_nav_crab_f2",
+            "playDesc": "Standard angular conversion used with the small-angle estimate."
+          }
+        ],
+        "ops": [
+          "÷",
+          "×"
+        ],
+        "answer": 5.73,
+        "answerDisplay": "≈ 5.7",
+        "explain": "The current is about one tenth of ship speed, so the correction is about one tenth of a radian. One tenth of 57 degrees is roughly six degrees.",
+        "revealQ": "About how many degrees into the current should the ship steer under the small-angle approximation?",
+        "sources": [
+          {
+            "label": "Defined course scenario",
+            "url": "navy_course.html#week-4",
+            "accessed": "2026-07-23"
+          },
+          {
+            "label": "NIST — SI units and conversions",
+            "url": "https://www.nist.gov/pml/owm/si-units-information",
+            "accessed": "2026-07-23"
+          }
+        ],
+        "purpose": "Memorable benchmark: a cross-current near ten percent of ship speed requires roughly a six-degree correction.",
+        "prompt": "About how far into the current should the ship steer?"
+      },
+      {
+        "id": "nc_nav_closure",
+        "q": "Waypoint closure: estimate the remaining travel time.",
+        "unit": "hours",
+        "factors": [
+          {
+            "label": "Remaining along-track distance",
+            "unit": "nautical miles",
+            "value": 45,
+            "display": "45",
+            "desc": "Defined distance remaining to the waypoint.",
+            "source": {
+              "label": "Defined course scenario",
+              "url": "navy_course.html#week-4",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_nav_closure_f0",
+            "playDesc": "Defined distance remaining to the waypoint."
+          },
+          {
+            "label": "Speed made good",
+            "unit": "nautical miles per hour",
+            "value": 15,
+            "display": "15",
+            "desc": "Defined progress along the intended track after current is included.",
+            "source": {
+              "label": "Defined course scenario",
+              "url": "navy_course.html#week-4",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_nav_closure_f1",
+            "playDesc": "Defined progress along the intended track after current is included."
+          }
+        ],
+        "ops": [
+          "÷"
+        ],
+        "answer": 3,
+        "answerDisplay": "≈ 3",
+        "explain": "At fifteen nautical miles per hour, forty-five nautical miles is three equal hours of travel.",
+        "revealQ": "How much time remains before the ship reaches the waypoint?",
+        "sources": [
+          {
+            "label": "Defined course scenario",
+            "url": "navy_course.html#week-4",
+            "accessed": "2026-07-23"
+          }
+        ],
+        "purpose": "Memorable benchmark: forty-five nautical miles at fifteen knots made good is a three-hour transit.",
+        "prompt": "How much time remains to the waypoint?"
+      }
+    ],
+    "sourceSummary": "Scenario values are explicitly defined, and the unit conversion is linked to an institutional source.",
+    "mission": "Maintain a navigation plot between external fixes. Build quick estimates for advance, lateral set, course correction, and arrival time using only the shared number bank.",
+    "goals": [
+      "Advance: estimate how far a ship moves during a standard bridge watch.",
+      "Set: estimate the cross-track error accumulated before the next fix.",
+      "Correction: estimate the small angle needed to oppose a cross-current.",
+      "Arrival: estimate time to the next waypoint from speed made good."
+    ]
+  },
+  {
+    "id": "nc_bp_depth",
+    "title": "Pressure and Buoyancy at Depth",
+    "casebookTitle": "The Flooded Compartment",
+    "tag": "hydrostatics · pressure · displacement",
+    "context": "The estimates are designed around four reusable hydrostatic benchmarks: roughly one megapascal per hundred metres, pressure multiplied by area gives very large hatch loads, each cubic metre of seawater supplies about ten kilonewtons of buoyancy, and each flooded cubic metre adds roughly one tonne of mass.",
+    "terms": [
+      [
+        "Hydrostatic pressure",
+        "Pressure created by the weight of a fluid column."
+      ],
+      [
+        "Gauge pressure",
+        "Pressure measured relative to the surrounding atmosphere."
+      ],
+      [
+        "Displacement",
+        "Volume of water displaced by a submerged or floating body."
+      ],
+      [
+        "Buoyancy",
+        "Upward force equal to the weight of displaced fluid in the ideal static case."
+      ]
+    ],
+    "eqs": [
+      {
+        "id": "nc_depth_pressure",
+        "q": "Operating-depth pressure: estimate the water-column gauge pressure.",
+        "unit": "megapascals",
+        "factors": [
+          {
+            "label": "Seawater pressure increase per metre",
+            "unit": "kilopascals per metre",
+            "value": 10.05,
+            "display": "10.05",
+            "desc": "Derived from representative seawater density and standard gravity.",
+            "source": {
+              "label": "Defined conversion from NOAA density and NIST gravity",
+              "url": "https://physics.nist.gov/cgi-bin/cuu/Value?gn=",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_depth_pressure_f0",
+            "playDesc": "Derived from representative seawater density and standard gravity."
+          },
+          {
+            "label": "Exercise operating depth",
+            "unit": "metres",
+            "value": 100,
+            "display": "100",
+            "desc": "Defined representative depth.",
+            "source": {
+              "label": "Defined course scenario",
+              "url": "navy_course.html#week-7",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_depth_pressure_f1",
+            "playDesc": "Defined representative depth."
+          },
+          {
+            "label": "Kilopascals per megapascal",
+            "unit": "kilopascals per megapascal",
+            "value": 1000,
+            "display": "1,000",
+            "desc": "Defined SI pressure conversion.",
+            "source": {
+              "label": "NIST — SI units and conversions",
+              "url": "https://www.nist.gov/pml/owm/si-units-information",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_depth_pressure_f2",
+            "playDesc": "Defined SI pressure conversion."
+          }
+        ],
+        "ops": [
+          "×",
+          "÷"
+        ],
+        "answer": 1.005,
+        "answerDisplay": "≈ 1.0",
+        "explain": "Use about ten kilopascals for every metre of seawater. At one hundred metres, that is about one thousand kilopascals, or one megapascal of gauge pressure.",
+        "revealQ": "What gauge pressure comes from the exercise operating depth?",
+        "sources": [
+          {
+            "label": "NOAA — World Ocean Database introduction",
+            "url": "https://www.ncei.noaa.gov/sites/default/files/2020-04/wod_intro_0.pdf",
+            "accessed": "2026-07-23"
+          },
+          {
+            "label": "NIST — CODATA standard gravity",
+            "url": "https://physics.nist.gov/cgi-bin/cuu/Value?gn=",
+            "accessed": "2026-07-23"
+          },
+          {
+            "label": "NIST — SI units and conversions",
+            "url": "https://www.nist.gov/pml/owm/si-units-information",
+            "accessed": "2026-07-23"
+          },
+          {
+            "label": "Defined course scenario",
+            "url": "navy_course.html#week-7",
+            "accessed": "2026-07-23"
+          }
+        ],
+        "purpose": "Memorable benchmark: one hundred metres of seawater adds roughly one megapascal, about ten atmospheres, of gauge pressure.",
+        "prompt": "What gauge pressure acts at the exercise depth?"
+      },
+      {
+        "id": "nc_depth_hatch",
+        "q": "Hatch loading: estimate the net force from external water pressure.",
+        "unit": "meganewtons",
+        "factors": [
+          {
+            "label": "External gauge pressure at hatch depth",
+            "unit": "megapascals",
+            "value": 1.005,
+            "display": "1.005",
+            "desc": "Defined pressure scale corresponding to roughly one hundred metres of seawater.",
+            "source": {
+              "label": "Defined conversion from NOAA density and NIST gravity",
+              "url": "https://physics.nist.gov/cgi-bin/cuu/Value?gn=",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_depth_hatch_f0",
+            "playDesc": "Defined pressure scale corresponding to roughly one hundred metres of seawater."
+          },
+          {
+            "label": "Projected hatch area",
+            "unit": "square metres",
+            "value": 0.6,
+            "display": "0.6",
+            "desc": "Defined exposed hatch area.",
+            "source": {
+              "label": "Defined course scenario",
+              "url": "navy_course.html#week-7",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_depth_hatch_f1",
+            "playDesc": "Defined exposed hatch area."
+          }
+        ],
+        "ops": [
+          "×"
+        ],
+        "answer": 0.603,
+        "answerDisplay": "≈ 0.60",
+        "explain": "A megapascal acting over one square metre produces a meganewton. Here the area is a little over half a square metre, so the load is about six tenths of a meganewton.",
+        "revealQ": "How much net water force acts across the hatch?",
+        "sources": [
+          {
+            "label": "NOAA — World Ocean Database introduction",
+            "url": "https://www.ncei.noaa.gov/sites/default/files/2020-04/wod_intro_0.pdf",
+            "accessed": "2026-07-23"
+          },
+          {
+            "label": "NIST — CODATA standard gravity",
+            "url": "https://physics.nist.gov/cgi-bin/cuu/Value?gn=",
+            "accessed": "2026-07-23"
+          },
+          {
+            "label": "Defined course scenario",
+            "url": "navy_course.html#week-7",
+            "accessed": "2026-07-23"
+          }
+        ],
+        "purpose": "Memorable benchmark: a human-scale hatch at one hundred metres can carry a load of hundreds of kilonewtons.",
+        "prompt": "How much force is the sea placing across the hatch?"
+      },
+      {
+        "id": "nc_depth_buoyancy",
+        "q": "Displacement buoyancy: estimate the upward force from the displaced water.",
+        "unit": "kilonewtons",
+        "factors": [
+          {
+            "label": "Seawater weight per cubic metre",
+            "unit": "kilonewtons per cubic metre",
+            "value": 10.1,
+            "display": "10.1",
+            "desc": "Rounded product of representative seawater density and standard gravity.",
+            "source": {
+              "label": "Defined conversion from NOAA density and NIST gravity",
+              "url": "https://physics.nist.gov/cgi-bin/cuu/Value?gn=",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_depth_buoyancy_f0",
+            "playDesc": "Rounded product of representative seawater density and standard gravity."
+          },
+          {
+            "label": "Displaced seawater volume",
+            "unit": "cubic metres",
+            "value": 25,
+            "display": "25",
+            "desc": "Defined submerged displacement volume.",
+            "source": {
+              "label": "Defined course scenario",
+              "url": "navy_course.html#week-7",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_depth_buoyancy_f1",
+            "playDesc": "Defined submerged displacement volume."
+          }
+        ],
+        "ops": [
+          "×"
+        ],
+        "answer": 252.5,
+        "answerDisplay": "≈ 250",
+        "explain": "Each cubic metre of seawater provides about ten kilonewtons of buoyancy. Twenty-five cubic metres therefore supports about two hundred fifty kilonewtons.",
+        "revealQ": "How much buoyant force comes from the displaced seawater?",
+        "sources": [
+          {
+            "label": "NOAA — World Ocean Database introduction",
+            "url": "https://www.ncei.noaa.gov/sites/default/files/2020-04/wod_intro_0.pdf",
+            "accessed": "2026-07-23"
+          },
+          {
+            "label": "NIST — CODATA standard gravity",
+            "url": "https://physics.nist.gov/cgi-bin/cuu/Value?gn=",
+            "accessed": "2026-07-23"
+          },
+          {
+            "label": "Defined course scenario",
+            "url": "navy_course.html#week-7",
+            "accessed": "2026-07-23"
+          }
+        ],
+        "purpose": "Memorable benchmark: each cubic metre of seawater contributes roughly ten kilonewtons of buoyant force.",
+        "prompt": "How much upward force does the displaced water provide?"
+      },
+      {
+        "id": "nc_depth_flood",
+        "q": "Flooding load: estimate the mass added to the ship.",
+        "unit": "tonnes",
+        "factors": [
+          {
+            "label": "Flooded compartment volume",
+            "unit": "cubic metres",
+            "value": 18,
+            "display": "18",
+            "desc": "Defined measured floodwater volume.",
+            "source": {
+              "label": "Defined course scenario",
+              "url": "navy_course.html#week-7",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_depth_flood_f0",
+            "playDesc": "Defined measured floodwater volume."
+          },
+          {
+            "label": "Seawater mass per cubic metre",
+            "unit": "tonnes per cubic metre",
+            "value": 1.025,
+            "display": "1.025",
+            "desc": "Representative seawater density expressed in tonnes per cubic metre.",
+            "source": {
+              "label": "NOAA — World Ocean Database introduction",
+              "url": "https://www.ncei.noaa.gov/sites/default/files/2020-04/wod_intro_0.pdf",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_depth_flood_f1",
+            "playDesc": "Representative seawater density expressed in tonnes per cubic metre."
+          }
+        ],
+        "ops": [
+          "×"
+        ],
+        "answer": 18.45,
+        "answerDisplay": "≈ 18.5",
+        "explain": "Seawater is only slightly denser than one tonne per cubic metre. For a quick damage-control estimate, the number of flooded cubic metres is therefore close to the added tonnes.",
+        "revealQ": "How much mass has the flooded compartment added?",
+        "sources": [
+          {
+            "label": "Defined course scenario",
+            "url": "navy_course.html#week-7",
+            "accessed": "2026-07-23"
+          },
+          {
+            "label": "NOAA — World Ocean Database introduction",
+            "url": "https://www.ncei.noaa.gov/sites/default/files/2020-04/wod_intro_0.pdf",
+            "accessed": "2026-07-23"
+          }
+        ],
+        "purpose": "Memorable benchmark: one flooded cubic metre adds approximately one tonne to the ship.",
+        "prompt": "How much mass has the flooded compartment added?"
+      }
+    ],
+    "sourceSummary": "Physical constants are cited; scenario geometry and operating values are explicitly defined.",
+    "mission": "Translate depth and volume into the load scales that matter for underwater structures and damage control: pressure, hatch force, buoyancy, and added floodwater mass.",
+    "goals": [
+      "Pressure: estimate the gauge pressure at a representative operating depth.",
+      "Structural load: turn water pressure into the force across a hatch.",
+      "Buoyancy: estimate the support provided by displaced seawater.",
+      "Flooding: estimate how much mass a flooded compartment adds."
+    ]
+  },
+  {
+    "id": "nc_bp_radar",
+    "title": "Radar Horizon and Timing by the Numbers",
+    "casebookTitle": "The Low Contact",
+    "tag": "radar · horizon · pulse timing",
+    "context": "The four estimates build an operational radar scale: a low shipboard horizon, electromagnetic travel measured in microseconds, pulse width translated into range resolution, and detection range translated into minutes of reaction time.",
+    "terms": [
+      [
+        "Radar horizon",
+        "The line-of-sight limit imposed primarily by Earth curvature for low targets."
+      ],
+      [
+        "Pulse delay",
+        "Elapsed time between transmission and echo reception."
+      ],
+      [
+        "Range resolution",
+        "The minimum range separation at which two targets can be distinguished by pulse timing."
+      ],
+      [
+        "Reaction time",
+        "Time between detection and arrival at the defended position under the simplified geometry."
+      ]
+    ],
+    "eqs": [
+      {
+        "id": "nc_radar_ownhorizon",
+        "q": "Shipboard radar horizon: estimate the geometric line-of-sight distance.",
+        "unit": "nautical miles",
+        "factors": [
+          {
+            "label": "Geometric-horizon coefficient",
+            "unit": "nautical miles per square root metre",
+            "value": 2.072,
+            "display": "2.072",
+            "desc": "Derived from Earth-curvature geometry and unit conversion, neglecting refraction.",
+            "source": {
+              "label": "Defined conversion from NASA horizon relation",
+              "url": "https://pwg.gsfc.nasa.gov/stargaze/Shorizon.htm",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_radar_ownhorizon_f0",
+            "playDesc": "Derived from Earth-curvature geometry and unit conversion, neglecting refraction."
+          },
+          {
+            "label": "Square root of antenna height",
+            "unit": "square root metres",
+            "value": 5,
+            "display": "5",
+            "desc": "Square root of the defined twenty-five-metre antenna height.",
+            "source": {
+              "label": "Defined course scenario",
+              "url": "navy_course.html#week-14",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_radar_ownhorizon_f1",
+            "playDesc": "Square root of the defined twenty-five-metre antenna height."
+          }
+        ],
+        "ops": [
+          "×"
+        ],
+        "answer": 10.36,
+        "answerDisplay": "≈ 10",
+        "explain": "The square root of twenty-five metres is five. Multiplying by roughly two nautical miles per square-root metre gives a horizon near ten nautical miles.",
+        "revealQ": "How far away is the shipboard radar's geometric horizon?",
+        "sources": [
+          {
+            "label": "NASA — geometric horizon relation",
+            "url": "https://pwg.gsfc.nasa.gov/stargaze/Shorizon.htm",
+            "accessed": "2026-07-23"
+          },
+          {
+            "label": "Defined course scenario",
+            "url": "navy_course.html#week-14",
+            "accessed": "2026-07-23"
+          }
+        ],
+        "purpose": "Memorable benchmark: a radar about twenty-five metres above the sea has a geometric horizon of roughly ten nautical miles.",
+        "prompt": "How far away is the radar's direct line-of-sight horizon?"
+      },
+      {
+        "id": "nc_radar_pulse",
+        "q": "Pulse-echo ranging: estimate the target's one-way distance.",
+        "unit": "kilometres",
+        "factors": [
+          {
+            "label": "One-way radar range per microsecond",
+            "unit": "metres per microsecond",
+            "value": 149.896,
+            "display": "149.896",
+            "desc": "Half the exact speed of light, converted to metres per microsecond.",
+            "source": {
+              "label": "Defined conversion from NIST speed of light",
+              "url": "https://physics.nist.gov/cgi-bin/cuu/Value?c",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_radar_pulse_f0",
+            "playDesc": "Half the exact speed of light, converted to metres per microsecond."
+          },
+          {
+            "label": "Measured echo round-trip delay",
+            "unit": "microseconds",
+            "value": 200,
+            "display": "200",
+            "desc": "Defined transmission-to-echo interval.",
+            "source": {
+              "label": "Defined course scenario",
+              "url": "navy_course.html#week-14",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_radar_pulse_f1",
+            "playDesc": "Defined transmission-to-echo interval."
+          },
+          {
+            "label": "Metres per kilometre",
+            "unit": "metres per kilometre",
+            "value": 1000,
+            "display": "1,000",
+            "desc": "Defined SI length conversion.",
+            "source": {
+              "label": "NIST — SI units and conversions",
+              "url": "https://www.nist.gov/pml/owm/si-units-information",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_radar_pulse_f2",
+            "playDesc": "Defined SI length conversion."
+          }
+        ],
+        "ops": [
+          "×",
+          "÷"
+        ],
+        "answer": 29.9792,
+        "answerDisplay": "≈ 30",
+        "explain": "Radar range grows by about one hundred fifty metres for each microsecond of round-trip delay. Two hundred microseconds therefore corresponds to about thirty kilometres.",
+        "revealQ": "How far away is the contact indicated by the measured echo delay?",
+        "sources": [
+          {
+            "label": "NIST — CODATA speed of light",
+            "url": "https://physics.nist.gov/cgi-bin/cuu/Value?c",
+            "accessed": "2026-07-23"
+          },
+          {
+            "label": "NIST — SI units and conversions",
+            "url": "https://www.nist.gov/pml/owm/si-units-information",
+            "accessed": "2026-07-23"
+          },
+          {
+            "label": "Defined course scenario",
+            "url": "navy_course.html#week-14",
+            "accessed": "2026-07-23"
+          }
+        ],
+        "purpose": "Memorable benchmark: two hundred microseconds of radar echo delay corresponds to roughly thirty kilometres of range.",
+        "prompt": "How far away is the contact indicated by the echo delay?"
+      },
+      {
+        "id": "nc_radar_resolution",
+        "q": "Pulse-limited resolution: estimate the minimum separable range spacing.",
+        "unit": "metres",
+        "factors": [
+          {
+            "label": "Approximate one-way radar distance per microsecond",
+            "unit": "metres per microsecond",
+            "value": 150,
+            "display": "150",
+            "desc": "Rounded half-light-speed benchmark for mental estimation.",
+            "source": {
+              "label": "Rounded conversion from NIST speed of light",
+              "url": "https://physics.nist.gov/cgi-bin/cuu/Value?c",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_radar_resolution_f0",
+            "playDesc": "Rounded half-light-speed benchmark for mental estimation."
+          },
+          {
+            "label": "Transmitted pulse duration",
+            "unit": "microseconds",
+            "value": 0.8,
+            "display": "0.8",
+            "desc": "Defined pulse width for the exercise.",
+            "source": {
+              "label": "Defined course scenario",
+              "url": "navy_course.html#week-14",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_radar_resolution_f1",
+            "playDesc": "Defined pulse width for the exercise."
+          }
+        ],
+        "ops": [
+          "×"
+        ],
+        "answer": 120,
+        "answerDisplay": "≈ 120",
+        "explain": "A one-microsecond pulse occupies about one hundred fifty metres of one-way range. A pulse lasting eight tenths of a microsecond therefore limits resolution to about one hundred twenty metres.",
+        "revealQ": "What ideal range resolution follows from the transmitted pulse width?",
+        "sources": [
+          {
+            "label": "NIST — CODATA speed of light",
+            "url": "https://physics.nist.gov/cgi-bin/cuu/Value?c",
+            "accessed": "2026-07-23"
+          },
+          {
+            "label": "Defined course scenario",
+            "url": "navy_course.html#week-14",
+            "accessed": "2026-07-23"
+          }
+        ],
+        "purpose": "Memorable benchmark: each microsecond of uncompressed pulse width costs roughly one hundred fifty metres of range resolution.",
+        "prompt": "How closely spaced in range can two contacts be and still separate?"
+      },
+      {
+        "id": "nc_radar_reaction",
+        "q": "Closing-contact reaction window: estimate the available time.",
+        "unit": "minutes",
+        "factors": [
+          {
+            "label": "Detection range",
+            "unit": "kilometres",
+            "value": 75,
+            "display": "75",
+            "desc": "Defined range at first reliable detection.",
+            "source": {
+              "label": "Defined course scenario",
+              "url": "navy_course.html#week-14",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_radar_reaction_f0",
+            "playDesc": "Defined range at first reliable detection."
+          },
+          {
+            "label": "Contact closing speed",
+            "unit": "kilometres per hour",
+            "value": 900,
+            "display": "900",
+            "desc": "Defined closing speed for the exercise.",
+            "source": {
+              "label": "Defined course scenario",
+              "url": "navy_course.html#week-14",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_radar_reaction_f1",
+            "playDesc": "Defined closing speed for the exercise."
+          },
+          {
+            "label": "Minutes per hour",
+            "unit": "minutes per hour",
+            "value": 60,
+            "display": "60",
+            "desc": "Defined time conversion.",
+            "source": {
+              "label": "NIST — SI units and conversions",
+              "url": "https://www.nist.gov/pml/owm/si-units-information",
+              "accessed": "2026-07-23"
+            },
+            "id": "nc_radar_reaction_f2",
+            "playDesc": "Defined time conversion."
+          }
+        ],
+        "ops": [
+          "÷",
+          "×"
+        ],
+        "answer": 5,
+        "answerDisplay": "≈ 5",
+        "explain": "Nine hundred kilometres per hour is fifteen kilometres per minute. A contact seventy-five kilometres away therefore arrives in about five minutes.",
+        "revealQ": "How many minutes of reaction time remain after detection?",
+        "sources": [
+          {
+            "label": "Defined course scenario",
+            "url": "navy_course.html#week-14",
+            "accessed": "2026-07-23"
+          },
+          {
+            "label": "NIST — SI units and conversions",
+            "url": "https://www.nist.gov/pml/owm/si-units-information",
+            "accessed": "2026-07-23"
+          }
+        ],
+        "purpose": "Memorable benchmark: a fast contact detected at seventy-five kilometres can leave only about five minutes to respond.",
+        "prompt": "How much decision and response time remains after detection?"
+      }
+    ],
+    "sourceSummary": "Constants and conversions are cited; tactical values are explicitly fictionalized exercise parameters.",
+    "mission": "Turn radar geometry and timing into four quantities an operator should be able to estimate quickly: horizon, target range, range resolution, and reaction time.",
+    "goals": [
+      "Horizon: estimate the direct line-of-sight limit from antenna height.",
+      "Ranging: turn echo delay into one-way target distance.",
+      "Resolution: connect pulse duration with separable range spacing.",
+      "Reaction: turn detection range and closing speed into minutes available."
+    ]
+  }
+]

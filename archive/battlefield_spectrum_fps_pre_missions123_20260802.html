@@ -1,0 +1,2444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>SPECTRUM FRONT — Anything That Emits Is a Source</title>
+<style>
+  :root{
+    --amber:#ffb454; --green:#57e389; --red:#ff5c5c; --cyan:#4fd6ff; --blue:#5a8bff;
+    --ink:#0a0c0e; --panel:rgba(10,14,16,.82); --line:rgba(120,150,160,.28);
+    --txt:#d7e2e6; --dim:#8fa2a8;
+  }
+  *{box-sizing:border-box; -webkit-user-select:none; user-select:none;}
+  html,body{margin:0;height:100%;overflow:hidden;background:#05070a;color:var(--txt);
+    font-family:"Segoe UI",-apple-system,Roboto,Helvetica,Arial,sans-serif;}
+  canvas{display:block;}
+  #app{position:fixed;inset:0;}
+  .mono{font-family:"SF Mono",ui-monospace,"Roboto Mono",Menlo,Consolas,monospace;}
+  .hidden{display:none !important;}
+  .fade{transition:opacity .35s ease;}
+
+  /* ---- Overlays ---- */
+  .overlay{position:fixed;inset:0;z-index:40;display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(120% 120% at 50% 30%,rgba(20,26,30,.75),rgba(3,5,8,.96));
+    backdrop-filter:blur(3px);}
+  .card{width:min(880px,94vw);max-height:92vh;overflow:auto;background:linear-gradient(180deg,#0d1215,#0a0e11);
+    border:1px solid var(--line);border-radius:14px;padding:26px 30px;box-shadow:0 30px 90px rgba(0,0,0,.6);}
+  h1{font-size:44px;letter-spacing:.16em;margin:0;font-weight:800;
+    background:linear-gradient(90deg,#ffd79a,#ffb454);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  h2{letter-spacing:.14em;color:var(--amber);font-size:15px;text-transform:uppercase;margin:22px 0 8px;font-weight:700;}
+  .sub{color:var(--dim);letter-spacing:.24em;text-transform:uppercase;font-size:13px;margin:6px 0 0;}
+  p{line-height:1.5;color:#c3d0d5;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:6px 26px;}
+  .ctl{display:flex;justify-content:space-between;gap:14px;padding:5px 0;border-bottom:1px dashed rgba(120,150,160,.14);font-size:14px;}
+  .ctl b{color:#eaf1f3;font-weight:600;}
+  .ctl .mono{color:var(--cyan);}
+  .btn{cursor:pointer;border:1px solid var(--amber);background:linear-gradient(180deg,rgba(255,180,84,.16),rgba(255,180,84,.04));
+    color:var(--amber);padding:12px 22px;border-radius:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;font-size:14px;
+    transition:.15s;}
+  .btn:hover{background:rgba(255,180,84,.24);box-shadow:0 0 22px rgba(255,180,84,.25);}
+  .btn.sec{border-color:var(--line);color:var(--txt);}
+  .btn.sec:hover{background:rgba(120,150,160,.12);box-shadow:none;}
+  .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:18px;}
+  .tag{display:inline-block;font-size:11px;letter-spacing:.14em;padding:3px 9px;border-radius:20px;border:1px solid var(--line);color:var(--dim);text-transform:uppercase;}
+
+  /* ---- HUD ---- */
+  #hud{position:fixed;inset:0;z-index:20;pointer-events:none;font-size:13px;}
+  #crosshair{position:absolute;left:50%;top:50%;width:22px;height:22px;transform:translate(-50%,-50%);opacity:.8;}
+  #crosshair::before,#crosshair::after{content:"";position:absolute;background:rgba(230,240,240,.7);}
+  #crosshair::before{left:50%;top:0;width:1.5px;height:100%;transform:translateX(-50%);}
+  #crosshair::after{top:50%;left:0;height:1.5px;width:100%;transform:translateY(-50%);}
+  #hud .corner{position:absolute;padding:10px 12px;background:var(--panel);border:1px solid var(--line);border-radius:10px;
+    backdrop-filter:blur(4px);line-height:1.4;}
+  #hudBL{left:16px;bottom:16px;min-width:190px;}
+  #hudBR{right:16px;bottom:16px;text-align:right;min-width:150px;}
+  #hudTL{left:16px;top:16px;max-width:340px;}
+  #hudTR{right:16px;top:16px;text-align:right;min-width:120px;}
+  .lab{color:var(--dim);letter-spacing:.12em;text-transform:uppercase;font-size:10px;}
+  .big{font-size:26px;font-weight:800;letter-spacing:.02em;}
+  .bar{height:7px;border-radius:4px;background:rgba(255,255,255,.08);overflow:hidden;margin-top:4px;}
+  .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--green),var(--cyan));width:100%;transition:width .18s;}
+  #hpFill{background:linear-gradient(90deg,#ff6a6a,#ffb454);}
+  #objTitle{color:var(--amber);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:11px;}
+  #objList{margin:6px 0 0;padding:0;list-style:none;}
+  #objList li{padding:2px 0 2px 18px;position:relative;color:#c9d5da;font-size:12px;}
+  #objList li::before{content:"○";position:absolute;left:0;color:var(--dim);}
+  #objList li.done{color:var(--green);text-decoration:line-through;opacity:.7;}
+  #objList li.done::before{content:"●";color:var(--green);text-decoration:none;}
+  /* guided training bar */
+  #guide{position:fixed;top:48px;left:50%;transform:translateX(-50%);z-index:21;width:min(760px,94vw);
+    background:linear-gradient(180deg,rgba(12,20,22,.94),rgba(8,14,16,.96));border:1px solid rgba(255,180,84,.4);
+    border-radius:12px;padding:10px 16px;box-shadow:0 10px 40px rgba(0,0,0,.5);}
+  #guide .gtop{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:4px;}
+  #guide .gstep{color:var(--amber);letter-spacing:.14em;text-transform:uppercase;font-size:11px;font-weight:700;}
+  #guide .gway{color:var(--cyan);font-size:11px;letter-spacing:.06em;}
+  #guide .gdo{color:#eaf1f3;font-size:14px;line-height:1.4;}
+  #guide .ghow{color:#bfe6d8;font-size:12.5px;margin-top:3px;}
+  #guide .gsig{font-size:12.5px;margin-top:6px;padding:6px 9px;border-radius:7px;background:rgba(79,214,255,.08);
+    border-left:3px solid var(--cyan);color:#d6f2fb;line-height:1.4;display:none;}
+  #guide .gsig.show{display:block;}
+  #guide .gsig .gtag{display:inline-block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+    padding:1px 7px;border-radius:20px;margin-right:6px;vertical-align:middle;}
+  #guide .glearn{color:var(--dim);font-size:11.5px;margin-top:6px;border-top:1px dashed rgba(120,150,160,.18);padding-top:5px;}
+  #guide .glearn b{color:var(--amber);}
+  #guide .gkey{display:inline-block;font-family:ui-monospace,monospace;background:rgba(255,180,84,.14);color:var(--amber);
+    border:1px solid rgba(255,180,84,.3);border-radius:5px;padding:0 6px;font-size:11px;margin:0 1px;}
+  #compass{position:fixed;top:12px;left:50%;transform:translateX(-50%);width:340px;height:26px;overflow:hidden;
+    background:var(--panel);border:1px solid var(--line);border-radius:13px;z-index:20;}
+  #compass .strip{position:absolute;top:0;height:100%;display:flex;align-items:center;white-space:nowrap;color:var(--dim);font-size:11px;letter-spacing:.2em;}
+  #compass::after{content:"";position:absolute;left:50%;top:0;height:100%;width:2px;background:var(--amber);transform:translateX(-50%);}
+  #prompt{position:fixed;left:50%;bottom:23%;transform:translateX(-50%);z-index:20;background:var(--panel);
+    border:1px solid var(--amber);border-radius:8px;padding:8px 16px;letter-spacing:.06em;color:#eaf1f3;font-size:14px;}
+  #prompt b{color:var(--amber);}
+  #feed{position:fixed;left:16px;top:120px;z-index:20;width:320px;display:flex;flex-direction:column;gap:6px;}
+  .note{background:var(--panel);border-left:3px solid var(--cyan);border-radius:6px;padding:7px 11px;font-size:12.5px;
+    color:#d7e2e6;opacity:0;transform:translateX(-10px);animation:slidein .3s forwards;}
+  .note.warn{border-left-color:var(--red);} .note.good{border-left-color:var(--green);} .note.amber{border-left-color:var(--amber);}
+  @keyframes slidein{to{opacity:1;transform:none;}}
+  #sig{position:fixed;right:16px;top:120px;z-index:20;width:220px;background:var(--panel);border:1px solid var(--line);
+    border-radius:10px;padding:10px 12px;}
+  #sig .val{font-size:22px;font-weight:800;color:var(--cyan);}
+
+  /* instrument screen (DOM, crisp) */
+  #inst{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:22;width:min(560px,92vw);
+    background:linear-gradient(180deg,rgba(6,12,12,.94),rgba(4,9,9,.96));border:1px solid rgba(90,220,180,.35);
+    border-radius:12px;padding:12px 14px;box-shadow:0 0 40px rgba(20,60,50,.4),inset 0 0 30px rgba(30,90,70,.12);}
+  #inst .ihead{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+  #inst .iname{color:var(--green);letter-spacing:.16em;text-transform:uppercase;font-size:12px;font-weight:700;}
+  #inst .ihint{color:var(--dim);font-size:11px;}
+  #inst canvas{width:100%;height:150px;display:block;border-radius:6px;background:#04110c;}
+  #inst .readout{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:8px;font-size:12px;color:#bfeeda;}
+  #inst .readout b{color:#eafff6;}
+  #tabletList{max-height:150px;overflow:auto;}
+  .trow{display:grid;grid-template-columns:1.4fr .8fr .8fr .8fr;gap:8px;padding:3px 0;border-bottom:1px solid rgba(90,220,180,.12);font-size:12px;}
+  .trow.h{color:var(--dim);text-transform:uppercase;font-size:10px;letter-spacing:.1em;}
+
+  /* map + notebook modal */
+  #mapC{width:100%;height:min(60vh,560px);background:#070b0d;border:1px solid var(--line);border-radius:10px;}
+  .nbTable{width:100%;border-collapse:collapse;font-size:12px;}
+  .nbTable th,.nbTable td{border-bottom:1px solid rgba(120,150,160,.14);padding:5px 7px;text-align:left;}
+  .nbTable th{color:var(--amber);text-transform:uppercase;font-size:10px;letter-spacing:.08em;}
+  .concl{display:flex;flex-direction:column;gap:8px;margin-top:10px;}
+  .concl button{text-align:left;cursor:pointer;background:rgba(120,150,160,.06);border:1px solid var(--line);color:#d7e2e6;
+    padding:10px 12px;border-radius:8px;font-size:13px;}
+  .concl button:hover{border-color:var(--amber);background:rgba(255,180,84,.08);}
+
+  /* equipment wheel */
+  #wheel{position:fixed;inset:0;z-index:30;display:none;align-items:center;justify-content:center;background:rgba(3,6,8,.5);backdrop-filter:blur(2px);}
+  #wheel .ring{display:flex;gap:14px;}
+  .slot{width:120px;height:120px;border:1px solid var(--line);border-radius:14px;background:var(--panel);display:flex;
+    flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer;color:var(--dim);}
+  .slot.on{border-color:var(--amber);color:#eaf1f3;box-shadow:0 0 26px rgba(255,180,84,.25);}
+  .slot.lock{opacity:.35;}
+  .slot .k{font-size:11px;letter-spacing:.1em;}
+  .slot .n{font-size:12px;text-align:center;letter-spacing:.06em;}
+  .slot .ic{font-size:30px;}
+
+  /* lesson card */
+  #lesson{position:fixed;right:20px;bottom:200px;z-index:24;width:330px;background:linear-gradient(180deg,#101a1c,#0b1416);
+    border:1px solid var(--cyan);border-radius:12px;padding:14px 16px;box-shadow:0 20px 60px rgba(0,0,0,.5);}
+  #lesson .lt{color:var(--cyan);letter-spacing:.14em;text-transform:uppercase;font-size:11px;font-weight:700;margin-bottom:6px;}
+  #lesson p{margin:0;font-size:13px;line-height:1.45;color:#d7e2e6;}
+
+  #loading{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    background:#05070a;gap:16px;text-align:center;padding:24px;}
+  #loading .spin{width:46px;height:46px;border:3px solid rgba(255,180,84,.2);border-top-color:var(--amber);border-radius:50%;animation:sp 1s linear infinite;}
+  @keyframes sp{to{transform:rotate(360deg);}}
+  #err{max-width:640px;color:#ffd0d0;font-size:14px;line-height:1.5;}
+  #err code{background:rgba(255,255,255,.08);padding:2px 7px;border-radius:5px;color:var(--amber);}
+  .damage{position:fixed;inset:0;z-index:19;pointer-events:none;box-shadow:inset 0 0 200px rgba(255,0,0,0);transition:box-shadow .25s;}
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<div class="damage" id="damage"></div>
+
+<!-- HUD -->
+<div id="hud" class="hidden">
+  <div id="crosshair"></div>
+  <div id="compass"><div class="strip" id="compassStrip"></div></div>
+  <div id="guide" class="hidden">
+    <div class="gtop"><span class="gstep" id="guideStep">STEP</span><span class="gway" id="guideWay"></span></div>
+    <div class="gdo" id="guideDo"></div>
+    <div class="ghow" id="guideHow"></div>
+    <div class="gsig" id="guideSignal"></div>
+    <div class="glearn" id="guideLearn"></div>
+  </div>
+  <div class="corner" id="hudTL">
+    <div id="objTitle">— STANDBY —</div>
+    <ul id="objList"></ul>
+  </div>
+  <div class="corner" id="hudTR">
+    <div class="lab">Mission Timer</div>
+    <div class="big mono" id="timer">00:00</div>
+  </div>
+  <div class="corner" id="hudBL">
+    <div class="lab">Health</div>
+    <div class="bar"><i id="hpFill"></i></div>
+    <div class="lab" style="margin-top:8px">Active Equipment</div>
+    <div class="mono" id="activeEq" style="color:var(--amber);font-size:15px;">— none —</div>
+  </div>
+  <div class="corner" id="hudBR">
+    <div class="lab">Ammunition</div>
+    <div class="big mono" id="ammo">—</div>
+    <div class="lab" id="modeLab" style="margin-top:6px;">WEAPON</div>
+  </div>
+  <div id="feed"></div>
+  <div id="sig" class="hidden">
+    <div class="lab">Received Signal</div>
+    <div class="val mono" id="sigVal">-- dBm</div>
+    <div class="bar"><i id="sigFill" style="width:0"></i></div>
+    <div class="lab" style="margin-top:6px" id="sigMeta">—</div>
+  </div>
+</div>
+<div id="prompt" class="hidden"></div>
+
+<!-- Instrument DOM screen -->
+<div id="inst" class="hidden">
+  <div class="ihead"><div class="iname" id="instName">SPECTRUM ANALYZER</div><div class="ihint" id="instHint"></div></div>
+  <canvas id="instCanvas" width="1120" height="300"></canvas>
+  <div id="tabletList" class="hidden"></div>
+  <div class="readout" id="instReadout"></div>
+</div>
+
+<!-- Equipment wheel -->
+<div id="wheel"><div class="ring" id="wheelRing"></div></div>
+
+<!-- Lesson card -->
+<div id="lesson" class="hidden"><div class="lt" id="lessonTitle">FIELD NOTE</div><p id="lessonBody"></p></div>
+
+<!-- Loading -->
+<div id="loading">
+  <div class="spin" id="spin"></div>
+  <div class="sub">Spectrum Front</div>
+  <div id="loadMsg" style="color:var(--dim)">Loading engine…</div>
+  <div id="err" class="hidden"></div>
+</div>
+
+<!-- Modals mount here -->
+<div id="modalMount"></div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module">
+/* ============================================================================
+   SPECTRUM FRONT — single-file 3D spectrum & sensor training FPS
+   Systems: Game, RendererManager, WorldBuilder, MaterialFactory, TextureFactory,
+   AudioManager, InputManager, PlayerController, WeaponSystem, InstrumentManager,
+   SignalEngine, PropagationEngine, NetworkEngine, MissionManager, NPCManager,
+   ParticleManager, UIManager, NotebookManager, SaveManager.
+   ========================================================================== */
+let THREE, PointerLockControls, EffectComposer, RenderPass, UnrealBloomPass, ShaderPass, OutputPass;
+const loadMsg = (m)=>{ const e=document.getElementById('loadMsg'); if(e) e.textContent=m; };
+function fatal(msg){
+  const l=document.getElementById('loading'), s=document.getElementById('spin'), e=document.getElementById('err');
+  if(s) s.style.display='none';
+  if(l) l.classList.remove('hidden');
+  if(e){ e.classList.remove('hidden'); e.innerHTML=msg; }
+}
+try{
+  loadMsg('Loading Three.js…');
+  THREE = await import('three');
+  ({ PointerLockControls } = await import('three/addons/controls/PointerLockControls.js'));
+  try{
+    ({ EffectComposer } = await import('three/addons/postprocessing/EffectComposer.js'));
+    ({ RenderPass } = await import('three/addons/postprocessing/RenderPass.js'));
+    ({ UnrealBloomPass } = await import('three/addons/postprocessing/UnrealBloomPass.js'));
+    ({ ShaderPass } = await import('three/addons/postprocessing/ShaderPass.js'));
+    ({ OutputPass } = await import('three/addons/postprocessing/OutputPass.js'));
+  }catch(pp){ console.warn('Post-processing unavailable, continuing without it.', pp); }
+}catch(err){
+  console.error(err);
+  fatal('<b>Could not load the 3D engine.</b><br/>If you opened this file directly, some browsers block module loading from a <code>file://</code> URL. '+
+        'Run a local server in this folder:<br/><br/><code>python3 -m http.server 8000</code><br/><br/>then open '+
+        '<code>http://localhost:8000/battlefield_spectrum_fps.html</code>');
+  throw err;
+}
+
+/* ---- tiny utils ---- */
+const U = {
+  clamp:(v,a,b)=>Math.min(b,Math.max(a,v)),
+  lerp:(a,b,t)=>a+(b-a)*t,
+  rand:(a,b)=>a+Math.random()*(b-a),
+  irand:(a,b)=>Math.floor(a+Math.random()*(b-a+1)),
+  db2lin:(d)=>Math.pow(10,d/10),
+  fmtT:(s)=>{s=Math.max(0,Math.floor(s));return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');},
+  now:()=>performance.now()/1000,
+};
+const V3 = (x,y,z)=>new THREE.Vector3(x,y,z);
+
+/* ============================ TextureFactory ============================ */
+// Canvas-generated albedo/roughness/bump/emissive maps. Cached by key.
+class TextureFactory{
+  constructor(){ this.cache=new Map(); }
+  _cv(s=256){ const c=document.createElement('canvas'); c.width=c.height=s; return c; }
+  _tex(c,rep=1){ const t=new THREE.CanvasTexture(c); t.wrapS=t.wrapT=THREE.RepeatWrapping; t.repeat.set(rep,rep);
+    t.colorSpace=THREE.SRGBColorSpace; t.anisotropy=4; return t; }
+  _lin(c,rep=1){ const t=new THREE.CanvasTexture(c); t.wrapS=t.wrapT=THREE.RepeatWrapping; t.repeat.set(rep,rep); return t; }
+  noise(ctx,s,amt,base){ const img=ctx.getImageData(0,0,s,s),d=img.data;
+    for(let i=0;i<d.length;i+=4){ const n=(Math.random()-0.5)*amt; d[i]=U.clamp(d[i]+n,0,255);
+      d[i+1]=U.clamp(d[i+1]+n,0,255); d[i+2]=U.clamp(d[i+2]+n,0,255);} ctx.putImageData(img,0,0); }
+  cracks(ctx,s,n,col){ ctx.strokeStyle=col; ctx.lineWidth=1;
+    for(let i=0;i<n;i++){ ctx.globalAlpha=U.rand(.1,.5); ctx.beginPath(); let x=U.rand(0,s),y=U.rand(0,s); ctx.moveTo(x,y);
+      const seg=U.irand(3,7); for(let j=0;j<seg;j++){ x+=U.rand(-40,40); y+=U.rand(-40,40); ctx.lineTo(x,y);} ctx.stroke(); }
+    ctx.globalAlpha=1; }
+  get(kind){
+    if(this.cache.has(kind)) return this.cache.get(kind);
+    const s=256, c=this._cv(s), x=c.getContext('2d'); let out={};
+    const fill=(col)=>{x.fillStyle=col;x.fillRect(0,0,s,s);};
+    switch(kind){
+      case 'concrete': fill('#6d6f70'); this.noise(x,s,40); this.cracks(x,s,26,'#3a3b3c'); out={map:this._tex(c,3),rough:.92}; break;
+      case 'wetpavement': fill('#3b4145'); this.noise(x,s,26); this.cracks(x,s,14,'#22262a');
+        x.fillStyle='rgba(120,150,170,.06)'; for(let i=0;i<40;i++)x.fillRect(U.rand(0,s),U.rand(0,s),U.rand(10,60),U.rand(2,8));
+        out={map:this._tex(c,4),rough:.4,metal:.1}; break;
+      case 'road': fill('#2c2e30'); this.noise(x,s,20); x.strokeStyle='#c9b45a'; x.lineWidth=8; x.setLineDash([40,30]);
+        x.beginPath(); x.moveTo(s/2,0); x.lineTo(s/2,s); x.stroke(); out={map:this._tex(c,2),rough:.85}; break;
+      case 'paintedmetal': fill('#4b5a52'); this.noise(x,s,14); x.fillStyle='rgba(30,40,36,.4)';
+        for(let i=0;i<10;i++)x.fillRect(U.rand(0,s),U.rand(0,s),U.rand(6,30),U.rand(6,30)); out={map:this._tex(c,2),rough:.5,metal:.7}; break;
+      case 'rustedmetal': fill('#6b4a34'); this.noise(x,s,34);
+        for(let i=0;i<60;i++){x.fillStyle=`rgba(${U.irand(120,180)},${U.irand(60,90)},${U.irand(30,50)},.5)`;
+          x.beginPath();x.arc(U.rand(0,s),U.rand(0,s),U.rand(3,14),0,7);x.fill();} out={map:this._tex(c,2),rough:.8,metal:.5}; break;
+      case 'container': fill('#4a6b78'); this.noise(x,s,18); x.strokeStyle='rgba(20,40,48,.6)'; x.lineWidth=6;
+        for(let i=16;i<s;i+=26){x.beginPath();x.moveTo(i,0);x.lineTo(i,s);x.stroke();} out={map:this._tex(c,1),rough:.6,metal:.4}; break;
+      case 'polymer': fill('#26302e'); this.noise(x,s,10); out={map:this._tex(c,2),rough:.55,metal:.15}; break;
+      case 'glass': fill('#26333a'); x.fillStyle='rgba(120,170,190,.15)'; x.fillRect(0,0,s,s);
+        this.cracks(x,s,10,'rgba(200,220,230,.35)'); out={map:this._tex(c,1),rough:.08,metal:.1,transp:true}; break;
+      case 'fabric': fill('#3c4a3a'); this.noise(x,s,16); x.strokeStyle='rgba(20,26,20,.3)';
+        for(let i=0;i<s;i+=6){x.beginPath();x.moveTo(0,i);x.lineTo(s,i);x.stroke();} out={map:this._tex(c,3),rough:.95}; break;
+      case 'soil': fill('#463a2c'); this.noise(x,s,42); out={map:this._tex(c,5),rough:1}; break;
+      case 'rubble': fill('#57534d'); this.noise(x,s,50); for(let i=0;i<80;i++){x.fillStyle=`rgba(${U.irand(60,110)},${U.irand(60,105)},${U.irand(55,100)},.7)`;
+        x.fillRect(U.rand(0,s),U.rand(0,s),U.rand(4,16),U.rand(4,16));} out={map:this._tex(c,4),rough:1}; break;
+      case 'wood': fill('#6b4f30'); this.noise(x,s,20); x.strokeStyle='rgba(40,28,16,.4)'; x.lineWidth=2;
+        for(let i=0;i<s;i+=10){x.beginPath();x.moveTo(0,i+U.rand(-3,3));x.bezierCurveTo(s/3,i+3,2*s/3,i-3,s,i);x.stroke();} out={map:this._tex(c,2),rough:.85}; break;
+      case 'display': { fill('#02110b'); x.fillStyle='#0a3';
+        for(let i=0;i<40;i++){x.globalAlpha=U.rand(.1,.7);x.fillRect(U.rand(0,s),U.rand(0,s),U.rand(2,8),2);}
+        x.globalAlpha=1; const t=this._lin(c,1); out={map:t,emissive:true}; break; }
+      default: fill('#555'); out={map:this._tex(c,1),rough:.8};
+    }
+    this.cache.set(kind,out); return out;
+  }
+}
+
+/* ============================ MaterialFactory ============================ */
+class MaterialFactory{
+  constructor(tf){ this.tf=tf; this.cache=new Map(); }
+  get(kind,opts={}){
+    const key=kind+JSON.stringify(opts);
+    if(this.cache.has(key)) return this.cache.get(key);
+    const d=this.tf.get(kind);
+    const m=new THREE.MeshStandardMaterial({
+      map:d.map||null, color:opts.color||0xffffff,
+      roughness:opts.rough!=null?opts.rough:(d.rough!=null?d.rough:.8),
+      metalness:opts.metal!=null?opts.metal:(d.metal!=null?d.metal:.1),
+      transparent:!!d.transp, opacity:d.transp?.55:1,
+      emissive:d.emissive?new THREE.Color(opts.emissive||0x0a3):0x000000,
+      emissiveMap:d.emissive?d.map:null, emissiveIntensity:d.emissive?1:0,
+    });
+    this.cache.set(key,m); return m;
+  }
+  flat(color,opts={}){ const m=new THREE.MeshStandardMaterial({color,roughness:opts.rough??.8,metalness:opts.metal??.1,
+    emissive:opts.emissive||0x000000,emissiveIntensity:opts.ei||0}); return m; }
+}
+
+/* ============================ RendererManager ============================ */
+class RendererManager{
+  constructor(container){
+    this.renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'});
+    this.renderer.setSize(innerWidth,innerHeight);
+    this.renderer.outputColorSpace=THREE.SRGBColorSpace;
+    this.renderer.toneMapping=THREE.ACESFilmicToneMapping;
+    this.renderer.toneMappingExposure=1.18;
+    this.renderer.shadowMap.enabled=true;
+    this.renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+    container.appendChild(this.renderer.domElement);
+    this.composer=null; this.grainPass=null; this.bloomPass=null; this.usePost=true;
+  }
+  setupPost(scene,camera){
+    if(!EffectComposer){ this.usePost=false; return; }
+    try{
+      this.composer=new EffectComposer(this.renderer);
+      this.composer.addPass(new RenderPass(scene,camera));
+      this.bloomPass=new UnrealBloomPass(new THREE.Vector2(innerWidth,innerHeight),0.55,0.7,0.85);
+      this.composer.addPass(this.bloomPass);
+      // grain + vignette + subtle chromatic aberration
+      const GrainShader={
+        uniforms:{ tDiffuse:{value:null}, time:{value:0}, amount:{value:0.028}, vig:{value:1.0}, ca:{value:0.0014} },
+        vertexShader:`varying vec2 vUv; void main(){ vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);} `,
+        fragmentShader:`
+          uniform sampler2D tDiffuse; uniform float time, amount, vig, ca; varying vec2 vUv;
+          float rand(vec2 c){ return fract(sin(dot(c,vec2(12.9898,78.233)))*43758.5453); }
+          void main(){
+            vec2 d=vUv-0.5; float r2=dot(d,d);
+            vec2 off=d*ca*(0.5+r2);
+            vec4 col; col.r=texture2D(tDiffuse,vUv+off).r; col.g=texture2D(tDiffuse,vUv).g;
+            col.b=texture2D(tDiffuse,vUv-off).b; col.a=1.0;
+            float g=(rand(vUv+time)-0.5)*amount; col.rgb+=g;
+            float v=smoothstep(1.1,0.3,r2*vig*1.5); col.rgb*=mix(0.72,1.0,v);
+            gl_FragColor=col;
+          }`
+      };
+      this.grainPass=new ShaderPass(GrainShader);
+      this.composer.addPass(this.grainPass);
+      if(OutputPass) this.composer.addPass(new OutputPass());
+      this.usePost=true;
+    }catch(e){ console.warn('post setup failed',e); this.usePost=false; this.composer=null; }
+  }
+  resize(camera){
+    camera.aspect=innerWidth/innerHeight; camera.updateProjectionMatrix();
+    this.renderer.setSize(innerWidth,innerHeight);
+    if(this.composer) this.composer.setSize(innerWidth,innerHeight);
+  }
+  applyQuality(q){
+    const pr=Math.min(devicePixelRatio, q==='high'?2: q==='medium'?1.4:1);
+    this.renderer.setPixelRatio(pr);
+    this.renderer.shadowMap.enabled = q!=='low';
+    if(this.bloomPass) this.bloomPass.enabled = q!=='low';
+    this._q=q;
+  }
+  render(scene,camera,t){
+    if(this.usePost && this.composer){ if(this.grainPass) this.grainPass.uniforms.time.value=t; this.composer.render(); }
+    else this.renderer.render(scene,camera);
+  }
+}
+
+/* ============================ AudioManager ============================ */
+// Procedural Web Audio. No external files. Starts only after a user gesture.
+class AudioManager{
+  constructor(){ this.ctx=null; this.master=null; this.enabled=true; this.vol=0.7; this.started=false;
+    this.loops={}; }
+  start(){
+    if(this.started) return;
+    try{ this.ctx=new (window.AudioContext||window.webkitAudioContext)();
+      this.master=this.ctx.createGain(); this.master.gain.value=this.vol; this.master.connect(this.ctx.destination);
+      this.started=true; this._ambient();
+    }catch(e){ console.warn('audio init failed',e); this.enabled=false; }
+  }
+  setVol(v){ this.vol=v; if(this.master) this.master.gain.value=v; }
+  _env(g,a,d,peak=1){ const t=this.ctx.currentTime; g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(peak,t+a);
+    g.gain.exponentialRampToValueAtTime(0.0001,t+a+d); }
+  tone(freq,dur,type='sine',peak=0.25,detune=0){ if(!this.ctx||!this.enabled)return; const o=this.ctx.createOscillator(),g=this.ctx.createGain();
+    o.type=type; o.frequency.value=freq; o.detune.value=detune; o.connect(g); g.connect(this.master); this._env(g,0.005,dur,peak); o.start(); o.stop(this.ctx.currentTime+dur+0.05); }
+  noise(dur,peak=0.3,filterFreq=1200,type='lowpass'){ if(!this.ctx||!this.enabled)return; const n=this._noiseBuf(dur);
+    const s=this.ctx.createBufferSource(); s.buffer=n; const f=this.ctx.createBiquadFilter(); f.type=type; f.frequency.value=filterFreq;
+    const g=this.ctx.createGain(); s.connect(f); f.connect(g); g.connect(this.master); this._env(g,0.004,dur,peak); s.start(); s.stop(this.ctx.currentTime+dur+0.05); }
+  _noiseBuf(dur){ const len=Math.floor(this.ctx.sampleRate*dur); const b=this.ctx.createBuffer(1,len,this.ctx.sampleRate); const d=b.getChannelData(0);
+    for(let i=0;i<len;i++) d[i]=Math.random()*2-1; return b; }
+  fire(){ this.noise(0.12,0.5,2600,'lowpass'); this.tone(90,0.09,'square',0.25); }
+  dryfire(){ this.tone(400,0.03,'square',0.12); }
+  reload(){ this.tone(300,0.02,'square',0.15); setTimeout(()=>this.tone(500,0.03,'square',0.15),140); setTimeout(()=>this.tone(240,0.03,'square',0.18),320); }
+  step(surface){ const f=surface==='metal'?520:surface==='rubble'?260:180; this.noise(0.06,0.12,f,'lowpass'); }
+  pickup(){ this.tone(660,0.08,'triangle',0.22); setTimeout(()=>this.tone(990,0.1,'triangle',0.22),80); }
+  chirp(){ this.tone(1400,0.04,'sine',0.14); }
+  ui(){ this.tone(880,0.05,'sine',0.16); }
+  bad(){ this.tone(160,0.18,'sawtooth',0.2); }
+  good(){ this.tone(720,0.09,'sine',0.2); setTimeout(()=>this.tone(1080,0.12,'sine',0.2),90); }
+  complete(){ [523,659,784,1047].forEach((f,i)=>setTimeout(()=>this.tone(f,0.22,'triangle',0.22),i*130)); }
+  alarm(){ this.tone(740,0.2,'square',0.18); setTimeout(()=>this.tone(560,0.2,'square',0.18),220); }
+  radio(){ this.noise(0.25,0.08,1600,'bandpass'); }
+  // continuous signal-strength tone; call setSignalTone(dbm) each frame
+  setSignalTone(active,strength){
+    if(!this.ctx||!this.enabled) return;
+    if(active && !this.loops.sig){ const o=this.ctx.createOscillator(),g=this.ctx.createGain();
+      o.type='sine'; o.frequency.value=600; g.gain.value=0.0001; o.connect(g); g.connect(this.master); o.start();
+      this.loops.sig={o,g}; }
+    if(!active && this.loops.sig){ this.loops.sig.g.gain.setTargetAtTime(0.0001,this.ctx.currentTime,0.1);
+      const l=this.loops.sig; setTimeout(()=>{try{l.o.stop();}catch(e){}},300); this.loops.sig=null; }
+    if(active && this.loops.sig){ const s=U.clamp(strength,0,1);
+      this.loops.sig.o.frequency.setTargetAtTime(300+s*1400,this.ctx.currentTime,0.05);
+      this.loops.sig.g.gain.setTargetAtTime(0.02+s*0.08,this.ctx.currentTime,0.05); }
+  }
+  _ambient(){ if(!this.ctx)return; // low generator rumble bed
+    const o=this.ctx.createOscillator(),g=this.ctx.createGain(); o.type='sawtooth'; o.frequency.value=48;
+    const f=this.ctx.createBiquadFilter(); f.type='lowpass'; f.frequency.value=120; o.connect(f); f.connect(g); g.connect(this.master);
+    g.gain.value=0.05; o.start(); this.loops.amb={o,g}; }
+}
+
+/* ============================ ParticleManager ============================ */
+// Pooled point-sprite particle systems: sparks, dust, smoke, muzzle.
+class ParticleManager{
+  constructor(scene,quality){ this.scene=scene; this.max=quality==='low'?140:quality==='medium'?320:600;
+    this.parts=[]; this.geo=new THREE.BufferGeometry();
+    this.pos=new Float32Array(this.max*3); this.col=new Float32Array(this.max*3); this.siz=new Float32Array(this.max);
+    this.geo.setAttribute('position',new THREE.BufferAttribute(this.pos,3));
+    this.geo.setAttribute('color',new THREE.BufferAttribute(this.col,3));
+    this.geo.setAttribute('size',new THREE.BufferAttribute(this.siz,1));
+    const mat=new THREE.PointsMaterial({size:0.25,vertexColors:true,transparent:true,opacity:0.9,depthWrite:false,
+      blending:THREE.AdditiveBlending,sizeAttenuation:true});
+    this.points=new THREE.Points(this.geo,mat); this.points.frustumCulled=false; scene.add(this.points);
+    for(let i=0;i<this.max;i++) this.parts.push({life:0,max:1,vx:0,vy:0,vz:0,x:0,y:-999,z:0,r:1,g:1,b:1,s:0.2,grav:-4,smoke:false});
+  }
+  emit(x,y,z,opts={}){ const n=opts.count||8;
+    for(let k=0;k<n;k++){ const p=this.parts.find(p=>p.life<=0); if(!p) break;
+      const sp=opts.speed||3; p.x=x;p.y=y;p.z=z;
+      p.vx=U.rand(-1,1)*sp; p.vy=(opts.up||Math.random())*sp; p.vz=U.rand(-1,1)*sp;
+      p.life=p.max=opts.life||U.rand(0.3,0.8); const c=opts.color||[1,.7,.2];
+      p.r=c[0];p.g=c[1];p.b=c[2]; p.s=opts.size||U.rand(0.08,0.22); p.grav=opts.grav!=null?opts.grav:-6; p.smoke=!!opts.smoke; }
+  }
+  sparks(x,y,z){ this.emit(x,y,z,{count:12,speed:5,color:[1,.75,.25],life:.4,size:.09,grav:-9}); }
+  dust(x,y,z){ this.emit(x,y,z,{count:8,speed:1.4,color:[.55,.5,.42],life:1.1,size:.3,grav:-0.6,smoke:true}); }
+  muzzle(x,y,z){ this.emit(x,y,z,{count:6,speed:2,color:[1,.85,.5],life:.12,size:.18,grav:0,up:0.2}); }
+  smoke(x,y,z){ this.emit(x,y,z,{count:4,speed:.6,color:[.3,.3,.3],life:2.2,size:.5,grav:0.3,smoke:true}); }
+  update(dt){ let n=0; const pos=this.pos,col=this.col,siz=this.siz;
+    for(const p of this.parts){ if(p.life>0){ p.life-=dt; p.vy+=p.grav*dt; p.x+=p.vx*dt; p.y+=p.vy*dt; p.z+=p.vz*dt;
+        if(p.y<0.03){ p.y=0.03; p.vy*=-0.3; p.vx*=0.6; p.vz*=0.6; }
+        const a=U.clamp(p.life/p.max,0,1);
+        pos[n*3]=p.x; pos[n*3+1]=p.y; pos[n*3+2]=p.z;
+        col[n*3]=p.r*a; col[n*3+1]=p.g*a; col[n*3+2]=p.b*a;
+        siz[n]=p.smoke?p.s*(2-a):p.s*a; n++; }
+    }
+    for(let i=n;i<this.max;i++){ pos[i*3+1]=-999; siz[i]=0; }
+    this.geo.attributes.position.needsUpdate=true; this.geo.attributes.color.needsUpdate=true; this.geo.attributes.size.needsUpdate=true;
+    this.geo.setDrawRange(0,this.max);
+  }
+}
+
+/* ============================ WorldBuilder ============================ */
+// Builds the 180x180 urban battlefield with distinct interconnected zones.
+// Registers box colliders (AABB in XZ + height) and wall meshes for raycasts.
+class WorldBuilder{
+  constructor(scene,matf,tf,quality){
+    this.scene=scene; this.mat=matf; this.tf=tf; this.q=quality;
+    this.colliders=[];      // {minx,maxx,minz,maxz,h}
+    this.walls=[];          // meshes for signal obstruction + bullet raycast
+    this.lights=[];         // flicker lights
+    this.zones=[];          // {name,x,z,r}
+    this.interactables=[];  // {pos,label,type,radius,fn}
+    this.fans=[]; this.flags=[];
+  }
+  addCollider(cx,cz,w,d,h){ this.colliders.push({minx:cx-w/2,maxx:cx+w/2,minz:cz-d/2,maxz:cz+d/2,h}); }
+  box(cx,cy,cz,w,h,d,mat,collide=true,shadow=true){
+    const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat); m.position.set(cx,cy,cz);
+    m.castShadow=shadow&&this.q!=='low'; m.receiveShadow=true; this.scene.add(m);
+    if(collide){ this.addCollider(cx,cz,w,d,cy+h/2); this.walls.push(m); } return m;
+  }
+  build(){
+    // ground
+    const gmat=this.mat.get('wetpavement',{});
+    const ground=new THREE.Mesh(new THREE.PlaneGeometry(200,200),gmat);
+    ground.rotation.x=-Math.PI/2; ground.receiveShadow=true; this.scene.add(ground);
+    // dirt patches
+    const soil=this.mat.get('soil');
+    for(let i=0;i<8;i++){ const p=new THREE.Mesh(new THREE.CircleGeometry(U.rand(6,14),12),soil);
+      p.rotation.x=-Math.PI/2; p.position.set(U.rand(-80,80),0.01,U.rand(-80,80)); p.receiveShadow=true; this.scene.add(p); }
+    // perimeter wall to contain the field
+    const pw=this.mat.get('concrete');
+    const P=92;
+    [[0,-P,190,4],[0,P,190,4],[-P,0,4,190],[P,0,4,190]].forEach(([x,z,w,d])=>this.box(x,3,z,w,6,d,pw));
+
+    this._fob();
+    this._residential();
+    this._industrial();
+    this._ridge();
+    this._market();
+    this._enemyOP();
+    this._scatter();
+    return this;
+  }
+  _zone(name,x,z,r){ this.zones.push({name,x,z,r}); }
+  _crate(x,z,s=1.2){ const m=this.box(x,s/2,z,s,s,s,this.mat.get('wood'),true,true); return m; }
+  _pole(x,z,h=7){ const m=new THREE.Mesh(new THREE.CylinderGeometry(0.12,0.15,h,8),this.mat.flat(0x39413f,{metal:.6,rough:.5}));
+    m.position.set(x,h/2,z); m.castShadow=this.q!=='low'; this.scene.add(m); this.addCollider(x,z,0.4,0.4,h);
+    // cable
+    return m; }
+  _tent(x,z,col=0x3c4a3a){ const g=new THREE.Group();
+    const body=new THREE.Mesh(new THREE.BoxGeometry(6,3,5),this.mat.get('fabric',{color:col})); body.position.y=1.5;
+    const roof=new THREE.Mesh(new THREE.CylinderGeometry(3.1,3.1,6,3,1,false,0,Math.PI),this.mat.get('fabric',{color:col}));
+    roof.rotation.z=Math.PI/2; roof.rotation.y=Math.PI/2; roof.position.y=3; roof.scale.set(1,1,0.55);
+    g.add(body,roof); g.position.set(x,0,z); g.traverse(o=>{if(o.isMesh){o.castShadow=this.q!=='low';o.receiveShadow=true;}});
+    this.scene.add(g); this.addCollider(x,z,6,5,3.2); return g; }
+  _building(x,z,w,d,floors,col){
+    const wall=this.mat.get('concrete',{color:col||0x8a8781}); const grp=new THREE.Group();
+    const fh=3.2;
+    for(let f=0;f<floors;f++){
+      const y=f*fh; const shell=this.box(x,y+fh/2,z,w,fh,d,wall,true,true);
+      // windows (shattered glass) as emissive-less dark insets on walls, via small boxes
+      const gl=this.mat.get('glass');
+      for(let wx=-w/2+2; wx<w/2-1; wx+=3){
+        const win=new THREE.Mesh(new THREE.BoxGeometry(1.4,1.6,0.15),gl); win.position.set(x+wx,y+1.8,z+d/2+0.02); this.scene.add(win);
+        const win2=win.clone(); win2.position.z=z-d/2-0.02; this.scene.add(win2);
+      }
+    }
+    // rooftop lip + access (ladder implied by ramp)
+    this.box(x,floors*fh+0.3,z,w+0.4,0.6,d+0.4,wall,false,true);
+    // balcony
+    this.box(x+w/2+0.6,fh+ (floors>1?fh:0),z,1.4,0.3,d*0.6,this.mat.get('rustedmetal'),true,true);
+    return grp;
+  }
+  _fob(){ const X=0,Z=8; this._zone('Forward Operating Base',X,Z,22);
+    this._tent(X-8,Z+2); this._tent(X+8,Z+2,0x4a4436);
+    // tactical map table
+    const table=this.box(X,0.5,Z-4,3,1,2,this.mat.get('paintedmetal'),true,true);
+    // radio mast
+    const mast=this._pole(X-14,Z-6,14);
+    const dish=new THREE.Mesh(new THREE.CylinderGeometry(1.4,1.4,0.3,16),this.mat.get('paintedmetal',{color:0x9aa}));
+    dish.position.set(X-14,13,Z-6); dish.rotation.x=Math.PI/2.4; this.scene.add(dish);
+    // generator (hum light + collider)
+    const gen=this.box(X+12,0.8,Z-4,2.4,1.6,1.6,this.mat.get('rustedmetal'),true,true);
+    this.interactables.push({pos:V3(X+12,1,Z-4),label:'Generator (running)',type:'prop',radius:2.5});
+    // command vehicle
+    const veh=new THREE.Group();
+    veh.add(new THREE.Mesh(new THREE.BoxGeometry(5,2,2.4),this.mat.get('paintedmetal',{color:0x394a3e})));
+    const cab=new THREE.Mesh(new THREE.BoxGeometry(2,1.6,2.4),this.mat.get('paintedmetal',{color:0x2f3f34})); cab.position.set(1.6,0.4,0);
+    veh.add(cab); veh.position.set(X-6,1.4,Z-9); veh.traverse(o=>{if(o.isMesh){o.castShadow=this.q!=='low';o.receiveShadow=true;}});
+    this.scene.add(veh); this.addCollider(X-6,Z-9,6,2.6,2.4);
+    // equipment case (opening tutorial pickup)
+    const caseM=this.box(X,0.4,Z+6,1.6,0.8,1.1,this.mat.get('paintedmetal',{color:0x2a3a30}),true,true);
+    const glow=new THREE.PointLight(0xffb454,1.2,6); glow.position.set(X,1.4,Z+6); this.scene.add(glow); this.lights.push({l:glow,base:1.2,type:'steady'});
+    this.interactables.push({pos:V3(X,1,Z+6),label:'Field Equipment Case',type:'equipment',radius:3});
+    this.equipCase=V3(X,1,Z+6);
+    // friendly network nodes (glowing small boxes)
+    for(let i=0;i<3;i++){ const n=this.box(X-16+i*16,0.6,Z+10,0.6,1.2,0.6,this.mat.get('paintedmetal',{color:0x25443a}),true,true);
+      const pl=new THREE.PointLight(0x57e389,0.8,4); pl.position.set(X-16+i*16,1.4,Z+10); this.scene.add(pl); this.lights.push({l:pl,base:0.8,type:'steady'}); }
+  }
+  _residential(){ const X=-52,Z=-40; this._zone('Damaged Residential Block',X,Z,24);
+    this._building(X-8,Z,12,10,2,0x8f8b83);
+    this._building(X+8,Z-4,10,9,2,0x7d7a72);
+    this._building(X,Z+12,14,8,1,0x878379);
+    // partially collapsed wall (angled rubble)
+    for(let i=0;i<6;i++){ const r=this.box(X-16+i*2,0.5,Z+7+i*0.4,2,U.rand(0.6,2),2,this.mat.get('rubble'),true,true); r.rotation.z=U.rand(-.2,.2); }
+    // reflective surface (multipath) — big metal panel
+    const panel=this.box(X+15,3,Z+6,0.3,6,8,this.mat.get('paintedmetal',{color:0x99a,metal:.9,rough:.15}),true,true);
+    this.reflectors=this.reflectors||[]; this.reflectors.push(V3(X+15,2,Z+6));
+    // courtyard fire
+    this._fire(X,Z+4);
+    // stairway ramp for rooftop access
+    for(let s=0;s<5;s++) this.box(X-8+ s*0.9, 0.4+s*0.6, Z-6, 1.2,0.4,1.4, this.mat.get('concrete'),true,true);
+  }
+  _industrial(){ const X=50,Z=-40; this._zone('Industrial Yard',X,Z,24);
+    const cmat=[0x4a6b78,0x784a4a,0x6b6b4a,0x4a5a6b];
+    for(let i=0;i<7;i++){ const cx=X-14+ (i%4)*8, cz=Z-6+ Math.floor(i/4)*8;
+      const c=this.box(cx,1.3,cz,7,2.6,2.6,this.mat.get('container',{color:cmat[i%4]}),true,true);
+    }
+    // generators/motors bank
+    const bank=this.box(X,1,Z+12,6,2,3,this.mat.get('rustedmetal'),true,true);
+    this._fire(X+10,Z+8,0.6);
+    // switching PSU (small emissive box)
+    const psu=this.box(X-10,0.8,Z+10,1,1.6,1,this.mat.get('display',{emissive:0x3388ff}),true,true);
+    const pl=new THREE.PointLight(0x3388ff,0.7,4); pl.position.set(X-10,1.6,Z+10); this.scene.add(pl); this.lights.push({l:pl,base:0.7,type:'flicker'});
+  }
+  _ridge(){ const X=0,Z=-72; this._zone('Communications Ridge',X,Z,20);
+    // high ground platform
+    const hill=new THREE.Mesh(new THREE.CylinderGeometry(16,20,4,24),this.mat.get('soil'));
+    hill.position.set(X,2,Z); hill.receiveShadow=true; this.scene.add(hill); this.addCollider(X,Z,30,30,3.6);
+    // relay tower (tall lattice via stacked boxes)
+    const tmat=this.mat.get('rustedmetal',{metal:.6});
+    for(let s=0;s<8;s++){ const y=4+s*2.4; const t=this.box(X,y,Z,1.6-s*0.12,2.4,1.6-s*0.12,tmat,s<2,true); }
+    const beacon=new THREE.PointLight(0xff5c5c,1.5,12); beacon.position.set(X,24,Z); this.scene.add(beacon); this.lights.push({l:beacon,base:1.5,type:'blink'});
+    this.relayTop=V3(X,22,Z);
+  }
+  _market(){ const X=-50,Z=42; this._zone('Abandoned Market',X,Z,22);
+    // dense stalls with signs, narrow passages
+    for(let i=0;i<10;i++){ const sx=X-16+ (i%5)*7, sz=Z-6+ Math.floor(i/5)*10;
+      const stall=this.box(sx,1,sz,3,2,2.4,this.mat.get('wood'),true,true);
+      const canopy=this.box(sx,2.3,sz,3.4,0.2,2.8,this.mat.get('fabric',{color:i%2?0x8a3a3a:0x3a5a8a}),false,true);
+      this.flags.push(canopy);
+    }
+    this._fire(X+6,Z,0.5);
+  }
+  _enemyOP(){ const X=56,Z=48; this._zone('Enemy Observation Post',X,Z,20);
+    this._building(X,Z,10,10,2,0x6a5a4a);
+    // drone pad
+    const pad=this.box(X-8,0.15,Z-6,5,0.3,5,this.mat.get('paintedmetal',{color:0x333}),false,true);
+    const ring=new THREE.Mesh(new THREE.TorusGeometry(2,0.1,8,24),this.mat.flat(0xff5c5c,{emissive:0xff5c5c,ei:1}));
+    ring.rotation.x=-Math.PI/2; ring.position.set(X-8,0.35,Z-6); this.scene.add(ring);
+    this.dronePad=V3(X-8,0.5,Z-6);
+    // command antenna
+    this._pole(X+6,Z+6,10);
+    const guard=new THREE.PointLight(0xff5c5c,1.0,8); guard.position.set(X,4,Z); this.scene.add(guard); this.lights.push({l:guard,base:1.0,type:'steady'});
+  }
+  _fire(x,z,scale=1){ const light=new THREE.PointLight(0xff7722,2*scale,10*scale); light.position.set(x,1.2,z);
+    this.scene.add(light); this.lights.push({l:light,base:2*scale,type:'fire'});
+    const g=new THREE.Group(); g.position.set(x,0,z); this.scene.add(g);
+    this.fires=this.fires||[]; this.fires.push(V3(x,0.5,z)); }
+  _scatter(){ // instanced rubble, sandbags, debris across the field
+    const rubGeo=new THREE.DodecahedronGeometry(0.5,0); const rubMat=this.mat.get('rubble');
+    const N=this.q==='low'?120:this.q==='medium'?240:400;
+    const inst=new THREE.InstancedMesh(rubGeo,rubMat,N); const dummy=new THREE.Object3D();
+    for(let i=0;i<N;i++){ dummy.position.set(U.rand(-82,82),U.rand(0.1,0.4),U.rand(-82,82));
+      dummy.rotation.set(U.rand(0,6),U.rand(0,6),U.rand(0,6)); dummy.scale.setScalar(U.rand(0.4,1.4));
+      dummy.updateMatrix(); inst.setMatrixAt(i,dummy.matrix); }
+    inst.castShadow=this.q==='high'; inst.receiveShadow=true; this.scene.add(inst);
+    // sandbag walls (instanced)
+    const bagGeo=new THREE.CapsuleGeometry(0.35,0.7,4,8); const bagMat=this.mat.get('fabric',{color:0x6b5a3a});
+    const spots=[[6,20],[ -20,4],[30,-14],[-40,-18],[18,40]]; let total=spots.length*10;
+    const bags=new THREE.InstancedMesh(bagGeo,bagMat,total); let bi=0;
+    for(const [sx,sz] of spots){ for(let r=0;r<2;r++)for(let c=0;c<5;c++){ dummy.position.set(sx+c*0.75, 0.35+r*0.55, sz + (r?0.2:0));
+      dummy.rotation.set(0,0,Math.PI/2); dummy.scale.setScalar(1); dummy.updateMatrix(); bags.setMatrixAt(bi++,dummy.matrix);}
+      this.addCollider(sx+1.5,sz,4,1.2,1); }
+    bags.castShadow=this.q!=='low'; bags.receiveShadow=true; this.scene.add(bags);
+    // utility poles + cables
+    for(let i=0;i<6;i++){ const px=U.rand(-70,70),pz=U.rand(-70,70); this._pole(px,pz,8); }
+  }
+  // collision resolve: push player circle out of AABBs
+  resolve(pos,radius){
+    for(const c of this.colliders){
+      if(pos.y> c.h+1.2) continue;
+      const cx=U.clamp(pos.x,c.minx,c.maxx), cz=U.clamp(pos.z,c.minz,c.maxz);
+      const dx=pos.x-cx, dz=pos.z-cz; const d2=dx*dx+dz*dz;
+      if(d2<radius*radius){ const d=Math.sqrt(d2)||0.0001; const push=(radius-d);
+        if(cx>c.minx&&cx<c.maxx&&cz>c.minz&&cz<c.maxz){ // inside: push to nearest edge
+          const toL=pos.x-c.minx,toR=c.maxx-pos.x,toB=pos.z-c.minz,toT=c.maxz-pos.z;
+          const m=Math.min(toL,toR,toB,toT);
+          if(m===toL)pos.x=c.minx-radius; else if(m===toR)pos.x=c.maxx+radius;
+          else if(m===toB)pos.z=c.minz-radius; else pos.z=c.maxz+radius;
+        } else { pos.x+=dx/d*push; pos.z+=dz/d*push; }
+      }
+    }
+    pos.x=U.clamp(pos.x,-89,89); pos.z=U.clamp(pos.z,-89,89);
+  }
+  updateLights(t){ for(const o of this.lights){ const {l,base,type}=o;
+    if(type==='fire') l.intensity=base*(0.7+Math.sin(t*13+l.position.x)*0.15+Math.random()*0.2);
+    else if(type==='flicker') l.intensity=base*(Math.random()>0.92?0.2:1);
+    else if(type==='blink') l.intensity=base*((t*1.5%1)>0.5?1:0.1);
+  }}
+}
+
+/* ============================ SignalEngine ============================ */
+// Each emitter: id, pos, freq (MHz), bw (kHz), power (dBm EIRP), class, kind,
+// intent (intentional/unintended), duty, active, mobile. Also spawns a small
+// in-world device mesh so the source is physically present.
+const CLASS = { FRIENDLY:'friendly', CIVILIAN:'civilian', UNKNOWN:'unknown', HOSTILE:'hostile' };
+class SignalEngine{
+  constructor(scene,world,matf){
+    this.scene=scene; this.world=world; this.mat=matf; this.emitters=[]; this.t=0;
+    this._def();
+  }
+  add(o){ o.id=o.id||('E'+this.emitters.length); o.active=o.active!==false; o.phase=Math.random()*10;
+    o.mobile=!!o.mobile; o.pos=o.pos.clone(); o.state='nominal';
+    // device mesh
+    const col= o.cls===CLASS.FRIENDLY?0x57e389: o.cls===CLASS.CIVILIAN?0x4fd6ff: o.cls===CLASS.HOSTILE?0xff5c5c:0xffb454;
+    const dev=new THREE.Mesh(new THREE.BoxGeometry(0.5,0.5,0.5), this.mat.get('display',{emissive:col}));
+    dev.position.copy(o.pos); dev.position.y=Math.max(0.4,o.pos.y); this.scene.add(dev);
+    const pl=new THREE.PointLight(col,0.5,3); pl.position.copy(dev.position); this.scene.add(pl);
+    o.mesh=dev; o.light=pl; o.baseY=dev.position.y; o.discovered=false;
+    this.emitters.push(o); return o; }
+  _def(){
+    const W=this.world;
+    // Explicit stable IDs so mission logic maps to the right sources.
+    this.add({id:'E0',name:'Friendly Command Radio',pos:V3(-6,1.6,-1),freq:146.5,bw:16,power:14,cls:CLASS.FRIENDLY,kind:'comm',
+      intent:'intentional',duty:0.7,pattern:'continuous'});
+    this.add({id:'E1',name:'Switching Power Supply',pos:V3(50,1,-52),freq:120,bw:40000,power:-10,cls:CLASS.CIVILIAN,kind:'psu-noise',
+      intent:'unintended',duty:1,pattern:'broadband',harmonics:[120,240,360,480]});
+    this.add({id:'E2',name:'Medical Telemetry Link',pos:V3(-30,1.2,20),freq:402.0,bw:200,power:-6,cls:CLASS.FRIENDLY,kind:'telemetry',
+      intent:'intentional',duty:0.4,pattern:'burst',fragile:true});
+    this.add({id:'E3',name:'Friendly Drone-Control Link',pos:V3(4,1.5,10),freq:2412,bw:20000,power:6,cls:CLASS.FRIENDLY,kind:'drone-control',
+      intent:'intentional',duty:0.5,pattern:'burst'});
+    this.add({id:'E4',name:'Friendly Relay Beacon',pos:V3(0,22,-72),freq:915,bw:500,power:20,cls:CLASS.FRIENDLY,kind:'relay',
+      intent:'intentional',duty:0.9,pattern:'continuous'});
+    // Mission 3 "unknown" that is actually a civilian monitor
+    this.add({id:'E5',name:'Environmental Monitor',pos:V3(-46,0.8,44),freq:433.9,bw:25,power:-3,cls:CLASS.UNKNOWN,trueCls:CLASS.CIVILIAN,
+      kind:'periodic-beacon',intent:'intentional',duty:0.08,pattern:'periodic',period:6});
+    this.add({id:'E6',name:'Wireless Camera',pos:V3(-52,3,-38),freq:5805,bw:8000,power:0,cls:CLASS.CIVILIAN,kind:'camera',
+      intent:'intentional',duty:0.9,pattern:'continuous'});
+    // Mission 1 CORRECT SOURCE — damaged LED controller at the FOB
+    this.add({id:'E7',name:'Damaged LED Power Controller',pos:V3(3,2.6,4),freq:60,bw:30000,power:-4,cls:CLASS.CIVILIAN,kind:'led-harmonics',
+      intent:'unintended',duty:1,pattern:'broadband',harmonics:[60,180,300,420,540],disrupts:true});
+    // Mission 2 pump station
+    this.add({id:'E9',name:'Pump / Motor Controller',pos:V3(50,1,-28),freq:300,bw:100,power:2,cls:CLASS.UNKNOWN,trueCls:CLASS.CIVILIAN,
+      kind:'motor',intent:'intentional',duty:0.3,pattern:'periodic',period:4,stateful:true});
+    this.add({id:'E10',name:'Unknown Periodic Beacon',pos:V3(58,1,44),freq:868,bw:50,power:-2,cls:CLASS.UNKNOWN,kind:'periodic-beacon',
+      intent:'intentional',duty:0.1,pattern:'periodic',period:5});
+    this.add({id:'E11',name:'Hostile Observation Drone',pos:V3(56,6,48),freq:2437,bw:20000,power:8,cls:CLASS.HOSTILE,kind:'obs-drone',
+      intent:'intentional',duty:0.6,pattern:'burst',mobile:true,active:false});
+    // Mission 7 mobile hostile
+    this.add({id:'E12',name:'Hostile Command Transmitter',pos:V3(60,2,42),freq:1250,bw:1000,power:12,cls:CLASS.HOSTILE,kind:'command-tx',
+      intent:'intentional',duty:0.5,pattern:'burst',mobile:true});
+    this.add({id:'E13',name:'Hostile Sensor Node',pos:V3(52,1.4,52),freq:2450,bw:5000,power:0,cls:CLASS.HOSTILE,kind:'sensor-node',
+      intent:'intentional',duty:0.3,pattern:'periodic',period:3});
+    this.add({id:'E14',name:'Decoy Transmitter',pos:V3(64,1,36),freq:1250,bw:1000,power:9,cls:CLASS.HOSTILE,kind:'decoy',
+      intent:'intentional',duty:0.5,pattern:'burst',decoy:true});
+    // Mission 6 transmit-only beacon (no receiver)
+    this.add({id:'E15',name:'Transmit-Only Sensor Beacon',pos:V3(48,1,44),freq:434.5,bw:20,power:-1,cls:CLASS.UNKNOWN,kind:'transmit-only',
+      intent:'intentional',duty:0.15,pattern:'periodic',period:4,receiver:false});
+    // Mission 6 controllable authenticated rover
+    this.add({id:'E16',name:'Authorized Course-Owned Rover',pos:V3(60,0.8,52),freq:2400,bw:2000,power:4,cls:CLASS.FRIENDLY,kind:'auth-remote',
+      intent:'intentional',duty:0.4,pattern:'burst',receiver:true,authenticated:true});
+  }
+  byId(id){ return this.emitters.find(e=>e.id===id); }
+  // duty/active gate for this instant
+  activeNow(e){ if(!e.active) return false;
+    if(e.pattern==='periodic'){ return ((this.t + e.phase) % e.period) < e.period*e.duty*3; }
+    if(e.pattern==='burst'){ return (Math.sin(this.t*2.3+e.phase)*0.5+0.5) < e.duty; }
+    return Math.random()<0.99; // continuous-ish
+  }
+  update(dt){ this.t+=dt;
+    for(const e of this.emitters){
+      // mobile emitters drift
+      if(e.mobile && e.active){ e.pos.x+=Math.sin(this.t*0.4+e.phase)*dt*1.4; e.pos.z+=Math.cos(this.t*0.3+e.phase)*dt*1.2;
+        e.mesh.position.set(e.pos.x,e.baseY,e.pos.z); e.light.position.copy(e.mesh.position); }
+      const on=this.activeNow(e);
+      e.mesh.material.emissiveIntensity=on?1:0.15; e.light.intensity=on?0.6:0.05;
+      e.mesh.position.y=e.baseY+(e.mobile?Math.sin(this.t*2+e.phase)*0.3:0);
+    }
+  }
+}
+
+/* ============================ PropagationEngine ============================ */
+// Simplified but internally consistent link model. Positions in "meters" (game units).
+class PropagationEngine{
+  constructor(sig,world){ this.sig=sig; this.world=world; this.ray=new THREE.Raycaster();
+    this.noiseFloor=-96; this._rh=new THREE.Vector3(); }
+  obstructions(from,to){ // count wall meshes between two points
+    const dir=this._rh.copy(to).sub(from); const dist=dir.length(); dir.normalize();
+    this.ray.set(from,dir); this.ray.far=dist;
+    const hits=this.ray.intersectObjects(this.world.walls,false);
+    return hits.length;
+  }
+  // received power in dBm at listener with antenna facing `heading` (unit XZ vec) and given directivity
+  received(e, from, heading, directivity=0){
+    if(!e.active) return this.noiseFloor-8;
+    const on=this.sig.activeNow(e);
+    const to=e.pos;
+    const dx=to.x-from.x, dy=to.y-from.y, dz=to.z-from.z;
+    const dist=Math.max(1.0,Math.sqrt(dx*dx+dy*dy+dz*dz));
+    // Friis-ish free space path loss (MHz, meters): 20log10(d)+20log10(f)-27.55
+    const fspl=20*Math.log10(dist)+20*Math.log10(Math.max(1,e.freq))-27.55;
+    const nWalls=this.obstructions(from,to);
+    const obLoss=nWalls*7 + (dy>3? dy*0.4:0);
+    // antenna directivity: peak when heading points at source
+    let dirGain=0;
+    if(directivity>0){ const hx=to.x-from.x, hz=to.z-from.z; const hl=Math.hypot(hx,hz)||1;
+      const dot=(heading.x*hx+heading.z*hz)/hl; // -1..1
+      dirGain = directivity*(dot); // + when aligned, - when behind
+    }
+    let p = e.power - fspl - obLoss + dirGain;
+    if(!on) p -= 26; // in the off part of duty cycle
+    // multipath: reflectors can add a misleading local boost from a wrong direction
+    if(this.world.reflectors){ for(const r of this.world.reflectors){
+      const rd=Math.hypot(r.x-from.x,r.z-from.z); const ed=Math.hypot(r.x-to.x,r.z-to.z);
+      if(rd<10 && ed<40){ p += 3*Math.max(0,1-rd/10); } } }
+    p += U.rand(-1.5,1.5); // local noise
+    return p;
+  }
+  // best bearing (degrees) as seen by rotating a directional antenna at `from`
+  bearingTo(e,from){ const dx=e.pos.x-from.x, dz=e.pos.z-from.z; let a=Math.atan2(dx,-dz)*180/Math.PI; return (a+360)%360; }
+  // full spectrum sample within [c-span/2, c+span/2] MHz -> array of {f,dbm}
+  // Received power per emitter is computed ONCE (one raycast each), then only the
+  // spectral SHAPE is evaluated per bin — keeps this cheap enough for 60 FPS.
+  spectrum(from, center, span, bins, heading){
+    const lo=center-span/2, hi=center+span/2, step=span/(bins-1);
+    // precompute per-emitter linear power + shape params, only for emitters in view
+    const contrib=[];
+    for(const e of this.sig.emitters){
+      const bwM=Math.max(0.02,e.bw/1000);
+      const inView = (e.freq>lo-bwM*3 && e.freq<hi+bwM*3) ||
+        (e.harmonics && e.harmonics.some(h=>h>lo-4&&h<hi+4));
+      if(!inView) continue;
+      const p=this.received(e,from,heading,0);
+      contrib.push({e,lin:U.db2lin(p),bwM});
+    }
+    const nfLin=U.db2lin(this.noiseFloor);
+    const out=new Array(bins);
+    for(let i=0;i<bins;i++){ const f=lo+i*step; let lin=nfLin;
+      for(const c of contrib){ const e=c.e;
+        if(e.kind==='psu-noise'||e.kind==='led-harmonics'){
+          let cc=c.lin*0.001; // broadband floor lift
+          if(e.harmonics) for(const h of e.harmonics){ const g=Math.exp(-Math.pow((f-h)/2,2)); cc+=c.lin*g; }
+          lin+=cc;
+        } else {
+          const g=Math.exp(-Math.pow((f-e.freq)/(c.bwM*0.6),2));
+          lin+=c.lin*g;
+        }
+      }
+      out[i]={f, dbm:10*Math.log10(lin)};
+    }
+    return out;
+  }
+}
+
+/* ============================ NetworkEngine ============================ */
+// Friendly authorized network only. Nodes with link quality, packet loss, latency.
+class NetworkEngine{
+  constructor(){ this.nodes=[
+    {id:'CMD-1',name:'Command Post',ch:6,q:0.96,loss:0.5,lat:14,acks:true,role:'core',central:0.9},
+    {id:'MED-2',name:'Medical Telemetry',ch:6,q:0.9,loss:1.2,lat:22,acks:true,role:'edge',central:0.3,fragile:true},
+    {id:'RLY-3',name:'Relay Beacon',ch:11,q:0.98,loss:0.2,lat:9,acks:true,role:'relay',central:0.7,power:20},
+    {id:'DRN-4',name:'Drone Control',ch:1,q:0.82,loss:3.1,lat:35,acks:true,role:'edge',central:0.4},
+    {id:'RVR-6',name:'Course Rover (auth)',ch:11,q:0.88,loss:1.8,lat:28,acks:true,role:'edge',central:0.2,authenticated:true},
+  ]; this.medDown=false; this.relayFail=false; }
+  update(){ for(const n of this.nodes){ n.q=U.clamp(n.q + U.rand(-0.01,0.01), 0.5,0.99);
+    if(n.id==='MED-2') n.q = this.medDown?0.25:n.q, n.loss=this.medDown?38:n.loss;
+    if(n.id==='RLY-3'&&this.relayFail){ n.q=0.3; n.loss=22; } } }
+  mostConspicuous(){ // highest power * centrality
+    return this.nodes.slice().sort((a,b)=>((b.central*(b.power||10))-(a.central*(a.power||10))))[0]; }
+}
+
+/* ============================ PlayerController ============================ */
+class PlayerController{
+  constructor(camera,controls,world,audio){
+    this.cam=camera; this.controls=controls; this.world=world; this.audio=audio;
+    this.pos=V3(0,1.7,20); this.vel=V3(0,0,0); this.onGround=true;
+    this.height=1.7; this.crouchH=1.0; this.radius=0.45;
+    this.speed=6.4; this.sprintMul=1.7; this.crouch=false; this.sprint=false;
+    this.bob=0; this.stepT=0; this.hp=100; this.baseFov=72; this.fov=72;
+    this.keys={}; this.controls.getObject().position.copy(this.pos);
+  }
+  key(code,down){ this.keys[code]=down; }
+  jump(){ if(this.onGround){ this.vel.y=6.2; this.onGround=false; } }
+  surfaceAt(){ // rough surface type by zone for footstep sound
+    const p=this.pos; for(const z of this.world.zones){ if(Math.hypot(p.x-z.x,p.z-z.z)<z.r){
+      if(z.name.includes('Industrial')) return 'metal'; if(z.name.includes('Residential')||z.name.includes('Market')) return 'rubble'; } }
+    return 'dirt';
+  }
+  update(dt){
+    const obj=this.controls.getObject();
+    // desired horizontal velocity from input, camera-relative
+    const fwd=new THREE.Vector3(); this.cam.getWorldDirection(fwd); fwd.y=0; fwd.normalize();
+    const right=new THREE.Vector3().crossVectors(fwd,V3(0,1,0)).normalize();
+    let move=new THREE.Vector3();
+    if(this.keys['KeyW'])move.add(fwd); if(this.keys['KeyS'])move.sub(fwd);
+    if(this.keys['KeyD'])move.add(right); if(this.keys['KeyA'])move.sub(right);
+    const moving=move.lengthSq()>0; if(moving)move.normalize();
+    this.sprint=this.keys['ShiftLeft']&&this.keys['KeyW']&&!this.crouch;
+    let sp=this.speed*(this.crouch?0.5:1)*(this.sprint?this.sprintMul:1);
+    // acceleration
+    const target=move.multiplyScalar(sp);
+    this.vel.x=U.lerp(this.vel.x,target.x,1-Math.pow(0.0008,dt));
+    this.vel.z=U.lerp(this.vel.z,target.z,1-Math.pow(0.0008,dt));
+    // gravity
+    this.vel.y-=18*dt;
+    // integrate
+    this.pos.x+=this.vel.x*dt; this.pos.z+=this.vel.z*dt; this.pos.y+=this.vel.y*dt;
+    // ground: find highest collider under player within radius for step-up
+    let groundY=0;
+    for(const c of this.world.colliders){ if(this.pos.x>c.minx-0.4&&this.pos.x<c.maxx+0.4&&this.pos.z>c.minz-0.4&&this.pos.z<c.maxz+0.4){
+      if(c.h<=this.pos.y-this.height+1.4 && c.h>groundY && c.h<2.6) groundY=c.h; } }
+    const targetH=this.crouch?this.crouchH:this.height;
+    if(this.pos.y<=groundY+targetH){ this.pos.y=groundY+targetH; this.vel.y=Math.max(0,this.vel.y); this.onGround=true; } else this.onGround=false;
+    // horizontal collision
+    this.world.resolve(this.pos,this.radius);
+    // footsteps + bob
+    if(moving&&this.onGround){ this.stepT+=dt*(this.sprint?11:7);
+      if(this.stepT>Math.PI){ this.stepT-=Math.PI; this.audio.step(this.surfaceAt()); }
+      this.bob=Math.sin(this.stepT*2)*0.035*(this.sprint?1.4:1);
+    } else this.bob*=0.9;
+    // fov / tilt
+    this.fov=U.lerp(this.fov,this.sprint?this.baseFov+8:this.baseFov,1-Math.pow(0.01,dt));
+    if(Math.abs(this.cam.fov-this.fov)>0.1){ this.cam.fov=this.fov; this.cam.updateProjectionMatrix(); }
+    // apply to camera holder (eye height + bob). NOTE: never write camera.rotation
+    // here — PointerLockControls owns the camera orientation (YXZ quaternion) and
+    // touching .z/.rotation reinterprets it in XYZ order and flips the view.
+    obj.position.set(this.pos.x,this.pos.y+this.bob,this.pos.z);
+  }
+  heading(){ const f=new THREE.Vector3(); this.cam.getWorldDirection(f); f.y=0; f.normalize(); return f; }
+  headingDeg(){ const f=this.heading(); return (Math.atan2(f.x,-f.z)*180/Math.PI+360)%360; }
+  damage(d){ this.hp=U.clamp(this.hp-d,0,100); }
+}
+
+/* ============================ WeaponSystem ============================ */
+class WeaponSystem{
+  constructor(scene,camera,world,audio,particles,sig,npc){
+    this.scene=scene; this.cam=camera; this.world=world; this.audio=audio; this.pm=particles; this.sig=sig; this.npc=npc;
+    this.ammo=30; this.mag=30; this.reserve=120; this.reloading=false; this.recoil=0; this.ray=new THREE.Raycaster();
+    this.decals=[]; this.maxDecals=48; this.lastFire=0; this.ads=false;
+    this._build();
+  }
+  _build(){
+    const g=new THREE.Group(); // first-person viewmodel
+    const metal=new THREE.MeshStandardMaterial({color:0x23282a,metalness:0.8,roughness:0.4});
+    const poly=new THREE.MeshStandardMaterial({color:0x14181a,metalness:0.2,roughness:0.7});
+    const body=new THREE.Mesh(new THREE.BoxGeometry(0.12,0.14,0.7),poly); body.position.set(0.18,-0.18,-0.5);
+    const barrel=new THREE.Mesh(new THREE.CylinderGeometry(0.03,0.03,0.5,8),metal); barrel.rotation.x=Math.PI/2; barrel.position.set(0.18,-0.15,-0.9);
+    const mag=new THREE.Mesh(new THREE.BoxGeometry(0.08,0.22,0.14),poly); mag.position.set(0.18,-0.32,-0.42);
+    const grip=new THREE.Mesh(new THREE.BoxGeometry(0.07,0.18,0.1),poly); grip.position.set(0.18,-0.3,-0.28); grip.rotation.x=0.3;
+    const sight=new THREE.Mesh(new THREE.BoxGeometry(0.03,0.05,0.1),metal); sight.position.set(0.18,-0.09,-0.55);
+    // hands (glove primitives)
+    const glove=new THREE.MeshStandardMaterial({color:0x2a2f2b,roughness:0.9});
+    const handR=new THREE.Mesh(new THREE.BoxGeometry(0.08,0.08,0.14),glove); handR.position.set(0.18,-0.26,-0.3);
+    const handL=new THREE.Mesh(new THREE.BoxGeometry(0.08,0.08,0.12),glove); handL.position.set(0.18,-0.22,-0.8);
+    g.add(body,barrel,mag,grip,sight,handR,handL);
+    // muzzle flash sprite
+    const flashMat=new THREE.SpriteMaterial({color:0xffcc66,transparent:true,opacity:0,blending:THREE.AdditiveBlending});
+    this.flash=new THREE.Sprite(flashMat); this.flash.scale.set(0.5,0.5,0.5); this.flash.position.set(0.18,-0.15,-1.15); g.add(this.flash);
+    this.muzzlePos=new THREE.Vector3();
+    g.visible=true; this.group=g; this.cam.add(g); this.basePos=g.position.clone();
+    this.restPos=V3(0,0,0);
+  }
+  setVisible(v){ this.group.visible=v; }
+  reload(){ if(this.reloading||this.ammo===this.mag||this.reserve<=0) return; this.reloading=true; this.audio.reload();
+    setTimeout(()=>{ const need=this.mag-this.ammo, take=Math.min(need,this.reserve); this.ammo+=take; this.reserve-=take; this.reloading=false; },900); }
+  fire(game){
+    const t=U.now(); if(t-this.lastFire<0.09||this.reloading) return; this.lastFire=t;
+    if(this.ammo<=0){ this.audio.dryfire(); return; }
+    this.ammo--; this.recoil=Math.min(0.12,this.recoil+0.05); this.audio.fire();
+    this.flash.material.opacity=1; this.flash.material.rotation=Math.random()*6;
+    const mp=new THREE.Vector3(); this.flash.getWorldPosition(mp); this.pm.muzzle(mp.x,mp.y,mp.z);
+    // raycast from camera center
+    const dir=new THREE.Vector3(); this.cam.getWorldDirection(dir);
+    const origin=new THREE.Vector3(); this.cam.getWorldPosition(origin);
+    this.ray.set(origin,dir); this.ray.far=120;
+    // check NPCs first
+    const npcHit=this.npc?this.npc.raycast(this.ray):null;
+    const wallHits=this.ray.intersectObjects(this.world.walls,false);
+    const wallDist=wallHits.length?wallHits[0].distance:Infinity;
+    if(npcHit && npcHit.distance<wallDist){ this.npc.hit(npcHit.npc,34,game); this.pm.sparks(npcHit.point.x,npcHit.point.y,npcHit.point.z); return; }
+    if(wallHits.length){ const h=wallHits[0]; this._decal(h); this.pm.sparks(h.point.x,h.point.y,h.point.z); this.pm.dust(h.point.x,h.point.y,h.point.z);
+      // did we shoot an emitter device or civilian/friendly prop? penalize
+      if(game) game.onWorldShot(h);
+    }
+  }
+  _decal(hit){ const geo=new THREE.CircleGeometry(0.06,6);
+    const m=new THREE.Mesh(geo,new THREE.MeshBasicMaterial({color:0x0a0a0a,transparent:true,opacity:0.85,depthWrite:false}));
+    m.position.copy(hit.point).add(hit.face.normal.clone().multiplyScalar(0.02));
+    m.lookAt(hit.point.clone().add(hit.face.normal)); this.scene.add(m);
+    this.decals.push(m); if(this.decals.length>this.maxDecals){ const old=this.decals.shift(); this.scene.remove(old); old.geometry.dispose(); } }
+  update(dt,moving,sprint){
+    this.recoil*=Math.pow(0.0005,dt);
+    if(this.flash.material.opacity>0) this.flash.material.opacity=Math.max(0,this.flash.material.opacity-dt*14);
+    // sway + ADS
+    const sway=Math.sin(U.now()*(sprint?9:4))*(moving?0.012:0.004);
+    const adsX=this.ads?-0.18:0, adsY=this.ads?0.03:0, adsZ=this.ads?0.08:0;
+    const tp=this.basePos.clone().add(V3(adsX+sway, adsY+Math.cos(U.now()*3)*0.006 - this.recoil*0.5, adsZ+this.recoil));
+    if(sprint){ tp.add(V3(-0.06,-0.04,0.05)); this.group.rotation.z=0.25; } else this.group.rotation.z=U.lerp(this.group.rotation.z,0,0.1);
+    this.group.position.lerp(tp,1-Math.pow(0.002,dt));
+    this.group.rotation.x=U.lerp(this.group.rotation.x, -this.recoil*1.5, 0.3);
+  }
+}
+
+/* ============================ NPCManager ============================ */
+class NPCManager{
+  constructor(scene,world,audio,particles,player){
+    this.scene=scene; this.world=world; this.audio=audio; this.pm=particles; this.player=player;
+    this.npcs=[]; this.tmp=new THREE.Vector3();
+  }
+  spawnFriendly(x,z,name,lines){ const g=this._body(0x3a5a3a);
+    g.position.set(x,0,z); this.scene.add(g);
+    const n={grp:g,type:'friendly',name,lines,hp:100,x,z,post:V3(x,0,z),alive:true,hitbox:g.children[0]}; this.npcs.push(n); return n; }
+  spawnHostile(x,z,drone=false){ const g=this._body(drone?0x333:0x5a3030,drone);
+    g.position.set(x,drone?4:0,z); this.scene.add(g);
+    const n={grp:g,type:drone?'drone':'hostile',hp:drone?60:100,x,z,alive:true,state:'patrol',t:Math.random()*10,
+      hitbox:g.children[0],fireT:0,drone}; this.npcs.push(n); return n; }
+  _body(col,drone=false){ const g=new THREE.Group();
+    if(drone){ const b=new THREE.Mesh(new THREE.BoxGeometry(0.8,0.25,0.8),new THREE.MeshStandardMaterial({color:col,metalness:.6,roughness:.4}));
+      g.add(b); for(let i=0;i<4;i++){ const arm=new THREE.Mesh(new THREE.CylinderGeometry(0.28,0.28,0.05,10),new THREE.MeshStandardMaterial({color:0x222}));
+        arm.position.set((i<2?1:-1)*0.5,0.1,(i%2?1:-1)*0.5); g.add(arm);}
+      const eye=new THREE.PointLight(0xff3333,0.6,4); g.add(eye);
+    } else {
+      const torso=new THREE.Mesh(new THREE.CapsuleGeometry(0.35,0.9,4,8),new THREE.MeshStandardMaterial({color:col,roughness:.8}));
+      torso.position.y=1.1; g.add(torso);
+      const head=new THREE.Mesh(new THREE.SphereGeometry(0.24,10,10),new THREE.MeshStandardMaterial({color:0x1a1a1a})); head.position.y=1.85; g.add(head);
+    }
+    g.traverse(o=>{if(o.isMesh)o.castShadow=this.world.q!=='low';});
+    return g; }
+  raycast(ray){ let best=null; for(const n of this.npcs){ if(!n.alive)continue;
+    const box=new THREE.Box3().setFromObject(n.grp); const pt=ray.ray.intersectBox(box,this.tmp.clone());
+    if(pt){ const d=ray.ray.origin.distanceTo(pt); if(!best||d<best.distance) best={npc:n,distance:d,point:pt.clone()}; } }
+    return best; }
+  hit(n,dmg,game){ if(!n.alive)return;
+    if(n.type==='friendly'){ if(game) game.penalize('Fired on a friendly unit.',18); return; }
+    n.hp-=dmg; this.audio.bad();
+    if(n.hp<=0){ n.alive=false; this.scene.remove(n.grp); this.pm.smoke(n.grp.position.x,n.grp.position.y+1,n.grp.position.z);
+      if(game) game.flags['hostile_down']=(game.flags['hostile_down']||0)+1; } }
+  update(dt,game){ const p=this.player.pos;
+    for(const n of this.npcs){ if(!n.alive)continue; n.t+=dt;
+      if(n.type==='friendly'){ n.grp.lookAt(p.x,1.5,p.z); continue; }
+      const dx=p.x-n.grp.position.x, dz=p.z-n.grp.position.z; const dist=Math.hypot(dx,dz);
+      if(dist<32){ n.state='engage'; }
+      if(n.state==='engage'){
+        n.grp.lookAt(p.x, n.drone?4:1.2, p.z);
+        // approach a bit
+        if(dist>8){ n.grp.position.x+=dx/dist*dt*(n.drone?2.5:2.2); n.grp.position.z+=dz/dist*dt*(n.drone?2.5:2.2); }
+        n.fireT-=dt;
+        if(n.fireT<=0 && dist<36){ n.fireT=U.rand(1.2,2.4);
+          // line of sight check
+          const from=n.grp.position.clone(); from.y=n.drone?4:1.4; const dir=this.tmp.set(p.x-from.x,(p.y)-from.y,p.z-from.z).normalize();
+          const rc=new THREE.Raycaster(from,dir,0,dist); const blocked=rc.intersectObjects(this.world.walls,false).length>0;
+          if(!blocked){ this.audio.alarm(); if(Math.random()<0.6){ this.player.damage(n.drone?6:9); if(game)game.onPlayerHit(); } }
+        }
+      } else { // patrol
+        n.grp.position.x+=Math.sin(n.t*0.5)*dt*1.2; n.grp.position.z+=Math.cos(n.t*0.4)*dt*1.0;
+      }
+      if(n.drone) n.grp.position.y=4+Math.sin(n.t*2)*0.3;
+    }
+  }
+  clearHostiles(){ for(const n of this.npcs){ if(n.type!=='friendly'&&n.alive){ this.scene.remove(n.grp); n.alive=false; } } }
+}
+
+/* ============================ NotebookManager ============================ */
+class NotebookManager{
+  constructor(){ this.entries=[]; this.conclusions=[]; }
+  record(m){ this.entries.push(Object.assign({time:U.fmtT(m.t||0)},m)); }
+  measuredEmitters(){ return new Set(this.entries.filter(e=>e.emitterId).map(e=>e.emitterId)); }
+  countBands(){ return new Set(this.entries.filter(e=>e.band!=null).map(e=>e.band)).size; }
+  addConclusion(c){ this.conclusions.push(c); }
+}
+
+/* ============================ InstrumentManager ============================ */
+// Instruments: analyzer, directionfinder, probe, tablet. Each renders to the DOM
+// screen canvas and produces notebook-ready measurements. Also drives the in-world
+// viewmodel device (an emissive handheld panel attached to the camera).
+// Plain-language meaning of each source kind, for the live "signal read" panel.
+const MISSION_FOCUS={1:['E7'],2:['E9'],3:['E5'],4:['E2','E3'],5:[],6:['E15','E16'],7:['E12','E2']};
+// Drop the player into each mission's own zone, each with a distinct atmosphere.
+const MISSION_SPAWN={1:[0,22],2:[50,-20],3:[-46,56],4:[-30,34],5:[0,-56],6:[56,62],7:[0,22]};
+const MISSION_MOOD={
+  1:{fog:0x1a2530,den:0.0055,sun:[0xffdcb0,2.0],amb:0x556070,ambI:0.5, name:'Forward Operating Base · dusk'},
+  2:{fog:0x2b2620,den:0.010,sun:[0xffc48a,1.5],amb:0x6a5a44,ambI:0.55,name:'Industrial Yard · sodium light & smoke',
+     lights:[[50,-40,0xff9944,1.4],[40,-46,0xff7722,1.1]], smoke:[[50,-40],[42,-44]]},
+  3:{fog:0x212f39,den:0.013,sun:[0x9fb6cc,1.05],amb:0x40506a,ambI:0.5, name:'Damaged Residential Block · low haze',
+     lights:[[-52,-40,0xff6633,1.6]], smoke:[[-52,-38]]},
+  4:{fog:0x18292a,den:0.008,sun:[0xcfeadf,1.35],amb:0x3a5a52,ambI:0.62,name:'Medical Aid Station · emergency lighting',
+     lights:[[-30,20,0x35ff9a,1.5],[-27,22,0x35ff88,0.9]]},
+  5:{fog:0x0d1522,den:0.0075,sun:[0x5a6fa0,0.7],amb:0x263150,ambI:0.4, name:'Communications Ridge · night watch',
+     lights:[[0,-72,0xff4444,1.3]]},
+  6:{fog:0x241318,den:0.010,sun:[0xd08a7a,1.05],amb:0x5a3540,ambI:0.5, name:'Enemy Observation Post · red alert',
+     lights:[[56,48,0xff3333,1.7],[52,52,0xff2222,1.1]]},
+  7:{fog:0x261a15,den:0.012,sun:[0xffb488,1.25],amb:0x5a4038,ambI:0.5, name:'Full Battlefield · coordinated assault',
+     lights:[[0,8,0xff5522,1.4],[56,48,0xff3333,1.4],[-30,20,0x35ff9a,0.9]], smoke:[[10,10],[50,-40],[-52,-40]]},
+};
+const KIND_MEANING={
+  comm:'a clean, continuous modulated carrier — an intentional voice/data radio link',
+  telemetry:'a low-power bursty link carrying medical/sensor data — intentional and fragile',
+  'drone-control':'a wide bursty control link for a drone — intentional',
+  relay:'a strong, steady relay beacon that repeats traffic — intentional and very conspicuous',
+  'periodic-beacon':'short, regularly-spaced pings — a beacon of some kind, unknown until you inspect it',
+  camera:'a clean wideband video carrier — an intentional wireless camera',
+  'psu-noise':'broadband switching hash with no clean carrier — UNINTENDED power-supply noise',
+  'led-harmonics':'a broadband harmonic comb with no single carrier — UNINTENDED noise from damaged electronics, not a transmitter',
+  motor:'periodic bursts from a motor/pump controller — intentional, but not a comms link',
+  'obs-drone':'a moving wideband control/telemetry link — a hostile observation drone',
+  'command-tx':'a strong bursty command link that moves between positions — a hostile command transmitter',
+  'sensor-node':'a periodic hostile sensor emission',
+  decoy:'a transmitter mimicking another signal — a decoy meant to mislead you',
+  'transmit-only':'a periodic beacon that ONLY transmits — it has no receiver, so it cannot be commanded',
+  'auth-remote':'an authenticated friendly device that accepts authorized commands',
+};
+function interpretSignal(e, missionId){
+  const colors={friendly:'#57e389',civilian:'#4fd6ff',unknown:'#ffb454',hostile:'#ff5c5c'};
+  const bg={friendly:'rgba(87,227,137,.16)',civilian:'rgba(79,214,255,.14)',unknown:'rgba(255,180,84,.14)',hostile:'rgba(255,92,92,.16)'};
+  const guidance = e.cls==='friendly'?'Friendly — leave it alone.'
+    : e.cls==='civilian'?'Civilian — never a target.'
+    : e.cls==='hostile'?'Hostile — a valid threat.'
+    : 'Unknown — inspect before you act (unknown ≠ hostile).';
+  const meaning=KIND_MEANING[e.kind]||'an emission';
+  const focus=(MISSION_FOCUS[missionId]||[]).includes(e.id);
+  const star=focus?' <b style="color:#ffb454">★ Relevant to this objective.</b>':'';
+  return { tag:e.cls, color:colors[e.cls], bg:bg[e.cls], text:`<b>${e.name}</b> — ${e.freq} MHz. ${meaning}. ${guidance}${star}` };
+}
+// Core teaching content. Keyed by the exact `concept` labels used in mission guide steps.
+const CONCEPT_DEF={
+  'Instruments':'Each tool answers a different question — analyzer (what/where in frequency), antenna (which direction), probe (near-field: real signal or noise?), tablet (our own network).',
+  'Frequency & span':'Frequency is where a signal sits on the dial (MHz). Span is how wide a slice of the dial you view at once.',
+  'Power & noise floor':'Received power (dBm) is how loud a signal arrives. The noise floor is the background hiss — a signal only counts if it rises clearly above it.',
+  'Intended vs unintended':'Intended emissions are clean carriers a device MEANS to send. Unintended emissions are leakage/noise from electronics never meant to radiate.',
+  'Evidence-based decisions':'A conclusion only counts if your logged measurements support it. Guessing is penalized.',
+  'Periodicity & timing':'How often and how regularly a device transmits. A steady period looks healthy; erratic short bursts suggest a problem.',
+  'Request–response':'Real links show a back-and-forth — a request, then an acknowledgement. No acknowledgement means the link is not truly established.',
+  'Confidence & alternatives':'Ask what ELSE could explain the data and how confident you are. Pick the best-supported hypothesis, not the scariest.',
+  'Bearing frequency':'To take a bearing you must first know the exact frequency to listen on, or you will chase the wrong source.',
+  'Triangulation & multipath':'One bearing is a line, not a point. Cross three bearings from different spots — but reflections (multipath) can fake a bearing.',
+  'Localization uncertainty':'Bearings have error. Where lines cross defines a region, not a pixel — get close and confirm by inspection.',
+  'Unknown ≠ hostile':'An unidentified emitter is just unidentified. Classify it before acting; many "unknowns" are civilian.',
+  'Reproduce the fault':'Diagnose interference by reproducing it on demand — show the failure appears exactly when the suspected cause is active.',
+  'Adjacent-channel effects':'A strong transmitter on a nearby channel can swamp a weak receiver even without sharing its frequency (overload).',
+  'Controlled repair':'Change one thing at a time — a channel or a power level — so you know what actually fixed it.',
+  'Verify after repair':'A fix is not done until you MEASURE that service is actually restored.',
+  'EM signature':'Everything you transmit is observable. Your emissions reveal where you are and what you are doing.',
+  'Network centrality':'The busiest, most-connected node leaks the most information — it is the one an observer watches.',
+  'Power discipline':'Transmit only as loud as you must. Excess power buys range you may not need and hands away your position.',
+  'Function vs observability':'Keep the link working while being seen as little as possible — the two trade off against each other.',
+  'Detect & identify':'Detecting energy is step one; identifying WHAT it is (type, intent, owner) is a separate step.',
+  'Decode & address':'Reading a signal is not the same as knowing which device it belongs to and how to address it.',
+  'Authenticate & control':'Only an authenticated device you are authorized to command will respond — and only if it actually has a receiver.',
+  'Detection ≠ control':'Seeing a device emit does not mean you can control it. Emitting is transmitting; control needs the device to RECEIVE and accept your authority.',
+  'Triage: lives first':'When everything happens at once, order matters — protect critical services (medical) before chasing threats.',
+  'Moving-emitter localization':'A moving source needs repeated bearings over time; a single fix goes stale immediately.',
+  'Proportional force':'Use force only against valid armed threats. Destroying civilian or friendly equipment is a failure.',
+  'Signature discipline':'Under observation, actively reduce what you radiate while preserving the mission-critical link.',
+  'Final assessment':'Summarize what the evidence actually showed — not what was assumed at the start.',
+};
+// Codex: grouped reference the player can open anytime (K).
+const CODEX=[
+  {group:'The instruments', items:[
+    ['Spectrum Analyzer','Shows signals across frequency. Read the center frequency, span, each peak’s power, and the noise floor. A tall narrow peak is one channel; a wide lumpy rise is broadband noise.'],
+    ['Directional Antenna','Points at where a signal comes from. Rotate your body to find the peak. One bearing is a line — take three from different spots to cross them.'],
+    ['Near-Field Probe','Only reacts within a few meters. It tells intended transmissions apart from unintended noise (switching supplies, motors, LED drivers).'],
+    ['Network Tablet','Diagnostics for YOUR authorized friendly network only — link quality, packet loss, latency, acknowledgements. Never used on others’ systems.'],
+  ]},
+  {group:'Reading a signal', items:[
+    ['Frequency','Where a signal sits on the dial, in MHz.'],
+    ['Bandwidth','The RANGE of frequencies a signal occupies. A strong center peak does not describe the whole channel it consumes.'],
+    ['Power (dBm)','How loud a signal arrives. Moving closer or removing obstructions raises it; walls and distance lower it.'],
+    ['Noise floor','The background hiss. A signal is only real if it rises clearly above the floor.'],
+    ['Duty cycle / pattern','Continuous, bursty, or periodic. The timing is a fingerprint of what the device is doing.'],
+    ['Intended vs unintended','A clean carrier is meant to be there. Broadband hash and harmonic combs are electronics leaking — noise, not a transmitter.'],
+  ]},
+  {group:'Finding & classifying', items:[
+    ['Bearing & triangulation','Direction to a source. Cross three separated bearings to locate it.'],
+    ['Multipath','Reflections off metal/urban surfaces can look like a stronger, wrong direction. Move before you trust a bearing.'],
+    ['Classification','Friendly, civilian, unknown, or hostile. Unknown ≠ hostile — inspect first.'],
+    ['Interference types','Weak coverage, co-channel, adjacent-channel overload, or plain equipment failure — each has a different fix.'],
+  ]},
+  {group:'The detection→control chain', items:[
+    ['Detect','Energy is present.'],
+    ['Identify','What kind of emission, and whose.'],
+    ['Locate','Where it physically is.'],
+    ['Decode / Address','Which device, addressable how.'],
+    ['Authenticate','Is it who it claims to be?'],
+    ['Authorize','Are you permitted to act on it?'],
+    ['Control','Only an authenticated device WITH a receiver, that accepts your authority, can be commanded.'],
+    ['Signature','Your own emissions are detectable too — reduce what you reveal.'],
+  ]},
+];
+const INSTRUMENTS=[
+  {key:'analyzer',name:'Spectrum Analyzer',icon:'📈'},
+  {key:'df',name:'Directional Antenna',icon:'🧭'},
+  {key:'probe',name:'Near-Field Probe',icon:'🔎'},
+  {key:'tablet',name:'Network Tablet',icon:'📟'},
+];
+class InstrumentManager{
+  constructor(scene,camera,prop,sig,net,notebook,audio,ui,player){
+    this.scene=scene; this.cam=camera; this.prop=prop; this.sig=sig; this.net=net;
+    this.nb=notebook; this.audio=audio; this.ui=ui; this.player=player;
+    this.unlocked=new Set(); this.active=null;
+    this.center=146.5; this.span=40; this.gain=0; this.marker=146.5; this.bins=220;
+    this.dfPeakDeg=null; this.dfPeakPow=-120; this.dfHistory=[];
+    this.canvas=document.getElementById('instCanvas'); this.ctx=this.canvas.getContext('2d');
+    this._buildViewmodel();
+    // analyzer band presets to cycle with span scan
+    this.bandPresets=[
+      {c:60,s:60,label:'HF/LF noise'},{c:146.5,s:40,label:'VHF comms'},{c:402,s:60,label:'UHF telemetry'},
+      {c:434,s:40,label:'ISM 433'},{c:915,s:120,label:'ISM 915'},{c:1250,s:200,label:'L-band'},
+      {c:2440,s:120,label:'2.4 GHz'},{c:5805,s:200,label:'5.8 GHz'},
+    ];
+    this.presetIdx=1;
+  }
+  _buildViewmodel(){ const g=new THREE.Group();
+    const shell=new THREE.Mesh(new THREE.BoxGeometry(0.34,0.22,0.03),new THREE.MeshStandardMaterial({color:0x14181a,roughness:.6}));
+    this.screenTex=new THREE.CanvasTexture(this.canvas); this.screenTex.colorSpace=THREE.SRGBColorSpace;
+    const screen=new THREE.Mesh(new THREE.PlaneGeometry(0.3,0.17),new THREE.MeshBasicMaterial({map:this.screenTex}));
+    screen.position.z=0.02; g.add(shell,screen);
+    // small antenna nub
+    const ant=new THREE.Mesh(new THREE.CylinderGeometry(0.006,0.006,0.18,6),new THREE.MeshStandardMaterial({color:0x333}));
+    ant.position.set(0.14,0.18,0); g.add(ant);
+    g.position.set(-0.16,-0.16,-0.42); g.rotation.x=-0.35; g.visible=false;
+    this.cam.add(g); this.vm=g; this.vmScreen=screen;
+  }
+  unlock(key){ this.unlocked.add(key); }
+  unlockAll(){ INSTRUMENTS.forEach(i=>this.unlocked.add(i.key)); }
+  isUnlocked(k){ return this.unlocked.has(k); }
+  setActive(key){ if(key && !this.unlocked.has(key)) return false;
+    this.active=key; const on=!!key; this.vm.visible=on;
+    document.getElementById('inst').classList.toggle('hidden',!on);
+    document.getElementById('tabletList').classList.toggle('hidden',key!=='tablet');
+    document.getElementById('instCanvas').classList.toggle('hidden',key==='tablet');
+    if(on){ document.getElementById('instName').textContent=INSTRUMENTS.find(i=>i.key===key).name.toUpperCase(); }
+    return true; }
+  // ---- controls routed from input ----
+  tune(delta){ if(this.active==='analyzer'){ this.center=U.clamp(this.center+delta,20,6000); this.marker=this.center; } }
+  changeSpan(f){ if(this.active==='analyzer'){ this.span=U.clamp(this.span*f,4,400); } }
+  adjGain(d){ this.gain=U.clamp(this.gain+d,-20,30); }
+  cyclePreset(dir){ this.presetIdx=(this.presetIdx+dir+this.bandPresets.length)%this.bandPresets.length;
+    const p=this.bandPresets[this.presetIdx]; this.center=p.c; this.span=p.s; this.marker=p.c; this.audio.chirp();
+    this.ui.note('Tuned band: '+p.label+' ('+p.c+' MHz)'); }
+  // strongest emitter near marker (for save / mark)
+  peakEmitter(){ let best=null,bp=-999; const from=this.player.pos, h=this.player.heading();
+    for(const e of this.sig.emitters){ if(Math.abs(e.freq-this.marker)>Math.max(this.span*0.6, e.bw/1000+2)) continue;
+      const p=this.prop.received(e,from,h,0); if(p>bp){ bp=p; best=e; } } return best?{e:best,dbm:bp}:null; }
+  saveMeasurement(game){
+    const from=this.player.pos, h=this.player.heading();
+    if(this.active==='analyzer'){ const pk=this.peakEmitter();
+      const band=Math.round(this.center/50)*50;
+      const m={t:this.sig.t,loc:`${from.x.toFixed(0)},${from.z.toFixed(0)}`,instrument:'Analyzer',freq:this.center.toFixed(1)+' MHz',
+        power:pk?pk.dbm.toFixed(1)+' dBm':'—', bw:pk?(pk.e.bw+' kHz'):'—', bearing:'—', band,
+        observation: pk? this._describe(pk.e): 'noise floor only', confidence: pk? (pk.dbm>-70?'high':'medium'):'low',
+        emitterId: pk?pk.e.id:null, mission: game?game.currentTitle():''};
+      this.nb.record(m); this.audio.good(); this.ui.note('Measurement saved: '+(pk?pk.e.name:'noise floor'),'good');
+      if(pk){ pk.e.discovered=true; game && game.onMeasure(pk.e,m); this._lessonFor(pk.e,game); }
+      game && game.onBandScan(band);
+    } else if(this.active==='df'){ if(this.dfPeakDeg==null){ this.ui.note('Sweep the antenna first — rotate to find a peak.','warn'); return; }
+      const m={t:this.sig.t,loc:`${from.x.toFixed(0)},${from.z.toFixed(0)}`,instrument:'Direction Finder',freq:this.marker.toFixed(1)+' MHz',
+        power:this.dfPeakPow.toFixed(1)+' dBm',bw:'—',bearing:this.dfPeakDeg.toFixed(0)+'°',observation:'bearing to strongest source',
+        confidence:'per-position', emitterId:null, mission:game?game.currentTitle():''};
+      this.nb.record(m); this.audio.good(); this.ui.note('Bearing saved: '+this.dfPeakDeg.toFixed(0)+'° (need ≥3 from separate spots)','good');
+      game && game.onBearing(from.clone(),this.dfPeakDeg);
+    } else if(this.active==='probe'){ const near=this._nearProbe();
+      if(!near){ let extra='';
+        const focus=(this.focusIds||[]).map(id=>this.sig.byId(id)).filter(Boolean);
+        if(focus.length){ const from=this.player.pos; const tgt=focus.map(e=>({e,d:from.distanceTo(e.pos)})).sort((a,b)=>a.d-b.d)[0];
+          extra=` The target device is ~${tgt.d.toFixed(0)} m away — walk right up to the glowing box (follow the amber beacon).`; }
+        this.ui.note('Near-field probe: nothing in range yet.'+extra,'warn'); return; }
+      const m={t:this.sig.t,loc:`${from.x.toFixed(0)},${from.z.toFixed(0)}`,instrument:'Near-Field Probe',freq:near.e.freq.toFixed(1)+' MHz',
+        power:'strong (near)',bw:near.e.bw+' kHz',bearing:'—',observation:this._probeSignature(near.e),
+        confidence:'high', emitterId:near.e.id, mission:game?game.currentTitle():''};
+      this.nb.record(m); this.audio.good(); this.ui.note('Probe reading: '+this._probeSignature(near.e),'good');
+      near.e.discovered=true; near.e.probed=true; game && game.onProbe(near.e);
+    } else if(this.active==='tablet'){ this.ui.note('Network snapshot logged.','good');
+      game && game.onTablet(); }
+  }
+  _describe(e){ const t=e.intent==='unintended'?'unintended emission':'intentional transmission';
+    const pat= e.pattern==='periodic'?'periodic bursts': e.pattern==='burst'?'bursty': e.pattern==='broadband'?'broadband/harmonic noise':'continuous';
+    return `${pat}, ${t}`; }
+  _probeSignature(e){ switch(e.kind){
+    case 'led-harmonics': return 'broadband harmonic comb — damaged LED driver (unintended)';
+    case 'psu-noise': return 'switching-supply hash — unintended emission';
+    case 'motor': return 'motor-controller commutation noise';
+    case 'camera': return 'clean digital video carrier — intended transmission';
+    case 'comm': case 'telemetry': case 'relay': case 'drone-control': return 'clean modulated carrier — intended transmission';
+    case 'transmit-only': return 'periodic beacon, no receive activity detected';
+    default: return e.intent==='unintended'?'noisy unintended emission':'modulated carrier'; } }
+  _nearProbe(){ const from=this.player.pos; let best=null,bd=11;
+    for(const e of this.sig.emitters){ const d=from.distanceTo(e.pos); if(d<bd){ bd=d; best={e,d}; } }
+    // In guided missions, prefer the mission's target device if it is anywhere close,
+    // so standing on the waypoint reliably probes the right thing.
+    const focus=this.focusIds||[];
+    if(focus.length){ for(const id of focus){ const e=this.sig.byId(id); if(!e) continue;
+      const d=from.distanceTo(e.pos); if(d<14 && (!best||best.e.id!==id) ){ if(!best||d<best.d+5){ best={e,d}; } } } }
+    return best; }
+  _lessonFor(e,game){ if(!game)return;
+    if((e.bw/1000)>2 && !game.lessonsSeen.has('bandwidth')){ game.lessonsSeen.add('bandwidth');
+      this.ui.lesson('Bandwidth','Bandwidth is the range of frequencies a signal occupies. A strong center peak does not describe the entire channel it consumes.'); }
+    if(e.kind==='transmit-only' && !game.lessonsSeen.has('txonly')){ game.lessonsSeen.add('txonly');
+      this.ui.lesson('Detection ≠ Control','Detection establishes that energy is present. It does not establish that the device has a receiver or accepts commands.'); }
+  }
+  // ---- per-frame update + rendering ----
+  update(dt,game){
+    this.lastRead=null;
+    if(!this.active){ this.audio.setSignalTone(false,0); this.ui.hideSig(); return; }
+    const mid=game?game.currentMission().id:1;
+    this.focusIds=MISSION_FOCUS[mid]||[];
+    const from=this.player.pos, h=this.player.heading();
+    const ctx=this.ctx, W=this.canvas.width, H=this.canvas.height;
+    ctx.fillStyle='#04110c'; ctx.fillRect(0,0,W,H);
+    ctx.strokeStyle='rgba(90,220,180,.12)'; ctx.lineWidth=1;
+    for(let i=0;i<10;i++){ const y=i/10*H; ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); }
+    let ro=[]; // readout entries
+    if(this.active==='analyzer'){
+      const spec=this.prop.spectrum(from,this.center,this.span,this.bins,h);
+      const min=-100, max=-20+this.gain;
+      // grid verticals
+      for(let i=0;i<=8;i++){ const x=i/8*W; ctx.strokeStyle='rgba(90,220,180,.08)'; ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke(); }
+      // noise floor
+      const nf=this.prop.noiseFloor+this.gain;
+      const nfy=H-(nf-min)/(max-min)*H; ctx.strokeStyle='rgba(120,140,150,.5)'; ctx.setLineDash([6,6]);
+      ctx.beginPath(); ctx.moveTo(0,nfy); ctx.lineTo(W,nfy); ctx.stroke(); ctx.setLineDash([]);
+      // trace
+      ctx.beginPath(); ctx.strokeStyle='#57e389'; ctx.lineWidth=2;
+      let peakP=-999,peakF=this.center;
+      spec.forEach((s,i)=>{ const x=i/(this.bins-1)*W; const y=H-U.clamp((s.dbm+this.gain-min)/(max-min),0,1)*H;
+        if(i===0)ctx.moveTo(x,y); else ctx.lineTo(x,y); if(s.dbm>peakP){peakP=s.dbm;peakF=s.f;} });
+      ctx.stroke();
+      // fill under
+      ctx.lineTo(W,H); ctx.lineTo(0,H); ctx.closePath(); ctx.fillStyle='rgba(87,227,137,.12)'; ctx.fill();
+      // marker
+      const mx=(this.marker-(this.center-this.span/2))/this.span*W;
+      ctx.strokeStyle='#ffb454'; ctx.beginPath(); ctx.moveTo(mx,0); ctx.lineTo(mx,H); ctx.stroke();
+      ctx.fillStyle='#ffb454'; ctx.font='16px monospace'; ctx.fillText('◆'+this.marker.toFixed(1),mx+4,18);
+      // labels
+      ctx.fillStyle='#7fb3a4'; ctx.font='15px monospace';
+      ctx.fillText((this.center-this.span/2).toFixed(0),4,H-6); ctx.textAlign='right';
+      ctx.fillText((this.center+this.span/2).toFixed(0)+' MHz',W-4,H-6); ctx.textAlign='left';
+      const pk=this.peakEmitter();
+      ro=[['Center',this.center.toFixed(1)+' MHz'],['Span',this.span.toFixed(0)+' MHz'],['Gain',(this.gain>=0?'+':'')+this.gain+' dB'],
+          ['Peak',peakP.toFixed(0)+' dBm @ '+peakF.toFixed(1)],['Noise floor',(this.prop.noiseFloor+this.gain).toFixed(0)+' dBm'],
+          ['Est. BW', pk?(pk.e.bw+' kHz'):'—']];
+      this.ui.showSig(pk?pk.dbm:this.prop.noiseFloor, pk?pk.e.name:'noise floor');
+      this.audio.setSignalTone(!!pk, pk?U.clamp((pk.dbm+100)/80,0,1):0);
+      this.lastRead = pk?interpretSignal(pk.e,mid):null;
+      document.getElementById('instHint').textContent='◄► tune  ·  ↑↓ span  ·  [ ] gain  ·  N band  ·  R save';
+    }
+    else if(this.active==='df'){
+      // sweep: record strongest heading among emitters near marker
+      let bestP=-140,bestDeg=null,bestE=null, secondPeak=null;
+      const curDeg=this.player.headingDeg();
+      for(const e of this.sig.emitters){ if(Math.abs(e.freq-this.marker)>Math.max(this.span,e.bw/1000+4)) continue;
+        const p=this.prop.received(e,from,h,10); // strong directivity
+        if(p>bestP){ bestP=p; bestDeg=this.prop.bearingTo(e,from); bestE=e; } }
+      // multipath false peak from reflectors
+      let multipath=false;
+      if(this.sig.world.reflectors){ for(const r of this.sig.world.reflectors){ if(from.distanceTo(r)<12){ multipath=true;
+        secondPeak=(this.prop.bearingTo({pos:r},from)); } } }
+      // track running peak as player rotates (needs physical rotation to find it)
+      const facingErr=Math.abs(((curDeg-(bestDeg||0)+540)%360)-180)-180; // 0 when aligned
+      const aligned=Math.max(0,1-Math.abs(((curDeg-(bestDeg||0)+540)%360)-180)/60);
+      const observedPow=bestP - (1-aligned)*20;
+      if(observedPow>this.dfPeakPow-3 && aligned>0.5){ this.dfPeakPow=observedPow; this.dfPeakDeg=curDeg; }
+      // draw polar
+      const cx=W/2,cy=H/2,rad=Math.min(W,H)/2-18;
+      ctx.strokeStyle='rgba(90,220,180,.25)'; for(let r=rad;r>0;r-=rad/3){ ctx.beginPath(); ctx.arc(cx,cy,r,0,7); ctx.stroke(); }
+      // heading needle (up = current facing)
+      ctx.save(); ctx.translate(cx,cy);
+      // draw source lobe relative to current heading
+      if(bestDeg!=null){ const rel=((bestDeg-curDeg)*Math.PI/180);
+        const strength=U.clamp((observedPow+110)/70,0.1,1);
+        ctx.rotate(rel); ctx.fillStyle='rgba(255,180,84,'+(0.25+strength*0.5)+')';
+        ctx.beginPath(); ctx.moveTo(0,0); for(let a=-0.5;a<=0.5;a+=0.05){ ctx.lineTo(Math.sin(a)*rad*strength,-Math.cos(a)*rad*strength);} ctx.closePath(); ctx.fill();
+        ctx.rotate(-rel);
+      }
+      if(multipath && secondPeak!=null){ const rel=((secondPeak-curDeg)*Math.PI/180); ctx.rotate(rel);
+        ctx.fillStyle='rgba(255,92,92,.3)'; ctx.beginPath(); ctx.moveTo(0,0);
+        for(let a=-0.35;a<=0.35;a+=0.05){ ctx.lineTo(Math.sin(a)*rad*0.6,-Math.cos(a)*rad*0.6);} ctx.closePath(); ctx.fill(); ctx.rotate(-rel); }
+      ctx.restore();
+      // needle
+      ctx.strokeStyle='#ffb454'; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(cx,cy); ctx.lineTo(cx,cy-rad); ctx.stroke();
+      ctx.fillStyle='#7fb3a4'; ctx.font='14px monospace';
+      ctx.fillText('N',cx-4,cy-rad-4);
+      const q=Math.round(aligned*100);
+      ro=[['Heading',curDeg.toFixed(0)+'°'],['Rel. power',observedPow.toFixed(0)+' dBm'],
+          ['Bearing-quality',q+'%'],['Best bearing',this.dfPeakDeg!=null?this.dfPeakDeg.toFixed(0)+'°':'— sweep —'],
+          ['Strongest dir',bestDeg!=null?bestDeg.toFixed(0)+'°':'—'],['Multipath',multipath?'⚠ reflector near':'clear']];
+      if(multipath && !game.lessonsSeen.has('multipath')){ game.lessonsSeen.add('multipath');
+        this.ui.lesson('Multipath','Urban reflections can produce a stronger local direction than the direct path. Change position before trusting the bearing.'); }
+      this.ui.showSig(observedPow,'bearing '+(bestDeg!=null?bestDeg.toFixed(0):'--')+'°');
+      this.audio.setSignalTone(true,U.clamp(aligned,0,1));
+      this.lastRead = bestE?interpretSignal(bestE,mid):null;
+      document.getElementById('instHint').textContent='rotate to sweep  ·  ◄► retune  ·  R save bearing';
+    }
+    else if(this.active==='probe'){
+      const near=this._nearProbe();
+      ctx.strokeStyle='#4fd6ff'; ctx.lineWidth=2; ctx.beginPath();
+      for(let x=0;x<W;x++){ let v; if(near){ const e=near.e; const strength=1-near.d/8;
+          if(e.kind==='led-harmonics'||e.kind==='psu-noise') v=(Math.random()-0.5)*strength + Math.sin(x*0.4)*0.2*strength;
+          else if(e.kind==='motor') v=Math.sign(Math.sin(x*0.12))*strength*0.6 + (Math.random()-0.5)*0.15;
+          else v=Math.sin(x*0.08+this.sig.t*4)*strength*0.7; }
+        else v=(Math.random()-0.5)*0.08;
+        const y=H/2 - v*H*0.4; if(x===0)ctx.moveTo(0,y); else ctx.lineTo(x,y); }
+      ctx.stroke();
+      ro=[['Range',near?near.d.toFixed(1)+' m':'> 8 m (nothing)'],['Coupling',near?'strong':'none'],
+          ['Signature',near?this._probeSignature(near.e):'—'],['Emission',near?(near.e.intent):'—']];
+      this.ui.showSig(near?(-20-near.d*4):-110, near?'near-field: '+near.e.name:'no coupling');
+      this.audio.setSignalTone(!!near, near?1-near.d/8:0);
+      this.lastRead = near?interpretSignal(near.e,mid):null;
+      document.getElementById('instHint').textContent='get within a few meters  ·  R log signature';
+    }
+    else if(this.active==='tablet'){
+      this.net.update();
+      const list=document.getElementById('tabletList');
+      list.innerHTML='<div class="trow h"><span>Node</span><span>Ch</span><span>Quality</span><span>Loss / Lat</span></div>'+
+        this.net.nodes.map(n=>`<div class="trow"><span>${n.name}${n.authenticated?' 🔑':''}</span><span>${n.ch}</span>`+
+          `<span style="color:${n.q>0.7?'#57e389':n.q>0.4?'#ffb454':'#ff5c5c'}">${(n.q*100).toFixed(0)}%</span>`+
+          `<span>${n.loss.toFixed(1)}% / ${n.lat.toFixed(0)}ms</span></div>`).join('');
+      ro=[['Nodes',this.net.nodes.length],['Authorized-only','yes'],['Note','friendly systems only']];
+      this.ui.hideSig(); this.audio.setSignalTone(false,0);
+      document.getElementById('instHint').textContent='authorized friendly network diagnostics';
+    }
+    document.getElementById('instReadout').innerHTML=ro.map(([k,v])=>`<span>${k}: <b>${v}</b></span>`).join('');
+    this.screenTex.needsUpdate=true;
+  }
+}
+
+/* ============================ MissionManager ============================ */
+// Objectives are event-driven flags. Missions unlock tools, place NPCs/events,
+// and gate a set of evidence-based conclusions the player must justify.
+function MISSIONS(game){ const g=game; return [
+  { id:1, title:'The Room Is Alive', loc:'Forward Operating Base',
+    brief:'A new operations center is assembled. Multiple signals are visible and one is disrupting staff equipment. Find and classify the culprit.',
+    guide:{ do:'Collect your kit, then survey the electromagnetic environment of the FOB and single out the ONE source that is unintended interference — not a working radio.',
+      learn:'How to read a spectrum: center frequency, span, power, the noise floor, and the difference between an intended transmission and unintended electronic noise.',
+      steps:[
+        {how:'Walk to the glowing case ahead and press <span class="gkey">E</span> to collect the analyzer + probe.',concept:'Instruments',at:[0,14]},
+        {how:'Switch to the analyzer (<span class="gkey">2</span>) and press <span class="gkey">N</span> to sweep across at least 3 bands.',concept:'Frequency & span',at:[0,4]},
+        {how:'Point at different devices and press <span class="gkey">R</span> to log 4 distinct emissions to your notebook.',concept:'Power & noise floor',at:[0,4]},
+        {how:'Stand next to the flickering LED controller, switch to the probe (<span class="gkey">4</span>), press <span class="gkey">R</span>.',concept:'Intended vs unintended',at:[3,4]},
+        {how:'Open the notebook (<span class="gkey">Tab</span>) and submit the conclusion your evidence supports.',concept:'Evidence-based decisions'},
+      ]},
+    teach:['frequency','bandwidth','power','noise floor','continuous vs burst','intentional vs unintended'],
+    hints:['Strategic: the disruptor is not a comms radio — look for broadband hash near the flickering light.',
+           'Instrument: sweep bands with the analyzer (N), then confirm with the near-field probe.',
+           'Procedure: stand by the LED controller at the FOB, probe it, then save + submit the "faulty electronics" conclusion.'],
+    onStart(){ game.inst.unlock('analyzer'); game.inst.unlock('probe'); },
+    objectives:[
+      {id:'collect',text:'Collect the spectrum analyzer from the case',f:()=>g.flags.gotCase},
+      {id:'scan3',text:'Scan at least three frequency ranges',f:()=>g.nb.countBands()>=3},
+      {id:'measure4',text:'Measure four different emissions',f:()=>g.nb.measuredEmitters().size>=4},
+      {id:'probe',text:'Inspect the flickering-light source with the near-field probe',f:()=>{const e=g.sig.byId('E7');return e&&e.probed;}},
+      {id:'concl',text:'Report whether it is a transmitter or faulty electronics',f:()=>g.hasConclusion('m1')},
+    ],
+    decisions:[
+      {id:'m1d1',title:'Which source is the interference?',concept:'Intended vs unintended',
+        after:g=>g.nb.measuredEmitters().size>=3,
+        prompt:'You’ve logged several emitters. One is a broad, lumpy rise with harmonic spikes and NO clean center carrier, and it never switches off. The others are narrow peaks that key on and off. Which is disrupting the staff screens?',
+        options:[
+          {t:'The broadband, always-on source with harmonic spikes',correct:true,why:'Unintended emissions are broadband hash and harmonic combs with no clean carrier — that is electronics leaking, and it desenses nearby equipment.'},
+          {t:'The strongest narrow peak that keys on and off',correct:false,why:'A clean narrow carrier keying on/off is an intended radio. Loud is not the same as interfering.'},
+          {t:'The faint signal down near the noise floor',correct:false,why:'A signal barely above the noise floor is not what is knocking out the screens.'}],
+        teach:'Judge by SHAPE (broadband/harmonic) not peak height.'},
+      {id:'m1d2',title:'Transmitter, or faulty electronics?',concept:'Detection ≠ control',
+        after:g=>{const e=g.sig.byId('E7');return e&&e.probed;},
+        prompt:'Your near-field probe on that source shows a noisy broadband signature with harmonic combs and no modulation. Report it as:',
+        options:[
+          {t:'Faulty electronics — an unintended emission',correct:true,why:'No modulation plus broadband harmonics means leakage from a damaged driver, not a device transmitting on purpose.'},
+          {t:'A hostile transmitter to jam',correct:false,why:'There is no intentional carrier here; treating leakage as a hostile transmitter escalates for nothing.'},
+          {t:'A friendly radio that needs a new channel',correct:false,why:'It is not a radio — retuning a broken power controller changes nothing.'}]},
+    ],
+    conclusions:[
+      {id:'m1a',text:'The disruptor is a damaged LED power controller — unintended broadband/harmonic emission.',correct:true,tag:'m1'},
+      {id:'m1b',text:'The disruptor is a hostile communications transmitter.',correct:false,tag:'m1'},
+      {id:'m1c',text:'The disruptor is the friendly command radio operating normally.',correct:false,tag:'m1'},
+    ]},
+  { id:2, title:'What Is the Device Doing?', loc:'Industrial Yard',
+    brief:'A remote pump station transmits irregularly. Determine whether it is functioning, reconnecting, or failing.',
+    guide:{ do:'Go to the Industrial Yard and watch the pump’s signal over time. Its timing pattern tells you what state the device is in.',
+      learn:'State inference from behavior: periodic reports look healthy; repeated short bursts with no stable link mean it is trying to reconnect.',
+      steps:[
+        {how:'Analyzer on the pump (~300 MHz). Press <span class="gkey">R</span> at least 3 times over several seconds to capture its timing.',concept:'Periodicity & timing',at:[50,-28]},
+        {how:'Switch to the network tablet (<span class="gkey">5</span>) to confirm whether the link is actually established.',concept:'Request–response',at:[50,-28]},
+        {how:'Open the notebook (<span class="gkey">Tab</span>) and pick the state your samples support — not the scariest one.',concept:'Confidence & alternatives'},
+      ]},
+    teach:['state inference','periodicity','request-response timing','correlation vs causation','confidence'],
+    hints:['Strategic: watch the pump signal over time — normal operation is periodic.',
+           'Instrument: use the analyzer to time its bursts, then the network tablet to check its link.',
+           'Procedure: measure the motor controller (E9) a few times, then submit the state conclusion.'],
+    onStart(){ game.inst.unlock('tablet'); game.sig.byId('E9').state='reconnecting'; },
+    objectives:[
+      {id:'observe',text:'Measure the pump/motor controller over time (3+ samples)',f:()=>g.nb.entries.filter(e=>e.emitterId==='E9').length>=3},
+      {id:'tablet',text:'Confirm the link on the authorized network tablet',f:()=>g.flags.usedTablet},
+      {id:'concl',text:'Choose the best-supported device-state interpretation',f:()=>g.hasConclusion('m2')},
+    ],
+    decisions:[
+      {id:'m2d1',title:'Read the timing',concept:'Periodicity & timing',
+        after:g=>g.nb.entries.filter(e=>e.emitterId==='E9').length>=2,
+        prompt:'Your samples of the pump show short bursts at irregular gaps, each followed by silence — never a sustained stream. What does that pattern most likely mean?',
+        options:[
+          {t:'It is repeatedly trying to reconnect',correct:true,why:'Short bursts with no sustained link are connection attempts, not healthy operation.'},
+          {t:'It is streaming telemetry normally',correct:false,why:'Normal operation is a steady, periodic report — not ragged bursts separated by silence.'},
+          {t:'It is physically failing and about to stop',correct:false,why:'Timing tells you link STATE, not physical condition — don’t infer catastrophe from a comms pattern.'}],
+        teach:'A comms pattern reveals link state, not hardware health.'},
+      {id:'m2d2',title:'What does the tablet add?',concept:'Request–response',
+        after:g=>g.flags.usedTablet,
+        prompt:'The network tablet shows no established link and zero acknowledgements from the pump. Combined with the bursts, the best-supported reading is:',
+        options:[
+          {t:'Reconnecting — bursts are requests, nothing is acknowledging yet',correct:true,why:'Request bursts + zero acks = a device seeking a link it hasn’t established.'},
+          {t:'Fully operational',correct:false,why:'Operational links show acknowledgements; there are none.'},
+          {t:'Being jammed',correct:false,why:'No jammer in evidence — missing acks is explained more simply by a device still reconnecting.'}]},
+    ],
+    conclusions:[
+      {id:'m2a',text:'The pump is reconnecting: repeated short bursts, no stable data link yet.',correct:true,tag:'m2'},
+      {id:'m2b',text:'The pump is failing catastrophically and must be destroyed.',correct:false,tag:'m2'},
+      {id:'m2c',text:'The pump is fully operational and streaming normally.',correct:false,tag:'m2'},
+    ]},
+  { id:3, title:'Find the Emitter', loc:'Residential Block & Market',
+    brief:'An unknown periodic beacon appeared after civilians evacuated. Locate it by triangulation and classify it before acting.',
+    guide:{ do:'Find a ~434 MHz beacon by taking bearings from three separate spots, then walk to where the lines cross and inspect the device before deciding anything.',
+      learn:'Triangulation: one bearing is a line, not a point. Beware multipath — reflections can fake a strong bearing. And unknown does not mean hostile.',
+      steps:[
+        {how:'Analyzer: tune near 434 MHz (<span class="gkey">N</span> / <span class="gkey">◄►</span>) and confirm the beacon, then <span class="gkey">R</span>.',concept:'Bearing frequency',at:[-46,44]},
+        {how:'Switch to the directional antenna (<span class="gkey">3</span>). At 3 SEPARATE spots, rotate to the peak and press <span class="gkey">R</span>.',concept:'Triangulation & multipath',at:[-42,32]},
+        {how:'Go where your bearing lines cross (check the map, <span class="gkey">M</span>) and probe the device (<span class="gkey">4</span>,<span class="gkey">R</span>).',concept:'Localization uncertainty',at:[-46,44]},
+        {how:'Notebook (<span class="gkey">Tab</span>): classify it. It is civilian — do not treat unknown as hostile.',concept:'Unknown ≠ hostile'},
+      ]},
+    teach:['bearing','triangulation','multipath','localization uncertainty','unknown ≠ hostile'],
+    hints:['Strategic: one bearing is a line, not a point — you need three from separated positions.',
+           'Instrument: switch to the directional antenna, tune to ~434 MHz, rotate to peak.',
+           'Procedure: take bearings from 3 spots, then probe the device — it is a civilian monitor, not hostile.'],
+    onStart(){ game.inst.unlock('df'); },
+    objectives:[
+      {id:'freq',text:'Identify the beacon frequency (~434 MHz) on the analyzer',f:()=>g.nb.entries.some(e=>e.emitterId==='E5')||g.nb.entries.some(e=>Math.abs(parseFloat(e.freq)-433.9)<3)},
+      {id:'bearings',text:'Take at least three bearings from separated positions',f:()=>g.flags.bearings&&g.flags.bearings.length>=3&&g.bearingSpread()>10},
+      {id:'locate',text:'Locate and inspect the device with the probe',f:()=>{const e=g.sig.byId('E5');return e&&e.probed;}},
+      {id:'concl',text:'Classify it before deciding what to do',f:()=>g.hasConclusion('m3')},
+    ],
+    decisions:[
+      {id:'m3d1',title:'Trust the bearing?',concept:'Triangulation & multipath',
+        after:g=>(g.flags.bearings||[]).length>=2,
+        prompt:'Two of your bearings agree, but a third — taken right beside a large metal wall — points 40° off, toward the reflective surface. Which do you trust?',
+        options:[
+          {t:'The two consistent bearings; discard the reflected one',correct:true,why:'A bearing taken beside a reflector is likely multipath. Cross the consistent lines and reposition before trusting an outlier.'},
+          {t:'The odd one out — it read strongest',correct:false,why:'Strength can come from a reflection; the strongest local direction is not always the true path.'},
+          {t:'Average all three equally',correct:false,why:'Averaging a multipath bearing in drags your fix toward the wall, not the source.'}],
+        teach:'Reposition before trusting a bearing near metal.'},
+      {id:'m3d2',title:'Classify before acting',concept:'Unknown ≠ hostile',
+        after:g=>{const e=g.sig.byId('E5');return e&&e.probed;},
+        prompt:'You reach the device: a small weather-worn box pinging every few seconds on 434 MHz, no receive activity, civilian markings. It is:',
+        options:[
+          {t:'A forgotten civilian environmental monitor — leave it',correct:true,why:'Periodic low-power pings + civilian hardware + no receiver = a harmless monitor. Unknown never meant hostile.'},
+          {t:'A hostile beacon — destroy it',correct:false,why:'Nothing here is hostile; destroying civilian equipment is a mission failure.'},
+          {t:'A tracker you must jam',correct:false,why:'It isn’t tracking you. Over-reacting to an unknown is exactly the error this mission trains against.'}]},
+    ],
+    conclusions:[
+      {id:'m3a',text:'It is a forgotten civilian environmental monitor — not a threat. Leave it.',correct:true,tag:'m3'},
+      {id:'m3b',text:'Unknown means hostile — destroy the beacon.',correct:false,tag:'m3'},
+      {id:'m3c',text:'It is our own relay beacon; ignore it.',correct:false,tag:'m3'},
+    ]},
+  { id:4, title:'Interference at the Aid Station', loc:'Medical Aid Station',
+    brief:'Patient telemetry becomes unreliable whenever the logistics team operates nearby. Diagnose the interference and apply an authorized fix.',
+    guide:{ do:'At the Aid Station, prove the medical link fails because of a nearby transmitter (not broken hardware, not jamming), then retune it to a clear channel and verify service.',
+      learn:'Interference diagnosis: adjacent-channel overload vs hardware failure vs jamming. Controlled testing and verifying AFTER a repair.',
+      steps:[
+        {how:'Analyzer on the medical link (~402 MHz), press <span class="gkey">R</span> while it is degraded to capture the outage.',concept:'Reproduce the fault',at:[-30,20]},
+        {how:'Measure the nearby logistics/drone link and compare occupied bandwidth and channel spacing.',concept:'Adjacent-channel effects',at:[-30,20]},
+        {how:'Press <span class="gkey">E</span> at the aid station to apply the authorized channel/power fix.',concept:'Controlled repair',at:[-30,20]},
+        {how:'Open the network tablet (<span class="gkey">5</span>) and confirm the medical node is healthy again.',concept:'Verify after repair',at:[-30,20]},
+      ]},
+    teach:['interference diagnosis','controlled testing','receiver overload','adjacent-channel effects','verify after repair'],
+    hints:['Strategic: reproduce the outage — the medical link fails only when the nearby link is hot.',
+           'Instrument: compare occupied bandwidth of the medical (402 MHz) and logistics signals.',
+           'Procedure: this is adjacent-channel/overload interference. Apply the channel/power fix (F-repair key prompt), then verify service restored.'],
+    onStart(){ game.net.medDown=true; game.flags.aidOutage=true; },
+    objectives:[
+      {id:'repro',text:'Reproduce the outage (measure medical telemetry while degraded)',f:()=>g.nb.entries.some(e=>e.emitterId==='E2')},
+      {id:'compare',text:'Compare the medical signal and nearby logistics/drone link',f:()=>g.nb.measuredEmitters().has('E3')||g.flags.comparedAid},
+      {id:'fix',text:'Apply an authorized channel/power adjustment',f:()=>g.flags.aidFixed},
+      {id:'verify',text:'Verify restored service on the network tablet',f:()=>g.flags.aidVerified},
+    ],
+    decisions:[
+      {id:'m4d1',title:'Name the failure mode',concept:'Adjacent-channel effects',
+        after:g=>g.nb.entries.some(e=>e.emitterId==='E2'),
+        prompt:'Medical (402 MHz) drops ONLY when the logistics link keys up nearby, and that link occupies a wide adjacent band. The medical hardware tests fine on its own. This is:',
+        options:[
+          {t:'Adjacent-channel overload from the logistics link',correct:true,why:'Fails only when the loud neighbor is active, hardware fine alone — the strong adjacent signal is desensing the medical receiver.'},
+          {t:'Broken medical hardware',correct:false,why:'It works fine when logistics is quiet, so the hardware is not the cause.'},
+          {t:'Enemy jamming',correct:false,why:'A friendly link causing on/off drops is interference, not deliberate jamming.'}],
+        teach:'Fails only near a loud neighbor = overload, not failure or jamming.'},
+      {id:'m4d2',title:'Prove the repair',concept:'Verify after repair',
+        after:g=>g.flags.aidFixed,
+        prompt:'You retuned medical to a clear channel. Before you call it fixed, you must:',
+        options:[
+          {t:'Verify on the tablet that service actually returned',correct:true,why:'A fix isn’t done until you MEASURE restored service.'},
+          {t:'Assume it worked and move on',correct:false,why:'Unverified repairs fail silently; always confirm.'},
+          {t:'Crank up medical transmit power to be safe',correct:false,why:'More power doesn’t cure adjacent-channel overload and worsens your signature.'}]},
+    ],
+    conclusions:[
+      {id:'m4a',text:'Adjacent-channel overload from the logistics link; retune medical to a clear channel — service restored.',correct:true,tag:'m4'},
+      {id:'m4b',text:'The medical device is broken hardware; nothing can be done in the field.',correct:false,tag:'m4'},
+      {id:'m4c',text:'Hostile jamming; return fire on the logistics team.',correct:false,tag:'m4'},
+    ]},
+  { id:5, title:'What Are We Revealing?', loc:'Communications Ridge & FOB',
+    brief:'A hostile passive observer appears to have located our command post. Reduce our electromagnetic signature while preserving required service.',
+    guide:{ do:'Look at your OWN network the way an enemy would. Find the loudest, most central friendly node and turn it down — without dropping the link.',
+      learn:'Electromagnetic signature and metadata: the node with the most power and traffic advertises your command post. Functionality vs observability.',
+      steps:[
+        {how:'Open the network tablet (<span class="gkey">5</span>) and study friendly traffic in passive-observer mode.',concept:'EM signature',at:[0,8]},
+        {how:'Identify the most conspicuous node (highest power × centrality) — the tablet highlights it.',concept:'Network centrality',at:[0,8]},
+        {how:'Go to the relay tower on the ridge and press <span class="gkey">E</span> to cut its power/beacon rate.',concept:'Power discipline',at:[0,-72]},
+        {how:'Notebook (<span class="gkey">Tab</span>): confirm you kept the link up while shrinking the signature.',concept:'Function vs observability'},
+      ]},
+    teach:['EM signature','metadata','network centrality','power discipline','functionality vs observability'],
+    hints:['Strategic: the most conspicuous node is the one with the most power and the most traffic.',
+           'Instrument: use the network tablet to find the most central/high-power node.',
+           'Procedure: reduce the relay beacon power (repair prompt) to lower observability while keeping the link up.'],
+    onStart(){ game.flags.passiveMode=false; },
+    objectives:[
+      {id:'passive',text:'Enter passive-observer mode and examine friendly traffic',f:()=>g.flags.usedTablet},
+      {id:'ident',text:'Identify the most conspicuous friendly node',f:()=>g.flags.identConspicuous},
+      {id:'reduce',text:'Reduce unnecessary beaconing / excessive power',f:()=>g.flags.sigReduced},
+      {id:'concl',text:'Preserve required service while reducing observability',f:()=>g.hasConclusion('m5')},
+    ],
+    decisions:[
+      {id:'m5d1',title:'Spot the giveaway',concept:'Network centrality',
+        after:g=>g.flags.usedTablet,
+        prompt:'On the tablet, one node runs the highest transmit power AND carries the most relayed traffic. To a passive enemy observer, which node most advertises the command post?',
+        options:[
+          {t:'The high-power, high-traffic relay beacon',correct:true,why:'Power × centrality = observability. The busiest, loudest node is what an observer locks onto.'},
+          {t:'A quiet edge sensor',correct:false,why:'Low power and little traffic make it hard to see — not your problem node.'},
+          {t:'Whichever node is nearest to you',correct:false,why:'Your proximity is irrelevant to what an enemy observer sees.'}],
+        teach:'Observability is power × traffic, not distance to you.'},
+      {id:'m5d2',title:'What did cutting power achieve?',concept:'Power discipline',
+        after:g=>g.flags.sigReduced,
+        prompt:'You cut the relay beacon’s power and beacon rate, and the link still passes traffic. What did you accomplish?',
+        options:[
+          {t:'Same function, smaller signature',correct:true,why:'Transmitting only as loud as needed preserves the link while revealing less — power discipline.'},
+          {t:'You broke the network',correct:false,why:'The link still functions; you trimmed excess, not capability.'},
+          {t:'Nothing — signature is fixed',correct:false,why:'Signature is a choice; what you radiate is adjustable.'}]},
+    ],
+    conclusions:[
+      {id:'m5a',text:'The relay beacon is the giveaway: cut its power and beacon rate; the link still functions, signature drops.',correct:true,tag:'m5'},
+      {id:'m5b',text:'Shut down the entire friendly network to be safe.',correct:false,tag:'m5'},
+      {id:'m5c',text:'Increase all transmit power to overpower the observer.',correct:false,tag:'m5'},
+    ]},
+  { id:6, title:'Detection Is Not Control', loc:'Enemy OP & Utility Compound',
+    brief:'Four emitting systems are detected. Leadership asks which can be controlled. Detect, identify, and decide — carefully.',
+    guide:{ do:'Detect all four devices near the enemy OP, inspect each, and command ONLY the one that is authenticated and actually has a receiver.',
+      learn:'The full chain: detect → identify → locate → decode → address → authenticate → authorize → control. Emitting is not the same as receiving.',
+      steps:[
+        {how:'Sweep the enemy OP with the analyzer (<span class="gkey">2</span>) and log all four devices (<span class="gkey">R</span>).',concept:'Detect & identify',at:[56,48]},
+        {how:'Probe the transmit-only beacon and the rover (<span class="gkey">4</span>,<span class="gkey">R</span>) — note which one has receive activity.',concept:'Decode & address',at:[50,46]},
+        {how:'Stand next to the authorized rover and press <span class="gkey">E</span> to command it. Try the beacon too — it won’t answer.',concept:'Authenticate & control',at:[60,52]},
+        {how:'Notebook (<span class="gkey">Tab</span>): reject the claim that every emitter can be controlled.',concept:'Detection ≠ control'},
+      ]},
+    teach:['detect','identify','locate','decode','address','authenticate','authorize','control','acknowledge'],
+    hints:['Strategic: emitting is not the same as receiving. A transmit-only beacon accepts nothing.',
+           'Instrument: probe each device; only an authenticated friendly device should accept commands.',
+           'Procedure: command only the authorized rover (E16). Attempting the transmit-only beacon yields no response.'],
+    onStart(){},
+    objectives:[
+      {id:'detectall',text:'Detect all four devices',f:()=>['E15','E16','E10','E13'].every(id=>{const e=g.sig.byId(id);return e&&e.discovered;})},
+      {id:'inspect',text:'Inspect each device (probe the transmit-only beacon and the rover)',f:()=>{const b=g.sig.byId('E15'),r=g.sig.byId('E16');return b&&b.probed&&r&&r.probed;}},
+      {id:'command',text:'Successfully command only the authorized rover',f:()=>g.flags.roverCommanded},
+      {id:'concl',text:'Reject the claim that every emitter can be controlled',f:()=>g.hasConclusion('m6')},
+    ],
+    decisions:[
+      {id:'m6d1',title:'Which one can be controlled?',concept:'Detection ≠ control',
+        after:g=>{const b=g.sig.byId('E15'),r=g.sig.byId('E16');return b&&b.probed&&r&&r.probed;},
+        prompt:'Four devices emit. The beacon only ever transmits (no receive activity). The rover shows two-way, authenticated traffic. Which can you actually command?',
+        options:[
+          {t:'Only the authenticated rover — it has a receiver and accepts authority',correct:true,why:'Control needs the device to RECEIVE and accept your authorization. Only the rover qualifies.'},
+          {t:'All four — they all emit',correct:false,why:'Emitting is transmitting, not receiving. Emission alone never grants control.'},
+          {t:'The beacon — it’s the loudest',correct:false,why:'A transmit-only beacon has no receiver; loudness is irrelevant.'}],
+        teach:'Emitting ≠ receiving ≠ controllable.'},
+      {id:'m6d2',title:'The claim from leadership',concept:'Authenticate & control',
+        after:g=>g.flags.roverCommanded,
+        prompt:'Leadership asserts: “every emitter we detect can be controlled.” Your evidence says:',
+        options:[
+          {t:'False — detection is not control; most emitters can’t receive commands',correct:true,why:'You commanded only the authenticated rover; the beacon ignored you. Detection ≠ control.'},
+          {t:'True — you proved it by detecting them',correct:false,why:'Detection only proves energy is present, never controllability.'},
+          {t:'True for the hostile ones only',correct:false,why:'Hostility has nothing to do with whether a device has a receiver you’re authorized to use.'}]},
+    ],
+    conclusions:[
+      {id:'m6a',text:'Only the authenticated rover accepts commands; the transmit-only beacon has no receiver and cannot be controlled.',correct:true,tag:'m6'},
+      {id:'m6b',text:'All four devices emit, so all four can be commanded.',correct:false,tag:'m6'},
+      {id:'m6c',text:'None of the devices can be controlled because they are all hostile.',correct:false,tag:'m6'},
+    ]},
+  { id:7, title:'Spectrum Front', loc:'Entire Battlefield', final:true,
+    brief:'A coordinated assault and a communications crisis hit at once. Triage incidents, preserve critical services, locate a moving emitter, and avoid unnecessary force.',
+    guide:{ do:'Everything at once: restore medical, track a MOVING hostile transmitter, defend against armed threats only, and reduce your own signature. Prioritize.',
+      learn:'Triage under pressure, localizing a moving emitter, telling interference from failure, and using force proportionally — the whole course in one mission.',
+      steps:[
+        {how:'First priority: restore medical telemetry — go to the aid station and press <span class="gkey">E</span> to reapply the channel fix.',concept:'Triage: lives first',at:[-30,20]},
+        {how:'Use the directional antenna (<span class="gkey">3</span>) to track the moving hostile command transmitter; re-bear as it moves.',concept:'Moving-emitter localization',at:[60,42]},
+        {how:'Switch to the weapon (<span class="gkey">1</span>) and engage ONLY armed hostiles/drones — never equipment or civilians.',concept:'Proportional force',at:[55,46]},
+        {how:'Cut the relay beacon power on the ridge (<span class="gkey">E</span>) to reduce your signature.',concept:'Signature discipline',at:[0,-72]},
+        {how:'Notebook (<span class="gkey">Tab</span>): give the final evidence-based assessment.',concept:'Final assessment'},
+      ]},
+    teach:['triage','moving-emitter localization','interference vs failure','friendly signature','proportional force'],
+    hints:['Strategic: triage — medical uptime first, then the moving hostile transmitter.',
+           'Instrument: use every tool; the hostile command transmitter is mobile — re-bear as it moves.',
+           'Procedure: restore medical, locate the moving hostile emitter, engage only armed hostiles/drones, then submit the final assessment.'],
+    onStart(){ game.startFinal(); },
+    objectives:[
+      {id:'triage_med',text:'Restore medical telemetry uptime',f:()=>g.flags.aidVerified||!game.net.medDown},
+      {id:'moving',text:'Locate the moving hostile command transmitter',f:()=>{const e=g.sig.byId('E12');return e&&e.discovered;}},
+      {id:'defend',text:'Neutralize armed hostile threats (do not shoot equipment)',f:()=>(g.flags.hostile_down||0)>=2},
+      {id:'signature',text:'Reduce friendly signature (cut relay power)',f:()=>g.flags.sigReduced},
+      {id:'assess',text:'Provide a final evidence-based mission assessment',f:()=>g.hasConclusion('m7')},
+    ],
+    decisions:[
+      {id:'m7d1',title:'Triage the crisis',concept:'Triage: lives first',
+        after:g=>true,
+        prompt:'All at once: medical telemetry is down, a hostile transmitter is moving, drones are inbound, and you’re radiating a big signature. What do you handle FIRST?',
+        options:[
+          {t:'Restore medical telemetry — lives depend on it',correct:true,why:'Triage protects critical services first. Threats matter, but medical uptime is the priority.'},
+          {t:'Chase the moving transmitter right now',correct:false,why:'A moving emitter needs repeated bearings anyway; leaving medical down risks lives.'},
+          {t:'Max out your transmit power to punch through',correct:false,why:'That’s the opposite of signature discipline and fixes nothing.'}],
+        teach:'Protect critical services before chasing threats.'},
+      {id:'m7d2',title:'Interference, or jamming?',concept:'Interference vs failure',
+        after:g=>{const e=g.sig.byId('E12');return e&&e.discovered;},
+        prompt:'Command reports “jamming.” But your data shows the medical outage was adjacent-channel from our OWN logistics, and the hostile emitter is a narrow command link — not a wideband jammer. Your assessment:',
+        options:[
+          {t:'Not jamming — adjacent-channel interference plus a hostile command link',correct:true,why:'The evidence shows self-interference and a narrow command signal, not deliberate wideband jamming.'},
+          {t:'Confirmed enemy jamming — call for overwhelming force',correct:false,why:'No wideband jammer exists in your data; escalating on a false premise is the failure mode.'},
+          {t:'Everything emitting is hostile',correct:false,why:'Several sources are friendly or civilian; blanket hostility is unsupported.'}]},
+    ],
+    conclusions:[
+      {id:'m7a',text:'Interference was adjacent-channel, not jamming; medical restored, moving hostile located and neutralized, signature reduced.',correct:true,tag:'m7'},
+      {id:'m7b',text:'It was full-spectrum enemy jamming; only overwhelming force resolved it.',correct:false,tag:'m7'},
+      {id:'m7c',text:'All emitters were hostile and were destroyed.',correct:false,tag:'m7'},
+    ]},
+];}
+
+/* ============================ UIManager ============================ */
+class UIManager{
+  constructor(){ this.feed=document.getElementById('feed'); this.lessonT=null; }
+  note(msg,kind=''){ const d=document.createElement('div'); d.className='note '+(kind==='good'?'good':kind==='warn'?'warn':kind==='amber'?'amber':'');
+    d.textContent=msg; this.feed.appendChild(d); setTimeout(()=>{ d.style.opacity=0; setTimeout(()=>d.remove(),400); },4200);
+    while(this.feed.children.length>6) this.feed.removeChild(this.feed.firstChild); }
+  lesson(title,body){ const el=document.getElementById('lesson');
+    document.getElementById('lessonTitle').textContent=title.toUpperCase();
+    document.getElementById('lessonBody').textContent=body; el.classList.remove('hidden');
+    clearTimeout(this.lessonT); this.lessonT=setTimeout(()=>el.classList.add('hidden'),12000); }
+  prompt(html){ const p=document.getElementById('prompt'); if(html){ p.innerHTML=html; p.classList.remove('hidden'); } else p.classList.add('hidden'); }
+  showSig(dbm,label){ const s=document.getElementById('sig'); s.classList.remove('hidden');
+    document.getElementById('sigVal').textContent=dbm.toFixed(0)+' dBm';
+    document.getElementById('sigFill').style.width=U.clamp((dbm+110)/80*100,2,100)+'%';
+    document.getElementById('sigMeta').textContent=label; }
+  hideSig(){ document.getElementById('sig').classList.add('hidden'); }
+  setHP(hp){ document.getElementById('hpFill').style.width=hp+'%';
+    document.getElementById('damage').style.boxShadow='inset 0 0 200px rgba(255,0,0,'+((100-hp)/180)+')'; }
+  setAmmo(a,r){ document.getElementById('ammo').textContent=a+' / '+r; }
+  setActiveEq(name){ document.getElementById('activeEq').textContent=name; }
+  setMode(m){ document.getElementById('modeLab').textContent=m; }
+  setTimer(t){ document.getElementById('timer').textContent=t; }
+  setObjective(mission){ document.getElementById('objTitle').textContent='M'+mission.id+' · '+mission.title;
+    const ul=document.getElementById('objList'); ul.innerHTML='';
+    mission.objectives.forEach(o=>{ const li=document.createElement('li'); li.textContent=o.text; if(o._done)li.classList.add('done'); ul.appendChild(li); });
+    (mission.decisions||[]).forEach(d=>{ const li=document.createElement('li'); li.textContent='❓ '+d.title;
+      li.style.color=d._answered?'var(--green)':'var(--cyan)'; if(d._answered)li.classList.add('done'); ul.appendChild(li); }); }
+  showGuide(on){ document.getElementById('guide').classList.toggle('hidden',!on); }
+  setGuideSignal(r){ const el=document.getElementById('guideSignal');
+    if(!r){ el.classList.remove('show'); el.innerHTML=''; return; }
+    el.classList.add('show'); el.style.borderLeftColor=r.color; el.style.background=r.bg;
+    el.innerHTML=`<span class="gtag" style="background:${r.bg};color:${r.color}">${r.tag}</span>${r.text}`; }
+  setGuide({step,total,do:doTxt,how,concept,way}){
+    document.getElementById('guideStep').textContent=step!=null?`Step ${step}/${total}`:'Objective';
+    document.getElementById('guideWay').textContent=way||'';
+    document.getElementById('guideDo').textContent=doTxt||'';
+    document.getElementById('guideHow').innerHTML=how||'';
+    const def=concept?CONCEPT_DEF[concept]:'';
+    document.getElementById('guideLearn').innerHTML=concept
+      ? `<b style="color:var(--amber)">Learning — ${concept}:</b> ${def||''} <span style="opacity:.7">(press <span class="gkey">K</span> for the codex)</span>`
+      : '';
+  }
+  compass(deg){ const strip=document.getElementById('compassStrip'); const dirs=['N','NE','E','SE','S','SW','W','NW'];
+    let html=''; for(let i=-2;i<=10;i++){ const d=((i*45)%360+360)%360; html+=`<span style="display:inline-block;width:42px;text-align:center">${dirs[(Math.round(d/45))%8]}</span>`; }
+    strip.innerHTML=html; strip.style.left=(-deg/45*42 - 60)+'px'; }
+}
+
+/* ============================ SaveManager ============================ */
+const SAVE_KEY='spectrum_front_save_v1';
+class SaveManager{
+  load(){ try{ return JSON.parse(localStorage.getItem(SAVE_KEY))||{}; }catch(e){ return {}; } }
+  save(o){ try{ localStorage.setItem(SAVE_KEY,JSON.stringify(o)); }catch(e){} }
+  reset(){ try{ localStorage.removeItem(SAVE_KEY); }catch(e){} }
+}
+
+/* ============================ Modal helper ============================ */
+function modal(html,{onClose,wide}={}){
+  const mount=document.getElementById('modalMount');
+  const ov=document.createElement('div'); ov.className='overlay';
+  ov.innerHTML=`<div class="card" style="${wide?'width:min(1000px,96vw)':''}">${html}</div>`;
+  mount.appendChild(ov);
+  const close=()=>{ ov.remove(); onClose&&onClose(); };
+  ov._close=close; return {ov,close};
+}
+
+/* ============================ Game ============================ */
+class Game{
+  constructor(){
+    this.scene=new THREE.Scene();
+    this.scene.background=new THREE.Color(0x1a2530);
+    this.camera=new THREE.PerspectiveCamera(72,innerWidth/innerHeight,0.1,400);
+    this.clock=new THREE.Clock();
+    this.flags={}; this.lessonsSeen=new Set(); this.paused=true; this.started=false;
+    this.mode='weapon'; this.lastInstrument='analyzer'; this.missionIdx=0; this.missionTime=0;
+    this.save=new SaveManager(); this.state=this.save.load();
+    this.guided = this.state.guided!==false; // Guided Training is the default
+    this.rank={score:100, forceMisuse:0, civHandling:1};
+  }
+  async init(){
+    const container=document.getElementById('app');
+    this.rm=new RendererManager(container);
+    this.quality=this.state.quality||'medium';
+    this.rm.applyQuality(this.quality);
+    // lighting
+    this._lighting();
+    this.scene.fog=new THREE.FogExp2(0x1a2530, this.quality==='low'?0.008:0.0052);
+    // factories + world
+    this.tf=new TextureFactory(); this.matf=new MaterialFactory(this.tf);
+    loadMsg('Building battlefield…');
+    this.world=new WorldBuilder(this.scene,this.matf,this.tf,this.quality).build();
+    // audio
+    this.audio=new AudioManager(); this.audio.setVol(this.state.vol!=null?this.state.vol:0.7);
+    // controls
+    this.controls=new PointerLockControls(this.camera,document.body);
+    if('pointerSpeed' in this.controls) this.controls.pointerSpeed=0.85; // comfortable look speed
+    this.camera.rotation.order='YXZ';
+    this.scene.add(this.controls.getObject());
+    this.player=new PlayerController(this.camera,this.controls,this.world,this.audio);
+    // signals
+    this.sig=new SignalEngine(this.scene,this.world,this.matf);
+    this.prop=new PropagationEngine(this.sig,this.world);
+    this.net=new NetworkEngine();
+    this.nb=new NotebookManager();
+    this.ui=new UIManager();
+    // particles + npc + weapon + instruments
+    this.pm=new ParticleManager(this.scene,this.quality);
+    this.npc=new NPCManager(this.scene,this.world,this.audio,this.pm,this.player);
+    this.weapon=new WeaponSystem(this.scene,this.camera,this.world,this.audio,this.pm,this.sig,this.npc);
+    this.inst=new InstrumentManager(this.scene,this.camera,this.prop,this.sig,this.net,this.nb,this.audio,this.ui,this.player);
+    // NPCs
+    this.npc.spawnFriendly(-4,4,'Comms Chief',['That LED rig has been frying our screens.','Anything that emits is a source — go find it.']);
+    this.npc.spawnFriendly(6,10,'Medic',['Keep the telemetry link clean, please.']);
+    // guided-mode waypoint beacon (amber pillar the player can navigate toward)
+    const wp=new THREE.Group();
+    const beam=new THREE.Mesh(new THREE.CylinderGeometry(0.28,0.28,12,10),
+      new THREE.MeshBasicMaterial({color:0xffb454,transparent:true,opacity:0.22,depthWrite:false}));
+    beam.position.y=6; wp.add(beam);
+    this.wpRing=new THREE.Mesh(new THREE.TorusGeometry(1.2,0.08,8,24),new THREE.MeshBasicMaterial({color:0xffb454}));
+    this.wpRing.rotation.x=-Math.PI/2; this.wpRing.position.y=0.25; wp.add(this.wpRing);
+    const wpLight=new THREE.PointLight(0xffb454,0.8,8); wpLight.position.y=2; wp.add(wpLight);
+    wp.visible=false; this.scene.add(wp); this.waypoint=wp;
+    // post
+    this.rm.setupPost(this.scene,this.camera);
+    // missions
+    this.missions=MISSIONS(this);
+    if(this.state.missionIdx!=null) this.missionIdx=U.clamp(this.state.missionIdx,0,this.missions.length-1);
+    // input
+    this.input=new InputManager(this);
+    // pointer lock events
+    this.controls.addEventListener('lock',()=>{ this.paused=false; document.getElementById('hud').classList.remove('hidden'); });
+    this.controls.addEventListener('unlock',()=>{ if(this.started&&!this._modalOpen()) this.pauseMenu(); });
+    window.addEventListener('resize',()=>this.rm.resize(this.camera));
+    this._loop=this._loop.bind(this);
+    this.startMission(this.missionIdx,true);
+    requestAnimationFrame(this._loop);
+    document.getElementById('loading').classList.add('hidden');
+  }
+  _lighting(){
+    const hemi=new THREE.HemisphereLight(0x9db6cc,0x3a352c,0.85); this.scene.add(hemi); this.hemi=hemi;
+    const amb=new THREE.AmbientLight(0x556070,0.5); this.scene.add(amb); this.amb=amb;
+    const sun=new THREE.DirectionalLight(0xffdcb0,2.0); sun.position.set(-40,60,-30); sun.castShadow=true;
+    sun.shadow.mapSize.set(this.quality==='high'?2048:this.quality==='medium'?1024:512,this.quality==='high'?2048:1024);
+    sun.shadow.camera.near=1; sun.shadow.camera.far=220; const d=110;
+    sun.shadow.camera.left=-d; sun.shadow.camera.right=d; sun.shadow.camera.top=d; sun.shadow.camera.bottom=-d;
+    sun.shadow.bias=-0.0004; this.scene.add(sun); this.sun=sun;
+  }
+  _modalOpen(){ return document.getElementById('modalMount').children.length>0; }
+  currentMission(){ return this.missions[this.missionIdx]; }
+  currentTitle(){ return 'M'+this.currentMission().id+' '+this.currentMission().title; }
+  hasConclusion(tag){ return this.nb.conclusions.some(c=>c.tag===tag&&c.correct); }
+  bearingSpread(){ const b=this.flags.bearings||[]; if(b.length<2)return 0;
+    let min=999,max=-999; for(const x of b){ min=Math.min(min,x.deg); max=Math.max(max,x.deg); } return max-min; }
+
+  /* ---------- mission flow ---------- */
+  startMission(i,silent){ this.missionIdx=i; const m=this.currentMission();
+    m.objectives.forEach(o=>o._done=false); this.missionTime=0; this.flags.bearings=this.flags.bearings||[];
+    if(m.decisions) m.decisions.forEach(d=>{ d._presented=false; d._answered=false; delete this.flags['dec_'+d.id]; });
+    this._decisionOpen=false;
+    if(m.onStart) try{ m.onStart(); }catch(e){ console.warn(e); }
+    this.teleportToMission(i); this.applyMood(i);
+    this.ui.setObjective(m);
+    this.persist();
+    if(!silent){ this.audio.radio(); this.ui.note('New mission: '+m.title,'amber'); }
+    this._hintLvl=0;
+    if(this.guided && m.guide){ this.ui.note('▶ '+m.guide.do,'amber');
+      this.ui.lesson('Mission '+m.id+' · You will learn', m.guide.learn); }
+    this.updateGuide();
+  }
+  // Developer / level select: start any mission cleanly, with the tools you'd
+  // have unlocked by then and that mission's progress flags reset.
+  jumpToMission(i){
+    i=U.clamp(i,0,this.missions.length-1);
+    this.flags={ gotCase: i>0 ? true : !!this.flags.gotCase, bearings:[] };
+    this.lessonsSeen=new Set();
+    if(i>0) this.inst.unlockAll(); else { this.inst.unlock('analyzer'); this.inst.unlock('probe'); }
+    this.net.medDown=false; this.net.relayFail=false;
+    if(this.npc) this.npc.clearHostiles();
+    this.missions.forEach(m=>{ m._complete=false; m.objectives.forEach(o=>o._done=false); });
+    this.setMode('weapon');
+    this.startMission(i,false);
+    this.ui.note('Jumped to Mission '+this.missions[i].id+' · '+this.missions[i].title,'amber');
+  }
+  openLevelSelect(fromPause){ this.releasePointer();
+    const {ov,close}=modal(`<div class="sub">Developer · Level Select</div><h1 style="font-size:26px">Jump to Mission</h1>
+      <p style="color:var(--dim);font-size:13px">Starts the chosen mission with the instruments you'd have unlocked by then. That mission's progress is reset so you can test it from a clean state.</p>
+      <div class="row">${this.missions.map((m,i)=>`<button class="btn ${i===this.missionIdx?'':'sec'}" data-mi="${i}">M${m.id} · ${m.title}</button>`).join('')}</div>
+      <div class="row"><button class="btn sec" id="lsBack">Back</button></div>`,{wide:true});
+    ov.querySelectorAll('[data-mi]').forEach(b=>b.onclick=()=>{ const i=+b.dataset.mi; close(); this.jumpToMission(i); this.resumePointer(); });
+    ov.querySelector('#lsBack').onclick=()=>{ close(); fromPause?this.pauseMenu():this.resumePointer(); };
+  }
+  updateGuide(){
+    if(!this.guided){ this.ui.showGuide(false); if(this.waypoint) this.waypoint.visible=false; return; }
+    const m=this.currentMission(), g=m.guide; this.ui.showGuide(true);
+    const pend=this.pendingDecision();
+    if(pend){ this.ui.setGuide({do:'❓ Field question ready: '+pend.title,
+        how:'Press <span class="gkey">G</span> to answer — decide from what your instruments told you.', concept:pend.concept, way:''});
+      if(this.waypoint) this.waypoint.visible=false; this.ui.setGuideSignal(null); return; }
+    const idx=m.objectives.findIndex(o=>!o._done);
+    if(idx<0){ this.ui.setGuide({do:'All objectives complete — read the after-action report.',how:'',concept:''});
+      if(this.waypoint) this.waypoint.visible=false; return; }
+    const obj=m.objectives[idx]; const st=(g&&g.steps&&g.steps[idx])||{how:'',concept:''};
+    let way='';
+    if(st.at){ const tx=st.at[0], tz=st.at[1], p=this.player.pos;
+      const dist=Math.hypot(tx-p.x,tz-p.z); const bearing=(Math.atan2(tx-p.x,-(tz-p.z))*180/Math.PI+360)%360;
+      const dirs=['N','NE','E','SE','S','SW','W','NW']; way='◈ '+dist.toFixed(0)+' m · '+dirs[Math.round(bearing/45)%8];
+      if(this.waypoint){ this.waypoint.visible=dist>3; this.waypoint.position.set(tx,0,tz); }
+    } else if(this.waypoint) this.waypoint.visible=false;
+    this.ui.setGuide({step:idx+1,total:m.objectives.length,do:obj.text,how:st.how,concept:st.concept,way});
+    // live "what this signal means" read-out from the active instrument
+    this.ui.setGuideSignal((this.mode==='instrument'&&this.inst.lastRead)?this.inst.lastRead:null);
+  }
+  teleportToMission(i){ const id=(this.missions[i]&&this.missions[i].id)||(i+1); const s=MISSION_SPAWN[id]||[0,20];
+    this.player.pos.set(s[0],1.7,s[1]); this.player.vel.set(0,0,0);
+    this.camera.rotation.set(0,0,0); // face north toward the zone
+    this.controls.getObject().position.copy(this.player.pos); }
+  applyMood(i){ const id=(this.missions[i]&&this.missions[i].id)||(i+1); const m=MISSION_MOOD[id]||MISSION_MOOD[1];
+    if(this.scene.fog){ this.scene.fog.color.setHex(m.fog); this.scene.fog.density=m.den; }
+    this.scene.background.setHex(m.fog);
+    if(this.sun){ this.sun.color.setHex(m.sun[0]); this.sun.intensity=m.sun[1]; }
+    if(this.amb){ this.amb.color.setHex(m.amb); this.amb.intensity=m.ambI; }
+    (this.moodLights||[]).forEach(l=>this.scene.remove(l)); this.moodLights=[];
+    (m.lights||[]).forEach(([x,z,c,ii])=>{ const pl=new THREE.PointLight(c,ii,22); pl.position.set(x,3.5,z);
+      this.scene.add(pl); this.moodLights.push(pl); });
+    this.moodSmoke=m.smoke||[];
+    this.ui.note('◈ Location: '+m.name,'amber');
+  }
+  // ---- Decision engine: evidence-grounded questions with consequences ----
+  pendingDecision(){ const m=this.currentMission(); if(!m.decisions) return null;
+    return m.decisions.find(d=>!this.flags['dec_'+d.id] && (!d.after||d.after(this))) || null; }
+  answerDecision(){ const d=this.pendingDecision();
+    if(d) this.openDecision(this.currentMission(),d);
+    else this.ui.note('No field question is ready yet — gather the evidence it asks about first.'); }
+  openDecision(m,dec){ if(this._decisionOpen||this._modalOpen()) return;
+    this._decisionOpen=true; dec._presented=true; this.releasePointer();
+    const opts=dec.options.map((o,i)=>`<button data-i="${i}">${o.t}</button>`).join('');
+    const {ov,close}=modal(`<div class="sub">Field Decision · M${m.id}</div>
+      <h1 style="font-size:23px">${dec.title}</h1>
+      <p style="font-size:15.5px;line-height:1.55">${dec.prompt}</p>
+      ${dec.evidence?`<div class="callout">${dec.evidence}</div>`:''}
+      <h2>Your call</h2><div class="concl" id="decOpts">${opts}</div>
+      <div id="decFx" style="margin-top:14px"></div>`);
+    const fx=ov.querySelector('#decFx');
+    const finish=()=>{ close(); this._decisionOpen=false; this.resumePointer(); this.checkObjectives(); };
+    ov.querySelectorAll('#decOpts [data-i]').forEach(b=>b.onclick=()=>{
+      const o=dec.options[+b.dataset.i];
+      ov.querySelectorAll('#decOpts button').forEach(x=>x.disabled=true);
+      if(o.correct){ this.flags['dec_'+dec.id]=true; dec._answered=true; this.audio.good();
+        this.teach('dec_'+dec.id, dec.concept, (CONCEPT_DEF[dec.concept]||''));
+        fx.innerHTML=`<div class="callout" style="border-left-color:var(--green)"><b style="color:var(--green)">Correct.</b> ${o.why}</div>
+          <div class="row"><button class="btn" id="decNext">Continue</button></div>`;
+        ov.querySelector('#decNext').onclick=finish;
+      } else { this.penalize('Misread the field question.',6); this.audio.bad();
+        fx.innerHTML=`<div class="callout" style="border-left-color:var(--red)"><b style="color:var(--red)">Not the best call.</b> ${o.why} ${dec.teach||''}</div>
+          <div class="row"><button class="btn sec" id="decRetry">Reconsider</button>
+          <button class="btn sec" id="decLater">Gather more evidence</button></div>`;
+        ov.querySelector('#decRetry').onclick=()=>{ ov.querySelectorAll('#decOpts button').forEach(x=>x.disabled=false); fx.innerHTML=''; };
+        ov.querySelector('#decLater').onclick=finish;
+      }
+    });
+  }
+  checkObjectives(){ const m=this.currentMission(); let changed=false, all=true;
+    for(const o of m.objectives){ const d=!!o.f(); if(d&&!o._done){ o._done=true; changed=true; this.audio.good();
+        this.ui.note('Objective complete: '+o.text,'good'); } if(!o._done) all=false; }
+    if(changed) this.ui.setObjective(m);
+    // surface an evidence-grounded question the moment its evidence exists
+    const pend=this.pendingDecision();
+    if(pend && !pend._presented && !this._decisionOpen && !this._modalOpen()){ this.openDecision(m,pend); return; }
+    const decsDone=!(m.decisions||[]).some(d=>!this.flags['dec_'+d.id]);
+    if(all && decsDone && !m._complete){ m._complete=true; this.afterAction(m); }
+  }
+  afterAction(m){ this.releasePointer();
+    const correct=this.nb.conclusions.filter(c=>c.tag&&c.correct).length;
+    const html=`<div class="sub">After-Action · Mission ${m.id}</div><h1 style="font-size:30px">${m.title}</h1>
+      <p>${this._aar(m)}</p>
+      <h2>What actually happened</h2><p>${m.conclusions.find(c=>c.correct).text}</p>
+      <h2>Skills exercised</h2><p>${m.teach.join(' · ')}</p>
+      <div class="row"><button class="btn" id="aarNext">${m.final?'View Final Assessment':'Continue to Next Mission'}</button>
+      <button class="btn sec" id="aarReplay">Replay Mission</button></div>`;
+    const {ov,close}=modal(html);
+    ov.querySelector('#aarNext').onclick=()=>{ close();
+      if(m.final){ this.finalAssessment(); }
+      else { this.startMission(Math.min(this.missionIdx+1,this.missions.length-1),false); this.resumePointer(); } };
+    ov.querySelector('#aarReplay').onclick=()=>{ close(); m._complete=false; this.startMission(this.missionIdx,false); this.resumePointer(); };
+    this.audio.complete();
+  }
+  _aar(m){ switch(m.id){
+    case 1:return 'You separated a broadband, unintended emission from clean intentional carriers. The flickering LED controller was leaking harmonic hash across staff equipment — a classic case where the loudest peak is not the whole story.';
+    case 2:return 'Repeated short bursts with no stable link is the signature of a device trying to reconnect, not one that is healthy or dying. State inference beats a snapshot.';
+    case 3:return 'Three separated bearings intersect at the source; one reflected bearing would have sent the squad to the wrong building. Unknown did not mean hostile — it was a civilian monitor.';
+    case 4:return 'The medical link failed only when the logistics link was hot nearby: adjacent-channel overload, not hardware failure and not jamming. A channel change restored service.';
+    case 5:return 'Your highest-power, highest-traffic node was advertising the command post. Cutting the relay beacon power preserved the link while shrinking the signature.';
+    case 6:return 'Emitting is not receiving. Only the authenticated friendly rover accepted commands; the transmit-only beacon has no receiver at all.';
+    case 7:return 'You triaged the crisis: restored medical telemetry, tracked a moving hostile emitter, engaged only armed threats, and reduced your own signature.';
+    default:return 'Mission complete.'; } }
+  finalAssessment(){ this.releasePointer();
+    const s=this.rank; const acc=this.nb.conclusions.filter(c=>c.correct).length;
+    let grade= s.forceMisuse>2?'C — Excessive Force': acc>=6?'S — Spectrum Dominance': acc>=4?'A — Mission Effective':'B — Objectives Met';
+    modal(`<div class="sub">Campaign Complete</div><h1>SPECTRUM FRONT</h1>
+      <h2>Final Assessment</h2>
+      <div class="grid2">
+        <div class="ctl"><b>Correct conclusions</b><span class="mono">${acc}</span></div>
+        <div class="ctl"><b>Measurements logged</b><span class="mono">${this.nb.entries.length}</span></div>
+        <div class="ctl"><b>Medical uptime preserved</b><span class="mono">${this.net.medDown?'no':'yes'}</span></div>
+        <div class="ctl"><b>Friendly signature reduced</b><span class="mono">${this.flags.sigReduced?'yes':'no'}</span></div>
+        <div class="ctl"><b>Civilian devices handled</b><span class="mono">${this.flags.civDestroyed?'mishandled':'correctly'}</span></div>
+        <div class="ctl"><b>Unnecessary force</b><span class="mono">${s.forceMisuse}</span></div>
+      </div>
+      <h2 style="margin-top:18px">Rating: ${grade}</h2>
+      <p>Detection, identification, localization, decoding, authentication, and authorized control are distinct steps. You practiced all of them.</p>
+      <div class="row"><button class="btn" id="faClose">Return to Field</button></div>`).ov.querySelector('#faClose').onclick=()=>{
+        document.getElementById('modalMount').innerHTML=''; this.resumePointer(); };
+  }
+
+  /* ---------- event hooks from systems ---------- */
+  teach(id,title,body){ if(this.lessonsSeen.has(id))return; this.lessonsSeen.add(id); this.ui.lesson(title,body); }
+  onMeasure(e,m){ if(e.id==='E12'||e.id==='E11') e.discovered=true;
+    this.teach('first-measure','Reading the analyzer','A peak’s HEIGHT is its power; its WIDTH is its bandwidth. Compare both against the noise floor before you trust it.');
+    if(e.intent==='unintended') this.teach('unintended','Unintended emission','No clean carrier, just broadband hash or a harmonic comb — that is electronics leaking energy, not a device transmitting on purpose.');
+    if(e.pattern==='burst'||e.pattern==='periodic') this.teach('duty','Duty cycle & timing','This source is not always on. Its ON/OFF timing (bursty or periodic) is a fingerprint of what it is doing.');
+    if(e.cls===CLASS.HOSTILE) this.teach('hostile','Hostile emitter','A hostile transmission is a valid target to locate — but detecting it is not the same as being able to control or safely engage it.');
+    this.checkObjectives(); }
+  onBandScan(band){ this.checkObjectives(); }
+  onBearing(pos,deg){ this.flags.bearings.push({pos,deg});
+    this.teach('triangulate','Triangulation','One bearing only gives a LINE toward the source. Move to a new spot and take another — three crossing lines pin it down.');
+    if((this.flags.bearings||[]).length>=2 && this.bearingSpread()<8)
+      this.ui.note('Those bearings are nearly parallel — move farther apart for a real fix.','warn');
+    this.checkObjectives(); }
+  onProbe(e){ this.teach('probe','Near-field probe','Up close, the probe separates an intended modulated carrier from unintended noise. It is how you tell a transmitter from broken electronics.');
+    if(e.kind==='transmit-only') this.teach('txonly2','Transmit-only','This device only sends. With no receiver it can be detected and located, but never commanded.');
+    this.checkObjectives(); }
+  onTablet(){ this.flags.usedTablet=true;
+    if(this.currentMission().id===5){ const n=this.net.mostConspicuous(); this.flags.identConspicuous=true;
+      this.ui.note('Most conspicuous node: '+n.name+' (power+centrality)','amber'); }
+    this.checkObjectives(); }
+  onPlayerHit(){ this.ui.setHP(this.player.hp); if(this.player.hp<=0) this.playerDown(); }
+  onWorldShot(hit){ // check if we hit an emitter device / friendly / civilian
+    for(const e of this.sig.emitters){ if(e.mesh && hit.object===e.mesh){
+      if(e.cls===CLASS.CIVILIAN||e.cls===CLASS.FRIENDLY||e.trueCls===CLASS.CIVILIAN){ this.penalize('Destroyed a civilian/friendly device.',20); this.flags.civDestroyed=true; }
+      else this.ui.note('Hostile emitter hardware damaged.','amber'); return; } } }
+  penalize(msg,amt){ this.rank.forceMisuse++; this.rank.score-=amt; this.ui.note('⚠ '+msg+' (-'+amt+')','warn'); this.audio.bad(); }
+  playerDown(){ this.releasePointer(); this.player.hp=100; this.ui.setHP(100);
+    modal(`<div class="sub">Casualty</div><h1 style="font-size:30px">You were hit hard</h1>
+      <p>You have been stabilized at the aid station. Resume the mission.</p>
+      <div class="row"><button class="btn" id="rz">Resume</button></div>`).ov.querySelector('#rz').onclick=(ev)=>{
+        ev.target.closest('.overlay').remove(); this.player.pos.set(0,1.7,20); this.resumePointer(); }; }
+
+  /* ---------- repair / command interactions ---------- */
+  fieldRepair(){ const m=this.currentMission();
+    if(m.id===4){ if(!this.flags.aidFixed){ this.flags.aidFixed=true; this.net.medDown=false;
+        this.ui.note('Retuned medical telemetry to a clear channel.','good'); this.audio.good();
+        setTimeout(()=>{ this.flags.aidVerified=true; this.flags.comparedAid=true; this.ui.note('Medical link verified: service restored.','good'); this.checkObjectives(); },1200);
+      } this.checkObjectives(); return true; }
+    if(m.id===5||m.id===7){ if(!this.flags.sigReduced){ this.flags.sigReduced=true; this.net.nodes.find(n=>n.id==='RLY-3').power=8;
+        this.sig.byId('E4').power=8; this.ui.note('Relay beacon power reduced — signature down, link preserved.','good'); this.audio.good(); }
+      this.checkObjectives(); return true; }
+    if(m.id===6){ const near=this.inst._nearProbe();
+      if(near && near.e.id==='E16'){ this.flags.roverCommanded=true; this.ui.note('Authorized rover acknowledged command. ✔','good'); this.audio.good(); }
+      else if(near && near.e.id==='E15'){ this.ui.note('Transmit-only beacon: no response. It has no receiver.','warn'); this.audio.bad(); }
+      else this.ui.note('No commandable authorized device in range.','warn');
+      this.checkObjectives(); return true; }
+    return false;
+  }
+  startFinal(){ // spawn hostiles + dynamic events
+    this.sig.byId('E11').active=true; this.net.relayFail=false;
+    this.npc.spawnHostile(50,44); this.npc.spawnHostile(60,50); this.npc.spawnHostile(54,40);
+    this.npc.spawnHostile(56,52,true); this.net.medDown=true; this.flags.aidVerified=false;
+    this.ui.note('CRISIS: assault + comms failure. Triage now.','warn'); this.audio.alarm();
+  }
+
+  /* ---------- pointer / pause ---------- */
+  releasePointer(){ if(this.controls.isLocked) this.controls.unlock(); }
+  resumePointer(){ document.getElementById('modalMount').innerHTML=''; try{ this.controls.lock(); }catch(e){} }
+  pauseMenu(){ if(this._modalOpen())return; this.paused=true;
+    const {ov,close}=modal(`<div class="sub">Paused</div><h1 style="font-size:34px">Field Pause</h1>
+      <div class="row">
+      <button class="btn" id="pResume">Resume</button>
+      <button class="btn sec" id="pMap">Tactical Map (M)</button>
+      <button class="btn sec" id="pNb">Notebook (Tab)</button>
+      <button class="btn sec" id="pCodex">Concept Codex (K)</button>
+      <button class="btn sec" id="pLevel">Level Select</button>
+      <button class="btn sec" id="pGuide">Guidance: ${this.guided?'ON':'OFF'}</button>
+      <button class="btn sec" id="pGfx">Graphics</button>
+      <button class="btn sec" id="pAud">Audio</button>
+      <button class="btn sec" id="pRestart">Restart Mission</button>
+      <button class="btn sec" id="pReset">Reset Campaign</button></div>`);
+    ov.querySelector('#pResume').onclick=()=>{ close(); this.resumePointer(); };
+    ov.querySelector('#pMap').onclick=()=>{ close(); this.openMap(); };
+    ov.querySelector('#pNb').onclick=()=>{ close(); this.openNotebook(); };
+    ov.querySelector('#pCodex').onclick=()=>{ close(); this.openCodex(); };
+    ov.querySelector('#pLevel').onclick=()=>{ close(); this.openLevelSelect(true); };
+    ov.querySelector('#pGuide').onclick=()=>{ this.guided=!this.guided; this.state.guided=this.guided; this.save.save(this.state);
+      this.ui.showGuide(this.guided); this.updateGuide(); close(); this.pauseMenu(); };
+    ov.querySelector('#pGfx').onclick=()=>{ close(); this.gfxMenu(); };
+    ov.querySelector('#pAud').onclick=()=>{ close(); this.audMenu(); };
+    ov.querySelector('#pRestart').onclick=()=>{ close(); this.currentMission()._complete=false; this.startMission(this.missionIdx,false); this.resumePointer(); };
+    ov.querySelector('#pReset').onclick=()=>{ close(); this.save.reset(); location.reload(); };
+  }
+  gfxMenu(){ const opts=['low','medium','high'];
+    const {ov,close}=modal(`<div class="sub">Graphics</div><h1 style="font-size:28px">Quality</h1>
+      <p>Current: <b class="mono" style="color:var(--cyan)">${this.quality}</b>. Change requires a quick reload for full effect on some settings.</p>
+      <div class="row">${opts.map(o=>`<button class="btn ${o===this.quality?'':'sec'}" data-q="${o}">${o}</button>`).join('')}</div>
+      <div class="row"><button class="btn sec" id="gBack">Back</button></div>`);
+    ov.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>{ this.quality=b.dataset.q; this.rm.applyQuality(this.quality);
+      this.persist(); this.ui.note('Quality: '+this.quality); close(); this.pauseMenu(); });
+    ov.querySelector('#gBack').onclick=()=>{ close(); this.pauseMenu(); };
+  }
+  audMenu(){ const v=Math.round((this.state.vol!=null?this.state.vol:0.7)*100);
+    const {ov,close}=modal(`<div class="sub">Audio</div><h1 style="font-size:28px">Volume</h1>
+      <p>Master volume: <b class="mono" id="vlab">${v}%</b></p>
+      <input type="range" id="vol" min="0" max="100" value="${v}" style="width:100%">
+      <div class="row"><button class="btn sec" id="aBack">Back</button></div>`);
+    const vol=ov.querySelector('#vol'); vol.oninput=()=>{ const val=vol.value/100; this.audio.setVol(val); this.state.vol=val;
+      ov.querySelector('#vlab').textContent=vol.value+'%'; this.persist(); };
+    ov.querySelector('#aBack').onclick=()=>{ close(); this.pauseMenu(); };
+  }
+
+  /* ---------- notebook + conclusions ---------- */
+  openNotebook(){ this.releasePointer(); const m=this.currentMission();
+    const rows=this.nb.entries.slice(-14).map(e=>`<tr><td class="mono">${e.time}</td><td>${e.instrument}</td><td class="mono">${e.freq}</td>
+      <td class="mono">${e.power}</td><td class="mono">${e.bw}</td><td class="mono">${e.bearing}</td><td>${e.observation}</td><td>${e.confidence}</td></tr>`).join('');
+    const concl=(m.conclusions||[]).map(c=>`<button data-c="${c.id}">${c.text}</button>`).join('');
+    const {ov,close}=modal(`<div class="sub">Field Notebook · ${m.title}</div><h1 style="font-size:26px">Evidence Log</h1>
+      <div style="max-height:34vh;overflow:auto"><table class="nbTable"><tr><th>Time</th><th>Instrument</th><th>Freq</th><th>Power</th><th>BW</th><th>Bearing</th><th>Observation</th><th>Conf.</th></tr>${rows||'<tr><td colspan=8 style="color:var(--dim)">No measurements yet. Use an instrument and press R to save.</td></tr>'}</table></div>
+      <h2>Submit a conclusion</h2><p style="color:var(--dim);font-size:12px">Only conclusions supported by your collected evidence count as well justified.</p>
+      <div class="concl">${concl}</div>
+      <div class="row"><button class="btn sec" id="nbClose">Close</button></div>`,{wide:true});
+    ov.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{ const c=m.conclusions.find(x=>x.id===b.dataset.c);
+      this._submitConclusion(m,c); close(); this.resumePointer(); });
+    ov.querySelector('#nbClose').onclick=()=>{ close(); this.resumePointer(); };
+  }
+  _submitConclusion(m,c){
+    // require some supporting evidence
+    if(this.nb.entries.length<2){ this.ui.note('Not enough evidence yet — take more measurements first.','warn'); this.audio.bad();
+      this.ui.lesson('Why you can’t conclude yet','A conclusion has to rest on logged measurements. Use an instrument and press R to record evidence, then decide.'); return; }
+    const right=m.conclusions.find(x=>x.correct);
+    if(c.correct){ if(!this.nb.conclusions.some(x=>x.tag===c.tag&&x.correct)) this.nb.addConclusion(c);
+      this.ui.note('Well-justified conclusion accepted.','good'); this.audio.good();
+      this.ui.lesson('Why this holds', (m.guide?m.guide.learn:'')+' Your notebook’s measurements back this reading.');
+    } else { this.penalize('Unsupported conclusion.',8);
+      this.ui.note('The evidence does not support that — reconsider.','warn');
+      this.ui.lesson('Not supported by the evidence', 'Better reading: “'+right.text+'” '+(m.guide?m.guide.learn:'')); }
+    this.checkObjectives();
+  }
+  openCodex(){ this.releasePointer();
+    const body=CODEX.map(sec=>`<h2>${sec.group}</h2>`+
+      sec.items.map(([t,d])=>`<div class="ctl" style="display:block;padding:7px 0"><b style="color:#eaf1f3">${t}</b><div style="color:#c3d0d5;font-size:13px;margin-top:2px;line-height:1.45">${d}</div></div>`).join('')
+    ).join('');
+    const {ov,close}=modal(`<div class="sub">Field Reference</div><h1 style="font-size:28px">Spectrum Codex</h1>
+      <p style="color:var(--dim);font-size:13px">The concepts this training is built on. Everything here is something you actually use to complete missions — the learning is the mechanic.</p>
+      ${body}
+      <div class="row"><button class="btn" id="cxClose">Close</button></div>`,{wide:true});
+    ov.querySelector('#cxClose').onclick=()=>{ close(); this.resumePointer(); };
+  }
+  openMap(){ this.releasePointer();
+    const {ov,close}=modal(`<div class="sub">Tactical Map</div><h1 style="font-size:26px">${this.currentMission().loc}</h1>
+      <canvas id="mapC" width="900" height="620"></canvas>
+      <p style="color:var(--dim);font-size:12px">Player ▲ · friendly ● · your bearings ─ · measured sources ◆ · unknown emitters are NOT auto-revealed.</p>
+      <div class="row"><button class="btn sec" id="mClose">Close</button></div>`,{wide:true});
+    this._drawMap(ov.querySelector('#mapC'));
+    ov.querySelector('#mClose').onclick=()=>{ close(); this.resumePointer(); };
+  }
+  _drawMap(c){ const x=c.getContext('2d'),W=c.width,H=c.height; const S=(W)/184; const tx=v=>W/2+v*S, tz=v=>H/2+v*S;
+    x.fillStyle='#070d0f'; x.fillRect(0,0,W,H);
+    x.strokeStyle='rgba(90,140,150,.15)'; for(let i=-80;i<=80;i+=20){ x.beginPath();x.moveTo(tx(i),0);x.lineTo(tx(i),H);x.stroke();
+      x.beginPath();x.moveTo(0,tz(i));x.lineTo(W,tz(i));x.stroke(); }
+    // zones
+    x.font='12px monospace';
+    for(const z of this.world.zones){ x.strokeStyle='rgba(255,180,84,.35)'; x.beginPath(); x.arc(tx(z.x),tz(z.z),z.r*S,0,7); x.stroke();
+      x.fillStyle='rgba(255,180,84,.8)'; x.fillText(z.name,tx(z.x)-z.name.length*3.4,tz(z.z)); }
+    // friendly nodes
+    x.fillStyle='#57e389'; for(const n of [[-4,4],[6,10],[0,10]]){ x.beginPath(); x.arc(tx(n[0]),tz(n[1]),5,0,7); x.fill(); }
+    // measured sources (only discovered)
+    for(const e of this.sig.emitters){ if(e.discovered){ x.fillStyle= e.cls===CLASS.HOSTILE?'#ff5c5c':e.cls===CLASS.CIVILIAN?'#4fd6ff':'#ffb454';
+      x.beginPath(); x.moveTo(tx(e.pos.x),tz(e.pos.z)-6); x.lineTo(tx(e.pos.x)+6,tz(e.pos.z)+5); x.lineTo(tx(e.pos.x)-6,tz(e.pos.z)+5); x.closePath(); x.fill(); } }
+    // bearings
+    x.strokeStyle='rgba(255,180,84,.6)'; for(const b of (this.flags.bearings||[])){ const a=b.deg*Math.PI/180;
+      x.beginPath(); x.moveTo(tx(b.pos.x),tz(b.pos.z)); x.lineTo(tx(b.pos.x)+Math.sin(a)*300,tz(b.pos.z)-Math.cos(a)*300); x.stroke(); }
+    // player
+    const p=this.player.pos; x.save(); x.translate(tx(p.x),tz(p.z)); x.rotate(this.player.headingDeg()*Math.PI/180);
+    x.fillStyle='#fff'; x.beginPath(); x.moveTo(0,-9); x.lineTo(6,7); x.lineTo(-6,7); x.closePath(); x.fill(); x.restore();
+  }
+
+  /* ---------- equipment wheel ---------- */
+  toggleWheel(show){ const w=document.getElementById('wheel'); if(!show){ w.style.display='none'; return; }
+    const ring=document.getElementById('wheelRing');
+    const slots=[{key:'weapon',name:'Defensive Weapon',icon:'🔫',unl:true},
+      ...INSTRUMENTS.map(i=>({key:i.key,name:i.name,icon:i.icon,unl:this.inst.isUnlocked(i.key)}))];
+    ring.innerHTML=slots.map((s,i)=>`<div class="slot ${!s.unl?'lock':''} ${(this.mode==='weapon'&&s.key==='weapon')||(this.mode==='instrument'&&this.inst.active===s.key)?'on':''}" data-k="${s.key}">
+      <div class="ic">${s.icon}</div><div class="n">${s.name}</div><div class="k">${s.unl?('['+(i+1)+']'):'LOCKED'}</div></div>`).join('');
+    ring.querySelectorAll('[data-k]').forEach(el=>el.onclick=()=>{ this.selectEquip(el.dataset.k); this.toggleWheel(false); });
+    w.style.display='flex';
+  }
+  selectEquip(key){ if(key==='weapon'){ this.setMode('weapon'); return; }
+    if(!this.inst.isUnlocked(key)){ this.ui.note('Not yet collected.','warn'); return; }
+    this.setMode('instrument',key); }
+  setMode(mode,instKey){ this.mode=mode;
+    if(mode==='weapon'){ this.weapon.setVisible(true); this.inst.setActive(null); this.ui.setActiveEq('Defensive Weapon');
+      this.ui.setMode('WEAPON'); document.getElementById('ammo').parentElement.style.opacity=1; }
+    else { this.weapon.setVisible(false); const k=instKey||this.lastInstrument; this.inst.setActive(k); this.lastInstrument=k;
+      this.ui.setActiveEq(INSTRUMENTS.find(i=>i.key===k).name); this.ui.setMode('INSTRUMENT'); }
+    this.audio.ui();
+  }
+  toggleWeaponInstrument(){ if(this.mode==='weapon') this.setMode('instrument',this.lastInstrument); else this.setMode('weapon'); }
+
+  persist(){ this.state.missionIdx=this.missionIdx; this.state.quality=this.quality; this.save.save(this.state); }
+
+  /* ---------- interaction ---------- */
+  nearInteractable(){ const p=this.player.pos; let best=null,bd=99;
+    for(const it of this.world.interactables){ const d=p.distanceTo(it.pos); if(d<(it.radius||3)&&d<bd){ bd=d; best=it; } }
+    return best; }
+  interact(){ const it=this.nearInteractable();
+    if(it && it.type==='equipment'){ if(!this.flags.gotCase){ this.flags.gotCase=true; this.inst.unlock('analyzer'); this.inst.unlock('probe');
+        this.audio.pickup(); this.ui.note('Equipment collected: Spectrum Analyzer + Near-Field Probe','good');
+        this.ui.lesson('Field Kit','Open the equipment wheel with Q, or press 2–5 to select an instrument. Press R to save a measurement to your notebook.');
+        this.checkObjectives(); } else this.ui.note('Equipment case already emptied.');
+      return; }
+    // command / repair opportunities
+    if(this.fieldRepair()) return;
+    if(it) this.ui.note(it.label);
+  }
+
+  /* ---------- hints ---------- */
+  hint(){ const m=this.currentMission(); this._hintLvl=(this._hintLvl||0); const h=m.hints[Math.min(this._hintLvl,m.hints.length-1)];
+    this.ui.lesson('Hint '+(this._hintLvl+1)+'/3', h); this._hintLvl=(this._hintLvl+1)%3; this.audio.ui(); }
+
+  /* ---------- main loop ---------- */
+  _loop(){ requestAnimationFrame(this._loop);
+    let dt=this.clock.getDelta(); dt=Math.min(dt,0.05);
+    try{
+      const t=this.clock.elapsedTime;
+      if(!this.paused){
+        this.missionTime+=dt;
+        this.player.update(dt);
+        this.sig.update(dt);
+        this.npc.update(dt,this);
+        this.weapon.update(dt, this.player.vel.lengthSq()>1, this.player.sprint);
+        this.inst.update(dt,this);
+        this.pm.update(dt);
+        this.world.updateLights(t);
+        // HUD
+        this.ui.setHP(this.player.hp); this.ui.setAmmo(this.weapon.ammo,this.weapon.reserve);
+        this.ui.setTimer(U.fmtT(this.missionTime)); this.ui.compass(this.player.headingDeg());
+        // interaction prompt
+        const it=this.nearInteractable(); const m=this.currentMission();
+        let promptHtml=null;
+        if(it&&it.type==='equipment'&&!this.flags.gotCase) promptHtml='<b>E</b> Collect field equipment';
+        else if((m.id===4&&!this.flags.aidFixed)) { if(this.player.pos.distanceTo(V3(-30,1.2,20))<10) promptHtml='<b>E</b> Apply authorized channel fix'; }
+        else if((m.id===5||m.id===7)&&!this.flags.sigReduced&&this.player.pos.distanceTo(this.world.relayTop||V3(0,22,-72))<24) promptHtml='<b>E</b> Reduce relay beacon power';
+        else if(m.id===6){ const near=this.inst._nearProbe(); if(near) promptHtml='<b>E</b> Attempt to command '+near.e.name; }
+        else if(it) promptHtml='<b>E</b> '+it.label;
+        this.ui.prompt(promptHtml);
+        this.checkObjectives();
+        this.updateGuide();
+        if(this.waypoint&&this.waypoint.visible){ this.wpRing.rotation.z=t*1.5;
+          this.wpRing.scale.setScalar(1+Math.sin(t*3)*0.12); }
+        if(this.moodSmoke) for(const s of this.moodSmoke){ if(Math.random()<0.06) this.pm.smoke(s[0]+U.rand(-1,1),1.2,s[1]+U.rand(-1,1)); }
+      }
+      this.rm.render(this.scene,this.camera,t);
+    }catch(e){ console.error('loop error',e); if(!this._loggedErr){ this._loggedErr=true; this.ui&&this.ui.note('Runtime warning (see console) — gameplay continues.','warn'); } }
+  }
+}
+
+/* ============================ InputManager ============================ */
+class InputManager{
+  constructor(game){ this.g=game; this._wheelOpen=false; this._bind(); }
+  _bind(){ const g=this.g;
+    document.addEventListener('keydown',e=>{
+      if(!g.started) return;
+      g.player.key(e.code,true);
+      if(g._modalOpen()){ if(e.code==='Escape'){} return; }
+      switch(e.code){
+        case 'Space': e.preventDefault(); g.player.jump(); break;
+        case 'ControlLeft': case 'KeyC': g.player.crouch=true; break;
+        case 'KeyE': g.interact(); break;
+        case 'KeyF': g.toggleWeaponInstrument(); break;
+        case 'KeyR':
+          if(g.mode==='weapon'){
+            if(g.weapon.ammo>=g.weapon.mag) g.ui.note('Magazine already full. (Switch to an instrument with 2–5, then R saves a reading.)');
+            else if(g.weapon.reserve<=0) g.ui.note('No reserve ammunition.','warn');
+            else g.weapon.reload();
+          } else g.inst.saveMeasurement(g);
+          break;
+        case 'KeyQ': this._wheelOpen=!this._wheelOpen; g.toggleWheel(this._wheelOpen); g.paused=this._wheelOpen; if(this._wheelOpen)g.releasePointer(); else g.resumePointer(); break;
+        case 'KeyM': g.openMap(); break;
+        case 'Tab': e.preventDefault(); g.openNotebook(); break;
+        case 'KeyH': g.hint(); break;
+        case 'KeyG': g.answerDecision(); break;
+        case 'KeyK': g.openCodex(); break;
+        case 'KeyN': if(g.mode==='instrument'&&g.inst.active==='analyzer') g.inst.cyclePreset(e.shiftKey?-1:1); break;
+        case 'Digit1': g.selectEquip('weapon'); break;
+        case 'Digit2': g.selectEquip('analyzer'); break;
+        case 'Digit3': g.selectEquip('df'); break;
+        case 'Digit4': g.selectEquip('probe'); break;
+        case 'Digit5': g.selectEquip('tablet'); break;
+        case 'BracketLeft': g.inst.adjGain(-2); break;
+        case 'BracketRight': g.inst.adjGain(2); break;
+        case 'ArrowLeft': if(g.mode==='instrument') g.inst.tune(g.inst.active==='analyzer'?-(g.inst.span*0.03):-1); break;
+        case 'ArrowRight': if(g.mode==='instrument') g.inst.tune(g.inst.active==='analyzer'?(g.inst.span*0.03):1); break;
+        case 'ArrowUp': if(g.mode==='instrument') g.inst.changeSpan(0.8); break;
+        case 'ArrowDown': if(g.mode==='instrument') g.inst.changeSpan(1.25); break;
+        case 'Escape': break;
+      }
+    });
+    document.addEventListener('keyup',e=>{ if(!g.started)return; g.player.key(e.code,false);
+      if(e.code==='ControlLeft'||e.code==='KeyC') g.player.crouch=false; });
+    document.addEventListener('mousedown',e=>{ if(!g.started||g.paused||g._modalOpen())return;
+      if(e.button===0){ if(g.mode==='weapon') g.weapon.fire(g); else g.inst.saveMeasurement(g); }
+      if(e.button===2){ if(g.mode==='weapon') g.weapon.ads=true; } });
+    document.addEventListener('mouseup',e=>{ if(e.button===2) g.weapon.ads=false; });
+    document.addEventListener('contextmenu',e=>{ if(g.started) e.preventDefault(); });
+    window.addEventListener('wheel',e=>{ if(g.started&&!g.paused) e.preventDefault(); },{passive:false});
+    // canvas click to lock
+    g.rm.renderer.domElement.addEventListener('click',()=>{ if(g.started&&!g.paused&&!g.controls.isLocked&&!g._modalOpen()) g.controls.lock(); });
+  }
+}
+
+/* ============================ Bootstrap ============================ */
+const game=new Game();
+loadMsg('Initializing systems…');
+await game.init();
+
+function briefing(){
+  const m=game.currentMission();
+  const controls=[
+    ['Move','W A S D'],['Look','Mouse'],['Jump','Space'],['Sprint','Shift'],['Crouch','Ctrl / C'],
+    ['Fire / Use instrument','Left Click'],['ADS / Precision','Right Click'],['Interact','E'],
+    ['Weapon ↔ instrument','F'],['Equipment wheel','Q'],['Reload / Save reading','R'],
+    ['Field notebook','Tab'],['Tactical map','M'],['Cycle analyzer band','N'],
+    ['Tune / Span','◄ ► / ▲ ▼'],['Gain','[ ]'],['Hint (3 levels)','H'],
+    ['Answer field question','G'],['Concept codex','K'],['Pause','Esc'],
+  ];
+  const {ov,close}=modal(`
+    <div class="sub">Spectrum Operations · Field Training</div>
+    <h1>SPECTRUM FRONT</h1>
+    <div class="sub" style="margin:8px 0 0">Anything That Emits Is a Source</div>
+    <p style="margin-top:16px">You are a spectrum operations specialist attached to a small tactical unit moving through a damaged urban district.
+    Detect emissions, measure frequency and bandwidth, take bearings, classify sources, and act on evidence — not assumptions.
+    Detection, identification, localization, decoding, authentication, and authorized control are all different things.</p>
+    <div class="row" style="margin:6px 0 0">
+      <span class="tag">Current: M${m.id} · ${m.title}</span>
+      <span class="tag">${m.loc}</span>
+      <span class="tag">${game.missions.length} missions</span>
+    </div>
+    <h2>Training Mode</h2>
+    <div class="row" id="modeRow" style="margin-top:2px">
+      <button class="btn ${game.guided?'':'sec'}" data-mode="guided">🎓 Guided Training</button>
+      <button class="btn ${game.guided?'sec':''}" data-mode="field">🎖 Field Operations</button>
+    </div>
+    <p id="modeDesc" style="color:var(--dim);font-size:12.5px;margin-top:8px">${game.guided
+      ? '<b style="color:var(--amber)">Recommended.</b> A guidance bar tells you the exact next action and the concept behind it, an amber waypoint beacon shows where to go, and a lesson pops for each new idea. Press H anytime for deeper hints.'
+      : 'Minimal HUD — objectives only. No step-by-step guidance, no waypoint. For a second playthrough.'}</p>
+    <h2>Mission Brief</h2><p>${m.brief}</p>
+    <div class="grid2" style="margin-top:6px">
+      <div><div class="lab">▶ What you’ll do</div><p style="margin:4px 0 0;font-size:13px">${m.guide?m.guide.do:m.brief}</p></div>
+      <div><div class="lab">🎓 What you’ll learn</div><p style="margin:4px 0 0;font-size:13px">${m.guide?m.guide.learn:m.teach.join(', ')}</p></div>
+    </div>
+    <h2>Jump to Mission <span style="color:var(--dim);font-size:11px;font-weight:400;letter-spacing:0;text-transform:none">developer · level select — launches that mission directly</span></h2>
+    <div class="row" id="missionRow" style="margin-top:2px">
+      ${game.missions.map((mm,i)=>`<button class="btn sec" data-mi="${i}" style="padding:8px 13px" title="${mm.title}">M${mm.id}</button>`).join('')}
+    </div>
+    <h2>Controls</h2>
+    <div class="grid2">${controls.map(c=>`<div class="ctl"><b>${c[0]}</b><span class="mono">${c[1]}</span></div>`).join('')}</div>
+    <p style="color:var(--dim);font-size:12px;margin-top:14px">Tip: start at the glowing <b style="color:var(--amber)">Field Equipment Case</b> just ahead of you. Press <b>E</b> to collect your kit.</p>
+    <div class="row">
+      <button class="btn" id="startBtn">▶ Start Mission</button>
+      <button class="btn sec" id="contBtn">Continue from M${m.id}</button>
+      <button class="btn sec" id="resetBtn">Reset Saved Progress</button>
+    </div>`);
+  ov.querySelectorAll('#modeRow [data-mode]').forEach(b=>b.onclick=()=>{
+    game.guided = b.dataset.mode==='guided'; game.state.guided=game.guided; game.save.save(game.state);
+    ov.querySelectorAll('#modeRow [data-mode]').forEach(x=>x.classList.toggle('sec', x.dataset.mode!==b.dataset.mode));
+    ov.querySelector('#modeDesc').innerHTML = game.guided
+      ? '<b style="color:var(--amber)">Recommended.</b> A guidance bar tells you the exact next action and the concept behind it, an amber waypoint beacon shows where to go, and a lesson pops for each new idea. Press H anytime for deeper hints.'
+      : 'Minimal HUD — objectives only. No step-by-step guidance, no waypoint. For a second playthrough.';
+  });
+  ov.querySelectorAll('#missionRow [data-mi]').forEach(b=>b.onclick=()=>{ const i=+b.dataset.mi; game.jumpToMission(i); launch(close); });
+  ov.querySelector('#startBtn').onclick=()=>launch(close);
+  ov.querySelector('#contBtn').onclick=()=>launch(close);
+  ov.querySelector('#resetBtn').onclick=()=>{ game.save.reset(); location.reload(); };
+}
+function launch(close){
+  close();
+  game.started=true; game.paused=false;
+  game.audio.start();
+  document.getElementById('hud').classList.remove('hidden');
+  game.setMode('weapon');
+  game.ui.setObjective(game.currentMission());
+  game.ui.showGuide(game.guided);
+  const gm=game.currentMission();
+  if(game.guided && gm.guide){ game.ui.lesson('Mission '+gm.id+' · You will learn', gm.guide.learn); }
+  game.updateGuide();
+  game.ui.note('Radio: "Operator on the net. Collect your kit at the case."','amber');
+  // Extra coaching for a first-time player on Mission 1
+  if(game.guided && game.missionIdx===0){
+    [[1500,'Move with W A S D · look with the mouse · hold Shift to sprint.'],
+     [5500,'Follow the amber beacon → the glowing equipment case. Press E to collect your kit.'],
+     [10500,'Once you have it: press 2 for the analyzer, then N to sweep bands. The bar up top always names your next step.'],
+     [16000,'Watch the blue "signal read" line — it tells you what each source you point at actually is.']
+    ].forEach(([t,msg])=>setTimeout(()=>{ if(game.started&&game.guided) game.ui.note(msg,'amber'); },t));
+  }
+  try{ game.controls.lock(); }catch(e){}
+  // if pointer lock didn't engage (needs a user gesture inside canvas), prompt
+  setTimeout(()=>{ if(!game.controls.isLocked){ game.ui.note('Click the screen to capture the mouse and look around.','amber'); } },300);
+}
+briefing();
+</script>
+</body>
+</html>

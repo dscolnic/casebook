@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reasoning for Naval Science</title>
+<style>
+:root{--bg:#fff;--ink:#1a1a17;--muted:#565651;--accent:#2f5d86;--hair:#e4e4e2;--chip:#f4f4f1;--hover:#eef0f2;--serif:Georgia,serif;--sans:system-ui,sans-serif;}
+@media (prefers-color-scheme:dark){:root{--bg:#16150f;--ink:#f0eee6;--muted:#a8a69c;--hair:#33322b;--chip:#22211b;--hover:#26251e;}}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5} a{color:inherit} .wrap{width:min(1080px,calc(100% - 32px));margin:auto;padding:24px 0 72px}
+.back{display:inline-block;color:var(--accent);text-decoration:none;font-weight:700;font-size:14px;margin-bottom:38px} .back:hover{text-decoration:underline}
+.eyebrow{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);font-weight:800} h1,h2{font-family:var(--serif);line-height:1.08} h1{font-size:clamp(40px,7vw,72px);letter-spacing:-.04em;margin:8px 0 10px;max-width:850px} .subtitle{font:700 18px/1.3 var(--serif);margin:0 0 12px} .intro{max-width:780px;color:var(--muted);font-size:16px;margin:0}
+.summary{display:flex;gap:14px;align-items:center;justify-content:space-between;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:14px 0;margin:30px 0 18px;flex-wrap:wrap} .summary span{font-size:13px;color:var(--muted)} .summary strong{color:var(--ink)} .reset{border:1px solid var(--hair);background:var(--bg);color:var(--muted);padding:7px 10px;border-radius:4px;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--hair);border-left:1px solid var(--hair)} .week{padding:22px;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);min-height:310px;display:flex;flex-direction:column} .week.completed{background:var(--chip)} .week.completed h2{text-decoration:line-through;text-decoration-thickness:1px;text-decoration-color:var(--muted)}
+.week-top{display:flex;justify-content:space-between;gap:12px;align-items:center} .week-no{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);font-weight:800} .badge{font-size:11px;background:var(--chip);padding:5px 8px;border-radius:999px;color:var(--muted);font-weight:700} h2{font-size:27px;margin:16px 0 10px} .objective{color:var(--muted);margin:0 0 18px} .puzzle{border-top:1px solid var(--hair);padding-top:12px;display:grid;gap:2px} .puzzle span{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)} .puzzle strong{font-family:var(--serif);font-size:17px} .note{font-size:12px;color:var(--muted);margin:9px 0 0}
+.actions{display:flex;gap:8px;align-items:center;margin-top:auto;padding-top:20px;flex-wrap:wrap} .play,.done{font:700 13px/1 var(--sans);padding:10px 12px;border-radius:4px;text-decoration:none} .play{background:var(--accent);color:#fff} .play:hover{filter:brightness(.92)} .done{border:1px solid var(--hair);background:var(--bg);color:var(--ink);cursor:pointer} .done:hover{background:var(--hover)} .completed .done{color:var(--accent)}
+footer{color:var(--muted);font-size:12px;margin-top:24px} @media(max-width:760px){.grid{grid-template-columns:1fr}.week{min-height:0}}
+</style></head><body><main class="wrap"><a class="back" href="reckon.html">← RECKON</a><header><div class="eyebrow">Naval science course</div><h1>Reasoning for Naval Science</h1><p class="subtitle">A 15-week problem-solving semester</p><p class="intro">Naval science joins physics, engineering, evidence, and operational judgment. Each week uses a different reasoning mechanic so students must reconstruct systems rather than recall isolated facts.</p></header>
+<div class="summary"><span><strong id="count">0</strong> of 15 weeks marked complete</span><button class="reset" id="reset">Reset progress</button></div><section class="grid"><article class="week" id="week-1" data-week="1">
+      <div class="week-top"><span class="week-no">Week 01</span><span class="badge">Sequence</span></div>
+      <h2>Sound sources, ocean propagation, and passive sonar</h2>
+      <p class="objective">Trace how mechanical vibration becomes a directional acoustic track through propagation and array processing.</p>
+      <div class="puzzle"><span>Puzzle</span><strong>From Machinery Noise to a Sonar Track</strong></div>
+      <div class="actions"><a class="play" href="sequence.html#nc_sonar_path" data-complete="1">Play this puzzle →</a><button class="done" type="button" aria-pressed="false">Mark complete</button></div>
+    </article><article class="week" id="week-2" data-week="2">
+      <div class="week-top"><span class="week-no">Week 02</span><span class="badge">Ballpark</span></div>
+      <h2>Underwater acoustics by the numbers</h2>
+      <p class="objective">Calculate wavelength, acoustic delay, echo depth, and the geometric scale of spreading loss.</p>
+      <div class="puzzle"><span>Puzzle</span><strong>Underwater Sound by the Numbers</strong></div>
+      <div class="actions"><a class="play" href="ballpark.html#nc_bp_sonar" data-complete="2">Play this puzzle →</a><button class="done" type="button" aria-pressed="false">Mark complete</button></div>
+    </article><article class="week" id="week-3" data-week="3">
+      <div class="week-top"><span class="week-no">Week 03</span><span class="badge">Protocol</span></div>
+      <h2>Multi-sensor contact identification</h2>
+      <p class="objective">Choose the sensor that answers each distinct question about geometry, identity, emissions, imagery, acoustics, and motion.</p>
+      <div class="puzzle"><span>Puzzle</span><strong>The Uncorrelated Contact</strong></div>
+      <div class="actions"><a class="play" href="protocol.html#nc_contact_protocol" data-complete="3">Play this puzzle →</a><button class="done" type="button" aria-pressed="false">Mark complete</button></div>
+    </article><article class="week" id="week-4" data-week="4">
+      <div class="week-top"><span class="week-no">Week 04</span><span class="badge">Ballpark</span></div>
+      <h2>Dead reckoning, knots, set, and drift</h2>
+      <p class="objective">Advance a navigation plot and quantify how current changes cross-track position and arrival time.</p>
+      <div class="puzzle"><span>Puzzle</span><strong>Dead Reckoning and Current by the Numbers</strong></div>
+      <div class="actions"><a class="play" href="ballpark.html#nc_bp_navigation" data-complete="4">Play this puzzle →</a><button class="done" type="button" aria-pressed="false">Mark complete</button></div>
+    </article><article class="week" id="week-5" data-week="5">
+      <div class="week-top"><span class="week-no">Week 05</span><span class="badge">Sequence</span></div>
+      <h2>Pulse-echo radar and track formation</h2>
+      <p class="objective">Order the transmitter, propagation, echo, receiver, ranging, detection, and tracking dependencies in a radar system.</p>
+      <div class="puzzle"><span>Puzzle</span><strong>From Radar Pulse to Confirmed Track</strong></div>
+      <div class="actions"><a class="play" href="sequence.html#nc_radar_echo" data-complete="5">Play this puzzle →</a><button class="done" type="button" aria-pressed="false">Mark complete</button></div>
+    </article><article class="week" id="week-6" data-week="6">
+      <div class="week-top"><span class="week-no">Week 06</span><span class="badge">Diagnosis</span></div>
+      <h2>Diagnosing shipboard flooding</h2>
+      <p class="objective">Use salinity, pressure, isolation response, tank inventory, pump flow, and list to distinguish hull and piping casualties.</p>
+      <div class="puzzle"><span>Puzzle</span><strong>The Water Keeps Rising</strong></div><p class="note">Standalone file: diagnosis/nc_flooding_playable.html</p>
+      <div class="actions"><a class="play" href="diagnosis/nc_flooding_playable.html" data-complete="6">Play this puzzle →</a><button class="done" type="button" aria-pressed="false">Mark complete</button></div>
+    </article><article class="week" id="week-7" data-week="7">
+      <div class="week-top"><span class="week-no">Week 07</span><span class="badge">Ballpark</span></div>
+      <h2>Hydrostatic pressure, buoyancy, and floodwater mass</h2>
+      <p class="objective">Convert seawater density and depth into pressure, structural force, displaced mass, and flooding load.</p>
+      <div class="puzzle"><span>Puzzle</span><strong>Pressure and Buoyancy at Depth</strong></div>
+      <div class="actions"><a class="play" href="ballpark.html#nc_bp_depth" data-complete="7">Play this puzzle →</a><button class="done" type="button" aria-pressed="false">Mark complete</button></div>
+    </article><article class="week" id="week-8" data-week="8">
+      <div class="week-top"><span class="week-no">Week 08</span><span class="badge">Protocol</span></div>
+      <h2>Shipboard electrical-fire response</h2>
+      <p class="objective">Match each firefighting stage to the system that controls energy, atmosphere, heat, or hidden fire.</p>
+      <div class="puzzle"><span>Puzzle</span><strong>Smoke in the Motor Controller Room</strong></div>
+      <div class="actions"><a class="play" href="protocol.html#nc_fire_protocol" data-complete="8">Play this puzzle →</a><button class="done" type="button" aria-pressed="false">Mark complete</button></div>
+    </article><article class="week" id="week-9" data-week="9">
+      <div class="week-top"><span class="week-no">Week 09</span><span class="badge">Sequence</span></div>
+      <h2>Marine gas-turbine propulsion</h2>
+      <p class="objective">Follow energy from compressed air and combustion through turbine work, gearing, propeller flow, and thrust.</p>
+      <div class="puzzle"><span>Puzzle</span><strong>From Intake Air to Propeller Thrust</strong></div>
+      <div class="actions"><a class="play" href="sequence.html#nc_gas_turbine_drive" data-complete="9">Play this puzzle →</a><button class="done" type="button" aria-pressed="false">Mark complete</button></div>
+    </article><article class="week" id="week-10" data-week="10">
+      <div class="week-top"><span class="week-no">Week 10</span><span class="badge">Protocol</span></div>
+      <h2>Electrical casualty isolation and restoration</h2>
+      <p class="objective">Select the protection record, test instrument, synchronizing aid, and load-control system needed at each restoration stage.</p>
+      <div class="puzzle"><span>Puzzle</span><strong>Restore the Split Plant</strong></div>
+      <div class="actions"><a class="play" href="protocol.html#nc_power_restore" data-complete="10">Play this puzzle →</a><button class="done" type="button" aria-pressed="false">Mark complete</button></div>
+    </article><article class="week" id="week-11" data-week="11">
+      <div class="week-top"><span class="week-no">Week 11</span><span class="badge">Casebook</span></div>
+      <h2>Independent navigation evidence and common-mode error</h2>
+      <p class="objective">Reconstruct how a shared heading reference can make two displays agree while independent fixes reject the track.</p>
+      <div class="puzzle"><span>Puzzle</span><strong>The Greywake Shoal</strong></div>
+      <div class="actions"><a class="play" href="casebook_static.html#nc_greywake_case" data-complete="11">Play this puzzle →</a><button class="done" type="button" aria-pressed="false">Mark complete</button></div>
+    </article><article class="week" id="week-12" data-week="12">
+      <div class="week-top"><span class="week-no">Week 12</span><span class="badge">Protocol</span></div>
+      <h2>Connected replenishment at sea</h2>
+      <p class="objective">Match station keeping, communications, line transfer, tensioning, coupling, monitoring, and breakaway to their systems.</p>
+      <div class="puzzle"><span>Puzzle</span><strong>Fuel Across the Gap</strong></div>
+      <div class="actions"><a class="play" href="protocol.html#nc_unrep_protocol" data-complete="12">Play this puzzle →</a><button class="done" type="button" aria-pressed="false">Mark complete</button></div>
+    </article><article class="week" id="week-13" data-week="13">
+      <div class="week-top"><span class="week-no">Week 13</span><span class="badge">Sequence</span></div>
+      <h2>Layered defensive sensing and decision chains</h2>
+      <p class="objective">Separate plots, tracks, identification, authorization, execution, and assessment in a high-level defensive system.</p>
+      <div class="puzzle"><span>Puzzle</span><strong>From Air Search to Engagement Assessment</strong></div><p class="note">Public system-level treatment only; no platform-specific tactics or ranges.</p>
+      <div class="actions"><a class="play" href="sequence.html#nc_layered_defense" data-complete="13">Play this puzzle →</a><button class="done" type="button" aria-pressed="false">Mark complete</button></div>
+    </article><article class="week" id="week-14" data-week="14">
+      <div class="week-top"><span class="week-no">Week 14</span><span class="badge">Ballpark</span></div>
+      <h2>Radar horizon, pulse timing, and reaction time</h2>
+      <p class="objective">Estimate geometric line-of-sight limits, pulse-echo range, and time available after detection.</p>
+      <div class="puzzle"><span>Puzzle</span><strong>Radar Horizon and Timing by the Numbers</strong></div>
+      <div class="actions"><a class="play" href="ballpark.html#nc_bp_radar" data-complete="14">Play this puzzle →</a><button class="done" type="button" aria-pressed="false">Mark complete</button></div>
+    </article><article class="week" id="week-15" data-week="15">
+      <div class="week-top"><span class="week-no">Week 15</span><span class="badge">Science Tank</span></div>
+      <h2>Historical naval innovation under uncertainty</h2>
+      <p class="objective">Allocate a portfolio across communications, fire-control, and navigation ideas while separating historical impact from capturable return.</p>
+      <div class="puzzle"><span>Puzzle</span><strong>Naval Innovation Portfolio</strong></div><p class="note">Contains three Science Tank round packages.</p>
+      <div class="actions"><a class="play" href="sciencetank.html#nc_naval_innovation" data-complete="15">Play this puzzle →</a><button class="done" type="button" aria-pressed="false">Mark complete</button></div>
+    </article></section><footer>Course puzzles are a separate instructional set and are not part of the daily game rotation.</footer></main>
+<script>
+const key='reckon_navy_course_done_v1'; const cards=[...document.querySelectorAll('.week')];
+function load(){try{return new Set(JSON.parse(localStorage.getItem(key)||'[]'))}catch{return new Set()}} let done=load();
+function paint(){cards.forEach(c=>{const yes=done.has(Number(c.dataset.week));c.classList.toggle('completed',yes);const b=c.querySelector('.done');b.setAttribute('aria-pressed',String(yes));b.textContent=yes?'Completed ✓':'Mark complete';});document.getElementById('count').textContent=done.size;try{localStorage.setItem(key,JSON.stringify([...done].sort((a,b)=>a-b)))}catch{}}
+cards.forEach(c=>{const n=Number(c.dataset.week);c.querySelector('.done').onclick=()=>{done.has(n)?done.delete(n):done.add(n);paint();};c.querySelector('.play').addEventListener('click',()=>{done.add(n);paint();});});document.getElementById('reset').onclick=()=>{done.clear();paint();};paint();
+</script></body></html>

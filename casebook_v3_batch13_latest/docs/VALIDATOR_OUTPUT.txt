@@ -1,0 +1,247 @@
+{
+  "id": "c_arch",
+  "topics": 3,
+  "questions": 9,
+  "answers": 36,
+  "profileWords": [
+    272,
+    271,
+    280
+  ],
+  "expertLongest": "4/9 (44%)",
+  "maxOptionSpread": 13,
+  "whatLabelLengths": [
+    61,
+    59,
+    63
+  ],
+  "errors": []
+}
+{
+  "id": "c_art",
+  "topics": 3,
+  "questions": 9,
+  "answers": 36,
+  "profileWords": [
+    274,
+    265,
+    281
+  ],
+  "expertLongest": "2/9 (22%)",
+  "maxOptionSpread": 14,
+  "whatLabelLengths": [
+    59,
+    57,
+    53
+  ],
+  "errors": []
+}
+{
+  "id": "c_fall",
+  "topics": 3,
+  "questions": 9,
+  "answers": 36,
+  "profileWords": [
+    273,
+    264,
+    275
+  ],
+  "expertLongest": "4/9 (44%)",
+  "maxOptionSpread": 15,
+  "whatLabelLengths": [
+    59,
+    60,
+    65
+  ],
+  "errors": []
+}
+{
+  "id": "e_asteroid",
+  "topics": 3,
+  "questions": 9,
+  "answers": 36,
+  "profileWords": [
+    271,
+    287,
+    276
+  ],
+  "expertLongest": "4/9 (44%)",
+  "maxOptionSpread": 13,
+  "whatLabelLengths": [
+    63,
+    55,
+    58
+  ],
+  "errors": []
+}
+{
+  "id": "e_avalanche",
+  "topics": 3,
+  "questions": 9,
+  "answers": 36,
+  "profileWords": [
+    318,
+    318,
+    306
+  ],
+  "expertLongest": "0/9 (0%)",
+  "maxOptionSpread": 11,
+  "whatLabelLengths": [
+    49,
+    52,
+    54
+  ],
+  "errors": []
+}
+{
+  "id": "e_wildfire",
+  "topics": 3,
+  "questions": 9,
+  "answers": 36,
+  "profileWords": [
+    287,
+    292,
+    279
+  ],
+  "expertLongest": "3/9 (33%)",
+  "maxOptionSpread": 15,
+  "whatLabelLengths": [
+    69,
+    56,
+    63
+  ],
+  "errors": []
+}
+{
+  "id": "f_ai",
+  "topics": 3,
+  "questions": 9,
+  "answers": 36,
+  "profileWords": [
+    295,
+    272,
+    275
+  ],
+  "expertLongest": "2/9 (22%)",
+  "maxOptionSpread": 14,
+  "whatLabelLengths": [
+    59,
+    58,
+    64
+  ],
+  "errors": []
+}
+{
+  "id": "f_firmware",
+  "topics": 3,
+  "questions": 9,
+  "answers": 36,
+  "profileWords": [
+    288,
+    305,
+    300
+  ],
+  "expertLongest": "1/9 (11%)",
+  "maxOptionSpread": 11,
+  "whatLabelLengths": [
+    50,
+    59,
+    54
+  ],
+  "errors": []
+}
+{
+  "id": "f_robot",
+  "topics": 3,
+  "questions": 9,
+  "answers": 36,
+  "profileWords": [
+    284,
+    294,
+    289
+  ],
+  "expertLongest": "4/9 (44%)",
+  "maxOptionSpread": 13,
+  "whatLabelLengths": [
+    59,
+    61,
+    59
+  ],
+  "errors": []
+}
+{
+  "id": "j_capture",
+  "topics": 3,
+  "questions": 9,
+  "answers": 36,
+  "profileWords": [
+    282,
+    290,
+    283
+  ],
+  "expertLongest": "3/9 (33%)",
+  "maxOptionSpread": 14,
+  "whatLabelLengths": [
+    56,
+    59,
+    59
+  ],
+  "errors": []
+}
+{
+  "id": "j_press",
+  "topics": 3,
+  "questions": 9,
+  "answers": 36,
+  "profileWords": [
+    305,
+    302,
+    287
+  ],
+  "expertLongest": "2/9 (22%)",
+  "maxOptionSpread": 13,
+  "whatLabelLengths": [
+    60,
+    62,
+    58
+  ],
+  "errors": []
+}
+{
+  "id": "m_adas",
+  "topics": 3,
+  "questions": 9,
+  "answers": 36,
+  "profileWords": [
+    281,
+    279,
+    267
+  ],
+  "expertLongest": "1/9 (11%)",
+  "maxOptionSpread": 7,
+  "whatLabelLengths": [
+    50,
+    57,
+    60
+  ],
+  "errors": []
+}
+{
+  "id": "m_railx",
+  "topics": 3,
+  "questions": 9,
+  "answers": 36,
+  "profileWords": [
+    299,
+    304,
+    295
+  ],
+  "expertLongest": "4/9 (44%)",
+  "maxOptionSpread": 15,
+  "whatLabelLengths": [
+    52,
+    59,
+    57
+  ],
+  "errors": []
+}

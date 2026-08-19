@@ -1,0 +1,50 @@
+
+aviation  "Flight Deck Cross-Check"  — OK
+  round 1: answer=stall     → L1 (naked single)
+  round 2: answer=windshear → L2 (one clear line)
+  round 3: answer=badspeed  → L3 (the loud gauges tie)
+
+market  "Market Signal"  — OK
+  round 1: answer=realnews  → L1 (naked single)
+  round 2: answer=manipulation → L2 (one clear line)
+  round 3: answer=glitch    → L3 (the loud gauges tie)
+
+chemical  "Reactor Watch"  — OK
+  round 1: answer=runaway   → L1 (naked single)
+  round 2: answer=coolloss  → L2 (one clear line)
+  round 3: answer=sensorfault → L3 (the loud gauges tie)
+
+icu  "Shock Room"  — OK
+  round 1: answer=cardiogenic → L1 (naked single)
+  round 2: answer=hypovolemic → L2 (one clear line)
+  round 3: answer=septic    → L3 (the loud gauges tie)
+
+spacecraft  "Pointing Anomaly"  — OK
+  round 1: answer=badtracker → L1 (naked single)
+  round 2: answer=thrusterfault → L2 (one clear line)
+  round 3: answer=thermal   → L3 (the loud gauges tie)
+
+grid  "Grid Disturbance"  — OK
+  round 1: answer=overload  → L1 (naked single)
+  round 2: answer=loadspike → L2 (one clear line)
+  round 3: answer=relaymisop → L3 (the loud gauges tie)
+
+wellcontrol  "Well-Control Watch"  — OK
+  round 1: answer=gaugefault → L1 (naked single)
+  round 2: answer=transfer  → L2 (one clear line)
+  round 3: answer=kick      → L3 (the loud gauges tie)
+
+volcano  "Volcano Unrest"  — OK
+  round 1: answer=ascent    → L1 (naked single)
+  round 2: answer=stalled   → L2 (one clear line)
+  round 3: answer=rainnoise → L3 (the loud gauges tie)
+
+soc  "Egress Alert"  — OK
+  round 1: answer=misconfig → L1 (naked single)
+  round 2: answer=tokenabuse → L2 (one clear line)
+  round 3: answer=exfil     → L3 (the loud gauges tie)
+
+epidemiology  "Outbreak Signal"  — OK
+  round 1: answer=labcontam → L1 (naked single)
+  round 2: answer=backlog   → L2 (one clear line)
+  round 3: answer=outbreak  → L3 (the loud gauges tie)

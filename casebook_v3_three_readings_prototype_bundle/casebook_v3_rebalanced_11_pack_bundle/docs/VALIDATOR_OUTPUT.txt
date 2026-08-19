@@ -1,0 +1,209 @@
+{
+  "id": "f_crypto",
+  "topics": 3,
+  "questions": 9,
+  "answers": 36,
+  "profileWords": [
+    284,
+    293,
+    272
+  ],
+  "expertLongest": "3/9 (33%)",
+  "maxOptionSpread": 13,
+  "whatLabelLengths": [
+    55,
+    56,
+    58
+  ],
+  "errors": []
+}
+{
+  "id": "f_privacy",
+  "topics": 3,
+  "questions": 9,
+  "answers": 36,
+  "profileWords": [
+    282,
+    283,
+    266
+  ],
+  "expertLongest": "3/9 (33%)",
+  "maxOptionSpread": 14,
+  "whatLabelLengths": [
+    61,
+    63,
+    69
+  ],
+  "errors": []
+}
+{
+  "id": "j_press",
+  "topics": 3,
+  "questions": 9,
+  "answers": 36,
+  "profileWords": [
+    305,
+    302,
+    287
+  ],
+  "expertLongest": "1/9 (11%)",
+  "maxOptionSpread": 13,
+  "whatLabelLengths": [
+    60,
+    62,
+    58
+  ],
+  "errors": []
+}
+{
+  "id": "m_bridge",
+  "topics": 3,
+  "questions": 9,
+  "answers": 36,
+  "profileWords": [
+    269,
+    274,
+    253
+  ],
+  "expertLongest": "4/9 (44%)",
+  "maxOptionSpread": 14,
+  "whatLabelLengths": [
+    53,
+    55,
+    54
+  ],
+  "errors": []
+}
+{
+  "id": "m_stadium",
+  "topics": 3,
+  "questions": 9,
+  "answers": 36,
+  "profileWords": [
+    292,
+    305,
+    330
+  ],
+  "expertLongest": "4/9 (44%)",
+  "maxOptionSpread": 15,
+  "whatLabelLengths": [
+    55,
+    63,
+    60
+  ],
+  "errors": []
+}
+{
+  "id": "m_tunnel",
+  "topics": 3,
+  "questions": 9,
+  "answers": 36,
+  "profileWords": [
+    250,
+    254,
+    250
+  ],
+  "expertLongest": "3/9 (33%)",
+  "maxOptionSpread": 15,
+  "whatLabelLengths": [
+    60,
+    55,
+    54
+  ],
+  "errors": []
+}
+{
+  "id": "t_pipeline",
+  "topics": 3,
+  "questions": 9,
+  "answers": 36,
+  "profileWords": [
+    283,
+    270,
+    296
+  ],
+  "expertLongest": "4/9 (44%)",
+  "maxOptionSpread": 9,
+  "whatLabelLengths": [
+    54,
+    58,
+    56
+  ],
+  "errors": []
+}
+{
+  "id": "t_transformer",
+  "topics": 3,
+  "questions": 9,
+  "answers": 36,
+  "profileWords": [
+    275,
+    301,
+    276
+  ],
+  "expertLongest": "3/9 (33%)",
+  "maxOptionSpread": 12,
+  "whatLabelLengths": [
+    57,
+    56,
+    66
+  ],
+  "errors": []
+}
+{
+  "id": "w_compound",
+  "topics": 3,
+  "questions": 9,
+  "answers": 36,
+  "profileWords": [
+    272,
+    278,
+    266
+  ],
+  "expertLongest": "3/9 (33%)",
+  "maxOptionSpread": 16,
+  "whatLabelLengths": [
+    57,
+    63,
+    59
+  ],
+  "errors": []
+}
+{
+  "id": "w_surg",
+  "topics": 3,
+  "questions": 9,
+  "answers": 36,
+  "profileWords": [
+    273,
+    282,
+    286
+  ],
+  "expertLongest": "4/9 (44%)",
+  "maxOptionSpread": 15,
+  "whatLabelLengths": [
+    65,
+    58,
+    64
+  ],
+  "errors": []
+}
+{
+  "id": "w_water",
+  "topics": 3,
+  "questions": 9,
+  "answers": 36,
+  "profileWords": [
+    293,
+    283,
+    286
+  ],
+  "expertLongest": "3/9 (33%)",
+  "maxOptionSpread": 10,
+  "whatLabelLengths": [
+    58,
+    54,
+    52
+  ],
+  "errors": []
+}

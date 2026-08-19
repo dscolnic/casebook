@@ -1,0 +1,312 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sequence — Dead Zone (prototype)</title>
+<style>
+  :root{
+    --ink:#1a1a1a; --gray:#5b5b5b; --line:#d8d5cf; --paper:#fbfaf7;
+    --accent:#326891; --good:#1a7a4c; --bad:#b02a37; --gold:#9a7b1f;
+    --mut:#f2efe9;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:Georgia,"Times New Roman",serif; line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:28px 20px 80px}
+  .kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);
+    font-family:-apple-system,Helvetica,Arial,sans-serif}
+  h1{font-size:30px;line-height:1.15;margin:.15em 0 .1em;font-weight:700}
+  .sub{color:var(--gray);font-style:italic;margin:0 0 18px}
+  hr{border:0;border-top:1px solid var(--line);margin:20px 0}
+  .obvious{background:var(--mut);border:1px solid var(--line);padding:14px 16px;margin:6px 0 4px}
+  .obvious b{color:var(--bad)}
+  .panel{border:1px solid var(--line);padding:14px 16px;margin:14px 0;background:#fff}
+  .panel h3{margin:0 0 8px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);
+    font-family:-apple-system,Helvetica,Arial,sans-serif}
+  .clue{font-size:15px;margin:7px 0;padding-left:14px;border-left:3px solid var(--line)}
+  ul.gloss{margin:6px 0 0;padding:0;list-style:none;font-size:14px;color:var(--gray)}
+  ul.gloss li{margin:3px 0}
+  ul.gloss b{color:var(--ink);font-style:normal}
+
+  ol.cards{list-style:none;margin:8px 0;padding:0}
+  li.card{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);
+    background:#fff;padding:12px 12px;margin:8px 0;transition:border-color .15s}
+  li.card.given{background:var(--mut)}
+  li.card .num{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:12px;color:var(--gray);
+    width:20px;text-align:center;padding-top:2px;flex:none}
+  li.card.given .num{color:var(--accent)}
+  li.card .body{flex:1;min-width:0}
+  .tag{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--accent);display:block;margin-bottom:2px}
+  li.card .lead{font-weight:700;font-size:17px}
+  li.card .exp{color:var(--gray);font-size:14px;margin-top:3px}
+  .btns{display:flex;flex-direction:column;gap:4px;flex:none}
+  .btns button{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:15px;width:34px;height:26px;
+    border:1px solid var(--line);background:#fff;cursor:pointer;border-radius:3px;color:var(--ink)}
+  .btns button:disabled{opacity:.3;cursor:default}
+  .btns button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+
+  .bar{height:8px;background:var(--mut);border:1px solid var(--line);margin:10px 0 4px;position:relative}
+  .bar > i{display:block;height:100%;background:var(--good);width:0;transition:width .25s}
+  .status{font-size:15px;min-height:22px}
+  .status.win{color:var(--good);font-weight:700}
+  .status ul{margin:6px 0 0;padding-left:20px;font-weight:400}
+  .status li{margin:4px 0}
+  .status li.ok{color:var(--good)} .status li.no{color:var(--bad)}
+
+  .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+  button.act{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:15px;padding:10px 18px;
+    border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;border-radius:4px}
+  button.act.ghost{background:#fff;color:var(--ink)}
+  button.act:disabled{opacity:.35;cursor:default}
+  button.act.go{background:var(--accent);border-color:var(--accent)}
+
+  .scrim{position:fixed;inset:0;background:rgba(20,20,20,.45);display:none;align-items:center;
+    justify-content:center;padding:20px;z-index:9}
+  .scrim.on{display:flex}
+  .modal{background:#fff;border:1px solid var(--line);max-width:560px;width:100%;padding:22px 24px;
+    max-height:90vh;overflow:auto}
+  .modal h2{margin:0 0 4px;font-size:22px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;
+    padding:11px 13px;margin:7px 0;cursor:pointer;font-family:inherit;font-size:15px;border-radius:4px;color:var(--ink)}
+  .opt:hover{border-color:var(--accent)}
+  .fb{font-size:14px;margin:8px 0 0;padding:10px 12px;border-left:3px solid var(--line);color:var(--gray)}
+  .fb.good{border-color:var(--good);color:var(--good)}
+  .fb.bad{border-color:var(--bad);color:var(--bad)}
+  .tier{font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+    font-family:-apple-system,Helvetica,Arial,sans-serif}
+  .tier.gold{color:var(--gold)} .tier.silver{color:var(--gray)}
+  .shape{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;letter-spacing:.03em;
+    background:var(--mut);border:1px solid var(--line);padding:9px 11px;margin:12px 0}
+  .trans{font-size:14px;margin:6px 0;color:var(--gray)}
+  .trans b{color:var(--ink)}
+  .transfer{font-size:15px;margin:12px 0 0;padding-left:14px;border-left:3px solid var(--accent)}
+  details{margin-top:34px;border-top:1px solid var(--line);padding-top:14px}
+  summary{cursor:pointer;font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;color:var(--gray);
+    letter-spacing:.06em;text-transform:uppercase}
+  details table{border-collapse:collapse;margin-top:12px;font-size:13.5px;width:100%}
+  details td{border:1px solid var(--line);padding:7px 9px;vertical-align:top}
+  details td:first-child{font-weight:700;white-space:nowrap;width:1%}
+  .note{font-size:13px;color:var(--gray);font-style:italic}
+</style>
+
+<div class="wrap">
+  <div class="kicker">Sequence · Ecology</div>
+  <h1>The Water That Stopped Breathing</h1>
+  <p class="sub">Every summer the fish along this coast die. The cause and the outcome are known —
+    reconstruct the chain between them.</p>
+
+  <div class="obvious">
+    <b>The obvious story</b> — “Fertilizer feeds the algae, the algae bloom uses up the oxygen,
+    and the fish suffocate.” Half the coast believes it. It is wrong in one crucial link. Find the real one.
+  </div>
+
+  <div class="panel">
+    <h3>What you know</h3>
+    <p style="margin:0;font-size:15px">A river drains farm country into a shallow coastal basin.
+    In the water are dissolved nutrients, sunlight, floating algae, bacteria, and — until midsummer —
+    fish and bottom-dwellers.</p>
+    <ul class="gloss">
+      <li><b>Nutrient</b> — nitrogen or phosphorus; the raw material that limits how much can grow.</li>
+      <li><b>Stratification</b> — a warm surface layer sitting on cold deep water, so the two stop mixing.</li>
+      <li><b>Decomposer</b> — bacteria that break down dead matter, using oxygen to do it.</li>
+      <li><b>Hypoxia</b> — oxygen so low (under ~2&nbsp;mg/L) that animals can’t survive.</li>
+    </ul>
+  </div>
+
+  <div class="panel">
+    <h3>Two relationships to lean on</h3>
+    <div class="clue">The bacteria multiply on material that the dying algae supply to them.</div>
+    <div class="clue">The oxygen crash sets in only once the decomposers are at work.</div>
+  </div>
+
+  <div class="bar" aria-hidden="true"><i id="fill"></i></div>
+  <p class="status" id="status" aria-live="polite">The top and bottom cards are locked. Order the four
+    middle cards, then check — each link tells you whether it makes sense, and why.</p>
+
+  <ol class="cards" id="list"></ol>
+
+  <div class="actions">
+    <button class="act ghost" id="check">Check the chain</button>
+    <button class="act go" id="explain" disabled>Name the cause →</button>
+    <button class="act ghost" id="reset" style="margin-left:auto">Shuffle &amp; retry</button>
+  </div>
+  <p class="note" id="hint">There is one correct chain. Each check tells you which links still don’t make
+    sense — and which ones already do.</p>
+
+  <details>
+    <summary>Design notes — what changed, and why</summary>
+    <table>
+      <tr><td>Anchored ends</td><td>The trigger and the outcome are locked as “given.” You reconstruct the
+        <i>mechanism</i> between a known cause and effect — less intimidating, and closer to real scientific
+        reasoning than sorting from scratch. (This is the game’s Tutorial mode.)</td></tr>
+      <tr><td>Feedback teaches both ways</td><td>Check names each link as a causal sentence — <span style="color:var(--good)">green</span>
+        when it holds (“decomposers feed only after the algae die”), <span style="color:var(--bad)">red</span>
+        when it’s broken (“breaking down algae that haven’t died yet”). You learn each mechanism the moment it
+        clicks — never a slot number, so it stays learnable but not brute-forceable.</td></tr>
+      <tr><td>Misconception trap</td><td>The “obvious story” is a real, documented student error (living algae
+        eat the oxygen). Ordering it that way breaks a link, so common-sense story-shape gives the
+        <i>wrong</i> answer — Casebook’s traps-vs-truth spine, ported to sequencing.</td></tr>
+      <tr><td>Reasoning gate + transfer</td><td>A correct order earns Silver; Gold needs you to <i>name why</i>
+        the oxygen falls. The win screen shows the process’s shape and a real-world anchor (the Gulf of Mexico
+        dead zone) so it sticks.</td></tr>
+      <tr><td>One correct chain</td><td>The cascade is a single strict sequence — one right answer and a
+        clean “you solved it,” with no ambiguity about which order counts.</td></tr>
+    </table>
+  </details>
+</div>
+
+<div class="scrim" id="scrim"><div class="modal" id="modal"></div></div>
+
+<script>
+const CARDS = {
+  N:{tag:"Given · the trigger", lead:"Rain washes farm fertilizer down the river to the coast.",
+     exp:"It carries nitrogen and phosphorus — nutrients normally scarce here, so they cap how much life the water can support."},
+  B:{lead:"Microscopic algae multiply into a thick green bloom at the surface.",
+     exp:"With the nutrient limit lifted, phytoplankton reproduce explosively across the sunlit top layer. In daylight they release oxygen."},
+  D:{lead:"Shaded by the mat above them, the deeper algae die and sink.",
+     exp:"The dense surface bloom blocks sunlight from the water beneath it; algae that can no longer photosynthesize die and drift down."},
+  M:{lead:"Bacteria swarm the sinking dead algae and break it down.",
+     exp:"Decomposers feed on the falling organic matter, using aerobic respiration — which consumes dissolved oxygen — to get energy."},
+  O:{lead:"Oxygen dissolved in the deep water plummets.",
+     exp:"Respiration draws the oxygen down. A warm surface layer (stratification) seals the deep water off from the air, so nothing replaces what the bacteria consume."},
+  F:{tag:"Given · the outcome", lead:"Fish flee and bottom-dwellers suffocate — a dead zone forms.",
+     exp:"Below roughly 2 mg/L of oxygen, mobile animals leave and immobile ones die outright."}
+};
+// dependency edges a before b. core = show as a teaching link (the anchored trivial ones stay quiet).
+const EDGES = [
+  {a:"N",b:"B",core:false},
+  {a:"B",b:"D",core:true, good:"The bloom forms before the shaded algae beneath it die.",
+                          bad:"Algae are dying before the bloom that shades and starves them has formed."},
+  {a:"D",b:"M",core:true, good:"Decomposers feed only after the algae have died.",
+                          bad:"Bacteria are breaking down dead algae before the algae have actually died."},
+  {a:"M",b:"O",core:true, good:"The oxygen falls because the decomposers are consuming it.",
+                          bad:"The oxygen is crashing before anything down there is consuming it."},
+  {a:"O",b:"F",core:false}
+];
+const FIRST="N", LAST="F", MIDDLE=["B","D","M","O"];
+
+let order=[];
+function shuffle(){
+  const m=MIDDLE.slice();
+  for(let i=m.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[m[i],m[j]]=[m[j],m[i]];}
+  order=[FIRST,...m,LAST];
+  if(broken().length===0) shuffle();   // don't hand over a solved board
+}
+function pos(id){return order.indexOf(id);}
+function broken(){return EDGES.filter(e=>pos(e.a)>pos(e.b));}
+
+const list=document.getElementById("list");
+function render(){
+  list.innerHTML="";
+  order.forEach((id,i)=>{
+    const c=CARDS[id]; const fixed=(i===0||i===order.length-1);
+    const li=document.createElement("li"); li.className="card"+(fixed?" given":"");
+    const upDis = (i<=1)?"disabled":"", dnDis=(i>=order.length-2)?"disabled":"";
+    li.innerHTML=`<div class="num">${i+1}</div>
+      <div class="body">${c.tag?`<span class="tag">${c.tag}</span>`:""}
+        <div class="lead">${c.lead}</div><div class="exp">${c.exp}</div></div>`
+      + (fixed?"":`<div class="btns">
+          <button aria-label="move up" ${upDis} data-up="${i}">↑</button>
+          <button aria-label="move down" ${dnDis} data-down="${i}">↓</button></div>`);
+    list.appendChild(li);
+  });
+  list.querySelectorAll("[data-up]").forEach(b=>b.onclick=()=>move(+b.dataset.up,-1));
+  list.querySelectorAll("[data-down]").forEach(b=>b.onclick=()=>move(+b.dataset.down,1));
+}
+function move(i,d){
+  const j=i+d; if(j<1||j>order.length-2) return;   // never disturb the anchored ends
+  [order[i],order[j]]=[order[j],order[i]];
+  render();
+  status.textContent="Order changed — check it again."; status.className="status";
+  fill.style.width=""; explainBtn.disabled=true;
+}
+
+const status=document.getElementById("status");
+const fill=document.getElementById("fill");
+const explainBtn=document.getElementById("explain");
+
+document.getElementById("check").onclick=()=>{
+  const bad=broken();
+  const okCore=EDGES.filter(e=>e.core && pos(e.a)<pos(e.b));
+  const n=EDGES.length;
+  fill.style.width=(100*(n-bad.length)/n)+"%";
+  if(bad.length===0){
+    status.innerHTML="✓ Every link holds — the chain makes sense. Now name what drives the oxygen crash."
+      + "<ul>"+okCore.map(e=>`<li class="ok">${e.good}</li>`).join("")+"</ul>";
+    status.className="status win"; explainBtn.disabled=false;
+  }else{
+    let html="";
+    if(bad.length===1) html+="<b>One link still doesn’t make sense:</b>";
+    else html+=`<b>${bad.length} links still don’t make sense:</b>`;
+    html+="<ul>"+bad.map(e=>`<li class="no">${e.bad}</li>`).join("");
+    if(okCore.length) html+=okCore.map(e=>`<li class="ok">${e.good}</li>`).join("");
+    html+="</ul>";
+    status.innerHTML=html; status.className="status"; explainBtn.disabled=true;
+  }
+};
+document.getElementById("reset").onclick=()=>{shuffle();render();
+  status.textContent="Fresh shuffle. Rebuild the chain.";status.className="status";
+  fill.style.width="";explainBtn.disabled=true;};
+
+// ---- reasoning gate ----
+const scrim=document.getElementById("scrim"), modal=document.getElementById("modal");
+const MECH=[
+  {t:"Bacteria decomposing the dead algae consume it through respiration.",v:"expert",
+   fb:"Correct. The oxygen sink is the decomposers eating dead algae — not the living bloom."},
+  {t:"The living algae use up the oxygen as the bloom grows larger.",v:"danger",
+   fb:"This is the common misconception. Living algae PHOTOSYNTHESIZE — by day they ADD oxygen. The debt comes after they die."},
+  {t:"The fertilizer chemically strips the oxygen out of the water.",v:"wrong",
+   fb:"No. Nutrients feed growth; they don’t react the oxygen away. The loss is biological."},
+  {t:"Warm surface water simply holds less dissolved oxygen than cold water.",v:"partial",
+   fb:"A real effect, but far too small to explain a near-total bottom-water crash. Decomposition is the engine."}
+];
+explainBtn.onclick=()=>{
+  const opts=MECH.slice().sort(()=>Math.random()-.5);
+  modal.innerHTML=`<div class="tier">The reasoning gate</div>
+    <h2>What actually drives the oxygen crash?</h2>
+    <p style="color:var(--gray);font-size:15px;margin:.2em 0 0">You built the chain. Now prove you understand it —
+    this is where the “obvious story” fails.</p><div id="mech"></div>`;
+  const box=modal.querySelector("#mech");
+  opts.forEach(o=>{const b=document.createElement("button");b.className="opt";b.textContent=o.t;
+    b.onclick=()=>ending(o);box.appendChild(b);});
+  scrim.classList.add("on");
+};
+
+function ending(choice){
+  const gold=choice.v==="expert";
+  const transitions=[
+    ["Runoff → bloom","the bloom can’t start until the nutrients arrive."],
+    ["Bloom → die-off","the bloom itself shades and starves the algae beneath it."],
+    ["Die-off → decomposers","bacteria need dead algae before they can multiply."],
+    ["Decomposers → oxygen","their respiration is what actually pulls the oxygen down — and the warm, layered water stops the surface from refilling it."],
+    ["Oxygen → dead zone","only then do the animals suffocate."]
+  ];
+  let head;
+  if(gold){
+    head=`<div class="tier gold">Gold — you explained it, not just ordered it</div>
+      <h2>You found the link the whole coast gets wrong.</h2>
+      <p>The oxygen debt is a story about <b>death and decay</b>, not growth. A living bloom adds oxygen by day;
+      the crash comes only once bacteria start eating what the bloom leaves behind.</p>`;
+  }else{
+    head=`<div class="tier silver">Silver — right chain, shaky cause</div>
+      <h2>Your order holds — your explanation slipped.</h2>
+      <p class="fb ${choice.v==='danger'?'bad':''}">${choice.fb}</p>
+      <p>A correct order can hide a wrong mental model. Closing that gap is the whole point.</p>`;
+  }
+  modal.innerHTML=head+
+    `<div class="shape">Runoff → <b>bloom</b> → <b>die-off</b> → <b>decay</b> → oxygen debt → dead zone</div>`+
+    transitions.map(([a,b])=>`<p class="trans"><b>${a}</b> — ${b}</p>`).join("")+
+    `<p class="note">One link carries the whole lesson: the oxygen falls only <i>after</i> decomposition
+     begins — not while the algae are still alive.</p>
+     <p class="transfer">This is the real cascade behind the <b>Gulf of Mexico dead zone</b> — thousands of
+     square miles with too little oxygen for life, every summer, fed by fertilizer washing down the Mississippi.</p>
+     <div class="actions"><button class="act" id="close">Play again</button></div>`;
+  modal.querySelector("#close").onclick=()=>{scrim.classList.remove("on");document.getElementById("reset").click();};
+}
+scrim.onclick=e=>{if(e.target===scrim)scrim.classList.remove("on");};
+
+shuffle(); render();
+</script>

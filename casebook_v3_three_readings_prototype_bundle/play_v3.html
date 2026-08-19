@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casebook V3 — Three Readings (prototype player)</title>
+<style>
+:root{
+  --bg:#ffffff; --paper:#ffffff; --ink:#1a1a17; --muted:#565651;
+  --accent:#2f5d86; --hair:#e4e4e2; --chip:#f2f2f0; --hover:#f5f5f3;
+  --danger:#B3261E; --good:#2f6d4f;
+  --serif:Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#14140f; --paper:#1c1c16; --ink:#ece9df; --muted:#a6a598;
+    --accent:#82b2d9; --hair:#2f2f26; --chip:#26261e; --hover:#22221a;
+    --danger:#e08b84; --good:#7bbd9c; }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:var(--accent)}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:700;line-height:1.12;margin:0}
+h1{font-size:clamp(28px,4.5vw,40px)}h2{font-size:clamp(22px,3vw,29px)}h3{font-size:19px}h4{font-size:15px}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.muted{color:var(--muted)}
+.tag{display:inline-block;font-size:11px;background:var(--chip);padding:4px 8px;border-radius:3px;color:var(--muted)}
+
+.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:11px max(16px,calc((100vw - 1080px)/2));background:var(--bg);border-bottom:1px solid var(--hair)}
+.brand{display:flex;align-items:baseline;gap:10px;min-width:0}
+.brand-title{font-family:var(--serif);font-size:18px;font-weight:700;white-space:nowrap}
+.brand-sub{font-size:12px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.top-actions{display:flex;align-items:center;gap:9px;flex-shrink:0}
+
+.wrap{display:grid;grid-template-columns:1fr 320px;max-width:1080px;margin:0 auto;min-height:calc(100vh - 46px)}
+.stage{padding:26px 30px 90px;min-width:0}
+.side{background:var(--paper);border-left:1px solid var(--hair);padding:20px 18px;position:sticky;top:46px;align-self:start;height:calc(100vh - 46px);overflow-y:auto}
+@media(max-width:860px){
+  .wrap{grid-template-columns:1fr}
+  .stage{padding:22px 18px 60px}
+  .side{order:2;position:static;height:auto;border-left:0;border-top:1px solid var(--hair)}
+}
+
+.btn{border:1px solid var(--hair);background:var(--paper);padding:9px 13px;border-radius:4px;font-weight:650}
+.btn:hover{background:var(--hover)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{opacity:.92}
+.btn.warn{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.ghost{background:transparent}
+.btn.small{padding:6px 10px;font-size:12px}
+.btn.wide{width:100%;text-align:center;padding:11px;margin-top:8px}
+.btn:disabled{opacity:.42;cursor:not-allowed}
+.btn.pulse{animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(47,93,134,0)}50%{box-shadow:0 0 0 4px rgba(47,93,134,.18)}}
+
+.emblem{border:1px solid var(--hair);padding:14px;background:var(--paper);margin:14px 0}
+.emblem svg{width:100%;height:auto;max-height:120px}
+.teaser{font-size:clamp(16px,2vw,19px);line-height:1.6;color:var(--ink);max-width:640px}
+.story{margin:14px 0 0;max-width:640px}.story p{color:var(--muted);margin:0 0 10px}
+.section-h{margin:22px 0 4px}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:12px 0 4px}
+.card{border:1px solid var(--hair);background:var(--paper);padding:15px;text-align:left;display:flex;flex-direction:column;gap:8px;min-height:180px}
+.card:hover{background:var(--hover)}
+.card .face{font-size:28px}
+.card .cname{font-family:var(--serif);font-size:17px}
+.card .crole{font-size:12px;color:var(--muted)}
+.card .chint{font-size:12.5px;color:var(--muted);border-top:1px solid var(--hair);padding-top:8px;margin-top:auto}
+.card .cstate{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--accent)}
+.card.done{opacity:.72}.card.done:hover{opacity:1}
+@media(max-width:620px){.cards{grid-template-columns:1fr}}
+
+.reading-head{border-bottom:1px solid var(--hair);padding-bottom:14px;margin-bottom:16px}
+.reading-head .sci{font-family:var(--serif);font-size:24px;margin-top:4px}
+.reading-head .topic{color:var(--muted);font-size:14px;margin-top:3px}
+.profile{max-width:640px}.profile p{margin:0 0 12px;font-size:15px}
+.frame{border-left:3px solid var(--accent);background:var(--chip);padding:11px 14px;margin:15px 0;font-style:italic;color:var(--ink);max-width:640px}
+.qwrap{border:1px solid var(--hair);padding:17px;margin-top:15px;background:var(--paper);max-width:660px}
+.qprog{font-size:11px;text-transform:uppercase;letter-spacing:.11em;color:var(--muted);margin-bottom:8px}
+.qtext{font-family:var(--serif);font-size:18px;margin-bottom:13px}
+.opt{display:block;width:100%;text-align:left;border:1px solid var(--hair);background:var(--paper);padding:12px 14px;border-radius:4px;margin-bottom:9px;line-height:1.45}
+.opt:hover{background:var(--hover);border-color:var(--accent)}
+.opt:disabled{cursor:default}
+.opt.chosen{border-color:var(--accent);border-width:2px;padding:11px 13px}
+.opt.dim{opacity:.5}
+.fb{margin-top:6px;padding:13px 15px;border:1px solid var(--hair);background:var(--chip)}
+.fb .verdict{font-size:11px;text-transform:uppercase;letter-spacing:.11em;font-weight:700;margin-bottom:6px}
+.fb.expert .verdict{color:var(--good)}
+.fb.partial .verdict,.fb.wrong .verdict{color:var(--muted)}
+.fb.danger .verdict{color:var(--danger)}
+.fb .fbtext{font-size:14px;color:var(--ink)}
+.clue-drop{margin-top:11px;border-top:1px dashed var(--hair);padding-top:11px}
+.clue-drop .clabel{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.clue-drop .ctext{font-size:13.5px;color:var(--ink);margin-top:4px}
+.clue-locked{margin-top:11px;font-size:12px;color:var(--muted);border-top:1px dashed var(--hair);padding-top:11px}
+.rowbtns{display:flex;justify-content:space-between;gap:10px;margin-top:16px;flex-wrap:wrap}
+
+/* ---- right-hand notepad ---- */
+.agent{border-bottom:1px solid var(--hair);padding-bottom:10px;margin-bottom:4px}
+.agent .who{font-family:var(--serif);font-size:17px}
+.agent .role{font-size:12px;color:var(--muted)}
+.cf-h{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--serif);font-size:14px;margin:16px 0 6px;border-bottom:2px solid var(--accent);padding-bottom:4px}
+.cf-h .cnt{font-family:var(--sans);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.trow{display:flex;align-items:flex-start;gap:8px;width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--hair);padding:8px 2px;font-size:12.5px;line-height:1.35}
+.trow:last-of-type{border-bottom:0}
+.trow:hover{background:var(--hover)}
+.trow .mk{width:14px;flex-shrink:0;color:var(--muted);font-size:12px;text-align:center}
+.trow .tlabel{flex:1}
+.trow.crossed .tlabel{text-decoration:line-through;color:var(--muted)}
+.trow.crossed .mk{color:var(--muted)}
+.trow.only .mk{color:var(--accent)}
+.trow.only .tlabel{color:var(--ink);font-weight:650}
+.clues{margin-top:7px;display:grid;gap:6px}
+.clue-note{border:1px solid var(--hair);background:var(--chip);padding:8px 9px;font-size:11.5px;line-height:1.4}
+.clue-note .src{display:block;font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-top:5px}
+.clue-note.flash{animation:flash 1.1s ease}
+@keyframes flash{0%{background:var(--accent);color:#fff}100%{background:var(--chip)}}
+.clue-empty{font-size:11px;color:var(--muted);font-style:italic;padding:2px 0}
+.stat{margin-top:16px}
+.stat .row{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:5px}
+.stat .row strong{color:var(--ink);font-variant-numeric:tabular-nums}
+.bar{height:4px;background:var(--chip)}
+.bar i{display:block;height:100%;background:var(--accent)}
+.legend{font-size:11px;color:var(--muted);margin-top:12px;line-height:1.5}
+
+/* accuse */
+.accuse-grid{display:grid;gap:14px;margin-top:16px;max-width:660px}
+.accuse-cat{border:1px solid var(--hair);padding:14px;background:var(--paper)}
+.accuse-cat .catt{font-family:var(--serif);font-size:16px;margin-bottom:8px}
+.choice{display:block;width:100%;text-align:left;border:1px solid var(--hair);background:var(--paper);padding:11px 13px;border-radius:4px;margin-bottom:8px}
+.choice:hover{background:var(--hover)}
+.choice.sel{border-color:var(--accent);border-width:2px;padding:10px 12px}
+.choice.strike{opacity:.5}.choice.strike .lbl{text-decoration:line-through}
+
+.brief{border:1px solid var(--hair);background:var(--paper);padding:16px 18px;margin:16px 0;max-width:660px}
+.brief .incident{font-family:var(--serif);font-size:18px;line-height:1.4;margin-bottom:8px}
+.brief .qline{color:var(--muted);font-size:14.5px}
+.task{max-width:660px;margin:6px 0 0}
+.task .th{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);font-weight:700;margin:16px 0 6px}
+.task ol{margin:0;padding-left:20px}
+.task li{margin-bottom:5px;font-size:14.5px}
+.task li b{font-family:var(--serif);font-weight:700}
+.result-status{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--hair);margin:10px 0 4px;max-width:680px}
+.result-status .rmark{font-size:26px;line-height:1}
+.result-status.solved{border-color:var(--good)}
+.result-status.solved .rmark{color:var(--good)}
+.result-status.failed{border-color:var(--danger)}
+.result-status.failed .rmark{color:var(--danger)}
+.result-status .rlabel{font-family:var(--serif);font-size:20px}
+.result-status .rsub{font-size:12.5px;color:var(--muted)}
+.solution-table{width:100%;max-width:680px;border-collapse:collapse;margin:14px 0;font-size:14px}
+.solution-table th{text-align:left;font-family:var(--sans);font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;padding:6px 10px 6px 0;border-bottom:1px solid var(--hair)}
+.solution-table td{padding:9px 10px 9px 0;border-bottom:1px solid var(--hair);vertical-align:top}
+.solution-table .cat{color:var(--muted);white-space:nowrap}
+.solution-table .mine.ok{color:var(--good)}
+.solution-table .mine.no{color:var(--danger);text-decoration:line-through}
+.solution-table .truth{font-weight:650}
+.solution-table .res{text-align:center;width:34px}
+.ending{max-width:680px}
+.ending .etitle{font-family:var(--serif);font-size:clamp(24px,4vw,34px);margin:8px 0 14px}
+.ending p{font-size:15.5px;margin:0 0 12px}
+.verdict-band{padding:10px 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);margin:14px 0;font-size:13px;color:var(--muted)}
+.verdict-band strong{color:var(--ink)}
+.err{border:1px solid var(--danger);background:var(--chip);padding:16px}
+
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,14px);opacity:0;background:var(--ink);color:var(--bg);padding:10px 15px;font-size:13px;transition:.16s;z-index:60;border-radius:4px}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="brand">
+    <span class="brand-title">Casebook</span>
+    <span class="brand-sub" id="brandsub">Three Readings · prototype</span>
+  </div>
+  <div class="top-actions">
+    <button class="btn small ghost" id="cheatBtn" onclick="cheatSolveAll()" style="display:none">🔧 Cheat · solve all</button>
+    <button class="btn small ghost" id="homeBtn" onclick="toSelect()" style="display:none">Cases</button>
+  </div>
+</div>
+
+<div class="wrap">
+  <main class="stage" id="stage"></main>
+  <aside class="side" id="side" aria-label="Investigator's notepad"></aside>
+</div>
+<div class="toast" id="toast"></div>
+
+<!-- Load packs (CommonJS shim). Classic scripts load fine over file:// in Chrome/Safari/Firefox. -->
+<script>window.__PACKS__=[];window.module={exports:{}};</script>
+<script src="pack_e_avalanche_v3.js" onerror="window.__loaderr=1"></script>
+<script>if(window.module&&window.module.exports&&window.module.exports.PACK){window.__PACKS__.push(window.module.exports.PACK);}window.module={exports:{}};</script>
+<script src="pack_f_firmware_v3.js" onerror="window.__loaderr=1"></script>
+<script>if(window.module&&window.module.exports&&window.module.exports.PACK){window.__PACKS__.push(window.module.exports.PACK);}window.module={exports:{}};</script>
+
+<script>
+const PACKS = window.__PACKS__ || [];
+const stage = document.getElementById('stage');
+const CATORDER = ['who','where','what']; // notepad order mirrors real Casebook
+let S = null;
+
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove('show'),1900);
+}
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function clueCount(){return S.clues.who.length+S.clues.what.length+S.clues.where.length;}
+
+/* ---------- CASE SELECT ---------- */
+function toSelect(){
+  S=null;
+  document.getElementById('homeBtn').style.display='none';
+  document.getElementById('cheatBtn').style.display='none';
+  document.getElementById('brandsub').textContent='Three Readings · prototype';
+  document.getElementById('side').innerHTML=`<div class="agent"><div class="who">Casebook</div><div class="role">The Bureau's open files</div></div><p class="legend">Pick a case. Each has three informants; reject the sensational answer and the do-nothing answer alike — the truth is in between.</p>`;
+  if(!PACKS.length){
+    stage.innerHTML='<div class="err"><h3>No case packs loaded</h3><p>This player must sit beside <code>pack_e_avalanche_v3.js</code> and <code>pack_f_firmware_v3.js</code>. If the browser blocks local scripts, serve the folder:</p><p style="font-family:monospace;font-size:13px">python3 -m http.server 8080</p></div>';
+    return;
+  }
+  const cards = PACKS.map((p,i)=>`
+    <button class="card" onclick="startCase(${i})">
+      <div class="tag">${esc(p.discipline||'')}</div>
+      <div class="cname">${esc(p.title)}</div>
+      <div class="chint">${esc(p.teaser||'')}</div>
+      <div class="cstate">Open the inquiry →</div>
+    </button>`).join('');
+  stage.innerHTML=`
+    <div class="eyebrow">Casebook · V3 prototype</div>
+    <h1>Three informants. Three readings.</h1>
+    <p class="teaser muted">Each informant holds one scientist's passage with three questions. Answer them — you'll see correct or incorrect and why — and the questions you get right file their clues into the notepad afterward (one WHO, one WHERE, one WHAT per reading). The candidates sit in the notepad on the right; cross them off as you reason. Accuse whenever you're ready.</p>
+    <div class="cards" style="margin-top:18px">${cards}</div>
+    <p class="muted" style="font-size:12px">${PACKS.length} case(s) loaded.</p>`;
+}
+
+/* ---------- START ---------- */
+function startCase(idx){
+  const pack=PACKS[idx];
+  S={ pack, idx,
+      answered:{},
+      clues:{who:[],what:[],where:[]},
+      crossed:{who:{},what:{},where:{}},
+      completed:new Set(),
+      filedReadings:new Set(),
+      credibility:100,
+      lastFiled:null };
+  document.getElementById('homeBtn').style.display='';
+  document.getElementById('cheatBtn').style.display='';
+  document.getElementById('brandsub').textContent=pack.title;
+  renderHub();
+}
+
+/* ---------- NOTEPAD (right rail) ---------- */
+function renderSide(){
+  if(!S){return;}
+  const p=S.pack; const h=[];
+  const ag=p.agent||{name:'Investigator',role:"Investigator's Notepad"};
+  h.push(`<div class="agent"><div class="who">${esc(ag.name)}</div><div class="role">${esc(ag.role)}</div></div>`);
+  CATORDER.forEach(cat=>{
+    const c=p.CATS[cat];
+    const left=c.items.filter(it=>!S.crossed[cat][it.id]);
+    const solo=left.length===1;
+    h.push(`<div class="cf-h">${esc(c.title)}<span class="cnt">${left.length} left · ${S.clues[cat].length}/3 clues</span></div>`);
+    c.items.forEach(it=>{
+      const crossed=!!S.crossed[cat][it.id];
+      const isSolo=solo&&!crossed&&left[0].id===it.id;
+      const cls=crossed?'crossed':(isSolo?'only':'');
+      const mk=crossed?'✗':(isSolo?'◆':'○');
+      h.push(`<button class="trow ${cls}" onclick="toggleCross('${cat}','${it.id}')" title="Tap to cross off / restore"><span class="mk">${mk}</span><span class="tlabel">${esc(it.label)}</span></button>`);
+    });
+    // gathered clues for this category
+    const notes=S.clues[cat];
+    if(notes.length){
+      h.push(`<div class="clues">`+notes.map(n=>{
+        const fl=(S.lastFiled&&S.lastFiled.cat===cat&&S.lastFiled.text===n.text)?'flash':'';
+        return `<div class="clue-note ${fl}">${esc(n.text)}<span class="src">via ${esc(n.sci)}</span></div>`;
+      }).join('')+`</div>`);
+    } else {
+      h.push(`<div class="clue-empty">No ${cat.toUpperCase()} clue secured yet.</div>`);
+    }
+  });
+  const v=Math.round(S.credibility);
+  h.push(`<div class="stat"><div class="row"><span>${esc(p.standingLabel||'Credibility')}</span><strong>${v}</strong></div><div class="bar"><i style="width:${v}%"></i></div></div>`);
+  h.push(`<div class="legend">○ open · ✗ crossed off (tap a row) · ◆ last one standing. Clues are hints, not verdicts — you still commit the accusation.</div>`);
+  const readN=(p.READING_ORDER||[]).filter(k=>S.completed.has(k)).length;
+  h.push(`<button class="btn ghost wide" onclick="renderArchive()">${esc(p.readingShort||'Readings')} · readings (${readN}/${(p.READING_ORDER||[]).length})</button>`);
+  h.push(`<button class="btn warn wide" onclick="goAccuse()">Make an accusation</button>`);
+  document.getElementById('side').innerHTML=h.join('');
+  S.lastFiled=null;
+}
+function toggleCross(cat,id){
+  if(S.crossed[cat][id]) delete S.crossed[cat][id]; else S.crossed[cat][id]=true;
+  renderSide();
+}
+
+/* ---------- HUB ---------- */
+function renderHub(){
+  const p=S.pack;
+  const story=(p.story||[]).map(s=>`<p>${s}</p>`).join('');
+  const cards=(p.READING_ORDER||Object.keys(p.CHARACTERS)).map(k=>{
+    const c=p.CHARACTERS[k]; const done=S.completed.has(k);
+    return `<button class="card ${done?'done':''}" onclick="openReading('${k}')">
+      <div class="face">${c.face||'📄'}</div>
+      <div class="cname">${esc(c.name)}</div>
+      <div class="crole">${esc(c.role||'')}</div>
+      <div class="chint">${esc(c.hint||'')}</div>
+      <div class="cstate">${done?'Re-read the passage →':'Read the passage →'}</div>
+    </button>`;
+  }).join('');
+  const allDone=S.completed.size>=(p.READING_ORDER||[]).length;
+  stage.innerHTML=`
+    <div class="eyebrow">${esc(p.venue||'the inquiry')}</div>
+    <h1>${esc(p.title)}</h1>
+    <div class="emblem">${p.emblem||''}</div>
+    <div class="brief">
+      <div class="incident">${p.story&&p.story[0]?p.story[0]:esc(p.teaser)}</div>
+      <div class="qline">${esc(p.teaser||'')}</div>
+    </div>
+    <div class="task">
+      <div class="th">Your job — settle three questions</div>
+      <ol>
+        ${CATORDER.map(cat=>`<li><b>${esc(p.CATS[cat].title)}?</b> — choose one of the ${p.CATS[cat].items.length} candidates in the notepad.</li>`).join('')}
+      </ol>
+      <p class="muted" style="font-size:13px;margin:10px 0 0">The right explanation lies between the sensational story and the do-nothing story. Read the three informants below to earn clues, then accuse.</p>
+    </div>
+    ${p.story&&p.story.length>1?`<div class="story" style="margin-top:16px">${p.story.slice(1).map(s=>`<p>${s}</p>`).join('')}</div>`:''}
+    <h3 class="section-h">The three informants</h3>
+    <p class="muted" style="font-size:12.5px;margin:2px 0 0">Each holds one scientist's passage. The candidates you're deciding among are in the notepad on the right.${allDone?'':' You may accuse anytime, but all three readings give the fullest chain.'}</p>
+    <div class="cards">${cards}</div>`;
+  renderSide();
+}
+function attemptedCount(k){return S.answered[k]?Object.keys(S.answered[k]).length:0;}
+
+/* ---------- READING ---------- */
+function openReading(charKey){
+  const p=S.pack; const c=p.CHARACTERS[charKey]; const topic=p.TOPICS[c.reading];
+  // A completed reading opens read-only (retrieve the passage); an unfinished one resumes.
+  if(S.completed.has(charKey)){ renderArchiveReading(charKey); return; }
+  S.view={char:charKey, topicKey:c.reading, qIndex:firstUnanswered(charKey,topic), showFb:false, chosen:null};
+  renderReading();
+}
+function firstUnanswered(charKey,topic){
+  const ans=S.answered[charKey]||{};
+  for(let i=0;i<topic.q.length;i++){ if(ans[i]===undefined) return i; }
+  return topic.q.length;
+}
+function renderReading(){
+  const p=S.pack; const v=S.view; const c=p.CHARACTERS[v.char]; const topic=p.TOPICS[v.topicKey];
+  const total=topic.q.length;
+
+  if(v.qIndex>=total){
+    S.completed.add(v.char);
+    // File the earned clues NOW — after all three questions are answered.
+    const ans=S.answered[v.char]||{};
+    let correctN=0;
+    const justFiled=[];
+    if(!S.filedReadings.has(v.char)){
+      topic.q.forEach((qq,qi)=>{
+        if(ans[qi]==='expert'){
+          correctN++;
+          const cat=qq.clue.category;
+          if(!S.clues[cat].some(x=>x.char===v.char && x.text===qq.clue.text)){
+            const note={text:qq.clue.text,label:qq.clue.label,char:v.char,sci:topic.sci};
+            S.clues[cat].push(note); justFiled.push(qq.clue);
+          }
+        }
+      });
+      S.filedReadings.add(v.char);
+      if(justFiled.length){ S.lastFiled={cat:justFiled[justFiled.length-1].category,text:justFiled[justFiled.length-1].text};
+        toast(`${justFiled.length} clue${justFiled.length>1?'s':''} filed to the notepad — ${clueCount()}/9`); }
+    } else {
+      topic.q.forEach((qq,qi)=>{ if(ans[qi]==='expert') correctN++; });
+    }
+    const filedList = justFiled.length
+      ? `<div class="clues" style="max-width:520px;margin-top:12px">`+justFiled.map(cl=>`<div class="clue-note"><b>${esc(cl.label)}</b> — ${esc(cl.text)}</div>`).join('')+`</div>`
+      : `<p class="muted" style="max-width:640px">No new clues secured from this reading.</p>`;
+    const perCat = topic.q.map((qq,qi)=>{
+      const ok=ans[qi]==='expert';
+      return `<span class="tag">${ok?'✓':'✗'} ${qq.clue.category.toUpperCase()}</span>`;
+    }).join(' ');
+    stage.innerHTML=`
+      <div class="eyebrow">${esc(topic.topic)}</div>
+      <h2>${esc(topic.sci)} — reading complete</h2>
+      <p class="muted" style="max-width:640px">You answered <strong>${correctN} of ${total}</strong> correctly with ${esc(c.name)}. ${perCat}</p>
+      ${filedList}
+      <div class="rowbtns"><span></span><button class="btn primary" onclick="renderHub()">Back to the three informants</button></div>`;
+    renderSide();
+    return;
+  }
+
+  const q=topic.q[v.qIndex];
+  const opts=q.o.map((o,oi)=>{
+    if(v.showFb){
+      const chosen=oi===v.chosen;
+      return `<button class="opt ${chosen?'chosen':'dim'}" disabled>${esc(o.t)}</button>`;
+    }
+    return `<button class="opt" onclick="answer(${oi})">${esc(o.t)}</button>`;
+  }).join('');
+
+  let fbBlock='';
+  if(v.showFb){
+    const o=q.o[v.chosen];
+    const isExpert=o.v==='expert';
+    // Casebook-style: just correct / incorrect and the why. Clues are filed after the reading.
+    const fbClass = isExpert?'expert':(o.v==='danger'?'danger':'wrong');
+    const verdictLabel = isExpert?'Correct':'Incorrect';
+    fbBlock=`<div class="fb ${fbClass}"><div class="verdict">${verdictLabel}</div><div class="fbtext">${esc(o.fb)}</div></div>
+      <div class="rowbtns"><span></span><button class="btn primary" onclick="nextQ()">${v.qIndex+1<total?'Next question':'See what you secured'}</button></div>`;
+  }
+
+  stage.innerHTML=`
+    <button class="btn small" onclick="renderHub()">← Back to informants</button>
+    <div class="reading-head" style="margin-top:13px">
+      <div class="eyebrow">${esc(c.name)} · ${esc(topic.topic)}</div>
+      <div class="sci">${esc(topic.sci)}</div>
+      <div class="topic">${esc(topic.lede||'')}</div>
+    </div>
+    <div class="profile">${(topic.profile||'').split('\n\n').map(t=>`<p>${esc(t)}</p>`).join('')}</div>
+    ${topic.frame?`<div class="frame">${esc(topic.frame)}</div>`:''}
+    <div class="qwrap">
+      <div class="qprog">Question ${v.qIndex+1} of ${total}</div>
+      <div class="qtext">${esc(q.q)}</div>
+      ${opts}${v.showFb?'':'<button class="btn small ghost" style="margin-top:2px" onclick="cheatQ()">🔧 Cheat · pick the correct answer</button>'}${fbBlock}
+    </div>`;
+  renderSide();
+}
+function answer(oi){
+  const p=S.pack; const v=S.view; const topic=p.TOPICS[v.topicKey]; const q=topic.q[v.qIndex]; const o=q.o[oi];
+  if(!S.answered[v.char]) S.answered[v.char]={};
+  S.answered[v.char][v.qIndex]=o.v;
+  v.chosen=oi; v.showFb=true;
+  const delta={expert:0,partial:-4,wrong:-8,danger:-14}[o.v]||0;
+  S.credibility=Math.max(0,S.credibility+delta);
+  // Clues are NOT filed here — they are awarded after all three questions (see reading-complete block).
+  renderReading();
+}
+function nextQ(){ S.view.qIndex++; S.view.showFb=false; S.view.chosen=null; renderReading(); }
+
+/* ---------- READINGS ARCHIVE (retrieve past passages) ---------- */
+function renderArchive(){
+  const p=S.pack;
+  const order=p.READING_ORDER||Object.keys(p.CHARACTERS);
+  const rows=order.map(k=>{
+    const c=p.CHARACTERS[k]; const topic=p.TOPICS[c.reading];
+    const done=S.completed.has(k); const started=attemptedCount(k)>0;
+    const state = done?'Completed':(started?('In progress · '+attemptedCount(k)+'/3'):'Not yet read');
+    const cta = (done||started)?'Re-read →':'Read →';
+    const secured = CATORDER.filter(cat=>S.clues[cat].some(x=>x.char===k)).map(cat=>cat.toUpperCase());
+    const cluetags = done||started ? `<div style="margin-top:6px">${['who','where','what'].map(cat=>`<span class="tag">${secured.includes(cat.toUpperCase())?'✓':'—'} ${cat.toUpperCase()}</span>`).join(' ')}</div>` : '';
+    return `<button class="card" onclick="openReading('${k}')" style="min-height:auto">
+      <div class="face">${c.face||'📄'}</div>
+      <div class="cname">${esc(topic.sci)}</div>
+      <div class="crole">${esc(topic.topic)} · held by ${esc(c.name)}</div>
+      ${cluetags}
+      <div class="cstate">${esc(state)} · ${cta}</div>
+    </button>`;
+  }).join('');
+  stage.innerHTML=`
+    <button class="btn small" onclick="renderHub()">← Back to informants</button>
+    <div class="eyebrow" style="margin-top:13px">${esc(p.dossierName||'Readings')}</div>
+    <h2>${esc(p.readingLabel||'Scientist readings')}</h2>
+    <p class="muted" style="max-width:640px">Retrieve any passage you've opened. Completed readings open read-only, with your answers and the clues they yielded.</p>
+    <div class="cards">${rows}</div>`;
+  renderSide();
+}
+function renderArchiveReading(charKey){
+  const p=S.pack; const c=p.CHARACTERS[charKey]; const topic=p.TOPICS[c.reading];
+  const ans=S.answered[charKey]||{};
+  const qblocks=topic.q.map((q,qi)=>{
+    const mine=ans[qi];
+    const opts=q.o.map(o=>{
+      const isExpert=o.v==='expert';
+      const isMine=mine!==undefined && o.v===mine;
+      let tags='';
+      if(isExpert) tags+='<span class="tag" style="color:var(--good)">correct</span> ';
+      if(isMine && !isExpert) tags+='<span class="tag" style="color:var(--danger)">your answer</span> ';
+      else if(isMine && isExpert) tags+='<span class="tag" style="color:var(--good)">your answer</span> ';
+      return `<div class="opt ${isExpert?'chosen':(isMine?'':'dim')}" style="cursor:default">${tags}${esc(o.t)}${(isExpert||isMine)?`<div class="muted" style="font-size:12.5px;margin-top:6px">${esc(o.fb)}</div>`:''}</div>`;
+    }).join('');
+    const earned = mine==='expert';
+    const clue = earned
+      ? `<div class="clue-drop"><div class="clabel">${esc(q.clue.label)} · secured</div><div class="ctext">${esc(q.clue.text)}</div></div>`
+      : `<div class="clue-locked">${esc(q.clue.category.toUpperCase())} clue was not secured (answered ${mine?('“'+mine+'”'):'—'}).</div>`;
+    return `<div class="qwrap"><div class="qprog">Question ${qi+1} · ${esc(q.clue.category.toUpperCase())} clue</div>
+      <div class="qtext">${esc(q.q)}</div>${opts}${clue}</div>`;
+  }).join('');
+  stage.innerHTML=`
+    <button class="btn small" onclick="renderArchive()">← All readings</button>
+    <span style="display:inline-block;width:6px"></span>
+    <button class="btn small ghost" onclick="renderHub()">Informants</button>
+    <div class="reading-head" style="margin-top:13px">
+      <div class="eyebrow">Read-only · ${esc(c.name)} · ${esc(topic.topic)}</div>
+      <div class="sci">${esc(topic.sci)}</div>
+      <div class="topic">${esc(topic.lede||'')}</div>
+    </div>
+    <div class="profile">${(topic.profile||'').split('\n\n').map(t=>`<p>${esc(t)}</p>`).join('')}</div>
+    ${topic.frame?`<div class="frame">${esc(topic.frame)}</div>`:''}
+    ${qblocks}
+    <div class="rowbtns"><span></span><button class="btn primary" onclick="renderArchive()">Back to all readings</button></div>`;
+  renderSide();
+}
+
+/* ---------- CHEATS (prototype only) ---------- */
+function cheatQ(){
+  const v=S.view; const q=S.pack.TOPICS[v.topicKey].q[v.qIndex];
+  const ei=q.o.findIndex(o=>o.v==='expert');
+  answer(ei>=0?ei:0);
+}
+function cheatSolveAll(){
+  const p=S.pack;
+  (p.READING_ORDER||Object.keys(p.CHARACTERS)).forEach(k=>{
+    const topic=p.TOPICS[p.CHARACTERS[k].reading];
+    S.answered[k]=S.answered[k]||{};
+    topic.q.forEach((qq,qi)=>{
+      S.answered[k][qi]='expert';
+      const cat=qq.clue.category;
+      if(!S.clues[cat].some(x=>x.char===k && x.text===qq.clue.text))
+        S.clues[cat].push({text:qq.clue.text,label:qq.clue.label,char:k,sci:topic.sci});
+    });
+    S.completed.add(k); S.filedReadings.add(k);
+  });
+  S.credibility=100;
+  S.lastFiled=null;
+  toast(`Cheat: all readings solved — ${clueCount()}/9 clues filed`);
+  renderHub();
+}
+
+/* ---------- ACCUSE ---------- */
+function goAccuse(){
+  S.accuse={who:null,what:null,where:null};
+  renderAccuse();
+}
+function renderAccuse(){
+  const p=S.pack; const a=S.accuse;
+  const cats=CATORDER.map(cat=>{
+    const cdef=p.CATS[cat];
+    const choices=cdef.items.map(it=>{
+      const crossed=!!S.crossed[cat][it.id];
+      return `<button class="choice ${a[cat]===it.id?'sel':''} ${crossed?'strike':''}" onclick="pick('${cat}','${it.id}')"><span class="lbl">${esc(it.label)}</span></button>`;
+    }).join('');
+    return `<div class="accuse-cat"><div class="catt">${esc(cdef.title)}</div>${choices}</div>`;
+  }).join('');
+  const ready=a.who&&a.what&&a.where;
+  stage.innerHTML=`
+    <button class="btn small" onclick="renderHub()">← Back</button>
+    <div class="eyebrow" style="margin-top:13px">${esc(p.title)}</div>
+    <h2>Name the who, the where, and the what.</h2>
+    <p class="muted" style="max-width:640px">You've secured ${clueCount()} of 9 clues. Cross-read the notepad, then commit to one option per column. Rows you've crossed off appear struck through.</p>
+    <div class="accuse-grid">${cats}</div>
+    <div class="rowbtns"><button class="btn small ghost" onclick="cheatAccuse()">🔧 Cheat · fill correct</button><button class="btn primary" ${ready?'':'disabled'} onclick="resolve()">Deliver the verdict</button></div>`;
+  renderSide();
+}
+function pick(cat,id){ S.accuse[cat]=id; renderAccuse(); }
+function cheatAccuse(){ const p=S.pack; S.accuse={who:p.CATS.who.truth,what:p.CATS.what.truth,where:p.CATS.where.truth}; renderAccuse(); }
+
+/* ---------- RESOLVE ---------- */
+function resolve(){
+  const p=S.pack; const a=S.accuse; const E=p.endings;
+  const tWho=p.CATS.who.truth, tWhat=p.CATS.what.truth, tWhere=p.CATS.where.truth;
+  const correctAll = a.who===tWho && a.what===tWhat && a.where===tWhere;
+  const n=clueCount();
+  const nameOf=(cat)=>{const it=p.CATS[cat].items.find(x=>x.id===a[cat]);return it?it.label:'?';};
+  let title, paras, band;
+  if(correctAll){
+    const tier = n>=8?'expert':(n>=5?'sound':'named');
+    if(tier==='expert'){title=E.win.expertTitle;paras=E.win.expert;}
+    else if(tier==='sound'){title=E.win.soundTitle;paras=E.win.sound;}
+    else {title=E.win.namedTitle;paras=E.win.named;}
+    band=`Solved · ${n}/9 clues · reading tier <strong>${tier}</strong> · credibility ${Math.round(S.credibility)}`;
+  } else if(a.what===E.overclaimWhat){ title=E.overclaim.title; paras=E.overclaim.body; band=`Overclaim · the vivid story over the documented chain · ${n}/9 clues`; }
+  else if(a.what===E.dismissalWhat){ title=E.dismissal.title; paras=E.dismissal.body; band=`Dismissal · you called it chance · ${n}/9 clues`; }
+  else { title=E.wrongNames.title; paras=E.wrongNames.body; band=`Right mechanism, misassigned · ${n}/9 clues`; }
+  const truthLabel=(cat)=>{const id=p.CATS[cat].truth;const it=p.CATS[cat].items.find(x=>x.id===id);return it?it.label:'?';};
+  const colOk=(cat)=>S.accuse[cat]===p.CATS[cat].truth;
+  const nCorrect=CATORDER.filter(colOk).length;
+  const statusCls=correctAll?'solved':'failed';
+  const statusMark=correctAll?'✓':'✗';
+  const statusLabel=correctAll?'Case solved':(nCorrect>0?`Not solved — ${nCorrect} of 3 right`:'Not solved');
+  const statusSub=correctAll?'You named the who, the where, and the what correctly.':'Your accusation does not match the record. The truth is below.';
+  const solutionRows=CATORDER.map(cat=>{
+    const ok=colOk(cat);
+    return `<tr>
+      <td class="cat">${esc(p.CATS[cat].title)}</td>
+      <td class="mine ${ok?'ok':'no'}">${esc(nameOf(cat))}</td>
+      <td class="truth">${esc(truthLabel(cat))}</td>
+      <td class="res">${ok?'<span style="color:var(--good)">✓</span>':'<span style="color:var(--danger)">✗</span>'}</td>
+    </tr>`;
+  }).join('');
+  stage.innerHTML=`
+    <div class="ending">
+      <div class="eyebrow">Verdict — ${esc(p.title)}</div>
+      <div class="result-status ${statusCls}">
+        <span class="rmark">${statusMark}</span>
+        <span><span class="rlabel">${statusLabel}</span><br><span class="rsub">${statusSub}</span></span>
+      </div>
+      <table class="solution-table">
+        <thead><tr><th>Question</th><th>Your accusation</th><th>The truth</th><th></th></tr></thead>
+        <tbody>${solutionRows}</tbody>
+      </table>
+      <div class="verdict-band">${band}</div>
+      <div class="etitle">${title}</div>
+      ${paras.map(t=>`<p>${t}</p>`).join('')}
+      <div class="rowbtns">
+        <button class="btn" onclick="renderArchive()">Re-read the passages</button>
+        <button class="btn primary" onclick="startCase(${S.idx})">Play again</button>
+        <button class="btn" onclick="toSelect()">Another case</button>
+      </div>
+    </div>`;
+  renderSide();
+}
+
+/* boot */
+toSelect();
+</script>
+</body>
+</html>

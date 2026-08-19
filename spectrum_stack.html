@@ -647,7 +647,7 @@
         <div><strong id="roundName">Choose a course chapter</strong></div>
         <div class="round-status">
           <span id="penaltyDisplay" class="penalty-chip">Miss pressure: 0 ms · 0 rows</span>
-          <span id="pieceCount">0 / 15</span>
+          <span id="pieceCount">0 / 12</span>
           <div class="progress-track" aria-hidden="true">
             <div id="progressFill" class="progress-fill"></div>
           </div>
@@ -1121,9 +1121,9 @@
       const width = 10;
       const height = 18;
       const cellSize = 30;
-      const piecesPerRound = 15;
+      const piecesPerRound = 12;
       const wrongPenaltyPerAnswerMs = 30;
-      const pressureRowInterval = 3;
+      const pressureRowInterval = 2;
       const minimumFallDelayMs = 110;
       const pressureRowColor = '#9aa4b2';
 
@@ -1277,7 +1277,7 @@
             <div class="briefing-title">Key information</div>
             <ul>${facts.map(fact => `<li>${fact}</li>`).join('')}</ul>
           </div>
-          <div class="placement-note"><strong>Round pressure:</strong> 15 pieces. Each wrong or unanswered piece adds ${wrongPenaltyPerAnswerMs} ms of falling speed. Every ${pressureRowInterval} misses raises a nearly full row from below.</div>
+          <div class="placement-note"><strong>Round pressure:</strong> 12 pieces. Each wrong or unanswered piece adds ${wrongPenaltyPerAnswerMs} ms of falling speed. Every ${pressureRowInterval} misses raises a nearly full row from below.</div>
           ${roundChoiceHtml(round)}`;
       }
 
@@ -1346,7 +1346,7 @@
         showOverlay({
           eyebrow: 'Navy basic-sailor course',
           title: 'Choose a Spectrum Stack chapter',
-          text: 'Each chapter has two 15-piece rounds. Every round begins with a concise key-information briefing. Wrong or unanswered pieces accelerate the fall, and every third miss raises a pressure row.',
+          text: 'Each chapter has two 12-piece rounds. Every round begins with a concise key-information briefing. Wrong or unanswered pieces accelerate the fall, and every second miss raises a pressure row.',
           content: chapterMenuHtml(),
           buttonText: 'Play all four chapters',
           action: startFullCourse

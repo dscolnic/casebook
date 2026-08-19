@@ -1,0 +1,24 @@
+CASEBOOK V2 — WHAT-HINT DISTRIBUTION
+====================================
+
+The fairness test used here is the V2 rule: each bait is killed by figures attached to at least two different witnesses, and any pair of witnesses contains enough observations to judge the WHAT.
+
+e_quake — What source generated the seismic waves?
+- Explosion bait: Mallet and Gutenberg (Field Tech Odile); Wiechert and Bullen (Duty Officer); Byerly (Clerk).
+- Injection bait: Hanks (Duty Officer); Reid and Cornell (Clerk). A Field Tech + Duty pairing has Hanks; Field Tech + Clerk has Reid/Cornell; Duty + Clerk has both.
+- Truth signature: Kanamori (Field Tech), Hanks (Duty Officer), Byerly/Reid (Clerk): stable double-couple shear, ordinary fault stress release, and alternating first-motion quadrants.
+
+blackout — What made the first line loss become a continent-scale blackout?
+- Malware bait: Coulomb and Clarke (Lineman Ojo); Volta (Operator); Faraday and Wiener (Vendor Engineer).
+- Instability-first bait: Clarke (Lineman Ojo); Dolivo-Dobrovolsky and Concordia (Operator); Heaviside (Vendor Engineer).
+- Truth signature: Clarke’s redistribution, Concordia’s event order, and Wiener’s broken feedback loop span all three witnesses.
+
+c_arch — What exactly is the Cranmoor specimen?
+- Genuine-one-individual bait: Garrod (Lab Tech); Douglass (Foreman); Weiner and Suess (Registrar).
+- Innocent-mixture bait: Petrie/Grahame Clark (Lab Tech); Schliemann/Nelson (Foreman); Wheeler/Weiner (Registrar).
+- Truth signature: incompatible component histories plus purposeful filing/staining and an intrusive recovery pocket are distributed across all three witnesses.
+
+c_art — What is the Halberstadt Panel?
+- Workshop-painting bait: Coremans/Forbes (Conservator); Zeri (Archivist); Gettens/Keating (Framer).
+- Period-imitation bait: Coremans/Forbes (Conservator); Zeri/van Dantzig (Archivist); Gettens/Keating (Framer).
+- Truth signature: original-layer modern material, manufactured provenance, and reverse-side construction order are carried by all three witnesses.

@@ -1,0 +1,13 @@
+CASEBOOK V2 GROUP 1
+===================
+pack_e_quake.js
+pack_blackout.js
+pack_c_arch.js
+pack_c_art.js
+
+Supporting files:
+build_casebook.js
+VALIDATION.txt
+SELF_CHECK.txt
+WHAT_HINT_MATRIX.txt
+CASEBOOK_SPEC_V2.md

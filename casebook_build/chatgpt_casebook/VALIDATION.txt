@@ -1,0 +1,14 @@
+Casebook completed-pack validation
+
+c_fraud: expert-is-longest = 29.6% (16/54) · profiles 261–296 words · exactly 1 expert/question · option spread <=12 · no banned phrases
+c_doping: expert-is-longest = 33.3% (18/54) · profiles 250–260 words · exactly 1 expert/question · option spread <=12 · no banned phrases
+c_script: expert-is-longest = 33.3% (18/54) · profiles 250–283 words · exactly 1 expert/question · option spread <=12 · no banned phrases
+c_psych: expert-is-longest = 33.3% (18/54) · profiles 259–278 words · exactly 1 expert/question · option spread <=12 · no banned phrases
+
+Additional checks passed:
+- Every completed file loads through Node require().
+- 18 topics and 54 questions per pack.
+- Exactly four options per question and one expert verdict.
+- No empty authored strings or arrays remain.
+- Fixed schema, ids, labels, topic maps, places, edges, and characters preserved.
+- Zero repeated six-word runs across authored prose in different packs.

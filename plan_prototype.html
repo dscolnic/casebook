@@ -1,0 +1,167 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Plan — Flood Response</title>
+<style>
+:root{--bg:#07121d;--line:#385b70;--text:#eef7fb;--muted:#afc2cd;--blue:#70c9f2;--steel:#2e77a4;
+  --gold:#efca72;--green:#78d69a;--red:#ff9292;--orange:#f0ad67}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:radial-gradient(circle at 12% 0%,rgba(47,116,164,.28),transparent 31%),linear-gradient(180deg,#05101a,#0a1f30 55%,#05101a)}
+.wrap{max-width:900px;margin:auto;padding:24px 20px 80px}
+.kick{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);font-weight:900}
+h1{font-size:clamp(24px,3.6vw,34px);margin:6px 0 6px;letter-spacing:-.02em}
+.brief{color:#d8e7ef;font-size:15px;line-height:1.6;max-width:740px;margin:0 0 4px}
+.goalbar{border:1px solid #6a5a2a;background:rgba(239,202,114,.10);border-radius:10px;padding:10px 14px;margin:12px 0 4px;font-size:14.5px}
+.goalbar b{color:var(--gold)}
+/* hero objective */
+.hero{border:1px solid var(--line);background:rgba(13,34,51,.95);border-radius:14px;padding:16px 18px;margin:16px 0 10px}
+.hero .lab{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);font-weight:900}
+.hero .row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.hero .big{font-size:44px;font-weight:900;color:var(--green);line-height:1}
+.hero .of{color:var(--muted);font-size:16px}
+.hero .stars{margin-left:auto;font-size:26px;color:var(--gold);letter-spacing:2px}
+.track{position:relative;height:12px;background:#12324a;border:1px solid var(--line);border-radius:7px;margin-top:12px;overflow:visible}
+.track>i{display:block;height:100%;background:var(--green);width:0;border-radius:7px 0 0 7px;transition:width .25s}
+.tick{position:absolute;top:-5px;width:2px;height:22px;background:var(--gold)}
+.tick span{position:absolute;top:-16px;left:-7px;font-size:10px;color:var(--gold);font-family:-apple-system,Helvetica,Arial,sans-serif}
+.res{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
+.res .r{flex:1;min-width:150px;border:1px solid var(--line);background:#0d2233;border-radius:11px;padding:10px 13px}
+.res .rl{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:900}
+.res .rv{font-size:20px;font-weight:900;margin-top:2px}
+.bar{height:7px;background:#12324a;border:1px solid var(--line);border-radius:5px;margin-top:7px;overflow:hidden}
+.bar>i{display:block;height:100%;background:var(--gold);width:0}
+.bar.over>i{background:var(--red)}
+.dots{margin-top:6px;font-size:15px;letter-spacing:3px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:6px}
+.act{border:1px solid var(--line);background:#112b3f;border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:5px}
+.act.on{border-color:var(--green);background:rgba(120,214,154,.09)}
+.act.syn{border-color:var(--gold)}
+.act .top{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.act .nm{font-weight:800;font-size:15px}
+.act .ef{font-family:-apple-system,Helvetica,Arial,sans-serif;font-weight:900;white-space:nowrap}
+.act .ef.pos{color:var(--green)} .act .ef.dim{color:var(--muted)}
+.act .cost{font-size:12px;color:var(--muted);font-family:-apple-system,Helvetica,Arial,sans-serif}
+.act .hint{font-size:12.5px;color:#cfe0ea;line-height:1.42}
+.act .syn-tag{color:var(--gold);font-weight:800}
+.act button{margin-top:3px;align-self:flex-start;font:inherit;font-size:14px;padding:6px 13px;border-radius:8px;border:1px solid var(--ink);cursor:pointer}
+.act .add{background:var(--steel);border-color:#4d95bf;color:#fff;font-weight:700}
+.act .rem{background:#fff;color:#123;border-color:#9db}
+.act button:disabled{opacity:.4;cursor:not-allowed;background:#17354d;color:var(--muted)}
+.act .why{font-size:11.5px;color:var(--orange);font-family:-apple-system,Helvetica,Arial,sans-serif}
+.controls{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.btn{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:15px;padding:11px 20px;border:1px solid #4d95bf;background:#2e77a4;color:#fff;border-radius:9px;cursor:pointer;font-weight:800}
+.btn.ghost{background:#17354d}.btn:disabled{opacity:.4;cursor:not-allowed}
+.reveal{border:1px solid var(--line);background:rgba(13,34,51,.98);border-radius:16px;padding:22px 24px}
+.reveal h2{font-size:26px;margin:2px 0 4px}
+.reveal .stars{font-size:34px;color:var(--gold);letter-spacing:3px;margin:6px 0}
+.pct{font-size:22px;font-weight:900;margin:2px 0}
+.bench{font-size:14px;color:var(--muted);font-family:-apple-system,Helvetica,Arial,sans-serif}
+.opt{border-left:3px solid var(--gold);background:rgba(239,202,114,.08);padding:11px 14px;border-radius:9px;margin:14px 0;font-size:14.5px;line-height:1.55}
+.pm{font-size:14.5px;line-height:1.6;color:#d8e7ef;margin:6px 0}.pm b{color:var(--gold)}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="wrap">
+<div class="kick">The Plan · flood response</div>
+<h1>Spillway</h1>
+<div id="app"></div>
+</div>
+<script>
+const AT_RISK=1000, BUDGET=2000, CREWS=3;
+const ACTIONS=[
+ {id:'spillway',nm:'Open the emergency spillway',cost:150,crews:1,base:120,eff:()=>120,
+   hint:'Diverts the surge. Modest alone — but it makes the sandbag berm far more effective.'},
+ {id:'berm',nm:'Sandbag berm along Riverside',cost:300,crews:1,base:80,eff:s=>s.has('spillway')?340:80,
+   hint:'Holds the river back. Weak while the water surges; strong once the spillway diverts it.'},
+ {id:'levee',nm:'Reinforce the weak levee section',cost:250,crews:1,base:260,eff:()=>260,
+   hint:'Shore up the section most likely to breach. Cheap, one crew, high impact.'},
+ {id:'evac',nm:'Evacuate the low neighborhood',cost:200,crews:1,base:160,eff:s=>s.has('levee')?40:160,
+   hint:'Clear the at-risk homes downstream — the same neighborhood the levee protects.'},
+ {id:'sensors',nm:'Deploy monitoring sensors',cost:100,crews:1,base:70,eff:()=>70,
+   hint:'Early warning buys a little time. Cheap, but low impact on its own.'},
+ {id:'pumps',nm:'Deploy high-capacity pumps',cost:1200,crews:2,base:300,eff:()=>300,
+   hint:'A big single move — but it eats 2 of your 3 crews and most of the budget.'}
+];
+const A=id=>ACTIONS.find(x=>x.id===id);
+const planEffect=set=>[...set].reduce((s,id)=>s+A(id).eff(set),0);
+const planCost=set=>[...set].reduce((s,id)=>s+A(id).cost,0);
+const planCrews=set=>[...set].reduce((s,id)=>s+A(id).crews,0);
+function optimum(){let best={homes:-1,set:new Set()};
+ for(let m=0;m<(1<<ACTIONS.length);m++){const set=new Set(ACTIONS.filter((_,i)=>m&(1<<i)).map(a=>a.id));
+  if(planCost(set)<=BUDGET&&planCrews(set)<=CREWS){const h=planEffect(set); if(h>best.homes)best={homes:h,set};}} return best;}
+function greedy(){const set=new Set();let go=true;
+ while(go){go=false;let bestId=null,bestGain=0;
+  for(const a of ACTIONS){ if(set.has(a.id))continue; if(planCost(set)+a.cost>BUDGET||planCrews(set)+a.crews>CREWS)continue;
+   const gain=planEffect(new Set([...set,a.id]))-planEffect(set); if(gain>bestGain){bestGain=gain;bestId=a.id;} }
+  if(bestId){set.add(bestId);go=true;} } return {homes:planEffect(set),set};}
+const OPT=optimum(), GREEDY=greedy();
+const STARS=[GREEDY.homes+40, Math.round((GREEDY.homes+OPT.homes)/2), OPT.homes];  // ★ beat par · ★★ · ★★★ optimal
+const starsFor=h=>STARS.filter(t=>h>=t).length;
+const st=n=>'★'.repeat(n)+'☆'.repeat(3-n);
+
+const app=document.getElementById('app');
+let sel=new Set();
+
+function render(){
+  const cost=planCost(sel),crews=planCrews(sel),homes=planEffect(sel),stars=starsFor(homes);
+  const ticks=STARS.map((t,i)=>`<div class="tick" style="left:${Math.min(100,100*t/OPT.homes)}%"><span>${'★'.repeat(i+1)}</span></div>`).join('');
+  app.innerHTML=`
+   <p class="brief">A dam upstream is failing; the river crests in six hours. <b>${AT_RISK} homes</b> are at risk.
+   Staff your <b>${CREWS} crews</b> and <b>$${BUDGET}k</b> across the actions below to save as many as you can.
+   The pieces interact — the obvious plan isn't the best one.</p>
+   <div class="goalbar"><b>Objective:</b> maximize homes saved. <b>Par</b> — the standard “grab the biggest actions” plan — saves <b>${GREEDY.homes}</b>. Beat it: <b>★</b> ${STARS[0]} · <b>★★</b> ${STARS[1]} · <b>★★★</b> ${STARS[2]} (the best possible).</div>
+
+   <div class="hero">
+     <div class="lab">Your score — homes saved</div>
+     <div class="row"><span class="big">${homes}</span><span class="of">of ${AT_RISK} · par ${GREEDY.homes}</span><span class="stars">${st(stars)}</span></div>
+     <div class="track"><i style="width:${Math.min(100,100*homes/OPT.homes)}%"></i>${ticks}</div>
+     <div class="res">
+       <div class="r"><div class="rl">Budget spent (limit $${BUDGET}k)</div><div class="rv">$${cost}k</div><div class="bar ${cost>BUDGET?'over':''}"><i style="width:${Math.min(100,100*cost/BUDGET)}%"></i></div></div>
+       <div class="r"><div class="rl">Crews used (limit ${CREWS})</div><div class="rv">${crews} / ${CREWS}</div><div class="dots">${'●'.repeat(crews)}${'○'.repeat(Math.max(0,CREWS-crews))}</div></div>
+     </div>
+   </div>
+
+   <div class="grid">${ACTIONS.map(a=>{
+     const on=sel.has(a.id);
+     const marg = on ? A(a.id).eff(sel) : planEffect(new Set([...sel,a.id]))-homes;   // contribution now, or gain if added
+     const syn = marg!==a.base;
+     const wouldCost=cost+a.cost, wouldCrew=crews+a.crews, blocked=!on&&(wouldCost>BUDGET||wouldCrew>CREWS);
+     const why=blocked?(wouldCrew>CREWS?`needs ${a.crews} crew${a.crews>1?'s':''} (${CREWS-crews} free)`:`over budget by $${wouldCost-BUDGET}k`):'';
+     return `<div class="act ${on?'on':''} ${on&&syn?'syn':''}">
+       <div class="top"><span class="nm">${a.nm}</span><span class="ef ${blocked?'dim':'pos'}">${on?'saving +'+marg:'+'+marg+' if added'}</span></div>
+       <div class="cost">$${a.cost}k · ${a.crews} crew${a.crews>1?'s':''}${on&&syn?` · <span class="syn-tag">synergy active</span>`:''}</div>
+       <div class="hint">${a.hint}</div>
+       ${on?`<button class="rem" data-id="${a.id}">Remove</button>`:`<button class="add" data-id="${a.id}" ${blocked?'disabled':''}>Add</button>`}
+       ${why?`<div class="why">${why}</div>`:''}</div>`;}).join('')}</div>
+
+   <div class="controls"><button class="btn" id="commit" ${sel.size?'':'disabled'}>Lock in the plan →</button>
+     <button class="btn ghost" id="clear" ${sel.size?'':'disabled'}>Clear</button></div>`;
+  app.querySelectorAll('[data-id]').forEach(b=>b.onclick=()=>{const id=b.dataset.id; if(sel.has(id))sel.delete(id);else sel.add(id); render();});
+  const c=document.getElementById('commit'); if(c)c.onclick=reveal;
+  const cl=document.getElementById('clear'); if(cl)cl.onclick=()=>{sel=new Set();render();};
+}
+
+function reveal(){
+  const homes=planEffect(sel), stars=starsFor(homes), pct=Math.round(100*homes/OPT.homes);
+  const tookPumps=sel.has('pumps'), missedSyn=!(sel.has('spillway')&&sel.has('berm')), doubledUp=sel.has('levee')&&sel.has('evac'), optimal=homes===OPT.homes;
+  const pm=[];
+  if(optimal) pm.push('<b>Optimal.</b> You opened the spillway to power up the berm and skipped the splurge — the cheap enabler did the heavy lifting.');
+  else{
+    if(tookPumps) pm.push('The <b>pumps</b> were the biggest single move, but they ate 2 crews and $1,200k for 300 homes — crowding out a combo that saves far more.');
+    if(missedSyn) pm.push('You left the <b>spillway → berm synergy</b> on the table: the berm saves only 80 alone, but <b>340</b> once the spillway diverts the surge — a cheap first move that transforms a later one.');
+    if(doubledUp) pm.push('<b>Evacuation and the levee protect the same neighborhood</b> — paying for both bought you one.');
+    if(!pm.length) pm.push('Close — a different mix of the cheap one-crew actions squeezes out a bit more.');
+  }
+  app.innerHTML=`<div class="reveal">
+    <div class="kick">after-action</div>
+    <h2>You saved ${homes} of ${AT_RISK} homes.</h2>
+    <div class="stars">${st(stars)}</div>
+    <div class="pct">${pct}% of the best possible plan</div>
+    <div class="bench">Par (the standard plan) saves ${GREEDY.homes}. The optimum saves ${OPT.homes}. Stars: ★ ${STARS[0]} · ★★ ${STARS[1]} · ★★★ ${STARS[2]}.</div>
+    <div class="opt"><b>The optimal plan:</b> ${[...OPT.set].map(id=>A(id).nm).join(' · ')} — ${OPT.homes} homes for $${planCost(OPT.set)}k and ${planCrews(OPT.set)} crews.</div>
+    ${pm.map(p=>`<div class="pm">${p}</div>`).join('')}
+    <div class="controls"><button class="btn" id="again">Re-plan</button></div>
+  </div>`;
+  document.getElementById('again').onclick=()=>{sel=new Set();render();};
+}
+render();
+</script></body></html>

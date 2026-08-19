@@ -1,0 +1,16 @@
+[
+  {
+    "id": "nc_naval_innovation",
+    "title": "Naval Innovation Portfolio",
+    "words": [
+      "Radio",
+      "Radar",
+      "Navigation"
+    ],
+    "roundIds": [
+      "nc_fleet_radio_1908",
+      "nc_firecontrol_1940",
+      "nc_navigation_1960"
+    ]
+  }
+]

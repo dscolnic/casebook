@@ -1,0 +1,25 @@
+# Batch 13 — anti-templating and quality audit
+
+- Packs: 13
+- Topics/profiles: 39
+- Questions: 117
+- Answer choices: 468
+- Exact duplicate question stems: 0
+- Exact duplicate answer choices: 0
+- Exact duplicate feedback messages: 0
+- Exact duplicate clue texts: 0
+- Repeated cross-pack 8-word profile passages: 0
+- Expert option positions: 1:30, 2:29, 3:29, 4:29
+- Near-duplicate question stems: 0
+- Near-duplicate profiles: 0
+- Near-duplicate frames: 0
+- Near-duplicate story scenes: 0
+- Near-duplicate feedback messages: 0
+- Near-duplicate clue texts: 0
+- Flagged padding fragments: 0
+- Flagged absolute-word distractor tells: 0
+- Banned authoring phrases: 0
+- Clues repeating the full true candidate label: 0
+- Official V3 validator: 13/13 packs clean
+- Expert-longest ceiling: all packs ≤44%
+- Maximum option-length spread: all questions ≤15 characters

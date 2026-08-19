@@ -1,0 +1,204 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Predict — Dead Zone (prototype)</title>
+<style>
+  :root{
+    --ink:#1a1a1a; --gray:#5b5b5b; --line:#d8d5cf; --paper:#fbfaf7;
+    --accent:#326891; --good:#1a7a4c; --bad:#b02a37; --gold:#9a7b1f; --mut:#f2efe9;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:680px;margin:0 auto;padding:26px 20px 80px}
+  .kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);
+    font-family:-apple-system,Helvetica,Arial,sans-serif}
+  h1{font-size:28px;line-height:1.15;margin:.15em 0 .1em}
+  .sub{color:var(--gray);font-style:italic;margin:0 0 16px}
+  .sans{font-family:-apple-system,Helvetica,Arial,sans-serif}
+
+  /* the bay */
+  .bay{border:1px solid var(--line);background:#fff;padding:14px 16px;margin:14px 0}
+  .row{display:flex;align-items:center;gap:12px;margin:8px 0;font-size:14px}
+  .row .lab{width:78px;flex:none;color:var(--gray);font-family:-apple-system,Helvetica,Arial,sans-serif;
+    font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+  .gauge{flex:1;height:16px;background:var(--mut);border:1px solid var(--line);position:relative;border-radius:3px;overflow:hidden}
+  .gauge>i{display:block;height:100%;width:90%;background:var(--good);transition:width .6s ease,background .6s ease}
+  .o2val{width:120px;flex:none;text-align:right;font-size:13px;color:var(--gray)}
+  .fish{font-size:18px;letter-spacing:3px;transition:opacity .5s}
+  .chip{display:inline-block;font-size:13px;padding:2px 8px;border:1px solid var(--line);border-radius:999px;background:var(--mut)}
+
+  .prog{font-size:12px;color:var(--gray);font-family:-apple-system,Helvetica,Arial,sans-serif;
+    letter-spacing:.06em;text-transform:uppercase;margin-top:6px}
+  .situation{font-size:16px;margin:16px 0 4px}
+  .qq{font-weight:700;font-size:19px;margin:6px 0 12px}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;
+    padding:12px 14px;margin:8px 0;cursor:pointer;font-family:inherit;font-size:16px;border-radius:5px;color:var(--ink);transition:border-color .12s}
+  .opt:hover:not(:disabled){border-color:var(--accent)}
+  .opt:disabled{cursor:default}
+  .opt.correct{border-color:var(--good);background:#f2f8f4}
+  .opt.chosenwrong{border-color:var(--bad);background:#faf2f2}
+  .opt .mk{font-family:-apple-system,Helvetica,Arial,sans-serif;font-weight:700;font-size:13px;margin-right:6px}
+  .opt.correct .mk{color:var(--good)} .opt.chosenwrong .mk{color:var(--bad)}
+
+  .reveal{border-left:3px solid var(--accent);padding:10px 14px;margin:14px 0;font-size:15px;display:none}
+  .reveal.on{display:block}
+  .reveal .out{font-weight:700;margin:0 0 6px}
+  .reveal .fb{color:var(--gray);margin:0}
+  .surprise .out{color:var(--accent)}
+
+  button.act{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:15px;padding:10px 20px;
+    border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;border-radius:4px;margin-top:8px}
+  button.act.go{background:var(--accent);border-color:var(--accent)}
+  button.act.ghost{background:#fff;color:var(--ink)}
+
+  .shape{font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:13px;background:var(--mut);
+    border:1px solid var(--line);padding:9px 11px;margin:12px 0;line-height:1.7}
+  .transfer{font-size:15px;margin:12px 0 0;padding-left:14px;border-left:3px solid var(--accent)}
+  .score{font-size:22px;font-weight:700;margin:.2em 0}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <div class="kicker">Predict · Ecology</div>
+  <h1>Dead Zone</h1>
+  <p class="sub">The fish in this bay will be dead by August. You'll call each move before it happens —
+    then watch the water prove you right or wrong.</p>
+
+  <div class="bay" id="bay">
+    <div class="row"><span class="lab">Oxygen</span>
+      <span class="gauge"><i id="o2bar"></i></span><span class="o2val" id="o2val">Healthy · 90%</span></div>
+    <div class="row"><span class="lab">Algae</span><span class="chip" id="algae">Clear water</span></div>
+    <div class="row"><span class="lab">Sea life</span><span class="fish" id="fish">🐟🐟🐟🐟🐟</span></div>
+  </div>
+
+  <div class="prog" id="prog"></div>
+  <div id="stage"></div>
+</div>
+
+<script>
+const START={o2:90,o2t:"Healthy · 90%",algae:"Clear water",fish:"🐟🐟🐟🐟🐟"};
+
+const BEATS=[
+  { situation:"A calm summer bay. Upstream, heavy rain floods the river with farm runoff — dissolved nitrogen and phosphorus pour toward the coast.",
+    q:"What does that nutrient load do first?",
+    options:[
+      {t:"Feeds an explosion of algae at the surface", ok:true,
+       fb:"Right. Nitrogen and phosphorus are the scarce nutrients that normally cap growth here — flood them in and algae multiply fast."},
+      {t:"Poisons the fish directly", ok:false,
+       fb:"No — fertilizer isn't a fish toxin. The harm is indirect, and still days away. (This is the 'someone dumped poison' trap.)"},
+      {t:"Nothing much — the sea just dilutes it", ok:false,
+       fb:"Tempting, but a shallow, slow-flushing bay lets the nutrients build up instead of dispersing. (The 'nothing's wrong' trap.)"} ],
+    out:"A thick green bloom spreads across the sunlit surface.",
+    state:{o2:90,o2t:"Healthy · 90%",algae:"Surface bloom",fish:"🐟🐟🐟🐟🐟"} },
+
+  { situation:"The bloom is dense and bright green, drinking in the midday sun.",
+    q:"Right now, at noon, what is the dissolved oxygen doing?",
+    surprise:true,
+    options:[
+      {t:"Rising — the algae are adding oxygen", ok:true,
+       fb:"Yes — and this is the surprise. Living algae are plants: in sunlight they photosynthesize and RELEASE oxygen. A bloom is an oxygen source by day."},
+      {t:"Dropping — the algae are using it up", ok:false,
+       fb:"This is what almost everyone bets — and it's the core misconception. A LIVING bloom adds oxygen by day. The debt comes later, after it dies."},
+      {t:"Flat — algae don't move the oxygen much", ok:false,
+       fb:"They move it a lot: producing it by day, consuming some at night. By day the net is a clear rise."} ],
+    out:"Daytime oxygen actually climbs — the water is briefly supersaturated.",
+    state:{o2:100,o2t:"Rising · ~100%",algae:"Dense bloom",fish:"🐟🐟🐟🐟🐟"} },
+
+  { situation:"The bloom thickens into a mat that shades the water below it.",
+    q:"What happens to the algae beneath the surface mat?",
+    options:[
+      {t:"They die — starved of light", ok:true,
+       fb:"Right. Shaded cells can't photosynthesize. They die and sink as dead organic matter."},
+      {t:"They grow faster in the cool shade", ok:false,
+       fb:"No — algae need light to live. Shade starves them."},
+      {t:"They sink but keep living on the bottom", ok:false,
+       fb:"They sink, but with no light they don't survive — it's dead matter that reaches the seabed."} ],
+    out:"Dead algae drift down toward the bottom in a steady rain.",
+    state:{o2:100,o2t:"Rising · ~100%",algae:"Dying, sinking",fish:"🐟🐟🐟🐟🐟"} },
+
+  { situation:"Dead algae pile up on the seabed.",
+    q:"Now — what actually consumes the oxygen down there?",
+    options:[
+      {t:"Bacteria decomposing the dead algae", ok:true,
+       fb:"Exactly. Decomposers swarm the dead matter and use aerobic respiration — which burns dissolved oxygen — to feed."},
+      {t:"The dead algae themselves", ok:false,
+       fb:"Dead algae don't breathe. It's the bacteria feeding on them that draw the oxygen down."},
+      {t:"The bloom above, now that it's huge", ok:false,
+       fb:"Still the misconception — the living bloom adds oxygen. The sink is decomposition on the bottom."} ],
+    out:"Bacteria multiply explosively, and the deep-water oxygen starts to fall — fast.",
+    state:{o2:40,o2t:"Falling · 40%",algae:"Decomposing on bottom",fish:"🐟🐟🐟"} },
+
+  { situation:"Midsummer. A warm surface layer now sits on the cold deep water, and the two no longer mix.",
+    q:"What becomes of the fish and bottom-dwellers?",
+    options:[
+      {t:"They suffocate — a dead zone forms", ok:true,
+       fb:"Yes. Decomposition drains the deep oxygen while the warm surface layer blocks any refill from above. The bottom water goes hypoxic."},
+      {t:"They're fine — the surface still has oxygen", ok:false,
+       fb:"The surface does — but the layers don't mix, so that oxygen never reaches the suffocating bottom."},
+      {t:"They feast on the algae and thrive", ok:false,
+       fb:"No — it's the oxygen collapse, not the food supply, that decides their fate."} ],
+    out:"Deep-water oxygen collapses below survivable levels. Fish flee; bottom-dwellers die. A dead zone.",
+    state:{o2:8,o2t:"Hypoxic · 8%",algae:"Decomposing",fish:"💀"} }
+];
+
+const $=id=>document.getElementById(id);
+let i=0, score=0, picks=[];
+
+function paint(s){
+  $('o2bar').style.width=s.o2+'%';
+  $('o2bar').style.background = s.o2>70?'var(--good)':s.o2>25?'var(--gold)':'var(--bad)';
+  $('o2val').textContent=s.o2t;
+  $('algae').textContent=s.algae;
+  $('fish').textContent=s.fish;
+  $('fish').style.opacity = s.o2<20?.5:1;
+}
+paint(START);
+
+function renderBeat(){
+  const b=BEATS[i];
+  $('prog').textContent='Prediction '+(i+1)+' of '+BEATS.length+'  ·  called right: '+score;
+  let html='<p class="situation">'+b.situation+'</p><p class="qq">'+b.q+'</p><div id="opts">';
+  b.options.forEach((o,k)=>html+='<button class="opt" data-k="'+k+'"><span class="mk"></span>'+o.t+'</button>');
+  html+='</div><div class="reveal'+(b.surprise?' surprise':'')+'" id="rev"></div>';
+  $('stage').innerHTML=html;
+  document.querySelectorAll('#opts .opt').forEach(el=>el.onclick=()=>choose(+el.dataset.k));
+}
+
+function choose(k){
+  const b=BEATS[i], chosen=b.options[k];
+  if(chosen.ok) score++;
+  picks[i]=k;
+  document.querySelectorAll('#opts .opt').forEach((el,idx)=>{
+    el.disabled=true;
+    if(b.options[idx].ok){ el.classList.add('correct'); el.querySelector('.mk').textContent='✓'; }
+    else if(idx===k){ el.classList.add('chosenwrong'); el.querySelector('.mk').textContent='✗'; }
+  });
+  paint(b.state);
+  const rev=$('rev');
+  rev.innerHTML='<p class="out">'+b.out+'</p><p class="fb">'+chosen.fb+'</p>'+
+    '<button class="act '+(i<BEATS.length-1?'go':'')+'" id="next">'+(i<BEATS.length-1?'What happens next →':'See the verdict →')+'</button>';
+  rev.classList.add('on');
+  $('next').onclick=()=>{ i++; if(i<BEATS.length){ renderBeat(); } else { finish(); } };
+  $('prog').textContent='Prediction '+(i+1)+' of '+BEATS.length+'  ·  called right: '+score;
+}
+
+function finish(){
+  const missedBloom = picks[1]!==undefined && !BEATS[1].options[picks[1]].ok;
+  $('prog').textContent='Result';
+  $('stage').innerHTML=
+    '<div class="score">You called '+score+' of '+BEATS.length+' before it happened.</div>'+
+    '<p>'+(score===5?'A clean read of a process almost everyone gets wrong.':
+           score>=3?'Solid — and the one that trips people is the one that teaches the most.':
+           'Most of these run against intuition. That’s the point — now you’ve seen why.')+'</p>'+
+    '<div class="shape">runoff → <b>bloom</b> → <b>oxygen RISES</b> (by day) → die-off → <b>decay</b> → oxygen crash → dead zone</div>'+
+    '<p>'+(missedBloom
+        ? 'You bet the oxygen <b>dropped</b> when the bloom took over. So does nearly everyone — and it’s exactly backwards. A living bloom <b>adds</b> oxygen; the collapse comes only once the algae die and bacteria decompose them.'
+        : 'You resisted the big trap — betting the living bloom drains the oxygen. It doesn’t. The oxygen debt is a story about <b>death and decay</b>, not growth.')+'</p>'+
+    '<p class="transfer">This is the real cascade behind the <b>Gulf of Mexico dead zone</b> — thousands of square miles too low in oxygen for life, every summer, fed by fertilizer washing down the Mississippi.</p>'+
+    '<button class="act ghost" id="again">Play again</button>';
+  $('again').onclick=()=>{ i=0;score=0;picks=[];paint(START);renderBeat(); };
+}
+
+renderBeat();
+</script>

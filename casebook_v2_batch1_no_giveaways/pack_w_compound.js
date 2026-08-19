@@ -1,0 +1,1779 @@
+module.exports = { PACK: {
+  "id": "w_compound",
+  "title": "The Compounding Room",
+  "discipline": "Pharmacy & Sterile Compounding",
+  "teaser": "Patients in several states fell ill after injections from one pharmacy. Did a chemical impurity enter the formula, or did Gram-negative bacteria contaminate it? Cultures must identify the source.",
+  "overclaimTag": "a chemical compounding impurity",
+  "truthTag": "fungal contamination from the clean-room environment",
+  "venue": "the Meridian Compounding inquiry",
+  "agent": {
+    "name": "Investigator Del Marsh",
+    "role": "Investigator's Notepad"
+  },
+  "standingLabel": "Inquiry credibility",
+  "readingShort": "Pioneers",
+  "readingLabel": "Pharmacy Pioneers",
+  "dossierName": "PHARMACY & STERILITY PIONEERS",
+  "enterLabel": "Open the inquiry",
+  "subt": "A deduction game inside the Meridian Compounding inquiry",
+  "DAYS_TOTAL": 5,
+  "boardNarr": "You have ${days} before your inquiry ends. A hop costs a day or two; each stop is one appointment. All three informants move throughout — travel to a location and choose whom to meet.",
+  "placeNarr": "You have arrived. Choose one informant to keep an appointment with. A dossier from the Bureau will reach you on the way in.",
+  "overclaimTease": "Chemical impurity and bacterial endotoxin can both produce sudden clusters; culture identity and batch pattern must decide.",
+  "CATS": {
+    "who": {
+      "title": "Who is behind it",
+      "truth": "owner",
+      "items": [
+        {
+          "id": "pharmacist",
+          "label": "The compounding pharmacist"
+        },
+        {
+          "id": "owner",
+          "label": "Guillory — the pharmacy's owner"
+        },
+        {
+          "id": "inspector",
+          "label": "The state pharmacy inspector"
+        }
+      ]
+    },
+    "where": {
+      "title": "Where it culminates",
+      "truth": "office",
+      "items": [
+        {
+          "id": "cleanroom",
+          "label": "The Clean Room & Autoclave"
+        },
+        {
+          "id": "culture",
+          "label": "The Environmental-Monitoring Lab"
+        },
+        {
+          "id": "office",
+          "label": "The Owner's Business Office"
+        }
+      ]
+    },
+    "what": {
+      "title": "What contaminated the injections?",
+      "truth": "sterility",
+      "items": [
+        {
+          "id": "poison",
+          "label": "A chemical impurity entered during inaccurate ingredient compounding."
+        },
+        {
+          "id": "coincidence",
+          "label": "Gram-negative bacteria produced an endotoxin-rich bloodstream outbreak."
+        },
+        {
+          "id": "sterility",
+          "label": "Environmental mold caused fungal contamination across batches."
+        }
+      ]
+    }
+  },
+  "PLACES": {
+    "cleanroom": {
+      "name": "The Clean Room & Autoclave",
+      "xy": [
+        140,
+        90
+      ]
+    },
+    "culture": {
+      "name": "The Environmental-Monitoring Lab",
+      "xy": [
+        330,
+        240
+      ]
+    },
+    "office": {
+      "name": "The Owner's Business Office",
+      "xy": [
+        520,
+        90
+      ]
+    }
+  },
+  "EDGES": [
+    [
+      "cleanroom",
+      "culture"
+    ],
+    [
+      "culture",
+      "office"
+    ]
+  ],
+  "CHARACTERS": {
+    "tech": {
+      "name": "Pharmacy Tech Ruiz",
+      "role": "Compounding technician",
+      "face": "⚗",
+      "badge": "T",
+      "legend": "the clean room",
+      "hint": "Knows batch flow and can identify who worked in each room and where materials moved."
+    },
+    "micro": {
+      "name": "The Micro Analyst",
+      "role": "Environmental-monitoring analyst",
+      "face": "🧫",
+      "badge": "M",
+      "legend": "the lab",
+      "hint": "Maintains environmental samples and can trace analysts, plates, and laboratory locations."
+    },
+    "clerk": {
+      "name": "The Clerk",
+      "role": "Records clerk",
+      "face": "🗂",
+      "badge": "C",
+      "legend": "the office",
+      "hint": "Holds production schedules, ownership decisions, and regulatory correspondence for the pharmacy."
+    }
+  },
+  "TOPICMAP": {
+    "cleanroom": {
+      "tech": [
+        "materiamedica",
+        "canon"
+      ],
+      "micro": [
+        "dose",
+        "morphine"
+      ],
+      "clerk": [
+        "pharmacy",
+        "purity"
+      ]
+    },
+    "culture": {
+      "tech": [
+        "germtheory",
+        "tyndall"
+      ],
+      "micro": [
+        "spores",
+        "autoclave"
+      ],
+      "clerk": [
+        "mycology",
+        "fungi"
+      ]
+    },
+    "office": {
+      "tech": [
+        "magicbullet",
+        "purefood"
+      ],
+      "micro": [
+        "standardization",
+        "medmycology"
+      ],
+      "clerk": [
+        "mycoses",
+        "biologics"
+      ]
+    }
+  },
+  "TOPICS": {
+    "materiamedica": {
+      "sci": "Galen (c.129-216)",
+      "topic": "Materia medica & compounding",
+      "lede": "Galen made materia medica and compounding part of the controlled path from ingredients to sterile medicine.",
+      "no": 1,
+      "profile": "Today’s pharmacy memorandum follows Galen into materia medica and compounding. Galen systematized ancient materia medica and prepared complex remedies by mixing plant, mineral, and animal ingredients. The tradition of 'galenical' pharmacy preserved methods of extraction and compounding for centuries, though many theories behind the remedies were incorrect. Sterile compounding combines drug identity, dose, environment, technique, equipment, and release testing. Galen’s contribution illuminates one control that separates a prepared medicine from a reliably prepared medicine.\n\nThe production discipline is to record ingredients, preparation, dose, and intended use so a compound can be reproduced and evaluated. Batch records, cleaning, personnel qualification, air control, sterilizer cycles, environmental cultures, hold times, and deviations must be reviewed before distribution.\n\nMicrobial contamination is often sparse and uneven, so a few passing samples cannot prove every vial sterile. Process validation supplies the assurance that end-product testing cannot. Shortened cycles or ignored plates weaken that assurance even if many patients remain well.\n\nThe compounding principle: compounding skill does not guarantee purity, sterility, or therapeutic value. Sterility is the demonstrated result of a controlled process, never an assumption attached to a clear solution. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release. Production volume is not evidence that the clean room remains in control. Personnel monitoring and media-fill simulations test whether routine manipulations preserve asepsis under realistic conditions. A positive environmental result requires organism identification, spatial review, product impact assessment, and documented closure. Beyond-use dates depend on formulation, container, storage, and validated process rather than business demand.",
+      "frame": "Pharmacy Tech Ruiz checks a settle plate at The Clean Room & Autoclave. \"One colony can be a warning, not a rounding error. Explain materia medica and compounding.\"",
+      "q": [
+        {
+          "q": "Which pharmacy-science explanation best captures Galen’s work on materia medica and compounding?",
+          "o": [
+            {
+              "t": "Galen systematized ancient materia medica and prepared complex remedies by mixing plant, mineral, and animal ingredients. Sterility assurance stays process-based. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Galen's compounding work emphasizes the formula. The formula appears correct. Production urgency supports the choice. Compounding practice makes the compounding view plausible.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Galen's compounding work supports a clear particle-free injection as strong evidence that the batch is sterile. Compounding practice makes the compounding view plausible.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Galen's compounding authority supports releasing product after failed monitoring because contamination may affect a limited portion of the batch. The compounding record fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "Which control best supports release of a sterile compounded product?",
+          "o": [
+            {
+              "t": "Use this sterile-production control: record ingredients, preparation, dose, and intended use so a compound can be reproduced and evaluated. The batch remains reconstructable. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Test several finished vials and review the formula while treating shortened cycles and positive environmental plates as separate deviations. The formula appears correct. Compounding fits.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat a passing sterility sample as representative of an unevenly contaminated production batch. Production urgency supports the choice. Compounding practice makes the compounding view plausible.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Increase output by shortening validated steps, waive the deviation, and investigate after patients become ill. Sampled vials remain clear. End testing offers direct evidence. Compounding fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "What rule should govern sterile compounding?",
+          "o": [
+            {
+              "t": "The pharmacy lesson is that compounding skill does not guarantee purity, sterility, or therapeutic value. Sterility assurance stays process-based. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Use end-product testing to compensate for occasional environmental and process-control failures during urgent production. Sampled vials remain clear. Compounding fits.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat correct potency and labeling as sufficient evidence that an injectable product is also microbiologically safe. Sampled vials remain clear. Compounding fits.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Attribute the illnesses mainly to deliberate poisoning or coincidence rather than a production-control failure. Compounding timing supports this compounding claim.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        }
+      ]
+    },
+    "canon": {
+      "sci": "Avicenna — Ibn Sina (980-1037)",
+      "topic": "The pharmacopoeia",
+      "lede": "The compounding bench became more accountable through Avicenna — Ibn Sina’s work on the pharmacopoeia.",
+      "no": 2,
+      "profile": "Today’s pharmacy memorandum follows Avicenna — Ibn Sina into the pharmacopoeia. Avicenna's Canon of Medicine organized drugs by properties, preparation, and therapeutic use and described principles for testing remedies. The work became a major medical reference across the Islamic world and Europe. Sterile compounding combines drug identity, dose, environment, technique, equipment, and release testing. Sina’s contribution illuminates one control that separates a prepared medicine from a reliably prepared medicine.\n\nThe production discipline is to evaluate a medicine through consistent preparation, dose, comparison, and observed effect. Batch records, cleaning, personnel qualification, air control, sterilizer cycles, environmental cultures, hold times, and deviations must be reviewed before distribution.\n\nMicrobial contamination is often sparse and uneven, so a few passing samples cannot prove every vial sterile. Process validation supplies the assurance that end-product testing cannot. Shortened cycles or ignored plates weaken that assurance even if many patients remain well.\n\nThe compounding principle: a pharmacopoeia is useful when recipes and standards are explicit rather than secret. Sterility is the demonstrated result of a controlled process, never an assumption attached to a clear solution. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release. Production volume is not evidence that the clean room remains in control. Personnel monitoring and media-fill simulations test whether routine manipulations preserve asepsis under realistic conditions. A positive environmental result requires organism identification, spatial review, product impact assessment, and documented closure. Beyond-use dates depend on formulation, container, storage, and validated process rather than business demand. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release.",
+      "frame": "Pharmacy Tech Ruiz opens an autoclave printout. \"The cycle ended; validation is another question. Show me the pharmacopoeia.\"",
+      "q": [
+        {
+          "q": "Which pharmacy-science explanation best captures Avicenna — Ibn Sina’s work on the pharmacopoeia?",
+          "o": [
+            {
+              "t": "Avicenna's Canon of Medicine organized drugs by properties, preparation, and therapeutic use and described principles for testing remedies. Environmental results remain tied to batch release. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Avicenna — Ibn Sina's compounding work emphasizes the formula. Production urgency supports the choice. Compounding practice makes the compounding view plausible. Compounding timing supports this compounding claim.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Avicenna — Ibn Sina's compounding work is read within compounding practice as support for a clear particle-free injection as strong evidence that the batch is sterile. End testing offers direct evidence. Compounding fits.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Avicenna — Ibn Sina's authority is invoked in compounding practice to justify releasing product after failed monitoring because contamination may affect a limited portion of the batch. Compounding fits. Context fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "Which control best supports release of a sterile compounded product?",
+          "o": [
+            {
+              "t": "Use this sterile-production control: evaluate a medicine through consistent preparation, dose, comparison, and observed effect. Environmental results remain tied to batch release.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Test several finished vials and review the formula while treating shortened cycles and positive environmental plates as separate deviations. Compounding records fit this compounding account.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat a passing sterility sample as representative of an unevenly contaminated production batch. Sampled vials remain clear. The formula appears correct. End testing offers direct evidence.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Increase output by shortening validated steps, waive the deviation, and investigate after patients become ill. Sampled vials remain clear. Compounding timing supports this compounding claim.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "What rule should govern sterile compounding?",
+          "o": [
+            {
+              "t": "The pharmacy lesson is that a pharmacopoeia is useful when recipes and standards are explicit rather than secret.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Use end-product testing to compensate for occasional environmental and process-control failures during urgent production.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat correct potency and labeling as sufficient evidence that an injectable product is also microbiologically safe.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Attribute the illnesses mainly to deliberate poisoning or coincidence rather than a production-control failure.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        }
+      ]
+    },
+    "dose": {
+      "sci": "William Withering (1741-1799)",
+      "topic": "Dosage & the therapeutic dose",
+      "lede": "William Withering used dosage and the therapeutic dose to separate a prepared drug from a validated product.",
+      "no": 3,
+      "profile": "Today’s pharmacy memorandum follows William Withering into dosage and the therapeutic dose. William Withering studied foxglove as a treatment for dropsy and carefully described preparation, dosing, benefits, and toxic effects. He recognized that the therapeutic effect depended on finding a narrow range between too little and too much. Sterile compounding combines drug identity, dose, environment, technique, equipment, and release testing. Withering’s contribution illuminates one control that separates a prepared medicine from a reliably prepared medicine.\n\nThe production discipline is to titrate dose against response and stop or adjust when characteristic toxicity appears. Batch records, cleaning, personnel qualification, air control, sterilizer cycles, environmental cultures, hold times, and deviations must be reviewed before distribution.\n\nMicrobial contamination is often sparse and uneven, so a few passing samples cannot prove every vial sterile. Process validation supplies the assurance that end-product testing cannot. Shortened cycles or ignored plates weaken that assurance even if many patients remain well.\n\nThe compounding principle: the same substance can be medicine or poison according to dose and control. Sterility is the demonstrated result of a controlled process, never an assumption attached to a clear solution. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release. Production volume is not evidence that the clean room remains in control. Personnel monitoring and media-fill simulations test whether routine manipulations preserve asepsis under realistic conditions. A positive environmental result requires organism identification, spatial review, product impact assessment, and documented closure. Beyond-use dates depend on formulation, container, storage, and validated process rather than business demand.",
+      "frame": "The Micro Analyst holds a released batch record. \"Clear liquid hides its process. Begin with dosage and the therapeutic dose.\"",
+      "q": [
+        {
+          "q": "Which pharmacy-science explanation best captures William Withering’s work on dosage and the therapeutic dose?",
+          "o": [
+            {
+              "t": "William Withering studied foxglove as a treatment for dropsy and carefully described preparation, dosing, benefits, and toxic effects. Sterility assurance stays process-based. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "William Withering's compounding work relies on the formula. End testing offers direct evidence. Compounding records fit this compounding account. Compounding timing supports this compounding claim.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "William Withering's compounding work supports a clear particle-free injection as strong evidence that the batch is sterile. Compounding practice makes the compounding view plausible. Compounding fits.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "William Withering's compounding authority supports releasing product after failed monitoring because contamination may affect a limited portion of the batch. The compounding record fits. Compounding fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "Which control best supports release of a sterile compounded product?",
+          "o": [
+            {
+              "t": "Use this sterile-production control: titrate dose against response and stop or adjust when characteristic toxicity appears. The batch remains reconstructable. Compounding fits. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Test several finished vials and review the formula while treating shortened cycles and positive environmental plates as separate deviations. Sampled vials remain clear. Compounding fits.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat a passing sterility sample as representative of an unevenly contaminated production batch. The formula appears correct. Compounding records fit this compounding account. Compounding fits.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Increase output by shortening validated steps, waive the deviation, and investigate after patients become ill. Compounding practice makes the compounding view plausible. The compounding record fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "What rule should govern sterile compounding?",
+          "o": [
+            {
+              "t": "The pharmacy lesson is that the same substance can be medicine or poison according to dose and control. Sterility assurance stays process-based. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Use end-product testing to compensate for occasional environmental and process-control failures during urgent production. Sampled vials remain clear. Compounding fits.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat correct potency and labeling as sufficient evidence that an injectable product is also microbiologically safe. Sampled vials remain clear. Compounding fits.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Attribute the illnesses mainly to deliberate poisoning or coincidence rather than a production-control failure. Compounding records fit this compounding account.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        }
+      ]
+    },
+    "morphine": {
+      "sci": "Friedrich Sertürner (1783-1841)",
+      "topic": "Morphine & alkaloid purity",
+      "lede": "Friedrich Sertürner made morphine and alkaloid purity part of the controlled path from ingredients to sterile medicine.",
+      "no": 4,
+      "profile": "Today’s pharmacy memorandum follows Friedrich Sertürner into morphine and alkaloid purity. Friedrich Sertürner isolated morphine from opium, helping establish alkaloids as distinct active chemical substances. Isolation made potency more concentrated and reproducible than crude opium, while also making overdose risk more direct. Sterile compounding combines drug identity, dose, environment, technique, equipment, and release testing. Sertürner’s contribution illuminates one control that separates a prepared medicine from a reliably prepared medicine.\n\nThe production discipline is to identify and assay the active ingredient rather than assuming equal strength across crude preparations. Batch records, cleaning, personnel qualification, air control, sterilizer cycles, environmental cultures, hold times, and deviations must be reviewed before distribution.\n\nMicrobial contamination is often sparse and uneven, so a few passing samples cannot prove every vial sterile. Process validation supplies the assurance that end-product testing cannot. Shortened cycles or ignored plates weaken that assurance even if many patients remain well.\n\nThe compounding principle: purity improves dosing only when concentration and labeling are controlled. Sterility is the demonstrated result of a controlled process, never an assumption attached to a clear solution. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release. Production volume is not evidence that the clean room remains in control. Personnel monitoring and media-fill simulations test whether routine manipulations preserve asepsis under realistic conditions. A positive environmental result requires organism identification, spatial review, product impact assessment, and documented closure. Beyond-use dates depend on formulation, container, storage, and validated process rather than business demand. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release.",
+      "frame": "The Micro Analyst checks a settle plate at The Clean Room & Autoclave. \"One colony can be a warning, not a rounding error. Explain morphine and alkaloid purity.\"",
+      "q": [
+        {
+          "q": "Which pharmacy-science explanation best captures Friedrich Sertürner’s work on morphine and alkaloid purity?",
+          "o": [
+            {
+              "t": "Friedrich Sertürner isolated morphine from opium, helping establish alkaloids as distinct active chemical substances. Sterilizer validation stays linked to each load pattern. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Friedrich Sertürner's compounding work emphasizes the formula. The formula appears correct. Production urgency supports the choice. Compounding timing supports this compounding claim.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Friedrich Sertürner's compounding work supports a clear particle-free injection as strong evidence that the batch is sterile. Compounding practice makes the compounding view plausible.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Friedrich Sertürner's compounding authority supports releasing product after failed monitoring because contamination may affect a limited portion of the batch. The compounding record fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "Which control best supports release of a sterile compounded product?",
+          "o": [
+            {
+              "t": "Use this sterile-production control: identify and assay the active ingredient rather than assuming equal strength across crude preparations. The batch remains reconstructable. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Test several finished vials and review the formula while treating shortened cycles and positive environmental plates as separate deviations. End testing offers direct evidence. Compounding fits.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat a passing sterility sample as representative of an unevenly contaminated production batch. Production urgency supports the choice. Compounding practice makes the compounding view plausible.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Increase output by shortening validated steps, waive the deviation, and investigate after patients become ill. Sampled vials remain clear. End testing offers direct evidence. Compounding fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "What rule should govern sterile compounding?",
+          "o": [
+            {
+              "t": "The pharmacy lesson is that purity improves dosing only when concentration and labeling are controlled. Sterility assurance stays process-based. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Use end-product testing to compensate for occasional environmental and process-control failures during urgent production. Sampled vials remain clear. Compounding fits.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat correct potency and labeling as sufficient evidence that an injectable product is also microbiologically safe. Sampled vials remain clear. Compounding fits.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Attribute the illnesses mainly to deliberate poisoning or coincidence rather than a production-control failure. Compounding records fit this compounding account.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        }
+      ]
+    },
+    "pharmacy": {
+      "sci": "William Procter Jr. (1817-1874)",
+      "topic": "The founding of pharmacy practice",
+      "lede": "The compounding bench became more accountable through William Procter Jr.’s work on the founding of pharmacy practice.",
+      "no": 5,
+      "profile": "Today’s pharmacy memorandum follows William Procter Jr. into the founding of pharmacy practice. William Procter Jr. helped professionalize pharmacy in the United States through education, writing, and the American Pharmaceutical Association. He promoted scientific preparation, standards, and a distinct professional responsibility for medicines. Sterile compounding combines drug identity, dose, environment, technique, equipment, and release testing. Jr’s contribution illuminates one control that separates a prepared medicine from a reliably prepared medicine.\n\nThe production discipline is to use written formulas, trained personnel, and independent checks for preparation and release. Batch records, cleaning, personnel qualification, air control, sterilizer cycles, environmental cultures, hold times, and deviations must be reviewed before distribution.\n\nMicrobial contamination is often sparse and uneven, so a few passing samples cannot prove every vial sterile. Process validation supplies the assurance that end-product testing cannot. Shortened cycles or ignored plates weaken that assurance even if many patients remain well.\n\nThe compounding principle: pharmacy practice is a system of accountability, not merely a craft at the bench. Sterility is the demonstrated result of a controlled process, never an assumption attached to a clear solution. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release. Production volume is not evidence that the clean room remains in control. Personnel monitoring and media-fill simulations test whether routine manipulations preserve asepsis under realistic conditions. A positive environmental result requires organism identification, spatial review, product impact assessment, and documented closure. Beyond-use dates depend on formulation, container, storage, and validated process rather than business demand.",
+      "frame": "The Clerk opens an autoclave printout. \"The cycle ended; validation is another question. Show me the founding of pharmacy practice.\"",
+      "q": [
+        {
+          "q": "Which pharmacy-science explanation best captures William Procter Jr.’s work on the founding of pharmacy practice?",
+          "o": [
+            {
+              "t": "William Procter Jr. Sterility assurance stays process-based. Sterilizer validation stays linked to each load pattern. Deviation authority can be reconstructed from the record. Compounding fits. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "William Procter Jr.'s compounding work emphasizes the formula. The formula appears correct. Compounding practice makes the compounding view plausible. Compounding timing supports this compounding claim.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "William Procter Jr.'s compounding work supports a clear particle-free injection as strong evidence that the batch is sterile. Compounding practice makes the compounding view plausible. Compounding fits.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "William Procter Jr.'s compounding authority supports releasing product after failed monitoring because contamination may affect a limited portion of the batch. The compounding record fits. Compounding fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "Which control best supports release of a sterile compounded product?",
+          "o": [
+            {
+              "t": "Use this sterile-production control: use written formulas, trained personnel, and independent checks for preparation and release. Sterility assurance stays process-based. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Test several finished vials and review the formula while treating shortened cycles and positive environmental plates as separate deviations. Sampled vials remain clear. Compounding fits.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat a passing sterility sample as representative of an unevenly contaminated production batch. Compounding context supports the view. Compounding timing supports this compounding claim.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Increase output by shortening validated steps, waive the deviation, and investigate after patients become ill. Sampled vials remain clear. The formula appears correct. Compounding fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "What rule should govern sterile compounding?",
+          "o": [
+            {
+              "t": "The pharmacy lesson is that pharmacy practice is a system of accountability, not merely a craft at the bench.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Use end-product testing to compensate for occasional environmental and process-control failures during urgent production.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat correct potency and labeling as sufficient evidence that an injectable product is also microbiologically safe.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Attribute the illnesses mainly to deliberate poisoning or coincidence rather than a production-control failure.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        }
+      ]
+    },
+    "purity": {
+      "sci": "Edward R. Squibb (1819-1900)",
+      "topic": "Drug-purity standards",
+      "lede": "Edward R. Squibb used drug-purity standards to separate a prepared drug from a validated product.",
+      "no": 6,
+      "profile": "Today’s pharmacy memorandum follows Edward R. Squibb into drug-purity standards. Edward R. Squibb manufactured ether and other medicines with unusually strict standards and criticized adulterated, inconsistent products. He advocated reliable formulas, testing, and public standards. Sterile compounding combines drug identity, dose, environment, technique, equipment, and release testing. Squibb’s contribution illuminates one control that separates a prepared medicine from a reliably prepared medicine.\n\nThe production discipline is to specify identity, strength, purity, and test methods before a batch is accepted. Batch records, cleaning, personnel qualification, air control, sterilizer cycles, environmental cultures, hold times, and deviations must be reviewed before distribution.\n\nMicrobial contamination is often sparse and uneven, so a few passing samples cannot prove every vial sterile. Process validation supplies the assurance that end-product testing cannot. Shortened cycles or ignored plates weaken that assurance even if many patients remain well.\n\nThe compounding principle: commercial pressure cannot define quality more safely than measurement does. Sterility is the demonstrated result of a controlled process, never an assumption attached to a clear solution. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release. Production volume is not evidence that the clean room remains in control. Personnel monitoring and media-fill simulations test whether routine manipulations preserve asepsis under realistic conditions. A positive environmental result requires organism identification, spatial review, product impact assessment, and documented closure. Beyond-use dates depend on formulation, container, storage, and validated process rather than business demand. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release.\n\nSquibb's insistence on drug purity supplies the chemical-impurity test. Wrong concentration, degraded ingredient, solvent residue, or substituted material should be detectable by potency and chemical assays, often with a consistent relation to formulation records. Such defects do not multiply during incubation or produce matching colonies from environmental samples. When retained vials grow the same organism found in the facility, chemistry alone cannot explain the outbreak.",
+      "frame": "The Clerk holds a released batch record. \"Clear liquid hides its process. Begin with drug-purity standards.\"",
+      "q": [
+        {
+          "q": "Which pharmacy-science explanation best captures Edward R. Squibb’s work on drug-purity standards?",
+          "o": [
+            {
+              "t": "Edward R. The batch remains reconstructable. Sterility assurance stays process-based. Environmental results remain tied to batch release. Sterilizer validation stays linked to each load pattern.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Edward R. Squibb's compounding work relies on the formula. Sampled vials remain clear. The formula appears correct. End testing offers direct evidence. Compounding timing supports this compounding claim.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Edward R. Squibb's compounding work supports a clear particle-free injection as strong evidence that the batch is sterile. The formula appears correct. Compounding timing supports this compounding claim.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Edward R. Squibb's compounding authority supports releasing product after failed monitoring because contamination may affect a limited portion of the batch. The formula appears correct. Compounding fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "Which control best supports release of a sterile compounded product?",
+          "o": [
+            {
+              "t": "Use this sterile-production control: specify identity, strength, purity, and test methods before a batch is accepted. The batch remains reconstructable. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Test several finished vials and review the formula while treating shortened cycles and positive environmental plates as separate deviations. The compounding record fits.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat a passing sterility sample as representative of an unevenly contaminated production batch. Sampled vials remain clear. The formula appears correct. Compounding fits.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Increase output by shortening validated steps, waive the deviation, and investigate after patients become ill. Production urgency supports the choice. Compounding fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "What rule should govern sterile compounding?",
+          "o": [
+            {
+              "t": "The pharmacy lesson is that commercial pressure cannot define quality more safely than measurement does. Sterility assurance stays process-based. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Use end-product testing to compensate for occasional environmental and process-control failures during urgent production. Sampled vials remain clear. Compounding fits.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat correct potency and labeling as sufficient evidence that an injectable product is also microbiologically safe. Sampled vials remain clear. Compounding fits.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Attribute the illnesses mainly to deliberate poisoning or coincidence rather than a production-control failure. Compounding timing supports this compounding claim.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        }
+      ]
+    },
+    "germtheory": {
+      "sci": "Louis Pasteur (1822-1895)",
+      "topic": "Germ theory & sterilization",
+      "lede": "Louis Pasteur made germ theory and sterilization part of the controlled path from ingredients to sterile medicine.",
+      "no": 7,
+      "profile": "Today’s pharmacy memorandum follows Louis Pasteur into germ theory and sterilization. Louis Pasteur demonstrated that microorganisms drive fermentation and spoilage and showed that contamination came from the environment rather than spontaneous generation. Heat treatment and exclusion of microbes became rational tools for prevention. Sterile compounding combines drug identity, dose, environment, technique, equipment, and release testing. Pasteur’s contribution illuminates one control that separates a prepared medicine from a reliably prepared medicine.\n\nThe production discipline is to control exposure, compare sterilized and unsterilized material, and trace growth to contamination. Batch records, cleaning, personnel qualification, air control, sterilizer cycles, environmental cultures, hold times, and deviations must be reviewed before distribution.\n\nMicrobial contamination is often sparse and uneven, so a few passing samples cannot prove every vial sterile. Process validation supplies the assurance that end-product testing cannot. Shortened cycles or ignored plates weaken that assurance even if many patients remain well.\n\nThe compounding principle: sterility requires preventing entry as well as killing organisms already present. Sterility is the demonstrated result of a controlled process, never an assumption attached to a clear solution. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release. Production volume is not evidence that the clean room remains in control. Personnel monitoring and media-fill simulations test whether routine manipulations preserve asepsis under realistic conditions. A positive environmental result requires organism identification, spatial review, product impact assessment, and documented closure. Beyond-use dates depend on formulation, container, storage, and validated process rather than business demand. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release.",
+      "frame": "Pharmacy Tech Ruiz checks a settle plate at The Environmental-Monitoring Lab. \"One colony can be a warning, not a rounding error. Explain germ theory and sterilization.\"",
+      "q": [
+        {
+          "q": "Which pharmacy-science explanation best captures Louis Pasteur’s work on germ theory and sterilization?",
+          "o": [
+            {
+              "t": "Louis Pasteur demonstrated that microorganisms drive fermentation and spoilage and showed that contamination came from the environment rather than spontaneous generation. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Louis Pasteur's compounding work emphasizes the formula. The formula appears correct. Production urgency supports the choice. Compounding practice makes the compounding view plausible.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Louis Pasteur's compounding work supports a clear particle-free injection as strong evidence that the batch is sterile. Compounding practice makes the compounding view plausible.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Louis Pasteur's compounding authority supports releasing product after failed monitoring because contamination may affect a limited portion of the batch. The compounding record fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "Which control best supports release of a sterile compounded product?",
+          "o": [
+            {
+              "t": "Use this sterile-production control: control exposure, compare sterilized and unsterilized material, and trace growth to contamination. The batch remains reconstructable. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Test several finished vials and review the formula while treating shortened cycles and positive environmental plates as separate deviations. Sampled vials remain clear. Compounding fits.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat a passing sterility sample as representative of an unevenly contaminated production batch. Compounding context supports the view. Compounding timing supports this compounding claim.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Increase output by shortening validated steps, waive the deviation, and investigate after patients become ill. Sampled vials remain clear. The formula appears correct. Compounding fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "What rule should govern sterile compounding?",
+          "o": [
+            {
+              "t": "The pharmacy lesson is that sterility requires preventing entry as well as killing organisms already present.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Use end-product testing to compensate for occasional environmental and process-control failures during urgent production.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat correct potency and labeling as sufficient evidence that an injectable product is also microbiologically safe.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Attribute the illnesses mainly to deliberate poisoning or coincidence rather than a production-control failure.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        }
+      ]
+    },
+    "tyndall": {
+      "sci": "John Tyndall (1820-1893)",
+      "topic": "Tyndallization & heat-resistant spores",
+      "lede": "The compounding bench became more accountable through John Tyndall’s work on tyndallization and heat-resistant spores.",
+      "no": 8,
+      "profile": "Today’s pharmacy memorandum follows John Tyndall into tyndallization and heat-resistant spores. John Tyndall showed that some microbial forms survive ordinary boiling and that repeated heating separated by incubation could eliminate them. The process called tyndallization addressed heat-resistant spores before autoclaves became standard. Sterile compounding combines drug identity, dose, environment, technique, equipment, and release testing. Tyndall’s contribution illuminates one control that separates a prepared medicine from a reliably prepared medicine.\n\nThe production discipline is to design a sterilization cycle around the most resistant organism and the material's heat penetration. Batch records, cleaning, personnel qualification, air control, sterilizer cycles, environmental cultures, hold times, and deviations must be reviewed before distribution.\n\nMicrobial contamination is often sparse and uneven, so a few passing samples cannot prove every vial sterile. Process validation supplies the assurance that end-product testing cannot. Shortened cycles or ignored plates weaken that assurance even if many patients remain well.\n\nThe compounding principle: a short successful cycle on easy organisms does not validate sterility. Sterility is the demonstrated result of a controlled process, never an assumption attached to a clear solution. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release. Production volume is not evidence that the clean room remains in control. Personnel monitoring and media-fill simulations test whether routine manipulations preserve asepsis under realistic conditions. A positive environmental result requires organism identification, spatial review, product impact assessment, and documented closure. Beyond-use dates depend on formulation, container, storage, and validated process rather than business demand.",
+      "frame": "Pharmacy Tech Ruiz opens an autoclave printout. \"The cycle ended; validation is another question. Show me tyndallization and heat-resistant spores.\"",
+      "q": [
+        {
+          "q": "Which pharmacy-science explanation best captures John Tyndall’s work on tyndallization and heat-resistant spores?",
+          "o": [
+            {
+              "t": "John Tyndall showed that some microbial forms survive ordinary boiling and that repeated heating separated by incubation could eliminate them. Sterility assurance stays process-based. Compounding fits. Fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "John Tyndall's compounding work emphasizes the formula. Production urgency supports the choice. Compounding practice makes the compounding view plausible. Compounding timing supports this compounding claim.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "John Tyndall's compounding work is read within compounding practice as support for a clear particle-free injection as strong evidence that the batch is sterile. End testing offers direct evidence. Compounding fits.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "John Tyndall's authority is invoked in compounding practice to justify releasing product after failed monitoring because contamination may affect a limited portion of the batch. Compounding fits. Context fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "Which control best supports release of a sterile compounded product?",
+          "o": [
+            {
+              "t": "Use this sterile-production control: design a sterilization cycle around the most resistant organism and the material's heat penetration. The batch remains reconstructable. Compounding fits. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Test several finished vials and review the formula while treating shortened cycles and positive environmental plates as separate deviations. The formula appears correct. Compounding fits. Compounding fits.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat a passing sterility sample as representative of an unevenly contaminated production batch. Compounding practice makes the compounding view plausible. Compounding timing supports this compounding claim.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Increase output by shortening validated steps, waive the deviation, and investigate after patients become ill. Sampled vials remain clear. The formula appears correct. Compounding fits. Compounding fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "What rule should govern sterile compounding?",
+          "o": [
+            {
+              "t": "The pharmacy lesson is that a short successful cycle on easy organisms does not validate sterility. Environmental results remain tied to batch release. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Use end-product testing to compensate for occasional environmental and process-control failures during urgent production. Sampled vials remain clear. Compounding fits.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat correct potency and labeling as sufficient evidence that an injectable product is also microbiologically safe. End testing offers direct evidence. Compounding fits.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Attribute the illnesses mainly to deliberate poisoning or coincidence rather than a production-control failure. Compounding practice makes the compounding view plausible.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        }
+      ]
+    },
+    "spores": {
+      "sci": "Ferdinand Cohn (1828-1898)",
+      "topic": "Bacterial spores",
+      "lede": "Ferdinand Cohn used bacterial spores to separate a prepared drug from a validated product.",
+      "no": 9,
+      "profile": "Today’s pharmacy memorandum follows Ferdinand Cohn into bacterial spores. Ferdinand Cohn classified bacteria and demonstrated the existence of heat-resistant endospores. His work explained why boiled infusions could later show growth without spontaneous generation. Sterile compounding combines drug identity, dose, environment, technique, equipment, and release testing. Cohn’s contribution illuminates one control that separates a prepared medicine from a reliably prepared medicine.\n\nThe production discipline is to use spore-forming organisms or biological indicators to challenge a sterilization process. Batch records, cleaning, personnel qualification, air control, sterilizer cycles, environmental cultures, hold times, and deviations must be reviewed before distribution.\n\nMicrobial contamination is often sparse and uneven, so a few passing samples cannot prove every vial sterile. Process validation supplies the assurance that end-product testing cannot. Shortened cycles or ignored plates weaken that assurance even if many patients remain well.\n\nThe compounding principle: the hardest-to-kill form sets the safety requirement. Sterility is the demonstrated result of a controlled process, never an assumption attached to a clear solution. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release. Production volume is not evidence that the clean room remains in control. Personnel monitoring and media-fill simulations test whether routine manipulations preserve asepsis under realistic conditions. A positive environmental result requires organism identification, spatial review, product impact assessment, and documented closure. Beyond-use dates depend on formulation, container, storage, and validated process rather than business demand. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release.\n\nCohn's study of bacterial spores helps distinguish bacterial contamination from fungal growth. Bacteria reproduce with characteristic cell shapes and culture speeds; Gram-negative organisms can release endotoxin measurable even when cells are damaged. A bacterial outbreak should yield bacterial microscopy, rapid colony formation, and often elevated endotoxin. Slow filamentous growth with hyphae and spore-bearing structures is not a Gram-negative signature.",
+      "frame": "The Micro Analyst holds a released batch record. \"Clear liquid hides its process. Begin with bacterial spores.\"",
+      "q": [
+        {
+          "q": "Which pharmacy-science explanation best captures Ferdinand Cohn’s work on bacterial spores?",
+          "o": [
+            {
+              "t": "Ferdinand Cohn classified bacteria and demonstrated the existence of heat-resistant endospores. The batch remains reconstructable. Sterilizer validation stays linked to each load pattern. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Ferdinand Cohn's compounding work relies on the formula. Sampled vials remain clear. The formula appears correct. End testing offers direct evidence. Compounding records fit this compounding account. Fits.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Ferdinand Cohn's compounding work is read within compounding practice as support for a clear particle-free injection as strong evidence that the batch is sterile. Compounding records fit this compounding account.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Ferdinand Cohn's authority is invoked in compounding practice to justify releasing product after failed monitoring because contamination may affect a limited portion of the batch. Compounding fits. Fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "Which control best supports release of a sterile compounded product?",
+          "o": [
+            {
+              "t": "Use this sterile-production control: use spore-forming organisms or biological indicators to challenge a sterilization process. Environmental results remain tied to batch release.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Test several finished vials and review the formula while treating shortened cycles and positive environmental plates as separate deviations. Compounding records fit this compounding account.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat a passing sterility sample as representative of an unevenly contaminated production batch. Sampled vials remain clear. The formula appears correct. End testing offers direct evidence.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Increase output by shortening validated steps, waive the deviation, and investigate after patients become ill. Sampled vials remain clear. Compounding timing supports this compounding claim.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "What rule should govern sterile compounding?",
+          "o": [
+            {
+              "t": "The pharmacy lesson is that the hardest-to-kill form sets the safety requirement. The batch remains reconstructable.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Use end-product testing to compensate for occasional environmental and process-control failures during urgent production.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat correct potency and labeling as sufficient evidence that an injectable product is also microbiologically safe.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Attribute the illnesses mainly to deliberate poisoning or coincidence rather than a production-control failure.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        }
+      ]
+    },
+    "autoclave": {
+      "sci": "Charles Chamberland (1851-1908)",
+      "topic": "The autoclave & the sterilizing filter",
+      "lede": "Charles Chamberland made the autoclave and the sterilizing filter part of the controlled path from ingredients to sterile medicine.",
+      "no": 10,
+      "profile": "Today’s pharmacy memorandum follows Charles Chamberland into the autoclave and the sterilizing filter. Charles Chamberland developed the steam autoclave and a porcelain filter for removing bacteria from liquids. Pressurized saturated steam reaches temperatures above boiling and can destroy resistant spores when time, temperature, air removal, and penetration are adequate. Sterile compounding combines drug identity, dose, environment, technique, equipment, and release testing. Chamberland’s contribution illuminates one control that separates a prepared medicine from a reliably prepared medicine.\n\nThe production discipline is to validate each load pattern with physical, chemical, and biological indicators. Batch records, cleaning, personnel qualification, air control, sterilizer cycles, environmental cultures, hold times, and deviations must be reviewed before distribution.\n\nMicrobial contamination is often sparse and uneven, so a few passing samples cannot prove every vial sterile. Process validation supplies the assurance that end-product testing cannot. Shortened cycles or ignored plates weaken that assurance even if many patients remain well.\n\nThe compounding principle: an autoclave cycle is not proven by the machine's timer alone. Sterility is the demonstrated result of a controlled process, never an assumption attached to a clear solution. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release. Production volume is not evidence that the clean room remains in control. Personnel monitoring and media-fill simulations test whether routine manipulations preserve asepsis under realistic conditions. A positive environmental result requires organism identification, spatial review, product impact assessment, and documented closure. Beyond-use dates depend on formulation, container, storage, and validated process rather than business demand.",
+      "frame": "The Micro Analyst checks a settle plate at The Environmental-Monitoring Lab. \"One colony can be a warning, not a rounding error. Explain the autoclave and the sterilizing filter.\"",
+      "q": [
+        {
+          "q": "Which pharmacy-science explanation best captures Charles Chamberland’s work on the autoclave and the sterilizing filter?",
+          "o": [
+            {
+              "t": "Charles Chamberland developed the steam autoclave and a porcelain filter for removing bacteria from liquids. Sterilizer validation stays linked to each load pattern. Deviation authority can be reconstructed from the record. Compounding fits. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Charles Chamberland's compounding work emphasizes the formula. Production urgency supports the choice. Compounding records fit this compounding account. Compounding practice makes the compounding view plausible. Compounding timing supports this compounding claim.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Charles Chamberland's compounding work is read within compounding practice as support for a clear particle-free injection as strong evidence that the batch is sterile. The formula appears correct. Compounding timing supports this compounding claim. Compounding fits.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Charles Chamberland's compounding authority supports releasing product after failed monitoring because contamination may affect a limited portion of the batch. Sampled vials remain clear. The formula appears correct. Compounding fits. Compounding fits. Fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "Which control best supports release of a sterile compounded product?",
+          "o": [
+            {
+              "t": "Use this sterile-production control: validate each load pattern with physical, chemical, and biological indicators. The batch remains reconstructable. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Test several finished vials and review the formula while treating shortened cycles and positive environmental plates as separate deviations. The compounding record fits.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat a passing sterility sample as representative of an unevenly contaminated production batch. Sampled vials remain clear. The formula appears correct. Compounding fits.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Increase output by shortening validated steps, waive the deviation, and investigate after patients become ill. Compounding timing supports this compounding claim.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "What rule should govern sterile compounding?",
+          "o": [
+            {
+              "t": "The pharmacy lesson is that an autoclave cycle is not proven by the machine's timer alone. Sterilizer validation stays linked to each load pattern.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Use end-product testing to compensate for occasional environmental and process-control failures during urgent production. Sampled vials remain clear.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat correct potency and labeling as sufficient evidence that an injectable product is also microbiologically safe. The formula appears correct.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Attribute the illnesses mainly to deliberate poisoning or coincidence rather than a production-control failure. Production urgency supports the choice.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        }
+      ]
+    },
+    "mycology": {
+      "sci": "David Gruby (1810-1898)",
+      "topic": "The founding of medical mycology",
+      "lede": "The compounding bench became more accountable through David Gruby’s work on the founding of medical mycology.",
+      "no": 11,
+      "profile": "Today’s pharmacy memorandum follows David Gruby into the founding of medical mycology. David Gruby described several fungi that cause human skin and scalp disease and helped establish medical mycology. His microscopy and experimental inoculation connected specific fungi with recognizable infections. Sterile compounding combines drug identity, dose, environment, technique, equipment, and release testing. Gruby’s contribution illuminates one control that separates a prepared medicine from a reliably prepared medicine.\n\nThe production discipline is to identify fungal morphology from properly collected specimens and suitable culture conditions. Batch records, cleaning, personnel qualification, air control, sterilizer cycles, environmental cultures, hold times, and deviations must be reviewed before distribution.\n\nMicrobial contamination is often sparse and uneven, so a few passing samples cannot prove every vial sterile. Process validation supplies the assurance that end-product testing cannot. Shortened cycles or ignored plates weaken that assurance even if many patients remain well.\n\nThe compounding principle: mold in a clinical product should be treated as evidence, not dismissed as harmless background. Sterility is the demonstrated result of a controlled process, never an assumption attached to a clear solution. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release. Production volume is not evidence that the clean room remains in control. Personnel monitoring and media-fill simulations test whether routine manipulations preserve asepsis under realistic conditions. A positive environmental result requires organism identification, spatial review, product impact assessment, and documented closure. Beyond-use dates depend on formulation, container, storage, and validated process rather than business demand. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release.",
+      "frame": "The Clerk opens an autoclave printout. \"The cycle ended; validation is another question. Show me the founding of medical mycology.\"",
+      "q": [
+        {
+          "q": "Which pharmacy-science explanation best captures David Gruby’s work on the founding of medical mycology?",
+          "o": [
+            {
+              "t": "David Gruby described several fungi that cause human skin and scalp disease and helped establish medical mycology. Sterilizer validation stays linked to each load pattern. Fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "David Gruby's compounding work emphasizes the formula. End testing offers direct evidence. Production urgency supports the choice. Compounding records fit this compounding account.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "David Gruby's compounding work is read within compounding practice as support for a clear particle-free injection as strong evidence that the batch is sterile. Sampled vials remain clear.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "David Gruby's authority is invoked in compounding practice to justify releasing product after failed monitoring because contamination may affect a limited portion of the batch.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "Which control best supports release of a sterile compounded product?",
+          "o": [
+            {
+              "t": "Use this sterile-production control: identify fungal morphology from properly collected specimens and suitable culture conditions. Sterility assurance stays process-based. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Test several finished vials and review the formula while treating shortened cycles and positive environmental plates as separate deviations. The formula appears correct. Compounding fits.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat a passing sterility sample as representative of an unevenly contaminated production batch. Production urgency supports the choice. Compounding timing supports this compounding claim.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Increase output by shortening validated steps, waive the deviation, and investigate after patients become ill. Sampled vials remain clear. The formula appears correct. Compounding fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "What rule should govern sterile compounding?",
+          "o": [
+            {
+              "t": "The pharmacy lesson is that mold in a clinical product should be treated as evidence, not dismissed as harmless background. Sterility assurance stays process-based. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Use end-product testing to compensate for occasional environmental and process-control failures during urgent production. Compounding practice makes the compounding view plausible.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat correct potency and labeling as sufficient evidence that an injectable product is also microbiologically safe. Compounding practice makes the compounding view plausible.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Attribute the illnesses mainly to deliberate poisoning or coincidence rather than a production-control failure. Sampled vials remain clear. The formula appears correct. Compounding fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        }
+      ]
+    },
+    "fungi": {
+      "sci": "Raymond Sabouraud (1864-1938)",
+      "topic": "Culturing pathogenic fungi",
+      "lede": "Raymond Sabouraud used culturing pathogenic fungi to separate a prepared drug from a validated product.",
+      "no": 12,
+      "profile": "Today’s pharmacy memorandum follows Raymond Sabouraud into culturing pathogenic fungi. Raymond Sabouraud developed media and laboratory methods for culturing dermatophytes and other pathogenic fungi. Sabouraud agar, with its acidic conditions and high dextrose content, became a standard tool in medical mycology. Sterile compounding combines drug identity, dose, environment, technique, equipment, and release testing. Sabouraud’s contribution illuminates one control that separates a prepared medicine from a reliably prepared medicine.\n\nThe production discipline is to choose media and incubation times suited to fungi and interpret environmental controls alongside product samples. Batch records, cleaning, personnel qualification, air control, sterilizer cycles, environmental cultures, hold times, and deviations must be reviewed before distribution.\n\nMicrobial contamination is often sparse and uneven, so a few passing samples cannot prove every vial sterile. Process validation supplies the assurance that end-product testing cannot. Shortened cycles or ignored plates weaken that assurance even if many patients remain well.\n\nThe compounding principle: slow-growing contaminants require monitoring long enough to become visible. Sterility is the demonstrated result of a controlled process, never an assumption attached to a clear solution. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release. Production volume is not evidence that the clean room remains in control. Personnel monitoring and media-fill simulations test whether routine manipulations preserve asepsis under realistic conditions. A positive environmental result requires organism identification, spatial review, product impact assessment, and documented closure. Beyond-use dates depend on formulation, container, storage, and validated process rather than business demand. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release.\n\nSabouraud's culture methods make environmental mold identifiable. Fungi may grow more slowly than bacteria, form filamentous colonies, and reveal hyphae or distinctive spores under microscopy. Matching species from patient samples, unopened vials, and clean-room air or surfaces connects multiple batches to a common environment. That distributed biological fingerprint distinguishes fungal contamination from a nonliving chemical impurity or a Gram-negative endotoxin event.",
+      "frame": "The Clerk holds a released batch record. \"Clear liquid hides its process. Begin with culturing pathogenic fungi.\"",
+      "q": [
+        {
+          "q": "Which pharmacy-science explanation best captures Raymond Sabouraud’s work on culturing pathogenic fungi?",
+          "o": [
+            {
+              "t": "Raymond Sabouraud developed media and laboratory methods for culturing dermatophytes and other pathogenic fungi. Deviation authority can be reconstructed from the record. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Raymond Sabouraud's compounding work emphasizes the formula. The formula appears correct. Production urgency supports the choice. Compounding records fit this compounding account.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Raymond Sabouraud's compounding work supports a clear particle-free injection as strong evidence that the batch is sterile. Compounding practice makes the compounding view plausible.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Raymond Sabouraud's compounding authority supports releasing product after failed monitoring because contamination may affect a limited portion of the batch. The compounding record fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "Which control best supports release of a sterile compounded product?",
+          "o": [
+            {
+              "t": "Use this sterile-production control: choose media and incubation times suited to fungi and interpret environmental controls alongside product samples. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Test several finished vials and review the formula while treating shortened cycles and positive environmental plates as separate deviations. The compounding record fits.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat a passing sterility sample as representative of an unevenly contaminated production batch. Sampled vials remain clear. The formula appears correct. Compounding fits.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Increase output by shortening validated steps, waive the deviation, and investigate after patients become ill. Compounding timing supports this compounding claim.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "What rule should govern sterile compounding?",
+          "o": [
+            {
+              "t": "The pharmacy lesson is that slow-growing contaminants require monitoring long enough to become visible. Sterility assurance stays process-based. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Use end-product testing to compensate for occasional environmental and process-control failures during urgent production. Sampled vials remain clear. Compounding fits.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat correct potency and labeling as sufficient evidence that an injectable product is also microbiologically safe. Sampled vials remain clear. Compounding fits.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Attribute the illnesses mainly to deliberate poisoning or coincidence rather than a production-control failure. Compounding records fit this compounding account.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        }
+      ]
+    },
+    "magicbullet": {
+      "sci": "Paul Ehrlich (1854-1915)",
+      "topic": "Chemotherapy & the 'magic bullet'",
+      "lede": "Paul Ehrlich made chemotherapy and the ’magic bullet’ part of the controlled path from ingredients to sterile medicine.",
+      "no": 13,
+      "profile": "Today’s pharmacy memorandum follows Paul Ehrlich into chemotherapy and the ’magic bullet’. Paul Ehrlich sought 'magic bullets' that would selectively attack pathogens and developed arsphenamine for syphilis after systematic testing of many compounds. His work helped found chemotherapy and standardized biological assays. Sterile compounding combines drug identity, dose, environment, technique, equipment, and release testing. Ehrlich’s contribution illuminates one control that separates a prepared medicine from a reliably prepared medicine.\n\nThe production discipline is to screen compounds systematically and compare antimicrobial effect with host toxicity. Batch records, cleaning, personnel qualification, air control, sterilizer cycles, environmental cultures, hold times, and deviations must be reviewed before distribution.\n\nMicrobial contamination is often sparse and uneven, so a few passing samples cannot prove every vial sterile. Process validation supplies the assurance that end-product testing cannot. Shortened cycles or ignored plates weaken that assurance even if many patients remain well.\n\nThe compounding principle: selectivity is measured, not guaranteed by the intention to treat. Sterility is the demonstrated result of a controlled process, never an assumption attached to a clear solution. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release. Production volume is not evidence that the clean room remains in control. Personnel monitoring and media-fill simulations test whether routine manipulations preserve asepsis under realistic conditions. A positive environmental result requires organism identification, spatial review, product impact assessment, and documented closure. Beyond-use dates depend on formulation, container, storage, and validated process rather than business demand. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release.",
+      "frame": "Pharmacy Tech Ruiz checks a settle plate at The Owner's Business Office. \"One colony can be a warning, not a rounding error. Explain chemotherapy and the ’magic bullet’.\"",
+      "q": [
+        {
+          "q": "Which pharmacy-science explanation best captures Paul Ehrlich’s work on chemotherapy and the ’magic bullet’?",
+          "o": [
+            {
+              "t": "Paul Ehrlich sought 'magic bullets' that would selectively attack pathogens and developed arsphenamine for syphilis after systematic testing of many compounds. Sterility assurance stays process-based. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Paul Ehrlich's compounding work emphasizes the formula. The formula appears correct. End testing offers direct evidence. Compounding records fit this compounding account. Compounding timing supports this compounding claim.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Paul Ehrlich's compounding work supports a clear particle-free injection as strong evidence that the batch is sterile. Compounding context supports the view. Compounding timing supports this compounding claim. Compounding fits.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Paul Ehrlich's compounding authority supports releasing product after failed monitoring because contamination may affect a limited portion of the batch. Compounding practice makes the compounding view plausible. Compounding fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "Which control best supports release of a sterile compounded product?",
+          "o": [
+            {
+              "t": "Use this sterile-production control: screen compounds systematically and compare antimicrobial effect with host toxicity. The batch remains reconstructable. Compounding fits. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Test several finished vials and review the formula while treating shortened cycles and positive environmental plates as separate deviations. Sampled vials remain clear. Compounding fits.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat a passing sterility sample as representative of an unevenly contaminated production batch. Sampled vials remain clear. End testing offers direct evidence. Compounding fits. Compounding fits.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Increase output by shortening validated steps, waive the deviation, and investigate after patients become ill. Compounding practice makes the compounding view plausible. The compounding record fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "What rule should govern sterile compounding?",
+          "o": [
+            {
+              "t": "The pharmacy lesson is that selectivity is measured, not guaranteed by the intention to treat. Environmental results remain tied to batch release. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Use end-product testing to compensate for occasional environmental and process-control failures during urgent production. Sampled vials remain clear. Compounding fits.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat correct potency and labeling as sufficient evidence that an injectable product is also microbiologically safe. Sampled vials remain clear. Compounding fits.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Attribute the illnesses mainly to deliberate poisoning or coincidence rather than a production-control failure. Compounding timing supports this compounding claim.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        }
+      ]
+    },
+    "purefood": {
+      "sci": "Harvey Wiley (1844-1930)",
+      "topic": "Pure-food & drug law",
+      "lede": "The compounding bench became more accountable through Harvey Wiley’s work on pure-food and drug law.",
+      "no": 14,
+      "profile": "Today’s pharmacy memorandum follows Harvey Wiley into pure-food and drug law. Harvey Wiley led federal chemical investigations of food adulteration and campaigned for the 1906 Pure Food and Drugs Act. He argued that labels and composition should be truthful and enforceable. Sterile compounding combines drug identity, dose, environment, technique, equipment, and release testing. Wiley’s contribution illuminates one control that separates a prepared medicine from a reliably prepared medicine.\n\nThe production discipline is to compare labeled claims with analytical results and trace responsibility for release. Batch records, cleaning, personnel qualification, air control, sterilizer cycles, environmental cultures, hold times, and deviations must be reviewed before distribution.\n\nMicrobial contamination is often sparse and uneven, so a few passing samples cannot prove every vial sterile. Process validation supplies the assurance that end-product testing cannot. Shortened cycles or ignored plates weaken that assurance even if many patients remain well.\n\nThe compounding principle: patients cannot consent to risks concealed by false quality records. Sterility is the demonstrated result of a controlled process, never an assumption attached to a clear solution. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release. Production volume is not evidence that the clean room remains in control. Personnel monitoring and media-fill simulations test whether routine manipulations preserve asepsis under realistic conditions. A positive environmental result requires organism identification, spatial review, product impact assessment, and documented closure. Beyond-use dates depend on formulation, container, storage, and validated process rather than business demand. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release.",
+      "frame": "Pharmacy Tech Ruiz opens an autoclave printout. \"The cycle ended; validation is another question. Show me pure-food and drug law.\"",
+      "q": [
+        {
+          "q": "Which pharmacy-science explanation best captures Harvey Wiley’s work on pure-food and drug law?",
+          "o": [
+            {
+              "t": "Harvey Wiley led federal chemical investigations of food adulteration and campaigned for the 1906 Pure Food and Drugs Act. The batch remains reconstructable. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Harvey Wiley's compounding work emphasizes the formula. Sampled vials remain clear. The formula appears correct. Compounding practice makes the compounding view plausible.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Harvey Wiley's compounding work supports a clear particle-free injection as strong evidence that the batch is sterile. End testing offers direct evidence. Compounding fits.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Harvey Wiley's compounding authority supports releasing product after failed monitoring because contamination may affect a limited portion of the batch. Compounding fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "Which control best supports release of a sterile compounded product?",
+          "o": [
+            {
+              "t": "Use this sterile-production control: compare labeled claims with analytical results and trace responsibility for release. The batch remains reconstructable. Compounding fits. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Test several finished vials and review the formula while treating shortened cycles and positive environmental plates as separate deviations. Sampled vials remain clear. Compounding fits.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat a passing sterility sample as representative of an unevenly contaminated production batch. Sampled vials remain clear. End testing offers direct evidence. Compounding fits. Compounding fits.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Increase output by shortening validated steps, waive the deviation, and investigate after patients become ill. Compounding practice makes the compounding view plausible. The compounding record fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "What rule should govern sterile compounding?",
+          "o": [
+            {
+              "t": "The pharmacy lesson is that patients cannot consent to risks concealed by false quality records. Environmental results remain tied to batch release. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Use end-product testing to compensate for occasional environmental and process-control failures during urgent production. Sampled vials remain clear. Compounding fits.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat correct potency and labeling as sufficient evidence that an injectable product is also microbiologically safe. The formula appears correct. Compounding fits.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Attribute the illnesses mainly to deliberate poisoning or coincidence rather than a production-control failure. Compounding practice makes the compounding view plausible.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        }
+      ]
+    },
+    "standardization": {
+      "sci": "Torald Sollmann (1874-1965)",
+      "topic": "Pharmacology & drug standardization",
+      "lede": "Torald Sollmann used pharmacology and drug standardization to separate a prepared drug from a validated product.",
+      "no": 15,
+      "profile": "Today’s pharmacy memorandum follows Torald Sollmann into pharmacology and drug standardization. Torald Sollmann wrote a major pharmacology text and worked on standards for drug action, dosage, and safety. His career helped connect experimental pharmacology with practical regulation and prescribing. Sterile compounding combines drug identity, dose, environment, technique, equipment, and release testing. Sollmann’s contribution illuminates one control that separates a prepared medicine from a reliably prepared medicine.\n\nThe production discipline is to define potency with a validated assay and keep batch-to-batch variation within stated limits. Batch records, cleaning, personnel qualification, air control, sterilizer cycles, environmental cultures, hold times, and deviations must be reviewed before distribution.\n\nMicrobial contamination is often sparse and uneven, so a few passing samples cannot prove every vial sterile. Process validation supplies the assurance that end-product testing cannot. Shortened cycles or ignored plates weaken that assurance even if many patients remain well.\n\nThe compounding principle: a routine medicine still requires measurable consistency. Sterility is the demonstrated result of a controlled process, never an assumption attached to a clear solution. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release. Production volume is not evidence that the clean room remains in control. Personnel monitoring and media-fill simulations test whether routine manipulations preserve asepsis under realistic conditions. A positive environmental result requires organism identification, spatial review, product impact assessment, and documented closure. Beyond-use dates depend on formulation, container, storage, and validated process rather than business demand. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release.",
+      "frame": "The Micro Analyst holds a released batch record. \"Clear liquid hides its process. Begin with pharmacology and drug standardization.\"",
+      "q": [
+        {
+          "q": "Which pharmacy-science explanation best captures Torald Sollmann’s work on pharmacology and drug standardization?",
+          "o": [
+            {
+              "t": "Torald Sollmann wrote a major pharmacology text and worked on standards for drug action, dosage, and safety. Sterility assurance stays process-based. Sterilizer validation stays linked to each load pattern. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Torald Sollmann's compounding work emphasizes the formula. The formula appears correct. Compounding records fit this compounding account. Compounding context supports the view. Compounding timing supports this compounding claim.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Torald Sollmann's compounding work supports a clear particle-free injection as strong evidence that the batch is sterile. Production urgency supports the choice. Compounding practice makes the compounding view plausible.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Torald Sollmann's compounding authority supports releasing product after failed monitoring because contamination may affect a limited portion of the batch. Compounding practice makes the compounding view plausible. Compounding fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "Which control best supports release of a sterile compounded product?",
+          "o": [
+            {
+              "t": "Use this sterile-production control: define potency with a validated assay and keep batch-to-batch variation within stated limits. Sterility assurance stays process-based. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Test several finished vials and review the formula while treating shortened cycles and positive environmental plates as separate deviations. The formula appears correct. Compounding fits.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat a passing sterility sample as representative of an unevenly contaminated production batch. Production urgency supports the choice. Compounding timing supports this compounding claim.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Increase output by shortening validated steps, waive the deviation, and investigate after patients become ill. Sampled vials remain clear. The formula appears correct. Compounding fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "What rule should govern sterile compounding?",
+          "o": [
+            {
+              "t": "The pharmacy lesson is that a routine medicine still requires measurable consistency. Deviation authority can be reconstructed from the record.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Use end-product testing to compensate for occasional environmental and process-control failures during urgent production. Sampled vials remain clear.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat correct potency and labeling as sufficient evidence that an injectable product is also microbiologically safe. Sampled vials remain clear.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Attribute the illnesses mainly to deliberate poisoning or coincidence rather than a production-control failure. End testing offers direct evidence.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        }
+      ]
+    },
+    "medmycology": {
+      "sci": "Rhoda Benham (1894-1957)",
+      "topic": "Medical mycology",
+      "lede": "Rhoda Benham made medical mycology part of the controlled path from ingredients to sterile medicine.",
+      "no": 16,
+      "profile": "Today’s pharmacy memorandum follows Rhoda Benham into medical mycology. Rhoda Benham advanced identification and classification of medically important fungi, including yeasts and dermatophytes. Her laboratory work improved the distinction of pathogens that could otherwise be confused by appearance. Sterile compounding combines drug identity, dose, environment, technique, equipment, and release testing. Benham’s contribution illuminates one control that separates a prepared medicine from a reliably prepared medicine.\n\nThe production discipline is to combine culture, microscopy, physiology, and clinical source when identifying a fungus. Batch records, cleaning, personnel qualification, air control, sterilizer cycles, environmental cultures, hold times, and deviations must be reviewed before distribution.\n\nMicrobial contamination is often sparse and uneven, so a few passing samples cannot prove every vial sterile. Process validation supplies the assurance that end-product testing cannot. Shortened cycles or ignored plates weaken that assurance even if many patients remain well.\n\nThe compounding principle: correct species identification can reveal whether cases share one contaminated source. Sterility is the demonstrated result of a controlled process, never an assumption attached to a clear solution. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release. Production volume is not evidence that the clean room remains in control. Personnel monitoring and media-fill simulations test whether routine manipulations preserve asepsis under realistic conditions. A positive environmental result requires organism identification, spatial review, product impact assessment, and documented closure. Beyond-use dates depend on formulation, container, storage, and validated process rather than business demand. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release.",
+      "frame": "The Micro Analyst checks a settle plate at The Owner's Business Office. \"One colony can be a warning, not a rounding error. Explain medical mycology.\"",
+      "q": [
+        {
+          "q": "Which pharmacy-science explanation best captures Rhoda Benham’s work on medical mycology?",
+          "o": [
+            {
+              "t": "Rhoda Benham advanced identification and classification of medically important fungi, including yeasts and dermatophytes. The batch remains reconstructable. Sterility assurance stays process-based. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Rhoda Benham's compounding work emphasizes the formula. Sampled vials remain clear. The formula appears correct. Production urgency supports the choice. Compounding practice makes the compounding view plausible.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Rhoda Benham's compounding work supports a clear particle-free injection as strong evidence that the batch is sterile. End testing offers direct evidence. Compounding timing supports this compounding claim.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Rhoda Benham's compounding authority supports releasing product after failed monitoring because contamination may affect a limited portion of the batch. Compounding timing supports this compounding claim.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "Which control best supports release of a sterile compounded product?",
+          "o": [
+            {
+              "t": "Use this sterile-production control: combine culture, microscopy, physiology, and clinical source when identifying a fungus. Environmental results remain tied to batch release. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Test several finished vials and review the formula while treating shortened cycles and positive environmental plates as separate deviations. End testing offers direct evidence. Compounding fits.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat a passing sterility sample as representative of an unevenly contaminated production batch. Production urgency supports the choice. Compounding practice makes the compounding view plausible.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Increase output by shortening validated steps, waive the deviation, and investigate after patients become ill. Sampled vials remain clear. End testing offers direct evidence. Compounding fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "What rule should govern sterile compounding?",
+          "o": [
+            {
+              "t": "The pharmacy lesson is that correct species identification can reveal whether cases share one contaminated source.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Use end-product testing to compensate for occasional environmental and process-control failures during urgent production.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat correct potency and labeling as sufficient evidence that an injectable product is also microbiologically safe.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Attribute the illnesses mainly to deliberate poisoning or coincidence rather than a production-control failure.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        }
+      ]
+    },
+    "mycoses": {
+      "sci": "Chester Emmons (1900-1985)",
+      "topic": "Fungal taxonomy & the mycoses",
+      "lede": "The compounding bench became more accountable through Chester Emmons’s work on fungal taxonomy and the mycoses.",
+      "no": 17,
+      "profile": "Today’s pharmacy memorandum follows Chester Emmons into fungal taxonomy and the mycoses. Chester Emmons studied environmental fungi and the ecology and taxonomy of systemic mycoses. He helped show that pathogens causing severe disease may inhabit soil or animal-associated environments before entering patients. Sterile compounding combines drug identity, dose, environment, technique, equipment, and release testing. Emmons’s contribution illuminates one control that separates a prepared medicine from a reliably prepared medicine.\n\nThe production discipline is to compare patient isolates with environmental samples using discriminatory typing. Batch records, cleaning, personnel qualification, air control, sterilizer cycles, environmental cultures, hold times, and deviations must be reviewed before distribution.\n\nMicrobial contamination is often sparse and uneven, so a few passing samples cannot prove every vial sterile. Process validation supplies the assurance that end-product testing cannot. Shortened cycles or ignored plates weaken that assurance even if many patients remain well.\n\nThe compounding principle: an outbreak investigation must look beyond the patient to the production environment. Sterility is the demonstrated result of a controlled process, never an assumption attached to a clear solution. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release. Production volume is not evidence that the clean room remains in control. Personnel monitoring and media-fill simulations test whether routine manipulations preserve asepsis under realistic conditions. A positive environmental result requires organism identification, spatial review, product impact assessment, and documented closure. Beyond-use dates depend on formulation, container, storage, and validated process rather than business demand. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release.",
+      "frame": "The Clerk opens an autoclave printout. \"The cycle ended; validation is another question. Show me fungal taxonomy and the mycoses.\"",
+      "q": [
+        {
+          "q": "Which pharmacy-science explanation best captures Chester Emmons’s work on fungal taxonomy and the mycoses?",
+          "o": [
+            {
+              "t": "Chester Emmons studied environmental fungi and the ecology and taxonomy of systemic mycoses. The batch remains reconstructable. Sterility assurance stays process-based. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Chester Emmons's compounding work emphasizes the formula. The formula appears correct. Compounding context supports the view. Compounding timing supports this compounding claim.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Chester Emmons's compounding work supports a clear particle-free injection as strong evidence that the batch is sterile. Compounding practice makes the compounding view plausible.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Chester Emmons's compounding authority supports releasing product after failed monitoring because contamination may affect a limited portion of the batch. The compounding record fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "Which control best supports release of a sterile compounded product?",
+          "o": [
+            {
+              "t": "Use this sterile-production control: compare patient isolates with environmental samples using discriminatory typing. The batch remains reconstructable. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Test several finished vials and review the formula while treating shortened cycles and positive environmental plates as separate deviations. The compounding record fits.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat a passing sterility sample as representative of an unevenly contaminated production batch. Sampled vials remain clear. The formula appears correct. Compounding fits.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Increase output by shortening validated steps, waive the deviation, and investigate after patients become ill. Production urgency supports the choice. Compounding fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "What rule should govern sterile compounding?",
+          "o": [
+            {
+              "t": "The pharmacy lesson is that an outbreak investigation must look beyond the patient to the production environment.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Use end-product testing to compensate for occasional environmental and process-control failures during urgent production.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat correct potency and labeling as sufficient evidence that an injectable product is also microbiologically safe.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Attribute the illnesses mainly to deliberate poisoning or coincidence rather than a production-control failure.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        }
+      ]
+    },
+    "biologics": {
+      "sci": "Milton J. Rosenau (1869-1946)",
+      "topic": "Biologics sterility & standards",
+      "lede": "Milton J. Rosenau used biologics sterility and standards to separate a prepared drug from a validated product.",
+      "no": 18,
+      "profile": "Today’s pharmacy memorandum follows Milton J. Rosenau into biologics sterility and standards. Milton Rosenau studied vaccines, sera, milk hygiene, and biologics regulation and wrote influential public-health texts. Early biologic-product disasters helped drive requirements for licensing, sterility, and potency testing. Sterile compounding combines drug identity, dose, environment, technique, equipment, and release testing. Rosenau’s contribution illuminates one control that separates a prepared medicine from a reliably prepared medicine.\n\nThe production discipline is to release a biologic only after validated sterility, identity, potency, and record review. Batch records, cleaning, personnel qualification, air control, sterilizer cycles, environmental cultures, hold times, and deviations must be reviewed before distribution.\n\nMicrobial contamination is often sparse and uneven, so a few passing samples cannot prove every vial sterile. Process validation supplies the assurance that end-product testing cannot. Shortened cycles or ignored plates weaken that assurance even if many patients remain well.\n\nThe compounding principle: distributed products can turn one manufacturing lapse into a multistate outbreak. Sterility is the demonstrated result of a controlled process, never an assumption attached to a clear solution. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release. Production volume is not evidence that the clean room remains in control. Personnel monitoring and media-fill simulations test whether routine manipulations preserve asepsis under realistic conditions. A positive environmental result requires organism identification, spatial review, product impact assessment, and documented closure. Beyond-use dates depend on formulation, container, storage, and validated process rather than business demand. A deviation record should identify affected lots, investigation results, corrective action, and the authority for release.",
+      "frame": "The Clerk holds a released batch record. \"Clear liquid hides its process. Begin with biologics sterility and standards.\"",
+      "q": [
+        {
+          "q": "Which pharmacy-science explanation best captures Milton J. Rosenau’s work on biologics sterility and standards?",
+          "o": [
+            {
+              "t": "Milton Rosenau studied vaccines, sera, milk hygiene, and biologics regulation and wrote influential public-health texts. Sterilizer validation stays linked to each load pattern. Fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Milton J. Rosenau's compounding work emphasizes the formula. End testing offers direct evidence. Production urgency supports the choice. Compounding records fit this compounding account.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Milton J. Rosenau's compounding work is read within compounding practice as support for a clear particle-free injection as strong evidence that the batch is sterile. Sampled vials remain clear.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Milton J. Rosenau's authority is invoked in compounding practice to justify releasing product after failed monitoring because contamination may affect a limited portion of the batch.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "Which control best supports release of a sterile compounded product?",
+          "o": [
+            {
+              "t": "Use this sterile-production control: release a biologic only after validated sterility, identity, potency, and record review. Environmental results remain tied to batch release. Compounding fits.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Test several finished vials and review the formula while treating shortened cycles and positive environmental plates as separate deviations. End testing offers direct evidence. Compounding fits.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat a passing sterility sample as representative of an unevenly contaminated production batch. Production urgency supports the choice. Compounding practice makes the compounding view plausible.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Increase output by shortening validated steps, waive the deviation, and investigate after patients become ill. The formula appears correct. End testing offers direct evidence. Compounding fits.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        },
+        {
+          "q": "What rule should govern sterile compounding?",
+          "o": [
+            {
+              "t": "The pharmacy lesson is that distributed products can turn one manufacturing lapse into a multistate outbreak.",
+              "v": "expert",
+              "fb": "Correct: the response relies on validated process control, traceable records, and meaningful monitoring."
+            },
+            {
+              "t": "Use end-product testing to compensate for occasional environmental and process-control failures during urgent production.",
+              "v": "partial",
+              "fb": "This check contributes evidence but cannot compensate for an unvalidated or deviating process."
+            },
+            {
+              "t": "Treat correct potency and labeling as sufficient evidence that an injectable product is also microbiologically safe.",
+              "v": "wrong",
+              "fb": "That statement misinterprets drug purity, microbial control, or what one sample can prove."
+            },
+            {
+              "t": "Attribute the illnesses mainly to deliberate poisoning or coincidence rather than a production-control failure.",
+              "v": "danger",
+              "fb": "That shortcut allows output targets to override sterility evidence and patient protection."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "STORIES": {
+    "tech": {
+      "cleanroom": "Pharmacy Tech Ruiz brings the retained batch vials into The Clean Room & Autoclave beneath a hypha-marked evidence slip. \"Pharmacy practice is exact work; earn the batch sheet through the day's reading.\"",
+      "culture": "Pharmacy Tech Ruiz brings the incubated culture plates into The Environmental-Monitoring Lab beneath a hypha-marked evidence slip. \"Pharmacy practice is exact work; earn the batch sheet through the day's reading.\"",
+      "office": "Pharmacy Tech Ruiz brings the release and distribution records into The Owner's Business Office beneath a hypha-marked evidence slip. \"Pharmacy practice is exact work; earn the batch sheet through the day's reading.\""
+    },
+    "micro": {
+      "cleanroom": "The Micro Analyst brings the retained batch vials into The Clean Room & Autoclave beneath a hypha-marked evidence slip. \"The culture file stays with me until your answers show genuine microbiology.\"",
+      "culture": "The Micro Analyst brings the incubated culture plates into The Environmental-Monitoring Lab beneath a hypha-marked evidence slip. \"The culture file stays with me until your answers show genuine microbiology.\"",
+      "office": "The Micro Analyst brings the release and distribution records into The Owner's Business Office beneath a hypha-marked evidence slip. \"The culture file stays with me until your answers show genuine microbiology.\""
+    },
+    "clerk": {
+      "cleanroom": "The Clerk brings the retained batch vials into The Clean Room & Autoclave beneath a hypha-marked evidence slip. \"Handle the pioneer correctly, and I will release the production correspondence.\"",
+      "culture": "The Clerk brings the incubated culture plates into The Environmental-Monitoring Lab beneath a hypha-marked evidence slip. \"Handle the pioneer correctly, and I will release the production correspondence.\"",
+      "office": "The Clerk brings the release and distribution records into The Owner's Business Office beneath a hypha-marked evidence slip. \"Handle the pioneer correctly, and I will release the production correspondence.\""
+    }
+  },
+  "story": [
+    "<b>Unopened vials, retained samples, and environmental plates fill a secured evidence refrigerator.</b>",
+    "Clean-room practice comes from <b>Pharmacy Tech Ruiz</b>; cultures come from <b>The Micro Analyst</b>; release files belong to <b>The Clerk</b>.",
+    "Three names govern release—The compounding pharmacist, Guillory — the pharmacy's owner, The state pharmacy inspector. The culture fingerprint interpretation remains divided between <b>A chemical impurity entered during inaccurate ingredient compounding</b> and <b>Gram-negative bacteria produced an endotoxin-rich bloodstream outbreak</b>.",
+    "<b>Cultures and retained lots must be interpreted within eight days before treatment decisions and recalls become irreversible.</b>"
+  ],
+  "endings": {
+    "overclaimWhat": "poison",
+    "dismissalWhat": "coincidence",
+    "win": {
+      "expertTitle": "Mold Across the Batch Line",
+      "expert": [
+        "Investigator Del Marsh names Guillory — the pharmacy's owner, The Owner's Business Office, and Environmental mold caused fungal contamination across batches. Not A chemical impurity entered during inaccurate ingredient compounding. Not Gram-negative bacteria produced an endotoxin-rich bloodstream outbreak.",
+        "The readings distinguish chemical impurity, Gram-negative bacterial contamination, and environmental fungal contamination through potency assays, endotoxin tests, culture speed, microscopy, colony form, and lot distribution."
+      ],
+      "soundTitle": "A Sound Contamination Finding",
+      "sound": [
+        "Hypha evidence fixes the trio: Guillory — the pharmacy's owner; The Owner's Business Office; Environmental mold caused fungal contamination across batches.",
+        "Culture results identify the contaminant; production responsibility remains less fully documented."
+      ],
+      "namedTitle": "Correct Contaminant, Limited Chain",
+      "named": [
+        "Hypha evidence points to Guillory — the pharmacy's owner, The Owner's Business Office, and Environmental mold caused fungal contamination across batches; hypha support remains incomplete.",
+        "The fungal finding is correct, but the batch investigation has not gathered enough corroboration."
+      ]
+    },
+    "overclaim": {
+      "title": "The Chemical-Impurity Theory",
+      "body": [
+        "Investigator Del Marsh reports A chemical impurity entered during inaccurate ingredient compounding. Living colonies contradict a purely chemical defect.",
+        "A chemical impurity should appear in analytical chemistry or potency testing and need not reproduce in culture. The retained vials instead yield a living organism with matching environmental isolates."
+      ]
+    },
+    "dismissal": {
+      "title": "The Gram-Negative Theory",
+      "body": [
+        "Investigator Del Marsh instead reports Gram-negative bacteria produced an endotoxin-rich bloodstream outbreak. Microscopy and endotoxin results do not fit Gram-negative growth.",
+        "Gram-negative contamination often grows rapidly and may produce high endotoxin levels with bacterial morphology. The slow filamentous colonies and low endotoxin pattern point elsewhere."
+      ]
+    },
+    "wrongNames": {
+      "title": "Right Contaminant, Wrong Names",
+      "body": [
+        "Fungal contamination is correctly judged; the wrong actor or office has been selected. Rebuild the batch-release clues."
+      ]
+    }
+  }
+}
+};

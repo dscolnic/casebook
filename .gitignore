@@ -28,3 +28,11 @@ Alamos/Hospital/hospital-fps/dist/
 Alamos/project-y-fps/dist/
 *.bak
 Alamos/Hospital/hospital-fps/project-y-fps/
+
+# Replit working copy of the casebook app — agent state under .local/ includes
+# an environment-secrets skill, so this directory stays out of the repo.
+casebook_replit/
+
+# Third-party PDFs kept locally for reference, not ours to redistribute.
+Games _ The New York Times Company.pdf
+Making an Impact by Avoiding an Impact _ Duke Pratt School of Engineering.pdf

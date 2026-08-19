@@ -1,0 +1,58 @@
+CASEBOOK DISTRACTOR RHETORIC REVISION
+=====================================
+
+Scope
+-----
+This pass revises the 16 previously completed packs in casebook_v2_batch1.
+Only answer-choice wording was targeted. Existing profiles, questions, feedback,
+case framing, WHAT design, ids, maps, figures, and endings were retained.
+
+New rule applied
+----------------
+Wrong, partial, and danger choices must not identify themselves through brittle
+absolute wording, cartoonish certainty, or a sentence that rebuts its own claim.
+Corrective language belongs in fb, not in the answer text t.
+
+Audit totals
+------------
+Distractor choices inspected: 2,592
+Before revision:
+  obvious absolute-word giveaways: 610
+  self-rebutting distractors:        540
+After revision:
+  obvious absolute-word giveaways:   0
+  self-rebutting distractors:         0
+
+Mechanical results
+------------------
+e_flood:       54 questions | expert-longest 0.0%  | max spread 12 | PASS
+e_quake:       54 questions | expert-longest 13.0% | max spread 12 | PASS
+e_storm:       54 questions | expert-longest 11.1% | max spread 12 | PASS
+m_railx:       54 questions | expert-longest 0.0%  | max spread 12 | PASS
+t_battery:     54 questions | expert-longest 25.9% | max spread 12 | PASS
+t_dust:       54 questions | expert-longest 0.0%  | max spread 12 | PASS
+t_oncology:    54 questions | expert-longest 0.0%  | max spread 12 | PASS
+t_pipeline:    54 questions | expert-longest 9.3%  | max spread 12 | PASS
+t_refinery:    54 questions | expert-longest 14.8% | max spread 12 | PASS
+t_transformer: 54 questions | expert-longest 37.0% | max spread 12 | PASS
+t_wind:        54 questions | expert-longest 0.0%  | max spread 12 | PASS
+w_anes:        54 questions | expert-longest 11.1% | max spread 12 | PASS
+w_blood:       54 questions | expert-longest 33.3% | max spread 12 | PASS
+w_compound:    54 questions | expert-longest 25.9% | max spread 12 | PASS
+w_hai:         54 questions | expert-longest 22.2% | max spread 12 | PASS
+w_surg:        54 questions | expert-longest 29.6% | max spread 12 | PASS
+
+Additional checks
+-----------------
+- Every pack loads successfully with Node require().
+- Exactly four options and one expert verdict remain in every question.
+- Every answer text and feedback string ends with punctuation.
+- No repeated six-word runs were introduced across the 16 revised packs.
+- No obvious absolute-word giveaways remain under the audit vocabulary.
+- No distractor contains its own explicit rebuttal under the audit patterns.
+
+Structural note
+---------------
+These files remain in the previously completed 18-topic format. This pass applies
+the new distractor-quality rule only; conversion to the newer 9-figure daily
+structure is a separate structural redo.

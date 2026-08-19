@@ -1,0 +1,16 @@
+e_flood: DAYS_TOTAL=5; topics=9; emblem=true; story4=true
+e_quake: DAYS_TOTAL=5; topics=9; emblem=true; story4=true
+e_storm: DAYS_TOTAL=5; topics=9; emblem=true; story4=true
+m_railx: DAYS_TOTAL=5; topics=9; emblem=true; story4=true
+t_battery: DAYS_TOTAL=5; topics=9; emblem=true; story4=true
+t_dust: DAYS_TOTAL=5; topics=9; emblem=true; story4=true
+t_oncology: DAYS_TOTAL=5; topics=9; emblem=true; story4=true
+t_pipeline: DAYS_TOTAL=5; topics=9; emblem=true; story4=true
+t_refinery: DAYS_TOTAL=5; topics=9; emblem=true; story4=true
+t_transformer: DAYS_TOTAL=5; topics=9; emblem=true; story4=true
+t_wind: DAYS_TOTAL=5; topics=9; emblem=true; story4=true
+w_anes: DAYS_TOTAL=5; topics=9; emblem=true; story4=true
+w_blood: DAYS_TOTAL=5; topics=9; emblem=true; story4=true
+w_compound: DAYS_TOTAL=5; topics=9; emblem=true; story4=true
+w_hai: DAYS_TOTAL=5; topics=9; emblem=true; story4=true
+w_surg: DAYS_TOTAL=5; topics=9; emblem=true; story4=true

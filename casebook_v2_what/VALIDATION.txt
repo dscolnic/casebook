@@ -1,0 +1,11 @@
+[OK] blackout: 9 topics · 27 questions · hints 9 · expert-longest 5/27 · spread 12 · profiles 251-280w · clues 4d
+[OK] c_arch: 9 topics · 27 questions · hints 9 · expert-longest 12/27 · spread 12 · profiles 251-271w · clues 4d
+[OK] c_art: 9 topics · 27 questions · hints 9 · expert-longest 12/27 · spread 12 · profiles 251-266w · clues 4d
+[OK] e_quake: 9 topics · 27 questions · hints 9 · expert-longest 7/27 · spread 12 · profiles 250-262w · clues 4d
+[OK] cross-pack profile: no exact duplicates or repeated six-word runs
+[OK] cross-pack frame: no exact duplicates or repeated six-word runs
+[OK] cross-pack hint: no exact duplicates or repeated six-word runs
+[OK] cross-pack question: no exact duplicates or repeated six-word runs
+[OK] cross-pack option: no exact duplicates or repeated six-word runs
+[OK] cross-pack feedback: no exact duplicates or repeated six-word runs
+[OK] cross-pack story: no exact duplicates or repeated six-word runs
