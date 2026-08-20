@@ -377,4 +377,36 @@ function roomSummary(room) {
   };
 }
 
-module.exports = { attach, createRoom, getRoom, issueTicket, roomSummary, normaliseCode };
+// Drop every live trace of a user from the in-memory half of the rooms.
+//
+// The durable half is a foreign key and looks after itself; this does not. A
+// deleted account with an open socket goes on relaying its position and holding
+// its claims, and an unspent ticket is still a valid way in — so a deleted
+// account could keep playing until the tab was closed. The database delete
+// cannot see any of it, and nothing else would ever notice: from the outside it
+// is just a player in a room.
+//
+// Rooms this user owns are left standing. See the note on deleteUserData: a room
+// is a campaign several people share, and owner_id is ON DELETE SET NULL because
+// taking it away would take away everybody else's game.
+function forgetUser(userId) {
+  let sockets = 0, revoked = 0;
+  for (const [id, t] of tickets) {
+    if (t.userId === userId) { tickets.delete(id); revoked++; }
+  }
+  for (const room of rooms.values()) {
+    for (const [socketId, m] of room.members) {
+      if (m.userId !== userId) continue;
+      room.members.delete(socketId);
+      sockets++;
+      try { m.ws.close(4003, "account deleted"); } catch (e) {}
+      broadcast(room, { t: "leave", id: socketId });
+    }
+    reapClaims(room);
+    if (room.members.size === 0) room.clock.running = false;
+    if (room.ownerId === userId) room.ownerId = null;
+  }
+  return { sockets, revoked };
+}
+
+module.exports = { attach, createRoom, getRoom, issueTicket, roomSummary, normaliseCode, forgetUser };

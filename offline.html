@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Offline · First Person Learning</title>
+<!-- The card the service worker serves for a navigation it cannot answer: a
+     page that was never opened online, so there is nothing saved to fall back
+     to. Precached at install, and styled here rather than linked, because a
+     stylesheet is one more thing that has to have been cached for this page to
+     be worth having. -->
+<style>
+  :root{ --bg:#0d0f13; --ink:#e9ecf2; --dim:#98a1b2; --faint:#5d6675; --line:#242a36 }
+  *{box-sizing:border-box}
+  body{margin:0; min-height:100vh; min-height:100dvh; display:grid; place-items:center;
+    padding:32px; background:
+      radial-gradient(1100px 620px at 12% -8%, #1b2333 0%, transparent 60%),
+      radial-gradient(900px 520px at 92% 4%, #201a2b 0%, transparent 58%), var(--bg);
+    color:var(--ink);
+    font:16px/1.55 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .card{max-width:34rem; text-align:left}
+  p.kicker{margin:0 0 10px; font:600 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--faint)}
+  h1{margin:0 0 14px; font-size:clamp(24px,4.5vw,34px); line-height:1.15; font-weight:660}
+  p{margin:0 0 14px; color:var(--dim)}
+  .row{display:flex; gap:10px; flex-wrap:wrap; margin-top:22px}
+  a,button{font:inherit; font-size:14px; color:var(--dim); text-decoration:none; cursor:pointer;
+    background:none; border:1px solid var(--line); border-radius:999px; padding:9px 18px}
+  a:hover,button:hover{border-color:#39435a; color:var(--ink)}
+</style>
+</head>
+<body>
+  <div class="card">
+    <p class="kicker">No connection</p>
+    <h1>This one has not been saved to the device yet.</h1>
+    <p>A game is kept for offline play once you have opened it online at least
+      once. This one has not been opened here, so there is nothing to load.</p>
+    <p>The shelf and any game you have already played are still available.</p>
+    <div class="row">
+      <a href="/games/">Back to the shelf</a>
+      <button type="button" onclick="location.reload()">Try again</button>
+    </div>
+  </div>
+</body>
+</html>

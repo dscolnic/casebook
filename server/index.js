@@ -1,7 +1,7 @@
 const http = require("http");
 const path = require("path");
 const express = require("express");
-const { setupAuth, requireUser, getUserId, clerkClient } = require("./clerkAuth");
+const { setupAuth, requireUser, getUserId, clerkClient, deleteAccount } = require("./clerkAuth");
 const {
   getUser, recordResult, getStats, getAvatar, setAvatar,
   getGameSave, putGameSave, deleteGameSave, listGameSaves,
@@ -10,7 +10,7 @@ const {
   createClass, listClassesForTeacher, listClassesForStudent,
   updateClass, deleteClass, joinClass, leaveClass, removeMember, classProgress,
 } = require("./classes");
-const { attach: attachRooms, createRoom, getRoom, issueTicket, roomSummary } = require("./rooms");
+const { attach: attachRooms, createRoom, getRoom, issueTicket, roomSummary, forgetUser } = require("./rooms");
 
 const PORT = process.env.PORT || 5000;
 const ROOT = path.join(__dirname, "..");
@@ -157,6 +157,48 @@ async function main() {
       res.json({ saves: await listGameSaves(userId) });
     } catch (err) {
       next(err);
+    }
+  });
+
+  // ---------------------------------------------------------------------
+  // Delete this account and everything it owns.
+  //
+  // Required by App Store guideline 5.1.1(v): an app that lets somebody create
+  // an account has to let them delete it from inside the app, and a link to a
+  // support address does not satisfy it. It is one of the two rejections this
+  // app was most likely to get, the other being a web view with nothing bundled.
+  //
+  // It takes no body and no confirmation token. The confirmation is the dialog
+  // on the shelf, which is where somebody can read what they are about to lose;
+  // a second one here would be a second description of the same decision. What
+  // this route owes is that the deletion is complete — see deleteAccount() for
+  // the ordering, and forgetUser() for the live sockets a foreign key cannot see.
+  app.delete("/api/account", requireUser, async (req, res) => {
+    const userId = req.userId;
+    try {
+      const had = await deleteAccount(userId);
+      // After the account is gone, not before: a socket dropped by a delete that
+      // then failed would have kicked somebody out of a game for nothing.
+      let live = { sockets: 0, revoked: 0 };
+      try { live = forgetUser(userId); } catch (err) { console.error("forgetUser failed:", err); }
+      // The one thing worth a log line at info level in this file. There is no
+      // way to ask afterwards what an irreversible request destroyed, and the
+      // user id is all that is left to say it about — every other identifier
+      // this app held for them has just been deleted.
+      console.log("account deleted", userId, JSON.stringify({ ...(had || {}), ...live }));
+      res.status(204).end();
+    } catch (err) {
+      console.error("account deletion failed", userId, err.stage || "db", err);
+      if (err.stage === "clerk") {
+        // The data is gone and the sign-in is not. Retrying is safe and finishes
+        // the job, so say so rather than reporting a bare 500 — this is the one
+        // failure here that the person can do something about.
+        return res.status(500).json({
+          message: "Your data was deleted, but the sign-in itself could not be removed. "
+                 + "Please try again.",
+        });
+      }
+      res.status(500).json({ message: "The account could not be deleted. Nothing was changed." });
     }
   });
 
@@ -330,12 +372,38 @@ async function main() {
     }
   });
 
+  // The installable shell: the manifest, the worker, the icons and the offline
+  // card. None of them contain anything private, and every one of them is
+  // fetched in a context where the gate's 302 is silently fatal:
+  //
+  //   · a manifest is fetched WITHOUT credentials by default, so the gate
+  //     answers the sign-in page, it fails to parse, and the app is not
+  //     installable — Add to Home Screen makes a bookmark instead of an app,
+  //     with no error anywhere
+  //   · a service worker script must arrive as JavaScript; HTML fails the
+  //     registration, so an expired session would stop the worker updating
+  //   · offline.html is served BY the worker when there is no network, at which
+  //     point there is no session to check either
+  //
+  // The shelf link also carries crossorigin="use-credentials", which fixes the
+  // manifest on its own. Both, because this is the class of bug that is only
+  // ever found by somebody failing to install the app and not knowing why.
+  const PWA_SHELL = new Set(["/manifest.webmanifest", "/sw.js", "/sw-policy.js", "/offline.html"]);
+
   // Site-wide sign-in gate: every page requires a signed-in user. /api/* is
   // exempt, and the Clerk sign-in / sign-out pages must be reachable while
   // signed out. Any other request from a signed-out visitor goes to sign-in.
   app.use((req, res, next) => {
     if (req.path.startsWith("/api/")) return next();
     if (req.path === "/sign-in.html" || req.path === "/sign-out.html") return next();
+    if (PWA_SHELL.has(req.path) || /^\/icon-\d+\.png$/.test(req.path)) return next();
+    // The hero shots. sign-in.html puts one behind the sign-in card, and it is
+    // read by a visitor who by definition has no session — so without this the
+    // browser gets the gate's 302, the image fails, and the page falls back to
+    // its dark ground with no way to tell that anything was meant to be there.
+    // They are screenshots of a game world: nothing private, and already the
+    // public face of the app on the shelf.
+    if (/^\/games\/shots\/[A-Za-z0-9_-]+\.(jpg|png)$/.test(req.path)) return next();
     if (getUserId(req)) return next();
     return goTo(res, "/sign-in.html");
   });

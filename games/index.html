@@ -4,6 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>First Person Learning</title>
+<!-- Installable, and the manifest is linked from HERE rather than from each
+     game: the shelf is the manifest's own start_url, and games/<theme>/index.html
+     is written by the Alamos sync tool, so anything added there is lost on the
+     next `npm run sync-casebook`. The worker's scope is "/" — it is served from
+     the root — so registering it once here puts every game under it. -->
+<!-- use-credentials because every path on this app is behind a sign-in gate
+     and a manifest is fetched WITHOUT credentials by default. Without it the
+     browser gets the gate's 302 to the sign-in page, fails to parse it as a
+     manifest, and the app is simply not installable — with no error anywhere
+     and an Add to Home Screen that produces a bookmark instead of an app. -->
+<link rel="manifest" href="/manifest.webmanifest" crossorigin="use-credentials">
+<meta name="theme-color" content="#0d0f13">
+<meta name="mobile-web-app-capable" content="yes">
+<!-- iOS reads its own vendor-prefixed copies of both, still, in 2026. -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="FPL">
+<link rel="apple-touch-icon" href="/icon-180.png">
 <!-- The shelf. The catalogue is games.json, written by the Alamos repo's sync
      tool (gamekit/tools/sync-casebook.mjs) — adding a game is a sync, not an
      edit here. The account header and the resume line come from the app's own
@@ -72,6 +90,34 @@
   .signout{font-size:13px; color:var(--dim); text-decoration:none;
            border:1px solid var(--line); border-radius:999px; padding:6px 14px; white-space:nowrap}
   .signout:hover{border-color:#39435a; color:var(--ink)}
+  /* Deleting the account is destructive and permanent, so it does not look like
+     the three links beside it. Muted until hovered rather than red on arrival:
+     a permanently red control in the header reads as a warning about the page. */
+  .danger{color:var(--faint); border-color:transparent}
+  .danger:hover{border-color:#5a2530; color:#e8737f}
+
+  /* Confirm dialog. <dialog> rather than a hand-rolled overlay — it gets focus
+     trapping, Esc and the top layer for free, and Safari has had it since 15.4. */
+  dialog.confirm{max-width:min(30rem,92vw); border:1px solid var(--line); border-radius:14px;
+    background:var(--bg2); color:var(--ink); padding:26px 26px 22px;
+    font:inherit; box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  dialog.confirm::backdrop{background:rgba(6,8,11,.72)}
+  dialog.confirm h2{margin:0 0 12px; font-size:19px; font-weight:660}
+  dialog.confirm p{margin:0 0 12px; color:var(--dim); font-size:14px}
+  dialog.confirm ul{margin:0 0 14px 18px; padding:0; color:var(--dim); font-size:14px}
+  dialog.confirm li{margin:0 0 4px}
+  dialog.confirm label{display:block; margin:0 0 8px; color:var(--faint); font-size:12.5px}
+  dialog.confirm input{width:100%; font:inherit; font-size:15px; padding:9px 12px;
+    color:var(--ink); background:var(--bg); border:1px solid var(--line); border-radius:9px}
+  dialog.confirm .acts{display:flex; gap:10px; justify-content:flex-end; margin-top:18px;
+    flex-wrap:wrap}
+  dialog.confirm button{font:inherit; font-size:14px; cursor:pointer; border-radius:999px;
+    padding:9px 18px; border:1px solid var(--line); background:none; color:var(--dim)}
+  dialog.confirm button:hover:not(:disabled){border-color:#39435a; color:var(--ink)}
+  dialog.confirm button.go{border-color:#5a2530; color:#e8737f}
+  dialog.confirm button.go:hover:not(:disabled){background:#3a1a20; color:#ffb3ba}
+  dialog.confirm button:disabled{opacity:.45; cursor:not-allowed}
+  dialog.confirm .err{color:#e8737f; font-size:13px; min-height:1.2em; margin:10px 0 0}
 
   /* One segmented control, not a row of loose pills: the levels are alternatives
      and the shared track says so. The count under each label is what makes it
@@ -230,6 +276,10 @@
   .progress{margin:0; font:500 12px/1.45 inherit; color:var(--accent)}
   .progress__bar{display:block; height:3px; margin-top:6px; border-radius:2px;
     background:var(--line); overflow:hidden}
+  /* A campaign in progress shows the bar alone — no line of text above it to
+     leave an empty line box where "Day 1 of 22" used to be. */
+  .progress--barOnly{display:flex; align-items:center; min-height:14px}
+  .progress--barOnly .progress__bar{width:100%; margin-top:0}
   .progress__bar i{display:block; height:100%; background:var(--accent)}
 
   .note{margin:56px 0 0; padding-top:22px; border-top:1px solid var(--line);
@@ -258,8 +308,33 @@
       <a class="signout" href="/room.html">Play together</a>
       <a class="signout" href="/teacher.html">Classes</a>
       <a class="signout" href="/sign-out.html">Sign out</a>
+      <!-- App Store guideline 5.1.1(v): an app that lets somebody create an
+           account must let them delete it from inside the app. A link to a
+           support address does not satisfy it, and it is a common rejection. -->
+      <button class="signout danger" type="button" id="deleteAcct">Delete account</button>
     </div>
   </header>
+
+  <dialog class="confirm" id="deleteDlg" aria-labelledby="deleteDlgTitle">
+    <h2 id="deleteDlgTitle">Delete your account</h2>
+    <p>This cannot be undone. It removes, permanently:</p>
+    <ul>
+      <li>your sign-in and your email address</li>
+      <li>every campaign in progress, in every game</li>
+      <li>your results and your streak</li>
+      <li>any class you teach, and its roster</li>
+      <li>your membership of any class you joined</li>
+    </ul>
+    <p>Games you have saved for offline play on this device are cleared too.</p>
+    <label for="deleteWord">Type <b>DELETE</b> to confirm</label>
+    <input id="deleteWord" type="text" autocomplete="off" autocapitalize="characters"
+           spellcheck="false" aria-describedby="deleteErr">
+    <p class="err" id="deleteErr" role="alert"></p>
+    <div class="acts">
+      <button type="button" id="deleteCancel">Keep my account</button>
+      <button type="button" class="go" id="deleteGo" disabled>Delete for ever</button>
+    </div>
+  </dialog>
 
   <div class="levels" id="levels" role="group" aria-label="Choose a level"></div>
   <div class="filters" id="filters"></div>
@@ -353,9 +428,12 @@ function progressOf(g){
   if(s.status === 'lost') return { pill: 'ended',    done: true, text: 'Campaign ended — start again', frac: 1 };
   const days = g.size?.days;
   const day = s.mission ?? 1;
+  // No text on a campaign in progress: the bar says how far in you are, and
+  // "Day 1 of 22" beside it reads as a homework total rather than an invitation.
+  // The label is kept for the screen reader, which has no bar to look at.
   return {
-    pill: 'resume', done: false,
-    text: days ? `Day ${day} of ${days}` : `Day ${day}`,
+    pill: 'resume', done: false, text: '',
+    label: days ? `Day ${day} of ${days}` : `Day ${day}`,
     frac: days ? Math.min(1, day / days) : 0,
   };
 }
@@ -394,8 +472,9 @@ function cardHTML(g, i){
         ${g.concepts?.length ? `<button class="conceptsBtn" type="button"
             aria-expanded="false" aria-controls="${panel}"
             title="What this one teaches" aria-label="What this one teaches">${CONCEPTS_MARK}</button>` : ''}
-        ${p ? `<p class="progress">${esc(p.text)}
-                 <span class="progress__bar"><i style="width:${Math.round(p.frac * 100)}%"></i></span></p>` : ''}
+        ${p ? `<p class="progress${p.text ? '' : ' progress--barOnly'}"
+                  >${p.text ? esc(p.text) : ''}<span class="progress__bar" role="img"
+                       aria-label="${esc(p.label ?? p.text)}"><i style="width:${Math.round(p.frac * 100)}%"></i></span></p>` : ''}
       </div>
       ${g.concepts?.length ? `<div class="concepts" id="${panel}" hidden>
         <p>What this one teaches</p>
@@ -467,7 +546,96 @@ function renderFilters(){
   });
 }
 
+// ---------------------------------------------------------------------------
+// The service worker. Registered from here because the shelf is the manifest's
+// start_url and because games/<theme>/index.html is generated — the worker is
+// served from the root, so its scope is "/" and this one registration covers
+// every game.
+//
+// What it does NOT do is serve a stale page. The worker before this one cached
+// pages and went on serving them after a deploy, which is why it was replaced by
+// one that deleted every cache and unregistered itself; that worker is still out
+// there in browsers, and a fresh register() after its unregister() is the way
+// back. Only Vite's content-hashed asset files are cache-first now. See sw.js.
+function registerWorker(){
+  if(!('serviceWorker' in navigator)) return;
+  // location.protocol, not a hostname test: a worker needs a secure context, and
+  // localhost counts as one. This is also what keeps `python3 -m http.server`
+  // over a LAN address from looking broken — it simply has no worker.
+  if(location.protocol !== 'https:' && location.hostname !== 'localhost'
+     && location.hostname !== '127.0.0.1') return;
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  });
+}
+
+// Clear every cache this device holds for the app. Called after the account is
+// deleted: a deleted account must not leave its campaigns readable on the
+// device. Done from the page rather than only through the worker, because a
+// browser that never registered one still has nothing to clear and must not
+// make this fail.
+async function purgeOfflineCaches(){
+  try{
+    if(window.caches){
+      const keys = await caches.keys();
+      await Promise.all(keys.map(k => caches.delete(k)));
+    }
+  }catch(e){}
+  try{
+    const regs = await navigator.serviceWorker?.getRegistrations?.() ?? [];
+    await Promise.all(regs.map(r => r.unregister()));
+  }catch(e){}
+}
+
+// ---------------------------------------------------------------------------
+// Account deletion. Typed confirmation rather than a plain OK: this is one tap
+// from a thumb on a tablet and there is no undo behind it.
+function wireDelete(){
+  const dlg = document.getElementById('deleteDlg');
+  const open = document.getElementById('deleteAcct');
+  const word = document.getElementById('deleteWord');
+  const go = document.getElementById('deleteGo');
+  const cancel = document.getElementById('deleteCancel');
+  const err = document.getElementById('deleteErr');
+  if(!dlg || !open) return;
+
+  const reset = () => { word.value = ''; go.disabled = true; err.textContent = ''; };
+
+  open.addEventListener('click', () => {
+    reset();
+    if(typeof dlg.showModal === 'function') dlg.showModal();
+    else dlg.setAttribute('open', '');    // ancient Safari: still usable, no backdrop
+    word.focus();
+  });
+  cancel.addEventListener('click', () => { dlg.close?.(); dlg.removeAttribute('open'); });
+  word.addEventListener('input', () => { go.disabled = word.value.trim().toUpperCase() !== 'DELETE'; });
+
+  go.addEventListener('click', async () => {
+    go.disabled = true; cancel.disabled = true; err.textContent = '';
+    go.textContent = 'Deleting…';
+    let ok = false;
+    try{
+      const r = await fetch('/api/account', { method: 'DELETE', credentials: 'same-origin' });
+      ok = r.ok;
+      if(!ok){
+        const body = await r.json().catch(() => null);
+        err.textContent = (body && body.message) || ('Could not delete the account (' + r.status + ').');
+      }
+    }catch(e){
+      err.textContent = 'Could not reach the server. Check your connection and try again.';
+    }
+    if(!ok){ go.disabled = false; cancel.disabled = false; go.textContent = 'Delete for ever'; return; }
+    // The account is gone; the session cookie is not, and neither is anything
+    // cached on the device. Clear both before leaving, and leave via sign-out so
+    // Clerk drops its own client-side state too.
+    await purgeOfflineCaches();
+    location.replace('/sign-out.html');
+  });
+}
+
 (async function start(){
+  registerWorker();
+  wireDelete();
   // The account and the catalogue are independent — the shelf must draw even if
   // the API never answers, so neither await blocks the other.
   const [cat] = await Promise.all([json('./games.json'), loadAccount(), loadSaves()]);

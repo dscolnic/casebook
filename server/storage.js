@@ -292,8 +292,51 @@ async function saveRoom(room) {
   );
 }
 
+// ---------------------------------------------------------------------------
+// Account deletion (App Store guideline 5.1.1(v)).
+//
+// Everything a user owns hangs off users.id with ON DELETE CASCADE — results,
+// saves, streaks, the classes they teach and, through those, the rosters, plus
+// their own membership of anyone else's class. So the one DELETE below is the
+// whole erasure, and it stays that way only as long as every new table that
+// references users(id) declares the cascade. A new table that does not will fail
+// this delete with a foreign-key error rather than silently orphaning the row,
+// which is the behaviour to want.
+//
+// THE ONE EXCEPTION IS `rooms`, whose owner_id is ON DELETE SET NULL, and that
+// is deliberate. A co-op room is one campaign several people share; deleting the
+// account that happened to create it would take away the other players' game.
+// The row keeps no personal data of the leaver — the campaign blob is the shared
+// game state and the member list is in memory in server/rooms.js, not here — so
+// what survives is a game, not a record of a person.
+async function deleteUserData(userId) {
+  const { rowCount } = await pool.query(`DELETE FROM users WHERE id = $1`, [userId]);
+  return rowCount > 0;
+}
+
+// What the delete will remove, read before it runs. Not for the confirm dialog —
+// which is deliberately about consequences rather than counts — but so the
+// server can log what an irreversible request actually destroyed.
+async function countUserData(userId) {
+  const { rows } = await pool.query(
+    `SELECT (SELECT count(*) FROM game_saves   WHERE user_id = $1) AS saves,
+            (SELECT count(*) FROM game_results WHERE user_id = $1) AS results,
+            (SELECT count(*) FROM classes      WHERE teacher_id = $1) AS teaching,
+            (SELECT count(*) FROM class_members WHERE user_id = $1) AS enrolled,
+            (SELECT count(*) FROM rooms        WHERE owner_id = $1) AS rooms`,
+    [userId]
+  );
+  const r = rows[0] || {};
+  return {
+    saves: Number(r.saves || 0), results: Number(r.results || 0),
+    teaching: Number(r.teaching || 0), enrolled: Number(r.enrolled || 0),
+    rooms: Number(r.rooms || 0),
+  };
+}
+
 module.exports = {
   upsertUser, upsertUserProfile, getUser, recordResult, getStats, getAvatar, setAvatar,
   getGameSave, putGameSave, deleteGameSave, listGameSaves,
   loadRoom, saveRoom,
+  deleteUserData, countUserData,
 };

@@ -4,7 +4,10 @@
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
-    "test": "node scripts/test-classes.js"
+    "test": "node scripts/test-classes.js && node scripts/test-sw.js",
+    "test:sw": "node scripts/test-sw.js",
+    "clerk:check": "node scripts/set-clerk-key.mjs --check",
+    "clerk:set": "node scripts/set-clerk-key.mjs"
   },
   "keywords": [],
   "author": "",
