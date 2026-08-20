@@ -2120,25 +2120,6 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "n = m / M",
-          "c": "moles from a mass and a molar mass",
-          "v": [
-            [
-              "n",
-              "number of moles, in mol"
-            ],
-            [
-              "m",
-              "mass of the sample, in grams"
-            ],
-            [
-              "M",
-              "molar mass of the substance, in grams per mole"
-            ]
-          ],
-          "s": "Divide a weighed mass by the mass of one mole to get how many moles you are holding."
-        },
-        {
           "e": "ΔTf = i·Kf·m",
           "c": "how far dissolved salt drops a freezing point",
           "v": [
@@ -2159,7 +2140,27 @@ export const CURRICULUM = {
               "in mol/kg"
             ]
           ],
-          "s": "Only the number of dissolved particles matters, which is why a salt that splits in two counts twice."
+          "s": "Only the number of dissolved particles matters, which is why a salt that splits in two counts twice.",
+          "demanded": true
+        },
+        {
+          "e": "n = m / M",
+          "c": "moles from a mass and a molar mass",
+          "v": [
+            [
+              "n",
+              "number of moles, in mol"
+            ],
+            [
+              "m",
+              "mass of the sample, in grams"
+            ],
+            [
+              "M",
+              "molar mass of the substance, in grams per mole"
+            ]
+          ],
+          "s": "Divide a weighed mass by the mass of one mole to get how many moles you are holding."
         }
       ],
       "concept": {
@@ -4248,7 +4249,8 @@ export const CURRICULUM = {
               "molar mass of the substance, in grams per mole"
             ]
           ],
-          "s": "Divide a weighed mass by the mass of one mole to get how many moles you are holding."
+          "s": "Divide a weighed mass by the mass of one mole to get how many moles you are holding.",
+          "demanded": true
         },
         {
           "e": "n = It ÷ (zF)",

@@ -84,8 +84,8 @@ export default {
     + 'measurements lead, which means no number reaches the season report unless '
     + 'you can show where it came from. You work out what a field mill says '
     + 'about the cloud, and what thirty thousand amps does to a cable it never '
-    + 'touches. Adeyinka Vero wants shots while there is sky to fire into. Hal '
-    + 'Brenner wants a lead time that matches how fast cells really cross this '
+    + 'touches. Adeyinka Vero, the station lead, wants shots while there is sky to fire into. Hal '
+    + 'Brenner, the operations and safety officer, wants a lead time that matches how fast cells really cross this '
     + 'flat. The review at the end of the season decides whether this place gets '
     + 'a second mast or a padlock. It reads what the twelve people here can '
     + 'prove.',
@@ -106,6 +106,11 @@ export default {
     + 'the station owns no probe fast enough to believe; the conduit that carries a third of every '
     + 'strike into the instrument cabinet has been bonded, not rerouted; and nobody has yet fired '
     + 'a shot at a front short enough to test what happens when the lead is halved.',
+    'The second mast is yours. You computed the volts induced around a loop that touched '
+    + 'nothing, you went and tested that number in the hall instead of believing it, and you '
+    + 'put a lead time on next season that came from how fast the storms actually cross this '
+    + 'flat. A station stayed open because one paragraph could be defended line by line. You '
+    + 'wrote it.',
   ],
 
   look: {

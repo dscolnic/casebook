@@ -56,8 +56,8 @@ export default {
     + 'write. The unit has rebuilt that corner at full size inside its own hall, '
     + 'lit to the light the street had. Your work is what could have been seen. '
     + 'You measure the distance. You show the six photographs to strangers who '
-    + 'were never there. You date every claim in the file. Ines Baptiste '
-    + 'wants the report filed this month, on the procedure alone. Ren Okada says '
+    + 'were never there. You date every claim in the file. Ines Baptiste, the unit director, '
+    + 'wants the report filed this month, on the procedure alone. Ren Okada, the memory scientist, says '
     + 'the one account of that night nobody has touched yet is the one such a '
     + 'report would use up. Ward is thirty-four, and if the board says no, '
     + 'nobody looks at this again until 2033.',
@@ -78,6 +78,10 @@ export default {
     + 'policy when she ran it. What is unfinished: the same policy ran in Hallam until 2021, and '
     + 'nobody has counted the arrays. The unit asked for the funding to and was given half of it, '
     + 'which is enough for the ones where somebody is still inside.',
+    'And that took somebody willing to be unpopular. You measured the distance instead of '
+    + 'arguing about it, you dated every claim in the file, and you showed the array to people '
+    + 'who were never there rather than asking a witness to be sure again. A man walked out '
+    + 'after eight years. Your report is the reason.',
   ],
 
   look: {

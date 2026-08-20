@@ -83,6 +83,26 @@ export default {
     + 'three weeks waits a full year.',
   ],
 
+  // How it ends. Shown when the campaign closes, and the last thing the player
+  // reads: what came of the fortnight, what it cost, and what they did.
+  ending: [
+    'The crossing block went in on the Friday and the trial was sown inside the three weeks. '
+    + 'WM-712 went to the merchant with its weakness written on the label, and the eight '
+    + 'crosses in the block are the programme\'s work until 2033. The drifted accessions are on '
+    + 'a list with 15 years of regrowing in it, and Fenn\'s marked plants are dry, bagged and '
+    + 'back in the collection they came out of.',
+    'What it cost: ground that three people wanted and one of them got, a season in which the '
+    + 'oldest accessions were regrown at the rate the glasshouses allow rather than the rate '
+    + 'they are dying at, and one resistance gene still carrying the whole programme. What is '
+    + 'unfinished: the second source is one clean line and needs four more seasons, the '
+    + 'passport records still disagree with the markers on 60 accessions, and the isolation '
+    + 'rings are spaced on a pollen distance measured before the causeway hedge came out.',
+    'And you settled all of it. You laid the trial out by how far pollen really travels, you '
+    + 'grew out the accessions that were about to slip below the line, and you released a wheat '
+    + 'with its weakness written on the label rather than hidden in a file. What is in the '
+    + 'ground this year is what you put there. That is a season done properly.',
+  ],
+
   look: {
     fov: 66,            // a 72° field distorts badly down a straight street
     near: 0.12,

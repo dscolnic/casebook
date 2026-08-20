@@ -117,8 +117,9 @@ try{
       const body = ov?.querySelector('.modalBody')?.textContent?.trim() ?? '';
       const go = [...(ov?.querySelectorAll('button') ?? [])].find(b => b.id === 'lapGo');
       const skip = [...(ov?.querySelectorAll('button') ?? [])].find(b => b.id === 'lapSkip');
+      const pay = [...(ov?.querySelectorAll('button') ?? [])].find(b => b.id === 'lapPay');
       out.push({ day: w, lap: !!go, title, words: body.split(/\s+/).filter(Boolean).length,
-                 opening: body.slice(0, 90) });
+                 opening: body.slice(0, 90), pay: !!pay });
       // Day 1 is taken rather than skipped: a card that reads well and a run
       // that never mounts look identical from the plan screen.
       if(go){
@@ -161,6 +162,60 @@ try{
     }
     return out;
   })()`);
+
+  // ---- the priced way past a run
+  //
+  // The card's second button. Driven rather than reasoned about, because the run
+  // itself is what the rest of this file exists to prove and a button that takes
+  // the money and leaves the card up would look identical from a checker: the
+  // lap is still due, the plan never opens, and nothing throws.
+  const paid = await cdp.eval(String.raw`
+  (async () => {
+    const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+    const g = window.gamekit;
+    const st = g.getState();
+    const openCard = () => { st.dayStarted = false; st.dayEnded = false; g.day.showPlan(); };
+    const btn = (id) => [...(document.getElementById('overlay')?.querySelectorAll('button') ?? [])]
+      .find(b => b.id === id);
+    // Rich: the button is offered, the money goes, the run is marked done, and
+    // the plan card is what comes up next.
+    st.week = 1; st.laps = {}; st.reserve = 30;
+    openCard(); await sleep(250);
+    const offered = !!btn('lapPay'), disabledRich = !!btn('lapPay')?.disabled;
+    btn('lapPay')?.click(); await sleep(400);
+    const title = document.querySelector('.modalTitle, #modalTitle')?.textContent?.trim() ?? '';
+    const after = { offered, disabledRich, reserve: st.reserve,
+      lapsMarked: Object.keys(st.laps ?? {}).length, title,
+      planUp: /^(Day|Watch|Shift|Sol|Stage|Phase)\b/i.test(title) };
+    // Broke: the same card, and the button is there but dead — a missing button
+    // and a disabled one read very differently to somebody with no money.
+    st.week = 2; st.laps = {}; st.reserve = 0;
+    openCard(); await sleep(250);
+    after.brokeOffered = !!btn('lapPay');
+    after.brokeDisabled = !!btn('lapPay')?.disabled;
+    after.brokeSaysWhy = /Director funds are \$0/.test(
+      document.getElementById('modalBody')?.textContent ?? '');
+    btn('lapPay')?.click(); await sleep(250);
+    after.brokeStillDue = !!btn('lapGo');
+    return after;
+  })()`);
+  console.log(`
+paid way past a run:`);
+  const payCases = [
+    ['the card offers it', paid?.offered === true],
+    ['…and it is live when the money is there', paid?.disabledRich === false],
+    [`$10 comes off the reserve (30 → ${paid?.reserve})`, paid?.reserve === 20],
+    ['the run is marked done, so it is not offered again', paid?.lapsMarked === 1],
+    [`the plan card is what comes up ("${paid?.title ?? ''}")`, paid?.planUp === true],
+    ['with no money it is still shown', paid?.brokeOffered === true],
+    ['…disabled rather than missing', paid?.brokeDisabled === true],
+    ['…and the card says what is missing', paid?.brokeSaysWhy === true],
+    ['…and the run is still the way on', paid?.brokeStillDue === true],
+  ];
+  for(const [what, ok] of payCases){
+    console.log(`  ${ok ? '✓' : '✗'} ${what}`);
+    if(!ok) bad++;
+  }
 
   if(SHOT){
     const shot = await cdp.send('Page.captureScreenshot', { format: 'png' });

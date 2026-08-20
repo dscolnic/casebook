@@ -396,7 +396,7 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "The copy that was never in the vault",
-      "scene": "Fenn's old wheats are growing in the station plots. His family has grown one of them without a break since before Wellmere existed. Rust arrives there most years.",
+      "scene": "The farmer Idris Fenn has old wheats growing in the station plots. His family has grown one of them without a break since before Wellmere existed. Rust arrives there most years.",
       "takeaway": "A population kept in the ground keeps being tested by the thing you might one day need it for.",
       "place": "Seed Vault",
       "guide": "Four reasons the field copy might hold what the vault lost. Ask of each whether it names a reason or just a difference. Fresher and bigger are not reasons. Rust arriving every year means resistant plants leave more seed. In a clean nursery, resistance had no advantage at all.",
@@ -405,7 +405,7 @@ export const CURRICULUM = {
         "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
         "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
       ],
-      "story": "Fenn's old wheats are growing in the station plots. His family has grown one of them without a break since before Wellmere existed. Rust arrives there most years.",
+      "story": "The farmer Idris Fenn has old wheats growing in the station plots. His family has grown one of them without a break since before Wellmere existed. Rust arrives there most years.",
       "game": {
         "type": "CHOICE",
         "title": "The copy that was never in the vault",
@@ -523,7 +523,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Two parents, and what you are asking of them",
-      "scene": "Volpe has two parents pinned above the bench. One is a modern wheat that yields well. The other is an old local kind that came through the 2018 drought. Bengtsson asks what she wants.",
+      "scene": "Volpe has two parents pinned above the bench. One is a modern wheat that yields well. The other is an old local kind that came through the 2018 drought. Bengtsson, the glasshouse manager, asks what she wants.",
       "takeaway": "A cross is a request for a combination, and it takes generations to find out whether it was granted.",
       "place": "Crossing Hall",
       "guide": "Four accounts of what a cross is for. Ask of each whether it could happen when each parent passes on half its genes. The offspring get a mix, not an average. Neither parent already has the combination being looked for. And many of the offspring will be worse than both, because the bad genes get shuffled too.",
@@ -532,7 +532,7 @@ export const CURRICULUM = {
         "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
         "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
       ],
-      "story": "Volpe has two parents pinned above the bench. One is a modern wheat that yields well. The other is an old local kind that came through the 2018 drought. Bengtsson asks what she wants.",
+      "story": "Volpe has two parents pinned above the bench. One is a modern wheat that yields well. The other is an old local kind that came through the 2018 drought. Bengtsson, the glasshouse manager, asks what she wants.",
       "game": {
         "type": "CHOICE",
         "title": "Two parents, and what you are asking of them",
@@ -1372,7 +1372,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Why the same line is sown four times",
-      "scene": "Meera Quiroga has the plot map on the wall. Two hundred and forty plots, each line sown four times across four blocks, in scrambled order. The north end is visibly wetter.",
+      "scene": "Meera Quiroga, the field trials manager, has the plot map on the wall. Two hundred and forty plots, each line sown four times across four blocks, in scrambled order. The north end is visibly wetter.",
       "takeaway": "Repeating a thing in different places is how you find out which part of the answer was the place.",
       "place": "Field Laboratory",
       "guide": "Four things four plots might buy. Ask of each whether it is about the comparison or about safety. A field is not the same everywhere: drainage, depth and shelter all vary. So one plot's yield is the seed and the ground together. Spreading a line across the field is what separates them.",
@@ -1381,7 +1381,7 @@ export const CURRICULUM = {
         "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
         "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
       ],
-      "story": "Meera Quiroga has the plot map on the wall. Two hundred and forty plots, each line sown four times across four blocks, in scrambled order. The north end is visibly wetter.",
+      "story": "Meera Quiroga, the field trials manager, has the plot map on the wall. Two hundred and forty plots, each line sown four times across four blocks, in scrambled order. The north end is visibly wetter.",
       "game": {
         "type": "CHOICE",
         "title": "Why the same line is sown four times",
@@ -1487,6 +1487,27 @@ export const CURRICULUM = {
           ],
           "s": "Dividing one measurement by another says how many times bigger it is, which is usually the comparison worth making.",
           "computed": true
+        },
+        {
+          "e": "average = total ÷ how many",
+          "c": "the mean of several plots or plants",
+          "v": [
+            [
+              "average",
+              "the mean"
+            ],
+            [
+              "total",
+              "the values added up"
+            ],
+            [
+              "how many",
+              "the number of them"
+            ]
+          ],
+          "s": "One plant is an accident. An average over many is a property of the seed.",
+          "demanded": true,
+          "card": false
         }
       ],
       "concept": {
@@ -1760,6 +1781,51 @@ export const CURRICULUM = {
     },
     {
       "day": 2,
+      "title": "The vial nobody has grown",
+      "scene": "Two of the fifty batches carry the resistance gene, and the screenhouse can grow only one this season. The full vial has been grown out three times. The thin one has never been grown out at all.",
+      "takeaway": "Copies of copies drift. The one nobody has copied is the one that still holds what was collected.",
+      "place": "Molecular Laboratory",
+      "guide": "Four options, and two facts to weigh: how much seed there is, and how many times it has been grown out. Ask of each which of the two it uses. The amount in the vial says nothing about what is in it. Every grow-out is another chance for rare things to be left out.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
+      "story": "Two of the fifty batches carry the resistance gene, and the screenhouse can grow only one this season. The full vial has been grown out three times. The thin one has never been grown out at all.",
+      "game": {
+        "type": "CHOICE",
+        "title": "The vial nobody has grown",
+        "setup": "The screenhouse can grow one of the two this season.",
+        "play": "Spend the two checks on evidence that could change which batch gets the slot.",
+        "task": "Spend the two checks on evidence that could change which batch gets the slot.",
+        "question": "One vial is full and has been grown out three times. The other is thin and never grown. Which is closer to the original plant?",
+        "answer": "The thin one. Every grow-out is a chance to drift, and that vial has had none.",
+        "why": "A seed batch is not a photograph. Every time it is grown out, only some of the plants set seed, and the batch that comes back is slightly different from the batch that went in. Do that three times and the difference adds up. The thin vial has never been through that, so whatever was collected is still in it. Being thin is a problem you can fix — three hundred seeds carefully grown is a full vial again. Being drifted is not a problem you can fix, because there is nothing left to go back to.",
+        "rebuttals": [
+          "How much there is says nothing about what is in it.",
+          "A grow-out is not a check. It is a chance for the batch to change.",
+          "Time in the cold changes a batch far less than a season in a field."
+        ],
+        "choices": [
+          "The thin one, because it has never been grown out",
+          "The full one, because there is more of it",
+          "The full one, because it has been checked three times",
+          "Neither, since both have been in store the same time"
+        ],
+        "correctChoice": "The thin one, because it has never been grown out"
+      },
+      "assumes": [
+        "every grow-out is a chance for a batch to drift from what it was",
+        "a small lot of living seed can usually be built back up"
+      ],
+      "concept": {
+        "n": 2,
+        "c": "A seed is alive, and it can be kept alive or let die",
+        "of": 16
+      }
+    },
+    {
+      "day": 3,
       "title": "A test fitted where it worked",
       "scene": "DNA is the set of instructions inside every seed. A marker is a short piece of DNA that sits near the gene you care about. Testing the marker is a cheap way to ask about the gene. This marker was worked out on the first population. Nakagawa now has a new cross, and a hundred plants scored both ways. A cut-off's score is how many of a hundred plants it calls right.",
       "takeaway": "A rule fitted on one set of plants has to be scored on a set it has never seen.",
@@ -1900,51 +1966,6 @@ export const CURRICULUM = {
       "concept": {
         "n": 8,
         "c": "A fair test needs a control and everything else kept the same",
-        "of": 16
-      }
-    },
-    {
-      "day": 3,
-      "title": "The vial nobody has grown",
-      "scene": "Two of the fifty batches carry the resistance gene, and the screenhouse can grow only one this season. The full vial has been grown out three times. The thin one has never been grown out at all.",
-      "takeaway": "Copies of copies drift. The one nobody has copied is the one that still holds what was collected.",
-      "place": "Molecular Laboratory",
-      "guide": "Four options, and two facts to weigh: how much seed there is, and how many times it has been grown out. Ask of each which of the two it uses. The amount in the vial says nothing about what is in it. Every grow-out is another chance for rare things to be left out.",
-      "background": [
-        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
-        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
-        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
-      ],
-      "story": "Two of the fifty batches carry the resistance gene, and the screenhouse can grow only one this season. The full vial has been grown out three times. The thin one has never been grown out at all.",
-      "game": {
-        "type": "CHOICE",
-        "title": "The vial nobody has grown",
-        "setup": "The screenhouse can grow one of the two this season.",
-        "play": "Spend the two checks on evidence that could change which batch gets the slot.",
-        "task": "Spend the two checks on evidence that could change which batch gets the slot.",
-        "question": "One vial is full and has been grown out three times. The other is thin and never grown. Which is closer to the original plant?",
-        "answer": "The thin one. Every grow-out is a chance to drift, and that vial has had none.",
-        "why": "A seed batch is not a photograph. Every time it is grown out, only some of the plants set seed, and the batch that comes back is slightly different from the batch that went in. Do that three times and the difference adds up. The thin vial has never been through that, so whatever was collected is still in it. Being thin is a problem you can fix — three hundred seeds carefully grown is a full vial again. Being drifted is not a problem you can fix, because there is nothing left to go back to.",
-        "rebuttals": [
-          "How much there is says nothing about what is in it.",
-          "A grow-out is not a check. It is a chance for the batch to change.",
-          "Time in the cold changes a batch far less than a season in a field."
-        ],
-        "choices": [
-          "The thin one, because it has never been grown out",
-          "The full one, because there is more of it",
-          "The full one, because it has been checked three times",
-          "Neither, since both have been in store the same time"
-        ],
-        "correctChoice": "The thin one, because it has never been grown out"
-      },
-      "assumes": [
-        "every grow-out is a chance for a batch to drift from what it was",
-        "a small lot of living seed can usually be built back up"
-      ],
-      "concept": {
-        "n": 2,
-        "c": "A seed is alive, and it can be kept alive or let die",
         "of": 16
       }
     },
@@ -2112,288 +2133,6 @@ export const CURRICULUM = {
   "DRY": [
     {
       "day": 1,
-      "title": "Where a tonne of grain comes from",
-      "scene": "The agronomist has eleven tonnes of grain from one field on the weighbridge slip. A trainee has just said the crop got it out of the soil. He would like that settled.",
-      "takeaway": "A harvest weighs what it weighs because of something that was not there when it started.",
-      "place": "Drying & Processing Hall",
-      "guide": "Work out how much of the eleven tonnes is the stuff the plant built out of air. About nine tenths of dry grain is sugar and starch, and all of that came in through the leaves as carbon dioxide. One tile is the share that came out of the soil, which is the small part and not the answer.",
-      "background": [
-        "What grain is made of. Once it is dry, about nine parts in ten are carbohydrate — sugars and starch, built out of carbon dioxide from the air and water, using light. That is where almost all the weight comes from.",
-        "What the soil gives. Minerals, and only a few per cent of the weight. They matter enormously, because a crop short of nitrogen cannot build much of anything, and they are not what the harvest is made of.",
-        "Where the water goes. Most of the water a crop takes up leaves again through its leaves as vapour. It is not in the weighbridge figure at all, because the grain is weighed dry."
-      ],
-      "story": "The agronomist has eleven tonnes of grain from one field on the weighbridge slip. A trainee has just said the crop got it out of the soil. He would like that settled.",
-      "game": {
-        "type": "BALLPARK",
-        "title": "Where a tonne of grain comes from",
-        "setup": "Drying & Processing Hall",
-        "play": "Say where the weight in the harvest came from.",
-        "task": "Say where the weight in the harvest came from.",
-        "question": "How much of the eleven tonnes came in through the leaves, out of the air?",
-        "answer": "About ten tonnes of it. Nine tenths of dry grain is sugar and starch built out of carbon dioxide, and the soil's share is a few hundred kilos of minerals.",
-        "why": "Dry grain is about nine parts in ten carbohydrate — sugar and starch. The plant builds all of it out of carbon dioxide taken in through its leaves, with water and light. So the part of the harvest that came out of the air is 11 × 0.9 ≈ 9.9 tonnes, near enough ten. The soil's contribution is the other part: minerals, a few per cent of the weight, a few hundred kilograms across the whole field. That small share is not unimportant — a crop short of nitrogen cannot build much of anything — but it is not what the harvest is made of. The water is not in the figure at all. Most of what the crop took up left again through its leaves as vapour, and the grain on the slip has been weighed dry. So the trainee has it backwards: the field gave the minerals, and the air gave the weight.",
-        "givens": [
-          "eleven tonnes of dry grain from one field",
-          "about nine tenths of dry grain is carbohydrate"
-        ],
-        "relationship": "Part = whole × share, and the share that is carbohydrate came in as carbon dioxide.",
-        "calcKey": "DRY-1"
-      },
-      "assumes": [
-        "plants build sugars out of carbon dioxide and water, using light"
-      ],
-      "equations": [
-        {
-          "e": "part = whole × share",
-          "c": "how many of a batch will do something",
-          "v": [
-            [
-              "part",
-              "how many"
-            ],
-            [
-              "whole",
-              "how many there are altogether"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
-        }
-      ],
-      "concept": {
-        "n": 7,
-        "c": "Same seed, different field: what a plant looks like depends on where it grew",
-        "of": 16,
-        "rests": [
-          "Living things pass traits to their offspring"
-        ]
-      }
-    },
-    {
-      "day": 2,
-      "title": "What the crop cannot do without water",
-      "scene": "Osman Toft, the agronomist, has eleven years of yield against summer rain, and a roughly straight line through it. A trainee asks why a plant built out of air minds a dry summer at all.",
-      "takeaway": "The opening a leaf takes carbon in through is the opening it loses water through.",
-      "place": "Drying & Processing Hall",
-      "guide": "Four steps carry carbon from the air into the grain. Each one has a number beside it saying how much it is passing today. Put them in the order the carbon travels, then name the step that is holding everything up. The biggest number on the board is not the answer, and neither is the first step.",
-      "background": [
-        "What a governing step is. Along any path, the step passing the least decides the total. Improving any other step changes nothing at all, which is why naming the right one matters more than describing the path.",
-        "Why the pores are the awkward step. A leaf takes carbon dioxide in through tiny pores, and loses water out through the same pores. There is no way to open them for one and not the other. In a dry summer the plant shuts them to save water, and the carbon stops coming in.",
-        "What the other steps are doing. The leaves are catching as much light as ever, and the machinery inside them still works. The roots are moving water, not carbon. The number beside each step is what separates a suspect from the answer."
-      ],
-      "story": "Osman Toft, the agronomist, has eleven years of yield against summer rain, and a roughly straight line through it. A trainee asks why a plant built out of air minds a dry summer at all.",
-      "game": {
-        "type": "CHAIN",
-        "title": "What the crop cannot do without water",
-        "setup": "Drying & Processing Hall",
-        "play": "Say why a dry summer costs yield.",
-        "task": "Say why a dry summer costs yield.",
-        "question": "Trace the path carbon takes into the grain, and name the step holding it up in a dry summer.",
-        "answer": "The pores. They are shut to save water, so carbon dioxide cannot get in — and nothing the leaves or the roots do can make up for it.",
-        "why": "Almost all the weight of a harvest arrives as carbon dioxide through tiny pores in the leaves. Water vapour leaves through those same pores. In a dry summer the plant shuts them, which is the right choice for staying alive and stops the carbon coming in at the same moment. Look at the numbers on the board. The leaves are catching light as well as ever, the machinery inside them could handle far more carbon than is arriving, and the roots are busy with water. Only one step has fallen, and it has fallen a long way. That is what a governing step means: the step passing the least decides the total, so improving any of the others changes nothing while the pores are shut. Toft's straight line is the same fact drawn over eleven summers, and it is why breeders talk about getting more grain per drop of water rather than about beating drought.",
-        "chain": {
-          "links": [
-            {
-              "id": "light",
-              "label": "Light caught",
-              "transfers": "780 units, same as a wet year"
-            },
-            {
-              "id": "pores",
-              "label": "Carbon let in",
-              "transfers": "6 units, was 21"
-            },
-            {
-              "id": "inside",
-              "label": "Sugar made",
-              "transfers": "room for 24 units"
-            },
-            {
-              "id": "grain",
-              "label": "Sugar to the grain",
-              "transfers": "room for 19 units"
-            }
-          ],
-          "order": [
-            "light",
-            "pores",
-            "inside",
-            "grain"
-          ],
-          "governing": "pores",
-          "distractor": "light",
-          "commit": "Name the governing transfer"
-        }
-      },
-      "assumes": [
-        "plants take carbon dioxide in through tiny pores in their leaves"
-      ],
-      "concept": {
-        "n": 7,
-        "c": "Same seed, different field: what a plant looks like depends on where it grew",
-        "of": 16,
-        "rests": [
-          "Living things pass traits to their offspring"
-        ]
-      }
-    },
-    {
-      "day": 3,
-      "title": "Short is not simply worse",
-      "scene": "Toft points out that shorter wheats were the whole point of the 1960s. Less stem, more grain, and they stand up in the rain. Volpe still did not ask for fifteen centimetres.",
-      "takeaway": "What matters is the share of what a plant built that ends up in the grain.",
-      "place": "Drying & Processing Hall",
-      "guide": "Work out what share of everything the plant built ended up in the grain. Take the grain weight and divide it by the whole weight the plant made, stem and roots and all. One tile is the weight of the stem on its own, which is part of the total rather than the thing you divide by.",
-      "background": [
-        "What the share means. A plant builds a fixed amount in a season, and then divides it between stem, leaves, roots and grain. The share that ends up in the grain is what a farmer takes away, and shorter wheats raised it by spending less on stem.",
-        "Why the stem is not waste. It holds the ear up, carries water and sugar to it, and keeps the crop off the ground in August rain. A stem strong enough to stand in weather is paid for out of the same total as the grain.",
-        "Why a shorter plant is not a better plant. It does not build more. It divides what it builds differently, which is a gain until the stem is too weak to hold the ear up in bad weather."
-      ],
-      "story": "Toft points out that shorter wheats were the whole point of the 1960s. Less stem, more grain, and they stand up in the rain. Volpe still did not ask for fifteen centimetres.",
-      "game": {
-        "type": "BALLPARK",
-        "title": "Short is not simply worse",
-        "setup": "Drying & Processing Hall",
-        "play": "Say what shorter plants do to the harvest.",
-        "task": "Say what shorter plants do to the harvest.",
-        "question": "What share of everything the plant built ended up in the grain?",
-        "answer": "About 0.45, or a little under half. The tall wheat manages 0.33, and the difference is stem the short plant did not build.",
-        "why": "A crop builds a certain amount in a season and then divides it up. This short wheat built 19.6 tonnes across the field, and 8.6 tonnes of that is grain: 8.6 ÷ 19.6 ≈ 0.45. A little under half. The tall wheat beside it built about the same total and got 0.33 of it into the ear, because more went into stem. That is the whole gain of the 1960s, and it is a gain in sharing rather than in building — neither plant photosynthesises faster than the other. It is also why the trade has a limit. The stem holds the ear up, carries water and sugar to it, and keeps the crop out of the mud in August rain, and all of that is bought out of the same total. Volpe's fifteen centimetres is not a rounding error either: it is stem, paid for with grain.",
-        "givens": [
-          "the crop built 19.6 tonnes, of which 8.6 is grain",
-          "a tall wheat gets about 0.33 into the ear"
-        ],
-        "relationship": "The share is grain ÷ everything the plant built. A shorter plant builds no more; it divides what it builds differently.",
-        "calcKey": "DRY-3"
-      },
-      "assumes": [
-        "a plant shares out what it builds between stem, leaf and grain"
-      ],
-      "equations": [
-        {
-          "e": "part = whole × share",
-          "c": "how many of a batch will do something",
-          "v": [
-            [
-              "part",
-              "how many"
-            ],
-            [
-              "whole",
-              "how many there are altogether"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
-        }
-      ],
-      "concept": {
-        "n": 11,
-        "c": "Choosing for one trait can drag another along with it",
-        "of": 16,
-        "rests": [
-          "Choosing which plants to breed from, and what that costs"
-        ]
-      }
-    },
-    {
-      "day": 4,
-      "title": "Why those two did well",
-      "scene": "Two of the twenty chosen plots covered the ground eleven days before the rest and flowered four days earlier. Their yields are the best in the trial, and the season went dry after flowering.",
-      "takeaway": "An early crop catches light while there is still water to use it with.",
-      "place": "Drying & Processing Hall",
-      "guide": "Four things are different about those two plots, and the yield sheet will give you a figure for whatever you set up. Change one of them and grow it. Change two and the figure cannot say which one did it. Then set your one back the way it was, because a difference that does not come back was never the reason.",
-      "background": [
-        "Why one thing at a time. Any two plots differ in dozens of ways at once. A test that changes several of them gives a number that fits every story, which is the same as having no answer.",
-        "What covering the ground early buys. Leaves catch light. Covering the ground eleven days sooner means eleven more days of catching it while there is still water in the soil to use it with, and this season went dry after flowering.",
-        "Why setting it back matters. If the yield falls again when the early cover goes, the early cover was doing it. If it stays up, something else was, and the test has saved a season of breeding for the wrong thing."
-      ],
-      "story": "Two of the twenty chosen plots covered the ground eleven days before the rest and flowered four days earlier. Their yields are the best in the trial, and the season went dry after flowering.",
-      "game": {
-        "type": "CONTROL",
-        "title": "Why those two did well",
-        "setup": "Drying & Processing Hall",
-        "play": "Say what explains the best two plots.",
-        "task": "Say what explains the best two plots.",
-        "question": "Which difference between those plots is actually raising the yield?",
-        "answer": "Covering the ground early. Sow the same line to cover early and the yield goes up by a third; take the early cover away and it drops back.",
-        "why": "Four things were different about the best two plots. Only one of them holds up when it is tested on its own. Sow plots that cover the ground eleven days early. Keep the seed, the date, the water and the nitrogen the same. The yield goes from 6.2 tonnes to 8.3. Take the early cover away and it drops back to 6.4. That is a real cause. The figure follows the change both ways, and it moves far more than the trial's own wobble. The others do nothing on their own. Flowering four days early is worth less than the wobble. So is where the plot sits, and so is the extra nitrogen. Leaves catch light. This season went dry after flowering. So eleven extra days of catching light, while there was still water to use it with, is eleven days the other plots never got.",
-        "control": {
-          "observable": {
-            "label": "Yield from the plot",
-            "unit": "tonnes"
-          },
-          "variables": [
-            {
-              "id": "cover",
-              "label": "How early the crop covers the ground"
-            },
-            {
-              "id": "flower",
-              "label": "How early it flowers"
-            },
-            {
-              "id": "place",
-              "label": "Where in the field the plot sits"
-            },
-            {
-              "id": "nitrogen",
-              "label": "How much nitrogen the plot got"
-            }
-          ],
-          "held": [
-            "the same line of wheat",
-            "the same sowing date",
-            "the same water",
-            "the same plot size"
-          ],
-          "truth": "cover",
-          "baseline": 6.2,
-          "response": 2.1,
-          "noise": 0.3,
-          "hint": "The trial can be set up again each season. Change what you want, grow it, and read the yield.",
-          "run": "Grow the plot",
-          "commit": "Name the one that is doing it"
-        }
-      },
-      "assumes": [
-        "a crop builds most of its grain from light caught after it flowers"
-      ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of several plots or plants",
-          "v": [
-            [
-              "average",
-              "the mean"
-            ],
-            [
-              "total",
-              "the values added up"
-            ],
-            [
-              "how many",
-              "the number of them"
-            ]
-          ],
-          "s": "One plant is an accident. An average over many is a property of the seed."
-        }
-      ],
-      "concept": {
-        "n": 8,
-        "c": "A fair test needs a control and everything else kept the same",
-        "of": 16
-      }
-    },
-    {
-      "day": 5,
       "title": "Covered early, or open to the wind",
       "scene": "Two hours of bags have to be cleared. A head that was bagged before it flowered could only pollinate itself. A head left open took whatever the wind brought.",
       "takeaway": "What fathered a seed was decided before the flower opened.",
@@ -2536,6 +2275,271 @@ export const CURRICULUM = {
       "assumes": [
         "a flower can be pollinated by its own plant or by another one"
       ],
+      "concept": {
+        "n": 3,
+        "c": "Two parents each give half, so the young are not copies",
+        "of": 16,
+        "rests": [
+          "Living things pass traits to their offspring"
+        ]
+      }
+    },
+    {
+      "day": 2,
+      "title": "Where a tonne of grain comes from",
+      "scene": "The agronomist has eleven tonnes of grain from one field on the weighbridge slip. A trainee has just said the crop got it out of the soil. He would like that settled.",
+      "takeaway": "A harvest weighs what it weighs because of something that was not there when it started.",
+      "place": "Drying & Processing Hall",
+      "guide": "Work out how much of the eleven tonnes is the stuff the plant built out of air. About nine tenths of dry grain is sugar and starch, and all of that came in through the leaves as carbon dioxide. One tile is the share that came out of the soil, which is the small part and not the answer.",
+      "background": [
+        "What grain is made of. Once it is dry, about nine parts in ten are carbohydrate — sugars and starch, built out of carbon dioxide from the air and water, using light. That is where almost all the weight comes from.",
+        "What the soil gives. Minerals, and only a few per cent of the weight. They matter enormously, because a crop short of nitrogen cannot build much of anything, and they are not what the harvest is made of.",
+        "Where the water goes. Most of the water a crop takes up leaves again through its leaves as vapour. It is not in the weighbridge figure at all, because the grain is weighed dry."
+      ],
+      "story": "The agronomist has eleven tonnes of grain from one field on the weighbridge slip. A trainee has just said the crop got it out of the soil. He would like that settled.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "Where a tonne of grain comes from",
+        "setup": "Drying & Processing Hall",
+        "play": "Say where the weight in the harvest came from.",
+        "task": "Say where the weight in the harvest came from.",
+        "question": "How much of the eleven tonnes came in through the leaves, out of the air?",
+        "answer": "About ten tonnes of it. Nine tenths of dry grain is sugar and starch built out of carbon dioxide, and the soil's share is a few hundred kilos of minerals.",
+        "why": "Dry grain is about nine parts in ten carbohydrate — sugar and starch. The plant builds all of it out of carbon dioxide taken in through its leaves, with water and light. So the part of the harvest that came out of the air is 11 × 0.9 ≈ 9.9 tonnes, near enough ten. The soil's contribution is the other part: minerals, a few per cent of the weight, a few hundred kilograms across the whole field. That small share is not unimportant — a crop short of nitrogen cannot build much of anything — but it is not what the harvest is made of. The water is not in the figure at all. Most of what the crop took up left again through its leaves as vapour, and the grain on the slip has been weighed dry. So the trainee has it backwards: the field gave the minerals, and the air gave the weight.",
+        "givens": [
+          "eleven tonnes of dry grain from one field",
+          "about nine tenths of dry grain is carbohydrate"
+        ],
+        "relationship": "Part = whole × share, and the share that is carbohydrate came in as carbon dioxide.",
+        "calcKey": "DRY-2"
+      },
+      "assumes": [
+        "plants build sugars out of carbon dioxide and water, using light"
+      ],
+      "equations": [
+        {
+          "e": "part = whole × share",
+          "c": "how many of a batch will do something",
+          "v": [
+            [
+              "part",
+              "how many"
+            ],
+            [
+              "whole",
+              "how many there are altogether"
+            ],
+            [
+              "share",
+              "the percentage, written as a decimal"
+            ]
+          ],
+          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it.",
+          "demanded": true
+        }
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Same seed, different field: what a plant looks like depends on where it grew",
+        "of": 16,
+        "rests": [
+          "Living things pass traits to their offspring"
+        ]
+      }
+    },
+    {
+      "day": 3,
+      "title": "What the crop cannot do without water",
+      "scene": "Osman Toft, the agronomist, has eleven years of yield against summer rain, and a roughly straight line through it. A trainee asks why a plant built out of air minds a dry summer at all.",
+      "takeaway": "The opening a leaf takes carbon in through is the opening it loses water through.",
+      "place": "Drying & Processing Hall",
+      "guide": "Four steps carry carbon from the air into the grain. Each one has a number beside it saying how much it is passing today. Put them in the order the carbon travels, then name the step that is holding everything up. The biggest number on the board is not the answer, and neither is the first step.",
+      "background": [
+        "What a governing step is. Along any path, the step passing the least decides the total. Improving any other step changes nothing at all, which is why naming the right one matters more than describing the path.",
+        "Why the pores are the awkward step. A leaf takes carbon dioxide in through tiny pores, and loses water out through the same pores. There is no way to open them for one and not the other. In a dry summer the plant shuts them to save water, and the carbon stops coming in.",
+        "What the other steps are doing. The leaves are catching as much light as ever, and the machinery inside them still works. The roots are moving water, not carbon. The number beside each step is what separates a suspect from the answer."
+      ],
+      "story": "Osman Toft, the agronomist, has eleven years of yield against summer rain, and a roughly straight line through it. A trainee asks why a plant built out of air minds a dry summer at all.",
+      "game": {
+        "type": "CHAIN",
+        "title": "What the crop cannot do without water",
+        "setup": "Drying & Processing Hall",
+        "play": "Say why a dry summer costs yield.",
+        "task": "Say why a dry summer costs yield.",
+        "question": "Trace the path carbon takes into the grain, and name the step holding it up in a dry summer.",
+        "answer": "The pores. They are shut to save water, so carbon dioxide cannot get in — and nothing the leaves or the roots do can make up for it.",
+        "why": "Almost all the weight of a harvest arrives as carbon dioxide through tiny pores in the leaves. Water vapour leaves through those same pores. In a dry summer the plant shuts them, which is the right choice for staying alive and stops the carbon coming in at the same moment. Look at the numbers on the board. The leaves are catching light as well as ever, the machinery inside them could handle far more carbon than is arriving, and the roots are busy with water. Only one step has fallen, and it has fallen a long way. That is what a governing step means: the step passing the least decides the total, so improving any of the others changes nothing while the pores are shut. Toft's straight line is the same fact drawn over eleven summers, and it is why breeders talk about getting more grain per drop of water rather than about beating drought.",
+        "chain": {
+          "links": [
+            {
+              "id": "light",
+              "label": "Light caught",
+              "transfers": "780 units, same as a wet year"
+            },
+            {
+              "id": "pores",
+              "label": "Carbon let in",
+              "transfers": "6 units, was 21"
+            },
+            {
+              "id": "inside",
+              "label": "Sugar made",
+              "transfers": "room for 24 units"
+            },
+            {
+              "id": "grain",
+              "label": "Sugar to the grain",
+              "transfers": "room for 19 units"
+            }
+          ],
+          "order": [
+            "light",
+            "pores",
+            "inside",
+            "grain"
+          ],
+          "governing": "pores",
+          "distractor": "light",
+          "commit": "Name the governing transfer"
+        }
+      },
+      "assumes": [
+        "plants take carbon dioxide in through tiny pores in their leaves"
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Same seed, different field: what a plant looks like depends on where it grew",
+        "of": 16,
+        "rests": [
+          "Living things pass traits to their offspring"
+        ]
+      }
+    },
+    {
+      "day": 4,
+      "title": "Short is not simply worse",
+      "scene": "Toft points out that shorter wheats were the whole point of the 1960s. Less stem, more grain, and they stand up in the rain. Volpe still did not ask for fifteen centimetres.",
+      "takeaway": "What matters is the share of what a plant built that ends up in the grain.",
+      "place": "Drying & Processing Hall",
+      "guide": "Work out what share of everything the plant built ended up in the grain. Take the grain weight and divide it by the whole weight the plant made, stem and roots and all. One tile is the weight of the stem on its own, which is part of the total rather than the thing you divide by.",
+      "background": [
+        "What the share means. A plant builds a fixed amount in a season, and then divides it between stem, leaves, roots and grain. The share that ends up in the grain is what a farmer takes away, and shorter wheats raised it by spending less on stem.",
+        "Why the stem is not waste. It holds the ear up, carries water and sugar to it, and keeps the crop off the ground in August rain. A stem strong enough to stand in weather is paid for out of the same total as the grain.",
+        "Why a shorter plant is not a better plant. It does not build more. It divides what it builds differently, which is a gain until the stem is too weak to hold the ear up in bad weather."
+      ],
+      "story": "Toft points out that shorter wheats were the whole point of the 1960s. Less stem, more grain, and they stand up in the rain. Volpe still did not ask for fifteen centimetres.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "Short is not simply worse",
+        "setup": "Drying & Processing Hall",
+        "play": "Say what shorter plants do to the harvest.",
+        "task": "Say what shorter plants do to the harvest.",
+        "question": "What share of everything the plant built ended up in the grain?",
+        "answer": "About 0.45, or a little under half. The tall wheat manages 0.33, and the difference is stem the short plant did not build.",
+        "why": "A crop builds a certain amount in a season and then divides it up. This short wheat built 19.6 tonnes across the field, and 8.6 tonnes of that is grain: 8.6 ÷ 19.6 ≈ 0.45. A little under half. The tall wheat beside it built about the same total and got 0.33 of it into the ear, because more went into stem. That is the whole gain of the 1960s, and it is a gain in sharing rather than in building — neither plant photosynthesises faster than the other. It is also why the trade has a limit. The stem holds the ear up, carries water and sugar to it, and keeps the crop out of the mud in August rain, and all of that is bought out of the same total. Volpe's fifteen centimetres is not a rounding error either: it is stem, paid for with grain.",
+        "givens": [
+          "the crop built 19.6 tonnes, of which 8.6 is grain",
+          "a tall wheat gets about 0.33 into the ear"
+        ],
+        "relationship": "The share is grain ÷ everything the plant built. A shorter plant builds no more; it divides what it builds differently.",
+        "calcKey": "DRY-4"
+      },
+      "assumes": [
+        "a plant shares out what it builds between stem, leaf and grain"
+      ],
+      "equations": [
+        {
+          "e": "part = whole × share",
+          "c": "how many of a batch will do something",
+          "v": [
+            [
+              "part",
+              "how many"
+            ],
+            [
+              "whole",
+              "how many there are altogether"
+            ],
+            [
+              "share",
+              "the percentage, written as a decimal"
+            ]
+          ],
+          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
+        }
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Choosing for one trait can drag another along with it",
+        "of": 16,
+        "rests": [
+          "Choosing which plants to breed from, and what that costs"
+        ]
+      }
+    },
+    {
+      "day": 5,
+      "title": "Why those two did well",
+      "scene": "Two of the twenty chosen plots covered the ground eleven days before the rest and flowered four days earlier. Their yields are the best in the trial, and the season went dry after flowering.",
+      "takeaway": "An early crop catches light while there is still water to use it with.",
+      "place": "Drying & Processing Hall",
+      "guide": "Four things are different about those two plots, and the yield sheet will give you a figure for whatever you set up. Change one of them and grow it. Change two and the figure cannot say which one did it. Then set your one back the way it was, because a difference that does not come back was never the reason.",
+      "background": [
+        "Why one thing at a time. Any two plots differ in dozens of ways at once. A test that changes several of them gives a number that fits every story, which is the same as having no answer.",
+        "What covering the ground early buys. Leaves catch light. Covering the ground eleven days sooner means eleven more days of catching it while there is still water in the soil to use it with, and this season went dry after flowering.",
+        "Why setting it back matters. If the yield falls again when the early cover goes, the early cover was doing it. If it stays up, something else was, and the test has saved a season of breeding for the wrong thing."
+      ],
+      "story": "Two of the twenty chosen plots covered the ground eleven days before the rest and flowered four days earlier. Their yields are the best in the trial, and the season went dry after flowering.",
+      "game": {
+        "type": "CONTROL",
+        "title": "Why those two did well",
+        "setup": "Drying & Processing Hall",
+        "play": "Say what explains the best two plots.",
+        "task": "Say what explains the best two plots.",
+        "question": "Which difference between those plots is actually raising the yield?",
+        "answer": "Covering the ground early. Sow the same line to cover early and the yield goes up by a third; take the early cover away and it drops back.",
+        "why": "Four things were different about the best two plots. Only one of them holds up when it is tested on its own. Sow plots that cover the ground eleven days early. Keep the seed, the date, the water and the nitrogen the same. The yield goes from 6.2 tonnes to 8.3. Take the early cover away and it drops back to 6.4. That is a real cause. The figure follows the change both ways, and it moves far more than the trial's own wobble. The others do nothing on their own. Flowering four days early is worth less than the wobble. So is where the plot sits, and so is the extra nitrogen. Leaves catch light. This season went dry after flowering. So eleven extra days of catching light, while there was still water to use it with, is eleven days the other plots never got.",
+        "control": {
+          "observable": {
+            "label": "Yield from the plot",
+            "unit": "tonnes"
+          },
+          "variables": [
+            {
+              "id": "cover",
+              "label": "How early the crop covers the ground"
+            },
+            {
+              "id": "flower",
+              "label": "How early it flowers"
+            },
+            {
+              "id": "place",
+              "label": "Where in the field the plot sits"
+            },
+            {
+              "id": "nitrogen",
+              "label": "How much nitrogen the plot got"
+            }
+          ],
+          "held": [
+            "the same line of wheat",
+            "the same sowing date",
+            "the same water",
+            "the same plot size"
+          ],
+          "truth": "cover",
+          "baseline": 6.2,
+          "response": 2.1,
+          "noise": 0.3,
+          "hint": "The trial can be set up again each season. Change what you want, grow it, and read the yield.",
+          "run": "Grow the plot",
+          "commit": "Name the one that is doing it"
+        }
+      },
+      "assumes": [
+        "a crop builds most of its grain from light caught after it flowers"
+      ],
       "equations": [
         {
           "e": "average = total ÷ how many",
@@ -2558,12 +2562,9 @@ export const CURRICULUM = {
         }
       ],
       "concept": {
-        "n": 3,
-        "c": "Two parents each give half, so the young are not copies",
-        "of": 16,
-        "rests": [
-          "Living things pass traits to their offspring"
-        ]
+        "n": 8,
+        "c": "A fair test needs a control and everything else kept the same",
+        "of": 16
       }
     },
     {
@@ -2681,7 +2682,7 @@ export const BALLPARK_CALCS = {
     "solution": "400 × 0.75 = 300 expected, against 306 counted.",
     "explanation": "Three hundred expected, three hundred and six counted. One gene, with the resistant copy the stronger one."
   },
-  "DRY-1": {
+  "DRY-2": {
     "prompt": "Eleven tonnes of dry grain. About nine tenths of dry grain is carbohydrate, built out of carbon dioxide from the air.",
     "question": "Choose the harvest weight and the share of it that is carbohydrate.",
     "labels": [
@@ -2737,7 +2738,7 @@ export const BALLPARK_CALCS = {
     "solution": "11 ÷ 2 = 5.5 times bigger in a dry season than a wet one.",
     "explanation": "A true number becomes a false claim once the conditions are dropped from it."
   },
-  "DRY-3": {
+  "DRY-4": {
     "prompt": "The crop built 19.6 tonnes across the field. 8.6 tonnes of that is grain. The stem accounts for 5.2 tonnes.",
     "question": "Choose the grain weight and the whole weight the plant built.",
     "labels": [
@@ -2942,7 +2943,7 @@ export const JARGON = [
   {
     "name": "Pollen",
     "aliases": [],
-    "def": "What a plant fertilises with. One grain of it carries a single set of chromosomes to an egg."
+    "def": "The dust a plant fertilises with. One grain of it carries one parent's half of the instructions to an egg."
   },
   {
     "name": "Plot",

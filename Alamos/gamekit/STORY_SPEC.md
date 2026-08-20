@@ -242,6 +242,15 @@ last thing anybody reads, and three rules hold:
 - **Earn it from the player's own work.** The ending may not introduce a rescue
   nobody worked for. It reads back what the fifteen days established — which is
   why day 15 is a disposition of claims rather than a new problem.
+- **And say what the player did, last.** Twenty-five endings shipped saying what
+  came of the fortnight and what it cost, and not one of them said who had done
+  it: a player who has just held a corridor for fourteen days closed the game on
+  a paragraph about a report. The closing paragraph is addressed to them — the
+  two or three calls that were theirs, what those calls bought, and the credit
+  said plainly. *You checked the instruments the decisions rested on. Four
+  million people had power. That was your fortnight.* `checkStory` fails a
+  campaign whose last paragraph does not address the player and say what they
+  did, and it is the last thing on the card because it is what the card is for.
 
 And do not end on the mechanics. "Campaign complete" in the HUD corner is what
 all seven games used to do, and it is why this rule is written down.

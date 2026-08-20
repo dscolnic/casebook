@@ -70,7 +70,7 @@ export default {
     + 'board sits in a fortnight. This morning the fridge came down to forty-two '
     + 'thousandths of a degree instead of eleven. It sounds like a small miss. It '
     + 'is the difference between a quantum processor and a warm chip. Priya '
-    + 'Raghavan needs to know which you have, and she needs it before the board '
+    + 'Raghavan, the group lead, needs to know which you have, and she needs it before the board '
     + 'does.',
   ],
 
@@ -86,6 +86,10 @@ export default {
     + 'threshold where error correction starts to help, and the habit that would have caught all of it '
     + '— evaluate every fitted analysis on data it has never seen — is a line in a report until the '
     + 'next person makes it a rule.',
+    'And you are the one who found it. You tested the analysis on data it had never seen, you '
+    + 'ran the tune-up again instead of publishing the number you wanted, and you said in '
+    + 'public which part of it was your own mistake. A field is a little closer to true because '
+    + 'of that. It is harder than it sounds, and you did it inside a fortnight.',
   ],
 
   look: {

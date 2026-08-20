@@ -7,7 +7,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "A spinning shutter and a sign",
-      "scene": "Field-instruments specialist Mira Halvorsen has the reference mill open on the bench, its shutter turning over the plate. On the wall, all four mills read about −1.2 kV/m, and fair-weather readings carry the same negative sign.",
+      "scene": "Field-instruments specialist Mira Halvorsen, the field instruments technician, has the reference mill open on the bench, its shutter turning over the plate. On the wall, all four mills read about −1.2 kV/m, and fair-weather readings carry the same negative sign.",
       "takeaway": "A single field measurement constrains only the quantities that enter the field relation; unmeasured geometry can remain free.",
       "place": "Field Station",
       "guide": "All four options are things somebody might want from a mill. Ask of each whether one reading at the ground could contain it. The field under a wide charged sheet does not depend on how high the sheet is. So height drops out, and with it anything that needs height or area. Timing needs a history rather than a reading. That is a limit, not a fault.",
@@ -16,7 +16,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Field-instruments specialist Mira Halvorsen has the reference mill open on the bench, its shutter turning over the plate. On the wall, all four mills read about −1.2 kV/m, and fair-weather readings carry the same negative sign.",
+      "story": "Field-instruments specialist Mira Halvorsen, the field instruments technician, has the reference mill open on the bench, its shutter turning over the plate. On the wall, all four mills read about −1.2 kV/m, and fair-weather readings carry the same negative sign.",
       "game": {
         "type": "CHOICE",
         "title": "A spinning shutter and a sign",
@@ -1271,7 +1271,8 @@ export const CURRICULUM = {
               "how fast the current through it is changing, in amperes per second"
             ]
           ],
-          "s": "A conductor links flux to its own current, so a rising current puts volts across a piece of wire that has almost no resistance at all — at a microsecond rise time this term is what a ground lead actually does, and the resistance measured at DC is not."
+          "s": "A conductor links flux to its own current, so a rising current puts volts across a piece of wire that has almost no resistance at all — at a microsecond rise time this term is what a ground lead actually does, and the resistance measured at DC is not.",
+          "demanded": true
         }
       ],
       "concept": {
@@ -1533,7 +1534,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Inside the sheet",
-      "scene": "Rigger and mast supervisor Owen Tate closes the screened-room door. The instrument on the bench inside drops to zero while the flat outside remains near 4 kV/m. Nothing on the instrument rack has been switched off.",
+      "scene": "Rigger and mast supervisor Owen Tate, the rigger & mast supervisor, closes the screened-room door. The instrument on the bench inside drops to zero while the flat outside remains near 4 kV/m. Nothing on the instrument rack has been switched off.",
       "takeaway": "Electrostatic shielding is a consequence of how conductors reach equilibrium in an applied field.",
       "place": "Screened Room",
       "guide": "Say what the probe inside will read once the door is shut, then shut it and read the probe. The prediction is the part that matters: a number written before the door closes is a claim about how conductors reach equilibrium, and one written afterwards is a description of a display.",
@@ -1542,7 +1543,7 @@ export const CURRICULUM = {
         "Why it is not perfect. The door seam, the cable entries and the ventilation mesh are apertures, and an aperture lets through a field that scales with its size relative to the wavelengths involved. So the honest prediction is not zero but small — tens of volts per metre against four thousand outside.",
         "Why measuring is the point. The shielding argument is sound and the number it gives depends on hardware nobody derived: how well the door seats, whether the mesh is bonded all round, what the cable glands do. Predicting and then measuring is the only way to find out which of those the enclosure actually has."
       ],
-      "story": "Rigger and mast supervisor Owen Tate closes the screened-room door. The instrument on the bench inside drops to zero while the flat outside remains near 4 kV/m. Nothing on the instrument rack has been switched off.",
+      "story": "Rigger and mast supervisor Owen Tate, the rigger & mast supervisor, closes the screened-room door. The instrument on the bench inside drops to zero while the flat outside remains near 4 kV/m. Nothing on the instrument rack has been switched off.",
       "game": {
         "type": "VERIFY",
         "title": "Inside the sheet",
@@ -2463,7 +2464,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Twenty-five ohms, at what",
-      "scene": "Earthing engineer Ana Sifuentes sets the April certificate on the bench: 25 ohms, instrument named, operator signed. She wants the measured quantity stated exactly before anyone uses the number to make a claim about the storm season.",
+      "scene": "Earthing engineer Ana Sifuentes, the earthing engineer, sets the April certificate on the bench: 25 ohms, instrument named, operator signed. She wants the measured quantity stated exactly before anyone uses the number to make a claim about the storm season.",
       "takeaway": "A measurement carries the conditions it was made under, and a number quoted without them is a number about nothing in particular.",
       "place": "Earthing Compound",
       "guide": "Four readings of the same certificate. Ask of each what the tester actually did: it pushed a small steady current into the soil and measured the voltage. So the number belongs to steady current. A strike changes by tens of kiloamps in a microsecond, which is a different regime. Nothing on the certificate is wrong. The error would be treating it as the whole story.",
@@ -2472,7 +2473,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Earthing engineer Ana Sifuentes sets the April certificate on the bench: 25 ohms, instrument named, operator signed. She wants the measured quantity stated exactly before anyone uses the number to make a claim about the storm season.",
+      "story": "Earthing engineer Ana Sifuentes, the earthing engineer, sets the April certificate on the bench: 25 ohms, instrument named, operator signed. She wants the measured quantity stated exactly before anyone uses the number to make a claim about the storm season.",
       "game": {
         "type": "CHOICE",
         "title": "Twenty-five ohms, at what",
@@ -3279,7 +3280,8 @@ export const CURRICULUM = {
               "the final voltage across it"
             ]
           ],
-          "s": "Each extra charge has to be pushed against the voltage already there, so the work is the integral of q/C dq rather than QV — and the half is the whole difference between a bank that is safe to work on and one that is not."
+          "s": "Each extra charge has to be pushed against the voltage already there, so the work is the integral of q/C dq rather than QV — and the half is the whole difference between a bank that is safe to work on and one that is not.",
+          "demanded": true
         }
       ],
       "concept": {
@@ -3295,7 +3297,7 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "The loop nobody drew",
-      "scene": "Instrumentation specialist Sam Abioye has the outstation trench route on the wall. For forty metres, the signal pair runs beside the down-conductor. Its near side is 1.5 m away; the far side is 3.5 m away.",
+      "scene": "Instrumentation specialist Sam Abioye, the instrumentation technician, has the outstation trench route on the wall. For forty metres, the signal pair runs beside the down-conductor. Its near side is 1.5 m away; the far side is 3.5 m away.",
       "takeaway": "The field across the loop is not uniform, so the flux is an integral, and it comes out as a logarithm of the two distances.",
       "place": "Cable Trench",
       "guide": "Build it a line at a time. The field from the down-conductor falls as one over the distance, so the flux through the trench loop needs an integral across it, from the near side to the far side. Then Faraday's law turns the changing flux into a voltage. Evaluate it at the front of the August stroke.",
@@ -3304,7 +3306,7 @@ export const CURRICULUM = {
         "Why the ratio is what matters. Only b over a appears, so moving both sides of the pair further out changes the answer far less than separating them does. A signal pair run tight together in the same trench sees very little; the same pair split by two metres sees a great deal.",
         "What the voltage does. It appears in series with the signal, so the instrument at the far end cannot distinguish it from the measurement. That is the mechanism behind most of the station's unexplained records, and it is why the trench route on the wall is a wiring diagram and a physics problem at once."
       ],
-      "story": "Instrumentation specialist Sam Abioye has the outstation trench route on the wall. For forty metres, the signal pair runs beside the down-conductor. Its near side is 1.5 m away; the far side is 3.5 m away.",
+      "story": "Instrumentation specialist Sam Abioye, the instrumentation technician, has the outstation trench route on the wall. For forty metres, the signal pair runs beside the down-conductor. Its near side is 1.5 m away; the far side is 3.5 m away.",
       "game": {
         "type": "DERIVE",
         "title": "The loop nobody drew",

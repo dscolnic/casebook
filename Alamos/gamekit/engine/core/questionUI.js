@@ -1984,6 +1984,9 @@ export function askCardHTML(who, lesson, ch, jargon=JARGON){
     // Two paragraphs, and then a door. See askMoreHTML.
     + (guide ? `<p class="askBrief askGuide">${esc(guide)}</p>` : '')
     + (!guide ? aboutRow(lesson) : '')
+    // The equations this question is worked from, if any. See workedFromHTML: the
+    // fold is right for context and wrong when the equation is the question.
+    + workedFromHTML(lesson)
     // One row of doors, so the player sees at a glance everything that is one press
     // away. Three at most: how the panel is scored, what the course calls this, and
     // everything true but not urgent.
@@ -2089,9 +2092,28 @@ function aboutRow(lesson){
 function foldsCard(lesson, ch, jargon){
   return (lesson?.background ?? []).length > 0
     || (lesson?.assumes ?? []).length > 0
-    || (lesson?.equations ?? []).filter(x => x?.e && x.card !== false).length > 0
+    || eqsForDoor(lesson).length > 0
     || jargonMatches(allChallengeText(lesson, ch, false), 8, jargon).length > 0
     || (!!String(lesson?.guide ?? '').trim() && !!String(lesson?.takeaway ?? '').trim());
+}
+
+/**
+ * The equations this card is allowed to print.
+ *
+ * The chip row is capped at two — `card: false` past the second, because four
+ * formulas over a question is a card nobody reads. The door under it has no such
+ * limit and never should have inherited one: an equation the card's own
+ * arithmetic uses reached NO screen when it fell past the cap, which is the
+ * fieldCoverage defect in the one field a question is worked from. Midway's day 3
+ * derives a loop speed and hides `safety factor = capacity ÷ demand`; Headwater's
+ * day 2 hides the drain law it integrates.
+ *
+ * So: `computed` (this stop's own arithmetic) and `demanded` (the options and the
+ * verdict work numbers with it — stamped by the importer, see `demandsEquation`)
+ * are spelled out behind the button whatever the cap did to the chip row.
+ */
+function eqsForDoor(lesson){
+  return (lesson?.equations ?? []).filter(x => x?.e && (x.card !== false || x.computed || x.demanded));
 }
 
 /**
@@ -2117,10 +2139,14 @@ function foldsCard(lesson, ch, jargon){
  */
 function askMoreHTML(lesson, ch, jargon, { takeaway: withTakeaway = true } = {}){
   const paras = (lesson.background ?? []).map(p => String(p ?? '').trim()).filter(Boolean);
-  const eqs = (lesson?.equations ?? []).filter(x => x?.e && x.card !== false);
+  const eqs = eqsForDoor(lesson);
   const terms = jargonMatches(allChallengeText(lesson, ch, false), 8, jargon);
   const assumes = (lesson?.assumes ?? []).map(a => String(a).trim()).filter(Boolean);
   const takeaway = String(lesson?.takeaway ?? '').trim();
+  // The equations come first inside the door as well. They used to sit under the
+  // background paragraphs, so on the stop this was written for a player opened
+  // the button and read three paragraphs about distractors before reaching
+  // P = IV.
   const eqBlock = eqs.length
     ? `<div class="askMoreEqs"><h4>The equations on this course</h4>`
       + eqs.map(x => {
@@ -2151,8 +2177,9 @@ function askMoreHTML(lesson, ch, jargon, { takeaway: withTakeaway = true } = {})
   // a neighbour: two pills of five words each read as a paragraph of controls rather
   // than as two things to press, and the Key concept door was invisible beside it.
   return `<details class="askMore"><summary>Background</summary><div class="askMoreBody">`
+    + eqBlock
     + paras.map(p => `<p>${esc(p)}</p>`).join('')
-    + eqBlock + termBlock + listBlock
+    + termBlock + listBlock
     + `</div></details>`;
 }
 
@@ -2180,6 +2207,40 @@ function askContextHTML(lesson){
     + (assumes.length
         ? `<p class="askAssumes"><span>Takes as read</span> ${esc(assumes.join(' · '))}</p>` : '')
     + (takeaway ? `<p class="askAbout"><span>What this is about</span> ${esc(takeaway)}</p>` : '')
+    + `</div>`;
+}
+
+/**
+ * The equations this question is worked from, on the face of the card.
+ *
+ * Fold-by-default put the equation row behind the Background door on every stop,
+ * which is right for the syllabus context a card carries and wrong for the one
+ * case where the equation IS the question. Blackout's day 1 asks what stepping
+ * 20 kV to 400 kV does to current and to loss; the four options are that
+ * arithmetic; and the player met a scene, a guide and two buttons. Fixing the
+ * data so the chip existed changed nothing they could see: it was a press and
+ * three paragraphs away.
+ *
+ * So an equation stamped `demanded` — the card's own options or verdict work
+ * numbers with it, and the stop does not compute it itself — is printed here,
+ * spelled out, above the doors. Never a bare chip: `n_phys ≈ d²` helps only
+ * somebody who already knows what it says, so the caption and the symbol names
+ * come with it. 43 stops of 1,262 carry one, so the card-load win survives.
+ *
+ * A stop that computes its own equation is untouched — its panel already shows
+ * the relationship, and the estimate is worked in front of the player.
+ */
+function workedFromHTML(lesson){
+  const eqs = (lesson?.equations ?? []).filter(x => x?.e && x.demanded && !x.computed);
+  if(!eqs.length) return '';
+  return `<div class="askWorked"><h4>What this one is worked from</h4>`
+    + eqs.map(x => {
+        const vars = (x.v ?? []).map(([sym, mean]) => `<b>${esc(sym)}</b> ${esc(mean)}`);
+        return `<p class="askWorkedEq"><code>${esc(x.e)}</code>`
+          + (x.c ? ` — ${esc(x.c)}` : '')
+          + (vars.length ? `<span class="askWorkedVars">${vars.join(' · ')}</span>` : '')
+          + `</p>`;
+      }).join('')
     + `</div>`;
 }
 
@@ -2612,6 +2673,10 @@ function finishVisit(ok){
     ok, closes, attempt,
     hoursSpent: (state.timeHours || 8) - clockBefore,
     readinessBefore: before, readinessAfter: afterPct,
+    // Why a right answer may not have moved the number: either the area is
+    // finished, or its milestone has all the work it needs and wants money.
+    areaComplete: !currentMilestone(gs),
+    milestoneName: currentMilestone(gs)?.name ?? null,
     projectionBefore, projectionAfter: forecastReadiness(state).overall,
     bonus: ok ? bonus : 0,
     milestoneDone: gs.milestone > milestoneBefore,
@@ -2647,9 +2712,25 @@ function finishVisit(ok){
     `<div class="ledgerValue ${cls || ''}">${value}</div>` +
     (note ? `<div class="ledgerNote">${esc(note)}</div>` : '') + `</div>`;
 
+  // A right answer that cannot move the number has to say so. Readiness is half
+  // work and half money, and the work half is capped at what the current
+  // milestone asks for — so a third correct call into one area used to read
+  // "+0%" with no explanation, which reads as a bug or as a mark against the
+  // answer. The work is banked (see `advanceMilestone`); the card now says
+  // which of the two things is true.
+  const gain = ledger.readinessAfter - ledger.readinessBefore;
+  const readinessValue = !ok ? 'no gain'
+    : gain >= 0.05 ? `+${fmt(gain)}%`
+    : ledger.areaComplete ? 'area complete'
+    : 'banked';
+  const readinessNote = !ok || gain >= 0.05 || !ledger.milestoneName
+    ? `${def(gs.id).code} now ${fmt(ledger.readinessAfter)}%`
+    : ledger.areaComplete
+      ? `${def(gs.id).code} is at 100% — every milestone signed off`
+      : `${def(gs.id).code} has the work for "${ledger.milestoneName}" and is waiting on funding; `
+        + 'this call counts towards the next one';
   const ledgerHTML =
-    cell('Readiness', ok ? `+${fmt(ledger.readinessAfter - ledger.readinessBefore)}%` : 'no gain',
-         ok ? 'gain' : '', `${def(gs.id).code} now ${fmt(ledger.readinessAfter)}%`) +
+    cell('Readiness', readinessValue, ok ? 'gain' : '', readinessNote) +
     cell('Left today', formatCountdown(state.dayLeft ?? 0),
          (state.dayLeft ?? 0) < (state.dayBudget ?? 1) * 0.2 ? 'cost' : '',
          `${openStopIndices(state).length} call${openStopIndices(state).length === 1 ? '' : 's'} still open`) +

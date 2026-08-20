@@ -229,6 +229,25 @@ export function plannedWeeklySpend(gs, week){
   const variation=0.96+0.08*seeded(week*151+GROUP_DEFS.indexOf(d)*31+gs.milestone*7);
   return Math.max(0.8,base*managementFactor*issueFactor*overrunFactor*variation);
 }
+/**
+ * Move a group on to its next milestone, carrying the work it is over by.
+ *
+ * The surplus used to be thrown away, and that is what a player saw as a right
+ * answer worth **+0%**: a milestone's work is 9 and a correct call is worth 6,
+ * so the third call into one area banked work the display clamps at 1 and the
+ * advance then reset to zero. The money half is deliberately not carried — it
+ * is spent, and Director funding is a decision rather than a by-product.
+ *
+ * One function because there were three copies of these five lines, and
+ * `forecastReadiness` projecting a different rule from the one the game plays
+ * is a forecast that quietly lies.
+ */
+export function advanceMilestone(gs, m){
+  gs.milestone++;
+  gs.funded = 0;
+  gs.workDone = Math.max(0, gs.workDone - m.work);
+  gs.issue = null; gs.issueSince = null;
+}
 export function completeMilestoneIfReady(state, gs, week){
   const d=def(gs.id),m=currentMilestone(gs);
   if(!m) return false;
@@ -236,7 +255,7 @@ export function completeMilestoneIfReady(state, gs, week){
   state.log.push({week, text:`${d.code} Division completed "${m.name}."`});
   if(state.log.length>100) state.log=state.log.slice(-100);
   gs.milestoneLog.push({week, name:m.name});
-  gs.milestone++; gs.funded=0; gs.workDone=0; gs.issue=null; gs.issueSince=null;
+  advanceMilestone(gs, m);
   return true;
 }
 export function addLog(state, text, week){
@@ -258,7 +277,7 @@ export function forecastReadiness(state){
       const cur=d.milestones[gs.milestone];
       if(cur && gs.funded+1e-6>=cur.cost && gs.workDone+1e-6>=cur.work){
         gs.milestoneLog.push({week:w, name:cur.name});
-        gs.milestone++; gs.funded=0; gs.workDone=0; gs.issue=null; gs.issueSince=null;
+        advanceMilestone(gs, cur);
       }
     });
   }

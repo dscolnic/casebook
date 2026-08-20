@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "What a face is at that distance",
     "objective": "Turn the file's own distance into what an eye could have resolved.",
     "briefing": "The reconstruction bay is built to the survey, and the first arithmetic is the file's own.",
-    "stake": "Tuesday, and the bay is finished: Dawit Bekele has the Ferrier Street corner up at full size, kerb line, doorway and column. Halina Frey wants the file's own claim tested before anybody argues about it, because twenty-two metres is a number the case summary asserts and nobody has ever put through anything. Today you work out what a face is at that range as an angle at the eye, then read what Cardoza's first account actually contained. Ward is thirty-four and has served seven years on what one person could make out across a street.",
+    "stake": "Tuesday, and the bay is finished: Dawit Bekele, the reconstruction technician, has the Ferrier Street corner up at full size, kerb line, doorway and column. Halina Frey, the vision scientist, wants the file's own claim tested before anybody argues about it, because twenty-two metres is a number the case summary asserts and nobody has ever put through anything. Today you work out what a face is at that range as an angle at the eye, then read what Cardoza's first account actually contained. Ward is thirty-four and has served seven years on what one person could make out across a street.",
     "takeaway": "A face at a distance arrives as an angle, and the angle is small long before the person is.",
     "stops": [
       {
@@ -108,7 +108,7 @@ export const MISSIONS = [
     "title": "Four days before anybody asked",
     "objective": "Establish how the first full account was taken, and who was in the room.",
     "briefing": "The account everybody has argued about since was recorded on 18 November.",
-    "stake": "Friday, and the first full interview is four days later than it should have been. Ren Okada has the 18 November recording and a transcript nobody has checked against it. Yara Solomon has found that Cardoza's husband sat in for the whole of it, which the file mentions once, in a margin. Today you set out how an account ought to be taken, work out what a sympathetic listener does to one, and read the instruction Cardoza was given before the photographs came out. Everything the case rests on passed through that hour.",
+    "stake": "Friday, and the first full interview is four days later than it should have been. Ren Okada has the 18 November recording and a transcript nobody has checked against it. Yara Solomon, the case analyst, has found that Cardoza's husband sat in for the whole of it, which the file mentions once, in a margin. Today you set out how an account ought to be taken, work out what a sympathetic listener does to one, and read the instruction Cardoza was given before the photographs came out. Everything the case rests on passed through that hour.",
     "takeaway": "An account is not collected; it is produced, by a method, in a room, with people in it.",
     "stops": [
       {
@@ -132,7 +132,7 @@ export const MISSIONS = [
     "title": "The photograph in the evening paper",
     "objective": "Find out what entered the account after the night it describes.",
     "briefing": "The Hallam Register ran Ward's photograph on 19 November, the day after the interview.",
-    "stake": "Monday of the second week, and Solomon has three documents side by side with their dates showing. The 18 November account, the following evening's newspaper, and the statement Cardoza signed on 26 December. Tomas Weill has already said the interesting thing is not what any of them says but the order they were written in. Ines Baptiste wants to know whether the review is calling the witness a liar, and Ren Okada has spent the morning explaining why that is the wrong question. Today you work out what a detail's arrival date tells you about where it came from, and why the biology of a frightening night cannot account for something that first appears five weeks after it.",
+    "stake": "Monday of the second week, and Solomon has three documents side by side with their dates showing. The 18 November account, the following evening's newspaper, and the statement Cardoza signed on 26 December. Tomas Weill, the psychometrician, has already said the interesting thing is not what any of them says but the order they were written in. Ines Baptiste wants to know whether the review is calling the witness a liar, and Ren Okada has spent the morning explaining why that is the wrong question. Today you work out what a detail's arrival date tells you about where it came from, and why the biology of a frightening night cannot account for something that first appears five weeks after it.",
     "takeaway": "A detail that is absent before a photograph and present after it has a source, and the source is not the night.",
     "stops": [
       {
@@ -233,7 +233,7 @@ export const MISSIONS = [
     "title": "Who was standing behind her",
     "objective": "Establish what the administrator's knowledge did, by removing it.",
     "briefing": "Loomis knew which photograph was the suspect, because in 2019 the administrator always did.",
-    "stake": "Friday, and Karen Loomis has come in for the second time. She ran the array, she knew which photograph was Ward, and she remembers saying something to Cardoza afterwards and not what it was. Four features of that afternoon's procedure could have mattered and the file cannot separate them. Today you take them apart one at a time in the unit's own rig, work out how a belief travels from an officer to a witness without either of them noticing, and read what approval does to an account. Ilori trained the officers who replaced her.",
+    "stake": "Friday, and Karen Loomis, the retired detective, has come in for the second time. She ran the array, she knew which photograph was Ward, and she remembers saying something to Cardoza afterwards and not what it was. Four features of that afternoon's procedure could have mattered and the file cannot separate them. Today you take them apart one at a time in the unit's own rig, work out how a belief travels from an officer to a witness without either of them noticing, and read what approval does to an account. Ilori trained the officers who replaced her.",
     "takeaway": "Four things wrong at once is not four findings; it is one until somebody changes them one at a time.",
     "stops": [
       {
@@ -281,7 +281,7 @@ export const MISSIONS = [
     "title": "The nineteenth hour",
     "objective": "Read the interview that produced the only words the file has from Ward.",
     "briefing": "Nineteen hours in custody, no lawyer, and an agreement retracted the next morning.",
-    "stake": "Tuesday, and the custody log is the last document in the file nobody has read closely. Elias Ward was arrested at 06:40 on 3 December 2019 and agreed with an account put to him at 01:20 the following morning, which he withdrew eight hours after that. Samuel Oyelaran has the log and Priya Raghunathan has the times. Ren Okada has something else, from a different part of the case: the appeal solicitor re-interviewed Deniz Aktaş in 2023 and his account has moved four details. Today you weigh a state, name the tactic the interview used, and find out what asking somebody again after years actually produces.",
+    "stake": "Tuesday, and the custody log is the last document in the file nobody has read closely. Elias Ward was arrested at 06:40 on 3 December 2019 and agreed with an account put to him at 01:20 the following morning, which he withdrew eight hours after that. Samuel Oyelaran, the clinical psychologist, has the log and Priya Raghunathan has the times. Ren Okada has something else, from a different part of the case: the appeal solicitor re-interviewed Deniz Aktaş in 2023 and his account has moved four details. Today you weigh a state, name the tactic the interview used, and find out what asking somebody again after years actually produces.",
     "takeaway": "An admission is evidence about the interview as well as about the event, and the interview is on the record.",
     "stops": [
       {

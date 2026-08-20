@@ -2762,7 +2762,8 @@ export const CURRICULUM = {
               "number of gates in the circuit"
             ]
           ],
-          "s": "Errors multiply rather than add, so a gate that is right 99.9 per cent of the time is useless a few thousand gates deep."
+          "s": "Errors multiply rather than add, so a gate that is right 99.9 per cent of the time is useless a few thousand gates deep.",
+          "demanded": true
         }
       ],
       "concept": {
@@ -3768,7 +3769,8 @@ export const CURRICULUM = {
               "number of independent measurements or atoms"
             ]
           ],
-          "s": "Averaging independent measurements improves a sensor only as the square root of their number, which is the wall entanglement is used to get past."
+          "s": "Averaging independent measurements improves a sensor only as the square root of their number, which is the wall entanglement is used to get past.",
+          "demanded": true
         }
       ],
       "concept": {
@@ -4034,7 +4036,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Copying a state is not the same as transferring one",
-      "scene": "Yusuf Sadiq points out that Delft does not need Ridgeway's physical quantum state at all; it needs the recipe for preparing its own. An arbitrary unknown state cannot be turned into a classical file that produces two perfect copies.",
+      "scene": "Yusuf Sadiq, the networks postdoc, points out that Delft does not need Ridgeway's physical quantum state at all; it needs the recipe for preparing its own. An arbitrary unknown state cannot be turned into a classical file that produces two perfect copies.",
       "takeaway": "The no-cloning theorem forbids making a perfect duplicate of an arbitrary unknown quantum state; it does not forbid transferring quantum information.",
       "place": "Networks & Security",
       "guide": "All four options agree that something cannot be sent, and disagree about what. The candidates are the size of a description, the transfer itself, and what copying a recipe does. Separate the classical object here, the preparation instructions, from the physical object, the prepared state. Then ask which of the two each option is really about. Whether quantum networks are possible at all turns on that distinction.",
@@ -4043,7 +4045,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Yusuf Sadiq points out that Delft does not need Ridgeway's physical quantum state at all; it needs the recipe for preparing its own. An arbitrary unknown state cannot be turned into a classical file that produces two perfect copies.",
+      "story": "Yusuf Sadiq, the networks postdoc, points out that Delft does not need Ridgeway's physical quantum state at all; it needs the recipe for preparing its own. An arbitrary unknown state cannot be turned into a classical file that produces two perfect copies.",
       "game": {
         "type": "CHOICE",
         "title": "Copying a state is not the same as transferring one",

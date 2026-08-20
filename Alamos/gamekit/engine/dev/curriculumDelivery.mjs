@@ -207,12 +207,80 @@ function snapshotOf(themeName, d) {
 }
 
 /**
+ * Pair the stops in two snapshots, by identity rather than by position.
+ *
+ * `pagesFor` keys a stop `group:lesson`, and **the lesson index is a position,
+ * not a name**: `import-book.mjs` writes each group's CURRICULUM in the order its
+ * stops appear, so exchanging two stops of one area — or moving one stop to
+ * another day — renumbers every lesson after it inside that group. The same key
+ * then names a different lesson, and a comparison keyed on it reports both halves
+ * of a swap as having lost their objective while the objectives are sitting in
+ * each other's slots.
+ *
+ * That was measured twice. Six of the eight losses reported after one
+ * diversification pass were two DIST stops trading places, and the two equations
+ * called lost are computed by the other half of the swap; settling it needed every
+ * before-objective matched against the after-content by hand. Then moving a single
+ * stop between days reported an `assumes` line lost that was still in the book, on
+ * a stop nothing had touched. **A wall of false failures is how a gate stops being
+ * read**, which is worse than the drift it was written to catch.
+ *
+ * `title` is the identity: unique across all 1,267 stops in all 29 campaigns.
+ * `takeaway` is the fallback, so a stop that was deliberately *retitled* is still
+ * recognised as itself and its objective is still compared. A pair whose key moved
+ * is reported as a renumber; only a stop matched by neither is a loss.
+ */
+function pairStops(before, after) {
+  const norm1 = (x) => norm(String(x ?? ''));
+  const pairs = [];                       // [key, beforeStop, afterKey, afterStop]
+  const takenAfter = new Set();
+
+  const index = (stops, field) => {
+    const m = new Map();
+    for (const [k, v] of Object.entries(stops)) {
+      const id = norm1(v[field]);
+      if (!id) continue;
+      // Ambiguity disqualifies the field for that value rather than picking one.
+      m.set(id, m.has(id) ? null : k);
+    }
+    return m;
+  };
+  const byTitle = index(after.stops, 'title');
+  const byTake = index(after.stops, 'takeaway');
+
+  const claim = (key, b, ak) => {
+    if (ak == null || takenAfter.has(ak)) return false;
+    takenAfter.add(ak);
+    pairs.push([key, b, ak, after.stops[ak]]);
+    return true;
+  };
+
+  for (const [key, b] of Object.entries(before.stops)) {
+    const a = after.stops[key];
+    // The ordinary case: same key, and it is still the same stop.
+    if (a && !takenAfter.has(key)
+        && (norm1(a.title) === norm1(b.title) || norm1(a.takeaway) === norm1(b.takeaway))) {
+      claim(key, b, key);
+      continue;
+    }
+    if (claim(key, b, byTitle.get(norm1(b.title)))) continue;
+    if (claim(key, b, byTake.get(norm1(b.takeaway)))) continue;
+    pairs.push([key, b, null, null]);
+  }
+  const newKeys = Object.keys(after.stops).filter(k => !takenAfter.has(k));
+  return { pairs, newKeys };
+}
+
+/**
  * What a conversion pass is allowed to have done.
  *
  * Failures are losses of curriculum, in the four forms a stop can lose it. A
  * reworded takeaway counts as a loss on purpose: the escape hatch is to
  * re-snapshot, which is a deliberate visible act, and a fuzzy comparison here
  * would let a pass drift the syllabus one sentence at a time.
+ *
+ * Stops are paired by `pairStops` before anything is compared, so a renumber is a
+ * renumber and only a real disappearance is a loss.
  */
 export function diffSnapshots(before, after) {
   const bad = [], noted = [];
@@ -224,23 +292,34 @@ export function diffSnapshots(before, after) {
   const lostCon = before.concepts.filter(n => !after.concepts.includes(n));
   for (const n of lostCon) bad.push(`syllabus concept ${n} is no longer touched by any stop`);
 
-  for (const [key, b] of Object.entries(before.stops)) {
-    const a = after.stops[key];
+  const { pairs, newKeys } = pairStops(before, after);
+  // An exchange is two stops that ended up in each other's slots. Naming it as
+  // one event is the difference between "these two swapped" and four failures.
+  const moved = new Map(pairs.filter(([k, , ak]) => ak && ak !== k).map(([k, , ak]) => [k, ak]));
+  const said = new Set();
+  for (const [k, ak] of moved) {
+    if (said.has(k)) continue;
+    if (moved.get(ak) === k) { said.add(k); said.add(ak); noted.push(`${k} ↔ ${ak} exchanged places`); }
+    else { said.add(k); noted.push(`${k} is now ${ak} (renumbered, same stop)`); }
+  }
+
+  for (const [key, b, akey, a] of pairs) {
+    // `where` names the stop the reader can find, because the key it was
+    // snapshotted under may name something else entirely by now.
+    const where = akey && akey !== key ? `${key}→${akey} ("${b.title}")` : `${key} ("${b.title}")`;
     if (!a) { bad.push(`${key} ("${b.title}") is gone from the campaign`); continue; }
     if (norm(a.takeaway) !== norm(b.takeaway)) {
-      bad.push(`${key} takeaway changed\n        was: ${b.takeaway}\n        now: ${a.takeaway}`);
+      bad.push(`${where} takeaway changed\n        was: ${b.takeaway}\n        now: ${a.takeaway}`);
     }
     for (const as of b.assumes) {
-      if (!a.assumes.some(x => norm(x) === norm(as))) bad.push(`${key} no longer assumes "${as}"`);
+      if (!a.assumes.some(x => norm(x) === norm(as))) bad.push(`${where} no longer assumes "${as}"`);
     }
     for (const e of b.computes) {
-      if (!a.computes.includes(e)) bad.push(`${key} no longer computes "${e}"`);
+      if (!a.computes.includes(e)) bad.push(`${where} no longer computes "${e}"`);
     }
-    if (a.format !== b.format) noted.push(`${key}: ${b.format} → ${a.format}`);
+    if (a.format !== b.format) noted.push(`${where}: ${b.format} → ${a.format}`);
   }
-  for (const key of Object.keys(after.stops)) {
-    if (!before.stops[key]) noted.push(`${key} is new`);
-  }
+  for (const key of newKeys) noted.push(`${key} ("${after.stops[key].title}") is new`);
   return { bad, noted };
 }
 
@@ -540,6 +619,58 @@ async function selftest() {
   check('converting the other way — losing the computation — fails the invariant',
     backwards.bad.some(b => b.includes('no longer computes') || b.includes('any more')),
     'this is the case the whole exercise is guarding against');
+
+  // ---- the invariant against a RENUMBER, which is not a change at all.
+  //
+  // `group:lesson` is a position. These six cases are the difference between a
+  // gate that reports what a pass did and a gate that reports a wall of
+  // failures every time two stops change places — and putting the key-keyed
+  // comparison back fails these and only these.
+  const snap = (stops) => ({ theme: THEME, computed: [], concepts: [], stops });
+  const st = (title, takeaway, extra = {}) =>
+    ({ day: 1, format: 'CHOICE', title, takeaway, assumes: ['a'], computes: [], ...extra });
+  const twoStops = { 'G:0': st('Alpha', 'Alpha teaches A.'), 'G:1': st('Beta', 'Beta teaches B.') };
+
+  const swapped = snap({ 'G:0': st('Beta', 'Beta teaches B.'), 'G:1': st('Alpha', 'Alpha teaches A.') });
+  const sw = diffSnapshots(snap(twoStops), swapped);
+  check('two stops of one group changing places loses nothing',
+    sw.bad.length === 0, sw.bad.join(' | '));
+  check('…and the exchange is named as one event rather than four failures',
+    sw.noted.some(n => n.includes('exchanged places')), sw.noted.join(' | '));
+
+  // A stop moved to another day renumbers everything after it in its group: the
+  // same objective now sits under a key that used to name its neighbour.
+  const shifted = snap({ 'G:0': st('Beta', 'Beta teaches B.'), 'G:1': st('Alpha', 'Alpha teaches A.', { day: 4 }) });
+  check('a stop moved to another day is not reported as having lost anything',
+    diffSnapshots(snap(twoStops), shifted).bad.length === 0);
+
+  // The losses still have to fire, on a stop whose key moved underneath it.
+  const movedAndDropped = snap({
+    'G:0': st('Beta', 'Beta teaches B.'),
+    'G:1': st('Alpha', 'Alpha teaches A.', { assumes: [] }),
+  });
+  const md = diffSnapshots(snap(twoStops), movedAndDropped);
+  check('an `assumes` line dropped from a renumbered stop still fails',
+    md.bad.some(b => b.includes('no longer assumes')), md.bad.join(' | '));
+  check('…and it names where the stop went, not only where it was',
+    md.bad.some(b => b.includes('G:0→G:1')), md.bad.join(' | '));
+
+  // A stop that really has gone is still a loss — the case a fuzzy matcher would
+  // paper over by pairing it with whatever is left.
+  const deleted = snap({ 'G:0': st('Beta', 'Beta teaches B.') });
+  check('a stop deleted from the campaign is still a loss',
+    diffSnapshots(snap(twoStops), deleted).bad.some(b => b.includes('is gone from the campaign')));
+
+  // And a deliberate retitle is the stop, not a disappearance plus an arrival:
+  // the takeaway is the fallback identity, so its objective is still compared.
+  // It has to be retitled AND renumbered, or the key pairs it before the
+  // fallback is ever reached and the case passes without exercising anything —
+  // which is what the first version of it did.
+  const retitled = snap({ 'G:0': st('Beta', 'Beta teaches B.'), 'G:1': st('Alpha, revised', 'Alpha teaches A.') });
+  const rt = diffSnapshots(snap(twoStops), retitled);
+  check('a retitled stop is recognised as itself rather than reported gone',
+    rt.bad.length === 0 && !rt.noted.some(n => n.includes('is new')),
+    [...rt.bad, ...rt.noted].join(' | '));
 
   // ---- the debt gate, both directions
   const debtEmpty = report(THEME, dChoice, {}, { verbose: false, quiet: true });

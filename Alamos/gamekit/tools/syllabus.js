@@ -3987,6 +3987,43 @@ export function symbolSignature(s){
 /** A signature worth matching on: short ones ("q<k") would fire on anything. */
 const SIGNIFICANT = (sig) => sig.length >= 8 && /[a-z]/.test(sig) && /[=/*+^-]/.test(sig);
 
+/**
+ * Arithmetic, rather than the name of a quantity: two numbers and an operator, a
+ * square, a fold change, or an equals sign with a number after it.
+ */
+export function worksArithmetic(text){
+  return /\d\s*(?:×|x|\*|÷|\/|·)\s*\d|\d\s*(?:²|\^2)|\b\d+\s*(?:times|fold)\b|\d\s*[×÷]|=\s*-?\d/
+    .test(String(text ?? ''));
+}
+
+/**
+ * Does the arithmetic a stop puts in front of the player use this equation?
+ *
+ * The distinction the equation chip turns on. A stop that *mentions* an equation
+ * is decoration and the importer drops the chip until the day something computes
+ * it — Quantum's day 1 showed four formulas and used one. A stop whose own options
+ * or verdict work numbers with it is not decoration: that player needs the
+ * equation on the card, and Blackout's day 1 is what happens without it — "current
+ * falls by 20×, so loss falls by 400×" with the turns ratio printed beside it and
+ * P = IV nowhere in the campaign for another three days.
+ *
+ * `shown` is everything the card puts in front of the player: the options, the
+ * answer, the rebuttals, the `why`. One function because `import-book.mjs` decides
+ * whether to print the chip and `engine/dev/equationSupply.mjs` fails the theme
+ * when nothing did, and two copies of one rule drift the first time either is
+ * corrected.
+ */
+export function demandsEquation(eq, shown, hit = keywordHit){
+  const text = String(shown ?? '');
+  if(!text.trim()) return false;
+  const sigs = String(eq?.e ?? '').split(/,\s+/)
+    .map(x => symbolSignature(x.replace(/^(and|or)\s+/i, '')))
+    .filter(sig => sig.length >= 8 && /[a-z]/.test(sig) && /[=/*+^-]/.test(sig));
+  const sig = symbolSignature(text);
+  if(sigs.some(x => sig.includes(x))) return true;
+  return worksArithmetic(text) && (eq?.k ?? []).some(k => hit(text, k));
+}
+
 export function equationCoverage(theme, pages = [], hit = keywordHit){
   const list = EQUATIONS[theme] ?? EQUATIONS[String(theme).replace(/_/g, '-')] ?? [];
   return list.map((eq, i) => {

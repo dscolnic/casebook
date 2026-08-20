@@ -68,7 +68,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Which of the three cannot wait",
-      "scene": "Reyes has three live problems on the board and only one attention channel she can keep herself. Aaron Whitlock is ready to take a handoff, but she refuses any instruction that amounts to “watch it.”.",
+      "scene": "Reyes has three live problems on the board and only one attention channel she can keep herself. Aaron Whitlock, the assistant operator, is ready to take a handoff, but she refuses any instruction that amounts to “watch it.”.",
       "takeaway": "Urgency comes from how fast a condition is worsening, how reversible it is, and whether somebody else can own the next move.",
       "place": "System Operations",
       "guide": "Three live problems and one attention channel you can keep. For each of the other two, name an owner, the first real action they will take, and the reading or event that brings the problem back to you. Reyes will not accept anything that amounts to 'watch it'. Then take the watch on the one that needs your own judgement.",
@@ -77,7 +77,7 @@ export const CURRICULUM = {
         "What a return condition is for. It is not a promise to check in. It is the threshold at which the problem stops being theirs, agreed in advance, so nobody has to judge in the moment whether this is bad enough to interrupt you.",
         "How to choose what to keep. Compare the three on how fast they are getting worse, on whether they are already contained, and on what happens if nobody acts. The one that needs judgement rather than procedure is the one you cannot hand over."
       ],
-      "story": "Reyes has three live problems on the board and only one attention channel she can keep herself. Aaron Whitlock is ready to take a handoff, but she refuses any instruction that amounts to “watch it.”.",
+      "story": "Reyes has three live problems on the board and only one attention channel she can keep herself. Aaron Whitlock, the assistant operator, is ready to take a handoff, but she refuses any instruction that amounts to “watch it.”.",
       "game": {
         "type": "DELEGATE",
         "title": "Which of the three cannot wait",
@@ -601,7 +601,8 @@ export const CURRICULUM = {
               "stored kinetic energy of the machines online, in megawatt-seconds"
             ]
           ],
-          "s": "Frequency falls at a rate set by how far generation is short, divided by the spinning inertia there to absorb it, and scaled by the frequency the system runs at."
+          "s": "Frequency falls at a rate set by how far generation is short, divided by the spinning inertia there to absorb it, and scaled by the frequency the system runs at.",
+          "demanded": true
         }
       ],
       "concept": {
@@ -1198,6 +1199,30 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
+          "e": "P = IV, and P = I²R",
+          "c": "power delivered, and the loss that never arrives",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current.",
+          "demanded": true
+        },
+        {
           "e": "N₁/N₂ = V₁/V₂",
           "c": "the transformer ratio, and why transmission is at high voltage",
           "v": [
@@ -1218,7 +1243,8 @@ export const CURRICULUM = {
               "secondary voltage"
             ]
           ],
-          "s": "A transformer trades voltage for current in the ratio of its turns, which is what makes long-distance transmission affordable."
+          "s": "A transformer trades voltage for current in the ratio of its turns, which is what makes long-distance transmission affordable.",
+          "demanded": true
         }
       ],
       "takesAsRead": [
@@ -1652,7 +1678,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Loss when the load turns up anyway",
-      "scene": "With the feeder out, flow has redistributed and the corridor is carrying more. Novak wants the heat figure before he decides whether the evening needs a switching change. A printed network diagram lies on the desk.",
+      "scene": "With the feeder out, flow has redistributed and the corridor is carrying more. Novak, the protection engineer, wants the heat figure before he decides whether the evening needs a switching change. A printed network diagram lies on the desk.",
       "takeaway": "When a quantity enters squared, a small change in it is a large change in the result.",
       "place": "Transmission & Protection",
       "guide": "Five numbers, and two of them are the current an hour ago and the conductor temperature. Neither belongs in the loss. Ask of each number whether the heat depends on it. And note the square. Current has risen about eleven per cent, and the heat rises by nearly a quarter. The rating is thermal, so that is a bigger bite of the margin than it looks.",
@@ -1660,7 +1686,7 @@ export const CURRICULUM = {
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "With the feeder out, flow has redistributed and the corridor is carrying more. Novak wants the heat figure before he decides whether the evening needs a switching change. A printed network diagram lies on the desk.",
+      "story": "With the feeder out, flow has redistributed and the corridor is carrying more. Novak, the protection engineer, wants the heat figure before he decides whether the evening needs a switching change. A printed network diagram lies on the desk.",
       "game": {
         "type": "BALLPARK",
         "title": "Loss when the load turns up anyway",

@@ -479,7 +479,7 @@ missions:
         task: Separate what is asserted from what is supported
         title: The signature and the thing it stands for
         place: Records Store
-        scene: Records custodian Nell Achterberg opens the Ward file on the hall's long table. The cover says seven years served of fourteen. Every page is signed. The unit has fifteen working days, and this morning buys only three checks.
+        scene: Records custodian Nell Achterberg, the records custodian, opens the Ward file on the hall's long table. The cover says seven years served of fourteen. Every page is signed. The unit has fifteen working days, and this morning buys only three checks.
         guide: >-
           Every page is signed and three checks is what the morning buys. Open each
           claim and read what stands behind it: an observation, a document, or another
@@ -547,7 +547,7 @@ missions:
         task: Establish what Cardoza was actually asked to do
         title: Six at once
         place: Identification Suite
-        scene: Marcus Ilori has the 4 December 2019 array record on the table. Six photographs were laid out together. The witness was asked whether the man she saw was among them. It was standard procedure that year.
+        scene: Marcus Ilori, the identification procedures adviser, has the 4 December 2019 array record on the table. Six photographs were laid out together. The witness was asked whether the man she saw was among them. It was standard procedure that year.
         guide: >-
           Put a number on what the array asks. If the man she saw is not among the six and she
           picks anyway, the chance she lands on the suspect rather than a filler is one over
@@ -654,8 +654,8 @@ missions:
     objective: Turn the file's own distance into what an eye could have resolved.
     briefing: The reconstruction bay is built to the survey, and the first arithmetic is the file's own.
     stake: >-
-      Tuesday, and the bay is finished: Dawit Bekele has the Ferrier Street corner up at full
-      size, kerb line, doorway and column. Halina Frey wants the file's own claim tested before
+      Tuesday, and the bay is finished: Dawit Bekele, the reconstruction technician, has the Ferrier Street corner up at full
+      size, kerb line, doorway and column. Halina Frey, the vision scientist, wants the file's own claim tested before
       anybody argues about it, because twenty-two metres is a number the case summary asserts
       and nobody has ever put through anything. Today you work out what a face is at that range
       as an angle at the eye, then read what Cardoza's first account actually contained. Ward is
@@ -953,7 +953,7 @@ missions:
         title: What the dark takes
         concept: "Rods, cones and scotopic vision: what the dark takes away"
         place: Dark Adaptation Booth
-        scene: Priya Raghunathan shuts the booth door and waits ten minutes. She can then find the chart on the far wall but cannot name its colours. She wanted the room to experience that loss before reading about it.
+        scene: Priya Raghunathan, the psychophysiologist, shuts the booth door and waits ten minutes. She can then find the chart on the far wall but cannot name its colours. She wanted the room to experience that loss before reading about it.
         guide: >-
           Four things a dark scene might take away. Ask of each whether it fits what the
           two receptor types do. Cones give colour and fine detail and need light. Rods
@@ -1292,7 +1292,7 @@ missions:
     briefing: The account everybody has argued about since was recorded on 18 November.
     stake: >-
       Friday, and the first full interview is four days later than it should have been. Ren Okada
-      has the 18 November recording and a transcript nobody has checked against it. Yara Solomon
+      has the 18 November recording and a transcript nobody has checked against it. Yara Solomon, the case analyst,
       has found that Cardoza's husband sat in for the whole of it, which the file mentions once,
       in a margin. Today you set out how an account ought to be taken, work out what a
       sympathetic listener does to one, and read the instruction Cardoza was given before the
@@ -1434,7 +1434,7 @@ missions:
     stake: >-
       Monday of the second week, and Solomon has three documents side by side with their dates
       showing. The 18 November account, the following evening's newspaper, and the statement
-      Cardoza signed on 26 December. Tomas Weill has already said the interesting thing is not
+      Cardoza signed on 26 December. Tomas Weill, the psychometrician, has already said the interesting thing is not
       what any of them says but the order they were written in. Ines Baptiste wants to know
       whether the review is calling the witness a liar, and Ren Okada has spent the morning
       explaining why that is the wrong question. Today you work out what a detail's arrival date
@@ -2326,7 +2326,7 @@ missions:
     objective: Establish what the administrator's knowledge did, by removing it.
     briefing: Loomis knew which photograph was the suspect, because in 2019 the administrator always did.
     stake: >-
-      Friday, and Karen Loomis has come in for the second time. She ran the array, she knew which
+      Friday, and Karen Loomis, the retired detective, has come in for the second time. She ran the array, she knew which
       photograph was Ward, and she remembers saying something to Cardoza afterwards and not what
       it was. Four features of that afternoon's procedure could have mattered and the file cannot
       separate them. Today you take them apart one at a time in the unit's own rig, work out how a
@@ -2691,7 +2691,7 @@ missions:
     stake: >-
       Tuesday, and the custody log is the last document in the file nobody has read closely. Elias
       Ward was arrested at 06:40 on 3 December 2019 and agreed with an account put to him at 01:20
-      the following morning, which he withdrew eight hours after that. Samuel Oyelaran has the log
+      the following morning, which he withdrew eight hours after that. Samuel Oyelaran, the clinical psychologist, has the log
       and Priya Raghunathan has the times. Ren Okada has something else, from a different part of
       the case: the appeal solicitor re-interviewed Deniz Aktaş in 2023 and his account has moved
       four details. Today you weigh a state, name the tactic the interview used, and find out what

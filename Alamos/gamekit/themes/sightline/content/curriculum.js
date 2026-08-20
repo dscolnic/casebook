@@ -56,6 +56,26 @@ export const CURRICULUM = {
           ],
           "s": "A detail arrives at the eye as an angle rather than as a size, so the same face is a smaller thing to see the further off it is — twice the distance is half the angle.",
           "computed": true
+        },
+        {
+          "e": "s_min = θ_min × d",
+          "c": "the smallest detail an eye can resolve at a given distance",
+          "v": [
+            [
+              "s_min",
+              "the smallest detail that can be told apart at that distance, in metres"
+            ],
+            [
+              "θ_min",
+              "the eye's resolution limit as an angle — about 1 arc minute, 0.0003 radians, in good light"
+            ],
+            [
+              "d",
+              "the distance to the face, in metres"
+            ]
+          ],
+          "s": "Turn the resolution limit around and it says what a distance costs: at ten metres the eye separates about three millimetres, and at thirty-four it separates about a centimetre, which is wider than most of what tells two faces apart.",
+          "demanded": true
         }
       ],
       "concept": {
@@ -518,6 +538,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Light from one lamp spreads over an area that grows as the square of the distance, so a corner twice as far from the streetlight has a quarter of the light on it — which is the difference between a face and a shape.",
+          "demanded": true,
           "card": false
         }
       ],
@@ -1470,7 +1491,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Six at once",
-      "scene": "Marcus Ilori has the 4 December 2019 array record on the table. Six photographs were laid out together. The witness was asked whether the man she saw was among them. It was standard procedure that year.",
+      "scene": "Marcus Ilori, the identification procedures adviser, has the 4 December 2019 array record on the table. Six photographs were laid out together. The witness was asked whether the man she saw was among them. It was standard procedure that year.",
       "takeaway": "Shown together, a lineup asks which face is closest; shown one at a time, it asks whether this is the face.",
       "place": "Identification Suite",
       "guide": "Put a number on what the array asks. If the man she saw is not among the six and she picks anyway, the chance she lands on the suspect rather than a filler is one over the number of photographs. Pick the count and work it out. One tile is the number of fillers, which is what the suspect is being compared against rather than the divisor.",
@@ -1479,7 +1500,7 @@ export const CURRICULUM = {
         "Why the arithmetic matters to the file. A witness who would pick under a relative judgement, with the offender absent, lands on the innocent suspect about one time in six. That is not an estimate of how often witnesses are wrong; it is the floor set by the procedure itself, before anything about lighting or distance is considered.",
         "What the fillers do. Fillers nobody would pick shrink the effective size of the array, so an array of six with three implausible fillers behaves like an array of three and the floor rises accordingly. That is why filler selection is scored separately from the identification."
       ],
-      "story": "Marcus Ilori has the 4 December 2019 array record on the table. Six photographs were laid out together. The witness was asked whether the man she saw was among them. It was standard procedure that year.",
+      "story": "Marcus Ilori, the identification procedures adviser, has the 4 December 2019 array record on the table. Six photographs were laid out together. The witness was asked whether the man she saw was among them. It was standard procedure that year.",
       "game": {
         "type": "BALLPARK",
         "title": "Six at once",
@@ -2398,7 +2419,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What the dark takes",
-      "scene": "Priya Raghunathan shuts the booth door and waits ten minutes. She can then find the chart on the far wall but cannot name its colours. She wanted the room to experience that loss before reading about it.",
+      "scene": "Priya Raghunathan, the psychophysiologist, shuts the booth door and waits ten minutes. She can then find the chart on the far wall but cannot name its colours. She wanted the room to experience that loss before reading about it.",
       "takeaway": "Sensitivity in a dark place is bought, and the price is paid in what the eye can no longer separate.",
       "place": "Dark Adaptation Booth",
       "guide": "Four things a dark scene might take away. Ask of each whether it fits what the two receptor types do. Cones give colour and fine detail and need light. Rods pool signals, so they buy reach and lose resolution. That means a dark street does not simply dim a face. It removes some things and leaves others intact.",
@@ -2407,7 +2428,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Priya Raghunathan shuts the booth door and waits ten minutes. She can then find the chart on the far wall but cannot name its colours. She wanted the room to experience that loss before reading about it.",
+      "story": "Priya Raghunathan, the psychophysiologist, shuts the booth door and waits ten minutes. She can then find the chart on the far wall but cannot name its colours. She wanted the room to experience that loss before reading about it.",
       "game": {
         "type": "CHOICE",
         "title": "What the dark takes",
@@ -3634,7 +3655,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "The signature and the thing it stands for",
-      "scene": "Records custodian Nell Achterberg opens the Ward file on the hall's long table. The cover says seven years served of fourteen. Every page is signed. The unit has fifteen working days, and this morning buys only three checks.",
+      "scene": "Records custodian Nell Achterberg, the records custodian, opens the Ward file on the hall's long table. The cover says seven years served of fourteen. Every page is signed. The unit has fifteen working days, and this morning buys only three checks.",
       "takeaway": "A record is evidence that a claim was accepted, which is not evidence for the claim.",
       "place": "Records Store",
       "guide": "Every page is signed and three checks is what the morning buys. Open each claim and read what stands behind it: an observation, a document, or another signature. Verify what the morning allows, and hold whatever the store cannot stand behind. Fifteen working days is the whole review, so what you hold now is what the rest of it works on.",
@@ -3643,7 +3664,7 @@ export const CURRICULUM = {
         "Why the cover matters. 'Seven years served of fourteen' is the fact that makes this urgent, and it is also a claim on a cover sheet. Whether it is backed by the custodial record or copied from an earlier summary is exactly the kind of thing three checks are for.",
         "Why holding is not doubting. A held claim is one the review will not build on until it is verified. It may well be true. What it cannot be is load-bearing, and marking that early is what stops fourteen days of work resting on it."
       ],
-      "story": "Records custodian Nell Achterberg opens the Ward file on the hall's long table. The cover says seven years served of fourteen. Every page is signed. The unit has fifteen working days, and this morning buys only three checks.",
+      "story": "Records custodian Nell Achterberg, the records custodian, opens the Ward file on the hall's long table. The cover says seven years served of fourteen. Every page is signed. The unit has fifteen working days, and this morning buys only three checks.",
       "game": {
         "type": "ATTEST",
         "title": "The signature and the thing it stands for",

@@ -47,6 +47,9 @@ export default {
     'All six children were seen, and every one of them went home. Ava is breathing easily. Ben is '
     + 'walking on his ankle. The boy with the fever is asleep, with his mum in the chair next to him.',
     'Nurse Alex Lee says you can read the clues now, and the team wants you back tomorrow.',
+    'You did all of that. You looked carefully. You asked good questions. You picked the '
+    + 'right child to see first, again and again. Every one of them went home. The whole team '
+    + 'is proud of you today, and so are the families.',
   ],
 
   content: {

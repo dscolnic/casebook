@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "The layer overhead",
     "objective": "Get the charge on the cloud base out of a reading taken at the ground.",
     "briefing": "The mills read 4.5 kV/m under yesterday's cell, and nobody has turned that into charge.",
-    "stake": "Tuesday, and yesterday's cell left a number nobody has used. At the moment the crew was walked back the four mills read 4.5 kV/m together, which Vero wants in the season log as a charge rather than as a field. Emil Strand says the hall can produce the same field between two plates a metre apart and that the arithmetic is the same either way. Today you get the charge per square metre on the cloud base out of a reading taken at head height, and find out what the same law says about the inside of the screened room.",
+    "stake": "Tuesday, and yesterday's cell left a number nobody has used. At the moment the crew was walked back the four mills read 4.5 kV/m together, which Vero wants in the season log as a charge rather than as a field. Emil Strand, the high-voltage engineer, says the hall can produce the same field between two plates a metre apart and that the arithmetic is the same either way. Today you get the charge per square metre on the cloud base out of a reading taken at head height, and find out what the same law says about the inside of the screened room.",
     "takeaway": "Gauss turns a field into a charge whenever a surface can be chosen the field is simple on.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "Volts are a path",
     "objective": "Turn a field in volts per metre into the volts between two places.",
     "briefing": "The season log wants the cloud-to-ground potential, and nobody has written the integral.",
-    "stake": "Wednesday, and the log has a column for potential difference that has been empty since the station opened. Vero wants it filled from yesterday's field rather than from a textbook. Ingrid Lauwers has asked a question that sounds like pedantry and is not: between which two points. Today you take the field down a path and get volts out of it, and settle what a number in that column would have to name before it means anything. The records officer, Yusuf Kaya, has three shots from last season with no criterion recorded, and this is how that happens.",
+    "stake": "Wednesday, and the log has a column for potential difference that has been empty since the station opened. Vero wants it filled from yesterday's field rather than from a textbook. Ingrid Lauwers, the emc engineer, has asked a question that sounds like pedantry and is not: between which two points. Today you take the field down a path and get volts out of it, and settle what a number in that column would have to name before it means anything. The records officer, Yusuf Kaya, has three shots from last season with no criterion recorded, and this is how that happens.",
     "takeaway": "A potential belongs to a pair of points, and a path is how you get from the field to the volts.",
     "stops": [
       {
@@ -127,7 +127,7 @@ export const MISSIONS = [
     "title": "Where the half comes from",
     "objective": "Derive the energy in the bank, and say what it means for the hall.",
     "briefing": "Twelve stages at fifty kilovolts, and the safety case rests on a number nobody re-derives.",
-    "stake": "Monday of week four, and Josefa Ruiz wants the hall's energy figure checked before the season's biggest impulse test on Friday. Twelve stages, a hundred nanofarads each, charged to fifty kilovolts: the placard on the barrier says fifteen hundred joules, and it has said so since the hall was built by people who have all since left. Emil Strand's view is that a number nobody has re-derived is a rumour with a unit after it, and he has been saying so about this one for two seasons. Today you get the stored energy out of the work it took to put the charge there, settle what the earthing stick is actually for, and decide what the hall can honestly stand in for when the sky will not cooperate.",
+    "stake": "Monday of week four, and Josefa Ruiz, the impulse hall technician, wants the hall's energy figure checked before the season's biggest impulse test on Friday. Twelve stages, a hundred nanofarads each, charged to fifty kilovolts: the placard on the barrier says fifteen hundred joules, and it has said so since the hall was built by people who have all since left. Emil Strand's view is that a number nobody has re-derived is a rumour with a unit after it, and he has been saying so about this one for two seasons. Today you get the stored energy out of the work it took to put the charge there, settle what the earthing stick is actually for, and decide what the hall can honestly stand in for when the sky will not cooperate.",
     "takeaway": "The energy in a capacitor is the work done against the voltage that was already there, which is where the half comes from.",
     "stops": [
       {
@@ -151,7 +151,7 @@ export const MISSIONS = [
     "title": "Three instruments that agree",
     "objective": "Find out whether the current measurements are independent of each other.",
     "briefing": "Three shunts, three readings within ten per cent, and one thing they have in common.",
-    "stake": "Tuesday, and Kenji Nakata has the S-114 record open because the funding review will quote it. Three separate measurements of last August's strike agree within ten per cent, which the station has been treating as confirmation for a year and which Vero has already put in a draft. Nakata does not like how tidy it is. Ana Sifuentes has pointed out, without making anything of it yet, that every digitiser on the site is referred to one rod. Today you open each channel, find what its reading was measured against, and work out what the agreement between them is actually worth to a reviewer who asks.",
+    "stake": "Tuesday, and Kenji Nakata, the current measurement engineer, has the S-114 record open because the funding review will quote it. Three separate measurements of last August's strike agree within ten per cent, which the station has been treating as confirmation for a year and which Vero has already put in a draft. Nakata does not like how tidy it is. Ana Sifuentes has pointed out, without making anything of it yet, that every digitiser on the site is referred to one rod. Today you open each channel, find what its reading was measured against, and work out what the agreement between them is actually worth to a reviewer who asks.",
     "takeaway": "Instruments that share a reference share its errors, and their agreement measures nothing.",
     "stops": [
       {

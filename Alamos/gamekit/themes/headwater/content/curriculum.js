@@ -7,7 +7,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "The slope between two readings",
-      "scene": "Ayo Ekundayo has the Ashfell gauge on the screen — 41 cubic metres a second at 6 this morning, 48 at 8. Halloran wants a number for how fast it is climbing, not another reading off the same trace.",
+      "scene": "Ayo Ekundayo, the catchment hydrologist, has the Ashfell gauge on the screen — 41 cubic metres a second at 6 this morning, 48 at 8. Halloran wants a number for how fast it is climbing, not another reading off the same trace.",
       "takeaway": "An average rate of change is the slope of the line joining an interval's two endpoints.",
       "place": "Catchment & Inflow Desk",
       "guide": "Five numbers are on offer and only three of them are ends of an interval. Two are arithmetic already done to the readings: a sum, and the hour one of them was taken at. Ask of each what it measures. A sum of two readings has thrown away the difference a slope is made of. Get that wrong and the report gives the river's size where it was asked for its speed.",
@@ -15,7 +15,7 @@ export const CURRICULUM = {
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "Ayo Ekundayo has the Ashfell gauge on the screen — 41 cubic metres a second at 6 this morning, 48 at 8. Halloran wants a number for how fast it is climbing, not another reading off the same trace.",
+      "story": "Ayo Ekundayo, the catchment hydrologist, has the Ashfell gauge on the screen — 41 cubic metres a second at 6 this morning, 48 at 8. Halloran wants a number for how fast it is climbing, not another reading off the same trace.",
       "game": {
         "type": "BALLPARK",
         "title": "The slope between two readings",
@@ -819,7 +819,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What the slope becomes",
-      "scene": "Bo Ferrand has fitted last night's storage to V(t) = 5t² + 40t, in thousands of cubic metres, with t in hours. The nine o'clock call wants the rate at four hours, not an average across the night.",
+      "scene": "Bo Ferrand, the records & rating curves, has fitted last night's storage to V(t) = 5t² + 40t, in thousands of cubic metres, with t in hours. The nine o'clock call wants the rate at four hours, not an average across the night.",
       "takeaway": "The derivative is the limit of the difference quotient, and taking the limit is what removes the interval.",
       "place": "Storage & Level Board",
       "guide": "Build it a line at a time from the definition — the difference quotient — rather than from a rule you already know. Each step is the expression the line above licenses, and every wrong branch is legal algebra. The nine o'clock call wants the rate at four hours, so finish by evaluating what you derived at that value.",
@@ -828,7 +828,7 @@ export const CURRICULUM = {
         "What the algebra does. Expand V(t + h), subtract V(t), and every term without an h cancels. Divide by h and one factor of h comes out of what is left. The limit is then the terms with no h in them at all, which is the derivative — and the cancellation is the whole trick.",
         "Why an average will not do. Storage over the night rose in a curve, so an average across it is a rate that was true at one instant somewhere in the middle and is wrong now. The call is about what to do next, and that depends on the rate at four hours."
       ],
-      "story": "Bo Ferrand has fitted last night's storage to V(t) = 5t² + 40t, in thousands of cubic metres, with t in hours. The nine o'clock call wants the rate at four hours, not an average across the night.",
+      "story": "Bo Ferrand, the records & rating curves, has fitted last night's storage to V(t) = 5t² + 40t, in thousands of cubic metres, with t in hours. The nine o'clock call wants the rate at four hours, not an average across the night.",
       "game": {
         "type": "DERIVE",
         "title": "What the slope becomes",
@@ -973,7 +973,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "The curve that is already the answer",
-      "scene": "Ferrand keeps a running total of everything that has arrived since Monday, plotted as one rising curve. Rasmussen asks what its slope at any point is, and whether that is a new measurement or an old one.",
+      "scene": "Ferrand keeps a running total of everything that has arrived since Monday, plotted as one rising curve. Rasmussen, the survey engineer, asks what its slope at any point is, and whether that is a new measurement or an old one.",
       "takeaway": "The slope of an accumulation curve at any instant is the rate that was arriving at that instant, so differentiating an integral returns what was integrated.",
       "place": "Storage & Level Board",
       "guide": "Every option here is a real quantity of this record. They differ in whether they name a total, a rate, an average, or a rate of a rate. A slope is a rate, so whatever answers this has to carry the units a rate carries. If the curve and the gauge are two views of one record, a disagreement between them is a bookkeeping error and not a flood.",
@@ -982,7 +982,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Ferrand keeps a running total of everything that has arrived since Monday, plotted as one rising curve. Rasmussen asks what its slope at any point is, and whether that is a new measurement or an old one.",
+      "story": "Ferrand keeps a running total of everything that has arrived since Monday, plotted as one rising curve. Rasmussen, the survey engineer, asks what its slope at any point is, and whether that is a new measurement or an old one.",
       "game": {
         "type": "CHOICE",
         "title": "The curve that is already the answer",
@@ -1567,6 +1567,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative.",
+          "demanded": true,
           "card": false
         },
         {
@@ -1583,6 +1584,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Separating the variables puts every h on one side and every t on the other, and the square root is what makes the solution a parabola with a finishing time rather than an exponential without one.",
+          "demanded": true,
           "card": false
         }
       ],
@@ -2262,6 +2264,23 @@ export const CURRICULUM = {
           "s": "The three-halves power is why the last half metre of head does far more than the first, and differentiating it is the power rule and the chain rule in one line.",
           "computed": true,
           "card": false
+        },
+        {
+          "e": "dh/dt = −k·√h  ⟹  h(t) = (√h₀ − k·t/2)²",
+          "c": "a separable equation whose solution actually reaches zero",
+          "v": [
+            [
+              "k",
+              "the drain constant, per unit time"
+            ],
+            [
+              "h₀",
+              "the head at the start"
+            ]
+          ],
+          "s": "Separating the variables puts every h on one side and every t on the other, and the square root is what makes the solution a parabola with a finishing time rather than an exponential without one.",
+          "demanded": true,
+          "card": false
         }
       ],
       "concept": {
@@ -2276,7 +2295,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "What the rain has to pass through",
-      "scene": "Wilkes wants to know why the gate settings from this morning are already wrong. Berg puts the whole path on the board — rain, runoff, inflow, storage, level, head, discharge — and asks which step decides the answer.",
+      "scene": "Wilkes wants to know why the gate settings from this morning are already wrong. Berg, the flood engineer, puts the whole path on the board — rain, runoff, inflow, storage, level, head, discharge — and asks which step decides the answer.",
       "takeaway": "A related-rates problem is a chain, and the link with the smallest derivative governs how much of the rate arrives at the far end.",
       "place": "Gate Chamber",
       "guide": "Put the transfers in the order the rate actually travels — rain to runoff to inflow to storage to level to head to discharge — and then name the one step that decides how much of it reaches the sill. Every relation on the path contributes a factor, and a path with a step missing is not a path. The largest number on the board is not automatically the governing link.",
@@ -2285,7 +2304,7 @@ export const CURRICULUM = {
         "What 'governing' means. Not the biggest term — the one whose value the answer is most limited by. A step that passes on nearly everything is not deciding anything, however large the numbers flowing through it. A step that throttles the rate sets what everything downstream can be.",
         "Why the morning's settings went wrong. A gate schedule is written from an assumed path. If one step's gain was assumed and is actually different — a catchment wetter than modelled, a level-to-head relation off by the sill's own geometry — every setting downstream of it inherits the error, which is what the board is for."
       ],
-      "story": "Wilkes wants to know why the gate settings from this morning are already wrong. Berg puts the whole path on the board — rain, runoff, inflow, storage, level, head, discharge — and asks which step decides the answer.",
+      "story": "Wilkes wants to know why the gate settings from this morning are already wrong. Berg, the flood engineer, puts the whole path on the board — rain, runoff, inflow, storage, level, head, discharge — and asks which step decides the answer.",
       "game": {
         "type": "CHAIN",
         "title": "What the rain has to pass through",
@@ -2754,7 +2773,8 @@ export const CURRICULUM = {
               "the variable being differentiated with respect to"
             ]
           ],
-          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative."
+          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative.",
+          "demanded": true
         },
         {
           "e": "Q = C·L·H^(3/2),  dQ/dt = (3/2)·C·L·H^(1/2)·dH/dt",
@@ -2773,7 +2793,8 @@ export const CURRICULUM = {
               "how fast that head is rising"
             ]
           ],
-          "s": "The three-halves power is why the last half metre of head does far more than the first, and differentiating it is the power rule and the chain rule in one line."
+          "s": "The three-halves power is why the last half metre of head does far more than the first, and differentiating it is the power rule and the chain rule in one line.",
+          "demanded": true
         }
       ],
       "concept": {
@@ -4089,7 +4110,8 @@ export const CURRICULUM = {
               "the step away from it"
             ]
           ],
-          "s": "The tangent line is the best straight-line stand-in for a curve at one point, and the error grows with the curvature and with the square of the step."
+          "s": "The tangent line is the best straight-line stand-in for a curve at one point, and the error grows with the curvature and with the square of the step.",
+          "demanded": true
         }
       ],
       "concept": {
@@ -4184,7 +4206,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "The instant the gate moved",
-      "scene": "Nadine Baptiste has the tailrace trace across the moment gate 2 opened. Discharge sits at 60 cubic metres a second up to 2 o'clock and at 145 immediately after. She wants the trace read, not smoothed.",
+      "scene": "Nadine Baptiste, the downstream warning officer, has the tailrace trace across the moment gate 2 opened. Discharge sits at 60 cubic metres a second up to 2 o'clock and at 145 immediately after. She wants the trace read, not smoothed.",
       "takeaway": "A jump in a record is a place the calculus simply does not reach, however good the record is on both sides of it.",
       "place": "Downstream Warning Desk",
       "guide": "The four answers disagree about one thing: whether a rate exists at that instant at all. Some assign it a value, large or zero, and some deny there is a value to assign. Decide that first, from the trace, before arguing about size. Sorting a discontinuity from a steep slope decides whether you need a better gauge or a different question.",
@@ -4193,7 +4215,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Nadine Baptiste has the tailrace trace across the moment gate 2 opened. Discharge sits at 60 cubic metres a second up to 2 o'clock and at 145 immediately after. She wants the trace read, not smoothed.",
+      "story": "Nadine Baptiste, the downstream warning officer, has the tailrace trace across the moment gate 2 opened. Discharge sits at 60 cubic metres a second up to 2 o'clock and at 145 immediately after. She wants the trace read, not smoothed.",
       "game": {
         "type": "CHOICE",
         "title": "The instant the gate moved",
@@ -4539,7 +4561,7 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "The two peaks are not the same hour",
-      "scene": "Baptiste has the inflow curve and the level curve on the same axes, peaking at different hours, and a reach to warn. Etta Prowse wants to know which one the warning is about.",
+      "scene": "Baptiste has the inflow curve and the level curve on the same axes, peaking at different hours, and a reach to warn. Etta Prowse, the riverside landowner representative, wants to know which one the warning is about.",
       "takeaway": "The reservoir peaks when the net flow is zero, which is later than the inflow peak and has nothing to do with it.",
       "place": "Downstream Warning Desk",
       "guide": "All four options name a moment that is genuinely visible on the traces. They differ in which curve is being watched: the inflow, the outflow, or the difference between them. Storage answers to the difference and to nothing else. Warning a reach on the strength of an upstream peak is wrong in the expensive direction. The highest water arrives after the news that it would not.",
@@ -4548,7 +4570,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Baptiste has the inflow curve and the level curve on the same axes, peaking at different hours, and a reach to warn. Etta Prowse wants to know which one the warning is about.",
+      "story": "Baptiste has the inflow curve and the level curve on the same axes, peaking at different hours, and a reach to warn. Etta Prowse, the riverside landowner representative, wants to know which one the warning is about.",
       "game": {
         "type": "CHOICE",
         "title": "The two peaks are not the same hour",

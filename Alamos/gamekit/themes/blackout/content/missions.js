@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "Enough in the tank",
     "objective": "Decide what the system is holding back, and whether it is enough.",
     "briefing": "Tomorrow's peak is colder than the forecast the reserve was set against.",
-    "stake": "Monday, and the forecast for tomorrow's evening peak has moved four degrees colder. Sten Lindgren says the number has not changed much but the width has, and the width is what the reserve has to cover. Rafael Alvarez has the storage figures from the weekend and they are worse than the brochure. Dolores Reyes has to say tonight how much generation is held back and how much is sold. Today you work out what the battery will really give back, decide why the transmission side runs at high voltage at all, and choose what evidence is worth buying before the peak. Hold too much back and it is wasted. Hold too little and the first cold evening finds out.",
+    "stake": "Monday, and the forecast for tomorrow's evening peak has moved four degrees colder. Sten Lindgren, the load forecasting analyst, says the number has not changed much but the width has, and the width is what the reserve has to cover. Rafael Alvarez, the demand analyst, has the storage figures from the weekend and they are worse than the brochure. Dolores Reyes, the shift supervisor, has to say tonight how much generation is held back and how much is sold. Today you work out what the battery will really give back, decide why the transmission side runs at high voltage at all, and choose what evidence is worth buying before the peak. Hold too much back and it is wasted. Hold too little and the first cold evening finds out.",
     "takeaway": "A reserve is bought with something, and the argument is always about how much uncertainty it has to cover.",
     "stops": [
       {
@@ -79,7 +79,7 @@ export const MISSIONS = [
     "title": "What the line can carry",
     "objective": "Decide which circuit takes the flow once one path is gone.",
     "briefing": "With the unit off, the flow has redistributed and one corridor is running warm.",
-    "stake": "Thursday, and the replacement generation is coming from the wrong side of the system, which means it is arriving down two circuits instead of three. Piotr Novak has a corridor sitting above its continuous rating and a relay that will take the decision away from the room in about 40 minutes if nobody else does. The 40 minutes comes off a thermal record June Farrow has not verified, and she says so. Thabo Dube is in the yard waiting for a switching instruction. Today you rate the line honestly, work out where the flow goes if it trips, and decide whether to move generation or accept the risk. A thermal rating is not a cliff, and treating it as one is how a warm line becomes two cold ones.",
+    "stake": "Thursday, and the replacement generation is coming from the wrong side of the system, which means it is arriving down two circuits instead of three. Piotr Novak has a corridor sitting above its continuous rating and a relay that will take the decision away from the room in about 40 minutes if nobody else does. The 40 minutes comes off a thermal record June Farrow has not verified, and she says so. Thabo Dube, the substation technician, is in the yard waiting for a switching instruction. Today you rate the line honestly, work out where the flow goes if it trips, and decide whether to move generation or accept the risk. A thermal rating is not a cliff, and treating it as one is how a warm line becomes two cold ones.",
     "takeaway": "A rating is a time and a temperature, not a wall, and what matters is where the flow goes next.",
     "stops": [
       {
@@ -103,7 +103,7 @@ export const MISSIONS = [
     "title": "The last few kilometres",
     "objective": "Get customers back on in an order that can be defended afterwards.",
     "briefing": "11 feeders are still dead and the crews can only be in 1 place at a time.",
-    "stake": "Friday, and the transmission side is steady, but 11 distribution feeders are still dead. Chinelo Obi has 3 crews and 14000 households in the dark. One of her circuits carries a dialysis clinic. Another carries 1000 homes. Ewa Kowalczyk is at the first fault already, and it is a tree. Today you work out why the far end of a long feeder sits below limit, decide what sets the current a conductor may carry, and choose which circuit gets the first crew. Every hour of this is somebody sitting in the cold. The order you choose is the order an inquiry will read back to you.",
+    "stake": "Friday, and the transmission side is steady, but 11 distribution feeders are still dead. Chinelo Obi has 3 crews and 14000 households in the dark. One of her circuits carries a dialysis clinic. Another carries 1000 homes. Ewa Kowalczyk, the field crew lead, is at the first fault already, and it is a tree. Today you work out why the far end of a long feeder sits below limit, decide what sets the current a conductor may carry, and choose which circuit gets the first crew. Every hour of this is somebody sitting in the cold. The order you choose is the order an inquiry will read back to you.",
     "takeaway": "Restoration is a series of choices about people, made with instruments that only see the substation.",
     "stops": [
       {
@@ -305,7 +305,7 @@ export const MISSIONS = [
     "title": "Merit order",
     "objective": "Decide what runs tomorrow, and what is held back for the day it is needed.",
     "briefing": "The cheapest generation is on the ridge and it will not say what it is doing after four.",
-    "stake": "Thursday, and tomorrow has to be bought tonight. Sten Lindgren has a peak that moves with the temperature and a width he will not narrow. Mina Sarraf has a ridge that will produce almost nothing for money and cannot promise any of it, and she is tired of being asked to. Nadia Haddad has expensive machines that can be told exactly what to do. Dolores Reyes has to sign an order that puts them in sequence. Today you forecast the peak from the load curve, decide what merit order actually means when the cheapest plant is the least certain, and choose what to do with more wind than the corridor can carry.",
+    "stake": "Thursday, and tomorrow has to be bought tonight. Sten Lindgren has a peak that moves with the temperature and a width he will not narrow. Mina Sarraf, the wind fleet controller, has a ridge that will produce almost nothing for money and cannot promise any of it, and she is tired of being asked to. Nadia Haddad has expensive machines that can be told exactly what to do. Dolores Reyes has to sign an order that puts them in sequence. Today you forecast the peak from the load curve, decide what merit order actually means when the cheapest plant is the least certain, and choose what to do with more wind than the corridor can carry.",
     "takeaway": "Dispatch orders plant by cost, and the value of certainty is what stops that being the whole story.",
     "stops": [
       {

@@ -964,7 +964,7 @@ missions:
   - title: Morning Rush
     objective: How doctors use clues and decide who needs help first
     briefing: How doctors use clues and decide who needs help first
-    stake: It is your first shift. Three children come in at once. Ava is quiet and breathing hard. Ben is crying loudly about his ankle. Mia has not said anything at all. Nurse Alex Lee, who is showing you the ward today, says to watch all three before you choose. Today you decide who to see first, and you learn the three kinds of clue. The loudest patient is not always the one in the most trouble.
+    stake: It is your first shift. Three children come in at once. Ava, a patient, is quiet and breathing hard. Ben, a patient, is crying loudly about his ankle. Mia has not said anything at all. Nurse Alex Lee, who is showing you the ward today, says to watch all three before you choose. Today you decide who to see first, and you learn the three kinds of clue. The loudest patient is not always the one in the most trouble.
     takeaway: Shift complete
     stops:
       - group: TRI
@@ -972,7 +972,7 @@ missions:
         task: Which patient should move to the front of the line?
         title: Who Needs You First?
         setup: Ava, Ben, and Maya  •  Emergency Department
-        scene: Three patients arrive at almost the same time. Ava sits very still and breathes hard. Ben can walk, but his ankle hurts. Maya has an itchy patch on her arm. One exam room is free. Hospitals do not always help people in the order they arrive. Some problems stay the same for an hour. Others get worse fast. Picking who goes first is called triage.
+        scene: Three patients arrive at almost the same time. Ava sits very still and breathes hard. Ben can walk, but his ankle hurts. Maya, a patient, has an itchy patch on her arm. One exam room is free. Hospitals do not always help people in the order they arrive. Some problems stay the same for an hour. Others get worse fast. Picking who goes first is called triage.
         guide: >-
           All four people need help. That is not the question. Ask one thing of each.
           Which of them gets worse while you help somebody else? A sore ankle stays
@@ -1014,7 +1014,7 @@ missions:
         task: Which item is a measurement?
         title: Observation or Measurement?
         setup: Luis  •  Exam Room 3
-        scene: Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature with a thermometer. She counts his pulse too. All of it goes on his chart. But the clues are not all the same kind. Some you notice. Some the patient tells you. Some come from a tool, as a number.
+        scene: Our patient Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature with a thermometer. She counts his pulse too. All of it goes on his chart. But the clues are not all the same kind. Some you notice. Some the patient tells you. Some come from a tool, as a number.
         guide: >-
           All four clues are real and useful. They come from different places. One you
           see. One the patient tells you. One comes from a tool, as a number. Ask of
@@ -1042,11 +1042,11 @@ missions:
         format: DIAGNOSIS
         why: Clues come in three kinds. Some you see, like a worried face. Some the patient tells you, like where it hurts. Some come from a tool, as a number. A thermometer gives a number. That makes it a measurement. All three kinds are useful. Knowing which kind you have tells you how sure you can be.
         rebuttals:
-          - A. Luis says his belly hurts. — Pain is important information, but it is something Luis reports, not a tool measurement.
+          - A. Our patient Luis says his belly hurts. — Pain is important information, but it is something Luis reports, not a tool measurement.
           - B. Luis looks worried. — Looking worried is an observation.
           - D. He skipped breakfast. — Skipping breakfast is part of the story or history.
         choices:
-          - Luis says his belly hurts.
+          - Our patient Luis says his belly hurts.
           - Luis looks worried.
           - His temperature is 98.7°F.
           - He skipped breakfast.
@@ -1224,7 +1224,7 @@ missions:
   - title: X-Ray Day
     objective: Bones, joints, protection, and medical imaging
     briefing: Bones, joints, protection, and medical imaging
-    stake: Third shift, and Ben is back — the boy with the sore ankle from your first day. He remembers you and is trying not to cry again. This time it is his wrist, and it is swollen. He fell onto his hand from the monkey bars an hour ago. Dr. Elena Garcia is waiting for you. Today you pick the right tool, learn what bones do, and keep Ben calm while the team gets ready.
+    stake: Third shift, and Ben is back — the boy with the sore ankle from your first day. He remembers you and is trying not to cry again. This time it is his wrist, and it is swollen. He fell onto his hand from the monkey bars an hour ago. Dr. Elena Garcia, the orthopedics, is waiting for you. Today you pick the right tool, learn what bones do, and keep Ben calm while the team gets ready.
     takeaway: Shift complete
     stops:
       - group: MOVE
@@ -1232,7 +1232,7 @@ missions:
         title: Why Take an X-Ray?
         concept: "Imaging: X-rays and pictures of the inside"
         place: Imaging Room
-        scene: Eli fell off his bike. His wrist hurts and looks swollen. The doctor needs to know if a bone is broken. The bone is under the skin, and nobody can see it from outside.
+        scene: Eli, a patient, fell off his bike. His wrist hurts and looks swollen. The doctor needs to know if a bone is broken. The bone is under the skin, and nobody can see it from outside.
         guide: >-
           Three clues, and three tools. Match each clue to the tool that can find it. Every tool
           here is useful, and each one answers a different question. The one that finds a broken
@@ -1268,7 +1268,7 @@ missions:
         task: Which set is correct?
         title: Skeleton Jobs
         setup: Rosa, Mr. Bell, and Tess  •  Orthopedic Room
-        scene: The bone doctor has three cards to hand out. Rosa needs the part that protects the heart and lungs. Mr. Bell needs the part that holds up the back. Tess needs the place where bones meet and move. Bones do more than hold you up. They are not all the same shape. That is because they do not all do the same job.
+        scene: The bone doctor has three cards to hand out. Rosa needs the part that protects the heart and lungs. Mr. Bell, a patient, needs the part that holds up the back. Tess needs the place where bones meet and move. Bones do more than hold you up. They are not all the same shape. That is because they do not all do the same job.
         guide: >-
           Four sets, and bones do more than one job. Ask what each bone is shaped for. A
           cage guards what is inside it. A column holds you up. A joint is where two
@@ -1349,7 +1349,7 @@ missions:
   - title: Brain Signal Day
     objective: Brain, spinal cord, nerves, and fast responses
     briefing: Brain, spinal cord, nerves, and fast responses
-    stake: Fourth shift. Arjun bumped his head at break. His knee is scraped and you can see it. He is also muddled about what day it is, and you can only see that if you talk to him. His friend says he asked the same question twice on the way in. Dr. Sam Kim asks which one worries you. Today you follow signals into the brain and back out, and decide who needs help first.
+    stake: Fourth shift. Arjun, a patient, bumped his head at break. His knee is scraped and you can see it. He is also muddled about what day it is, and you can only see that if you talk to him. His friend says he asked the same question twice on the way in. Dr. Sam Kim, the neurology, asks which one worries you. Today you follow signals into the brain and back out, and decide who needs help first.
     takeaway: Shift complete
     stops:
       - group: BRAIN
@@ -1400,7 +1400,7 @@ missions:
         title: Touch, Think, Move
         concept: Nervous system and reflexes
         setup: Lily  •  Rehab Station
-        scene: Lily touches something very cold. She pulls her hand back fast. The brain doctor shows four cards. It felt like one instant to Lily. It was really a sequence. Something was noticed. A message travelled. The brain understood it. A muscle moved. Each stage takes a tiny bit of time. So the order can be worked out.
+        scene: Lily, a patient, touches something very cold. She pulls her hand back fast. The brain doctor shows four cards. It felt like one instant to Lily. It was really a sequence. Something was noticed. A message travelled. The brain understood it. A muscle moved. Each stage takes a tiny bit of time. So the order can be worked out.
         guide: >-
           These four are one chain. Ask what has to happen first. You cannot answer
           something you have not noticed. So the skin comes before the thinking. And the
@@ -1478,7 +1478,7 @@ missions:
   - title: Heart on the Move
     objective: The heart, blood, pulse, and circulation
     briefing: The heart, blood, pulse, and circulation
-    stake: Fifth shift. Jordan came up the stairs and his heart is racing, and his mum looks frightened. Jordan says he feels fine and wants to go back to his brother. His hands are warm and he is not out of breath now. Nurse Alex Lee has counted his pulse twice, ten minutes apart, and asks you what you saw before she says anything. Today you follow blood around the body, count a pulse, and work out why it sped up.
+    stake: Fifth shift. Jordan, a patient, came up the stairs and his heart is racing, and his mum looks frightened. Jordan says he feels fine and wants to go back to his brother. His hands are warm and he is not out of breath now. Nurse Alex Lee has counted his pulse twice, ten minutes apart, and asks you what you saw before she says anything. Today you follow blood around the body, count a pulse, and work out why it sped up.
     takeaway: Shift complete
     stops:
       - group: RESP
@@ -1596,7 +1596,7 @@ missions:
   - title: Sense Detective
     objective: Eyes, ears, senses, and how the brain uses signals
     briefing: Eyes, ears, senses, and how the brain uses signals
-    stake: Sixth shift. Mina says the board looks blurry, and she can read the big letters but not the small ones. Caleb cannot hear a quiet tone, though he hears you fine when you face him. Mrs. Ruiz feels dizzy when she stands, and is steady again after a minute. Three people, three clues, three different tools, and Nurse Alex Lee has put them all in one room. Today you match each one and follow how seeing works.
+    stake: Sixth shift. Mina, a patient, says the board looks blurry, and she can read the big letters but not the small ones. Caleb, a patient, cannot hear a quiet tone, though he hears you fine when you face him. Mrs. Ruiz feels dizzy when she stands, and is steady again after a minute. Three people, three clues, three different tools, and Nurse Alex Lee has put them all in one room. Today you match each one and follow how seeing works.
     takeaway: Shift complete
     stops:
       - group: BRAIN
@@ -1648,7 +1648,7 @@ missions:
         title: Match the Sense
         concept: The senses
         setup: Mina, Caleb, and Mrs. Patel  •  Hearing Booth
-        scene: The team has three clue cards. Mina has blurry vision. Caleb has trouble hearing a tone. Mrs. Patel feels unsteady when she turns her head. Each sense starts with a part built to catch one kind of signal. Light. Sound. Movement. Here is the surprise. One organ can hold more than one of those jobs.
+        scene: The team has three clue cards. Mina has blurry vision. Caleb has trouble hearing a tone. Mrs. Patel, the ed director, feels unsteady when she turns her head. Each sense starts with a part built to catch one kind of signal. Light. Sound. Movement. Here is the surprise. One organ can hold more than one of those jobs.
         guide: >-
           Four sets, and one body part does two jobs. Ask of each person what they
           cannot do. Seeing? Hearing? Staying steady? The ear takes in sound, and it
@@ -1692,7 +1692,7 @@ missions:
         title: From Light to Picture
         concept: "Imaging: X-rays and pictures of the inside"
         setup: Jules  •  Neurology Hall
-        scene: Jules wants to know how light becomes a picture. The brain doctor lays out four cards. Eyes do not really see on their own. They catch light and turn it into signals. The picture is put together later, in the brain. That is why seeing is a team job. Knowing the stages tells you where a problem could be.
+        scene: Jules, a patient, wants to know how light becomes a picture. The brain doctor lays out four cards. Eyes do not really see on their own. They catch light and turn it into signals. The picture is put together later, in the brain. That is why seeing is a team job. Knowing the stages tells you where a problem could be.
         guide: >-
           These four are one path. Ask what has to happen first. The brain cannot make
           sense of a pattern the eye has not picked up. So the eye collects, and the
@@ -1728,7 +1728,7 @@ missions:
   - title: Breathing Room
     objective: Lungs, air, oxygen, and breathing rate
     briefing: Lungs, air, oxygen, and breathing rate
-    stake: Your seventh shift. Noah helped clean a dusty room and now he makes a whistling sound with every breath. He is sitting up very straight and would rather not lie down. Dr. Luis Reyes wants you to listen before he does. He has already checked that Noah can still talk in whole sentences. Today you follow the path air takes, work out what that sound means, and count how fast someone is breathing.
+    stake: Your seventh shift. Noah helped clean a dusty room and now he makes a whistling sound with every breath. He is sitting up very straight and would rather not lie down. Dr. Luis Reyes, the respiratory lead, wants you to listen before he does. He has already checked that Noah can still talk in whole sentences. Today you follow the path air takes, work out what that sound means, and count how fast someone is breathing.
     takeaway: Shift complete
     stops:
       - group: RESP
@@ -1846,7 +1846,7 @@ missions:
   - title: Water Watch
     objective: Hydration, kidneys, urine, and water balance
     briefing: Hydration, kidneys, urine, and water balance
-    stake: Eighth shift. Mateo finished his soccer match and says he feels fine. His mouth is dry. His urine looks darker than usual. He drank one small bottle in the whole match. Nurse Alex Lee has written all of that down and wants to know what you make of it together. Today you read two clues at once and follow water through the body. Two clues pointing the same way are much stronger than one.
+    stake: Eighth shift. Mateo, a patient, finished his soccer match and says he feels fine. His mouth is dry. His urine looks darker than usual. He drank one small bottle in the whole match. Nurse Alex Lee has written all of that down and wants to know what you make of it together. Today you read two clues at once and follow water through the body. Two clues pointing the same way are much stronger than one.
     takeaway: Shift complete
     stops:
       - group: NUTR
@@ -1928,7 +1928,7 @@ missions:
         task: Work out how much the kidneys handle in a day.
         title: What the Kidneys Do
         place: Exam Room 1
-        scene: Harper looks at a model. It shows the kidneys and the bladder. She asks why both are in one system. The body makes waste. The blood carries it. The kidneys are the filters.
+        scene: Harper, a patient, looks at a model. It shows the kidneys and the bladder. She asks why both are in one system. The body makes waste. The blood carries it. The kidneys are the filters.
         guide: >-
           Work out how much water the kidneys send back into the body each day. They filter 180
           litres, and only 2 litres leave as urine. Take the smaller number away from the bigger
@@ -1977,7 +1977,7 @@ missions:
   - title: Germ Detective Shift
     objective: Microbes, spread, evidence, and handwashing
     briefing: Microbes, spread, evidence, and handwashing
-    stake: Ninth shift. Ty and Ana are both tired today. They are in the same class, so everybody has decided it is the same bug. Dr. Amaka Okafor has not. Ty has a fever. Ana does not. They sat at different tables all week. Ana's little brother was sick last weekend. Today you work out how germs travel, why washing hands matters, and whether these two really match. Saying not enough evidence yet is a real answer.
+    stake: Ninth shift. Ty and Ana, a patient, are both tired today. They are in the same class, so everybody has decided it is the same bug. Dr. Amaka Okafor, the infection, has not. Ty has a fever. Ana does not. They sat at different tables all week. Ana's little brother was sick last weekend. Today you work out how germs travel, why washing hands matters, and whether these two really match. Saying not enough evidence yet is a real answer.
     takeaway: Shift complete
     stops:
       - group: DEF
@@ -1985,7 +1985,7 @@ missions:
         task: Which matching set is most sensible?
         title: How Might It Spread?
         setup: Ty, Ana, and Lena  •  Infection Control Desk
-        scene: The nurse gives you three short stories. Ty was near classmates who were coughing. Ana ate food that made several relatives sick. Lena touched a shared toy and rubbed her nose. Germs cannot fly or walk by themselves. Something has to carry them. Different germs travel different ways. The way it travels tells you how to stop it.
+        scene: The nurse gives you three short stories. Ty was near classmates who were coughing. Ana ate food that made several relatives sick. Lena, a patient, touched a shared toy and rubbed her nose. Germs cannot fly or walk by themselves. Something has to carry them. Different germs travel different ways. The way it travels tells you how to stop it.
         guide: >-
           Four sets, and germs travel in more than one way. Ask of each person what they
           did. Coughed near others? Ate something? Touched a handle? The story is what
@@ -2119,7 +2119,7 @@ missions:
   - title: Immune Team
     objective: Barriers, white blood cells, antibodies, and immune memory
     briefing: Barriers, white blood cells, antibodies, and immune memory
-    stake: Tenth shift. Ruby is getting better. Nobody gave her anything, and that puzzles her. She had this illness two years ago and does not remember it. Mae is here for a shot. She is frightened of it. She wants to know how long it will hurt for. Today you follow what a body does when a germ gets in, and learn what a shot is for. A shot lets the body practise first.
+    stake: Tenth shift. Ruby is getting better. Nobody gave her anything, and that puzzles her. She had this illness two years ago and does not remember it. Mae, a patient, is here for a shot. She is frightened of it. She wants to know how long it will hurt for. Today you follow what a body does when a germ gets in, and learn what a shot is for. A shot lets the body practise first.
     takeaway: Shift complete
     stops:
       - group: DEF
@@ -2167,7 +2167,7 @@ missions:
         title: Meet the Defense Team
         concept: Immune defence and inflammation
         setup: Dante, Ruby, and Mae  •  Pediatric Ward
-        scene: Three cards need labels. Dante has a skin shield card. Ruby has a white blood cell card. Mae has an antibody card. The body does not defend itself one way. It defends in layers. Barriers try to keep germs out. Cells patrol and attack what gets in. Special molecules know one threat very well. Each layer catches what the last one missed.
+        scene: Three cards need labels. Dante, a patient, has a skin shield card. Ruby has a white blood cell card. Mae has an antibody card. The body does not defend itself one way. It defends in layers. Barriers try to keep germs out. Cells patrol and attack what gets in. Special molecules know one threat very well. Each layer catches what the last one missed.
         guide: >-
           Four sets, and each part has one job. Ask what each one does. Keeps things
           out? Goes looking? Knows one target? None of them can do the other two jobs.
@@ -2292,7 +2292,7 @@ missions:
         task: Find out what the tiredness is really about.
         title: Tired Muscles
         place: Therapy Room
-        scene: Amara has done the same gentle motion many times. Her arm feels tired now. Nothing hurts sharply. There is no new injury. The therapist stops the set and lets her rest.
+        scene: Amara, a patient, has done the same gentle motion many times. Her arm feels tired now. Nothing hurts sharply. There is no new injury. The therapist stops the set and lets her rest.
         guide: >-
           Four things are different about the sets where her arm got tired quickly. Change one
           and run the set again. The grip meter shows how hard she can still squeeze at the end.
@@ -2368,7 +2368,7 @@ missions:
   - title: Skin Shield
     objective: Skin as a barrier, healing, and protection
     briefing: Skin as a barrier, healing, and protection
-    stake: Twelfth shift. Ella came off her bike. There is gravel in her knee. It has stopped bleeding on its own. June was outside too long and has a sunburn. It is on the tops of her shoulders and nowhere else. Today you follow how a scrape heals, work out what job the skin lost, and help without doing a grown-up's job. The body shuts the door first and repairs after.
+    stake: Twelfth shift. Ella, a patient, came off her bike. There is gravel in her knee. It has stopped bleeding on its own. June, a patient, was outside too long and has a sunburn. It is on the tops of her shoulders and nowhere else. Today you follow how a scrape heals, work out what job the skin lost, and help without doing a grown-up's job. The body shuts the door first and repairs after.
     takeaway: Shift complete
     stops:
       - group: MOVE
@@ -2495,7 +2495,7 @@ missions:
   - title: Allergy Alert
     objective: Allergies, immune overreaction, and recognizing urgent breathing clues
     briefing: Allergies, immune overreaction, and recognizing urgent breathing clues
-    stake: Thirteenth shift. This one moves fast. Chloe's lips are swelling and she says it is hard to breathe. She had a peanut biscuit ten minutes ago. Sofia's eyes have itched every spring for years. Nurse Alex Lee is already walking and wants your reason as you go. Today you decide who cannot wait. You tell an allergy from a germ. Then you hand over to the emergency team. Swelling with trouble breathing cannot wait for anything.
+    stake: Thirteenth shift. This one moves fast. Our patient Chloe has swelling lips. She says it is hard to breathe. She had a peanut biscuit ten minutes ago. Sofia's eyes have itched every spring for years. Nurse Alex Lee is already walking and wants your reason as you go. Today you decide who cannot wait. You tell an allergy from a germ. Then you hand over to the emergency team. Swelling with trouble breathing cannot wait for anything.
     takeaway: Shift complete
     stops:
       - group: DEF
@@ -2503,7 +2503,7 @@ missions:
         task: Who needs the team’s immediate attention first?
         title: Which Allergy Patient First?
         setup: Sofia, Malik, and Chloe  •  Emergency Department
-        scene: Three people come in with allergy signs. Sofia has itchy eyes and breathes normally. Malik has an itchy rash and talks normally. Chloe has swelling around her mouth. She is struggling to breathe. The team needs your call. An allergy is the body's defence going much too far. Most reactions stay about the same for a while. A few change very fast.
+        scene: Three people come in with allergy signs. Sofia has itchy eyes and breathes normally. Malik, a patient, has an itchy rash and talks normally. Chloe has swelling around her mouth. She is struggling to breathe. The team needs your call. An allergy is the body's defence going much too far. Most reactions stay about the same for a while. A few change very fast.
         guide: >-
           All three need help. Ask of each what could get worse in minutes. Itchy eyes
           stay about the same. A big rash looks worse than a small one. How much skin it
@@ -2626,7 +2626,7 @@ missions:
   - title: Temperature Trouble
     objective: Homeostasis, sweating, shivering, and body temperature
     briefing: Homeostasis, sweating, shivering, and body temperature
-    stake: Fourteenth shift. Jamal is hot and sweating after exercise. Ivy got caught in the rain and is shivering. Ms. Kim was 98 degrees at 9 o'clock and 101 at 12. Nurse Alex Lee wrote both of Ms. Kim's numbers down and left the times beside them. Today you work out what each body is doing and how fast the fever is climbing. One number is just a number. Two numbers and a clock tell you how fast.
+    stake: Fourteenth shift. Jamal, a patient, is hot and sweating after exercise. Ivy, a patient, got caught in the rain and is shivering. Ms. Kim was 98 degrees at 9 o'clock and 101 at 12. Nurse Alex Lee wrote both of Ms. Kim's numbers down and left the times beside them. Today you work out what each body is doing and how fast the fever is climbing. One number is just a number. Two numbers and a clock tell you how fast.
     takeaway: Shift complete
     stops:
       - group: DEF
@@ -2755,7 +2755,7 @@ missions:
         task: Who should go to the first available room?
         title: Six Patients, One First Room
         setup: Nora, DeShawn, Mei, Mr. Alvarez, Fatima, and Owen  •  Central Triage
-        scene: The waiting board is full. Nora breathes hard and cannot finish a sentence. DeShawn can walk on a sore ankle. Mei has a fever and cough but breathes fine. Mr. Alvarez feels lightheaded but is awake. Fatima has itchy eyes. Owen has a small covered scrape. One room is free. Triage asks which problem could get dangerous fastest.
+        scene: The waiting board is full. Nora breathes hard and cannot finish a sentence. Our patient DeShawn can walk on a sore ankle. Mei, a patient, has a fever and cough but breathes fine. Mr. Alvarez, a patient, feels lightheaded but is awake. Our patient Fatima has itchy eyes. Owen has a small covered scrape. One room is free. Triage asks which problem could get dangerous fastest.
         guide: >-
           All six are real, and all six need something. Ask of each what happens while
           everybody waits. A sore ankle waits well. A fever waits. Feeling faint is
@@ -2921,7 +2921,7 @@ lessons:
     task: Which item is a measurement?
     title: Observation or Measurement? — Review 2
     setup: Luis  •  Exam Room 3
-    scene: Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature and pulse. The chart now contains both things the team noticed and numbers from tools.
+    scene: Our patient Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature and pulse. The chart now contains both things the team noticed and numbers from tools.
     guide: >-
       All four clues are real and useful. They come from different places. One you
       see. One the patient tells you. One comes from a tool, as a number. Ask of
@@ -2949,11 +2949,11 @@ lessons:
     format: DIAGNOSIS
     why: Clues come in three kinds. Some you see, like a worried face. Some the patient tells you, like where it hurts. Some come from a tool, as a number. A thermometer gives a number. That makes it a measurement. All three kinds are useful. Knowing which kind you have tells you how sure you can be.
     rebuttals:
-      - A. Luis says his belly hurts. — Pain is important information, but it is something Luis reports, not a tool measurement.
+      - A. Our patient Luis says his belly hurts. — Pain is important information, but it is something Luis reports, not a tool measurement.
       - B. Luis looks worried. — Looking worried is an observation.
       - D. He skipped breakfast. — Skipping breakfast is part of the story or history.
     choices:
-      - Luis says his belly hurts.
+      - Our patient Luis says his belly hurts.
       - Luis looks worried.
       - His temperature is 98.7°F.
       - He skipped breakfast.
@@ -3000,7 +3000,7 @@ lessons:
     task: Who should go to the first available room?
     title: 6 Patients, 1 First Room — Review 2
     setup: Nora, DeShawn, Mei, Mr. Alvarez, Fatima, and Owen  •  Central Triage
-    scene: The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Fatima has itchy eyes. Owen has a small covered scrape.
+    scene: The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. Our patient DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Our patient Fatima has itchy eyes. Owen has a small covered scrape.
     guide: >-
       All six are real, and all six need something. Ask of each what happens while
       everybody waits. A sore ankle waits well. A fever waits. Feeling faint is
@@ -3160,7 +3160,7 @@ lessons:
     task: Which item is a measurement?
     title: Observation or Measurement? — Review 3
     setup: Luis  •  Exam Room 3
-    scene: Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature and pulse. The chart now contains both things the team noticed and numbers from tools.
+    scene: Our patient Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature and pulse. The chart now contains both things the team noticed and numbers from tools.
     guide: >-
       All four clues are real and useful. They come from different places. One you
       see. One the patient tells you. One comes from a tool, as a number. Ask of
@@ -3188,11 +3188,11 @@ lessons:
     format: DIAGNOSIS
     why: Clues come in three kinds. Some you see, like a worried face. Some the patient tells you, like where it hurts. Some come from a tool, as a number. A thermometer gives a number. That makes it a measurement. All three kinds are useful. Knowing which kind you have tells you how sure you can be.
     rebuttals:
-      - A. Luis says his belly hurts. — Pain is important information, but it is something Luis reports, not a tool measurement.
+      - A. Our patient Luis says his belly hurts. — Pain is important information, but it is something Luis reports, not a tool measurement.
       - B. Luis looks worried. — Looking worried is an observation.
       - D. He skipped breakfast. — Skipping breakfast is part of the story or history.
     choices:
-      - Luis says his belly hurts.
+      - Our patient Luis says his belly hurts.
       - Luis looks worried.
       - His temperature is 98.7°F.
       - He skipped breakfast.
@@ -3239,7 +3239,7 @@ lessons:
     task: Who should go to the first available room?
     title: 6 Patients, 1 First Room — Review 3
     setup: Nora, DeShawn, Mei, Mr. Alvarez, Fatima, and Owen  •  Central Triage
-    scene: The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Fatima has itchy eyes. Owen has a small covered scrape.
+    scene: The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. Our patient DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Our patient Fatima has itchy eyes. Owen has a small covered scrape.
     guide: >-
       All six are real, and all six need something. Ask of each what happens while
       everybody waits. A sore ankle waits well. A fever waits. Feeling faint is
@@ -3399,7 +3399,7 @@ lessons:
     task: Which item is a measurement?
     title: Observation or Measurement? — Review 4
     setup: Luis  •  Exam Room 3
-    scene: Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature and pulse. The chart now contains both things the team noticed and numbers from tools.
+    scene: Our patient Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature and pulse. The chart now contains both things the team noticed and numbers from tools.
     guide: >-
       All four clues are real and useful. They come from different places. One you
       see. One the patient tells you. One comes from a tool, as a number. Ask of
@@ -3427,11 +3427,11 @@ lessons:
     format: DIAGNOSIS
     why: Clues come in three kinds. Some you see, like a worried face. Some the patient tells you, like where it hurts. Some come from a tool, as a number. A thermometer gives a number. That makes it a measurement. All three kinds are useful. Knowing which kind you have tells you how sure you can be.
     rebuttals:
-      - A. Luis says his belly hurts. — Pain is important information, but it is something Luis reports, not a tool measurement.
+      - A. Our patient Luis says his belly hurts. — Pain is important information, but it is something Luis reports, not a tool measurement.
       - B. Luis looks worried. — Looking worried is an observation.
       - D. He skipped breakfast. — Skipping breakfast is part of the story or history.
     choices:
-      - Luis says his belly hurts.
+      - Our patient Luis says his belly hurts.
       - Luis looks worried.
       - His temperature is 98.7°F.
       - He skipped breakfast.
@@ -3478,7 +3478,7 @@ lessons:
     task: Who should go to the first available room?
     title: 6 Patients, 1 First Room — Review 4
     setup: Nora, DeShawn, Mei, Mr. Alvarez, Fatima, and Owen  •  Central Triage
-    scene: The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Fatima has itchy eyes. Owen has a small covered scrape.
+    scene: The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. Our patient DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Our patient Fatima has itchy eyes. Owen has a small covered scrape.
     guide: >-
       All six are real, and all six need something. Ask of each what happens while
       everybody waits. A sore ankle waits well. A fever waits. Feeling faint is
@@ -3800,47 +3800,53 @@ lessons:
       relationship: A minute has four fifteen-second parts. Beats in a minute = beats in 15 seconds × 4.
     answerText: "72"
   - group: RESP
-    task: What is the best explanation?
+    task: Say what his pulse will be after he rests. Then count it.
     title: Why the Faster Pulse? — Review 2
     setup: Jordan  •  Treatment Room
-    scene: Jordan's pulse was slow while he sat. It was fast right after the stairs. He feels fine now. The doctor asks you why it went up.
+    scene: Jordan climbed the stairs. Right after, his pulse was 120. Sitting still it had been 76. He sits down now to rest. The doctor asks what it will be in five minutes.
     guide: >-
-      Four reasons a pulse might speed up. Ask of each whether it explains why.
-      Working muscles need something, and blood is what brings it. Two of these
-      answers are about feeling the beat, not about the beat itself.
+      Say a number first. Write it down before he rests. Then he sits for five
+      minutes. Then you count his pulse for a minute. His muscles are done
+      working now, so think about what they stopped needing.
     background:
       - >-
-          Why the wrong answers are worth reading. Each one is written to look right to
-          somebody who made a particular mistake. Working out which mistake each one
-          belongs to is most of the learning in this format — more than getting the
-          right one, which you can sometimes do by feel.
+          What a pulse is. Each beat pushes blood along. You can feel it in the wrist.
+          Counting the beats in a minute tells you how fast the heart is working.
       - >-
-          Why sounding careful is not the same as being right. A long answer with a lot
-          of detail in it feels safer, and it is easy to write one that is still wrong.
-          The check that builds these questions measures option length across the whole
-          game so the longest one is not the answer more often than chance. Reading is
-          the only way through.
+          Why it comes back down. Working muscles need extra oxygen. Blood carries the
+          oxygen to them. When the muscles stop working, they stop needing extra. So the
+          heart can slow down again.
       - >-
-          What the verdict adds. After you answer, the verdict says why each wrong
-          option is wrong, in its own words. That is written for the reader who picked
-          it. Read it even when you were right, because being right for a shaky reason
-          is the thing that catches up with you two stops later.
-    story: Jordan’s pulse was slower while sitting and faster just after climbing the stairs. He feels fine after resting. The doctor asks why the heart sped up during activity.
+          Why the number goes first. If you rest him and then explain the count, any
+          answer sounds right. If you say your number first, the count can tell you
+          whether you knew what his body would do.
     assumes:
       - muscles work harder when you climb stairs
+      - resting muscles need less oxygen than working muscles
     takeaway: Body systems work together. Muscles, lungs, blood, and heart all change during exercise.
-    format: DIAGNOSIS
-    why: Working muscles need more oxygen. Blood is what carries oxygen. So the heart pumps faster to get more blood to them. A pulse is not one fixed number for a person. It goes up and down all day. When one part of the body works harder, another part changes to help.
-    rebuttals:
-      - B. The heart beats faster to help the body cool down after exercise. — Cooling is mostly the skin's job, with sweat. The faster pulse is about oxygen.
-      - C. Climbing stairs shakes the body, which makes the heartbeat easier to feel. — Jordan is resting now, and it is still fast. Shaking would have stopped.
-      - D. The pulse only seems faster because Jordan is paying attention to it. — The therapist counted it. A count is a real number, not a feeling.
-    choices:
-      - Working muscles need more oxygen, so the heart moves blood faster.
-      - The heart beats faster to help the body cool down after exercise.
-      - Climbing stairs shakes the body, which makes the heartbeat easier to feel.
-      - The pulse only seems faster because Jordan is paying attention to it.
-    answer: Working muscles need more oxygen, so the heart moves blood faster.
+    format: VERIFY
+    question: Say what Jordan's pulse will be after five minutes of rest. Then count it.
+    answerText: About 80 beats a minute, close to the 76 he started at. His muscles stopped needing extra oxygen, so his heart slowed down again.
+    why: Jordan's pulse was 76 while he sat. The stairs took it to 120. His leg muscles were working hard. Working muscles need extra oxygen. Oxygen rides in the blood. So his heart beat faster to move the blood along. Then he stopped and sat down. His muscles stopped working. They stopped needing the extra oxygen. So his heart slowed down. His pulse came back to about 80. A pulse is not one fixed number. It goes up when the body asks for more. It comes down when the body stops asking.
+    verify:
+      prediction:
+        label: Jordan's pulse after five minutes of rest
+        unit: beats a minute
+        min: 60
+        max: 200
+        step: 5
+      truth: 80
+      passRatio: [0.7, 1.4]
+      intervention:
+        label: Jordan sits down and rests for five minutes
+        note: right after the stairs his pulse was 120, and sitting still it had been 76
+        outcome: He sits quietly. His breathing settles back to normal.
+      measurement:
+        label: Count his pulse for a minute
+        note: two fingers on the wrist, watch the clock
+        cost: 1
+        costUnit: minutes
+      unmeasuredMoral: If you say the pulse came down without counting it, you never find out whether you knew what his body would do.
   - group: RESP
     task: Put the path of a breath in order.
     title: Follow 1 Breath — Review 3
@@ -5728,7 +5734,7 @@ lessons:
     task: Which tool best matches Mina’s clue?
     title: Which Test Fits the Clue? — Review 2
     setup: Mina  •  Eye Clinic
-    scene: Mina says the letters on the classroom board look blurry from far away. The eye doctor wants to start with a simple test that checks what she can see at different sizes.
+    scene: Mina says the board looks blurry from far away. Her book looks fine. The eye doctor wants a simple test first. It checks what she can see at different sizes.
     guide: >-
       Four tools, all of them good. Ask of each what it measures. Eyes? Ears? Sounds
       inside? Bones? Then look at the clue and match it. Every one of these answers
@@ -5966,7 +5972,7 @@ lessons:
     task: Which tool best matches Mina’s clue?
     title: Which Test Fits the Clue? — Review 3
     setup: Mina  •  Eye Clinic
-    scene: Mina says the letters on the classroom board look blurry from far away. The eye doctor wants to start with a simple test that checks what she can see at different sizes.
+    scene: Mina says the board looks blurry from far away. Her book looks fine. The eye doctor wants a simple test first. It checks what she can see at different sizes.
     guide: >-
       Four tools, all of them good. Ask of each what it measures. Eyes? Ears? Sounds
       inside? Bones? Then look at the clue and match it. Every one of these answers
@@ -6204,7 +6210,7 @@ lessons:
     task: Which tool best matches Mina’s clue?
     title: Which Test Fits the Clue? — Review 4
     setup: Mina  •  Eye Clinic
-    scene: Mina says the letters on the classroom board look blurry from far away. The eye doctor wants to start with a simple test that checks what she can see at different sizes.
+    scene: Mina says the board looks blurry from far away. Her book looks fine. The eye doctor wants a simple test first. It checks what she can see at different sizes.
     guide: >-
       Four tools, all of them good. Ask of each what it measures. Eyes? Ears? Sounds
       inside? Bones? Then look at the clue and match it. Every one of these answers
@@ -6998,6 +7004,6 @@ warmups:
   tag:
     title: Catch Dr. Patel before she goes into the meeting
     why: >-
-      Dr. Patel runs the emergency department. She has the notes on Amara's breathing. The
+      Dr. Patel runs the emergency department. She has the notes on the breathing of Amara, a patient on the ward. The
       meeting she is going into lasts one hour. Nobody can plan Amara's day until they see
       those notes. Go and find her first.

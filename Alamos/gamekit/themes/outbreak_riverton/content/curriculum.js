@@ -364,7 +364,8 @@ export const CURRICULUM = {
               "concentration of the acid form, dissolved carbon dioxide"
             ]
           ],
-          "s": "Blood pH is set by the ratio of base to acid rather than by either alone, which is why the lungs and the kidneys can compensate for each other."
+          "s": "Blood pH is set by the ratio of base to acid rather than by either alone, which is why the lungs and the kidneys can compensate for each other.",
+          "demanded": true
         }
       ],
       "concept": {
@@ -1836,7 +1837,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Build the provisional case definition",
-      "scene": "3 hospitals begin counting at 6 a.m., and each has drafted a different case definition. Those first tallies will shape the city’s outbreak curve. Dr. Lena Ortiz wants one definition on every desk before the night shift leaves.",
+      "scene": "3 hospitals begin counting at 6 a.m., and each has drafted a different case definition. Those first tallies will shape the city’s outbreak curve. Dr. Lena Ortiz, the clinical physiology lead, wants one definition on every desk before the night shift leaves.",
       "takeaway": "Operational definitions convert vague concern into reproducible observation.",
       "place": "Epidemiology Operations Room",
       "guide": "All four steps will happen, so ask what each one lets you check. A case definition is an instrument, and it is wrong in a known direction. Too narrow and the spread is invisible. Too wide and the count fills with ordinary autumn illness. So it gets tested against known cases and against obvious non-cases, and those two tests catch opposite errors.",
@@ -1845,7 +1846,7 @@ export const CURRICULUM = {
         "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
         "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
       ],
-      "story": "3 hospitals begin counting at 6 a.m., and each has drafted a different case definition. Those first tallies will shape the city’s outbreak curve. Dr. Lena Ortiz wants one definition on every desk before the night shift leaves.",
+      "story": "3 hospitals begin counting at 6 a.m., and each has drafted a different case definition. Those first tallies will shape the city’s outbreak curve. Dr. Lena Ortiz, the clinical physiology lead, wants one definition on every desk before the night shift leaves.",
       "game": {
         "type": "SEQUENCE",
         "title": "Build the provisional case definition",

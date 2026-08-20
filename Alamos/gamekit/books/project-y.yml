@@ -1685,7 +1685,7 @@ missions:
   - title: Account for nuclear energy
     objective: Connect mass, binding energy, calibration, and the program’s competing early architectures.
     briefing: The next step is to understand why nuclear changes involve such large energy scales, how a measurement system assigns an energy value, and why Los Alamos initially pursued more than one technical path.
-    stake: May 1943. Two architectures are on the table, the site can properly staff one of them, and Groves wants to know which by the end of the month. Today you work out where nuclear energy comes from, check that the instruments reporting it are calibrated, and compare the two paths. Every energy figure quoted on this mesa is really the size of an electrical pulse, converted by a calibration somebody had to establish with a known source. An uncalibrated number is a voltage with ambitions. Choose on preference instead of evidence and a year of work goes into the wrong programme.
+    stake: May 1943. Two architectures are on the table, the site can properly staff one of them, and Groves, the commanding general, wants to know which by the end of the month. Today you work out where nuclear energy comes from, check that the instruments reporting it are calibrated, and compare the two paths. Every energy figure quoted on this mesa is really the size of an electrical pulse, converted by a calibration somebody had to establish with a known source. An uncalibrated number is a voltage with ambitions. Choose on preference instead of evidence and a year of work goes into the wrong programme.
     takeaway: Mass defect sets the nuclear energy scale, but that scale becomes useful only after instruments and engineering goals are calibrated.
     stops:
       - group: T
@@ -1956,7 +1956,7 @@ missions:
   - title: Follow radioactivity through the laboratory
     objective: Treat decay as a quantitative process that must survive chemistry and background measurement.
     briefing: A radioactive sample changes while it is being prepared and measured. Follow the same evidence chain from the decay law, through tracer chemistry, to a defensible background measurement.
-    stake: July 1943, and 3 groups have reported yields that cannot all be right. Seaborg's chemistry says one thing, and Woods's counters another. The sample decays while the chemistry is still running, so the amount at the end is not the amount you started with. Today you handle decay as arithmetic, follow an element through a separation, and measure what a counter reads with nothing in front of it. Woods will not report a number until she has measured that, which is why hers is the count the others are being checked against. Without a background count taken first, the number on its own means very little.
+    stake: July 1943, and 3 groups have reported yields that cannot all be right. Seaborg, the chemist isolating the plutonium, says one thing, and Woods's chemistry counters another. The sample decays while the chemistry is still running, so the amount at the end is not the amount you started with. Today you handle decay as arithmetic, follow an element through a separation, and measure what a counter reads with nothing in front of it. Woods will not report a number until she has measured that, which is why hers is the count the others are being checked against. Without a background count taken first, the number on its own means very little.
     takeaway: A count rate is not automatically a decay rate; time dependence, chemical recovery, and background all matter.
     stops:
       - group: T
@@ -2660,7 +2660,7 @@ missions:
   - title: Understand matter under compression
     objective: Connect equations of state, material phases, and wave shaping without jumping directly to a full system.
     briefing: Compression depends on how materials respond under pressure and how waves cross boundaries. Build the physical picture from bulk matter, to material phase behavior, to the purpose of wave shaping.
-    stake: "September 1944, and compression is now the whole programme. Lilli Hornig, the chemist casting the metal at the centre of it, has found that it changes density under conditions the design will actually meet. Nobody wanted that, and the mathematician John von Neumann wants the shock tables redone with it in. Today you work with the relationship between pressure, volume and temperature, read what a phase diagram is telling you, and understand what shaping a detonation wave achieves. Turning a wave that spreads outward into one that converges inward is von Neumann's problem before it is the explosives division's, under George Kistiakowsky: it is done in numbers first, and only then does X Division cut anything."
+    stake: "September 1944, and compression is now the whole programme. Lilli Hornig, the chemist casting the metal at the centre of it, has found that it changes density under conditions the design will actually meet. Nobody wanted that, and the mathematician John von Neumann wants the shock tables redone with it in. Today you work with the relationship between pressure, volume and temperature, read what a phase diagram is telling you, and understand what shaping a detonation wave achieves. Turning a wave that spreads outward into one that converges inward is von Neumann's problem before it is the explosives division's, under the head of Explosives Division X, George Kistiakowsky: it is done in numbers first, and only then does X Division cut anything."
     takeaway: A compression concept is only credible when material response and wave propagation support it.
     stops:
       - group: T
@@ -3183,7 +3183,7 @@ missions:
   - title: Synchronize many channels
     objective: Compare physical timescales, qualify initiation hardware, and coordinate many channels as one system.
     briefing: A multi-channel system can fail even when every part works separately. Compare the relevant timescales, establish lot-acceptance evidence, and then confront synchronization across the full set of channels.
-    stake: February 1945, and Kistiakowsky's assembly has failed on the bench twice while every channel checks out alone. Norris Bradbury, who is assembling the test, wants the procedure rewritten before a third attempt; Kistiakowsky wants to know which lot the failures came from. Today you compare the timescales involved, work out what a batch of components actually guarantees, and coordinate many channels as one system. A system of many channels fails in ways no single channel can show, which is why Bradbury's answer — one written procedure, checked the same way every time — catches things no bench test does. What matters is not whether each one works. It is whether they work together, on time, on the same signal.
+    stake: February 1945, and Kistiakowsky's assembly has failed on the bench twice while every channel checks out alone. Norris Bradbury, who is assembling the Trinity test, wants the procedure rewritten before a third attempt; Kistiakowsky wants to know which lot the failures came from. Today you compare the timescales involved, work out what a batch of components actually guarantees, and coordinate many channels as one system. A system of many channels fails in ways no single channel can show, which is why Bradbury's answer — one written procedure, checked the same way every time — catches things no bench test does. What matters is not whether each one works. It is whether they work together, on time, on the same signal.
     takeaway: Synchronization is a systems problem involving component variability, signal timing, and shared failure modes.
     stops:
       - group: T
@@ -3496,12 +3496,6 @@ missions:
         call: Build the implosion uncertainty budget
         setup: You are assigning an implosion trial's anomalies to the right uncertainty terms.
         pack: x18
-  - title: Design the integrated non-nuclear campaign
-    objective: Set acceptance criteria, instrument the trial, identify the critical path, and choose tests that discriminate among explanations.
-    briefing: The project is ready to combine subsystems without nuclear material. Define what counts as acceptable, preserve interpretable measurements, schedule the dependencies, and make the campaign answer the most important unresolved question.
-    stake: "April 1945. The whole schedule now runs through one machine shop and nobody had drawn that until Bacher's committee sat down to force the interfaces. Groves wants a date; Bacher will not schedule a test he cannot instrument. Today you set what counts as a passing test, instrument it so the result can be interpreted, and find what the schedule really depends on. A test earns its place by telling two explanations apart, not by being impressive to watch. Bacher's rule for this laboratory is the shortest one on the mesa: no test without diagnostics."
-    takeaway: An integrated trial succeeds when criteria, diagnostics, schedule, and scientific discrimination are designed together.
-    stops:
       - group: CM
         task: Estimate the conservative lower bound of the measurement.
         title: Acceptance criteria
@@ -3551,6 +3545,12 @@ missions:
           givens:
             - The lower plausible value is about 99
           relationship: The lower bound of a result = the measured value − its uncertainty. Compare that against the threshold, not the central value.
+  - title: Design the integrated non-nuclear campaign
+    objective: Set acceptance criteria, instrument the trial, identify the critical path, and choose tests that discriminate among explanations.
+    briefing: The project is ready to combine subsystems without nuclear material. Define what counts as acceptable, preserve interpretable measurements, schedule the dependencies, and make the campaign answer the most important unresolved question.
+    stake: "April 1945. The whole schedule now runs through one machine shop and nobody had drawn that until Bacher's committee sat down to force the interfaces. Groves wants a date; Bacher will not schedule a test he cannot instrument. Today you set what counts as a passing test, instrument it so the result can be interpreted, and find what the schedule really depends on. A test earns its place by telling two explanations apart, not by being impressive to watch. Bacher's rule for this laboratory is the shortest one on the mesa: no test without diagnostics."
+    takeaway: An integrated trial succeeds when criteria, diagnostics, schedule, and scientific discrimination are designed together.
+    stops:
       - group: P
         task: Spend the single week of facility time on the test whose possible outcomes would separate the competing timing hypotheses.
         title: Buy the test that can decide
@@ -3997,7 +3997,7 @@ missions:
   - title: Reconcile evidence and freeze the design
     objective: Compare prediction bands with observations, release materials, reconcile theory and experiment, and control post-test changes.
     briefing: The test has produced data, but the program still must decide what those data mean. Compare observations with uncertainty bands, verify the material record, resolve disagreements between model and measurement, and freeze only the changes supported by evidence.
-    stake: Late July 1945. Enrico Fermi dropped shredded paper from the bunker and got about ten kilotons from how far the blast wave carried it. That sits outside the band the theory division predicted, and either the model is wrong or the measurement is — with Bethe, who has already corrected several overestimates on paper, on one side of it. Today you compare prediction against observation properly, close the materials record, and decide what may still change. The materials record has to close as carefully as the physics, because a number is only about a thing if you know which thing it was measured on. A design freeze is an evidence decision that happens to have a date on it, and Oppenheimer is the one who has to hold the room to that distinction.
+    stake: Late July 1945. Enrico Fermi, the nobel 1938 — chicago pile & f division, dropped shredded paper from the bunker and got about ten kilotons from how far the blast wave carried it. That sits outside the band the theory division predicted, and either the model is wrong or the measurement is — with Bethe, who has already corrected several overestimates on paper, on one side of it. Today you compare prediction against observation properly, close the materials record, and decide what may still change. The materials record has to close as carefully as the physics, because a number is only about a thing if you know which thing it was measured on. A design freeze is an evidence decision that happens to have a date on it, and Oppenheimer is the one who has to hold the room to that distinction.
     takeaway: Design freeze is an evidence decision, not merely a calendar date.
     stops:
       - group: X

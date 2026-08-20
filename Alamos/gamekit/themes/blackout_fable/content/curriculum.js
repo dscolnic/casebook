@@ -541,7 +541,8 @@ export const CURRICULUM = {
               "stored kinetic energy of the machines online, in megawatt-seconds"
             ]
           ],
-          "s": "Frequency falls at a rate set by how far generation is short, divided by the spinning inertia there to absorb it, and scaled by the frequency the system runs at."
+          "s": "Frequency falls at a rate set by how far generation is short, divided by the spinning inertia there to absorb it, and scaled by the frequency the system runs at.",
+          "demanded": true
         }
       ],
       "concept": {

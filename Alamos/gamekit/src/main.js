@@ -461,7 +461,8 @@ const day = createDay({
       document.getElementById('modalEyebrow').textContent = '';
       document.getElementById('modalBody').innerHTML = html
         + `<div class="modalActions">` + actions.map(a =>
-            `<button class="btn ${a.primary ? 'primary' : ''}" id="${a.id}" type="button">${a.label}</button>`).join('') + `</div>`;
+            `<button class="btn ${a.primary ? 'primary' : ''}" id="${a.id}" type="button"`
+            + `${a.disabled ? ' disabled' : ''}>${a.label}</button>`).join('') + `</div>`;
       overlay.classList.add('show');
       if(document.pointerLockElement) document.exitPointerLock();
       for(const a of actions){

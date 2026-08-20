@@ -79,6 +79,16 @@ export default {
     + 'real game uses.',
   ],
 
+  // How it ends. Shown when the campaign closes, and the last thing the player
+  // reads: what came of the fortnight, what it cost, and what they did.
+  ending: [
+    'Every panel in the bank has been driven at least once, right and wrong, and the run is '
+    + 'logged with the number each one settled on.',
+    'And you worked every instrument in the place. You drove each panel to a number you could '
+    + 'defend, and you stopped when the evidence stopped rather than when the form was full. '
+    + 'That is the habit the whole bank is here to build, and you have it.',
+  ],
+
   look: {
     fov: 66,            // a 72° field distorts badly down a straight street
     near: 0.1,

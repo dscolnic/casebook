@@ -100,6 +100,10 @@ export default {
     + 'is modelled, the firn air profile was never re-measured, and the next team arrives to a '
     + 'question nobody here could answer — whether the same correction holds at four times the '
     + 'accumulation rate, which is the assumption the whole comparison now stands on.',
+    'And every line of it is yours. You found the correction that explained the disagreement. '
+    + 'You checked both records against a marker neither calculation had produced. You wrote '
+    + 'the careful sentence when the confident one would have got more attention. A season in '
+    + 'the cold became a record other people can trust, because of you.',
   ],
 
   look: {

@@ -112,7 +112,33 @@ export function canonicalType(type){
   return String(type ?? '').toUpperCase().replace(/[\s_-]+/g, '');
 }
 
-const baseTitle = (t) => String(t ?? '').replace(/ — Review \d+$/, '');
+/**
+ * The most calls a single day may carry, callback included.
+ *
+ * A day is three authored stops and, from the third day on, a callback — so four
+ * is the shape the loop is built around and the clock is budgeted for. Five is a
+ * day the player reads as long rather than full: `budgetForRoute` gives travel a
+ * little under half the day whatever the stop count, so the fifth call is
+ * answered against the same hours as the fourth.
+ *
+ * It is exported because `engine/dev/dayCalls.mjs` gates on it, and a checker
+ * with its own copy of the number is a second description of the rule.
+ */
+export const MAX_CALLS = 4;
+
+/**
+ * The review suffix, in one place.
+ *
+ * The number is optional: the hospital's 105 variants are numbered
+ * (`After the Head Bump — Review 3`) and Red Sand's eight and Sightline's nine
+ * are not (`Rate is not yield — Review`). Requiring the digit made the unnumbered
+ * ones invisible to the callback picker — two campaigns' review stops were then
+ * reachable through no day at all, and the concepts they claim were claimed by
+ * nothing.
+ */
+const REVIEW_SUFFIX = / — Review(?: \d+)?$/;
+const baseTitle = (t) => String(t ?? '').replace(REVIEW_SUFFIX, '');
+const isReviewTitle = (t) => REVIEW_SUFFIX.test(String(t ?? ''));
 
 /**
  * Normalise in place. Returns `{ changes, problems }` — changes for the log,
@@ -681,12 +707,25 @@ function applyPack(ch, pack){
  * literature, and the content for it already exists, so from the third day on
  * every day carries one extra call that revisits an area taught earlier.
  *
- * A callback prefers a `— Review` variant of the lesson where the theme has one
- * (the hospital has 105 of them, none of which were reachable), and otherwise
- * re-asks the lesson itself, which is what spacing means.
+ * A callback **requires** a `— Review` variant of the lesson, and where the
+ * campaign has none for anything it has taught, the day simply has no callback.
+ *
+ * It re-asked the lesson itself for most of this engine's life, on the argument
+ * that re-asking *is* what spacing means. It is not, because the second serving
+ * was byte-identical — same scene, same `why`, same four options, same key, and
+ * `Second look —` printed on the day plan and nowhere on the card. 295 of the
+ * 318 callbacks across the catalogue were that, and the player answers from
+ * memory of the option rather than from the physics. Recognition is not
+ * retrieval, so the duplicate is worth less than the empty slot.
+ *
+ * Which makes *which lesson* is called back a different choice: the candidate is
+ * picked from the taught lessons that have a review variant, oldest first, and
+ * only falls back to plain age when none of them do — at which point no callback
+ * is added at all. Picking by age alone left the hospital reaching 10 of its 105
+ * variants.
  *
  * Deep Watch needs almost none of the first rule — it was authored interleaved
- * — and Project Y needs none of it. Both still get the callbacks.
+ * — and Project Y needs none of it.
  */
 /**
  * Pull far-ground calls out of the opening days, by swapping rather than moving.
@@ -756,6 +795,17 @@ export function shapeMissions(missions = [], curriculum = {}, changes = [], tier
   /** Lessons already taught, oldest first: [group, lessonIndex, title]. */
   const taught = [];
   const calledBack = new Set();
+  /**
+   * Every `group:lesson` the campaign serves, so a callback never hands out a
+   * card some other day already has. Seeded from *every* day's authored stops
+   * rather than the days walked so far: a review variant a later day authors
+   * directly is still the same card, and the callback is the one of the two that
+   * can move.
+   */
+  const served = new Set();
+  for(const m of missions)
+    for(const s of (Array.isArray(m?.stops) ? m.stops : []))
+      if(!s.callback) served.add(`${s.group}:${s.lesson}`);
 
   missions.forEach((mission, day) => {
     if(!Array.isArray(mission.stops) || !mission.stops.length) return;
@@ -790,22 +840,45 @@ export function shapeMissions(missions = [], curriculum = {}, changes = [], tier
     }
 
     // ---- the callback, from the third day on
-    if(day >= 2){
-      // Oldest first, and something not already revisited if there is one —
-      // but with six areas and three in the day, the early days can run out of
-      // fresh material, and a second retrieval of the same lesson is worth more
-      // than no retrieval at all.
-      const candidate = taught.find(t => !calledBack.has(`${t.group}:${t.lesson}`) && !seen.has(t.group))
-                     ?? taught.find(t => !seen.has(t.group));
+    //
+    // Only where there is a review variant to serve. A callback that re-asks its
+    // own lesson is the same card twice, and the day is better off three stops
+    // long than carrying a question the player answers from memory. So the
+    // review variant decides the candidate rather than merely dressing it: the
+    // oldest taught lesson **that has one**, and no callback where nothing does.
+    if(day >= 2 && mission.stops.length < MAX_CALLS){
+      // The variant has to be a *different* lesson whose title is the base plus
+      // the review suffix `baseTitle` strips. A loose /review/i match finds the
+      // lesson itself where the title happens to contain the word — Sightline's
+      // "What the review is looking for now" was its own review variant, and the
+      // campaign served that card on two consecutive days.
+      const reviewFor = (t) => {
+        const lessons = curriculum[t.group] ?? [];
+        const base = lessons[t.lesson];
+        if(typeof base?.title !== 'string' || !base.title) return -1;
+        return lessons.findIndex((l, i) =>
+          i !== t.lesson && typeof l?.title === 'string'
+          && isReviewTitle(l.title) && baseTitle(l.title) === base.title);
+      };
+      // Nothing is served twice, wherever the first serving came from: a variant
+      // already used as a callback, and a variant some day authors directly.
+      // `calledBack` keyed the *base* lesson, so one review card could be handed
+      // out on three separate days while every key looked distinct.
+      const free = (t) => !calledBack.has(`${t.group}:${t.lesson}`) && !seen.has(t.group);
+      const unserved = (t) => { const r = reviewFor(t); return r >= 0 && !served.has(`${t.group}:${r}`); };
+      // Oldest first, and something not already revisited if there is one — but
+      // with six areas and three in the day the early days can run out of fresh
+      // material, so a second retrieval of an area already in the day is worth
+      // more than none. Both passes want a review variant; without one there is
+      // nothing to serve.
+      const candidate = taught.find(t => free(t) && unserved(t))
+                     ?? taught.find(t => !seen.has(t.group) && unserved(t));
       if(candidate){
         calledBack.add(`${candidate.group}:${candidate.lesson}`);
         const lessons = curriculum[candidate.group] ?? [];
         const base = lessons[candidate.lesson];
-        // A review variant if the theme wrote one, the lesson itself otherwise.
-        const reviewAt = lessons.findIndex(l =>
-          typeof l?.title === 'string' && base?.title
-          && l.title.startsWith(base.title) && /review/i.test(l.title));
-        const lessonIdx = reviewAt >= 0 ? reviewAt : candidate.lesson;
+        const lessonIdx = reviewFor(candidate);
+        served.add(`${candidate.group}:${lessonIdx}`);
         mission.stops.push({
           group: candidate.group,
           lesson: lessonIdx,
@@ -844,6 +917,19 @@ export function shapeMissions(missions = [], curriculum = {}, changes = [], tier
   // count, the standard quantum limit — is exempt from the ordering rule and
   // subject only to the cap. Two per card: four formulas on one card is a card
   // nobody reads.
+  //
+  // And a chip the importer stamped `demanded` is exempt too. That flag says the
+  // card's own arithmetic uses the equation — the options and the verdict work
+  // numbers with it — so on an early day it is the tool the question is asked
+  // with rather than decoration. Blackout's day 1 is what the rule costs without
+  // the exception: "current falls by 20×, so loss falls by 400×" over four
+  // options, the turns ratio printed beside it, and P = IV dropped from the card
+  // because nothing computes it until day 4. The decision is made once, in
+  // `tools/syllabus.js` `demandsEquation`, and read here — the engine does not
+  // import the syllabus, and a second copy of the rule would drift the first time
+  // either was corrected. `engine/dev/equationSupply.mjs` fails a theme where the
+  // arithmetic is on the card and the equation is on neither the card nor any
+  // earlier day.
   const dayOfLesson = new Map();
   missions.forEach((m, mi) => (m.stops ?? []).forEach(st => {
     const key = `${st.group}:${st.lesson}`;
@@ -869,13 +955,17 @@ export function shapeMissions(missions = [], curriculum = {}, changes = [], tier
       if(!l.equations?.length) return;
       const day = dayOfLesson.get(`${group}:${li}`) ?? Infinity;
       const kept = l.equations.filter(eq => {
-        if(eq.computed) return true;
+        if(eq.computed || eq.demanded) return true;
         const first = firstComputed.get(eq.e);
         if(first === undefined || day >= first) return true;
         dropped++;
         return false;
       });
-      kept.sort((a, b) => (b.computed ? 1 : 0) - (a.computed ? 1 : 0));
+      // Computed first, then the ones this card's arithmetic uses, then the rest:
+      // the cap turns the third chip into `card: false`, and capping away the
+      // equation the question is worked from is the defect the exception fixes.
+      const rank = (eq) => (eq.computed ? 2 : eq.demanded ? 1 : 0);
+      kept.sort((a, b) => rank(b) - rank(a));
       if(kept.length > 2) capped += kept.length - 2;
       // `card: false` past the second, not dropped — the cap is about how much fits
       // on a card, and the checks downstream ask what the question actually used.

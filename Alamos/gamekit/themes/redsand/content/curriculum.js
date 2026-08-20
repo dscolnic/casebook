@@ -825,6 +825,30 @@ export const CURRICULUM = {
           "computed": true
         },
         {
+          "e": "CO₂ + 4H₂ → CH₄ + 2H₂O,  ΔH = −165 kJ per mole",
+          "c": "the reaction the whole plant is built around",
+          "v": [
+            [
+              "CO₂",
+              "carbon dioxide, taken from the atmosphere at six millibars"
+            ],
+            [
+              "H₂",
+              "hydrogen, made by splitting water"
+            ],
+            [
+              "CH₄",
+              "methane, the fuel"
+            ],
+            [
+              "ΔH",
+              "the heat given out per mole of methane made"
+            ]
+          ],
+          "s": "Five molecules of gas go in and three come out, and a great deal of heat comes with them — which is why pressure helps this reaction and heat hinders it, and why every argument in this plant is about those two facts pulling opposite ways.",
+          "demanded": true
+        },
+        {
           "e": "residence time = V / Q",
           "c": "how long the reaction is given to happen in",
           "v": [
@@ -837,7 +861,9 @@ export const CURRICULUM = {
               "the volume of gas passing through it each minute, at reactor conditions"
             ]
           ],
-          "s": "Conversion needs a rate and a contact, and this is the contact — which is why pushing more gas through a reactor to raise throughput can lower the fraction of it that reacts."
+          "s": "Conversion needs a rate and a contact, and this is the contact — which is why pushing more gas through a reactor to raise throughput can lower the fraction of it that reacts.",
+          "demanded": true,
+          "card": false
         }
       ],
       "concept": {
@@ -1078,7 +1104,8 @@ export const CURRICULUM = {
               "the equilibrium constant, the value that same expression takes at balance"
             ]
           ],
-          "s": "Two numbers from one expression: one describes the vessel now and the other describes where it is going, and the comparison between them gives the direction without saying anything at all about the speed."
+          "s": "Two numbers from one expression: one describes the vessel now and the other describes where it is going, and the comparison between them gives the direction without saying anything at all about the speed.",
+          "demanded": true
         }
       ],
       "concept": {
@@ -1383,7 +1410,8 @@ export const CURRICULUM = {
               "the energy needed to vaporise one kilogram — 213 kJ for oxygen"
             ]
           ],
-          "s": "A boiling liquid cannot get warmer, so heat arriving turns it to vapour instead — which makes insulation a production question and thirty watts a loss of twelve kilograms a sol."
+          "s": "A boiling liquid cannot get warmer, so heat arriving turns it to vapour instead — which makes insulation a production question and thirty watts a loss of twelve kilograms a sol.",
+          "demanded": true
         }
       ],
       "takesAsRead": [
@@ -2486,6 +2514,36 @@ export const CURRICULUM = {
         "Faraday’s law converts charge into a theoretical amount of product",
         "current efficiency is collected product divided by theoretical product from charge"
       ],
+      "equations": [
+        {
+          "e": "m = (I t / nF) × M",
+          "c": "Faraday's law: charge into kilograms",
+          "v": [
+            [
+              "I",
+              "the current, in amps"
+            ],
+            [
+              "t",
+              "the time it flows for, in seconds"
+            ],
+            [
+              "n",
+              "the electrons needed per molecule of product — two for hydrogen"
+            ],
+            [
+              "F",
+              "Faraday's constant, 96,485 coulombs per mole of electrons"
+            ],
+            [
+              "M",
+              "the molar mass of the product"
+            ]
+          ],
+          "s": "Electrons are countable, so an electrolysis cell is the one place in a chemical plant where the arithmetic is exact — everything else about the cell changes what the product costs rather than how much of it there is.",
+          "demanded": true
+        }
+      ],
       "concept": {
         "n": 20,
         "c": "Current efficiency: the gap between charge passed and product collected",
@@ -2974,6 +3032,30 @@ export const CURRICULUM = {
           ],
           "s": "Direction is a competition between heat and disorder with the temperature setting the odds, so a reaction that gives out heat and makes fewer molecules is spontaneous up to a temperature and not above it.",
           "computed": true
+        },
+        {
+          "e": "CO₂ + 4H₂ → CH₄ + 2H₂O,  ΔH = −165 kJ per mole",
+          "c": "the reaction the whole plant is built around",
+          "v": [
+            [
+              "CO₂",
+              "carbon dioxide, taken from the atmosphere at six millibars"
+            ],
+            [
+              "H₂",
+              "hydrogen, made by splitting water"
+            ],
+            [
+              "CH₄",
+              "methane, the fuel"
+            ],
+            [
+              "ΔH",
+              "the heat given out per mole of methane made"
+            ]
+          ],
+          "s": "Five molecules of gas go in and three come out, and a great deal of heat comes with them — which is why pressure helps this reaction and heat hinders it, and why every argument in this plant is about those two facts pulling opposite ways.",
+          "demanded": true
         }
       ],
       "concept": {

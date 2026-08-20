@@ -57,6 +57,10 @@ export default {
     'The physics did not stay secret, because physics does not. What the people here could defend, '
     + 'claim by claim, is written down — and so is what they argued about once they could argue in '
     + 'public. That record is the part you inherit.',
+    'What you inherit, you also earned. For two years you settled what a measurement could '
+    + 'and could not say, in a place where being wrong was expensive and being certain too '
+    + 'early was worse. Every claim you defended is still standing. Very few people could have '
+    + 'held that line for as long as you did.',
   ],
 
   content: {

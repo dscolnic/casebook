@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "The number on the wall",
     "objective": "Establish what the frequency is actually telling the room before anybody acts on it.",
     "briefing": "A unit tripped at 04:12 and the frequency has not come back to where it started.",
-    "stake": "Tuesday, ten past four in the morning. The biggest machine on the Calder system has tripped with no warning. The frequency fell, then steadied below where it started. Dolores Reyes says the steadying matters more than the fall. Nadia Haddad has machines that can cover it, but not in two minutes. Today you read what the frequency is telling you, and decide what to ask for first. Every house on the system is on the other end of it.",
+    "stake": "Tuesday, ten past four in the morning. The biggest machine on the Calder system has tripped with no warning. The frequency fell, then steadied below where it started. Dolores Reyes, the shift supervisor, says the steadying matters more than the fall. Nadia Haddad, the generation lead, has machines that can cover it, but not in two minutes. Today you read what the frequency is telling you, and decide what to ask for first. Every house on the system is on the other end of it.",
     "takeaway": "Frequency is not a reading from a place; it is the whole system's supply and demand, arriving as a number.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "What the line can carry",
     "objective": "Decide which circuit takes the flow once one path is gone.",
     "briefing": "With the unit off, the flow has redistributed and one corridor is running warm.",
-    "stake": "Wednesday. The replacement power is coming from the wrong side of the system, so it arrives down two lines instead of three. Piotr Novak has a line above its steady limit. A relay will take the decision away from the room in about forty minutes if nobody else does. Thabo Dube is in the yard waiting to be told what to switch. Today you rate the line honestly, and work out where the flow goes if it trips.",
+    "stake": "Wednesday. The replacement power is coming from the wrong side of the system, so it arrives down two lines instead of three. Piotr Novak, the protection engineer, has a line above its steady limit. A relay will take the decision away from the room in about forty minutes if nobody else does. Thabo Dube, the substation technician, is in the yard waiting to be told what to switch. Today you rate the line honestly, and work out where the flow goes if it trips.",
     "takeaway": "A rating is a time and a temperature, not a wall, and what matters is where the flow goes next.",
     "stops": [
       {
@@ -108,7 +108,7 @@ export const MISSIONS = [
     "title": "Enough in the tank",
     "objective": "Decide what the system is holding back, and whether it is enough.",
     "briefing": "Tomorrow's peak is colder than the forecast the reserve was set against.",
-    "stake": "Monday. The forecast for tomorrow's evening peak has moved four degrees colder. Sten Lindgren says the middle has hardly changed, but the width has, and the width is what the reserve must cover. Rafael Alvarez has weekend storage figures that are worse than the brochure. Today you work out what the battery will really give back, and decide what is worth finding out before the peak. Hold too little back and Thursday happens again.",
+    "stake": "Monday. The forecast for tomorrow's evening peak has moved four degrees colder. Sten Lindgren says the middle has hardly changed, but the width has, and the width is what the reserve must cover. Rafael Alvarez, the demand analyst, has weekend storage figures that are worse than the brochure. Today you work out what the battery will really give back, and decide what is worth finding out before the peak. Hold too little back and Thursday happens again.",
     "takeaway": "A reserve is bought with something, and the argument is always about how much uncertainty it has to cover.",
     "stops": [
       {
@@ -132,7 +132,7 @@ export const MISSIONS = [
     "title": "80 milliseconds",
     "objective": "Establish what a fault does before anybody can respond to it.",
     "briefing": "A cable failed at the substation and the protection cleared it before the alarm reached the room.",
-    "stake": "Wednesday. A cable failed inside the substation at twenty to two. The protection cleared it in under a tenth of a second, so nobody in the control room saw the fault — only the aftermath. Piotr Novak wants the fault current worked out before he signs the switchgear back into service. Ewa Kowalczyk has a crew at the gate. Today you size the fault, and decide who may go near it.",
+    "stake": "Wednesday. A cable failed inside the substation at twenty to two. The protection cleared it in under a tenth of a second, so nobody in the control room saw the fault — only the aftermath. Piotr Novak wants the fault current worked out before he signs the switchgear back into service. Ewa Kowalczyk, the field crew lead, has a crew at the gate. Today you size the fault, and decide who may go near it.",
     "takeaway": "A fault is limited only by impedance, which is why the numbers are enormous and the times are tiny.",
     "stops": [
       {
@@ -156,7 +156,7 @@ export const MISSIONS = [
     "title": "Merit order",
     "objective": "Decide what runs tomorrow, and what is held back for the day it is needed.",
     "briefing": "The cheapest generation is on the ridge and it will not say what it is doing after four.",
-    "stake": "Thursday. Tomorrow has to be bought tonight. Sten Lindgren has a peak that moves with the temperature and a width he will not narrow. Mina Sarraf has a ridge that will produce almost nothing for money and cannot promise any of it. Nadia Haddad has expensive machines that do exactly as they are told. Today you forecast the peak, and decide what cheapest-first really means when the cheapest plant is the least certain.",
+    "stake": "Thursday. Tomorrow has to be bought tonight. Sten Lindgren has a peak that moves with the temperature and a width he will not narrow. Mina Sarraf, the wind fleet controller, has a ridge that will produce almost nothing for money and cannot promise any of it. Nadia Haddad has expensive machines that do exactly as they are told. Today you forecast the peak, and decide what cheapest-first really means when the cheapest plant is the least certain.",
     "takeaway": "Dispatch orders plant by cost, and the value of certainty is what stops that being the whole story.",
     "stops": [
       {

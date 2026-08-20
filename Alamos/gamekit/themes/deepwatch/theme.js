@@ -70,6 +70,10 @@ export default {
     + 'up and found in time.',
     'Nothing was lost on this patrol that could not be repaired. The whole crew went up the ladder '
     + 'into daylight, which is the only measure of a watch that matters.',
+    'That was your watch. You read the gauges instead of guessing at them, you handed each '
+    + 'job to the person who could do it, and you called for the surface when calling for it '
+    + 'was the hard thing to do. Every one of them went up that ladder. You are the reason they '
+    + 'did.',
   ],
   look: {
     fov: 68,

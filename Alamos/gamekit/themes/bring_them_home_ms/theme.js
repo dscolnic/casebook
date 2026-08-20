@@ -105,6 +105,9 @@ export default {
     + 'crew were on the recovery deck inside the hour, all three of them walking.',
     'Every claim this room made about that vehicle was written down before entry, and every one of '
     + 'them was still standing afterwards. That is the whole job.',
+    'And you are why it held. You worked out which reading could wait and which could not. '
+    + 'You kept every number traceable to the instrument that made it. You said out loud what '
+    + 'you were still unsure of. Three people are home tonight, and you brought them home.',
   ],
   look: {
     fov: 66,            // a 72° field distorts badly in a corridor

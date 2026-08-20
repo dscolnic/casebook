@@ -271,7 +271,11 @@ requiring a degree.
 
 **The campaign ends.** `ending: [...]` in the manifest, the paragraphs that say
 what happened and whether it worked. Fifteen missions used to end with
-"Campaign complete" in the HUD corner.
+"Campaign complete" in the HUD corner. **The last paragraph is about the
+player** — what they decided, what it bought, and the credit said plainly —
+because twenty-five endings shipped describing the outcome and never saying who
+had produced it. `checkStory` fails a closing paragraph that is not addressed to
+them.
 
 **The arc has a shape, and the ending has to be earned.** STORY_SPEC.md § 10 is
 the part no checker can see: which day carries the reversal, which day is quiet,

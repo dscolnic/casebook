@@ -463,7 +463,7 @@ missions:
         task: Order the build so each step can be checked before the next one depends on it.
         title: Build the provisional case definition
         place: Epidemiology Operations Room
-        scene: 3 hospitals begin counting at 6 a.m., and each has drafted a different case definition. Those first tallies will shape the city’s outbreak curve. Dr. Lena Ortiz wants one definition on every desk before the night shift leaves.
+        scene: 3 hospitals begin counting at 6 a.m., and each has drafted a different case definition. Those first tallies will shape the city’s outbreak curve. Dr. Lena Ortiz, the clinical physiology lead, wants one definition on every desk before the night shift leaves.
         guide: >-
           All four steps will happen, so ask what each one lets you check. A case
           definition is an instrument, and it is wrong in a known direction. Too narrow
@@ -577,7 +577,7 @@ missions:
   - title: What Kind of Agent?
     objective: Classify the broad agent category and identify the next discriminating test.
     briefing: Initial samples contain biological material, but the microscope and the routine tests disagree. The team must distinguish a cellular pathogen from a virus or a noninfectious cause without relying on one ambiguous image.
-    stake: "Day two. Pathology has four results from the same specimens and will not put a name to any of it. The microscope images are the most convincing thing anybody has seen all week, which is exactly why the cell biology lead, Maya Chen, does not trust them yet, and her diagnostics counterpart Ravi Patel wants to commit the diagnostics bench tonight. This stage you decide what broad kind of thing this is and buy the one piece of evidence that would settle it. Everything downstream is chosen off this call: what to grow it in, which drugs are worth considering, what tomorrow's test looks for."
+    stake: "Day two. Pathology has four results from the same specimens and will not put a name to any of it. The microscope images are the most convincing thing anybody has seen all week, which is exactly why the cell biology lead, Maya Chen, does not trust them yet, and her diagnostics counterpart Ravi Patel, the molecular diagnostics lead, wants to commit the diagnostics bench tonight. This stage you decide what broad kind of thing this is and buy the one piece of evidence that would settle it. Everything downstream is chosen off this call: what to grow it in, which drugs are worth considering, what tomorrow's test looks for."
     takeaway: Use cell structure, viruses versus cells, prokaryotes and eukaryotes, staining, independent evidence as an evidence chain rather than as isolated facts.
     stops:
       - group: CLIN
@@ -756,7 +756,7 @@ missions:
   - title: The Point of Entry
     objective: Explain why one cell type is vulnerable and select the experiment that separates receptor binding from downstream replication.
     briefing: The suspected agent reaches respiratory tissue, but only some cell types become affected. The player must determine how membrane structure, receptors, and transport explain this selectivity.
-    stake: Day four. The agent reaches the airway in everybody and only some cells are being damaged, and Adeyemi has spent two nights on why. This stage you work out why those cells and not their neighbours, and design the experiment that separates two steps people keep merging. Two of the three benches are already booked and Adeyemi wants the third tonight. Chen has asked for the resistant cells to be kept aside whatever is decided. Your teams start designing a therapy from this picture tonight. If the model is wrong they spend three months blocking a step the agent does not need.
+    stake: Day four. The agent reaches the airway in everybody and only some cells are being damaged, and Adeyemi, the cell biologist, has spent two nights on why. This stage you work out why those cells and not their neighbours, and design the experiment that separates two steps people keep merging. Two of the three benches are already booked and Adeyemi wants the third tonight. Chen has asked for the resistant cells to be kept aside whatever is decided. Your teams start designing a therapy from this picture tonight. If the model is wrong they spend three months blocking a step the agent does not need.
     takeaway: Use phospholipid bilayer, receptors, diffusion, facilitated transport, endocytosis, cell specificity as an evidence chain rather than as isolated facts.
     stops:
       - group: CELL
@@ -1382,7 +1382,7 @@ missions:
   - title: Why Are Some Patients Sicker?
     objective: Identify the physiological bottleneck and select measurements that distinguish ventilation, diffusion, circulation, and cellular oxygen use.
     briefing: Patients with similar test results have radically different oxygen levels and recovery times. The team must connect cellular damage to organ-system physiology and homeostatic failure.
-    stake: Day 13. Nakamura has two patients who arrived with the same complaint and the same test results. One is walking to the bathroom. The other is failing, and their oxygen saturation reads normal. This stage you find which link in the oxygen chain has broken and buy the measurement that proves it. Nakamura has one arterial line and two patients she would like it in. The second patient's heart rate has not moved all morning, which she finds harder to explain than the saturation. Escalate the wrong link and the treatment is aimed at a part of the chain that is working.
+    stake: Day 13. Nakamura, the critical care physician, has two patients who arrived with the same complaint and the same test results. One is walking to the bathroom. The other is failing, and their oxygen saturation reads normal. This stage you find which link in the oxygen chain has broken and buy the measurement that proves it. Nakamura has one arterial line and two patients she would like it in. The second patient's heart rate has not moved all morning, which she finds harder to explain than the saturation. Escalate the wrong link and the treatment is aimed at a part of the chain that is working.
     takeaway: Use homeostasis, gas exchange, circulation, oxygen transport, feedback, organ-system integration as an evidence chain rather than as isolated facts.
     stops:
       - group: CLIN

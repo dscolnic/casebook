@@ -116,6 +116,10 @@ export default {
     + 'on the Monday.',
     'The survey that found it is still running tonight, and the file stays open — this one is '
     + 'settled, and the next one has not been found yet.',
+    'None of that quiet was luck. You separated what the radar could prove from what the '
+    + 'model merely preferred, you kept the size uncertainty in front of everybody who wanted a '
+    + 'single clean number, and you got the call right when getting it wrong in either '
+    + 'direction would have cost a town. Valle Seco slept through it. That was your doing.',
   ],
   look: {
     // DAYLIGHT OVERRIDE. The campaign is written for night — 19:00 through to

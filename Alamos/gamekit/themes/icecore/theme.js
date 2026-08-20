@@ -99,6 +99,10 @@ export default {
     + 'is modelled, the firn air profile was never re-measured, and the next team arrives to a '
     + 'question nobody here could answer — whether the same correction holds at four times the '
     + 'accumulation rate, which is the assumption the whole comparison now stands on.',
+    'And every line of it is yours. You separated the correction from the disagreement, you '
+    + 're-dated both records against a horizon neither calculation had produced, and you wrote '
+    + 'the hedged sentence when the confident one would have got more attention. A season in '
+    + 'the cold became a record other people can trust. That is not a small thing to have done.',
   ],
 
   look: {

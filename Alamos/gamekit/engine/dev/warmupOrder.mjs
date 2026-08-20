@@ -25,6 +25,7 @@ import { resolve } from 'node:path';
 import { themeDir as resolveTheme, themeNames } from './registry.mjs';
 import { warmupPlan, warmupDue, WARMUP_TAIL, WARMUP_OPENERS } from '../core/warmups.js';
 import { tiersFor, unlockDay } from '../core/orientation.js';
+import { introduces, names, nameOf } from './introRule.mjs';
 
 const DEBT_FILE = 'engine/dev/warmup-debt.json';
 
@@ -82,8 +83,10 @@ export function judgeSchedule({ days, hasFar, unlockDay }){
  * A run's card is read before the day's plan, and the two openers are read on the
  * first and second morning of the campaign — so "Farrow wants you known to both"
  * is a sentence about a stranger, and the player has nowhere to look them up. A
- * name is introduced if the `why` puts a job beside it: "Farrow, the operations
- * manager, wants…", the full name, or a role phrase in front of it.
+ * name is introduced if the card puts a job beside it: "Farrow, the operations
+ * manager, wants…", a role phrase in front of it, or a verb that states the job.
+ * A full name is not an introduction — `introRule.mjs` is the rule, and the same
+ * one `checkNames.mjs` asks of the rest of the campaign.
  *
  * Matched on the surname, because that is how these cards refer to people, and
  * only against the campaign's own roster — a place called Whitlock Street is not
@@ -93,34 +96,13 @@ export function judgeSchedule({ days, hasFar, unlockDay }){
 export function unintroduced(authored, cast){
   const out = [];
   for(const [slot, w] of Object.entries(authored ?? {})){
-    const card = `${w?.title ?? ''} ${w?.why ?? ''}`;
-    const why = String(w?.why ?? '');
+    // The card is one thing to read, so a name in the title may be introduced by
+    // the why underneath it.
+    const card = `${w?.title ?? ''}. ${w?.why ?? ''}`;
     for(const person of cast ?? []){
-      // An honorific is not an introduction. "Dr. Patel has the notes" passed this
-      // check for the wrong reason — `Dr.` read as the first name, so `first +
-      // surname` matched and the card was called introduced while saying nothing
-      // about what she does. Strip the titles the rosters use before deriving a
-      // name; a rank IS a job, so `Lieutenant Sowande` still counts, and only the
-      // civil courtesies come off.
-      const bare = person.name.trim()
-        .replace(/^(Dr|Mr|Mrs|Ms|Miss|Prof|Professor|Sir|Dame)\.?\s+/i, '');
-      const parts = bare.split(/\s+/);
-      const surname = parts[parts.length - 1], first = parts[0];
-      // Bracketed nicknames — "Leona Woods (Marshall Libby)" — are not a surname.
-      if(/[()"'’]/.test(surname)) continue;
-      if(!/^[A-Za-z][A-Za-z'’-]+$/.test(surname)) continue;
-      if(!new RegExp(`\\b${surname}\\b`).test(card)) continue;
-      // Four shapes of introduction, all of which a reader would accept:
-      // an apposition ("Farrow, the metering engineer,"), the full name, a role
-      // phrase in front of the name ("the shift supervisor Reyes"), and a verb
-      // that states the job ("Patel runs the emergency department", "Bethe, who
-      // heads the Theoretical Division").
-      const JOB_VERB = 'runs|heads|leads|manages|commands|supervises|chairs|coordinates|keeps|owns';
-      const intro = new RegExp(`${surname},\\s+(the|a|an)\\s+[a-z]`).test(why)
-        || new RegExp(`\\b${first}\\s+${surname}\\b`).test(why)
-        || new RegExp(`(the|a|an)\\s+[a-z][a-z ,'&-]{2,40}\\b${surname}\\b`).test(why)
-        || new RegExp(`\\b${surname}\\b,?\\s+(who\\s+(${JOB_VERB})|(${JOB_VERB}))\\s`).test(why);
-      if(!intro) out.push({ slot, name: surname, role: person.role });
+      const n = nameOf(person);
+      if(!n || !names(card, person)) continue;
+      if(!introduces(card, person)) out.push({ slot, name: n.surname, role: person.role });
     }
   }
   return out;
@@ -262,8 +244,8 @@ async function selftest(){
       unintroduced(bare, cast).length === 1, JSON.stringify(unintroduced(bare, cast)));
     check('…and one that puts their job beside the name is not',
       unintroduced(said, cast).length === 0, JSON.stringify(unintroduced(said, cast)));
-    check('…nor is the full name, which introduces them by itself',
-      unintroduced(full, cast).length === 0, JSON.stringify(unintroduced(full, cast)));
+    check('a full name is NOT an introduction — the job is what the rule is about',
+      unintroduced(full, cast).length === 1, JSON.stringify(unintroduced(full, cast)));
     const verbed = { greet: { title: 'Get round the shift',
       why: 'Farrow runs the metering hut and wants you known to both crews before the handover.' } };
     check('…nor is a sentence that simply says what they do',

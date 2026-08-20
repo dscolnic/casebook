@@ -13,13 +13,14 @@
 import { buildInteriorBuilding, DISTRICT_X } from '../world/interiorBuilding.js';
 import { addProbeStations } from '../world/interiorStations.js';
 import { probeKey, probeReadsFor, setProbeSited, markProbeRead } from './questionUI.js';
-import { getState, getNextMissionStop, startDay, restartDay, tickDay, endDayNow, jumpToMission, save } from './gameState.js';
+import { getState, getNextMissionStop, startDay, restartDay, tickDay, endDayNow, jumpToMission, save,
+         spendReserve } from './gameState.js';
 import { nextMissionStopIndex, openStopIndices, isPersonStopForIdx, getCurrentMission, completedMissionStops,
          getPersonIdForStop } from './simulation.js';
 import { HISTORIC_CHARACTERS } from './historicCharacters.js';
 import { callLabel } from './place.js';
 import { esc } from './utils.js';
-import { DAY_NOUN } from './constants.js';
+import { DAY_NOUN, RUN_SKIP_COST } from './constants.js';
 
 /**
  * Which area has a case open right now, or null.
@@ -722,18 +723,23 @@ export function createDay({
         const lap = runLap.due(state.week, state.laps);
         if(lap){
           planOpen = true;
-          // ONE button. The lap used to carry a "Skip it" beside the run and
-          // to mark itself done whether it was finished or abandoned, on the
-          // argument that a second-campaign player made to sit through a
-          // tutorial is a player who stops on day 1. The rule now is the one
-          // every other run-in-the-world format follows: if you did not do it,
-          // you do it again. A lap that can be waved away is a lap that teaches
-          // the map is optional, and the map is what the day is planned from.
+          // TWO buttons, and the second one is priced. A free "Skip it" taught
+          // that the map is optional, and the map is what the day is planned
+          // from; no way past at all makes a player who has walked that ground
+          // twice walk it again to reach the lessons. So it is the wrong-call
+          // shape: the free way on is to take the run, and $10 says get on with
+          // the day. Paying marks the run done — you are buying the morning, not
+          // renting it — and a run given up on (Esc) still does not, so the card
+          // comes straight back with both options on it.
           //
-          // Abandoning it (Esc) therefore does NOT mark it done — the card comes
-          // straight back. It still costs nothing but the walking, and the day's
-          // clock has not started: the plan is what starts it.
-          ui.open(lap.title, runLap.cardHTML(lap), [
+          // The clock has not started either way: the plan is what starts it.
+          const funds = getState().reserve ?? 0;
+          const canPay = funds >= RUN_SKIP_COST;
+          // A greyed-out button is only fair when the card says what is missing.
+          const shortNote = canPay ? ''
+            : `<p class="lapOutcome dim">Getting on with the day costs $${RUN_SKIP_COST}`
+              + ` and Director funds are $${funds}. The run is the free way on.</p>`;
+          ui.open(lap.title, runLap.cardHTML(lap) + shortNote, [
             { id: 'lapGo', label: 'Take the run', primary: true, onClick: () => {
               ui.close();
               runLap.start(lap, (r) => {
@@ -761,6 +767,18 @@ export function createDay({
                     primary: true, onClick: () => { ui.close(); this.showPlan(); } }]);
               });
             } },
+            { id: 'lapPay', label: `Pay $${RUN_SKIP_COST} and get on with the day`,
+              disabled: !canPay,
+              onClick: () => {
+                // Charge first: spendReserve refuses when the money is not there,
+                // and a run marked done by a payment that failed is a run bought
+                // for nothing.
+                if(!spendReserve(RUN_SKIP_COST)) return;
+                state.laps[lap.slot ?? lap.tier] = true;
+                save();
+                ui.close();
+                this.showPlan();
+              } },
           ]);
           return;
         }

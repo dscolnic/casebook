@@ -7,7 +7,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Who Needs You First?",
-      "scene": "Three patients arrive at almost the same time. Ava sits very still and breathes hard. Ben can walk, but his ankle hurts. Maya has an itchy patch on her arm. One exam room is free. Hospitals do not always help people in the order they arrive. Some problems stay the same for an hour. Others get worse fast. Picking who goes first is called triage.",
+      "scene": "Three patients arrive at almost the same time. Ava sits very still and breathes hard. Ben can walk, but his ankle hurts. Maya, a patient, has an itchy patch on her arm. One exam room is free. Hospitals do not always help people in the order they arrive. Some problems stay the same for an hour. Others get worse fast. Picking who goes first is called triage.",
       "takeaway": "Doctors use urgency, not first-come-first-served order, when several patients need help at once.",
       "place": "",
       "guide": "All four people need help. That is not the question. Ask one thing of each. Which of them gets worse while you help somebody else? A sore ankle stays about the same. So does an itchy patch. Breathing is not like that.",
@@ -16,7 +16,7 @@ export const CURRICULUM = {
         "What to look for in the options. Ask which one changes if you wait — a reading that is still moving, a person who is getting worse, a window that closes. Then ask which ones can only be done after something else. Those two questions usually leave one option standing.",
         "Why only one answer is marked. Real shifts do all of these, in some order. The stop asks for the front of that order because that is the only part where the reasoning shows. Read the verdict afterwards even when you are right — it says what the others were waiting on, which is the rest of the answer."
       ],
-      "story": "Three patients arrive at almost the same time. Ava sits very still and breathes hard. Ben can walk, but his ankle hurts. Maya has an itchy patch on her arm. One exam room is free. Hospitals do not always help people in the order they arrive. Some problems stay the same for an hour. Others get worse fast. Picking who goes first is called triage.",
+      "story": "Three patients arrive at almost the same time. Ava sits very still and breathes hard. Ben can walk, but his ankle hurts. Maya, a patient, has an itchy patch on her arm. One exam room is free. Hospitals do not always help people in the order they arrive. Some problems stay the same for an hour. Others get worse fast. Picking who goes first is called triage.",
       "game": {
         "type": "TRIAGE",
         "title": "Who Needs You First?",
@@ -54,7 +54,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Observation or Measurement?",
-      "scene": "Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature with a thermometer. She counts his pulse too. All of it goes on his chart. But the clues are not all the same kind. Some you notice. Some the patient tells you. Some come from a tool, as a number.",
+      "scene": "Our patient Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature with a thermometer. She counts his pulse too. All of it goes on his chart. But the clues are not all the same kind. Some you notice. Some the patient tells you. Some come from a tool, as a number.",
       "takeaway": "Doctors combine observations, patient stories, and measurements. They are different kinds of clues.",
       "place": "",
       "guide": "All four clues are real and useful. They come from different places. One you see. One the patient tells you. One comes from a tool, as a number. Ask of each where it came from. That is what decides this one.",
@@ -63,7 +63,7 @@ export const CURRICULUM = {
         "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
         "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
       ],
-      "story": "Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature with a thermometer. She counts his pulse too. All of it goes on his chart. But the clues are not all the same kind. Some you notice. Some the patient tells you. Some come from a tool, as a number.",
+      "story": "Our patient Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature with a thermometer. She counts his pulse too. All of it goes on his chart. But the clues are not all the same kind. Some you notice. Some the patient tells you. Some come from a tool, as a number.",
       "game": {
         "type": "CHOICE",
         "title": "Observation or Measurement?",
@@ -74,12 +74,12 @@ export const CURRICULUM = {
         "answer": "His temperature is 98.7°F.",
         "why": "Clues come in three kinds. Some you see, like a worried face. Some the patient tells you, like where it hurts. Some come from a tool, as a number. A thermometer gives a number. That makes it a measurement. All three kinds are useful. Knowing which kind you have tells you how sure you can be.",
         "rebuttals": [
-          "A. Luis says his belly hurts. — Pain is important information, but it is something Luis reports, not a tool measurement.",
+          "A. Our patient Luis says his belly hurts. — Pain is important information, but it is something Luis reports, not a tool measurement.",
           "B. Luis looks worried. — Looking worried is an observation.",
           "D. He skipped breakfast. — Skipping breakfast is part of the story or history."
         ],
         "choices": [
-          "Luis says his belly hurts.",
+          "Our patient Luis says his belly hurts.",
           "Luis looks worried.",
           "His temperature is 98.7°F.",
           "He skipped breakfast."
@@ -145,7 +145,7 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Six Patients, One First Room",
-      "scene": "The waiting board is full. Nora breathes hard and cannot finish a sentence. DeShawn can walk on a sore ankle. Mei has a fever and cough but breathes fine. Mr. Alvarez feels lightheaded but is awake. Fatima has itchy eyes. Owen has a small covered scrape. One room is free. Triage asks which problem could get dangerous fastest.",
+      "scene": "The waiting board is full. Nora breathes hard and cannot finish a sentence. Our patient DeShawn can walk on a sore ankle. Mei, a patient, has a fever and cough but breathes fine. Mr. Alvarez, a patient, feels lightheaded but is awake. Our patient Fatima has itchy eyes. Owen has a small covered scrape. One room is free. Triage asks which problem could get dangerous fastest.",
       "takeaway": "Triage means asking, “Which problem could become dangerous fastest?”",
       "place": "",
       "guide": "All six are real, and all six need something. Ask of each what happens while everybody waits. A sore ankle waits well. A fever waits. Feeling faint is worth a look. Only one of them can get worse quickly.",
@@ -154,7 +154,7 @@ export const CURRICULUM = {
         "What to look for in the options. Ask which one changes if you wait — a reading that is still moving, a person who is getting worse, a window that closes. Then ask which ones can only be done after something else. Those two questions usually leave one option standing.",
         "Why only one answer is marked. Real shifts do all of these, in some order. The stop asks for the front of that order because that is the only part where the reasoning shows. Read the verdict afterwards even when you are right — it says what the others were waiting on, which is the rest of the answer."
       ],
-      "story": "The waiting board is full. Nora breathes hard and cannot finish a sentence. DeShawn can walk on a sore ankle. Mei has a fever and cough but breathes fine. Mr. Alvarez feels lightheaded but is awake. Fatima has itchy eyes. Owen has a small covered scrape. One room is free. Triage asks which problem could get dangerous fastest.",
+      "story": "The waiting board is full. Nora breathes hard and cannot finish a sentence. Our patient DeShawn can walk on a sore ankle. Mei, a patient, has a fever and cough but breathes fine. Mr. Alvarez, a patient, feels lightheaded but is awake. Our patient Fatima has itchy eyes. Owen has a small covered scrape. One room is free. Triage asks which problem could get dangerous fastest.",
       "game": {
         "type": "TRIAGE",
         "title": "Six Patients, One First Room",
@@ -398,7 +398,7 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Observation or Measurement? — Review 2",
-      "scene": "Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature and pulse. The chart now contains both things the team noticed and numbers from tools.",
+      "scene": "Our patient Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature and pulse. The chart now contains both things the team noticed and numbers from tools.",
       "takeaway": "Doctors combine observations, patient stories, and measurements. They are different kinds of clues.",
       "place": "",
       "guide": "All four clues are real and useful. They come from different places. One you see. One the patient tells you. One comes from a tool, as a number. Ask of each where it came from. That is what decides this one.",
@@ -407,7 +407,7 @@ export const CURRICULUM = {
         "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
         "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
       ],
-      "story": "Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature and pulse. The chart now contains both things the team noticed and numbers from tools.",
+      "story": "Our patient Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature and pulse. The chart now contains both things the team noticed and numbers from tools.",
       "game": {
         "type": "CHOICE",
         "title": "Observation or Measurement? — Review 2",
@@ -418,12 +418,12 @@ export const CURRICULUM = {
         "answer": "His temperature is 98.7°F.",
         "why": "Clues come in three kinds. Some you see, like a worried face. Some the patient tells you, like where it hurts. Some come from a tool, as a number. A thermometer gives a number. That makes it a measurement. All three kinds are useful. Knowing which kind you have tells you how sure you can be.",
         "rebuttals": [
-          "A. Luis says his belly hurts. — Pain is important information, but it is something Luis reports, not a tool measurement.",
+          "A. Our patient Luis says his belly hurts. — Pain is important information, but it is something Luis reports, not a tool measurement.",
           "B. Luis looks worried. — Looking worried is an observation.",
           "D. He skipped breakfast. — Skipping breakfast is part of the story or history."
         ],
         "choices": [
-          "Luis says his belly hurts.",
+          "Our patient Luis says his belly hurts.",
           "Luis looks worried.",
           "His temperature is 98.7°F.",
           "He skipped breakfast."
@@ -523,7 +523,7 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "6 Patients, 1 First Room — Review 2",
-      "scene": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Fatima has itchy eyes. Owen has a small covered scrape.",
+      "scene": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. Our patient DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Our patient Fatima has itchy eyes. Owen has a small covered scrape.",
       "takeaway": "Triage means asking, “Which problem could become dangerous fastest?”",
       "place": "",
       "guide": "All six are real, and all six need something. Ask of each what happens while everybody waits. A sore ankle waits well. A fever waits. Feeling faint is worth a look. Only one of them can get worse quickly.",
@@ -532,7 +532,7 @@ export const CURRICULUM = {
         "What to look for in the options. Ask which one changes if you wait — a reading that is still moving, a person who is getting worse, a window that closes. Then ask which ones can only be done after something else. Those two questions usually leave one option standing.",
         "Why only one answer is marked. Real shifts do all of these, in some order. The stop asks for the front of that order because that is the only part where the reasoning shows. Read the verdict afterwards even when you are right — it says what the others were waiting on, which is the rest of the answer."
       ],
-      "story": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Fatima has itchy eyes. Owen has a small covered scrape.",
+      "story": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. Our patient DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Our patient Fatima has itchy eyes. Owen has a small covered scrape.",
       "game": {
         "type": "TRIAGE",
         "title": "6 Patients, 1 First Room — Review 2",
@@ -776,7 +776,7 @@ export const CURRICULUM = {
     {
       "day": 14,
       "title": "Observation or Measurement? — Review 3",
-      "scene": "Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature and pulse. The chart now contains both things the team noticed and numbers from tools.",
+      "scene": "Our patient Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature and pulse. The chart now contains both things the team noticed and numbers from tools.",
       "takeaway": "Doctors combine observations, patient stories, and measurements. They are different kinds of clues.",
       "place": "",
       "guide": "All four clues are real and useful. They come from different places. One you see. One the patient tells you. One comes from a tool, as a number. Ask of each where it came from. That is what decides this one.",
@@ -785,7 +785,7 @@ export const CURRICULUM = {
         "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
         "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
       ],
-      "story": "Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature and pulse. The chart now contains both things the team noticed and numbers from tools.",
+      "story": "Our patient Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature and pulse. The chart now contains both things the team noticed and numbers from tools.",
       "game": {
         "type": "CHOICE",
         "title": "Observation or Measurement? — Review 3",
@@ -796,12 +796,12 @@ export const CURRICULUM = {
         "answer": "His temperature is 98.7°F.",
         "why": "Clues come in three kinds. Some you see, like a worried face. Some the patient tells you, like where it hurts. Some come from a tool, as a number. A thermometer gives a number. That makes it a measurement. All three kinds are useful. Knowing which kind you have tells you how sure you can be.",
         "rebuttals": [
-          "A. Luis says his belly hurts. — Pain is important information, but it is something Luis reports, not a tool measurement.",
+          "A. Our patient Luis says his belly hurts. — Pain is important information, but it is something Luis reports, not a tool measurement.",
           "B. Luis looks worried. — Looking worried is an observation.",
           "D. He skipped breakfast. — Skipping breakfast is part of the story or history."
         ],
         "choices": [
-          "Luis says his belly hurts.",
+          "Our patient Luis says his belly hurts.",
           "Luis looks worried.",
           "His temperature is 98.7°F.",
           "He skipped breakfast."
@@ -901,7 +901,7 @@ export const CURRICULUM = {
     {
       "day": 16,
       "title": "6 Patients, 1 First Room — Review 3",
-      "scene": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Fatima has itchy eyes. Owen has a small covered scrape.",
+      "scene": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. Our patient DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Our patient Fatima has itchy eyes. Owen has a small covered scrape.",
       "takeaway": "Triage means asking, “Which problem could become dangerous fastest?”",
       "place": "",
       "guide": "All six are real, and all six need something. Ask of each what happens while everybody waits. A sore ankle waits well. A fever waits. Feeling faint is worth a look. Only one of them can get worse quickly.",
@@ -910,7 +910,7 @@ export const CURRICULUM = {
         "What to look for in the options. Ask which one changes if you wait — a reading that is still moving, a person who is getting worse, a window that closes. Then ask which ones can only be done after something else. Those two questions usually leave one option standing.",
         "Why only one answer is marked. Real shifts do all of these, in some order. The stop asks for the front of that order because that is the only part where the reasoning shows. Read the verdict afterwards even when you are right — it says what the others were waiting on, which is the rest of the answer."
       ],
-      "story": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Fatima has itchy eyes. Owen has a small covered scrape.",
+      "story": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. Our patient DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Our patient Fatima has itchy eyes. Owen has a small covered scrape.",
       "game": {
         "type": "TRIAGE",
         "title": "6 Patients, 1 First Room — Review 3",
@@ -1154,7 +1154,7 @@ export const CURRICULUM = {
     {
       "day": 20,
       "title": "Observation or Measurement? — Review 4",
-      "scene": "Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature and pulse. The chart now contains both things the team noticed and numbers from tools.",
+      "scene": "Our patient Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature and pulse. The chart now contains both things the team noticed and numbers from tools.",
       "takeaway": "Doctors combine observations, patient stories, and measurements. They are different kinds of clues.",
       "place": "",
       "guide": "All four clues are real and useful. They come from different places. One you see. One the patient tells you. One comes from a tool, as a number. Ask of each where it came from. That is what decides this one.",
@@ -1163,7 +1163,7 @@ export const CURRICULUM = {
         "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
         "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
       ],
-      "story": "Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature and pulse. The chart now contains both things the team noticed and numbers from tools.",
+      "story": "Our patient Luis says his belly hurts. You can see that he is awake and talking. A nurse checks his temperature and pulse. The chart now contains both things the team noticed and numbers from tools.",
       "game": {
         "type": "CHOICE",
         "title": "Observation or Measurement? — Review 4",
@@ -1174,12 +1174,12 @@ export const CURRICULUM = {
         "answer": "His temperature is 98.7°F.",
         "why": "Clues come in three kinds. Some you see, like a worried face. Some the patient tells you, like where it hurts. Some come from a tool, as a number. A thermometer gives a number. That makes it a measurement. All three kinds are useful. Knowing which kind you have tells you how sure you can be.",
         "rebuttals": [
-          "A. Luis says his belly hurts. — Pain is important information, but it is something Luis reports, not a tool measurement.",
+          "A. Our patient Luis says his belly hurts. — Pain is important information, but it is something Luis reports, not a tool measurement.",
           "B. Luis looks worried. — Looking worried is an observation.",
           "D. He skipped breakfast. — Skipping breakfast is part of the story or history."
         ],
         "choices": [
-          "Luis says his belly hurts.",
+          "Our patient Luis says his belly hurts.",
           "Luis looks worried.",
           "His temperature is 98.7°F.",
           "He skipped breakfast."
@@ -1279,7 +1279,7 @@ export const CURRICULUM = {
     {
       "day": 22,
       "title": "6 Patients, 1 First Room — Review 4",
-      "scene": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Fatima has itchy eyes. Owen has a small covered scrape.",
+      "scene": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. Our patient DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Our patient Fatima has itchy eyes. Owen has a small covered scrape.",
       "takeaway": "Triage means asking, “Which problem could become dangerous fastest?”",
       "place": "",
       "guide": "All six are real, and all six need something. Ask of each what happens while everybody waits. A sore ankle waits well. A fever waits. Feeling faint is worth a look. Only one of them can get worse quickly.",
@@ -1288,7 +1288,7 @@ export const CURRICULUM = {
         "What to look for in the options. Ask which one changes if you wait — a reading that is still moving, a person who is getting worse, a window that closes. Then ask which ones can only be done after something else. Those two questions usually leave one option standing.",
         "Why only one answer is marked. Real shifts do all of these, in some order. The stop asks for the front of that order because that is the only part where the reasoning shows. Read the verdict afterwards even when you are right — it says what the others were waiting on, which is the rest of the answer."
       ],
-      "story": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Fatima has itchy eyes. Owen has a small covered scrape.",
+      "story": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. Our patient DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Our patient Fatima has itchy eyes. Owen has a small covered scrape.",
       "game": {
         "type": "TRIAGE",
         "title": "6 Patients, 1 First Room — Review 4",
@@ -2164,40 +2164,59 @@ export const CURRICULUM = {
     {
       "day": 12,
       "title": "Why the Faster Pulse? — Review 2",
-      "scene": "Jordan's pulse was slow while he sat. It was fast right after the stairs. He feels fine now. The doctor asks you why it went up.",
+      "scene": "Jordan climbed the stairs. Right after, his pulse was 120. Sitting still it had been 76. He sits down now to rest. The doctor asks what it will be in five minutes.",
       "takeaway": "Body systems work together. Muscles, lungs, blood, and heart all change during exercise.",
       "place": "",
-      "guide": "Four reasons a pulse might speed up. Ask of each whether it explains why. Working muscles need something, and blood is what brings it. Two of these answers are about feeling the beat, not about the beat itself.",
+      "guide": "Say a number first. Write it down before he rests. Then he sits for five minutes. Then you count his pulse for a minute. His muscles are done working now, so think about what they stopped needing.",
       "background": [
-        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
-        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
-        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+        "What a pulse is. Each beat pushes blood along. You can feel it in the wrist. Counting the beats in a minute tells you how fast the heart is working.",
+        "Why it comes back down. Working muscles need extra oxygen. Blood carries the oxygen to them. When the muscles stop working, they stop needing extra. So the heart can slow down again.",
+        "Why the number goes first. If you rest him and then explain the count, any answer sounds right. If you say your number first, the count can tell you whether you knew what his body would do."
       ],
-      "story": "Jordan’s pulse was slower while sitting and faster just after climbing the stairs. He feels fine after resting. The doctor asks why the heart sped up during activity.",
+      "story": "Jordan climbed the stairs. Right after, his pulse was 120. Sitting still it had been 76. He sits down now to rest. The doctor asks what it will be in five minutes.",
       "game": {
-        "type": "CHOICE",
+        "type": "VERIFY",
         "title": "Why the Faster Pulse? — Review 2",
         "setup": "Jordan  •  Treatment Room",
-        "play": "What is the best explanation?",
-        "task": "What is the best explanation?",
-        "question": "What is the best explanation?",
-        "answer": "Working muscles need more oxygen, so the heart moves blood faster.",
-        "why": "Working muscles need more oxygen. Blood is what carries oxygen. So the heart pumps faster to get more blood to them. A pulse is not one fixed number for a person. It goes up and down all day. When one part of the body works harder, another part changes to help.",
-        "rebuttals": [
-          "B. The heart beats faster to help the body cool down after exercise. — Cooling is mostly the skin's job, with sweat. The faster pulse is about oxygen.",
-          "C. Climbing stairs shakes the body, which makes the heartbeat easier to feel. — Jordan is resting now, and it is still fast. Shaking would have stopped.",
-          "D. The pulse only seems faster because Jordan is paying attention to it. — The therapist counted it. A count is a real number, not a feeling."
-        ],
-        "choices": [
-          "Working muscles need more oxygen, so the heart moves blood faster.",
-          "The heart beats faster to help the body cool down after exercise.",
-          "Climbing stairs shakes the body, which makes the heartbeat easier to feel.",
-          "The pulse only seems faster because Jordan is paying attention to it."
-        ],
-        "correctChoice": "Working muscles need more oxygen, so the heart moves blood faster."
+        "play": "Say what his pulse will be after he rests. Then count it.",
+        "task": "Say what his pulse will be after he rests. Then count it.",
+        "question": "Say what Jordan's pulse will be after five minutes of rest. Then count it.",
+        "answer": "About 80 beats a minute, close to the 76 he started at. His muscles stopped needing extra oxygen, so his heart slowed down again.",
+        "why": "Jordan's pulse was 76 while he sat. The stairs took it to 120. His leg muscles were working hard. Working muscles need extra oxygen. Oxygen rides in the blood. So his heart beat faster to move the blood along. Then he stopped and sat down. His muscles stopped working. They stopped needing the extra oxygen. So his heart slowed down. His pulse came back to about 80. A pulse is not one fixed number. It goes up when the body asks for more. It comes down when the body stops asking.",
+        "verify": {
+          "prediction": {
+            "label": "Jordan's pulse after five minutes of rest",
+            "unit": "beats a minute",
+            "min": 60,
+            "max": 200,
+            "step": 5
+          },
+          "truth": 80,
+          "passRatio": [
+            0.7,
+            1.4
+          ],
+          "intervention": {
+            "label": "Jordan sits down and rests for five minutes",
+            "note": "right after the stairs his pulse was 120, and sitting still it had been 76",
+            "outcome": "He sits quietly. His breathing settles back to normal."
+          },
+          "measurement": {
+            "label": "Count his pulse for a minute",
+            "note": "two fingers on the wrist, watch the clock",
+            "cost": 1,
+            "costUnit": "minutes"
+          },
+          "unmeasuredMoral": "If you say the pulse came down without counting it, you never find out whether you knew what his body would do.",
+          "lock": "Lock the prediction",
+          "run": "Commit it",
+          "measure": "Take the measurement",
+          "commit": "Report"
+        }
       },
       "assumes": [
-        "muscles work harder when you climb stairs"
+        "muscles work harder when you climb stairs",
+        "resting muscles need less oxygen than working muscles"
       ],
       "equations": [
         {
@@ -3129,7 +3148,8 @@ export const CURRICULUM = {
               "the amount that actually went in"
             ]
           ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
+          "s": "The gap between what was needed and what was given is how far behind the patient is.",
+          "demanded": true
         }
       ],
       "concept": {
@@ -3201,7 +3221,7 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "What the Kidneys Do",
-      "scene": "Harper looks at a model. It shows the kidneys and the bladder. She asks why both are in one system. The body makes waste. The blood carries it. The kidneys are the filters.",
+      "scene": "Harper, a patient, looks at a model. It shows the kidneys and the bladder. She asks why both are in one system. The body makes waste. The blood carries it. The kidneys are the filters.",
       "takeaway": "Kidneys filter; the bladder stores.",
       "place": "Exam Room 1",
       "guide": "Work out how much water the kidneys send back into the body each day. They filter 180 litres, and only 2 litres leave as urine. Take the smaller number away from the bigger one. One tile is how many kidneys there are, which is not part of this sum.",
@@ -3210,7 +3230,7 @@ export const CURRICULUM = {
         "Why the number is so big. The kidneys do not filter the blood once. They filter it all day, so the amount they handle is far bigger than the amount anybody drinks.",
         "Why the bladder is in the same system. The kidneys make the urine, a little at a time, all day. Nobody could visit a toilet that often, so the bladder holds it until it is convenient."
       ],
-      "story": "Harper looks at a model. It shows the kidneys and the bladder. She asks why both are in one system. The body makes waste. The blood carries it. The kidneys are the filters.",
+      "story": "Harper, a patient, looks at a model. It shows the kidneys and the bladder. She asks why both are in one system. The body makes waste. The blood carries it. The kidneys are the filters.",
       "game": {
         "type": "BALLPARK",
         "title": "What the Kidneys Do",
@@ -4197,7 +4217,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Why Take an X-Ray?",
-      "scene": "Eli fell off his bike. His wrist hurts and looks swollen. The doctor needs to know if a bone is broken. The bone is under the skin, and nobody can see it from outside.",
+      "scene": "Eli, a patient, fell off his bike. His wrist hurts and looks swollen. The doctor needs to know if a bone is broken. The bone is under the skin, and nobody can see it from outside.",
       "takeaway": "Doctors choose tools based on the kind of clue they need.",
       "place": "Imaging Room",
       "guide": "Three clues, and three tools. Match each clue to the tool that can find it. Every tool here is useful, and each one answers a different question. The one that finds a broken bone cannot tell you how hot somebody is.",
@@ -4206,7 +4226,7 @@ export const CURRICULUM = {
         "What the other tools do. A thermometer measures how hot somebody is. A stethoscope lets you listen to sounds inside, like the heart and the lungs.",
         "Why matching is the skill. A hospital has many tools and none of them answers every question. Choosing the one that fits the clue you need is most of what a good team does."
       ],
-      "story": "Eli fell off his bike. His wrist hurts and looks swollen. The doctor needs to know if a bone is broken. The bone is under the skin, and nobody can see it from outside.",
+      "story": "Eli, a patient, fell off his bike. His wrist hurts and looks swollen. The doctor needs to know if a bone is broken. The bone is under the skin, and nobody can see it from outside.",
       "game": {
         "type": "PROTOCOL",
         "title": "Why Take an X-Ray?",
@@ -4247,7 +4267,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Skeleton Jobs",
-      "scene": "The bone doctor has three cards to hand out. Rosa needs the part that protects the heart and lungs. Mr. Bell needs the part that holds up the back. Tess needs the place where bones meet and move. Bones do more than hold you up. They are not all the same shape. That is because they do not all do the same job.",
+      "scene": "The bone doctor has three cards to hand out. Rosa needs the part that protects the heart and lungs. Mr. Bell, a patient, needs the part that holds up the back. Tess needs the place where bones meet and move. Bones do more than hold you up. They are not all the same shape. That is because they do not all do the same job.",
       "takeaway": "The skeleton supports, protects, and helps the body move.",
       "place": "",
       "guide": "Four sets, and bones do more than one job. Ask what each bone is shaped for. A cage guards what is inside it. A column holds you up. A joint is where two bones meet, so it bends.",
@@ -4256,7 +4276,7 @@ export const CURRICULUM = {
         "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
         "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
       ],
-      "story": "The bone doctor has three cards to hand out. Rosa needs the part that protects the heart and lungs. Mr. Bell needs the part that holds up the back. Tess needs the place where bones meet and move. Bones do more than hold you up. They are not all the same shape. That is because they do not all do the same job.",
+      "story": "The bone doctor has three cards to hand out. Rosa needs the part that protects the heart and lungs. Mr. Bell, a patient, needs the part that holds up the back. Tess needs the place where bones meet and move. Bones do more than hold you up. They are not all the same shape. That is because they do not all do the same job.",
       "game": {
         "type": "CASEBOOK",
         "title": "Skeleton Jobs",
@@ -4410,7 +4430,7 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Tired Muscles",
-      "scene": "Amara has done the same gentle motion many times. Her arm feels tired now. Nothing hurts sharply. There is no new injury. The therapist stops the set and lets her rest.",
+      "scene": "Amara, a patient, has done the same gentle motion many times. Her arm feels tired now. Nothing hurts sharply. There is no new injury. The therapist stops the set and lets her rest.",
       "takeaway": "Body tissues can change their activity depending on what the body is doing.",
       "place": "Therapy Room",
       "guide": "Four things are different about the sets where her arm got tired quickly. Change one and run the set again. The grip meter shows how hard she can still squeeze at the end. Change two at once and the meter cannot tell you which one mattered. Then put your one back and see if the tiredness comes back with it.",
@@ -4419,7 +4439,7 @@ export const CURRICULUM = {
         "Why tired is not hurt. Tiredness comes on slowly, feels the same all over the muscle, and goes away with rest. A new injury usually hurts sharply in one spot and does not get better while you rest for a minute.",
         "Why the test matters. If rest is what fixes it, the answer is more rests. If something else is doing it — too much weight, too fast, too many in a row — then the plan changes, and only one test at a time can tell you which."
       ],
-      "story": "Amara has done the same gentle motion many times. Her arm feels tired now. Nothing hurts sharply. There is no new injury. The therapist stops the set and lets her rest.",
+      "story": "Amara, a patient, has done the same gentle motion many times. Her arm feels tired now. Nothing hurts sharply. There is no new injury. The therapist stops the set and lets her rest.",
       "game": {
         "type": "CONTROL",
         "title": "Tired Muscles",
@@ -5508,7 +5528,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Touch, Think, Move",
-      "scene": "Lily touches something very cold. She pulls her hand back fast. The brain doctor shows four cards. It felt like one instant to Lily. It was really a sequence. Something was noticed. A message travelled. The brain understood it. A muscle moved. Each stage takes a tiny bit of time. So the order can be worked out.",
+      "scene": "Lily, a patient, touches something very cold. She pulls her hand back fast. The brain doctor shows four cards. It felt like one instant to Lily. It was really a sequence. Something was noticed. A message travelled. The brain understood it. A muscle moved. Each stage takes a tiny bit of time. So the order can be worked out.",
       "takeaway": "The nervous system helps the body notice changes and respond.",
       "place": "",
       "guide": "These four are one chain. Ask what has to happen first. You cannot answer something you have not noticed. So the skin comes before the thinking. And the moving comes after both. It feels like one thing. It is four.",
@@ -5517,7 +5537,7 @@ export const CURRICULUM = {
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
         "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
       ],
-      "story": "Lily touches something very cold. She pulls her hand back fast. The brain doctor shows four cards. It felt like one instant to Lily. It was really a sequence. Something was noticed. A message travelled. The brain understood it. A muscle moved. Each stage takes a tiny bit of time. So the order can be worked out.",
+      "story": "Lily, a patient, touches something very cold. She pulls her hand back fast. The brain doctor shows four cards. It felt like one instant to Lily. It was really a sequence. Something was noticed. A message travelled. The brain understood it. A muscle moved. Each stage takes a tiny bit of time. So the order can be worked out.",
       "game": {
         "type": "SEQUENCE",
         "title": "Touch, Think, Move",
@@ -5649,7 +5669,7 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Match the Sense",
-      "scene": "The team has three clue cards. Mina has blurry vision. Caleb has trouble hearing a tone. Mrs. Patel feels unsteady when she turns her head. Each sense starts with a part built to catch one kind of signal. Light. Sound. Movement. Here is the surprise. One organ can hold more than one of those jobs.",
+      "scene": "The team has three clue cards. Mina has blurry vision. Caleb has trouble hearing a tone. Mrs. Patel, the ed director, feels unsteady when she turns her head. Each sense starts with a part built to catch one kind of signal. Light. Sound. Movement. Here is the surprise. One organ can hold more than one of those jobs.",
       "takeaway": "One organ can have more than one job; the ear helps with both hearing and balance.",
       "place": "",
       "guide": "Four sets, and one body part does two jobs. Ask of each person what they cannot do. Seeing? Hearing? Staying steady? The ear takes in sound, and it also tells the brain which way is up.",
@@ -5696,7 +5716,7 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "From Light to Picture",
-      "scene": "Jules wants to know how light becomes a picture. The brain doctor lays out four cards. Eyes do not really see on their own. They catch light and turn it into signals. The picture is put together later, in the brain. That is why seeing is a team job. Knowing the stages tells you where a problem could be.",
+      "scene": "Jules, a patient, wants to know how light becomes a picture. The brain doctor lays out four cards. Eyes do not really see on their own. They catch light and turn it into signals. The picture is put together later, in the brain. That is why seeing is a team job. Knowing the stages tells you where a problem could be.",
       "takeaway": "Seeing is a team job between the eyes, nerves, and brain.",
       "place": "",
       "guide": "These four are one path. Ask what has to happen first. The brain cannot make sense of a pattern the eye has not picked up. So the eye collects, and the brain understands. A problem could be anywhere along the line.",
@@ -5705,7 +5725,7 @@ export const CURRICULUM = {
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
         "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
       ],
-      "story": "Jules wants to know how light becomes a picture. The brain doctor lays out four cards. Eyes do not really see on their own. They catch light and turn it into signals. The picture is put together later, in the brain. That is why seeing is a team job. Knowing the stages tells you where a problem could be.",
+      "story": "Jules, a patient, wants to know how light becomes a picture. The brain doctor lays out four cards. Eyes do not really see on their own. They catch light and turn it into signals. The picture is put together later, in the brain. That is why seeing is a team job. Knowing the stages tells you where a problem could be.",
       "game": {
         "type": "SEQUENCE",
         "title": "From Light to Picture",
@@ -5901,7 +5921,7 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "Which Test Fits the Clue? — Review 2",
-      "scene": "Mina says the letters on the classroom board look blurry from far away. The eye doctor wants to start with a simple test that checks what she can see at different sizes.",
+      "scene": "Mina says the board looks blurry from far away. Her book looks fine. The eye doctor wants a simple test first. It checks what she can see at different sizes.",
       "takeaway": "The best test depends on the question you are trying to answer.",
       "place": "",
       "guide": "Four tools, all of them good. Ask of each what it measures. Eyes? Ears? Sounds inside? Bones? Then look at the clue and match it. Every one of these answers some question. Only one answers this one.",
@@ -5910,7 +5930,7 @@ export const CURRICULUM = {
         "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
         "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
       ],
-      "story": "Mina says the letters on the classroom board look blurry from far away. The eye doctor wants to start with a simple test that checks what she can see at different sizes.",
+      "story": "Mina says the board looks blurry from far away. Her book looks fine. The eye doctor wants a simple test first. It checks what she can see at different sizes.",
       "game": {
         "type": "CHOICE",
         "title": "Which Test Fits the Clue? — Review 2",
@@ -6200,7 +6220,7 @@ export const CURRICULUM = {
     {
       "day": 16,
       "title": "Which Test Fits the Clue? — Review 3",
-      "scene": "Mina says the letters on the classroom board look blurry from far away. The eye doctor wants to start with a simple test that checks what she can see at different sizes.",
+      "scene": "Mina says the board looks blurry from far away. Her book looks fine. The eye doctor wants a simple test first. It checks what she can see at different sizes.",
       "takeaway": "The best test depends on the question you are trying to answer.",
       "place": "",
       "guide": "Four tools, all of them good. Ask of each what it measures. Eyes? Ears? Sounds inside? Bones? Then look at the clue and match it. Every one of these answers some question. Only one answers this one.",
@@ -6209,7 +6229,7 @@ export const CURRICULUM = {
         "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
         "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
       ],
-      "story": "Mina says the letters on the classroom board look blurry from far away. The eye doctor wants to start with a simple test that checks what she can see at different sizes.",
+      "story": "Mina says the board looks blurry from far away. Her book looks fine. The eye doctor wants a simple test first. It checks what she can see at different sizes.",
       "game": {
         "type": "CHOICE",
         "title": "Which Test Fits the Clue? — Review 3",
@@ -6499,7 +6519,7 @@ export const CURRICULUM = {
     {
       "day": 22,
       "title": "Which Test Fits the Clue? — Review 4",
-      "scene": "Mina says the letters on the classroom board look blurry from far away. The eye doctor wants to start with a simple test that checks what she can see at different sizes.",
+      "scene": "Mina says the board looks blurry from far away. Her book looks fine. The eye doctor wants a simple test first. It checks what she can see at different sizes.",
       "takeaway": "The best test depends on the question you are trying to answer.",
       "place": "",
       "guide": "Four tools, all of them good. Ask of each what it measures. Eyes? Ears? Sounds inside? Bones? Then look at the clue and match it. Every one of these answers some question. Only one answers this one.",
@@ -6508,7 +6528,7 @@ export const CURRICULUM = {
         "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
         "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
       ],
-      "story": "Mina says the letters on the classroom board look blurry from far away. The eye doctor wants to start with a simple test that checks what she can see at different sizes.",
+      "story": "Mina says the board looks blurry from far away. Her book looks fine. The eye doctor wants a simple test first. It checks what she can see at different sizes.",
       "game": {
         "type": "CHOICE",
         "title": "Which Test Fits the Clue? — Review 4",
@@ -6689,7 +6709,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "How Might It Spread?",
-      "scene": "The nurse gives you three short stories. Ty was near classmates who were coughing. Ana ate food that made several relatives sick. Lena touched a shared toy and rubbed her nose. Germs cannot fly or walk by themselves. Something has to carry them. Different germs travel different ways. The way it travels tells you how to stop it.",
+      "scene": "The nurse gives you three short stories. Ty was near classmates who were coughing. Ana ate food that made several relatives sick. Lena, a patient, touched a shared toy and rubbed her nose. Germs cannot fly or walk by themselves. Something has to carry them. Different germs travel different ways. The way it travels tells you how to stop it.",
       "takeaway": "Knowing the route helps people choose the right prevention strategy.",
       "place": "",
       "guide": "Four sets, and germs travel in more than one way. Ask of each person what they did. Coughed near others? Ate something? Touched a handle? The story is what tells you which way the germ came.",
@@ -6698,7 +6718,7 @@ export const CURRICULUM = {
         "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
         "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
       ],
-      "story": "The nurse gives you three short stories. Ty was near classmates who were coughing. Ana ate food that made several relatives sick. Lena touched a shared toy and rubbed her nose. Germs cannot fly or walk by themselves. Something has to carry them. Different germs travel different ways. The way it travels tells you how to stop it.",
+      "story": "The nurse gives you three short stories. Ty was near classmates who were coughing. Ana ate food that made several relatives sick. Lena, a patient, touched a shared toy and rubbed her nose. Germs cannot fly or walk by themselves. Something has to carry them. Different germs travel different ways. The way it travels tells you how to stop it.",
       "game": {
         "type": "CASEBOOK",
         "title": "How Might It Spread?",
@@ -6901,7 +6921,7 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Meet the Defense Team",
-      "scene": "Three cards need labels. Dante has a skin shield card. Ruby has a white blood cell card. Mae has an antibody card. The body does not defend itself one way. It defends in layers. Barriers try to keep germs out. Cells patrol and attack what gets in. Special molecules know one threat very well. Each layer catches what the last one missed.",
+      "scene": "Three cards need labels. Dante, a patient, has a skin shield card. Ruby has a white blood cell card. Mae has an antibody card. The body does not defend itself one way. It defends in layers. Barriers try to keep germs out. Cells patrol and attack what gets in. Special molecules know one threat very well. Each layer catches what the last one missed.",
       "takeaway": "Defense works in layers: barriers, cells, and specialized molecules.",
       "place": "",
       "guide": "Four sets, and each part has one job. Ask what each one does. Keeps things out? Goes looking? Knows one target? None of them can do the other two jobs. Check all three before you pick a set.",
@@ -6910,7 +6930,7 @@ export const CURRICULUM = {
         "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
         "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
       ],
-      "story": "Three cards need labels. Dante has a skin shield card. Ruby has a white blood cell card. Mae has an antibody card. The body does not defend itself one way. It defends in layers. Barriers try to keep germs out. Cells patrol and attack what gets in. Special molecules know one threat very well. Each layer catches what the last one missed.",
+      "story": "Three cards need labels. Dante, a patient, has a skin shield card. Ruby has a white blood cell card. Mae has an antibody card. The body does not defend itself one way. It defends in layers. Barriers try to keep germs out. Cells patrol and attack what gets in. Special molecules know one threat very well. Each layer catches what the last one missed.",
       "game": {
         "type": "CASEBOOK",
         "title": "Meet the Defense Team",
@@ -6995,7 +7015,7 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Which Allergy Patient First?",
-      "scene": "Three people come in with allergy signs. Sofia has itchy eyes and breathes normally. Malik has an itchy rash and talks normally. Chloe has swelling around her mouth. She is struggling to breathe. The team needs your call. An allergy is the body's defence going much too far. Most reactions stay about the same for a while. A few change very fast.",
+      "scene": "Three people come in with allergy signs. Sofia has itchy eyes and breathes normally. Malik, a patient, has an itchy rash and talks normally. Chloe has swelling around her mouth. She is struggling to breathe. The team needs your call. An allergy is the body's defence going much too far. Most reactions stay about the same for a while. A few change very fast.",
       "takeaway": "When breathing is threatened, urgency rises sharply.",
       "place": "",
       "guide": "All three need help. Ask of each what could get worse in minutes. Itchy eyes stay about the same. A big rash looks worse than a small one. How much skin it covers is not what makes it urgent.",
@@ -7004,7 +7024,7 @@ export const CURRICULUM = {
         "What to look for in the options. Ask which one changes if you wait — a reading that is still moving, a person who is getting worse, a window that closes. Then ask which ones can only be done after something else. Those two questions usually leave one option standing.",
         "Why only one answer is marked. Real shifts do all of these, in some order. The stop asks for the front of that order because that is the only part where the reasoning shows. Read the verdict afterwards even when you are right — it says what the others were waiting on, which is the rest of the answer."
       ],
-      "story": "Three people come in with allergy signs. Sofia has itchy eyes and breathes normally. Malik has an itchy rash and talks normally. Chloe has swelling around her mouth. She is struggling to breathe. The team needs your call. An allergy is the body's defence going much too far. Most reactions stay about the same for a while. A few change very fast.",
+      "story": "Three people come in with allergy signs. Sofia has itchy eyes and breathes normally. Malik, a patient, has an itchy rash and talks normally. Chloe has swelling around her mouth. She is struggling to breathe. The team needs your call. An allergy is the body's defence going much too far. Most reactions stay about the same for a while. A few change very fast.",
       "game": {
         "type": "TRIAGE",
         "title": "Which Allergy Patient First?",

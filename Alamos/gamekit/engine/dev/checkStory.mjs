@@ -304,6 +304,45 @@ if(!manifest.dayNoun){
   }
 }
 
+// ——— the ending card ——————————————————————————————————————————————
+//
+// The last thing anybody reads, and for most of this engine's life it was the
+// words "Campaign complete" in the corner of the HUD. `ending` fixed that, and
+// then the endings said what came of the fortnight and what it cost and never
+// once said who had done it — a player who has just held a corridor for
+// fourteen days closes the game on a paragraph about a report.
+//
+// So: the campaign ends, and the last paragraph is addressed to the player and
+// says what they did. What this can see is the second person and a past-tense
+// claim next to it; what it cannot see is whether the credit is deserved or
+// merely loud, which is a reading job. Two things a paragraph like this must
+// not do are already gated elsewhere — `checkVoice` catches the slogan, and no
+// new fact should arrive in it.
+{
+  const paras = (manifest.ending ?? []).filter(p => String(p ?? '').trim());
+  if(!paras.length){
+    fail('no ending card — `ending` in the manifest is what the last mission earns, and '
+       + 'without it a campaign finishes on a HUD label');
+  } else {
+    const last = String(paras.at(-1));
+    const yous = (last.match(/\byou(r|rs)?\b/gi) ?? []).length;
+    // A past-tense verb within reach of a "you": "you checked", "you brought
+    // them up", "You did all of that". The irregulars are listed because the
+    // -ed rule cannot see them and half these games close on one.
+    const IRREGULAR = 'did|drove|brought|held|found|built|kept|made|took|wrote|told|showed|spent'
+      + '|shed|read|ran|grew|gave|got|went|stood|won|left|put|set|said|laid|drew|bent|sent';
+    const credit = new RegExp(`\\byou\\b[^.!?]{0,40}?\\b(?:\\w+ed|${IRREGULAR})\\b`, 'i').test(last)
+      || /\b(because of|down to|thanks to|that was) you\b/i.test(last);
+    if(yous < 2){
+      fail(`the ending's last paragraph says "you" ${yous} time(s) — the campaign closes on `
+         + 'what the player did, not only on what came of it');
+    } else if(!credit){
+      fail('the ending\'s last paragraph addresses the player but never says what they did — '
+         + '"you checked the instruments the decisions rested on" is the beat');
+    }
+  }
+}
+
 // ——— report ————————————————————————————————————————————————————————
 const mean = (a) => a.reduce((x, y) => x + y, 0) / (a.length || 1);
 if(notes.length){

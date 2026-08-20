@@ -90,7 +90,7 @@ export default {
     + 'under it. So far the plant has made 3.9. You are the propellant lead at '
     + 'Arcadia Rise, so every kilogram loaded into that rocket is signed for by '
     + 'you. The plant has run under its rated output every sol since spring. This '
-    + 'morning Ingrid Sundqvist wants the reactor forty degrees hotter, and Tomás '
+    + 'morning Ingrid Sundqvist, the plant production lead, wants the reactor forty degrees hotter, and Tomás '
     + 'Herrera says a hotter reactor hands back less methane on every pass. Six '
     + 'people fly home on whatever those two can be got to agree to make.',
   ],
@@ -112,6 +112,10 @@ export default {
     + 'wired to a panel four sols before the rotation ended and has never sounded; and nobody has '
     + 'measured what this ground does to a catalyst at the deeper cut, which is the ice the next crew '
     + 'will be working.',
+    'Six people fly home because of you. You found a poisoned catalyst that everybody else '
+    + 'was reading as heat damage, you spent the last charge on the planet at the right sol '
+    + 'rather than the frightening one, and you signed every kilogram against an assay you had '
+    + 'checked yourself. The rocket lifts full. You are the one who filled it.',
   ],
 
   look: {

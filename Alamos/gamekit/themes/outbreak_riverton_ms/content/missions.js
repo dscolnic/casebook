@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "What Kind of Agent?",
     "objective": "Classify the broad agent category and identify the next discriminating test.",
     "briefing": "Initial samples contain biological material, but the microscope and the routine tests disagree. The team must distinguish a cellular pathogen from a virus or a noninfectious cause without relying on one ambiguous image.",
-    "stake": "Day two. Pathology has four results from the same samples and will not put a name to any of them. The pictures down the microscope are the most convincing thing anybody has seen all week. That is exactly why Maya Chen does not trust them yet. Today you decide what broad kind of thing this is. Everything after today is chosen off that call: what to grow it in, and what tomorrow's test hunts for.",
+    "stake": "Day two. Pathology has four results from the same samples and will not put a name to any of them. The pictures down the microscope are the most convincing thing anybody has seen all week. That is exactly why Maya Chen, the cell biology lead, does not trust them yet. Today you decide what broad kind of thing this is. Everything after today is chosen off that call: what to grow it in, and what tomorrow's test hunts for.",
     "takeaway": "Use cell structure, viruses versus cells, prokaryotes and eukaryotes, staining, independent evidence as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -84,7 +84,7 @@ export const MISSIONS = [
     "title": "A Test Before Morning",
     "objective": "Approve a diagnostic workflow only after its analytical and clinical limitations are explicit.",
     "briefing": "Hospitals need a rapid diagnostic by sunrise. The molecular signal is promising, but contamination, false negatives, and prevalence could make a technically impressive test clinically misleading.",
-    "stake": "Day nine. The hospitals need a working test by sunrise. Patel's overnight run flagged several patients positive — and one of the controls, a tube that had nothing in it. Three thousand people have already been told to stay home on that run. The bulletin goes out at six. Today you decide whether the run can be believed, and what a positive would mean for one patient.",
+    "stake": "Day nine. The hospitals need a working test by sunrise. Ravi Patel, the molecular diagnostics lead, ran the tests overnight. Several patients came back positive — and so did one of the controls, a tube that had nothing in it. Three thousand people have already been told to stay home on that run. The bulletin goes out at six. Today you decide whether the run can be believed, and what a positive would mean for one patient.",
     "takeaway": "Use PCR logic, controls, sensitivity, specificity, predictive value, prevalence as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -108,7 +108,7 @@ export const MISSIONS = [
     "title": "Why Are Some Patients Sicker?",
     "objective": "Identify the physiological bottleneck and select measurements that distinguish ventilation, diffusion, circulation, and cellular oxygen use.",
     "briefing": "Patients with similar test results have radically different oxygen levels and recovery times. The team must connect cellular damage to organ-system physiology and homeostatic failure.",
-    "stake": "Day thirteen. Nakamura has two patients who arrived with the same complaint and the same results. One is walking to the bathroom. The other is failing, and their oxygen reading looks normal. Today you find which link in the oxygen chain has broken. Nakamura has one line and two patients she would like it in. Treat the wrong link and the treatment is aimed at a part that is working.",
+    "stake": "Day thirteen. Nakamura, the critical care physician, has two patients who arrived with the same complaint and the same results. One is walking to the bathroom. The other is failing, and their oxygen reading looks normal. Today you find which link in the oxygen chain has broken. Nakamura has one line and two patients she would like it in. Treat the wrong link and the treatment is aimed at a part that is working.",
     "takeaway": "Use homeostasis, gas exchange, circulation, oxygen transport, feedback, organ-system integration as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -137,7 +137,7 @@ export const MISSIONS = [
     "title": "The Hidden Transmission Route",
     "objective": "Identify the hidden route and target surveillance where it changes decisions rather than where sampling is easiest.",
     "briefing": "Cases continue despite hospital isolation. Wastewater and neighborhood data suggest transmission is occurring before severe symptoms appear.",
-    "stake": "Day twenty-four, and Morales gets her turn. Ward isolation has held for nine days, and cases keep appearing in streets with nobody in hospital. Grace Oduya kept a sewer sample from the north of the city by chance. It was positive four days before the first patient walked in. Today you decide where this is really being passed on, and where to watch. Oduya has three teams and the city has four drains.",
+    "stake": "Day twenty-four, and Morales gets her turn. Ward isolation has held for nine days, and cases keep appearing in streets with nobody in hospital. Grace Oduya, the field epidemiologist, kept a sewer sample from the north of the city by chance. It was positive four days before the first patient walked in. Today you decide where this is really being passed on, and where to watch. Oduya has three teams and the city has four drains.",
     "takeaway": "Use incidence, prevalence, transmission chains, sampling, R concepts, asymptomatic spread as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -156,7 +156,7 @@ export const MISSIONS = [
     "title": "The Animal Connection",
     "objective": "Build a defensible reservoir hypothesis using ecological exposure, prevalence, and genetic relatedness.",
     "briefing": "Genetic similarities and field reports point toward an animal reservoir near the river corridor. The player must investigate without assuming that the most visible species is the source.",
-    "stake": "Day thirty-three. Readings from three patients look close to something found in animals along the river. The council has signed an order to clear the heron colony on Saturday. Mateo Castellanos has been out there twice and says the herons are the wrong animal. Today you decide what part any animal is really playing, and design the sampling that could show it. Nearby is not the same as guilty.",
+    "stake": "Day thirty-three. Readings from three patients look close to something found in animals along the river. The council has signed an order to clear the heron colony on Saturday. Mateo Castellanos, the wildlife veterinarian, has been out there twice and says the herons are the wrong animal. Today you decide what part any animal is really playing, and design the sampling that could show it. Nearby is not the same as guilty.",
     "takeaway": "Use reservoirs, vectors, food webs, host range, ecological sampling, One Health as an evidence chain rather than as isolated facts.",
     "stops": [
       {

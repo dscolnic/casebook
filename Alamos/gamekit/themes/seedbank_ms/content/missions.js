@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "What is actually in the vault",
     "objective": "Find out what Wellmere is holding and what it is doing while it sits there.",
     "briefing": "41000 accessions, and 60 of them overdue.",
-    "stake": "Monday in the first week of March, and the sowing plan has to be signed by Friday. Wellmere holds forty-one thousand seed batches at minus 18. Yusuf Mbaye says sixty of them must be grown out this season, and there is ground for about forty. Chiara Volpe wants that ground for her trial, and Nasrin Qureshi wants it for the collection. Today you find out what a seed does while it is stored.",
+    "stake": "Monday in the first week of March, and the sowing plan has to be signed by Friday. Wellmere holds forty-one thousand seed batches at minus 18. Yusuf Mbaye, the seed physiologist, says sixty of them must be grown out this season, and there is ground for about forty. Chiara Volpe, the head breeder, wants that ground for her trial, and Nasrin Qureshi wants it for the collection. Today you find out what a seed does while it is stored.",
     "takeaway": "A stored seed is alive and spending itself, and everything in the vault is aimed at slowing that down.",
     "stops": [
       {
@@ -24,6 +24,11 @@ export const MISSIONS = [
         "group": "TRIAL",
         "lesson": 0,
         "task": "Say what sowing each line four times buys."
+      },
+      {
+        "group": "DRY",
+        "lesson": 0,
+        "task": "Sort the harvest bags before the store closes."
       }
     ]
   },
@@ -31,7 +36,7 @@ export const MISSIONS = [
     "title": "What the generation tells you",
     "objective": "Read the second generation of last year's cross, and check it against a marker.",
     "briefing": "400 plants in the warm bay, and a ratio to count.",
-    "stake": "Tuesday. Four hundred plants from Volpe's cross are in the warm bay. This is the generation where the parents' hidden versions come apart and show themselves. Hana Nakagawa has run a marker test on the same plants and has a disagreement to explain. Eleven of them carry the resistance gene and do not look it. Today you count what the generation is telling you, and work out what the mismatch means.",
+    "stake": "Tuesday. Four hundred plants from Volpe's cross are in the warm bay. This is the generation where the parents' hidden versions come apart and show themselves. Hana Nakagawa, the molecular laboratory lead, has run a marker test on the same plants and has a disagreement to explain. Eleven of them carry the resistance gene and do not look it. Today you count what the generation is telling you, and work out what the mismatch means.",
     "takeaway": "A ratio is evidence about what the parents carried, not a decoration on a data sheet.",
     "stops": [
       {
@@ -46,7 +51,7 @@ export const MISSIONS = [
       },
       {
         "group": "DRY",
-        "lesson": 0,
+        "lesson": 1,
         "task": "Say where the weight in the harvest came from."
       },
       {
@@ -75,8 +80,13 @@ export const MISSIONS = [
       },
       {
         "group": "DRY",
-        "lesson": 1,
+        "lesson": 2,
         "task": "Say why a dry summer costs yield."
+      },
+      {
+        "group": "LAB",
+        "lesson": 1,
+        "task": "Choose the batch worth the slot"
       }
     ]
   },
@@ -94,12 +104,12 @@ export const MISSIONS = [
       },
       {
         "group": "LAB",
-        "lesson": 1,
+        "lesson": 2,
         "task": "Set the cut-off, freeze it, and score it on plants it has never seen."
       },
       {
         "group": "DRY",
-        "lesson": 2,
+        "lesson": 3,
         "task": "Say what shorter plants do to the harvest."
       }
     ]
@@ -108,7 +118,7 @@ export const MISSIONS = [
     "title": "How many is enough",
     "objective": "Put a number on what a regeneration needs, and on what the vault is losing.",
     "briefing": "40 accessions, 1 field, and a number nobody wants to hear.",
-    "stake": "Monday of the second week, and the regrow list has to be cut from sixty to forty. Tomas Ivanescu has worked out how many plants each regrow needs, and it is not the number in the manual. Mbaye has eleven years of tests on one batch, and a line the results are about to cross. Today you size the samples, and work out which of last year's results were really the ground talking.",
+    "stake": "Monday of the second week, and the regrow list has to be cut from sixty to forty. Tomas Ivanescu is the population geneticist. He has worked out how many plants each regrow needs. It is not the number in the manual. Mbaye has eleven years of tests on one batch, and a line the results are about to cross. Today you size the samples, and work out which of last year's results were really the ground talking.",
     "takeaway": "Every number here is about a population, and populations do not behave like the plants in them.",
     "stops": [
       {
@@ -147,8 +157,13 @@ export const MISSIONS = [
       },
       {
         "group": "DRY",
-        "lesson": 3,
+        "lesson": 4,
         "task": "Say what explains the best two plots."
+      },
+      {
+        "group": "LAB",
+        "lesson": 3,
+        "task": "Decide what gets tested early, and what the finished line must still show."
       }
     ]
   },
@@ -156,7 +171,7 @@ export const MISSIONS = [
     "title": "The collection is not what the records say",
     "objective": "Find out why the regenerated accessions no longer match their own passports.",
     "briefing": "A genotyping run that was meant to be routine.",
-    "stake": "Thursday. Nakagawa ran a routine DNA test across ninety batches. DNA is the instruction set inside every seed, and it can be read directly. A third of them do not match their records — same numbers, same paperwork, different plants. Sylvie Pirelli has checked the labels twice and found nothing wrong. Qureshi has gone down to the vault and has not come back up. Today you work out what happened to those batches, and whether it happened in the vault or in the field.",
+    "stake": "Thursday. Nakagawa ran a routine DNA test across ninety batches. DNA is the instruction set inside every seed, and it can be read directly. A third of them do not match their records — same numbers, same paperwork, different plants. Sylvie Pirelli, who keeps the passport records, has checked the labels twice. Qureshi has gone down to the vault and has not come back up. Today you work out what happened to those batches, and whether it happened in the vault or in the field.",
     "takeaway": "A collection can be kept perfectly and still stop being the thing it was.",
     "stops": [
       {
@@ -165,19 +180,9 @@ export const MISSIONS = [
         "task": "Open what each result rests on, keep what stands alone, and name what the rest share."
       },
       {
-        "group": "LAB",
-        "lesson": 2,
-        "task": "Choose the batch worth the slot"
-      },
-      {
         "group": "VAULT",
         "lesson": 3,
         "task": "Name the step that failed."
-      },
-      {
-        "group": "LAB",
-        "lesson": 3,
-        "task": "Decide what gets tested early, and what the finished line must still show."
       },
       {
         "group": "POP",
@@ -188,11 +193,6 @@ export const MISSIONS = [
         "group": "VAULT",
         "lesson": 4,
         "task": "Say why the farm may hold what the vault lost."
-      },
-      {
-        "group": "DRY",
-        "lesson": 4,
-        "task": "Sort the harvest bags before the store closes."
       }
     ]
   },

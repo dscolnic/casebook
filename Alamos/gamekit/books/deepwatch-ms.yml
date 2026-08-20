@@ -866,7 +866,7 @@ missions:
     objective: Work out what is out there before the boat commits to anything.
     briefing: |-
       Sonar has four sources on the display at once. Two of them have been there since before the boat slowed, one came with the turn, and one comes and goes. The captain wants to know which of them she has to care about.
-    stake: "Second day out. Sonar is listening for sound in the water, and there are four traces on the display. Nils Rask has been arguing with his own operator about the fourth. It holds almost the same bearing, and it is getting louder. Commander Iris Vance wants it classified before the boat commits. This watch you sort out what is out there, and say what a steady bearing means. A bearing that does not change is two ships heading for the same water."
+    stake: "Second day out. Sonar is listening for sound in the water, and there are four traces on the display. Nils Rask, the sonar supervisor, has been arguing with his own operator about the fourth. It holds almost the same bearing, and it is getting louder. Commander Iris Vance wants it classified before the boat commits. This watch you sort out what is out there, and say what a steady bearing means. A bearing that does not change is two ships heading for the same water."
     takeaway: A bearing is a measurement; a track is an argument built from several of them.
     stops:
       - group: SONAR
@@ -1043,7 +1043,7 @@ missions:
     objective: Work out not where the boat is, but how well that is known.
     briefing: |-
       The boat has been submerged for hours on dead reckoning. The plot is a confident-looking line drawn from course and speed, and it knows nothing about the water that has been setting the boat sideways the whole time. Ahead is a bank.
-    stake: "Third day, and the last trusted fix was three and a half hours ago. Imani Sowande has a plot built from course, speed and time. Anya Petrov has been reading the depth sounder, and the two do not agree. There is a half-knot current nobody has measured today. This watch you work out how far the water has carried the boat, and get a position that does not depend on the plot. A bank sits half a mile off the track."
+    stake: "Third day, and the last trusted fix was three and a half hours ago. Imani Sowande has a plot built from course, speed and time. Anya Petrov, the assistant navigator, has been reading the depth sounder, and the two do not agree. There is a half-knot current nobody has measured today. This watch you work out how far the water has carried the boat, and get a position that does not depend on the plot. A bank sits half a mile off the track."
     takeaway: Precision is not accuracy, and two displays sharing a source are one measurement.
     stops:
       - group: NAV
@@ -1344,7 +1344,7 @@ missions:
     objective: Find the water, decide whether pumping can win, and stop the source.
     briefing: |-
       The forward space is taking water. The drain pump is running and the level is still rising. Somewhere under those deck plates is a hole, and the boat is at 90 metres, which is what makes it a hole worth respecting.
-    stake: "Sixth day. Water is over the bilge in the forward space, with the drain pump running. Ruth Hallam has the level and reports it steady. Ferro does not believe steady means anything, and is looking for the hole. This watch you find where the water is coming in, and work out whether pumping can win. Pumping buys minutes, and they are worth nothing unless somebody spends them finding the source."
+    stake: "Sixth day. Water is over the bilge in the forward space, with the drain pump running. Ruth Hallam, the auxiliary division, has the level and reports it steady. Ferro does not believe steady means anything, and is looking for the hole. This watch you find where the water is coming in, and work out whether pumping can win. Pumping buys minutes, and they are worth nothing unless somebody spends them finding the source."
     takeaway: Flooding is stopped at the hull fitting; everything else is delay.
     stops:
       - group: DC
@@ -1515,7 +1515,7 @@ missions:
     objective: Put out a fire whose ignition source is electrical, in the order that makes it stay out.
     briefing: |-
       Smoke in the electrical distribution space. The switchboard indicator says the affected bus is open, and the fire is behind a panel where nobody can see the seat of it.
-    stake: "Same day, eight hours after the flooding, and nobody has slept. Smoke is coming off a switchboard in the electrical space. The indicator says the bus is open, and a meter on the cable inside reads 440 volts. Bede Okonkwo will not send anybody in on the strength of a lamp. This watch you decide what that meter is telling you, and how to fight a space nobody can see into."
+    stake: "Same day, eight hours after the flooding, and nobody has slept. Smoke is coming off a switchboard in the electrical space. The indicator says the bus is open, and a meter on the cable inside reads 440 volts. Bede Okonkwo, the electrical division, will not send anybody in on the strength of a lamp. This watch you decide what that meter is telling you, and how to fight a space nobody can see into."
     takeaway: An electrical fire is put out by de-energizing it; the agent only finishes the job.
     stops:
       - group: FIRE
@@ -1730,7 +1730,7 @@ missions:
     objective: Tell a failing sensor from failing air, and find where the air stopped moving.
     briefing: |-
       Two of the crew in berthing have headaches. The atmosphere plant says everything is normal. Both of those statements can be true at once, and working out how is the whole of this watch.
-    stake: "Eighth day. The scrubber is running and its outlet reads clean. Elena Navarro has been round berthing with a handheld meter, and it reads far higher than the sensor on that bulkhead. Nine people are asleep in there. This watch you decide whether it is the air or the instrument that is wrong, and how long that space is safe. The crew notice this one before the instruments do."
+    stake: "Eighth day. The scrubber is running and its outlet reads clean. Elena Navarro, the corpsman, has been round berthing with a handheld meter, and it reads far higher than the sensor on that bulkhead. Nine people are asleep in there. This watch you decide whether it is the air or the instrument that is wrong, and how long that space is safe. The crew notice this one before the instruments do."
     takeaway: A plant reading is a report about the plant, not about the compartment you are standing in.
     stops:
       - group: ATMO

@@ -565,7 +565,7 @@ missions:
         task: Read what the mill is actually reporting
         title: A spinning shutter and a sign
         place: Field Station
-        scene: Field-instruments specialist Mira Halvorsen has the reference mill open on the bench, its shutter turning over the plate. On the wall, all four mills read about −1.2 kV/m, and fair-weather readings carry the same negative sign.
+        scene: Field-instruments specialist Mira Halvorsen, the field instruments technician, has the reference mill open on the bench, its shutter turning over the plate. On the wall, all four mills read about −1.2 kV/m, and fair-weather readings carry the same negative sign.
         guide: >-
           All four options are things somebody might want from a mill. Ask of each
           whether one reading at the ground could contain it. The field under a wide
@@ -612,7 +612,7 @@ missions:
         task: Find out what the certificate measured
         title: Twenty-five ohms, at what
         place: Earthing Compound
-        scene: "Earthing engineer Ana Sifuentes sets the April certificate on the bench: 25 ohms, instrument named, operator signed. She wants the measured quantity stated exactly before anyone uses the number to make a claim about the storm season."
+        scene: "Earthing engineer Ana Sifuentes, the earthing engineer, sets the April certificate on the bench: 25 ohms, instrument named, operator signed. She wants the measured quantity stated exactly before anyone uses the number to make a claim about the storm season."
         guide: >-
           Four readings of the same certificate. Ask of each what the tester actually
           did: it pushed a small steady current into the soil and measured the voltage.
@@ -665,7 +665,7 @@ missions:
     stake: >-
       Tuesday, and yesterday's cell left a number nobody has used. At the moment the crew was
       walked back the four mills read 4.5 kV/m together, which Vero wants in the season log as a
-      charge rather than as a field. Emil Strand says the hall can produce the same field between
+      charge rather than as a field. Emil Strand, the high-voltage engineer, says the hall can produce the same field between
       two plates a metre apart and that the arithmetic is the same either way. Today you get the
       charge per square metre on the cloud base out of a reading taken at head height, and find
       out what the same law says about the inside of the screened room.
@@ -835,7 +835,7 @@ missions:
         title: Inside the sheet
         concept: Field inside a conductor, and shielding
         place: Screened Room
-        scene: Rigger and mast supervisor Owen Tate closes the screened-room door. The instrument on the bench inside drops to zero while the flat outside remains near 4 kV/m. Nothing on the instrument rack has been switched off.
+        scene: Rigger and mast supervisor Owen Tate, the rigger & mast supervisor, closes the screened-room door. The instrument on the bench inside drops to zero while the flat outside remains near 4 kV/m. Nothing on the instrument rack has been switched off.
         guide: >-
           Say what the probe inside will read once the door is shut, then shut it and read the
           probe. The prediction is the part that matters: a number written before the door
@@ -893,7 +893,7 @@ missions:
     stake: >-
       Wednesday, and the log has a column for potential difference that has been empty since the
       station opened. Vero wants it filled from yesterday's field rather than from a textbook.
-      Ingrid Lauwers has asked a question that sounds like pedantry and is not: between which two
+      Ingrid Lauwers, the emc engineer, has asked a question that sounds like pedantry and is not: between which two
       points. Today you take the field down a path and get volts out of it, and settle what a
       number in that column would have to name before it means anything. The records officer,
       Yusuf Kaya, has three shots
@@ -1525,7 +1525,7 @@ missions:
     objective: Derive the energy in the bank, and say what it means for the hall.
     briefing: Twelve stages at fifty kilovolts, and the safety case rests on a number nobody re-derives.
     stake: >-
-      Monday of week four, and Josefa Ruiz wants the hall's energy figure checked before the
+      Monday of week four, and Josefa Ruiz, the impulse hall technician, wants the hall's energy figure checked before the
       season's biggest impulse test on Friday. Twelve stages, a hundred nanofarads each, charged
       to fifty kilovolts: the placard on the barrier says fifteen hundred joules, and it has said
       so since the hall was built by people who have all since left. Emil Strand's view is that a
@@ -1748,7 +1748,7 @@ missions:
     objective: Find out whether the current measurements are independent of each other.
     briefing: Three shunts, three readings within ten per cent, and one thing they have in common.
     stake: >-
-      Tuesday, and Kenji Nakata has the S-114 record open because the funding review will quote
+      Tuesday, and Kenji Nakata, the current measurement engineer, has the S-114 record open because the funding review will quote
       it. Three separate measurements of last August's strike agree within ten per cent, which the
       station has been treating as confirmation for a year and which Vero has already put in a
       draft. Nakata does not like how tidy it is. Ana Sifuentes has pointed out, without making
@@ -2266,7 +2266,7 @@ missions:
         task: Derive the voltage induced in the trench cable
         title: The loop nobody drew
         place: Cable Trench
-        scene: Instrumentation specialist Sam Abioye has the outstation trench route on the wall. For forty metres, the signal pair runs beside the down-conductor. Its near side is 1.5 m away; the far side is 3.5 m away.
+        scene: Instrumentation specialist Sam Abioye, the instrumentation technician, has the outstation trench route on the wall. For forty metres, the signal pair runs beside the down-conductor. Its near side is 1.5 m away; the far side is 3.5 m away.
         guide: >-
           Build it a line at a time. The field from the down-conductor falls as one over
           the distance, so the flux through the trench loop needs an integral across it,

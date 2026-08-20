@@ -107,6 +107,10 @@ export default {
     + 'morning rule buys time rather than settling anything; the flume\'s pump runs at 53.7 '
     + 'kilowatts against a 55-kilowatt plate; and the 1974 drawings are still the only ones the '
     + 'park has, now known to be wrong about at least one dimension by 1.8 metres.',
+    'Six rides opened on your derivations. You computed what the notebooks only remembered, '
+    + 'you retimed a drive from what the pendulum actually does, and you kept the wheel shut '
+    + 'when keeping it shut cost the park a season. A summer of people rode safely and none of '
+    + 'them will ever know your name. You will.',
   ],
 
   look: {

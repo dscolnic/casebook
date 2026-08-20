@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "What the plateau has been writing down",
     "objective": "Establish what this site records, how fast it records it, and why anybody drilled here.",
     "briefing": "A new season opens on a core that is already 2000 metres deep.",
-    "stake": "First morning of the season, and the drill has not turned yet. Nadia Brandt has a fortnight of stake readings and a fresh pit wall. Marit Halvorsen wants the season's snowfall figure before the plan is written. Today you settle how much snow a year adds, and why the hole was put here rather than forty kilometres downhill. Get the snowfall wrong and every age below it is wrong the same way, quietly, for three kilometres.",
+    "stake": "First morning of the season, and the drill has not turned yet. Nadia Brandt, the field glaciologist, has a fortnight of stake readings and a fresh pit wall. Marit Halvorsen, the chief scientist, wants the season's snowfall figure before the plan is written. Today you settle how much snow a year adds, and why the hole was put here rather than forty kilometres downhill. Get the snowfall wrong and every age below it is wrong the same way, quietly, for three kilometres.",
     "takeaway": "A record is only as good as the rate at which it was written.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "Three kilometres of one attempt",
     "objective": "Get the core to the surface and onto the line without changing what it can say.",
     "briefing": "The brittle zone starts at 540 metres and the run sheet has 3 short runs on it.",
-    "stake": "Second day, and the drill is going back down after a night of repairs. Lindqvist has three short runs on the sheet from last season's brittle ice. Sigrid Holt has a section that arrived with no depth mark on it. Today you decide how the brittle run is made, and what happens to a section nobody can place. Ice gets one reading. What breaks on the way up cannot be drilled again.",
+    "stake": "Second day, and the drill is going back down after a night of repairs. Lindqvist has three short runs on the sheet from last season's brittle ice. Sigrid Holt, the core line technician, has a section that arrived with no depth mark on it. Today you decide how the brittle run is made, and what happens to a section nobody can place. Ice gets one reading. What breaks on the way up cannot be drilled again.",
     "takeaway": "Everything the core can say is decided before anybody measures anything.",
     "stops": [
       {
@@ -113,7 +113,7 @@ export const MISSIONS = [
     "title": "Air that stopped moving",
     "objective": "Establish what a bubble is, when it sealed, and why its air is younger than its ice.",
     "briefing": "The gas record and the ice record from the same depth are not the same age.",
-    "stake": "Saturday. Samuel Adeyemi has carbon dioxide from four depths and a problem with all of them. The air in a bubble stopped moving centuries after the snow around it fell. At a site this dry, that gap is the biggest correction in the record. Today you work out how big the gap is here, and why the gas record is smoother than the ice one. Get it wrong and a gas record lands centuries from the climate it belongs to.",
+    "stake": "Saturday. Samuel Adeyemi, the gas geochemist, has carbon dioxide from four depths and a problem with all of them. The air in a bubble stopped moving centuries after the snow around it fell. At a site this dry, that gap is the biggest correction in the record. Today you work out how big the gap is here, and why the gas record is smoother than the ice one. Get it wrong and a gas record lands centuries from the climate it belongs to.",
     "takeaway": "Two things in the same piece of ice can be different ages, and the difference has to be calculated.",
     "stops": [
       {
@@ -214,7 +214,7 @@ export const MISSIONS = [
     "title": "The night the generator stopped",
     "objective": "Work out what the core store record can still prove after a power failure.",
     "briefing": "The store was without power for six hours and the log says nothing about it.",
-    "stake": "Saturday. The number two generator stopped at some point in the night. The core store came back at minus 19, and the log has an entry for the whole night, signed. Anneke de Vries needs the drill and the store back in a fixed order. Today you decide which signatures are worth checking, and what gets restarted first. Ice that warmed and was signed for as cold is worse than ice that warmed.",
+    "stake": "Saturday. The number two generator stopped at some point in the night. The core store came back at minus 19, and the log has an entry for the whole night, signed. Anneke de Vries, the camp manager, needs the drill and the store back in a fixed order. Today you decide which signatures are worth checking, and what gets restarted first. Ice that warmed and was signed for as cold is worse than ice that warmed.",
     "takeaway": "A record is a claim about a condition, and the two can come apart in a night.",
     "stops": [
       {

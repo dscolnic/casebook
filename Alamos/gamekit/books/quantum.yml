@@ -375,9 +375,9 @@ missions:
     objective: Work out why the chip has to be colder than anything else in the building.
     briefing: The fridge is at 42 millikelvin instead of 11, and nothing on the chip behaves.
     stake: >-
-      Monday, and the machine is warm. Ijeoma Okafor brought the fridge down over the weekend
+      Monday, and the machine is warm. Ijeoma Okafor, the cryogenic engineer, brought the fridge down over the weekend
       and it has settled at 42 millikelvin instead of the 11 it usually holds, which sounds like
-      a small difference and is not. Kofi Mensah cannot get a clean measurement out of any qubit
+      a small difference and is not. Kofi Mensah, the control engineer, cannot get a clean measurement out of any qubit
       on the chip, and Priya Raghavan has a review in ten days. Okafor thinks the heat is coming
       down a cable somebody added in the last cooldown. Today you work out what temperature
       actually does to a qubit, put a number on how much of the chip is sitting in the wrong
@@ -583,7 +583,7 @@ missions:
     stake: >-
       Friday, the fridge is at 11 millikelvin and 11 of the 12 qubits are where they were last month.
       The twelfth is not answering anywhere near its design frequency, and Kofi Mensah has spent the morning
-      sweeping. Sara Lindqvist thinks the junction on that one came out of a run she has been suspicious of
+      sweeping. Sara Lindqvist, the fabrication lead, thinks the junction on that one came out of a run she has been suspicious of
       since the spring. Priya Raghavan needs 12 working qubits for the circuit she has promised the
       review. Today you find the transition by sweeping for it, turn the drive into a pulse that flips the
       qubit reliably, and decide whether this chip is the one to spend the fortnight on.
@@ -857,11 +857,11 @@ missions:
     objective: Separate energy leaving the qubit from phase being scrambled.
     briefing: T1 is respectable and T2 is a third of what it should be, on every qubit at once.
     stake: >-
-      Monday, and the coherence numbers are lopsided. Anders Holm has the relaxation time on every qubit
+      Monday, and the coherence numbers are lopsided. Anders Holm, the verification lead, has the relaxation time on every qubit
       sitting about where he wants it and the coherence time at a fraction of that, on all 12 within a
       few per cent — and a qubit's coherence can never exceed twice its relaxation time, so whatever is
       doing this is scrambling phase without taking any energy at all. Ijeoma Okafor says the fridge is
-      quiet and has a fortnight of logs to show it. Ren Nakamura suspects the flux line. Priya Raghavan
+      quiet and has a fortnight of logs to show it. Ren Nakamura, the readout and amplifier specialist, suspects the flux line. Priya Raghavan
       needs to know which of these numbers goes in the review and what it means for the circuit she has
       promised. Today you read both times off the traces yourself, work out what a poor coherence time
       against a good relaxation time is telling you, and decide where the noise is getting in.
@@ -1362,7 +1362,7 @@ missions:
         task: Distinguish no-cloning from communication
         title: Copying a state is not the same as transferring one
         place: Networks & Security
-        scene: Yusuf Sadiq points out that Delft does not need Ridgeway's physical quantum state at all; it needs the recipe for preparing its own. An arbitrary unknown state cannot be turned into a classical file that produces two perfect copies.
+        scene: Yusuf Sadiq, the networks postdoc, points out that Delft does not need Ridgeway's physical quantum state at all; it needs the recipe for preparing its own. An arbitrary unknown state cannot be turned into a classical file that produces two perfect copies.
         guide: >-
           All four options agree that something cannot be sent, and disagree about what.
           The candidates are the size of a description, the transfer itself, and what
@@ -1685,7 +1685,7 @@ missions:
       Friday, and Elena Barros is not interested in the review. Her magnetometer measures fields 100 million
       times weaker than the Earth's, a hospital across the city uses those numbers in a study that
       has been running for 3 years, and the calibration is due at 2 o'clock whatever else is
-      happening. Grace Whitfield is bringing the reference. Priya Raghavan, who needs Barros for the review
+      happening. Grace Whitfield, the metrologist, is bringing the reference. Priya Raghavan, who needs Barros for the review
       slides, has been told to come back at three. Today you work out where a sensor's precision limit comes
       from, what averaging can and cannot buy, and why a number that leaves the building carries obligations
       that a number in a slide does not.
@@ -1893,7 +1893,7 @@ missions:
     stake: >-
       Monday, and there are two error figures on the board. A direct measurement of a single gate says 0.4%. Randomised benchmarking over long sequences says 1.2. Anders Holm says both are correct and
       they answer different questions; Priya Raghavan says the review will only print 1 of them. Dasha
-      Petrova wants whichever number is comparable with the threshold, because below that line adding
+      Petrova, the theory, wants whichever number is comparable with the threshold, because below that line adding
       qubits helps and above it they do not. Today you work out what randomised benchmarking actually
       measures, why a long sequence gives a different answer from a short one, and which number belongs in
       a sentence about error correction.
@@ -2524,7 +2524,7 @@ missions:
       lower gate error and better readout separation than Ridgeway's by every independent metric
       they sent, yet the circuit fidelity they report is about a third lower. Anders Holm has
       been asking for a second device since March because this is exactly the kind of
-      contradiction one machine cannot create for itself. Marta Castellan pulls both groups'
+      contradiction one machine cannot create for itself. Marta Castellan, the research software, pulls both groups'
       analysis notebooks and starts comparing where calibration data end and evaluation data
       begin. Today you diagnose the discrepancy, trace which of the fortnight's results depend
       on the suspect step, and decide what has to happen before the review.

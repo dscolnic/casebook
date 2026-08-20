@@ -1181,7 +1181,7 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "The reading that cannot wait",
-      "scene": "Four screens are showing four problems at once. Camila Reyes wants to know which one the room should watch while the tracking pass — the few minutes when a dish on Earth can measure the spacecraft — comes round.",
+      "scene": "Four screens are showing four problems at once. Camila Reyes, the guidance lead, wants to know which one the room should watch while the tracking pass — the few minutes when a dish on Earth can measure the spacecraft — comes round.",
       "takeaway": "Air runs out in minutes. Warmth and power run out in hours, so the air is watched first.",
       "place": "Spacecraft Systems Console",
       "guide": "All four readings matter and all four are being watched. Ask of each how fast it changes, and what happens to the crew if it goes wrong. Some of these get worse over hours. One of them gets worse in minutes, and there is nothing the crew can do without it. That is the difference being graded.",
@@ -1190,7 +1190,7 @@ export const CURRICULUM = {
         "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
         "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
       ],
-      "story": "Four screens are showing four problems at once. Camila Reyes wants to know which one the room should watch while the tracking pass — the few minutes when a dish on Earth can measure the spacecraft — comes round.",
+      "story": "Four screens are showing four problems at once. Camila Reyes, the guidance lead, wants to know which one the room should watch while the tracking pass — the few minutes when a dish on Earth can measure the spacecraft — comes round.",
       "game": {
         "type": "CHOICE",
         "title": "The reading that cannot wait",

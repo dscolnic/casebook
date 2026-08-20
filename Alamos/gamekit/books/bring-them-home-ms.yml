@@ -371,7 +371,7 @@ missions:
   - title: The Failure
     objective: Create a trusted state vector and a prioritized anomaly list before commanding the crew.
     briefing: A crewed lunar spacecraft reports an explosion, falling electrical power, and contradictory telemetry. The player takes the flight-director console and must first determine what can still be measured reliably.
-    stake: "The bang was four minutes ago. Commander Hale heard it before any instrument showed it. Now three consoles disagree. One main power line reads zero. Several cabin pressure readings dropped in the same second. Evelyn Carter says readings that drop together are one fault, not three. Today you work out what is happening and get the room to one picture of it. Hale and the crew can hear every word you say."
+    stake: "The bang was four minutes ago. Commander Hale heard it before any instrument showed it. Now three consoles disagree. One main power line reads zero. Several cabin pressure readings dropped in the same second. Evelyn Carter, the mission integration lead, says readings that drop together are one fault, not three. Today you work out what is happening and get the room to one picture of it. Hale and the crew can hear every word you say."
     takeaway: Use units, vectors, graphs, measurement uncertainty, common-mode failure as an evidence chain rather than as isolated facts.
     stops:
       - group: INTEG
@@ -468,7 +468,7 @@ missions:
         title: The reading that cannot wait
         concept: Ordering work when several things are wrong at once
         place: Spacecraft Systems Console
-        scene: Four screens are showing four problems at once. Camila Reyes wants to know which one the room should watch while the tracking pass — the few minutes when a dish on Earth can measure the spacecraft — comes round.
+        scene: Four screens are showing four problems at once. Camila Reyes, the guidance lead, wants to know which one the room should watch while the tracking pass — the few minutes when a dish on Earth can measure the spacecraft — comes round.
         guide: >-
           All four readings matter and all four are being watched. Ask of each how fast
           it changes, and what happens to the crew if it goes wrong. Some of these get
@@ -511,7 +511,7 @@ missions:
   - title: Find the Spacecraft
     objective: Produce a consistent trajectory estimate and identify which new observation most reduces uncertainty.
     briefing: Tracking data are intermittent, and the onboard computer has restarted. The team must reconstruct position and velocity from range, bearing, and timed observations.
-    stake: "Nine hours after the bang. The one station still tracking sets in forty minutes. Camila Reyes, the guidance lead, will not sign a trajectory built on the computer that failed. Today you rebuild where the spacecraft is and how fast it is going. Dale Whitaker wants a number now, so the room can plan the correction. Reyes wants the right number. They are both right, and the clock is the same forty minutes."
+    stake: "Nine hours after the bang. The one station still tracking sets in forty minutes. Camila Reyes, the guidance lead, will not sign a trajectory built on the computer that failed. Today you rebuild where the spacecraft is and how fast it is going. Dale Whitaker, the trajectory officer, wants a number now, so the room can plan the correction. Reyes wants the right number. They are both right, and the clock is the same forty minutes."
     takeaway: Use position, velocity, acceleration, coordinate systems, graphs of motion as an evidence chain rather than as isolated facts.
     stops:
       - group: NAV
@@ -883,7 +883,7 @@ missions:
   - title: The Power Budget
     objective: Build a load-shedding plan that preserves essential functions through the next critical maneuver.
     briefing: Fuel cells and batteries are degraded. Every electrical load now competes with guidance, communications, thermal control, and life support.
-    stake: "Thirty-four hours in. Priya Shah has the power reserve down to hours, and she wants everything not vital switched off today. Aaron Brooks says the two things on his list are the air scrubber and the heaters. His crew are sleeping in everything they own. Today you work out how long the batteries last and choose what goes off. Whatever you switch off, somebody up there feels it."
+    stake: "Thirty-four hours in. Priya Shah, the power systems lead, has the power reserve down to hours, and she wants everything not vital switched off today. Aaron Brooks, the thermal and life support lead, says the two things on his list are the air scrubber and the heaters. His crew are sleeping in everything they own. Today you work out how long the batteries last and choose what goes off. Whatever you switch off, somebody up there feels it."
     takeaway: Use current, voltage, resistance, electrical power, energy budget as an evidence chain rather than as isolated facts.
     stops:
       - group: ELEC
@@ -1291,7 +1291,7 @@ missions:
   - title: The Air Problem
     objective: Develop a safe temporary air-cleaning and circulation strategy using only validated physical principles and monitored limits.
     briefing: Carbon dioxide removal is failing, and pressure readings differ between compartments. The player must connect gas laws, partial pressure, fluid flow, and filter resistance.
-    stake: "Fifty-eight hours in. Carbon dioxide is climbing in a cabin built for two and holding three. Petra Novak has been on the radio with the crew for an hour. The spare canisters are the wrong shape for the socket. Today you find out why the air is not being cleaned, and build something out of what is aboard. Hale has started making small mistakes reading numbers back. That is the first sign, and he cannot see it himself."
+    stake: "Fifty-eight hours in. Carbon dioxide is climbing in a cabin built for two and holding three. Petra Novak, the life support engineer, has been on the radio with the crew for an hour. The spare canisters are the wrong shape for the socket. Today you find out why the air is not being cleaned, and build something out of what is aboard. Hale has started making small mistakes reading numbers back. That is the first sign, and he cannot see it himself."
     takeaway: Use ideal gases, partial pressure, flow resistance, pressure difference, filtration as an evidence chain rather than as isolated facts.
     stops:
       - group: INTEG
@@ -1457,7 +1457,7 @@ missions:
   - title: Communication Fades
     objective: Restore a reliable low-bandwidth link and use the signal itself as a navigation measurement.
     briefing: The spacecraft signal weakens and shifts in frequency as geometry changes. The team must separate transmitter failure from antenna pointing, range loss, and Doppler effects.
-    stake: "Sixty-six hours in. The radio went weak the moment the spacecraft turned. Hale is answering calls he can barely hear. Naomi Ito wants the aim checked first. Her network officer wants the receiver checked instead. Today you find the cause and get the link back. Losing the radio costs twice, because it is also how the room measures where the spacecraft is. There is still a burn to fly."
+    stake: "Sixty-six hours in. The radio went weak the moment the spacecraft turned. Hale is answering calls he can barely hear. Naomi Ito, the communications lead, wants the aim checked first. Her network officer wants the receiver checked instead. Today you find the cause and get the link back. Losing the radio costs twice, because it is also how the room measures where the spacecraft is. There is still a burn to fly."
     takeaway: Use waves, frequency, wavelength, inverse-square behavior, Doppler effect as an evidence chain rather than as isolated facts.
     stops:
       - group: COMMS
@@ -1607,7 +1607,7 @@ missions:
   - title: The Structure Is Vibrating
     objective: Move the system away from resonance and verify that the mitigation works across operating conditions.
     briefing: A pump and flexible panel produce a growing oscillation near one operating speed. The player must identify resonance and protect the structure without disabling life support.
-    stake: "Ninety hours in, and Chidi Okoye caught this one early. Nothing else this week has been caught early. A panel shakes whenever a pump runs near one speed. A pipe behind it has been rubbing for an hour. Today you work out what is shaking it, and stop it. The shaking dies away as soon as the pump moves off that speed. This is a day where something is simply fixed."
+    stake: "Ninety hours in, and Chidi Okoye, the structural dynamics engineer, caught this one early. Nothing else this week has been caught early. A panel shakes whenever a pump runs near one speed. A pipe behind it has been rubbing for an hour. Today you work out what is shaking it, and stop it. The shaking dies away as soon as the pump moves off that speed. This is a day where something is simply fixed."
     takeaway: Use simple harmonic motion, natural frequency, resonance, damping, forced oscillation as an evidence chain rather than as isolated facts.
     stops:
       - group: INTEG

@@ -410,65 +410,6 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "Thirty-seven paths in a hundred thousand",
-      "scene": "The computer has finished flying every path that fits the measurements. What came back is a count. The number that leaves this room will be quoted in public for years.",
-      "takeaway": "A very small chance can only be measured by trying a very large number of times.",
-      "place": "Statistical Orbit Lab",
-      "guide": "Four numbers, and two belong to other things. The first quick run, and the years to the encounter. Ask of each whether this share needs it. And note what the answer means. It is the share of the paths that still fit, and one new measurement can change it a lot.",
-      "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
-      ],
-      "story": "The computer has finished flying every path that fits the measurements. What came back is a count. The number that leaves this room will be quoted in public for years.",
-      "game": {
-        "type": "BALLPARK",
-        "title": "Thirty-seven paths in a hundred thousand",
-        "setup": "Statistical Orbit Lab",
-        "play": "Turn the count of paths that hit into a chance anybody can quote.",
-        "task": "Turn the count of paths that hit into a chance anybody can quote.",
-        "question": "What is the chance of impact, as a percentage?",
-        "answer": "",
-        "why": "The computer draws many paths that all fit the measurements, then flies each one forward. Thirty-seven out of one hundred thousand land on Earth. That works out at 0.037 per cent. It is not a count of future impacts. It is the share of the spread that lands on us. So the number moves whenever the spread moves. One good measurement next week can shrink it to nothing, or double it.",
-        "givens": [],
-        "relationship": "Chance = paths that hit ÷ all the paths tried. Multiply by one hundred for a percentage.",
-        "calcKey": "ORBIT-3"
-      },
-      "assumes": [
-        "a chance can be worked out by counting how often something happens out of all the tries"
-      ],
-      "equations": [
-        {
-          "e": "part = whole × share",
-          "c": "a percentage of a population",
-          "v": [
-            [
-              "part",
-              "how many that share comes to"
-            ],
-            [
-              "whole",
-              "the whole population"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it has to become a decimal before anything is multiplied by it.",
-          "computed": true
-        }
-      ],
-      "concept": {
-        "n": 4,
-        "c": "Uncertainty as a range, not a mistake",
-        "of": 16,
-        "rests": [
-          "Repeated measurements and their average"
-        ]
-      }
-    },
-    {
-      "day": 4,
       "title": "What this pass does to the next one",
       "scene": "Radar has pinned this pass at 2.4 Earth radii and the room starts to relax. Then the return solution flashes up on the board: eleven years.",
       "takeaway": "A close pass rewrites the path it happens on, so safety is a claim about the passes after it.",
@@ -551,6 +492,65 @@ export const CURRICULUM = {
         "of": 16,
         "rests": [
           "Position, time and speed: how fast something moves across the sky"
+        ]
+      }
+    },
+    {
+      "day": 4,
+      "title": "Thirty-seven paths in a hundred thousand",
+      "scene": "The computer has finished flying every path that fits the measurements. What came back is a count. The number that leaves this room will be quoted in public for years.",
+      "takeaway": "A very small chance can only be measured by trying a very large number of times.",
+      "place": "Statistical Orbit Lab",
+      "guide": "Four numbers, and two belong to other things. The first quick run, and the years to the encounter. Ask of each whether this share needs it. And note what the answer means. It is the share of the paths that still fit, and one new measurement can change it a lot.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
+      "story": "The computer has finished flying every path that fits the measurements. What came back is a count. The number that leaves this room will be quoted in public for years.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "Thirty-seven paths in a hundred thousand",
+        "setup": "Statistical Orbit Lab",
+        "play": "Turn the count of paths that hit into a chance anybody can quote.",
+        "task": "Turn the count of paths that hit into a chance anybody can quote.",
+        "question": "What is the chance of impact, as a percentage?",
+        "answer": "",
+        "why": "The computer draws many paths that all fit the measurements, then flies each one forward. Thirty-seven out of one hundred thousand land on Earth. That works out at 0.037 per cent. It is not a count of future impacts. It is the share of the spread that lands on us. So the number moves whenever the spread moves. One good measurement next week can shrink it to nothing, or double it.",
+        "givens": [],
+        "relationship": "Chance = paths that hit ÷ all the paths tried. Multiply by one hundred for a percentage.",
+        "calcKey": "ORBIT-4"
+      },
+      "assumes": [
+        "a chance can be worked out by counting how often something happens out of all the tries"
+      ],
+      "equations": [
+        {
+          "e": "part = whole × share",
+          "c": "a percentage of a population",
+          "v": [
+            [
+              "part",
+              "how many that share comes to"
+            ],
+            [
+              "whole",
+              "the whole population"
+            ],
+            [
+              "share",
+              "the percentage, written as a decimal"
+            ]
+          ],
+          "s": "A percentage is a share out of a hundred, so it has to become a decimal before anything is multiplied by it.",
+          "computed": true
+        }
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Uncertainty as a range, not a mistake",
+        "of": 16,
+        "rests": [
+          "Repeated measurements and their average"
         ]
       }
     },
@@ -1292,71 +1292,6 @@ export const CURRICULUM = {
   "IMPACT": [
     {
       "day": 1,
-      "title": "Read the risk correctly",
-      "scene": "The best-guess path misses Earth, and the cloud of possible paths around it still touches the impact line. Dr. Marco Rossi, the orbit lead, wants one sentence before the briefing.",
-      "takeaway": "Risk lives in the whole spread, not in the middle of it.",
-      "place": "Impact Monitoring Center",
-      "guide": "The cloud on screen is every path the observations still allow. Its middle misses Earth. Its edge still touches the impact line, so this is not a stand-down yet. Two improvements are ready, and they do different things to the cloud: one moves it, one makes it smaller. Apply what you would authorise, then say what the briefing can state.",
-      "background": [
-        "What the cloud is. The path is worked out from observations, and the observations allow a range of paths rather than one. Drawn on the encounter plane, that range is a cloud. The impact line is drawn on the same plane. Saying the best-guess path misses Earth is a statement about the middle of the cloud only.",
-        "Moving it and shrinking it are different jobs. Fixing an error in the best-guess path slides the whole cloud across without changing its size. The uncertainty is the same, just somewhere else. A new, well-placed observation adds information and makes the cloud smaller. Only that can clear Earth if it is the width that reaches the line.",
-        "Why the sentence matters. People hear safe or not safe. A stand-down that gets taken back costs the trust the next warning needs. So the briefing has to be about the whole cloud, and this is where you find out whether you can say that yet."
-      ],
-      "story": "The best-guess path misses Earth, and the cloud of possible paths around it still touches the impact line. Dr. Marco Rossi, the orbit lead, wants one sentence before the briefing.",
-      "game": {
-        "type": "CLOUD",
-        "title": "Read the risk correctly",
-        "setup": "Impact Monitoring Center",
-        "play": "Move and narrow the cloud of paths until all of it clears Earth.",
-        "task": "Move and narrow the cloud of paths until all of it clears Earth.",
-        "question": "What has to change before the whole cloud of paths clears Earth? Move the bars to show the middle and one sigma either side.",
-        "answer": "Neither move is enough on its own. Do both. The near edge then sits at 4.5 − 3.2 = 1.3 Earth radii, and the whole cloud clears Earth.",
-        "why": "An orbit is a spread of possible paths, not a dot. Fixing a known bias slides the whole spread sideways. It does not make the spread any thinner. Better measurements do make it thinner, but they do not choose where the middle sits. The call needs both. If a real part of the spread still crosses Earth, a safe-looking middle has not made anybody safe.",
-        "cloud": {
-          "bounds": {
-            "min": 1,
-            "max": 14.5,
-            "unit": "Earth radii on encounter plane",
-            "label": "Earth-limb clearance"
-          },
-          "centre": 4,
-          "spread": 1.75,
-          "pass": 0.98,
-          "seed": 1,
-          "costUnit": "h",
-          "actions": [
-            {
-              "id": "recenter",
-              "label": "Correct the catalog bias in the nominal orbit",
-              "effect": "shift",
-              "amount": 0.13333333333333333
-            },
-            {
-              "id": "narrow",
-              "label": "Add an independent high-leverage observation",
-              "effect": "narrow",
-              "amount": 0.9142857142857144
-            }
-          ],
-          "hint": "The center is the nominal miss and the width is the current uncertainty. Try the two authored improvements separately before combining them; clearance requires the whole displayed band to remain outside the Earth-limb boundary.",
-          "commit": "Declare it ready"
-        }
-      },
-      "assumes": [
-        "an orbit fit gives a spread of possible paths, not one path",
-        "the middle of a spread can move without the spread getting any thinner"
-      ],
-      "concept": {
-        "n": 4,
-        "c": "Uncertainty as a range, not a mistake",
-        "of": 16,
-        "rests": [
-          "Repeated measurements and their average"
-        ]
-      }
-    },
-    {
-      "day": 2,
       "title": "How much energy does it carry?",
       "scene": "Civil defence will not call anyone in without an energy figure. The impact group has a weight for the rock. It also has the speed the rock would arrive at.",
       "takeaway": "Speed counts twice over in energy, so it is the number worth measuring best.",
@@ -1378,7 +1313,7 @@ export const CURRICULUM = {
         "why": "The energy of a moving thing is half its weight, multiplied by the speed twice over. That second speed is what makes this number so touchy. Double the speed and the energy is four times bigger. Double the weight and it only doubles. So speed and size are not equally worth measuring. It is also why a rock the size of a house does what nothing that size does down here.",
         "givens": [],
         "relationship": "Energy = ½ × weight × speed × speed.",
-        "calcKey": "IMPACT-2"
+        "calcKey": "IMPACT-1"
       },
       "assumes": [
         "the energy of a moving thing depends on how heavy it is and how fast it goes"
@@ -1415,7 +1350,7 @@ export const CURRICULUM = {
       }
     },
     {
-      "day": 3,
+      "day": 2,
       "title": "How much does the push move it?",
       "scene": "The deflection lab is sizing a spacecraft. It knows the craft's weight and how fast it would close, and the rock's weight to within a factor of a few.",
       "takeaway": "The same push moves a heavier thing less, in exact proportion.",
@@ -1437,7 +1372,7 @@ export const CURRICULUM = {
         "why": "The push is tiny. A craft weighing ten tonnes hits a rock weighing eight billion, so the rock's speed changes by about fifteen millimetres a second — walking pace divided by two hundred. What makes it matter is that the rock keeps that speed, second after second, for eight years. Fifteen millimetres a second works out at about 475 kilometres in a year, and eight of those is thousands of kilometres of sideways shift. That is the whole idea of a nudge: it is not the push that is big, it is the time.",
         "givens": [],
         "relationship": "Distance moved = how far it shifts in one year × the number of years.",
-        "calcKey": "IMPACT-3"
+        "calcKey": "IMPACT-2"
       },
       "assumes": [
         "momentum is weight multiplied by speed, and a collision passes it on",
@@ -1533,7 +1468,7 @@ export const CURRICULUM = {
       }
     },
     {
-      "day": 4,
+      "day": 3,
       "title": "What makes a deflection work?",
       "scene": "The impactor plan is up on the mission board. Beside it sit the weight estimate and the tracking plan. The director wants it all sorted before the review.",
       "takeaway": "A deflection is an experiment, and the thing it changes is the orbit.",
@@ -1674,6 +1609,71 @@ export const CURRICULUM = {
           "Impact energy: mass and speed, and why speed matters more"
         ]
       }
+    },
+    {
+      "day": 4,
+      "title": "Read the risk correctly",
+      "scene": "The best-guess path misses Earth, and the cloud of possible paths around it still touches the impact line. Dr. Marco Rossi, the orbit lead, wants one sentence before the briefing.",
+      "takeaway": "Risk lives in the whole spread, not in the middle of it.",
+      "place": "Impact Monitoring Center",
+      "guide": "The cloud on screen is every path the observations still allow. Its middle misses Earth. Its edge still touches the impact line, so this is not a stand-down yet. Two improvements are ready, and they do different things to the cloud: one moves it, one makes it smaller. Apply what you would authorise, then say what the briefing can state.",
+      "background": [
+        "What the cloud is. The path is worked out from observations, and the observations allow a range of paths rather than one. Drawn on the encounter plane, that range is a cloud. The impact line is drawn on the same plane. Saying the best-guess path misses Earth is a statement about the middle of the cloud only.",
+        "Moving it and shrinking it are different jobs. Fixing an error in the best-guess path slides the whole cloud across without changing its size. The uncertainty is the same, just somewhere else. A new, well-placed observation adds information and makes the cloud smaller. Only that can clear Earth if it is the width that reaches the line.",
+        "Why the sentence matters. People hear safe or not safe. A stand-down that gets taken back costs the trust the next warning needs. So the briefing has to be about the whole cloud, and this is where you find out whether you can say that yet."
+      ],
+      "story": "The best-guess path misses Earth, and the cloud of possible paths around it still touches the impact line. Dr. Marco Rossi, the orbit lead, wants one sentence before the briefing.",
+      "game": {
+        "type": "CLOUD",
+        "title": "Read the risk correctly",
+        "setup": "Impact Monitoring Center",
+        "play": "Move and narrow the cloud of paths until all of it clears Earth.",
+        "task": "Move and narrow the cloud of paths until all of it clears Earth.",
+        "question": "What has to change before the whole cloud of paths clears Earth? Move the bars to show the middle and one sigma either side.",
+        "answer": "Neither move is enough on its own. Do both. The near edge then sits at 4.5 − 3.2 = 1.3 Earth radii, and the whole cloud clears Earth.",
+        "why": "An orbit is a spread of possible paths, not a dot. Fixing a known bias slides the whole spread sideways. It does not make the spread any thinner. Better measurements do make it thinner, but they do not choose where the middle sits. The call needs both. If a real part of the spread still crosses Earth, a safe-looking middle has not made anybody safe.",
+        "cloud": {
+          "bounds": {
+            "min": 1,
+            "max": 14.5,
+            "unit": "Earth radii on encounter plane",
+            "label": "Earth-limb clearance"
+          },
+          "centre": 4,
+          "spread": 1.75,
+          "pass": 0.98,
+          "seed": 1,
+          "costUnit": "h",
+          "actions": [
+            {
+              "id": "recenter",
+              "label": "Correct the catalog bias in the nominal orbit",
+              "effect": "shift",
+              "amount": 0.13333333333333333
+            },
+            {
+              "id": "narrow",
+              "label": "Add an independent high-leverage observation",
+              "effect": "narrow",
+              "amount": 0.9142857142857144
+            }
+          ],
+          "hint": "The center is the nominal miss and the width is the current uncertainty. Try the two authored improvements separately before combining them; clearance requires the whole displayed band to remain outside the Earth-limb boundary.",
+          "commit": "Declare it ready"
+        }
+      },
+      "assumes": [
+        "an orbit fit gives a spread of possible paths, not one path",
+        "the middle of a spread can move without the spread getting any thinner"
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Uncertainty as a range, not a mistake",
+        "of": 16,
+        "rests": [
+          "Repeated measurements and their average"
+        ]
+      }
     }
   ],
   "OPS": [
@@ -1778,53 +1778,6 @@ export const CURRICULUM = {
     },
     {
       "day": 2,
-      "title": "Why waiting helps",
-      "scene": "Four hours of spare time on a two-metre telescope, and the object sets soon after dusk. Two possible paths fit tonight's measurements equally well. The same patch of sky comes back in six nights.",
-      "takeaway": "Two paths that agree today drift apart with time, so a later look separates them better than a sharper look now.",
-      "place": "Time Standards Room",
-      "guide": "Four options, and two paths fit tonight equally well. Ask of each what it would change about that. A sharper picture tonight measures the same moment more precisely. So does a bigger telescope, and so does taking more pictures in a row. What tells two paths apart is letting them drift away from each other.",
-      "background": [
-        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
-        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
-        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
-      ],
-      "story": "Four hours of spare time on a two-metre telescope, and the object sets soon after dusk. Two possible paths fit tonight's measurements equally well. The same patch of sky comes back in six nights.",
-      "game": {
-        "type": "CHOICE",
-        "title": "Why waiting helps",
-        "setup": "Two possible paths fit tonight's measurements equally well.",
-        "play": "Spend the one booking on the observation that changes next week's prediction most.",
-        "task": "Spend the one booking on the observation that changes next week's prediction most.",
-        "question": "Two paths fit tonight equally well. What makes them easier to tell apart?",
-        "answer": "Time. Let both paths run for six nights and they end up in visibly different places.",
-        "why": "Two paths through the same point tonight are heading slightly different ways. Tonight they sit on top of each other. No camera can split them, however sharp it is. Six nights later that small difference has become a real gap in the sky. One picture then does what ten pictures tonight cannot. So the booking worth having is the late one. A sharper look at tonight is worth much less than a rougher look later.",
-        "rebuttals": [
-          "A sharper picture of tonight still has both paths in the same place.",
-          "Ten pictures of the same moment is one moment, ten times.",
-          "A bigger telescope sees fainter, and it cannot see the future."
-        ],
-        "choices": [
-          "Waiting, and looking again in six nights",
-          "Taking a sharper picture tonight",
-          "Taking many pictures tonight in a row",
-          "Using a bigger telescope tonight"
-        ],
-        "correctChoice": "Waiting, and looking again in six nights"
-      },
-      "assumes": [
-        "two paths that agree tonight can disagree later"
-      ],
-      "concept": {
-        "n": 3,
-        "c": "Repeated measurements and their average",
-        "of": 16,
-        "rests": [
-          "Telling a real object from an artefact, by repeating the observation"
-        ]
-      }
-    },
-    {
-      "day": 3,
       "title": "Point where the answers disagree",
       "scene": "The best guess misses by four Earth radii, and about one path in six hundred still hits. Next Tuesday the two sets of paths sit eight arcseconds apart. After that they close up again.",
       "takeaway": "The best measurement is the one whose result the rival answers would disagree about.",
@@ -1868,6 +1821,53 @@ export const CURRICULUM = {
         "rests": [
           "Size and albedo: two explanations for one brightness",
           "Uncertainty as a range, not a mistake"
+        ]
+      }
+    },
+    {
+      "day": 3,
+      "title": "Why waiting helps",
+      "scene": "Four hours of spare time on a two-metre telescope, and the object sets soon after dusk. Two possible paths fit tonight's measurements equally well. The same patch of sky comes back in six nights.",
+      "takeaway": "Two paths that agree today drift apart with time, so a later look separates them better than a sharper look now.",
+      "place": "Time Standards Room",
+      "guide": "Four options, and two paths fit tonight equally well. Ask of each what it would change about that. A sharper picture tonight measures the same moment more precisely. So does a bigger telescope, and so does taking more pictures in a row. What tells two paths apart is letting them drift away from each other.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
+      "story": "Four hours of spare time on a two-metre telescope, and the object sets soon after dusk. Two possible paths fit tonight's measurements equally well. The same patch of sky comes back in six nights.",
+      "game": {
+        "type": "CHOICE",
+        "title": "Why waiting helps",
+        "setup": "Two possible paths fit tonight's measurements equally well.",
+        "play": "Spend the one booking on the observation that changes next week's prediction most.",
+        "task": "Spend the one booking on the observation that changes next week's prediction most.",
+        "question": "Two paths fit tonight equally well. What makes them easier to tell apart?",
+        "answer": "Time. Let both paths run for six nights and they end up in visibly different places.",
+        "why": "Two paths through the same point tonight are heading slightly different ways. Tonight they sit on top of each other. No camera can split them, however sharp it is. Six nights later that small difference has become a real gap in the sky. One picture then does what ten pictures tonight cannot. So the booking worth having is the late one. A sharper look at tonight is worth much less than a rougher look later.",
+        "rebuttals": [
+          "A sharper picture of tonight still has both paths in the same place.",
+          "Ten pictures of the same moment is one moment, ten times.",
+          "A bigger telescope sees fainter, and it cannot see the future."
+        ],
+        "choices": [
+          "Waiting, and looking again in six nights",
+          "Taking a sharper picture tonight",
+          "Taking many pictures tonight in a row",
+          "Using a bigger telescope tonight"
+        ],
+        "correctChoice": "Waiting, and looking again in six nights"
+      },
+      "assumes": [
+        "two paths that agree tonight can disagree later"
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Repeated measurements and their average",
+        "of": 16,
+        "rests": [
+          "Telling a real object from an artefact, by repeating the observation"
         ]
       }
     },
@@ -2880,34 +2880,6 @@ export const BALLPARK_CALCS = {
     "solution": "Twelve ÷ twenty is six tenths of an arcsecond a minute, so about thirty-six arcseconds an hour.",
     "explanation": "The sixty in the template is the minutes in an hour, so the time has to be in minutes. Use the same gap in seconds and the answer comes out sixty times too small."
   },
-  "ORBIT-3": {
-    "prompt": "The computer flew one hundred thousand paths that all fit the measurements. Thirty-seven of them hit Earth.",
-    "question": "How many paths in every thousand hit?",
-    "labels": [
-      "37 (paths that hit)",
-      "100 (thousands of paths tried)",
-      "1 (thousand paths, in the first quick run)",
-      "8 (years to the encounter)"
-    ],
-    "values": [
-      37,
-      100,
-      1,
-      8
-    ],
-    "slots": 2,
-    "template": "{0} ÷ {1}",
-    "formula": "a/b",
-    "correct": [
-      0,
-      1
-    ],
-    "target": 0.37,
-    "tolerance": 0.04,
-    "units": "paths in every thousand",
-    "solution": "Thirty-seven hits in a hundred thousand paths is about a third of one path in every thousand.",
-    "explanation": "The bottom number is every path tried, not only the ones that missed. And a thousand tries could never have found a chance this small."
-  },
   "OPS-4": {
     "prompt": "Two rocks look equally bright. One reflects four times as well as the other. Brightness is the area facing us multiplied by how well that area reflects.",
     "question": "How wide is the shinier rock, compared with the other rock?",
@@ -2969,7 +2941,7 @@ export const BALLPARK_CALCS = {
     "solution": "Four seconds at 300 thousand kilometres a second is 1,200, and half of that is 600 thousand kilometres out.",
     "explanation": "Forget to halve it and the answer is twice too big. That is how far the pulse travelled, not how far away the rock is."
   },
-  "IMPACT-2": {
+  "IMPACT-1": {
     "prompt": "The rock weighs about eight billion kilograms, and it would arrive at twenty thousand metres a second.",
     "question": "About how much energy would the impact carry?",
     "labels": [
@@ -2997,7 +2969,35 @@ export const BALLPARK_CALCS = {
     "solution": "Sixteen hundred shared out at four for each megaton is about four hundred megatons.",
     "explanation": "Joules are the wrong size of unit to think in here. Turning the energy into megatons is what lets anybody compare it with something they have heard of."
   },
-  "IMPACT-3": {
+  "ORBIT-4": {
+    "prompt": "The computer flew one hundred thousand paths that all fit the measurements. Thirty-seven of them hit Earth.",
+    "question": "How many paths in every thousand hit?",
+    "labels": [
+      "37 (paths that hit)",
+      "100 (thousands of paths tried)",
+      "1 (thousand paths, in the first quick run)",
+      "8 (years to the encounter)"
+    ],
+    "values": [
+      37,
+      100,
+      1,
+      8
+    ],
+    "slots": 2,
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 0.37,
+    "tolerance": 0.04,
+    "units": "paths in every thousand",
+    "solution": "Thirty-seven hits in a hundred thousand paths is about a third of one path in every thousand.",
+    "explanation": "The bottom number is every path tried, not only the ones that missed. And a thousand tries could never have found a chance this small."
+  },
+  "IMPACT-2": {
     "prompt": "The push speeds the rock sideways by fifteen millimetres a second, which works out at about 475 kilometres in a year. The encounter is eight years away.",
     "question": "How far will the rock have moved by then?",
     "labels": [

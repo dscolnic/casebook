@@ -101,6 +101,9 @@ export default {
     + 'measured once, and the practice that would have caught all of it — check any instrument a '
     + 'decision rests on against something independent — is a paragraph in a report until somebody '
     + 'on nights makes it a habit.',
+    'And you held it. For a fortnight you checked the meters that the decisions rested on. '
+    + 'You shed load when that was the unpopular call. You wrote down what you could not prove '
+    + 'yet. Four million people kept their power, and that was your doing.',
   ],
 
   look: {

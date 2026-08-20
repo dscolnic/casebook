@@ -581,8 +581,7 @@ missions:
     stake: >-
       Monday, and the season opens in three weeks. Corbin Park lost its certificate in October and
       seven rides have to get it back before the gates open, which is your signature on seven
-      documents. Delia Marsh, who owns the park, has laid out Alf Brennan's 11 notebooks on the
-      workshop bench: 41 years of settings, timings and turns of a nut, in 1 hand, with not
+      documents. Delia Marsh, who owns the park, has laid out the 11 notebooks of Alf Brennan, her retired chief mechanic, on the workshop bench: 41 years of settings, timings and turns of a nut, in 1 hand, with not
       1 line of working anywhere in them. Marcus Vey, the county inspector, has read the same
       notebooks and calls them a record of having got away with it. Today you take the first three
       numbers the park runs on and find out where they come from. 106 days of season
@@ -732,7 +731,7 @@ missions:
         title: 60 people and the same 5 seconds
         concept: "Simple harmonic motion: a restoring force proportional to displacement"
         place: The Pirate Ship
-        scene: Sam Idowu has run the pirate ship for 20 years. During low-angle maintenance swings, a full boat and an empty one both take 5.9 seconds. He wants to know why loading changes the force on the pivot bearings but not that timing.
+        scene: Sam Idowu, the senior ride operator, has run the pirate ship for 20 years. During low-angle maintenance swings, a full boat and an empty one both take 5.9 seconds. He wants to know why loading changes the force on the pivot bearings but not that timing.
         guide: >-
           All four options explain a period that does not move when the boat fills. Ask
           of each whether it names a cancellation or an accident. The restoring pull is
@@ -847,7 +846,7 @@ missions:
         task: Turn the water depth into a pressure
         title: What nine metres of water pushes with
         place: The Log Flume
-        scene: The water surface in the elevated tank is 9.4 metres above its outlet. Kelechi Abara has a pressure gauge on that outlet and an old notebook value that does not match the reading.
+        scene: The water surface in the elevated tank is 9.4 metres above its outlet. Kelechi Abara, the pumps and water systems, has a pressure gauge on that outlet and an old notebook value that does not match the reading.
         guide: >-
           Five numbers, and two of them describe the tank rather than the water above
           the outlet: the diameter, and the flow through it. Ask of each whether
@@ -1111,7 +1110,7 @@ missions:
           - "Velocity against speed: direction is part of the quantity"
         concept: "Centripetal acceleration: v² over r, pointing at the centre"
         place: The Carousel and Swings
-        scene: The carousel turns at eight revolutions a minute and has done so since the previous engineer set it. Bisi Adeyemi is wiring a new controller and wants the outer-horse acceleration put on paper.
+        scene: The carousel turns at eight revolutions a minute and has done so since the previous engineer set it. Bisi Adeyemi, the ride electrician, is wiring a new controller and wants the outer-horse acceleration put on paper.
         guide: >-
           Four options, and two of them agree on the size and disagree on the direction.
           Ask what is changing when a speed stays constant. Velocity carries a direction
@@ -1162,7 +1161,7 @@ missions:
         title: 100 collisions an hour
         concept: Momentum, and its conservation in a collision
         place: The Bumper Cars
-        scene: Wei Chen has accelerometers in three bumper cars and 400 impacts logged from last season. In one clean test, a moving car hits a stationary car and the pair travel together for an instant after contact.
+        scene: Wei Chen, the controls and telemetry, has accelerometers in three bumper cars and 400 impacts logged from last season. In one clean test, a moving car hits a stationary car and the pair travel together for an instant after contact.
         guide: >-
           Four options, and each keeps or discards two quantities. Ask of each what the
           collision does to the outside world in a tenth of a second. Almost no outside
@@ -1363,7 +1362,7 @@ missions:
         task: Balance the wheel before it is asked to turn
         title: Loading one side of a wheel
         place: The Ferris Wheel
-        scene: Passengers board passenger cabins at the bottom, six at a time. During loading, one side of the wheel can carry much more passenger mass than the other. Priya Raman wants the worst temporary imbalance put on paper.
+        scene: Passengers board passenger cabins at the bottom, six at a time. During loading, one side of the wheel can carry much more passenger mass than the other. Priya Raman, the structures engineer, wants the worst temporary imbalance put on paper.
         guide: >-
           Five numbers, and one of them is the radius of the wheel rather than the
           average distance the loaded cabins sit from the axle. Ask which distance the
@@ -1681,7 +1680,7 @@ missions:
     stake: >-
       Monday of the second week, and Wei Chen has 400 collisions off last season's
       accelerometers with nothing to compare them against. The bumper floor is the ride Vey expects
-      to sign first and Georgia Hart expects to argue about, because whatever number comes out of it
+      to sign first and Georgia Hart, the midway supervisor, expects to argue about, because whatever number comes out of it
       has to be a rule 12 nineteen-year-olds can apply on the four-hundredth cycle of a hot
       Saturday. Today you derive the speed a pair of cars leaves a collision at, work out what the
       lift motor is doing on the coaster, and settle what makes a wheel hard to start. Marsh has
@@ -1886,7 +1885,7 @@ missions:
       the ride is within specification, which it is. Today you derive the ship's period from the
       restoring force, so that there is a number to check the drive against rather than an
       operator's account of a floor. You also float a loaded boat at the flume and settle what the
-      tower's timing gives for the local strength of gravity. Elena Bianchi has the swing arm's
+      tower's timing gives for the local strength of gravity. Elena Bianchi, the weld inspection, has the swing arm's
       welds booked for Thursday and wants to know what load she is looking for cracks against.
     takeaway: A measured period is a measurement of the pendulum, and it can be turned into g.
     stops:
@@ -1964,7 +1963,7 @@ missions:
         task: Float a loaded boat on paper
         title: How far a full boat sits down
         place: The Log Flume
-        scene: Fiona McCarthy loads the boats by eye and still follows an inherited four-adult rule. The moulded hulls replaced the timber boats two seasons ago. Each new hull is 2.9 metres by 1.1 and weighs 180 kilograms.
+        scene: Fiona McCarthy, the flume operator, loads the boats by eye and still follows an inherited four-adult rule. The moulded hulls replaced the timber boats two seasons ago. Each new hull is 2.9 metres by 1.1 and weighs 180 kilograms.
         guide: >-
           Five numbers, and one of them is the depth of the hull side, which belongs to
           the freeboard question rather than to this one. Ask of each whether the

@@ -84,6 +84,23 @@ export default {
     + 'three weeks waits a full year.',
   ],
 
+  // How it ends. Shown when the campaign closes, and the last thing the player
+  // reads: what came of the fortnight, what it cost, and what they did.
+  ending: [
+    'The crossing block went in on the Friday and the trial was sown inside the three weeks. '
+    + 'WM-712 went to the merchant with its weakness written on the label. The eight crosses in '
+    + 'the block are the programme\'s work until 2033, and the drifted batches are on a list '
+    + 'that will take fifteen years to work through.',
+    'What it cost: ground that three people wanted and only one could have, and a season of '
+    + 'regrowing at the rate the glasshouses allow rather than the rate the seed is dying at. '
+    + 'What is unfinished: the second resistance gene is one clean line and needs four more '
+    + 'seasons, and the records still disagree with the markers on 60 samples.',
+    'And you settled all of it. You laid the trial out by how far pollen really travels. You '
+    + 'grew out the samples that were about to drop below the line. You released a wheat with '
+    + 'its weakness written on the label. What is in the ground this year is what you put '
+    + 'there.',
+  ],
+
   look: {
     fov: 66,            // a 72° field distorts badly down a straight street
     near: 0.12,

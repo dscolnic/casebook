@@ -438,7 +438,8 @@ export const CURRICULUM = {
               "the acceleration due to gravity"
             ]
           ],
-          "s": "Dividing by the mass is the step worth remembering: it is why a loaded train and an empty one arrive together, and why the answer is a statement about the track rather than about the load."
+          "s": "Dividing by the mass is the step worth remembering: it is why a loaded train and an empty one arrive together, and why the answer is a statement about the track rather than about the load.",
+          "demanded": true
         },
         {
           "e": "T = 2π√(L/g)",
@@ -457,7 +458,8 @@ export const CURRICULUM = {
               "the acceleration due to gravity"
             ]
           ],
-          "s": "A heavier boat is pulled back harder in exactly the same proportion as it is harder to accelerate, so the mass cancels — which also makes this the easiest accurate way to measure gravity anywhere."
+          "s": "A heavier boat is pulled back harder in exactly the same proportion as it is harder to accelerate, so the mass cancels — which also makes this the easiest accurate way to measure gravity anywhere.",
+          "demanded": true
         }
       ],
       "concept": {
@@ -894,6 +896,26 @@ export const CURRICULUM = {
           "computed": true
         },
         {
+          "e": "v_min = √(gr) at the crown of a loop",
+          "c": "the limiting case a rail cannot get out of",
+          "v": [
+            [
+              "v_min",
+              "the least speed the train can cross the crown at"
+            ],
+            [
+              "g",
+              "the acceleration due to gravity"
+            ],
+            [
+              "r",
+              "the radius of the loop at its crown"
+            ]
+          ],
+          "s": "A rail can push and cannot pull, so the limit is where it has stopped pushing and gravity alone bends the train round — and the mass cancels, which is why the limit is the same for a full train and an empty one.",
+          "demanded": true
+        },
+        {
           "e": "safety factor = capacity ÷ demand",
           "c": "the number this whole job is about",
           "v": [
@@ -906,7 +928,9 @@ export const CURRICULUM = {
               "what it is actually asked to take"
             ]
           ],
-          "s": "A margin is a ratio and it means nothing until both of its numbers are named — which is why a requirement that turns out to have been computed from the wrong drawing changes the margin without anything physical changing at all."
+          "s": "A margin is a ratio and it means nothing until both of its numbers are named — which is why a requirement that turns out to have been computed from the wrong drawing changes the margin without anything physical changing at all.",
+          "demanded": true,
+          "card": false
         }
       ],
       "concept": {
@@ -1120,25 +1144,6 @@ export const CURRICULUM = {
           "computed": true
         },
         {
-          "e": "ΣF = ma",
-          "c": "what a net force is for",
-          "v": [
-            [
-              "ΣF",
-              "the sum of every force on the body, with direction"
-            ],
-            [
-              "m",
-              "its mass"
-            ],
-            [
-              "a",
-              "the acceleration that results"
-            ]
-          ],
-          "s": "Forces do not cause motion, they cause changes of motion — and the sum is what counts, which is why a free-body diagram with one arrow missing gives an answer that is wrong rather than approximate."
-        },
-        {
           "e": "a_c = v²/r,  F_c = mv²/r",
           "c": "what going round a corner costs",
           "v": [
@@ -1160,6 +1165,26 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Steady speed on a curve is still acceleration, because the direction is changing — and the force that supplies it is always something real: a rail, a chain, a pole or a seat.",
+          "demanded": true
+        },
+        {
+          "e": "ΣF = ma",
+          "c": "what a net force is for",
+          "v": [
+            [
+              "ΣF",
+              "the sum of every force on the body, with direction"
+            ],
+            [
+              "m",
+              "its mass"
+            ],
+            [
+              "a",
+              "the acceleration that results"
+            ]
+          ],
+          "s": "Forces do not cause motion, they cause changes of motion — and the sum is what counts, which is why a free-body diagram with one arrow missing gives an answer that is wrong rather than approximate.",
           "card": false
         }
       ],
@@ -1463,7 +1488,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Going round at a steady speed",
-      "scene": "The carousel turns at eight revolutions a minute and has done so since the previous engineer set it. Bisi Adeyemi is wiring a new controller and wants the outer-horse acceleration put on paper.",
+      "scene": "The carousel turns at eight revolutions a minute and has done so since the previous engineer set it. Bisi Adeyemi, the ride electrician, is wiring a new controller and wants the outer-horse acceleration put on paper.",
       "takeaway": "Acceleration describes any change in velocity, including a change in direction when speed stays constant.",
       "place": "The Carousel and Swings",
       "guide": "Four options, and two of them agree on the size and disagree on the direction. Ask what is changing when a speed stays constant. Velocity carries a direction as well as a size, and on a circle the direction changes every instant. So decide which way the acceleration points before worrying about its value. One option needs a mass the question never gives.",
@@ -1472,7 +1497,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "The carousel turns at eight revolutions a minute and has done so since the previous engineer set it. Bisi Adeyemi is wiring a new controller and wants the outer-horse acceleration put on paper.",
+      "story": "The carousel turns at eight revolutions a minute and has done so since the previous engineer set it. Bisi Adeyemi, the ride electrician, is wiring a new controller and wants the outer-horse acceleration put on paper.",
       "game": {
         "type": "CHOICE",
         "title": "Going round at a steady speed",
@@ -2056,7 +2081,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Loading one side of a wheel",
-      "scene": "Passengers board passenger cabins at the bottom, six at a time. During loading, one side of the wheel can carry much more passenger mass than the other. Priya Raman wants the worst temporary imbalance put on paper.",
+      "scene": "Passengers board passenger cabins at the bottom, six at a time. During loading, one side of the wheel can carry much more passenger mass than the other. Priya Raman, the structures engineer, wants the worst temporary imbalance put on paper.",
       "takeaway": "A wheel is balanced by its own symmetry, and loading is what breaks the symmetry.",
       "place": "The Ferris Wheel",
       "guide": "Five numbers, and one of them is the radius of the wheel rather than the average distance the loaded cabins sit from the axle. Ask which distance the torque uses. An empty wheel nearly balances, because opposite cabins cancel. What the drive and brake have to hold is not the heaviest load but the most uneven one.",
@@ -2064,7 +2089,7 @@ export const CURRICULUM = {
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "Passengers board passenger cabins at the bottom, six at a time. During loading, one side of the wheel can carry much more passenger mass than the other. Priya Raman wants the worst temporary imbalance put on paper.",
+      "story": "Passengers board passenger cabins at the bottom, six at a time. During loading, one side of the wheel can carry much more passenger mass than the other. Priya Raman, the structures engineer, wants the worst temporary imbalance put on paper.",
       "game": {
         "type": "BALLPARK",
         "title": "Loading one side of a wheel",
@@ -2316,7 +2341,8 @@ export const CURRICULUM = {
               "the perpendicular distance from the pivot to the line of the force"
             ]
           ],
-          "s": "The distance is measured across the force rather than along the member carrying it, which is the single commonest error in the subject and the reason a crane can lift more with its boom raised."
+          "s": "The distance is measured across the force rather than along the member carrying it, which is the single commonest error in the subject and the reason a crane can lift more with its boom raised.",
+          "demanded": true
         }
       ],
       "concept": {
@@ -2560,7 +2586,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "100 collisions an hour",
-      "scene": "Wei Chen has accelerometers in three bumper cars and 400 impacts logged from last season. In one clean test, a moving car hits a stationary car and the pair travel together for an instant after contact.",
+      "scene": "Wei Chen, the controls and telemetry, has accelerometers in three bumper cars and 400 impacts logged from last season. In one clean test, a moving car hits a stationary car and the pair travel together for an instant after contact.",
       "takeaway": "A collision can preserve one bookkeeping quantity while transforming another into heat, sound and deformation.",
       "place": "The Bumper Cars",
       "guide": "Four options, and each keeps or discards two quantities. Ask of each what the collision does to the outside world in a tenth of a second. Almost no outside push arrives, which protects one of the two. The cars leave together, deformed and warm, which does not protect the other. That difference is what soft bumpers are for.",
@@ -2569,7 +2595,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Wei Chen has accelerometers in three bumper cars and 400 impacts logged from last season. In one clean test, a moving car hits a stationary car and the pair travel together for an instant after contact.",
+      "story": "Wei Chen, the controls and telemetry, has accelerometers in three bumper cars and 400 impacts logged from last season. In one clean test, a moving car hits a stationary car and the pair travel together for an instant after contact.",
       "game": {
         "type": "CHOICE",
         "title": "100 collisions an hour",
@@ -2957,7 +2983,33 @@ export const CURRICULUM = {
               "the velocity of the pair afterwards"
             ]
           ],
-          "s": "Momentum is conserved in any collision where nothing outside pushes on the pair, and kinetic energy is not — the difference between those two facts is most of what a bumper car is for."
+          "s": "Momentum is conserved in any collision where nothing outside pushes on the pair, and kinetic energy is not — the difference between those two facts is most of what a bumper car is for.",
+          "demanded": true
+        },
+        {
+          "e": "FΔt = mΔv",
+          "c": "impulse: why the time a collision takes is the design",
+          "v": [
+            [
+              "F",
+              "the average force during the contact"
+            ],
+            [
+              "Δt",
+              "how long the contact lasts"
+            ],
+            [
+              "m",
+              "the mass being slowed"
+            ],
+            [
+              "Δv",
+              "the change in its velocity"
+            ]
+          ],
+          "s": "The momentum change is fixed by the speeds, so the only thing left to design is the time it happens over — and padding, belt stretch and a soft bumper all buy exactly that.",
+          "demanded": true,
+          "card": false
         }
       ],
       "concept": {
@@ -3193,7 +3245,8 @@ export const CURRICULUM = {
               "the velocity of the pair afterwards"
             ]
           ],
-          "s": "Momentum is conserved in any collision where nothing outside pushes on the pair, and kinetic energy is not — the difference between those two facts is most of what a bumper car is for."
+          "s": "Momentum is conserved in any collision where nothing outside pushes on the pair, and kinetic energy is not — the difference between those two facts is most of what a bumper car is for.",
+          "demanded": true
         }
       ],
       "concept": {
@@ -3379,7 +3432,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "60 people and the same 5 seconds",
-      "scene": "Sam Idowu has run the pirate ship for 20 years. During low-angle maintenance swings, a full boat and an empty one both take 5.9 seconds. He wants to know why loading changes the force on the pivot bearings but not that timing.",
+      "scene": "Sam Idowu, the senior ride operator, has run the pirate ship for 20 years. During low-angle maintenance swings, a full boat and an empty one both take 5.9 seconds. He wants to know why loading changes the force on the pivot bearings but not that timing.",
       "takeaway": "A variable can disappear from a motion when it scales both the restoring force and the inertia in the same way.",
       "place": "The Pirate Ship",
       "guide": "All four options explain a period that does not move when the boat fills. Ask of each whether it names a cancellation or an accident. The restoring pull is the boat's own weight, and the inertia resisting it grows in the same proportion. So they cancel, and length and gravity are what remain. Note the limit too: this holds at small angles, and the ride swings 48 degrees.",
@@ -3388,7 +3441,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Sam Idowu has run the pirate ship for 20 years. During low-angle maintenance swings, a full boat and an empty one both take 5.9 seconds. He wants to know why loading changes the force on the pivot bearings but not that timing.",
+      "story": "Sam Idowu, the senior ride operator, has run the pirate ship for 20 years. During low-angle maintenance swings, a full boat and an empty one both take 5.9 seconds. He wants to know why loading changes the force on the pivot bearings but not that timing.",
       "game": {
         "type": "CHOICE",
         "title": "60 people and the same 5 seconds",
@@ -3637,7 +3690,8 @@ export const CURRICULUM = {
               "the acceleration due to gravity"
             ]
           ],
-          "s": "Dividing by the mass is the step worth remembering: it is why a loaded train and an empty one arrive together, and why the answer is a statement about the track rather than about the load."
+          "s": "Dividing by the mass is the step worth remembering: it is why a loaded train and an empty one arrive together, and why the answer is a statement about the track rather than about the load.",
+          "demanded": true
         }
       ],
       "concept": {
@@ -3860,25 +3914,6 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "ΣF = ma",
-          "c": "what a net force is for",
-          "v": [
-            [
-              "ΣF",
-              "the sum of every force on the body, with direction"
-            ],
-            [
-              "m",
-              "its mass"
-            ],
-            [
-              "a",
-              "the acceleration that results"
-            ]
-          ],
-          "s": "Forces do not cause motion, they cause changes of motion — and the sum is what counts, which is why a free-body diagram with one arrow missing gives an answer that is wrong rather than approximate."
-        },
-        {
           "e": "a_c = v²/r,  F_c = mv²/r",
           "c": "what going round a corner costs",
           "v": [
@@ -3899,7 +3934,27 @@ export const CURRICULUM = {
               "the net force that produces it"
             ]
           ],
-          "s": "Steady speed on a curve is still acceleration, because the direction is changing — and the force that supplies it is always something real: a rail, a chain, a pole or a seat."
+          "s": "Steady speed on a curve is still acceleration, because the direction is changing — and the force that supplies it is always something real: a rail, a chain, a pole or a seat.",
+          "demanded": true
+        },
+        {
+          "e": "ΣF = ma",
+          "c": "what a net force is for",
+          "v": [
+            [
+              "ΣF",
+              "the sum of every force on the body, with direction"
+            ],
+            [
+              "m",
+              "its mass"
+            ],
+            [
+              "a",
+              "the acceleration that results"
+            ]
+          ],
+          "s": "Forces do not cause motion, they cause changes of motion — and the sum is what counts, which is why a free-body diagram with one arrow missing gives an answer that is wrong rather than approximate."
         }
       ],
       "concept": {
@@ -3917,7 +3972,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What nine metres of water pushes with",
-      "scene": "The water surface in the elevated tank is 9.4 metres above its outlet. Kelechi Abara has a pressure gauge on that outlet and an old notebook value that does not match the reading.",
+      "scene": "The water surface in the elevated tank is 9.4 metres above its outlet. Kelechi Abara, the pumps and water systems, has a pressure gauge on that outlet and an old notebook value that does not match the reading.",
       "takeaway": "Depth sets pressure, and the width of the tank has nothing to do with it.",
       "place": "The Log Flume",
       "guide": "Five numbers, and two of them describe the tank rather than the water above the outlet: the diameter, and the flow through it. Ask of each whether pressure depends on it. A narrow pipe of the same height gives the same pressure, which is why the width is offered and not needed. The outlet answers to the depth above it, however big the tank looks.",
@@ -3925,7 +3980,7 @@ export const CURRICULUM = {
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "The water surface in the elevated tank is 9.4 metres above its outlet. Kelechi Abara has a pressure gauge on that outlet and an old notebook value that does not match the reading.",
+      "story": "The water surface in the elevated tank is 9.4 metres above its outlet. Kelechi Abara, the pumps and water systems, has a pressure gauge on that outlet and an old notebook value that does not match the reading.",
       "game": {
         "type": "BALLPARK",
         "title": "What nine metres of water pushes with",
@@ -4118,7 +4173,8 @@ export const CURRICULUM = {
               "the change in its kinetic energy"
             ]
           ],
-          "s": "Friction does negative work along the whole path, so the gap between the ideal speed and the measured one is a measurement of the friction — which is the only way this park has of counting it."
+          "s": "Friction does negative work along the whole path, so the gap between the ideal speed and the measured one is a measurement of the friction — which is the only way this park has of counting it.",
+          "demanded": true
         },
         {
           "e": "m₁u₁ + m₂u₂ = (m₁ + m₂)v",
@@ -4137,7 +4193,8 @@ export const CURRICULUM = {
               "the velocity of the pair afterwards"
             ]
           ],
-          "s": "Momentum is conserved in any collision where nothing outside pushes on the pair, and kinetic energy is not — the difference between those two facts is most of what a bumper car is for."
+          "s": "Momentum is conserved in any collision where nothing outside pushes on the pair, and kinetic energy is not — the difference between those two facts is most of what a bumper car is for.",
+          "demanded": true
         },
         {
           "e": "P = ρgh,  F_b = ρVg",
@@ -4165,6 +4222,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Pressure depends on how deep the column is and not how wide, and a floating body settles until the water it has pushed aside weighs exactly what it does.",
+          "demanded": true,
           "card": false
         }
       ],
@@ -4181,7 +4239,7 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "How far a full boat sits down",
-      "scene": "Fiona McCarthy loads the boats by eye and still follows an inherited four-adult rule. The moulded hulls replaced the timber boats two seasons ago. Each new hull is 2.9 metres by 1.1 and weighs 180 kilograms.",
+      "scene": "Fiona McCarthy, the flume operator, loads the boats by eye and still follows an inherited four-adult rule. The moulded hulls replaced the timber boats two seasons ago. Each new hull is 2.9 metres by 1.1 and weighs 180 kilograms.",
       "takeaway": "A floating body settles until the water it has pushed aside weighs what it does.",
       "place": "The Log Flume",
       "guide": "Five numbers, and one of them is the depth of the hull side, which belongs to the freeboard question rather than to this one. Ask of each whether the sinking depends on it. A boat settles until it has pushed aside its own mass of water. So the answer needs a mass and an area, and the side height decides what happens next.",
@@ -4189,7 +4247,7 @@ export const CURRICULUM = {
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "Fiona McCarthy loads the boats by eye and still follows an inherited four-adult rule. The moulded hulls replaced the timber boats two seasons ago. Each new hull is 2.9 metres by 1.1 and weighs 180 kilograms.",
+      "story": "Fiona McCarthy, the flume operator, loads the boats by eye and still follows an inherited four-adult rule. The moulded hulls replaced the timber boats two seasons ago. Each new hull is 2.9 metres by 1.1 and weighs 180 kilograms.",
       "game": {
         "type": "BALLPARK",
         "title": "How far a full boat sits down",
@@ -4420,7 +4478,8 @@ export const CURRICULUM = {
               "the acceleration due to gravity"
             ]
           ],
-          "s": "Dividing by the mass is the step worth remembering: it is why a loaded train and an empty one arrive together, and why the answer is a statement about the track rather than about the load."
+          "s": "Dividing by the mass is the step worth remembering: it is why a loaded train and an empty one arrive together, and why the answer is a statement about the track rather than about the load.",
+          "demanded": true
         }
       ],
       "concept": {

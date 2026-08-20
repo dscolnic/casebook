@@ -87,6 +87,26 @@ export default {
     + 'make any difference downstream. The river can rise in two.',
   ],
 
+  // How it ends. Shown when the campaign closes, and the last thing the player
+  // reads: what came of the fortnight, what it cost, and what they did.
+  ending: [
+    'The rain stopped on the ninth day with the reservoir at 91%, and the reach below the dam '
+    + 'was warned twice and flooded neither time. The resurvey moved every volume on the site '
+    + 'by 11%, so the storage curve the night orders are written against is the real one now. '
+    + 'Ashfell keeps its gates, its gauges and one more season of margin than it had a '
+    + 'fortnight ago.',
+    'What it cost: two villages packed and unpacked for a warning that turned out to be right '
+    + 'to give, nine days of a crew on twelve-hour watches, and a spillway relation still '
+    + 'fitted to data taken below half gate. What is unfinished: the uplift fits disagree above '
+    + '90%, the 2003 survey is still what every drawing in the building shows, and the rule '
+    + 'that would have caught all of it — order against the rate, not the level — is a line in '
+    + 'a handover book until the next duty engineer makes it a habit.',
+    'And it held because of you. You worked the rate rather than the level, you fixed the '
+    + 'volumes on a survey rather than on a drawing from 2003, and you ordered gates six hours '
+    + 'ahead of a river that rises in two. Four villages went to bed dry through nine days of '
+    + 'rain. That was you, every morning of it.',
+  ],
+
   look: {
     fov: 66,            // a 72° field distorts badly in a corridor
     near: 0.08,

@@ -1392,7 +1392,7 @@ missions:
   - title: The Vapor Cloud
     objective: Provide a bounded plume assessment and decision triggers for evacuation zones.
     briefing: A colorless plume moves toward two neighborhoods as the weather changes. The team must estimate expansion, density, and direction without treating an ideal-gas model as a complete atmospheric forecast. A delayed evacuation risks exposure; an overbroad evacuation can block emergency access and overwhelm shelters.
-    stake: "Day two, first light. The wind has turned, and a colourless cloud is drifting off the yard toward two neighbourhoods. Miklos Varga's forecast and the fire chief's map disagree about where it goes by eleven. Sipho Mbeki has to tell residents something by eight. Today you work out how much air that release can fill, and what the warming morning does to it. Warn too small an area and somebody is standing in it."
+    stake: "Day two, first light. The wind has turned, and a colourless cloud is drifting off the yard toward two neighbourhoods. Miklos Varga, the atmospheric chemistry lead, has a forecast that disagrees with the fire chief's map about where it goes by eleven. Sipho Mbeki, the public briefing officer, has to tell residents something by eight. Today you work out how much air that release can fill, and what the warming morning does to it. Warn too small an area and somebody is standing in it."
     takeaway: Provide a bounded plume assessment and decision triggers for evacuation zones.
     stops:
       - group: GASES
@@ -1624,7 +1624,7 @@ missions:
   - title: What Dissolved in the River?
     objective: Predict where each chemical class will be found and design a mass-balance sampling plan.
     briefing: Runoff from the accident enters the river. Some compounds remain in surface films, some dissolve, and others bind to sediment. The player must predict partitioning from molecular interactions and verify it with sampling. If the team samples only water, a persistent sediment reservoir may be missed until it re-enters the water supply.
-    stake: "Day three. Runoff reached the river overnight, and the town takes its drinking water out nine hundred metres downstream. Inês Ferreira has been out since four and wants it sampled properly. Today you decide where to sample, in what order, and whether to test the mud as well as the water. Test only the water and it comes back clean, and it honestly is clean today. The next flood stirs that mud back up."
+    stake: "Day three. Runoff reached the river overnight, and the town takes its drinking water out nine hundred metres downstream. Inês Ferreira, the water & sediment lead, has been out since four and wants it sampled properly. Today you decide where to sample, in what order, and whether to test the mud as well as the water. Test only the water and it comes back clean, and it honestly is clean today. The next flood stirs that mud back up."
     takeaway: Predict where each chemical class will be found and design a mass-balance sampling plan.
     stops:
       - group: WATER
@@ -1813,7 +1813,7 @@ missions:
   - title: The Concentration Problem
     objective: Produce concentration maps whose units, detection limits, and quality controls are explicit.
     briefing: City leaders ask whether the contaminant is "high," but samples differ in dilution, path length, and what else is in the sample. The team must turn signals into defensible concentrations. An incorrect concentration map can either close a safe water system or expose residents through a false reassurance.
-    stake: "Day six. The results are back as numbers, and the city is holding each one against a legal limit. Rie Nakamura wants every result run again before anything reopens. Marisol Reyes points out that four water systems are already shut on numbers nobody has questioned. Hospitals are on tankers. Today you turn readings into what was really in the river, and decide whether one result can be trusted."
+    stake: "Day six. The results are back as numbers, and the city is holding each one against a legal limit. Rie Nakamura is the quality assurance lead. She wants every result run again before anything reopens. Marisol Reyes runs the water utility. She points out that four water systems are already shut on numbers nobody has questioned. Hospitals are on tankers. Today you turn readings into what was really in the river, and decide whether one result can be trusted."
     takeaway: Produce concentration maps whose units, detection limits, and quality controls are explicit.
     stops:
       - group: QUANT
@@ -1990,7 +1990,7 @@ missions:
   - title: The Heat Is Rising
     objective: Create an energy balance and choose a monitoring plan that detects self-heating early.
     briefing: A storage zone continues warming after the visible fire is out. The team must distinguish stored heat from ongoing exothermic reaction and estimate whether cooling can keep up. If self-heating is mistaken for leftover warmth, responders may leave before runaway conditions develop.
-    stake: "Day eleven. The fire has been out for eight days, and one storage bay is still getting warmer. Tomas Brandt has been reading it every hour since midnight. Fire Command wants the site released tonight, and the crews have been on shift for fourteen hours. Today you decide whether this is leftover heat or a reaction still running, and set up the watching either way. One reading cannot tell you which."
+    stake: "Day eleven. The fire has been out for eight days, and one storage bay is still getting warmer. Tomas Brandt, the reactions & energy lead, has been reading it every hour since midnight. Fire Command wants the site released tonight, and the crews have been on shift for fourteen hours. Today you decide whether this is leftover heat or a reaction still running, and set up the watching either way. One reading cannot tell you which."
     takeaway: Create an energy balance and choose a monitoring plan that detects self-heating early.
     stops:
       - group: ENERGY
@@ -2796,7 +2796,7 @@ missions:
   - title: Remove It Without Making It Worse
     objective: Choose a treatment train using contaminant removal, byproduct formation, waste fate, and operational reliability.
     briefing: Three treatment methods can lower the target contaminant, but one creates a toxic byproduct and another shifts the contaminant into sludge. The player must compare complete chemical consequences. A rapid treatment can create a less visible but more persistent hazard.
-    stake: "Day thirty-one. Kwabena Osei's pilot treatment works. Almost all of the compound is gone by the outlet, and he wants to scale it up this week. Nakamura points out that the test panel was written for that compound and nothing else. Today you work out what the treatment really did: what it removed, what it made, and where the rest went. A panel that is not looking for the new thing reports success either way."
+    stake: "Day thirty-one. Kwabena Osei, the treatment engineering lead, has a pilot treatment that works. Almost all of the compound is gone by the outlet, and he wants to scale it up this week. Nakamura points out that the test panel was written for that compound and nothing else. Today you work out what the treatment really did: what it removed, what it made, and where the rest went. A panel that is not looking for the new thing reports success either way."
     takeaway: Choose a treatment train using contaminant removal, byproduct formation, waste fate, and operational reliability.
     stops:
       - group: TREAT
@@ -3131,7 +3131,7 @@ missions:
   - title: Reopen the City
     objective: Deliver a claim-by-claim chemical evidence package and a long-term monitoring plan.
     briefing: The final board must explain what was released, how chemicals moved and changed, which treatments worked, and what contamination remains in solids, infrastructure, and ecosystems. Without a complete fate and uncertainty record, the city cannot know whether the emergency is over or merely hidden.
-    stake: "Day fifty-two. The mayor wants one word tonight, and Sipho Mbeki has to put it on a screen behind him. Behind that word sits seven weeks of work, and not all of it is equally solid. Elena Stavros wants the long-term monitoring paid for before the emergency money closes on Friday. Nobody else has mentioned it. Today you take the claims one at a time, and decide what the city keeps paying for."
+    stake: "Day fifty-two. The mayor wants one word tonight, and Sipho Mbeki has to put it on a screen behind him. Behind that word sits seven weeks of work, and not all of it is equally solid. Elena Stavros, the long-term monitoring officer, wants the long-term monitoring paid for before the emergency money closes on Friday. Nobody else has mentioned it. Today you take the claims one at a time, and decide what the city keeps paying for."
     takeaway: Deliver a claim-by-claim chemical evidence package and a long-term monitoring plan.
     stops:
       - group: TREAT

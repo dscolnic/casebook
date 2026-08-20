@@ -93,6 +93,11 @@ export default {
     + 'projection from nine boreholes, and the practice that would have caught all of it — writing '
     + 'down what an inspection could not see, and acting on that list — is a paragraph in a report '
     + 'until the next coordinator makes it a habit.',
+    'That town is standing because you worked it street by street. You told the difference '
+    + 'between the shaking and the ground under it, you tagged what an inspection could '
+    + 'actually see, and you argued for the ground-improvement clause when signing the street '
+    + 'off would have been easier. Nobody was hurt in a building you had cleared. That is the '
+    + 'whole job, and you did it.',
   ],
 
   look: {

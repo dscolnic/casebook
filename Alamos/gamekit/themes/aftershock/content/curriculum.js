@@ -7,7 +7,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "The same event, recorded twice",
-      "scene": "Inês Cardoso has the vault record from the bench and the field station record from Bay Road. Same event, same minute, 1100 metres apart. One trace is short and sharp, the other is three times taller and goes on for half a minute longer.",
+      "scene": "Inês Cardoso, the network technician, has the vault record from the bench and the field station record from Bay Road. Same event, same minute, 1100 metres apart. One trace is short and sharp, the other is three times taller and goes on for half a minute longer.",
       "takeaway": "A record describes one place, so two records of one earthquake can disagree and both be right.",
       "place": "Seismic Network",
       "guide": "All four options explain two records that disagree. They differ in what they blame: the instrument, the ground, the distance, or the timing. Two of them are checkable from the scene. Same event, same minute, 1100 metres apart. Ask what 1100 metres can and cannot account for. Which one is right decides whether the Flats get a stronger design value or a service call.",
@@ -16,7 +16,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Inês Cardoso has the vault record from the bench and the field station record from Bay Road. Same event, same minute, 1100 metres apart. One trace is short and sharp, the other is three times taller and goes on for half a minute longer.",
+      "story": "Inês Cardoso, the network technician, has the vault record from the bench and the field station record from Bay Road. Same event, same minute, 1100 metres apart. One trace is short and sharp, the other is three times taller and goes on for half a minute longer.",
       "game": {
         "type": "CHOICE",
         "title": "The same event, recorded twice",
@@ -41,6 +41,44 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an instrument records the shaking where it stands, not the earthquake itself"
+      ],
+      "equations": [
+        {
+          "e": "n(t) = K / (c + t)^p",
+          "c": "aftershock rate, falling as a power law",
+          "v": [
+            [
+              "n(t)",
+              "aftershocks per day at time t"
+            ],
+            [
+              "t",
+              "days since the mainshock"
+            ],
+            [
+              "K, c, p",
+              "constants fitted to this sequence, with p usually near 1"
+            ]
+          ],
+          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day.",
+          "demanded": true
+        },
+        {
+          "e": "A_soft / A_rock",
+          "c": "site amplification — the same wave on two grounds",
+          "v": [
+            [
+              "A_soft",
+              "shaking measured on the soft site"
+            ],
+            [
+              "A_rock",
+              "shaking measured on rock nearby, in the same units"
+            ]
+          ],
+          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town.",
+          "demanded": true
+        }
       ],
       "concept": {
         "n": 5,
@@ -201,6 +239,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up.",
+          "demanded": true,
           "card": false
         }
       ],
@@ -506,7 +545,8 @@ export const CURRICULUM = {
               "average slip on it, in metres"
             ]
           ],
-          "s": "The size of an earthquake is the area that moved times how far it moved times how stiff the rock is, which is why a long rupture matters more than a violent one."
+          "s": "The size of an earthquake is the area that moved times how far it moved times how stiff the rock is, which is why a long rupture matters more than a violent one.",
+          "demanded": true
         },
         {
           "e": "M_w = ⅔ log₁₀ M₀ − 6.06",
@@ -525,7 +565,8 @@ export const CURRICULUM = {
               "constants that make the scale line up with the older ones"
             ]
           ],
-          "s": "One unit of magnitude is about thirty-two times the energy, so a 7 is not a bit worse than a 6."
+          "s": "One unit of magnitude is about thirty-two times the energy, so a 7 is not a bit worse than a 6.",
+          "demanded": true
         },
         {
           "e": "FoS = capacity / demand",
@@ -545,6 +586,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up.",
+          "demanded": true,
           "card": false
         }
       ],
@@ -2224,6 +2266,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day.",
+          "demanded": true,
           "card": false
         }
       ],
@@ -2461,7 +2504,8 @@ export const CURRICULUM = {
               "what the earthquake asked of it, in the same units"
             ]
           ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
+          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up.",
+          "demanded": true
         }
       ],
       "concept": {
@@ -2668,7 +2712,8 @@ export const CURRICULUM = {
               "what the earthquake asked of it, in the same units"
             ]
           ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
+          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up.",
+          "demanded": true
         },
         {
           "e": "σ' = σ − u",
@@ -2687,7 +2732,8 @@ export const CURRICULUM = {
               "pore water pressure between the grains, in kilopascals"
             ]
           ],
-          "s": "Soil carries load through grain contact; when shaking drives the water pressure up to the total stress, the grains stop touching and the ground behaves as a liquid."
+          "s": "Soil carries load through grain contact; when shaking drives the water pressure up to the total stress, the grains stop touching and the ground behaves as a liquid.",
+          "demanded": true
         },
         {
           "e": "A_soft / A_rock",
@@ -2793,7 +2839,8 @@ export const CURRICULUM = {
               "constants that make the scale line up with the older ones"
             ]
           ],
-          "s": "One unit of magnitude is about thirty-two times the energy, so a 7 is not a bit worse than a 6."
+          "s": "One unit of magnitude is about thirty-two times the energy, so a 7 is not a bit worse than a 6.",
+          "demanded": true
         }
       ],
       "takesAsRead": [
@@ -2955,7 +3002,8 @@ export const CURRICULUM = {
               "constants fitted to this sequence, with p usually near 1"
             ]
           ],
-          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
+          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day.",
+          "demanded": true
         }
       ],
       "concept": {

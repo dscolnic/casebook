@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "What is actually in the vault",
     "objective": "Find out what Wellmere is holding and what it is doing while it sits there.",
     "briefing": "41000 accessions, and 60 of them overdue.",
-    "stake": "Monday in the first week of March, and the sowing plan has to be signed by Friday. Wellmere holds 41,000 accessions at minus 18, and Yusuf Mbaye's germination schedule says 60 of them have dropped below the line where they have to be grown out this season. There is room in the ground for about 40. Chiara Volpe wants that ground for her own trial and Nasrin Qureshi wants it for the collection. Today you find out what a seed is doing while it is stored, what the crossing programme is trying to make, and how the trial ground is laid out — because Friday's plan is made out of those three things.",
+    "stake": "Monday in the first week of March, and the sowing plan has to be signed by Friday. Wellmere holds 41,000 accessions at minus 18, and the germination schedule of Yusuf Mbaye, the seed physiologist, says 60 of them have dropped below the line where they have to be grown out this season. There is room in the ground for about 40. Chiara Volpe wants that ground for her own trial and Nasrin Qureshi, the collection curator, wants it for the collection. Today you find out what a seed is doing while it is stored, what the crossing programme is trying to make, and how the trial ground is laid out — because Friday's plan is made out of those three things.",
     "takeaway": "A stored seed is alive and spending itself, and everything in the vault is aimed at slowing that down.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "What the generation tells you",
     "objective": "Read the second generation of last year's cross, and check it against a marker.",
     "briefing": "400 plants in the warm bay, and a ratio to count.",
-    "stake": "Tuesday. The F2 of Volpe's 2024 cross is in the warm bay — 400 plants, and the first generation of any cross where the parents' alleles come apart and show themselves. Hana Nakagawa has run a marker on the same plants and has a disagreement to explain: 11 of them score as carrying the resistance allele and do not look it. Osman Toft, meanwhile, wants somebody to explain to the trainees where the grain in his drying hall came from. Today you count what the generation is telling you, decide what the marker mismatch means, and follow the carbon.",
+    "stake": "Tuesday. The F2 of Volpe's 2024 cross is in the warm bay — 400 plants, and the first generation of any cross where the parents' alleles come apart and show themselves. Hana Nakagawa, the molecular laboratory lead, has run a marker on the same plants and has a disagreement to explain: 11 of them score as carrying the resistance allele and do not look it. Osman Toft, the agronomist, wants somebody to explain to the trainees where the grain in his drying hall came from. Today you count what the generation is telling you, decide what the marker mismatch means, and follow the carbon.",
     "takeaway": "A ratio is evidence about what the parents carried, not a decoration on a data sheet.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "What a collection is made of",
     "objective": "Count what the vault holds at the level that actually matters.",
     "briefing": "Not varieties. Frequencies.",
-    "stake": "Wednesday. Tomas Ivanescu has genotyped a sample from 1 landrace accession — the 1 Idris Fenn's grandfather gave Wellmere in 1994 — and has put the numbers on the board rather than a description. Sylvie Pirelli has found that two accession numbers point at the same collection site, which may mean one of them is a duplicate taking a regeneration slot. Today you learn what a population is made of, what the numbers would look like if nothing were acting on it, and how many plants a grow-out actually needs.",
+    "stake": "Wednesday. Tomas Ivanescu, the population geneticist, has genotyped a sample from 1 landrace accession — the 1 that the farmer Idris Fenn's grandfather gave Wellmere in 1994 — and has put the numbers on the board rather than a description. Sylvie Pirelli, the data & passport records, has found that two accession numbers point at the same collection site, which may mean one of them is a duplicate taking a regeneration slot. Today you learn what a population is made of, what the numbers would look like if nothing were acting on it, and how many plants a grow-out actually needs.",
     "takeaway": "A population is a set of frequencies, and everything the vault protects is in those numbers.",
     "stops": [
       {
@@ -252,7 +252,7 @@ export const MISSIONS = [
     "title": "A week when the work is just the work",
     "objective": "Sow the ground, and do the things that only get done when nothing is wrong.",
     "briefing": "The drill is in the field and the forecast is kind.",
-    "stake": "Monday of the third week, and for once there is nothing to argue about. The trial is drilled, the screening nursery is on the headland, Fenn's four landraces went in on Saturday and the forecast is a fortnight of ordinary weather, with cloud sitting on the ridge north of the shelterbelt and nothing else in the sky. Wren Ashworth has the vault door open and a backlog of packets to re-bag. Toft is out with the canopy meter because this is the week the readings are worth taking. Today you spend a quiet week on the things that are impossible in a busy one — and on the one measurement that only works while a crop is still growing.",
+    "stake": "Monday of the third week, and for once there is nothing to argue about. The trial is drilled, the screening nursery is on the headland, Fenn's four landraces went in on Saturday and the forecast is a fortnight of ordinary weather, with cloud sitting on the ridge north of the shelterbelt and nothing else in the sky. Wren Ashworth, the genebank technician, has the vault door open and a backlog of packets to re-bag. Toft is out with the canopy meter because this is the week the readings are worth taking. Today you spend a quiet week on the things that are impossible in a busy one — and on the one measurement that only works while a crop is still growing.",
     "takeaway": "A quiet week is when the work that has no deadline finally gets done.",
     "stops": [
       {

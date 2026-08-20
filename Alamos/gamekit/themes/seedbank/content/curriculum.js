@@ -679,10 +679,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Two parents, and what you are asking of them",
-      "scene": "Volpe has two parents pinned above the bench. One is a high-yielding modern variety. The other is a low-yielding landrace that survived the 2018 drought. Otto Bengtsson asks what combination the programme is trying to create.",
+      "scene": "Volpe has two parents pinned above the bench. One is a high-yielding modern variety. The other is a low-yielding landrace that survived the 2018 drought. Otto Bengtsson, the glasshouse manager, asks what combination the programme is trying to create.",
       "takeaway": "A cross is a request for a combination, and it takes generations to find out whether it was granted.",
       "place": "Crossing Hall",
-      "story": "Volpe has two parents pinned above the bench. One is a high-yielding modern variety. The other is a low-yielding landrace that survived the 2018 drought. Otto Bengtsson asks what combination the programme is trying to create.",
+      "story": "Volpe has two parents pinned above the bench. One is a high-yielding modern variety. The other is a low-yielding landrace that survived the 2018 drought. Otto Bengtsson, the glasshouse manager, asks what combination the programme is trying to create.",
       "game": {
         "type": "CHOICE",
         "title": "Two parents, and what you are asking of them",
@@ -1245,7 +1245,8 @@ export const CURRICULUM = {
               "the numbers actually contributing as each parent"
             ]
           ],
-          "s": "Genetic loss is set by how many individuals contribute rather than how many stand in the plot, so an unequal or a small contribution makes a population drift like one much smaller than it looks."
+          "s": "Genetic loss is set by how many individuals contribute rather than how many stand in the plot, so an unequal or a small contribution makes a population drift like one much smaller than it looks.",
+          "demanded": true
         }
       ],
       "concept": {
@@ -1926,10 +1927,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Why the same line is sown four times",
-      "scene": "Meera Quiroga has the plot map on the wall: 240 plots, with each line appearing 4 times across 4 blocks. The order is randomised, and the north end of the field is visibly wetter than the south.",
+      "scene": "Meera Quiroga, the field trials manager, has the plot map on the wall: 240 plots, with each line appearing 4 times across 4 blocks. The order is randomised, and the north end of the field is visibly wetter than the south.",
       "takeaway": "A field is not uniform, so a single plot measures the plot as much as the line in it.",
       "place": "Field Laboratory",
-      "story": "Meera Quiroga has the plot map on the wall: 240 plots, with each line appearing 4 times across 4 blocks. The order is randomised, and the north end of the field is visibly wetter than the south.",
+      "story": "Meera Quiroga, the field trials manager, has the plot map on the wall: 240 plots, with each line appearing 4 times across 4 blocks. The order is randomised, and the north end of the field is visibly wetter than the south.",
       "game": {
         "type": "CHOICE",
         "title": "Why the same line is sown four times",

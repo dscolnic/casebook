@@ -99,7 +99,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "A cause, and a coincidence that looks like one",
-      "scene": "A new tone appeared on the array overnight at 214 hertz. Four machines changed state in the same hour. Achterberg has the plant log and the sonar operator is waiting.",
+      "scene": "A new tone appeared on the array overnight at 214 hertz. Four machines changed state in the same hour. Achterberg, the field assistant, has the plant log and the sonar operator is waiting.",
       "takeaway": "A relationship is causal when it reverses, not when it coincides.",
       "place": "Field Station",
       "guide": "The number you are watching is the strength of the 214-hertz tone on the array. Four machines changed state in the hour it appeared, which makes four suspects and no evidence. Switching a machine asks whether the tone depends on it; a machine that is innocent leaves the tone where it was. Change one, run the measurement, put it back, then name the machine the tone follows.",
@@ -108,7 +108,7 @@ export const CURRICULUM = {
         "What switching actually tests. Stopping a machine removes its contribution and leaves everything else running, so the change in the tone is that machine's own share of it. Two machines stopped together answer a vaguer question — whether either mattered — and that answer will not survive the meeting.",
         "Why the tone comes back. A cause is a thing the effect depends on, in both directions. Restarting the machine and watching the tone return rules out the ordinary alternative: that something else was drifting, settling or being switched somewhere else while you worked."
       ],
-      "story": "A new tone appeared on the array overnight at 214 hertz. Four machines changed state in the same hour. Achterberg has the plant log and the sonar operator is waiting.",
+      "story": "A new tone appeared on the array overnight at 214 hertz. Four machines changed state in the same hour. Achterberg, the field assistant, has the plant log and the sonar operator is waiting.",
       "game": {
         "type": "CONTROL",
         "title": "A cause, and a coincidence that looks like one",
@@ -830,7 +830,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What the level rise leaves out",
-      "scene": "The bilge is up eight centimetres in a minute over four square metres of deck. The drain pump has been running the whole time. Tomas Oyelaran wants the leak rate, not the rise.",
+      "scene": "The bilge is up eight centimetres in a minute over four square metres of deck. The drain pump has been running the whole time. Tomas Oyelaran, the sample room lead, wants the leak rate, not the rise.",
       "takeaway": "An accumulation rate is the inflow minus everything already being removed from it.",
       "place": "Sample Room",
       "guide": "Reading a stream costs nothing, so read them all. Then count only what belongs in the total Oyelaran asked for: the water entering at the hull, before the pump takes any out. Eight centimetres over four square metres in a minute is the rise, and the pump has been running for that whole minute.",
@@ -839,7 +839,7 @@ export const CURRICULUM = {
         "How the geometry enters. A depth in centimetres becomes a volume only through the area it sits on, and a volume becomes a rate only through the time it took. Four square metres and one minute are both part of the measurement, not context.",
         "Why the leak rate rather than the level. The level says how bad it is now. The leak rate says whether the pumps can win and how long there is, which is what any decision after this one depends on."
       ],
-      "story": "The bilge is up eight centimetres in a minute over four square metres of deck. The drain pump has been running the whole time. Tomas Oyelaran wants the leak rate, not the rise.",
+      "story": "The bilge is up eight centimetres in a minute over four square metres of deck. The drain pump has been running the whole time. Tomas Oyelaran, the sample room lead, wants the leak rate, not the rise.",
       "game": {
         "type": "BALANCE",
         "title": "What the level rise leaves out",
@@ -890,7 +890,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Any size you like, for the right albedo",
-      "scene": "One brightness measurement, and a model with two knobs in it. Kit Sorensen has the thermal data on a second screen and has not brought it over yet.",
+      "scene": "One brightness measurement, and a model with two knobs in it. Kit Sorensen, the laboratory assistant, has the thermal data on a second screen and has not brought it over yet.",
       "takeaway": "One observable across two unknowns fixes a family of solutions, not a solution.",
       "place": "Sample Room",
       "guide": "Two knobs, one brightness measurement, and a family of settings that all match it. Slide along the family and see how wide it is before saying anything about size. The thermal data is on a second screen and has not been brought over — until it is, the honest answer is a range rather than a number.",
@@ -899,7 +899,7 @@ export const CURRICULUM = {
         "What the thermal data does. Whatever is not reflected is absorbed and re-emitted as heat, so the infrared brightness depends on the same two quantities in a different combination. Where the two constraints cross is the answer.",
         "Why reporting the family is not a failure. A single number derived from one measurement is a number the data does not contain. Saying what range fits, and what would narrow it, is the professional answer at that moment."
       ],
-      "story": "One brightness measurement, and a model with two knobs in it. Kit Sorensen has the thermal data on a second screen and has not brought it over yet.",
+      "story": "One brightness measurement, and a model with two knobs in it. Kit Sorensen, the laboratory assistant, has the thermal data on a second screen and has not brought it over yet.",
       "game": {
         "type": "DEGENERACY",
         "title": "Any size you like, for the right albedo",

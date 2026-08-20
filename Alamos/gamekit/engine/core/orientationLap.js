@@ -84,10 +84,11 @@ export function gatesFor(lap, entryFor) {
 /**
  * The card that offers the lap.
  *
- * Two buttons on purpose. "Take the run" is primary because it is what a first
- * player should do; "Skip it" exists because a second player should not be made
- * to sit through it, and because a lap that cannot be skipped is a lap that gets
- * resented rather than enjoyed.
+ * Two buttons, and `createDay` owns both: "Take the run" is primary because it
+ * is what a first player should do, and "Pay $10 and get on with the day" exists
+ * because a second player should not be made to walk ground they know to reach
+ * the lessons. The price is the point — a free skip taught that the map was
+ * optional, and the map is what the day is planned from.
  */
 export function lapCardHTML(lap, vehicleNote) {
   // No note about grading or the clock. It was two sentences of mechanics on the

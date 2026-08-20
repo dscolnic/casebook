@@ -28,8 +28,8 @@ import { resolve, dirname } from 'node:path';
 import { parseYaml } from './yaml-lite.mjs';
 import { themeDir } from '../engine/dev/registry.mjs';
 import { pathToFileURL } from 'node:url';
-import { claimedWords, claimsPhrase, conceptMatches, conceptZones, deriveWork, EQUATIONS,
-  keywordHit, pickKeyConcept, SYLLABUS } from './syllabus.js';
+import { claimedWords, claimsPhrase, conceptMatches, conceptZones, demandsEquation, deriveWork,
+  EQUATIONS, keywordHit, pickKeyConcept, SYLLABUS } from './syllabus.js';
 
 const here = dirname(new URL(import.meta.url).pathname);
 const gamekit = resolve(here, '..');
@@ -210,15 +210,24 @@ function equationsFor(s, game, assumes){
   // mentioned, so one converted stop was both teaching the monohybrid ratio and
   // reported as asking a derived equation before its base. One rule, one function.
   const hit = keywordHit;
+  // What this card puts in front of the player. An equation the options and the
+  // verdict work numbers with is not decoration on an early day — it is the tool
+  // the question is asked with, and dropping it is how Blackout's day 1 came to
+  // print the turns ratio while asking for P = IV and P = I²R. `demandsEquation`
+  // is the test, and `engine/dev/equationSupply.mjs` fails the theme when nothing
+  // supplies one.
+  const shown = flat([game.answerText, game.answer, game.why, game.explanation, game.solution,
+    ...(game.rebuttals ?? []).map(lbl), ...(game.choices ?? []).map(lbl)]);
   const out = [];
   for(const eq of list){
     const computed = eq.k.some(k => hit(formula, k));
     if(!computed && !eq.k.some(k => hit(text, k))) continue;
+    const demanded = !computed && demandsEquation(eq, shown);
     // v and s ride along because the card has to define the symbols where it
     // shows the equation. A formula whose letters are never named teaches
     // nobody anything they did not already know.
     out.push({ e: eq.e, c: eq.c, ...(eq.v ? { v: eq.v } : {}), ...(eq.s ? { s: eq.s } : {}),
-      ...(computed ? { computed: true } : {}) });
+      ...(computed ? { computed: true } : {}), ...(demanded ? { demanded: true } : {}) });
   }
   return out;
 }
@@ -476,8 +485,18 @@ missions.forEach((m, mi) => {
  * Two rules, applied here because both need to see the whole campaign:
  *
  *   · an equation the stop does not compute is dropped from any day before the
- *     day it is first computed. It stays from that day onward, where it is
- *     context for something the player has now done.
+ *     day it is first computed — UNLESS the stop's own arithmetic uses it. It
+ *     stays from that day onward, where it is context for something the player has
+ *     now done.
+ *
+ *     The exception is the whole of `engine/dev/equationSupply.mjs`. Dropping the
+ *     chip is right for a stop that merely names an equation and wrong for one
+ *     that works numbers with it: Blackout's day 1 asks what stepping 20 kV to
+ *     400 kV does to current and to loss, its four options are that arithmetic,
+ *     and the drop left the card showing the turns ratio — which the question
+ *     never uses — with P = IV and P = I²R nowhere for another three days. A
+ *     player reading "loss falls by 400×" needs the equation, not a note that it
+ *     is coming. `demandsEquation` is the test, shared with the checker.
  *   · at most two per stop, computed ones first, then the ones already introduced.
  *     A card with four formulas on it is a card nobody reads.
  *
@@ -511,11 +530,16 @@ missions.forEach((m, mi) => {
         const first = firstComputed.get(eq.e);
         if(first === undefined) return true;      // never computed anywhere
         if(day >= first) return true;
+        if(eq.demanded) return true;              // the card's own arithmetic uses it
         dropped++;
         return false;
       });
-      // Computed first, then whatever order the book put them in.
-      kept.sort((a, b) => (b.computed ? 1 : 0) - (a.computed ? 1 : 0));
+      // Computed first, then the ones this card's arithmetic uses, then the rest —
+      // because the two-per-stop cap turns the third chip into `card: false`, and
+      // capping away the equation the question is worked from is the defect this
+      // exception was added to fix.
+      const rank = (eq) => (eq.computed ? 2 : eq.demanded ? 1 : 0);
+      kept.sort((a, b) => rank(b) - rank(a));
       if(kept.length > 2){ capped += kept.length - 2; }
       // Past the second one, `card: false` rather than gone. Four formulas on one
       // card is a card nobody reads, but a stop that computes three has computed

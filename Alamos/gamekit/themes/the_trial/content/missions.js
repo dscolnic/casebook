@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "What the trial already decided",
     "objective": "Establish what CLARION-3 promised before it had any data.",
     "briefing": "Three weeks to the second interim, and the board pack starts today.",
-    "stake": "Monday, and the second interim analysis is 21 days away. CLARION-3 has randomised 2,400 people across 31 hospitals, and in 3 weeks Professor Vogt's board will read the trial by arm and say whether it carries on. Yemi Balogun wants that meeting to end the trial; Miriam Feldman wants it to end nothing that was not written down in advance. Today you go back through what the trial committed to before the first participant — the assignment, the outcome it counts, the size it was built to detect — because everything the board is told in three weeks is measured against those promises rather than against what anybody now hopes.",
+    "stake": "Monday, and the second interim analysis is 21 days away. CLARION-3 has randomised 2,400 people across 31 hospitals, and in 3 weeks Professor Vogt, who chairs the independent monitoring board, will read the trial by arm and say whether it carries on. Yemi Balogun, the trial chair, wants that meeting to end the trial; Miriam Feldman wants it to end nothing that was not written down in advance. Today you go back through what the trial committed to before the first participant — the assignment, the outcome it counts, the size it was built to detect — because everything the board is told in three weeks is measured against those promises rather than against what anybody now hopes.",
     "takeaway": "A trial's claims are the ones it made before it had data.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "Who measures, and how",
     "objective": "Find out where a number is made before deciding what it is worth.",
     "briefing": "Two outcomes, two ways of measuring, and only one of them has a committee.",
-    "stake": "Tuesday. 20 days to the interim, and the board pack has 2 outcomes in it rather than 1. CLARION-3 counts a clinical event, which a committee rules on from the notes, and it also carries a symptom score the treating doctor writes down at each visit. Kwame Ansah trusts the first and says so at every meeting; Nuno Iriarte at site 12 thinks the second is the 1 that matters to patients, and Maggie Doyle agrees with him. Today you work out where each number is actually made, and what each is worth when the two arms are compared — because in three weeks they will be on the same page.",
+    "stake": "Tuesday. 20 days to the interim, and the board pack has 2 outcomes in it rather than 1. CLARION-3 counts a clinical event, which a committee rules on from the notes, and it also carries a symptom score the treating doctor writes down at each visit. Kwame Ansah trusts the first and says so at every meeting; Nuno Iriarte, the principal investigator, at site 12 thinks the second is the 1 that matters to patients, and Maggie Doyle, who speaks for the participants, agrees with him. Today you work out where each number is actually made, and what each is worth when the two arms are compared — because in three weeks they will be on the same page.",
     "takeaway": "A measurement is worth what the procedure that made it is worth.",
     "stops": [
       {
@@ -79,7 +79,7 @@ export const MISSIONS = [
     "title": "The unplanned look",
     "objective": "Establish what looking early costs and who is allowed to do it.",
     "briefing": "Somebody senior would like a peek at the numbers before the board sees them.",
-    "stake": "Thursday, 18 days out. The sponsor's medical director has asked, in writing, for a pooled summary of the primary endpoint by arm before the board meets, on the grounds that the liver reports have made everybody nervous. Feldman has said no twice and been asked to explain why in a way that does not sound like obstruction. Alina Petrescu, who is the only person who could produce it, has said nothing at all. Today you work out what an extra look actually costs the trial, who may take one, and what the trial can offer instead of the answer.",
+    "stake": "Thursday, 18 days out. The sponsor's medical director has asked, in writing, for a pooled summary of the primary endpoint by arm before the board meets, on the grounds that the liver reports have made everybody nervous. Feldman has said no twice and been asked to explain why in a way that does not sound like obstruction. Alina Petrescu, the unblinded statistician and the only person who could produce it, has said nothing at all. Today you work out what an extra look actually costs the trial, who may take one, and what the trial can offer instead of the answer.",
     "takeaway": "A trial's small budget for being wrong is spent by looking, not by finding.",
     "stops": [
       {

@@ -344,7 +344,7 @@ glossary:
     def: One long thread carrying many instructions in a fixed order, and inherited whole. A wheat plant has 21 pairs.
   - name: Pollen
     aliases: []
-    def: What a plant fertilises with. One grain of it carries a single set of chromosomes to an egg.
+    def: The dust a plant fertilises with. One grain of it carries one parent's half of the instructions to an egg.
   - name: Plot
     aliases: [plots]
     def: One patch of a trial, carrying one line. It is the unit everything in the field is measured on.
@@ -453,7 +453,7 @@ missions:
   - title: What is actually in the vault
     objective: Find out what Wellmere is holding and what it is doing while it sits there.
     briefing: 41000 accessions, and 60 of them overdue.
-    stake: "Monday in the first week of March, and the sowing plan has to be signed by Friday. Wellmere holds forty-one thousand seed batches at minus 18. Yusuf Mbaye says sixty of them must be grown out this season, and there is ground for about forty. Chiara Volpe wants that ground for her trial, and Nasrin Qureshi wants it for the collection. Today you find out what a seed does while it is stored."
+    stake: "Monday in the first week of March, and the sowing plan has to be signed by Friday. Wellmere holds forty-one thousand seed batches at minus 18. Yusuf Mbaye, the seed physiologist, says sixty of them must be grown out this season, and there is ground for about forty. Chiara Volpe, the head breeder, wants that ground for her trial, and Nasrin Qureshi wants it for the collection. Today you find out what a seed does while it is stored."
     takeaway: A stored seed is alive and spending itself, and everything in the vault is aimed at slowing that down.
     stops:
       - group: VAULT
@@ -505,7 +505,7 @@ missions:
         task: Say what the cross is for.
         title: Two parents, and what you are asking of them
         place: Crossing Hall
-        scene: Volpe has two parents pinned above the bench. One is a modern wheat that yields well. The other is an old local kind that came through the 2018 drought. Bengtsson asks what she wants.
+        scene: Volpe has two parents pinned above the bench. One is a modern wheat that yields well. The other is an old local kind that came through the 2018 drought. Bengtsson, the glasshouse manager, asks what she wants.
         guide: >-
           Four accounts of what a cross is for. Ask of each whether it could happen when
           each parent passes on half its genes. The offspring get a mix, not an average.
@@ -549,7 +549,7 @@ missions:
         task: Say what sowing each line four times buys.
         title: Why the same line is sown four times
         place: Field Laboratory
-        scene: Meera Quiroga has the plot map on the wall. Two hundred and forty plots, each line sown four times across four blocks, in scrambled order. The north end is visibly wetter.
+        scene: Meera Quiroga, the field trials manager, has the plot map on the wall. Two hundred and forty plots, each line sown four times across four blocks, in scrambled order. The north end is visibly wetter.
         guide: >-
           Four things four plots might buy. Ask of each whether it is about the
           comparison or about safety. A field is not the same everywhere: drainage,
@@ -590,10 +590,77 @@ missions:
           - Weather arrives across the whole site, so four nearby plots are not four separate seasons.
           - Each plot is measured the same way. What repeating buys is a better comparison, not a better plot.
   # ---------------------------------------------------------------- day 2
+      - group: DRY
+        task: Sort the harvest bags before the store closes.
+        title: Covered early, or open to the wind
+        concept: "Two parents each give half, so the young are not copies"
+        place: Drying & Processing Hall
+        scene: Two hours of bags have to be cleared. A head that was bagged before it flowered could only pollinate itself. A head left open took whatever the wind brought.
+        guide: >-
+          Two bins. Ask when the cover went on. Before the flowers opened, the plant
+          pollinated itself and the line stays the same. Open at flowering, and the father
+          could be any plant upwind. The words on the label will not tell you.
+        background:
+          - >-
+              Why the date decides it. A cover put on before flowering keeps other pollen out. A cover
+              put on afterwards keeps nothing out, because the pollination has already happened.
+          - >-
+              Why it matters at the store door. Seed from a selfed head grows into the same line
+              again. Seed with an unknown father is something else, and it looks exactly the same in
+              the bag.
+        assumes:
+          - a flower can be pollinated by its own plant or by another one
+        takeaway: What fathered a seed was decided before the flower opened.
+        format: BELT
+        question: Send each bag to the bin that says what fathered its seed.
+        answerText: Covered before the flowers opened means the plant pollinated itself. Open at flowering means the father is unknown, whatever went over it later.
+        why: >-
+          One moment decides which bin a bag belongs in. Was the head covered before its
+          flowers opened? If it was, the only pollen that could reach it was its own, and the
+          seed grows into the same line next year. If it was open when it flowered, pollen came
+          from whatever was flowering upwind, and here that means the trial plots eighty metres
+          away. A cover put on afterwards changes nothing at all. That is why the labels are no
+          help and are not meant to be. Covers, sleeves and sheets turn up on both sides of the
+          floor. The date is the category, and nothing else is.
+        belt:
+          left: { name: Covered early }
+          right: { name: Open at flowering }
+          need: 20
+          lives: 3
+          pass: 0.8
+          hint: Ask when the cover went on, not whether there is one.
+          items:
+            - { name: Bagged before flowers, bin: left }
+            - { name: Sleeved early, bin: left }
+            - { name: Covered in bud, bin: left }
+            - { name: Glasshouse selfed, bin: left }
+            - { name: Isolation tent, bin: left }
+            - { name: Sheeted early, bin: left }
+            - { name: Hand pollinated, bin: left }
+            - { name: Cabinet grown, bin: left }
+            - { name: Skirted in bud, bin: left }
+            - { name: Bagged nursery row, bin: left }
+            - { name: Screenhouse single, bin: left }
+            - { name: Early cover on, bin: left }
+            - { name: Sheeted after flowering, bin: right }
+            - { name: Bagged at harvest, bin: right }
+            - { name: Open plot centre, bin: right }
+            - { name: Field edge row, bin: right }
+            - { name: Sleeve split, bin: right }
+            - { name: Cover blown off, bin: right }
+            - { name: Windward margin, bin: right }
+            - { name: Skirted too late, bin: right }
+            - { name: Trial block strip, bin: right }
+            - { name: Bagged next day, bin: right }
+            - { name: Causeway headland, bin: right }
+            - { name: Glasshouse door propped, bin: right }
+            - { name: Cabinet vent open, bin: right }
+            - { name: Nursery gap row, bin: right }
+          commit: Start the line
   - title: What the generation tells you
     objective: Read the second generation of last year's cross, and check it against a marker.
     briefing: 400 plants in the warm bay, and a ratio to count.
-    stake: "Tuesday. Four hundred plants from Volpe's cross are in the warm bay. This is the generation where the parents' hidden versions come apart and show themselves. Hana Nakagawa has run a marker test on the same plants and has a disagreement to explain. Eleven of them carry the resistance gene and do not look it. Today you count what the generation is telling you, and work out what the mismatch means."
+    stake: "Tuesday. Four hundred plants from Volpe's cross are in the warm bay. This is the generation where the parents' hidden versions come apart and show themselves. Hana Nakagawa, the molecular laboratory lead, has run a marker test on the same plants and has a disagreement to explain. Eleven of them carry the resistance gene and do not look it. Today you count what the generation is telling you, and work out what the mismatch means."
     takeaway: A ratio is evidence about what the parents carried, not a decoration on a data sheet.
     stops:
       - group: CROSS
@@ -941,6 +1008,53 @@ missions:
           distractor: light
 
   # ---------------------------------------------------------------- day 5
+      - group: LAB
+        task: Spend the two checks on evidence that could change which batch gets the slot.
+        title: The vial nobody has grown
+        place: Molecular Laboratory
+        scene: Two of the fifty batches carry the resistance gene, and the screenhouse can grow only one this season. The full vial has been grown out three times. The thin one has never been grown out at all.
+        guide: >-
+          Four options, and two facts to weigh: how much seed there is, and how many
+          times it has been grown out. Ask of each which of the two it uses. The amount
+          in the vial says nothing about what is in it. Every grow-out is another chance
+          for rare things to be left out.
+        background:
+          - >-
+              Why the wrong answers are worth reading. Each one is written to look right to
+              somebody who made a particular mistake. Working out which mistake each one
+              belongs to is most of the learning in this format — more than getting the
+              right one, which you can sometimes do by feel.
+          - >-
+              Why sounding careful is not the same as being right. A long answer with a lot
+              of detail in it feels safer, and it is easy to write one that is still wrong.
+              The check that builds these questions measures option length across the whole
+              game so the longest one is not the answer more often than chance. Reading is
+              the only way through.
+          - >-
+              What the verdict adds. After you answer, the verdict says why each wrong
+              option is wrong, in its own words. That is written for the reader who picked
+              it. Read it even when you were right, because being right for a shaky reason
+              is the thing that catches up with you two stops later.
+        assumes:
+          - every grow-out is a chance for a batch to drift from what it was
+          - a small lot of living seed can usually be built back up
+        takeaway: Copies of copies drift. The one nobody has copied is the one that still holds what was collected.
+        format: CHOICE
+        question: One vial is full and has been grown out three times. The other is thin and never grown. Which is closer to the original plant?
+        answerText: The thin one. Every grow-out is a chance to drift, and that vial has had none.
+        why: A seed batch is not a photograph. Every time it is grown out, only some of the plants set seed, and the batch that comes back is slightly different from the batch that went in. Do that three times and the difference adds up. The thin vial has never been through that, so whatever was collected is still in it. Being thin is a problem you can fix — three hundred seeds carefully grown is a full vial again. Being drifted is not a problem you can fix, because there is nothing left to go back to.
+        choices:
+          - The thin one, because it has never been grown out
+          - The full one, because there is more of it
+          - The full one, because it has been checked three times
+          - Neither, since both have been in store the same time
+        answer: The thin one, because it has never been grown out
+        rebuttals:
+          - How much there is says nothing about what is in it.
+          - A grow-out is not a check. It is a chance for the batch to change.
+          - Time in the cold changes a batch far less than a season in a field.
+        call: Choose the batch worth the slot
+        setup: The screenhouse can grow one of the two this season.
   - title: What comes with what you wanted
     objective: Find out what else the resistance gene is dragging behind it.
     briefing: The resistant lines are shorter, and nobody bred them that way.
@@ -1142,7 +1256,7 @@ missions:
   - title: How many is enough
     objective: Put a number on what a regeneration needs, and on what the vault is losing.
     briefing: 40 accessions, 1 field, and a number nobody wants to hear.
-    stake: "Monday of the second week, and the regrow list has to be cut from sixty to forty. Tomas Ivanescu has worked out how many plants each regrow needs, and it is not the number in the manual. Mbaye has eleven years of tests on one batch, and a line the results are about to cross. Today you size the samples, and work out which of last year's results were really the ground talking."
+    stake: "Monday of the second week, and the regrow list has to be cut from sixty to forty. Tomas Ivanescu is the population geneticist. He has worked out how many plants each regrow needs. It is not the number in the manual. Mbaye has eleven years of tests on one batch, and a line the results are about to cross. Today you size the samples, and work out which of last year's results were really the ground talking."
     takeaway: Every number here is about a population, and populations do not behave like the plants in them.
     stops:
       - group: POP
@@ -1538,10 +1652,57 @@ missions:
           commit: Name the one that is doing it
 
   # ---------------------------------------------------------------- day 9
+      - group: LAB
+        task: Decide what gets tested early, and what the finished line must still show.
+        title: Gene present, resistance working?
+        concept: Disease arrives, and resistance is a trait like any other
+        place: Molecular Laboratory
+        scene: Nakagawa can run the DNA test on two-leaf seedlings. On final plants she can also check whether the gene is switched on after rust, and put real rust on the leaves.
+        guide: >-
+          Four ways to order the tests. Ask of each what a DNA test can and cannot show.
+          Carrying a gene is not the same as using it. Between the gene and a plant that
+          survives rust sit several steps, and only one kind of test asks whether the
+          whole chain works.
+        background:
+          - >-
+              Why the wrong answers are worth reading. Each one is written to look right to
+              somebody who made a particular mistake. Working out which mistake each one
+              belongs to is most of the learning in this format — more than getting the
+              right one, which you can sometimes do by feel.
+          - >-
+              Why sounding careful is not the same as being right. A long answer with a lot
+              of detail in it feels safer, and it is easy to write one that is still wrong.
+              The check that builds these questions measures option length across the whole
+              game so the longest one is not the answer more often than chance. Reading is
+              the only way through.
+          - >-
+              What the verdict adds. After you answer, the verdict says why each wrong
+              option is wrong, in its own words. That is written for the reader who picked
+              it. Read it even when you were right, because being right for a shaky reason
+              is the thing that catches up with you two stops later.
+        assumes:
+          - a nearby marker can come apart from the gene it stands for
+          - a gene has to be switched on before it does anything
+        takeaway: DNA says what a plant carries. Only a real test says whether it works.
+        format: CHOICE
+        question: The DNA test says the gene is there. What has it not shown?
+        answerText: Use the DNA test early to clear seedlings. Then make the final line show the gene switching on, and shrug off real rust.
+        why: The DNA test is worth running early, because it clears out most seedlings months before rust could be used. It is not proof. The marker sits near the gene rather than inside it, and the two can come apart. Even the gene itself only says what the plant carries. It has to switch that gene on when rust arrives. So the last plants get real rust put on them.
+        choices:
+          - Use the DNA test early, then test the final line against rust.
+          - Check the switching every generation. The final rust test is then unnecessary.
+          - Put rust on every generation, and the DNA test at the end.
+          - Use the DNA test early and late. Carrying the gene is enough.
+        answer: Put rust on every generation, and the DNA test at the end.
+        rebuttals:
+          - Switching on is worth knowing, and the plant still has to beat the rust in the end.
+          - Waiting for real rust every generation throws away the months the DNA test buys.
+          - A nearby marker can come apart from the gene, and carrying a gene does not prove it works.
+  # ---------------------------------------------------------------- day 15
   - title: The collection is not what the records say
     objective: Find out why the regenerated accessions no longer match their own passports.
     briefing: A genotyping run that was meant to be routine.
-    stake: "Thursday. Nakagawa ran a routine DNA test across ninety batches. DNA is the instruction set inside every seed, and it can be read directly. A third of them do not match their records — same numbers, same paperwork, different plants. Sylvie Pirelli has checked the labels twice and found nothing wrong. Qureshi has gone down to the vault and has not come back up. Today you work out what happened to those batches, and whether it happened in the vault or in the field."
+    stake: "Thursday. Nakagawa ran a routine DNA test across ninety batches. DNA is the instruction set inside every seed, and it can be read directly. A third of them do not match their records — same numbers, same paperwork, different plants. Sylvie Pirelli, who keeps the passport records, has checked the labels twice. Qureshi has gone down to the vault and has not come back up. Today you work out what happened to those batches, and whether it happened in the vault or in the field."
     takeaway: A collection can be kept perfectly and still stop being the thing it was.
     stops:
       - group: POP
@@ -1616,53 +1777,6 @@ missions:
           commit: Correct it
         answerText: The genetic results all share the repeated grow-outs. Keep the germination evidence. It shows the store did its job.
         why: Three of the four kinds of evidence rest on the same grow-out history, so their agreement is one cause counted three times. The germination evidence does not. It rests on tests of whether the seed grows, and it says the seed is fine. Opening what each one depends on splits the story in two. The store kept the seed alive. The grow-outs changed what was in it. Throwing out the germination evidence would lose the half that stands alone.
-      - group: LAB
-        task: Spend the two checks on evidence that could change which batch gets the slot.
-        title: The vial nobody has grown
-        place: Molecular Laboratory
-        scene: Two of the fifty batches carry the resistance gene, and the screenhouse can grow only one this season. The full vial has been grown out three times. The thin one has never been grown out at all.
-        guide: >-
-          Four options, and two facts to weigh: how much seed there is, and how many
-          times it has been grown out. Ask of each which of the two it uses. The amount
-          in the vial says nothing about what is in it. Every grow-out is another chance
-          for rare things to be left out.
-        background:
-          - >-
-              Why the wrong answers are worth reading. Each one is written to look right to
-              somebody who made a particular mistake. Working out which mistake each one
-              belongs to is most of the learning in this format — more than getting the
-              right one, which you can sometimes do by feel.
-          - >-
-              Why sounding careful is not the same as being right. A long answer with a lot
-              of detail in it feels safer, and it is easy to write one that is still wrong.
-              The check that builds these questions measures option length across the whole
-              game so the longest one is not the answer more often than chance. Reading is
-              the only way through.
-          - >-
-              What the verdict adds. After you answer, the verdict says why each wrong
-              option is wrong, in its own words. That is written for the reader who picked
-              it. Read it even when you were right, because being right for a shaky reason
-              is the thing that catches up with you two stops later.
-        assumes:
-          - every grow-out is a chance for a batch to drift from what it was
-          - a small lot of living seed can usually be built back up
-        takeaway: Copies of copies drift. The one nobody has copied is the one that still holds what was collected.
-        format: CHOICE
-        question: One vial is full and has been grown out three times. The other is thin and never grown. Which is closer to the original plant?
-        answerText: The thin one. Every grow-out is a chance to drift, and that vial has had none.
-        why: A seed batch is not a photograph. Every time it is grown out, only some of the plants set seed, and the batch that comes back is slightly different from the batch that went in. Do that three times and the difference adds up. The thin vial has never been through that, so whatever was collected is still in it. Being thin is a problem you can fix — three hundred seeds carefully grown is a full vial again. Being drifted is not a problem you can fix, because there is nothing left to go back to.
-        choices:
-          - The thin one, because it has never been grown out
-          - The full one, because there is more of it
-          - The full one, because it has been checked three times
-          - Neither, since both have been in store the same time
-        answer: The thin one, because it has never been grown out
-        rebuttals:
-          - How much there is says nothing about what is in it.
-          - A grow-out is not a check. It is a chance for the batch to change.
-          - Time in the cold changes a batch far less than a season in a field.
-        call: Choose the batch worth the slot
-        setup: The screenhouse can grow one of the two this season.
       - group: VAULT
         task: Name the step that failed.
         title: What the store did right
@@ -1708,53 +1822,6 @@ missions:
           order: [intake, freezer, growout, back]
           governing: growout
           distractor: freezer
-      - group: LAB
-        task: Decide what gets tested early, and what the finished line must still show.
-        title: Gene present, resistance working?
-        concept: Disease arrives, and resistance is a trait like any other
-        place: Molecular Laboratory
-        scene: Nakagawa can run the DNA test on two-leaf seedlings. On final plants she can also check whether the gene is switched on after rust, and put real rust on the leaves.
-        guide: >-
-          Four ways to order the tests. Ask of each what a DNA test can and cannot show.
-          Carrying a gene is not the same as using it. Between the gene and a plant that
-          survives rust sit several steps, and only one kind of test asks whether the
-          whole chain works.
-        background:
-          - >-
-              Why the wrong answers are worth reading. Each one is written to look right to
-              somebody who made a particular mistake. Working out which mistake each one
-              belongs to is most of the learning in this format — more than getting the
-              right one, which you can sometimes do by feel.
-          - >-
-              Why sounding careful is not the same as being right. A long answer with a lot
-              of detail in it feels safer, and it is easy to write one that is still wrong.
-              The check that builds these questions measures option length across the whole
-              game so the longest one is not the answer more often than chance. Reading is
-              the only way through.
-          - >-
-              What the verdict adds. After you answer, the verdict says why each wrong
-              option is wrong, in its own words. That is written for the reader who picked
-              it. Read it even when you were right, because being right for a shaky reason
-              is the thing that catches up with you two stops later.
-        assumes:
-          - a nearby marker can come apart from the gene it stands for
-          - a gene has to be switched on before it does anything
-        takeaway: DNA says what a plant carries. Only a real test says whether it works.
-        format: CHOICE
-        question: The DNA test says the gene is there. What has it not shown?
-        answerText: Use the DNA test early to clear seedlings. Then make the final line show the gene switching on, and shrug off real rust.
-        why: The DNA test is worth running early, because it clears out most seedlings months before rust could be used. It is not proof. The marker sits near the gene rather than inside it, and the two can come apart. Even the gene itself only says what the plant carries. It has to switch that gene on when rust arrives. So the last plants get real rust put on them.
-        choices:
-          - Use the DNA test early, then test the final line against rust.
-          - Check the switching every generation. The final rust test is then unnecessary.
-          - Put rust on every generation, and the DNA test at the end.
-          - Use the DNA test early and late. Carrying the gene is enough.
-        answer: Put rust on every generation, and the DNA test at the end.
-        rebuttals:
-          - Switching on is worth knowing, and the plant still has to beat the rust in the end.
-          - Waiting for real rust every generation throws away the months the DNA test buys.
-          - A nearby marker can come apart from the gene, and carrying a gene does not prove it works.
-  # ---------------------------------------------------------------- day 15
       - group: POP
         task: Work out what happened to the resistance in this batch.
         title: What was lost, and when
@@ -1811,7 +1878,7 @@ missions:
         task: Say why the farm may hold what the vault lost.
         title: The copy that was never in the vault
         place: Seed Vault
-        scene: Fenn's old wheats are growing in the station plots. His family has grown one of them without a break since before Wellmere existed. Rust arrives there most years.
+        scene: The farmer Idris Fenn has old wheats growing in the station plots. His family has grown one of them without a break since before Wellmere existed. Rust arrives there most years.
         guide: >-
           Four reasons the field copy might hold what the vault lost. Ask of each
           whether it names a reason or just a difference. Fresher and bigger are not
@@ -1852,73 +1919,6 @@ missions:
           - Quantity is not the problem. The vault has plenty of a population that has lost the gene.
           - New genes appear far too rarely to put one back in thirty years.
   # ---------------------------------------------------------------- day 14
-      - group: DRY
-        task: Sort the harvest bags before the store closes.
-        title: Covered early, or open to the wind
-        concept: "Two parents each give half, so the young are not copies"
-        place: Drying & Processing Hall
-        scene: Two hours of bags have to be cleared. A head that was bagged before it flowered could only pollinate itself. A head left open took whatever the wind brought.
-        guide: >-
-          Two bins. Ask when the cover went on. Before the flowers opened, the plant
-          pollinated itself and the line stays the same. Open at flowering, and the father
-          could be any plant upwind. The words on the label will not tell you.
-        background:
-          - >-
-              Why the date decides it. A cover put on before flowering keeps other pollen out. A cover
-              put on afterwards keeps nothing out, because the pollination has already happened.
-          - >-
-              Why it matters at the store door. Seed from a selfed head grows into the same line
-              again. Seed with an unknown father is something else, and it looks exactly the same in
-              the bag.
-        assumes:
-          - a flower can be pollinated by its own plant or by another one
-        takeaway: What fathered a seed was decided before the flower opened.
-        format: BELT
-        question: Send each bag to the bin that says what fathered its seed.
-        answerText: Covered before the flowers opened means the plant pollinated itself. Open at flowering means the father is unknown, whatever went over it later.
-        why: >-
-          One moment decides which bin a bag belongs in. Was the head covered before its
-          flowers opened? If it was, the only pollen that could reach it was its own, and the
-          seed grows into the same line next year. If it was open when it flowered, pollen came
-          from whatever was flowering upwind, and here that means the trial plots eighty metres
-          away. A cover put on afterwards changes nothing at all. That is why the labels are no
-          help and are not meant to be. Covers, sleeves and sheets turn up on both sides of the
-          floor. The date is the category, and nothing else is.
-        belt:
-          left: { name: Covered early }
-          right: { name: Open at flowering }
-          need: 20
-          lives: 3
-          pass: 0.8
-          hint: Ask when the cover went on, not whether there is one.
-          items:
-            - { name: Bagged before flowers, bin: left }
-            - { name: Sleeved early, bin: left }
-            - { name: Covered in bud, bin: left }
-            - { name: Glasshouse selfed, bin: left }
-            - { name: Isolation tent, bin: left }
-            - { name: Sheeted early, bin: left }
-            - { name: Hand pollinated, bin: left }
-            - { name: Cabinet grown, bin: left }
-            - { name: Skirted in bud, bin: left }
-            - { name: Bagged nursery row, bin: left }
-            - { name: Screenhouse single, bin: left }
-            - { name: Early cover on, bin: left }
-            - { name: Sheeted after flowering, bin: right }
-            - { name: Bagged at harvest, bin: right }
-            - { name: Open plot centre, bin: right }
-            - { name: Field edge row, bin: right }
-            - { name: Sleeve split, bin: right }
-            - { name: Cover blown off, bin: right }
-            - { name: Windward margin, bin: right }
-            - { name: Skirted too late, bin: right }
-            - { name: Trial block strip, bin: right }
-            - { name: Bagged next day, bin: right }
-            - { name: Causeway headland, bin: right }
-            - { name: Glasshouse door propped, bin: right }
-            - { name: Cabinet vent open, bin: right }
-            - { name: Nursery gap row, bin: right }
-          commit: Start the line
   - title: What goes in the crossing block
     objective: Decide what the next seven years are made of, on the last day it can be changed.
     briefing: The block is drilled tomorrow. After that the parents are fixed.

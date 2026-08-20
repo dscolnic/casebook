@@ -2201,7 +2201,8 @@ export const CURRICULUM = {
               "the same ratio in mean ocean water, the agreed reference"
             ]
           ],
-          "s": "Isotope ratios differ from each other in the fourth decimal place, so they are always reported as a difference from one agreed water — which is why every δ value is a comparison rather than an amount."
+          "s": "Isotope ratios differ from each other in the fourth decimal place, so they are always reported as a difference from one agreed water — which is why every δ value is a comparison rather than an amount.",
+          "demanded": true
         },
         {
           "e": "ΔT = Δδ¹⁸O / α,  α ≈ 0.67 ‰ per °C",
@@ -2220,7 +2221,8 @@ export const CURRICULUM = {
               "the calibration slope for that site, measured against instrumental temperature"
             ]
           ],
-          "s": "Colder air rains out the heavy isotopes earlier, so ice laid down in a cold year is isotopically lighter — and the conversion into degrees is a slope somebody had to measure, not a constant of nature."
+          "s": "Colder air rains out the heavy isotopes earlier, so ice laid down in a cold year is isotopically lighter — and the conversion into degrees is a slope somebody had to measure, not a constant of nature.",
+          "demanded": true
         }
       ],
       "concept": {

@@ -7,7 +7,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Concealment is not the same as blinding",
-      "scene": "Farida Diouf has a note from site 7. Their pharmacy diary lists kit numbers beside the arm each one contains, and the research nurse can see the next entry before she decides whether to enter a patient.",
+      "scene": "Farida Diouf, the trial pharmacist, has a note from site 7. Their pharmacy diary lists kit numbers beside the arm each one contains, and the research nurse can see the next entry before she decides whether to enter a patient.",
       "takeaway": "If the next assignment can be seen in advance, chance is no longer the only thing choosing.",
       "place": "Kit Warehouse & Cold Room",
       "guide": "All four options are real costs of a readable diary. Ask of each whether it acts at the moment of entry, or afterwards. A nurse who can see the next slot can wait a day for a patient she thinks will do well. Nobody has to be dishonest for that to wreck the comparison. Concealment protects entry; blinding protects everything after, and they fail separately.",
@@ -16,7 +16,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Farida Diouf has a note from site 7. Their pharmacy diary lists kit numbers beside the arm each one contains, and the research nurse can see the next entry before she decides whether to enter a patient.",
+      "story": "Farida Diouf, the trial pharmacist, has a note from site 7. Their pharmacy diary lists kit numbers beside the arm each one contains, and the research nurse can see the next entry before she decides whether to enter a patient.",
       "game": {
         "type": "CHOICE",
         "title": "Concealment is not the same as blinding",
@@ -261,7 +261,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "One outcome, named in advance",
-      "scene": "Kwame Ansah has four measurements from the same participant on his screen and a definition agreed four years ago. A journalist has asked the sponsor which of the 4 CLARION-3 is actually about.",
+      "scene": "Kwame Ansah, the endpoint adjudication chair, has four measurements from the same participant on his screen and a definition agreed four years ago. A journalist has asked the sponsor which of the 4 CLARION-3 is actually about.",
       "takeaway": "The primary endpoint is the one question the trial was built to answer; the rest are collected, not promised.",
       "place": "Adjudication Room",
       "guide": "Four candidate primary endpoints, scored on two things the sponsor cares about. The slider is the event rate the trial actually gets, which nobody knows in advance — slide it to the pessimistic end and see which endpoint still answers the question there. The one that looks best at the expected rate is not necessarily the one that survives being wrong about it.",
@@ -270,7 +270,7 @@ export const CURRICULUM = {
         "Why naming it in advance matters. With four measurements per participant, somebody choosing afterwards has four chances to find a difference, and the reported result would be the best of four rather than the answer to one question. That is the whole of why the definition is four years old.",
         "Why the event rate is the assumption that bites. Every endpoint's power depends on how often its event happens. A rare, hard endpoint is unimpeachable and may never accumulate enough events to say anything; a composite happens more often and answers a blurrier question. That trade is what the slider makes visible."
       ],
-      "story": "Kwame Ansah has four measurements from the same participant on his screen and a definition agreed four years ago. A journalist has asked the sponsor which of the 4 CLARION-3 is actually about.",
+      "story": "Kwame Ansah, the endpoint adjudication chair, has four measurements from the same participant on his screen and a definition agreed four years ago. A journalist has asked the sponsor which of the 4 CLARION-3 is actually about.",
       "game": {
         "type": "STRESS",
         "title": "One outcome, named in advance",
@@ -2302,7 +2302,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What counts as a deviation",
-      "scene": "Lucia Marchetti has four things sites did this month that were not what the protocol says. None of them harmed anybody. Site 12 has asked which of them are worth the paperwork.",
+      "scene": "Lucia Marchetti, the lead monitor, has four things sites did this month that were not what the protocol says. None of them harmed anybody. Site 12 has asked which of them are worth the paperwork.",
       "takeaway": "A deviation is recorded for what it does to the comparison, not for how bad it looks.",
       "place": "Monitors' Room",
       "guide": "All four are real deviations and none harmed anybody. Ask of each whether it lands on both arms equally. A late blood test and a late form are untidy in both arms. A different pump delivers the same drug. Only one of these changes who is in the trial. It matters because those entries need not be spread evenly across the arms.",
@@ -2311,7 +2311,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Lucia Marchetti has four things sites did this month that were not what the protocol says. None of them harmed anybody. Site 12 has asked which of them are worth the paperwork.",
+      "story": "Lucia Marchetti, the lead monitor, has four things sites did this month that were not what the protocol says. None of them harmed anybody. Site 12 has asked which of them are worth the paperwork.",
       "game": {
         "type": "CHOICE",
         "title": "What counts as a deviation",
@@ -3094,7 +3094,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "The plan that was in force",
-      "scene": "Nkechi Umeh has four versions of the analysis plan, each dated. Feldman wants to know which 1 governs the interim in 20 days, and the sponsor's lawyer wants to know how anybody could prove it.",
+      "scene": "Nkechi Umeh, the regulatory lead, has four versions of the analysis plan, each dated. Feldman wants to know which 1 governs the interim in 20 days, and the sponsor's lawyer wants to know how anybody could prove it.",
       "takeaway": "A result is worth more when the plan that produced it can be dated.",
       "place": "Regulatory & Registry",
       "guide": "All four steps will happen, so ask what order makes the claim provable. Prespecification is a claim about time: this analysis was chosen before anybody could see what it would give. The only support for that afterwards is a dated public record made before the data existed. Reverse any two of these and the arithmetic is still right about a question chosen after the fact.",
@@ -3103,7 +3103,7 @@ export const CURRICULUM = {
         "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
         "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
       ],
-      "story": "Nkechi Umeh has four versions of the analysis plan, each dated. Feldman wants to know which 1 governs the interim in 20 days, and the sponsor's lawyer wants to know how anybody could prove it.",
+      "story": "Nkechi Umeh, the regulatory lead, has four versions of the analysis plan, each dated. Feldman wants to know which 1 governs the interim in 20 days, and the sponsor's lawyer wants to know how anybody could prove it.",
       "game": {
         "type": "SEQUENCE",
         "title": "The plan that was in force",
@@ -3650,6 +3650,26 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
+          "e": "RR = p_treatment / p_control",
+          "c": "relative risk, and why it hides how big the effect is",
+          "v": [
+            [
+              "RR",
+              "relative risk, a ratio with no units"
+            ],
+            [
+              "p_treatment",
+              "event rate in the treatment arm"
+            ],
+            [
+              "p_control",
+              "event rate in the control arm"
+            ]
+          ],
+          "s": "A ratio says the treatment arm had a third fewer events without saying whether that was thirty in a hundred or three in ten thousand, which is why the same result sounds far stronger stated this way.",
+          "demanded": true
+        },
+        {
           "e": "ARR = p_control − p_treatment",
           "c": "absolute risk reduction — the difference the treatment made",
           "v": [
@@ -3667,25 +3687,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Subtract one arm's event rate from the other's: the answer is how many events per hundred people the treatment prevented, in the population that was actually enrolled."
-        },
-        {
-          "e": "RR = p_treatment / p_control",
-          "c": "relative risk, and why it hides how big the effect is",
-          "v": [
-            [
-              "RR",
-              "relative risk, a ratio with no units"
-            ],
-            [
-              "p_treatment",
-              "event rate in the treatment arm"
-            ],
-            [
-              "p_control",
-              "event rate in the control arm"
-            ]
-          ],
-          "s": "A ratio says the treatment arm had a third fewer events without saying whether that was thirty in a hundred or three in ten thousand, which is why the same result sounds far stronger stated this way."
         }
       ],
       "concept": {

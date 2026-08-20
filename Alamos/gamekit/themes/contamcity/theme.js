@@ -71,6 +71,10 @@ export default {
     + 'emergency budget closed.',
     'The fence came down on a Thursday. Both neighbourhoods were home by the weekend, and the '
     + 'river survey still samples the same four stations every month.',
+    'And it reads that way because of you. You identified the compound with two methods '
+    + 'instead of one, you bounded the sediment reservoir rather than guessing at it, and you '
+    + 'signed nothing you could not show the working for. A city is drinking its own water '
+    + 'again. You are the reason it can.',
   ],
   look: {
     // 66° rather than 72°: a wider field distorts badly down a straight street.

@@ -75,6 +75,20 @@ export default {
     + 'This paragraph is the only place the game explains itself.',
   ],
 
+  // How it ends. The last thing anybody reads, and the counterpart of `opening`:
+  // what came of the campaign, what it cost and what is unfinished, and then —
+  // this is the paragraph that is easy to leave out — what the *player* did.
+  // `checkStory` fails a campaign whose closing paragraph is not addressed to
+  // them, because a fortnight of work should not finish on a report.
+  ending: [
+    'Say how it came out, in the same voice: what held, what it cost, and what the '
+    + 'next crew inherits.',
+    'Then say what the player did, and say it plainly. Name the two or three calls '
+    + 'that were theirs, name what those calls bought, and give them the credit for '
+    + 'it — you held the corridor, you brought them up, you are the reason it reads '
+    + 'that way.',
+  ],
+
   look: {
     fov: 66,            // a 72° field distorts badly down a straight street
     near: 0.1,

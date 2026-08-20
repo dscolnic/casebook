@@ -2000,7 +2000,7 @@ missions:
     objective: Prioritise and delegate when there are more casualties than there are people.
     briefing: |-
       Flooding forward, a partial power loss, a degraded plot and one injured crewman, all inside four minutes. There are not enough people to do everything, so the first decision is which things do not get done yet.
-    stake: "Ninth day, forenoon watch, and four things at once: water forward, a bus lost aft, the plot degraded by that power loss, and Adeyemi with a broken wrist in the passage. Vance wants to hold the ordered speed. Whitfield says a boat with four casualties making eight knots at a bank nine miles away is about to have five, and this time he is the one who is right. This watch you decide what you take, what you hand to whom, and whether the boat slows down. Everything you hold personally is something nobody else is working, and Whitfield will not invent the organisation for you."
+    stake: "Ninth day, forenoon watch, and four things at once: water forward, a bus lost aft, the plot degraded by that power loss, and Adeyemi, the propulsion plant operator, with a broken wrist in the passage. Vance wants to hold the ordered speed. Whitfield says a boat with four casualties making eight knots at a bank nine miles away is about to have five, and this time he is the one who is right. This watch you decide what you take, what you hand to whom, and whether the boat slows down. Everything you hold personally is something nobody else is working, and Whitfield will not invent the organisation for you."
     takeaway: Command is deciding what you do, and who does the rest.
     stops:
       - group: DC

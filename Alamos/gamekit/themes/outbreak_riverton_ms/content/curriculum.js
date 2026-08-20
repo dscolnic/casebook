@@ -1194,7 +1194,7 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Choose the field campaign",
-      "scene": "Dr. Arjun Singh has one field campaign and twenty sampling slots. Likely animals, comparison places and a second visit later all want the same crews.",
+      "scene": "Dr. Arjun Singh, the one health lead, has one field campaign and twenty sampling slots. Likely animals, comparison places and a second visit later all want the same crews.",
       "takeaway": "A field plan is defined by the explanations it can rule out with the samples it chooses.",
       "place": "Comparative Genomics Lab",
       "guide": "One campaign, twenty sampling slots, and more animals, places and visits than the crews can cover. Watch the list of questions rather than the map. It shows which comparisons your plan can still make, and a plan that samples the most animals while keeping no comparison cannot tell the stories apart.",
@@ -1203,7 +1203,7 @@ export const CURRICULUM = {
         "What a comparison place is for. If the germ turns up everywhere, the finding says nothing about this outbreak. Finding it here and not there is what connects the animals to the people who got ill, and it costs half the campaign to be able to say so.",
         "Why a second visit is worth so much. A single visit is a snapshot. It cannot tell a settled source from a one-off, and that difference decides whether anything has to change about how people live near these animals."
       ],
-      "story": "Dr. Arjun Singh has one field campaign and twenty sampling slots. Likely animals, comparison places and a second visit later all want the same crews.",
+      "story": "Dr. Arjun Singh, the one health lead, has one field campaign and twenty sampling slots. Likely animals, comparison places and a second visit later all want the same crews.",
       "game": {
         "type": "ALLOCATE",
         "title": "Choose the field campaign",
@@ -1621,7 +1621,7 @@ export const CURRICULUM = {
     {
       "day": 13,
       "title": "Three slots, six good ideas",
-      "scene": "Dr. Nia Okafor has six workable ideas and three slots to fund. Some can work this month. Others take longer, and some fail for exactly the same reasons as each other.",
+      "scene": "Dr. Nia Okafor, the immunology lead, has six workable ideas and three slots to fund. Some can work this month. Others take longer, and some fail for exactly the same reasons as each other.",
       "takeaway": "A set of measures is stronger when they do not all depend on the same thing going right.",
       "place": "Public Health Strategy Room",
       "guide": "Six workable ideas, three slots. Watch which response questions your current three can still answer. Ideas that fail for the same reason look like two defences and behave like one, so a set that holds when one assumption turns out wrong is worth more than three strong ideas that fall together.",
@@ -1630,7 +1630,7 @@ export const CURRICULUM = {
         "Why timing splits them too. Some can work this month and some take a season to set up. A set made only of slow ones leaves the next four weeks uncovered, whatever it achieves later.",
         "How to test a set. Take each assumption in turn — people follow the advice, supplies arrive, the germ behaves as expected — and ask what still works if it is wrong. The set that survives each single failure is the one to fund."
       ],
-      "story": "Dr. Nia Okafor has six workable ideas and three slots to fund. Some can work this month. Others take longer, and some fail for exactly the same reasons as each other.",
+      "story": "Dr. Nia Okafor, the immunology lead, has six workable ideas and three slots to fund. Some can work this month. Others take longer, and some fail for exactly the same reasons as each other.",
       "game": {
         "type": "ALLOCATE",
         "title": "Three slots, six good ideas",

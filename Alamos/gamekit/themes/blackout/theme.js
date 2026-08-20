@@ -100,6 +100,10 @@ export default {
     + 'measured once, and the practice that would have caught all of it — check any instrument a '
     + 'decision rests on against something independent — is a paragraph in a report until somebody '
     + 'on nights makes it a habit.',
+    'And you held it. A fortnight on a corridor with no margin: you checked the instruments '
+    + 'the decisions rested on, you shed load when shedding it was the unpopular call, and you '
+    + 'wrote down what you could not yet prove. Four million people had power through a '
+    + 'fortnight that could have gone very differently. That was your fortnight.',
   ],
 
   look: {

@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "Morning Rush",
     "objective": "How doctors use clues and decide who needs help first",
     "briefing": "How doctors use clues and decide who needs help first",
-    "stake": "It is your first shift. Three children come in at once. Ava is quiet and breathing hard. Ben is crying loudly about his ankle. Mia has not said anything at all. Nurse Alex Lee, who is showing you the ward today, says to watch all three before you choose. Today you decide who to see first, and you learn the three kinds of clue. The loudest patient is not always the one in the most trouble.",
+    "stake": "It is your first shift. Three children come in at once. Ava, a patient, is quiet and breathing hard. Ben, a patient, is crying loudly about his ankle. Mia has not said anything at all. Nurse Alex Lee, who is showing you the ward today, says to watch all three before you choose. Today you decide who to see first, and you learn the three kinds of clue. The loudest patient is not always the one in the most trouble.",
     "takeaway": "Shift complete",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "X-Ray Day",
     "objective": "Bones, joints, protection, and medical imaging",
     "briefing": "Bones, joints, protection, and medical imaging",
-    "stake": "Third shift, and Ben is back — the boy with the sore ankle from your first day. He remembers you and is trying not to cry again. This time it is his wrist, and it is swollen. He fell onto his hand from the monkey bars an hour ago. Dr. Elena Garcia is waiting for you. Today you pick the right tool, learn what bones do, and keep Ben calm while the team gets ready.",
+    "stake": "Third shift, and Ben is back — the boy with the sore ankle from your first day. He remembers you and is trying not to cry again. This time it is his wrist, and it is swollen. He fell onto his hand from the monkey bars an hour ago. Dr. Elena Garcia, the orthopedics, is waiting for you. Today you pick the right tool, learn what bones do, and keep Ben calm while the team gets ready.",
     "takeaway": "Shift complete",
     "stops": [
       {
@@ -79,7 +79,7 @@ export const MISSIONS = [
     "title": "Brain Signal Day",
     "objective": "Brain, spinal cord, nerves, and fast responses",
     "briefing": "Brain, spinal cord, nerves, and fast responses",
-    "stake": "Fourth shift. Arjun bumped his head at break. His knee is scraped and you can see it. He is also muddled about what day it is, and you can only see that if you talk to him. His friend says he asked the same question twice on the way in. Dr. Sam Kim asks which one worries you. Today you follow signals into the brain and back out, and decide who needs help first.",
+    "stake": "Fourth shift. Arjun, a patient, bumped his head at break. His knee is scraped and you can see it. He is also muddled about what day it is, and you can only see that if you talk to him. His friend says he asked the same question twice on the way in. Dr. Sam Kim, the neurology, asks which one worries you. Today you follow signals into the brain and back out, and decide who needs help first.",
     "takeaway": "Shift complete",
     "stops": [
       {
@@ -103,7 +103,7 @@ export const MISSIONS = [
     "title": "Heart on the Move",
     "objective": "The heart, blood, pulse, and circulation",
     "briefing": "The heart, blood, pulse, and circulation",
-    "stake": "Fifth shift. Jordan came up the stairs and his heart is racing, and his mum looks frightened. Jordan says he feels fine and wants to go back to his brother. His hands are warm and he is not out of breath now. Nurse Alex Lee has counted his pulse twice, ten minutes apart, and asks you what you saw before she says anything. Today you follow blood around the body, count a pulse, and work out why it sped up.",
+    "stake": "Fifth shift. Jordan, a patient, came up the stairs and his heart is racing, and his mum looks frightened. Jordan says he feels fine and wants to go back to his brother. His hands are warm and he is not out of breath now. Nurse Alex Lee has counted his pulse twice, ten minutes apart, and asks you what you saw before she says anything. Today you follow blood around the body, count a pulse, and work out why it sped up.",
     "takeaway": "Shift complete",
     "stops": [
       {
@@ -127,7 +127,7 @@ export const MISSIONS = [
     "title": "Sense Detective",
     "objective": "Eyes, ears, senses, and how the brain uses signals",
     "briefing": "Eyes, ears, senses, and how the brain uses signals",
-    "stake": "Sixth shift. Mina says the board looks blurry, and she can read the big letters but not the small ones. Caleb cannot hear a quiet tone, though he hears you fine when you face him. Mrs. Ruiz feels dizzy when she stands, and is steady again after a minute. Three people, three clues, three different tools, and Nurse Alex Lee has put them all in one room. Today you match each one and follow how seeing works.",
+    "stake": "Sixth shift. Mina, a patient, says the board looks blurry, and she can read the big letters but not the small ones. Caleb, a patient, cannot hear a quiet tone, though he hears you fine when you face him. Mrs. Ruiz feels dizzy when she stands, and is steady again after a minute. Three people, three clues, three different tools, and Nurse Alex Lee has put them all in one room. Today you match each one and follow how seeing works.",
     "takeaway": "Shift complete",
     "stops": [
       {
@@ -151,7 +151,7 @@ export const MISSIONS = [
     "title": "Breathing Room",
     "objective": "Lungs, air, oxygen, and breathing rate",
     "briefing": "Lungs, air, oxygen, and breathing rate",
-    "stake": "Your seventh shift. Noah helped clean a dusty room and now he makes a whistling sound with every breath. He is sitting up very straight and would rather not lie down. Dr. Luis Reyes wants you to listen before he does. He has already checked that Noah can still talk in whole sentences. Today you follow the path air takes, work out what that sound means, and count how fast someone is breathing.",
+    "stake": "Your seventh shift. Noah helped clean a dusty room and now he makes a whistling sound with every breath. He is sitting up very straight and would rather not lie down. Dr. Luis Reyes, the respiratory lead, wants you to listen before he does. He has already checked that Noah can still talk in whole sentences. Today you follow the path air takes, work out what that sound means, and count how fast someone is breathing.",
     "takeaway": "Shift complete",
     "stops": [
       {
@@ -175,7 +175,7 @@ export const MISSIONS = [
     "title": "Water Watch",
     "objective": "Hydration, kidneys, urine, and water balance",
     "briefing": "Hydration, kidneys, urine, and water balance",
-    "stake": "Eighth shift. Mateo finished his soccer match and says he feels fine. His mouth is dry. His urine looks darker than usual. He drank one small bottle in the whole match. Nurse Alex Lee has written all of that down and wants to know what you make of it together. Today you read two clues at once and follow water through the body. Two clues pointing the same way are much stronger than one.",
+    "stake": "Eighth shift. Mateo, a patient, finished his soccer match and says he feels fine. His mouth is dry. His urine looks darker than usual. He drank one small bottle in the whole match. Nurse Alex Lee has written all of that down and wants to know what you make of it together. Today you read two clues at once and follow water through the body. Two clues pointing the same way are much stronger than one.",
     "takeaway": "Shift complete",
     "stops": [
       {
@@ -199,7 +199,7 @@ export const MISSIONS = [
     "title": "Germ Detective Shift",
     "objective": "Microbes, spread, evidence, and handwashing",
     "briefing": "Microbes, spread, evidence, and handwashing",
-    "stake": "Ninth shift. Ty and Ana are both tired today. They are in the same class, so everybody has decided it is the same bug. Dr. Amaka Okafor has not. Ty has a fever. Ana does not. They sat at different tables all week. Ana's little brother was sick last weekend. Today you work out how germs travel, why washing hands matters, and whether these two really match. Saying not enough evidence yet is a real answer.",
+    "stake": "Ninth shift. Ty and Ana, a patient, are both tired today. They are in the same class, so everybody has decided it is the same bug. Dr. Amaka Okafor, the infection, has not. Ty has a fever. Ana does not. They sat at different tables all week. Ana's little brother was sick last weekend. Today you work out how germs travel, why washing hands matters, and whether these two really match. Saying not enough evidence yet is a real answer.",
     "takeaway": "Shift complete",
     "stops": [
       {
@@ -223,7 +223,7 @@ export const MISSIONS = [
     "title": "Immune Team",
     "objective": "Barriers, white blood cells, antibodies, and immune memory",
     "briefing": "Barriers, white blood cells, antibodies, and immune memory",
-    "stake": "Tenth shift. Ruby is getting better. Nobody gave her anything, and that puzzles her. She had this illness two years ago and does not remember it. Mae is here for a shot. She is frightened of it. She wants to know how long it will hurt for. Today you follow what a body does when a germ gets in, and learn what a shot is for. A shot lets the body practise first.",
+    "stake": "Tenth shift. Ruby is getting better. Nobody gave her anything, and that puzzles her. She had this illness two years ago and does not remember it. Mae, a patient, is here for a shot. She is frightened of it. She wants to know how long it will hurt for. Today you follow what a body does when a germ gets in, and learn what a shot is for. A shot lets the body practise first.",
     "takeaway": "Shift complete",
     "stops": [
       {
@@ -271,7 +271,7 @@ export const MISSIONS = [
     "title": "Skin Shield",
     "objective": "Skin as a barrier, healing, and protection",
     "briefing": "Skin as a barrier, healing, and protection",
-    "stake": "Twelfth shift. Ella came off her bike. There is gravel in her knee. It has stopped bleeding on its own. June was outside too long and has a sunburn. It is on the tops of her shoulders and nowhere else. Today you follow how a scrape heals, work out what job the skin lost, and help without doing a grown-up's job. The body shuts the door first and repairs after.",
+    "stake": "Twelfth shift. Ella, a patient, came off her bike. There is gravel in her knee. It has stopped bleeding on its own. June, a patient, was outside too long and has a sunburn. It is on the tops of her shoulders and nowhere else. Today you follow how a scrape heals, work out what job the skin lost, and help without doing a grown-up's job. The body shuts the door first and repairs after.",
     "takeaway": "Shift complete",
     "stops": [
       {
@@ -295,7 +295,7 @@ export const MISSIONS = [
     "title": "Allergy Alert",
     "objective": "Allergies, immune overreaction, and recognizing urgent breathing clues",
     "briefing": "Allergies, immune overreaction, and recognizing urgent breathing clues",
-    "stake": "Thirteenth shift. This one moves fast. Chloe's lips are swelling and she says it is hard to breathe. She had a peanut biscuit ten minutes ago. Sofia's eyes have itched every spring for years. Nurse Alex Lee is already walking and wants your reason as you go. Today you decide who cannot wait. You tell an allergy from a germ. Then you hand over to the emergency team. Swelling with trouble breathing cannot wait for anything.",
+    "stake": "Thirteenth shift. This one moves fast. Our patient Chloe has swelling lips. She says it is hard to breathe. She had a peanut biscuit ten minutes ago. Sofia's eyes have itched every spring for years. Nurse Alex Lee is already walking and wants your reason as you go. Today you decide who cannot wait. You tell an allergy from a germ. Then you hand over to the emergency team. Swelling with trouble breathing cannot wait for anything.",
     "takeaway": "Shift complete",
     "stops": [
       {
@@ -319,7 +319,7 @@ export const MISSIONS = [
     "title": "Temperature Trouble",
     "objective": "Homeostasis, sweating, shivering, and body temperature",
     "briefing": "Homeostasis, sweating, shivering, and body temperature",
-    "stake": "Fourteenth shift. Jamal is hot and sweating after exercise. Ivy got caught in the rain and is shivering. Ms. Kim was 98 degrees at 9 o'clock and 101 at 12. Nurse Alex Lee wrote both of Ms. Kim's numbers down and left the times beside them. Today you work out what each body is doing and how fast the fever is climbing. One number is just a number. Two numbers and a clock tell you how fast.",
+    "stake": "Fourteenth shift. Jamal, a patient, is hot and sweating after exercise. Ivy, a patient, got caught in the rain and is shivering. Ms. Kim was 98 degrees at 9 o'clock and 101 at 12. Nurse Alex Lee wrote both of Ms. Kim's numbers down and left the times beside them. Today you work out what each body is doing and how fast the fever is climbing. One number is just a number. Two numbers and a clock tell you how fast.",
     "takeaway": "Shift complete",
     "stops": [
       {
@@ -396,6 +396,6 @@ export const WARMUPS = {
   },
   "tag": {
     "title": "Catch Dr. Patel before she goes into the meeting",
-    "why": "Dr. Patel runs the emergency department. She has the notes on Amara's breathing. The meeting she is going into lasts one hour. Nobody can plan Amara's day until they see those notes. Go and find her first."
+    "why": "Dr. Patel runs the emergency department. She has the notes on the breathing of Amara, a patient on the ward. The meeting she is going into lasts one hour. Nobody can plan Amara's day until they see those notes. Go and find her first."
   }
 };

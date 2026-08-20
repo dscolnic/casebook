@@ -7,7 +7,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What the falling number tells you",
-      "scene": "The wall shows the frequency dropping for eight seconds, then flattening out low. Beside it the power is in MW, which means megawatts, millions of watts at once. Aaron Whitlock has the log open, and two people have already named a cause.",
+      "scene": "The wall shows the frequency dropping for eight seconds, then flattening out low. Beside it the power is in MW, which means megawatts, millions of watts at once. Aaron Whitlock, the assistant operator, has the log open, and two people have already named a cause.",
       "takeaway": "Frequency belongs to the whole system. Voltage belongs to one place.",
       "place": "System Operations",
       "guide": "Four readings on the left, and what each is evidence of on the right. Pair them by asking one question. Is this one number for the whole system, or one number for a place? Frequency is the same everywhere. Voltage is not. That is what lets one of them say whether something happened, and the other say where.",
@@ -16,7 +16,7 @@ export const CURRICULUM = {
         "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
         "Why one wrong line is impossible. If three lines are right, the fourth response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
       ],
-      "story": "The wall shows the frequency dropping for eight seconds, then flattening out low. Beside it the power is in MW, which means megawatts, millions of watts at once. Aaron Whitlock has the log open, and two people have already named a cause.",
+      "story": "The wall shows the frequency dropping for eight seconds, then flattening out low. Beside it the power is in MW, which means megawatts, millions of watts at once. Aaron Whitlock, the assistant operator, has the log open, and two people have already named a cause.",
       "game": {
         "type": "PROTOCOL",
         "title": "What the falling number tells you",
@@ -2087,7 +2087,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What a timestamp is made of",
-      "scene": "June Farrow has three records of the same eight seconds, and they disagree about what happened first. The three of them are stamped by two different clocks.",
+      "scene": "June Farrow, the metering and standards engineer, has three records of the same eight seconds, and they disagree about what happened first. The three of them are stamped by two different clocks.",
       "takeaway": "Being sure something happened and being sure when it happened are two separate pieces of work.",
       "place": "Metering & Standards",
       "guide": "All four options pair two things that would have to be true. Ask of each whether both halves are about this claim. A record saying the alarm came first depends on the alarm happening, and on the clock that stamped it. New wiring and a loud noise are about other things. Three records disagree, and two clocks stamped them.",

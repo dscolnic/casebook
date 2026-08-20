@@ -117,6 +117,26 @@ export const CURRICULUM = {
           ],
           "s": "A wave covers ground at a steady speed, so distance and time give each other.",
           "computed": true
+        },
+        {
+          "e": "load on each metre = total weight ÷ length",
+          "c": "what a wall or a footing is carrying",
+          "v": [
+            [
+              "load on each metre",
+              "in tonnes per metre"
+            ],
+            [
+              "total weight",
+              "in tonnes"
+            ],
+            [
+              "length",
+              "in metres"
+            ]
+          ],
+          "s": "Spreading a weight over more support means each part carries less of it.",
+          "demanded": true
         }
       ],
       "concept": {
@@ -1756,7 +1776,8 @@ export const CURRICULUM = {
               "the one it is compared with"
             ]
           ],
-          "s": "Dividing one measurement by another says how many times bigger it is, which is usually the useful comparison."
+          "s": "Dividing one measurement by another says how many times bigger it is, which is usually the useful comparison.",
+          "demanded": true
         }
       ],
       "concept": {
@@ -1888,7 +1909,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "What knocking it down would fix",
-      "scene": "The mayor's office wants Marina Court pulled down this week. Delacroix has twelve blocks next to it on the same made ground, and five days before the fence is reviewed.",
+      "scene": "The mayor's office wants Marina Court pulled down this week. Delacroix, the ward councillor for the flats, has twelve blocks next to it on the same made ground, and five days before the fence is reviewed.",
       "takeaway": "The best measurement is the one that could change a decision you have not made yet.",
       "place": "Public Safety",
       "guide": "Five days, four proposals, and somebody wanting a demolition this week. Open each proposal to see what decision its result could change. Marina Court is already fenced off, so evidence about that one building changes nothing. The twelve blocks next to it on the same made ground are where the open decision is. Commit the days you would spend.",
@@ -1897,7 +1918,7 @@ export const CURRICULUM = {
         "Why the worst damage is the trap. Instrumenting the most damaged building gives dramatic results and answers a question that is already closed. It is the most sensible-sounding way to spend five days and learn nothing that changes anything.",
         "What made ground is. The Flats were built on fill — soil brought in to make the land usable. Fill shakes differently from natural ground, and all thirteen buildings sit on the same fill. So one campaign of ground tests bears on twelve open decisions instead of one closed one."
       ],
-      "story": "The mayor's office wants Marina Court pulled down this week. Delacroix has twelve blocks next to it on the same made ground, and five days before the fence is reviewed.",
+      "story": "The mayor's office wants Marina Court pulled down this week. Delacroix, the ward councillor for the flats, has twelve blocks next to it on the same made ground, and five days before the fence is reviewed.",
       "game": {
         "type": "VALUE",
         "title": "What knocking it down would fix",

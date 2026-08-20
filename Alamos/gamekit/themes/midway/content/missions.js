@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "11 notebooks and no working",
     "objective": "Find out what the park actually knows about its own rides.",
     "briefing": "Every setting in this park is in one man's handwriting and none of them has a calculation behind it.",
-    "stake": "Monday, and the season opens in three weeks. Corbin Park lost its certificate in October and seven rides have to get it back before the gates open, which is your signature on seven documents. Delia Marsh, who owns the park, has laid out Alf Brennan's 11 notebooks on the workshop bench: 41 years of settings, timings and turns of a nut, in 1 hand, with not 1 line of working anywhere in them. Marcus Vey, the county inspector, has read the same notebooks and calls them a record of having got away with it. Today you take the first three numbers the park runs on and find out where they come from. 106 days of season pay for the other 259, and nothing opens on a setting nobody can derive.",
+    "stake": "Monday, and the season opens in three weeks. Corbin Park lost its certificate in October and seven rides have to get it back before the gates open, which is your signature on seven documents. Delia Marsh, who owns the park, has laid out the 11 notebooks of Alf Brennan, her retired chief mechanic, on the workshop bench: 41 years of settings, timings and turns of a nut, in 1 hand, with not 1 line of working anywhere in them. Marcus Vey, the county inspector, has read the same notebooks and calls them a record of having got away with it. Today you take the first three numbers the park runs on and find out where they come from. 106 days of season pay for the other 259, and nothing opens on a setting nobody can derive.",
     "takeaway": "A number that works is not the same as a number somebody can justify.",
     "stops": [
       {
@@ -137,7 +137,7 @@ export const MISSIONS = [
     "title": "What the collision keeps",
     "objective": "Get the speed out of a collision, and the energy that does not come back.",
     "briefing": "400 logged collisions, and nobody has ever written the equation for 1.",
-    "stake": "Monday of the second week, and Wei Chen has 400 collisions off last season's accelerometers with nothing to compare them against. The bumper floor is the ride Vey expects to sign first and Georgia Hart expects to argue about, because whatever number comes out of it has to be a rule 12 nineteen-year-olds can apply on the four-hundredth cycle of a hot Saturday. Today you derive the speed a pair of cars leaves a collision at, work out what the lift motor is doing on the coaster, and settle what makes a wheel hard to start. Marsh has moved the reopening announcement to Friday, which gives the second week a deadline it did not have this morning.",
+    "stake": "Monday of the second week, and Wei Chen has 400 collisions off last season's accelerometers with nothing to compare them against. The bumper floor is the ride Vey expects to sign first and Georgia Hart, the midway supervisor, expects to argue about, because whatever number comes out of it has to be a rule 12 nineteen-year-olds can apply on the four-hundredth cycle of a hot Saturday. Today you derive the speed a pair of cars leaves a collision at, work out what the lift motor is doing on the coaster, and settle what makes a wheel hard to start. Marsh has moved the reopening announcement to Friday, which gives the second week a deadline it did not have this morning.",
     "takeaway": "A collision hands back its momentum in full and keeps a good share of its energy.",
     "stops": [
       {
@@ -161,7 +161,7 @@ export const MISSIONS = [
     "title": "The period that ignores the load",
     "objective": "Derive why a pendulum's timing does not depend on what is in it.",
     "briefing": "Idowu has said for two seasons that the drive pushes at the wrong moment on a full boat.",
-    "stake": "Tuesday, and Sam Idowu has been saying the same thing for two seasons: on a heavy boat the second push arrives late and you can feel it through the floor. He has been told each time that the ride is within specification, which it is. Today you derive the ship's period from the restoring force, so that there is a number to check the drive against rather than an operator's account of a floor. You also float a loaded boat at the flume and settle what the tower's timing gives for the local strength of gravity. Elena Bianchi has the swing arm's welds booked for Thursday and wants to know what load she is looking for cracks against.",
+    "stake": "Tuesday, and Sam Idowu has been saying the same thing for two seasons: on a heavy boat the second push arrives late and you can feel it through the floor. He has been told each time that the ride is within specification, which it is. Today you derive the ship's period from the restoring force, so that there is a number to check the drive against rather than an operator's account of a floor. You also float a loaded boat at the flume and settle what the tower's timing gives for the local strength of gravity. Elena Bianchi, the weld inspection, has the swing arm's welds booked for Thursday and wants to know what load she is looking for cracks against.",
     "takeaway": "A measured period is a measurement of the pendulum, and it can be turned into g.",
     "stops": [
       {

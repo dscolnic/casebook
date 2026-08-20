@@ -99,6 +99,10 @@ export default {
     + 'groups have since failed to reproduce. What is unfinished: nobody knows what the drug does '
     + 'past two years, the liver signal is four cases and still four cases, and the next trial of '
     + 'this drug will have to be blinded some other way, because this one never really was.',
+    'And it can be read at all because of you. You held the primary outcome to what the trial '
+    + 'could defend, you refused the subgroup story when the arithmetic would not carry it, and '
+    + 'you kept the participants in a room full of people arguing about power. Trials come '
+    + 'apart quietly. This one did not, because you were the one watching.',
   ],
 
   look: {

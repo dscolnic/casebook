@@ -85,7 +85,7 @@ export default {
     'Three hospitals in one river city have reported the same strange illness within a day of each '
     + 'other. The ambulances are still arriving. Seven patients, four days, and the same four '
     + 'symptoms every time. You are the science lead for the city, which means what gets measured '
-    + 'is your call, and the city acts on whatever comes back. Sofia Morales will not yet say '
+    + 'is your call, and the city acts on whatever comes back. Sofia Morales, the epidemiology lead, will not yet say '
     + 'whether seven is a lot, because nobody wrote down what '
     + 'a normal week looks like. An outbreak can only be stopped while it is small, and this one '
     + 'has had four days.',
@@ -99,6 +99,10 @@ export default {
     + 'was still needed.',
     'The clinics stayed open, the surveillance stayed funded, and the curve that made the city '
     + 'frightened in March is now a figure in a report somebody else will learn from.',
+    'Somebody bent that curve, and it was you. You wrote a case definition that held to the '
+    + 'last week. You tested what would change a decision, not what was easy to test. You told '
+    + 'a frightened city the truth. A city stopped an outbreak, and you are the reason it '
+    + 'could.',
   ],
   look: {
     fov: 66,            // a 72° field distorts badly down a straight street

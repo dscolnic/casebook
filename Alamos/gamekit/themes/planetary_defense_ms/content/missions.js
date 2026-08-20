@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "The Discovery Image",
     "objective": "Validate a new-object candidate and preserve the measurements needed for follow-up.",
     "briefing": "A survey telescope flags a faint moving point near the ecliptic. The player must determine whether it is a real Solar System object, an image artifact, or a known source.",
-    "stake": "Eleven days before the object passes Earth. Aino Virtanen's survey has flagged a faint dot that moved between three pictures. The same patch of sky holds forty thousand catalogued stars, two satellite streaks and a column of hot pixels. Today you decide whether there is really something out there, and say where to point next. Nothing else is known yet. Every hour of waiting widens the patch of sky it could be in.",
+    "stake": "Eleven days before the object passes Earth. Aino Virtanen, the survey pipeline scientist, has flagged a faint dot that moved between three pictures. The same patch of sky holds forty thousand catalogued stars, two satellite streaks and a column of hot pixels. Today you decide whether there is really something out there, and say where to point next. Nothing else is known yet. Every hour of waiting widens the patch of sky it could be in.",
     "takeaway": "Use digital images, signal-to-noise, artifacts, moving-object detection, controls as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -24,6 +24,11 @@ export const MISSIONS = [
         "group": "ORBIT",
         "lesson": 0,
         "task": "Turn the shift between two pictures into a rate the next telescope can use."
+      },
+      {
+        "group": "DISC",
+        "lesson": 2,
+        "task": "Sort the night's detections before the report."
       }
     ]
   },
@@ -31,7 +36,7 @@ export const MISSIONS = [
     "title": "Confirm the Motion",
     "objective": "Produce a consistent astrometric track and identify observations that should be down-weighted or repeated.",
     "briefing": "Follow-up telescopes obtain positions with different clocks and plate solutions. The player must combine astrometry without creating a false trajectory from inconsistent reference frames.",
-    "stake": "Ten days to the pass. Six observatories have sent positions to Hugo Delacroix, who handles the campaign's measurements. Two used a different clock. One sent no pointing at all. One camera's positions bend away from the orbit. Today you build one clean track out of all of it, and buy the next observation. A weak track loses the object after the pass, and it will be too faint to find for years.",
+    "stake": "Ten days to the pass. Six observatories have sent positions to Hugo Delacroix, the scientist who handles the campaign's measurements. Two used a different clock. One sent no pointing at all. One camera's positions bend away from the orbit. Today you build one clean track out of all of it, and buy the next observation. A weak track loses the object after the pass, and it will be too faint to find for years.",
     "takeaway": "Use angular coordinates, plate calibration, time standards, uncertainty, residuals as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -47,27 +52,12 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 1,
-        "task": "Say what separates two paths"
-      },
-      {
-        "group": "IMPACT",
-        "lesson": 0,
-        "task": "Move and narrow the cloud of paths until all of it clears Earth."
-      },
-      {
-        "group": "ORBIT",
-        "lesson": 2,
-        "task": "Turn the count of paths that hit into a chance anybody can quote."
+        "task": "A thin set of paths still hits Earth. Say where the telescope should point next week."
       },
       {
         "group": "OPS",
         "lesson": 2,
-        "task": "A thin set of paths still hits Earth. Say where the telescope should point next week."
-      },
-      {
-        "group": "DISC",
-        "lesson": 2,
-        "task": "Sort the night's detections before the report."
+        "task": "Say what separates two paths"
       }
     ]
   },
@@ -75,7 +65,7 @@ export const MISSIONS = [
     "title": "How Large Is It?",
     "objective": "Produce a diameter range rather than a single unsupported value.",
     "briefing": "The object’s brightness is known, but size depends strongly on reflectivity. The player must combine brightness, albedo, and thermal evidence to bound diameter.",
-    "stake": "Six days to the pass. Irina Sorokin has been waiting on telescope time all week. Everything anybody wants to know depends on the size, and the size rests on how bright the dot looked. Brightness alone allows anything from 120 metres to 600. At the small end this is a city. At the large end it is a country. Today you buy the measurement that breaks the tie.",
+    "stake": "Six days to the pass. Irina Sorokin, the thermal infrared observer, has been waiting on telescope time all week. Everything anybody wants to know depends on the size, and the size rests on how bright the dot looked. Brightness alone allows anything from 120 metres to 600. At the small end this is a city. At the large end it is a country. Today you buy the measurement that breaks the tie.",
     "takeaway": "Use brightness, inverse-square law, albedo, thermal emission, size degeneracy as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -99,7 +89,7 @@ export const MISSIONS = [
     "title": "What Is It Made Of?",
     "objective": "Assign a composition class with explicit alternatives and confidence.",
     "briefing": "Spectra show broad features, but weathering, grain size, and viewing geometry complicate composition. The player must avoid turning a taxonomic resemblance into an exact material claim.",
-    "stake": "Five days out. A wide dip has appeared in the light from the rock. If it is real, it changes what Tola Adebayo has already written into a draft notice. Today you decide whether that dip belongs to the rock. This is not a label for a catalogue. What the rock is made of gives its weight, and its weight decides whether a spacecraft could move it.",
+    "stake": "Five days out. A wide dip has appeared in the light from the rock. If it is real, it changes what Tola Adebayo, the physical characterization lead, has already written into a draft notice. Today you decide whether that dip belongs to the rock. This is not a label for a catalogue. What the rock is made of gives its weight, and its weight decides whether a spacecraft could move it.",
     "takeaway": "Use spectra, absorption features, mineralogy, taxonomy, model ambiguity as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -138,7 +128,7 @@ export const MISSIONS = [
       },
       {
         "group": "ORBIT",
-        "lesson": 3,
+        "lesson": 2,
         "task": "Radar has settled this pass. Say what has to be worked out before anybody calls it safe."
       },
       {
@@ -152,12 +142,12 @@ export const MISSIONS = [
     "title": "Impact Energy",
     "objective": "Provide low, central, and high impact-energy scenarios with transparent assumptions.",
     "briefing": "The latest size and speed estimates imply regional consequences, but uncertainty in diameter, density, and velocity spans a wide range. The player must compute scales without presenting a false point estimate.",
-    "stake": "The object passed a week ago at four times the distance of the Moon, and it is heading away. What it left behind is a description: about 180 metres across, and roughly four hundred megatons if the return in eight years arrives. Rohan Banerjee wants one number for civil defence today. Adebayo says the width is still the widest guess. Today you give a low, a middle and a high.",
+    "stake": "The object passed a week ago at four times the distance of the Moon, and it is heading away. What it left behind is a description: about 180 metres across, and roughly four hundred megatons if the return in eight years arrives. Rohan Banerjee, the impact physics lead, wants one number for civil defence today. Adebayo says the width is still the widest guess. Today you give a low, a middle and a high.",
     "takeaway": "Use mass and density, kinetic energy, scaling, how uncertainty carries forward, orders of magnitude as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "IMPACT",
-        "lesson": 1,
+        "lesson": 0,
         "task": "Work the weight and the arrival speed into an energy figure."
       },
       {
@@ -169,6 +159,11 @@ export const MISSIONS = [
         "group": "OPS",
         "lesson": 8,
         "task": "Say which measurement would narrow the range of consequences most."
+      },
+      {
+        "group": "ORBIT",
+        "lesson": 3,
+        "task": "Turn the count of paths that hit into a chance anybody can quote."
       }
     ]
   },
@@ -181,18 +176,23 @@ export const MISSIONS = [
     "stops": [
       {
         "group": "IMPACT",
-        "lesson": 2,
+        "lesson": 1,
         "task": "Work the craft's push into a change in the rock's speed."
       },
       {
         "group": "IMPACT",
-        "lesson": 3,
+        "lesson": 2,
         "task": "Match each item on the board to what it does to the outcome."
       },
       {
         "group": "ORBIT",
         "lesson": 4,
         "task": "Lock a predicted range, run the impact, then spend the tracking to find out what happened."
+      },
+      {
+        "group": "IMPACT",
+        "lesson": 3,
+        "task": "Move and narrow the cloud of paths until all of it clears Earth."
       }
     ]
   },
@@ -200,7 +200,7 @@ export const MISSIONS = [
     "title": "Evacuate or Wait?",
     "objective": "Create trigger-based preparations proportional to probability, consequence, lead time, and reversibility.",
     "briefing": "The impact corridor crosses populated regions, but the probability is still changing. The player must connect scientific uncertainty to staged civil decisions and avoid both complacency and panic.",
-    "stake": "Three years in. The impactor launched two years ago and reaches the asteroid in eleven days. The chance has moved twice this month, both times downward. Ellery's draft evacuation plan is already with two regional governments. Today you match what gets done to what is actually known. Stockpiles are cheap and can be undone. Moving nine million people is neither, and it kills people by itself.",
+    "stake": "Three years in. The impactor launched two years ago and reaches the asteroid in eleven days. The chance has moved twice this month, both times downward. The preparedness coordinator, Joan Ellery, has a draft evacuation plan already with two regional governments. Today you match what gets done to what is actually known. Stockpiles are cheap and can be undone. Moving nine million people is neither, and it kills people by itself.",
     "takeaway": "Use risk thresholds, expected consequence, decision under uncertainty, communication, reversibility as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -229,7 +229,7 @@ export const MISSIONS = [
     "title": "The Final Defense Review",
     "objective": "Produce a claim-by-claim planetary-defense decision package and preserve monitoring after the immediate threat passes.",
     "briefing": "The international board must decide whether the object is sufficiently characterized, whether the deflection worked, and which civil preparations remain necessary.",
-    "stake": "Eight years after the discovery, and the encounter is next week. The impactor struck five years ago, and tracking since then puts the object about two Earth radii clear. Some five thousand kilometres of that was bought by the impact. Nothing further can be done now, which is as it should be. Today you take the claims one at a time with Isabel Garcia, and write the public record with Ellery.",
+    "stake": "Eight years after the discovery, and the encounter is next week. The impactor struck five years ago, and tracking since then puts the object about two Earth radii clear. Some five thousand kilometres of that was bought by the impact. Nothing further can be done now, which is as it should be. Today you take the claims one at a time with Isabel Garcia, the survey and response lead, and write the public record with Ellery.",
     "takeaway": "Use evidence synthesis, readiness, residual risk, international coordination, long-term stewardship as an evidence chain rather than as isolated facts.",
     "stops": [
       {

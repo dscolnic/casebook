@@ -29,7 +29,18 @@ for(const theme of wanted){
                      // an earlier day or declared in `takesAsRead`, and never on the
                      // same day — the engine opens a day's stops in any order.
                      'conceptOrder.mjs',
+                     // Does the player have the equation the card's own arithmetic
+                     // uses? Blackout's day 1 worked "current falls by 20×, loss by
+                     // 400×" over four options with P = IV printed nowhere and
+                     // computed three days later, and every other check was green.
+                     'equationSupply.mjs',
                      'formatMix.mjs',
+                     // How many calls a day makes, and whether any of them is a
+                     // card the player has already answered. Every other checker
+                     // that reads a campaign in order dedupes on `group:lesson`
+                     // — rightly, for its own question — which is what made 295
+                     // byte-identical callbacks invisible to all of them.
+                     'dayCalls.mjs',
                      // The seven world-graded runs: scheduled by the engine, and each one
                      // given a reason by the campaign that takes it.
                      'warmupOrder.mjs',
@@ -83,8 +94,18 @@ if(!process.argv[2]){
                      // the same day, and that a declared exception is counted rather
                      // than waved through.
                      'conceptOrder.mjs --selftest',
+                     // And the ninth, whose whole rule is what counts as having
+                     // been given an equation: an earlier day that computes it,
+                     // this stop's own working, or the card printing it — and a
+                     // `takesAsRead` declaration deliberately not.
+                     'equationSupply.mjs --selftest',
                      'formatMix.mjs --selftest',
                      'warmupOrder.mjs --selftest',
+                     // And the ninth. Two ways it can lie: keying a serving on the
+                     // *base* title reads a review variant as a duplicate of its
+                     // own parent and bans the callback outright, and reporting
+                     // only three-or-more servings passes every ordinary duplicate.
+                     'dayCalls.mjs --selftest',
                      // And the sixth, which is about a board rather than a word:
                      // CASEBOOK drew its explanations in a fixed order where
                      // PROTOCOL deals its own, so a retry met the identical board.

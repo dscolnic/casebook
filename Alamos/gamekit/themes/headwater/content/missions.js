@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "88%",
     "objective": "Get an instantaneous rate out of readings, out of a formula, and find the instant that has none.",
     "briefing": "Nine days of rain forecast, and every number on this dam is about to be asked how fast it is moving.",
-    "stake": "Monday, and the reservoir is at 88% after the driest summer in 9 years. June Sato brought the five-day forecast down an hour ago — rain over the high ground from Thursday, and a lot of it. Dermot Halloran has already said the word drawdown in a tone that means he does not want one. Everything decided this fortnight is decided on rates rather than readings, so today you take a rate three ways — between two gauge readings, out of a fitted formula by the definition itself, and at one instant where the record has no rate at all.",
+    "stake": "Monday, and the reservoir is at 88% after the driest summer in 9 years. June Sato, the forecast liaison, brought the five-day forecast down an hour ago — rain over the high ground from Thursday, and a lot of it. Dermot Halloran has already said the word drawdown in a tone that means he does not want one. Everything decided this fortnight is decided on rates rather than readings, so today you take a rate three ways — between two gauge readings, out of a fitted formula by the definition itself, and at one instant where the record has no rate at all.",
     "takeaway": "A reading is a value; a rate is a limit, and the limit is the part that says what happens next.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "The same water, moving faster",
     "objective": "Differentiate the three relations this dam runs on, and see what each rate carries with it.",
     "briefing": "Three formulas on three walls, and today every one of them is asked how fast it is moving.",
-    "stake": "Tuesday, and the rain has started on the upper catchment. The gauge is climbing, the level is climbing behind it, and Reggie Wilkes has been asked what happens to the discharge if the gate is wound at a steady rate — a question about the spillway relation rather than about the gate. Mercy Anand has the same question about power, which depends on two things that are both moving at once. Today you differentiate the three relations the dam is run from, and find that a rate on the left picks up every factor the right-hand side's own change brings with it.",
+    "stake": "Tuesday, and the rain has started on the upper catchment. The gauge is climbing, the level is climbing behind it, and Reggie Wilkes, the gate mechanic, has been asked what happens to the discharge if the gate is wound at a steady rate — a question about the spillway relation rather than about the gate. Mercy Anand, the powerhouse chief, has the same question about power, which depends on two things that are both moving at once. Today you differentiate the three relations the dam is run from, and find that a rate on the left picks up every factor the right-hand side's own change brings with it.",
     "takeaway": "Differentiating a relation converts it from a statement about values into a statement about rates.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "What fell, and what arrived",
     "objective": "Add up a rate that only exists as readings, and say which way each way of adding it is wrong.",
     "briefing": "Six hours of gauge readings and no formula behind any of them.",
-    "stake": "Wednesday, and the front arrived overnight. Ekundayo has six hours of fifteen-minute gauge readings and Sato is asking for the volume already in the reservoir — a total, out of a rate, with nothing to integrate but a column of numbers. Down in the gallery Halina Zawadzka has the same problem in miniature at the seepage weirs, where the readings are rising and the choice of which end of each interval to trust decides the answer. Today you accumulate a rate that exists only as a column of numbers, and say which way each way of adding it up is wrong.",
+    "stake": "Wednesday, and the front arrived overnight. Ekundayo has six hours of fifteen-minute gauge readings and Sato is asking for the volume already in the reservoir — a total, out of a rate, with nothing to integrate but a column of numbers. Down in the gallery Halina Zawadzka, the structural engineer, has the same problem in miniature at the seepage weirs, where the readings are rising and the choice of which end of each interval to trust decides the answer. Today you accumulate a rate that exists only as a column of numbers, and say which way each way of adding it up is wrong.",
     "takeaway": "A rate known only at instants still accumulates, and every rule for adding it is wrong in a direction you can name.",
     "stops": [
       {

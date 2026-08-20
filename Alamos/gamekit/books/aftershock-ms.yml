@@ -366,7 +366,7 @@ missions:
   - title: Two towns, one earthquake
     objective: Work out why the same shaking wrecked one half of Kestrel Bay and spared the other.
     briefing: Upper Town lost its chimneys. The Flats lost its streets. Both are the same distance from the source.
-    stake: "Friday, three days after, and nothing about it makes sense yet. Upper Town sits on granite. It lost its chimneys and kept its buildings. The Flats are eleven hundred metres away, on the same fault, with sand in the gutters and a six-storey block leaning over. Marisol Okonkwo will not sign an assessment plan until somebody says why. Today you read the two records side by side, and decide which half of town gets the assessors first."
+    stake: "Friday, three days after, and nothing about it makes sense yet. Upper Town sits on granite. It lost its chimneys and kept its buildings. The Flats are eleven hundred metres away, on the same fault, with sand in the gutters and a six-storey block leaning over. Marisol Okonkwo, the structural engineer, will not sign an assessment plan until somebody says why. Today you read the two records side by side, and decide which half of town gets the assessors first."
     takeaway: One earthquake produces as many shakings as there are grounds to shake, and the ground is the difference.
     stops:
       - group: SEIS
@@ -553,7 +553,7 @@ missions:
   - title: The number everybody has already heard
     objective: Pin the magnitude and the location down, and separate them from what people felt.
     briefing: Two agencies published two magnitudes, and the difference is being read as a disagreement.
-    stake: "Saturday, and the town has two numbers for the same earthquake. One agency said 6.6 within twenty minutes. Another said 6.8 six hours later. Rei Tanaka can explain the difference to an engineer, and has spent the morning failing to explain it to a radio station. Funmi Adeyemi has to put something in a notice by four. Today you say what the magnitude is, and what it is not."
+    stake: "Saturday, and the town has two numbers for the same earthquake. One agency said 6.6 within twenty minutes. Another said 6.8 six hours later. Rei Tanaka, the seismologist, can explain the difference to an engineer, and has spent the morning failing to explain it to a radio station. Funmi Adeyemi, the public information officer, has to put something in a notice by four. Today you say what the magnitude is, and what it is not."
     takeaway: A magnitude is a measurement with a method attached, and revising it is the method working.
     stops:
       - group: SEIS
@@ -816,7 +816,7 @@ missions:
         task: Spend the five days of investigation on evidence that can change the town-wide decision.
         title: What knocking it down would fix
         place: Public Safety
-        scene: The mayor's office wants Marina Court pulled down this week. Delacroix has twelve blocks next to it on the same made ground, and five days before the fence is reviewed.
+        scene: The mayor's office wants Marina Court pulled down this week. Delacroix, the ward councillor for the flats, has twelve blocks next to it on the same made ground, and five days before the fence is reviewed.
         guide: >-
           Five days, four proposals, and somebody wanting a demolition this week. Open
           each proposal to see what decision its result could change. Marina Court is
@@ -882,7 +882,7 @@ missions:
   - title: The one everybody assumed was fine
     objective: Look at a green building properly, and find what a walk-past could never see.
     briefing: Bay Road School is green, term starts in a week, and nobody has been inside the gym.
-    stake: "Tuesday, and the school is the quiet problem. Bay Road School came through with a green placard, and the district would like four hundred children back next week. Alan Whitcombe placarded it from outside, and wrote that the gymnasium was locked. The gym is a single-storey hall with a long roof and heavy panels for walls. Today you work out what such a hall does in an earthquake, and whether the children go in on Monday."
+    stake: "Tuesday, and the school is the quiet problem. Bay Road School came through with a green placard, and the district would like four hundred children back next week. Alan Whitcombe, the assessment engineer, placarded it from outside, and wrote that the gymnasium was locked. The gym is a single-storey hall with a long roof and heavy panels for walls. Today you work out what such a hall does in an earthquake, and whether the children go in on Monday."
     takeaway: The dangerous building is often the one nobody looked at, because nothing about it invited a second look.
     stops:
       - group: STRUCT
@@ -1117,7 +1117,7 @@ missions:
   - title: The hospital, and what waiting costs
     objective: Resolve a yellow placard on the one building the district cannot do without.
     briefing: 90 patients, 3 days of yellow, and an argument about whether more evidence is worth more time.
-    stake: "Wednesday, and the hospital has been yellow for four days. Peter Ives has ninety patients on the ground floor and two empty floors above them. Surgery is being done sixty kilometres away. Okonkwo wants the plant room opened and the walls cored before she signs. Bram Halvorsen says every day of that is a day of care nobody gets, and this morning he is right. Today you work out what is really unsettled, and what waiting costs."
+    stake: "Wednesday, and the hospital has been yellow for four days. Peter Ives, the hospital facilities manager, has ninety patients on the ground floor and two empty floors above them. Surgery is being done sixty kilometres away. Okonkwo wants the plant room opened and the walls cored before she signs. Bram Halvorsen says every day of that is a day of care nobody gets, and this morning he is right. Today you work out what is really unsettled, and what waiting costs."
     takeaway: Gathering more evidence is not free, and evidence that cannot change the decision costs without buying anything.
     stops:
       - group: STRUCT
@@ -1279,7 +1279,7 @@ missions:
   - title: The material, and what it can still carry
     objective: Get a number for the strength of a damaged building instead of an opinion.
     briefing: The library's columns look cracked. Nobody has said what they can still hold.
-    stake: "Friday, and the argument has moved from buildings to numbers. The library is a concrete frame from the 1970s, with cracks running diagonally through three ground-floor columns. Three engineers have called them moderate, serious and superficial. Duarte Ferreira points out that none of those is a number, and his lab can give one in a day. Today you turn a sample into a strength, and say what the building may be used for meanwhile."
+    stake: "Friday, and the argument has moved from buildings to numbers. The library is a concrete frame from the 1970s, with cracks running diagonally through three ground-floor columns. Three engineers have called them moderate, serious and superficial. Duarte Ferreira, the materials engineer, points out that none of those is a number, and his lab can give one in a day. Today you turn a sample into a strength, and say what the building may be used for meanwhile."
     takeaway: A word like serious is an opinion; a strength with a method behind it is something the next engineer can use.
     stops:
       - group: MAT

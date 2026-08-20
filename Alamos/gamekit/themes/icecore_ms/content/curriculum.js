@@ -955,7 +955,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Clean until it was handled",
-      "scene": "Elena Cruz has a salt result four times the run before it. The blank run before it was clean, and the blank after it is high. The outer centimetre was trimmed off as it should be, and the same year in the second core is ordinary.",
+      "scene": "Elena Cruz, the cold laboratory technician, has a salt result four times the run before it. The blank run before it was clean, and the blank after it is high. The outer centimetre was trimmed off as it should be, and the same year in the second core is ordinary.",
       "takeaway": "A blank measures the process, so anything it shows was never evidence about the ice.",
       "place": "Cold Laboratory",
       "guide": "Four options, and the clean readings do the work. The blank before was fine and the blank after is high. The trim was done properly. The same year in the second core is ordinary. Ask of each option how many of those it fits. What names the source is not the loud number but which quiet ones stayed quiet.",
@@ -964,7 +964,7 @@ export const CURRICULUM = {
         "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
         "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
       ],
-      "story": "Elena Cruz has a salt result four times the run before it. The blank run before it was clean, and the blank after it is high. The outer centimetre was trimmed off as it should be, and the same year in the second core is ordinary.",
+      "story": "Elena Cruz, the cold laboratory technician, has a salt result four times the run before it. The blank run before it was clean, and the blank after it is high. The outer centimetre was trimmed off as it should be, and the same year in the second core is ordinary.",
       "game": {
         "type": "CHOICE",
         "title": "Clean until it was handled",
@@ -1002,7 +1002,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Which marker survives the depth",
-      "scene": "Yuki Tanabe has four yearly signals measured on the same stretch of core, at fourteen hundred metres. A year down there is about twenty-six millimetres thick.",
+      "scene": "Yuki Tanabe, the isotope chemist, has four yearly signals measured on the same stretch of core, at fourteen hundred metres. A year down there is about twenty-six millimetres thick.",
       "takeaway": "A signal is only useful for counting while it is still sharper than the layer it marks.",
       "place": "Cold Laboratory",
       "guide": "Four yearly signals, and a year down there is thinner than a fingernail. Ask of each whether the thing being measured can move through the snow. Water moves through the spaces for decades, and that blurs anything too thin. Salt and dust grains do not move. Two of these fade for other reasons.",
@@ -1011,7 +1011,7 @@ export const CURRICULUM = {
         "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
         "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
       ],
-      "story": "Yuki Tanabe has four yearly signals measured on the same stretch of core, at fourteen hundred metres. A year down there is about twenty-six millimetres thick.",
+      "story": "Yuki Tanabe, the isotope chemist, has four yearly signals measured on the same stretch of core, at fourteen hundred metres. A year down there is about twenty-six millimetres thick.",
       "game": {
         "type": "CHOICE",
         "title": "Which marker survives the depth",

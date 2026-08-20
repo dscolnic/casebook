@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "Three instruments, one reference",
     "objective": "Find out whether the numbers agree because they are right or because they share a source.",
     "briefing": "Four channels agree, one gauge does not, and the bilge is still rising.",
-    "stake": "Tuesday, and the Halden site has filed a fortnight of readings that all agree with each other, which is what Ada Merrick does not like about them. The response desk wants to publish by noon; Priya Naidoo has found a signature on the closing checklist from somebody who was ashore that week. Today you establish which of the site's numbers were computed from a shared reference, account for a flow nobody has been adding up, and decide which of the closing claims can be signed off on the evidence actually present. A number that inherits somebody else's error is not wrong on its own terms, which is exactly why nobody catches it.",
+    "stake": "Tuesday, and the Halden site has filed a fortnight of readings that all agree with each other, which is what Ada Merrick, the station lead, does not like about them. The response desk wants to publish by noon; Priya Naidoo, the records officer, has found a signature on the closing checklist from somebody who was ashore that week. Today you establish which of the site's numbers were computed from a shared reference, account for a flow nobody has been adding up, and decide which of the closing claims can be signed off on the evidence actually present. A number that inherits somebody else's error is not wrong on its own terms, which is exactly why nobody catches it.",
     "takeaway": "Agreement between measurements says nothing until you know what they were each computed from.",
     "stops": [
       {
@@ -178,9 +178,9 @@ export const MISSIONS = [
   },
   {
     "title": "What speed does to a decision",
-    "objective": "Meet the five panels where the pressure is the clock rather than the reasoning.",
-    "briefing": "A sorting line, a lap of the site, a bath to hold, a board to clear, and a line to throw.",
-    "stake": "Friday, and the quarterly verification exercise runs all day. Every task on it is one somebody here does under time pressure in an ordinary week: the error notes sorted before the courier goes, the calibration bath held while a reference cell settles, the certificate board whose standing instruction changes the moment the harbour job lands. Priya Raman is running it and has said plainly that nobody is being tested on how fast they are. Today you sort the fortnight's errors, drive the sign-off round, hold the bath, clear the board and get a line across the river — and what the exercise measures is whether the category, the band and the instruction are still being consulted when there is no time left to reason them out. An office that only checks carefully when it is not busy is an office that checks nothing on the days it matters.",
+    "objective": "Meet the three panels where the pressure is the clock rather than the reasoning.",
+    "briefing": "A sorting line, a lap of the site, and a bath to hold.",
+    "stake": "Friday, and the quarterly verification exercise runs all day. Every task on it is one somebody here does under time pressure in an ordinary week: the error notes sorted before the courier goes, the calibration bath held while a reference cell settles. Priya Raman is running it and has said plainly that nobody is being tested on how fast they are. Today you sort the fortnight's errors, drive the sign-off round and hold the bath — and what the exercise measures is whether the category and the band are still being consulted when there is no time left to reason them out. An office that only checks carefully when it is not busy is an office that checks nothing on the days it matters.",
     "takeaway": "A decision made at speed is still a decision, and what it costs is the thing you stop checking.",
     "stops": [
       {
@@ -197,7 +197,16 @@ export const MISSIONS = [
         "group": "G2",
         "lesson": 6,
         "task": "Hold the bath while the reference cell settles."
-      },
+      }
+    ]
+  },
+  {
+    "title": "When the instruction changes under you",
+    "objective": "Meet the two panels where what is being asked moves while the work is in progress.",
+    "briefing": "A certificate board whose priority keeps changing, and a line to get across the river.",
+    "stake": "The afternoon of the same exercise. Two tasks left, and neither of them is the one it looked like at the start. Today you clear the certificate board and get a line across the river. The board is worked against a standing instruction that Priya Raman, who is running the exercise, will replace without announcing it — the point being whether anybody notices they are still working to the old one. The line is thrown at a mark with the launch speed deliberately withheld, so it cannot be calculated and has to be found. Raman has said the exercise is not a test of speed. It is a test of whether the instruction in force is still the instruction being followed when there is no time left to check.",
+    "takeaway": "An instruction that has been replaced is more dangerous than no instruction at all, because the work still looks correct while it is being done to the wrong rule.",
+    "stops": [
       {
         "group": "G4",
         "lesson": 5,
@@ -212,9 +221,9 @@ export const MISSIONS = [
   },
   {
     "title": "Where the answer is the place",
-    "objective": "Meet the six panels that are graded against the site rather than against a board.",
-    "briefing": "A round of the station, a walk to keep up with, a search, a straw poll, a clear radius and a chase.",
-    "stake": "Thursday, and the annual audit lands on Monday. None of what has to happen today can be done sitting down: the fortnight's loggers are still out where the storm left them, the auditor wants to walk the sampling route with somebody who can answer for it, and Ada Merrick wants a straight answer on whether the new duplicate procedure has actually changed anything before she signs a page saying it has. Tobias Lindqvist has the list of who has to be told about Monday, and telling somebody is walking to where they are standing. Today you get round the station, walk the route with Merrick, recover six of the loggers, ask the site whether the procedure has changed anything, keep the open tray clear while it settles and catch the analyst Petar Ilić before an unsigned form goes out of the gate. What all six have in common is that the work is somewhere else, the hour is real, and the order you choose is the only part of it you control.",
+    "objective": "Meet the three panels where getting there is most of the work.",
+    "briefing": "A round of the station, a walk to keep up with, and a search.",
+    "stake": "Thursday, and the annual audit lands on Monday. None of what has to happen today can be done sitting down: the fortnight's loggers are still out where the storm left them, and the auditor, Ada Merrick, wants to walk the sampling route with somebody who can answer for it. Tobias Lindqvist, the response coordinator, has the list of who has to be told about Monday, and telling somebody is walking to where they are standing. Today you get round the station, walk the route with Merrick, and recover six of the loggers from where the storm left them. What the three have in common is that the work is somewhere else, the hour is real, and the order you choose is the only part of it you control.",
     "takeaway": "Work that happens across a place is planned as a route, and the route is a decision that is made before the walking starts.",
     "stops": [
       {
@@ -231,7 +240,16 @@ export const MISSIONS = [
         "group": "G2",
         "lesson": 7,
         "task": "Recover six of the loggers the storm scattered, before the audit wants them."
-      },
+      }
+    ]
+  },
+  {
+    "title": "What the site will tell you, and who is leaving",
+    "objective": "Meet the three panels where the answer is a sample, a distance held, or somebody caught before the gate.",
+    "briefing": "A straw poll, a clear radius to keep, and a chase across the yard.",
+    "stake": "The same Thursday, and the morning's round is done. What is left needs the site itself to answer: Ada Merrick, who signs the quality page, wants to know whether the new duplicate procedure has changed anything before she says in writing that it has, and the only way to find out is to ask enough people to be sure. Today you ask the site that question, keep the open tray on the bench clear while it settles, and catch one person before they leave. The tray means holding the room's traffic at arm's length for a quarter of an hour. The analyst Petar Ilić is on his way out of the gate with an unsigned form, so catching him is a question of where he will be rather than how fast you can run. Three jobs, none of them possible from a desk, and the hour is real.",
+    "takeaway": "A sample is worth what the walking behind it was worth, and closing on somebody who is walking away is a matter of angle rather than speed.",
+    "stops": [
       {
         "group": "G3",
         "lesson": 6,

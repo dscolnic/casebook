@@ -2454,7 +2454,8 @@ export const CURRICULUM = {
               "speed, in metres per second"
             ]
           ],
-          "s": "Impact energy rises with the square of speed, so a body arriving twice as fast carries four times the energy."
+          "s": "Impact energy rises with the square of speed, so a body arriving twice as fast carries four times the energy.",
+          "demanded": true
         },
         {
           "e": "v² = v∞² + v_esc²",
@@ -2473,7 +2474,8 @@ export const CURRICULUM = {
               "Earth's escape speed, 11.2 kilometres per second"
             ]
           ],
-          "s": "Earth's gravity accelerates anything falling toward it, so nothing can arrive slower than escape speed."
+          "s": "Earth's gravity accelerates anything falling toward it, so nothing can arrive slower than escape speed.",
+          "demanded": true
         }
       ],
       "takesAsRead": [

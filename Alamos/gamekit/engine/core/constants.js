@@ -52,10 +52,22 @@ const PENALTY_MINUTES=60;
 // Kept so a save written before the penalty box still loads.
 const SKIP_COST=10;
 const SKIP_HOURS=0;
+// What it costs to walk away from a morning's run.
+//
+// The seven warm-up runs sit in front of the plan card, and for a while they
+// could be waved away for nothing — which taught that the map is optional, and
+// the map is what the day is planned from. Then they could not be waved away at
+// all, and a player who has already walked that ground twice is being made to
+// walk it again to reach the lessons. So: the same shape as a wrong call. The
+// free way on is to take the run; $10 says get on with the day. Priced level
+// with RETRY_COST because it buys the same thing — the thing you did not do
+// stays not done, and the morning moves.
+const RUN_SKIP_COST=10;
 // Paid each morning, so a day never opens with no way out of a wrong answer.
 const DAILY_STIPEND=8;
 const VISIT_BONUS=6;
 const ISSUE_VISIT_BONUS=10;
 export { KEY, ROOM, WEEKS, DAY_NOUN, STARTING_RESERVE, WEEKLY_APPROPRIATION, FUND_COST, HINT_COST,
          MIN_ALLOTMENT_HOURS, RETRY_COST, RETRY_HOURS, PENALTY_MINUTES, SKIP_COST, SKIP_HOURS,
+         RUN_SKIP_COST,
          DAILY_STIPEND, VISIT_BONUS, ISSUE_VISIT_BONUS };
