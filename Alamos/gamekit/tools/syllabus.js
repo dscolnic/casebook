@@ -3978,8 +3978,15 @@ const SUB = { '₀': '0', '₁': '1', '₂': '2', '₃': '3', '₄': '4', '₅':
 export function symbolSignature(s){
   return String(s ?? '')
     .toLowerCase()
-    .replace(/[₀-₉ₑₐₒₓ⁰-⁹ⁿ]/g, c => SUB[c] ?? c)
+    // ¹ ² ³ are U+00B9/B2/B3, in Latin-1 — not in the U+2070 superscript block the
+    // range `⁰-⁹` covers. So the three most common exponents in the whole corpus
+    // were the three this normaliser could not see, and `I²R` never matched `I^2R`.
+    .replace(/[₀-₉ₑₐₒₓ⁰-⁹ⁿ¹²³]/g, c => SUB[c] ?? c)
     .replace(/[÷]/g, '/').replace(/[×·]/g, '*')
+    // And `^` goes, so that a superscript and a caret spell one thing: `I²R` became
+    // `i2r` above while `I^2R` stayed `i^2r`, which is the same defect one character
+    // along.
+    .replace(/\^/g, '')
     .replace(/[≈≥≤≡]/g, '=')
     .replace(/[−–—]/g, '-')
     .replace(/[,_\s]/g, '');
@@ -4021,7 +4028,63 @@ export function demandsEquation(eq, shown, hit = keywordHit){
     .filter(sig => sig.length >= 8 && /[a-z]/.test(sig) && /[=/*+^-]/.test(sig));
   const sig = symbolSignature(text);
   if(sigs.some(x => sig.includes(x))) return true;
-  return worksArithmetic(text) && (eq?.k ?? []).some(k => hit(text, k));
+  // An exponent the syllabus writes as a symbol and the card writes as a number.
+  // ContamCity's rate law is `rate = k[A]ⁿ` and its option is "double [A] when
+  // rate = k[A]² → the rate becomes four times larger": the option IS the
+  // equation with n set to 2, and the two signatures — `rate=k[a]n` against
+  // `rate=k[a]2` — did not match, so the card printed nothing.
+  if(sigs.some(x => EXPONENT_SYMBOL.test(x)
+      && Array.from({ length: 9 }, (_, i) => x.replace(EXPONENT_SYMBOL, `$1${i + 1}`))
+        .some(alt => sig.includes(alt)))) return true;
+  // The weak path: arithmetic on the card, plus the equation named on it.
+  //
+  // "Four times larger" is arithmetic — the books spell numbers out as a matter
+  // of house style, and a digit-only test cannot see it. Same rule as the reading
+  // score, which may not tell `11.4` from "eleven point four".
+  const arith = worksArithmetic(text) || worksArithmetic(normaliseNumerals(text));
+  if(!arith) return false;
+  const keys = (eq?.k ?? []).filter(k => hit(text, k));
+  if(!keys.length) return false;
+  // And the block is for notation a player cannot guess.
+  //
+  // Every false chip in the survey came from an equation written in plain English:
+  // `speed = distance ÷ time` carries the key "speed", so any junior card that
+  // said "speed" beside any sum matched it — and it landed on a verdict whose
+  // arithmetic is kinetic energy going as v², on a board about which evidence
+  // shares a grow-out, and on a comparison of two percentages. Not one symbolic
+  // equation misfired that way.
+  //
+  // Tightening the match was tried and is the wrong shape: those equations state
+  // arithmetic the card already performs in words, so their own quantity names
+  // ("bigger", "smaller", "what was taken") are exactly what the verdict never
+  // says. The distinction that holds is what the block is for. `rate = k[A]ⁿ` is
+  // notation: a player who has not been shown it cannot recover it, and it belongs
+  // on the card. "how many times = bigger ÷ smaller" printed above a verdict that
+  // already reads "41 divided by 8.2 is 5" is a block that teaches nobody. So a
+  // word-only equation never demands the block on the strength of its keywords; it
+  // keeps its chip behind the Background door, and the signature test above still
+  // prints it on the rare card that writes it out.
+  if(equationTerms(eq?.e).length) return false;
+  return true;
+}
+/** An exponent written as a symbol: the `n` in `k[A]ⁿ`, after a bracket or caret. */
+const EXPONENT_SYMBOL = /([\]\)^])[nx]/;
+/**
+ * The quantities a word-only equation relates, as matchable English.
+ *
+ * Empty for anything symbolic — `ΔTf = i·Kf·m` has no words to look for, and its
+ * signature and its keywords are the tests that apply to it.
+ */
+export function equationTerms(e){
+  const terms = String(e ?? '').split(/[=+×÷·\/−–—-]/)
+    .map(x => x.trim().toLowerCase()).filter(Boolean);
+  if(!terms.length || !terms.every(t => /^[a-z][a-z ]{2,}$/.test(t))) return [];
+  // A single letter among the words is a symbol, and the relationship is notation
+  // however much English surrounds it: Red Sand writes its equilibrium test as
+  // "Q compared with K", which reads as a sentence and is two symbols a player
+  // cannot recover from the prose.
+  if(terms.some(t => t.split(' ').some(w => w.length === 1))) return [];
+  return [...new Set(terms)];
 }
 
 export function equationCoverage(theme, pages = [], hit = keywordHit){
@@ -4326,6 +4389,9 @@ export function keywordHit(hay, phrase){
 // sorts its queue by it, and `import-book` stamps `core` on the glossary terms
 // it claims — so the rule lives here, next to the claim it is testing.
 import { COMMON, PREFIXES, stems, ordinary, norm } from './common-words.mjs';
+// One numeral normaliser, the reading score's own. A second copy of it is how the
+// sentence-boundary bug was paid for twice.
+import { normaliseNumerals } from './readability.js';
 
 const wordsOf = (s) => String(s ?? '').match(/[A-Za-z][A-Za-z0-9'’\/]*/g) ?? [];
 

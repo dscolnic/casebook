@@ -929,7 +929,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A margin is a ratio and it means nothing until both of its numbers are named — which is why a requirement that turns out to have been computed from the wrong drawing changes the margin without anything physical changing at all.",
-          "demanded": true,
           "card": false
         }
       ],

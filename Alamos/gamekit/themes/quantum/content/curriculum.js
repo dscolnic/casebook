@@ -2369,7 +2369,8 @@ export const CURRICULUM = {
               "relaxation time, in microseconds"
             ]
           ],
-          "s": "An excited qubit loses its energy at random, so the population falls by the same fraction in every equal interval and T₁ is the time it takes to fall to about a third."
+          "s": "An excited qubit loses its energy at random, so the population falls by the same fraction in every equal interval and T₁ is the time it takes to fall to about a third.",
+          "demanded": true
         },
         {
           "e": "1/T₂ = 1/(2T₁) + 1/T_φ",
@@ -2388,7 +2389,8 @@ export const CURRICULUM = {
               "pure dephasing time, from noise that scrambles phase without taking energy"
             ]
           ],
-          "s": "Coherence is limited both by energy leaving and by phase being scrambled, and T₂ can never be more than twice T₁ however quiet the phase noise is."
+          "s": "Coherence is limited both by energy leaving and by phase being scrambled, and T₂ can never be more than twice T₁ however quiet the phase noise is.",
+          "demanded": true
         }
       ],
       "concept": {

@@ -231,6 +231,38 @@ async function selftest(){
   check('a takesAsRead declaration does not supply an equation',
     supplyGaps({ equations, stops: declared }).length === 1, JSON.stringify(supplyGaps({ equations, stops: declared })));
 
+  // The three rules `demandsEquation` gained after a survey of all 598 stops that
+  // carry a syllabus equation. Each case is one of them, and each is the case that
+  // fails if the rule is taken back out.
+  const words = [{ e: 'speed = distance ÷ time', c: 'speed', k: ['speed', 'how fast'] }];
+  const wordy = [stop({ verdict: 'Four times the energy — the speed goes into the rule '
+    + 'twice, so twice the speed is two times two.' })];
+  check('a plain-English relationship is not demanded by arithmetic about something else',
+    supplyGaps({ equations: words, stops: wordy }).length === 0,
+    JSON.stringify(supplyGaps({ equations: words, stops: wordy })));
+
+  // The keywords are deliberately absent from the verdict, so nothing but the
+  // signature can carry this case — with the old signature test it scored zero.
+  const sym = [{ e: 'rate = k[A]ⁿ', c: 'rate law', k: ['order of reaction'] }];
+  const inst = [stop({ verdict: 'Double [A] when rate = k[A]², and what comes out is '
+    + 'four times what it was.' })];
+  check('an exponent the card instantiates is still the equation',
+    supplyGaps({ equations: sym, stops: inst }).length === 1,
+    JSON.stringify(supplyGaps({ equations: sym, stops: inst })));
+
+  // The measurement rule, one level in: the arithmetic is spelled out in words, and
+  // the house style that produces it is the same one that broke the reading score.
+  const worded = [{ e: 'Δf / f = v / c', c: 'Doppler shift', k: ['doppler', 'fractional shift'] }];
+  const spelled = [stop({ verdict: 'The doppler shift comes out about three times '
+    + 'larger than the drift, so the contact is opening.' })];
+  const digits = [stop({ verdict: 'The doppler shift comes out about 3× larger than the '
+    + 'drift, so the contact is opening.' })];
+  check('arithmetic spelled out in words counts the same as arithmetic in digits',
+    supplyGaps({ equations: worded, stops: spelled }).length
+      === supplyGaps({ equations: worded, stops: digits }).length,
+    `words ${supplyGaps({ equations: worded, stops: spelled }).length}`
+      + ` vs digits ${supplyGaps({ equations: worded, stops: digits }).length}`);
+
   console.log(bad ? `\n${bad} selftest case(s) failed.` : '\nAll equationSupply selftest cases passed.');
   process.exit(bad ? 1 : 0);
 }

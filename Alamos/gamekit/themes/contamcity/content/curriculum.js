@@ -1744,7 +1744,8 @@ export const CURRICULUM = {
               "hydrogen ion concentration, in moles per litre"
             ]
           ],
-          "s": "pH is the negative logarithm of hydrogen ion concentration, so one pH unit is a tenfold change in acid."
+          "s": "pH is the negative logarithm of hydrogen ion concentration, so one pH unit is a tenfold change in acid.",
+          "demanded": true
         }
       ],
       "concept": {
@@ -3414,7 +3415,8 @@ export const CURRICULUM = {
               "the order, how strongly rate answers to concentration"
             ]
           ],
-          "s": "Reaction rate depends on concentration raised to a power that has to be measured rather than assumed."
+          "s": "Reaction rate depends on concentration raised to a power that has to be measured rather than assumed.",
+          "demanded": true
         }
       ],
       "concept": {

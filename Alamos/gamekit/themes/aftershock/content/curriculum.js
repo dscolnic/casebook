@@ -239,7 +239,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up.",
-          "demanded": true,
           "card": false
         }
       ],
@@ -586,7 +585,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up.",
-          "demanded": true,
           "card": false
         }
       ],
@@ -2504,8 +2502,7 @@ export const CURRICULUM = {
               "what the earthquake asked of it, in the same units"
             ]
           ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up.",
-          "demanded": true
+          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
         }
       ],
       "concept": {
@@ -2696,26 +2693,6 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
-          "v": [
-            [
-              "FoS",
-              "factor of safety, no units"
-            ],
-            [
-              "capacity",
-              "what the element can carry"
-            ],
-            [
-              "demand",
-              "what the earthquake asked of it, in the same units"
-            ]
-          ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up.",
-          "demanded": true
-        },
-        {
           "e": "σ' = σ − u",
           "c": "effective stress, and how liquefaction happens",
           "v": [
@@ -2734,6 +2711,25 @@ export const CURRICULUM = {
           ],
           "s": "Soil carries load through grain contact; when shaking drives the water pressure up to the total stress, the grains stop touching and the ground behaves as a liquid.",
           "demanded": true
+        },
+        {
+          "e": "FoS = capacity / demand",
+          "c": "factor of safety as a ratio, not a feeling",
+          "v": [
+            [
+              "FoS",
+              "factor of safety, no units"
+            ],
+            [
+              "capacity",
+              "what the element can carry"
+            ],
+            [
+              "demand",
+              "what the earthquake asked of it, in the same units"
+            ]
+          ],
+          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
         },
         {
           "e": "A_soft / A_rock",

@@ -1973,6 +1973,27 @@ export const CURRICULUM = {
           ],
           "s": "One divided by the absolute risk reduction says how many people have to be given the drug for one of them to benefit — a two per cent reduction means fifty people treated per event avoided.",
           "computed": true
+        },
+        {
+          "e": "SE = √( p(1 − p) / n )",
+          "c": "why precision improves only as the square root of the sample",
+          "v": [
+            [
+              "SE",
+              "standard error of a measured proportion"
+            ],
+            [
+              "p",
+              "the proportion itself"
+            ],
+            [
+              "n",
+              "number of people it was measured on"
+            ]
+          ],
+          "s": "Precision answers to the square root of the sample, so halving the width of an interval costs four times the participants — which is why sample size is decided before the trial rather than during it.",
+          "demanded": true,
+          "card": false
         }
       ],
       "takesAsRead": [

@@ -1342,7 +1342,8 @@ export const CURRICULUM = {
               "the density of solid ice, about 917 kg per cubic metre"
             ]
           ],
-          "s": "A metre of new snow is not a metre of ice, so an accumulation rate only means something once the layer has been converted to the ice it will become."
+          "s": "A metre of new snow is not a metre of ice, so an accumulation rate only means something once the layer has been converted to the ice it will become.",
+          "demanded": true
         }
       ],
       "concept": {
@@ -2984,7 +2985,8 @@ export const CURRICULUM = {
               "the same ratio in mean ocean water, the agreed reference"
             ]
           ],
-          "s": "Isotope ratios differ from each other in the fourth decimal place, so they are always reported as a difference from one agreed water — which is why every δ value is a comparison rather than an amount."
+          "s": "Isotope ratios differ from each other in the fourth decimal place, so they are always reported as a difference from one agreed water — which is why every δ value is a comparison rather than an amount.",
+          "demanded": true
         },
         {
           "e": "Δage ≈ z_close × ρ̄ / b",
@@ -3007,7 +3009,8 @@ export const CURRICULUM = {
               "accumulation in ice equivalent per year"
             ]
           ],
-          "s": "Air circulates freely through the firn until the pores seal, so the bubble is sealed centuries after the snow around it fell — and the colder and drier the site, the larger that offset becomes."
+          "s": "Air circulates freely through the firn until the pores seal, so the bubble is sealed centuries after the snow around it fell — and the colder and drier the site, the larger that offset becomes.",
+          "demanded": true
         },
         {
           "e": "age(z) = Σ Δz / λ(z)",
@@ -3027,6 +3030,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A depth–age scale is arithmetic on layer thicknesses, so every uncertainty in a layer count is carried down through everything deeper than it.",
+          "demanded": true,
           "card": false
         }
       ],
