@@ -57,12 +57,18 @@ const num = (v, d = 1) => (Math.round(v * 10 ** d) / 10 ** d).toFixed(d);
  * Top level only. Both builders add each placement straight to the scene, so a
  * top-level child is one thing somebody put there; descending would count the
  * boxes a single desk is made of.
+ *
+ * The exception is a wing: a plan built once per corridor puts each build inside
+ * a group that is then slid sideways, so the scene's top level is two groups and
+ * the whole floor measures as two enormous slabs and nothing else. A group
+ * marked `wingGroup` is transparent to this — its children are the top level.
  */
 function placements(scene){
   scene.updateMatrixWorld(true);
   const out = [];
   const bb = new THREE.Box3();
-  for(const o of scene.children){
+  const top = scene.children.flatMap(o => (o.userData?.wingGroup ? o.children : [o]));
+  for(const o of top){
     if(o.isLight || o.isCamera) continue;
     bb.setFromObject(o);
     if(!Number.isFinite(bb.min.x) || bb.isEmpty()) continue;
@@ -125,9 +131,25 @@ async function measureInterior(name, dir){
     ? await import(pathToFileURL(resolve(dir, 'props.js')).href) : {};
   const { buildInterior } = await import(pathToFileURL(resolve(gamekit, 'engine/world/interiorSite.js')).href);
   const scene = new THREE.Scene();
-  buildInterior(scene, stubRenderer(), plan, {
-    fitOutRoom: props.fitOutRoom, fitOutSpine: props.fitOutSpine,
-  });
+  // A plan with `wings` is more than one corridor, built once per wing and slid
+  // sideways by the theme's own world module. One build of the whole plan puts
+  // every room in the building on top of itself, and the count that comes back
+  // is a plausible number about a place nobody can walk through.
+  const wings = Array.isArray(plan.wings) && plan.wings.length ? plan.wings : null;
+  for(const wing of wings ?? [null]){
+    const target = wing ? new THREE.Group() : scene;
+    if(wing){
+      target.position.x = wing.x ?? 0;
+      target.userData.wingGroup = true;
+      scene.add(target);
+    }
+    buildInterior(target, stubRenderer(), wing ? {
+      metrics: wing.metrics ?? plan.metrics, spine: wing.spine, rooms: wing.rooms,
+      bladeSigns: wing.bladeSigns ?? [], openEnds: wing.openEnds ?? {},
+      glazedSide: wing.glazedSide, ceiling: wing.ceiling,
+    } : plan, { fitOutRoom: props.fitOutRoom, fitOutSpine: props.fitOutSpine });
+  }
+  scene.updateMatrixWorld(true);
   const all = placements(scene).filter(isFurnishing);
 
   const M = plan.metrics ?? {};
@@ -137,7 +159,11 @@ async function measureInterior(name, dir){
   const claimed = new Set();
   for(const r of plan.rooms ?? []){
     const sign = r.side === 'e' ? 1 : -1;
-    const xIn = sign * halfW, xOut = sign * (halfW + depth);
+    // A room may state its own footprint, which is the only thing that is true
+    // of a plan with two wings in it — `side` alone says which side of *a*
+    // corridor, and there are two.
+    const own = Number.isFinite(r.x0) && Number.isFinite(r.x1);
+    const xIn = own ? r.x0 : sign * halfW, xOut = own ? r.x1 : sign * (halfW + depth);
     const lo = Math.min(xIn, xOut), hi = Math.max(xIn, xOut);
     const mine = all.filter((p, i) => {
       if(claimed.has(i)) return false;
@@ -148,9 +174,11 @@ async function measureInterior(name, dir){
     rows.push({ ...row(`floor room · ${r.name ?? r.id}`, Math.abs(depth * (r.z1 - r.z0)), mine),
       room: true, builder: 'floor' });
   }
-  const spine = all.filter((p, i) => !claimed.has(i) && Math.abs(p.x) <= halfW + 0.4);
+  const centres = wings ? wings.map(w => w.x ?? 0) : [0];
+  const spine = all.filter((p, i) => !claimed.has(i)
+    && centres.some(c => Math.abs(p.x - c) <= halfW + 0.4));
   const sp = plan.spine ?? { z0: 0, z1: 0 };
-  rows.push(row('corridor', Math.abs((sp.z1 - sp.z0) * halfW * 2), spine));
+  rows.push(row('corridor', Math.abs((sp.z1 - sp.z0) * halfW * 2 * centres.length), spine));
   return { kind: 'interior', rows };
 }
 

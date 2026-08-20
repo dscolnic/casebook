@@ -333,6 +333,43 @@ everybody who worked it has gone home.
 
 ---
 
+## Yellow Bay — *two faults, and every investigation assumed one*
+
+Fab 7 at Ardley — two gowned wings joined by a crossing whose floor is glass over
+the subfab — has been losing four wafers in ten since the second week of March, and the qualification lot for the customer that buys sixty per cent of the
+output runs in fifteen days. The surface analysis lead, Hana Ferreira, says the
+silicon arriving at the door is not what its certificate implies and wants every
+incoming lot held; the deposition engineering lead, Ruben Ostrowski, says the
+material is fine, a recipe has drifted, and holding the line for a fortnight
+guarantees the loss it is meant to prevent. Both of them have spent three weeks
+being contradicted by the same evidence, because the evidence is of two faults
+and every investigation so far has been looking for one.
+
+Ferreira is right on day 6. Four measurements of the substrate agree to within a
+few per cent and all four were computed against one reference wafer, which was
+taken to be one dopant type on the strength of a resistivity band that both types
+share. The certificate has no field for type, because one supplier shipped one
+type for thirty years and nobody wrote a field for a thing that never varied.
+Ostrowski is right on day 9, when the composition of the failing nitride comes
+back six points richer in silicon than the formula implies and the furnace log
+shows the deposition temperature eighteen degrees below setpoint since a
+controller was replaced in February — a reaction that takes energy in, run
+without quite enough of it, growing the wrong compound while the tool reported
+success throughout.
+
+What follows is a fortnight of narrowing: a moisture reading tracked down six
+hundred metres of gas line to a manifold rebuilt in the same month as the
+controller, an oxide regrowing between the wet bench and the coater that turns
+out to be queue time rather than any of the four things that changed, an implant
+dose whose middle is off and whose width is worse, and a copper fill that came in
+at a tenth of its specified alloy and dished under the polish. Day 14 is the one
+that matters and nobody would have missed it: the corrected recipe is predicted
+before it is run, and then measured, because a controller that follows a new
+setpoint is evidence about a controller. Day 15 the lot goes in at ten, and the
+handover names the carbon layer nobody has found a source for.
+
+---
+
 ## Safety Factor — *forty-one years of settings and no working*
 
 Corbin Park lost its certificate in October and has three weeks to get it back on

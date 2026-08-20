@@ -1,0 +1,2711 @@
+# yellowbay.yml — Yellow Bay: Ardley Fab 7, and fifteen days to a qualification lot.
+#
+# AP Chemistry, the half neither The Contaminated City nor Red Sand teaches:
+# atomic structure and photoelectron spectroscopy, Coulombic attraction and
+# ionisation energy, periodic trends, Lewis structures and VSEPR, bond enthalpy,
+# the four kinds of solid, doping and semiconductors, and the surface chemistry
+# of a wafer. Format is tools/BOOK_TEMPLATE.md; import with
+#
+#   node tools/import-book.mjs books/yellowbay.yml yellowbay --verify
+#
+# The argument the campaign turns on: Ferreira says the incoming silicon is not
+# what its certificate says and wants the line stopped; Ostrowski says the
+# material is fine and a recipe has drifted. She is proved right on day 6 and he
+# is proved right on day 9, which is why every single-cause investigation before
+# this fortnight went nowhere.
+
+theme:
+  id: yellowbay
+  title: Yellow Bay
+  subtitle: Process Integration Lead · Ardley Fab 7
+
+# ---------------------------------------------------------------- the areas
+# Six areas, chosen as the six units of the course. They are also the six places
+# a wafer physically goes, in order, which is why the walk down the bay is the
+# same walk as the syllabus.
+groups:
+  - id: ATOM
+    code: ATOM
+    name: Metrology Bay
+    color: '#3f6fa8'
+    desc: What the electrons say about which atoms are there, and how deep the answer goes.
+    defaultLeader: ferreira
+    milestones:
+      - Establish what each instrument is actually measuring
+      - Read a spectrum as a statement about shells
+      - Separate how much is there from what it is bonded to
+      - Certify a surface somebody else can act on
+  - id: WAFER
+    code: WAFER
+    name: Wafer Store
+    color: '#7a6a58'
+    desc: What arrives at the door, what its paperwork claims, and what a solid is held together by.
+    defaultLeader: twill
+    milestones:
+      - Count what a lot actually contains
+      - Read the certificate for what it has no field for
+      - Name what holds each material together
+      - Release or reject the substrate for the lot
+  - id: DOPE
+    code: DOPE
+    name: Implant Bay
+    color: '#8e4b8e'
+    desc: A few atoms in a billion, chosen from one column of the table, and what they do to a lattice.
+    defaultLeader: ganesan
+    milestones:
+      - Turn a purity figure into a count of atoms
+      - Say why one column is not interchangeable with the next
+      - Put the right impurity in on purpose
+      - Hold a dose distribution inside a specification
+  - id: DEP
+    code: DEP
+    name: Deposition Bay
+    color: '#2f7d6f'
+    desc: Precursor molecules, the vacuum they arrive through, and the energy it takes to break them.
+    defaultLeader: ostrowski
+    milestones:
+      - Establish what is in the chamber before anything grows
+      - Draw the molecule the recipe is built out of
+      - Balance the energy of breaking against making
+      - Grow a film with the composition the drawing claims
+  - id: LITHO
+    code: LITHO
+    name: Yellow Bay
+    color: '#c9a227'
+    desc: Light with a threshold in it, and a molecular solid that answers to solvents.
+    defaultLeader: tanabe
+    milestones:
+      - Establish what the light can and cannot do
+      - Say what holds the resist together
+      - Choose the solvent by what it resembles
+      - Print a layer that survives the next step
+  - id: WET
+    code: WET
+    name: Wet Bench
+    color: '#4f8fb0'
+    desc: Surfaces: what the air puts on them, what a bath takes off, and what metal is left behind.
+    defaultLeader: aubrey
+    milestones:
+      - Establish what is on the surface now
+      - Separate the bulk from the top nanometre
+      - Take off what does not belong and nothing else
+      - Fill the metal and hand the wafer on
+
+# ------------------------------------------------------------------ the cast
+roster:
+  - id: ferreira
+    name: Hana Ferreira
+    role: Surface Analysis Lead
+    division: ATOM
+    bio: |
+      Runs the metrology bay, which is four instruments and one question: how
+      deep does this answer go. A bulk measurement averages the whole wafer, and
+      the part of a wafer that decides yield is the top nanometre of it.
+
+      She reads the photoelectron spectrometer herself rather than taking the
+      report, because the report gives an element and the spectrum gives an
+      element and what it is bonded to, and the second is nearly always the
+      finding.
+
+      Her limit is that she can only measure what somebody brings her, and by
+      the time a wafer reaches her bench it has been through eleven tools.
+    quiz:
+      - q: Why does Ferreira read the spectrum rather than the summary report?
+        a: Peak positions say what an atom is bonded to, and an element list loses that
+        wrong:
+          - The reports are issued weekly and she needs a number before the next one is due out
+          - A summary cannot separate two isotopes of one element, which is what she is looking for
+          - The operator who prepares them works nights and cannot be asked what he saw
+  - id: dorsey
+    name: Aaron Dorsey
+    role: Metrology Technician
+    division: ATOM
+    bio: |
+      Runs the spectrometer through the night list and has seen more spectra
+      than anyone in the building. Knows which peaks belong to the tool itself
+      and which ones arrived on the wafer.
+    quiz:
+      - q: What does Dorsey bring to an argument about an unexpected peak?
+        a: He knows whether that peak shows on the tool's own reference sample
+        wrong:
+          - He was present when the wafer was processed and can say what was done to it that night
+          - He is the only person in the building authorised to set the instrument against a standard
+          - He keeps the original spectra, and nobody else in metrology has access to them
+  - id: twill
+    name: Marcus Twill
+    role: Incoming Materials Lead
+    division: WAFER
+    bio: |
+      Takes delivery of everything the fab is made out of and signs for it
+      against a certificate. A certificate is a list of the quantities somebody
+      thought to measure, and he has spent nine years learning what is not on it.
+
+      He keeps a retained sample of every lot, unopened, because an argument
+      about material six weeks later is unanswerable without one.
+
+      His limit is that he is holding the supplier's word and his own retained
+      box, and neither of them is a measurement of the wafers that were used.
+    quiz:
+      - q: Why does Twill keep an unopened sample from every incoming lot?
+        a: A dispute weeks later needs material that has been through no tool
+        wrong:
+          - The supplier will not accept a claim of any kind without a retained sample to test
+          - Keeping a sample back is a great deal cheaper than buying replacement wafers later
+          - An opened lot loses its certificate, and nothing without one can be re-tested
+  - id: hale
+    name: Simone Hale
+    role: Fab Manager
+    division: WAFER
+    bio: |
+      Runs Fab 7 and answers for it. Has fifteen days, one customer worth sixty
+      per cent of the output, and two of her own leads telling her opposite
+      things about the same yield map.
+
+      She will fund any measurement that changes a decision and none that does
+      not, and she says so in the meeting rather than afterwards.
+    quiz:
+      - q: What does Hale require of a proposed measurement before she funds it?
+        a: That a result either way changes what the fab does
+        wrong:
+          - That it can be finished and written up before the qualification lot is scheduled
+          - That both of her process leads have agreed in advance that it is worth doing
+          - That it uses a tool the fab already owns rather than one it has to hire in
+  - id: ganesan
+    name: Priyanka Ganesan
+    role: Implant Process Lead
+    division: DOPE
+    bio: |
+      Puts a few atoms in a billion into a lattice on purpose. Everything else
+      in this building is about keeping impurities out; her bay is the one place
+      where the impurity is the product, and the difference between the two jobs
+      is a column of the periodic table.
+
+      She works in atoms per cubic centimetre rather than parts per billion,
+      because a ratio hides how many things there actually are.
+
+      Her limit is that she can measure the dose she delivered and not where
+      every atom of it came to rest.
+    quiz:
+      - q: Why does Ganesan convert every purity figure into atoms per cubic centimetre?
+        a: A ratio hides the count, and the lattice responds to the count
+        wrong:
+          - Parts per billion is not something any tool in this fab can measure directly
+          - The control system on the implanter will accept a dose in no other unit
+          - It is the unit the customer specification is written in and she has to match it
+  - id: nkemdirim
+    name: Chidi Nkemdirim
+    role: Implant Technician
+    division: DOPE
+    bio: |
+      Loads the implanter and reads the dose monitor. Has caught two mis-set
+      recipes in three years, both times because the beam current looked wrong
+      for the species that was supposed to be in it.
+    quiz:
+      - q: How did Nkemdirim catch a mis-set recipe before it ran?
+        a: The beam current was wrong for that species at the set energy
+        wrong:
+          - The recipe name on the screen did not match the one written on the travelling paperwork
+          - He recognised the lot number as one that had already been through the implanter once
+          - The dose monitor reported an error of its own and stopped the tool before it ran
+  - id: ostrowski
+    name: Ruben Ostrowski
+    role: Deposition Engineering Lead
+    division: DEP
+    bio: |
+      Owns the furnaces and the chambers, which is where gas molecules are taken
+      apart and left on a wafer as a solid. Every recipe he runs is a bargain
+      between a temperature high enough to break the precursor and low enough
+      not to move what is already there.
+
+      He is the one arguing that the material is fine and a recipe has drifted,
+      and he has run this process longer than anybody else in the building.
+
+      His limit is that the tool tells him what it was set to, not what
+      happened inside it.
+    quiz:
+      - q: Why does Ostrowski treat a deposition temperature as a bargain rather than a setting?
+        a: Two demands pull it opposite ways and neither of them can be given up
+        wrong:
+          - No furnace of this design holds a setpoint closer than twenty degrees
+          - Hotter is better in every respect and the only cost is the power bill
+          - The customer fixes it in the specification and nobody in the fab may move it
+  - id: vance
+    name: Lena Vance
+    role: Gas and Chemicals Supervisor
+    division: DEP
+    bio: |
+      Runs the gas farm outside the wall and the lines that come in from it. Ten
+      cylinders, four of which will burn on contact with air, and a delivery
+      chain in which every joint is a place something can get in.
+    quiz:
+      - q: Why does Vance treat every joint in a gas line as a place to check?
+        a: A joint is where something outside can get into a sealed stream
+        wrong:
+          - A joint is the only part of a line that can be inspected without shutting the whole line down
+          - The cylinders arrive certified, so nothing that goes wrong can have started inside one
+          - The regulations require every joint on the site to be logged once a shift
+  - id: tanabe
+    name: Yuki Tanabe
+    role: Lithography Lead
+    division: LITHO
+    bio: |
+      Runs the yellow bay, lit amber because the resist answers to blue and
+      shorter and to nothing above it. Prints a pattern in a film that is a
+      molecular solid, then asks a solvent to take away exactly the parts that
+      were changed.
+
+      She thinks about the develop step as a question of resemblance rather
+      than strength: the solvent takes what it is like, and choosing it is
+      choosing what it will leave.
+
+      Her limit is that everything she prints sits on whatever the last step
+      left behind, and she cannot see that surface.
+    quiz:
+      - q: Why does Tanabe describe the develop step as a question of resemblance?
+        a: A solvent lifts what its own attractions can replace
+        wrong:
+          - The developer is chosen to be as aggressive as the coating can just survive
+          - Resemblance is the word the supplier uses on the datasheet and she is quoting it
+          - A stronger solvent would take the tool apart before it took the coating off
+  - id: park
+    name: Jun-seo Park
+    role: Litho Track Operator
+    division: LITHO
+    bio: |
+      Runs the coat and develop track and keeps the queue times. Knows to the
+      minute how long a wafer has been sitting between the bath and the coater,
+      because that gap changes what the resist lands on.
+    quiz:
+      - q: Why does Park record the gap between the bath and the coater?
+        a: What the coating lands on changes while the wafer waits
+        wrong:
+          - Track throughput is measured across that gap and reported to the fab manager weekly
+          - The coating has a shelf life once it has been dispensed and the gap eats into it
+          - A long gap gives particles in the air time to settle on the waiting wafer
+  - id: aubrey
+    name: Delphine Aubrey
+    role: Wet Process and Metallisation Lead
+    division: WET
+    bio: |
+      Owns the baths that take things off a surface and the step that puts metal
+      into the holes afterwards. Her whole job is selectivity: removing one
+      material and not the one underneath it.
+
+      She holds that a clean surface is not a state but an event, because the
+      air begins to undo it within minutes and every subsequent step is a race
+      against that.
+
+      Her limit is that she cannot see what she has removed, only what is left.
+    quiz:
+      - q: Why does Aubrey describe a clean surface as an event rather than a state?
+        a: Air starts reacting with the bare surface at once, so it has a clock on it
+        wrong:
+          - Each bath is only certified clean for a fixed number of wafers and then has to be changed
+          - Cleanliness is measured once, at the end of the sequence, and not at any point during it
+          - A wafer that has left the bench cannot be put back and cleaned a second time
+  - id: bramall
+    name: Ivy Bramall
+    role: Wet Bench Operator
+    division: WET
+    bio: |
+      Runs the benches and the rinse tanks, and has the steadiest hand in the
+      fab. Keeps the bath logs, which are the only record of how many wafers
+      each chemistry has already been asked to do.
+    quiz:
+      - q: What do Bramall's bath logs tell an investigation that nothing else can?
+        a: How much work each bath had already done before that wafer went in
+        wrong:
+          - Which operator was on shift for each wafer, and who signed the lot across afterwards
+          - The exact temperature every bath was holding at the time of that particular run
+          - Whether the wafer was rinsed for the full time the specification asks for
+
+glossary:
+  - name: Wafer
+    aliases: [wafers, substrate]
+    def: A polished disc of silicon, three hundred millimetres across, that every layer of a chip is built on.
+  - name: Yield
+    aliases: [yielding]
+    def: The fraction of the chips on a wafer that work at the end. Everything in a fab is measured against it.
+  - name: Shell
+    aliases: [shells, subshell]
+    def: One of the layers electrons occupy around a nucleus. Electrons in an inner shell are held far more tightly.
+  - name: Binding energy
+    aliases: [binding energies]
+    def: The energy holding a particular electron to its atom, and so the energy needed to knock it out.
+  - name: Dopant
+    aliases: [dopants, doping, doped]
+    def: An atom put into the silicon lattice on purpose, from the column either side of it, to leave a spare electron or a missing one.
+  - name: Precursor
+    aliases: [precursors]
+    def: The gas a layer is grown from. The wafer takes the atoms it needs out of the molecule and the rest is pumped away.
+  - name: Resist
+    aliases: [photoresist]
+    def: A coating of long molecules that changes what it dissolves in when light of the right wavelength hits it.
+  - name: Native oxide
+    aliases: [native oxides]
+    def: The thin layer of silicon dioxide that grows on bare silicon within minutes of meeting air.
+  - name: Film
+    aliases: [films]
+    def: A layer left on the wafer by a process step, from a few atoms thick to a few thousandths of a millimetre.
+  - name: Spectrometer
+    aliases: [spectrometers, spectrum, spectra]
+    def: An instrument that sorts what it is given by energy or by mass, and reports how much of each it found.
+  - name: Calibration
+    aliases: [calibrate, calibrated, calibrating]
+    def: Checking an instrument against something already known, so that the numbers it reports mean something.
+  - name: Polarity
+    aliases: [polar, non-polar, nonpolar]
+    def: Which way the charge sits. For a molecule, whether its bond pulls cancel out; for a wafer, which of the two dopant types it holds.
+  - name: Solvent
+    aliases: [solvents, developer, developers]
+    def: A liquid that takes another substance into itself. It lifts what it resembles and leaves what it does not.
+  - name: Torr
+    aliases: [millitorr]
+    def: A unit of pressure. Air outside is about seven hundred and sixty torr; a deposition chamber runs near one thousandth of one.
+
+# ---------------------------------------------------------------- the days
+missions:
+  # ============================================================ day 1
+  - title: What the wafer is, before anybody argues about it
+    objective: Establish what is actually on the floor and what the paperwork claims about it.
+    briefing: Four wafers in ten are failing and two leads have opposite explanations.
+    stake: >-
+      Monday, and the qualification lot runs in fifteen days whatever anybody has worked out by
+      then. Four wafers in ten have failed final test since the second week of March, and the fab
+      manager, Simone Hale, has stopped taking explanations that are not measurements. Hana
+      Ferreira wants every incoming lot held; Ruben Ostrowski wants the line running while the
+      recipes are checked. Today you count what is actually in a lot, settle what makes one atom a
+      different element from another, and read what a purity limit is a claim about. Nine hundred
+      people work here and none of the arguing has yet produced a number anybody can act on.
+    takeaway: Every claim in this building reduces to a count of atoms, and a count is something you can check.
+    stops:
+      - group: WAFER
+        task: Turn a box of wafers into a number of atoms
+        title: What is actually in a lot
+        place: Wafer Store
+        concept: The mole, molar mass and counting atoms by weighing them
+        scene: >-
+          Marcus Twill, the incoming materials lead, has a lot of twenty-five wafers on the bench
+          and a certificate that quotes everything as a fraction. Hale wants the impurity argument
+          in atoms, and nobody has converted anything yet.
+        guide: >-
+          The tiles hold everything on the bench and two quantities that belong to a different
+          question. A mass on a balance and a molar mass are what turn grams into a count; the
+          thickness and the number of wafers in the box describe the lot rather than one wafer.
+          Pick the two that answer what was asked about a single wafer.
+        assumes:
+          - a balance reads mass and a reaction happens in atoms
+          - silicon is a single element with one molar mass
+        takeaway: A mass divided by a molar mass is a count of particles, and it is the only route from a balance to an atom.
+        format: BALLPARK
+        question: How many moles of silicon are in one wafer?
+        estimate:
+          prompt: One polished wafer off the top of the lot, weighed on the store balance.
+          question: How many moles of silicon are in one wafer?
+          labels:
+            - 125 g  (the mass of one wafer)
+            - 28.1 g/mol  (the molar mass of silicon)
+            - 25  (wafers in this lot)
+            - 0.775 mm  (the thickness of a wafer)
+            - 6.02e23  (particles in a mole)
+          values: [125, 28.1, 25, 0.775, 6.02e23]
+          slots: 2
+          template: '{0} ÷ {1}'
+          formula: a/b
+          correct: [0, 1]
+          target: 4.45
+          tolerance: 0.3
+          units: mol
+          solution: n = 125 ÷ 28.1 ≈ 4.4 mol of silicon.
+          explanation: The lot size and the thickness describe the box, not the wafer that was weighed.
+          relationship: Amount in moles = mass in grams ÷ molar mass in grams per mole.
+        why: >-
+          A balance reads grams and everything that matters here happens atom by atom, so the
+          division by molar mass is the step that makes the two commensurable. Four and a half
+          moles is 2.7 × 10²⁴ silicon atoms in one disc, which is the scale any impurity figure
+          has to be read against. The thickness and the lot count are
+          real numbers about real things and neither of them enters this: they describe the
+          geometry of the wafer and the size of the delivery, not the amount of substance weighed.
+
+      - group: ATOM
+        task: Say what makes two atoms different elements
+        title: The one number that names an element
+        place: Metrology Bay
+        concept: 'Atomic structure: protons, electrons and the shells they occupy'
+        scene: >-
+          Ferreira has two spectra on the screen from two wafers that weigh the same, look the
+          same and came out of the same box. Something in one of them is not silicon and the
+          argument has already started about what that means.
+        guide: >-
+          Four differences between two atoms are on offer and only one of them changes what the
+          atom is called. The test is which quantity you could change while leaving the element
+          the same. Getting this wrong is how a mass measurement gets read as an identification.
+        assumes:
+          - an atom is a nucleus of protons and neutrons with electrons around it
+        takeaway: The proton count fixes the element; everything else about an atom can vary without changing its name.
+        format: CHOICE
+        question: Which difference between two atoms makes them different elements?
+        choices:
+          - A different number of protons in the nucleus.
+          - A different number of neutrons, which changes the mass of the atom.
+          - A different number of electrons, which happens whenever the atom is charged.
+          - A different arrangement of the outer electrons, which changes how it bonds.
+        answer: A different number of protons in the nucleus.
+        why: >-
+          The nuclear charge is what an element is. Change the neutrons and you have another
+          isotope of the same element, with the same chemistry and a different mass. Change the
+          electrons and you have an ion, which is the same element carrying a charge. Rearrange
+          the outer electrons and you have an excited or bonded state of it. Only the proton count
+          is unable to change without the substance becoming something else, which is why the
+          periodic table is ordered by it and not by mass.
+        rebuttals:
+          - Neutrons change the mass and leave the chemistry alone — that is what an isotope is.
+          - An atom that has gained or lost electrons is an ion of the same element, not a new one.
+          - Outer electrons rearrange every time the atom bonds, and nothing is renamed when they do.
+
+      - group: DOPE
+        task: Read a purity limit for what it constrains
+        title: What five parts in a billion is a claim about
+        place: Implant Bay
+        concept: 'Parts per billion: what a purity specification actually claims'
+        scene: >-
+          The incoming specification for substrate silicon sets a limit of five parts per billion
+          on boron. Priyanka Ganesan, the implant process lead, has the certificates for six lots
+          on the desk and every one of them passes.
+        guide: >-
+          The four readings of that limit differ in what they claim about — a ratio, a mass, a
+          count fixed once and for all, or a grade against other suppliers. Only one survives
+          being applied to a piece of any size, and that is the test. The distinction decides
+          whether a passing certificate is evidence about a particular wafer.
+        assumes:
+          - a fraction is a comparison between two amounts of the same kind
+        takeaway: A parts-per-billion figure is a ratio, so the number of impurity atoms it permits depends on how much material you are holding.
+        format: CHOICE
+        question: What does a limit of five parts per billion constrain?
+        choices:
+          - The proportion of atoms present that are boron, whatever size the piece is.
+          - The total mass of boron in the whole delivery, in grams.
+          - The number of boron atoms in each wafer, which the limit fixes once the wafer size is known.
+          - How this supplier scored against the others tested on the same instrument that month.
+        answer: The proportion of atoms present that are boron, whatever size the piece is.
+        why: >-
+          A part per billion is a comparison, not a quantity. It says that for every thousand
+          million atoms, no more than five are the impurity, which stays true of a wafer, a lot or
+          a shaving off the edge. That is what makes it useful as a specification and what makes
+          it deceptive as a picture: a wafer holding four and a half moles of silicon meets that
+          limit while carrying about thirteen million billion boron atoms. The ratio is small
+          and the count is not, and the lattice responds to the count.
+        rebuttals:
+          - A mass limit would depend on the size of the delivery, and the same material would pass or fail by how much of it was sent.
+          - The count follows from the ratio and the amount of material; it is not what the limit itself fixes.
+          - A ranking against other suppliers is a comparison between measurements, not a statement about this material.
+
+  # ============================================================ day 2
+  - title: Light with a threshold, and gas that never stops moving
+    objective: Establish what the light in this building can do and what the gas in the chambers is doing.
+    briefing: The yellow bay is lit amber for a reason nobody on the shift can state.
+    stake: >-
+      Tuesday, and the first re-run of the failing layer goes into the yellow bay this afternoon.
+      Yuki Tanabe, who runs lithography, has been asked twice this week why her bay is lit amber
+      and has twice given an answer that satisfied nobody, which is a problem because the same
+      argument decides which lamps may be changed. Ostrowski wants the deposition chamber opened
+      and closed again between runs to save four hours. Today you settle what a photon of a given
+      wavelength can and cannot do, what a gas in a chamber is actually doing, and how strongly an
+      atom holds the electrons that decide all of it. Four hours a run is a day of the fortnight.
+    takeaway: Light delivers energy in packets with a threshold, and a gas is particles whose speeds follow from their masses.
+    stops:
+      - group: LITHO
+        task: Work out what one photon carries
+        title: Why the bay is lit amber
+        place: Yellow Bay
+        concept: 'Photons: energy, wavelength and what light does to matter'
+        scene: >-
+          Tanabe has the exposure lamp at 248 nanometres and the room lit at 580. Park, the track
+          operator, wants to know why a brighter safelight would not do just as much harm as a dim
+          exposure, and nobody has done the arithmetic.
+        guide: >-
+          Two wavelengths are on the tiles and only one of them belongs in the exposure
+          calculation. The constants are fixed and the wavelength is the variable, so the whole
+          question is which length you put underneath the line. Brightness is not on the tiles at
+          all, which is itself the finding.
+        assumes:
+          - light of a given wavelength arrives in packets of a fixed energy
+          - a nanometre is a thousand-millionth of a metre
+        takeaway: The energy of a photon rises as its wavelength falls, so the wavelength decides what light can do and the brightness only decides how much of it arrives.
+        format: BALLPARK
+        question: How much energy does one photon of the exposure light carry?
+        estimate:
+          prompt: The exposure lamp runs at 248 nanometres; the bay lighting is filtered to 580.
+          question: How much energy does one photon of the exposure light carry?
+          labels:
+            - 6.63e-34 J s  (Planck's constant)
+            - 3.00e8 m/s  (the speed of light)
+            - 2.48e-7 m  (the exposure wavelength, 248 nm)
+            - 5.80e-7 m  (the bay lighting wavelength, 580 nm)
+            - 40 W  (the power of the lamp)
+          values: [6.63e-34, 3.00e8, 2.48e-7, 5.80e-7, 40]
+          slots: 3
+          template: '{0} × {1} ÷ {2}'
+          formula: a*b/c
+          correct: [0, 1, 2]
+          target: 8.02e-19
+          tolerance: 8.0e-20
+          units: J
+          solution: E = (6.63e-34 × 3.00e8) ÷ 2.48e-7 ≈ 8.0e-19 J per photon.
+          explanation: The lamp power says how many photons arrive each second, not what one of them can do.
+          relationship: Photon energy = Planck's constant × the speed of light ÷ the wavelength of the light.
+        why: >-
+          Energy per photon is set by wavelength alone, and the resist responds to single photons
+          rather than to the total energy landing on it. The exposure photon carries about eight
+          times ten to the minus nineteen joules; the amber one, at more than twice the
+          wavelength, carries less than half of that and falls under the threshold the resist
+          chemistry needs. That is why the brightness of the safelight is close to irrelevant and
+          its colour is not: more photons that individually cannot do the job still cannot do it.
+
+      - group: DEP
+        task: Rank four gases by how fast they move
+        title: What a gas is doing while nothing is happening
+        place: Deposition Bay
+        concept: 'Kinetic molecular theory: a gas as particles in motion'
+        scene: >-
+          Lena Vance, the gas and chemicals supervisor, has four cylinders feeding the chamber and
+          a leak that shows up as one gas arriving somewhere it should not. Ostrowski wants to know
+          which of the four would get there first.
+        guide: >-
+          At one temperature every molecule in the chamber has the same average energy, and energy
+          is shared between mass and speed. A heavy molecule therefore carries that energy as
+          mass and a light one as speed. Rank them by the mass on the label and the order follows.
+        assumes:
+          - temperature is a measure of the average kinetic energy of the particles
+          - a molar mass can be read off a chemical formula
+        takeaway: At one temperature all molecules carry the same average energy, so the light ones must be moving fastest.
+        format: SEQUENCE
+        task: Order the four gases in the chamber by average speed.
+        axis: Order the four by how fast their molecules move at the same temperature, slowest first. This is not a clock — all four are in the chamber at once, and the question is what their masses do to their speeds.
+        ends: [Slowest, Fastest]
+        cards:
+          - Argon, 40 g per mole, used to purge the chamber.
+          - Silane, 32 g per mole, the silicon precursor.
+          - Nitrogen, 28 g per mole, from the ambient side of the leak.
+          - Hydrogen, 2 g per mole, the carrier gas.
+        order: [0, 1, 2, 3]
+        why: >-
+          Temperature fixes the average kinetic energy, which is a half of the mass times the
+          speed squared, so at one temperature a heavier molecule must be slower. Argon is twenty
+          times the mass of hydrogen and moves about four and a half times more slowly, because
+          the speed goes as the square root of the mass rather than as the mass. That square root
+          is why the spread in speeds is far narrower than the spread in masses, and why hydrogen
+          reaches a leak first without being twenty times quicker.
+
+      - group: ATOM
+        task: Put a number on how hard an atom holds an electron
+        title: How tightly the nucleus holds on
+        place: Metrology Bay
+        concept: 'Coulombic attraction: charge, distance, and how strongly an electron is held'
+        scene: >-
+          Aaron Dorsey, the metrology technician, has a table on the bench. It gives the energy needed
+          to knock an electron out of each element on the wafer. Ferreira wants to know why that
+          energy is so much larger for some of them.
+        guide: >-
+          The attraction between two charges depends on both charges and on the distance twice
+          over. Two of the tiles describe the distance — one of them is the distance itself and
+          one is its square — and only one of those belongs underneath the line. Choosing wrongly
+          between them is the whole of the arithmetic.
+        assumes:
+          - a nucleus carries one positive charge per proton
+          - an electron carries one negative charge
+        takeaway: Attraction rises with the charges and falls with the square of the separation, so distance costs twice over.
+        format: BALLPARK
+        question: How strongly is silicon's outer electron attracted, in relative units?
+        estimate:
+          prompt: Taking the full nuclear charge and the distance out to the outer shell.
+          question: How strongly is silicon's outer electron attracted, in relative units?
+          labels:
+            - 14  (protons in a silicon nucleus)
+            - 1  (the charge on the electron)
+            - 0.0121 nm²  (the square of the distance to the outer shell)
+            - 0.110 nm  (the distance to the outer shell)
+            - 4  (electrons in silicon's outer shell)
+          values: [14, 1, 0.0121, 0.110, 4]
+          slots: 3
+          template: '{0} × {1} ÷ {2}'
+          formula: a*b/c
+          correct: [0, 1, 2]
+          target: 1157
+          tolerance: 120
+          units: relative units
+          solution: 14 × 1 ÷ 0.0121 ≈ 1160 relative units.
+          explanation: Distance enters as its square, so the tile in square nanometres is the one that belongs.
+          relationship: Attraction between two charges = one charge × the other charge ÷ the square of the distance between them.
+        why: >-
+          Attraction between charges is the product of the charges divided by the square of the
+          distance, which is why moving an electron twice as far out weakens the hold by a factor
+          of four rather than two. The number that comes out here is an overestimate and
+          deliberately so: it uses all fourteen protons, and an outer electron in a real silicon
+          atom does not feel all fourteen. What sits between it and the nucleus is the subject of
+          the next stop, and this arithmetic is what it has to correct.
+        rebuttals: []
+
+  # ============================================================ day 3
+  - title: What the inner shells do to everything outside them
+    objective: Correct yesterday's arithmetic for the electrons that sit in the way.
+    briefing: The attraction calculated yesterday is too large for every element on the wafer.
+    stake: >-
+      Wednesday, and the first re-qualification data is due back at four. Yesterday's arithmetic
+      says silicon should hold its outer electron about eleven hundred times more strongly than
+      hydrogen holds its own, and the measured energy is nothing like that. Dorsey has the
+      measured table and Ferreira has the calculation, and neither of them will move until the
+      gap is explained. Today you work out what stands between an outer electron and the nucleus,
+      read a table of successive ionisation energies for what it says about shells, and settle how
+      deep a measurement has to go before it is about the surface. The re-qualification argument
+      rests on all three.
+    takeaway: An outer electron is held by what is left of the nuclear charge once the inner electrons have cancelled part of it.
+    stops:
+      - group: ATOM
+        task: Correct the nuclear charge for the electrons in the way
+        title: The charge that is left over
+        place: Metrology Bay
+        concept: 'Effective nuclear charge, and shielding by the inner shells'
+        scene: >-
+          Ferreira has a phosphorus atom on the board with its fifteen protons written up and ten
+          of its electrons circled. Dorsey's measured ionisation energy is a fifth of what the
+          full nuclear charge predicts.
+        guide: >-
+          An outer electron is pulled by the nucleus and pushed by every electron between it and
+          the nucleus, and the two nearly cancel. What is left over is a much smaller charge than
+          the proton count. The tiles hold the protons, the inner electrons and the outer ones,
+          and only two of the three enter the subtraction.
+        assumes:
+          - electrons in filled inner shells lie between the nucleus and the outer electrons
+          - like charges repel
+        takeaway: Effective nuclear charge is the proton count minus the electrons closer in, and it is what an outer electron actually responds to.
+        format: BALLPARK
+        question: What effective nuclear charge does phosphorus's outer electron feel?
+        estimate:
+          prompt: Phosphorus, with two filled inner shells and five electrons in the outer one.
+          question: What effective nuclear charge does phosphorus's outer electron feel?
+          labels:
+            - 15  (protons in a phosphorus nucleus)
+            - 10  (electrons in the filled inner shells)
+            - 5  (electrons in phosphorus's outer shell)
+            - 3  (protons in a boron nucleus, for comparison)
+          values: [15, 10, 5, 3]
+          slots: 2
+          template: '{0} − {1}'
+          formula: a-b
+          correct: [0, 1]
+          target: 5
+          tolerance: 0.4
+          units: proton charges
+          solution: Z_eff ≈ 15 − 10 = 5 proton charges.
+          explanation: The other outer electrons are at the same distance and shield very poorly, so they do not enter it.
+          relationship: Effective nuclear charge = the number of protons minus the number of electrons lying closer to the nucleus.
+        why: >-
+          Ten electrons in the filled inner shells sit between the nucleus and the outer shell and
+          cancel ten of the fifteen positive charges, so an outer electron responds to about five
+          rather than fifteen. Electrons in the same shell are at roughly the same distance and
+          shield each other hardly at all, which is why the outer five are left out of the
+          subtraction. This is also why effective charge rises across a row while the shell stays
+          the same: protons are being added and the shielding is not keeping up.
+
+      - group: DOPE
+        task: Read a ladder of ionisation energies
+        title: Where the ladder jumps
+        place: Implant Bay
+        concept: 'Ionisation energy, and why it jumps between shells'
+        takesAsRead:
+          - 'Effective nuclear charge, and shielding by the inner shells'
+        scene: >-
+          Ganesan has four unlabelled elements on the screen, each with the energy to remove its
+          first six electrons in order. The supplier will not say which is which and the implant
+          recipe depends on knowing.
+        guide: >-
+          Removing electrons from one shell costs a little more each time, because the charge left
+          behind grows. Reaching into the shell beneath costs enormously more, and where that jump
+          falls is a count of how many electrons the outer shell held. Match each ladder to what
+          its jump says.
+        assumes:
+          - removing an electron from a positive ion is harder than from a neutral atom
+          - inner shells lie closer to the nucleus than outer ones
+        takeaway: A large jump in successive ionisation energies marks the point where the next electron has to come out of a shell closer in.
+        format: PROTOCOL
+        task: Match each ladder of ionisation energies to what it says about the atom.
+        scenarios:
+          - The energy rises gently for three removals, then jumps by a factor of six.
+          - The energy rises gently for four removals, then jumps by a factor of five.
+          - The energy rises gently for five removals, then jumps by a factor of four.
+          - The energy rises gently through all six removals with no jump anywhere.
+        choices:
+          - Three electrons in the outer shell — a group 13 element, and an acceptor in silicon.
+          - Four electrons in the outer shell — a group 14 element, and the lattice itself.
+          - Five electrons in the outer shell — a group 15 element, and a donor in silicon.
+          - Every removal so far has come out of the same shell, so it holds more than six.
+        mapping: [0, 1, 2, 3]
+        why: >-
+          Within one shell each electron leaves behind a more positive ion, so each removal costs
+          a little more than the last. Reaching into a filled shell underneath means fighting a
+          much larger effective charge at a much shorter distance, and both terms push the same
+          way, so the cost multiplies rather than creeping up. Counting the gentle steps before
+          that jump counts the outer shell directly, which is the measurement that separates a
+          donor from an acceptor without knowing anything else about the element.
+
+      - group: WET
+        task: Decide how deep a measurement has to go
+        title: The top nanometre, and everything under it
+        place: Wet Bench
+        concept: 'Surface analysis: measuring the top nanometre rather than the bulk'
+        scene: >-
+          Delphine Aubrey, the wet process and metallisation lead, has a bulk purity result on one
+          wafer reading clean and a failure map on the same wafer showing edge losses. Both
+          measurements were done properly.
+        guide: >-
+          The four options differ in what part of the wafer each measurement averages over. A
+          wafer is nearly a millimetre thick and the layers that matter are a few atoms deep, so
+          the ratio between the two is about a million to one. The question is what that ratio
+          does to a contamination figure.
+        assumes:
+          - a contamination figure is an average over whatever the instrument sampled
+        takeaway: A bulk measurement divides a surface contaminant by a million times more material than it sits on, so a clean bulk result says almost nothing about the surface.
+        format: CHOICE
+        question: Why can a wafer pass a bulk purity test and still fail because of contamination?
+        choices:
+          - It sits in the top few atomic layers and the bulk figure averages it away.
+          - Bulk instruments are less accurate than surface instruments and report low.
+          - The contaminant was introduced after the bulk measurement was taken and before the failure.
+          - Bulk purity is quoted by mass and surface contamination is quoted by area, so the two units disagree.
+        answer: It sits in the top few atomic layers and the bulk figure averages it away.
+        why: >-
+          Every measurement has a depth, and a bulk method reports the total divided by everything
+          it sampled. A wafer is about three-quarters of a millimetre thick and a device layer is
+          a few nanometres, so a contaminant confined to the surface is being divided by roughly a
+          million times more silicon than it actually sits on. It disappears into the average
+          while remaining, where it is, at a concentration high enough to ruin every chip on the
+          disc. Depth of measurement is a property of the instrument and has to be chosen.
+        rebuttals:
+          - Bulk instruments are accurate about the bulk; the fault is in what was asked of them, not in how well they did it.
+          - Timing would explain one wafer and not a pattern that repeats across every lot measured the same way.
+          - Units can be converted; what cannot be recovered is the information averaging has already destroyed.
+
+  # ============================================================ day 4
+  - title: What is in the chamber, and what a peak at 28 could be
+    objective: Count what is in a chamber from a gauge, and read a mass spectrum honestly.
+    briefing: The residual gas analyser has a peak that two people are reading two ways.
+    stake: >-
+      Thursday, and Vance has the chamber down for eight hours, which is the only window this week
+      to answer what is inside it. The residual gas analyser shows a peak at mass twenty-eight
+      that Ostrowski reads as harmless carrier and Ferreira reads as air getting in, and the two
+      readings imply different repairs on different days. Today you turn a pressure gauge into a
+      number of molecules, decide what a single mass peak can and cannot establish, and count the
+      valence electrons of the elements this process is built out of. Eight hours of chamber time
+      is the most expensive thing in the fortnight and it is being spent today.
+    takeaway: A gauge counts molecules and a mass spectrum weighs them, and neither of them names what is there on its own.
+    stops:
+      - group: DEP
+        task: Turn a vacuum gauge into a count of molecules
+        title: How much is still in there
+        place: Deposition Bay
+        concept: 'Gas laws: pressure, volume, moles and temperature'
+        scene: >-
+          The chamber is at one millitorr with the wafer stage hot, and Vance wants the argument
+          about whether that is empty settled in moles rather than in adjectives.
+        guide: >-
+          Pressure, volume, amount and temperature are locked together, so three of them fix the
+          fourth. Four tiles belong in that relation and two describe the chamber in ways that do
+          not enter it. Pressure is in pascals and volume in cubic metres because the gas constant
+          is quoted in those units.
+        assumes:
+          - the gas constant relates pressure and volume to amount and temperature
+          - absolute temperature is measured in kelvin
+        takeaway: A pressure gauge and a chamber volume are a count of molecules, so a vacuum specification is a statement about how many are left.
+        format: BALLPARK
+        question: How many moles of gas are in the chamber at one millitorr?
+        estimate:
+          prompt: The chamber is at one millitorr with the stage at 900 kelvin.
+          question: How many moles of gas are in the chamber at one millitorr?
+          labels:
+            - 0.133 Pa  (one millitorr, the chamber pressure)
+            - 0.060 m³  (the volume of the chamber)
+            - 8.31 J/mol/K  (the gas constant)
+            - 900 K  (the stage temperature)
+            - 0.30 m  (the width of the chamber)
+          values: [0.133, 0.060, 8.31, 900, 0.30]
+          slots: 4
+          template: '{0} × {1} ÷ {2} ÷ {3}'
+          formula: a*b/c/d
+          correct: [0, 1, 2, 3]
+          target: 1.07e-6
+          tolerance: 1.5e-7
+          units: mol
+          solution: n = (0.133 × 0.060) ÷ (8.31 × 900) ≈ 1.1e-6 mol.
+          explanation: The width of the chamber is already inside the volume; adding it counts the same dimension twice.
+          relationship: Amount of gas = pressure × volume ÷ the gas constant ÷ the absolute temperature.
+        why: >-
+          A millionth of a mole sounds like nothing and is around six hundred million million
+          molecules still in the chamber, which is why a vacuum is a statement about how much has
+          been removed rather than about emptiness. That number is what decides whether a
+          precursor molecule crosses to the wafer untouched or reacts on the way. Note which
+          quantities entered: the temperature matters because hot gas at the same pressure is
+          fewer molecules, and the width of the chamber is already accounted for in its volume.
+
+      - group: WAFER
+        task: Say what one mass peak can establish
+        title: Two gases, one mass
+        place: Wafer Store
+        concept: 'Isotopes, and the mass spectrum of a precursor gas'
+        scene: >-
+          Twill has the residual gas trace pinned to the store noticeboard because it arrived with
+          the lot paperwork. There is a peak at mass twenty-eight, and two people have written two
+          different conclusions beside it.
+        guide: >-
+          A mass spectrometer sorts what it is given by mass and charge, and reports a number
+          rather than a name. The options differ in how much identification that number can carry
+          on its own. What separates them is whether any other species could produce the same
+          peak.
+        assumes:
+          - a mass spectrum sorts particles by their mass and charge
+          - a molecular mass is the sum of the masses of the atoms in the molecule
+        takeaway: A mass peak is a mass, and where two species share one, the peak alone cannot say which of them is there.
+        format: CHOICE
+        question: What does a single peak at mass twenty-eight establish?
+        choices:
+          - That something of that mass is present — and nitrogen and carbon monoxide both are.
+          - That nitrogen is leaking into the chamber, since nitrogen has a mass of twenty-eight.
+          - That the carrier gas is contaminated, because carbon monoxide comes in with the carrier.
+          - That the reading is an instrument artefact, because no process gas here has that mass.
+        answer: That something of that mass is present — and nitrogen and carbon monoxide both are.
+        why: >-
+          Fourteen and fourteen is twenty-eight and so is twelve and sixteen, so nitrogen and
+          carbon monoxide are indistinguishable at this resolution. One of them means air is
+          getting in through a joint and the other means the carrier line is dirty, which are
+          different repairs on different days. Separating them needs another peak: nitrogen
+          fragments to mass fourteen and carbon monoxide gives twelve and sixteen, so the pattern
+          rather than the single line is the identification. A spectrum names a mass; a pattern
+          names a molecule.
+        rebuttals:
+          - Nitrogen does have that mass, which is exactly why the peak is consistent with it and does not establish it.
+          - Naming the source before the species has been separated is the conclusion the peak was supposed to support.
+          - The mass is unremarkable and two ordinary gases have it, so an artefact is the least supported reading of all.
+
+      - group: LITHO
+        task: Count the electrons that do the bonding
+        title: The outer shell, and nothing else
+        place: Yellow Bay
+        concept: Electron configuration and the valence shell
+        scene: >-
+          Tanabe has four elements written on the board. They are the ones this layer is built from:
+          silicon, boron, phosphorus and oxygen. She wants each outer shell counted before anybody
+          draws a structure.
+        guide: >-
+          Electrons fill shells in a known order and only the outermost ones take part in bonding.
+          Match each element to what its outer shell holds and to what that lets it do. The count
+          is a prediction about the number of bonds, made before any structure is drawn.
+        assumes:
+          - electrons occupy shells in order, filling the inner ones first
+          - the periodic table is arranged so that a group shares an outer-shell count
+        takeaway: Only the outermost electrons take part in bonding, so counting them predicts how many bonds an atom will make.
+        format: PROTOCOL
+        task: Match each element to its outer shell and what that lets it do.
+        scenarios:
+          - Silicon, fourteen electrons in total.
+          - Boron, five electrons in total.
+          - Phosphorus, fifteen electrons in total.
+          - Oxygen, eight electrons in total.
+        choices:
+          - Four in the outer shell — it can bond in four directions at once, which is what makes the lattice.
+          - Three in the outer shell — one short of the lattice, so it leaves a gap behind when it substitutes in.
+          - Five in the outer shell — one more than the lattice needs, so it leaves an electron over.
+          - Six in the outer shell — it takes two more and holds them tightly, which is what makes the oxide.
+        mapping: [0, 1, 2, 3]
+        why: >-
+          The first two shells hold two and eight, so everything past ten is in the third shell
+          and everything past two is in the second. Silicon's fourteen leaves four outside the
+          filled ten; boron's five leaves three outside the filled two; phosphorus's fifteen
+          leaves five; oxygen's eight leaves six. That count is the whole of what an atom brings
+          to a bond, which is why elements in one column behave alike however different their
+          masses are, and why the two columns either side of silicon are the ones this fab implants.
+
+  # ============================================================ day 5
+  - title: The spectrum that is a picture of the shells
+    objective: Read a photoelectron spectrum, and use the table to predict rather than to look up.
+    briefing: The surface measurement everybody has been waiting for runs this morning.
+    stake: >-
+      Friday, and the photoelectron spectrometer has the first failing wafer on it at nine. It is
+      the one instrument in the building that answers what is on the surface and what it is bonded
+      to, and Ferreira has been waiting eleven days for the slot. Ostrowski has asked for the
+      chamber back by three and Vance cannot pump it down twice in one day. Today you turn a
+      spectrum into binding energies, predict how an element you have not measured should behave
+      from where it sits in the table, and work out how far a molecule travels in that chamber
+      before it meets another one. Whatever this spectrum says decides which argument gets funded
+      on Monday.
+    takeaway: A photon of known energy in and an electron of measured energy out is a direct reading of how tightly an atom was holding on.
+    stops:
+      - group: ATOM
+        task: Turn a measured electron energy into a binding energy
+        title: The photon in, the electron out
+        place: Metrology Bay
+        concept: 'Photoelectron spectroscopy: a spectrum read as a shell diagram'
+        scene: >-
+          Ferreira has the source at the aluminium line and a silicon peak on the screen. Dorsey
+          wants the kinetic energy the instrument should see for that peak, before the run, so
+          that a shifted peak is recognisable as one.
+        guide: >-
+          The photon energy is known exactly and the binding energy is the quantity the peak
+          identifies, so what the detector measures is whatever is left. Two binding energies are
+          on the tiles: one belongs to silicon in the lattice and one to silicon bonded to oxygen.
+          The question asks about the first.
+        assumes:
+          - a photon gives all of its energy to the electron it ejects
+          - binding energy is the energy holding a particular electron to its atom
+        takeaway: The photon energy minus the measured kinetic energy is the binding energy, so a spectrum of peaks is a direct picture of the shells.
+        format: BALLPARK
+        question: What kinetic energy should the silicon peak arrive at?
+        estimate:
+          prompt: The source is an aluminium X-ray line and the peak of interest is silicon in the lattice.
+          question: What kinetic energy should the silicon peak arrive at?
+          labels:
+            - 1486.6 eV  (the energy of one photon from the source)
+            - 99.2 eV  (the binding energy of silicon in the lattice)
+            - 103.4 eV  (the binding energy of silicon bonded to oxygen)
+            - 4.2 eV  (the difference between those two)
+          values: [1486.6, 99.2, 103.4, 4.2]
+          slots: 2
+          template: '{0} − {1}'
+          formula: a-b
+          correct: [0, 1]
+          target: 1387.4
+          tolerance: 4
+          units: eV
+          solution: KE = 1486.6 − 99.2 ≈ 1387 eV.
+          explanation: The oxide value belongs to the other peak, and the difference between them belongs to neither.
+          relationship: Kinetic energy of the ejected electron = the photon energy minus the binding energy holding it.
+        why: >-
+          The instrument cannot measure binding energy and does not try to. It measures how fast
+          the ejected electrons are moving, and the difference between that and the known photon
+          energy is what the atom was holding on with. Every peak in the spectrum is one shell of
+          one element, its position saying how tightly that shell is held and its area saying how
+          many electrons are in it. That is why a single spectrum can carry an element list and a
+          shell diagram at the same time.
+
+      - group: DOPE
+        task: Predict an element you have not measured
+        title: What the table says before the tool does
+        place: Implant Bay
+        concept: Periodic trends across a row and down a group
+        scene: >-
+          A supplier has offered gallium in place of boron for the shallow implant, on the grounds
+          that both sit in the same column. Ganesan wants the prediction written down before
+          anybody buys a cylinder of it.
+        guide: >-
+          Two elements in one column share an outer-shell count and differ in how far out that
+          shell sits. The options differ in which of those two facts they lean on. What decides
+          between them is which properties follow from the count and which follow from the
+          distance.
+        assumes:
+          - elements in one column of the table share the number of outer-shell electrons
+          - a shell further from the nucleus is held less tightly
+        takeaway: A column fixes what an element can do and a row fixes how strongly it does it, so a substitution down a group keeps the chemistry and changes the energies.
+        format: CHOICE
+        question: What should be expected of gallium in place of boron, from its position alone?
+        choices:
+          - The same three outer electrons, held less tightly, because the shell sits further out.
+          - The same behaviour in every respect, because elements in one column are interchangeable.
+          - Four outer electrons rather than three, because gallium lies in a later row.
+          - Weaker attraction and fewer outer electrons, since both fall together down a group.
+        answer: The same three outer electrons, held less tightly, because the shell sits further out.
+        why: >-
+          A column is a statement about the outer-shell count. That count fixes how many bonds an atom
+          makes, and so whether it is a donor or an acceptor in silicon. A row is a statement about
+          how far out the shell sits and how much charge is shielded. That fixes the energies rather
+          than the arithmetic. So gallium substitutes for boron in kind and not in degree. Three outer
+          electrons either way, held more loosely, which shows up as a lower ionisation energy and a
+          larger atom.
+        rebuttals:
+          - Interchangeable would make atomic size and ionisation energy irrelevant, and the whole table is a record that they are not.
+          - The outer count is set by the column and not by the row; moving down a group adds shells, not outer electrons.
+          - The two do not fall together — the count is unchanged down a group and only the attraction weakens.
+
+      - group: DEP
+        task: Work out how far a molecule gets
+        title: How far a molecule travels before it meets another
+        place: Deposition Bay
+        concept: 'Mean free path: why a chamber is pumped down before anything is grown'
+        scene: >-
+          Ostrowski wants the pump-down shortened by four minutes and the chamber is thirty
+          centimetres across. Vance will not agree to it until somebody says what the precursor is
+          doing on the way to the wafer at each pressure.
+        guide: >-
+          A molecule crosses the chamber freely when the average distance between collisions is
+          larger than the chamber itself, and reacts in mid-flight when it is not. The tiles hold
+          two pressures — the working pressure and the one outside — and only one of them is the
+          question. The chamber width is there to compare the answer against.
+        assumes:
+          - a lower pressure means fewer molecules in the same volume
+          - molecules travel in straight lines between collisions
+        takeaway: The average distance between collisions is set by the pressure, and it decides whether a process is an arrival at a surface or a reaction in mid-flight.
+        format: BALLPARK
+        question: How far does a molecule travel between collisions at the working pressure?
+        estimate:
+          prompt: The chamber runs at one millitorr and is 0.30 m across.
+          question: How far does a molecule travel between collisions at the working pressure?
+          labels:
+            - 1.38e-23 J/K  (Boltzmann's constant)
+            - 300 K  (the gas temperature)
+            - 6.08e-19 m²  (the collision area of the molecule)
+            - 0.133 Pa  (one millitorr, the working pressure)
+            - 101000 Pa  (the pressure outside the chamber)
+          values: [1.38e-23, 300, 6.08e-19, 0.133, 101000]
+          slots: 4
+          template: '{0} × {1} ÷ {2} ÷ {3}'
+          formula: a*b/c/d
+          correct: [0, 1, 2, 3]
+          target: 0.051
+          tolerance: 0.008
+          units: m
+          solution: About 0.05 m — five centimetres between collisions.
+          explanation: At room pressure the same arithmetic gives about seventy nanometres, which is why the chamber is pumped at all.
+          relationship: Mean free path = Boltzmann's constant × temperature ÷ the collision area ÷ the pressure.
+        why: >-
+          Five centimetres between collisions in a chamber thirty centimetres across means most
+          precursor molecules meet something on the way, and what they meet is usually each other.
+          Reactions that happen in mid-flight produce particles that land on the wafer as defects
+          rather than as film. Pump another decade down and the path is half a metre, longer than
+          the chamber, so molecules travel from the inlet to the wafer untouched and the only
+          place chemistry happens is the hot surface. That is the whole argument for the pump-down
+          time.
+
+  # ============================================================ day 6
+  - title: Four numbers that agree, and one that does not
+    objective: Find out why every measurement of the substrate agrees and the wafers still fail.
+    briefing: Every incoming measurement is consistent, and the lots are behaving differently.
+    stake: >-
+      Monday, and the second week opens with four independent-looking measurements of the
+      substrate that all agree to within a few per cent, and a yield map that says two of the lots
+      are not the same material. Twill has the certificates, Ferreira has the mapped results, and
+      Hale has told them both that agreement is not the same as evidence. Today you open those
+      four derivations and find what they were each computed against, turn a purity limit into a
+      count of atoms, and draw the first molecule this process is built out of. If the substrate
+      is wrong, every recipe argument of the last three weeks was about the wrong thing.
+    takeaway: Numbers computed against a common reference agree with each other whatever that reference is doing.
+    stops:
+      - group: WAFER
+        task: Find what every measurement was compared against
+        title: What they were all measured against
+        place: Wafer Store
+        concept: 'Two lots that measure the same: when a specification cannot tell them apart'
+        scene: >-
+          Four substrate results, agreeing closely, and two lots behaving differently on the
+          floor. Twill has the retained boxes and the certificates, and Ferreira has asked what
+          each of the four numbers was actually compared with.
+        guide: >-
+          Open each channel to see what it was derived from. Keep the ones whose evidence still
+          stands on its own, then name the source everything else went through. A number compared
+          against a reference inherits whatever is wrong with that reference, and inherits it
+          quietly.
+        background:
+          - >-
+            Why agreement is weak evidence. Four quantities computed against one reference move
+            together whatever that reference is doing, so their agreement is a property of the
+            arithmetic rather than of the material. It is the most convincing form a systematic
+            error takes, because nothing anywhere looks inconsistent.
+          - >-
+            What a resistivity measurement can and cannot say. Resistivity is a magnitude. A
+            substrate doped with boron and one doped with phosphorus can have the same
+            resistivity to within a per cent, because the quantity does not depend on which of
+            the two columns the dopant came from. Separating them needs a measurement that
+            responds to the sign of the carriers rather than to how many there are.
+          - >-
+            What the certificate has no field for. It records resistivity, thickness, flatness
+            and particle count. Type is not on it, because for thirty years this supplier has
+            shipped one type and nobody wrote a field for a thing that never varied.
+        assumes:
+          - a quantity computed against a reference carries the reference's error
+          - resistivity measures how much conduction there is, not what is carrying it
+        takeaway: A specification records what somebody thought to measure, so two materials can meet it identically and behave differently.
+        format: TRACE
+        question: >-
+          Everything except the hot-probe reading agrees. Open the derivations, keep what still
+          stands on its own, and name the source at fault.
+        trace:
+          hint: >-
+            Open a channel to see what it was computed against. Tick the ones whose evidence stands
+            without that reference, then name the source.
+          channels:
+            - { id: sheet, label: Sheet resistance map, reading: '8.4 ohm centimetre across the wafer', depends: [refwafer] }
+            - { id: uniform, label: Lot-to-lot uniformity, reading: '2.1 per cent spread, lot to lot', depends: [refwafer] }
+            - { id: thickness, label: Epitaxial layer thickness, reading: '4.02 micrometres, by reflectance', depends: [refwafer] }
+            - { id: hotprobe, label: Hot-probe polarity test, reading: 'negative deflection, taken by hand on the bench', depends: [] }
+            - { id: retained, label: Retained sample from the sealed box, reading: 'unopened since delivery, weighed only', depends: [] }
+          resources:
+            - { id: refwafer, label: 'Reference wafer from lot 41, used as the type standard' }
+            - { id: toolcal, label: Monthly tool calibration schedule }
+          independent: [hotprobe, retained]
+          target: refwafer
+          correction:
+            what: The reference wafer from lot 41, used as the standard every mapped result is compared against
+            was: 'taken to be boron-doped, matching the resistivity band on the certificate'
+            now: 'measured by hot probe as the opposite type, at the same resistivity'
+            effect: Every quantity compared against it inherits the wrong type while agreeing on magnitude.
+            corrected: 'The three mapped results are all consistent with a substrate of the opposite type to the one assumed; the hot-probe polarity and the sealed retained sample never used the reference and do not move.'
+          commit: Correct it
+        answerText: >-
+          The reference wafer from lot 41. It was assumed to be the same type as the certificate
+          implies and is the opposite, so every result mapped against it carries that assumption —
+          while the hot-probe polarity and the sealed retained sample, which never used it, keep
+          their evidence.
+        why: >-
+          Three of these numbers are comparisons, and a comparison carries whatever is wrong with
+          what it was compared against. The reference wafer was assumed to be one type on the
+          strength of a resistivity band, and resistivity is a magnitude that both types can have
+          equally. So three measurements agree beautifully while all describing the same wrong
+          assumption, which is exactly what makes a common reference error survive review. The
+          hot-probe test responds to the sign of the carriers rather than to their number, and the
+          sealed box has been through no measurement at all, so neither of them should move.
+
+      - group: DOPE
+        task: Turn a purity limit into atoms per cubic centimetre
+        title: Five in a billion, counted
+        place: Implant Bay
+        concept: 'Doping: group 13 and group 15 atoms in a group 14 lattice'
+        scene: >-
+          Ganesan has the certificate limit on the board beside the implant recipe, which is quoted
+          in atoms per cubic centimetre. Nkemdirim, the implant technician, has asked which of the
+          two numbers is the bigger intervention in the lattice.
+        guide: >-
+          A ratio becomes a count once you know how many atoms are there to begin with. Two tiles
+          make the ratio into a fraction and one says how many silicon atoms sit in a cubic
+          centimetre. The lot size is on the tiles and belongs to a different question.
+        assumes:
+          - a part per billion is one atom in a thousand million
+          - the silicon lattice has a fixed number of atoms in a given volume
+        takeaway: A few parts per billion of an atom from the neighbouring column is millions of millions of atoms per cubic centimetre, which is why the impurity is the product.
+        format: BALLPARK
+        question: How many boron atoms per cubic centimetre does the incoming limit permit?
+        estimate:
+          prompt: The certificate limit is five parts per billion of boron.
+          question: How many boron atoms per cubic centimetre does the incoming limit permit?
+          labels:
+            - 5  (the boron limit, in parts per billion)
+            - 1e9  (a thousand million)
+            - 5.0e22  (silicon atoms in a cubic centimetre)
+            - 25  (wafers in the lot)
+          values: [5, 1e9, 5.0e22, 25]
+          slots: 3
+          template: '{0} ÷ {1} × {2}'
+          formula: a/b*c
+          correct: [0, 1, 2]
+          target: 2.5e14
+          tolerance: 3e13
+          units: atoms per cubic centimetre
+          solution: (5 ÷ 1e9) × 5.0e22 ≈ 2.5e14 boron atoms in every cubic centimetre.
+          explanation: The lot size scales how much material there is, not how concentrated it is.
+          relationship: Dopant atoms per cubic centimetre = the parts-per-billion figure ÷ a thousand million × the silicon atoms in a cubic centimetre.
+        why: >-
+          A ratio that sounds like nothing is a very large number of atoms, and the lattice responds
+          to the number. Two hundred and fifty million million boron atoms sit in every cubic
+          centimetre. That is within a factor of a few of the dose this bay implants on purpose, which
+          is why the incoming limit is set where it is. It is also why doping works at all. An atom
+          from the next column brings one electron too few to a lattice that needs four bonds.
+      - group: DEP
+        task: Draw the molecule the recipe is built out of
+        title: Where the electrons are in a precursor
+        place: Deposition Bay
+        concept: 'Lewis structures: valence electrons, octets and lone pairs'
+        scene: >-
+          Ostrowski has four precursor molecules on the whiteboard with no electrons drawn on any of
+          them. The recipe argument keeps returning to how easily each one comes apart.
+        guide: >-
+          A Lewis structure spends every valence electron the atoms bring, as bonding pairs or as
+          lone pairs. Match each molecule to what its structure has to contain. Counting first and
+          drawing second is what stops a structure being invented to fit an expectation.
+        assumes:
+          - each atom contributes its outer-shell electrons to the molecule
+          - a shared pair between two atoms is a single bond
+        takeaway: A Lewis structure spends every valence electron the atoms bring, as bonds or as lone pairs, and nothing is left over.
+        format: PROTOCOL
+        task: Match each precursor to what its Lewis structure must contain.
+        scenarios:
+          - Silane, one silicon and four hydrogens.
+          - Ammonia, one nitrogen and three hydrogens.
+          - Water vapour, one oxygen and two hydrogens.
+          - Dichlorosilane, one silicon, two hydrogens and two chlorines.
+        choices:
+          - Four bonding pairs and no lone pairs, using all eight electrons brought to it.
+          - Three bonding pairs and one lone pair on the central atom.
+          - Two bonding pairs and two lone pairs on the central atom.
+          - Four bonding pairs, with three lone pairs left over on each of the two chlorines.
+        mapping: [0, 1, 2, 3]
+        why: >-
+          The arithmetic is the same every time: add up the outer-shell electrons the atoms bring,
+          use two for each bond, and put whatever is left on the atoms as lone pairs until each
+          one has eight. Silicon brings four and four hydrogens bring one each, which is exactly
+          four bonds and nothing over. Nitrogen brings five, uses three, and keeps a pair. Oxygen
+          brings six, uses two, and keeps two pairs. Chlorine brings seven, uses one, and keeps
+          three — which is why the two chlorines dominate the electron count in the last of them.
+
+  # ============================================================ day 7
+  - title: Shapes, shifts and a sea of electrons
+    objective: Read what a peak position says about bonding, and name what holds each material together.
+    briefing: The substrate finding has changed which questions are worth asking.
+    stake: >-
+      Tuesday, and the substrate finding has been on Hale's desk since eight. Two lots go back to
+      the supplier and thirteen do not, which leaves the failures on those thirteen still
+      unexplained and eight days to explain them. Ostrowski has taken it as vindication and asked
+      for the recipe review to start this afternoon. Today you read a spectrum peak for what it
+      says about bonding rather than about quantity, work out what shape each precursor molecule
+      is forced into, and name what actually holds a metal together. The recipe review needs all
+      three before it can distinguish a film that is wrong from a film that is merely different.
+    takeaway: A peak that has moved and a molecule that is bent are both statements about bonding rather than about amount.
+    stops:
+      - group: ATOM
+        task: Read a peak that has moved
+        title: The same element, four electronvolts over
+        place: Metrology Bay
+        concept: 'Chemical shift: the same element bonded to something else'
+        scene: >-
+          Dorsey's overnight run has two silicon peaks on one wafer, four electronvolts apart, and
+          the summary report lists silicon once. Ferreira wants the difference between the two
+          explained before anybody quotes a quantity.
+        guide: >-
+          A peak position is a binding energy and a binding energy is how tightly an electron is
+          held. The options differ in whether they read the split as a difference in amount, in
+          instrument behaviour or in bonding. What separates them is what could move a peak
+          without changing how much of the element is present.
+        assumes:
+          - a peak position is a binding energy and a peak area is a quantity
+          - an electronegative neighbour draws electron density away from an atom
+        takeaway: A shift in peak position says what the atom is bonded to; only the area says how much of it there is.
+        format: CHOICE
+        question: What do two silicon peaks four electronvolts apart establish?
+        choices:
+          - Two chemical states of silicon, one of them bonded to oxygen.
+          - Twice as much silicon as the wafer should carry, since the total signal is split across two peaks here.
+          - Two isotopes of silicon, which differ in mass and therefore in binding energy.
+          - A calibration error, since one element cannot produce two peaks from the same shell.
+        answer: Two chemical states of silicon, one of them bonded to oxygen.
+        why: >-
+          Oxygen pulls electron density away from the silicon it is bonded to, which leaves the
+          remaining electrons on that silicon feeling more of the nucleus and held more tightly.
+          More tightly held means a higher binding energy, which is a peak a few electronvolts
+          over from the bare lattice. So the split is a statement about neighbours: the two peaks
+          are the same shell of the same element in two chemical situations, and their relative
+          areas say how much of the surface is oxide. That is the measurement no bulk method can
+          make.
+        rebuttals:
+          - The total area is what says how much is there, and splitting a signal does not add to it.
+          - Isotopes differ in the nucleus and not in how the outer electrons are held, so they do not separate here.
+          - Two peaks from one shell are exactly what this instrument exists to resolve, and calling it an error discards the finding.
+
+      - group: DEP
+        task: Predict the shape each precursor is forced into
+        title: What the lone pairs do to the shape
+        place: Deposition Bay
+        concept: 'VSEPR: electron domains, and the shape they force on a molecule'
+        scene: >-
+          Ostrowski has the four precursor structures drawn up from yesterday. He has also been asked
+          the same question twice this week. Why do two molecules with the same number of atoms behave
+          differently at one temperature?
+        guide: >-
+          Count the domains around the central atom — every bond and every lone pair — and let
+          them get as far apart as they can. Match each molecule to the shape that count forces.
+          Lone pairs occupy space and take no atom with them, which is why they change the shape
+          without appearing in it.
+        assumes:
+          - electron domains repel one another and settle as far apart as they can
+          - a lone pair occupies a region around the atom just as a bond does
+        takeaway: A shape follows from a count of electron domains, and lone pairs bend a molecule without appearing in its outline.
+        format: PROTOCOL
+        task: Match each molecule to the shape its electron domains force.
+        scenarios:
+          - Silane — four bonds and no lone pairs on the silicon.
+          - Ammonia — three bonds and one lone pair on the nitrogen.
+          - Water — two bonds and two lone pairs on the oxygen.
+          - Carbon dioxide — two double bonds and no lone pairs on the carbon.
+        choices:
+          - Four domains at the widest angle in three dimensions, with an atom on every one.
+          - Four domains again, but one carries no atom, so the outline is a squat pyramid.
+          - Four domains with two carrying no atom, which closes the remaining angle further.
+          - Two domains only, which settle opposite each other and leave the molecule straight.
+        mapping: [0, 1, 2, 3]
+        why: >-
+          The rule is one count and one principle: every bond and every lone pair is a region of
+          negative charge, and regions of negative charge get as far from each other as they can.
+          Four regions settle at about a hundred and nine degrees whether or not each one carries
+          an atom, so ammonia and water are built on the same arrangement as silane and simply
+          have some corners empty. That is why the angle closes as lone pairs are added — a lone
+          pair is held by one nucleus rather than two, spreads wider, and pushes the bonds
+          together.
+
+      - group: WET
+        task: Say what holds a metal together
+        title: Electrons that belong to none of them
+        place: Wet Bench
+        concept: 'Metallic bonding: delocalised electrons, and what makes a metal conduct'
+        scene: >-
+          Aubrey has a copper fill step that has to conduct and survive being polished flat. Bramall,
+          the wet bench operator, has asked why the copper deforms under the pad while the oxide beside
+          it chips.
+        guide: >-
+          The options differ in where they put the electrons in a metal. What separates them is
+          having to explain two facts at once with the same picture — that a metal conducts, and
+          that it deforms rather than shattering when its atoms are pushed past each other.
+        assumes:
+          - a metal atom holds its outer electrons loosely
+          - conduction requires charge that is free to move
+        takeaway: A metal is a lattice of cations in a shared pool of electrons, which is why it conducts and why it deforms instead of shattering.
+        format: CHOICE
+        question: What explains both that copper conducts and that it deforms under the pad?
+        choices:
+          - Its outer electrons are shared across the lattice rather than tied to any pair.
+          - Each copper atom is bonded to its neighbours by a shared pair, as in a covalent solid.
+          - The atoms are held by attraction between opposite charges, as in an ionic solid.
+          - The atoms are held only by weak attractions between whole neutral atoms.
+        answer: Its outer electrons are shared across the lattice rather than tied to any pair.
+        why: >-
+          A pool of electrons belonging to no particular pair of atoms explains both observations
+          at once. Charge that is not tied down can move, which is conduction. And because no bond
+          points from one specific atom to another, a plane of atoms can slide over its neighbour
+          and be held just as well in the new position — which is deformation rather than
+          fracture. An ionic solid does the opposite: slide a plane and like charges come to face
+          each other, and it splits along that plane, which is what the oxide beside the copper is
+          doing.
+        rebuttals:
+          - Directional shared pairs would lock the planes in place, and the material would chip rather than flow.
+          - An ionic lattice fractures when a plane slides, because the sliding brings like charges together.
+          - Weak attractions between neutral atoms would not hold a solid at these temperatures at all.
+
+  # ============================================================ day 8
+  - title: Which structure is right, and what it costs to pull a solid apart
+    objective: Choose between structures that both satisfy the octet, and rank what holds solids together.
+    briefing: Two structures for the same molecule imply two different processes.
+    stake: >-
+      Wednesday, and the recipe review has stalled on a molecule that can be drawn two ways. Vance
+      needs a purchase decision on the precursor by Friday and the two structures imply different
+      handling, different lines and a different temperature. Meanwhile Twill has three ceramic
+      liners quoted at three prices, all sold as equivalent. Today you settle which structure is
+      the better description, work out whether the molecules on the drawing are polar, and rank
+      three solids by what it takes to pull them apart. Buying the wrong precursor costs eleven
+      days on a fifteen-day clock, which is the whole remaining fortnight.
+    takeaway: A structure that satisfies the octet may still be the worse description, and what a solid costs to take apart follows from its charges and their spacing.
+    stops:
+      - group: DEP
+        task: Choose between two structures that both work
+        title: Two drawings, one molecule
+        place: Deposition Bay
+        concept: 'Formal charge, and choosing between structures that both fill the octet'
+        scene: >-
+          Two structures for the same precursor are on the board, both giving every atom a full
+          outer shell. Vance needs one of them chosen before the purchase order goes out on Friday.
+        guide: >-
+          Formal charge counts how far each atom sits from the electron count it brought. Match
+          each drawn structure to what its charges say about it. A structure with charges spread
+          onto atoms that do not want them is a worse description of a real molecule, even where
+          every octet is satisfied.
+        assumes:
+          - each atom in a structure can be assigned a share of the electrons around it
+          - a full outer shell can often be achieved in more than one arrangement
+        takeaway: Where two structures both fill the octet, the one with the smaller formal charges is the better description of the real molecule.
+        format: CASEBOOK
+        task: Match each proposed structure to what its formal charges say.
+        scenarios:
+          - Every atom comes out at zero formal charge.
+          - One atom carries plus one and its neighbour minus one.
+          - A charge of minus two sits on the least electronegative atom in the molecule.
+          - Two structures both come out at zero, differing only in which pair is doubled.
+        choices:
+          - The best available description, and the one to work from.
+          - Acceptable where the charges sit on the atoms that hold them best, and worth checking against the other.
+          - Rejected — a large charge on an atom least able to carry it is a sign the arrangement is wrong.
+          - Neither is the molecule; the real one is an average of both, with the bonds alike.
+        mapping: [0, 1, 2, 3]
+        why: >-
+          Formal charge is bookkeeping, not a real charge: it asks what each atom would be holding
+          if every bond were split down the middle, and compares that with what the atom brought.
+          Small numbers mean the electrons are distributed roughly where each atom expects them,
+          and large numbers mean the arrangement is straining. The one rule that decides most
+          cases is that negative charge should sit on the atom that pulls hardest, so a large
+          negative on the least electronegative atom is a structure to redraw rather than to
+          defend.
+
+      - group: LITHO
+        task: Decide which molecules are polar
+        title: Shape decides what the pulls add up to
+        place: Yellow Bay
+        concept: "Polarity: electronegativity difference and the molecule's own shape"
+        scene: >-
+          Tanabe has two solvents on the bench that share the same kinds of bond and behave nothing
+          alike on the wafer. Park wants to know how to tell them apart before he loads either into
+          the track.
+        guide: >-
+          A bond is polar when the two atoms pull unequally, and a molecule is polar only when its
+          shape leaves those pulls uncancelled. The options differ in which of the two conditions
+          they treat as sufficient. The test is whether a molecule of polar bonds can come out
+          non-polar overall.
+        assumes:
+          - electronegativity is how strongly an atom pulls shared electrons towards itself
+          - a molecule has a definite three-dimensional shape
+        takeaway: Two molecules built out of the same bonds can behave completely differently, and what separates them is how those bonds are placed in space.
+        format: CHOICE
+        question: What decides whether a molecule with polar bonds is itself polar?
+        choices:
+          - Whether the arrangement of the bonds leaves a net direction.
+          - Whether it contains at least one bond between atoms of different electronegativity.
+          - Whether the central atom carries any lone pairs, which are what make a molecule polar.
+          - Whether the electronegativity difference in any bond is greater than the usual threshold.
+        answer: Whether the arrangement of the bonds leaves a net direction.
+        why: >-
+          Each polar bond pulls in a direction, and directions add up. Four identical bonds
+          arranged symmetrically around a central atom pull equally outward in every direction and
+          leave nothing over, so the molecule is non-polar however polar each bond is. Take one of
+          those bonds away and replace it with a lone pair, and the balance is broken and the
+          molecule has a direction. That is why carbon dioxide is non-polar and water is not,
+          although both are built entirely of strongly polar bonds — and it is why the two
+          solvents behave differently.
+        rebuttals:
+          - A single polar bond is necessary and nowhere near sufficient; symmetric molecules of polar bonds cancel exactly.
+          - Lone pairs usually break the symmetry, but they are the mechanism rather than the rule, and a symmetric arrangement of them cancels too.
+          - Thresholds describe the bond, and the question is about the molecule those bonds are arranged into.
+
+      - group: WAFER
+        task: Rank three solids by what it takes to separate them
+        title: Charges, spacing, and a melting point
+        place: Wafer Store
+        concept: 'Lattice energy: what it costs to pull an ionic solid apart'
+        scene: >-
+          Twill has three ceramic liners quoted as equivalent at three prices, and the highest
+          process temperature is not yet fixed. He wants them ranked before he signs for the
+          cheapest.
+        guide: >-
+          The energy holding an ionic solid together grows with the charges on the ions and falls
+          as the ions get further apart. Order the four by that energy, using the charges and the
+          spacings given. Charge does more work than spacing here, which is what the ordering is
+          for.
+        assumes:
+          - an ionic solid is a lattice of oppositely charged ions
+          - attraction rises with charge and falls with separation
+        takeaway: Lattice energy rises with the charges on the ions and falls as they get further apart, and charge is by far the stronger term.
+        format: SEQUENCE
+        task: Order the four ionic solids by how much energy it takes to pull them apart.
+        axis: Order the four by how much energy is needed to separate the ions, weakest first. This is not a clock — every one of them is sitting on the shelf now, and the question is what charge and spacing do to the attraction.
+        ends: [Easiest to pull apart, Hardest to pull apart]
+        cards:
+          - Singly charged ions, 0.33 nanometres apart.
+          - Singly charged ions, 0.23 nanometres apart.
+          - One doubly charged and one singly charged ion, 0.24 nanometres apart.
+          - Two doubly charged ions, 0.21 nanometres apart.
+        order: [0, 1, 2, 3]
+        why: >-
+          Both terms in the attraction are visible here. Closing the spacing from a third of a
+          nanometre to under a quarter raises the energy by roughly half; doubling one of the
+          charges doubles it outright, and doubling both quadruples it. That is why charge sorts
+          this list and spacing only fine-tunes it, and why the liner made of doubly charged ions
+          holds together to a temperature the others do not reach. The same arithmetic explains
+          why the melting points of these four run over more than a thousand degrees.
+
+  # ============================================================ day 9
+  - title: The ledger of breaking and making
+    objective: Establish what a temperature has to be high enough to break, and what the film is made of.
+    briefing: The nitride film is the right two elements in the wrong proportion.
+    stake: >-
+      Thursday, and the film analysis came back overnight with a composition Ostrowski predicted
+      three weeks ago and nobody would fund the measurement for. The nitride on the failing lots
+      is the right two elements in the wrong proportion, and the furnace log shows the deposition
+      temperature has been running eighteen degrees below its setpoint since a controller was
+      replaced in February. Today you work out what energy it takes to break the precursor apart,
+      compute what the film should be made of if the recipe were followed, and settle what holds
+      one molecule to the next. This is the day Ostrowski turns out to have been right as well.
+    takeaway: A temperature has a job to do, and a film with the right elements in the wrong ratio is a temperature that did not do it.
+    stops:
+      - group: DEP
+        task: Work out what the temperature has to break
+        title: What breaking the precursor costs
+        place: Deposition Bay
+        concept: 'Bond enthalpy, and the energy ledger of breaking and making bonds'
+        scene: >-
+          Ostrowski has the furnace log open at the February controller change and the precursor
+          structure beside it. Nobody has yet costed what the reaction has to pay for and what it
+          gets back.
+        guide: >-
+          Breaking bonds costs energy and making them returns it, so the net is one sum minus the
+          other. Four tiles are the two bond enthalpies and how many of each there are; the fifth
+          belongs to a bond that appears nowhere in this reaction. Count the bonds in the drawing
+          rather than guessing.
+        assumes:
+          - a bond enthalpy is the energy needed to break one mole of that bond
+          - the atoms are conserved, so every bond broken is replaced by bonds made
+        takeaway: A reaction is the difference between the energy of the bonds broken and the bonds made, which is why one precursor needs a hotter wafer than another.
+        format: BALLPARK
+        question: What is the net energy of decomposing silane into silicon and hydrogen?
+        estimate:
+          prompt: Silane on a hot wafer leaves silicon behind and releases hydrogen as H₂.
+          question: What is the net energy of decomposing silane into silicon and hydrogen?
+          labels:
+            - 318 kJ/mol  (one silicon–hydrogen bond)
+            - 4  (silicon–hydrogen bonds broken)
+            - 436 kJ/mol  (one hydrogen–hydrogen bond)
+            - 2  (hydrogen molecules formed)
+            - 431 kJ/mol  (one hydrogen–chlorine bond)
+          values: [318, 4, 436, 2, 431]
+          slots: 4
+          template: '{0} × {1} − {2} × {3}'
+          formula: a*b-c*d
+          correct: [0, 1, 2, 3]
+          target: 400
+          tolerance: 30
+          units: kJ/mol
+          solution: (318 × 4) − (436 × 2) ≈ 400 kJ per mole taken in.
+          explanation: A positive answer means the reaction takes energy in, which is what the furnace is supplying.
+          relationship: Net energy = the bond enthalpies of every bond broken minus the bond enthalpies of every bond formed.
+        why: >-
+          Four silicon-hydrogen bonds have to be broken. Two hydrogen-hydrogen bonds are made in their
+          place, and the difference is what the furnace pays. It is positive, so the reaction takes
+          energy in. It will not run without a hot surface to supply that energy, which is why a
+          deposition temperature is not a preference. A precursor built with stronger bonds needs
+          more. That is why swapping silane for a chlorinated molecule raises the temperature the
+          recipe has to run at.
+      - group: WAFER
+        task: Compute what the film should be made of
+        title: The formula the recipe claims
+        place: Wafer Store
+        concept: 'Percent composition: what a formula asserts about a film'
+        scene: >-
+          The analysis of the failing film reads sixty-six per cent silicon by mass. Twill has the
+          specification for the layer pinned beside it and nobody has worked out what the
+          specification actually implies.
+        guide: >-
+          A formula is a claim about proportions, and it becomes a number through molar masses.
+          Three tiles carry the silicon side of the formula unit and the mass of the whole; the
+          other two describe the nitrogen side and belong to the other half of the same
+          calculation.
+        assumes:
+          - a chemical formula gives the ratio of atoms in a compound
+          - a molar mass is the sum of the molar masses of the atoms in the formula
+        takeaway: A formula asserts a proportion by mass, so a measured composition either matches it or names how far the film has drifted.
+        format: BALLPARK
+        question: What percentage of silicon nitride is silicon, by mass?
+        estimate:
+          prompt: The specified film is silicon nitride, Si₃N₄.
+          question: What percentage of silicon nitride is silicon, by mass?
+          labels:
+            - 28.1 g/mol  (the molar mass of silicon)
+            - 3  (silicon atoms in the formula unit)
+            - 140.3 g/mol  (the molar mass of the whole formula unit)
+            - 14.0 g/mol  (the molar mass of nitrogen)
+            - 4  (nitrogen atoms in the formula unit)
+          values: [28.1, 3, 140.3, 14.0, 4]
+          slots: 3
+          template: '{0} × {1} ÷ {2} × 100'
+          formula: a*b/c*100
+          correct: [0, 1, 2]
+          target: 60.1
+          tolerance: 2
+          units: per cent by mass
+          solution: (28.1 × 3) ÷ 140.3 × 100 ≈ 60 per cent silicon by mass.
+          explanation: The nitrogen molar mass and count are already inside the mass of the formula unit.
+          relationship: Percentage by mass = the molar mass of the element × how many of it are in the formula ÷ the molar mass of the whole formula unit × 100.
+        why: >-
+          The specified film is sixty per cent silicon by mass. The measured film is six points above
+          that, which is not a small discrepancy but a different material. The extra silicon has
+          nowhere to sit except as silicon that never found nitrogen to bond to. That changes what the
+          layer does electrically, which is the failure the yield map shows. It also shows why
+          composition is the right measurement here. A layer can be the correct thickness and the
+          wrong substance.
+      - group: LITHO
+        task: Rank what holds one molecule to the next
+        title: The forces between whole molecules
+        place: Yellow Bay
+        concept: 'Intermolecular forces: dispersion, dipole and hydrogen bonding'
+        scene: >-
+          Two developer solvents boil ninety degrees apart and their molecules are almost the same
+          size. Tanabe wants the reason stated before the second one is qualified for the track.
+        guide: >-
+          The forces between separate molecules are far weaker than the bonds inside them, and
+          they come in a ranked family. The options differ in which force they attribute the
+          boiling point to. What separates them is whether the property being explained belongs to
+          the molecule or to the attraction between molecules.
+        assumes:
+          - boiling separates molecules from one another without breaking bonds inside them
+          - a polar molecule has a permanent positive and negative end
+        takeaway: Boiling separates molecules from each other rather than breaking them, so a boiling point measures the attraction between molecules and not the strength of their bonds.
+        format: CHOICE
+        question: Why do two solvents of almost the same size boil ninety degrees apart?
+        choices:
+          - One of them can reach a lone pair on the next molecule and the other cannot.
+          - One has stronger bonds inside its molecules, which take more energy to break.
+          - One has a higher molar mass, and boiling point follows molar mass directly.
+          - One is a larger molecule, and larger molecules always boil higher whatever else is true.
+        answer: One of them can reach a lone pair on the next molecule and the other cannot.
+        why: >-
+          Boiling pulls molecules away from each other and leaves every molecule intact. So what a
+          boiling point measures is the attraction between them. That attraction runs in a ranked
+          family: dispersion in everything, dipole attraction where the molecule is polar, and
+          hydrogen bonding where hydrogen reaches a lone pair on the next molecule. The last of those
+          is several times the strength of the first. That is easily enough to account for ninety
+          degrees between two molecules of similar size.
+        rebuttals:
+          - Bonds inside the molecules survive boiling untouched, so their strength does not enter the comparison.
+          - Molar mass matters through dispersion and is nearly equal here, so it cannot be what separates them.
+          - Size raises dispersion, and two molecules of the same size cannot be separated by it.
+
+  # ============================================================ day 10
+  - title: What each material is held together by
+    objective: Name what holds each of these materials together, and find where the gas line breaks.
+    briefing: Two causes are established and the layer stack has to be understood as materials.
+    stake: >-
+      Friday, and there are two established causes with five working days behind them: a
+      substrate that was not what it was taken to be, and a furnace running cold. Hale wants the
+      layer stack itself understood before the qualification recipe is written, because a stack is
+      four materials that behave in four different ways under the same polish. Vance has a
+      moisture reading somewhere in six hundred metres of gas line and one shift to find it.
+      Today you name what holds each material in the stack together, settle what makes silicon
+      switchable at all, and walk the gas line until the pattern breaks.
+    takeaway: What a material does when heated, polished or wetted follows from what holds it together.
+    stops:
+      - group: WAFER
+        task: Name what holds each material in the stack together
+        title: Four materials, four things holding them
+        place: Wafer Store
+        concept: 'The four kinds of solid: molecular, ionic, metallic and covalent network'
+        scene: >-
+          Twill has four samples from the stack on the bench. They are the silicon substrate, the
+          oxide, the copper fill and a block of resist. One polish step treats all four the same way
+          and gets four different results.
+        guide: >-
+          The four options are four different things a solid can be held together by. What
+          separates them is which one explains a melting point above fourteen hundred degrees in
+          a material that carries no charge and contains only one element.
+        assumes:
+          - a melting point measures what has to be overcome to separate a solid
+          - a covalent bond between two atoms is far stronger than an attraction between molecules
+        takeaway: What has to be overcome to melt a solid is whatever is holding it together, and that is a different thing in each of these four materials.
+        format: CHOICE
+        question: What holds the silicon substrate together, and why does it melt so high?
+        choices:
+          - A continuous network of covalent bonds, with no separate units to pull apart.
+          - Attractions between neutral silicon molecules, which are individually weak and very numerous.
+          - Opposite charges in a lattice of silicon ions of both signs.
+          - A pool of shared electrons, as in the copper beside it on the bench.
+        answer: A continuous network of covalent bonds, with no separate units to pull apart.
+        why: >-
+          There are no silicon molecules. Every atom is bonded to four neighbours and those to
+          four more, so the whole crystal is one connected structure and there is no small unit to
+          pull away from the rest. Melting it therefore costs what a covalent bond costs, several
+          hundred kilojoules per mole, rather than what an attraction between molecules costs,
+          which is a few tens. The resist on the same bench is the other extreme — real molecules,
+          held to each other weakly — which is why one softens in a warm oven and the other does
+          not.
+        rebuttals:
+          - There are no separate silicon molecules to attract one another; the bonding is continuous through the crystal.
+          - An ionic lattice needs ions of both signs, and a single element has no way to supply them.
+          - A shared electron pool is what the copper has, and it is why the copper conducts and the substrate does not until it is doped.
+
+      - group: DOPE
+        task: Say what makes silicon switchable at all
+        title: The gap, and what can clear it
+        place: Implant Bay
+        concept: 'Semiconductors: a gap a photon or a temperature can clear'
+        scene: >-
+          Ganesan has an undoped wafer that conducts almost nothing at room temperature, conducts
+          when it is warmed, and conducts when a lamp is shone on it. Nkemdirim wants the three
+          observations explained with one picture.
+        guide: >-
+          In a covalent network every electron is committed to a bond, and freeing one costs a
+          fixed amount of energy. Order the four situations by how much energy is available to
+          free an electron. The point of the ordering is that three different supplies of energy
+          do the same job.
+        assumes:
+          - conduction requires electrons that are free to move
+          - an electron in a covalent bond is held by two nuclei at once
+        takeaway: Freeing an electron in a covalent network costs a fixed amount of energy, and light, warmth or a dopant atom are three ways of supplying it.
+        format: SEQUENCE
+        task: Order the four situations by how much conduction each produces.
+        axis: Order the four by how many electrons each one frees to move, fewest first. This is not a clock — all four are ways of getting an electron out of a bond, and the question is how much each supplies.
+        ends: [Almost none, Most]
+        cards:
+          - Pure silicon in the dark at room temperature.
+          - Pure silicon warmed to two hundred degrees.
+          - Pure silicon under a lamp above the threshold wavelength.
+          - Silicon with one atom in a million replaced by phosphorus.
+        order: [0, 1, 2, 3]
+        why: >-
+          Every electron in pure silicon is committed to one of four bonds, and getting one out
+          costs a definite amount of energy. At room temperature almost nothing has that much, so
+          almost nothing conducts. Warmth supplies it to a small fraction, and light supplies it
+          in single packets to whichever electrons the photons meet — which is why the threshold
+          is a wavelength rather than a brightness. A dopant does something different and far more
+          effective: it brings an electron that was never in a bond to begin with, so no energy
+          has to be found at all.
+
+      - group: DEP
+        task: Walk the gas line and find where it breaks
+        title: Six hundred metres of line, one reading
+        place: Deposition Bay
+        concept: 'Isotopes, and the mass spectrum of a precursor gas'
+        scene: >-
+          The chamber sees moisture that the cylinder certificate says is not in the gas. Vance has
+          six stations down the delivery line, each with a tap and an analyser port, and one shift
+          before the weekend shutdown.
+        guide: >-
+          Take a reading at whatever station you want. Every reading costs time and none of them
+          costs anything else. What you are looking for is the first station where the number
+          departs from what it should be — everything downstream of an entry point carries the
+          same contamination, so the deepest bad reading is not the answer.
+        assumes:
+          - a contaminant entering a line is carried downstream of where it entered
+          - a gas analyser reports what is in the stream at the point it is tapped
+        takeaway: In a chain, the fault is at the first station that departs from expectation, and every station after it is inheriting the same problem.
+        format: PROBE
+        question: >-
+          The chamber sees moisture the cylinder does not contain. Take the readings you think you
+          need — where is it entering the line?
+        answerText: >-
+          The valve manifold. It is the first station where the moisture rises above the cylinder
+          figure, and every station downstream of it carries the same load because they are all
+          drawing through it.
+        probe:
+          chainLabel: Station
+          stations:
+            - id: CYL
+              label: Cylinder outlet
+              reading: 12 ppb moisture
+              expected: 12 ppb moisture
+              load: matches the certificate
+            - id: REG
+              label: Regulator panel
+              reading: 13 ppb moisture
+              expected: 13 ppb moisture
+              load: as expected
+            - id: PUR
+              label: Point-of-use purifier
+              reading: 2 ppb moisture
+              expected: 2 ppb moisture
+              load: working as specified
+            - id: MAN
+              label: Valve manifold
+              reading: 61 ppb moisture
+              expected: 2 ppb moisture
+              load: rebuilt during the February shutdown
+            - id: RUN
+              label: Long run to the bay
+              reading: 58 ppb moisture
+              expected: 2 ppb moisture
+              load: no fittings along its length
+            - id: INL
+              label: Chamber inlet
+              reading: 55 ppb moisture
+              expected: 2 ppb moisture
+              load: drawing through everything above
+          target: MAN
+          minReadings: 3
+          commit: Name the station
+        why: >-
+          Three stations held exactly what they should, which is what rules out the cylinder, the
+          regulator and the purifier together — a bad cylinder would show at the outlet and a
+          failed purifier would show as no improvement rather than as an improvement followed by a
+          rise. From the manifold onwards every station is high, and a contaminant that enters a
+          flowing line is carried downstream and not upstream. So the worst reading is not the
+          fault: the fault is the first departure, and everything below it is inheriting. The
+          manifold was rebuilt in February, which is the same month the controller was changed.
+
+  # ============================================================ day 11
+  - title: A clean surface is an event, not a state
+    objective: Find out what is putting oxide back on the wafer, and what a solvent will lift.
+    briefing: The bare surface the next step needs is not bare by the time it gets there.
+    stake: >-
+      Monday, and four working days remain. Aubrey has wafers leaving the bench bare and arriving
+      at the coater with an oxide on them that the process does not allow, and four candidate
+      causes between the two rooms. Park has the queue times for every wafer for six weeks and
+      nobody has looked at them against the failures. Today you find out which of the four steps
+      is putting the oxide back, decide which solvent will lift the resist and leave the layer
+      beneath it, and read a spectrum that has two things wrong with it at once. A wafer that
+      waits is a wafer that changes.
+    takeaway: A freshly cleaned surface has unsatisfied bonds and the air satisfies them, so every step after a clean is racing a clock.
+    stops:
+      - group: WET
+        task: Find out which step puts the oxide back
+        title: What is regrowing on the wafer
+        place: Wet Bench
+        concept: 'Surface oxidation: a clean surface, and what the air does to it in minutes'
+        scene: >-
+          Wafers leave Bramall's bench bare and reach the coater with oxide on them. Four things
+          changed between the two rooms in February and the log makes all four look equally
+          guilty.
+        guide: >-
+          The number to watch is the oxide signal as a percentage of the silicon signal on the
+          incoming wafer. Four things changed and that is four suspects and no evidence. Change
+          one, run the measurement, put it back, and name the one the oxide follows. A change that
+          moves two things at once answers a vaguer question than the one being asked.
+        background:
+          - >-
+            Why the log is a list of suspects. Four changes in one month is ordinary in a working
+            fab, and the oxide had to start somewhere. A record of what changed says where to
+            look, and all four would read as equally plausible in a report.
+          - >-
+            What a bare silicon surface actually is. Cutting or etching a covalent network leaves
+            atoms at the surface with bonds that reach nothing. Oxygen and water satisfy them
+            within minutes, which is why the native oxide is not contamination in the ordinary
+            sense — it is the surface reaching the state it prefers.
+          - >-
+            Why the reversal matters. A cause is something the effect depends on in both
+            directions. Putting the change back and watching the oxide return rules out the
+            ordinary alternative: that something else was drifting while you worked.
+        assumes:
+          - a controlled test changes one variable and holds everything else
+          - a bare surface has bonds that are not satisfied by anything
+        takeaway: A relationship is causal when reversing it brings the effect back, not when the two happen to have changed in the same month.
+        format: CONTROL
+        question: >-
+          Four things changed and one of them is regrowing the oxide. Establish which, and prove it.
+        control:
+          hint: >-
+            Change what you like and run the measurement. What you change is a decision; what the
+            result tells you depends on how many things moved at once.
+          observable: { label: Oxide signal as a share of the silicon signal, unit: '%' }
+          held: [bath chemistry, rinse time, wafer lot, analyser calibration]
+          variables:
+            - { id: queue, label: Queue time between bench and coater }
+            - { id: purge, label: Nitrogen purge in the transfer box }
+            - { id: rinse, label: Final rinse water temperature }
+            - { id: filter, label: Air handler filter in the corridor }
+          truth: queue
+          baseline: 24
+          response: -17
+          noise: 1.4
+          changeVerb: shortened
+          run: Measure the incoming wafer
+          commit: Name it
+        answerText: >-
+          The queue time between the bench and the coater. Shortening it alone drops the oxide
+          signal by seventeen points, and letting it back out brings the oxide straight back —
+          which is what separates it from the three things that merely changed in the same month.
+        why: >-
+          A cleaned silicon surface is not a stable thing. Etching a covalent network leaves
+          surface atoms with bonds reaching nothing, and oxygen and water satisfy them in minutes,
+          so what looks like contamination is the surface going to the state it prefers. That
+          makes exposure time the variable and everything else in the room secondary. The reversal
+          is what turns a candidate into a cause: a coincidence does not come back on demand, and
+          three of these four changed in the same month as the oxide appeared without having
+          anything to do with it.
+
+      - group: LITHO
+        task: Choose the solvent by what it resembles
+        title: What the developer will lift
+        place: Yellow Bay
+        concept: 'Volatility and like-dissolves-like: what a solvent lifts off a surface'
+        scene: >-
+          Tanabe has two developers qualified and a resist whose exposed regions become polar while
+          the unexposed regions stay non-polar. Park has to choose one before the afternoon lot.
+        guide: >-
+          A solvent dissolves what it resembles, because replacing one set of attractions between
+          molecules with a similar set costs almost nothing. The options differ in what they treat
+          as the deciding property. The distinction decides which half of the pattern is removed
+          and which half survives to protect the layer beneath.
+        assumes:
+          - dissolving replaces attractions between like molecules with attractions between unlike ones
+          - exposure changes the resist chemically rather than removing it
+        takeaway: Dissolving is an exchange of attractions, so what a liquid takes off a surface follows from what it resembles rather than from how strong it is.
+        format: CHOICE
+        question: Which developer removes the exposed resist and leaves the rest standing?
+        choices:
+          - A polar developer, which can replace the attractions the exposed regions have.
+          - A non-polar developer, since the non-polar family is the more aggressive of the two and works faster.
+          - Whichever developer has the lower boiling point, so that it dries off the wafer fastest.
+          - Whichever developer has the higher molar mass, since a heavier molecule carries more away.
+        answer: A polar developer, which can replace the attractions the exposed regions have.
+        why: >-
+          Dissolving is an exchange: a molecule leaves the attractions it had with its own kind
+          and takes up attractions with the solvent instead. Where the two kinds of attraction are
+          alike the exchange is roughly free and the material dissolves; where they are not, it
+          costs energy and the material stays put. So a polar developer takes the exposed polar
+          regions and leaves the unexposed non-polar ones standing, which is exactly the
+          selectivity the pattern depends on. Volatility decides how fast the developer leaves
+          afterwards, which is a different question from what it takes with it.
+        rebuttals:
+          - Aggressiveness is not a property a solvent has on its own; what it removes depends on what it resembles.
+          - Drying rate matters after the develop step and says nothing about which half of the pattern is lifted.
+          - Molar mass affects volatility and viscosity, and neither of them decides what dissolves.
+
+      - group: ATOM
+        task: Read a spectrum with two things wrong with it
+        title: One spectrum, two findings
+        place: Metrology Bay
+        concept: 'Photoelectron spectroscopy: a spectrum read as a shell diagram'
+        scene: >-
+          Ferreira has the incoming wafer on the spectrometer with the queue time deliberately
+          left long. The spectrum has an oxide peak that everybody expected and a second feature
+          that nobody did.
+        guide: >-
+          Four panels are on the screen and only one explanation accounts for all four at once.
+          The quiet readings are what rule the others out. Read the ones that look normal before
+          the one that is alarming, because an explanation that accounts only for the loud panel
+          is the one that gets accepted and is wrong.
+        assumes:
+          - a shifted peak marks a chemical state and a new peak marks a new element
+          - an argon-ion etch removes the top layers of a surface
+        takeaway: An explanation has to account for the quiet readings as well as the loud one, and the quiet ones are what rule the alternatives out.
+        format: DIAGNOSIS
+        headline: An oxide peak as expected, and a carbon peak that survives an argon etch.
+        task: Which explanation fits every panel, not just the loudest one?
+        readings:
+          - { zone: Silicon region, label: Oxide-shifted peak, value: present, status: alarm }
+          - { zone: Carbon region, label: Peak at 285 eV, value: present, status: alarm }
+          - { zone: After argon etch, label: Carbon peak, value: still present, status: alarm, note: the oxide peak is gone }
+          - { zone: Tool reference sample, label: Carbon region, value: clean, status: normal, note: rules out the instrument }
+        choices:
+          - { label: 'Only the native oxide, with the carbon coming from the vacuum system itself', mechanism: 'Every surface picks up carbon in a vacuum system.' }
+          - { label: 'An oxide on top, and carbon beneath it', mechanism: 'The etch removes the oxide and the carbon is still there beneath.' }
+          - { label: 'The wafer is the wrong substrate type', mechanism: 'A substrate error would change what the surface is made of.' }
+          - { label: 'The instrument needs setting against its standard again', mechanism: 'Peak positions drift as a source ages.' }
+        answer: An oxide on top, and carbon beneath it
+        why: >-
+          Two of these panels are quiet and they are what settle it. The reference sample is clean
+          in the carbon region, so the instrument is not the source; if it were, everything it
+          measured would carry the same peak. And the argon etch removes the oxide and leaves the
+          carbon, which puts the carbon underneath rather than on top — an adsorbed layer picked
+          up in the chamber would come off first. So there are two findings on one spectrum, and
+          only the second of them is new: the oxide is the queue time, and the carbon arrived
+          before it.
+
+  # ============================================================ day 12
+  - title: Inside the limits, and worth knowing
+    objective: Bring the implant dose inside specification, and buy only the measurements that decide something.
+    briefing: Three days left and more things worth knowing than there is time to know them.
+    stake: >-
+      Tuesday, and the qualification recipe has to be frozen on Thursday morning. Ganesan's
+      implanter is delivering a dose whose spread is wider than the customer specification allows,
+      and she can re-aim it or she can measure it better, which are not the same thing. Ferreira
+      has six hours of spectrometer time left in the fortnight and four proposals for it. Aubrey
+      wants a decision on whether the copper is alloyed or pure before the fill step is written.
+      Today you settle all three. Hale is signing whatever comes out of today, so what is not
+      decided today is not in the lot.
+    takeaway: Re-aiming moves a distribution and only new information narrows it, and a measurement is worth what the decision it changes is worth.
+    stops:
+      - group: DOPE
+        task: Get the dose distribution inside the specification
+        title: Aiming it and knowing it are different
+        place: Implant Bay
+        concept: 'Doping: group 13 and group 15 atoms in a group 14 lattice'
+        scene: >-
+          Ganesan has the implanted dose from four hundred wafers plotted against the customer
+          limits. The cloud sits off centre and it is also wider than the band, and she has six
+          hours of tool time.
+        guide: >-
+          The cloud is every wafer the tool has delivered, and the band is what the customer will
+          accept. Re-aiming slides the whole cloud sideways; a measurement pass narrows it. When
+          you are ready, place the middle bar where you say the dose is centred and the two outer
+          bars a single standard deviation either side of it, then declare it.
+        background:
+          - >-
+            Why the spread is not the aim. Two different things are wrong with this distribution.
+            One is where its middle sits, which a re-aim fixes. The other is how wide it is,
+            which is a statement about how well the dose is known and cannot be improved by
+            aiming better.
+          - >-
+            What a standard deviation means here. Placed correctly, the two outer bars hold about
+            two thirds of the wafers between them, and the middle bar has about half the points
+            on either side. Those are properties of the cloud on the screen rather than of the
+            specification.
+          - >-
+            Why a dose has a spread at all. The implanter counts charge and the lattice receives
+            atoms, and between the two are a beam that wanders, a wafer that heats and a monitor
+            that samples. Each of those is small and none of them is zero.
+        assumes:
+          - a dose measurement is a distribution rather than a single value
+          - a specification band is a limit on individual wafers rather than on their average
+        takeaway: Re-centring moves a whole distribution without changing its width, and only new measurement makes it narrower.
+        format: CLOUD
+        question: >-
+          Bring the delivered dose inside the customer band, place the bars to report the middle
+          and its one-sigma spread, and say when it is ready.
+        cloud:
+          hint: >-
+            The cloud is what the tool has actually delivered. Everything in it is a wafer that went
+            to a customer.
+          bounds: { min: 4.6, max: 5.4, unit: 1e14 per cm², label: Implanted dose }
+          centre: 5.18
+          spread: 0.22
+          pass: 0.97
+          seed: 11
+          costUnit: h
+          report: { centreTol: 0.05, spreadTol: 0.04 }
+          actions:
+            - { id: reaim, label: Re-aim the beam current to the band centre, effect: shift, amount: 0.18, cost: 1 }
+            - { id: trim, label: Trim the dose monitor gain, effect: shift, amount: 0.08, cost: 1 }
+            - { id: pass1, label: Add a second dose monitor pass per wafer, effect: narrow, amount: 0.72, cost: 2 }
+            - { id: pass2, label: Add a per-wafer thermal correction, effect: narrow, amount: 0.78, cost: 2 }
+          commit: Declare it ready
+        answerText: >-
+          Both narrowing actions, and a re-aim. Centring alone still leaves better than one wafer
+          in twenty outside the band, because the width of the cloud is what puts them there.
+        why: >-
+          The middle of this distribution is the one dose the tool is least likely to deliver on
+          any given wafer. Sliding it to the centre of the band helps and it does not help enough,
+          because the wafers falling outside are doing so on the width rather than on the offset —
+          move the middle and the ones that were high become low instead. Only a better
+          measurement of each wafer's own dose reduces that width, and it costs tool time the day
+          would rather spend elsewhere. That is the real decision, and the band is a customer limit
+          that does not negotiate.
+
+      - group: ATOM
+        task: Spend the last spectrometer time on what changes a decision
+        title: Six hours, four proposals
+        place: Metrology Bay
+        concept: 'Surface analysis: measuring the top nanometre rather than the bulk'
+        scene: >-
+          Ferreira has six hours of spectrometer time left before Thursday and four things worth
+          measuring. Hale has said she will fund whatever changes what the fab does and nothing
+          that does not.
+        guide: >-
+          Every one of these four is real evidence and would be worth having in a quieter month.
+          Open each and ask what the fab would do differently on Thursday depending on how it
+          comes out. A measurement whose result changes nothing before the recipe freezes has spent
+          the hours on a report.
+        background:
+          - >-
+            What makes a measurement decisive. Two possible results that lead to two different
+            actions. Hale will not say which she expects, because the expectation is not the
+            point — the question is which result could change the recipe.
+          - >-
+            Why Thursday is the constraint. The recipe freezes on Thursday morning whatever
+            anybody knows by then, so information arriving afterwards is information about a
+            decision already taken.
+          - >-
+            Why all four are good proposals. A choice between one good measurement and three poor
+            ones tests nothing. The skill is separating valuable from decisive, and they are not
+            the same property.
+        assumes:
+          - evidence is worth what it changes rather than what it costs
+          - a second measurement of the same kind narrows the same thing again
+        takeaway: A measurement earns its cost by changing a decision that has not yet been taken.
+        format: VALUE
+        question: >-
+          You have six hours of spectrometer time before the recipe freezes. Buy what changes what
+          the fab does on Thursday.
+        value:
+          hint: >-
+            All four are real evidence. The question is which of them changes what happens on
+            Thursday.
+          budget: { amount: 6, unit: h }
+          decision: Whether the qualification recipe raises the deposition temperature
+          options:
+            - { id: repeat, label: Repeat the composition measurement on the same failing lot, cost: 2, axis: composition of the film already grown, reveals: 'The same figure again, to a tighter uncertainty.' }
+            - { id: archive, label: Measure three retained wafers from December, cost: 2, axis: history of the drift, reveals: 'The composition was on specification before the controller was replaced.' }
+            - { id: trial, label: Measure a wafer grown overnight at the corrected temperature, cost: 4, axis: what the proposed recipe actually produces, decisive: true, reveals: 'Composition back inside specification at the higher setpoint.' }
+            - { id: depth, label: Profile the carbon layer to find which step left it, cost: 3, axis: a second defect on the same wafers, reveals: 'The carbon sits at the interface below the nitride.' }
+          commit: Fund it
+        answerText: >-
+          The wafer grown overnight at the corrected temperature. It is the only measurement of
+          what the proposed recipe produces, and the only one whose result changes whether the
+          recipe is written that way.
+        why: >-
+          Two of these proposals measure the film that has already failed. They are careful and
+          they will produce a better number about a wafer nobody is going to ship, which is the
+          failure this decision exists to avoid: a measurement can be rigorous and still answer a
+          question whose answer does not enter the choice. The December wafers would confirm the
+          history and change no recipe. The carbon profile is a genuine second finding and it
+          belongs to next month. Only the overnight wafer can come back the other way and stop the
+          temperature change.
+
+      - group: WET
+        task: Decide whether the copper is alloyed
+        title: A second element in the metal
+        place: Wet Bench
+        concept: 'Alloys: substitutional and interstitial, and why an alloy is stronger'
+        scene: >-
+          Aubrey has two copper sources quoted for the fill: one pure, one carrying a per cent of
+          a second element. The polish step pushes hard on whatever goes in and the fill has to
+          survive it.
+        guide: >-
+          The options differ in what a small addition to a metal does to it. What separates them
+          is whether the change is about the electron pool or about the planes of atoms sliding
+          over one another. A per cent by mass is a great many atoms and almost no change in
+          composition.
+        assumes:
+          - a metal deforms when planes of atoms slide over each other
+          - a metal conducts through electrons that are not tied to particular atoms
+        takeaway: A metal gives way where its atoms can move past each other, so a very small amount of something in the way is enough to change how it behaves.
+        format: CHOICE
+        question: What does one per cent of a second element do to the copper fill?
+        choices:
+          - Atoms of a different size obstruct the planes that slide over one another.
+          - It removes the shared electron pool, so the metal stops conducting and behaves as a ceramic.
+          - It raises the melting point above the polish temperature, which is what stops the fill moving.
+          - It has no effect at one per cent, since composition that close to pure is chemically the same metal.
+        answer: Atoms of a different size obstruct the planes that slide over one another.
+        why: >-
+          A metal deforms because planes of atoms can slide and be held just as well in the new
+          position. Anything that interrupts a plane makes that harder. An atom of a different size,
+          sitting in place of a copper atom or squeezed into a gap, does exactly that. It does it at
+          every one of the enormous number of sites one per cent provides. The electron pool is barely
+          touched, so the alloy still conducts. That is why this is the standard way to strengthen a
+          metal.
+        rebuttals:
+          - The pool survives a small substitution, which is why alloys are still good conductors.
+          - Melting point is not what resists a polishing pad at room temperature; resistance to sliding is.
+          - One per cent is a small proportion and an enormous number of obstructing sites, and it is the sites that matter.
+
+  # ============================================================ day 13
+  - title: Which step decides whether the film grows
+    objective: Find the step that governs the whole sequence, and spend what is left of the budget.
+    briefing: Every step in the deposition sequence has a number against it except one.
+    stake: >-
+      Wednesday, and the recipe goes to Hale tomorrow morning. Ostrowski has five steps between a
+      cylinder and a film and wants to know which of them is deciding the outcome, because that is
+      the one the recipe has to guarantee. Twill has money for two more pieces of work and four
+      things the fab would like to know before the lot runs. Park has a queue-time rule to write
+      that every shift will have to follow without him standing there. Today you settle all three,
+      and tomorrow is the last day anything can be measured.
+    takeaway: A sequence is governed by whichever required step is slowest or weakest, whatever the steps either side of it can do.
+    stops:
+      - group: DEP
+        task: Name the step the whole sequence is limited by
+        title: Five steps, one that decides
+        place: Deposition Bay
+        concept: 'Bond enthalpy, and the energy ledger of breaking and making bonds'
+        scene: >-
+          Ostrowski has the five steps between the cylinder and the film written up with a
+          measured number beside four of them. The fifth is the one the February controller change
+          moved.
+        guide: >-
+          Every step here has to happen for a film to grow, so the sequence is limited by whichever
+          required step is furthest from doing its job. Put them in the order the atoms travel, then
+          name the one that decides the outcome. A step with an alarming-looking number is not
+          automatically the one that governs.
+        background:
+          - >-
+            Why a sequence is limited by one step. Atoms handed from one step to the next have to
+            get through every step along the way, so the slowest required step sets the rate
+            however capable the others are. Adding capacity anywhere else changes nothing.
+          - >-
+            Why the mean free path looks worse than it is. Five centimetres in a thirty-centimetre
+            chamber has been true of this process since it was installed and the film grew
+            correctly for four years. A number that has not changed cannot explain something that
+            has.
+          - >-
+            What the temperature is for. Breaking the precursor apart takes energy in, and the
+            hot surface is where that energy comes from. Eighteen degrees is a small fraction of
+            the setpoint and a large fraction of the margin above where the reaction runs at all.
+        assumes:
+          - every step in a sequence has to carry what the step before it delivers
+          - a reaction that takes energy in needs a source of it
+        takeaway: A sequence is governed by whichever required step is furthest from doing its job, and a number that has not changed cannot explain a change.
+        format: CHAIN
+        question: >-
+          Put the five steps in the order the atoms take, then name the one deciding whether the
+          film grows correctly.
+        chain:
+          hint: >-
+            Every step has to happen. A sequence with a gap in it is not a sequence.
+          links:
+            - { id: deliver, label: Precursor delivery from the line, transfers: 'molecules from the gas line into the chamber', reading: '18 standard cubic centimetres a minute — on setpoint' }
+            - { id: transport, label: Transport across the chamber, transfers: 'molecules from the inlet to the wafer surface', reading: 'five centimetres between collisions in a chamber thirty across' }
+            - { id: adsorb, label: Adsorption on the hot wafer, transfers: 'a molecule from the gas onto the surface', reading: 'six tenths of a monolayer covered at steady state' }
+            - { id: decompose, label: Breaking the precursor apart, transfers: 'atoms out of the molecule and into the film', reading: '702 degrees against a recipe setpoint of 720' }
+            - { id: remove, label: By-product removal to the pump, transfers: 'hydrogen off the surface and out of the chamber', reading: 'pump line at nine tenths of a millitorr' }
+          order: [deliver, transport, adsorb, decompose, remove]
+          governing: decompose
+          distractor: transport
+          commit: Name the governing step
+        answerText: >-
+          Delivery, transport, adsorption, breaking the precursor apart, by-product removal —
+          governed by the decomposition, the one step running below the temperature the recipe
+          specifies and the only number in the sequence that has moved.
+        why: >-
+          Four of these five steps are doing what they have always done, and the film grew
+          correctly for four years while they did. The mean free path is the number that looks
+          worst and it is unchanged, which is exactly why it cannot be the explanation — a
+          constant cannot account for a variable. Breaking the precursor apart takes energy in, and
+          the only place that energy comes from is the hot surface, so eighteen degrees below
+          setpoint is a direct reduction in the one step the outcome depends on. A film that grows
+          with too little of it grows with the wrong composition rather than not at all, which is
+          why the tool reported success throughout.
+
+      - group: WAFER
+        task: Spend what is left of the budget
+        title: Two more pieces of work
+        place: Wafer Store
+        concept: 'Two lots that measure the same: when a specification cannot tell them apart'
+        scene: >-
+          Twill has money for about two more pieces of work before the lot runs and four things
+          people have asked for. Nobody has written down a recommended plan.
+        guide: >-
+          Spread a hundred points across the four proposals. Every one of them is defensible; what
+          separates them is which failures they would catch before the lot runs rather than after
+          it. The evidence below carries a fact about each, including the two that are already
+          partly answered.
+        rules: >-
+          A hundred points, spread as you choose. Concentrating everything on one proposal is
+          allowed and so is splitting it four ways, and the plan is judged on where the weight sits
+          rather than on the exact numbers.
+        assumes:
+          - a check is worth what it would catch that nothing else would
+        takeaway: A check is worth what it catches that nothing else would, and a check on a thing that never varied is where a fab finds out it had no field for it.
+        format: SCIENCETANK
+        task: Fund the checks that would catch a failure before the lot runs.
+        proposals:
+          - { label: A, text: 'Add a substrate type test to incoming inspection for every lot.' }
+          - { label: B, text: 'Instrument every furnace with a second independent thermocouple.' }
+          - { label: C, text: 'Repeat the composition measurement on the failing lots a third time.' }
+          - { label: D, text: 'Photograph the yield maps for the customer report.' }
+        recommended: { A: 40, B: 35 }
+        evidence: |
+          The substrate type was never on the incoming certificate and there is no field for it,
+          because one supplier shipped one type for thirty years. The test itself takes four
+          minutes a lot on a probe the fab already owns.
+
+          The furnace controller that drifted reported its own setpoint correctly throughout, and
+          the only evidence of the eighteen degrees was a composition measurement taken six weeks
+          later. A second thermocouple costs about eleven thousand a tool and there are four tools.
+
+          The composition of the failing lots has been measured twice and the two results agree to
+          within half a per cent. A third measurement would improve the uncertainty on wafers that
+          are already scrapped.
+
+          The yield maps are already plotted and the customer report is due whatever happens. The
+          photographs take an afternoon and change nothing about the lot.
+
+      - group: LITHO
+        task: Write a queue-time rule every shift can follow
+        title: The order the steps have to happen in
+        place: Yellow Bay
+        concept: 'Surface oxidation: a clean surface, and what the air does to it in minutes'
+        scene: >-
+          Park has to write the queue-time rule down before the lot runs, because he will not be
+          on shift for all of it. Four steps have to happen in an order that keeps the surface bare
+          when the resist lands.
+        guide: >-
+          The oxide starts growing the moment the surface is bare and the coater is the step that
+          has to meet it bare. Order the four so that the exposure to air is as short as it can be.
+          What decides the order is which steps can wait and which cannot.
+        assumes:
+          - a bare surface begins to oxidise as soon as it meets air
+          - a step that can be done in advance does not add to any wait
+        takeaway: Where a surface changes with time, the order of the steps is part of the process and not a matter of convenience.
+        format: SEQUENCE
+        task: Order the four steps so the surface is bare when the resist lands.
+        cards:
+          - Dispense and warm the resist on the track, before the wafer is called for.
+          - Strip the oxide at the bench.
+          - Rinse and dry under nitrogen without leaving the enclosure.
+          - Coat the wafer within the queue-time limit.
+        order: [0, 1, 2, 3]
+        why: >-
+          Only one of these four steps starts a clock, and everything after it is inside that
+          clock. Preparing the resist is the one step that can be done at any time, so it goes
+          before the strip rather than after it, and doing it in the wrong order adds its whole
+          duration to the exposure. The rinse and dry has to stay inside the enclosure because
+          leaving it is what the queue time is measuring. A rule written this way survives being
+          followed by somebody who does not know why it is a rule, which is what writing it down
+          is for.
+
+  # ============================================================ day 14
+  - title: Predict it, change it, then measure it
+    objective: Commit to what the corrected recipe will produce, and then find out.
+    briefing: The recipe change is written and nobody has said in advance what it should do.
+    stake: >-
+      Thursday, and the qualification recipe is signed at noon. The temperature correction is
+      written into it and Ostrowski is confident, which is the state in which a fab stops
+      measuring. Aubrey has a copper fill that failed its polish on two wafers overnight and three
+      panels of data about it. Ganesan has a customer question about why the finished device
+      conducts at all. Today you write down what the corrected recipe should produce before it
+      runs, find out what actually happened, and answer for the two failures that are not the ones
+      this fortnight has been about. Tomorrow the lot runs on whatever is signed today.
+    takeaway: An intervention is verified by measuring what it changed, not by confirming that it was made.
+    stops:
+      - group: DEP
+        task: Commit to a prediction, then measure it
+        title: What the corrected recipe should produce
+        place: Deposition Bay
+        concept: 'Percent composition: what a formula asserts about a film'
+        scene: >-
+          The furnace has been corrected and a wafer is ready to run on the new setpoint. Ostrowski
+          has two hours of analysis time left in the fortnight and has not yet said what he expects.
+        guide: >-
+          Lock a predicted composition before the run and it cannot be edited afterwards. Then run
+          it, then spend the analysis time to find out what the film is actually made of. The
+          specified compound fixes what a correct film should be; how close the corrected recipe
+          gets to it is the open question.
+        background:
+          - >-
+            Why the prediction is locked first. With the measurement in hand, an expectation can
+            be adjusted to fit it and the prediction will appear to have been right. Committing
+            first is what makes the measurement capable of testing anything.
+          - >-
+            What a confirmed change is not. Raising the setpoint and seeing the controller follow
+            it is a fact about the furnace. What the film is made of is a fact about the reaction,
+            and only a composition measurement establishes it.
+          - >-
+            Why the analysis time is the constraint. There are two hours left and the lot runs
+            tomorrow, so a measurement not taken today is a measurement about a decision already
+            made.
+        assumes:
+          - a film's composition can be measured as a percentage by mass
+          - a stated compound implies a definite composition
+        takeaway: A change that has been made and not measured is a change to the tool, not a demonstrated change to the film.
+        format: VERIFY
+        question: Predict the film composition, make the correction, and report what happened.
+        verify:
+          hint: >-
+            Lock a prediction before the change is made. Nothing about it can be altered afterwards,
+            which is the point of making it first.
+          prediction: { label: Predicted silicon content of the film, unit: '% by mass', min: 57, max: 70, step: 0.2 }
+          truth: 60.6
+          passRatio: [0.95, 1.05]
+          intervention:
+            label: The corrected deposition setpoint
+            note: Setpoint raised eighteen degrees to the value the recipe always specified.
+            outcome: Correction confirmed. The furnace held the new setpoint for the whole run.
+          measurement:
+            label: Composition of the film just grown
+            note: Two hours of analysis time, quantified against the same standard as before.
+            cost: 2
+            costUnit: h
+          unmeasuredMoral: >-
+            The setpoint was raised, the controller followed it, and the film was never analysed.
+            Nothing in that sequence establishes that the layer is the compound the recipe asks for.
+          commit: Report the composition
+        answerText: >-
+          About sixty and a half per cent silicon by mass — back to what the specified compound
+          implies. Only the analysis establishes it; a furnace holding a new setpoint establishes
+          nothing about the film.
+        why: >-
+          The specified compound implies a little over sixty per cent silicon by mass, and that is
+          what the corrected film comes back at. The failure this stop exists to catch is finishing
+          without measuring. A controller that follows a new setpoint is evidence about a controller.
+          The whole fortnight has turned on the difference between a tool reporting success and a
+          layer being the right substance. Predicting first is what makes the measurement a test,
+          because an expectation adjusted afterwards can never be wrong.
+      - group: WET
+        task: Explain two polish failures with one mechanism
+        title: The fill that did not survive the pad
+        place: Wet Bench
+        concept: 'Alloys: substitutional and interstitial, and why an alloy is stronger'
+        scene: >-
+          Two wafers came off the polish overnight with the copper drawn out of the wide features
+          and intact in the narrow ones. Aubrey has three panels of data and one of them is quiet.
+        guide: >-
+          Four explanations are on offer and only one accounts for every panel, including the ones
+          that look ordinary. Read the quiet panels first: a wide feature failing while a narrow one
+          holds is the pattern that rules most of these out.
+        assumes:
+          - a polishing pad presses down on whatever is under it
+          - a metal deforms by planes of atoms sliding over one another
+        takeaway: An explanation has to account for which features failed as well as that some did, and the pattern across feature sizes is what rules the alternatives out.
+        format: DIAGNOSIS
+        headline: Copper drawn out of the wide features and intact in the narrow ones, on the same wafer.
+        task: Which explanation fits every panel, not just the failure?
+        readings:
+          - { zone: Wide features, label: Copper surface, value: dished, status: alarm }
+          - { zone: Narrow features, label: Copper surface, value: flat, status: normal, note: same pad and same pressure }
+          - { zone: Metal source, label: Second element by mass, value: 'below 0.1 per cent', status: alarm, note: specified at one per cent }
+          - { zone: Pad, label: Pressure and dwell, value: on recipe, status: normal, note: rules out the polish itself }
+        choices:
+          - { label: 'The pad pressure was too high on this run', mechanism: 'More pressure removes more material everywhere.' }
+          - { label: 'The copper was nearly pure and deformed under the pad', mechanism: 'With no second element to obstruct the sliding planes, the metal flows, and only a narrow trench constrains it.' }
+          - { label: 'The barrier layer failed and let the copper move', mechanism: 'A failed barrier would let copper diffuse outward.' }
+          - { label: 'Ordinary variation between wafers, needing no explanation', mechanism: 'Two wafers out of a lot need no explanation.' }
+        answer: The copper was nearly pure and deformed under the pad
+        why: >-
+          Two panels here are quiet and they do the work. The pad was on recipe, so the polish itself
+          did not change. The narrow features on the same wafer, under the same pad, came out flat.
+          That is what a strength problem in the metal looks like and what a pressure problem does
+          not, since a heavier pad would dish the narrow features too. The metal came in at under a
+          tenth of the specified addition, so the obstructions that interrupt the sliding planes are
+          missing.
+      - group: DOPE
+        task: Answer the customer's question about conduction
+        title: Why the finished device conducts at all
+        place: Implant Bay
+        concept: 'Semiconductors: a gap a photon or a temperature can clear'
+        scene: >-
+          The customer's own engineer has sent four statements about the finished device and asked
+          which of them are true. Ganesan wants each one matched to what it actually describes
+          before anybody replies.
+        guide: >-
+          Each statement is either true of the material, true of something else, or a confusion
+          between the two. Match them to what each one is really about. Two of them are true
+          sentences about the wrong quantity, which is the commonest way a specification argument
+          goes wrong.
+        assumes:
+          - a dopant atom brings an electron that was never in a bond
+          - conduction requires charge free to move
+        takeaway: A statement can be true of the wrong quantity, so matching each claim to what it actually describes is what settles a specification argument.
+        format: CASEBOOK
+        task: Match each customer statement to what it actually describes.
+        scenarios:
+          - The doped silicon conducts far better than the undoped wafer at the same temperature.
+          - Warming the undoped wafer makes it conduct a little.
+          - The copper layer conducts thousands of times better than the doped silicon.
+          - Light above the threshold wavelength makes the undoped wafer conduct.
+        choices:
+          - The dopant supplies carriers that never had to be freed from a bond.
+          - Heat frees a small fraction of the committed electrons, so conduction rises with temperature.
+          - A shared electron pool provides carriers without any energy being supplied at all.
+          - Single photons above the threshold energy free single electrons, so the colour matters and the brightness does not.
+        mapping: [0, 1, 2, 3]
+        why: >-
+          All four statements are true, and they are true of four different mechanisms. That is why
+          answering them one at a time is the only honest reply. Doping supplies carriers outright.
+          Heat and light free them out of bonds at a cost, and a metal has them free already. The
+          distinction that matters commercially is the first against the third. The doped silicon
+          conducts because of atoms added on purpose, and it is that control, not the size of the
+          conduction, that makes it a semiconductor.
+  # ============================================================ day 15
+  - title: The lot runs
+    objective: Release the substrate, hand over what is known, and say what the light can be trusted to do.
+    briefing: The qualification lot goes in this morning and the handover goes out this afternoon.
+    stake: >-
+      Friday, and the qualification lot goes into the yellow bay at ten. Twill has the substrate
+      release form waiting for a signature and two lots he will not sign for. The customer's team
+      arrives on Monday and will read a fortnight of work in twenty minutes, none of them having
+      been here for any of it. Tanabe has one last question about the lamps from the maintenance
+      contractor. Today you release the substrate, decide what goes at the top of the handover, and
+      settle what the light in this building can be trusted to do. Nine hundred jobs are on what
+      goes in at ten.
+    takeaway: A handover states what is known, how well it is known, and what was never established.
+    stops:
+      - group: WAFER
+        task: Release the substrate for the lot
+        title: What goes into the lot
+        place: Wafer Store
+        concept: 'The four kinds of solid: molecular, ionic, metallic and covalent network'
+        scene: >-
+          Twill has fifteen lots in the store, two of them the type nobody had a field for, and a
+          release form for the qualification lot. The probe test takes four minutes a lot.
+        guide: >-
+          The four options differ in what they treat as sufficient evidence that a lot is the
+          material the process needs. What separates them is whether the property in question is
+          one the certificate has a field for, and whether magnitude alone can distinguish the two
+          types.
+        assumes:
+          - resistivity measures how much conduction there is rather than what carries it
+          - a release decision is about the material going in rather than the material already used
+        takeaway: A release decision rests on the property the process depends on, which is not always a property anybody wrote a field for.
+        format: CHOICE
+        question: What is sufficient to release a lot for the qualification run?
+        choices:
+          - A polarity test on each lot, since the two types share one resistivity band.
+          - The supplier certificate, which reports resistivity inside the band this process was specified against.
+          - The absence of failures on lots from the same delivery, which is direct evidence about the material.
+          - A composition measurement of the finished film, which is the property the customer specifies.
+        answer: A polarity test on each lot, since the two types share one resistivity band.
+        why: >-
+          The certificate is not wrong; it is silent. Resistivity is a magnitude that both
+          substrate types can carry equally, so a lot inside the band tells you how much
+          conduction there is and nothing about what is carrying it — and the process depends
+          entirely on which. Four minutes on a probe the fab already owns closes that gap for
+          every lot. Past yield is evidence about wafers that have already been through eleven
+          tools, and a film measurement comes weeks after the release decision it would have
+          informed.
+        rebuttals:
+          - The certificate has no field for type, so a lot inside its band is unexamined rather than cleared.
+          - Yield on earlier lots mixes the substrate with everything else that happened to those wafers.
+          - A film measurement arrives long after the substrate has been committed, and by then the release decision has been made.
+
+      - group: ATOM
+        task: Decide what the receiving team reads first
+        title: What goes at the top
+        place: Metrology Bay
+        concept: 'Chemical shift: the same element bonded to something else'
+        scene: >-
+          The customer's team arrives on Monday with twenty minutes to read a fortnight. Ferreira
+          has the spectra, the compositions, the two causes and one finding nobody has chased.
+        guide: >-
+          The options differ in what they put in front of somebody who has to act before they can
+          read. What separates them is whether the reader could make Monday's decision from it
+          alone, and whether it says what was not established as well as what was.
+        assumes:
+          - a receiving team acts before it reads the detail
+        takeaway: A handover is ordered by what the next decision needs, and the unfinished findings belong in it rather than after it.
+        format: TRIAGE
+        question: What belongs at the top of the handover?
+        choices:
+          - The two established causes, and the finding still open.
+          - The full set of spectra and composition tables, in the order the instruments produced them.
+          - A day-by-day account of how the fortnight was spent.
+          - The yield maps, which are what prompted the investigation in the first place.
+        answer: The two established causes, and the finding still open.
+        why: >-
+          The reader has to decide on Monday whether to accept the lot, and the only thing that
+          answers that is what was found, how firmly, and what is still unexplained. Naming the
+          open carbon finding at the top is not a weakness in the handover — it is the difference
+          between a report and a record, because the next person to see that peak needs to know it
+          was seen before. The spectra and the tables are the evidence behind the summary and they
+          belong underneath it, where somebody can stop reading as soon as they have what they came
+          for.
+        rebuttals:
+          - Raw spectra make the reader do the analysis again, under time pressure, with less context than the people who did it first.
+          - A chronology is how the work happened and not what it concluded, and the reader has twenty minutes.
+          - The yield maps state the problem, and by Monday the question is what was found out about it.
+
+      - group: LITHO
+        task: Say what each lamp can be trusted to do
+        title: What the light can be trusted to do
+        place: Yellow Bay
+        concept: 'Photons: energy, wavelength and what light does to matter'
+        scene: >-
+          The maintenance contractor has four lamps to quote for and Tanabe will not sign for any
+          of them without the reason written down. The lot is in the bay while they talk.
+        guide: >-
+          Each lamp differs in wavelength or in power, and only one of those two decides whether
+          the resist responds at all. Match each lamp to what it can be trusted to do. The
+          distinction is the one this bay is lit by.
+        assumes:
+          - the energy of one photon is set by its wavelength
+          - the power of a lamp sets how many photons arrive each second
+        takeaway: Wavelength decides whether light can do a job at all and power decides how fast it is done, so the two cannot substitute for each other.
+        format: PROTOCOL
+        task: Match each lamp to what it can be trusted to do.
+        scenarios:
+          - Short wavelength, low power.
+          - Short wavelength, high power.
+          - Long wavelength, low power.
+          - Long wavelength, high power.
+        choices:
+          - Exposes the resist, slowly — every photon is above the threshold and there are few of them.
+          - Exposes the resist quickly, and is the only one of the four fit for production.
+          - Safe to work under, and too dim to see by.
+          - Safe to work under at any brightness, because no number of these photons will do it.
+        mapping: [0, 1, 2, 3]
+        why: >-
+          Two properties of a lamp are being confused with each other everywhere in this
+          conversation. Wavelength fixes what one photon carries, and therefore whether it can do
+          the job at all; power fixes how many arrive, and therefore how fast a job it can do gets
+          done. That is why a bright long-wavelength lamp is safe at any brightness while a dim
+          short-wavelength one is not safe at all, and it is the whole reason a room full of
+          people can work under amber light beside a tool that would expose in milliseconds.
+
+# ------------------------------------------------------------- the warm-ups
+# One run before some mornings, taken before the day's plan is accepted. The
+# schedule is the engine's; the reason is authored here.
+warmups:
+  greet:
+    title: Twelve people, two of whom disagree about everything
+    why: >-
+      Every argument this fortnight runs between Hana Ferreira, who runs surface analysis, and
+      Ruben Ostrowski, who runs deposition, and you will be standing between them from Monday.
+      Get round as many of the twelve as you can while nobody is under pressure yet, because the
+      first time you ask somebody a question should not be the morning you need the answer.
+  trial-near:
+    title: Walk the bay once while it is quiet
+    why: >-
+      Two gowned wings, six bays between them, and one glass crossing at the far end joining the
+      two. After Monday you will be walking that loop twenty times a day with a lot number in your
+      head. Marcus Twill, the incoming materials lead, will not walk it with you twice. Learn which
+      door is which now, while the aisles are empty and no clock is running on any of it.
+  follow:
+    title: Aubrey walks the wet bench line once
+    why: >-
+      Delphine Aubrey, who runs the wet benches and the metal fill, walks her line once a week and
+      does not slow down for anybody. The sequence from strip to rinse to dry is the part of this
+      process that no diagram records at the level that matters. Stay with her and keep clear of
+      the tanks.
+  hunt:
+    title: Six retained boxes, and the log says four
+    item: { name: retained box, plural: retained boxes }
+    why: >-
+      Twill keeps a sealed sample of every incoming lot, and those boxes are the only material in
+      this building that has never been through a tool. Six of them are out on the floor and the
+      log accounts for four. A box nobody can find is either the evidence that settles an argument
+      or a box somebody has already opened.
+  canvass:
+    title: Who has actually seen the February controller change
+    why: >-
+      The furnace controller was replaced in February and the work order names one engineer who
+      has since left. Ask round until enough people have said what they actually saw rather than
+      what the work order says, because a fab this size runs on twelve memories and one of them
+      becomes a fact if nobody checks it.
+  evade:
+    title: The contractor wants an hour and the spectrometer wants forty minutes
+    why: >-
+      The lamp contractor is in the building and wants a decision meeting that will take the rest
+      of the morning. Yuki Tanabe, the lithography lead, has the spectrometer booked at eleven and
+      it is the last slot this week. Stay out of the corridor he is working down until the sample
+      is loaded.
+  tag:
+    title: Catch Vance before she goes out to the gas farm
+    why: >-
+      Lena Vance, who runs the gas and chemicals, goes out to the farm at the end of every shift
+      and is unreachable for two hours once she does. The moisture reading on the line needs a
+      decision from her today. She is already walking, and walking after somebody at the same pace
+      never closes the gap.
+
+# --------------------------------------------------------------- the rooms
+interiors:
+  ATOM:
+    caption: A peak position says what an atom is bonded to; only the area says how much is there.
+    standLine: One failing wafer on the stage, and two silicon peaks four electronvolts apart.
+    station:
+      kind: panel
+      title: Photoelectron spectrometer
+      rows:
+        - { label: Source, value: 1486.6 eV, status: normal }
+        - { label: Chamber pressure, value: 2e-9 torr, status: normal }
+        - { label: Oxide-shifted peak, value: present, status: alarm }
+  WAFER:
+    caption: A certificate records what somebody thought to measure.
+    standLine: Fifteen lots on the racks, two of them a type nobody had a field for.
+    station:
+      kind: panel
+      title: Incoming inspection
+      rows:
+        - { label: Lots received, value: 15, status: normal }
+        - { label: Certificates with a type field, value: 0, status: alarm }
+        - { label: Retained boxes sealed, value: 13, status: low }
+  DOPE:
+    caption: Here the impurity is the product, and the difference is a column of the table.
+    standLine: Four hundred wafers implanted, and a spread wider than the customer band.
+    station:
+      kind: panel
+      title: Implanter dose monitor
+      rows:
+        - { label: Species, value: boron, status: normal }
+        - { label: Delivered dose, value: 5.18e14 per cm², status: high }
+        - { label: Spread against band, value: 'wider by a third', status: alarm }
+  DEP:
+    caption: A temperature has a job to do, and the job is breaking a bond.
+    standLine: The furnace log, open at the February controller change.
+    station:
+      kind: panel
+      title: Deposition furnace
+      rows:
+        - { label: Setpoint, value: 720 °C, status: normal }
+        - { label: Measured stage, value: 702 °C, status: alarm }
+        - { label: Chamber pressure, value: 1.0 mtorr, status: normal }
+  LITHO:
+    caption: Wavelength decides whether light can do the job; power decides how fast.
+    standLine: The bay lit at 580 nanometres, and an exposure lamp at 248.
+    station:
+      kind: panel
+      title: Litho track
+      rows:
+        - { label: Exposure wavelength, value: 248 nm, status: normal }
+        - { label: Bay lighting, value: 580 nm, status: normal }
+        - { label: Longest queue time today, value: 41 min, status: alarm }
+  WET:
+    caption: A clean surface is an event, not a state.
+    standLine: Wafers leaving bare and arriving at the coater with oxide on them.
+    station:
+      kind: panel
+      title: Wet bench
+      rows:
+        - { label: Bath cycles since change, value: 88, status: normal }
+        - { label: Oxide on incoming wafer, value: '24 % of signal', status: alarm }
+        - { label: Nitrogen purge, value: running, status: normal }
+
+# What each place says when the player reads its sign.
+copy:
+  ARRIVE: <p>The gown room. Nobody reaches the corridor without going through it, and the count of what comes off is the count of what a person sheds all day.</p>
+  WAIT: <p>The grey side, where the tools are opened and serviced. The air here is filtered and the light is white.</p>
+  QUIET: <p>The one room on this floor with a door that shuts and no tool in it.</p>
+  STORE: <p>Chemical stores. Everything here has a date on it and a shelf life shorter than most people expect.</p>
+  LABX: <p>The shared analysis bench. Booked by the hour, and always behind by two days.</p>
+  DESK: <p>The integration desk. Every argument about this fortnight has happened standing at it.</p>
+  BACK: <p>The subfab stair. Pumps, abatement and six hundred metres of gas line, all of it under the floor you have been walking on.</p>
+  GATE: <p>The bay entrance. Sign in, take the day's calls, and start walking.</p>
+  LINK: <p>The crossing. Glass over the subfab, and the only way between the two wings — everything under your feet serves both of them.</p>
+  ATOM: <p>The metrology bay. Four instruments and one question: how deep does this answer go.</p>
+  WAFER: <p>The wafer store. Everything this fab is made out of, with a certificate beside it.</p>
+  DOPE: <p>The implant bay. The one place in the building where the impurity is the product.</p>
+  DEP: <p>The deposition bay. Gas molecules taken apart and left on a wafer as a solid.</p>
+  LITHO: <p>The yellow bay, lit amber because the resist answers to blue and shorter and to nothing above it.</p>
+  WET: <p>The wet bench. What the air puts on a surface, and what a bath takes off.</p>

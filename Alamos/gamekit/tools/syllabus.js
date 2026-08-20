@@ -2725,6 +2725,238 @@ export const SYLLABUS = {
             'presumption of guilt'] },
     ],
   },
+  yellowbay: {
+    course: 'AP Chemistry, the structure half: atomic structure and photoelectron spectroscopy, periodic trends, bonding and molecular geometry, solids, and the surface chemistry of a wafer',
+    concepts: [
+      // ---- layer 1: the base the whole course stands on
+      { c: 'Atomic structure: protons, electrons and the shells they occupy',
+        k: ['proton', 'electron', 'shell', 'atomic number', 'nucleus', 'subshell'],
+        t: 'An atom is a small positive nucleus with electrons arranged in shells around it, and which shell an electron '
+         + 'sits in decides how tightly it is held. That is what lets one measurement of electron energies say what an '
+         + 'element is.' },
+      { c: 'The mole, molar mass and counting atoms by weighing them',
+        k: ['mole', 'molar mass', 'moles of', 'grams per mole', 'avogadro', 'atoms in a'],
+        t: 'A mole is a fixed number of particles, so a mass divided by a molar mass is a count. It is the only way to '
+         + 'get from something a balance can read to the number of atoms actually involved in a reaction.' },
+      { c: 'Photons: energy, wavelength and what light does to matter',
+        k: ['photon', 'wavelength', 'nanometre', 'frequency of the light', 'energy of the light'],
+        t: 'Light arrives in packets whose energy rises as the wavelength falls, and a packet either has enough energy '
+         + 'for a given job or it has none. That threshold is why one wavelength exposes a resist and a longer one is '
+         + 'safe to work under.' },
+      { c: 'Kinetic molecular theory: a gas as particles in motion',
+        k: ['kinetic molecular', 'particles in motion', 'collisions with the wall', 'mean speed', 'random motion'],
+        t: 'A gas is particles moving at random, and pressure is the sum of their collisions with the walls. Treating a '
+         + 'gas as a crowd of individual particles is what makes a vacuum something other than an empty box.' },
+      { m: true, c: 'Parts per billion: what a purity specification actually claims',
+        k: ['parts per billion', 'ppb', 'purity', 'specification', 'impurity level', 'contamination limit'],
+        t: 'A purity figure is a ratio between an impurity and everything else, quoted at a level far below anything '
+         + 'visible. Reading it as a count of atoms rather than a grade is what makes a part-per-billion limit an '
+         + 'engineering constraint rather than a slogan.' },
+
+      // ---- layer 2
+      { c: 'Coulombic attraction: charge, distance, and how strongly an electron is held',
+        needs: ['Atomic structure: protons, electrons and the shells they occupy'],
+        k: ['coulombic', 'coulomb', 'attraction between', 'charge and distance', 'inverse square'],
+        t: 'The force between two charges grows with the charges and falls off with the square of the distance between '
+         + 'them. Every trend in this course — ionisation energy, lattice energy, why a shell is held at all — is that '
+         + 'one relationship applied to different charges and distances.' },
+      { c: 'Effective nuclear charge, and shielding by the inner shells',
+        needs: ['Atomic structure: protons, electrons and the shells they occupy',
+          'Coulombic attraction: charge, distance, and how strongly an electron is held'],
+        k: ['effective nuclear charge', 'shielding', 'screen', 'inner electrons', 'z_eff', 'core electrons'],
+        t: 'An outer electron does not feel the whole nuclear charge, because the electrons between it and the nucleus '
+         + 'cancel part of it. What is left is the charge that actually decides how hard that electron is to remove.' },
+      { c: 'Gas laws: pressure, volume, moles and temperature',
+        needs: ['Kinetic molecular theory: a gas as particles in motion',
+          'The mole, molar mass and counting atoms by weighing them'],
+        k: ['ideal gas', 'partial pressure', 'moles of gas', 'pv = nrt', 'torr', 'pressure in the chamber'],
+        t: 'For a gas, pressure, volume, amount and temperature are locked together by one relation, so fixing three '
+         + 'fixes the fourth. It turns a pressure gauge into a count of how many molecules are in a chamber.' },
+      { c: 'Percent composition: what a formula asserts about a film',
+        needs: ['The mole, molar mass and counting atoms by weighing them'],
+        k: ['percent composition', 'per cent by mass', 'mass fraction', 'ratio of silicon to nitrogen', 'silicon-rich'],
+        t: 'A formula is a claim about ratios, and a measured composition either matches it or does not. It is how a '
+         + 'film is told from a film with the same two elements in the wrong proportion.' },
+      { c: 'Isotopes, and the mass spectrum of a precursor gas',
+        needs: ['Atomic structure: protons, electrons and the shells they occupy',
+          'The mole, molar mass and counting atoms by weighing them'],
+        k: ['isotope', 'mass spectrum', 'mass-to-charge', 'fragment', 'residual gas analys'],
+        t: 'Atoms of one element can differ in mass, and a mass spectrometer sorts whatever it is given by mass and '
+         + 'charge. A pattern of peaks is therefore an inventory of what is in a chamber rather than a single number.' },
+      { m: true, c: 'Surface analysis: measuring the top nanometre rather than the bulk',
+        needs: ['Parts per billion: what a purity specification actually claims'],
+        k: ['surface analys', 'top nanometre', 'depth of the measurement', 'bulk measurement', 'sampling depth',
+            'what the instrument sees'],
+        t: 'A measurement has a depth, and a bulk method averages away anything that only exists on the outside. '
+         + 'Knowing which one an instrument is doing decides whether a clean result means a clean wafer.' },
+      { c: 'Ionisation energy, and why it jumps between shells',
+        needs: ['Effective nuclear charge, and shielding by the inner shells'],
+        k: ['ionisation energy', 'ionization energy', 'energy to remove', 'jump between shells', 'successive ionis'],
+        t: 'The energy needed to pull an electron off rises smoothly within a shell and jumps when the next electron '
+         + 'has to come out of a shell closer in. Those jumps are direct evidence that shells exist at all.' },
+
+      // ---- layer 3
+      { c: 'Photoelectron spectroscopy: a spectrum read as a shell diagram',
+        needs: ['Ionisation energy, and why it jumps between shells',
+          'Photons: energy, wavelength and what light does to matter',
+          'Surface analysis: measuring the top nanometre rather than the bulk'],
+        k: ['photoelectron', 'binding energy', 'ejected electron', 'kinetic energy of the electron', 'peak height',
+            'x-ray photoelectron'],
+        t: 'A photon of known energy knocks an electron out, and what is left of that energy says how tightly the '
+         + 'electron was held. The positions of the peaks are the shells and the heights are how many electrons are '
+         + 'in each.' },
+      { c: 'Periodic trends across a row and down a group',
+        needs: ['Effective nuclear charge, and shielding by the inner shells',
+          'Ionisation energy, and why it jumps between shells'],
+        k: ['periodic', 'across the row', 'down the group', 'group 13', 'group 15', 'electronegativity',
+            'atomic radius'],
+        t: 'Ionisation energy, radius and electronegativity change in an order set by nuclear charge and shell '
+         + 'number. The table is therefore a prediction about an element nobody has tried yet, which is what makes '
+         + 'substituting one for another a calculable decision.' },
+      { c: 'Mean free path: why a chamber is pumped down before anything is grown',
+        needs: ['Gas laws: pressure, volume, moles and temperature',
+          'Kinetic molecular theory: a gas as particles in motion'],
+        k: ['mean free path', 'between collisions', 'millitorr', 'pumped down', 'vacuum', 'travels before it hits'],
+        t: 'At low pressure a molecule crosses the whole chamber without meeting another one, and at higher pressure '
+         + 'it does not. That distance decides whether a process is a beam arriving at a surface or a reaction '
+         + 'happening in mid-air.' },
+      { c: 'Electron configuration and the valence shell',
+        needs: ['Atomic structure: protons, electrons and the shells they occupy',
+          'Ionisation energy, and why it jumps between shells'],
+        k: ['electron configuration', 'valence shell', 'valence electron', 'outer shell', 'four valence'],
+        t: 'Electrons fill shells and subshells in a known order, and only the outermost ones take part in bonding. '
+         + 'Counting them is what predicts how many bonds an atom will make before any structure is drawn.' },
+      { m: true, c: 'Two lots that measure the same: when a specification cannot tell them apart',
+        needs: ['Parts per billion: what a purity specification actually claims'],
+        k: ['specification does not', 'same on paper', 'indistinguishable', 'cannot tell them apart',
+            'certificate', 'incoming lot'],
+        t: 'A specification records the quantities somebody thought to write down, so two materials can meet it '
+         + 'identically and behave differently. The question to ask of any certificate is what it does not have a '
+         + 'field for.' },
+      { c: 'Chemical shift: the same element bonded to something else',
+        needs: ['Photoelectron spectroscopy: a spectrum read as a shell diagram',
+          'Effective nuclear charge, and shielding by the inner shells'],
+        k: ['chemical shift', 'shifted peak', 'bonded to oxygen', 'same element', 'shifts by', 'oxidation state'],
+        t: 'Pulling electron density away from an atom leaves its remaining electrons held more tightly, so its peaks '
+         + 'move. A small shift in position is therefore a statement about what the atom is bonded to, not about how '
+         + 'much of it there is.' },
+
+      // ---- layer 4
+      { c: 'Lewis structures: valence electrons, octets and lone pairs',
+        needs: ['Electron configuration and the valence shell',
+          'Periodic trends across a row and down a group'],
+        k: ['lewis structure', 'octet', 'lone pair', 'bonding pair', 'shared pair', 'dot structure'],
+        t: 'A Lewis structure distributes the valence electrons of every atom into bonds and lone pairs. It is the '
+         + 'cheapest useful model of a molecule, and everything about shape, polarity and strength is read off it.' },
+      { c: 'Formal charge, and choosing between structures that both fill the octet',
+        needs: ['Lewis structures: valence electrons, octets and lone pairs'],
+        k: ['formal charge', 'which structure', 'better structure', 'expanded octet', 'assigned charge'],
+        t: 'Formal charge counts how far each atom is from its own electron count in a proposed structure. It is a '
+         + 'tie-breaker: where two structures both satisfy the octet, the one with the smaller charges is the better '
+         + 'description.' },
+      { c: 'Resonance, and a bond order that is not a whole number',
+        needs: ['Lewis structures: valence electrons, octets and lone pairs'],
+        k: ['resonance', 'bond order', 'delocalis', 'delocaliz', 'in between a single and a double',
+            'equivalent structures'],
+        t: 'Where several equivalent structures can be drawn, the real molecule is none of them and all bonds are '
+         + 'alike. It explains bond lengths that sit between a single and a double bond, which no single drawing can '
+         + 'account for.' },
+      { c: 'VSEPR: electron domains, and the shape they force on a molecule',
+        needs: ['Lewis structures: valence electrons, octets and lone pairs'],
+        k: ['vsepr', 'electron domain', 'bond angle', 'tetrahedral', 'trigonal', 'shape of the molecule',
+            'lone pairs push'],
+        t: 'Electron domains around a central atom get as far from each other as they can, and that fixes the angles. '
+         + 'A shape is therefore predictable from a count, and it is the shape that decides whether a molecule is '
+         + 'polar.' },
+      { c: 'Bond enthalpy, and the energy ledger of breaking and making bonds',
+        needs: ['Lewis structures: valence electrons, octets and lone pairs',
+          'The mole, molar mass and counting atoms by weighing them'],
+        k: ['bond enthalpy', 'bond energy', 'bonds broken', 'bonds formed', 'energy to break', 'stronger bond'],
+        t: 'Breaking a bond costs energy and making one returns it, so a reaction is the difference between the two '
+         + 'ledgers. A bond that costs more to break needs a higher temperature before anything happens at a useful '
+         + 'rate.' },
+
+      // ---- layer 5
+      { c: "Polarity: electronegativity difference and the molecule's own shape",
+        needs: ['VSEPR: electron domains, and the shape they force on a molecule',
+          'Periodic trends across a row and down a group'],
+        k: ['polarity', 'polar', 'nonpolar', 'non-polar', 'dipole', 'electronegativity difference'],
+        t: 'A bond is polar when the two atoms pull unequally, and a molecule is polar only when its shape leaves '
+         + 'those pulls uncancelled. Two molecules with the same bonds can therefore differ completely in what they '
+         + 'dissolve in.' },
+      { c: 'Lattice energy: what it costs to pull an ionic solid apart',
+        needs: ['Coulombic attraction: charge, distance, and how strongly an electron is held',
+          'Periodic trends across a row and down a group'],
+        k: ['lattice energy', 'ionic solid', 'melting point of the', 'ion size', 'higher charge', 'held in a lattice'],
+        t: 'The energy holding an ionic solid together rises with the charges on the ions and falls as they get '
+         + 'bigger. It is why one salt melts hundreds of degrees above another built the same way.' },
+      { c: 'Doping: group 13 and group 15 atoms in a group 14 lattice',
+        needs: ['Periodic trends across a row and down a group',
+          'Electron configuration and the valence shell',
+          'Parts per billion: what a purity specification actually claims'],
+        k: ['dopant', 'doping', 'doped', 'boron', 'phosphorus', 'one electron too many', 'one electron short',
+            'p-type', 'n-type'],
+        t: 'Substituting an atom with one more or one fewer valence electron into a four-bonded lattice leaves a '
+         + 'spare electron or a missing one. A few parts per billion of it changes conduction by orders of '
+         + 'magnitude, which is why the impurity is the product.' },
+      { c: 'Intermolecular forces: dispersion, dipole and hydrogen bonding',
+        needs: ["Polarity: electronegativity difference and the molecule's own shape"],
+        k: ['intermolecular', 'dispersion', 'hydrogen bond', 'dipole-dipole', 'attractions between molecules',
+            'london'],
+        t: 'Separate molecules attract each other by forces far weaker than a bond, ranked dispersion, dipole, then '
+         + 'hydrogen bonding. Those forces, not the bonds inside a molecule, set boiling points and decide what '
+         + 'dissolves what.' },
+      { c: 'Metallic bonding: delocalised electrons, and what makes a metal conduct',
+        needs: ['Electron configuration and the valence shell',
+          'Coulombic attraction: charge, distance, and how strongly an electron is held'],
+        k: ['metallic bond', 'delocalised electron', 'delocalized electron', 'sea of electrons', 'conducts',
+            'malleab'],
+        t: 'A metal is a lattice of cations in a shared pool of electrons belonging to none of them. The pool is why '
+         + 'a metal conducts and why it deforms instead of shattering when its atoms slide.' },
+
+      // ---- layer 6
+      { c: 'The four kinds of solid: molecular, ionic, metallic and covalent network',
+        needs: ['Intermolecular forces: dispersion, dipole and hydrogen bonding',
+          'Lattice energy: what it costs to pull an ionic solid apart',
+          'Metallic bonding: delocalised electrons, and what makes a metal conduct',
+          'Bond enthalpy, and the energy ledger of breaking and making bonds'],
+        k: ['covalent network', 'kind of solid', 'type of solid', 'molecular solid', 'held together by',
+            'melts at', 'four kinds'],
+        t: 'What a solid does when heated, struck or wetted follows from what holds it together — weak forces '
+         + 'between molecules, ions in a lattice, a shared electron pool, or a continuous net of covalent bonds. '
+         + 'Naming which one is the first question about any material.' },
+      { c: 'Alloys: substitutional and interstitial, and why an alloy is stronger',
+        needs: ['Metallic bonding: delocalised electrons, and what makes a metal conduct'],
+        k: ['alloy', 'substitutional', 'interstitial', 'harder than the pure metal', 'atoms of a different size',
+            'slide past'],
+        t: 'Mixing a second element into a metal, in place of an atom or into the gaps, disrupts the planes that '
+         + 'slide over each other. That is why an alloy is stronger than either pure metal and why a small addition '
+         + 'is enough.' },
+      { c: 'Semiconductors: a gap a photon or a temperature can clear',
+        needs: ['Doping: group 13 and group 15 atoms in a group 14 lattice',
+          'Metallic bonding: delocalised electrons, and what makes a metal conduct',
+          'Photons: energy, wavelength and what light does to matter'],
+        k: ['semiconductor', 'band gap', 'gap between', 'clears the gap', 'conducts when', 'insulator at'],
+        t: 'In a covalent network the electrons are all committed, and freeing one costs a fixed amount of energy. '
+         + 'Where that amount is small enough for light or warmth to supply it, the material sits between a '
+         + 'conductor and an insulator and can be switched between them.' },
+      { c: 'Volatility and like-dissolves-like: what a solvent lifts off a surface',
+        needs: ['Intermolecular forces: dispersion, dipole and hydrogen bonding'],
+        k: ['solvent', 'dissolves', 'volatil', 'evaporat', 'boiling point of the', 'like dissolves like',
+            'lifts off the surface'],
+        t: 'A solvent dissolves what it resembles, because replacing one set of intermolecular attractions with a '
+         + 'similar set costs nothing. The same forces set how fast it leaves again, so choosing a solvent is '
+         + 'choosing both what it takes and how long it stays.' },
+      { c: 'Surface oxidation: a clean surface, and what the air does to it in minutes',
+        needs: ['The four kinds of solid: molecular, ionic, metallic and covalent network',
+          'Bond enthalpy, and the energy ledger of breaking and making bonds'],
+        k: ['oxidation', 'oxide', 'native oxide', 'exposed to air', 'grows back', 'oxidis', 'oxidiz',
+            'queue time'],
+        t: 'A freshly cleaned surface has unsatisfied bonds, and oxygen satisfies them within minutes of meeting '
+         + 'air. Any process that needs a bare surface is therefore racing a clock that starts the moment the '
+         + 'previous step ends.' },
+    ],
+  },
 };
 
 // --------------------------------------------------------------- equations
@@ -3942,6 +4174,56 @@ export const EQUATIONS = {
           'compared against'] },
   ],
 
+  yellowbay: [
+    { e: 'n = m / M', c: 'a mass on a balance turned into a count of atoms',
+      v: [['n', 'the amount, in moles'], ['m', 'the mass weighed out, in grams'], ['M', 'the molar mass, in grams per mole']],
+      s: 'A balance reads grams and a reaction happens in atoms, so every quantity in this building passes through this one division before it means anything.',
+      k: ['moles of', 'molar mass', 'grams per mole', 'counting atoms by weighing', 'how many atoms', 'amount in moles'] },
+    { e: 'Z_eff ≈ Z − S', c: 'the charge an outer electron actually feels',
+      v: [['Z_eff', 'the effective nuclear charge, in units of the proton charge'], ['Z', 'the number of protons in the nucleus'], ['S', 'the shielding: roughly the number of electrons closer in than this one']],
+      s: 'The inner electrons cancel part of the nucleus, so an outer electron is held by what is left over — which is why the same shell is held far more tightly in phosphorus than in aluminium.',
+      k: ['effective nuclear charge', 'shielding', 'screen', 'inner electrons', 'core electrons', 'charge it actually feels'] },
+    { e: 'F ∝ q₁q₂ / r²', c: 'how strongly two charges attract',
+      v: [['F', 'the strength of the attraction'], ['q₁, q₂', 'the two charges — for an electron, its own and the effective nuclear charge'], ['r', 'the distance between them']],
+      s: 'Bigger charges pull harder and distance costs twice over, which is the single relation behind every trend in the periodic table and behind how hard an ionic solid is to melt.',
+      k: ['coulombic', 'coulomb', 'charge and distance', 'inverse square', 'attraction between the nucleus',
+          'attraction between two charges', 'square of the distance', 'twice as far'] },
+    { e: 'E = hc / λ', c: 'the energy one photon carries',
+      v: [['E', 'the energy of a single photon, in joules'], ['h', "Planck's constant, 6.63 × 10⁻³⁴ J s"], ['c', 'the speed of light, 3.00 × 10⁸ m/s'], ['λ', 'the wavelength of the light, in metres']],
+      s: 'Energy per photon rises as wavelength falls, and a photon either carries enough for a given job or contributes nothing at all — which is why one lamp exposes a resist and a longer-wavelength one is safe to work under.',
+      k: ['photon', 'energy of the light', 'wavelength of the light', 'per photon', 'nanometre light', 'shorter wavelength'] },
+    { e: 'KE = hν − BE', c: 'a photoelectron spectrum read as an energy ledger',
+      needs: ['E = hc / λ'],
+      v: [['KE', 'the kinetic energy the ejected electron leaves with'], ['hν', 'the energy of the incoming photon, known exactly'], ['BE', 'the binding energy — how tightly that electron was held']],
+      s: 'The photon energy is known and the electron energy is measured, so the difference is how hard the atom was holding on: a spectrum of peaks is a direct picture of the shells.',
+      k: ['photoelectron', 'binding energy', 'kinetic energy of the electron', 'ejected electron', 'x-ray photoelectron', 'how tightly it was held'] },
+    { e: '% by mass = (n × M_element) / M_compound × 100', c: 'what a film is actually made of, against what its formula claims',
+      needs: ['n = m / M'],
+      v: [['n', 'how many atoms of that element the formula gives per formula unit'], ['M_element', 'the molar mass of the element'], ['M_compound', 'the molar mass of the whole formula unit']],
+      s: 'A formula is a claim about proportions, so a measured composition either matches it or names how far off it is — which is the difference between the film the recipe asked for and one with the same two elements in the wrong ratio.',
+      k: ['percent composition', 'per cent by mass', 'percentage by mass', 'mass fraction',
+          'ratio of silicon to nitrogen', 'silicon-rich', 'proportion by mass'] },
+    { e: 'PV = nRT', c: 'how many molecules a pressure gauge is reporting',
+      needs: ['n = m / M'],
+      v: [['P', 'the pressure, in pascals'], ['V', 'the volume of the chamber, in cubic metres'], ['n', 'the amount of gas, in moles'], ['R', 'the gas constant, 8.31 J per mole per kelvin'], ['T', 'the absolute temperature, in kelvin']],
+      s: 'Pressure, volume, amount and temperature are locked together, so a gauge reading and a chamber volume are a count of molecules — which is what makes a vacuum specification a statement about how much is still in there.',
+      k: ['ideal gas', 'pv = nrt', 'moles of gas', 'partial pressure', 'pressure in the chamber', 'gas constant'] },
+    { e: 'λ_mfp = kT / (√2 π d² P)', c: 'how far a molecule gets before it meets another one',
+      needs: ['PV = nRT'],
+      v: [['λ_mfp', 'the mean free path, in metres'], ['k', "Boltzmann's constant, 1.38 × 10⁻²³ J/K"], ['T', 'the absolute temperature, in kelvin'], ['d', 'the diameter of the molecule, in metres'], ['P', 'the pressure, in pascals']],
+      s: 'At low enough pressure a molecule crosses the whole chamber untouched, and that distance is what decides whether a process is a clean arrival at a surface or a reaction happening in mid-flight.',
+      k: ['mean free path', 'between collisions', 'travels before it hits', 'millitorr', 'pumped down', 'collides with another molecule'] },
+    { e: 'ΔH = Σ BE(broken) − Σ BE(formed)', c: 'the energy ledger of a reaction, bond by bond',
+      v: [['ΔH', 'the heat taken in or given out, in kilojoules per mole'], ['BE(broken)', 'the enthalpy of each bond that has to be broken'], ['BE(formed)', 'the enthalpy of each bond made in its place']],
+      s: 'Breaking costs and making returns, so a reaction is the difference between two sums — which is why a precursor held together by a stronger bond needs a hotter wafer before anything grows at all.',
+      k: ['bond enthalpy', 'bond enthalpies', 'bond energy', 'bonds broken', 'bonds formed',
+          'energy to break', 'kilojoules per mole of bonds'] },
+    { e: 'N_dopant = (ppb / 10⁹) × N_lattice', c: 'a purity figure turned into atoms per cubic centimetre',
+      needs: ['n = m / M'],
+      v: [['N_dopant', 'the dopant atoms in each cubic centimetre'], ['ppb', 'the impurity level quoted on the certificate, in parts per billion'], ['N_lattice', 'the atoms of silicon in a cubic centimetre, 5.0 × 10²²']],
+      s: 'A part per billion sounds like nothing and is fifty thousand billion atoms in every cubic centimetre, which is the arithmetic that makes an impurity the product rather than a defect.',
+      k: ['parts per billion', 'dopant atoms per cubic centimetre', 'atoms in a cubic centimetre', 'dopant concentration', 'impurity level', 'how many dopant atoms'] },
+  ],
 };
 
 /**

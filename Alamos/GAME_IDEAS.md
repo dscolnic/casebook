@@ -32,7 +32,20 @@ principles, control systems, organic and process chemistry, and materials.
 Psychology closed as Sightline and Physics C E&M as Ground Truth. Five of the gaps
 this list opened with have been built since it was written — statistics as The
 Trial, climate measurement as Ice Core, calculus as Headwater, genetics as
-Wellmere, and the back half of AP Chemistry as Red Sand.
+Wellmere, the back half of AP Chemistry as Red Sand, and its structure half as
+Yellow Bay.
+
+**Yellow Bay closed the third chemistry gap.** With The Contaminated City on the
+front of the course and Red Sand on the back, what neither of them touched was the
+*structure* half — photoelectron spectroscopy, Coulombic attraction and ionisation
+energy, periodic trends, Lewis structures and VSEPR, bond enthalpy, the four kinds of
+solid, doping and semiconductors. It is AP Unit 1 to 3 and it is where the particulate
+reasoning lives. The place is a wafer fab, chosen because every question in one is
+*what is this made of and what is it bonded like*, and because X-ray photoelectron
+spectroscopy is a real tool a player can walk up to — the one AP topic in the set with
+an instrument behind it rather than a diagram. It is also the first theme scaffolded as
+an interior that outgrew the shared single-corridor builder: two parallel wings joined by
+a glazed crossing over the subfab, built by calling `buildInterior` once per wing.
 
 **Psychology is the largest single gap in the set and it is not close.** AP
 Psychology is the second-biggest AP by enrolment and the sixteen games contain no

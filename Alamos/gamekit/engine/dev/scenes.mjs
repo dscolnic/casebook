@@ -38,9 +38,40 @@ export async function interiorScene(dir){
   const props = existsSync(resolve(dir, 'props.js')) ? await load(resolve(dir, 'props.js')) : {};
   const { buildInterior } = await load(resolve(gamekit, 'engine/world/interiorSite.js'));
   const scene = new THREE.Scene();
-  buildInterior(scene, stubRenderer(), plan, {
-    fitOutRoom: props.fitOutRoom, fitOutSpine: props.fitOutSpine,
-  });
+
+  /**
+   * A plan may be more than one corridor.
+   *
+   * `plan.wings` is a theme whose own world module calls `buildInterior` once
+   * per wing and slides each one sideways — Yellow Bay is two of them with a
+   * crossing between. Handing the whole plan to one build instead produces a
+   * single corridor with every room in the building stacked on top of itself:
+   * it renders, it measures, and the numbers are about a place that does not
+   * exist. That is the failure mode this repo has paid for more than any other,
+   * so the shape of the plan decides how many builds it gets.
+   */
+  const wings = Array.isArray(plan.wings) && plan.wings.length ? plan.wings : null;
+  if(wings){
+    for(const wing of wings){
+      const g = new THREE.Group();
+      g.position.x = wing.x ?? 0;
+      g.userData.wingGroup = true;
+      scene.add(g);
+      buildInterior(g, stubRenderer(), {
+        metrics: wing.metrics ?? plan.metrics,
+        spine: wing.spine,
+        rooms: wing.rooms,
+        bladeSigns: wing.bladeSigns ?? [],
+        openEnds: wing.openEnds ?? {},
+        glazedSide: wing.glazedSide,
+        ceiling: wing.ceiling,
+      }, { fitOutRoom: props.fitOutRoom, fitOutSpine: props.fitOutSpine });
+    }
+  } else {
+    buildInterior(scene, stubRenderer(), plan, {
+      fitOutRoom: props.fitOutRoom, fitOutSpine: props.fitOutSpine,
+    });
+  }
   scene.updateMatrixWorld(true);
   return { scene, plan, props };
 }

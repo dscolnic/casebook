@@ -43,6 +43,11 @@ export const GAMES = [
     place: 'A propellant plant on Mars: modules buried in regolith along one track, under a butterscotch sky.',
     hero: 'array-along-the-rows.png' },
 
+  { id: 'yellowbay', title: 'Yellow Bay',
+    course: 'AP Chemistry · the structure half', field: 'Chemistry', accent: '#c9a227',
+    place: 'A wafer fab mid yield crash: two gowned wings joined by a glass crossing over the subfab, and the litho end lit amber.',
+    hero: 'link--the-whole-crossing.png' },
+
   { id: 'headwater', title: 'Headwater',
     course: 'AP Calculus AB', field: 'Maths & Stats', accent: '#3f92c9',
     place: 'Ashfell Dam from the inside — galleries, a gate chamber, and a hundred metres of air off the crest.',

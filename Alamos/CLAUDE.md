@@ -1,6 +1,6 @@
 # Alamos — mission-based learning games
 
-Eighteen first-person, mission-driven educational games on three.js, plus the shared
+Nineteen first-person, mission-driven educational games on three.js, plus the shared
 engine they run on. Each is the same loop in a different setting: missions × stops,
 walk to a place, answer a science question, hand off. No combat, no weapons.
 
@@ -9,9 +9,9 @@ walk to a place, answer a science question, hand off. No combat, no weapons.
 | Document | What it is |
 | --- | --- |
 | `README.md` | Landing page. Names the two documents to read first, and the order. |
-| `GAMES.md` | The inventory — all eighteen games, what each teaches, where its content and place live, what is unfinished. Read first if picking this up cold. |
+| `GAMES.md` | The inventory — all nineteen games, what each teaches, where its content and place live, what is unfinished. Read first if picking this up cold. |
 | `gamekit/NEW_GAME.md` | How to build one, in order: decide the course, scaffold, write the book, build the place, meet the writing bar, meet the question bar, check and print. Carries the bar each step clears and the checker that enforces it. |
-| `GAME_IDEAS.md` | What to build next — subject gaps across the eighteen, candidates worked against them. |
+| `GAME_IDEAS.md` | What to build next — subject gaps across the nineteen, candidates worked against them. |
 | `gamekit/STORY_SPEC.md` | The story contract: what a campaign needs beyond correct content, and the checker for it. |
 | `gamekit/THEME_CONTRACT.md` | **Read before touching world code.** Short; every rule in it cost hours. |
 | `gamekit/INTERIORS.md` | **Read before working inside a place.** The check-and-look loop, which builder each game's rooms come from (three are furnished outside the shared fit-out), and the mistake made four times. |
@@ -24,7 +24,7 @@ walk to a place, answer a science question, hand off. No combat, no weapons.
 | `gamekit/MIDDLE_SCHOOL_EDITIONS.md` | The junior-edition plan. |
 | `gamekit/FOURTH_GAME.md` | The plan the Project Y flip came from. |
 
-## The eighteen games
+## The nineteen games
 
 `GAMES.md` is the full inventory. This is the place, and the command.
 
@@ -44,15 +44,25 @@ walk to a place, answer a science question, hand off. No combat, no weapons.
 | Wellmere | `gamekit/themes/seedbank/` | A breeding station on a headland, in concentric rings by isolation distance; sea on three sides, one causeway. AP Biology, heredity half | `THEME=seedbank npm run dev` |
 | Safety Factor | `gamekit/themes/midway/` | Corbin Park: a shut amusement park, and the rides are the syllabus — tower, coaster, carousel, wheel, bumper floor, ship, flume. AP Physics 1, in derivations | `THEME=midway npm run dev` |
 | Red Sand | `gamekit/themes/redsand/` | A propellant plant on Mars: modules buried in regolith along one track, an ascent vehicle whose gauge fills as the campaign does, a butterscotch sky. AP Chemistry, back half | `THEME=redsand npm run dev` |
+| Yellow Bay | `gamekit/themes/yellowbay/` | Ardley Fab 7 — its own world: two parallel gowned wings joined by a glass crossing over the subfab, the litho end lit amber. AP Chemistry, the structure half | `THEME=yellowbay npm run dev` |
 | Sightline | `gamekit/themes/sightline/` | The Hallam Exchange: one hall with the Ferrier Street corner rebuilt across the end, identification distance painted on the floor. AP Psychology | `THEME=sightline npm run dev` |
 | Ground Truth | `gamekit/themes/groundtruth/` | Station 12, Sablon Flats: a salt flat, a 60 m instrumented mast, a storm season. AP Physics C E&M, ten derivations | `THEME=groundtruth npm run dev` |
 | Project Y | `gamekit/themes/projecty/` | Los Alamos 1943–45, outdoor mesa | `THEME=projecty npm run dev` |
 | Hospital Heroes | `gamekit/themes/hospital/` | Children's hospital, interior, ~grades 3–4 | `THEME=hospital npm run dev` |
 
 **A game's silhouette comes from its world module.** Two themes on the same world look
-alike however the palette differs, which is why three either bring their own world
+alike however the palette differs, which is why four either bring their own world
 (`themes/<name>/world.js`) or carry a props layer heavy enough to change the shape of the
-space. Worlds: `engine/world/outdoorTown.js`, `engine/world/interiorFloor.js`, a theme's
+space. **Yellow Bay is the cheap version of bringing one**: its world module calls the
+engine's own `buildInterior` once per wing, into a group it then slides sideways, and builds
+only the glazed crossing between them itself — so rooms, doors, signage, case stands and the
+fit-out hooks are all still the shared code. Two things that has to be got right, both of
+which look fine when they are wrong: everything the *engine* reads back is plain numbers in
+world space (colliders, soft colliders, stop positions, case stands) and has to be moved by
+hand alongside the group, and `plan.openEnds` has to be forwarded to each wing or the builder
+walls off the way through and the corridor simply appears to end. `engine/dev/scenes.mjs` and
+`pieceDensity` know about `plan.wings` for the same reason — one build of a two-wing plan is
+every room in the building stacked on itself, which renders, measures, and describes nowhere. Worlds: `engine/world/outdoorTown.js`, `engine/world/interiorFloor.js`, a theme's
 own. Nocturnal games set `look.dayWindow` and `atmosphere.nightSky`. A theme bringing its
 own world declares `world: 'themes/<name>/world.js'` in site.js and vite.config.js points
 `@world` at it.
@@ -146,7 +156,7 @@ npm run sync-casebook -- --no-build        # copy what dist/ already has
 ```
 
 Built output is **committed to casebook deliberately.** The theme is chosen at build time, so
-serving eighteen games means eighteen builds, and running those on the app host would put ten
+serving nineteen games means nineteen builds, and running those on the app host would put ten
 minutes of vite in front of a deploy for output that only changes when a game does.
 
 **`tools/games.js` is the catalogue** — one row per game, read by both front doors
