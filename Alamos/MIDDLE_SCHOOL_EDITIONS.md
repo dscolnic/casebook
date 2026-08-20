@@ -1,7 +1,9 @@
 # Middle-school editions — the same games, a different course
 
 Fourteen of the sixteen games get a **grade-6 edition**: same place, same cast,
-same story, a different course taught inside it. This file is the plan and the
+same story, a different course taught inside it. **Twelve exist**: the nine of
+the first pass, and Sightline, Red Sand and The Trial, which were built against
+the `questionLoad` gate from the first line rather than swept for it afterwards. This file is the plan and the
 contract. `gamekit/NEW_GAME.md` is how a *new* game is built; this is how an
 existing one is re-taught.
 
@@ -150,8 +152,9 @@ constants, phasors, vectors.
 | Blackout | circuits & induction | circuits, series and parallel, kWh, generators | trim |
 | Bring Them Home | AP Physics 1 | speed and time, rate × time budgets, energy transfer | trim |
 | The Contaminated City | AP Chemistry · analytical | mixtures, concentration as a ratio, filtration, averaging | heavy trim |
-| Red Sand | AP Chemistry · back half | conservation of mass, physical and chemical change, what makes a reaction fast | heavy trim |
-| The Trial | AP Statistics | fair tests, control groups, sample size, mean and spread | **redesign** |
+| Red Sand | AP Chemistry · back half | conservation of mass, physical and chemical change, what makes a reaction fast | heavy trim ✓ built |
+| Sightline | AP Psychology | how memory is rebuilt, what an eye can see at a distance, fair line-ups, confidence against accuracy | trim ✓ built |
+| The Trial | AP Statistics | fair tests, control groups, sample size, mean and spread | **redesign** ✓ built |
 | Safety Factor | AP Physics 1, via DERIVE | forces, speed, energy, safety margin as a ratio | **redesign** |
 | Headwater | AP Calculus AB | unit rates, slope as steepness, volume = rate × time | **redesign** |
 | Hospital Heroes | anatomy (grade 2) | the same body, with ratios, percentages and controlled comparison | **upward** |
@@ -327,8 +330,32 @@ answer, and if it does not, it was load without teaching.
    still fail it: aftershock 48, deepwatch 27, planetary_defense 26,
    outbreak_riverton 25, icecore 24, seedbank 20, blackout 16, contamcity 10.
    That is the punch list.
-6. The three redesigns.
+6. The three redesigns. ✓ **The Trial is built**; Safety Factor and Headwater
+   remain.
 7. `hospital_ms`, the upward one, last.
+
+## 9. What the three built after the gate did differently
+
+`sightline_ms`, `redsand_ms` and `the_trial_ms` were written with
+`questionLoad` in the loop from the first stop rather than swept afterwards, and
+that changed the work in four ways worth carrying into the remaining editions:
+
+- **The syllabus goes in before the prose.** Twelve to sixteen concepts with
+  `needs` and `t`, and four or five equations a grade-6 reader can actually
+  compute. Written afterwards it becomes a description of whatever got authored.
+- **Every board comes down to three.** SEQUENCE, PROTOCOL and CASEBOOK are
+  graded as one exact permutation, so three items is the cap — and the item
+  dropped is a distractor every time, never an argument. TRACE and ATTEST come
+  down to four, which is their own floor.
+- **The arithmetic gets re-chosen, not re-worded.** Equilibrium constants, free
+  energy, relative risk and optical depth were all replaced by a percentage, an
+  average, a difference between two shares or a rate times a time. Every value
+  in the tiles sits between 0.1 and 9,999, which is the rule that forces it.
+- **The judgement budget is a shape, not a total.** 20% of the campaign, one a
+  day, none before day 3 — and `questionLoad` reads the *question's wording* as
+  well as the format, so "which explanation fits every panel" counts and "why is
+  this log shorter than the others" does not. Three of the conversions were one
+  sentence.
 
 Fourteen editions × 30 stops is **420 authored stops**. The machinery is days;
 the writing is the project.

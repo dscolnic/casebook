@@ -30,6 +30,9 @@
     "contamcity_ms": "themes/contamcity_ms",
     "groundtruth": "themes/groundtruth",
     "blackout_fable": "themes/blackout_fable",
-    "yellowbay": "themes/yellowbay"
+    "yellowbay": "themes/yellowbay",
+    "sightline_ms": "themes/sightline_ms",
+    "redsand_ms": "themes/redsand_ms",
+    "the_trial_ms": "themes/the_trial_ms"
   }
 }

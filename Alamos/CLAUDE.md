@@ -752,7 +752,7 @@ from 62, and every registered theme now carries a graph — **637 of 724 concept
 bottom-of-graph and became declarations (Outbreak 29, Red Sand 33, Ice Core 23), which is a senior
 course leaning on a first course, said out loud.
 
-**The nine junior editions needed a different policy.** "Taken as read" needs an earlier course to
+**The junior editions needed a different policy.** "Taken as read" needs an earlier course to
 take it as read from: an AP course may open on frequency without teaching what a volt is, and a
 grade-6 edition has nothing in front of it, so a prerequisite it declares is one it has quietly
 decided not to teach. Junior rows go in the debt file instead, and `conceptOrder` **reports** any
@@ -1512,7 +1512,9 @@ present, meshes created, no errors, builds clean.
   therefore ship at several reading levels: a new edition is a manifest line plus a differently-written
   book.
 - **An edition is a registered theme, not a build flag** — `MIDDLE_SCHOOL_EDITIONS.md` is the plan, and
-  fourteen of sixteen games are getting a grade-6 one. `themes/<base>_ms/` holds a manifest, a one-line
+  fourteen of sixteen games are getting a grade-6 one. **Twelve exist.** The nine of the first pass were
+  swept for `questionLoad` after the fact; `sightline_ms`, `redsand_ms` and `the_trial_ms` were written
+  against it from the first stop, which is cheaper and produces a different edition — see that file's §9. `themes/<base>_ms/` holds a manifest, a one-line
   `site.js` re-export and its generated content, and **nothing else**: place, props, interiors and
   outfits are the base theme's. `tools/derive-edition.mjs` writes one; `engine/dev/editionParity.mjs`
   fails the game if cast, areas, places or manifest have drifted. It is a separate theme id rather than

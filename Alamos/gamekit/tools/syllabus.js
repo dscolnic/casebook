@@ -2957,6 +2957,265 @@ export const SYLLABUS = {
          + 'previous step ends.' },
     ],
   },
+  sightline_ms: {
+    course: 'How memory and eyesight actually work, and how you test a claim about what somebody saw',
+    concepts: [
+      { c: 'Memory is rebuilt each time, not played back',
+        k: ['remember', 'memory', 'rebuilt', 'plays back', 'recording', 'fills in the gaps'],
+        t: 'Remembering is putting a picture back together out of pieces, not playing a recording. '
+         + 'That is why a memory can change after it is made, and why what happens between the '
+         + 'night and the question matters as much as the night.' },
+      { c: 'How small a thing your eye can still tell apart',
+        k: ['detail', 'how far away', 'sharp', 'blur', 'make out', 'at that distance', 'resolve'],
+        t: 'Your eye can only separate details bigger than about a third of a millimetre for every '
+         + 'metre away. Past that, two things blur into one, so how far away somebody stood sets a '
+         + 'limit on what they could possibly have seen.' },
+      { c: 'Light: how much there is, and what it costs you to see',
+        needs: ['How small a thing your eye can still tell apart'],
+        k: ['light', 'lamp', 'dark', 'lit', 'brightness', 'lux', 'streetlight'],
+        t: 'The less light there is, the less detail and colour your eye can pick up, and the light '
+         + 'from a lamp drops fast as you move away from it. A description given in the dark is a '
+         + 'description made with less to go on.' },
+      { m: true, c: 'Measure it instead of arguing about it',
+        k: ['measure', 'tape', 'survey', 'metres', 'how far', 'guess', 'estimate'],
+        t: 'When two people disagree about a number, the cheapest way to settle it is to go and '
+         + 'measure. A measured distance beats anybody\'s memory of the distance, including a very '
+         + 'confident one.' },
+      { m: true, c: 'Repeat a measurement and take the average',
+        needs: ['Measure it instead of arguing about it'],
+        k: ['average', 'mean', 'repeat', 'again', 'spread', 'several readings'],
+        t: 'One reading can be off by luck, so the same measurement is taken several times and the '
+         + 'readings are averaged. The spread between them tells you how much to trust the average.' },
+      { m: true, c: 'A fair test changes one thing and holds the rest',
+        k: ['fair test', 'change one thing', 'held the same', 'control', 'compare', 'variable'],
+        t: 'To find out whether something matters you change that one thing and keep everything '
+         + 'else the same. If two things change at once, the result cannot tell you which one did it.' },
+      { c: 'The question changes the answer',
+        needs: ['Memory is rebuilt each time, not played back'],
+        k: ['question', 'asked', 'leading', 'suggest', 'the way it was put', 'interview'],
+        t: 'How a question is worded feeds information into the memory being asked about. A question '
+         + 'that suggests an answer can put something into an account that was never in the night.' },
+      { c: 'Two witnesses who talk end up agreeing',
+        needs: ['Memory is rebuilt each time, not played back'],
+        k: ['both said', 'agree', 'talked', 'together', 'two witnesses', 'same detail'],
+        t: 'Witnesses who talk to each other pass details back and forth, so their accounts grow more '
+         + 'alike. Two accounts that agree are only two pieces of evidence if the people never spoke.' },
+      { c: 'Where a claim came from, and when it was first said',
+        needs: ['Memory is rebuilt each time, not played back'],
+        k: ['dated', 'when it was said', 'first said', 'came from', 'the record shows', 'timeline'],
+        t: 'Every claim in a file has a date and a source, and putting them in order shows what was '
+         + 'known when. A detail that appears only after a photograph was published came from '
+         + 'somewhere, and it is worth knowing where.' },
+      { c: 'A line-up needs choices somebody might really pick',
+        k: ['line-up', 'lineup', 'array', 'filler', 'six photographs', 'choices'],
+        t: 'A line-up only tests a memory if every face in it fits the description given. Fillers '
+         + 'nobody would ever pick are not real choices, so a line-up of six can behave like a '
+         + 'line-up of two.' },
+      { c: 'Saying the person might not be there at all',
+        needs: ['A line-up needs choices somebody might really pick'],
+        k: ['may not be here', 'might not be', 'none of them', 'caution', 'warned'],
+        t: 'Told that the person may not be in the line-up, a witness can answer no. Left without '
+         + 'that warning, the question becomes which of these is closest, and there is always an '
+         + 'answer to that.' },
+      { c: 'How sure somebody is, and when they said it',
+        needs: ['Memory is rebuilt each time, not played back'],
+        k: ['sure', 'certain', 'confidence', 'positive', 'no doubt', 'how sure'],
+        t: 'Confidence grows every time an account is repeated and agreed with, so being very sure '
+         + 'later says little. What counts is how sure somebody was the first time, before anybody '
+         + 'told them anything.' },
+      { c: 'Being tired, frightened or hurt changes what you notice',
+        needs: ['Memory is rebuilt each time, not played back'],
+        k: ['tired', 'stress', 'frightened', 'hours awake', 'shift', 'attention', 'noticed'],
+        t: 'Fear and tiredness narrow what a person takes in, so the middle of a frightening event '
+         + 'is often remembered while its edges are not. It explains a gap in an account without '
+         + 'making the account dishonest.' },
+      { m: true, c: 'Two pieces of evidence that share a source are one',
+        needs: ['Two witnesses who talk end up agreeing'],
+        k: ['independent', 'share', 'same source', 'both came from', 'counted twice'],
+        t: 'Evidence only adds up when the pieces came from different places. Two numbers worked out '
+         + 'from the same measurement will always agree, and their agreement says nothing.' },
+      { m: true, c: 'What a report may say, and what it may not',
+        needs: ['Two pieces of evidence that share a source are one',
+          'How sure somebody is, and when they said it'],
+        k: ['report', 'conclusion', 'settles', 'does not show', 'recommend', 'what it is worth'],
+        t: 'A report says what was found, how well it was found, and what was never established. '
+         + 'Showing that evidence is weak is not the same as showing what happened, and a careful '
+         + 'report says which of the two it has done.' },
+    ],
+  },
+  redsand_ms: {
+    course: 'Matter and change, taught inside a plant that has to make its own fuel out of an atmosphere',
+    concepts: [
+      { c: 'Everything is made of atoms, and atoms are never lost',
+        k: ['atom', 'made of', 'element', 'particle', 'nothing is lost', 'the same atoms'],
+        t: 'Everything around you is built from atoms, and a reaction only rearranges them. None are '
+         + 'created and none disappear, which is why you can always ask where a missing kilogram went.' },
+      { c: 'A physical change and a chemical change are different things',
+        needs: ['Everything is made of atoms, and atoms are never lost'],
+        k: ['physical change', 'chemical change', 'melts', 'freezes', 'new substance', 'still the same stuff'],
+        t: 'Freezing, melting and boiling rearrange how molecules are packed and leave the molecules '
+         + 'themselves alone. A chemical change makes different molecules. Only one of the two can be '
+         + 'undone by warming something up again.' },
+      { m: true, c: 'Mass is conserved: what went in comes out somewhere',
+        needs: ['Everything is made of atoms, and atoms are never lost'],
+        k: ['mass', 'kilograms in', 'balance', 'adds up', 'went missing', 'accounted for'],
+        t: 'Weigh what goes into a process and weigh what comes out, and the two have to match. When '
+         + 'they do not, something has gone somewhere nobody is looking — which is a finding rather '
+         + 'than a rounding error.' },
+      { m: true, c: 'A rate is an amount every hour, and it adds up',
+        k: ['rate', 'per hour', 'per sol', 'kilograms a day', 'how fast', 'adds up to'],
+        t: 'A rate says how much of something happens in each stretch of time. Multiplying it by the '
+         + 'time gives the total, which is how a daily figure turns into whether a deadline is met.' },
+      { c: 'Temperature is how fast the particles are moving',
+        k: ['temperature', 'hotter', 'colder', 'moving faster', 'degrees', 'kelvin'],
+        t: 'Heating something makes its particles move faster and hit each other harder. Almost '
+         + 'everything temperature does — reactions speeding up, solids melting, gases pushing harder '
+         + '— comes out of that one fact.' },
+      { c: 'Reactions go faster when it is hotter',
+        needs: ['Temperature is how fast the particles are moving'],
+        k: ['faster', 'speeds up', 'rate of the reaction', 'hotter bed', 'slows down'],
+        t: 'Particles that move faster meet more often and hit harder, so a hotter reaction makes more '
+         + 'product each hour. It is the first thing anybody reaches for when a plant is behind, and '
+         + 'it is not free.' },
+      // Deliberately no `needs`. Yield and rate are two separate ideas at this
+      // level rather than one derived from the other, and the callback machinery
+      // can serve the review of either on any day from the third onward.
+      { c: 'How much you get is not the same as how fast you get it',
+        k: ['yield', 'rate is not', 'how much comes out', 'per pass', 'conversion', 'faster but less'],
+        t: 'Speed is how much happens each hour and yield is what fraction of the feed ends up as '
+         + 'product. Pushing one can cost the other, so a plant running faster can still deliver less '
+         + 'at the end of the day.' },
+      { c: 'A catalyst gives the reaction an easier path',
+        k: ['catalyst', 'easier path', 'nickel', 'speeds it up without', 'used up'],
+        t: 'A catalyst lets a reaction happen by an easier route, so more of it happens at the same '
+         + 'temperature. It is not used up and it does not change how much you can get in the end — '
+         + 'only how quickly you get there.' },
+      { c: 'More surface means more places for a reaction to happen',
+        needs: ['A catalyst gives the reaction an easier path'],
+        k: ['surface', 'grains', 'particle size', 'clump', 'more places', 'spread out'],
+        t: 'A reaction on a solid can only happen where the solid is exposed, so the same mass of '
+         + 'catalyst in smaller grains does far more work. Anything that makes the grains clump '
+         + 'together quietly takes that surface away.' },
+      { c: 'Something in the way: how a catalyst gets poisoned',
+        needs: ['A catalyst gives the reaction an easier path'],
+        k: ['poison', 'blocked', 'sticks to', 'stops working', 'chloride', 'inlet end'],
+        t: 'An impurity in the feed can stick to the surface and stay there, so the catalyst still '
+         + 'looks fine and does less every day. It fails from the inlet end, because that is where '
+         + 'the feed reaches first.' },
+      { c: 'Solids, liquids and gases, and what changes between them',
+        needs: ['Temperature is how fast the particles are moving'],
+        k: ['solid', 'liquid', 'gas', 'freeze', 'boil', 'condense', 'state'],
+        t: 'The same substance can be a solid, a liquid or a gas depending on how much its particles '
+         + 'are moving. Every substance changes at its own temperature, which is what lets a mixture '
+         + 'be taken apart by cooling it.' },
+      { c: 'Cooling a mixture separates it, one substance at a time',
+        needs: ['Solids, liquids and gases, and what changes between them'],
+        k: ['separate', 'condense first', 'boiling point', 'cold end', 'freezes out', 'mixture'],
+        t: 'Cool a mixture and whatever turns to liquid first can be drained away from the rest. It is '
+         + 'how a plant pulls one gas out of four, and it is why the wrong thing freezing in a pipe '
+         + 'stops everything.' },
+      { c: 'A gas in a closed tank pushes on its walls',
+        needs: ['Solids, liquids and gases, and what changes between them'],
+        k: ['pressure', 'tank', 'bar', 'pushes', 'closed', 'warms up'],
+        t: 'Gas particles bounce off the walls of whatever holds them, and that is pressure. Warm the '
+         + 'tank and they move faster and push harder, so a pressure rise can mean heat rather than a '
+         + 'leak.' },
+      { m: true, c: 'A day has an energy budget, and everything spends from it',
+        needs: ['A rate is an amount every hour, and it adds up'],
+        k: ['energy', 'kilowatt', 'power', 'budget', 'spend', 'array', 'shut down'],
+        t: 'Every machine here runs on the same electricity, and there is only so much of it in a day. '
+         + 'Deciding what to switch off is arithmetic first and judgement second.' },
+      { m: true, c: 'Pure enough: what a specification really claims',
+        needs: ['Mass is conserved: what went in comes out somewhere'],
+        k: ['specification', 'pure', 'impurity', 'parts per', 'limit', 'passes the spec'],
+        t: 'A purity limit says how much of something else is allowed to be mixed in. It is a claim '
+         + 'about a ratio, so it stays true whatever size the batch is — and it says nothing about '
+         + 'anything nobody thought to measure.' },
+      { m: true, c: 'Change one thing at a time and see what moves',
+        needs: ['A rate is an amount every hour, and it adds up'],
+        k: ['one thing at a time', 'change one', 'fair test', 'control', 'compare', 'put it back'],
+        t: 'To find out which of several things is causing a problem you change one and hold the rest, '
+         + 'then put it back. Two changes at once give an answer that fits both and settles neither.' },
+    ],
+  },
+  the_trial_ms: {
+    course: 'How a fair test is run on people, and what its numbers are allowed to say afterwards',
+    concepts: [
+      { m: true, c: 'A fair test changes one thing and keeps the rest the same',
+        k: ['fair test', 'change one thing', 'kept the same', 'control', 'compare', 'variable'],
+        t: 'To find out whether something works you give it to one group and not to another, and keep '
+         + 'everything else about the two groups alike. Any difference left over is the thing you '
+         + 'changed, and nothing else.' },
+      { c: 'Two groups have to start out alike',
+        needs: ['A fair test changes one thing and keeps the rest the same'],
+        k: ['two groups', 'alike', 'balanced', 'similar', 'started the same', 'comparable'],
+        t: 'If the people in one group are healthier to begin with, the result says which group was '
+         + 'healthier rather than which treatment worked. Making the groups alike at the start is what '
+         + 'makes the ending mean anything.' },
+      { c: 'Tossing a coin is how you get groups nobody chose',
+        needs: ['Two groups have to start out alike'],
+        k: ['random', 'coin', 'chance decides', 'allocate', 'assigned', 'nobody chose'],
+        t: 'Letting chance decide who goes in which group keeps anybody\'s hopes out of it, including '
+         + 'the honest ones. It also makes the two groups alike in things nobody thought to measure.' },
+      { c: 'Not knowing who got what, and why that helps',
+        needs: ['Tossing a coin is how you get groups nobody chose'],
+        k: ['blind', 'blinded', 'does not know', 'kept from', 'unblinded', 'guess which'],
+        t: 'People score things differently when they know which treatment somebody had, without meaning '
+         + 'to. Keeping that hidden from patients, doctors and scorers is what stops hope quietly '
+         + 'moving the result.' },
+      { m: true, c: 'Say what you are measuring before you look',
+        k: ['in advance', 'before you look', 'written down first', 'the plan says', 'decided beforehand'],
+        t: 'The measurement that counts has to be chosen before anybody sees the data. Choose afterwards '
+         + 'and you will pick the one that came out well, which every set of numbers contains somewhere.' },
+      { c: 'What you measure is not always what you care about',
+        needs: ['Say what you are measuring before you look'],
+        k: ['stand-in', 'proxy', 'what we care about', 'blood test', 'feel better', 'really matters'],
+        t: 'A quick measurement often stands in for the thing that actually matters to a person. It is '
+         + 'only worth using while the two move together, and a treatment can move one without moving '
+         + 'the other.' },
+      { m: true, c: 'A bigger sample is a steadier answer',
+        k: ['sample', 'how many', 'number of people', 'bigger group', 'small trial', 'enough people'],
+        t: 'Small groups bounce around by luck, so a small trial can show almost anything once. Adding '
+         + 'people does not change what is true; it makes the answer you get closer to it.' },
+      { m: true, c: 'The average, and how spread out the readings are',
+        needs: ['A bigger sample is a steadier answer'],
+        k: ['average', 'mean', 'spread', 'range', 'typical', 'how much they vary'],
+        t: 'An average says where the middle of a set of readings is and a spread says how far they '
+         + 'reach either side. Two groups with the same average can be nothing alike, and the spread is '
+         + 'what tells you.' },
+      { c: 'Look at enough things and something looks special by luck',
+        needs: ['A bigger sample is a steadier answer'],
+        k: ['by luck', 'by chance', 'many tests', 'one of fourteen', 'looked at everything', 'coincidence'],
+        t: 'Every extra comparison is another chance for an ordinary difference to look striking. Testing '
+         + 'fourteen things and reporting the best one is not a finding, it is arithmetic.' },
+      { c: 'People who drop out take their answers with them',
+        needs: ['Two groups have to start out alike'],
+        k: ['dropped out', 'missing', 'left the trial', 'stopped coming', 'lost', 'never returned'],
+        t: 'People rarely leave a trial for no reason, so the ones who go are often unlike the ones who '
+         + 'stay. Leaving them out quietly turns a fair test into a comparison of whoever stuck it out.' },
+      { c: 'Counting everybody in the group they were put in',
+        needs: ['Tossing a coin is how you get groups nobody chose'],
+        k: ['as assigned', 'counted in', 'switched', 'did not take it', 'the group they started in'],
+        t: 'Everybody is counted in the group chance put them in, even if they never took the treatment. '
+         + 'Moving people between groups afterwards undoes the coin toss and lets the healthier ones '
+         + 'gather on one side.' },
+      { m: true, c: 'A difference can be real and still be small',
+        needs: ['The average, and how spread out the readings are'],
+        k: ['how big', 'small difference', 'matters to', 'worth having', 'real but small', 'per hundred'],
+        t: 'Whether a difference is real and whether it is worth anything are two separate questions. A '
+         + 'result reported as a share of a share can sound enormous and mean two people in a thousand.' },
+      { m: true, c: 'Say what was found, how well, and what was not',
+        needs: ['Say what you are measuring before you look'],
+        k: ['report', 'claim', 'what it shows', 'does not show', 'honest', 'what is left over'],
+        t: 'A report says what was found, how firmly, and what nobody established. Writing the limits '
+         + 'down is what lets the next person tell a strong result from a lucky one.' },
+      { m: true, c: 'What the people in the trial are owed',
+        needs: ['A fair test changes one thing and keeps the rest the same'],
+        k: ['owed', 'told', 'consent', 'safety', 'the people in it', 'looked after'],
+        t: 'The people in a trial are not data. They are owed the truth about what happened to them, a '
+         + 'safe way out, and to be told anything that changes what they would have agreed to.' },
+    ],
+  },
 };
 
 // --------------------------------------------------------------- equations
@@ -4223,6 +4482,80 @@ export const EQUATIONS = {
       v: [['N_dopant', 'the dopant atoms in each cubic centimetre'], ['ppb', 'the impurity level quoted on the certificate, in parts per billion'], ['N_lattice', 'the atoms of silicon in a cubic centimetre, 5.0 × 10²²']],
       s: 'A part per billion sounds like nothing and is fifty thousand billion atoms in every cubic centimetre, which is the arithmetic that makes an impurity the product rather than a defect.',
       k: ['parts per billion', 'dopant atoms per cubic centimetre', 'atoms in a cubic centimetre', 'dopant concentration', 'impurity level', 'how many dopant atoms'] },
+  ],
+  sightline_ms: [
+    { e: 'detail in mm = distance in metres × 0.3', c: 'the smallest thing an eye can still separate',
+      v: [['detail in mm', 'the smallest gap two things can have and still look like two things'], ['distance in metres', 'how far away the person was standing']],
+      s: 'The further away something is, the bigger it has to be before you can make it out at all — which turns a distance in the file into a hard limit on what any witness could have seen.',
+      k: ['detail', 'smallest', 'make out', 'at that distance', 'millimetre', 'how far away'] },
+    { e: 'percentage = part ÷ whole × 100', c: 'turning a count into a share out of a hundred',
+      v: [['part', 'how many did the thing you are counting'], ['whole', 'how many there were altogether']],
+      s: 'A raw count means nothing until you know what it is out of, and a percentage is the form that lets two counts from different-sized groups be compared at all.',
+      k: ['per cent', 'percent', 'percentage', 'out of', 'share of', 'how often'] },
+    { e: 'average = total ÷ how many', c: 'what several readings of one thing come to',
+      v: [['total', 'all the readings added together'], ['how many', 'the number of readings taken']],
+      s: 'One reading can be out by luck and the average of several is steadier, which is why anything that matters gets measured more than once.',
+      k: ['average', 'mean', 'added together', 'divided by how many', 'repeated readings'] },
+    { e: 'chance of a lucky pick (%) = 100 ÷ number of real choices',
+      c: 'how often a guess lands on one particular face',
+      needs: ['percentage = part ÷ whole × 100'],
+      v: [['number of real choices', 'how many of the faces somebody might actually pick, given the description']],
+      s: 'A line-up is only as big as the number of faces a witness might really choose, so counting the real choices says how often a pure guess would land on the suspect.',
+      k: ['lucky', 'by chance', 'guess', 'real choices', 'one in six', 'filler'] },
+    { e: 'light on a spot = lamp brightness ÷ (distance × distance)',
+      c: 'how fast light runs out as you move away from a lamp',
+      v: [['lamp brightness', 'how strong the lamp is, in candela'], ['distance', 'how far the spot is from the lamp, in metres']],
+      s: 'Doubling your distance from a lamp leaves a quarter of the light, which is why a doorway a few metres further from a streetlight is very much darker rather than a little darker.',
+      k: ['light', 'lamp', 'lux', 'candela', 'brightness', 'twice as far', 'doorway'] },
+  ],
+  redsand_ms: [
+    { e: 'amount = rate × time', c: 'a daily figure turned into a total',
+      v: [['rate', 'how much is made in each hour or sol'], ['time', 'how many hours or sols it runs for']],
+      s: 'Every deadline in this plant is this sum done twice — once for what the plant makes and once for what the schedule needs — and the gap between the two is the whole campaign.',
+      k: ['rate', 'per sol', 'per hour', 'kilograms a sol', 'adds up to', 'how long it runs'] },
+    { e: 'mass out = mass in', c: 'nothing leaves a process it did not enter',
+      v: [['mass in', 'everything fed in, in kilograms'], ['mass out', 'everything collected, in kilograms']],
+      s: 'Atoms are not created or destroyed, so the two sides have to match — and when they do not, the missing kilograms are somewhere nobody has looked yet.',
+      k: ['mass', 'kilograms in', 'accounted for', 'adds up', 'went missing', 'conserved'] },
+    { e: 'percentage = part ÷ whole × 100', c: 'turning a count into a share out of a hundred',
+      v: [['part', 'the amount you are asking about'], ['whole', 'the amount it came out of']],
+      s: 'Two batches of different sizes cannot be compared until both are put in the same form, and a percentage is that form.',
+      k: ['per cent', 'percent', 'percentage', 'share of', 'out of', 'efficiency'] },
+    { e: 'average = total ÷ how many', c: 'what several readings of one thing come to',
+      v: [['total', 'all the readings added together'], ['how many', 'the number of readings']],
+      s: 'One reading of a plant that wanders can say anything you like, so anything worth arguing about gets measured several times and averaged.',
+      k: ['average', 'mean', 'added together', 'divided by how many', 'several readings'] },
+    { e: 'energy = power × time', c: 'what a machine spends out of the day',
+      needs: ['amount = rate × time'],
+      v: [['power', 'how fast the machine uses electricity, in kilowatts'], ['time', 'how many hours it runs']],
+      s: 'A plant with one solar array has one pot of energy a sol, so every machine is asking for a share of it and the arithmetic decides who gets one.',
+      k: ['energy', 'kilowatt', 'kilowatt-hour', 'power', 'runs for', 'budget'] },
+  ],
+  the_trial_ms: [
+    { e: 'average = total ÷ how many', c: 'the middle of a set of readings',
+      v: [['total', 'all the readings added together'], ['how many', 'the number of readings']],
+      s: 'One person tells you about one person, and the average of a group is the first number that can be compared with another group at all.',
+      k: ['average', 'mean', 'added together', 'divided by how many', 'typical'] },
+    { e: 'percentage = part ÷ whole × 100', c: 'a count turned into a share of a hundred',
+      v: [['part', 'how many it happened to'], ['whole', 'how many there were altogether']],
+      s: 'Two groups are almost never the same size, so counts cannot be compared until both are written as a share of their own group.',
+      k: ['per cent', 'percent', 'percentage', 'out of', 'share of', 'rate per'] },
+    { e: 'difference = one group − the other group', c: 'how much better one group did',
+      needs: ['percentage = part ÷ whole × 100'],
+      v: [['one group', 'the share it happened to in the treated group'], ['the other group', 'the share in the group that did not get it']],
+      s: 'Subtracting one share from the other gives the size of the effect in the plainest form there is — how many people in a hundred it changes anything for.',
+      k: ['difference', 'better than', 'how much more', 'minus', 'gap between the groups'] },
+    { e: 'how many needed = 100 ÷ the difference in shares',
+      c: 'how many people you have to treat for one of them to benefit',
+      needs: ['difference = one group − the other group'],
+      v: [['the difference in shares', 'the gap between the two groups, in people per hundred']],
+      s: 'Turning a difference upside down says how many people have to take a treatment for one extra person to be helped, which is the form a patient can actually use.',
+      k: ['how many people', 'for one', 'treat', 'benefit', 'one extra person'] },
+    { e: 'chance of a fluke = 1 ÷ how many things you tested',
+      c: 'how easily something looks special when you test a lot of things',
+      v: [['how many things you tested', 'the number of separate comparisons that were made']],
+      s: 'Every extra comparison is another go at the same coin, so a striking result in a long list needs a different explanation before it needs a scientific one.',
+      k: ['by luck', 'by chance', 'fluke', 'how many tests', 'one of fourteen', 'comparisons'] },
   ],
 };
 
