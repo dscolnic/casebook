@@ -88,6 +88,64 @@
       "built": true
     },
     {
+      "id": "redsand_ms",
+      "title": "Red Sand",
+      "course": "Matter and change · physical science",
+      "field": "Chemistry",
+      "accent": "#c2704a",
+      "place": "A propellant plant on Mars: modules buried in regolith along one track, under a butterscotch sky.",
+      "hero": "shots/redsand.jpg",
+      "build": "redsand_ms",
+      "pair": "redsand",
+      "shotsFrom": "redsand",
+      "level": "middle",
+      "grades": "6–8",
+      "role": "Propellant Lead · Arcadia Rise",
+      "grade": 6,
+      "drama": "The window opens on sol 486 and does not open again for twenty-six months. You are the propellant lead, which means the plant is yours: the reactor, the water, the power and the cold end.",
+      "concepts": [
+        "Everything is made of atoms, and atoms are never lost",
+        "Temperature is how fast the particles are moving",
+        "More surface means more places for a reaction to happen",
+        "Cooling a mixture separates it, one substance at a time",
+        "Change one thing at a time and see what moves"
+      ],
+      "size": {
+        "days": 17,
+        "stops": 30
+      },
+      "built": true
+    },
+    {
+      "id": "yellowbay",
+      "title": "Yellow Bay",
+      "course": "AP Chemistry · the structure half",
+      "field": "Chemistry",
+      "accent": "#c9a227",
+      "place": "A wafer fab mid yield crash: two gowned wings joined by a glass crossing over the subfab, and the litho end lit amber.",
+      "hero": "shots/yellowbay.jpg",
+      "build": "yellowbay",
+      "pair": "yellowbay",
+      "shotsFrom": "yellowbay",
+      "level": "high",
+      "grades": "9–12",
+      "role": "Process Integration Lead · Ardley Fab 7",
+      "grade": 12,
+      "drama": "Fab 7 has been losing four wafers in ten since the second week of March, and the qualification lot for the customer that buys sixty per cent of what this plant makes has to run in fifteen days. You are the process integration lead, which means the signature on that lot is yours and so is every decision between here and it.",
+      "concepts": [
+        "Atomic structure: protons, electrons and the shells they occupy",
+        "Percent composition: what a formula asserts about a film",
+        "Two lots that measure the same: when a specification cannot tell them apart",
+        "Lattice energy: what it costs to pull an ionic solid apart",
+        "Surface oxidation: a clean surface, and what the air does to it in minutes"
+      ],
+      "size": {
+        "days": 22,
+        "stops": 45
+      },
+      "built": true
+    },
+    {
       "id": "headwater",
       "title": "Headwater",
       "course": "AP Calculus AB",
@@ -146,6 +204,35 @@
       "built": true
     },
     {
+      "id": "the_trial_ms",
+      "title": "The Trial",
+      "course": "Fair tests, averages and evidence · science practices",
+      "field": "Maths & Stats",
+      "accent": "#cf7fae",
+      "place": "One long floor, where walking north is distance from the patient.",
+      "hero": "shots/the_trial.jpg",
+      "build": "the_trial_ms",
+      "pair": "the_trial",
+      "shotsFrom": "the_trial",
+      "level": "middle",
+      "grades": "6–8",
+      "role": "Methodology & Operations Lead · CLARION-3",
+      "grade": 6,
+      "drama": "CLARION-3 has been running for four years. You are the methods and operations lead at the coordinating centre, which means the pack the safety board reads is the pack you put together.",
+      "concepts": [
+        "A fair test changes one thing and keeps the rest the same",
+        "Not knowing who got what, and why that helps",
+        "The average, and how spread out the readings are",
+        "Counting everybody in the group they were put in",
+        "What the people in the trial are owed"
+      ],
+      "size": {
+        "days": 17,
+        "stops": 30
+      },
+      "built": true
+    },
+    {
       "id": "sightline",
       "title": "Sightline",
       "course": "AP Psychology · all five units",
@@ -171,6 +258,35 @@
       "size": {
         "days": 22,
         "stops": 48
+      },
+      "built": true
+    },
+    {
+      "id": "sightline_ms",
+      "title": "Sightline",
+      "course": "How memory and eyesight work · science practices",
+      "field": "Psychology",
+      "accent": "#2f6f9f",
+      "place": "A hall with a street corner built across one end, and the identification distance painted on the floor.",
+      "hero": "shots/sightline.jpg",
+      "build": "sightline_ms",
+      "pair": "sightline",
+      "shotsFrom": "sightline",
+      "level": "middle",
+      "grades": "6–8",
+      "role": "Review Analyst · Conviction Integrity Unit",
+      "grade": 6,
+      "drama": "On a November night in 2019, a stranger watched a robbery from the other side of Ferrier Street. You are the review analyst at the Conviction Integrity Unit, which means the report that goes to the board in fifteen days is yours to write.",
+      "concepts": [
+        "Memory is rebuilt each time, not played back",
+        "Repeat a measurement and take the average",
+        "Two witnesses who talk end up agreeing",
+        "How sure somebody is, and when they said it",
+        "What a report may say, and what it may not"
+      ],
+      "size": {
+        "days": 17,
+        "stops": 30
       },
       "built": true
     },
