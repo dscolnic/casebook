@@ -35,20 +35,17 @@ export const CURRICULUM = {
         "scenarios": [
           "A metal, paired with a charged group of atoms.",
           "Two records share every element and disagree on how many of each.",
-          "A particle has more electrons than protons.",
           "A label gives a trade name and nothing else."
         ],
         "choices": [
           "Probably one of the salts — held together by opposite charges.",
           "Not one material under two labels — these behave differently.",
-          "It carries a negative charge overall.",
           "Not enough to say anything about the danger."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "What the record shows",
@@ -105,14 +102,12 @@ export const CURRICULUM = {
         "cards": [
           "Photograph the markings on the outside, which uses nothing up.",
           "Collect the air above the liquid, without opening the drum.",
-          "Take a few drops, and run a test that gives them back.",
           "Run the test that uses up the sample."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "axis": "Put the four in order by what each one costs you, cheapest first. There is no clock here. You can do any of them right now, so the question is which ones you can still do afterwards.",
         "ends": [
@@ -404,20 +399,17 @@ export const CURRICULUM = {
         "scenarios": [
           "The temperature rises, with the pressure much the same.",
           "The pressure falls, with the same gas and the same warmth.",
-          "The gas is heavier than air.",
-          "The wind shifts while the drum is still leaking."
+          "The gas is heavier than air."
         ],
         "choices": [
           "It takes up more room, in step with the warming.",
           "It takes up more room, with less pushing in.",
-          "It may sink and pool low down.",
-          "The danger has moved, so the map must move."
+          "It may sink and pool low down."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "What changes in the field",
@@ -516,20 +508,17 @@ export const CURRICULUM = {
         "scenarios": [
           "Something that dissolves easily in water.",
           "An oily liquid that will not mix with water.",
-          "Something that mixes with water the way sugar does.",
           "Something that sticks hard to specks of dirt in the water."
         ],
         "choices": [
           "Spread right through the water, travelling with it.",
           "Sits as a separate layer or a film on the surface.",
-          "Dissolves well, and moves with the water.",
           "Rides the specks down, and ends up in the mud."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "What kind of chemical it is",
@@ -1560,21 +1549,18 @@ export const CURRICULUM = {
         ],
         "scenarios": [
           "Only the water leaving the plant was sampled.",
-          "Samples were taken after running the tap for a long time.",
           "Nothing the machine reports can fall under the legal line.",
           "One laboratory both fixed the water and checked it."
         ],
         "choices": [
           "Sample at the taps people actually drink from.",
-          "Write down the running, and sample the way people really use it.",
           "Get a machine sensitive enough to test the standard.",
           "Get somebody independent to check it."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "The gap in the evidence",
@@ -1993,20 +1979,17 @@ export const CURRICULUM = {
         "scenarios": [
           "Metal is dissolving away into the water.",
           "A surface is taking in the electrons that were left behind.",
-          "Two different metals are bolted together, in water.",
           "A coating has one small break in it."
         ],
         "choices": [
           "This is where the metal is actually being lost.",
           "The other half of the loop, which loses no metal.",
-          "Everything the loop needs, in one place.",
           "The whole attack, squeezed into one small spot."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "What is happening at the metal",
@@ -2346,14 +2329,12 @@ export const CURRICULUM = {
         "cards": [
           "Change the dissolved metal into the form that can turn solid.",
           "Change the water, so that form actually turns solid.",
-          "Let it settle, and filter the solid out.",
-          "Polish what is left on carbon, for whatever stayed dissolved."
+          "Let it settle, and filter the solid out."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -2447,20 +2428,17 @@ export const CURRICULUM = {
         "scenarios": [
           "Confirmed by two separate methods, with checks.",
           "Likely, and there is no way to measure it yet.",
-          "The water passes, and the mud is still contaminated.",
-          "Corrosion is under control while the water chemistry holds."
+          "The water passes, and the mud is still contaminated."
         ],
         "choices": [
           "Write it down as settled, with the methods.",
           "Call it provisional, and keep working on how to measure it.",
-          "Keep managing the mud, and keep watching for it coming back.",
-          "Keep going under conditions, with triggers written down."
+          "Keep managing the mud, and keep watching for it coming back."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "What the evidence supports",

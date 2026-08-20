@@ -35,20 +35,17 @@ export const CURRICULUM = {
         "scenarios": [
           "Which direction it lies in.",
           "How fast it is coming toward us.",
-          "How far away it is.",
-          "Whether its speed is changing."
+          "How far away it is."
         ],
         "choices": [
           "Photograph it against stars whose places are already known.",
           "Compare the pitch coming back with the pitch sent out.",
-          "Time a radio pulse out to it and back again.",
-          "Measure the same thing twice, and subtract."
+          "Time a radio pulse out to it and back again."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "What we want to know",
@@ -98,14 +95,12 @@ export const CURRICULUM = {
         "cards": [
           "Put every measurement on one map and one clock.",
           "Fit one path to the distance, the angles and the pitch.",
-          "Look at what the fit misses, and why.",
           "Carry the answer, and its range, to the burn."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -530,20 +525,17 @@ export const CURRICULUM = {
         "scenarios": [
           "The crew huddle together.",
           "Moving air carries warmth round the cabin.",
-          "A cold wall soaks up warmth from everything facing it.",
-          "A metal strut runs out to the structure outside."
+          "A cold wall soaks up warmth from everything facing it."
         ],
         "choices": [
           "Heat moving by touching.",
           "Heat riding on moving air.",
-          "Heat beaming across a gap.",
-          "Heat conducted straight out along metal."
+          "Heat beaming across a gap."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "What is happening in the cabin",
@@ -552,27 +544,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "heat moves by touching, by riding on moving air, or by beaming across a gap"
-      ],
-      "equations": [
-        {
-          "e": "how long = amount ÷ rate",
-          "c": "how long a store lasts",
-          "v": [
-            [
-              "how long",
-              "in hours"
-            ],
-            [
-              "amount",
-              "what is in the store"
-            ],
-            [
-              "rate",
-              "how fast it is being used"
-            ]
-          ],
-          "s": "A store divided by the rate it is being drawn at gives the hours before it is empty."
-        }
       ],
       "concept": {
         "n": 7,
@@ -955,20 +926,17 @@ export const CURRICULUM = {
         "scenarios": [
           "The same push, further from the middle.",
           "The same push, on a craft that is harder to turn.",
-          "An equal push one way, then the other, for equal times.",
-          "Moving things about inside, with nothing pushing from outside."
+          "An equal push one way, then the other, for equal times."
         ],
         "choices": [
           "It turns harder.",
           "It turns more slowly.",
-          "The turning cancels out, and it ends up as it started.",
-          "The total turning cannot change, however things move inside."
+          "The turning cancels out, and it ends up as it started."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "What you change",
@@ -1018,14 +986,12 @@ export const CURRICULUM = {
         "cards": [
           "Check where the spacecraft is pointing.",
           "Slow the message down, and listen over a narrower range.",
-          "Point the big ground dishes, and tell them where to listen.",
-          "Feed the tracking that comes back into the navigation."
+          "Point the big ground dishes, and tell them where to listen."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -1155,14 +1121,12 @@ export const CURRICULUM = {
         "cards": [
           "Save the recordings from before and after the failure.",
           "Check the units, the clocks, and what everything depends on.",
-          "Work out where it is and how fast, with a range.",
-          "Send only the commands that help either way."
+          "Work out where it is and how fast, with a range."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -2101,14 +2065,12 @@ export const CURRICULUM = {
         "cards": [
           "Set the approved attitude and settings before the silence.",
           "Agree who is flying, before the radio goes quiet.",
-          "Watch the slowing and the heating against what was predicted.",
-          "Come down, keeping the record of what happened."
+          "Watch the slowing and the heating against what was predicted."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [

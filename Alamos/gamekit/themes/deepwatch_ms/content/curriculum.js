@@ -35,20 +35,17 @@ export const CURRICULUM = {
         "scenarios": [
           "A steady hiss that rises and falls with our own speed.",
           "A narrow tone at one pitch, drifting slowly in direction.",
-          "Short chirps with no drift at all, gone within a minute.",
           "Two tones an octave apart, direction barely moving, growing louder."
         ],
         "choices": [
           "It is being made aboard this boat.",
           "Machinery on a ship holding a steady course.",
-          "Something alive, passing through.",
           "Something on a course that closes with ours."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "What you hear",
@@ -229,14 +226,12 @@ export const CURRICULUM = {
         "cards": [
           "Record what the boat itself sounds like, first.",
           "Find the depth of the layer, which hides sounds below it.",
-          "Hold them long enough to see which way they move.",
-          "Agree what to do if contact is lost, before it is."
+          "Hold them long enough to see which way they move."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -1178,14 +1173,12 @@ export const CURRICULUM = {
         "cards": [
           "Find where the sealed boundary runs.",
           "Prove both hatches out of here still open, by trying them.",
-          "Find what in here could start a fire or a flood.",
-          "Judge whether the kit stowed here could fight one."
+          "Find what in here could start a fire or a flood."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -1444,20 +1437,17 @@ export const CURRICULUM = {
         "scenarios": [
           "The forward bilge, wet and not rising.",
           "The faint contact nobody has resolved.",
-          "The scrubber that is down.",
-          "The bearing running warm."
+          "The scrubber that is down."
         ],
         "choices": [
           "Log the level every ten minutes, and report changes.",
           "Hold it until the bearing moves, and report before it is certain.",
-          "Get it running, or name the hour the air runs out.",
-          "Get the second pump back, and say what noise it costs."
+          "Get it running, or name the hour the air runs out."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "What is going on elsewhere",
@@ -1530,20 +1520,17 @@ export const CURRICULUM = {
         "scenarios": [
           "The live fault that keeps re-lighting the cable.",
           "The cable insulation that is actually burning.",
-          "The air in the compartment feeding the flame.",
-          "The heat coming through the bulkhead to the next space."
+          "The air in the compartment feeding the flame."
         ],
         "choices": [
           "Open the breaker, then prove the cable dead with a meter.",
           "Cool it below the heat it needs to re-light.",
-          "Shut the vent to the space, so the flame stops being fed.",
-          "Set a boundary, and read it with a heat gun."
+          "Shut the vent to the space, so the flame stops being fed."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "What is feeding the fire",
@@ -1590,16 +1577,12 @@ export const CURRICULUM = {
         "cards": [
           "Open the breaker for that bus.",
           "Meter the cable in the compartment and prove it dead.",
-          "Go in on air masks and fight the fire.",
-          "Set boundaries and read them until the seat is cold.",
-          "Bring the loads back on, the vital ones first."
+          "Go in on air masks and fight the fire."
         ],
         "order": [
           0,
           1,
-          2,
-          3,
-          4
+          2
         ]
       },
       "assumes": [
@@ -2036,20 +2019,17 @@ export const CURRICULUM = {
         "scenarios": [
           "A wheel valve on a pipe that runs through the hull.",
           "A manifold at head height with quick-connect couplings.",
-          "A strapped steel locker with a quick-release catch.",
-          "A folded hose on a reel, beside a small shut-off valve."
+          "A strapped steel locker with a quick-release catch."
         ],
         "choices": [
           "Open it that deep and the sea comes in hard.",
           "It gives people air before a space is fit to enter.",
-          "It holds the props and plugs this compartment fights with.",
-          "It puts water on a fire, once the circuit is proved dead."
+          "It holds the props and plugs this compartment fights with."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "What you are looking at",
@@ -2167,20 +2147,17 @@ export const CURRICULUM = {
         "scenarios": [
           "Shut the hull valve first.",
           "Shut only the inboard supply valve.",
-          "Start a second portable pump before isolating.",
-          "Tell sonar before the header is shut."
+          "Start a second portable pump before isolating."
         ],
         "choices": [
           "Stops the sea at the hull, the only cut that ends it.",
           "Stops the flow, and leaves the sea joined to the pipe.",
-          "Buys minutes and changes nothing about where the water comes from.",
-          "Gives that watch warning that their cooling is about to stop."
+          "Buys minutes and changes nothing about where the water comes from."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "What you order",

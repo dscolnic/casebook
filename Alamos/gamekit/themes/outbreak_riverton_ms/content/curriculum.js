@@ -356,14 +356,12 @@ export const CURRICULUM = {
         "cards": [
           "A piece on the cell surface recognises the germ.",
           "The cell's outer layer bends, or joins with it.",
-          "The material crosses into the cell.",
-          "The cell's own machinery starts being used for something else."
+          "The material crosses into the cell."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -408,21 +406,18 @@ export const CURRICULUM = {
         ],
         "scenarios": [
           "Something small and greasy drifts from more to less.",
-          "A charged particle goes the same way, through a doorway.",
           "Something is moved uphill, and energy gets spent doing it.",
           "Something large is wrapped up by the layer and taken in."
         ],
         "choices": [
           "Straight through the layer, with no help.",
-          "Through a doorway, still downhill and still free.",
           "Pushed uphill, which is what the energy is for.",
           "Wrapped up and swallowed whole."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "What the material does",
@@ -622,14 +617,12 @@ export const CURRICULUM = {
         "cards": [
           "Get the material out of the sample, without losing whose it is.",
           "Put the controls into the run, alongside the samples.",
-          "Run the copying, with settings somebody has checked.",
           "Read the patient's result, but only if the controls behaved."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -778,20 +771,17 @@ export const CURRICULUM = {
         "scenarios": [
           "The sewage reading rises before hospital admissions do.",
           "Interviews at home find several exposures before people felt ill.",
-          "A survey at one station asks only people who volunteer.",
-          "The total on the wards stays high after new admissions fall."
+          "A survey at one station asks only people who volunteer."
         ],
         "choices": [
           "An early sign from the whole town, not a route.",
           "Evidence that people can pass it on before they feel ill.",
-          "Volunteers at one station, who may not be typical.",
-          "Each patient takes weeks to recover, so the wards empty slowly."
+          "Volunteers at one station, who may not be typical."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "What the stream shows",
@@ -965,14 +955,12 @@ export const CURRICULUM = {
         "cards": [
           "Read the notes of the patients already in.",
           "Write the symptoms, timing and place plainly enough to use.",
-          "Try it on known cases, and on clear non-cases.",
-          "Send it out with a date to revise it."
+          "Try it on known cases, and on clear non-cases."
         ],
         "order": [
           1,
           0,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -1066,14 +1054,12 @@ export const CURRICULUM = {
         "cards": [
           "Compare the patient material against healthy tissue and a blank.",
           "Look at its size, its coat and its genetic material.",
-          "Ask whether it can copy itself without a cell.",
-          "Put the separate observations together into a first answer."
+          "Ask whether it can copy itself without a cell."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -1430,14 +1416,12 @@ export const CURRICULUM = {
         "cards": [
           "A few of them are already different, before any treatment.",
           "The treatment clears the vulnerable ones far better.",
-          "The ones it cannot kill survive and multiply.",
-          "What is left is mostly the form the drug cannot touch."
+          "The ones it cannot kill survive and multiply."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -1531,20 +1515,17 @@ export const CURRICULUM = {
         "scenarios": [
           "Stop it getting into cells in the first place.",
           "Cut short the damage after somebody is already ill.",
-          "Have defences ready before anybody meets it.",
-          "Give it fewer chances to pass between people."
+          "Have defences ready before anybody meets it."
         ],
         "choices": [
           "Something that blocks the landing site, given before it arrives.",
           "Treatment that calms the damage, timed carefully.",
-          "Vaccination.",
-          "Ventilation, distance and staying home when ill."
+          "Vaccination."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "What you want to do",
@@ -1595,14 +1576,12 @@ export const CURRICULUM = {
         "cards": [
           "Say what it is supposed to do, and how.",
           "Show it works, and find the obvious harms, first.",
-          "Write who is in it, what working means, and when to stop.",
-          "Run the trial, watched by people who are not running it."
+          "Write who is in it, what working means, and when to stop."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -1832,14 +1811,12 @@ export const CURRICULUM = {
         "cards": [
           "How it spreads, which three separate streams agree on.",
           "Who gets sickest, which one small group of patients suggests.",
-          "Where it came from, which is still open.",
-          "What would settle each open question, and when."
+          "Where it came from, which is still open."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -2088,20 +2065,17 @@ export const CURRICULUM = {
         "scenarios": [
           "An animal carries it for a long time and hardly gets ill.",
           "A biting creature moves it from one animal to another.",
-          "An animal gets ill, and passes it on to almost nobody.",
-          "An animal is common near cases and always tests clean."
+          "An animal gets ill, and passes it on to almost nobody."
         ],
         "choices": [
           "Where the germ lives between outbreaks.",
           "Something that moves it about.",
-          "Where the chain stops.",
-          "Sharing the ground rather than the germ."
+          "Where the chain stops."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "What the animal does",
@@ -2151,14 +2125,12 @@ export const CURRICULUM = {
         "cards": [
           "Map where people got ill against where the animals live.",
           "Sample the likely animals, and sample comparison places too.",
-          "Compare how common and how closely related, across both.",
-          "Test whether it explains the crossings happening again."
+          "Compare how common and how closely related, across both."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [

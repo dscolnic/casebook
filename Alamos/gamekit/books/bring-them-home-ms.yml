@@ -461,8 +461,7 @@ missions:
           - Save the recordings from before and after the failure.
           - Check the units, the clocks, and what everything depends on.
           - Work out where it is and how fast, with a range.
-          - Send only the commands that help either way.
-        order: [0, 1, 2, 3]
+        order: [0, 1, 2]
       - group: INTEG
         task: Say which reading the room watches first.
         title: The reading that cannot wait
@@ -558,13 +557,11 @@ missions:
           - Which direction it lies in.
           - How fast it is coming toward us.
           - How far away it is.
-          - Whether its speed is changing.
         choices:
           - Photograph it against stars whose places are already known.
           - Compare the pitch coming back with the pitch sent out.
           - Time a radio pulse out to it and back again.
-          - Measure the same thing twice, and subtract.
-        mapping: [0, 1, 2, 3]
+        mapping: [0, 1, 2]
       - group: NAV
         task: Put the four steps in order.
         title: Rebuild where it is
@@ -605,9 +602,8 @@ missions:
         cards:
           - Put every measurement on one map and one clock.
           - Fit one path to the distance, the angles and the pitch.
-          - Look at what the fit misses, and why.
           - Carry the answer, and its range, to the burn.
-        order: [0, 1, 2, 3]
+        order: [0, 1, 2]
       - group: NAV
         task: Say why the spacecraft needs speed to stay in that path.
         title: What holds it in the curve
@@ -704,13 +700,11 @@ missions:
           - The same push, further from the middle.
           - The same push, on a craft that is harder to turn.
           - An equal push one way, then the other, for equal times.
-          - Moving things about inside, with nothing pushing from outside.
         choices:
           - It turns harder.
           - It turns more slowly.
           - The turning cancels out, and it ends up as it started.
-          - The total turning cannot change, however things move inside.
-        mapping: [0, 1, 2, 3]
+        mapping: [0, 1, 2]
       - group: INTEG
         task: Choose the opening pulse and where to start braking, then run the turn.
         title: Turning it by hand
@@ -1185,13 +1179,11 @@ missions:
           - The crew huddle together.
           - Moving air carries warmth round the cabin.
           - A cold wall soaks up warmth from everything facing it.
-          - A metal strut runs out to the structure outside.
         choices:
           - Heat moving by touching.
           - Heat riding on moving air.
           - Heat beaming across a gap.
-          - Heat conducted straight out along metal.
-        mapping: [0, 1, 2, 3]
+        mapping: [0, 1, 2]
       - group: INTEG
         task: Say what the last of the energy should be spent on.
         title: Keep the cabin survivable
@@ -1602,8 +1594,7 @@ missions:
           - Check where the spacecraft is pointing.
           - Slow the message down, and listen over a narrower range.
           - Point the big ground dishes, and tell them where to listen.
-          - Feed the tracking that comes back into the navigation.
-        order: [0, 1, 2, 3]
+        order: [0, 1, 2]
   - title: The Structure Is Vibrating
     objective: Move the system away from resonance and verify that the mitigation works across operating conditions.
     briefing: A pump and flexible panel produce a growing oscillation near one operating speed. The player must identify resonance and protect the structure without disabling life support.
@@ -2155,8 +2146,7 @@ missions:
           - Set the approved attitude and settings before the silence.
           - Agree who is flying, before the radio goes quiet.
           - Watch the slowing and the heating against what was predicted.
-          - Come down, keeping the record of what happened.
-        order: [0, 1, 2, 3]
+        order: [0, 1, 2]
       - group: NAV
         task: Say which proposal removes the cause rather than improving the response.
         title: What the review should fix

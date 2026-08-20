@@ -76,16 +76,12 @@ export const CURRICULUM = {
         "cards": [
           "Slow the winch through the band where the bubbles are squeezed hardest.",
           "Let it sit at hole temperature before handling it.",
-          "Write down every break before anything is moved.",
-          "Carry the section to the storage trench and leave it to settle.",
           "Cut it up and share it out, after the cracking has finished."
         ],
         "order": [
           0,
           1,
-          2,
-          3,
-          4
+          2
         ]
       },
       "assumes": [
@@ -324,20 +320,17 @@ export const CURRICULUM = {
         "scenarios": [
           "A band of large, loosely joined crystals",
           "A narrow spike in how well the ice carries electricity",
-          "A rise in fine mineral dust",
-          "Light and dark bands about a centimetre apart"
+          "A rise in fine mineral dust"
         ],
         "choices": [
           "A summer surface, left out in the open and grown coarse.",
           "Acid from a volcano, laid down over a season or two.",
-          "Windier months on faraway continents, carried here and settled out.",
-          "Bubbles changing size through the year as the snow was squashed."
+          "Windier months on faraway continents, carried here and settled out."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "What is in the ice",
@@ -1865,21 +1858,18 @@ export const CURRICULUM = {
         ],
         "scenarios": [
           "Snowfall of 0.119 metres of ice a year",
-          "A cooling of 2.7 degrees in the cold spell",
           "An age of 18,400 years at 2,100 metres",
           "Carbon dioxide of 190 parts per million in the cold spell"
         ],
         "choices": [
           "Measured at the surface, and checkable against next season's stakes.",
-          "Measured, then converted through a line fitted to eleven years.",
           "Counted as far as the layers allowed, and modelled below that.",
           "Measured on well-mixed air, at a depth whose own age is modelled."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "The season's number",

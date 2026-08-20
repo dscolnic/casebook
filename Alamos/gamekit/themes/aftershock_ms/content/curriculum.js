@@ -117,26 +117,6 @@ export const CURRICULUM = {
           ],
           "s": "A wave covers ground at a steady speed, so distance and time give each other.",
           "computed": true
-        },
-        {
-          "e": "load on each metre = total weight ÷ length",
-          "c": "what a wall or a footing is carrying",
-          "v": [
-            [
-              "load on each metre",
-              "in tonnes per metre"
-            ],
-            [
-              "total weight",
-              "in tonnes"
-            ],
-            [
-              "length",
-              "in metres"
-            ]
-          ],
-          "s": "Spreading a weight over more support means each part carries less of it.",
-          "demanded": true
         }
       ],
       "concept": {
@@ -349,20 +329,17 @@ export const CURRICULUM = {
         "scenarios": [
           "The reference vault sits on weathered granite, not solid rock.",
           "The hospital felt 0.31 g at its base.",
-          "Marina Court tipped because the ground stopped holding it up.",
           "The Flats will shake about five times as hard next time."
         ],
         "choices": [
           "Settled. A 1998 trench log, and five days of side-by-side records.",
           "Measured once, at one building, for one earthquake.",
-          "Worked out from a survey, with no hole dug to check.",
           "A projection — the weakest claim, and the one the plan uses."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "The finding",
@@ -1054,20 +1031,17 @@ export const CURRICULUM = {
         "scenarios": [
           "Fill pumped in from a dredger in the 1940s.",
           "The granite bench under Upper Town.",
-          "The line of the old tidal creek.",
-          "Ground that has sat in place for ten thousand years."
+          "The line of the old tidal creek."
         ],
         "choices": [
           "Loose and wet, so shaking packs it and squeezes water out.",
           "Stiff and dry, so it passes the shaking on almost unchanged.",
-          "The loosest and wettest, where the sand came up.",
-          "Squeezed tight by its own weight over time."
+          "The loosest and wettest, where the sand came up."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "The ground",
@@ -1313,20 +1287,17 @@ export const CURRICULUM = {
         "scenarios": [
           "The Flats shake about three times as hard.",
           "Marina Court failed because the ground stopped holding it up.",
-          "The hospital saw 0.31 g against a design of 0.35.",
-          "The Parade's parapets need tying back."
+          "The hospital saw 0.31 g against a design of 0.35."
         ],
         "choices": [
           "Falls, and has to be restated. The real figure is nearer five.",
           "Stands. Survey, heave and sand, with no station in it.",
-          "Stands. Measured by the hospital's own instrument.",
-          "Stands. Something people watched, rather than a comparison."
+          "Stands. Measured by the hospital's own instrument."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "The conclusion",
@@ -1776,8 +1747,7 @@ export const CURRICULUM = {
               "the one it is compared with"
             ]
           ],
-          "s": "Dividing one measurement by another says how many times bigger it is, which is usually the useful comparison.",
-          "demanded": true
+          "s": "Dividing one measurement by another says how many times bigger it is, which is usually the useful comparison."
         }
       ],
       "concept": {
@@ -1884,14 +1854,12 @@ export const CURRICULUM = {
         "cards": [
           "What to do about the building you are standing outside.",
           "Why, in one sentence.",
-          "It went from 6.6 to 6.8, and what that does not mean.",
           "The chance of aftershocks, given as a rate for the week."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -2054,14 +2022,12 @@ export const CURRICULUM = {
         "cards": [
           "Prop the three cracked columns, to take weight off them.",
           "Set a limit on numbers, and put it on the door.",
-          "Put a review date on the limit, so it ends.",
-          "Decide whether Monday's meeting can be held in the building."
+          "Put a review date on the limit, so it ends."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [

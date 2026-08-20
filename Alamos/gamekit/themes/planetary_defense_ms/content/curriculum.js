@@ -91,14 +91,12 @@ export const CURRICULUM = {
         "cards": [
           "Remove the camera's own marks, and solve exactly where it was pointing.",
           "Check every dot against the star and satellite lists.",
-          "Measure where it is and how bright, with a range.",
-          "Post a predicted position, so another observatory can look and check."
+          "Measure where it is and how bright, with a range."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -389,14 +387,12 @@ export const CURRICULUM = {
         "cards": [
           "Put every measurement on the same map and the same clock.",
           "Fit a first rough path across the sky.",
-          "Look at what the fit misses, and why.",
           "Say where it will be tomorrow, closely enough to point."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -806,20 +802,17 @@ export const CURRICULUM = {
         "scenarios": [
           "The rock is bigger across.",
           "The surface reflects better.",
-          "The rock is further from the Sun.",
-          "The rock is further from us."
+          "The rock is further from the Sun."
         ],
         "choices": [
           "More light comes back, because there is more surface catching sunlight.",
           "More of the sunlight landing on it is sent back.",
-          "Less sunlight arrives to be sent back at all.",
-          "What does come back is spread thinner before it gets here."
+          "Less sunlight arrives to be sent back at all."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "What changes",
@@ -1090,20 +1083,17 @@ export const CURRICULUM = {
         "scenarios": [
           "How far away it is.",
           "How fast it spins.",
-          "How much of the rock sits at each depth.",
-          "Its whole shape, and the spin that carries it round."
+          "How much of the rock sits at each depth."
         ],
         "choices": [
           "Time the echo. Radio has a known speed, so time gives distance.",
           "Measure the spread in pitch. One side comes, one goes.",
-          "Read when each part of the echo returns. Later means further.",
-          "Build pictures across a full turn, and fit them together."
+          "Read when each part of the echo returns. Later means further."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "What we want to know",
@@ -1498,20 +1488,17 @@ export const CURRICULUM = {
         "scenarios": [
           "More years of warning.",
           "The rock's weight is not well known.",
-          "Nobody knows how much material will be thrown off.",
-          "Tracking after the impact."
+          "Nobody knows how much material will be thrown off."
         ],
         "choices": [
           "The same change in speed moves it further.",
           "The size of the change cannot be predicted well.",
-          "The push that lands is bigger or smaller than planned.",
-          "It measures what really changed, not what was promised."
+          "The push that lands is bigger or smaller than planned."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "What is on the board",
@@ -1940,14 +1927,12 @@ export const CURRICULUM = {
         "cards": [
           "Take out what the Sun, the air and the instrument each added.",
           "Measure how much light the surface sends back, colour by colour.",
-          "Take the features that hold up, and try several minerals.",
-          "Report what fits, and what would settle the rest."
+          "Take the features that hold up, and try several minerals."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -2330,20 +2315,17 @@ export const CURRICULUM = {
         "scenarios": [
           "A tiny chance, with years still to run.",
           "A rising chance, and the corridor holding still.",
-          "A high chance, with days left.",
-          "The chance falls after a decisive measurement."
+          "A high chance, with days left."
         ],
         "choices": [
           "Keep watching, and prepare in ways that waste nothing.",
           "Move supplies in and plan the routes, because both can be undone.",
-          "Order people to move, under emergency powers.",
-          "Stand down in public, and say why."
+          "Order people to move, under emergency powers."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "What the evidence says",
@@ -2725,20 +2707,17 @@ export const CURRICULUM = {
         "scenarios": [
           "Tracking shows the orbit shift, and somebody else confirms it.",
           "The best guess is safe, and the edges are not pinned down.",
-          "The plans are ready, and they use an old corridor.",
-          "No threat from this rock, and the sky is still not covered."
+          "The plans are ready, and they use an old corridor."
         ],
         "choices": [
           "Accept it, and keep checking.",
           "Keep observing, and do not treat the middle as the whole answer.",
-          "Update them before anybody uses them.",
-          "Fund the searching and the readiness for the long run."
+          "Update them before anybody uses them."
         ],
         "mapping": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "columns": [
           "What the evidence shows",

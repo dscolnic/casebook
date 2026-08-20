@@ -468,13 +468,11 @@ missions:
           - Fill pumped in from a dredger in the 1940s.
           - The granite bench under Upper Town.
           - The line of the old tidal creek.
-          - Ground that has sat in place for ten thousand years.
         choices:
           - Loose and wet, so shaking packs it and squeezes water out.
           - Stiff and dry, so it passes the shaking on almost unchanged.
           - The loosest and wettest, where the sand came up.
-          - Squeezed tight by its own weight over time.
-        mapping: [0, 1, 2, 3]
+        mapping: [0, 1, 2]
       - group: STRUCT
         task: Spend the six assessor-days, then see which questions the plan can still answer.
         title: Where the first day of assessment goes
@@ -688,9 +686,8 @@ missions:
         cards:
           - What to do about the building you are standing outside.
           - Why, in one sentence.
-          - It went from 6.6 to 6.8, and what that does not mean.
           - The chance of aftershocks, given as a rate for the week.
-        order: [0, 1, 2, 3]
+        order: [0, 1, 2]
   - title: The building that looks worst
     objective: Separate what frightens people from what is actually holding the building up.
     briefing: Marina Court is leaning eight degrees and its structure is undamaged. The queue outside it is not about engineering.
@@ -1433,8 +1430,7 @@ missions:
           - Prop the three cracked columns, to take weight off them.
           - Set a limit on numbers, and put it on the door.
           - Put a review date on the limit, so it ends.
-          - Decide whether Monday's meeting can be held in the building.
-        order: [0, 1, 2, 3]
+        order: [0, 1, 2]
   - title: The cordon nobody can lift
     objective: Weigh what a cordon protects against what it costs the people inside it.
     briefing: 11 streets have been closed for 6 days, and the reason is now 3 different reasons.
@@ -1783,13 +1779,11 @@ missions:
           - The Flats shake about three times as hard.
           - Marina Court failed because the ground stopped holding it up.
           - The hospital saw 0.31 g against a design of 0.35.
-          - The Parade's parapets need tying back.
         choices:
           - Falls, and has to be restated. The real figure is nearer five.
           - Stands. Survey, heave and sand, with no station in it.
           - Stands. Measured by the hospital's own instrument.
-          - Stands. Something people watched, rather than a comparison.
-        mapping: [0, 1, 2, 3]
+        mapping: [0, 1, 2]
       - group: HAZ
         task: Say what the corrected figure changes.
         title: Five times, not three
@@ -2165,14 +2159,12 @@ missions:
         scenarios:
           - The reference vault sits on weathered granite, not solid rock.
           - The hospital felt 0.31 g at its base.
-          - Marina Court tipped because the ground stopped holding it up.
           - The Flats will shake about five times as hard next time.
         choices:
           - Settled. A 1998 trench log, and five days of side-by-side records.
           - Measured once, at one building, for one earthquake.
-          - Worked out from a survey, with no hole dug to check.
           - A projection — the weakest claim, and the one the plan uses.
-        mapping: [0, 1, 2, 3]
+        mapping: [0, 1, 2]
       - group: HAZ
         task: Say why the forecast goes in as a range.
         title: The number that has to be a range

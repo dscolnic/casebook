@@ -3148,8 +3148,7 @@ export const CURRICULUM = {
               "the amount that actually went in"
             ]
           ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is.",
-          "demanded": true
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ],
       "concept": {
@@ -7296,7 +7295,7 @@ export const CURRICULUM = {
     {
       "day": 12,
       "title": "How Sweat Helps Cool",
-      "scene": "Parker sees sweat on his arm. He has just been running. The nurse says water needs energy to dry up. It takes that energy from the warmest thing near it. On an arm, that is the arm.",
+      "scene": "Parker has been running and there is sweat on his arm. He says he feels hot. The nurse turns the little fan on him and asks what his skin will do next.",
       "takeaway": "The body uses physical processes, not magic, to help control temperature.",
       "place": "Exam Room 2",
       "guide": "Say what his skin temperature will be five minutes after the fan goes on. Write your number down first. His skin is 34 degrees now, and it is damp. Drying water takes energy out of whatever is warmest, and that is his skin.",
@@ -7305,7 +7304,7 @@ export const CURRICULUM = {
         "Why the fan helps. Moving air carries the vapour away, so more water can dry off. Still air above damp skin gets full of vapour and the drying slows down.",
         "Why dry skin would not cool. If there is no sweat, there is nothing to dry, and the fan just moves air about. That is the difference between the sweat and the breeze — one of them is doing the cooling and the other is helping it along."
       ],
-      "story": "Parker sees sweat on his arm. He has just been running. The nurse says water needs energy to dry up. It takes that energy from the warmest thing near it. On an arm, that is the arm.",
+      "story": "Parker has been running and there is sweat on his arm. He says he feels hot. The nurse turns the little fan on him and asks what his skin will do next.",
       "game": {
         "type": "VERIFY",
         "title": "How Sweat Helps Cool",

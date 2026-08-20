@@ -706,8 +706,7 @@ missions:
           - Find where the sealed boundary runs.
           - Prove both hatches out of here still open, by trying them.
           - Find what in here could start a fire or a flood.
-          - Judge whether the kit stowed here could fight one.
-        order: [0, 1, 2, 3]
+        order: [0, 1, 2]
       - group: ENG
         task: Match each fitting to what it is there to do.
         title: Every fitting is an argument
@@ -752,13 +751,11 @@ missions:
           - A wheel valve on a pipe that runs through the hull.
           - A manifold at head height with quick-connect couplings.
           - A strapped steel locker with a quick-release catch.
-          - A folded hose on a reel, beside a small shut-off valve.
         choices:
           - Open it that deep and the sea comes in hard.
           - It gives people air before a space is fit to enter.
           - It holds the props and plugs this compartment fights with.
-          - It puts water on a fire, once the circuit is proved dead.
-        mapping: [0, 1, 2, 3]
+        mapping: [0, 1, 2]
       - group: NAV
         task: Learn the route, rebuild it without labels, then recover when one door is shut.
         title: The trip back without a waypoint
@@ -913,14 +910,12 @@ missions:
         scenarios:
           - A steady hiss that rises and falls with our own speed.
           - A narrow tone at one pitch, drifting slowly in direction.
-          - Short chirps with no drift at all, gone within a minute.
           - Two tones an octave apart, direction barely moving, growing louder.
         choices:
           - It is being made aboard this boat.
           - Machinery on a ship holding a steady course.
-          - Something alive, passing through.
           - Something on a course that closes with ours.
-        mapping: [0, 1, 2, 3]
+        mapping: [0, 1, 2]
       - group: SONAR
         task: Say which explanation fits every reading, not only the loudest one.
         title: The trace that will not resolve
@@ -1246,8 +1241,7 @@ missions:
           - Record what the boat itself sounds like, first.
           - Find the depth of the layer, which hides sounds below it.
           - Hold them long enough to see which way they move.
-          - Agree what to do if contact is lost, before it is.
-        order: [0, 1, 2, 3]
+        order: [0, 1, 2]
       - group: NAV
         task: Work out how much clear water is left if the boat runs the middle.
         title: The margin that survives being wrong
@@ -1504,13 +1498,11 @@ missions:
           - Shut the hull valve first.
           - Shut only the inboard supply valve.
           - Start a second portable pump before isolating.
-          - Tell sonar before the header is shut.
         choices:
           - Stops the sea at the hull, the only cut that ends it.
           - Stops the flow, and leaves the sea joined to the pipe.
           - Buys minutes and changes nothing about where the water comes from.
-          - Gives that watch warning that their cooling is about to stop.
-        mapping: [0, 1, 2, 3]
+        mapping: [0, 1, 2]
   - title: Electrical Fire
     objective: Put out a fire whose ignition source is electrical, in the order that makes it stay out.
     briefing: |-
@@ -1563,13 +1555,11 @@ missions:
           - The live fault that keeps re-lighting the cable.
           - The cable insulation that is actually burning.
           - The air in the compartment feeding the flame.
-          - The heat coming through the bulkhead to the next space.
         choices:
           - Open the breaker, then prove the cable dead with a meter.
           - Cool it below the heat it needs to re-light.
           - Shut the vent to the space, so the flame stops being fed.
-          - Set a boundary, and read it with a heat gun.
-        mapping: [0, 1, 2, 3]
+        mapping: [0, 1, 2]
       - group: FIRE
         task: Put the steps in the order that proves it before anybody fights it.
         title: What a lamp is worth
@@ -1611,9 +1601,7 @@ missions:
           - Open the breaker for that bus.
           - Meter the cable in the compartment and prove it dead.
           - Go in on air masks and fight the fire.
-          - Set boundaries and read them until the seat is cold.
-          - Bring the loads back on, the vital ones first.
-        order: [0, 1, 2, 3, 4]
+        order: [0, 1, 2]
       - group: ATMO
         task: Say what the smoke has done to the way this is fought.
         title: Smoke is not only a breathing problem
@@ -2553,13 +2541,11 @@ missions:
           - The forward bilge, wet and not rising.
           - The faint contact nobody has resolved.
           - The scrubber that is down.
-          - The bearing running warm.
         choices:
           - Log the level every ten minutes, and report changes.
           - Hold it until the bearing moves, and report before it is certain.
           - Get it running, or name the hour the air runs out.
-          - Get the second pump back, and say what noise it costs.
-        mapping: [0, 1, 2, 3]
+        mapping: [0, 1, 2]
       - group: SONAR
         task: Work out how fast the loudness swells from the two tones.
         title: Why the level pulses three times a second
