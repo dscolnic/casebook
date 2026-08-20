@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sign in · First Person Learning</title>
+<meta name="theme-color" content="#0d0f13">
 
-<!-- ┌───────────────────────────────────────────────────────────────────┐
-     │  CLERK SETUP — replace the key below with YOUR Clerk Publishable    │
-     │  Key (starts with pk_test_ or pk_live_), found in the Clerk         │
-     │  dashboard under "API Keys". The Publishable Key is safe to expose. │
-     │  Put the SAME key in sign-out.html. The SECRET key goes only in     │
-     │  Replit Secrets as CLERK_SECRET_KEY — never in this file.           │
-     │                                                                     │
-     │  If the sign-in box never appears, replace this whole <script> tag  │
-     │  with the exact one from Clerk dashboard → "JavaScript" quickstart. │
-     └───────────────────────────────────────────────────────────────────┘ -->
+<!-- ┌───────────────────────────────────────────────────────────────────────┐
+     │  CLERK SETUP — do not hand-edit the key or the script host below.      │
+     │  Both files that carry them are written together by                    │
+     │      node scripts/set-clerk-key.mjs pk_live_…                          │
+     │  which derives the host from the key, because a publishable key IS the │
+     │  base64 of its own frontend host. `npm run clerk:check` reports which  │
+     │  instance the pair points at. Editing one file by hand is how sign-in  │
+     │  ends up working while sign-OUT silently talks to the other instance.  │
+     │  The SECRET key never appears here — it is CLERK_SECRET_KEY in Replit. │
+     └───────────────────────────────────────────────────────────────────────┘ -->
 <script
   async
   crossorigin="anonymous"
@@ -23,29 +24,141 @@
   type="text/javascript"></script>
 
 <style>
-  :root{--bg:#fff;--ink:#1a1a17;--muted:#565651;--accent:#2f5d86;--hair:#e4e4e2;--serif:Georgia,'Times New Roman',serif;--sans:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+  /* One committed look, not a light/dark pair. The page is a photograph of a
+     place with a card over it, and there is no light-mode version of that. The
+     ground is painted dark first so a slow or blocked background image degrades
+     to the same design rather than to a white flash. */
+  :root{
+    --ground:#0d0f13; --ink:#eef1f5; --dim:#a8b1c0; --faint:#78828f;
+    --card:#141922; --line:#252c38; --accent:#4ea3d8;
+  }
   *{box-sizing:border-box}
-  body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;background:var(--bg);color:var(--ink);font-family:var(--sans);padding:32px}
-  .brand{text-align:center}
-  .brand h1{font-family:var(--serif);font-weight:700;font-size:44px;letter-spacing:.5px;margin:0;text-transform:uppercase}
-  .brand p{color:var(--muted);margin:8px 0 0;font-size:15px}
-  #signin{min-height:120px;display:flex;align-items:center;justify-content:center}
-  .fallback{color:var(--muted);font-size:14px;max-width:420px;text-align:center;line-height:1.5}
-  @media (prefers-color-scheme: dark){:root{--bg:#16150f;--ink:#f0eee6;--muted:#a8a69c;--hair:#33322b}}
+  html,body{height:100%}
+  body{
+    margin:0; background:var(--ground); color:var(--ink); overflow:hidden;
+    font:400 16px/1.5 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  }
+
+  /* The world behind. An <img> rather than a CSS background: it can be given a
+     decoding hint, and it can report failure, which a background-image cannot. */
+  #bg{
+    position:fixed; inset:0; width:100%; height:100%; object-fit:cover;
+    /* Not opacity — house rule 5. A darkened, desaturated copy of the shot
+       instead, so the card's own contrast is never fighting a wash. */
+    filter:brightness(.42) saturate(.8) blur(2px);
+    transform:scale(1.04);          /* hides the blur's soft edge */
+    opacity:0; transition:opacity .9s ease;
+  }
+  #bg.in{opacity:1}
+  /* Two scrims: a vertical one so the caption at the bottom stays readable, and
+     a soft radial pool behind the card. */
+  #veil{
+    position:fixed; inset:0; pointer-events:none;
+    background:
+      radial-gradient(60% 55% at 50% 44%, rgba(8,10,14,.72) 0%, rgba(8,10,14,.30) 60%, transparent 100%),
+      linear-gradient(to bottom, rgba(8,10,14,.55) 0%, transparent 28%, transparent 62%, rgba(8,10,14,.80) 100%);
+  }
+
+  .page{
+    position:relative; z-index:1; height:100%; overflow-y:auto;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:26px; padding:40px 24px calc(40px + env(safe-area-inset-bottom));
+    text-align:center;
+  }
+  .brand h1{
+    margin:0; font-size:clamp(1.6rem,4.6vw,2.3rem); line-height:1.1; font-weight:640;
+    letter-spacing:-.018em; text-wrap:balance;
+    text-shadow:0 2px 20px rgba(0,0,0,.6);
+  }
+  .brand p{
+    margin:12px auto 0; max-width:44ch; color:var(--dim); font-size:15px;
+    text-shadow:0 1px 12px rgba(0,0,0,.7);
+  }
+  #signin{min-height:150px; display:flex; align-items:center; justify-content:center}
+  .fallback{
+    max-width:42ch; color:var(--dim); font-size:14.5px; line-height:1.55;
+    background:var(--card); border:1px solid var(--line); border-radius:12px;
+    padding:18px 20px;
+  }
+  .fallback b{color:var(--ink); font-weight:600}
+
+  /* Which world you are looking at. It is the only thing on this page that says
+     the product is nineteen places rather than one. */
+  .where{
+    position:fixed; left:0; right:0; bottom:calc(14px + env(safe-area-inset-bottom));
+    z-index:1; text-align:center; pointer-events:none;
+    font:500 11.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--faint);
+    opacity:0; transition:opacity .9s ease .3s;
+  }
+  .where.in{opacity:1}
+  @media (prefers-reduced-motion:reduce){
+    #bg,.where{transition:none}
+  }
 </style>
 </head>
 <body>
-  <div class="brand">
-    <h1>First Person Learning</h1>
-    <p>Sign in to play. Your campaigns follow your account, not the browser you started them in.</p>
+  <img id="bg" alt="">
+  <div id="veil"></div>
+
+  <div class="page">
+    <div class="brand">
+      <h1>First Person Learning</h1>
+      <p>Sign in to play. Your campaigns follow your account, not the browser you
+        started them in.</p>
+    </div>
+    <div id="signin"><span class="fallback">Loading sign-in…</span></div>
   </div>
-  <div id="signin"><span class="fallback">Loading sign-in…</span></div>
+
+  <p class="where" id="where"></p>
 
 <script>
+// The eighteen worlds, with what to call each one. Hardcoded rather than read
+// from games.json: that file is behind the sign-in gate this page exists to get
+// you past, so fetching it here would always fail.
+const WORLDS = [
+  ['aftershock',        'Kestrel Bay, three days after'],
+  ['blackout',          'Calder Switching Station'],
+  ['bring_them_home',   'Mission Control'],
+  ['contamcity',        'Riverton, after the freight-yard fire'],
+  ['deepwatch',         'Aboard the boat'],
+  ['groundtruth',       'Station 12, Sablon Flats'],
+  ['headwater',         'The gorge above the dam'],
+  ['hospital',          "The children's hospital"],
+  ['icecore',           'A drilling camp on the plateau'],
+  ['midway',            'Corbin Park, shut for the season'],
+  ['outbreak_riverton', 'Riverton General, week three'],
+  ['planetary_defense', 'The ridge, after dark'],
+  ['projecty',          'Los Alamos, 1943'],
+  ['quantum',           'Ridgeway Quantum Laboratory'],
+  ['redsand',           'Arcadia Rise, Mars'],
+  ['seedbank',          'Wellmere breeding station'],
+  ['sightline',         'The Hallam Exchange'],
+  ['the_trial',         'The coordinating centre'],
+];
+
+(function background(){
+  const [slug, caption] = WORLDS[Math.floor(Math.random() * WORLDS.length)];
+  const img = document.getElementById('bg');
+  const where = document.getElementById('where');
+  img.addEventListener('load', () => {
+    img.classList.add('in');
+    where.textContent = caption;
+    where.classList.add('in');
+  });
+  // A failed image leaves the dark ground and no caption. Never a white page,
+  // and never a caption naming a place that is not on screen.
+  img.addEventListener('error', () => { img.remove(); });
+  img.src = '/games/shots/' + slug + '.jpg';
+})();
+
 window.addEventListener("load", async function () {
   const box = document.getElementById("signin");
   if (typeof Clerk === "undefined") {
-    box.innerHTML = '<span class="fallback">Sign-in didn\'t load. Check the Clerk Publishable Key in this page, or paste the script tag from your Clerk dashboard.</span>';
+    box.innerHTML = '<span class="fallback"><b>Sign-in could not load.</b> '
+      + 'The authentication service did not respond. Reload in a moment, and if it '
+      + 'keeps happening the sign-in host may not be reachable from this network.</span>';
     return;
   }
   try {
@@ -55,9 +168,35 @@ window.addEventListener("load", async function () {
     // Redirect the moment a session is established (version-proof).
     Clerk.addListener(function (res) { if (res && res.user) location.replace("/games/"); });
     box.innerHTML = "";
-    Clerk.mountSignIn(box, { afterSignInUrl: "/games/", afterSignUpUrl: "/games/" });
+    Clerk.mountSignIn(box, {
+      afterSignInUrl: "/games/",
+      afterSignUpUrl: "/games/",
+      // Clerk draws its own card, and its default is light — which over a dark
+      // photograph reads as a dialog that has landed on the wrong page. These
+      // are Clerk's own theme variables rather than CSS overrides, so the card
+      // stays Clerk's to restyle when it changes.
+      appearance: {
+        variables: {
+          colorBackground: '#141922',
+          colorText: '#eef1f5',
+          colorTextSecondary: '#a8b1c0',
+          colorPrimary: '#4ea3d8',
+          colorTextOnPrimaryBackground: '#0b1016',
+          colorInputBackground: '#1b212b',
+          colorInputText: '#eef1f5',
+          colorNeutral: '#eef1f5',
+          colorDanger: '#e8737f',
+          borderRadius: '10px',
+          fontFamily: 'ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif',
+        },
+        elements: {
+          card: { border: '1px solid #252c38', boxShadow: '0 30px 80px rgba(0,0,0,.55)' },
+        },
+      },
+    });
   } catch (e) {
-    box.innerHTML = '<span class="fallback">Could not start sign-in: ' + (e && e.message ? e.message : e) + '</span>';
+    box.innerHTML = '<span class="fallback"><b>Could not start sign-in.</b> '
+      + (e && e.message ? e.message : e) + '</span>';
   }
 });
 </script>
