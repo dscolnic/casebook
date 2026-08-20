@@ -1487,27 +1487,6 @@ export const CURRICULUM = {
           ],
           "s": "Dividing one measurement by another says how many times bigger it is, which is usually the comparison worth making.",
           "computed": true
-        },
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of several plots or plants",
-          "v": [
-            [
-              "average",
-              "the mean"
-            ],
-            [
-              "total",
-              "the values added up"
-            ],
-            [
-              "how many",
-              "the number of them"
-            ]
-          ],
-          "s": "One plant is an accident. An average over many is a property of the seed.",
-          "demanded": true,
-          "card": false
         }
       ],
       "concept": {
@@ -2334,8 +2313,7 @@ export const CURRICULUM = {
               "the percentage, written as a decimal"
             ]
           ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it.",
-          "demanded": true
+          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
         }
       ],
       "concept": {
