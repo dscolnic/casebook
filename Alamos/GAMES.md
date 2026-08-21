@@ -43,6 +43,20 @@ npm run drive <theme>               # open every live panel in Chrome, answer it
 | **Project Y** | `gamekit/themes/projecty` | Los Alamos 1943–45, five divisions | Outdoor mesa, timber and gabled, pre-computer — chalkboards and typed sheets, no screens anywhere. The last game to lose its own entry point: `project-y-fps/` is a tombstone now |
 | **Hospital Heroes** | `gamekit/themes/hospital` | ~grade 3–4. Junior doctor, children's hospital | Interior ward: a spine with rooms off it, and the floor `engine/world/interiorSite.js` was generalised out of. `audience: { grade: 2 }`, so its whole interface comes up 1.18× larger |
 
+**Three of these ship a high-school edition on the same world**, because their
+setting is a workplace and a workplace runs on the professional layer of its
+subject — see `gamekit/RETARGET_PASS.md`. Same place, same cast, same grade, a
+different course:
+
+| Edition | Course | Where the base game sits |
+| --- | --- | --- |
+| `deepwatch_hs` | AP Physics 2, all seven units | naval and acoustics engineering |
+| `contamcity_hs` | AP Chemistry, the aqueous half — and the only game in the set that teaches acids, buffers and titration | first-year analytical chemistry |
+| `the_trial_hs` | AP Statistics, all nine units | clinical epidemiology and biostatistics |
+
+All three compute every equation on their own syllabus. Four of the seven
+university games were considered and rejected; the reasons are in that file.
+
 A seventeenth theme, `instruments`, is registered and checked but is not a game:
 four missions authoring one stop of each instrument format, so a panel can be
 opened without playing to the day that holds it.

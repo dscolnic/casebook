@@ -1272,6 +1272,7 @@ export const CURRICULUM = {
         "question": "What term closes the charge ledger, and what does that term measure about the cell?",
         "answer": "The ledger is short by about 48 g of hydrogen-equivalent charge. The cell collected 546/594 ≈ 92% of the Faraday-law maximum, so its current efficiency is about 92%.",
         "why": "Electricity in and hydrogen out should agree, because every unit of charge makes a fixed amount of gas. When they do not, the rest went into something else. Here it is a side reaction and a small leak, and both cost power and make nothing. Eight per cent sounds survivable until it is turned into kilowatt-hours a sol.",
+        "relationship": "Mass out = mass in. Everything the cell was given has to turn up somewhere, collected or not.",
         "balance": {
           "total": {
             "amount": 594,
@@ -1315,6 +1316,22 @@ export const CURRICULUM = {
         "current efficiency is collected product divided by theoretical product from charge"
       ],
       "equations": [
+        {
+          "e": "mass out = mass in",
+          "c": "nothing leaves a process it did not enter",
+          "v": [
+            [
+              "mass in",
+              "everything fed in, in kilograms"
+            ],
+            [
+              "mass out",
+              "everything collected, in kilograms"
+            ]
+          ],
+          "s": "Atoms are not created or destroyed, so the two sides have to match — and when they do not, the missing kilograms are somewhere nobody has looked yet.",
+          "computed": true
+        },
         {
           "e": "percentage = part ÷ whole × 100",
           "c": "turning a count into a share out of a hundred",

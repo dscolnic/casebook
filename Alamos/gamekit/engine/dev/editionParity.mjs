@@ -29,6 +29,7 @@ import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { themeDir, themeNames, editionBase } from './registry.mjs';
+import { SYLLABUS } from '../../tools/syllabus.js';
 
 const args = process.argv.slice(2);
 const wanted = args.includes('--all') || !args[0] ? themeNames() : [args[0]];
@@ -98,19 +99,56 @@ for(const name of wanted){
   //
   // Everything else on this page still applies: the place, the cast and the
   // areas are the base game's, and only the course may move.
-  const rewriteWhy = /^\/\/\s*same-grade-rewrite:\s*(.+?)\s*$/m
-    .exec(readFileSync(resolve(dir, 'theme.js'), 'utf8'))?.[1];
-  if(Number(mine.audience?.grade) === Number(theirs.audience?.grade)){
-    if(!rewriteWhy){
+  //
+  // A *retarget* is the second honest same-grade edition, and it is not the one
+  // above: the same place and the same reader, aimed at a DIFFERENT course. The
+  // seven university games came from workplaces, and a workplace runs on the
+  // professional layer of its subject — so the AP course a place could carry is
+  // usually a subset of what the campaign teaches, plus two units it does not.
+  // Declaring that as a `same-grade-rewrite` would make the marker lie in the
+  // file whose whole job is to stop an unexplained copy, hence its own line:
+  //
+  //   // same-grade-retarget: AP Physics 2, where deepwatch is naval acoustics
+  //
+  // The two markers are mutually exclusive, and a retarget has to actually
+  // retarget — the syllabus `course` is compared, because an edition claiming a
+  // new course while sharing the old one's syllabus is the copy this rule is
+  // for, wearing the exemption.
+  const manifestText = readFileSync(resolve(dir, 'theme.js'), 'utf8');
+  const rewriteWhy = /^\/\/\s*same-grade-rewrite:\s*(.+?)\s*$/m.exec(manifestText)?.[1];
+  const retargetWhy = /^\/\/\s*same-grade-retarget:\s*(.+?)\s*$/m.exec(manifestText)?.[1];
+  const sameGrade = Number(mine.audience?.grade) === Number(theirs.audience?.grade);
+  if(rewriteWhy && retargetWhy){
+    fail('declares both "same-grade-rewrite" and "same-grade-retarget" — it is ' +
+         'one or the other: the same course authored twice, or a different course');
+  }
+  if(retargetWhy){
+    const mineCourse = SYLLABUS[name]?.course ?? null;
+    const baseCourse = SYLLABUS[base]?.course ?? null;
+    if(!mineCourse){
+      fail(`declares "same-grade-retarget" and has no syllabus block of its own in ` +
+           `tools/syllabus.js — the new course is the whole of what this edition is`);
+    }else if(mineCourse === baseCourse){
+      fail(`declares "same-grade-retarget" and shares ${base}'s syllabus course line — ` +
+           `an edition claiming a new course while teaching the old one is the copy ` +
+           `this rule exists to catch`);
+    }
+  }
+  if(sameGrade){
+    if(!rewriteWhy && !retargetWhy){
       fail(`both editions declare grade ${mine.audience?.grade}: an edition that ` +
            `is not written for a different reader is a second copy of the game`);
     }else{
-      note(`same grade as ${base}, declared: ${rewriteWhy}`);
+      note(`same grade as ${base}, declared: ${rewriteWhy ?? retargetWhy}`);
     }
-  }else if(rewriteWhy){
-    fail(`declares "same-grade-rewrite" and is written for a different reader ` +
-         `(grade ${mine.audience?.grade} against ${theirs.audience?.grade}) — ` +
-         `delete the line, it claims something that is not true of this edition`);
+  }else{
+    for(const [flag, why] of [['same-grade-rewrite', rewriteWhy], ['same-grade-retarget', retargetWhy]]){
+      if(why){
+        fail(`declares "${flag}" and is written for a different reader ` +
+             `(grade ${mine.audience?.grade} against ${theirs.audience?.grade}) — ` +
+             `delete the line, it claims something that is not true of this edition`);
+      }
+    }
   }
   for(const k of ['title', 'dayNoun', 'stopNoun']){
     if((mine[k] ?? null) !== (theirs[k] ?? null)){

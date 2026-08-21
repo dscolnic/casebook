@@ -741,6 +741,22 @@ function gameFor(s, at, group, day){
     // DIAGNOSIS only, which is why a line chart on a sequence item was dropped
     // silently on import.
     ...(s.figure ? { figure: s.figure } : {}),
+    // THE ARITHMETIC AN INSTRUMENT STOP DOES, STATED BY THE AUTHOR.
+    //
+    // `relationship` used to be read only out of an `estimate:` block, so it was
+    // a BALLPARK field in practice. But `curriculumDelivery` decides whether the
+    // course TAUGHT an equation by looking at exactly this string plus the
+    // template, the worked solution, a DERIVE's lines and an instrument board's
+    // own numbers — and a board's numbers are bare quantities, so a VERIFY that
+    // predicts a volt drop from Ohm's law had no way to say so. The equation was
+    // computed on the screen and uncomputed as far as every gate could tell.
+    //
+    // It was already being authored at stop level: books/redsand-ms.yml writes
+    // one on a BALANCE, where it has been silently dropped since the day it was
+    // written. That is this repo's own rule about a key that never reaches the
+    // game, so it is carried for every format rather than aliased into the
+    // estimate block for one.
+    ...(s.relationship ? { relationship: String(s.relationship) } : {}),
   };
   const need = (cond, msg) => { if(!cond) fail(`${at}: ${msg}`); };
 
@@ -3072,7 +3088,10 @@ function gameFor(s, at, group, day){
       };
     }
     return {
-      ...base, givens: e?.givens ?? [], relationship: e?.relationship ?? '',
+      // The estimate block's own `relationship` wins, and the stop-level one is the
+      // fallback rather than being overwritten by it — spreading `base` first and
+      // then assigning '' here is what silently blanked it.
+      ...base, givens: e?.givens ?? [], relationship: e?.relationship ?? s.relationship ?? '',
       // No key when the spec arrives by title: a calcKey pointing at nothing is
       // how an estimate panel comes up empty.
       ...(hasSpec ? { calcKey: `${group}-${day}` } : {}),

@@ -17,6 +17,7 @@ walk to a place, answer a science question, hand off. No combat, no weapons.
 | `gamekit/INTERIORS.md` | **Read before working inside a place.** The check-and-look loop, which builder each game's rooms come from (three are furnished outside the shared fit-out), and the mistake made four times. |
 | `gamekit/SEQUENCING_PASS.md` | How to fix *when* a shipping game teaches each idea — leave every question where it is, put the concepts in a followable order. Price of admission is `t` on a syllabus concept: 64 of 724 today, so it is 26,000 words of curriculum prose, not an engine project. |
 | `gamekit/REWRITE_PASS.md` | How to re-author a shipping game: a parallel edition at the same grade, sandboxed, with the delivery snapshot as invariant and a teardown costing one `rm -rf` and three reverted lines. Trigger is equations the course never computes, never format mix. |
+| `gamekit/RETARGET_PASS.md` | How to point one game's world at a **different course** — same place, same cast, same grade, a new syllabus. The three high-school editions of university games came from it, and the test is whether the place can host a whole AP syllabus rather than whether the course is hard. |
 | `gamekit/DIVERSITY_PASS.md` | The format-cap pass. |
 | `gamekit/QUESTION_BRIEF.md` | The card shape every stop is rewritten to. |
 | `gamekit/FORMATS.md` | The instrument catalogue. |
@@ -1511,6 +1512,19 @@ present, meshes created, no errors, builds clean.
   `audience.textScale` overrides. Applied from `theme.js`, once, for every game. The same game can
   therefore ship at several reading levels: a new edition is a manifest line plus a differently-written
   book.
+- **A game can also be retargeted rather than re-levelled.** `RETARGET_PASS.md`:
+  same place, same cast, same grade, a **different course**. Seven games teach
+  above high school because their setting is a workplace, and a workplace runs on
+  the professional layer of its subject — so three of them now ship an AP edition
+  built on the same world. `deepwatch_hs` is AP Physics 2 where the base is naval
+  acoustics, `contamcity_hs` is the aqueous half of AP Chemistry where the base is
+  first-year analytical, `the_trial_hs` is AP Statistics where the base is clinical
+  epidemiology. **The marker is its own line** — `same-grade-retarget:` rather than
+  `same-grade-rewrite:`, mutually exclusive with it, and refused unless the edition
+  has a syllabus block whose `course` differs from the base's. Four of the seven
+  were rejected and the reasons are in that file: an AP Physics 2 Blackout is five
+  units of nothing, a polar camp cannot host APES, Aftershock's honest AP is the
+  course Safety Factor already is, and no AP course contains Quantum.
 - **An edition is a registered theme, not a build flag** — `MIDDLE_SCHOOL_EDITIONS.md` is the plan, and
   fourteen of sixteen games are getting a grade-6 one. **Twelve exist.** The nine of the first pass were
   swept for `questionLoad` after the fact; `sightline_ms`, `redsand_ms` and `the_trial_ms` were written

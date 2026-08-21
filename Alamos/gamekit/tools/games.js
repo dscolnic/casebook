@@ -35,7 +35,12 @@ export const GAMES = [
     course: 'AP Chemistry → college analytical', field: 'Chemistry', accent: '#4ea3d8',
     place: 'A wide river city, three days after a freight-yard fire.',
     hero: 'rack-day.png',
-    editions: [{ suffix: 'ms', level: 'middle', grades: '6–8',
+    // first-year analytical chemistry — separations, calibration, detection limits.
+    level: 'university', grades: 'Undergraduate',
+    editions: [
+      { suffix: 'hs', level: 'high', grades: '11–12',
+        course: 'AP Chemistry · aqueous equilibria and titration' },
+     { suffix: 'ms', level: 'middle', grades: '6–8',
                  course: 'Matter, mixtures and clean water · physical science' }] },
 
   { id: 'redsand', title: 'Red Sand',
@@ -59,10 +64,15 @@ export const GAMES = [
     hero: 'gallery-2-up.png' },
 
   { id: 'the_trial', title: 'The Trial',
-    course: 'AP Statistics · trial design', field: 'Maths & Stats', accent: '#cf7fae',
+    course: 'AP Statistics → clinical epidemiology', field: 'Maths & Stats', accent: '#cf7fae',
     place: 'One long floor, where walking north is distance from the patient.',
     hero: 'infusion-bay--end.png',
-    editions: [{ suffix: 'ms', level: 'middle', grades: '6–8',
+    // introductory clinical epidemiology and biostatistics.
+    level: 'university', grades: 'Undergraduate',
+    editions: [
+      { suffix: 'hs', level: 'high', grades: '11–12',
+        course: 'AP Statistics · all nine units' },
+     { suffix: 'ms', level: 'middle', grades: '6–8',
                  course: 'Fair tests, averages and evidence · science practices' }] },
 
   { id: 'sightline', title: 'Sightline',
@@ -73,9 +83,11 @@ export const GAMES = [
                  course: 'How memory and eyesight work · science practices' }] },
 
   { id: 'quantum', title: 'Quantum',
-    course: 'Modern quantum · 2nd-year physics', field: 'Physics', accent: '#7f8fe0',
+    course: 'Modern quantum · 2nd-year physics & EE', field: 'Physics', accent: '#7f8fe0',
     place: 'A laboratory spine that is a temperature gradient, walked end to end.',
-    hero: 'corridor-018-north.png' },
+    hero: 'corridor-018-north.png',
+    // second-year physics / electrical engineering.
+    level: 'university', grades: 'Undergraduate' },
 
   { id: 'bring_them_home', title: 'Bring Them Home',
     course: 'AP Physics 1 → Physics C mechanics', field: 'Physics', accent: '#c2603f',
@@ -85,10 +97,15 @@ export const GAMES = [
                  course: 'Motion, energy and staying alive · physical science' }] },
 
   { id: 'deepwatch', title: 'Deep Watch',
-    course: 'Waves & sound · systems engineering', field: 'Physics', accent: '#3f8f86',
+    course: 'Waves & sound → sonar engineering', field: 'Physics', accent: '#3f8f86',
     place: 'A submarine — one line of ten compartments, hatches between them, and no sky at all.',
     hero: 'spawn-1.png',
-    editions: [{ suffix: 'ms', level: 'middle', grades: '6–8',
+    // naval / acoustics engineering — the sonar equation as a budget.
+    level: 'university', grades: 'Undergraduate',
+    editions: [
+      { suffix: 'hs', level: 'high', grades: '11–12',
+        course: 'AP Physics 2 · all seven units' },
+     { suffix: 'ms', level: 'middle', grades: '6–8',
                  course: 'Sound, floating and sinking · physical science' }] },
 
   { id: 'projecty', title: 'Project Y',
@@ -102,16 +119,20 @@ export const GAMES = [
     hero: 'the-mast.png' },
 
   { id: 'blackout', title: 'Blackout',
-    course: 'AP Physics 2 · circuits & induction', field: 'Engineering', accent: '#d9b23c',
+    course: 'AP Physics 2 → power systems', field: 'Engineering', accent: '#d9b23c',
     place: 'Calder Switching Station, and two circuits of lattice towers walking off the edge of the map.',
     hero: 'spawn-7.png',
+    // power-systems engineering — per-unit, faults, dispatch, restoration.
+    level: 'university', grades: 'Undergraduate',
     editions: [{ suffix: 'ms', level: 'middle', grades: '6–8',
                  course: 'Circuits, energy and the grid · physical science' }] },
 
   { id: 'aftershock', title: 'Aftershock',
-    course: 'Earth science · statics & materials', field: 'Engineering', accent: '#b6553f',
+    course: 'Seismology → civil engineering', field: 'Engineering', accent: '#b6553f',
     place: 'Kestrel Bay three days after, where the fault broke the surface and you can walk the scarp.',
     hero: 'spawn-1.png',
+    // civil engineering — soil mechanics and structural dynamics.
+    level: 'university', grades: 'Undergraduate',
     editions: [{ suffix: 'ms', level: 'middle', grades: '6–8',
                  course: 'Earthquakes and building safety · Earth science' }] },
 
@@ -128,9 +149,11 @@ export const GAMES = [
     hero: 'the-road-in.png' },
 
   { id: 'icecore', title: 'Ice Core',
-    course: 'Earth & environmental science', field: 'Earth & Space', accent: '#6fc7d8',
+    course: 'Earth science → palaeoclimate', field: 'Earth & Space', accent: '#6fc7d8',
     place: 'A deep-drilling camp on a polar plateau, with the flattest, emptiest horizon in the set.',
     hero: 'core-line.png',
+    // upper-division palaeoclimate — proxy calibration and attribution.
+    level: 'university', grades: 'Undergraduate',
     editions: [{ suffix: 'ms', level: 'middle', grades: '6–8',
                  course: 'Layers, records and climate · Earth science' }] },
 
@@ -160,9 +183,13 @@ export const GAMES = [
 // One entry per playable build. A game with no `editions` is one card, exactly
 // as it always was; a game with two is two cards that know about each other.
 //
-// The default level is `high`, because fourteen of the sixteen games are
-// senior-high courses and stating it on every row would be noise around the two
-// that differ.
+// The default level is `high`, because that is the largest set and stating it on
+// every row would be noise around the rows that differ. A row states its own
+// `level` in two directions: down to `elementary` (Hospital Heroes), and up to
+// `university` for the seven whose syllabus no high-school course contains —
+// read the note on each of those rows for what it is instead. The test is
+// containment, not difficulty: AP Physics C and AP Calculus AB are college
+// courses by content and stay at `high`, because high schools teach them.
 export function cards(){
   const out = [];
   for(const g of GAMES){
@@ -193,6 +220,7 @@ export const LEVELS = [
   { id: 'elementary', label: 'Elementary' },
   { id: 'middle', label: 'Middle School' },
   { id: 'high', label: 'High School' },
+  { id: 'university', label: 'University' },
 ];
 
 export default GAMES;
