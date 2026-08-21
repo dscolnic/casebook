@@ -26,14 +26,63 @@
 const ORIGIN = 'capacitor://localhost';
 const API = 'https://api.clerk.com/v1/instance';
 
-const key = process.env.CLERK_SECRET_KEY;
+/* WHY IT ASKS RATHER THAN BEING TOLD.
+ *
+ * The environment variable still works, and on Replit or in CI it is the only
+ * thing that can. But at a prompt on a terminal it went wrong three times in a
+ * row, each time in a way that blamed the key: the placeholder from the
+ * instructions was left in the command, then left in again, and in between a key
+ * containing a $ would have been silently truncated by the shell. None of those
+ * are possible when the value is read from the terminal instead — and it stays
+ * out of the shell history, which for an sk_ that can mint sessions is worth
+ * having on its own.
+ */
+function promptForKey() {
+  return new Promise((resolve) => {
+    // Raw mode, because it is the thing that actually turns echo off. The
+    // readline "write over the prompt on every keystroke" trick was tried first
+    // and did two wrong things at once: the pasted key appeared on screen
+    // anyway, and rl.question never fired, so the script hung with an unsettled
+    // await and no prompt to answer.
+    const stdin = process.stdin;
+    const wasRaw = stdin.isRaw;
+    stdin.setRawMode(true);
+    stdin.setEncoding('utf8');
+
+    let buf = '';
+    const cleanup = () => {
+      stdin.removeListener('data', onData);
+      stdin.setRawMode(!!wasRaw);
+      stdin.pause();
+      process.stdout.write('\n');
+    };
+    const onData = (chunk) => {
+      for (const c of chunk) {
+        if (c === '\r' || c === '\n' || c === '\u0004') { cleanup(); return resolve(buf.trim()); }
+        // Raw mode means this process owns ctrl-C.
+        if (c === '\u0003') { cleanup(); process.exit(130); }
+        if (c === '\u007f' || c === '\u0008') { buf = buf.slice(0, -1); continue; }
+        buf += c;
+      }
+    };
+    // Listener first, prompt second, resume last: written the other way round,
+    // anything already in the pipe is consumed before there is anything to
+    // receive it, and the read comes back empty.
+    stdin.on('data', onData);
+    process.stdout.write('Clerk secret key (paste it - it will not be shown): ');
+    stdin.resume();
+  });
+}
+
+let key = process.env.CLERK_SECRET_KEY;
 if (!key) {
-  console.error('CLERK_SECRET_KEY is not set.\n\n'
-    + 'It is the sk_live_… from the Clerk dashboard (Configure -> API keys), and it is\n'
-    + 'the key that can mint sessions — so pass it for this one command rather than\n'
-    + 'putting it in a file:\n\n'
-    + '  CLERK_SECRET_KEY=sk_live_… node scripts/clerk-allow-origin.mjs --check\n');
-  process.exit(1);
+  if (!process.stdin.isTTY) {
+    console.error('CLERK_SECRET_KEY is not set, and there is no terminal to ask on.\n\n'
+      + 'It is the sk_live_… from the Clerk dashboard (Configure -> API keys):\n\n'
+      + "  CLERK_SECRET_KEY='sk_live_…' node scripts/clerk-allow-origin.mjs --check\n");
+    process.exit(1);
+  }
+  key = await promptForKey();
 }
 if (!key.startsWith('sk_')) {
   console.error(`That is not a secret key: ${JSON.stringify(key.slice(0, 8))}…`);
@@ -50,6 +99,17 @@ if (!key.startsWith('sk_')) {
 // version demanded [A-Za-z0-9] and rejected real keys, which is worse than the
 // crash it was written to prevent: it tells the person their key is wrong when
 // the script is.
+// The two strings from this file's own instructions, and the shapes people type
+// in their place. Named explicitly because "too short to be a key" is true of
+// them and unhelpful: what happened is the example was run unedited.
+if (/^sk_(test|live)_(YOUR|your|xxx|X{3}|REPLACE|PASTE|…|\.\.\.)/.test(key)) {
+  die('That is the placeholder from the instructions, not a key.\n\n'
+    + `You passed ${JSON.stringify(key)}. Replace all of it — including the sk_live_ prefix —\n`
+    + 'with the value from the Clerk dashboard: Configure -> API keys -> Secret key, on\n'
+    + 'the production instance (clerk.firstpersonlearn.com).\n\n'
+    + 'Or run it with no CLERK_SECRET_KEY at all and paste the key when it asks.');
+}
+
 const body = key.replace(/^sk_(test|live)_/, '');
 const bad = [...key].findIndex(c => c.charCodeAt(0) > 126 || c.charCodeAt(0) < 33);
 if (bad >= 0) {
