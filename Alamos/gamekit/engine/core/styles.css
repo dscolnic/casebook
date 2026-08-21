@@ -486,7 +486,7 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
    Shown by createDay once every call of the day is made. Bottom centre, above
    the world and under every panel, because a panel that opens over it means
    the player is doing something else. `.hidden` is the engine's own class. */
-#turnInBar{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:60;
+#turnInBar{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:60;
   pointer-events:auto}
 #turnInBar.hidden{display:none}
 #turnInBar .btn{display:inline-flex;align-items:center;gap:10px;
@@ -527,11 +527,40 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
   border:1px solid #cfe3d6;border-radius:8px;padding:8px 11px}
 .planSince.planSinceBad{color:#8a3d2f;background:#fbeee9;border-color:#e6cbc0}
 
+/* The day-close debrief. Composed by engine/core/debrief.js from the day's own
+   results, so the tier class is a fact about the day and not a decoration: a
+   rough day is not tinted like a clean one. The quote is set as a quote because
+   somebody in the building is saying it — a compliment rendered as body text
+   reads as the game talking about itself. */
+.debrief .debriefLede{font-weight:700;margin:0 0 8px}
+.debrief .debriefQuote{margin:0 0 8px;padding:6px 0 6px 10px;border-left:3px solid var(--blue)}
+.debrief .debriefQuote p{margin:0;font-style:italic}
+.debrief .debriefQuote cite{display:block;margin-top:3px;font-style:normal;font-weight:600;
+  font-size:.72rem;opacity:.75}
+.debrief .debriefCarry{margin:8px 0 0;padding-top:8px;border-top:1px solid rgba(30,28,24,.14)}
+.debrief.debrief-clean{background:#eef5f0;border-left-color:#3d6f52}
+.debrief.debrief-clean .debriefQuote{border-left-color:#3d6f52}
+.debrief.debrief-worked{background:#eef3f6;border-left-color:#3f6b86}
+.debrief.debrief-worked .debriefQuote{border-left-color:#3f6b86}
+.debrief.debrief-mixed{background:#f7f2e6;border-left-color:#98773a}
+.debrief.debrief-mixed .debriefQuote{border-left-color:#98773a}
+.debrief.debrief-rough{background:#fbeee9;border-left-color:#8a3d2f}
+.debrief.debrief-rough .debriefQuote{border-left-color:#8a3d2f}
+
 /* The corner map. Sits under the HUD buttons, top right, and is deliberately
    small: it answers "which way" while walking, and the M-key sheet answers
    "where is everything" when you stop. Pointer events on, because clicking it
    opens the full one. */
-.miniMap{position:fixed;top:64px;right:14px;z-index:40;border:1px solid rgba(30,28,24,.35);
+/* SAFE AREAS. Every fixed element anchored to an edge adds the matching
+   env(safe-area-inset-*), because the same pages are loaded inside the iOS app
+   from the app bundle with viewport-fit=cover — so the viewport runs under the
+   status bar, the Dynamic Island and the home indicator. On a desktop browser
+   every one of these is 0px and the layout is unchanged, which is why it cannot
+   be seen anywhere but on the device: the HUD's five readings rendered UNDER
+   the island, with the clock and the money clipped, and every check was green.
+   The touch layer had it from the start; the HUD it sits under did not. */
+.miniMap{position:fixed;top:calc(64px + env(safe-area-inset-top));
+  right:calc(14px + env(safe-area-inset-right));z-index:40;border:1px solid rgba(30,28,24,.35);
   border-radius:8px;overflow:hidden;background:#efeade;cursor:pointer;
   box-shadow:0 4px 14px rgba(0,0,0,.28);line-height:0}
 .miniMap:hover{border-color:rgba(30,28,24,.65)}
@@ -549,7 +578,8 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
    a bulkhead is not visible, and this is the only thing that says where they
    are. Nothing in these games draws through a wall except the cone over
    somebody the day wants, and adding a second exception would end the rule. */
-.coopPanel{position:fixed;top:250px;right:14px;z-index:40;width:171px;
+.coopPanel{position:fixed;top:calc(250px + env(safe-area-inset-top));
+  right:calc(14px + env(safe-area-inset-right));z-index:40;width:171px;
   background:rgba(20,22,26,.86);border:1px solid rgba(255,255,255,.14);border-radius:8px;
   padding:8px 9px;color:#e9ecf2;font:500 .72rem/1.35 Inter,system-ui;
   box-shadow:0 4px 14px rgba(0,0,0,.28);pointer-events:none}
@@ -1303,7 +1333,7 @@ ol.trialTaken li{font:600 .82rem/1.4 Inter,system-ui;color:#3f3b34}
 
 /* The HUD, during a run. Fixed, small, top-centre — it must not sit where the
    thumbstick is (bottom left) or where the prompt is (bottom centre). */
-#trialHUD{position:fixed;top:70px;left:50%;transform:translateX(-50%);z-index:60;
+#trialHUD{position:fixed;top:calc(70px + env(safe-area-inset-top));left:50%;transform:translateX(-50%);z-index:60;
   display:flex;align-items:center;gap:14px;padding:8px 16px;border-radius:999px;
   background:rgba(20,24,28,.82);color:#f2efe8;pointer-events:none;
   font:700 .84rem/1.2 Inter,system-ui;letter-spacing:.01em}
@@ -1421,7 +1451,7 @@ ol.trialTaken li{font:600 .82rem/1.4 Inter,system-ui;color:#3f3b34}
    only a canvass has.
    =================================================================== */
 
-#worldHUD{position:fixed;top:70px;left:50%;transform:translateX(-50%);z-index:60;
+#worldHUD{position:fixed;top:calc(70px + env(safe-area-inset-top));left:50%;transform:translateX(-50%);z-index:60;
   display:flex;align-items:center;gap:14px;padding:8px 16px;border-radius:999px;
   background:rgba(20,24,28,.82);color:#f2efe8;pointer-events:none;
   font:700 .84rem/1.2 Inter,system-ui;letter-spacing:.01em}
@@ -1458,3 +1488,18 @@ ol.trialTaken li{font:600 .82rem/1.4 Inter,system-ui;color:#3f3b34}
 .askWorkedEq:last-child{margin-bottom:0}
 .askWorkedEq code{font-size:14px; padding:1px 4px; border-radius:4px; background:var(--blueSoft)}
 .askWorkedVars{display:block; margin-top:2px; font-size:12.5px; color:var(--muted)}
+
+/* The rating on the card that closes a campaign. Gold rather than the panel's
+   blue, because it is the one control on that card that is not part of the
+   story — and 44px of touch target on the stars themselves, since the games
+   are played on tablets and a 20px glyph is not a button there. */
+.rateBox{background:var(--goldSoft);border-left-color:var(--gold)}
+.rateAsk{margin:0 0 6px;font-weight:800}
+.rateStars{display:flex;gap:2px;margin:0 0 6px}
+.rateStar{border:0;background:none;padding:2px 4px;min-width:34px;min-height:36px;
+  font-size:1.5rem;line-height:1;color:var(--line);transition:color .12s,transform .12s}
+.rateStar.on{color:var(--gold)}
+.rateStar:hover:not(:disabled){transform:scale(1.12)}
+.rateStar:disabled{opacity:.6;cursor:default}
+.rateStar:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:6px}
+.rateNote{margin:0;color:var(--muted);font-size:.74rem;min-height:1.1em}

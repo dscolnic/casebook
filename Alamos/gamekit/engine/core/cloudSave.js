@@ -49,7 +49,12 @@ function localStamp(){
 async function call(path, opts = {}){
   if(available === false) return null;
   try{
-    const res = await fetch(path, { credentials: 'same-origin', ...opts });
+    // api-base.js when the page has it (the casebook app, and the iOS app
+    // where it is the difference between a request and a 404 in the bundle);
+    // a plain relative fetch otherwise, which is what a static host wants.
+    const res = await (window.FPL_API
+      ? window.FPL_API.fetch(path, opts)
+      : fetch(path, { credentials: 'same-origin', ...opts }));
     if(res.status === 401 || res.status === 404){ available = false; return null; }
     if(!res.ok) return null;
     available = true;
@@ -139,4 +144,46 @@ export function postResult({ won, score, missions, hours }){
       score: score ?? null,
     }),
   });
+}
+
+// ------------------------------------------------------------------ ratings
+//
+// One rating per account per game, offered on the card that closes a campaign
+// and averaged on the shelf. Kept here rather than beside `postResult` because
+// it is the one call in this file whose answer the game *reads*: the ending
+// card has to know whether there is an account at all (no account, no rating
+// row), and what this player said last time, or a second campaign would offer
+// an empty set of stars over a rating they have already given.
+
+/**
+ * This account's rating of this game and where the game currently stands, or
+ * null when there is no account — a static host, a signed-out session, the
+ * checkers under node. Null means "do not offer to rate", not "unrated".
+ */
+export async function readRating(){
+  const out = await call('/api/ratings');
+  if(!out) return null;
+  const here = out.ratings?.[THEME] ?? null;
+  return {
+    mine: out.mine?.[THEME] ?? null,
+    avg: here ? Number(here.avg) : null,
+    count: here ? Number(here.count) : 0,
+  };
+}
+
+/**
+ * Send a rating and take back what the game now averages.
+ *
+ * Awaited rather than fired and forgotten, unlike `postResult`: the player has
+ * just pressed a star and is owed an answer, and a rating that silently failed
+ * to send looks exactly like one that landed.
+ */
+export async function postRating(stars){
+  const out = await call('/api/ratings', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ gameId: THEME, stars }),
+  });
+  if(!out) return null;
+  return { mine: Number(out.stars), avg: Number(out.avg), count: Number(out.count) };
 }

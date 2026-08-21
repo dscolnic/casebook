@@ -70,6 +70,21 @@ function send(msg){
   }
 }
 
+// The ticket and the socket both go to the server, and inside the iOS app these
+// pages are loaded from the app bundle — so a relative /api/ or /ws/ path
+// resolves into the bundle, where there is no server. api-base.js is that one
+// decision (and the Bearer token that replaces the cookie there); absent, this
+// falls back to what a static host wants.
+const ticketFetch = (path) => (window.FPL_API
+  ? window.FPL_API.fetch(path, { method: 'POST' })
+  : fetch(path, { method: 'POST', credentials: 'same-origin' }));
+
+const wsURL = (path) => {
+  if(window.FPL_API) return window.FPL_API.socketURL(path);
+  const scheme = location.protocol === 'https:' ? 'wss' : 'ws';
+  return `${scheme}://${location.host}${path}`;
+};
+
 /**
  * Join the room, and put its campaign into localStorage before anything reads
  * from there.
@@ -86,9 +101,7 @@ export async function connect(){
   if(!ROOM) return false;
   let ticket;
   try{
-    const res = await fetch(`/api/rooms/${encodeURIComponent(ROOM)}/ticket`, {
-      method: 'POST', credentials: 'same-origin',
-    });
+    const res = await ticketFetch(`/api/rooms/${encodeURIComponent(ROOM)}/ticket`);
     if(!res.ok) throw new Error(`ticket ${res.status}`);
     ticket = await res.json();
   }catch(e){
@@ -117,8 +130,7 @@ export async function connect(){
 }
 
 function open(ticket, resolveFirst){
-  const scheme = location.protocol === 'https:' ? 'wss' : 'ws';
-  ws = new WebSocket(`${scheme}://${location.host}/ws/room?ticket=${encodeURIComponent(ticket)}`);
+  ws = new WebSocket(wsURL(`/ws/room?ticket=${encodeURIComponent(ticket)}`));
 
   ws.onopen = () => { connected = true; emit('link', { state: 'open' }); };
 
@@ -145,9 +157,7 @@ function open(ticket, resolveFirst){
 
 async function reconnect(){
   try{
-    const res = await fetch(`/api/rooms/${encodeURIComponent(ROOM)}/ticket`, {
-      method: 'POST', credentials: 'same-origin',
-    });
+    const res = await ticketFetch(`/api/rooms/${encodeURIComponent(ROOM)}/ticket`);
     if(!res.ok) throw new Error(String(res.status));
     const t = await res.json();
     open(t.ticket, null);
