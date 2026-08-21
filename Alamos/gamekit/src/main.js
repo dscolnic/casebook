@@ -35,7 +35,8 @@ import { createDriving } from '../engine/world/driving.js';
 import { createFlying } from '../engine/world/flying.js';
 import { createTrial, trialLimit } from '../engine/world/trial.js';
 import { createWorldFormats } from '../engine/world/worldFormats.js';
-import { DAY_NOUN } from '../engine/core/constants.js';
+import { DAY_NOUN, WEEKS } from '../engine/core/constants.js';
+import { dayDebrief } from '../engine/core/debrief.js';
 import { BALLPARK_CALCS } from '../engine/core/curriculum.js';
 
 const canvas = document.getElementById('canvas');
@@ -480,21 +481,39 @@ const day = createDay({
  * The end of a day, either way it happens.
  *
  * Outstanding calls mean the day is retaken — that is the only hard rule in
- * the game, and the stipend plus a fresh set of conversations is what keeps it
- * from being a dead end.
+ * the game, and a fresh set of conversations is what keeps it from being a dead
+ * end. It used to be that plus a morning stipend; the stipend is 0 now, so the
+ * people in the town are the whole of the way back from broke.
  */
 function showDayOver(outstanding){
   const state = getState();
   if(outstanding > 0){
     day.ui.open(`The day ran out`,
       `<div class="briefBox"><p><b>${outstanding} call${outstanding === 1 ? '' : 's'} still open when the light went.</b></p>`
-      + `<p>Tomorrow is this same day again — the calls reopen, the clock refills, and the morning pays an allowance.</p></div>`,
+      + `<p>Tomorrow is this same day again — the calls reopen, the clock refills, and everybody in the town is worth talking to again.</p></div>`,
       [{ id: 'dayRetry', label: 'Take the day again', primary: true, onClick: () => retakeDay() }]);
     return;
   }
+  // What the day amounted to, and somebody in the building saying so. Composed
+  // by the engine from this day's own results — see `engine/core/debrief.js` for
+  // why it is not authored, and why a day on which nothing held does not get
+  // told it went well.
+  //
+  // The last card of a campaign neither offers a next day nor hands over a
+  // takeaway to carry into one: `completeMission` returns 'won' and the
+  // campaign's own ending is the next thing up.
+  const lastDay = state.week >= WEEKS;
+  const debrief = dayDebrief(theme.content ?? {}, state, {
+    dayNoun: DAY_NOUN,
+    grade: theme.audience?.grade,
+    lastDay,
+  });
   day.ui.open(`${DAY_NOUN} ${state.week} closed`,
-    `<div class="briefBox"><p>Every call made. ${COPY.dayEnd ?? 'The team writes it up overnight.'}</p></div>`,
-    [{ id: 'dayNext', label: 'Start the next day', primary: true, onClick: () => {
+    debrief.html
+      + (COPY.dayEnd ? `<div class="briefBox"><p>${COPY.dayEnd}</p></div>` : ''),
+    [{ id: 'dayNext',
+      label: lastDay ? 'See how it ended' : `Start the next ${DAY_NOUN.toLowerCase()}`,
+      primary: true, onClick: () => {
       const res = completeMission();
       overlay.classList.remove('show');
       updateHUD(); refreshWorld();
@@ -685,6 +704,22 @@ for(const [id, key] of [['setHighContrast', 'highContrast'], ['setReduceMotion',
     applyPrefs();
   });
 }
+document.getElementById('setLeave').addEventListener('click', () => {
+  // `../index.html` rather than an absolute path, because the shelf is in a
+  // different place in each of the four ways these games are served and the
+  // relative one is right in all of them: /games/<id>/ -> /games/ in the
+  // casebook app and inside the iOS bundle, dist/<theme>/ -> dist/ for the
+  // gallery a plain static server shows.
+  //
+  // Saved BEFORE navigating rather than relying on beforeunload, which browsers
+  // are entitled to skip: the local save is the authoritative copy, and a
+  // pending cloud write that this outruns is pushed by the next session, since
+  // the local stamp is then the newer one.
+  saveOnExit();
+  window.removeEventListener('beforeunload', saveOnExit);
+  location.href = '../index.html';
+});
+
 document.getElementById('setReset').addEventListener('click', () => {
   // Destructive and irreversible, so it asks first.
   if(!confirm('Restart the campaign? The current run is deleted and cannot be recovered.')) return;
