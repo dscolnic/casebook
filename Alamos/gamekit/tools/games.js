@@ -195,6 +195,31 @@ export const GAMES = [
     // every quantity in it local and physical for a fortnight.
     level: 'high', grades: '11–12' },
 
+  { id: 'slackwater', title: 'Slack Water',
+    course: 'AP Calculus BC · parametric, polar, vector and series', field: 'Mathematics', accent: '#4f7fa8',
+    place: 'Sarn Barrage: six sluice gates across the neck of an estuary, mud at low water and a training wall running out into the channel.',
+    hero: 'sluice-control--desk.png',
+    // Headwater is the AB half. This is the half that starts where AB stops:
+    // series and convergence, parametric and polar, and a tide that is a sum.
+    level: 'high', grades: '11–12' },
+
+  { id: 'overwind', title: 'Overwind',
+    course: 'AP Physics C: Mechanics · in derivations', field: 'Physics', accent: '#c2703f',
+    place: 'Kerrow No. 3: a thirty-two metre headframe over a 1,240 m shaft, alone on a moor, with the winding rope crossing the yard at head height.',
+    hero: 'winder-house--drum.png',
+    // Ground Truth proved a Physics C paper can be carried by derivations. This
+    // is the other paper, and a mine hoist is where rotation, variable mass and
+    // gravitation are all one machine.
+    level: 'high', grades: '11–12' },
+
+  { id: 'darkfibre', title: 'Dark Fibre',
+    course: 'AP Physics 2 · optics and modern physics', field: 'Physics', accent: '#3f8f7a',
+    place: 'Pellow Head: a low concrete landing station in the dunes, a manhole above the tide line, and a radiography bay three hundred metres out.',
+    hero: 'test-room--reflectometer.png',
+    // The half deepwatch_hs could only retrofit onto a submarine: refraction and
+    // interference, then photons, energy levels, photodetection and decay.
+    level: 'high', grades: '11–12' },
+
   { id: 'hospital', title: 'Hospital Heroes',
     course: 'Anatomy & physiology', field: 'Biology', accent: '#e0868f',
     place: "A children's hospital ward — a spine with rooms off it, and everything a size larger.",
