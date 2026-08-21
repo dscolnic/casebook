@@ -9,7 +9,7 @@ export const ROSTER = [
     "role": "Guidance Lead",
     "division": "NAV",
     "color": "#315c78",
-    "bio": "<p>Uses independent tracking and dynamics to decide whether an apparent trajectory change is physical or a measurement artifact.</p>",
+    "bio": "<p>Sits at the front of the guidance row and owns what the room believes about where the vehicle is. Three tracking stations, a star sight and the crew's own inertial platform, and her job on a quiet shift is deciding which of them to trust when they stop agreeing.</p><p>Her first question about any apparent trajectory change is how many independent sources moved. One source moving is a measurement; every source moving is a spacecraft. She has watched this room spend two hours chasing a burn that turned out to be a station's clock.</p>",
     "quiz": [
       {
         "q": "How does Reyes tell a real trajectory change from a measurement artefact?",
@@ -28,7 +28,7 @@ export const ROSTER = [
     "role": "Power Systems Lead",
     "division": "ELEC",
     "color": "#9a741d",
-    "bio": "<p>Reads voltage, current, power, and heat as one energy system rather than isolated meters.</p>",
+    "bio": "<p>Keeps the electrical picture for the whole vehicle, which on this flight is one battery stack, two fuel cells and a long list of things that would like to draw from them.</p><p>She will not look at a voltage on its own. Voltage, current and the heat coming off a component are the same energy accounted for three ways, and a fault that hides in one of them is usually plain in another. A bus holding its voltage while running warm is spending something, and the question is what.</p>",
     "quiz": [
       {
         "q": "Why does Shah read voltage, current and heat as one system?",
@@ -47,7 +47,7 @@ export const ROSTER = [
     "role": "Thermal and Life Support Lead",
     "division": "THERM",
     "color": "#4b775f",
-    "bio": "<p>Tracks heat and gas through the cabin and asks whether powered hardware is actually transporting what it should.</p>",
+    "bio": "<p>Answers for the air the crew breathes and the heat the vehicle has to throw away, both of which are transport problems before they are anything else.</p><p>His standing objection is that a powered box is not a working box. Current reaching a fan says the motor is turning, not that air is moving through the duct behind it. What he asks for is the transport itself — a flow, a temperature difference, a carbon dioxide reading coming down — and he has been shown telemetry proving a scrubber was running while the cabin said it was not.</p>",
     "quiz": [
       {
         "q": "What does Brooks mean by asking whether hardware is transporting what it should?",
@@ -66,7 +66,7 @@ export const ROSTER = [
     "role": "Communications Lead",
     "division": "COMMS",
     "color": "#704f88",
-    "bio": "<p>Turns wave physics, antenna pointing, range, and receiver measurements into a quantitative link diagnosis.</p>",
+    "bio": "<p>Owns the link, which for the next four days means one high-gain antenna, two ground stations and a spacecraft that is slowly rotating.</p><p>Received power is where everybody looks first and the reading she trusts least on its own. A weak signal can be an antenna pointing off, the range opening, or a transmitter failing, and all three arrive at the receiver looking the same. What separates them is whatever else moved at that moment: attitude, range rate, the temperature at the amplifier.</p>",
     "quiz": [
       {
         "q": "Why does Ito treat received power as only part of a link diagnosis?",
@@ -85,7 +85,7 @@ export const ROSTER = [
     "role": "Dynamics and Structures Lead",
     "division": "STRUCT",
     "color": "#9a3f36",
-    "bio": "<p>Connects torque, forcing frequency, natural modes, and measured motion to spacecraft behavior.</p>",
+    "bio": "<p>Reads the accelerometers, which means he spends a flight arguing that how hard something is shaken matters less than how fast.</p><p>A panel takes up a shake hardest when the rate it is shaken at matches the rate it wants to ring at, and the same force applied away from that rate is felt and forgotten. So the number he wants first is a rate rather than an amplitude: a thruster pulsing at four hertz into a panel that rings at four hertz is a different event from the same thruster at twenty.</p>",
     "quiz": [
       {
         "q": "Why does Mensah care about the frequency something is shaken at, not just how hard?",
@@ -104,7 +104,7 @@ export const ROSTER = [
     "role": "Mission Integration Lead",
     "division": "INTEG",
     "color": "#3d6f52",
-    "bio": "<p>Challenges common-mode assumptions and makes the final decision only after independent evidence agrees.</p>",
+    "bio": "<p>Sits at the back of the room where the recommendations arrive, and is the last person to say yes. Eleven missions, two of which she stopped.</p><p>What she looks for is not agreement but independence. Two instruments sharing a power supply, a calibration or a line of software can be wrong together and confident together, and a room reading them side by side hears that as confirmation. Her question is always which step the two answers have in common.</p>",
     "quiz": [
       {
         "q": "What is Carter guarding against by demanding independent evidence?",

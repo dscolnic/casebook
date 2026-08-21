@@ -218,7 +218,7 @@ export const ROSTER = [
     "role": "Calibration Technician",
     "division": "METER",
     "color": "#b0762a",
-    "bio": "<p>Keeps the standards traceable and the calibration records current. The cheerful arbiter of whether a disputed reading is admissible, and immune to being hurried.</p>",
+    "bio": "<p>Keeps the standards traceable and the calibration records current, which means she owns the paperwork that decides whether anybody's number counts.</p><p>She is the cheerful arbiter of a disputed reading and immune to being hurried. An instrument whose chain back to the reference cannot be shown is an instrument with an opinion, and she has told a control room that during an event.</p>",
     "quiz": [
       {
         "q": "Why will Bergström not be hurried over a disputed reading?",

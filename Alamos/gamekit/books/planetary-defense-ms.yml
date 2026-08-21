@@ -97,7 +97,14 @@ roster:
           - Artefacts are always brighter on the frame than a real detection is
           - Real objects appear on only one detector at a time
           - Cosmic rays are removed by the telescope's own software
-    bio: Distinguishes real moving sources from cosmic rays, detector defects, and image-processing artifacts using repeated and independent observations.
+    bio: |-
+      Runs the survey cameras on the ridge. Four pictures of the same patch of sky
+      each night. Then a morning spent deciding which marks were real.
+
+      A real object shows up in more than one picture. It moves the same way each
+      time. A cosmic ray shows up once. A bad column of pixels sits in the same spot
+      every night. She keeps everything the software threw out. That pile is how she
+      learns what the survey is missing.
   - id: rossi
     name: Dr. Marco Rossi
     role: Orbit Determination Lead
@@ -109,7 +116,14 @@ roster:
           - A position is only valid for the night on which it was taken
           - Timing decides which telescope gets credit for the observation
           - The covariance is computed from exposure length
-    bio: Treats every position as a timed measurement with calibration and covariance, then asks which observation reduces the dangerous uncertainty.
+    bio: |-
+      Fits the orbits. The first thing he asks about any measurement is when it was
+      taken, and how exactly.
+
+      An orbit is built from when as much as from where. A position with a sloppy time
+      is a position somewhere along a line. Every measurement he uses carries its
+      error with it. So his answer is a region of sky, not a point. The next picture
+      worth taking is the one that shrinks it.
   - id: adebayo
     name: Dr. Tola Adebayo
     role: Physical Characterization Lead
@@ -121,7 +135,14 @@ roster:
           - Brightness cannot be measured accurately at the faintest magnitudes
           - Diameter requires a radar detection by definition
           - Reflectivity is the same for every asteroid of a given type
-    bio: Combines brightness, color, spectra, thermal information, and rotation without pretending any one observable uniquely determines size or composition.
+    bio: |-
+      Works out what an object is made of and how big it is. On this ridge the same
+      target is watched five ways over four nights.
+
+      He will not give a size from brightness alone. Brightness is size and shininess
+      together. A small bright rock and a big dark one look the same. To tell them
+      apart he needs heat measurements, a radar echo, or a colour. The spin comes from
+      the same light curve.
   - id: fischer
     name: Dr. Anna Fischer
     role: Radar Dynamics Lead
@@ -133,7 +154,14 @@ roster:
           - A far more accurate measurement of the very same position on the sky
           - The object's composition from the returned frequency
           - Observations that can be made in daylight
-    bio: Uses signal delay and Doppler measurements to add independent geometric constraints to optical astrometry.
+    bio: |-
+      Runs the dish at the end of the ridge road. It can only reach an object while
+      that object is close. While it can, it changes the answer.
+
+      Radar measures a delay and a frequency shift. That gives a real distance and a
+      real speed toward us. Pictures of the sky give neither, however many nights you
+      take. One good radar pass has settled a case that four months of images could
+      not.
   - id: banerjee
     name: Dr. Rohan Banerjee
     role: Impact Physics Lead
@@ -145,7 +173,15 @@ roster:
           - A range is required by protocol before any public statement is made
           - Deterministic answers are only possible after entry
           - The range describes how likely an impact is
-    bio: Connects size, density, speed, atmosphere, and fragmentation to consequence ranges rather than single deterministic outcomes.
+    bio: |-
+      Turns an object into a consequence. He takes its size, its density and its
+      speed. Then he follows it down through the air to whatever is left at the
+      ground.
+
+      He gives ranges, not single numbers. Three loose numbers are multiplied together
+      on the way to the answer. A single figure would claim a precision nobody has.
+      The height where the rock breaks up moves the answer most. It is also the number
+      he knows least well.
   - id: garcia
     name: Dr. Isabel Garcia
     role: Survey and Response Lead
@@ -157,7 +193,15 @@ roster:
           - Expected value cannot be computed before the orbit is known
           - Probabilities below 1% are not meaningful to a general audience
           - The public always misreads percentages
-    bio: Balances observing completeness, uncertainty reduction, public communication, and response thresholds without confusing expected value with a prediction.
+    bio: |-
+      Decides what the programme looks at next, and what it says out loud. Both jobs
+      are the same trade. Telescope time buys certainty. Certainty is what a public
+      statement is made of.
+
+      She warns that expected value is not a prediction. A one-in-ten-thousand chance
+      of a huge event averages out to a number that will happen to nobody. It compares
+      choices. It does not describe the night. She writes the limits down before the
+      numbers arrive.
   - id: virtanen
     name: Aino Virtanen
     role: Survey Pipeline Scientist

@@ -97,7 +97,14 @@ roster:
           - Vital signs all come off one monitor, so they share whatever error it has
           - Only the chain as a whole is recorded in the notes
           - Individual readings are too imprecise to interpret
-    bio: Connects vital signs and laboratory measurements to the physical chain that delivers oxygen, water, nutrients, and heat through the body.
+    bio: |-
+      Works with the doctors in the marquees. She gets called when a patient's numbers
+      stop making sense together.
+
+      She reads those numbers as a chain. Air goes into the lung. Oxygen goes onto the
+      blood. The blood carries it out to the tissue. Every link has to work. One good
+      reading clears one link and nothing else. A patient with a single reassuring
+      number is the one that worries her.
   - id: chen
     name: Dr. Maya Chen
     role: Cell Biology Lead
@@ -109,7 +116,14 @@ roster:
           - Blood reaches some tissues a great deal faster than it reaches others
           - Larger cells absorb more of any substance
           - Damage depends only on the dose that arrives
-    bio: Uses cell structure and membrane behavior to explain why the same agent can affect one tissue but not another.
+    bio: |-
+      Runs the cell bench in the second container lab. Her question is why this agent
+      harms some tissue and leaves the rest alone.
+
+      The answer is at the surface of the cell. Cells carry different receptors and
+      different transport proteins. The same dose reaches everywhere in the blood.
+      Only some cells take it in. That is how a lung is wrecked while the kidney next
+      to it stays fine.
   - id: patel
     name: Dr. Ravi Patel
     role: Molecular Diagnostics Lead
@@ -121,7 +135,14 @@ roster:
           - Every result has to be published in some form before anybody may act on it
           - A signal is only valid if the same laboratory repeats it
           - Molecular methods are less reliable than culture
-    bio: Treats every molecular signal as a claim that must survive controls, independent methods, and provenance checks.
+    bio: |-
+      Runs the molecular lab, two containers behind the decon tunnel. Most of the
+      numbers people are arguing about came off his bench.
+
+      He treats a signal as a claim, not an answer. Before it leaves the lab it has to
+      pass its own controls. A second method has to find it too. And he has to know
+      where the sample came from. One dirty run once set a city's policy for a
+      fortnight.
   - id: okafor
     name: Dr. Nia Okafor
     role: Immunology Lead
@@ -133,7 +154,14 @@ roster:
           - Only the damaging kind of inflammation shows up in a blood sample
           - Protective responses always resolve without treatment
           - The distinction decides which ward a patient goes to
-    bio: Separates protective immune activity from tissue-damaging inflammation and asks what evidence changes an intervention decision.
+    bio: |-
+      Leads the immune team. She works on one question all day. Is the immune system
+      helping this patient, or hurting them?
+
+      It matters because the treatments go opposite ways. Damp down a helpful response
+      and the infection wins. Leave a harmful one alone and the lung fills anyway. So
+      she asks for the evidence that would change that choice. The timing, the
+      markers, and what happened to patients treated each way.
   - id: morales
     name: Dr. Sofia Morales
     role: Epidemiology Lead
@@ -145,7 +173,14 @@ roster:
           - It doubles the size of the sample and narrows the confidence interval
           - It is required before any result can be published
           - It identifies which hospital reported first
-    bio: Builds comparisons that distinguish real population change from sampling, bias, and coincidence.
+    bio: |-
+      Owns the case numbers. That is harder than it sounds. The testing tents have
+      moved twice in a fortnight.
+
+      Every number she shows comes with a comparison group. Without one you cannot
+      tell more disease from more swabbing. Cases doubled and testing doubled is not
+      an outbreak growing. She will not put a curve on a screen without the
+      denominator under it.
   - id: singh
     name: Dr. Arjun Singh
     role: One Health Lead
@@ -157,7 +192,14 @@ roster:
           - Animal samples cannot be sequenced to the same depth as human ones
           - Transmission routes can only be confirmed experimentally
           - Wildlife sampling is never representative
-    bio: Connects human cases to animals, water, and ecosystems without assuming that correlation proves a transmission route.
+    bio: |-
+      Works outside the fence. He looks at the drains, the market, and the animals
+      people live beside. He reports to the same morning meeting as the ward teams.
+
+      He will not call an animal finding a transmission route. The animal may have
+      picked it up from people instead. Two things separate those stories. How common
+      it is among the animals, and how much contact people have with them. A positive
+      swab is where the looking starts.
   - id: nakamura
     name: Rin Nakamura
     role: Critical Care Physician

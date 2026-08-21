@@ -97,7 +97,14 @@ roster:
           - By re-running the same navigation solution with much tighter tolerances
           - By waiting for the next scheduled navigation update
           - By comparing the result against the pre-launch plan
-    bio: Uses independent tracking and dynamics to decide whether an apparent trajectory change is physical or a measurement artifact.
+    bio: |-
+      Sits at the front of the guidance row. Her job is to say where the ship is right
+      now. Three tracking stations report to her. So does the ship's own instrument.
+
+      When a track seems to change, she asks one question. How many sources moved? If
+      only one moved, it is a measurement problem. If they all moved, the ship really
+      moved. This room once chased a change for two hours. It was a clock at one
+      station.
   - id: shah
     name: Priya Shah
     role: Power Systems Lead
@@ -109,7 +116,14 @@ roster:
           - Three separate instruments together are more accurate than any one of them
           - Heat is the only quantity that can be measured directly in flight
           - The three meters share a single power supply
-    bio: Reads voltage, current, power, and heat as one energy system rather than isolated meters.
+    bio: |-
+      Keeps track of the ship's power. That is one battery stack, two fuel cells, and
+      a long list of things that want to draw from them.
+
+      She never reads a voltage by itself. Voltage, current and heat are the same
+      energy counted three ways. A part can look fine on one meter and wrong on
+      another. A power line that runs warm is spending energy somewhere. Her job is to
+      find where.
   - id: brooks
     name: Dr. Aaron Brooks
     role: Thermal and Life Support Lead
@@ -121,7 +135,13 @@ roster:
           - Hardware telemetry becomes unreliable during a power-down and cannot be trusted
           - Transport rates can only be measured on the ground
           - The crew cannot hear whether a fan is running
-    bio: Tracks heat and gas through the cabin and asks whether powered hardware is actually transporting what it should.
+    bio: |-
+      Looks after the air the crew breathes and the heat the ship has to get rid of.
+      Both are about moving something from one place to another.
+
+      He says a powered box is not a working box. Power going to a fan means the motor
+      turns. It does not mean air moves through the duct. So he asks for a flow, or a
+      temperature change, or a carbon dioxide reading that is coming down.
   - id: ito
     name: Naomi Ito
     role: Communications Lead
@@ -133,7 +153,14 @@ roster:
           - Received power is sampled too slowly to be useful during a fast fade
           - Power readings are quantised too coarsely at long range
           - Only frequency measurements are calibrated
-    bio: Turns wave physics, antenna pointing, range, and receiver measurements into a quantitative link diagnosis.
+    bio: |-
+      Looks after the radio link. That is one big antenna, two ground stations, and a
+      ship that is slowly turning.
+
+      Everyone looks at received power first. She trusts it least on its own. A weak
+      signal can mean the antenna points the wrong way. It can mean the ship is
+      farther off. It can mean the radio is failing. All three look the same at the
+      receiver. What tells them apart is whatever else changed at that moment.
   - id: mensah
     name: Kwame Mensah
     role: Dynamics and Structures Lead
@@ -145,7 +172,14 @@ roster:
           - Forcing at high frequency always does more damage than forcing at low frequency
           - Frequency determines how far the vibration travels through the hull
           - Accelerometers only respond above a threshold frequency
-    bio: Connects torque, forcing frequency, natural modes, and measured motion to spacecraft behavior.
+    bio: |-
+      Reads the shake sensors on the ship. He spends a flight saying the same thing.
+      How fast something is shaken matters more than how hard.
+
+      Every structure has a natural frequency. It answers strongly near that rate and
+      hardly at all away from it. So he asks for the rate first. A thruster pulsing
+      four times a second into a panel that rings four times a second is a real
+      problem. The same thruster at twenty is not.
   - id: carter
     name: Dr. Evelyn Carter
     role: Mission Integration Lead
@@ -157,7 +191,14 @@ roster:
           - Crew reports become unreliable when the people making them are under stress
           - A single instrument cannot be calibrated in flight
           - Independent teams work faster than one large team
-    bio: Challenges common-mode assumptions and makes the final decision only after independent evidence agrees.
+    bio: |-
+      Sits at the back of the room, where the recommendations arrive. She is the last
+      person to say yes. Eleven missions so far, and she has stopped two of them.
+
+      She does not want agreement. She wants independence. Two instruments can share a
+      power supply, a calibration, or a piece of software. Then they are wrong
+      together and sure together. Her question is always the same. What step do these
+      two answers share?
   - id: whitaker
     name: Dale Whitaker
     role: Trajectory Officer

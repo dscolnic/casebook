@@ -9,7 +9,7 @@ export const ROSTER = [
     "role": "Clinical Physiology Lead",
     "division": "CLIN",
     "color": "#315c78",
-    "bio": "<p>Connects vital signs and laboratory measurements to the physical chain that delivers oxygen, water, nutrients, and heat through the body.</p>",
+    "bio": "<p>Runs the physiology side of the clinical group, which in week three means being called out to the marquees whenever a patient's numbers stop making sense together.</p><p>She reads vital signs as a delivery chain rather than a row of readings: air into the lung, oxygen onto the blood, blood out to the tissue, with heat and water moving the whole time. Every link has to hold, so one normal number clears one link and nothing else. The patients that frighten her are the ones with a single reassuring reading.</p>",
     "quiz": [
       {
         "q": "Why does Ortiz read vital signs as a delivery chain rather than as separate numbers?",
@@ -28,7 +28,7 @@ export const ROSTER = [
     "role": "Cell Biology Lead",
     "division": "CELL",
     "color": "#4b775f",
-    "bio": "<p>Uses cell structure and membrane behavior to explain why the same agent can affect one tissue but not another.</p>",
+    "bio": "<p>Heads the cell bench in the second container lab, on the question of why this agent takes some tissue and leaves the rest of it alone.</p><p>Her answer is at the membrane. Two cells sitting in the same bloodstream carry a different set of doors — the receptors on them, and the proteins that haul things across — so a dose arriving everywhere in the blood is only taken up in some places — which is how a lung is destroyed while the kidney beside it is untouched. She will not accept more blood flow as an explanation without a receptor to go with it.</p>",
     "quiz": [
       {
         "q": "Why can one agent damage one tissue and leave another alone?",
@@ -47,7 +47,7 @@ export const ROSTER = [
     "role": "Molecular Diagnostics Lead",
     "division": "MOL",
     "color": "#704f88",
-    "bio": "<p>Treats every molecular signal as a claim that must survive controls, independent methods, and provenance checks.</p>",
+    "bio": "<p>Runs the molecular laboratory, two containers behind the decon tunnel, and most of the numbers this response is arguing about came off his bench.</p><p>He treats a signal as a claim rather than a result. Before it leaves the container it has to survive its own controls, be found again by a second method, and carry a provenance — which sample, taken by whom, kept how. He has watched one contaminated run set a city's policy for a fortnight.</p>",
     "quiz": [
       {
         "q": "What does Patel mean by treating a molecular signal as a claim?",
@@ -66,7 +66,7 @@ export const ROSTER = [
     "role": "Immunology Lead",
     "division": "IMM",
     "color": "#9a3f36",
-    "bio": "<p>Separates protective immune activity from tissue-damaging inflammation and asks what evidence changes an intervention decision.</p>",
+    "bio": "<p>Leads the immunology group, and spends most of a day on one distinction: whether what is happening to a patient is the immune system working or the immune system doing the damage.</p><p>It matters because the treatments point opposite ways. Suppress a protective response and the infection wins; leave a damaging one alone and the lung fills anyway. So the evidence she asks for is whatever would change that decision — the timing, the markers, what became of the patients treated each way.</p>",
     "quiz": [
       {
         "q": "Why does Okafor separate protective immune activity from damage?",
@@ -85,7 +85,7 @@ export const ROSTER = [
     "role": "Epidemiology Lead",
     "division": "POP",
     "color": "#9a741d",
-    "bio": "<p>Builds comparisons that distinguish real population change from sampling, bias, and coincidence.</p>",
+    "bio": "<p>Owns the case numbers, which is harder than it sounds in a fortnight when the testing tents have moved twice.</p><p>Every figure she puts on a screen carries its comparison group, because a count on its own cannot separate more disease from more swabbing. Cases doubled and testing doubled is not an outbreak growing. She has spent this outbreak refusing to show a curve without the denominator underneath it.</p>",
     "quiz": [
       {
         "q": "What is Morales's comparison group actually for?",
@@ -104,7 +104,7 @@ export const ROSTER = [
     "role": "One Health Lead",
     "division": "FIELD",
     "color": "#3d6f52",
-    "bio": "<p>Connects human cases to animals, water, and ecosystems without assuming that correlation proves a transmission route.</p>",
+    "bio": "<p>Works the ground outside the fence — the drains, the market, the animals people live beside — and reports into the same morning meeting as the ward teams.</p><p>He will not call an animal finding a transmission route. An animal carrying the agent may well have picked it up from people instead. What separates the two stories is how common it is among the animals, how much contact people have with them, and which of the two appeared first. A positive swab is where the looking starts.</p>",
     "quiz": [
       {
         "q": "Why does Singh refuse to call an animal finding a transmission route?",

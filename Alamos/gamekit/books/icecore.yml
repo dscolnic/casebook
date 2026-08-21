@@ -230,9 +230,13 @@ roster:
     name: Elena Cruz
     role: Cold Laboratory Technician
     division: COLD
-    bio: |
-      Prepares samples for the isotope line: cuts the outer centimetre off every
-      piece, weighs it, logs it, and runs the blanks nobody else wants to run.
+    bio: |-
+      Prepares the samples for the isotope line: cuts the outer centimetre off every
+      piece, weighs it, logs it, and runs the blanks nobody else volunteers for.
+
+      The blanks are the part she will not skip. A season's worth of results rests on
+      knowing what the process contributes when there is no ice in it, and that number
+      is only known if somebody keeps measuring nothing.
     quiz:
       - q: Why does Cruz cut the outer centimetre off every sample?
         a: The outside has touched the drill and the bench; the inside has not

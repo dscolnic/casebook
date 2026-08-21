@@ -161,7 +161,7 @@ export const ROSTER = [
     "role": "Cold Laboratory Technician",
     "division": "COLD",
     "color": "#1f7a6b",
-    "bio": "<p>Prepares samples for the isotope line: cuts the outer centimetre off every piece, weighs it, logs it, and runs the blanks nobody else wants to run.</p>",
+    "bio": "<p>Gets the samples ready for the isotope line. She cuts the outer centimetre off every piece, weighs it, and writes it all down.</p><p>She also runs the blanks, which nobody else wants to do. A blank is a run with no ice in it. It shows what the process itself adds, and without that number the season's results cannot be trusted.</p>",
     "quiz": [
       {
         "q": "Why does Cruz cut the outer centimetre off every sample?",

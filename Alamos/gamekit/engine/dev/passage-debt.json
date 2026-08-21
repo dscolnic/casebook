@@ -1,0 +1,22 @@
+{
+  "_": [
+    "Passages that say nothing about the person: a bio under 25 words, or one",
+    "written as a single sentence, or missing entirely. Same two properties as",
+    "concept-debt.json, equation-debt.json and daycalls-debt.json: a row not on this",
+    "list fails immediately, so nothing new drifts in, and a row on the list that has",
+    "since been fixed also fails, naming the line to delete, so the file cannot",
+    "become a standing excuse. It only shrinks.",
+    "",
+    "This key is the header. It is not data - counting these lines as debt is how a",
+    "total reads high for an afternoon.",
+    "",
+    "It holds no rows. It started at 22: eighteen were the half-written casts of",
+    "Bring Them Home, Outbreak Riverton and Planetary Defense, where six of twelve",
+    "people carried one abstract sentence naming their syllabus topic and the other",
+    "six carried two paragraphs. All eighteen were written, in both the senior book",
+    "and the grade-6 edition's own book, since editionParity compares the cast and",
+    "deliberately not the bios. The other four were single-sentence entries in",
+    "Blackout, Ice Core and the instrument bank, extended rather than recorded",
+    "because four is cheaper to write than to track."
+  ]
+}

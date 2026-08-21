@@ -9,7 +9,7 @@ export const ROSTER = [
     "role": "Survey Imaging Lead",
     "division": "DISC",
     "color": "#315c78",
-    "bio": "<p>Distinguishes real moving sources from cosmic rays, detector defects, and image-processing artifacts using repeated and independent observations.</p>",
+    "bio": "<p>Runs the survey cameras on the ridge: four exposures of the same field a night, and a morning spent deciding which of the marks on them were real.</p><p>A real moving object turns up on separate frames, and the distance it travels between them agrees with the rest of the set. A cosmic ray is in one frame only; a hot column sits in the same place on the detector whatever the sky is doing. She keeps everything the pipeline rejected, because the pattern in what a survey throws away is how a survey finds out it is broken.</p>",
     "quiz": [
       {
         "q": "How does Nguyen separate a real moving object from a detector artefact?",
@@ -28,7 +28,7 @@ export const ROSTER = [
     "role": "Orbit Determination Lead",
     "division": "ORBIT",
     "color": "#704f88",
-    "bio": "<p>Treats every position as a timed measurement with calibration and covariance, then asks which observation reduces the dangerous uncertainty.</p>",
+    "bio": "<p>Fits the orbits, and the first thing he asks about any observation handed to him is what time it was taken and to what accuracy.</p><p>The fit is as much about the clock as about the sky: a position with a poor timestamp is a position somewhere along a line. Every measurement that reaches his solution carries its calibration and its covariance with it, so what he hands back is a region rather than a point — and the observation worth making next is whichever one shrinks the dangerous part of it.</p>",
     "quiz": [
       {
         "q": "Why does Rossi treat a position as a timed measurement rather than a point?",
@@ -47,7 +47,7 @@ export const ROSTER = [
     "role": "Physical Characterization Lead",
     "division": "CHAR",
     "color": "#4b775f",
-    "bio": "<p>Combines brightness, color, spectra, thermal information, and rotation without pretending any one observable uniquely determines size or composition.</p>",
+    "bio": "<p>Works out what an object is made of and how large it is, from a ridge where the same target is watched five ways over four nights.</p><p>He will not give a diameter from brightness. Brightness is size and reflectivity multiplied together, so a small bright rock and a large dark one land on the same point of the plot; separating them takes thermal infrared, a radar echo, or a colour that fixes the type. The rotation falls out of the same light curve, and is the thing most often mistaken for something else.</p>",
     "quiz": [
       {
         "q": "Why will Adebayo not give a diameter from brightness alone?",
@@ -66,7 +66,7 @@ export const ROSTER = [
     "role": "Radar Dynamics Lead",
     "division": "RADAR",
     "color": "#9a741d",
-    "bio": "<p>Uses signal delay and Doppler measurements to add independent geometric constraints to optical astrometry.</p>",
+    "bio": "<p>Runs the dish at the end of the ridge road, which can reach an object only while it is close — and while it can, changes the answer entirely.</p><p>Radar measures a delay and a Doppler shift, which is a direct distance and a line-of-sight speed: two quantities optical astrometry never gives, however many nights of positions it collects. One good pass has taken a keyhole out of a solution that four months of images could not settle.</p>",
     "quiz": [
       {
         "q": "What does radar add that optical astrometry cannot give?",
@@ -85,7 +85,7 @@ export const ROSTER = [
     "role": "Impact Physics Lead",
     "division": "IMPACT",
     "color": "#9a3f36",
-    "bio": "<p>Connects size, density, speed, atmosphere, and fragmentation to consequence ranges rather than single deterministic outcomes.</p>",
+    "bio": "<p>Turns an object into a consequence, which means taking size, density and speed and following them down through the atmosphere to whatever is left at the ground.</p><p>He gives ranges rather than numbers. Three loose inputs are multiplied together on the way to an answer, so an estimate quoted to one figure is a claim about precision nobody here has. The altitude the object breaks up at is the term that swings the answer most, and it is also the term least well known.</p>",
     "quiz": [
       {
         "q": "Why does Banerjee give consequence as a range rather than a number?",
@@ -104,7 +104,7 @@ export const ROSTER = [
     "role": "Survey and Response Lead",
     "division": "OPS",
     "color": "#3d6f52",
-    "bio": "<p>Balances observing completeness, uncertainty reduction, public communication, and response thresholds without confusing expected value with a prediction.</p>",
+    "bio": "<p>Decides what the programme observes next and what it says out loud, and holds both jobs because they are one trade-off: telescope time buys certainty, and certainty is what a public statement is made of.</p><p>Her standing warning is that expected value is not a prediction. A one-in-ten-thousand chance of a city-sized event multiplies out to a number that will happen to nobody; it is a way of comparing options, not a description of the night. She writes the thresholds down before the numbers arrive.</p>",
     "quiz": [
       {
         "q": "What is Garcia guarding against when she says expected value is not a prediction?",

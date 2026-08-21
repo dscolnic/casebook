@@ -9,7 +9,7 @@ export const ROSTER = [
     "role": "Guidance Lead",
     "division": "NAV",
     "color": "#315c78",
-    "bio": "<p>Uses independent tracking and dynamics to decide whether an apparent trajectory change is physical or a measurement artifact.</p>",
+    "bio": "<p>Sits at the front of the guidance row. Her job is to say where the ship is right now. Three tracking stations report to her. So does the ship's own instrument.</p><p>When a track seems to change, she asks one question. How many sources moved? If only one moved, it is a measurement problem. If they all moved, the ship really moved. This room once chased a change for two hours. It was a clock at one station.</p>",
     "quiz": [
       {
         "q": "How does Reyes tell a real trajectory change from a measurement artefact?",
@@ -28,7 +28,7 @@ export const ROSTER = [
     "role": "Power Systems Lead",
     "division": "ELEC",
     "color": "#9a741d",
-    "bio": "<p>Reads voltage, current, power, and heat as one energy system rather than isolated meters.</p>",
+    "bio": "<p>Keeps track of the ship's power. That is one battery stack, two fuel cells, and a long list of things that want to draw from them.</p><p>She never reads a voltage by itself. Voltage, current and heat are the same energy counted three ways. A part can look fine on one meter and wrong on another. A power line that runs warm is spending energy somewhere. Her job is to find where.</p>",
     "quiz": [
       {
         "q": "Why does Shah read voltage, current and heat as one system?",
@@ -47,7 +47,7 @@ export const ROSTER = [
     "role": "Thermal and Life Support Lead",
     "division": "THERM",
     "color": "#4b775f",
-    "bio": "<p>Tracks heat and gas through the cabin and asks whether powered hardware is actually transporting what it should.</p>",
+    "bio": "<p>Looks after the air the crew breathes and the heat the ship has to get rid of. Both are about moving something from one place to another.</p><p>He says a powered box is not a working box. Power going to a fan means the motor turns. It does not mean air moves through the duct. So he asks for a flow, or a temperature change, or a carbon dioxide reading that is coming down.</p>",
     "quiz": [
       {
         "q": "What does Brooks mean by asking whether hardware is transporting what it should?",
@@ -66,7 +66,7 @@ export const ROSTER = [
     "role": "Communications Lead",
     "division": "COMMS",
     "color": "#704f88",
-    "bio": "<p>Turns wave physics, antenna pointing, range, and receiver measurements into a quantitative link diagnosis.</p>",
+    "bio": "<p>Looks after the radio link. That is one big antenna, two ground stations, and a ship that is slowly turning.</p><p>Everyone looks at received power first. She trusts it least on its own. A weak signal can mean the antenna points the wrong way. It can mean the ship is farther off. It can mean the radio is failing. All three look the same at the receiver. What tells them apart is whatever else changed at that moment.</p>",
     "quiz": [
       {
         "q": "Why does Ito treat received power as only part of a link diagnosis?",
@@ -85,7 +85,7 @@ export const ROSTER = [
     "role": "Dynamics and Structures Lead",
     "division": "STRUCT",
     "color": "#9a3f36",
-    "bio": "<p>Connects torque, forcing frequency, natural modes, and measured motion to spacecraft behavior.</p>",
+    "bio": "<p>Reads the shake sensors on the ship. He spends a flight saying the same thing. How fast something is shaken matters more than how hard.</p><p>Every structure has a natural frequency. It answers strongly near that rate and hardly at all away from it. So he asks for the rate first. A thruster pulsing four times a second into a panel that rings four times a second is a real problem. The same thruster at twenty is not.</p>",
     "quiz": [
       {
         "q": "Why does Mensah care about the frequency something is shaken at, not just how hard?",
@@ -104,7 +104,7 @@ export const ROSTER = [
     "role": "Mission Integration Lead",
     "division": "INTEG",
     "color": "#3d6f52",
-    "bio": "<p>Challenges common-mode assumptions and makes the final decision only after independent evidence agrees.</p>",
+    "bio": "<p>Sits at the back of the room, where the recommendations arrive. She is the last person to say yes. Eleven missions so far, and she has stopped two of them.</p><p>She does not want agreement. She wants independence. Two instruments can share a power supply, a calibration, or a piece of software. Then they are wrong together and sure together. Her question is always the same. What step do these two answers share?</p>",
     "quiz": [
       {
         "q": "What is Carter guarding against by demanding independent evidence?",

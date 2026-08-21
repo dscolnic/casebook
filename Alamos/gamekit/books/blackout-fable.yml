@@ -301,11 +301,13 @@ roster:
           - Calibration records can only be updated at the end of an accounting month
           - She is the only person permitted to touch the standards
           - A rushed calibration would damage the reference instrument
-    bio: |
-      Keeps the standards traceable and the calibration records current. The
-      cheerful arbiter of whether a disputed reading is admissible, and immune to
-      being hurried.
+    bio: |-
+      Keeps the standards traceable and the calibration records current, which means
+      she owns the paperwork that decides whether anybody's number counts.
 
+      She is the cheerful arbiter of a disputed reading and immune to being hurried.
+      An instrument whose chain back to the reference cannot be shown is an instrument
+      with an opinion, and she has told a control room that during an event.
 # ------------------------------------------------------------------- glossary
 glossary:
   - name: Frequency

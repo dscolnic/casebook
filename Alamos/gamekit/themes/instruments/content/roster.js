@@ -85,7 +85,7 @@ export const ROSTER = [
     "role": "Field Assistant",
     "division": "G1",
     "color": "#2980b9",
-    "bio": "<p>Carries the kit, sets the stakes out and writes the times down. Has read every log in the station and remembers which ones disagree.</p>",
+    "bio": "<p>Carries the kit, sets the stakes out and writes the times down.</p><p>He has read every log the station holds and remembers which of them disagree, which makes him the fastest way to find out whether a surprising reading has a precedent or is the first of its kind.</p>",
     "quiz": [
       {
         "q": "What is Achterberg most useful for on a disputed reading?",
@@ -104,7 +104,7 @@ export const ROSTER = [
     "role": "Laboratory Assistant",
     "division": "G2",
     "color": "#27ae60",
-    "bio": "<p>Runs the routine measurements, which means they see every result before anybody else and notice when a run stops looking like the last one.</p>",
+    "bio": "<p>Runs the routine measurements, which means they see every result before anybody else does.</p><p>Seeing them in order is the whole value of the job. A single run says very little; a run that stops looking like the last twenty is the first sign of something changing, and they notice it days before it reaches a report.</p>",
     "quiz": [
       {
         "q": "Why does running the routine measurements make Sorensen worth asking?",

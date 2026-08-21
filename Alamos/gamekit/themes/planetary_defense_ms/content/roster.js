@@ -9,7 +9,7 @@ export const ROSTER = [
     "role": "Survey Imaging Lead",
     "division": "DISC",
     "color": "#315c78",
-    "bio": "<p>Distinguishes real moving sources from cosmic rays, detector defects, and image-processing artifacts using repeated and independent observations.</p>",
+    "bio": "<p>Runs the survey cameras on the ridge. Four pictures of the same patch of sky each night. Then a morning spent deciding which marks were real.</p><p>A real object shows up in more than one picture. It moves the same way each time. A cosmic ray shows up once. A bad column of pixels sits in the same spot every night. She keeps everything the software threw out. That pile is how she learns what the survey is missing.</p>",
     "quiz": [
       {
         "q": "How does Nguyen separate a real moving object from a detector artefact?",
@@ -28,7 +28,7 @@ export const ROSTER = [
     "role": "Orbit Determination Lead",
     "division": "ORBIT",
     "color": "#704f88",
-    "bio": "<p>Treats every position as a timed measurement with calibration and covariance, then asks which observation reduces the dangerous uncertainty.</p>",
+    "bio": "<p>Fits the orbits. The first thing he asks about any measurement is when it was taken, and how exactly.</p><p>An orbit is built from when as much as from where. A position with a sloppy time is a position somewhere along a line. Every measurement he uses carries its error with it. So his answer is a region of sky, not a point. The next picture worth taking is the one that shrinks it.</p>",
     "quiz": [
       {
         "q": "Why does Rossi treat a position as a timed measurement rather than a point?",
@@ -47,7 +47,7 @@ export const ROSTER = [
     "role": "Physical Characterization Lead",
     "division": "CHAR",
     "color": "#4b775f",
-    "bio": "<p>Combines brightness, color, spectra, thermal information, and rotation without pretending any one observable uniquely determines size or composition.</p>",
+    "bio": "<p>Works out what an object is made of and how big it is. On this ridge the same target is watched five ways over four nights.</p><p>He will not give a size from brightness alone. Brightness is size and shininess together. A small bright rock and a big dark one look the same. To tell them apart he needs heat measurements, a radar echo, or a colour. The spin comes from the same light curve.</p>",
     "quiz": [
       {
         "q": "Why will Adebayo not give a diameter from brightness alone?",
@@ -66,7 +66,7 @@ export const ROSTER = [
     "role": "Radar Dynamics Lead",
     "division": "RADAR",
     "color": "#9a741d",
-    "bio": "<p>Uses signal delay and Doppler measurements to add independent geometric constraints to optical astrometry.</p>",
+    "bio": "<p>Runs the dish at the end of the ridge road. It can only reach an object while that object is close. While it can, it changes the answer.</p><p>Radar measures a delay and a frequency shift. That gives a real distance and a real speed toward us. Pictures of the sky give neither, however many nights you take. One good radar pass has settled a case that four months of images could not.</p>",
     "quiz": [
       {
         "q": "What does radar add that optical astrometry cannot give?",
@@ -85,7 +85,7 @@ export const ROSTER = [
     "role": "Impact Physics Lead",
     "division": "IMPACT",
     "color": "#9a3f36",
-    "bio": "<p>Connects size, density, speed, atmosphere, and fragmentation to consequence ranges rather than single deterministic outcomes.</p>",
+    "bio": "<p>Turns an object into a consequence. He takes its size, its density and its speed. Then he follows it down through the air to whatever is left at the ground.</p><p>He gives ranges, not single numbers. Three loose numbers are multiplied together on the way to the answer. A single figure would claim a precision nobody has. The height where the rock breaks up moves the answer most. It is also the number he knows least well.</p>",
     "quiz": [
       {
         "q": "Why does Banerjee give consequence as a range rather than a number?",
@@ -104,7 +104,7 @@ export const ROSTER = [
     "role": "Survey and Response Lead",
     "division": "OPS",
     "color": "#3d6f52",
-    "bio": "<p>Balances observing completeness, uncertainty reduction, public communication, and response thresholds without confusing expected value with a prediction.</p>",
+    "bio": "<p>Decides what the programme looks at next, and what it says out loud. Both jobs are the same trade. Telescope time buys certainty. Certainty is what a public statement is made of.</p><p>She warns that expected value is not a prediction. A one-in-ten-thousand chance of a huge event averages out to a number that will happen to nobody. It compares choices. It does not describe the night. She writes the limits down before the numbers arrive.</p>",
     "quiz": [
       {
         "q": "What is Garcia guarding against when she says expected value is not a prediction?",
