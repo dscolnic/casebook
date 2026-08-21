@@ -55,16 +55,14 @@ export default {
 
   // The title card: ONE paragraph of situation.
   opening: [
-    'On a November night in 2019, a stranger watched a robbery from the other side of Ferrier '
-    + 'Street. What she said put Elias Ward in prison. He has served seven years of fourteen, and '
-    + 'there was never any other evidence. You are the review analyst at the Conviction Integrity '
-    + 'Unit, which means the report that goes to the board in fifteen days is yours to write. The '
-    + 'unit has rebuilt that corner at full size inside its own hall, lit to the light the street '
-    + 'had. Your job is what could have been seen. You measure the distance. You show the six '
-    + 'photographs to people who were never there. You date every claim in the file. Ines '
-    + 'Baptiste, the unit director, wants it filed this month. Ren Okada, the memory scientist, '
-    + 'says the one account nobody has touched yet is the one a rushed report would use up. Ward '
-    + 'is thirty-four. If the board says no, nobody looks at this again until 2033.',
+    'On a November night in 2019 a stranger watched a robbery from across Ferrier Street. '
+    + 'What she said put Elias Ward in prison. He has served seven years of fourteen, and there '
+    + 'was never other evidence. You are the review analyst at the Conviction Integrity Unit, '
+    + 'and the report that goes to the board in fifteen days is yours. The unit has rebuilt '
+    + 'that street corner in its own hall, lit the way the street was. Ines Baptiste, the unit '
+    + 'director, wants it filed this month. Ren Okada, the memory scientist, says the one '
+    + 'account nobody has touched yet is what a rushed report would use up. If the board says '
+    + 'no, nobody looks at this again until 2033.',
   ],
 
   ending: [

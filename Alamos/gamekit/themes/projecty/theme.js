@@ -85,17 +85,14 @@ export default {
   // they are, and what it costs if the work is not done — no mechanics, no
   // controls, no scope line. This game had none at all and opened on a blank.
   opening: [
-    'It is April 1943, and the site is three weeks old: a boys\' school on a '
-    + 'mesa in New Mexico, with a laboratory going up around it. There is a '
-    + 'fence, and most of the people arriving cannot tell their families where '
-    + 'they are. You are a scientist newly assigned to Project Y. It has one '
-    + 'problem to solve and a schedule set by a war. Five divisions are working '
-    + 'on it at once — theory, experiment, chemistry and metallurgy, ordnance, '
-    + 'explosives — and not one of them can finish without the other four. Nobody '
-    + 'yet knows whether the thing being described on three different blackboards '
-    + 'will work at all. Oppenheimer has put a meeting in the calendar every week '
-    + 'where anyone may be asked anything, so that being wrong costs days instead '
-    + 'of months.',
+    'It is April 1943, and the site is three weeks old: a boys\' school on a mesa in New '
+    + 'Mexico with a laboratory going up around it. There is a fence, and most people arriving '
+    + 'cannot tell their families where they are. You are a scientist newly assigned to Project '
+    + 'Y, which has one problem to solve and a schedule set by a war. Five divisions work on it '
+    + 'at once, and not one can finish without the other four. Nobody yet knows whether the '
+    + 'thing on three blackboards will work at all. Oppenheimer, who directs the laboratory, '
+    + 'holds a meeting every week where anyone may be asked anything, so that being wrong costs '
+    + 'days instead of months.',
   ],
 
   look: {

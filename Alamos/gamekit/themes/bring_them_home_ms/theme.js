@@ -91,11 +91,13 @@ export default {
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
   opening: [
-    'Three people are in a spacecraft on the far side of a quarter-million miles, and something aboard '
-    + 'has just exploded. You are the flight director, and the calls are yours to make. Power is '
-    + 'falling. The cabin is cooling. The trajectory is drifting off the one path that gets them back, '
-    + 'and the air they are breathing is already on a countdown. The crew can hear every word said on '
-    + 'the loop.',
+    'Three people are in a spacecraft, a quarter of a million miles from home, and something '
+    + 'on board has just exploded. You are the flight director. Every call is yours to make. '
+    + 'The power is falling. The cabin is getting cold. The ship is drifting off the one path '
+    + 'that brings it back. The air they are breathing will run out at an hour somebody has '
+    + 'already worked out. Dr. Evelyn Carter, who leads mission integration, has to fit every '
+    + 'repair into one plan that still adds up. And the crew can hear every word anybody says '
+    + 'on the radio loop.',
   ],
 
   // How it ends. Shown when the campaign closes and printed as the book's last page.

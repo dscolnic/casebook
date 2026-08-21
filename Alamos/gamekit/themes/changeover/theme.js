@@ -65,13 +65,14 @@ export default {
   // The title card. Two or three paragraphs: what the player is, what is at
   // stake, and how a day works. Nothing here is generated.
   opening: [
-    'Halvern stops accepting the old mark in fourteen days, and nobody has agreed what the new '
-    + 'one is worth. You are the chief economist to the currency board, which means the rate, the '
-    + 'money supply and every figure the board publishes are signed by you. The board chair, '
-    + 'Ada Verhoeven, wants the rate fixed on Friday so that wages and contracts can be written '
-    + 'against it. The statistician, Emil Radic, has three weeks of price data and will not '
-    + 'certify an index built on it. Nine hundred thousand people are paid in a currency that '
-    + 'stops being money on the fifteenth.',
+    'Halvern is a country of nine hundred thousand people, and in fourteen days its shops and '
+    + 'banks stop taking the mark, the money it has always used. Nobody has agreed what the new '
+    + 'one is worth. You are the chief economist to the currency board, so the rate and its '
+    + 'published figures are yours to sign. The board sits on the top four floors of Kesteven '
+    + 'House, and the queue for the counter is on the plaza a hundred and eighty metres below. '
+    + 'Ada Verhoeven, the board chair, wants the rate fixed on Friday so contracts can be '
+    + 'written. Emil Radic, the board\'s statistician, has three weeks of price data and says '
+    + 'that cannot tell anybody what prices are doing.',
   ],
 
   // How it ends: what came of the fortnight, what it cost, what is unfinished —

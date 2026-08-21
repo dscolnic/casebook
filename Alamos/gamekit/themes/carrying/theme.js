@@ -71,15 +71,14 @@ export default {
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
   opening: [
-    'The council votes on the second ferry in a fortnight, and Vellan has eleven months of '
-    + 'water in the ground. You are the island\u2019s resources officer, which means the '
-    + 'permit to take water, the fishery quota and the tip are all signed by you, and the '
-    + 'vote is advised by whatever you put in front of it. Ines Calloway, who runs the harbour, '
-    + 'has the arithmetic that keeps the school open: nineteen children on the register, and '
-    + 'the landing fees a second sailing would bring. Tomas Berhane, who has counted the '
-    + 'reef every spring for eleven years, has the arithmetic that says the borehole is '
-    + 'already drawing chloride. Both of them are right about something, and ninety-one '
-    + 'people live on what the two of them can be got to agree.',
+    'Vellan is a low island with ninety-one people on it, one ferry a day, and eleven months '
+    + 'of fresh water left underground. The council votes in a fortnight on a second daily '
+    + 'sailing. You are the island\'s resources officer, so the water licence, the fishing quota '
+    + 'and the tip are all signed by you. Ines Calloway, who runs the harbour, has the '
+    + 'arithmetic that keeps the school open: nineteen children on the register, and the fees a '
+    + 'second sailing brings. Tomas Berhane, who has counted the reef for eleven years, has the '
+    + 'arithmetic that says salt water is already reaching the borehole. Ninety-one people live '
+    + 'on what those two can be got to agree.',
   ],
 
   // How it ends. The last thing anybody reads, and the counterpart of `opening`:

@@ -71,16 +71,14 @@ export default {
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
   opening: [
-    'Two hundred kilometres east there is a wheat disease the breeding '
-    + 'programme has exactly one gene against. The wind that would carry it here '
-    + 'comes in over the causeway. You are Season Lead at Wellmere. Forty-one '
-    + 'thousand seed samples are held here at minus eighteen, and the ground '
-    + 'outside is laid out in rings, spaced by how far pollen can travel. Sowing '
-    + 'starts in three weeks, and what goes into the ground is settled this '
-    + 'fortnight. The trial has to be laid out. The oldest samples have to be '
-    + 'grown out again, before fewer of them will come up. And a new wheat has to '
-    + 'be either released to the merchant or held back. Anything not sown in '
-    + 'three weeks waits a full year.',
+    'Two hundred kilometres east there is a wheat disease the breeding programme has exactly '
+    + 'one gene against. The wind that would carry it here comes in over the causeway. You are '
+    + 'Season Lead at Wellmere. Forty-one thousand seed samples are held here at minus '
+    + 'eighteen, and the ground outside is laid out in rings, spaced by how far pollen can '
+    + 'travel. Dr. Chiara Volpe, the head breeder, wants a new wheat released to the merchant '
+    + 'this season. Dr. Nasrin Qureshi, the collection curator, wants the oldest samples grown '
+    + 'out again first, while enough of them will still come up. Anything not sown in three '
+    + 'weeks waits a full year.',
   ],
 
   // How it ends. Shown when the campaign closes, and the last thing the player

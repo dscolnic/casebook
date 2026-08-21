@@ -69,15 +69,14 @@ export default {
   // The title card. Two or three paragraphs: what the player is, what is at
   // stake, and how a day works. Nothing here is generated.
   opening: [
-    'Fab 7 has been losing four wafers in ten since the second week of March, and the '
-    + 'qualification lot for the customer that buys sixty per cent of what this plant makes has '
-    + 'to run in fifteen days. You are the process integration lead, which means the signature on '
-    + 'that lot is yours and so is every decision between here and it. Hana Ferreira, who runs '
-    + 'surface analysis, says the silicon arriving at the door is not what its certificate implies '
-    + 'and wants every incoming lot held. Ruben Ostrowski, who runs deposition, says the material '
-    + 'is fine and a recipe has drifted, and that holding the line for a fortnight guarantees the '
-    + 'loss it is meant to prevent. Nine hundred people work in Ardley, and one customer is large '
-    + 'enough to close the plant.',
+    'Ardley Fab 7 prints silicon chips, layer by layer, on wafers the size of a dinner plate. '
+    + 'Since March four wafers in ten have come out unsellable. In fifteen days the plant runs '
+    + 'a proving batch. The customer that buys sixty per cent of everything Ardley makes '
+    + 'accepts or refuses a whole contract on it. You are the process integration lead, so the '
+    + 'signature on that batch is yours. Hana Ferreira, who runs surface analysis, says the '
+    + 'silicon arriving at the door is not what its certificate claims. Ruben Ostrowski, who '
+    + 'runs the machines that lay each layer down, says the material is fine and a recipe has '
+    + 'drifted. One customer is large enough to close the plant.',
   ],
 
   ending: [

@@ -77,16 +77,14 @@ export default {
   // One paragraph of situation. No mechanics, no controls, and never a list of
   // what the player does not do.
   opening: [
-    'Four million people are supplied from the Calder network, and the whole of '
-    + 'it runs on one number. Mains frequency has to stay within half a hertz of '
-    + 'fifty. Drift further and generators start tripping off, which takes the '
-    + 'rest of the system with them. You are the system operator on nights. The '
-    + 'power stations belong to companies you can instruct under contract and '
-    + 'cannot order about. Demand rises and falls with whatever four million '
-    + 'people happen to be doing. Holding the two together, second by second, is '
-    + 'the job. A fault takes seconds. Getting a system back after one has gone '
-    + 'down takes days, and the hospitals on this network hold about eight hours '
-    + 'of their own generation.',
+    'Four million people get their electricity from the Calder network, and the whole network '
+    + 'runs on one number. The mains change direction fifty times a second. That rate is not '
+    + 'really a reading. It is a balance: how much power the stations make against how much '
+    + 'everyone is using. If the number drifts too far, generators switch themselves off to '
+    + 'stay safe. Then there is less power still, and the number falls further. You are the '
+    + 'system operator on nights, and holding the two sides together is the job. Chinelo Obi, '
+    + 'who runs the local wires, would rather switch off fourteen thousand homes than let the '
+    + 'number fall. A fault takes seconds. Getting the power back takes days.',
   ],
 
   ending: [

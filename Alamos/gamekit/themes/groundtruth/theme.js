@@ -74,21 +74,14 @@ export default {
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
   opening: [
-    'Station 12 makes lightning on purpose. With a storm overhead, the crew '
-    + 'fires a small rocket trailing an earthed wire, and the strike comes down '
-    + 'that wire past instruments waiting for it. Three weeks of the season are '
-    + 'left. Last August a triggered strike killed every circuit board in the '
-    + 'outstation trailer, two hundred metres from the mast. The earthing had '
-    + 'been signed off that spring at twenty-five ohms. Nobody here can say how. '
-    + 'You are the '
-    + 'measurements lead, which means no number reaches the season report unless '
-    + 'you can show where it came from. You work out what a field mill says '
-    + 'about the cloud, and what thirty thousand amps does to a cable it never '
-    + 'touches. Adeyinka Vero, the station lead, wants shots while there is sky to fire into. Hal '
-    + 'Brenner, the operations and safety officer, wants a lead time that matches how fast cells really cross this '
-    + 'flat. The review at the end of the season decides whether this place gets '
-    + 'a second mast or a padlock. It reads what the twelve people here can '
-    + 'prove.',
+    'Station 12 makes lightning on purpose. With a storm overhead the crew fires a rocket '
+    + 'trailing an earthed wire, and the strike comes down it past waiting instruments. Last '
+    + 'August a triggered strike killed every circuit board in a trailer two hundred metres '
+    + 'away, on earthing signed off that spring, and nobody can say how. You are the '
+    + 'measurements lead, so no number reaches the season report unless you can show where it '
+    + 'came from. Adeyinka Vero, the station lead, wants shots while there is sky. Hal Brenner, '
+    + 'the safety officer, wants warning times matching how fast storms cross this flat. Three '
+    + 'weeks are left, and the review at the end gives this place a second mast or a padlock.',
   ],
 
   // The last thing anybody reads.

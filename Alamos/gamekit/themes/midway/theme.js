@@ -78,15 +78,14 @@ export default {
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
   opening: [
-    'Corbin Park lost its certificate in October and the season opens in three weeks. Seven rides '
-    + 'have to get it back — a coaster, a wheel, a drop tower, a pirate ship, a carousel, a bumper '
-    + 'floor and a log flume — and the signature on all seven documents is yours. You are the ride '
-    + 'engineer, hired in February. What you have inherited is eleven notebooks in one hand: '
-    + 'forty-one years of settings, timings and turns of a nut from a mechanic who retired last '
-    + 'autumn, with not one line of working anywhere in them. Delia Marsh, who owns the park, '
-    + 'points out that eleven million people have ridden on those numbers unhurt. Marcus Vey, who '
-    + 'inspects for the county, calls that a record of having got away with it. A hundred and six '
-    + 'days of season pay for the other two hundred and fifty-nine.',
+    'Corbin Park is an amusement park, and in October the county took away its certificate to '
+    + 'open. The season starts in three weeks. Seven rides have to earn it back: a coaster, a '
+    + 'wheel, a drop tower, a pirate ship, a carousel, a bumper floor and a log flume. The '
+    + 'signature on all seven is yours. You are the ride engineer, hired in February, and what '
+    + 'you inherited is eleven notebooks of settings and timings, forty-one years of them, with '
+    + 'not one line of working anywhere. Delia Marsh, who owns the park, says eleven million '
+    + 'people have ridden on those numbers unhurt. Marcus Vey, who inspects for the county, '
+    + 'calls that a record of having got away with it.',
   ],
 
   // The last thing anybody reads: what happened, what it cost and what is left over.

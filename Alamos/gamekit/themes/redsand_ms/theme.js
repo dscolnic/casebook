@@ -82,14 +82,14 @@ export default {
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
   opening: [
-    'The window opens on sol 486 and does not open again for twenty-six months. Six people are at '
-    + 'Arcadia Rise, and none of them goes home unless the vehicle on the pad is full. It has to be '
-    + 'filled with fuel this plant makes out of the air and the ground of Mars, because nothing was '
-    + 'sent from Earth. You are the propellant lead, which means the plant is yours: the reactor, '
-    + 'the water, the power and the cold end. Right now it is making eleven kilograms a sol and the '
-    + 'schedule needs nearly fourteen. Ingrid Sundqvist, who runs production, wants the reactor run '
-    + 'hotter tonight. Tomás Herrera, who owns the reactor, says a hotter bed hands back less every '
-    + 'pass. Six people go home on whatever the two of them can be made to agree.',
+    'The window opens on sol 486 and does not open again for twenty-six months. Six people '
+    + 'are at Arcadia Rise, and none of them goes home unless the vehicle on the pad is full. '
+    + 'The fuel has to be made here, out of the air and the ground of Mars, because nothing was '
+    + 'sent from Earth. You are the propellant lead, so the plant is yours. It is making eleven '
+    + 'kilograms a sol and the schedule needs nearly fourteen. Ingrid Sundqvist, who runs '
+    + 'production, wants the reactor run hotter tonight. Tomas Herrera, who owns the reactor, '
+    + 'says a hotter bed hands back less every pass. Six people go home on whatever those two '
+    + 'can be made to agree.',
   ],
 
   ending: [

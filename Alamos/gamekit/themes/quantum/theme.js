@@ -62,16 +62,14 @@ export default {
   // The title card. Two or three paragraphs: what the player is, what is at
   // stake, and how a day works. Nothing here is generated.
   opening: [
-    'Ridgeway runs a quantum processor: twelve qubits, held a hundredth of a '
-    + 'degree above absolute zero by a refrigerator the size of a wardrobe. '
-    + 'Everyone calls it the fridge. You lead the group. A laboratory in Delft '
-    + 'has published a result your funder has already asked about. Your own best '
-    + 'number was measured on one machine, by one group, in one week. The review '
-    + 'board sits in a fortnight. This morning the fridge came down to forty-two '
-    + 'thousandths of a degree instead of eleven. It sounds like a small miss. It '
-    + 'is the difference between a quantum processor and a warm chip. Priya '
-    + 'Raghavan, the group lead, needs to know which you have, and she needs it before the board '
-    + 'does.',
+    'Ridgeway runs a quantum processor: twelve qubits, held a hundredth of a degree above '
+    + 'absolute zero by a refrigerator the size of a wardrobe. Everyone calls it the fridge. '
+    + 'You lead the group. A laboratory in Delft has published a result your funder has already '
+    + 'asked about. Your own best number came off one machine, one group, one week. The review '
+    + 'board sits in a fortnight. This morning the fridge came down to forty-two thousandths of '
+    + 'a degree instead of eleven. That is the difference between a quantum processor and a '
+    + 'warm chip. Priya Raghavan, who finds the money for this group, needs to know which you '
+    + 'have before the board does.',
   ],
 
   ending: [

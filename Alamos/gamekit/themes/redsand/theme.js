@@ -81,18 +81,14 @@ export default {
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
   opening: [
-    'Everyone here goes home on a rocket, and the rocket can only leave when '
-    + 'Mars and Earth line up. That happens once every twenty-six months. The '
-    + 'next one is sixteen months off. The rocket is already standing on the pad, '
-    + 'four hundred metres from your door. It has to lift off full, and nothing '
-    + 'is being flown out from Earth to fill it. The 6.6 tonnes of methane and 23 '
-    + 'of oxygen have to be made here, out of the Martian air and the ground '
-    + 'under it. So far the plant has made 3.9. You are the propellant lead at '
-    + 'Arcadia Rise, so every kilogram loaded into that rocket is signed for by '
-    + 'you. The plant has run under its rated output every sol since spring. This '
-    + 'morning Ingrid Sundqvist, the plant production lead, wants the reactor forty degrees hotter, and Tomás '
-    + 'Herrera says a hotter reactor hands back less methane on every pass. Six '
-    + 'people fly home on whatever those two can be got to agree to make.',
+    'Everyone here goes home on a rocket that can only leave when Mars and Earth line up. The '
+    + 'next alignment is sixteen months off. It stands on the pad four hundred metres away and '
+    + 'has to lift off full. Nothing is flown from Earth to fill it. The 6.6 tonnes of methane '
+    + 'and 23 of oxygen have to be made here, out of Martian air and ground. So far the plant '
+    + 'has made 3.9. You are the propellant lead at Arcadia Rise, so every kilogram loaded '
+    + 'aboard is signed for by you. Ingrid Sundqvist, the production lead, wants the reactor '
+    + 'forty degrees hotter. Tomas Herrera, who owns the reactor, says a hotter reactor hands '
+    + 'back less methane every pass.',
   ],
 
   // The last thing anybody reads. What happened, what it cost, what is left

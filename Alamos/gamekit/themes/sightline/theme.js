@@ -48,19 +48,14 @@ export default {
 
   // The title card: ONE paragraph of situation.
   opening: [
-    'On a November night in 2019, a stranger watched a robbery from the far '
-    + 'side of Ferrier Street. Her account put Elias Ward in prison, and he has '
-    + 'served seven years of fourteen. There was no other evidence. You are the '
-    + 'review analyst at the Conviction Integrity Unit, which means the report '
-    + 'that goes to the review board in fifteen working days is the one you '
-    + 'write. The unit has rebuilt that corner at full size inside its own hall, '
-    + 'lit to the light the street had. Your work is what could have been seen. '
-    + 'You measure the distance. You show the six photographs to strangers who '
-    + 'were never there. You date every claim in the file. Ines Baptiste, the unit director, '
-    + 'wants the report filed this month, on the procedure alone. Ren Okada, the memory scientist, says '
-    + 'the one account of that night nobody has touched yet is the one such a '
-    + 'report would use up. Ward is thirty-four, and if the board says no, '
-    + 'nobody looks at this again until 2033.',
+    'On a November night in 2019 a stranger watched a robbery from across Ferrier Street. Her '
+    + 'account put Elias Ward in prison, and he has served seven years of fourteen on no other '
+    + 'evidence. You are the review analyst at the Conviction Integrity Unit, and the report '
+    + 'going to the board in fifteen days is yours. The unit has rebuilt that corner, lit as '
+    + 'the street was. Your work is what could have been seen from it. Ines Baptiste, the unit '
+    + 'director, wants it filed this month. Ren Okada, the memory scientist, says the one '
+    + 'account nobody has touched is what such a report would use up. Ward is thirty-four; if '
+    + 'the board says no, nobody looks again until 2033.',
   ],
 
   // The last thing anybody reads. What happened, what it cost, what is left.

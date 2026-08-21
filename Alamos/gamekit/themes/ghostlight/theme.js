@@ -66,13 +66,14 @@ export default {
   // The title card. Two or three paragraphs: what the player is, what is at
   // stake, and how a day works. Nothing here is generated.
   opening: [
-    'The Ellery has been dark for eleven years and opens in a fortnight, on a licence that '
-    + 'expires the same night. You are the production manager, which means the rig, the '
-    + 'sightlines and every number in the licence file are signed by you. Marguerite Sallow, '
-    + 'the producer, has sold nine hundred seats on a plan drawn before anybody measured '
-    + 'the building. The head flyman, Kwame Osei, says that '
-    + 'plan puts four tonnes on a grid nobody has tested. Forty-one people are on the payroll '
-    + 'for a run that only exists if the doors open on the fourteenth.',
+    'The Ellery is a theatre shut for eleven years, and it opens in a fortnight. The council '
+    + 'will not let an audience in without a safety licence, and the inspection is on opening '
+    + 'night. You are the production manager, so the lighting rig, the seats an audience can '
+    + 'see from, and every number in that licence file are signed by you. Marguerite Sallow, '
+    + 'the producer, has sold nine hundred seats on a plan drawn before anybody measured the '
+    + 'building. Kwame Osei, the head flyman, works the ropes above the stage and says that '
+    + 'plan hangs four tonnes on a grid nobody has tested. Forty-one people are on the payroll '
+    + 'for a run that only exists if the doors open.',
   ],
 
   // How it ends. What came of the fortnight, what it cost, what is unfinished —
