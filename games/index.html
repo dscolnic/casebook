@@ -76,6 +76,20 @@
     -webkit-background-clip:text; background-clip:text; color:transparent}
   .lede{margin:0; max-width:60ch; color:var(--dim); font-size:17px}
 
+  /* The site footer. It exists for the two links in it: App Store Connect
+     requires a privacy policy URL and a support URL, and a reviewer looks for
+     them in the app as well as in the listing. Both pages are outside the
+     sign-in gate — see server/publicPaths.js. */
+  .sitefoot{
+    margin:72px auto 0; max-width:1320px; padding:22px 0 0;
+    border-top:1px solid var(--line);
+    display:flex; gap:18px; flex-wrap:wrap; align-items:baseline;
+    color:var(--faint); font-size:13px;
+  }
+  .sitefoot a{color:var(--dim); text-decoration:none}
+  .sitefoot a:hover{color:var(--ink); text-decoration:underline}
+  .sitefoot .sp{flex:1}
+
   /* Account. Hidden until /api/auth/user answers — a static host never will. */
   .account{display:none; align-items:center; gap:12px; font-size:13px}
   .account.show{display:flex}
@@ -340,6 +354,18 @@
   <div class="filters" id="filters"></div>
   <div class="grid" id="grid"></div>
   <p class="note" id="note"></p>
+
+  <!-- App Store Connect requires a privacy policy URL and a support URL, and a
+       reviewer looks for both inside the app as well as on the listing. Both
+       pages are outside the sign-in gate, which is server/publicPaths.js and is
+       asserted by scripts/test-public.js — behind it they answer the sign-in
+       page, which reads to a reviewer as a missing policy. -->
+  <footer class="sitefoot">
+    <span>First Person Learning</span>
+    <span class="sp"></span>
+    <a href="/privacy.html">Privacy policy</a>
+    <a href="/support.html">Support</a>
+  </footer>
 
 </div>
 

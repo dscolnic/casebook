@@ -1,18 +1,36 @@
 {
   "name": "First Person Learning",
   "short_name": "FPL",
-  "description": "Twenty-seven courses you walk through. Each one is a place, a working day with a clock running, and a question you cannot answer without the science.",
+  "description": "Courses you walk through. Each one is a place, a working day with a clock running, and a question you cannot answer without the science.",
   "id": "/games/",
   "start_url": "/games/",
   "scope": "/",
   "display": "standalone",
-  "display_override": ["standalone", "minimal-ui"],
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
   "orientation": "any",
   "background_color": "#0d0f13",
   "theme_color": "#0d0f13",
   "icons": [
-    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ]
 }

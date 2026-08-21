@@ -93,6 +93,13 @@
     opacity:0; transition:opacity .9s ease .3s;
   }
   .where.in{opacity:1}
+  /* Bottom-left, opposite .where, so neither is over the sign-in card. */
+  .legal{
+    position:fixed; left:22px; bottom:18px; margin:0; z-index:3;
+    font-size:12px; color:#6b7484;
+  }
+  .legal a{color:#8b97a8; text-decoration:none}
+  .legal a:hover{color:#dfe5ee; text-decoration:underline}
   @media (prefers-reduced-motion:reduce){
     #bg,.where{transition:none}
   }
@@ -112,6 +119,12 @@
   </div>
 
   <p class="where" id="where"></p>
+
+  <!-- Read before anyone has an account, which is exactly when somebody wants
+       to know what signing in will collect. Both pages are outside the gate. -->
+  <p class="legal">
+    <a href="/privacy.html">Privacy policy</a> · <a href="/support.html">Support</a>
+  </p>
 
 <script>
 // The eighteen worlds, with what to call each one. Hardcoded rather than read

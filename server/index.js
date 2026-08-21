@@ -2,6 +2,7 @@ const http = require("http");
 const path = require("path");
 const express = require("express");
 const { setupAuth, requireUser, getUserId, clerkClient, deleteAccount } = require("./clerkAuth");
+const { isPublic } = require("./publicPaths");
 const {
   getUser, recordResult, getStats, getAvatar, setAvatar,
   getGameSave, putGameSave, deleteGameSave, listGameSaves,
@@ -372,38 +373,17 @@ async function main() {
     }
   });
 
-  // The installable shell: the manifest, the worker, the icons and the offline
-  // card. None of them contain anything private, and every one of them is
-  // fetched in a context where the gate's 302 is silently fatal:
+  // Site-wide sign-in gate: every page requires a signed-in user.
   //
-  //   · a manifest is fetched WITHOUT credentials by default, so the gate
-  //     answers the sign-in page, it fails to parse, and the app is not
-  //     installable — Add to Home Screen makes a bookmark instead of an app,
-  //     with no error anywhere
-  //   · a service worker script must arrive as JavaScript; HTML fails the
-  //     registration, so an expired session would stop the worker updating
-  //   · offline.html is served BY the worker when there is no network, at which
-  //     point there is no session to check either
-  //
-  // The shelf link also carries crossorigin="use-credentials", which fixes the
-  // manifest on its own. Both, because this is the class of bug that is only
-  // ever found by somebody failing to install the app and not knowing why.
-  const PWA_SHELL = new Set(["/manifest.webmanifest", "/sw.js", "/sw-policy.js", "/offline.html"]);
-
-  // Site-wide sign-in gate: every page requires a signed-in user. /api/* is
-  // exempt, and the Clerk sign-in / sign-out pages must be reachable while
-  // signed out. Any other request from a signed-out visitor goes to sign-in.
+  // WHAT may be read without one is server/publicPaths.js, and it is a separate
+  // module because every entry in it is a path that fails SILENTLY behind this
+  // redirect — a manifest that does not parse, a worker that does not register,
+  // a fetch() whose JSON parser is handed HTML, a reviewer who sees a sign-in
+  // form where the privacy policy should be. Each of those works perfectly when
+  // you test it, because you are signed in. So the list is tested in Node
+  // instead: scripts/test-public.js, with a trap per entry.
   app.use((req, res, next) => {
-    if (req.path.startsWith("/api/")) return next();
-    if (req.path === "/sign-in.html" || req.path === "/sign-out.html") return next();
-    if (PWA_SHELL.has(req.path) || /^\/icon-\d+\.png$/.test(req.path)) return next();
-    // The hero shots. sign-in.html puts one behind the sign-in card, and it is
-    // read by a visitor who by definition has no session — so without this the
-    // browser gets the gate's 302, the image fails, and the page falls back to
-    // its dark ground with no way to tell that anything was meant to be there.
-    // They are screenshots of a game world: nothing private, and already the
-    // public face of the app on the shelf.
-    if (/^\/games\/shots\/[A-Za-z0-9_-]+\.(jpg|png)$/.test(req.path)) return next();
+    if (isPublic(req.path)) return next();
     if (getUserId(req)) return next();
     return goTo(res, "/sign-in.html");
   });

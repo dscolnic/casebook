@@ -83,15 +83,59 @@ probe an `/api/` path.
 
 The PWA is the fallback while this is in progress.
 
-### 1. Hosting first
+### 1. Hosting — done
 
 A reviewer opens your live URL, and a sleeping instance is a rejection.
 
-1. A custom domain.
+1. A custom domain. **firstpersonlearn.com.**
 2. A Replit **Reserved VM** deployment — not Autoscale, which kills the
    WebSockets `server/rooms.js` needs for co-op rooms.
 3. A Clerk **production** instance on that domain, with production Google OAuth
    credentials. Development keys are rate-limited and bound to the dev domain.
+
+### 1b. The two public pages — done
+
+`privacy.html` and `support.html`, sharing `legal.css`. App Store Connect
+requires a privacy policy URL and a support URL, and **both are opened by a
+reviewer who has no account and will not make one.**
+
+Which is the whole difficulty: every path on this app is behind a gate that
+answers 302 to `/sign-in.html`, so behind it the privacy URL serves a sign-in
+form and the submission is rejected under Guideline 5.1.1 — while the URL works
+perfectly in every browser you would test it in, because you are signed in.
+
+So the gate's exemption list came out of `server/index.js` into
+**`server/publicPaths.js`**, one pure `isPublic(path)` with no database and no
+Clerk keys behind it, and `scripts/test-public.js` puts 73 cases to it in Node.
+Everything on that list fails silently behind the gate and that is what the
+entries have in common: a manifest fetched without credentials that then does not
+parse, so Add to Home Screen makes a bookmark instead of an app; a worker script
+delivered as HTML, so registration fails; a `fetch()` whose JSON parser is handed
+a sign-in page; a reviewer who sees a sign-in form where the policy should be.
+
+Three things in that test worth keeping:
+
+- **The ordering is asserted directly.** A gate that checks `getUserId()` first
+  and the public list second redirects every page on the list while containing a
+  correct and complete copy of it, and both halves read fine in review.
+- **Each trap is diffed against a correct reference implementation, not against
+  the live `isPublic`.** Diffing against the live one looks equivalent and is
+  not: one real bug then fails every trap at once, and nine failures naming nine
+  unrelated regexes is how a gate stops being read. The drift between reference
+  and module is asserted once, on its own, and names the paths that moved.
+- **The file has to exist.** A path can be perfectly public and simply not be
+  there, and from App Store Connect the two are the same report.
+
+The prose is written against `server/db.js` and the routes in `server/index.js`,
+so **the policy is part of any change to either** — a policy describing last
+month's columns is worse than none, because it is a statement of fact that is no
+longer one. The test asserts the one claim that is a promise about code: that
+`DELETE /api/account` still exists.
+
+**Outstanding: the contact address.** Both pages carry
+`support@firstpersonlearn.com`, which has to be a mailbox somebody reads — Apple
+checks that the support URL works, and a policy with a dead address is worse than
+no address.
 
 ### 2. The two likely rejections, both already addressed in code
 
@@ -105,6 +149,22 @@ static bundle and `npx cap add ios` produces the Xcode project.
 npm i @capacitor/core @capacitor/cli @capacitor/ios
 npx cap init && npx cap add ios
 ```
+
+**The part that is not a scaffold: every API path in this app is relative.** The
+shelf calls `/api/auth/user`, `/api/saves` and `/api/account`, and the engine's
+`cloudSave.js` calls `/api/save` and `/api/results`. In a Capacitor web view the
+origin is `capacitor://localhost`, so all five resolve to the bundle and there is
+no server there. Two halves to it:
+
+- **Where.** An API base the pages read — absolute at `https://firstpersonlearn.com`
+  in the app, empty on the web — set in one place, because five call sites each
+  deciding is five chances to ship one that only fails on device.
+- **How it authenticates.** The session cookie is not sent from
+  `capacitor://localhost` to that origin, so the app has to send Clerk's token in
+  an `Authorization: Bearer` header instead. **The server needs no change for
+  this**: `clerkMiddleware()` reads headers as well as cookies, so `getUserId()`
+  answers the same either way. Worth knowing before anybody rewrites
+  `server/clerkAuth.js` for it.
 
 `casebook_ios/CasebookApp.swift` is a minimal SwiftUI + WKWebView shell that
 bundles the one retired game. Keep it as a Mac-side dev toy; it is not the
@@ -133,11 +193,14 @@ What that route erases, and why it is safe to have:
 
 ### 3. Still to do
 
+- **Xcode.** Not installed — this Mac has Command Line Tools only
+  (`xcode-select -p` gives `/Library/Developer/CommandLineTools`). It is ~10 GB
+  from the Mac App Store and nothing native starts without it, so begin the
+  download before anything else on this list.
 - **Google sign-in is blocked inside a WKWebView** — Google answers
   `disallowed_useragent`. It must open through `ASWebAuthenticationSession`
   (Capacitor: `@capacitor/browser` with Clerk's redirect flow). This works in
   Safari and fails on device, so test it on real hardware early.
-- **A public privacy policy URL.** Required; there is no submission without one.
 - **Age rating.** Rate 4+ but do **not** enter the Kids Category, which bans
   third-party analytics, requires a parental gate on every external link, and
   pulls COPPA in hard — none of which sits well with Google sign-in. If under-13
