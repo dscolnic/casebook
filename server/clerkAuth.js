@@ -116,7 +116,40 @@ async function deleteAccount(userId) {
   return had;
 }
 
+/* A one-time ticket the iOS app can sign in with.
+ *
+ * WHY THE APP CANNOT JUST DO OAUTH. It tried. Inside the app the origin is
+ * capacitor://localhost, so the provider has to be opened in the system browser
+ * — and Clerk then refuses its own OAuth callback with authorization_invalid,
+ * with capacitor://localhost in allowed_origins and the custom scheme in
+ * redirect_urls. Google authenticates perfectly; the handoff back is what fails.
+ *
+ * So the browser signs in on OUR origin, where Clerk has always worked, and
+ * hands the app a ticket instead of a nonce. `signInTokens` is Clerk's own
+ * mechanism for exactly this: a short-lived, single-use token that a client
+ * redeems with signIn.create({ strategy: 'ticket' }).
+ *
+ * WHAT MAKES IT SAFE. The caller must already be signed in — the route is
+ * behind requireUser, so the ticket is only ever minted for the account that
+ * asked for it, and the secret key never leaves the server. The token is
+ * single-use and expires in a minute, which is the window between the browser
+ * redirecting and the app redeeming; anything longer would be a bearer
+ * credential sitting in a URL.
+ */
+const SIGN_IN_TOKEN_TTL_SECONDS = 60;
+
+async function createSignInTicket(userId) {
+  const token = await clerkClient.signInTokens.createSignInToken({
+    userId,
+    expiresInSeconds: SIGN_IN_TOKEN_TTL_SECONDS,
+  });
+  // The field is `token`; returning the whole object would put an id and a
+  // status into a URL for no reason.
+  if (!token || !token.token) throw new Error("Clerk returned no sign-in token");
+  return token.token;
+}
+
 module.exports = {
   setupAuth, requireUser, getUserId, ensureUser, clerkClient,
-  deleteAccount, isDeleted,
+  deleteAccount, isDeleted, createSignInTicket, SIGN_IN_TOKEN_TTL_SECONDS,
 };

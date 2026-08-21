@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Signing in to the app</title>
+<!-- THE APP'S SIGN-IN PAGE, opened in the SYSTEM BROWSER by native-auth.js.
+     Not sign-in.html, and not a second copy of it: that page ends by sending the
+     player to /games/, which is the last thing wanted here. This one ends by
+     handing a ticket back to the app.
+
+     WHY THE APP DOES NOT DO THIS ITSELF. Inside the app the origin is
+     capacitor://localhost. Google will not render a consent screen in a web
+     view at all, and Clerk refuses its own native OAuth callback with
+     authorization_invalid even with capacitor://localhost in allowed_origins and
+     the custom scheme in redirect_urls — Google authenticates, and the handoff
+     back is what fails. So the sign-in happens HERE, on the app's own domain,
+     where Clerk has always worked, and the session is transferred with a
+     single-use ticket that only this server can mint.
+
+     It is outside the sign-in gate (server/publicPaths.js) for the reason
+     sign-in.html is: it is read by somebody who by definition has no session. -->
+<link rel="stylesheet" href="/legal.css">
+<script
+  data-clerk-publishable-key="pk_live_Y2xlcmsuZmlyc3RwZXJzb25sZWFybi5jb20k"
+  src="https://clerk.firstpersonlearn.com/npm/@clerk/clerk-js@5/dist/clerk.browser.js"
+  crossorigin="anonymous"></script>
+<style>
+  body{margin:0;min-height:100vh;min-height:100dvh;display:grid;place-items:center;
+       background:#0d0f13;color:#eef1f5;padding:24px;
+       font:400 16px/1.5 ui-sans-serif,-apple-system,system-ui,sans-serif}
+  main{width:min(420px,100%);text-align:center}
+  h1{font:700 22px/1.25 inherit;margin:0 0 8px}
+  p{margin:0 0 22px;color:#a8b1c0;font-size:14.5px}
+  #signin{display:grid;place-items:center;min-height:120px}
+  .msg{color:#a8b1c0;font-size:14.5px}
+  .msg b{color:#eef1f5}
+  a.again{color:#7fc4ec}
+</style>
+</head>
+<body>
+<main>
+  <h1>First Person Learning</h1>
+  <p id="lede">Sign in here and the app will pick it up.</p>
+  <div id="signin"><span class="msg">Starting…</span></div>
+</main>
+<script>
+// The scheme the app registers. Stated here, in native-auth.js and in
+// Info.plist; the script that whitelists it reads native-auth.js, and
+// scripts/test-native-auth.js fails if these two disagree.
+const APP_REDIRECT = 'com.firstpersonlearn.app://sso-callback';
+
+const box = document.getElementById('signin');
+const lede = document.getElementById('lede');
+const say = (html) => { box.innerHTML = '<span class="msg">' + html + '</span>'; };
+
+// A ticket is single-use and lives about a minute, so it is fetched at the
+// moment of handing over rather than at page load.
+async function handOff() {
+  lede.textContent = 'Signed in. Handing this back to the app…';
+  say('One moment.');
+  let ticket = null;
+  try {
+    const r = await fetch('/api/native/ticket', { method: 'POST', credentials: 'same-origin' });
+    if (r.ok) ticket = (await r.json()).ticket;
+    else say('<b>The server would not issue a ticket.</b> (' + r.status + ') '
+      + 'Close this and try again from the app.');
+  } catch (e) {
+    say('<b>No connection to the server.</b> Close this and try again from the app.');
+  }
+  if (!ticket) return;
+  // Replace rather than assign, so Back does not re-fire a spent ticket.
+  const to = APP_REDIRECT + '?ticket=' + encodeURIComponent(ticket);
+  say('Returning to the app…<br><br><a class="again" href="' + to + '">Tap here if nothing happens</a>');
+  location.replace(to);
+}
+
+window.addEventListener('load', async function () {
+  if (typeof Clerk === 'undefined') {
+    say('<b>Sign-in could not load.</b> The authentication service did not respond.');
+    return;
+  }
+  try {
+    await Clerk.load();
+    if (Clerk.user) return handOff();
+    // The moment a session exists, hand over — this fires for both the OAuth
+    // round trip and an email sign-in without either needing its own path.
+    Clerk.addListener(function (res) { if (res && res.user) handOff(); });
+    box.innerHTML = '';
+    Clerk.mountSignIn(box, {
+      // Back to this page, not to /games/: the browser's job here is to produce
+      // a session and then get out of the way.
+      afterSignInUrl: '/native-signin.html',
+      afterSignUpUrl: '/native-signin.html',
+      localization: {
+        signIn: { start: {
+          title: 'Sign in to First Person Learning',
+          subtitle: 'This signs you in to the app on this device.',
+        } },
+        signUp: { start: {
+          title: 'Make an account',
+          subtitle: 'One account, every game, on any device.',
+        } },
+      },
+      appearance: {
+        variables: {
+          colorBackground: '#141922', colorText: '#eef1f5', colorTextSecondary: '#a8b1c0',
+          colorPrimary: '#4ea3d8', colorTextOnPrimaryBackground: '#0b1016',
+          colorInputBackground: '#1b212b', colorInputText: '#eef1f5',
+          colorNeutral: '#eef1f5', colorDanger: '#e8737f', borderRadius: '10px',
+          fontFamily: 'ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif',
+        },
+        elements: { card: { border: '1px solid #252c38', boxShadow: '0 30px 80px rgba(0,0,0,.55)' } },
+      },
+    });
+  } catch (e) {
+    say('<b>Could not start sign-in.</b> ' + ((e && e.message) || e));
+  }
+});
+</script>
+</body>
+</html>

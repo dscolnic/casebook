@@ -4,11 +4,12 @@
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
-    "test": "node scripts/test-classes.js && node scripts/test-sw.js && node scripts/test-public.js",
+    "test": "node scripts/test-classes.js && node scripts/test-sw.js && node scripts/test-public.js && node scripts/test-app-origin.js",
     "test:sw": "node scripts/test-sw.js",
     "clerk:check": "node scripts/set-clerk-key.mjs --check",
     "clerk:set": "node scripts/set-clerk-key.mjs",
-    "test:public": "node scripts/test-public.js"
+    "test:public": "node scripts/test-public.js",
+    "test:origin": "node scripts/test-app-origin.js"
   },
   "keywords": [],
   "author": "",

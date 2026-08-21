@@ -38,7 +38,12 @@ const PUBLIC_PAGES = new Set([
 
 // Clerk's own pages. They load Clerk's script and set the session, so they are
 // by definition read without one.
-const AUTH_PAGES = new Set(['/sign-in.html', '/sign-out.html']);
+// native-signin.html is the third: it is the iOS app's sign-in, opened in the
+// system browser, and it is read by somebody with no session for the same
+// reason the other two are. Behind the gate it would answer the gate's own
+// sign-in page — which would sign the browser in and never hand the app a
+// ticket, so the app would sit there while the browser quietly succeeded.
+const AUTH_PAGES = new Set(['/sign-in.html', '/sign-out.html', '/native-signin.html']);
 
 // The app icons.
 const ICON = /^\/icon-\d+\.png$/;

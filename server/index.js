@@ -1,8 +1,10 @@
 const http = require("http");
 const path = require("path");
 const express = require("express");
-const { setupAuth, requireUser, getUserId, clerkClient, deleteAccount } = require("./clerkAuth");
+const { setupAuth, requireUser, getUserId, clerkClient, deleteAccount,
+  createSignInTicket } = require("./clerkAuth");
 const { isPublic } = require("./publicPaths");
+const { appOrigin } = require("./appOrigin");
 const {
   getUser, recordResult, getStats, getAvatar, setAvatar,
   getGameSave, putGameSave, deleteGameSave, listGameSaves,
@@ -39,6 +41,13 @@ async function main() {
   // rejects one with a 413 the game has no way to report.
   app.use(express.json({ limit: "2mb" }));
 
+  // The iOS app is a different origin — capacitor://localhost — so its calls are
+  // cross-origin and WebKit will not send them without these headers. FIRST,
+  // because a preflight carries no session and must not meet the sign-in gate:
+  // a 302 to an HTML page reads to the browser as a failed preflight and to the
+  // app as the network being down. See server/appOrigin.js.
+  app.use(appOrigin);
+
   // Every redirect this file issues says no-store, and it is not belt and
   // braces. express.static sets no-store on the files it serves, but a redirect
   // never reaches it — so while `/` pointed at `/reckon.html`, it answered 302
@@ -71,6 +80,22 @@ async function main() {
   });
 
   setupAuth(app);
+
+  /* The iOS app's way in. See createSignInTicket in clerkAuth.js for why the app
+   * cannot complete an OAuth flow itself: Clerk refuses its own native callback,
+   * so the browser signs in on this origin and hands the app a ticket instead.
+   *
+   * requireUser is the whole of the security here — a ticket is only ever minted
+   * for the account that asked for it, from a request already carrying that
+   * account's session. no-store because the response IS a credential.
+   */
+  app.post("/api/native/ticket", requireUser, async (req, res, next) => {
+    try {
+      const ticket = await createSignInTicket(getUserId(req));
+      res.set("Cache-Control", "no-store, no-cache, must-revalidate");
+      res.json({ ticket });
+    } catch (err) { next(err); }
+  });
 
   app.get("/api/auth/user", async (req, res, next) => {
     try {
