@@ -19,3 +19,14 @@ apikey*
 
 # Vite build output (Deep Watch is built in CI for Pages)
 deep_watch/dist/
+
+# Assembled by scripts/build-ios.mjs from games/ and the root pages. Rebuilt on
+# every `npm run ios`, so it is output rather than source — and it is 41 MB of
+# copies of files already committed.
+ios_www/
+
+# Capacitor copies ios_www here on every sync. Output, and 46 MB of it.
+ios/App/App/public/
+ios/App/App/capacitor.config.json
+ios/App/.build/
+ios/DerivedData/

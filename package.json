@@ -4,11 +4,14 @@
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
-    "test": "node scripts/test-classes.js && node scripts/test-sw.js && node scripts/test-public.js",
+    "test": "node scripts/test-classes.js && node scripts/test-sw.js && node scripts/test-public.js && node scripts/test-api-base.js",
     "test:sw": "node scripts/test-sw.js",
     "clerk:check": "node scripts/set-clerk-key.mjs --check",
     "clerk:set": "node scripts/set-clerk-key.mjs",
-    "test:public": "node scripts/test-public.js"
+    "test:public": "node scripts/test-public.js",
+    "build:ios": "node scripts/build-ios.mjs",
+    "ios": "npm run build:ios && npx cap sync ios",
+    "test:api": "node scripts/test-api-base.js"
   },
   "keywords": [],
   "author": "",
@@ -19,5 +22,11 @@
     "express": "^5.2.1",
     "pg": "^8.22.0",
     "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@capacitor/browser": "^8.0.4",
+    "@capacitor/cli": "^8.5.0",
+    "@capacitor/core": "^8.5.0",
+    "@capacitor/ios": "^8.5.0"
   }
 }

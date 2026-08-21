@@ -119,6 +119,9 @@
      shown a second copy of it.</p>
 </div>
 
+<!-- Where the API is and how a request to it authenticates. Must be
+     evaluated before anything calls it. See api-base.js. -->
+<script src="/api-base.js"></script>
 <script>
 const esc = (s) => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const clean = (s) => String(s || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
@@ -132,8 +135,15 @@ const say = (id, text, bad) => {
   el.className = 'msg' + (bad ? ' msg--bad' : '');
 };
 
+// api-base.js decides where the API is and how a request authenticates: the
+// identity on the web, an absolute base plus a Bearer token inside the iOS app,
+// where these pages are loaded from the app bundle and a relative /api/ path
+// resolves into it. Absent (a static host), fall back to a relative fetch.
+const apiFetch = (u, o) => (window.FPL_API ? window.FPL_API.fetch(u, o)
+                                           : fetch(u, { credentials:'same-origin', ...o }));
+
 async function api(url, opts){
-  const r = await fetch(url, { credentials:'same-origin', ...opts });
+  const r = await apiFetch(url, opts);
   const body = await r.json().catch(() => null);
   if(!r.ok) throw new Error((body && body.message) || `Request failed (${r.status})`);
   return body;

@@ -1,0 +1,13 @@
+{
+  "appId": "com.firstpersonlearn.app",
+  "appName": "First Person Learning",
+  "webDir": "ios_www",
+  "ios": {
+    "contentInset": "never",
+    "scrollEnabled": false,
+    "limitsNavigationsToAppBoundDomains": false
+  },
+  "server": {
+    "iosScheme": "capacitor"
+  }
+}
