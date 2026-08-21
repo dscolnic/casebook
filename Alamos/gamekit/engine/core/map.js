@@ -53,6 +53,23 @@ function heading(x, z, yaw, len, colour){
 }
 
 /**
+ * The rooms this map draws.
+ *
+ * A stacked building (engine/world/interiorTower.js) has every floor on one
+ * footprint, so `plan.rooms` is four plans on top of each other — two fills and
+ * two labels in every rectangle, the same illegibility a spine-less plan had,
+ * multiplied by the number of floors. The world stamps `plan.activeLevel()`
+ * onto the plan when it builds; a plan without it is a single floor and every
+ * room is drawn, which is every other interior game and the Node checkers.
+ */
+function planRooms(site){
+  const rooms = site.plan?.rooms ?? [];
+  const level = site.plan?.activeLevel?.();
+  if(level == null) return rooms;
+  return rooms.filter(r => r.level == null || r.level === level);
+}
+
+/**
  * World bounds that hold everything worth drawing.
  *
  * A site may state its own with `site.mapBounds`, and one with a long approach
@@ -71,7 +88,7 @@ function bounds(site){
   // An interior describes itself as rooms along a plan rather than buildings on
   // terrain. Without this the map had nothing to size itself against and drew
   // an empty rectangle with the player dot in the middle of it.
-  for(const r of site.plan?.rooms ?? []){
+  for(const r of planRooms(site)){
     const half = site.plan.halfWidth ?? 4;
     // A room may give its own footprint. A plan drawn as a corridor with rooms
     // either side cannot describe a building with a courtyard in it, and the map
@@ -368,7 +385,7 @@ export function renderMap(opts = {}){
     }
   }
   // ---- an interior: the rooms in order along the plan
-  for(const r of site.plan?.rooms ?? []){
+  for(const r of planRooms(site)){
     const area = r.group ? def(r.group) : null;
     const isTarget = r.group && targetGroups.has(r.group);
     const half = site.plan.halfWidth ?? 4;
@@ -624,8 +641,14 @@ export function renderMap(opts = {}){
     }
   }
 
+  // A stacked building says which floor this is, because the plan alone cannot:
+  // all four are the same rectangle.
+  const floorNote = site.plan?.floorLabel?.()
+    ? `floor ${site.plan.floorLabel()}${site.plan.floorName?.() ? ` — ${site.plan.floorName()}` : ''}`
+    : null;
   const legend = [site.plan ? (sideways ? 'Bow to the left' : 'Bow at the top') : 'North is up',
                   'you are the white dot']
+    .concat(floorNote ? [floorNote] : [])
     .concat(targetGroups.size ? ['gold outline is a call still open — take them in any order'] : [])
     .concat(wantedPeople.length
       ? [`ringed dots are people you owe a call: ${wantedPeople.map(w => w.char?.name ?? 'a colleague').join(', ')}`]

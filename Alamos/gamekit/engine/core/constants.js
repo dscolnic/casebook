@@ -27,7 +27,13 @@ const WEEKS=theme.content?.MISSIONS?.length || 15;
 // pass". The label is the theme's; the model underneath is unchanged.
 const DAY_NOUN=theme.dayNoun || 'Day';
 const STARTING_RESERVE=20;
-const WEEKLY_APPROPRIATION=5;
+// Both allowances are OFF. The reserve now has exactly one source after the
+// opening $20 — the $3 a person signs off for answering a question about their
+// own passage — so money is earned by talking to the town rather than issued
+// for turning up. Restoring either is one number; nothing reads them as a flag,
+// and both the log line and the stipend's once-per-day guard are written to say
+// nothing when the figure is zero rather than announcing a $0 allowance.
+const WEEKLY_APPROPRIATION=0;
 const FUND_COST=1;
 const HINT_COST=2;
 // A wrong call costs money, and only money. Time is no longer a currency —
@@ -63,8 +69,11 @@ const SKIP_HOURS=0;
 // with RETRY_COST because it buys the same thing — the thing you did not do
 // stays not done, and the morning moves.
 const RUN_SKIP_COST=10;
-// Paid each morning, so a day never opens with no way out of a wrong answer.
-const DAILY_STIPEND=8;
+// Was paid each morning so a day never opened with no way out of a wrong answer.
+// At 0 that guarantee comes from the conversations instead: a restarted day
+// clears `state.passages`, so every person in town is worth $3 again and a
+// broke player can always earn their way back. See startDay().
+const DAILY_STIPEND=0;
 const VISIT_BONUS=6;
 const ISSUE_VISIT_BONUS=10;
 export { KEY, ROOM, WEEKS, DAY_NOUN, STARTING_RESERVE, WEEKLY_APPROPRIATION, FUND_COST, HINT_COST,

@@ -232,6 +232,13 @@ export function initWorld(canvas, activeTheme){
   LEVELS = plan.levels ?? [];
   RISE = +plan.rise || 4.2;
   if(!LEVELS.length) throw new Error('interiorLevels: the plan declares no `levels`');
+  // Levels are stepped along the spine; floors are stacked on one footprint and
+  // are `interiorTower.js`. Building one as the other renders, which is the whole
+  // reason this refusal is here rather than a comment — see the header.
+  if(plan.floors?.length){
+    throw new Error('interiorLevels: this plan declares `floors`, which is stacked on one '
+      + 'footprint — engine/world/interiorTower.js. `levels` are stepped along the spine.');
+  }
   const look = theme.look ?? {};
 
   renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });

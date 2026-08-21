@@ -22,7 +22,14 @@ let failed = 0;
 for(const theme of wanted){
   for(const tool of ['validateContent.mjs', 'smokeCampaign.mjs', 'probeQuestions.mjs', 'personStops.mjs',
                      'checkStory.mjs', 'checkNames.mjs', 'checkJargon.mjs', 'jargonDepth.mjs', 'answerShape.mjs', 'checkVoice.mjs', 'placeStory.mjs',
-                     'checkPassages.mjs', 'equationOrder.mjs', 'bookParity.mjs', 'placement.mjs', 'reachable.mjs',
+                     'checkPassages.mjs',
+                     // The half before checkPassages: whether there is a passage at
+                     // all. Three campaigns shipped with six of twelve people written
+                     // as one abstract sentence naming their syllabus topic, and every
+                     // other gate passed — the authored question was fine, a short
+                     // sentence reads easily, and the person exists.
+                     'passageDepth.mjs',
+                     'equationOrder.mjs', 'bookParity.mjs', 'placement.mjs', 'reachable.mjs',
                      // equationOrder's rule, one field over: no concept is claimed
                      // before the concepts it is built out of. Silent for a course
                      // whose concepts carry no `needs`. A prerequisite may be met on
@@ -41,6 +48,11 @@ for(const theme of wanted){
                      // — rightly, for its own question — which is what made 295
                      // byte-identical callbacks invisible to all of them.
                      'dayCalls.mjs',
+                     // What a day closes on. The card is composed by the engine
+                     // from the day's own results, so no content gate reads a
+                     // word of it — and a compliment on a day where nothing
+                     // held is worse than no compliment at all.
+                     'dayDebrief.mjs',
                      // The seven world-graded runs: scheduled by the engine, and each one
                      // given a reason by the campaign that takes it.
                      'warmupOrder.mjs',
@@ -106,6 +118,16 @@ if(!process.argv[2]){
                      // own parent and bans the callback outright, and reporting
                      // only three-or-more servings passes every ordinary duplicate.
                      'dayCalls.mjs --selftest',
+                     // And the tenth. Its two silent inversions: a byline read as
+                     // the front of the next sentence failed all thirteen junior
+                     // editions on nine-word prose, and a junior line quoting a
+                     // question title passes every content gate because the title
+                     // is correct where it was authored.
+                     'dayDebrief.mjs --selftest',
+                     // And the eleventh, whose silent inversion is an abbreviation: every
+                     // unprotected `Dr.` turns a one-sentence stub into a two-sentence
+                     // passage, and all eighteen bios it was written for name a doctor.
+                     'passageDepth.mjs --selftest',
                      // And the sixth, which is about a board rather than a word:
                      // CASEBOOK drew its explanations in a fixed order where
                      // PROTOCOL deals its own, so a retry met the identical board.

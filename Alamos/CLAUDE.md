@@ -1,6 +1,6 @@
 # Alamos — mission-based learning games
 
-Twenty-two first-person, mission-driven educational games on three.js, plus the shared
+Twenty-five first-person, mission-driven educational games on three.js, plus the shared
 engine they run on. Each is the same loop in a different setting: missions × stops,
 walk to a place, answer a science question, hand off. No combat, no weapons.
 
@@ -25,7 +25,7 @@ walk to a place, answer a science question, hand off. No combat, no weapons.
 | `gamekit/MIDDLE_SCHOOL_EDITIONS.md` | The junior-edition plan. |
 | `gamekit/FOURTH_GAME.md` | The plan the Project Y flip came from. |
 
-## The twenty-two games
+## The twenty-five games
 
 `GAMES.md` is the full inventory. This is the place, and the command.
 
@@ -49,13 +49,16 @@ walk to a place, answer a science question, hand off. No combat, no weapons.
 | Sightline | `gamekit/themes/sightline/` | The Hallam Exchange: one hall with the Ferrier Street corner rebuilt across the end, identification distance painted on the floor. AP Psychology | `THEME=sightline npm run dev` |
 | Ground Truth | `gamekit/themes/groundtruth/` | Station 12, Sablon Flats: a salt flat, a 60 m instrumented mast, a storm season. AP Physics C E&M, ten derivations | `THEME=groundtruth npm run dev` |
 | Carrying Capacity | `gamekit/themes/carrying/` | Vellan Island: a low maritime island, ninety-one people, the sea on the horizon from the road. AP Environmental Science | `THEME=carrying npm run dev` |
-| Ghost Light | `gamekit/themes/ghostlight/` | The Ellery: a backstage spine from the stage door to the house, and the fly floor over it. AP Precalculus | `THEME=ghostlight npm run dev` |
-| Changeover | `gamekit/themes/changeover/` | Halvern Central Station: a terminus concourse with a queue in it and a furnace on platform one. AP Macroeconomics | `THEME=changeover npm run dev` |
+| Ghost Light | `gamekit/themes/ghostlight/` | The Ellery — its own world: nine hundred seats on a four-tier rake, a walkable stage under a fly tower, and six offices round the scene-dock yard behind the house. AP Precalculus | `THEME=ghostlight npm run dev` |
+| Changeover | `gamekit/themes/changeover/` | Kesteven House, floors 45–48: four floor plates on one footprint, glass on four sides, a lift you choose a floor in, and the city the numbers are about out of every window. AP Macroeconomics | `THEME=changeover npm run dev` |
+| Slack Water | `gamekit/themes/slackwater/` | Sarn Barrage: an estuary neck with six sluice gates, mud at low water, a training wall 300 m out. AP Calculus BC, the parametric, polar and series half | `THEME=slackwater npm run dev` |
+| Overwind | `gamekit/themes/overwind/` | Kerrow No. 3: a 32 m headframe over a 1,240 m shaft, alone on a moor. AP Physics C: Mechanics, in derivations | `THEME=overwind npm run dev` |
+| Dark Fibre | `gamekit/themes/darkfibre/` | Pellow Head: a low landing station in the dunes, a manhole above the tide line, a radiography bay 300 m out. AP Physics 2, optics and modern | `THEME=darkfibre npm run dev` |
 | Project Y | `gamekit/themes/projecty/` | Los Alamos 1943–45, outdoor mesa | `THEME=projecty npm run dev` |
 | Hospital Heroes | `gamekit/themes/hospital/` | Children's hospital, interior, ~grades 3–4 | `THEME=hospital npm run dev` |
 
 **A game's silhouette comes from its world module.** Two themes on the same world look
-alike however the palette differs, which is why four either bring their own world
+alike however the palette differs, which is why five either bring their own world
 (`themes/<name>/world.js`) or carry a props layer heavy enough to change the shape of the
 space. **Yellow Bay is the cheap version of bringing one**: its world module calls the
 engine's own `buildInterior` once per wing, into a group it then slides sideways, and builds
@@ -71,6 +74,64 @@ own. Nocturnal games set `look.dayWindow` and `atmosphere.nightSky`. A theme bri
 own world declares `world: 'themes/<name>/world.js'` in site.js and vite.config.js points
 `@world` at it.
 
+**Changeover is a tower, and the four floors are stacked on one footprint.**
+`engine/world/interiorLevels.js` (Headwater, The Trial) is several floors joined by stairs and
+stepped **along** the spine as well as up, because `groundHeight(x, z)` takes no floor argument
+and collision is tested in x and z with the player's y ignored — so it is a section through a
+hillside and nothing in it is above anything else. `engine/world/interiorTower.js` is the tower:
+four plates at the same (x, z), one **active** at a time. `groundHeight` answers for the active
+floor, so it stays single valued; `colliders`, `softColliders` and `interactables` are the shared
+set plus the active floor's, spliced **in place**; and everything is still drawn, so the floors
+below are through the glass with their lights on. The lift is the only way between them
+(`engine/core/lift.js`), which is what makes *which floor, in what order* the route decision a
+corridor game gets from distance — and the panel is the directory as well as the control, because
+four floors are the same rectangle and the map can only draw the one you are standing on.
+
+Five things that had to learn what a floor is, and nothing else did: the three exported arrays
+above; `crowd.js` (`ctx.activeLevel`, so nobody two floors down is walked into or talked to
+through a slab); `map.js` (`planRooms`, or four plans are drawn in one rectangle); and
+`engine/dev/scenes.mjs`, which is where the first real defect showed up — it built the flattened
+`plan.rooms` once, which is `plan.wings`' documented failure with the floors stacked, and it
+reported eight notices floating on a wall the lift builds and the harness did not. **The arrays
+are not the module's private property**: `crowd.js` and the interiors manager push into them too,
+so a floor change removes its own entries by identity rather than clearing the array — the first
+version cleared it, which deletes the cast.
+
+**A distance in (x, z) is not a distance in a stacked building, and that is what
+broke the runs.** All seven world-graded formats and TRIAL measured `hypot(dx, dz)`
+and ignored height — right for a slope, a stair and a vehicle, and wrong here:
+Changeover's six areas are six (x, z) inside one 26 m corridor, repeated four
+times. So walking one floor's corridor took **all six TRIAL gates at once**, GREET
+counted somebody three floors down as greeted, HUNT's six items were all within one
+corridor, and EVADE could not be lost. The fix is one number the world either
+declares or does not: `world.floorRise()` — undefined in every other game, and every
+term it enters vanishes at zero. With it, `flat()` in `worldFormats.js` adds 80 m per
+floor between two points (the walk a lift ride is worth), TRIAL's reach test requires
+the same floor, and `trialLimit` prices the ride into the countdown — without which
+the lap is 90 m of route and three rides in ninety seconds. Floors are compared as
+**floors**, `Math.round(y / rise)`, not as a height within a tolerance: the two
+heights being compared are a slab and a player's eye 1.6 m above one, and a tolerance
+has to be threaded between 1.6 and 2.8. Two things also had to start carrying a
+height at all — an area's `entry` (`entryFor` in `main.js`, thence `gatesFor`) and a
+HUNT crate, which had none, so every crate read as being on whichever floor the
+player was on.
+
+Three of the six selftest cases written for this **passed for the wrong reason
+first**, which is the house rule arriving on schedule: the GREET cases used a target
+of two, so greeting somebody through a slab left the run going and `out === null`
+either way; and the HUNT case wrote `points:` where the spec is `at:`, so nothing was
+built and "the item above was not collected" passed because there was no item. All
+six are verified by putting each bug back and watching exactly those cases fail.
+
+**Two things only a screenshot from outside would have found.** Nothing between the floors:
+the curtain wall is ten per cent opaque, so with only the shaft below clad, the top of the
+building was four trays of furniture stacked in mid-air with daylight between them — every floor
+needs its slab edge and its spandrel. And **from inside a room the city has to reach two
+kilometres**: a 3 m window seen from six metres back lets the eye down about eleven degrees,
+which from a hundred and eighty metres up first meets the ground *nine hundred metres out*, so a
+city that stops at 760 m is invisible from every room in the building. Both looked merely hazy
+from inside.
+
 **Deep Watch is the first game built the way the rest are supposed to be.** It came from
 `deep_watch/`, its own engine — a persistent boat, five simulation systems, a stage-based
 mission runtime. The boat came across as `themes/deepwatch/boat/` behind an adapter; the
@@ -78,6 +139,18 @@ simulation did not, because a flooding rate that rises while you read a gauge ha
 to live in a loop that is walk, answer, hand off. Everything else is one book file,
 `books/deep-watch.yml`, and `themes/deepwatch/site.js` reads the boat's own `LAYOUT` so
 there is one description of the compartments.
+
+**Three games lean on DERIVE harder than anything before them**, and they were
+built to close gaps *inside* courses the set already claimed rather than to add a
+subject. Slack Water is Calculus BC's back forty per cent, which Headwater stops
+exactly before; Overwind is the Physics C paper Ground Truth's E&M game left
+open; Dark Fibre is the optics-and-modern half `deepwatch_hs` could only retrofit
+onto a submarine at four concepts and three. **Twelve of thirty-six stops each,
+one a day, all with `askRule: true`** — against Ground Truth's ten of forty-five —
+and all three compute every equation on their own syllabus. All three are
+two-tier sites by geometry rather than by a flag: the far area is over 270 m out
+and everything else is inside 110, so `orientation.js` opens the far lap and the
+vehicles on day 4 without anything being authored.
 
 **All games share one engine** (`gamekit/engine/core`). Their `src/*.js` logic files are
 re-export shims. `gamekit/` also holds the world layer, the tools and the content importers.
@@ -177,6 +250,17 @@ the read happens in `index.html` **before** `src/main.js` is imported, because t
 reads the save during module evaluation; and the local timestamp is re-stamped from the
 server's own `savedAt` after a write, because two browsers on one account do not agree what
 time it is and a fast clock would silently stop that device pulling the account's campaign.
+
+**The rating on the ending card goes down the same pipe.** A finished campaign offers five stars
+(`showEnding` in `engine/core/app.js`, `readRating`/`postRating` in `cloudSave.js`), one row per
+account per game in `game_ratings`, and the shelf averages them under every card. Three things it
+has to keep doing: the block is drawn **hidden** and shown only once `readRating()` answers, because
+whether there is an account cannot be known synchronously and a static host would otherwise get five
+dead stars — a control that answers nothing teaches the player not to press the next one; a rating
+already given is **shown back**, since a second campaign re-rates rather than voting twice; and a
+POST that fails says so, because a star that lights up on a request that never landed is a lie the
+player cannot see. On the shelf the same distinction is `ratingsLive` — no endpoint means no rating
+line at all, not thirty cards reading "Not rated yet".
 
 ## Several people can play one campaign
 
@@ -606,6 +690,71 @@ drifts from `MAX_CALLS`. The one a selftest cannot reach is reading the *book* r
 normalised theme, which sees no callback at all and reports all-clear on a campaign serving thirteen
 duplicates — `contentOf` calls `normalizeContent`, and that is the only thing keeping it honest.
 
+## A day closes on something somebody said
+
+Fifteen missions used to end on one sentence — *Every call made. The team writes it up
+overnight.* — identical on day 1 and day 15, identical after three right answers and after
+three wrong ones. The only acknowledgement anywhere in a campaign was the two-word kicker on
+the verdict (`The call holds`), the `Correct` headline, and, once, the authored `ending`. **A
+game whose youngest audience is in the third grade closed fifteen working days without ever
+telling the player they had done well.**
+
+`engine/core/debrief.js` composes the closing card and `engine/dev/dayDebrief.mjs` is the
+gate. Four rules, and the last two were found by the gate rather than written into it:
+
+- **The praise is earned or it is not given.** The tier is read off `missionResults`, `hints`
+  and `retries` — `clean` (all held, unaided), `worked` (all held, a hint or a second attempt),
+  `mixed`, `rough` — so a day on which nothing held cannot be told it went well. A card that
+  congratulates every day is a card nobody reads by day 3, and a child praised for a wrong
+  answer has been taught that the praise is noise. `clean` and `worked` are separate for the
+  same reason: a day carried by three hints is not the day nobody had to check.
+- **A named person says it, and the name arrives with the job attached.** Somebody from the
+  area the player actually worked in, picked from `(week, area)` through the pure hash in
+  `utils.js` — never the world's seeded generator, which hands out looks and would move every
+  later draw. The cite takes the authored role **verbatim**: bending it into a sentence ("the
+  shift supervisor") means lowercasing it, and every rule that gets that right gets `NASA
+  Flight Director` wrong.
+- **The crowd is not the staff, and the first version could not tell.** Hospital Heroes has 38
+  people on its roster and 30 of them are the children being treated, so the first card that
+  ran said *"Nobody had to fix your work today"* over the byline `Lena, Patient`. Nothing in
+  the data says "staff"; what it does say is that **one role is held by a crowd and the rest by
+  one person each**. A role more than a quarter of the roster shares is the crowd, and the
+  area's own leader is kept whatever their role is called.
+- **Three registers, not two.** Senior, junior (grade 8 and below) and **primary** (grade 3 and
+  below), because the junior lines measured at grade 3–5 on Hospital — "nobody had to fix your
+  work" is three clauses' worth of syllables in nine words. Junior and primary interpolate no
+  question title: a title is written at the parent course's level and one of them in a short
+  sentence undoes the whole register, which is this file's nine-times-paid-for failure arriving
+  through a slot fill. The rule lives in `fillSlots`, exported and asserted directly, because
+  no junior line uses `{title}` today — read through the banks the case passes for the wrong
+  reason and goes on passing after the guard is deleted.
+- **The carry line is senior only.** The mission's `takeaway` is the one sentence on the card
+  written for another surface, and 41 of the 143 junior takeaways carry a 19-to-23-word
+  sentence, usually joined on a semicolon. Taking it only when it measures short enough needs a
+  syllable count inside `engine/core`, and the engine deliberately imports nothing from
+  `tools/` — a second copy of `SYL` drifts from the first the day either is corrected. So the
+  junior and primary cards end on the compliment, which for a seven-year-old is the better last
+  line anyway. The other refusal is not hypothetical: Hospital's fifteen mission takeaways all
+  read "Shift complete", and *"Carry this into shift 4: Shift complete"* is worse than ending
+  on what somebody just said.
+
+**Nothing is authored, deliberately.** The alternative was a `praise:` key on every mission —
+435 lines of writing across 29 campaigns, and a new book key `import-book.mjs` would have to
+map or silently drop. What makes a generated line specific is that every slot in it is a fact
+about the day just played.
+
+**And the gate lied first, in the way this file records fifteen times.** It stripped the markup
+and measured the card as one string — but a `<cite>` carries no full stop, so *"That is a good
+watch."* plus *"Machinist's Mate Ruth Hallam, Auxiliary Division, Pumps & Patches"* plus the
+next paragraph read as one 25-word sentence, and **all thirteen junior editions failed on prose
+whose longest real sentence is nine words**. It measures the lede, each spoken line and the
+carry line separately now. A byline is not a sentence, and a person's rank is not something a
+reading level may ask to be simplified.
+
+Thirteen selftest cases, each verified by putting the bug back. Two would otherwise invert
+silently: the byline one above, and a junior line quoting a question title — invisible to every
+content gate, because the title is correct where it was authored.
+
 ## Checks — one command, several tools
 
 ```sh
@@ -625,12 +774,16 @@ node engine/dev/answerShape.mjs    <theme>    # the longest option is not the an
 node engine/dev/checkVoice.mjs    <theme>    # cards brief the player, they do not perform
 node engine/dev/placeStory.mjs    <theme>    # the landscape matches the story told on it
 node engine/dev/checkPassages.mjs <theme>    # talking to somebody teaches something
+node engine/dev/passageDepth.mjs   <theme>    # and there is a passage there to teach it
+node engine/dev/passageDepth.mjs --selftest   # and an abbreviation is not a full stop
 node engine/dev/personStops.mjs    <theme>    # every mission person opens their question
 node engine/dev/equationOrder.mjs  <theme>    # nothing is asked before the equation it is built out of
 node engine/dev/conceptOrder.mjs   <theme>    # and nothing is claimed before the concept it is built out of
 node engine/dev/conceptOrder.mjs --selftest   # and it can tell an earlier day from the same day
 node engine/dev/dayCalls.mjs       <theme>    # no day over four calls, and no card served twice
 node engine/dev/dayCalls.mjs --selftest       # and it can tell a review variant from a duplicate
+node engine/dev/dayDebrief.mjs     <theme>    # the day closes on something earned, and somebody says it
+node engine/dev/dayDebrief.mjs --selftest     # and it can tell a byline from a sentence
 node engine/dev/placement.mjs      <theme>    # everything hung is on a wall, not in it or over a doorway
 node engine/dev/questionLoad.mjs   <theme>    # the questions are as small as the sentences (grade 8 and below)
 node engine/dev/questionLoad.mjs --sweep      # every game: estimates that smush two equations together
@@ -1184,7 +1337,12 @@ walk in a straight line.
 - **A wrong call is a penalty box.** The stop closes for an hour of the day's own countdown and reopens
   itself — free — or $10 has it back immediately. There is always a free way forward, so the only dead end is
   a wrong call with less than an hour left and nothing in the reserve; then the day restarts, which is still
-  escapable because each morning pays a stipend and clears `state.passages`. The box is
+  escapable because a restart clears `state.passages` and every person in town is worth $3 again — **which is
+  now the only source of money in the game.** `DAILY_STIPEND` and `WEEKLY_APPROPRIATION` are both 0, so after
+  the opening $20 nothing is issued for turning up or for finishing a day; the reserve is earned by talking to
+  people or it is not earned. Both log lines are written to say nothing at zero rather than announcing a $0
+  allowance, and the stipend's once-per-mission stamp is still set either way, so turning it back on cannot
+  pay twice for a day already opened. The box is
   `state.penalties[visitKey]`, stored as the `dayLeft` the hour expires at — the day only counts down, so it
   needs no wall clock and survives a save. A wrong call charges only a 3-hour minimum, then offers four
   priced ways out: answer again ($5 / 12 h) or move on ($10 / 24 h). Money options disable when the reserve
@@ -1662,12 +1820,17 @@ shows the scene and where you are, never the takeaway.
   look dead from outside and are not** — `plantTrees` reads all three to decide where a tree may stand,
   which is why the roads are declared twice, once as `site.paths` for the engine to grade and once here as
   the rectangles the forest keeps out of.
-- **Project Y bios have no authored questions.** Its 26 bios are long and good (164 words mean) and not
-  one carries a `quiz` array, so every one falls through to the generated sentence-lift question.
-  Hospital, ContamCity, Deep Watch and Bring Them Home all author theirs.
-- **Outbreak and Planetary Defense have half a roster each.** Six of twelve people in each carry a real
-  two-paragraph bio and a question; the other six carry one sentence restating their job title and no
-  question. Bring Them Home had the same split and has been written; these two have not.
+- **Every roster is written and every person is quizzed** — both of the rows that used to sit here are
+  paid. Project Y's 26 bios all carry a `quiz` now, and the half-written casts are written: Outbreak
+  Riverton, Planetary Defense **and** Bring Them Home each had six of twelve people carrying one abstract
+  sentence naming their syllabus topic — *"Uses independent tracking and dynamics to decide whether an
+  apparent trajectory change is physical or a measurement artifact"* — beside six written at two
+  paragraphs. All eighteen were written at the parent level and **again at grade 6 in the edition's own
+  book**, because `editionParity` compares the cast and deliberately not the bios: a passage written for
+  an AP reader handed to a sixth grader is the demand-stays-put failure this file records three times.
+  What is left is depth rather than coverage: 501 questions across 464 people, and **427 of those people
+  carry exactly one**, so a passage met again on a later day is answered from memory. Only Deep Watch,
+  Hospital and ContamCity write a second for anybody.
 - **The far-tier laps are not yet play-tested.** The logic is verified across all 28 themes and every game
   builds, but nobody has watched a lap run — the one thing this repo says you may not conclude from a green
   check. `THEME=seedbank npm run dev`, and watch the gates actually stand where the doors are.

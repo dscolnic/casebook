@@ -46,9 +46,20 @@ place something on a wall yourself, do the same: `wallT / 2 + 0.03`.
 
 | Builder | Used by | Gets the wall layer? | `placement.mjs` sees it? |
 |---|---|---|---|
-| `interiorSite.js` (a floor: spine + rooms) | quantum only — the only theme with a `plan.js` | yes | yes |
+| `interiorSite.js` (a floor: spine + rooms) | every theme with a `plan.js`, through one of the three world modules below | yes | yes |
+| `interiorFloor.js` (one floor, flat) | the plain interior games — `kind: 'interior'` | yes | yes |
+| `interiorLevels.js` (several floors, stepped along the spine, stairs) | Headwater, The Trial | yes | yes |
+| `interiorTower.js` (four floors stacked on one footprint, a lift) | Changeover | yes | yes — **but only because `scenes.mjs` knows about `plan.floors`** |
 | `interiorBuilding.js` (the room behind a door) | every theme's `interiors.js` | yes | yes |
 | `furnishArea` in `interiorKit.js` | Deep Watch's submarine, the Hospital, Bring Them Home | **no** | **no** |
+
+**A plan that is more than one build has to say so, and `engine/dev/scenes.mjs` has
+to be taught the shape.** `plan.wings` (Yellow Bay) and `plan.floors` (Changeover)
+both flatten every room into `plan.rooms`, because that is what `worldParity` and
+the map read — so a harness that hands the whole list to one `buildInterior` gets
+every room in the building stacked on itself. It renders, it measures, and the
+numbers are about a place that does not exist. On Changeover it reported eight
+notices floating on a wall that the lift builds and the harness did not.
 
 `furnishRoom` and `furnishCorridor` carry the whole wall layer: signs with real
 text, posters with artwork on them, pinboards, a quota per wall from that wall's

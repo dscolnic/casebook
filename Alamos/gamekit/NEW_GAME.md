@@ -115,8 +115,11 @@ The engine reshapes what you write, at load, in
   `— Review` variant of the lesson where one exists. A book with only three
   areas gets no callbacks: everything is visited every day, so there is nothing
   to call back to.
-- A wrong call costs money and only money: $5 to answer again, $10 to move on.
-  Each morning pays a stipend, so nobody is ever trapped.
+- A wrong call is a penalty box: the stop shuts for an hour of the day's own
+  countdown and reopens itself, or $10 has it back now. The free way out is
+  always there, and the money to take the paid one is earned by talking to
+  people ($3 each, once per person per day) — there is no morning stipend and no
+  allocation for finishing a day.
 
 ## 4. Build the place
 

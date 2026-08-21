@@ -26,6 +26,18 @@ and AC · anatomy (grade 2) · seismology and structural engineering · modern
 quantum · statistics and study design · climate measurement and proxies ·
 calculus · AP Physics 1, all eight units.
 
+**Three gaps *inside* courses the set already claimed were closed in August
+2026**, which is a different kind of gap from the ones this list opened with.
+Calculus BC's back forty per cent — series, parametric, polar, vector-valued —
+was absent everywhere, because Headwater is AB and stops exactly where BC starts:
+that is **Slack Water**, a tidal barrage, chosen because a tide is a truncated
+series and the argument is whether a prediction with a bound may be acted on.
+Physics C mechanics existed only at algebra level in Bring Them Home and Safety
+Factor: that is **Overwind**, a mine hoist, where rotation, a rope heavier than
+its load, an oscillation with its own period and gravitation measured at depth
+are one machine. And AP Physics 2's optics and modern half is **Dark Fibre** —
+see the "not yet" entry below, which is where it had been sitting.
+
 Still open, roughly in order of how many students sit the course: environmental
 science, precalculus, human geography, macroeconomics, computer science
 principles, control systems, organic and process chemistry, and materials.
@@ -1028,9 +1040,13 @@ instrumental data, and how a trend is separated from noise. It teaches
   the horizon work was trying to get away from.
 - **Pedigree** (genetics and heredity) — strong subject, no place. A genetics
   clinic is four rooms and a screen, which is the weakest kind of world here.
-- **Fibre** (optics and telecoms) — the curriculum is real and the place is a
-  cable landing station; parked because Deep Watch already owns "everything you
-  know arrives as a signal".
+- ~~**Fibre**~~ — **built, as Dark Fibre.** It was parked because Deep Watch
+  already owned "everything you know arrives as a signal", and what unparked it
+  was the course rather than the place: AP Physics 2's optics and modern half is
+  four concepts and three in `deepwatch_hs`, retrofitted onto a submarine, and it
+  is thirty-two concepts and twelve equations at a cable landing station. The
+  overlap with Deep Watch turned out to be thematic and not physical — sonar in
+  water against light in glass — and the two courses do not touch.
 - **The Batch** (process chemistry scale-up) — a real gap and a genuinely good
   argument about yield against safety, but the place is a plant, and Blackout
   has just done industrial steel.

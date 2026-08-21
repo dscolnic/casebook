@@ -560,6 +560,98 @@ export function wordedSign({ box, mats: M, x, z, y = 1.58, faceX, toward = -1, t
   return face;
 }
 
+/**
+ * A blade sign: a plate hung under the ceiling across a corridor, with a
+ * different word on each face.
+ *
+ * **`plan.bladeSigns` was authored by four themes and read by nobody.** Sightline,
+ * Yellow Bay, Headwater and Changeover all write the block; `interiorLevels`,
+ * `interiorTower`, `scenes.mjs` and `pieceDensity` all forward it; and no builder
+ * had ever consumed it, so the one piece of overhead wayfinding in the engine
+ * rendered nowhere. Found looking for the reason a sign hung over a lift lobby
+ * was not there — which is the same class as the dead book keys in CLAUDE.md, one
+ * layer down: what reaches the game is a valid shorter *building*.
+ *
+ * **Two single-sided faces, never one DoubleSide plate.** That is house rule 3:
+ * text on a DoubleSide material renders mirrored from behind, and a sign whose
+ * whole job is to say which way to walk is the worst possible place for it.
+ *
+ * It is `markStructure`, not `markWallMounted`: a blade sign hangs from the
+ * ceiling and has nothing behind it, so tagging it as wall furniture would make
+ * `placement.mjs` fire rays at it and correctly report a floating fitting.
+ */
+export function bladeSign({ box, mats: M, z, halfWidth, ceilingH, west = '', east = '' }){
+  const made = [];
+  const H = 0.34, DROP = 0.16;
+  const y = (ceilingH ?? 3.0) - DROP - H / 2;
+  const w = Math.min(halfWidth * 1.7, 2.6);
+
+  // The plate, and a drop rod at each end so it hangs rather than floats.
+  made.push(box(w, H, 0.05, 0, y, z, M.dark ?? M.metal));
+  for(const s of [-1, 1]){
+    made.push(box(0.035, DROP + H / 2, 0.035, s * (w / 2 - 0.1),
+      y + H / 2 + DROP / 2, z, M.metal ?? M.dark));
+  }
+
+  /**
+   * One face per direction, and **the labels swap sides between them.**
+   *
+   * `west` and `east` name what is on each *side of the corridor* — that is what
+   * the four themes authoring this block mean by them, and it is why a single
+   * face cannot serve both directions even before house rule 3: a reader walking
+   * one way has the west rooms on their left, and walking the other way has them
+   * on their right. A sign that puts them in a fixed order is wrong half the time
+   * to everybody who reads it.
+   */
+  const paint = (leftLabel, rightLabel) => {
+    const c = document.createElement('canvas');
+    c.width = 640; c.height = Math.max(48, Math.round(640 * (H / w)));
+    const g = c.getContext('2d');
+    g.fillStyle = '#1d2b34'; g.fillRect(0, 0, c.width, c.height);
+    const size = Math.round(c.height * 0.42);
+    g.font = `600 ${size}px system-ui, sans-serif`;
+    g.textBaseline = 'middle';
+    const mid = c.height / 2;
+    // A hairline between the two halves, so two place names do not read as one.
+    g.fillStyle = 'rgba(238,242,240,.28)';
+    g.fillRect(c.width / 2 - 1, c.height * 0.18, 2, c.height * 0.64);
+    g.fillStyle = '#eef2f0';
+    if(leftLabel){
+      g.textAlign = 'left';
+      g.fillText(`\u25c0 ${String(leftLabel).slice(0, 22)}`, 18, mid);
+    }
+    if(rightLabel){
+      g.textAlign = 'right';
+      g.fillText(`${String(rightLabel).slice(0, 22)} \u25b6`, c.width - 18, mid);
+    }
+    return new THREE.CanvasTexture(c);
+  };
+  // Which hand each side is on, and it is worth deriving rather than guessing —
+  // the first version had it backwards and the sign pointed right at a lift that
+  // was on the left. For a reader looking down −z: forward is (0, 0, −1), up is
+  // (0, 1, 0), so right is forward × up = (+1, 0, 0) — east. Left is therefore
+  // west. Looking down +z the cross product flips and right is west.
+  for(const [toward, leftLabel, rightLabel] of [[1, west, east], [-1, east, west]]){
+    if(!leftLabel && !rightLabel) continue;
+    const face = new THREE.Mesh(new THREE.PlaneGeometry(w - 0.04, H - 0.04),
+      new THREE.MeshStandardMaterial({ map: paint(leftLabel, rightLabel), roughness: 0.85,
+        emissive: 0x223038, emissiveIntensity: 0.25 }));
+    // **Hung off an anchor the caller placed, not built loose.** `box()` is the
+    // only thing here that puts anything in the scene; a `new THREE.Mesh` is
+    // added to nothing, which is how the first version of this rendered two bare
+    // plates with no words on them — geometry that exists, in no scene graph.
+    // Same shape as `wordedSign`, for the same reason.
+    const anchor = box(0.001, 0.001, 0.001, 0, y, z + toward * 0.032, M.dark ?? M.metal);
+    anchor.add(face);
+    // A PlaneGeometry faces +z. The face on the +z side of the plate is the one a
+    // reader at greater z sees, so it stays as built; the other is turned round.
+    face.rotation.y = toward > 0 ? 0 : Math.PI;
+    made.push(anchor, face);
+  }
+  markStructure(made, 'sign');
+  return made;
+}
+
 /** Deterministic per-room noise. Same id, same room, every session. */
 function rng(seed){
   let s = 0;

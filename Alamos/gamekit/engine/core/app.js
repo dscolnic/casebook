@@ -21,6 +21,7 @@ import { HISTORIC_CHARACTERS } from './historicCharacters.js';
 import { callLabel } from './place.js';
 import { esc } from './utils.js';
 import { DAY_NOUN, RUN_SKIP_COST } from './constants.js';
+import { readRating, postRating } from './cloudSave.js';
 
 /**
  * Which area has a case open right now, or null.
@@ -359,9 +360,95 @@ export function showEnding(theme, ui, onClose){
   const paras = theme?.ending ?? [];
   if(!paras.length) return false;
   ui.open(`${theme.title} — how it ends`,
-    `<div class="briefBox endingCard">${paras.map(p => `<p>${p}</p>`).join('')}</div>`,
+    `<div class="briefBox endingCard">${paras.map(p => `<p>${p}</p>`).join('')}</div>`
+    + ratingHTML(),
     [{ id: 'endingDone', label: 'Close', primary: true, onClick: () => { ui.close(); onClose?.(); } }]);
+  mountRating();
   return true;
+}
+
+/**
+ * Five stars on the card that closes a campaign.
+ *
+ * WHY IT IS DRAWN HIDDEN AND SHOWN LATER. There is no rating without an
+ * account, and whether there is one cannot be known synchronously — the games
+ * are served two ways and behind a static host `/api/ratings` is a 404. So the
+ * block is written into the card empty-handed, `readRating()` decides, and it
+ * is either filled in or removed. Drawing it and then leaving dead stars behind
+ * on a static host would be worse than never offering it: a control that
+ * answers nothing teaches the player not to press the next one.
+ *
+ * WHY IT SHOWS WHAT THEY SAID LAST TIME. A rating is one per account per game,
+ * so a second campaign re-rates rather than voting twice. Offering an empty row
+ * of stars over a rating already given asks a question whose answer is on the
+ * server, and quietly replaces it whatever they press.
+ */
+const RATE_WORDS = ['', 'Poor', 'Fair', 'Good', 'Very good', 'Excellent'];
+
+function ratingHTML(){
+  const stars = [1, 2, 3, 4, 5].map(n =>
+    `<button class="rateStar" type="button" data-stars="${n}" role="radio" aria-checked="false"
+       aria-label="${n} out of 5 — ${RATE_WORDS[n]}">★</button>`).join('');
+  return `<div class="briefBox rateBox hidden" id="rateBox">
+    <p class="rateAsk">How was it?</p>
+    <div class="rateStars" id="rateStars" role="radiogroup" aria-label="Rate this game from 1 to 5">${stars}</div>
+    <p class="rateNote" id="rateNote"></p>
+  </div>`;
+}
+
+function mountRating(){
+  const box = document.getElementById('rateBox');
+  const row = document.getElementById('rateStars');
+  const note = document.getElementById('rateNote');
+  if(!box || !row || !note) return;
+  const buttons = Array.from(row.querySelectorAll('.rateStar'));
+  let mine = null;
+
+  /** Fill up to n stars. `over` is a hover, which must not survive the pointer. */
+  const paint = (n) => {
+    buttons.forEach((b, i) => {
+      b.classList.toggle('on', n != null && i < n);
+      b.setAttribute('aria-checked', String(mine === i + 1));
+    });
+  };
+  // The average is what the shelf shows, so the count goes with it here too:
+  // 4.5 from two people and 4.5 from two hundred are the same number and not
+  // the same claim.
+  const standing = (avg, count) => (avg == null || !count) ? ''
+    : ` It averages ${avg.toFixed(1)} from ${count} ${count === 1 ? 'player' : 'players'}.`;
+
+  row.addEventListener('mouseleave', () => paint(mine));
+  for(const b of buttons){
+    const n = Number(b.dataset.stars);
+    b.addEventListener('mouseenter', () => paint(n));
+    b.addEventListener('focus', () => paint(n));
+    b.addEventListener('click', async () => {
+      buttons.forEach(x => { x.disabled = true; });
+      note.textContent = 'Sending…';
+      const out = await postRating(n);
+      buttons.forEach(x => { x.disabled = false; });
+      if(!out){
+        // The rating did not land, and saying so is the point: a star that
+        // lights up on a request that failed is a lie the player cannot see.
+        note.textContent = 'That could not be sent. Try again in a moment.';
+        paint(mine);
+        return;
+      }
+      mine = out.mine;
+      paint(mine);
+      note.textContent = `Thanks — ${RATE_WORDS[mine].toLowerCase()}.${standing(out.avg, out.count)}`;
+    });
+  }
+
+  readRating().then((out) => {
+    if(!out) { box.remove(); return; }
+    mine = out.mine;
+    paint(mine);
+    note.textContent = mine
+      ? `You rated this ${mine} of 5.${standing(out.avg, out.count)} Press another star to change it.`
+      : `Nobody sees who rated what.${standing(out.avg, out.count)}`;
+    box.classList.remove('hidden');
+  }).catch(() => box.remove());
 }
 
 export function makeActivate(handlers, fallback){

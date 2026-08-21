@@ -58,18 +58,23 @@ const ok = (cond, what) => {
   else { failures++; console.log(`  ✗ ${what}`); }
 };
 
-/** A person the crowd would have built, with only what a run touches. */
-function person(id, x, z){
+/**
+ * A person the crowd would have built, with only what a run touches.
+ *
+ * `y` is their floor's height, which is what it is in the game: `crowd.js` stamps
+ * a person's feet at their own floor and leaves them there.
+ */
+function person(id, x, z, y = 0){
   const body = new THREE.Group();
   body.userData.limbs = [];
   return { id, char: { id, name: id }, body,
-    pos: new THREE.Vector3(x, 0, z), home: new THREE.Vector3(x, 0, z),
-    target: new THREE.Vector3(x, 0, z), soft: { x, z, r: 0.4 },
+    pos: new THREE.Vector3(x, y, z), home: new THREE.Vector3(x, y, z),
+    target: new THREE.Vector3(x, y, z), soft: { x, z, r: 0.4 },
     hit: new THREE.Object3D() };
 }
 
 /** A harness whose player can be put anywhere and whose frames are exact. */
-function rig(people = [], blocked = null){
+function rig(people = [], blocked = null, floorRise = 0){
   const pos = new THREE.Vector3(0, 0, 0);
   const drawn = [];
   const w = createWorldFormats({
@@ -80,6 +85,7 @@ function rig(people = [], blocked = null){
     player: { teleport(){} },
     people: () => people,
     pins: (list) => drawn.push(list),
+    floorRise,
     ...(blocked ? { blocked } : {}),
   });
   // Frames of a fixed length: a run measured in wall clock cannot be asserted
@@ -87,7 +93,7 @@ function rig(people = [], blocked = null){
   const step = (seconds, dt = 0.1) => {
     for(let t = 0; t < seconds - 1e-9; t += dt) w.update(dt);
   };
-  const go = (x, z) => pos.set(x, 0, z);
+  const go = (x, z, y = 0) => pos.set(x, y, z);
   return { w, pos, go, step, drawn, people };
 }
 
@@ -390,6 +396,76 @@ console.log('worldFormats — the world half of GREET, FOLLOW, HUNT, CANVASS, EV
     (res) => { out2 = res; });
   r2.go(0, 0); r2.step(0.3);
   ok(out2 && out2.ok === true, 'a run that reached its goal reports ok:true');
+}
+
+/* ---------------------------------------------- a building with floors in it */
+//
+// Every one of these runs measured distance in (x, z) and ignored height, which is
+// right for a slope and wrong for four floor plates on one footprint: Changeover's
+// six areas are six (x, z) inside a 26 m corridor, repeated four times. Without a
+// floor term GREET counts somebody three floors down as greeted and HUNT's six
+// items are all inside one corridor.
+//
+// Each case is paired with the same geometry at `floorRise: 0`, because the risk
+// runs both ways: a vertical term that fires when a world has one floor changes
+// every other game in the set.
+{
+  const RISE = 4.4, EYE = 1.6;
+  {
+    // **One person and a target of one**, so a greeting that should not have
+    // happened ends the run and is visible. The first version of this case used a
+    // target of two: greeting somebody through a slab left the run going and
+    // `out === null` either way, so all three assertions passed with the floor
+    // term deleted. Verified by deleting it.
+    const r = rig([person('a', 10, 0, 0)], null, RISE);
+    let out = null;
+    r.w.greet({ roster: [{ id: 'a' }], target: 1, minutes: 30, radius: 3 },
+      (res) => { out = res; });
+    r.go(10, 0, RISE + EYE); r.step(0.3); press('KeyE');
+    ok(out === null, 'GREET: somebody a floor below is not greeted from above them');
+    r.go(10, 0, EYE); r.step(0.3); press('KeyE');
+    ok(out && out.met.length === 1 && out.met[0] === 'a',
+      'GREET: on their own floor the same person is greeted');
+  }
+  {
+    // The same geometry in a one-floor world: the height is an eye offset and
+    // nothing else, and it must not stop the greeting.
+    const r = rig([person('a', 10, 0, 0)], null, 0);
+    let out = null;
+    r.w.greet({ roster: [{ id: 'a' }], target: 1, minutes: 30, radius: 3 },
+      (res) => { out = res; });
+    r.go(10, 0, RISE + EYE); r.step(0.3); press('KeyE');
+    ok(out && out.met.length === 1,
+      'GREET: with no floors declared, height is ignored exactly as before');
+  }
+  {
+    // HUNT places one item at each area's entry. On a stacked plan those entries
+    // repeat on every floor, so the floor is the only thing telling two apart.
+    // `at`, not `points` — the first version of this case wrote the wrong key, so
+    // nothing was ever built and "the item above was not collected" passed because
+    // there was no item. A case that passes for the wrong reason is worse than no
+    // case, and this file's own header says so.
+    const spec = (rise) => ({
+      at: [{ x: 10, z: 0, y: 0 }, { x: 10, z: 0, y: rise }],
+      target: 2, minutes: 30, radius: 4, item: { name: 'ledger', plural: 'ledgers' },
+    });
+    const r = rig([], null, RISE);
+    let out = null;
+    r.w.hunt(spec(RISE), (res) => { out = res; });
+    r.go(10, 0, EYE); r.step(0.4);
+    ok(out === null, 'HUNT: standing on one item does not collect the one above it');
+    r.go(10, 0, RISE + EYE); r.step(0.4);
+    ok(out && out.got === 2, 'HUNT: the second is collected on the floor it is on');
+
+    // And the same two points in a world with no floors: both are at the same
+    // (x, z) and the height means nothing, so one pass takes both.
+    const r0 = rig([], null, 0);
+    let out0 = null;
+    r0.w.hunt(spec(RISE), (res) => { out0 = res; });
+    r0.go(10, 0, EYE); r0.step(0.4);
+    ok(out0 && out0.got === 2,
+      'HUNT: with no floors declared, two points at one (x, z) are both collected');
+  }
 }
 
 console.log(`\n${failures ? '✗' : '✓'} worldFormats: ${failures} failing case(s).`);

@@ -40,6 +40,19 @@ export async function interiorScene(dir){
   const scene = new THREE.Scene();
 
   /**
+   * A plan may also be more than one *floor*.
+   *
+   * `plan.floors` is a theme whose own world stacks floor plates on ONE footprint
+   * — `engine/world/interiorTower.js`, Changeover's four floors of Kesteven House
+   * — so `plan.rooms` is every floor's rooms flattened. Handing that to one build
+   * is the same defect `plan.wings` exists for, and worse: four rooms in the same
+   * rectangle, four sets of notices on walls that were only built once, and a
+   * report about a floor that does not exist. It is also what showed up first —
+   * eight notices reported floating on a wall the lift builds and this harness did
+   * not, every one of them correctly placed in the game.
+   */
+  const floors = Array.isArray(plan.floors) && plan.floors.length ? plan.floors : null;
+  /**
    * A plan may be more than one corridor.
    *
    * `plan.wings` is a theme whose own world module calls `buildInterior` once
@@ -51,7 +64,34 @@ export async function interiorScene(dir){
    * so the shape of the plan decides how many builds it gets.
    */
   const wings = Array.isArray(plan.wings) && plan.wings.length ? plan.wings : null;
-  if(wings){
+  if(floors){
+    const { buildLiftShaft } = await load(resolve(gamekit, 'engine/world/interiorTower.js'));
+    const { makePlanGeometry } = await load(resolve(gamekit, 'engine/world/interiorSite.js'));
+    for(const f of floors){
+      const g = new THREE.Group();
+      g.position.y = f.y ?? (f.id ?? 0) * (plan.rise ?? 4.4);
+      g.userData.floorGroup = true;
+      scene.add(g);
+      buildInterior(g, stubRenderer(), {
+        metrics: plan.metrics,
+        spine: plan.spine,
+        rooms: f.rooms,
+        seats: f.seats ?? [],
+        spots: f.spots ?? plan.spots,
+        bladeSigns: f.bladeSigns ?? plan.bladeSigns ?? [],
+        glazedSide: plan.glazedSide,
+        glazedEnds: plan.glazedEnds,
+        ceiling: plan.ceiling,
+        soffit: plan.soffit,
+      }, {
+        fitOutRoom: (room, ctx) => props.fitOutRoom?.(room, { ...ctx, floor: f }),
+        fitOutSpine: (ctx) => props.fitOutSpine?.({ ...ctx, floor: f }),
+      });
+      // The lift is the world module's, not the builder's, and it is what the
+      // rooms either side of it are hung on.
+      buildLiftShaft(g, plan, makePlanGeometry(plan).P, floors.length);
+    }
+  } else if(wings){
     for(const wing of wings){
       const g = new THREE.Group();
       g.position.x = wing.x ?? 0;

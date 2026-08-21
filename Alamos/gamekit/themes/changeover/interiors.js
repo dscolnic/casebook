@@ -5,13 +5,13 @@
 export const INTERIORS = {
   "COUNTER": {
     "caption": "Expectations move before policy does, and a silence is read as information.",
-    "standLine": "Forty people at a time, asking what a note will be worth on Monday.",
+    "standLine": "Forty people on the plaza telephones, and the queue below the window.",
     "station": {
       "kind": "panel",
       "title": "Counter board",
       "rows": [
         {
-          "label": "In the queue",
+          "label": "In the queue on the plaza",
           "value": 42,
           "status": "alarm"
         },
@@ -55,10 +55,10 @@ export const INTERIORS = {
   },
   "NOTES": {
     "caption": "A weighed count is a count of notes; the value needs a sampled mix.",
-    "standLine": "Two scales, a ledger and a furnace in the yard.",
+    "standLine": "Three platform scales, a ledger, and a goods hoist to the furnace.",
     "station": {
       "kind": "panel",
-      "title": "Parcels scale",
+      "title": "Platform scale",
       "rows": [
         {
           "label": "Returned",
@@ -105,7 +105,7 @@ export const INTERIORS = {
   },
   "RATE": {
     "caption": "A stock over a daily outflow is a deadline.",
-    "standLine": "Three candidate rates and one reserve position.",
+    "standLine": "Three candidate rates, one reserve position, and the city out of the glass.",
     "station": {
       "kind": "panel",
       "title": "Rate room",
@@ -130,10 +130,10 @@ export const INTERIORS = {
   },
   "TRADE": {
     "caption": "A current account deficit is financed by borrowing or by reserves.",
-    "standLine": "One wire out of Halvern, and the reserve book beside it.",
+    "standLine": "Six telex machines, three time zones, and the reserve book beside them.",
     "station": {
       "kind": "panel",
-      "title": "Telegraph desk",
+      "title": "Wire desk",
       "rows": [
         {
           "label": "Current account",

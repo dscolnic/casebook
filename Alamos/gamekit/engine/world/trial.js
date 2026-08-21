@@ -47,6 +47,17 @@ import { addCaseBeacon } from './caseBeacon.js';
 
 /** How close counts as through the gate, in metres. */
 const GATE_RADIUS = 7;
+/**
+ * Which floor a height is on, when the world has floors.
+ *
+ * Rounded rather than compared with a tolerance, because the two heights being
+ * compared are not the same kind of thing: a gate sits on the slab and the
+ * player's position is their eye, about 1.6 m above it. Rounding is exact as long
+ * as the eye is less than half a floor up, which at any floor-to-floor a building
+ * has it is; a tolerance has to be threaded between 1.6 and 2.8 and is one
+ * changed constant away from being wrong.
+ */
+const floorOf = (y, rise) => (rise > 0 ? Math.round((+y || 0) / rise) : 0);
 /** Walking pace, m/s. The same number `day.js` budgets a route at. */
 const WALK = 1.35;
 /** How much of the route's own walking time the run is given. */
@@ -60,14 +71,21 @@ const SLACK = 1.5;
  * know the order and walks something close to greedy. Never under 45 s, so a
  * two-gate site is not a sprint.
  */
-export function trialLimit(gates, spawn = { x: 0, z: 0 }, { pace = WALK, cap = 900 } = {}){
-  const left = gates.map(g => ({ x: +g.x, z: +g.z }));
-  let at = { x: +(spawn?.x ?? 0), z: +(spawn?.z ?? 0) };
+export function trialLimit(gates, spawn = { x: 0, z: 0 }, { pace = WALK, cap = 900, rise = 0 } = {}){
+  const left = gates.map(g => ({ x: +g.x, z: +g.z, y: +(g.y ?? 0) }));
+  let at = { x: +(spawn?.x ?? 0), z: +(spawn?.z ?? 0), y: +(spawn?.y ?? 0) };
   let metres = 0;
+  // A floor change is real distance and takes real time, and on a stacked plan it
+  // is *most* of both: Changeover's six gates are inside a 26 m corridor repeated
+  // on four floors, so the horizontal route is ninety metres and the honest lap is
+  // three lift rides. Priced at the ride — `MINUTES_PER_FLOOR` in
+  // engine/core/lift.js is a minute, and a minute of walking is eighty metres.
+  // `rise` is 0 in every world with one floor, so this term vanishes there.
+  const floorCost = (a, b) => (rise > 0 ? Math.abs(floorOf(a.y, rise) - floorOf(b.y, rise)) * 80 : 0);
   while(left.length){
     let best = 0, bestD = Infinity;
     for(let i = 0; i < left.length; i++){
-      const d = Math.hypot(left[i].x - at.x, left[i].z - at.z);
+      const d = Math.hypot(left[i].x - at.x, left[i].z - at.z) + floorCost(left[i], at);
       if(d < bestD){ bestD = d; best = i; }
     }
     metres += bestD;
@@ -87,16 +105,23 @@ export function trialLimit(gates, spawn = { x: 0, z: 0 }, { pace = WALK, cap = 9
  *   spawn        where every run starts, {x, z, yaw}
  *   player       { teleport }
  *   onLeaveRoom  optional: called before a run, to put the player outdoors
+ *   rise         optional: floor-to-floor, where the world has floors stacked on
+ *                one footprint. 0 everywhere else, and every term it enters
+ *                vanishes at 0 — see `floorRise` in interiorTower.js.
  */
 export function createTrial({ scene, camera = null, getPosition, groundHeight, spawn, player,
-  onLeaveRoom, pins = null }){
+  onLeaveRoom, pins = null, rise = 0 }){
   let run = null;
+  const RISE = +rise || 0;
 
   function buildGates(gates){
     const group = new THREE.Group();
     group.name = 'trialGates';
     const marks = gates.map((g) => {
-      const y = groundHeight?.(g.x, g.z) ?? 0;
+      // The gate's own height where it has one. `groundHeight` answers for the
+      // floor the player is standing on, so on a stacked plan every gate in the
+      // building would be built on that floor — six rings on top of each other.
+      const y = Number.isFinite(g.y) && RISE > 0 ? +g.y : (groundHeight?.(g.x, g.z) ?? 0);
       const holder = new THREE.Group();
       // The beacon is the crowd's own marker rig, in the trial's colour. Reusing
       // it means a gate reads as "something the game wants you at" in the same
@@ -185,6 +210,13 @@ export function createTrial({ scene, camera = null, getPosition, groundHeight, s
         const dx = p.x - m.x;
         const dz = p.z - m.z;
         if(dx * dx + dz * dz > GATE_RADIUS * GATE_RADIUS) continue;
+        // Horizontal only was the whole test, and on a stacked plan that is a
+        // test that passes for every gate in the building at once: Changeover's
+        // six areas are six (x, z) inside one 26 m corridor, repeated on four
+        // floors, so walking one floor's corridor took all six gates. The floor
+        // has to match, and it is compared as a floor rather than as a height
+        // because the player's position is their eye and a gate is on the slab.
+        if(RISE > 0 && floorOf(p.y, RISE) !== floorOf(m.y, RISE)) continue;
         m.holder.visible = false;
         run.taken.push(m.id);
       }

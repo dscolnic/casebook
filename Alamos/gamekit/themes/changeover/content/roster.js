@@ -47,7 +47,7 @@ export const ROSTER = [
     "role": "Counter Supervisor",
     "division": "COUNTER",
     "color": "#a8763c",
-    "bio": "<p>Runs the exchange counter, which means she is the only person in this building who talks to the public and the only one who knows what the queue is actually doing.</p><p>She reads behaviour rather than figures. A queue that lengthens on the day a rate is rumoured is a queue that has heard something, and the people at the front of it are the ones with the most to lose from waiting.</p><p>Her complaint about the board is that it discusses households as a component of demand and she has them in front of her, forty at a time, asking what a note will be worth on Monday.</p>",
+    "bio": "<p>Runs the exchange counter down on the plaza, which means she is the only person on these four floors who spends any part of the day in front of the public and the only one who knows what the queue is actually doing.</p><p>She reads behaviour rather than figures. A queue that lengthens on the day a rate is rumoured is a queue that has heard something, and the people at the front of it are the ones with the most to lose from waiting.</p><p>Her complaint about the board is that it discusses households as a component of demand while she watches nine hundred of them from a window that is too far up to hear anything, forty at a time at the counters, asking what a note will be worth on Monday.</p>",
     "quiz": [
       {
         "q": "What does Okonjo learn from the length of the queue that the board cannot?",
@@ -63,10 +63,10 @@ export const ROSTER = [
   {
     "id": "tulloch",
     "name": "Bram Tulloch",
-    "role": "Parcels Office Manager",
+    "role": "Note Room Manager",
     "division": "NOTES",
     "color": "#8a6f4a",
-    "bio": "<p>Ran the parcels office when this was a working station and runs it now that it weighs money instead. Two scales, a ledger and a furnace in the yard.</p><p>He counts by weight because counting by hand is impossible at this volume, and he is exact about what that assumes: a note's mass, a denomination mix and a sample to check both. Get the mix wrong and the count is wrong by whatever fraction the mix is wrong by.</p><p>He burns the returns in the yard under two signatures, which is the only part of this fortnight that is genuinely irreversible.</p>",
+    "bio": "<p>Weighed freight for Halvern Docks for nineteen years and weighs money now, on the same three platform scales, four hundred and forty feet up. Three scales, a ledger, and a goods hoist down to the furnace.</p><p>He counts by weight because counting by hand is impossible at this volume, and he is exact about what that assumes: a note's mass, a denomination mix and a sample to check both. Get the mix wrong and the count is wrong by whatever fraction the mix is wrong by.</p><p>He sends the returns down to the furnace under two signatures, which is the only part of this fortnight that is genuinely irreversible.</p>",
     "quiz": [
       {
         "q": "Why does Tulloch sample the denomination mix rather than assume it?",
@@ -104,14 +104,14 @@ export const ROSTER = [
     "role": "Trade and Reserves Officer",
     "division": "TRADE",
     "color": "#4a7f8a",
-    "bio": "<p>Sits in the telegraph room with the only wire out of Halvern and the reserve position in a locked book.</p><p>He thinks in flows per day rather than in totals, because a reserve stock divided by a daily outflow is a number of days and a number of days is a decision. The board asks him whether the reserves are enough; he answers with how long they last at the rate being proposed.</p><p>His frustration is that the current account is discussed as a moral question. It is an identity: a deficit is being financed by something, and the something is either borrowing or reserves.</p>",
+    "bio": "<p>Sits in the wire room with six correspondents in three time zones and the reserve position in a locked book.</p><p>He thinks in flows per day rather than in totals, because a reserve stock divided by a daily outflow is a number of days and a number of days is a decision. The board asks him whether the reserves are enough; he answers with how long they last at the rate being proposed.</p><p>His frustration is that the current account is discussed as a moral question. It is an identity: a deficit is being financed by something, and the something is either borrowing or reserves.</p>",
     "quiz": [
       {
         "q": "Why does Sarkis answer questions about reserves with a number of days?",
         "a": "A stock over a daily outflow is a deadline",
         "wrong": [
           "The board's mandate requires reserve positions to be expressed as coverage in days",
-          "Daily figures are the only ones the telegraph can transmit reliably",
+          "Daily figures are the only ones the correspondents will accept by telex",
           "Reserve totals are revised too often to be quoted as a single number"
         ]
       }
@@ -253,7 +253,7 @@ export const LEADERS = [
   {
     "id": "tulloch",
     "name": "Bram Tulloch",
-    "role": "Parcels Office Manager",
+    "role": "Note Room Manager",
     "science": 4,
     "management": 4,
     "trait": ""

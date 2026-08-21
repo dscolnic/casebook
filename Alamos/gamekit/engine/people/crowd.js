@@ -38,6 +38,12 @@ const extras = [];
  *                     area's id — that is what a person's `division` is matched against
  *   extras,           how many anonymous people to add
  *   groundHeight,     the world's height function; feet go here, not at y=0
+ *   activeLevel,      optional () -> floor id. A stacked building (see
+ *                     engine/world/interiorTower.js) has four floors on one
+ *                     footprint, so a person is on one of them: somebody two
+ *                     floors down must not be collided with, talked to, or
+ *                     walked by a `blocked` predicate that describes a floor
+ *                     they are not on. Absent everywhere else, and inert.
  *   blocked,          (x, z, pad?) -> boolean. Used three ways: placing people,
  *                     choosing somewhere to walk, and every step on the way —
  *                     the last of which is why `pad` exists, since the padding
@@ -90,7 +96,10 @@ export function initCrowd(opts){
     const outfitKey = opts.roleToOutfit(person.role, (n2) => Math.floor(srand() * n2));
     const look = pickLook(opts.outfits[outfitKey] ?? Object.values(opts.outfits)[0]);
     const body = buildBody(look);
-    const y = opts.groundHeight(x, z);
+    // A station may name its own floor height. `groundHeight` answers for the
+    // floor the *player* is on, so in a stacked building it would put the whole
+    // cast on floor one and then leave them there.
+    const y = Number.isFinite(station.y) ? station.y : opts.groundHeight(x, z);
     body.position.set(x, y, z);                    // feet at ground level
     body.rotation.y = station.facing + Math.PI + srandRange(-0.3, 0.3);
     group.add(body);
@@ -110,6 +119,7 @@ export function initCrowd(opts){
 
     const npc = {
       char: person, id: person.id, division: person.division,
+      level: station.level ?? null,
       body, hit, plate, look,
       pos: new THREE.Vector3(x, y, z),
       home: new THREE.Vector3(x, y, z),
@@ -155,14 +165,14 @@ export function initCrowd(opts){
     // of fourteen. It was building the full one, so 26 extras cost as much as 26
     // named people and the header's claim about it was simply untrue.
     const body = buildExtraBody(look);
-    const y = opts.groundHeight(x, z);
+    const y = Number.isFinite(s.y) ? s.y : opts.groundHeight(x, z);
     body.position.set(x, y, z);
     body.rotation.y = srand() * 6.28;
     group.add(body);
     // Extras walk too. They had idle sway and nothing else, so half the street
     // was permanently rooted to the spot while the named cast moved around them.
     extras.push({
-      body, phase: srand() * 6.28,
+      body, phase: srand() * 6.28, level: s.level ?? null,
       pos: new THREE.Vector3(x, y, z),
       home: new THREE.Vector3(x, y, z),
       target: new THREE.Vector3(x, y, z),
@@ -456,6 +466,27 @@ export function updateCrowd(delta, t){
   cam.getWorldDirection(camDir);
   const px = cam.position.x, pz = cam.position.z;
   for(const n of npcs){
+    if(offFloor(n)){
+      // Nothing of them is reachable from here. Two things have to go, and
+      // neither is obvious:
+      //
+      //   · the soft collider, because it is an (x, z) cylinder with no height
+      //     in it — a person on the floor below is otherwise an invisible post
+      //     in the middle of this room;
+      //   · the raycast target, **by layer and not by `visible`**. three.js
+      //     `intersectObject` tests `object.layers` and does not look at
+      //     `visible` at all (r160), so hiding the hit cylinder leaves it fully
+      //     interactable: the prompt comes up and you talk to somebody two
+      //     floors down through a concrete slab. `visible` is set as well, for
+      //     the renderer.
+      if(n.soft) n.soft.r = 0;
+      if(n.hit){ n.hit.visible = false; n.hit.layers.disable(0); }
+      n.plate.visible = false;
+      if(n.marker) n.marker.visible = false;
+      continue;
+    }
+    if(n.soft && n.soft.r === 0) n.soft.r = BODY_RADIUS;
+    if(n.hit){ n.hit.visible = true; n.hit.layers.enable(0); }
     walk(n, delta, t);
     yieldToPlayer(n, px, pz);
     // Near AND looked at. Distance alone labels everyone you walk past.
@@ -491,7 +522,12 @@ export function updateCrowd(delta, t){
       }
     }
   }
-  for(const e of extras){ walk(e, delta, t); yieldToPlayer(e, px, pz); }
+  for(const e of extras){
+    if(offFloor(e)){ if(e.soft) e.soft.r = 0; continue; }
+    if(e.soft && e.soft.r === 0) e.soft.r = BODY_RADIUS;
+    walk(e, delta, t);
+    yieldToPlayer(e, px, pz);
+  }
 }
 
 /**
@@ -499,7 +535,21 @@ export function updateCrowd(delta, t){
  * — see rig.js strideFor — so the feet do not skate, and the body turns to face
  * where it is going before the legs are asked to take it there.
  */
+/**
+ * Somebody on a floor the player is not on.
+ *
+ * They keep their body and stay drawn — a tower whose other floors are empty
+ * through the glass is a stage set — and they stop being *there*: no collider,
+ * no interaction, no walking, and their feet stay at their own floor's height
+ * rather than following a ground function that is answering for another floor.
+ */
+function offFloor(n){
+  const active = ctx.activeLevel?.();
+  return active != null && n.level != null && n.level !== active;
+}
+
 function walk(n, delta, t){
+  if(offFloor(n)) return;
   // Somebody a world format has taken over. FOLLOW's guide and EVADE's pursuer
   // are people who already stand in this crowd with a body, a nameplate and a
   // collider, and the run drives them directly — see worldFormats.js takeOver.

@@ -6,7 +6,7 @@ export const GROUPS = [
   {
     "id": "COUNTER",
     "code": "COUNTER",
-    "name": "Exchange Counter",
+    "name": "Counter Room",
     "color": "#a8763c",
     "difficulty": 3,
     "type": "protocol",
@@ -88,7 +88,7 @@ export const GROUPS = [
   {
     "id": "NOTES",
     "code": "NOTES",
-    "name": "Parcels Office",
+    "name": "Note Room",
     "color": "#8a6f4a",
     "difficulty": 3,
     "type": "protocol",
@@ -211,7 +211,7 @@ export const GROUPS = [
   {
     "id": "TRADE",
     "code": "TRADE",
-    "name": "Telegraph Room",
+    "name": "Wire Room",
     "color": "#4a7f8a",
     "difficulty": 3,
     "type": "protocol",

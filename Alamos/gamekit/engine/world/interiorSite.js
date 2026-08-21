@@ -9,7 +9,7 @@
 // it: walls, doorways, doors, ceiling grid, signage, lighting and collision.
 import * as THREE from 'three';
 import { addCaseBeacon } from './caseBeacon.js';
-import { markStructure } from './interiorKit.js';
+import { markStructure, bladeSign } from './interiorKit.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import {
   paintTexture, sheetFloorTexture, ceilingTileTexture, diffuserTexture,
@@ -181,8 +181,12 @@ export function buildInterior(scene, renderer, plan, hooks = {}){
     wall(envelope.x0, zz, -hw, zz, { baseSides: [baseSide] });
     wall(hw, zz, envelope.x1, zz, { baseSides: [baseSide] });
   };
-  endWall(envelope.z0, 1, openEnd.z0);
-  endWall(envelope.z1, -1, openEnd.z1);
+  // Glass instead, where the plan asks for it: the screen below is the wall, and
+  // building both puts a solid partition a hand's width behind the glazing.
+  if(!plan.glazedEnds){
+    endWall(envelope.z0, 1, openEnd.z0);
+    endWall(envelope.z1, -1, openEnd.z1);
+  }
 
   /**
    * One long side may be glass instead of wall.
@@ -200,65 +204,109 @@ export function buildInterior(scene, renderer, plan, hooks = {}){
   // The two long sides. One of them may be glass instead (below); the other is
   // always a wall, and losing it is how fifty-nine notices ended up hanging in
   // mid-air with nothing behind them.
-  if(plan.glazedSide !== 'w') wall(envelope.x0, envelope.z0, envelope.x0, envelope.z1, { baseSides: [1] });
-  if(plan.glazedSide !== 'e') wall(envelope.x1, envelope.z0, envelope.x1, envelope.z1, { baseSides: [-1] });
+  //
+  // `'all'` glazes both of them, which is a tower floor plate rather than a
+  // corridor: every room on the floor has the outside in its window, and the
+  // long walls are the only two this builder would otherwise hang anything on.
+  // A theme asking for it owes the check below — see `plan.wallSides`.
+  const glazed = plan.glazedSide === 'all' ? ['w', 'e']
+               : (plan.glazedSide === 'e' || plan.glazedSide === 'w') ? [plan.glazedSide]
+               : [];
+  if(!glazed.includes('w')) wall(envelope.x0, envelope.z0, envelope.x0, envelope.z1, { baseSides: [1] });
+  if(!glazed.includes('e')) wall(envelope.x1, envelope.z0, envelope.x1, envelope.z1, { baseSides: [-1] });
 
-  if(plan.glazedSide === 'e' || plan.glazedSide === 'w'){
-    const gx = plan.glazedSide === 'e' ? envelope.x1 : envelope.x0;
-    const inward = plan.glazedSide === 'e' ? -1 : 1;
-    // NOT `M.glass`. That material is a dark metallic mirror — right for a
-    // window seen from outside a building at dusk, and completely opaque from
-    // within, which is how a wall of glass with a waterfall behind it rendered
-    // as a grey slab. A screen meant to be looked *through* is transparent and
-    // barely tinted.
+  /**
+   * One mullioned screen, floor to head, on any of the four envelope faces.
+   *
+   * NOT `M.glass`. That material is a dark metallic mirror — right for a window
+   * seen from outside a building at dusk, and completely opaque from within,
+   * which is how a wall of glass with a waterfall behind it rendered as a grey
+   * slab. A screen meant to be looked *through* is transparent and barely
+   * tinted.
+   *
+   * Floor to ceiling, and nothing else. The first version had a 0.3 m cill and a
+   * 0.26 m head band, which turns a wall of glass into a strip window — and a
+   * strip window is what every other building in the set already has.
+   */
+  function glassScreen(alongX, at, from, to, inward){
     const glassMat = mat('seeThroughGlass', () => new THREE.MeshStandardMaterial({
-      color: 0xdfeaee, roughness: 0.04, metalness: 0.0,
+      // Not 0.04. A curtain wall at that roughness is an optically flat lens, so
+      // each directional light in the rig lands on it as a hard white dot — two
+      // of them, hanging in the sky beyond the glass like something in the air
+      // outside. 0.16 is the same sheen spread over the pane, which is what
+      // architectural glazing actually does with a bright sky.
+      color: 0xdfeaee, roughness: 0.16, metalness: 0.0,
       transparent: true, opacity: 0.10, depthWrite: false,
       envMapIntensity: 0.5, side: THREE.DoubleSide,
     }));
-    const zSpan = envelope.z1 - envelope.z0;
     // Where the spine is open the glass runs to the underside of the deck, not
     // to the tile line — a screen that stops at 3.2 m under a soffit at 3.95
     // leaves a 750 mm slot along the whole building.
     const gh = (plan.ceiling === true || plan.ceiling === undefined)
       ? P.ceilingH : P.ceilingH + 0.75;
-    // Floor to ceiling, and nothing else. The first version had a 0.3 m cill and
-    // a 0.26 m head band, which turns a wall of glass into a strip window — and
-    // a strip window is what every other building in the set already has.
-    const bays = Math.max(2, Math.round(zSpan / 4.2));
-    const bw = zSpan / bays;
+    const span = to - from;
+    const bays = Math.max(2, Math.round(span / 4.2));
+    const bw = span / bays;
+    // Along the face, and through it. `alongX` says which is which, so one
+    // function serves a long side and an end and there is one description of
+    // what a curtain wall looks like.
+    const put = (thick, h, wide, off, y, along, material) => {
+      const m = alongX
+        ? box(wide, h, thick, along, y, at + inward * off, material)
+        : box(thick, h, wide, at + inward * off, y, along, material);
+      m.castShadow = false;
+      return m;
+    };
     for(let i = 0; i < bays; i++){
-      const cz = envelope.z0 + bw * (i + 0.5);
-      const pane = box(P.wall * 0.28, gh - 0.1, bw - 0.09,
-        gx + inward * P.wall * 0.2, (gh - 0.1) / 2 + 0.05, cz, glassMat);
-      pane.castShadow = false;
-      markStructure([pane], 'glazing');
+      const c = from + bw * (i + 0.5);
+      markStructure([put(P.wall * 0.28, gh - 0.1, bw - 0.09, P.wall * 0.2, (gh - 0.1) / 2 + 0.05, c, glassMat)], 'glazing');
       // A slim mullion between bays, and nothing at the head or the foot.
-      markStructure([box(P.wall * 0.5, gh, 0.09,
-        gx + inward * P.wall * 0.12, gh / 2, envelope.z0 + bw * i, M.frame)], 'mullion');
+      markStructure([put(P.wall * 0.5, gh, 0.09, P.wall * 0.12, gh / 2, from + bw * i, M.frame)], 'mullion');
     }
-    markStructure([box(P.wall * 0.5, gh, 0.09, gx + inward * P.wall * 0.12,
-      gh / 2, envelope.z1, M.frame)], 'mullion');
+    markStructure([put(P.wall * 0.5, gh, 0.09, P.wall * 0.12, gh / 2, to, M.frame)], 'mullion');
     // A shadow gap at the floor rather than a cill, so the glass reads as
     // reaching the slab.
-    markStructure([box(P.wall * 0.6, 0.05, zSpan, gx + inward * P.wall * 0.12,
-      0.025, (envelope.z0 + envelope.z1) / 2, M.base)], 'shadow gap');
-    collide(gx, (envelope.z0 + envelope.z1) / 2, P.wall, zSpan, gh);
+    markStructure([put(P.wall * 0.6, 0.05, span, P.wall * 0.12, 0.025, (from + to) / 2, M.base)], 'shadow gap');
+    if(alongX) collide((from + to) / 2, at, span, P.wall, gh);
+    else collide(at, (from + to) / 2, P.wall, span, gh);
   }
 
-  // End glazing — the daylight source and the only view out.
-  const winMat = new THREE.MeshStandardMaterial({
-    color: 0xdfeaf0, emissive: 0xdfeaf0, emissiveIntensity: 0.85, roughness: 0.1, metalness: 0.1,
-  });
-  const glazedEnds = [[envelope.z0 + 0.11, 0], [envelope.z1 - 0.11, Math.PI]]
-    .filter(([, ry]) => (ry === 0 ? !openEnd.z0 : !openEnd.z1));
-  for(const [zz, ry] of glazedEnds){
-    for(const dx of [-5.4, -1.8, 1.8, 5.4]){
-      const w = new THREE.Mesh(new THREE.PlaneGeometry(3.0, 1.7), winMat);
-      w.position.set(dx, 1.65, zz); w.rotation.y = ry;
-      scene.add(w);
-      lightPanels.push(w);
-      box(3.12, 1.82, 0.05, dx, 1.65, zz + (ry ? -0.03 : 0.03), M.frame).castShadow = false;
+  for(const gs of glazed){
+    glassScreen(false, gs === 'e' ? envelope.x1 : envelope.x0,
+                envelope.z0, envelope.z1, gs === 'e' ? -1 : 1);
+  }
+
+  /**
+   * The two ends.
+   *
+   * `plan.glazedEnds: true` builds them as the same curtain wall the long sides
+   * get, which is what the top of a tower is: glass on four faces, and the
+   * corridor itself looking out over the city at both ends. Anything else gets
+   * the emissive panels below — daylight and the *suggestion* of a view, which
+   * is right for a floor buried in a hospital and a lie in a building whose
+   * whole subject is what can be seen from it. They are not transparent: a
+   * player walking up to one in a tower would find a lit rectangle painted on a
+   * wall where the city should be.
+   */
+  if(plan.glazedEnds){
+    for(const [zz, inward] of [[envelope.z0, 1], [envelope.z1, -1]]){
+      if(inward === 1 ? openEnd.z0 : openEnd.z1) continue;
+      glassScreen(true, zz, envelope.x0, envelope.x1, inward);
+    }
+  } else {
+    const winMat = new THREE.MeshStandardMaterial({
+      color: 0xdfeaf0, emissive: 0xdfeaf0, emissiveIntensity: 0.85, roughness: 0.1, metalness: 0.1,
+    });
+    const glazedEnds = [[envelope.z0 + 0.11, 0], [envelope.z1 - 0.11, Math.PI]]
+      .filter(([, ry]) => (ry === 0 ? !openEnd.z0 : !openEnd.z1));
+    for(const [zz, ry] of glazedEnds){
+      for(const dx of [-5.4, -1.8, 1.8, 5.4]){
+        const w = new THREE.Mesh(new THREE.PlaneGeometry(3.0, 1.7), winMat);
+        w.position.set(dx, 1.65, zz); w.rotation.y = ry;
+        scene.add(w);
+        lightPanels.push(w);
+        box(3.12, 1.82, 0.05, dx, 1.65, zz + (ry ? -0.03 : 0.03), M.frame).castShadow = false;
+      }
     }
   }
 
@@ -424,10 +472,16 @@ export function buildInterior(scene, renderer, plan, hooks = {}){
     lightPanels,
   };
 
+  // A cross-wall that lands on a glazed end is a partition built a hand's width
+  // behind the curtain wall: it closes off the one view the end glazing exists
+  // for, and from inside the room it reads as a room with no window at all.
+  const atGlazedEnd = (zz) => !!plan.glazedEnds
+    && (Math.abs(zz - envelope.z0) < 0.06 || Math.abs(zz - envelope.z1) < 0.06);
+
   for(const r of plan.rooms){
     const b = bounds(r);
     const opening = partition(r);
-    wall(b.xInner, r.z0, b.xOuter, r.z0, { baseSides: [-1, 1] });   // cross-wall
+    if(!atGlazedEnd(r.z0)) wall(b.xInner, r.z0, b.xOuter, r.z0, { baseSides: [-1, 1] });   // cross-wall
 
     if(opening){
       const d = door(r, opening);
@@ -475,11 +529,25 @@ export function buildInterior(scene, renderer, plan, hooks = {}){
   // close the far end of the last room each side
   for(const side of ['w', 'e']){
     const last = plan.rooms.filter(r => r.side === side).pop();
-    if(last){
+    if(last && !atGlazedEnd(last.z1)){
       const b = bounds(last);
       wall(b.xInner, last.z1, b.xOuter, last.z1, { baseSides: [-1, 1] });
     }
   }
+  /**
+   * Overhead wayfinding: `plan.bladeSigns`, at last built.
+   *
+   * Four themes have authored this block and nothing had ever rendered it — see
+   * `bladeSign` in interiorKit.js. It goes up before the theme's own spine hook,
+   * so a theme can see what is already hanging there.
+   */
+  for(const b of plan.bladeSigns ?? []){
+    if(!Number.isFinite(+b.z)) continue;
+    bladeSign({ box, mats: { dark: M.base, metal: M.rail }, z: +b.z,
+      halfWidth: P.corridorHalfWidth, ceilingH: P.ceilingH,
+      west: b.west ?? '', east: b.east ?? '' });
+  }
+
   if(hooks.fitOutSpine) hooks.fitOutSpine(ctx);
 
   return { geo, colliders, softColliders, interactables, stopMeshes, roomDoors, caseStands,

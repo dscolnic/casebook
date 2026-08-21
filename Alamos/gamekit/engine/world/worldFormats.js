@@ -71,7 +71,35 @@ function clockText(left){
   return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
 }
 
-const flat = (a, b) => Math.hypot(a.x - b.x, (a.z ?? 0) - (b.z ?? 0));
+/**
+ * Floor-to-floor, where the world stacks floors on one footprint. 0 everywhere
+ * else, which turns the whole vertical term below off.
+ */
+let FLOOR_RISE = 0;
+/** Which floor a height is on. See the same helper in trial.js for why it rounds. */
+const floorOf = (y) => (FLOOR_RISE > 0 ? Math.round((+y || 0) / FLOOR_RISE) : 0);
+
+/**
+ * How far apart two things are, for every one of the seven runs.
+ *
+ * Named `flat` because it was (x, z) and ignored height, which is right for a
+ * slope, a vehicle and a stair — the cases it was written for. It is wrong for a
+ * building whose floors are stacked on one footprint: every room in Changeover is
+ * within seven metres of every other in (x, z), so GREET counted people three
+ * floors down as greeted, HUNT's six items were all inside one corridor, and
+ * EVADE could not be lost.
+ *
+ * So a floor apart is a distance, and a large one — eighty metres, the walk a
+ * lift ride is worth (`MINUTES_PER_FLOOR` in engine/core/lift.js). Large enough
+ * that no run's reach can span it, and finite so the runs that *steer* by this
+ * number rather than threshold it still behave.
+ */
+const flat = (a, b) => {
+  const d = Math.hypot(a.x - b.x, (a.z ?? 0) - (b.z ?? 0));
+  if(FLOOR_RISE <= 0) return d;
+  const floors = Math.abs(floorOf(a.y) - floorOf(b.y));
+  return floors ? d + floors * 80 : d;
+};
 
 /**
  * A small seeded generator, for the one format that needs to roll dice.
@@ -110,8 +138,9 @@ const WALK_PAD = 0.55;
 
 export function createWorldFormats({ scene, getPosition, groundHeight, spawn, player,
   onLeaveRoom, people = () => [], pins = null, bounds = Infinity, blocked = null,
-  camera = null }){
+  camera = null, floorRise = 0 }){
   let run = null;
+  FLOOR_RISE = +floorRise || 0;
 
   const npcById = (id) => people().find(n => String(n.char?.id ?? n.id) === String(id)) ?? null;
 
@@ -504,7 +533,13 @@ export function createWorldFormats({ scene, getPosition, groundHeight, spawn, pl
             metalness: 0.08, emissive: new THREE.Color(colour).multiplyScalar(0.16) });
           const marks = at.map((p, i) => {
             const holder = new THREE.Group();
-            const y = groundHeight(+p.x, +p.z);
+            // The point's own height where the world has floors, and the ground
+            // otherwise. `groundHeight` answers for the floor the player is
+            // standing on, so on a stacked plan every crate in the building would
+            // be built on that floor — and the mark carried no height at all, so
+            // all six read as being on whichever floor you were on.
+            const y = (FLOOR_RISE > 0 && Number.isFinite(+p.y))
+              ? +p.y : groundHeight(+p.x, +p.z);
             // A crate, and a lid a shade proud of it. Small — 40 cm — because
             // something you can see across a yard is not hidden, and lit a
             // little by its own emissive so it is not a black shape in shade.
@@ -519,7 +554,7 @@ export function createWorldFormats({ scene, getPosition, groundHeight, spawn, pl
             lid.userData.ignoreAudit = true;
             holder.add(box, lid);
             group.add(holder);
-            return { i, x: +p.x, z: +p.z, holder, taken: false };
+            return { i, x: +p.x, z: +p.z, y, holder, taken: false };
           });
           // No pins. The map is for the day's own calls, and a search that is
           // drawn on it is not a search.

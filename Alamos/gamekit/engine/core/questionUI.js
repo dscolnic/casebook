@@ -1,4 +1,4 @@
-import { getState, save, markMissionStopComplete, getNextMissionStop, removeMissionStop, completeMission, advanceTime, penaliseStop, penaltyLeft } from './gameState.js';
+import { getState, save, markMissionStopComplete, getNextMissionStop, removeMissionStop, advanceTime, penaliseStop, penaltyLeft } from './gameState.js';
 import { forecastReadiness, leader, def, currentMilestone, curriculumFor, completeMilestoneIfReady, groupPct, getCurrentMission, missionStopForGroup, missionStopIndex, nextMissionStopIndex, openStopIndices, openStopGroups, completedMissionStops, missionComplete, isPersonStopForIdx, globalStopIndex, CHARACTER_DIVISION, getSpecialRequest, isSpecialRequestActive, getPersonIdForStop } from './simulation.js';
 import { MISSION_DEFS } from './missions.js';
 import { CURRICULUM } from './curriculum.js';
@@ -2684,20 +2684,22 @@ function finishVisit(ok){
   const solution=solutionText(ch);
   const bp=kindOf(ch)==='BALLPARK'? calcSpec():null;
   const whyText=kindOf(ch)==='BALLPARK' ? (bp?.explanation || ch.why) : ch.why;
-  // Nothing on the correct path: the block this is nested inside already prints
-  // the "Correct" heading, and reasoningHTML below already prints the why. It
-  // used to render a second, identical feedback box, so every correct answer
-  // read "Correct / Correct" and gave its reasoning twice.
-  const comparison = ok
-    ? ''
-    : `<div class="wrongAnswerCompare"><div class="answerCompareBox user"><b>Your answer</b>${esc(activeChallenge.userAnswer||'(no answer)')}</div><div class="answerCompareBox correct"><b>Correct answer</b>${esc(solution)}</div></div>`;
   const isLastStop = missionComplete(state);
-  const routeNote = isLastStop
-    ? `<div class="readinessNote" style="background:#e6f0e9;border:1px solid #b8d0c0;border-radius:8px;padding:8px 10px">✅ Every call today is made. What is left on the clock is yours — people will sign off expenses for a conversation.</div>`
-    : `<div class="readinessNote">That call is closed. ${openStopIndices(state).length} still open, in any order you like.</div>`;
-  const canRetry = !ok && state.reserve>=RETRY_COST;
-  const retryButton = canRetry ? `<button class="btn" id="visitRetry" type="button">Retry challenge · $${RETRY_COST}</button>` : '';
-  const completeBtn = isLastStop ? `<button class="btn primary" id="completeMissionBtn" type="button">Complete Mission ${state.week} → Mission ${Math.min(15,state.week+1)}</button>` : '';
+  // Five locals used to be built here and rendered nowhere — `comparison`,
+  // `routeNote`, `canRetry`, `retryButton` and `completeBtn` — left behind when
+  // the campaign clock became a countdown and the verdict grew its own overlay.
+  // Every one of them has a live replacement further down this function, which
+  // is the only reason nothing looked broken: the wrong-answer comparison is in
+  // `consequence`, the route note is the ledger's "calls still open" cell, and
+  // the four priced ways out of a wrong call are the `waitOut`/`retryMoney` row.
+  //
+  // Worth naming rather than deleting silently, because one of them was
+  // `<button class="btn primary" id="completeMissionBtn">Complete Mission N →
+  // Mission N+1</button>`: markup for a primary button, with no handler bound
+  // to that id anywhere in the repo. A day is ended by `dayIsYours`/`sleepNow`
+  // below, which raise `projecty:sleep` for the day controller. Anything added
+  // to this string has to be bound in the block that wires those two, or it is
+  // a button the player can press to no effect.
   // ——— the verdict ————————————————————————————————————————————————
   // Rendered into its own overlay above the modal. It used to be appended to
   // the bottom of the question panel, which on a Diagnosis meant scrolling
@@ -2771,8 +2773,8 @@ function finishVisit(ok){
   //
   // If neither price is affordable there is no third option, and the day starts
   // again. That is deliberate — it is the only hard consequence in the game,
-  // and it is always escapable, because a new day pays a stipend and reopens
-  // every conversation in town.
+  // and it is always escapable, because a new day reopens every conversation in
+  // town and each one pays $3.
   const priced = (id, label, cost) =>
     '<button class="btn priced" id="' + id + '" type="button"' +
     (cost > state.reserve ? ' disabled' : '') + '>' +

@@ -324,6 +324,18 @@ try{
     const at = v.at
       ? `{x:${v.at.x},y:${v.at.y ?? 0},z:${v.at.z}}`
       : 'window.gamekit.theme.start';
+    // A stacked building first: which floor is *active* is not a position, and a
+    // teleport to floor 47's height with floor 45 active puts the camera in the
+    // plenum above a ceiling. `goToFloor` is undefined in every other game, so
+    // this line does nothing there.
+    if(v.floor != null){
+      // Guarded on `gamekit` itself, not just the method: editing a theme file
+      // while a run is going makes vite reload the page, and for a second or two
+      // after that there is no handle at all. A run that dies there loses every
+      // view it had not taken yet.
+      await cdp.eval(`(window.gamekit && window.gamekit.goToFloor`
+        + ` ? (window.gamekit.goToFloor(${v.floor}), true) : false)`);
+    }
     // Two frames after the move: one to render the new position, one because a
     // texture or a light that arrived with it lands on the frame after.
     await cdp.eval(`new Promise(ok => {

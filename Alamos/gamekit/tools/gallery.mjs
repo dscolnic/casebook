@@ -140,6 +140,13 @@ function card(g) {
   const grade = gradeOf(g.build);
   const role = roleOf(g.build);
   const size = sizeOf(g.build);
+  // `reads at grade N` is the manifest's `audience.grade`, and on a university
+  // card it contradicts the badge beside it: all seven declare 12, because that
+  // number is the input to typography.js and to validateContent's reading-level
+  // gate, not a claim about who the course is for. Raising it to 13 to make the
+  // badge agree would loosen seven campaigns' prose gates in the same commit —
+  // a gate going green because the ruler moved. So the card drops the weaker of
+  // the two claims instead. `grades` already says Undergraduate.
   const full = SYLLABUS[g.build]?.course ?? '';
   const tag = built ? 'a' : 'div';
   const href = built ? ` href="./${g.build}/index.html"` : '';
@@ -168,7 +175,7 @@ function card(g) {
           <p class="meta">
             ${role ? `<span>${esc(role)}</span>` : ''}
             ${size ? `<span>${size.days} days · ${size.stops} stops</span>` : ''}
-            ${grade ? `<span>reads at grade ${grade}</span>` : ''}
+            ${grade && g.level !== 'university' ? `<span>reads at grade ${grade}</span>` : ''}
             ${g.grades ? `<span>${esc(g.grades)}</span>` : ''}
           </p>
           ${full ? `<p class="full">${esc(full)}</p>` : ''}

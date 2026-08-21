@@ -20,7 +20,7 @@ import * as room from '../engine/core/room.js';
 import { createCoopHUD } from '../engine/core/coopHUD.js';
 import {
   getState, save, tryLoadSaved, createFresh, advanceTime, getNextMissionStop, walkCost,
-  endDayNow, dayRunning, completeMission, applyRemoteState,
+  endDayNow, dayRunning, completeMission, applyRemoteState, tickDay,
 } from '../engine/core/gameState.js';
 import { updateHUD, updateDayClock, renderStats } from '../engine/core/dashboard.js';
 import { renderMap, setMapPins } from '../engine/core/map.js';
@@ -31,6 +31,9 @@ import { def, groupPct } from '../engine/core/simulation.js';
 import { createInteriors, makeActivate, exposeDebug, createDay, openPersonOrPassage,
          showEnding, createMiniMap, openCaseGroups } from '../engine/core/app.js';
 import { PANEL_PACE } from '../engine/core/day.js';
+// The lift. Inert in every game whose world has no floors to move between —
+// `world.floorMenu` is undefined and this is never constructed.
+import { createLift } from '../engine/core/lift.js';
 import { createDriving } from '../engine/world/driving.js';
 import { createFlying } from '../engine/world/flying.js';
 import { createTrial, trialLimit } from '../engine/world/trial.js';
@@ -95,6 +98,9 @@ initCrowd({
   extraSpots: world.getExtraSpots?.() ?? [],
   extras: theme.people.extras ?? 0,
   groundHeight: world.groundHeight,
+  // Which floor is under the player's feet, in a stacked building. Undefined
+  // everywhere else, and `crowd.js` treats that as "there is only one floor".
+  activeLevel: world.activeFloorId ? () => world.activeFloorId() : undefined,
   // The pad is the caller's: one metre keeps somebody from being *placed* hard
   // against a wall, and that same metre used while walking would wall a person
   // into a four-metre passage.
@@ -249,6 +255,9 @@ const flying = createFlying({
 // that path breaks both. Every harness registers nothing and the format renders
 // with its run button disabled, which is what keeps it inspectable.
 const trial = createTrial({
+  // Floor-to-floor, where the world has floors on one footprint. Undefined in
+  // every other game, and TRIAL then behaves exactly as it always has.
+  rise: world.floorRise?.() ?? 0,
   scene,
   camera,
   getPosition,
@@ -270,6 +279,9 @@ const trial = createTrial({
 const worldFormats = createWorldFormats({
   scene,
   camera,
+  // Floor-to-floor, where the world has floors on one footprint. Undefined in
+  // every other game, and all seven runs then measure exactly as they always did.
+  floorRise: world.floorRise?.() ?? 0,
   getPosition,
   groundHeight: world.groundHeight,
   spawn: theme.start ?? theme.site?.spawn ?? { x: 0, z: 0 },
@@ -362,11 +374,14 @@ const day = createDay({
       // a point inside a building is never reached. `entry` is the standing spot
       // outside the door, and it is the same point the crowd's stations, the map's
       // waypoint and the day's route budget all use.
+      // `y` as well as (x, z), because in a stacked building the floor is part of
+      // where a place is — see `floorRise` in engine/world/interiorTower.js. Every
+      // other world puts every area at y = 0 and nothing downstream changes.
       const entryFor = (id) => {
         const s2 = world.stopMeshes.get(id);
         if(!s2) return null;
         const p = s2.entry ?? s2.pos;
-        return { x: p.x, z: p.z };
+        return { x: p.x, z: p.z, y: p.y ?? 0, level: s2.level ?? null };
       };
       // The subtitle over somebody's head is their job, not their department code.
       // `division` is a four-letter area id — OPS, TRI, SONAR — which is what the
@@ -396,7 +411,8 @@ const day = createDay({
             // Driven rather than walked where the vehicles have just come out, so
             // the far lap is not given an hour for ground it crosses in a truck.
             return gates.length >= 2 && trial.start({ gates,
-              limit: +lap.seconds || trialLimit(gates, theme.start, { pace: lap.far ? 6 : 1.35 }) },
+              limit: +lap.seconds || trialLimit(gates, theme.start,
+                { pace: lap.far ? 6 : 1.35, rise: world.floorRise?.() ?? 0 }) },
               done);
           }
           case 'GREET': {
@@ -584,6 +600,21 @@ room.onState((next) => {
 // and the handler above is where it is caught.
 
 const COPY = theme.content.COPY ?? {};
+
+// Built only where there is more than one floor to be on. `world.floorMenu` is
+// the tower module's and undefined in every other world, so this is null and the
+// `lift` handler below never fires — there is nothing in those games to press.
+const floorLift = typeof world.floorMenu === 'function'
+  ? createLift({
+      world,
+      teleport,
+      // Charged through the day's own countdown rather than through `day.tick`,
+      // which applies the panel rate — and the panel has just been closed, so
+      // the rate at that instant depends on the order two lines run in.
+      charge: (mins) => tickDay(mins, 1),
+    })
+  : null;
+
 const activate = makeActivate({
   board: () => {
     renderStats();
@@ -595,6 +626,11 @@ const activate = makeActivate({
   // case on the stand inside.
   door: (t) => { if(!interiors.enter(t.id)) openVisit(t.id); },
   case: (t) => openVisit(t.id),
+  // The lift, in a building whose floors are stacked on one footprint. The
+  // panel is the directory as well as the control: it is the only place all
+  // four floors are named at once, because the map can only draw the one the
+  // player is standing on.
+  lift: () => floorLift?.open(),
   // A probe station. The feedback is the post itself — its face fills in and its
   // lamp goes from grey to blue — so there is nothing to open and nothing to say.
   station: (t) => {
@@ -863,6 +899,11 @@ if(import.meta.env?.DEV){
   exposeDebug(theme, { theme, world, scene, renderer, camera, getState, getPosition, teleport,
                        updateCrowd, getNPCs, activate, updateInteractions, getCurrentTarget, driving, flying, day,
                        interiors, moveState, updatePlayer, touchControls,
+                       // A stacked building: which floor is active is not a
+                       // position, so a harness that only teleports lands the
+                       // camera inside the ceiling of whichever floor is on.
+                       // `npm run shots` uses this; undefined elsewhere.
+                       goToFloor: floorLift ? (id) => floorLift.ride(id) : undefined,
                        // A trial run is reachable in the game only by playing to
                        // the right day with time on the clock, which is no way to
                        // look at gates.

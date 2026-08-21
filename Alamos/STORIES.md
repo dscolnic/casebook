@@ -503,3 +503,126 @@ microsecond, twelve stages that trade a twelfth of the capacitance for twelve
 times the voltage and keep every joule, and a final shot chosen because it could
 come out wrong. The report asks for a second mast, and it says which of its four
 sentences was measured, which was computed, and which is an inference.
+
+## Slack Water — *the bound is honest and it is on the wrong quantity*
+
+Sarn Barrage holds four hundred hectares behind six gates, and the programme that
+says when each gate moves is written from a predicted tide rather than a measured
+one. The equinoctial springs are twelve working days out. Idris Calloway fitted
+the harmonic constants nine years ago and holds that a prediction with a bound
+printed beside it can be acted on; Renate Oyelaran has closed against a
+prediction once in nine years and holds that gates come down on what the gauge
+reads. The first week is arithmetic the office has never done. Two constituents
+written as a product rather than a sum give the fortnight between springs out of
+the difference of two angular speeds. A float that has been in the water eleven
+days turns out to hold every speed in the estuary without stating one of them,
+and its track is eighty-four kilometres long between two points six kilometres
+apart. And on day four Calloway is right, for a reason that is a number: the
+twenty-nine constituents nobody adds in are bounded, by the triangle inequality
+and nothing else, at nineteen centimetres — while the level moves sixty
+centimetres in the forty minutes a stilling well needs to settle.
+
+Then the reversal, and nothing anybody wrote turns out to be wrong. Day nine
+takes the discharge law — flow as the head to the power three halves — and expands
+it about mean head, and the squared term splits under the double-angle identity
+into a constant and a term at twice the tidal speed. That is a constituent the
+fit does not have, made by the shallow water rather than by the moon, and it has
+been sitting in the residuals since commissioning: positive at every seaward
+gauge and negative at every one up the estuary, which is not what noise looks
+like. Day ten bounds the expansion properly, with the third derivative at its
+worst value on the interval, and the answer is four tenths of one per cent — small,
+correct, and silent about a surge. Because a surge does not repeat, so it is in
+neither model, so it is in neither bound.
+
+Day thirteen is the springs with half a metre of wind-driven water on top of the
+largest range of the year. The gate closes on the gauge, forty minutes later than
+the board would have had it, and the marsh stays dry by about a foot. The
+prediction that goes to the licence review carries the shallow-water term, the
+nineteen-centimetre bound, and a sentence saying that neither covers weather —
+which is the only one of the three that took a fortnight to be able to write.
+
+## Overwind — *the brake stops the drum*
+
+Kerrow No. 3 winds men and rock up twelve hundred and forty metres of shaft, and
+its winding engineer wants twelve seconds out of every journey. The inspector who
+re-licenses the machine arrives in twelve working days. Delia Marchetti has the
+arithmetic for the motor, the drum and the rope and all of it is steady-state;
+Samuel Otieno says a rope is twelve hundred metres of steel with a period of its
+own and that nothing in the plant handbook has a period in it. In March a brake
+was applied on time, at the right force, and the cage went on travelling
+afterwards; the inquiry blamed the pads, and Iona Craig's pad measurement was
+correct and was taken cold on a bench.
+
+The first week is the machine, measured rather than looked up. The drum's moment
+of inertia comes off its own dimensions as an integral over thin shells and is
+seventy-two thousand kilogram metres squared, against the thirty-nine thousand an
+eighteen-year-old handover file gives for a solid drum of the same mass. The
+tension at the drum with the cage at the inset is a hundred and sixty-six
+kilonewtons, because eleven tonnes of rope is hanging and the submission had
+quoted the four tonnes of cage. And on day four Marchetti is right: the torque
+comes out at three hundred and ninety kilonewton metres against a rating of four
+hundred and eighty, and the load term dominates the inertia term ten to one.
+
+Then the rope. Day nine gives it a stiffness — a hundred and ten kilonewtons a
+metre, soft because it is long — and therefore a period of 1.2 seconds and a
+static stretch of a metre and a third under an ordinary load. Day ten is the
+March stop: with the drum stopped, the cage is a mass on a charged spring, and
+all of its kinetic energy has to become stretch. The distance is the speed
+divided by the angular frequency, eight point four over five point two five,
+which is one metre sixty — the figure on the position tape, predicted from the
+rope's own properties with nothing fitted to the outcome. No pad ever made would
+have changed it. Day eleven totals what an emergency stop actually puts into the
+brake and finds the drum is the largest of the three stores, and that the same
+stop going *down* asks the pads for 1.27 megajoules against a rating of six
+hundred kilojoules.
+
+The licence is granted on a cycle seven seconds shorter with two limits in it
+that nobody would have written a fortnight earlier: a cap on the speed at which
+the brake may be applied, and a prohibition on emergency stops on the descending
+wind. Ruth Anand, cleared without being believed for eight months, has an
+explanation with her name nowhere near the cause of it.
+
+## Dark Fibre — *the fibre was never damaged*
+
+Nineteen days ago the span from Pellow Head to the first repeater lost four
+decibels between two in the morning and four, and eleven million subscribers have
+been on a diverse route since. The ship is on charter from the thirteenth at
+forty thousand a day and it will go wherever this station says. Ines Sarraf has a
+trace that puts the event at a kilometre she can name to a few metres; Gerald
+Okonkwo laid this cable eleven years ago with one and a half per cent of slack in
+it and keeps saying that an instrument reports in its own units. The grapnel
+window is half a kilometre wide.
+
+The first week is optics that has never been derived here. The acceptance cone —
+seven degrees, out of two indices that differ in the third decimal place — is why
+a fibre is welded rather than pointed. The trace's delay becomes a distance
+through the speed of light in glass and a factor of two, and the same arithmetic
+inverted twice gives a hundred and eighty-two kilometres, which is past the
+repeater. A dry cleaved end returns three and a half per cent of the light and
+the same end in gel returns ten thousand times less, which is the difference
+between a joint that shows on a trace and a joint that does not. And on day four
+Sarraf is right: the budget totals 21.8 decibels against an allowance of 24, so
+the span is one bad joint from failing and a week of refinement is a week of
+exposure.
+
+Then the two records that settle it, neither of them the loud one. The
+two-wavelength comparison shows the same loss at 1625 nanometres as at 1550 — and
+a bend, a crush and a tight fitting all lose more at the longer wavelength,
+because longer wavelengths are held less firmly in the core. So nothing is
+leaving the glass. What is left is gain, and gain is the pump: four years of
+telemetry inside limits, reporting a current, saying nothing whatever about
+optical output, which is what falls as a laser diode ages. Day ten corrects the
+position for the three ratios that stand between a distance along a fibre and a
+place on the seabed — the group index, the helix, the slack — and the total is one
+point seven kilometres, more than three times the grapnel window. Day eleven puts
+a ceiling on what a pump could ever give: one arrival in, at most one arrival out,
+so the most that 118 milliwatts at 980 nanometres can add at 1550 is seventy-four
+point six. A pump down to forty-six has a ceiling of twenty-nine, and the
+difference between the two ceilings is 4.1 decibels — the number the span lost in a
+night, arrived at from an atom's level scheme rather than from the trace.
+
+The ship sails to 82.9 kilometres for a repeater rather than to 84.6 for a break.
+The housing on its deck was radiographed through forty millimetres of steel with
+a source at a tenth of its original strength, on an exposure of a hundred and
+twenty-six minutes, behind a barrier at eighteen and a half metres — all three of
+those numbers derived in the week the station was arguing about somewhere else.

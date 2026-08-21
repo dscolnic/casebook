@@ -9,7 +9,7 @@ export const CURRICULUM = {
       "title": "Forty people, and what they have heard",
       "scene": "Okonjo's queue was eleven people on Friday and forty this morning. Nothing has been announced. The board has not met since Thursday.",
       "takeaway": "Expectations move before policy does, and a silence is read as information.",
-      "place": "Exchange Counter",
+      "place": "Counter Room",
       "guide": "A queue is a measurement of what people expect rather than of what has happened. Ask what would make somebody move today rather than next week, and which of the four explanations on offer is consistent with nothing having been announced.",
       "background": [
         "Why expectations are a policy variable rather than a mood. People act on what they think the rate will be, so the belief changes behaviour before any policy does. A rumour is therefore a monetary event, and the board's silence is a statement whether it means to be or not.",
@@ -19,12 +19,12 @@ export const CURRICULUM = {
       "game": {
         "type": "CHOICE",
         "title": "Forty people, and what they have heard",
-        "setup": "Exchange Counter",
+        "setup": "Counter Room",
         "play": "Say what the queue is telling you",
         "task": "Say what the queue is telling you",
         "question": "What is the lengthening queue evidence of?",
         "answer": "What people expect the rate to be",
-        "why": "Nothing has been announced, so nothing has happened to prices or to the rate — and forty people have still decided that today is better than next week. That decision is about the future rather than the past, which makes the queue a measurement of expectations and the only one the board has. Weekend prices would show in Radic's figures rather than at the counter. Staffing changes how fast a queue moves, not how many people join it. And the old currency is nowhere near exhausted: Bram Tulloch, who manages the parcels office, has weighed a fraction of what was issued.\n",
+        "why": "Nothing has been announced, so nothing has happened to prices or to the rate — and forty people have still decided that today is better than next week. That decision is about the future rather than the past, which makes the queue a measurement of expectations and the only one the board has. Weekend prices would show in Radic's figures rather than at the counter. Staffing changes how fast a queue moves, not how many people join it. And the old currency is nowhere near exhausted: Bram Tulloch, who manages the note room, has weighed a fraction of what was issued.\n",
         "rebuttals": [
           "Prices charged over the weekend appear in the index rather than in the length of a queue.",
           "Staffing changes how fast the queue moves and not how many people decide to join it.",
@@ -79,7 +79,7 @@ export const CURRICULUM = {
       "title": "A rate that fell in a bad month",
       "scene": "Prentice has 41,000 unemployed out of a labour force of 486,000, down from 44,000 out of 502,000. Three factories shut during the month.",
       "takeaway": "A rate can fall because its denominator shrank rather than because its numerator did.",
-      "place": "Exchange Counter",
+      "place": "Counter Room",
       "guide": "Work out both rates and compare them. Then look at what happened to the denominator, because the labour force fell by sixteen thousand in a month when three factories closed, and that is the whole of the story.",
       "background": [
         "Who is in the labour force. People working, and people not working who are looking for work. Somebody who stops looking is in neither category and leaves the calculation entirely, which lowers the numerator and the denominator at once.",
@@ -89,7 +89,7 @@ export const CURRICULUM = {
       "game": {
         "type": "BALLPARK",
         "title": "A rate that fell in a bad month",
-        "setup": "Exchange Counter",
+        "setup": "Counter Room",
         "play": "Say what the labour figure counts",
         "task": "Say what the labour figure counts",
         "question": "Estimate this month's unemployment rate.",
@@ -145,7 +145,7 @@ export const CURRICULUM = {
       "title": "The same wage, deflated",
       "scene": "The tram drivers earned 890 marks a month in the base year and 2,180 now. The index is 275. Their claim asks for 2,600.",
       "takeaway": "Two wages from different years compare only after the price change is divided out.",
-      "place": "Exchange Counter",
+      "place": "Counter Room",
       "guide": "A wage in the money of the day cannot be compared with one from another year until the price change is taken out. Divide the current wage by the index over a hundred, and set the answer against the base-year figure. Then say what the claim is actually asking for.",
       "background": [
         "What deflating does. Dividing by the price level converts money-of-the-day into money of the base year, so two figures can be compared by what they would buy. It is the same operation whether the figure is a wage, an output total or a tax take.",
@@ -155,7 +155,7 @@ export const CURRICULUM = {
       "game": {
         "type": "BALLPARK",
         "title": "The same wage, deflated",
-        "setup": "Exchange Counter",
+        "setup": "Counter Room",
         "play": "Say what the wage actually buys",
         "task": "Say what the wage actually buys",
         "question": "Estimate the drivers' current wage in base-year terms.",
@@ -226,7 +226,7 @@ export const CURRICULUM = {
       "title": "What the queue has already decided",
       "scene": "Okonjo's queue is holding at forty. Of the last hundred people, eighty-one took the maximum they were allowed and nineteen took less than they could have.",
       "takeaway": "What people do at a counter is a distribution rather than a rumour.",
-      "place": "Exchange Counter",
+      "place": "Counter Room",
       "guide": "Look at what people did rather than at what they said. Taking the maximum allowed is a bet on one thing and taking less is a bet on the other. Work out which way the queue has voted and what that means for a rate announced this afternoon.",
       "background": [
         "What taking the maximum means. It is a bet that the old currency is worth less later than now, which is a bet on the rate moving against it. Eighty-one in a hundred is not a rumour; it is a distribution.",
@@ -236,7 +236,7 @@ export const CURRICULUM = {
       "game": {
         "type": "CHOICE",
         "title": "What the queue has already decided",
-        "setup": "Exchange Counter",
+        "setup": "Counter Room",
         "play": "Say what the counter tells the board about Friday",
         "task": "Say what the counter tells the board about Friday",
         "question": "What has the queue already decided?",
@@ -279,7 +279,7 @@ export const CURRICULUM = {
       "title": "A number with a reason",
       "scene": "Farr has a draft announcement with the rate in it and nothing else. Okonjo has forty people who will read it in the morning and decide what to do.",
       "takeaway": "A rate announced with its reason can be checked; one announced alone can only be believed.",
-      "place": "Exchange Counter",
+      "place": "Counter Room",
       "guide": "A rate is a number and an announcement is an instrument. Decide what the statement has to carry beyond the figure, given that the people reading it are choosing whether to hold the new currency or spend it at once.",
       "background": [
         "Why the reason travels further than the number. A rate announced with the reserve position behind it can be checked, and a rate announced alone can only be believed or not. What people are deciding is whether the rate will hold, which is a question about the reserves rather than about the figure.",
@@ -289,7 +289,7 @@ export const CURRICULUM = {
       "game": {
         "type": "TRIAGE",
         "title": "A number with a reason",
-        "setup": "Exchange Counter",
+        "setup": "Counter Room",
         "play": "Say what the announcement has to contain",
         "task": "Say what the announcement has to contain",
         "question": "What has to be in the announcement besides the rate?",
@@ -332,7 +332,7 @@ export const CURRICULUM = {
       "title": "Three kinds of not working",
       "scene": "Of 41,000 unemployed: about 9,000 between jobs, about 14,000 whose trades have gone, and the rest laid off since the changeover began.",
       "takeaway": "Only cyclical unemployment answers to a demand policy.",
-      "place": "Exchange Counter",
+      "place": "Counter Room",
       "guide": "Sort the three groups by what would put each of them back to work. One responds to demand, one to time, and one to training or to moving — and only one of the three is what a monetary or fiscal decision this fortnight can touch.",
       "background": [
         "Why the natural rate is not zero. People between jobs and people whose trades have gone exist in any healthy economy, which is why full employment is defined at about five per cent here rather than at nought.",
@@ -342,7 +342,7 @@ export const CURRICULUM = {
       "game": {
         "type": "PROTOCOL",
         "title": "Three kinds of not working",
-        "setup": "Exchange Counter",
+        "setup": "Counter Room",
         "play": "Match each group to what would put them back to work.",
         "task": "Match each group to what would put them back to work.",
         "question": "Match each group to what would put them back to work.",
@@ -401,7 +401,7 @@ export const CURRICULUM = {
       "title": "Savers, and importers",
       "scene": "At 4.15 rather than the 3.60 savers wanted, somebody holding 10,000 old marks gets 2,410 new ones instead of 2,778. The reserves hold 4.15 for 134 days and 3.60 for 36.",
       "takeaway": "Two groups pay for any rate, and one of them pays later and more.",
-      "place": "Exchange Counter",
+      "place": "Counter Room",
       "guide": "Work out who is worse off at 4.15 than at 3.60, and who is worse off if the rate is set at 3.60 and then abandoned in five weeks. Both groups are real people and the second group is larger, which is the argument.",
       "background": [
         "What savers lose at the weaker rate. About thirteen per cent of what they held, immediately and visibly, which is why 3.60 is what the queue wants and what the board cannot hold.",
@@ -411,7 +411,7 @@ export const CURRICULUM = {
       "game": {
         "type": "CHOICE",
         "title": "Savers, and importers",
-        "setup": "Exchange Counter",
+        "setup": "Counter Room",
         "play": "Say who the rate costs",
         "task": "Say who the rate costs",
         "question": "What is the honest way to put 4.15 to the queue?",
@@ -460,7 +460,7 @@ export const CURRICULUM = {
       "title": "Nine o'clock",
       "scene": "Okonjo has forty-two people outside at ten to nine, a float for the week and a rate on the notice. Eighty-one in a hundred took the maximum last week.",
       "takeaway": "Every protective measure is also a statement about what is being protected.",
-      "place": "Exchange Counter",
+      "place": "Counter Room",
       "guide": "The float has to last a week and the queue would take it today. Decide what the counter does at nine, given that a limit protects the float and also tells everybody the float is limited.",
       "background": [
         "What a daily limit does. It makes the float last, and it signals that the board expects a run — which is itself a reason to join the queue. The signal and the protection come together and cannot be separated.",
@@ -470,7 +470,7 @@ export const CURRICULUM = {
       "game": {
         "type": "CHOICE",
         "title": "Nine o'clock",
-        "setup": "Exchange Counter",
+        "setup": "Counter Room",
         "play": "Say what the counter should do at nine",
         "task": "Say what the counter should do at nine",
         "question": "What should the counter do at nine?",
@@ -1286,20 +1286,20 @@ export const CURRICULUM = {
   "NOTES": [
     {
       "day": 1,
-      "title": "Money on a parcels scale",
-      "scene": "Tulloch has 214 kilograms of returned notes on the parcels scale. A sample says the mix averages 0.94 grams a note. The board needs a count for the money supply figure.",
+      "title": "Money on a platform scale",
+      "scene": "Tulloch has 214 kilograms of returned notes on the platform scale. A sample says the mix averages 0.94 grams a note. The board needs a count for the money supply figure.",
       "takeaway": "A weighed count is a count of notes, and their value needs a sampled mix as well.",
-      "place": "Parcels Office",
+      "place": "Note Room",
       "guide": "Counting this many notes by hand is not possible, so the count comes from a mass and a mass per note. Divide, mind the units, and then ask what the answer depends on that is not on the scale — because the sample is doing as much work here as the weighing is.",
       "background": [
         "What the sample decides. Notes of different denominations weigh nearly the same, so the mass gives a count of notes and says nothing about their value. The denomination mix comes from a sample, and the value of the return is the count multiplied by that mix.",
         "Why the count matters to the board. The money supply figure is what the rate is argued against, and the part of it that is cash is exactly this: what was issued, less what has come back and been burnt under two signatures."
       ],
-      "story": "Tulloch has 214 kilograms of returned notes on the parcels scale. A sample says the mix averages 0.94 grams a note. The board needs a count for the money supply figure.",
+      "story": "Tulloch has 214 kilograms of returned notes on the platform scale. A sample says the mix averages 0.94 grams a note. The board needs a count for the money supply figure.",
       "game": {
         "type": "VERIFY",
-        "title": "Money on a parcels scale",
-        "setup": "Parcels Office",
+        "title": "Money on a platform scale",
+        "setup": "Note Room",
         "play": "Turn a weight of notes into a count",
         "task": "Turn a weight of notes into a count",
         "question": "Predict the count from the weight, then hand-count a bundle and check it.",
@@ -1380,7 +1380,7 @@ export const CURRICULUM = {
       "title": "Two counts of the same money",
       "scene": "The weighed count says 228,000 notes returned. The six regional ledgers, added, say 241,000. Femi Adeyinka, the vault officer, will not sign either figure.",
       "takeaway": "When two methods disagree, the question is what each of them would get wrong.",
-      "place": "Parcels Office",
+      "place": "Note Room",
       "guide": "Two counts of the same thing disagree by thirteen thousand notes. Work out what each method would get wrong, and which of the four explanations is consistent with the weighed figure being the lower of the two. One of them is an error and one of them is money.",
       "background": [
         "What the weighing can get wrong. The mass per note comes from a sample, so a mix with more heavy notes than sampled makes the count too low. Thirteen thousand out of 241,000 is about five per cent, which is well within what a bad sample could do.",
@@ -1390,7 +1390,7 @@ export const CURRICULUM = {
       "game": {
         "type": "PROTOCOL",
         "title": "Two counts of the same money",
-        "setup": "Parcels Office",
+        "setup": "Note Room",
         "play": "Match each explanation to what it predicts about the two counts.",
         "task": "Match each explanation to what it predicts about the two counts.",
         "question": "Match each explanation to what it predicts about the two counts.",
@@ -1466,7 +1466,7 @@ export const CURRICULUM = {
       "title": "In hands, and in ledgers",
       "scene": "Issued old currency: 1.42 billion marks. Returned and burnt: 214 million. Held in the vault, never issued: 96 million. Bank deposits: 2.4 billion.",
       "takeaway": "Printed and unissued currency is paper; issued and unreturned currency is money.",
-      "place": "Parcels Office",
+      "place": "Note Room",
       "guide": "Money is what people can spend: cash in hands plus what banks owe on demand. Read the panel and report the figure, remembering that two of these numbers are not money in the public's hands at all — and one of them is easy to add by mistake.",
       "background": [
         "Why the vault holding is not money. Currency printed and never issued is paper. It becomes money when it leaves the vault, and counting it beforehand overstates the supply by whatever is in stock.",
@@ -1476,12 +1476,12 @@ export const CURRICULUM = {
       "game": {
         "type": "BALANCE",
         "title": "In hands, and in ledgers",
-        "setup": "Parcels Office",
+        "setup": "Note Room",
         "play": "Count the money supply without counting anything twice",
         "task": "Count the money supply without counting anything twice",
         "question": "Read what you need and report the money supply.",
         "answer": "About 3,524 million marks: 1,420 issued less the 214 burnt, plus 2,400 of deposits, less the 82 million the banks hold with each other and have both counted.",
-        "why": "Money is what can be spent: cash in the public's hands plus deposits repayable on demand. That is 1,420 million issued, less the 214 million burnt, plus 2,400 million of deposits. The term that does not announce itself is interbank: 82 million of the deposit total is banks holding accounts with each other, which appears on two balance sheets and is one deposit, so it comes off. Two more figures are traps in opposite directions. The vault stock has been printed and never issued, so it is paper and adding it overstates the supply. The notes in the parcels office are already counted as withdrawn, so subtracting them again double-counts.\n",
+        "why": "Money is what can be spent: cash in the public's hands plus deposits repayable on demand. That is 1,420 million issued, less the 214 million burnt, plus 2,400 million of deposits. The term that does not announce itself is interbank: 82 million of the deposit total is banks holding accounts with each other, which appears on two balance sheets and is one deposit, so it comes off. Two more figures are traps in opposite directions. The vault stock has been printed and never issued, so it is paper and adding it overstates the supply. The notes in the note room are already counted as withdrawn, so subtracting them again double-counts.\n",
         "balance": {
           "total": {
             "amount": 3524,
@@ -1519,7 +1519,7 @@ export const CURRICULUM = {
               "id": "office",
               "label": "Returned and awaiting the furnace",
               "value": 0,
-              "display": "in the parcels office, already counted as withdrawn"
+              "display": "in the note room, already counted as withdrawn"
             },
             {
               "id": "vault",
@@ -1557,7 +1557,7 @@ export const CURRICULUM = {
       "title": "What is still out there",
       "scene": "Tulloch has weighed 986 kilograms of returns in total, at 0.94 grams a note. The board issued 1.42 billion marks in notes averaging 340 marks each.",
       "takeaway": "What has not come back is a liability rather than a saving.",
-      "place": "Parcels Office",
+      "place": "Note Room",
       "guide": "Work out how many notes have come back and compare it with how many were issued. What is left outside is the part the board will still be honouring next year, and it is the number the closing statement has to carry.",
       "background": [
         "What is left out is not lost. Notes held abroad, notes in mattresses and notes destroyed by accident all stay on the board's books as a liability until they are presented or the period expires.",
@@ -1567,7 +1567,7 @@ export const CURRICULUM = {
       "game": {
         "type": "BALLPARK",
         "title": "What is still out there",
-        "setup": "Parcels Office",
+        "setup": "Note Room",
         "play": "Say what has actually come back",
         "task": "Say what has actually come back",
         "question": "Estimate how many notes are still outstanding.",
@@ -2951,7 +2951,7 @@ export const CURRICULUM = {
       "title": "The account and its mirror",
       "scene": "Levon Sarkis, the trade and reserves officer, has the month's wires: exports 64 million, imports 121, net income from abroad minus 8, and remittances in of 19.",
       "takeaway": "A current account deficit has to be financed by borrowing or by reserves.",
-      "place": "Telegraph Room",
+      "place": "Wire Room",
       "guide": "Add the four flows with their signs. Two of them are the trade balance and two are the parts people forget, and one of those is large enough here to change the conclusion. Then say what a deficit on this account has to be financed by, because that is what makes it a constraint rather than a statistic.",
       "background": [
         "What remittances do to a small economy. Halvern has people working abroad and sending money home, and 19 million a month is a third of the trade gap. An analysis that looks only at exports and imports understates the country's position by exactly that.",
@@ -2961,7 +2961,7 @@ export const CURRICULUM = {
       "game": {
         "type": "BALLPARK",
         "title": "The account and its mirror",
-        "setup": "Telegraph Room",
+        "setup": "Wire Room",
         "play": "Work out what the trade position actually is",
         "task": "Work out what the trade position actually is",
         "question": "Estimate the month's current account balance.",
@@ -3021,7 +3021,7 @@ export const CURRICULUM = {
       "title": "Where some of it goes",
       "scene": "Halvern imports its flour, its fuel and most of its manufactures. The payment is 84 million and the multiplier makes the demand effect 336.",
       "takeaway": "Spending on imports leaves the domestic circuit and lands in the current account.",
-      "place": "Telegraph Room",
+      "place": "Wire Room",
       "guide": "Ask where extra spending in Halvern actually lands. Some of it buys local services and some of it buys imported goods, and the imported part leaves the country rather than circulating in it. Say what that does to the multiplier and to the current account.",
       "background": [
         "Why imports leak out of the multiplier. A mark spent on imported flour becomes income abroad rather than in Halvern, so it does not come back for another round. The larger the import share, the smaller the multiplier actually is.",
@@ -3031,7 +3031,7 @@ export const CURRICULUM = {
       "game": {
         "type": "CHOICE",
         "title": "Where some of it goes",
-        "setup": "Telegraph Room",
+        "setup": "Wire Room",
         "play": "Say what the payment does to the trade position",
         "task": "Say what the payment does to the trade position",
         "question": "What does the import share do to the treasury's plan?",
@@ -3095,7 +3095,7 @@ export const CURRICULUM = {
       "title": "A stock over an outflow",
       "scene": "Sarkis has 187 million marks of foreign reserves. At the rate Verhoeven wants, the net outflow is running at 5.2 million a day.",
       "takeaway": "A reserve stock divided by a daily outflow is how long a promise can be kept.",
-      "place": "Telegraph Room",
+      "place": "Wire Room",
       "guide": "Divide the stock by the daily outflow to get a number of days, then count how many days the rate has to hold for. A peg that lasts less than the period it is promised for is worse than no peg, because the abandonment is a policy event of its own.",
       "background": [
         "Why defending costs reserves daily. Holding a rate the market disagrees with means buying your own currency with foreign reserves every day, at whatever volume is offered. The outflow is not a fee; it is the price of the promise.",
@@ -3105,7 +3105,7 @@ export const CURRICULUM = {
       "game": {
         "type": "BALLPARK",
         "title": "A stock over an outflow",
-        "setup": "Telegraph Room",
+        "setup": "Wire Room",
         "play": "Work out how long the reserves last",
         "task": "Work out how long the reserves last",
         "question": "Estimate how many days the reserves would hold the rate.",
@@ -3186,7 +3186,7 @@ export const CURRICULUM = {
       "title": "Money, output and prices",
       "scene": "The money supply is 3,606 million and would be 4,206 if the treasury's reserves became deposits at the current requirement. Real output is falling four per cent.",
       "takeaway": "If money grows faster than output and turnover holds, the difference lands in prices.",
-      "place": "Telegraph Room",
+      "place": "Wire Room",
       "guide": "Put the money supply, its turnover, the price level and real output in one relationship and see what has to give. If money grows and output does not, and turnover holds steady, the adjustment happens in prices. Work out the size of it.",
       "background": [
         "What velocity is and why it is assumed. How many times a unit of money is spent in a period. It is not constant, and in a changeover it rises because nobody wants to hold the old currency — which makes the price effect worse rather than better.",
@@ -3196,7 +3196,7 @@ export const CURRICULUM = {
       "game": {
         "type": "CHOICE",
         "title": "Money, output and prices",
-        "setup": "Telegraph Room",
+        "setup": "Wire Room",
         "play": "Say what money growth does if velocity holds",
         "task": "Say what money growth does if velocity holds",
         "question": "What does a 17 per cent rise in the money supply do, with output falling?",
@@ -3272,7 +3272,7 @@ export const CURRICULUM = {
       "title": "Prices against jobs",
       "scene": "Mbeya's plan would lower unemployment and raise prices. Iyer's requirement would lower prices and raise unemployment. Verhoeven has to pick one before the fifteenth.",
       "takeaway": "Some events give you a choice and some take the choices away.",
-      "place": "Telegraph Room",
+      "place": "Wire Room",
       "guide": "In the short run a demand policy moves prices and unemployment in opposite directions, which is what makes this a choice rather than an optimisation. Say what the trade-off actually is here — and what makes Halvern's case unusual, because a cost shock does not sit on the same curve.",
       "background": [
         "Why the trade-off exists in the short run. More spending buys more output and more employment, and pulls prices up doing it. Less spending does the reverse. Along that curve a board chooses a point rather than escaping it.",
@@ -3282,7 +3282,7 @@ export const CURRICULUM = {
       "game": {
         "type": "CHOICE",
         "title": "Prices against jobs",
-        "setup": "Telegraph Room",
+        "setup": "Wire Room",
         "play": "Say what the trade-off looks like in the short run",
         "task": "Say what the trade-off looks like in the short run",
         "question": "What does the board face this fortnight?",
@@ -3331,7 +3331,7 @@ export const CURRICULUM = {
       "title": "Cheap for them, dear for us",
       "scene": "At 4.15 the mills' cloth costs a foreign buyer 12 per cent less than at 3.60, and the bakeries' imported flour costs 15 per cent more.",
       "takeaway": "One rate, two industries, and the effects are the same fact from two sides.",
-      "place": "Telegraph Room",
+      "place": "Wire Room",
       "guide": "Work through what a weaker currency does on each side of the border. Then say why it is not a policy for either industry, given that both effects are the same fact seen from two sides.",
       "background": [
         "Why both effects are one fact. A weaker currency means foreigners get more of it per unit of theirs, so Halvern's goods are cheaper to them and theirs are dearer to Halvern. The two cannot be separated, and a rate chosen for the mills is a rate chosen against the bakeries.",
@@ -3341,7 +3341,7 @@ export const CURRICULUM = {
       "game": {
         "type": "CHOICE",
         "title": "Cheap for them, dear for us",
-        "setup": "Telegraph Room",
+        "setup": "Wire Room",
         "play": "Say what a weaker rate does to each side",
         "task": "Say what a weaker rate does to each side",
         "question": "Why can the rate not be set for either industry?",

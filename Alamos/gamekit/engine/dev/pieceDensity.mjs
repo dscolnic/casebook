@@ -67,7 +67,11 @@ function placements(scene){
   scene.updateMatrixWorld(true);
   const out = [];
   const bb = new THREE.Box3();
-  const top = scene.children.flatMap(o => (o.userData?.wingGroup ? o.children : [o]));
+  // One level down through a wing or a floor group, because those hold a whole
+  // build each: taken as single objects their bounding box is the building, which
+  // `isFurnishing` then discards as structure — and every room reports zero.
+  const top = scene.children.flatMap(o =>
+    (o.userData?.wingGroup || o.userData?.floorGroup) ? o.children : [o]);
   for(const o of top){
     if(o.isLight || o.isCamera) continue;
     bb.setFromObject(o);
@@ -136,7 +140,29 @@ async function measureInterior(name, dir){
   // every room in the building on top of itself, and the count that comes back
   // is a plausible number about a place nobody can walk through.
   const wings = Array.isArray(plan.wings) && plan.wings.length ? plan.wings : null;
-  for(const wing of wings ?? [null]){
+  // And a plan with `floors` is more than one *floor*, stacked on ONE footprint —
+  // `engine/world/interiorTower.js`. The same rule as a wing and a sharper version
+  // of it: one build of the flattened plan is four rooms in the same rectangle,
+  // and because every room is at the same (x, z) the attribution below hands all
+  // four floors' furniture to the first floor's rooms and reports the other three
+  // as bare. Which is what it did: twelve rooms at 0 pieces, all of them furnished.
+  const floors = Array.isArray(plan.floors) && plan.floors.length ? plan.floors : null;
+  for(const f of floors ?? []){
+    const g = new THREE.Group();
+    g.position.y = f.y ?? (f.id ?? 0) * (plan.rise ?? 4.4);
+    g.userData.floorGroup = true;
+    scene.add(g);
+    buildInterior(g, stubRenderer(), {
+      metrics: plan.metrics, spine: plan.spine, rooms: f.rooms,
+      seats: f.seats ?? [], spots: f.spots ?? plan.spots,
+      bladeSigns: f.bladeSigns ?? plan.bladeSigns ?? [], glazedSide: plan.glazedSide,
+      glazedEnds: plan.glazedEnds, ceiling: plan.ceiling, soffit: plan.soffit,
+    }, {
+      fitOutRoom: (room, ctx) => props.fitOutRoom?.(room, { ...ctx, floor: f }),
+      fitOutSpine: (ctx) => props.fitOutSpine?.({ ...ctx, floor: f }),
+    });
+  }
+  if(!floors) for(const wing of wings ?? [null]){
     const target = wing ? new THREE.Group() : scene;
     if(wing){
       target.position.x = wing.x ?? 0;
@@ -165,20 +191,40 @@ async function measureInterior(name, dir){
     const own = Number.isFinite(r.x0) && Number.isFinite(r.x1);
     const xIn = own ? r.x0 : sign * halfW, xOut = own ? r.x1 : sign * (halfW + depth);
     const lo = Math.min(xIn, xOut), hi = Math.max(xIn, xOut);
+    // A stacked plan needs the third dimension, and only then: `floorY` is set by
+    // the plans that have levels in them at all.
+    const fy = Number.isFinite(r.floorY) ? r.floorY : null;
+    const ceil = M.ceilingH ?? 3.0;
     const mine = all.filter((p, i) => {
       if(claimed.has(i)) return false;
-      const inside = p.x >= lo - 0.4 && p.x <= hi + 0.4 && p.z >= r.z0 - 0.4 && p.z <= r.z1 + 0.4;
+      const inside = p.x >= lo - 0.4 && p.x <= hi + 0.4 && p.z >= r.z0 - 0.4 && p.z <= r.z1 + 0.4
+        && (fy === null || (p.y >= fy - 0.5 && p.y <= fy + ceil + 0.5));
       if(inside) claimed.add(i);
       return inside;
     });
-    rows.push({ ...row(`floor room · ${r.name ?? r.id}`, Math.abs(depth * (r.z1 - r.z0)), mine),
+    const label = fy === null ? '' : ` (${r.level != null ? `level ${r.level}` : `y ${fy}`})`;
+    rows.push({ ...row(`floor room · ${r.name ?? r.id}${label}`, Math.abs(depth * (r.z1 - r.z0)), mine),
       room: true, builder: 'floor' });
   }
   const centres = wings ? wings.map(w => w.x ?? 0) : [0];
-  const spine = all.filter((p, i) => !claimed.has(i)
-    && centres.some(c => Math.abs(p.x - c) <= halfW + 0.4));
   const sp = plan.spine ?? { z0: 0, z1: 0 };
-  rows.push(row('corridor', Math.abs((sp.z1 - sp.z0) * halfW * 2 * centres.length), spine));
+  const corridorArea = Math.abs((sp.z1 - sp.z0) * halfW * 2);
+  if(floors){
+    // One row per floor's corridor. Four corridors summed into one is a number
+    // four times the size of anything it can be compared with.
+    for(const f of floors){
+      const fy = f.y ?? (f.id ?? 0) * (plan.rise ?? 4.4);
+      const mine = all.filter((p, i) => !claimed.has(i)
+        && Math.abs(p.x) <= halfW + 0.4
+        && p.y >= fy - 0.5 && p.y <= fy + (M.ceilingH ?? 3.0) + 0.5);
+      mine.forEach(m => claimed.add(all.indexOf(m)));
+      rows.push(row(`corridor (level ${f.id})`, corridorArea, mine));
+    }
+  } else {
+    const spine = all.filter((p, i) => !claimed.has(i)
+      && centres.some(c => Math.abs(p.x - c) <= halfW + 0.4));
+    rows.push(row('corridor', corridorArea * centres.length, spine));
+  }
   return { kind: 'interior', rows };
 }
 

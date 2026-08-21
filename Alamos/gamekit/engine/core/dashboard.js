@@ -6,7 +6,8 @@ import { formatCountdown } from './day.js';
 import { GROUP_DEFS } from './divisions.js';
 import { HISTORIC_CHARACTERS } from './historicCharacters.js';
 import { callLabel } from './place.js';
-import { WEEKS } from './constants.js';
+import { WEEKS, HINT_COST, RETRY_COST, FUND_COST } from './constants.js';
+import { PASSAGE_REWARD } from './personQuiz.js';
 import { TOTAL_DAYS } from './time.js';
 
 export function renderCentralBoardTexture(ctx, width, height){
@@ -296,7 +297,7 @@ export function renderStats(){
   const forecast=forecastReadiness(state);
   body.innerHTML=`<div style="display:grid;gap:12px">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-      <div style="background:#f7f0dc;border:1px solid #dccb9f;border-radius:10px;padding:12px;text-align:center"><div style="font:900 .7rem Inter,sans-serif;color:#9a741d;letter-spacing:.08em">DIRECTOR FUNDS</div><div style="font:800 1.6rem Georgia,serif">$${fmt(state.reserve)}</div><div style="font-size:.7rem;color:#666158">Hints $2 · Retries $3 · Funding $1 per 1%</div></div>
+      <div style="background:#f7f0dc;border:1px solid #dccb9f;border-radius:10px;padding:12px;text-align:center"><div style="font:900 .7rem Inter,sans-serif;color:#9a741d;letter-spacing:.08em">DIRECTOR FUNDS</div><div style="font:800 1.6rem Georgia,serif">$${fmt(state.reserve)}</div><div style="font-size:.7rem;color:#666158">Hints $${HINT_COST} · Answer again $${RETRY_COST} · Funding $${FUND_COST} per 1%</div><div style="font-size:.7rem;color:#666158;margin-top:2px">Earned by talking to people — $${PASSAGE_REWARD} each</div></div>
       <div style="background:#e8f0f4;border:1px solid #c8d7df;border-radius:10px;padding:12px;text-align:center"><div style="font:900 .7rem Inter,sans-serif;color:#315c78;letter-spacing:.08em">PROGRAM READINESS</div><div style="font:800 1.6rem Georgia,serif">${overall}%</div><div style="font-size:.7rem;color:#666158">→ ${Math.round(forecast.overall)}% projected</div></div>
     </div>
     <div style="border:1px solid #d9d2c5;border-radius:10px;overflow:hidden">

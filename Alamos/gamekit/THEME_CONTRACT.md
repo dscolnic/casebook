@@ -106,9 +106,11 @@ new — satisfies this and nothing else:
 `groundHeight` is not optional even indoors, where it returns 0. Both existing
 builds had a bug from having two answers to this question.
 
-Three modules satisfy this: `engine/world/outdoorTown.js` (a town),
-`engine/world/interiorFloor.js` (a floor) and `themes/deepwatch/world.js` (a
-theme's own). **`interiorSite.js` does not** — it is the builder underneath
+Four modules satisfy this: `engine/world/outdoorTown.js` (a town),
+`engine/world/interiorFloor.js` (a floor), `engine/world/interiorTower.js` (four
+floors stacked on one footprint, joined by a lift — Changeover) and
+`themes/deepwatch/world.js` (a theme's own). `engine/world/interiorLevels.js` is
+a fifth reached the same way, through a theme shim. **`interiorSite.js` does not** — it is the builder underneath
 `interiorFloor`, exporting `buildInterior` and the light rig. `vite.config.js`
 pointed `kind: 'interior'` straight at it for a year; nothing noticed, because
 the two indoor games predate this engine. The first theme scaffolded as an

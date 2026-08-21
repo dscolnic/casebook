@@ -1503,3 +1503,19 @@ ol.trialTaken li{font:600 .82rem/1.4 Inter,system-ui;color:#3f3b34}
 .rateStar:disabled{opacity:.6;cursor:default}
 .rateStar:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:6px}
 .rateNote{margin:0;color:var(--muted);font-size:.74rem;min-height:1.1em}
+
+/* The lift, in a stacked building. It is a directory as much as a control —
+   four floors on one footprint means the map can only ever draw the one you are
+   standing on — so each button carries the floor number, what is on it, and what
+   the ride costs. 44px of touch target, because the games are played on tablets
+   and the whole point of this panel is that it is pressed several times a day. */
+.liftPad{display:grid;gap:8px;margin:4px 0 12px}
+.liftBtn{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;
+  width:100%;text-align:left;padding:10px 12px;min-height:46px;font-size:.8rem}
+.liftNum{font:800 1.15rem/1 var(--serif);min-width:2.1em;text-align:center;
+  color:var(--blue);letter-spacing:-.02em}
+.liftWhat b{display:block;font-size:.82rem}
+.liftWhat small{display:block;color:var(--muted);font-size:.72rem;line-height:1.35}
+.liftCost{font-size:.72rem;color:var(--muted);white-space:nowrap}
+.liftBtn.liftHere{opacity:.75}
+.liftBtn.liftHere .liftNum{color:var(--muted)}

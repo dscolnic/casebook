@@ -76,7 +76,10 @@ export function gatesFor(lap, entryFor) {
   return (lap?.groups ?? [])
     .map((group) => {
       const p = entryFor(group);
-      return p ? { id: group, x: p.x, z: p.z } : null;
+      // `y` travels with the gate. On a stacked plan it is the only thing that
+      // separates one gate from another: a lap of four floors is six gates at six
+      // (x, z) that repeat on every floor.
+      return p ? { id: group, x: p.x, z: p.z, y: p.y ?? 0, level: p.level ?? null } : null;
     })
     .filter(Boolean);
 }

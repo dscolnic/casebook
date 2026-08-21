@@ -3,17 +3,21 @@
 // Hand edits are lost on the next import. Change the book.
 
 export const COPY = {
-  "COUNTER": "<p>The exchange counter, built into the old ticket hall. The only place in this building where the arithmetic has people standing in front of it.</p>",
-  "PRICES": "<p>The price room. One basket, priced twice a month by hand, and the eleven-year series that hangs on it.</p>",
-  "NOTES": "<p>The parcels office. It weighed luggage until last month and weighs money now, on the same two scales.</p>",
+  "COUNTER": "<p>The counter room. The counters themselves are on the plaza a hundred and eighty metres down; what is here is the desk that decides the daily limit, and the window the queue is counted from.</p>",
+  "NOTES": "<p>The note room. Three platform scales, a punch press and a goods hoist down to the furnace. The money supply, by weight, on its way out of existence.</p>",
+  "CASHIER": "<p>The cashiers' room. Forty people who have been on the plaza telephones since eight, and the only kettle above the fortieth floor.</p>",
+  "STRONG": "<p>The strongroom. What is left of the reserve, two doors and a ledger between it and the corridor.</p>",
+  "PRICES": "<p>The price room. One basket, priced twice a month by hand, and the eleven-year series that hangs on it. Vend Street, which is two thirds of the basket, runs west from directly below the window.</p>",
   "BANKS": "<p>The ledger hall. Eleven regional banks, no computer, and every deposit in Halvern written down twice.</p>",
-  "RATE": "<p>The rate room. The board meets here, and the reserve book that decides what it can promise is in the cupboard behind the chair.</p>",
-  "TRADE": "<p>The telegraph room. One wire out of Halvern, and the only place that knows what the rest of the world thinks a mark is worth.</p>",
-  "DOORS": "<p>The station doors. They have not closed since the changeover was announced, and there is a queue outside them at ten to nine.</p>",
-  "QUEUE": "<p>The concourse, which is now the queue. It doubles back twice on a Monday and once on a Thursday.</p>",
-  "LEDGER": "<p>Ledger hall annexe, where the regional dispatch notes are opened and checked against the tallies.</p>",
+  "CALC": "<p>The calculating room. Nine comptometers, a rota on the door, and the only people in the building who see every figure before the board does.</p>",
+  "RETURNS": "<p>The returns room. Where the regional dispatch notes are opened and checked against the tallies, in the order the post arrives rather than the order anybody wants.</p>",
+  "TRADE": "<p>The wire room. Six correspondents in three time zones, and the only place that knows what the rest of the world thinks a mark is worth.</p>",
+  "TELEX": "<p>The telex room. Four machines and the cipher book, because a rate quoted on an open wire is a rate anyone can trade against.</p>",
+  "PORT": "<p>The port desk. Manifests off the quays you can see from the window, twelve kilometres north-east, and the customs tallies that turn them into a trade figure.</p>",
   "PRESS": "<p>The press room. One typewriter, and a rule that the board never publishes a figure it might have to correct.</p>",
-  "VAULT": "<p>The old left luggage room, which holds what is left of the reserve and has two doors and a ledger between it and the concourse.</p>",
-  "PLAT": "<p>Platform one. No trains since the spring; the furnace is in the yard beyond it, and the smoke is old money.</p>",
+  "RATE": "<p>The rate room. The board meets along the glass, and the reserve book that decides what it can promise is in the cupboard behind the chair.</p>",
+  "DEALING": "<p>The dealing desk. Two lines to the correspondent banks, kept open through the afternoon so the reserve position on the table is this hour's rather than this morning's.</p>",
+  "CHAIR": "<p>The chair's office. Ada Verhoeven has been sleeping in it since the announcement, which everybody knows and nobody says.</p>",
+  "LOOKOUT": "<p>The observation room, open to the corridor. Everything on the board is out of this window: the queue on the plaza, Vend Street, the port, and Ferrand Row where the bank used to be.</p>",
   "CANTEEN": "<p>The staff canteen. Everybody in this building has argued about the rate in here, and none of it is minuted.</p>"
 };

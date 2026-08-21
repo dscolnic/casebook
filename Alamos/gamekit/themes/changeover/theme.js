@@ -35,11 +35,18 @@ export default {
   //   'outdoor'   engine/world/outdoorTown.js — buildings on terrain
   // A theme whose place already exists may declare its own instead, with
   // `world: 'themes/<name>/world.js'` inside plan.js. Deep Watch does.
-  site: { kind: 'interior', name: 'Replace with the name of this place', plan },
+  // The place. `site.kind` is still 'interior' — but `plan.js` declares a world
+  // of its own, and `vite.config.js` prefers that: the four floors are stacked on
+  // one footprint, which is `engine/world/interiorTower.js` and not something
+  // `interiorFloor` or `interiorLevels` can build. The reason why is written at
+  // the top of both of those files.
+  site: { kind: 'interior', name: 'Kesteven House', plan },
 
   // Where the player starts the day, and which way they face. The day's budget
   // is measured from here, not from wherever the player is standing.
-  start: { x: 0, z: 12, yaw: 0 },
+  // The lift lobby on floor 45, facing down the corridor. Every day starts and is
+  // budgeted from here, and it is where the car puts the player down.
+  start: { x: 0, z: 6.0, yaw: 0 },
 
   content: { GROUPS, MISSIONS, CURRICULUM, BALLPARK_CALCS, JARGON, ROSTER, LEADERS, AVATARS, COPY, WARMUPS },
 
@@ -51,7 +58,10 @@ export default {
     spawn: ROSTER.length,
     // Background people. A narrow place needs far fewer: on the submarine more
     // than eight and the player cannot get down the passage.
-    extras: 18,
+    // Four floors to populate rather than one corridor: `getExtraSpots` returns
+    // seven or so places per floor and the extras are dealt round them in order,
+    // so eighteen left the top two floors empty.
+    extras: 30,
   },
 
   // What is inside each room the player walks into, from book.yml. Rooms are
@@ -97,8 +107,16 @@ export default {
   look: {
     fov: 66,            // a 72° field distorts badly in a corridor
     near: 0.08,
-    far: 160,
-    fog: { colour: 0xdfe4e6, near: 26, far: 96 },
+    // Far enough to clear the sky dome from the far end of the plate — rule 18.
+    // The dome is 1,500 m and the city inside it reaches 760, so a 160 m camera
+    // (which is what a corridor needs) clips the sky away and renders black
+    // above the horizon in broad daylight, with no error anywhere.
+    far: 2200,
+    // And the fog starts past the far end of the corridor, because it is here
+    // for the twelve kilometres of city and not for the twenty-six metres of
+    // building. The colour is the sky's own horizon band: a mismatch puts a seam
+    // along the skyline, which is rule 20b through a different door.
+    fog: { colour: 0xc2c8c6, near: 320, far: 3200 },
     exposure: 1.0,
     // How wide the player is, for collision. 0.45 suits a street; a place with
     // metre-wide doorways needs 0.3 or the player gets stuck in them.

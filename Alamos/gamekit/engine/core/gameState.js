@@ -243,10 +243,17 @@ export function startDay(positions, spawn){
   // restarts a day has already spent every conversation on it and can be broke
   // with no way to earn — which is the one state the design must not have.
   _state.passages = {};
+  // The morning allowance, when there is one. DAILY_STIPEND is 0 today, and a
+  // log line reading "opened with a $0 allowance" is worse than no line at all
+  // — it announces a payment that did not happen. The once-per-mission guard is
+  // still stamped either way, so turning the stipend back on cannot pay twice
+  // for a day already opened.
   if(!_state.stipendPaid || _state.stipendPaid !== _state.week){
     _state.reserve += DAILY_STIPEND;
     _state.stipendPaid = _state.week;
-    _state.log.push({ week: _state.week, text: `${DAY_NOUN} ${_state.week} opened with a $${DAILY_STIPEND} allowance.` });
+    if(DAILY_STIPEND > 0){
+      _state.log.push({ week: _state.week, text: `${DAY_NOUN} ${_state.week} opened with a $${DAILY_STIPEND} allowance.` });
+    }
   }
   save();
   // Hand the room's clock its number. The budget is computed here because it
@@ -465,7 +472,8 @@ export function completeMission(){
   _state.missionStopsCompleted=[];
   _state.selectedGroup=null;
   _state.visitOutcome=null;
-  _state.log.push({week:_state.week, text:`Mission ${_state.week} opened: ${getCurrentMission(_state).title}. A new $${WEEKLY_APPROPRIATION} director allocation is available.`});
+  _state.log.push({week:_state.week, text:`Mission ${_state.week} opened: ${getCurrentMission(_state).title}.`
+    + (WEEKLY_APPROPRIATION > 0 ? ` A new $${WEEKLY_APPROPRIATION} director allocation is available.` : '')});
   // The next day is planned before it starts: the entry point puts the plan up
   // and calls startDay when the player accepts it.
   _state.dayStarted = false;

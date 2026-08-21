@@ -50,10 +50,41 @@ first-person game:
 | Game | Where | The place, and why it is that place | Run it |
 | --- | --- | --- | --- |
 | **Carrying Capacity** | `gamekit/themes/carrying` | Vellan Island: ninety-one people, one borehole, one cable, one tip. AP Environmental Science, all nine units. **On an island every budget closes** — the water is what fell on it, the fish are what the boats did not take, the waste stays. A mainland site lets a student assume an elsewhere for every quantity | `THEME=carrying npm run dev` |
-| **Ghost Light** | `gamekit/themes/ghostlight` | The Ellery Variety Theatre, dark eleven years, opening in a fortnight. AP Precalculus, all four units. **Every family of function is a piece of equipment**: the board is polar and matrices, the pit is sinusoids and logarithms, the box office is a rational function with a real asymptote, the fly floor is vectors | `THEME=ghostlight npm run dev` |
-| **Changeover** | `gamekit/themes/changeover` | Halvern Central Station, commandeered for a currency changeover. AP Macroeconomics, all six units. **Macro is national, aggregated and invisible**; a changeover makes every quantity local for a fortnight — the money supply is a mass on a parcels scale, the multiplier is a column in a ledger, the rate is set forty metres from the queue it lands on | `THEME=changeover npm run dev` |
+| **Ghost Light** | `gamekit/themes/ghostlight` | The Ellery Variety Theatre, dark eleven years, opening in a fortnight — its own world: nine hundred seats on a four-tier rake, a fly tower over a walkable stage, and six offices round the scene-dock yard behind the house. AP Precalculus, all four units. **Every family of function is a piece of equipment**: the board is polar and matrices, the pit is sinusoids and logarithms, the box office is a rational function with a real asymptote, the fly floor is vectors | `THEME=ghostlight npm run dev` |
+| **Changeover** | `gamekit/themes/changeover` | The top four floors of Kesteven House, Halvern, commandeered for a currency changeover. AP Macroeconomics, all six units. **Macro is national, aggregated and invisible**; a changeover makes every quantity local for a fortnight — the money supply is a mass on a platform scale, the multiplier is a column in a ledger — and a hundred and eighty metres up it makes them *visible*: the queue is on the plaza below the window, Vend Street is two thirds of the basket, the port is the current account. Four floor plates on one footprint, joined by a lift you choose a floor in | `THEME=changeover npm run dev` |
 
 All three compute every equation on their own syllabus: 17/17, 16/16 and 16/16.
+
+**Three more close gaps *inside* courses the set already claimed**, in August
+2026. Each is a half-course the existing games could not reach:
+
+| Game | Where | The gap it closes | Run it |
+| --- | --- | --- | --- |
+| **Slack Water** | `gamekit/themes/slackwater` | Sarn Barrage: six sluice gates across the neck of an estuary, mudflats at low water, a training wall running out into the channel and a station three hundred metres along it. **AP Calculus BC, the half Headwater stops before**: parametric, polar and vector-valued functions, series and convergence, and the integration techniques the second term adds. The place was chosen because a tide *is* a truncated series — the argument of the campaign is whether a prediction with a stated bound may be acted on | `THEME=slackwater npm run dev` |
+| **Overwind** | `gamekit/themes/overwind` | Kerrow No. 3: a 32 m headframe over a 1,240 m shaft, alone on a moor, the winding rope crossing the yard at head height. **AP Physics C: Mechanics, taught as derivations** — the twin paper Ground Truth's E&M game left open. A mine hoist is the one machine where rotation, a rope that weighs more than its load, an oscillation with a period of its own and gravitation measured at depth are all the same object | `THEME=overwind npm run dev` |
+| **Dark Fibre** | `gamekit/themes/darkfibre` | Pellow Head: a low concrete landing station in the dunes where a submarine cable comes ashore, and a radiography bay three hundred metres out because a gamma source is separated by distance rather than by lead. **AP Physics 2's optics and modern half**, which `deepwatch_hs` could only retrofit onto a submarine at four concepts and three. Every question in a landing station is *what is the light doing in the glass* | `THEME=darkfibre npm run dev` |
+
+All three lean on DERIVE far harder than anything before them: **twelve of
+thirty-six stops each, one a day**, against Ground Truth's ten of forty-five, and
+all three run `askRule: true`. All three compute every equation on their own
+syllabus — 12/12, 13/13 and 12/12 — and all three are two-tier sites, so the far
+lap and the vehicles come out on day 4.
+
+What is unfinished in the three, as shipped: **the concept takeaways are written
+for the twelve concepts each DERIVE spine claims and not for the other twenty**,
+so those cards show the Background door and no Key concept door; none of the
+three has an interiors props layer of its own, so their rooms are the shared
+fit-out; and the places are photographed only in part. What the screenshots
+already bought is the argument for taking them: a wall station standing in the
+estuary up to the crew's shoulders, because a water rectangle spans the whole
+width of a map and the shoreline is therefore the same line everywhere; three
+roads rendering as sheet ice, because `pathTexture`'s base is a light grey and the
+decal's material has no `envMapIntensity` cap; a change house parked between the
+spawn and the headframe, which is house rule 8 about the view rather than the
+route; and a hundred shadow-casting lattice members that put the first frame
+minutes away on a machine with no GPU. All four passed every check in the repo.
+What is still unphotographed: Kerrow No. 3's drum and gravity station, and Pellow
+Head's dune crest and radiography bay.
 
 **Three of these ship a high-school edition on the same world**, because their
 setting is a workplace and a workplace runs on the professional layer of its

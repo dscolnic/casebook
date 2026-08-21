@@ -181,8 +181,8 @@ export const GAMES = [
 
   { id: 'ghostlight', title: 'Ghost Light',
     course: 'AP Precalculus · all four units', field: 'Maths & Stats', accent: '#b0763c',
-    place: 'The Ellery Variety Theatre, dark eleven years and opening in a fortnight: a fly floor, a pit and a box office.',
-    hero: 'the-house--end.png',
+    place: 'The Ellery Variety Theatre, dark eleven years and opening in a fortnight: nine hundred seats on a rake, a fly tower over the stage, and the offices round the dock yard behind it.',
+    hero: 'stage--the-house.png',
     // Every family of function in the course is a piece of equipment here — the
     // board is polar, the pit is sinusoids and logs, the box office is rational.
     level: 'high', grades: '10–12' },

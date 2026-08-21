@@ -368,23 +368,23 @@ export const MISSIONS = [
 export const WARMUPS = {
   "greet": {
     "title": "Nine hundred thousand people and forty of them at the counter",
-    "why": "This building was a railway terminus a month ago and the people in it were hired last week from four different departments. Ngozi Okonjo, who runs the exchange counter, wants you known to as many of them as you can get round before the queue opens, because a figure you asked somebody for is worth three you found in a file."
+    "why": "These four floors were an insurance company a month ago and the people on them were hired last week from four different departments. Ngozi Okonjo, who runs the exchange counter, wants you known to as many of them as you can get round before the doors open downstairs, because a figure you asked somebody for is worth three you found in a file."
   },
   "trial-near": {
-    "title": "Walk the concourse before you sign anything",
-    "why": "The counter, the price room and the parcels office are all off one concourse, and the arithmetic runs between them in that order. Bram Tulloch, who manages the parcels office, walks every new officer the length of it once, because the money coming out of circulation is weighed forty metres from where the queue hands it over."
+    "title": "Walk floor forty-five before you sign anything",
+    "why": "The counter room and the note room are at opposite ends of one corridor, and the arithmetic runs between them in that order. Bram Tulloch, who manages the note room, walks every new officer the length of the floor once, because the money coming out of circulation is weighed across the corridor from the desk that decided how much of it to take."
   },
   "follow": {
     "title": "Follow Novotny round her repricing",
-    "why": "Kata Novotny, a market trader in the square, reprices her stall every morning and does not stop walking to explain it. Stay with her: the basket Emil Radic, the chief statistician, has been handed prices a city that stopped existing, and her stall is the only place in Halvern where the new one can be checked against something real."
+    "why": "Kata Novotny, a market trader from Vend Street, brings her price cards up to the price room every morning and does not stop walking to explain them. Stay with her: the basket Emil Radic, the chief statistician, has been handed prices a city that stopped existing, and her stall — visible from the window, four hundred metres west — is the only place in Halvern where the new one can be checked against something real."
   },
   "hunt": {
     "title": "Six ledgers, and one of them does not reconcile",
-    "why": "Femi Adeyinka, the vault officer, has six regional ledgers on the concourse and a weighed total that does not match their sum. Find all six and read them. The gap between the weighed returns and the ledgers is either an accounting error or several hundred thousand marks that never came back."
+    "why": "Femi Adeyinka, the vault officer, has six regional ledgers out across these four floors and a weighed total that does not match their sum. Find all six and read them. The gap between the weighed returns and the ledgers is either an accounting error or several hundred thousand marks that never came back."
   },
   "canvass": {
-    "title": "Ask the queue one question each",
-    "why": "The board is about to set a rate on the assumption that people will hold the new currency rather than spend it at once. Okonjo will not put words in anybody's mouth. Ask the queue one question and count the answers — expectations are a policy instrument, and this is the only instrument that measures them."
+    "title": "Ask everyone on the counter floor the same question",
+    "why": "The board is about to set a rate on the assumption that people will hold the new currency rather than spend it at once. Ngozi Okonjo, the counter supervisor, has forty people who have been on the plaza telephones since eight and will not put words in any of their mouths. Ask each of them one question and count the answers — expectations are a policy instrument, and this is the only instrument that measures them."
   },
   "evade": {
     "title": "Keep clear of the treasury man until the index is certified",
@@ -392,6 +392,6 @@ export const WARMUPS = {
   },
   "tag": {
     "title": "Catch Sarkis before the wire closes",
-    "why": "Levon Sarkis, the trade and reserves officer, closes the telegraph at four and the reserve position for the week is only in his book. He is crossing the concourse at speed with it under his arm, and after four the rate has to be argued from last week's number."
+    "why": "Levon Sarkis, the trade and reserves officer, closes the wire room at four and the reserve position for the week is only in his book. He is halfway down the corridor at speed with it under his arm, and after four the rate has to be argued from last week's number."
   }
 };

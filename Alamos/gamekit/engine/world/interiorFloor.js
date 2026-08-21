@@ -100,6 +100,31 @@ export function initWorld(canvas, activeTheme){
   const site = theme.site ?? {};
   plan = site.plan;
   if(!plan) throw new Error('interiorFloor: theme.site has no plan');
+  /**
+   * A plan that describes more than one build must not be built once.
+   *
+   * `plan.floors` is a stacked tower (`interiorTower.js`) and `plan.wings` is a
+   * building in two halves; in both, `plan.rooms` is every room flattened,
+   * because that is what `worldParity` and the map read. Handing that list to
+   * this builder is not an error at any level below this one — it renders, and
+   * what it renders is every floor's rooms on one footprint, each partition and
+   * notice coincident with three others, with no way between the floors.
+   *
+   * Which is exactly what shipped for an afternoon, because `vite.config.js`
+   * resolves a theme's own world by pattern-matching `plan.js` **as text**: one
+   * `world: WORLD` instead of `world: 'themes/…'` and the theme falls back to
+   * `kind: 'interior'`, silently, and lands here. So this is the backstop, and
+   * it has to be loud — the symptom otherwise reads as a rendering bug.
+   */
+  if(plan.floors?.length){
+    throw new Error(`interiorFloor: this plan declares ${plan.floors.length} floors, `
+      + 'which is engine/world/interiorTower.js. Point `world:` at the theme\'s own '
+      + 'world.js — as a plain string literal, which is how vite.config.js reads it.');
+  }
+  if(plan.wings?.length){
+    throw new Error('interiorFloor: this plan declares wings, which the theme\'s own '
+      + 'world module builds one at a time. Point `world:` at it.');
+  }
   const look = theme.look ?? {};
 
   renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });

@@ -1,11 +1,20 @@
-# changeover.yml — Changeover. AP Macroeconomics at Halvern Central Station.
+# changeover.yml — Changeover. AP Macroeconomics on the top four floors of
+# Kesteven House, Halvern.
 #
 # THE PLACE SOLVES THIS COURSE'S PROBLEM. Every quantity in macroeconomics is
 # national, aggregated and invisible, which is why a first-person game has never
 # been set in one. A currency changeover makes all of them local for a fortnight:
-# the money supply is a mass of old notes on a parcels scale, the multiplier is a
-# column in a ledger, the open economy arrives one telegram at a time, and the
-# rate is set forty metres from the queue it lands on.
+# the money supply is a mass of old notes on a platform scale, the multiplier is
+# a column in a ledger, the open economy arrives one telex at a time, and the
+# rate is set two floors above the room where the index is built.
+#
+# AND A HUNDRED AND EIGHTY METRES UP, IT MAKES THEM VISIBLE. The board took the
+# top four floors of the tallest building in Halvern because it was the only
+# vacant plate big enough, and the accident of that is the whole game: the queue
+# for the counter is on the plaza directly below, Vend Street — two thirds of the
+# basket — runs west from the door, and the port the trade figures come off is on
+# the horizon. Every quantity the course asks about has something out of the
+# window that it is a number for, and the player can look at both at once.
 #
 # The argument, both sides right on some day: Verhoeven needs the rate fixed on
 # Friday because wages and contracts have to be written against something, and
@@ -23,7 +32,7 @@ theme:
 groups:
   - id: COUNTER
     code: COUNTER
-    name: Exchange Counter
+    name: Counter Room
     color: '#a8763c'
     desc: Households, one at a time, with money in their hands.
     defaultLeader: okonjo
@@ -37,7 +46,7 @@ groups:
     milestones: [Price the basket, Build the index, Defend it, Ready for the fifteenth]
   - id: NOTES
     code: NOTES
-    name: Parcels Office
+    name: Note Room
     color: '#8a6f4a'
     desc: The old currency, weighed on the way out of circulation.
     defaultLeader: tulloch
@@ -58,7 +67,7 @@ groups:
     milestones: [Read the market, Choose the tool, Time it, Ready for the fifteenth]
   - id: TRADE
     code: TRADE
-    name: Telegraph Room
+    name: Wire Room
     color: '#4a7f8a'
     desc: The open economy, one wire at a time.
     defaultLeader: sarkis
@@ -115,16 +124,17 @@ roster:
     role: Counter Supervisor
     division: COUNTER
     bio: |
-      Runs the exchange counter, which means she is the only person in this
-      building who talks to the public and the only one who knows what the queue
-      is actually doing.
+      Runs the exchange counter down on the plaza, which means she is the only
+      person on these four floors who spends any part of the day in front of the
+      public and the only one who knows what the queue is actually doing.
 
       She reads behaviour rather than figures. A queue that lengthens on the day
       a rate is rumoured is a queue that has heard something, and the people at
       the front of it are the ones with the most to lose from waiting.
 
       Her complaint about the board is that it discusses households as a
-      component of demand and she has them in front of her, forty at a time,
+      component of demand while she watches nine hundred of them from a window
+      that is too far up to hear anything, forty at a time at the counters,
       asking what a note will be worth on Monday.
     quiz:
       - q: What does Okonjo learn from the length of the queue that the board cannot?
@@ -135,19 +145,20 @@ roster:
           - Which denominations are being hoarded rather than exchanged
   - id: tulloch
     name: Bram Tulloch
-    role: Parcels Office Manager
+    role: Note Room Manager
     division: NOTES
     bio: |
-      Ran the parcels office when this was a working station and runs it now that
-      it weighs money instead. Two scales, a ledger and a furnace in the yard.
+      Weighed freight for Halvern Docks for nineteen years and weighs money now,
+      on the same three platform scales, four hundred and forty feet up. Three
+      scales, a ledger, and a goods hoist down to the furnace.
 
       He counts by weight because counting by hand is impossible at this volume,
       and he is exact about what that assumes: a note's mass, a denomination mix
       and a sample to check both. Get the mix wrong and the count is wrong by
       whatever fraction the mix is wrong by.
 
-      He burns the returns in the yard under two signatures, which is the only
-      part of this fortnight that is genuinely irreversible.
+      He sends the returns down to the furnace under two signatures, which is the
+      only part of this fortnight that is genuinely irreversible.
     quiz:
       - q: Why does Tulloch sample the denomination mix rather than assume it?
         a: A wrong mix makes the whole weighed count wrong
@@ -183,7 +194,7 @@ roster:
     role: Trade and Reserves Officer
     division: TRADE
     bio: |
-      Sits in the telegraph room with the only wire out of Halvern and the
+      Sits in the wire room with six correspondents in three time zones and the
       reserve position in a locked book.
 
       He thinks in flows per day rather than in totals, because a reserve stock
@@ -199,7 +210,7 @@ roster:
         a: A stock over a daily outflow is a deadline
         wrong:
           - The board's mandate requires reserve positions to be expressed as coverage in days
-          - Daily figures are the only ones the telegraph can transmit reliably
+          - Daily figures are the only ones the correspondents will accept by telex
           - Reserve totals are revised too often to be quoted as a single number
   - id: prentice
     name: Della Prentice
@@ -394,39 +405,40 @@ warmups:
   greet:
     title: Nine hundred thousand people and forty of them at the counter
     why: >-
-      This building was a railway terminus a month ago and the people in it were hired last week
-      from four different departments. Ngozi Okonjo, who runs the exchange counter, wants you known
-      to as many of them as you can get round before the queue opens, because a figure you asked
-      somebody for is worth three you found in a file.
+      These four floors were an insurance company a month ago and the people on them were hired
+      last week from four different departments. Ngozi Okonjo, who runs the exchange counter,
+      wants you known to as many of them as you can get round before the doors open downstairs,
+      because a figure you asked somebody for is worth three you found in a file.
   trial-near:
-    title: Walk the concourse before you sign anything
+    title: Walk floor forty-five before you sign anything
     why: >-
-      The counter, the price room and the parcels office are all off one concourse, and the
-      arithmetic runs between them in that order. Bram Tulloch, who manages the parcels office,
-      walks every new officer the length of it once, because the money coming out of circulation is
-      weighed forty metres from where the queue hands it over.
+      The counter room and the note room are at opposite ends of one corridor, and the arithmetic
+      runs between them in that order. Bram Tulloch, who manages the note room, walks every new
+      officer the length of the floor once, because the money coming out of circulation is weighed
+      across the corridor from the desk that decided how much of it to take.
   follow:
     title: Follow Novotny round her repricing
     why: >-
-      Kata Novotny, a market trader in the square, reprices her stall every morning and does
-      not stop walking to explain it. Stay with her: the basket Emil Radic, the chief statistician,
-      has been handed prices a city
-      that stopped existing, and her stall is the only place in Halvern where the new one can be
-      checked against something real.
+      Kata Novotny, a market trader from Vend Street, brings her price cards up to the price room
+      every morning and does not stop walking to explain them. Stay with her: the basket Emil
+      Radic, the chief statistician, has been handed prices a city that stopped existing, and her
+      stall — visible from the window, four hundred metres west — is the only place in Halvern
+      where the new one can be checked against something real.
   hunt:
     title: Six ledgers, and one of them does not reconcile
     why: >-
-      Femi Adeyinka, the vault officer, has six regional ledgers on the concourse and a weighed
-      total that does not match their sum. Find all six and read them. The gap between the weighed
-      returns and the ledgers is either an accounting error or several hundred thousand marks that
-      never came back.
+      Femi Adeyinka, the vault officer, has six regional ledgers out across these four floors and
+      a weighed total that does not match their sum. Find all six and read them. The gap between
+      the weighed returns and the ledgers is either an accounting error or several hundred thousand
+      marks that never came back.
   canvass:
-    title: Ask the queue one question each
+    title: Ask everyone on the counter floor the same question
     why: >-
       The board is about to set a rate on the assumption that people will hold the new currency
-      rather than spend it at once. Okonjo will not put words in anybody's mouth. Ask the queue one
-      question and count the answers — expectations are a policy instrument, and this is the only
-      instrument that measures them.
+      rather than spend it at once. Ngozi Okonjo, the counter supervisor, has forty people who have
+      been on the plaza telephones since eight and will not put words in any of their mouths. Ask
+      each of them one question and count the answers — expectations are a policy instrument, and
+      this is the only instrument that measures them.
   evade:
     title: Keep clear of the treasury man until the index is certified
     why: >-
@@ -436,9 +448,9 @@ warmups:
   tag:
     title: Catch Sarkis before the wire closes
     why: >-
-      Levon Sarkis, the trade and reserves officer, closes the telegraph at four and the reserve
-      position for the week is only in his book. He is crossing the concourse at speed with it under
-      his arm, and after four the rate has to be argued from last week's number.
+      Levon Sarkis, the trade and reserves officer, closes the wire room at four and the reserve
+      position for the week is only in his book. He is halfway down the corridor at speed with it
+      under his arm, and after four the rate has to be argued from last week's number.
 
 # ---------------------------------------------------------------- the fortnight
 missions:
@@ -513,7 +525,7 @@ missions:
       - group: COUNTER
         task: Say what the queue is telling you
         title: Forty people, and what they have heard
-        place: Exchange Counter
+        place: Counter Room
         concept: 'Expectations, credibility, and why a promise is a policy instrument'
         takesAsRead:
           - 'The short-run trade-off between inflation and unemployment'
@@ -551,7 +563,7 @@ missions:
           future rather than the past, which makes the queue a measurement of expectations and the
           only one the board has. Weekend prices would show in Radic's figures rather than at the
           counter. Staffing changes how fast a queue moves, not how many people join it. And the old
-          currency is nowhere near exhausted: Bram Tulloch, who manages the parcels office, has
+          currency is nowhere near exhausted: Bram Tulloch, who manages the note room, has
           weighed a fraction of what was issued.
         rebuttals:
           - Prices charged over the weekend appear in the index rather than in the length of a queue.
@@ -559,15 +571,15 @@ missions:
           - The returns so far are a small fraction of what was issued, so scarcity is not driving this.
       - group: NOTES
         task: Turn a weight of notes into a count
-        title: Money on a parcels scale
-        place: Parcels Office
+        title: Money on a platform scale
+        place: Note Room
         relationship: >-
           Counting a withdrawn currency by weight: old notes = mass ÷ mass per note.
         concept: 'What counts as money, and the three things it has to do'
         takesAsRead:
           - 'Demand, supply and the price that clears a market'
         scene: >
-          Tulloch has 214 kilograms of returned notes on the parcels scale. A sample says the mix
+          Tulloch has 214 kilograms of returned notes on the platform scale. A sample says the mix
           averages 0.94 grams a note. The board needs a count for the money supply figure.
         guide: >-
           Counting this many notes by hand is not possible, so the count comes from a mass and a mass
@@ -692,7 +704,7 @@ missions:
       - group: COUNTER
         task: Say what the labour figure counts
         title: A rate that fell in a bad month
-        place: Exchange Counter
+        place: Counter Room
         relationship: >-
           The unemployment rate, u = unemployed ÷ labour force × 100, where the labour force is the employed plus those looking.
         concept: 'Unemployment: who is counted, and who is not in the labour force'
@@ -866,7 +878,7 @@ missions:
       - group: COUNTER
         task: Say what the wage actually buys
         title: The same wage, deflated
-        place: Exchange Counter
+        place: Counter Room
         relationship: >-
           Deflating a nominal figure: real = nominal ÷ (index ÷ 100).
         concept: 'Nominal against real: taking the price change out of a figure'
@@ -1027,7 +1039,7 @@ missions:
       - group: TRADE
         task: Work out what the trade position actually is
         title: The account and its mirror
-        place: Telegraph Room
+        place: Wire Room
         relationship: >-
           The current account: current account = X − M + net income + transfers.
         concept: 'The balance of payments: the current account and its mirror'
@@ -1089,7 +1101,7 @@ missions:
       - group: NOTES
         task: Reconcile the weighed returns against the ledger
         title: Two counts of the same money
-        place: Parcels Office
+        place: Note Room
         concept: 'Reading an economic statistic: what it counts, over what period, and revised how often'
         takesAsRead:
           - 'A price index, and the basket it is an index of'
@@ -1279,7 +1291,7 @@ missions:
       - group: COUNTER
         task: Say what the counter tells the board about Friday
         title: What the queue has already decided
-        place: Exchange Counter
+        place: Counter Room
         concept: 'Expectations, credibility, and why a promise is a policy instrument'
         takesAsRead:
           - 'The short-run trade-off between inflation and unemployment'
@@ -1455,7 +1467,7 @@ missions:
       - group: TRADE
         task: Say what the payment does to the trade position
         title: Where some of it goes
-        place: Telegraph Room
+        place: Wire Room
         concept: 'The balance of payments: the current account and its mirror'
         takesAsRead:
           - 'Gross domestic product, and the four things it adds up'
@@ -1510,7 +1522,7 @@ missions:
       - group: TRADE
         task: Work out how long the reserves last
         title: A stock over an outflow
-        place: Telegraph Room
+        place: Wire Room
         relationship: >-
           The cost of a peg: reserves needed = gap × days to defend.
         concept: 'A fixed rate, and what it costs to defend one'
@@ -1618,7 +1630,7 @@ missions:
       - group: COUNTER
         task: Say what the announcement has to contain
         title: A number with a reason
-        place: Exchange Counter
+        place: Counter Room
         concept: 'Expectations, credibility, and why a promise is a policy instrument'
         takesAsRead:
           - 'The short-run trade-off between inflation and unemployment'
@@ -1837,7 +1849,7 @@ missions:
       - group: NOTES
         task: Count the money supply without counting anything twice
         title: In hands, and in ledgers
-        place: Parcels Office
+        place: Note Room
         concept: 'What counts as money, and the three things it has to do'
         takesAsRead:
           - 'Demand, supply and the price that clears a market'
@@ -1872,7 +1884,7 @@ missions:
             - { id: burnt, label: Returned and burnt, value: -214, display: '214 million — money that has stopped being money' }
             - { id: deposits, label: Bank deposits repayable on demand, value: 2400, display: '2,400 million across the eleven banks' }
             - { id: interbank, label: Deposits the banks hold with each other, value: -82, display: '82 million — counted twice, once at each bank', hidden: true, note: 'on both balance sheets, and it is one deposit' }
-            - { id: office, label: Returned and awaiting the furnace, value: 0, display: 'in the parcels office, already counted as withdrawn' }
+            - { id: office, label: Returned and awaiting the furnace, value: 0, display: 'in the note room, already counted as withdrawn' }
             - { id: vault, label: Printed and never issued, value: 0, display: 'in the vault — paper, not money' }
           tolerance: 40
           commit: Report the money supply
@@ -1886,7 +1898,7 @@ missions:
           holding accounts with each other, which appears on two balance sheets and is one deposit, so
           it comes off. Two more figures are traps in opposite directions. The vault stock has been
           printed and never issued, so it is paper and adding it overstates the supply. The notes in
-          the parcels office are already counted as withdrawn, so subtracting them again
+          the note room are already counted as withdrawn, so subtracting them again
           double-counts.
       - group: BANKS
         task: Set the requirement, and say what it costs
@@ -1939,7 +1951,7 @@ missions:
       - group: TRADE
         task: Say what money growth does if velocity holds
         title: Money, output and prices
-        place: Telegraph Room
+        place: Wire Room
         relationship: >-
           The quantity equation, velocity: MV = PY, with turnover holds steady, so money growth above
           output growth lands in prices.
@@ -2104,7 +2116,7 @@ missions:
       - group: COUNTER
         task: Say which unemployment the board can do anything about
         title: Three kinds of not working
-        place: Exchange Counter
+        place: Counter Room
         concept: 'Frictional, structural and cyclical unemployment'
         takesAsRead:
           - 'Unemployment: who is counted, and who is not in the labour force'
@@ -2276,7 +2288,7 @@ missions:
       - group: TRADE
         task: Say what the trade-off looks like in the short run
         title: Prices against jobs
-        place: Telegraph Room
+        place: Wire Room
         concept: 'The short-run trade-off between inflation and unemployment'
         takesAsRead:
           - 'Demand-pull and cost-push inflation, and telling them apart'
@@ -2394,7 +2406,7 @@ missions:
       - group: COUNTER
         task: Say who the rate costs
         title: Savers, and importers
-        place: Exchange Counter
+        place: Counter Room
         concept: 'A fixed rate, and what it costs to defend one'
         takesAsRead:
           - 'An exchange rate as a price, and what moves it'
@@ -2496,7 +2508,7 @@ missions:
       - group: TRADE
         task: Say what a weaker rate does to each side
         title: Cheap for them, dear for us
-        place: Telegraph Room
+        place: Wire Room
         concept: 'An exchange rate as a price, and what moves it'
         takesAsRead:
           - 'The balance of payments: the current account and its mirror'
@@ -2729,7 +2741,7 @@ missions:
       - group: NOTES
         task: Say what has actually come back
         title: What is still out there
-        place: Parcels Office
+        place: Note Room
         relationship: >-
           Counting a withdrawn currency by weight: old notes = mass ÷ mass per note, with the mix from a sample.
         concept: 'What counts as money, and the three things it has to do'
@@ -2902,7 +2914,7 @@ missions:
       - group: COUNTER
         task: Say what the counter should do at nine
         title: Nine o'clock
-        place: Exchange Counter
+        place: Counter Room
         concept: 'Expectations, credibility, and why a promise is a policy instrument'
         takesAsRead:
           - 'The short-run trade-off between inflation and unemployment'
@@ -2996,12 +3008,12 @@ missions:
 interiors:
   COUNTER:
     caption: Expectations move before policy does, and a silence is read as information.
-    standLine: Forty people at a time, asking what a note will be worth on Monday.
+    standLine: Forty people on the plaza telephones, and the queue below the window.
     station:
       kind: panel
       title: Counter board
       rows:
-        - { label: In the queue, value: 42, status: alarm }
+        - { label: In the queue on the plaza, value: 42, status: alarm }
         - { label: Taking the maximum, value: 81 in 100, status: high }
         - { label: New note float, value: 42 million, status: normal }
   PRICES:
@@ -3016,10 +3028,10 @@ interiors:
         - { label: Basket certified, value: not yet, status: low }
   NOTES:
     caption: A weighed count is a count of notes; the value needs a sampled mix.
-    standLine: Two scales, a ledger and a furnace in the yard.
+    standLine: Three platform scales, a ledger, and a goods hoist to the furnace.
     station:
       kind: panel
-      title: Parcels scale
+      title: Platform scale
       rows:
         - { label: Returned, value: 986 kg, status: normal }
         - { label: Still outstanding, value: 3.1 million notes, status: alarm }
@@ -3036,7 +3048,7 @@ interiors:
         - { label: Banks below 4 %, value: 3 of 11, status: low }
   RATE:
     caption: A stock over a daily outflow is a deadline.
-    standLine: Three candidate rates and one reserve position.
+    standLine: Three candidate rates, one reserve position, and the city out of the glass.
     station:
       kind: panel
       title: Rate room
@@ -3046,26 +3058,34 @@ interiors:
         - { label: Days the rate holds, value: 134, status: high }
   TRADE:
     caption: A current account deficit is financed by borrowing or by reserves.
-    standLine: One wire out of Halvern, and the reserve book beside it.
+    standLine: Six telex machines, three time zones, and the reserve book beside them.
     station:
       kind: panel
-      title: Telegraph desk
+      title: Wire desk
       rows:
         - { label: Current account, value: −46 million, status: alarm }
         - { label: Exports, value: 64 million, status: normal }
         - { label: Imports, value: 121 million, status: high }
 
 copy:
-  COUNTER: <p>The exchange counter, built into the old ticket hall. The only place in this building where the arithmetic has people standing in front of it.</p>
-  PRICES: <p>The price room. One basket, priced twice a month by hand, and the eleven-year series that hangs on it.</p>
-  NOTES: <p>The parcels office. It weighed luggage until last month and weighs money now, on the same two scales.</p>
+  # Floor 45 — the counter floor
+  COUNTER: <p>The counter room. The counters themselves are on the plaza a hundred and eighty metres down; what is here is the desk that decides the daily limit, and the window the queue is counted from.</p>
+  NOTES: <p>The note room. Three platform scales, a punch press and a goods hoist down to the furnace. The money supply, by weight, on its way out of existence.</p>
+  CASHIER: <p>The cashiers' room. Forty people who have been on the plaza telephones since eight, and the only kettle above the fortieth floor.</p>
+  STRONG: <p>The strongroom. What is left of the reserve, two doors and a ledger between it and the corridor.</p>
+  # Floor 46 — the measurement floor
+  PRICES: <p>The price room. One basket, priced twice a month by hand, and the eleven-year series that hangs on it. Vend Street, which is two thirds of the basket, runs west from directly below the window.</p>
   BANKS: <p>The ledger hall. Eleven regional banks, no computer, and every deposit in Halvern written down twice.</p>
-  RATE: <p>The rate room. The board meets here, and the reserve book that decides what it can promise is in the cupboard behind the chair.</p>
-  TRADE: <p>The telegraph room. One wire out of Halvern, and the only place that knows what the rest of the world thinks a mark is worth.</p>
-  DOORS: <p>The station doors. They have not closed since the changeover was announced, and there is a queue outside them at ten to nine.</p>
-  QUEUE: <p>The concourse, which is now the queue. It doubles back twice on a Monday and once on a Thursday.</p>
-  LEDGER: <p>Ledger hall annexe, where the regional dispatch notes are opened and checked against the tallies.</p>
+  CALC: <p>The calculating room. Nine comptometers, a rota on the door, and the only people in the building who see every figure before the board does.</p>
+  RETURNS: <p>The returns room. Where the regional dispatch notes are opened and checked against the tallies, in the order the post arrives rather than the order anybody wants.</p>
+  # Floor 47 — the wire floor
+  TRADE: <p>The wire room. Six correspondents in three time zones, and the only place that knows what the rest of the world thinks a mark is worth.</p>
+  TELEX: <p>The telex room. Four machines and the cipher book, because a rate quoted on an open wire is a rate anyone can trade against.</p>
+  PORT: <p>The port desk. Manifests off the quays you can see from the window, twelve kilometres north-east, and the customs tallies that turn them into a trade figure.</p>
   PRESS: <p>The press room. One typewriter, and a rule that the board never publishes a figure it might have to correct.</p>
-  VAULT: <p>The old left luggage room, which holds what is left of the reserve and has two doors and a ledger between it and the concourse.</p>
-  PLAT: <p>Platform one. No trains since the spring; the furnace is in the yard beyond it, and the smoke is old money.</p>
+  # Floor 48 — the board floor
+  RATE: <p>The rate room. The board meets along the glass, and the reserve book that decides what it can promise is in the cupboard behind the chair.</p>
+  DEALING: <p>The dealing desk. Two lines to the correspondent banks, kept open through the afternoon so the reserve position on the table is this hour's rather than this morning's.</p>
+  CHAIR: <p>The chair's office. Ada Verhoeven has been sleeping in it since the announcement, which everybody knows and nobody says.</p>
+  LOOKOUT: <p>The observation room, open to the corridor. Everything on the board is out of this window: the queue on the plaza, Vend Street, the port, and Ferrand Row where the bank used to be.</p>
   CANTEEN: <p>The staff canteen. Everybody in this building has argued about the rate in here, and none of it is minuted.</p>
