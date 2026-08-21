@@ -14,7 +14,8 @@
     "test:api": "node scripts/test-api-base.js",
     "test:auth": "node scripts/test-native-auth.js",
     "test:origin": "node scripts/test-app-origin.js",
-    "clerk:origin": "node scripts/clerk-allow-origin.mjs"
+    "clerk:origin": "node scripts/clerk-native-setup.mjs",
+    "clerk:native": "node scripts/clerk-native-setup.mjs"
   },
   "keywords": [],
   "author": "",
