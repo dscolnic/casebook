@@ -39,13 +39,45 @@ if (!key.startsWith('sk_')) {
   console.error(`That is not a secret key: ${JSON.stringify(key.slice(0, 8))}…`);
   process.exit(1);
 }
+// A key is ASCII. Checked because the obvious first run is to paste the command
+// from the instructions with its `sk_live_…` placeholder still in it, and an
+// ellipsis is not a byte: fetch() then dies inside undici with "Cannot convert
+// argument to a ByteString because the character at index 15 has a value of
+// 8230", which names neither the key nor the mistake.
+if (!/^sk_(test|live)_[A-Za-z0-9]+$/.test(key)) {
+  const bad = [...key].findIndex(c => c.charCodeAt(0) > 126 || c.charCodeAt(0) < 33);
+  console.error('CLERK_SECRET_KEY does not look like a key.\n\n'
+    + (bad >= 0
+      ? `Character ${bad + 1} is ${JSON.stringify(key[bad])}, which cannot be sent in a header — `
+        + 'if that is an ellipsis, the placeholder from the instructions is still there.\n\n'
+      : 'It should be sk_live_ or sk_test_ followed by letters and digits only.\n\n')
+    + 'Paste the real value from the Clerk dashboard: Configure -> API keys -> Secret key,\n'
+    + 'on the production instance (clerk.firstpersonlearn.com).');
+  process.exit(1);
+}
 
 const mode = process.argv[2] || '--check';
 
 async function instance() {
-  const res = await fetch(API, { headers: { Authorization: `Bearer ${key}` } });
-  if (!res.ok) throw new Error(`GET /v1/instance answered ${res.status}: ${await res.text()}`);
+  let res;
+  try {
+    res = await fetch(API, { headers: { Authorization: `Bearer ${key}` } });
+  } catch (e) {
+    die(`Could not reach ${API}: ${e.message}`);
+  }
+  if (res.status === 401) {
+    die('Clerk answered 401. That key is not this instance\'s secret key — check it is\n'
+      + 'the PRODUCTION one (clerk.firstpersonlearn.com), not development.');
+  }
+  if (!res.ok) die(`GET /v1/instance answered ${res.status}: ${(await res.text()).slice(0, 300)}`);
   return res.json();
+}
+
+// A stack trace here tells nobody anything: every failure this script can have
+// is a wrong key, a typo or no network.
+function die(message) {
+  console.error(message);
+  process.exit(1);
 }
 
 const inst = await instance();
@@ -80,10 +112,7 @@ const res = await fetch(API, {
   headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
   body: JSON.stringify({ allowed_origins: next }),
 });
-if (!res.ok) {
-  console.error(`\nPATCH answered ${res.status}: ${await res.text()}`);
-  process.exit(1);
-}
+if (!res.ok) die(`\nPATCH answered ${res.status}: ${(await res.text()).slice(0, 300)}`);
 const after = (await instance()).allowed_origins ?? [];
 console.log(`\nallowed_origins is now`);
 for (const o of after) console.log(`  ${o}`);
