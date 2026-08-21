@@ -44,16 +44,25 @@ if (!key.startsWith('sk_')) {
 // ellipsis is not a byte: fetch() then dies inside undici with "Cannot convert
 // argument to a ByteString because the character at index 15 has a value of
 // 8230", which names neither the key nor the mistake.
-if (!/^sk_(test|live)_[A-Za-z0-9]+$/.test(key)) {
-  const bad = [...key].findIndex(c => c.charCodeAt(0) > 126 || c.charCodeAt(0) < 33);
-  console.error('CLERK_SECRET_KEY does not look like a key.\n\n'
-    + (bad >= 0
-      ? `Character ${bad + 1} is ${JSON.stringify(key[bad])}, which cannot be sent in a header — `
-        + 'if that is an ellipsis, the placeholder from the instructions is still there.\n\n'
-      : 'It should be sk_live_ or sk_test_ followed by letters and digits only.\n\n')
-    + 'Paste the real value from the Clerk dashboard: Configure -> API keys -> Secret key,\n'
-    + 'on the production instance (clerk.firstpersonlearn.com).');
-  process.exit(1);
+// WHAT IS CHECKED, AND WHAT IS DELIBERATELY NOT. Only the two things that stop
+// the request from being made at all: a character that cannot go in a header,
+// and a key too short to be one. The alphabet is NOT policed — an earlier
+// version demanded [A-Za-z0-9] and rejected real keys, which is worse than the
+// crash it was written to prevent: it tells the person their key is wrong when
+// the script is.
+const body = key.replace(/^sk_(test|live)_/, '');
+const bad = [...key].findIndex(c => c.charCodeAt(0) > 126 || c.charCodeAt(0) < 33);
+if (bad >= 0) {
+  die('CLERK_SECRET_KEY has a character that cannot be sent in a header.\n\n'
+    + `Character ${bad + 1} is ${JSON.stringify(key[bad])}. If that is an ellipsis, the\n`
+    + 'placeholder from the instructions is still in the command.');
+}
+if (body.length < 16) {
+  die(`CLERK_SECRET_KEY is only ${key.length} characters, which is too short to be a key.\n\n`
+    + 'The usual cause is the shell: a key containing $ is expanded away if the\n'
+    + 'assignment is unquoted, and the part after the $ vanishes silently. Put it in\n'
+    + "single quotes:\n\n"
+    + "  CLERK_SECRET_KEY='sk_live_…' node scripts/clerk-allow-origin.mjs --check");
 }
 
 const mode = process.argv[2] || '--check';
