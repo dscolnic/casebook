@@ -394,10 +394,18 @@ let field = 'All';
 // Heroes), and a whole reading level offered for a single card promises a shelf
 // that is not there yet. Delete the flag when there are enough to be worth
 // choosing; nothing else here needs to change.
+//
+// `high` used to read "High school + above" because there was no tier over it,
+// so seven games whose syllabus no high-school course contains sat under a
+// senior-high label — a teacher choosing by that label got a soil-mechanics
+// campaign. `university` is that tier, and the seven are named in gamekit's
+// tools/games.js with what each one actually is. The test is containment rather
+// than difficulty, so AP Physics C and AP Calculus AB stay in `high`.
 const LEVELS = [
-  { id: 'elementary', label: 'Elementary',           has: (g) => g.level === 'elementary', hold: true },
-  { id: 'middle',     label: 'Middle School',        has: (g) => g.level === 'middle' },
-  { id: 'high',       label: 'High school + above',  has: (g) => g.level === 'high' },
+  { id: 'elementary', label: 'Elementary',    has: (g) => g.level === 'elementary', hold: true },
+  { id: 'middle',     label: 'Middle School', has: (g) => g.level === 'middle' },
+  { id: 'high',       label: 'High School',   has: (g) => g.level === 'high' },
+  { id: 'university', label: 'University',    has: (g) => g.level === 'university' },
 ];
 const SHOWN = LEVELS.filter(l => !l.hold);
 const LEVEL_KEY = 'casebook_shelf_level';
