@@ -30,6 +30,7 @@ const OUT = join(ROOT, 'ios_www');
 const COPY = [
   'games',              // the shelf, the catalogue, 29 builds, the hero shots
   'api-base.js',        // where the API is and how it authenticates
+  'native-auth.js',     // signing in through the system browser
   'privacy.html',       // a reviewer opens both of these inside the app
   'support.html',
   'legal.css',

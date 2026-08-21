@@ -3,6 +3,7 @@ const path = require("path");
 const express = require("express");
 const { setupAuth, requireUser, getUserId, clerkClient, deleteAccount } = require("./clerkAuth");
 const { isPublic } = require("./publicPaths");
+const { appOrigin } = require("./appOrigin");
 const {
   getUser, recordResult, getStats, getAvatar, setAvatar,
   getGameSave, putGameSave, deleteGameSave, listGameSaves,
@@ -38,6 +39,13 @@ async function main() {
   // of progress plus a hundred-line log — and the default 100 kB body limit
   // rejects one with a 413 the game has no way to report.
   app.use(express.json({ limit: "2mb" }));
+
+  // The iOS app is a different origin — capacitor://localhost — so its calls are
+  // cross-origin and WebKit will not send them without these headers. FIRST,
+  // because a preflight carries no session and must not meet the sign-in gate:
+  // a 302 to an HTML page reads to the browser as a failed preflight and to the
+  // app as the network being down. See server/appOrigin.js.
+  app.use(appOrigin);
 
   // Every redirect this file issues says no-store, and it is not belt and
   // braces. express.static sets no-store on the files it serves, but a redirect
