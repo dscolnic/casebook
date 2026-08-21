@@ -1,7 +1,8 @@
 const http = require("http");
 const path = require("path");
 const express = require("express");
-const { setupAuth, requireUser, getUserId, clerkClient, deleteAccount } = require("./clerkAuth");
+const { setupAuth, requireUser, getUserId, clerkClient, deleteAccount,
+  createSignInTicket } = require("./clerkAuth");
 const { isPublic } = require("./publicPaths");
 const { appOrigin } = require("./appOrigin");
 const {
@@ -79,6 +80,22 @@ async function main() {
   });
 
   setupAuth(app);
+
+  /* The iOS app's way in. See createSignInTicket in clerkAuth.js for why the app
+   * cannot complete an OAuth flow itself: Clerk refuses its own native callback,
+   * so the browser signs in on this origin and hands the app a ticket instead.
+   *
+   * requireUser is the whole of the security here — a ticket is only ever minted
+   * for the account that asked for it, from a request already carrying that
+   * account's session. no-store because the response IS a credential.
+   */
+  app.post("/api/native/ticket", requireUser, async (req, res, next) => {
+    try {
+      const ticket = await createSignInTicket(getUserId(req));
+      res.set("Cache-Control", "no-store, no-cache, must-revalidate");
+      res.json({ ticket });
+    } catch (err) { next(err); }
+  });
 
   app.get("/api/auth/user", async (req, res, next) => {
     try {

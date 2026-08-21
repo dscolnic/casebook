@@ -44,6 +44,11 @@ const PUBLIC = [
   ['/icon-512.png', 'manifest icon'],
   ['/sign-in.html', 'read by definition without a session'],
   ['/sign-out.html', 'read while the session is being destroyed'],
+  // The iOS app's sign-in, opened in the system browser. Behind the gate it
+  // would answer the gate's OWN sign-in page — which signs the browser in and
+  // never hands the app a ticket, so the app sits there while the browser
+  // quietly succeeds.
+  ['/native-signin.html', "the app's sign-in, read without a session by definition"],
   ['/games/shots/quantum.png', 'the hero shot behind the sign-in card'],
   ['/games/shots/red_sand.jpg', 'hero shots, either extension'],
   ['/api/save', 'answers 401 itself; a 302 would reach a JSON parser as HTML'],
@@ -149,7 +154,7 @@ function trap(name, breaks, fn) { traps.push({ name, breaks, fn }); }
 
 // Re-implementations of isPublic, each with one thing wrong.
 const SETS = {
-  auth: ['/sign-in.html', '/sign-out.html'],
+  auth: ['/sign-in.html', '/sign-out.html', '/native-signin.html'],
   shell: ['/manifest.webmanifest', '/sw.js', '/sw-policy.js', '/offline.html'],
   pages: ['/privacy.html', '/support.html', '/legal.css'],
 };
@@ -168,6 +173,13 @@ function build({ drop = [], icon = /^\/icon-\d+\.png$/, shot = /^\/games\/shots\
 trap('the privacy page is dropped from the list',
      ['/privacy.html'],
      build({ drop: ['/privacy.html'] }));
+
+// The app's own sign-in. Dropping it does not break the web at all, which is why
+// it needs a trap: the only symptom is an iOS app whose Sign in button opens a
+// browser that signs itself in and never comes back.
+trap("the app's sign-in page is dropped from the list",
+     ['/native-signin.html'],
+     build({ drop: ['/native-signin.html'] }));
 
 trap('the support page is dropped from the list',
      ['/support.html'],

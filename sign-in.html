@@ -184,6 +184,24 @@ window.addEventListener("load", async function () {
     Clerk.mountSignIn(box, {
       afterSignInUrl: "/games/",
       afterSignUpUrl: "/games/",
+      // Clerk titles its own card from the APPLICATION NAME in its dashboard,
+      // which is still "Reckon" — the product this app used to be. That name is
+      // on the first screen anybody sees, above a page headed First Person
+      // Learning, so it read as two products. Overridden here rather than only
+      // renamed in the dashboard because this is the copy a player reads; the
+      // dashboard name still wants changing, since it also appears in Clerk's
+      // own emails, which this cannot reach.
+      localization: {
+        signIn: {
+          start: {
+            title: 'Sign in to First Person Learning',
+            subtitle: 'Your campaigns follow your account, not the browser you started them in.',
+          },
+        },
+        signUp: {
+          start: { title: 'Make an account', subtitle: 'One account, every game, on any device.' },
+        },
+      },
       // Clerk draws its own card, and its default is light — which over a dark
       // photograph reads as a dialog that has landed on the wrong page. These
       // are Clerk's own theme variables rather than CSS overrides, so the card

@@ -8,32 +8,46 @@
 // answering `disallowed_useragent`. So the provider is opened in the system
 // browser and the result is handed back to the app through a custom URL scheme.
 //
-// THE FLOW, which is Clerk's own native SSO sequence (the same one @clerk/expo's
-// startSSOFlow performs, in plain clerk-js terms):
+// THE FLOW, and why it is not the obvious one. The obvious one is Clerk's own
+// native SSO sequence — signIn.create, open the provider, catch a
+// rotating_token_nonce on a custom scheme, signIn.reload. It was written, and it
+// does not work here: Google authenticates perfectly and then Clerk refuses its
+// OWN callback with
 //
-//   1. signIn.create({ strategy, redirectUrl }) — Clerk answers with a URL at
-//      the provider, in firstFactorVerification.externalVerificationRedirectURL
-//   2. open that URL in the system browser, NOT in this web view
-//   3. the provider sends the browser to our redirectUrl, which is a scheme this
-//      app registers, so iOS hands the URL to us; it carries rotating_token_nonce
-//   4. signIn.reload({ rotatingTokenNonce }) exchanges that for a session
-//   5. a first-time user comes back "transferable" instead, which means the
-//      sign-in has to become a sign-up: signUp.create({ transfer: true })
-//   6. setActive({ session }) — and from here Clerk holds the session
+//   {"errors":[{"message":"Unauthorized request","code":"authorization_invalid"}]}
+//
+// with capacitor://localhost in the instance's allowed_origins and
+// com.firstpersonlearn.app://sso-callback in its redirect_urls, and with the
+// browser holding a Clerk client for the domain. Three attempts, three trace
+// ids, and nothing else to read.
+//
+// So the session is made where Clerk already works, and then transferred:
+//
+//   1. open https://firstpersonlearn.com/native-signin.html in the SYSTEM
+//      browser — our own origin, ordinary cookies, Clerk's own sign-in card
+//   2. that page signs the person in, then asks the server for a ticket:
+//      POST /api/native/ticket, behind requireUser, minted with the secret key
+//   3. it redirects to com.firstpersonlearn.app://sso-callback?ticket=… and iOS
+//      hands that URL to this app
+//   4. signIn.create({ strategy: 'ticket', ticket }) redeems it and setActive
+//      signs in, after which Clerk holds the session as it would anywhere
+//
+// The ticket is single-use and lives about a minute — the window between the
+// browser redirecting and this redeeming. Google is never opened by us at all,
+// so `disallowed_useragent` cannot arise either.
 //
 // WHY clerk.native.js AND standardBrowser:false. clerk-js assumes it can set a
 // cookie on the page's own domain. It cannot here, so it is loaded in the mode
 // Clerk ships for native platforms, where the client is kept as a token instead.
 // It is served from our own Clerk instance rather than bundled: signing in needs
-// the network by definition, so there is nothing to be gained by shipping 300 kB
-// of it in the app, and a bundled copy is a second version of Clerk to keep up
-// to date. localStorage is what makes the session survive a relaunch — a web
-// view has it, which is why no token cache of the kind @clerk/expo needs is
+// the network by definition, and a bundled copy is a second version of Clerk to
+// keep up to date. localStorage is what makes the session survive a relaunch — a
+// web view has it, which is why no token cache of the kind @clerk/expo needs is
 // wired up here.
 //
-// WHAT IS NOT HERE, deliberately: the server. clerkMiddleware() reads an
-// Authorization header exactly as it reads a cookie, so getUserId() answers the
-// same either way and no route, table or session store changes for any of this.
+// WHAT IS NOT HERE: the provider. This file knows nothing about Google or Apple
+// now. The browser page owns that, which is also why adding a provider is a
+// change to one page and not to the app.
 (function (root) {
   'use strict';
 
@@ -149,50 +163,46 @@
     });
   }
 
-  function nonceFrom(url) {
+  function ticketFrom(url) {
     var q = url.indexOf('?');
     if (q < 0) return '';
-    var params = new URLSearchParams(url.slice(q + 1));
-    return params.get('rotating_token_nonce') || '';
+    return new URLSearchParams(url.slice(q + 1)).get('ticket') || '';
   }
 
-  /* Sign in with a provider. Returns the signed-in user, or null if the player
-   * backed out. `strategy` is Clerk's own — 'oauth_google', 'oauth_apple'. */
-  function signIn(strategy) {
+  // Where the browser signs in. An absolute URL on the deployment, because the
+  // page has to be on an origin Clerk trusts — a bundled copy would be
+  // capacitor://localhost again, which is the whole problem.
+  function signInURL() {
+    return (root.FPL_API.base || 'https://firstpersonlearn.com') + '/native-signin.html';
+  }
+
+  /* Sign in. Resolves with the signed-in user, or rejects with something worth
+   * showing. Takes no provider: which providers exist is the browser page's
+   * business, so adding one is a change there and not here. */
+  function signIn() {
     var Browser = plugin('Browser');
     return load().then(function (c) {
       if (!c) throw new Error('no connection to the sign-in service');
-      var si = c.client.signIn;
-      return si.create({ strategy: strategy || 'oauth_google', redirectUrl: REDIRECT })
-        .then(function () {
-          var to = si.firstFactorVerification
-            && si.firstFactorVerification.externalVerificationRedirectURL;
-          if (!to) throw new Error('Clerk gave no provider URL to open');
-          // The listener goes on FIRST. Opening the browser and then listening
-          // is a race the provider can win.
-          var back = waitForCallback();
-          var opened = Browser
-            ? Browser.open({ url: to.toString(), presentationStyle: 'popover' })
-            : Promise.resolve(root.open(to.toString(), '_blank'));
-          return opened.then(function () { return back; });
-        })
+      // The listener goes on FIRST. Opening the browser and then listening is a
+      // race the redirect can win, and somebody already signed in in Safari
+      // comes straight back — the common case rather than the rare one.
+      var back = waitForCallback();
+      var opened = Browser
+        ? Browser.open({ url: signInURL(), presentationStyle: 'popover' })
+        : Promise.resolve(root.open(signInURL(), '_blank'));
+      return opened
+        .then(function () { return back; })
         .then(function (url) {
           if (Browser) Browser.close().catch(function () {});
-          return si.reload({ rotatingTokenNonce: nonceFrom(url) });
+          var ticket = ticketFrom(url);
+          if (!ticket) throw new Error('the browser came back with no ticket');
+          // A ticket is a sign-in strategy like any other, so this is the same
+          // call an email code would make.
+          return c.client.signIn.create({ strategy: 'ticket', ticket: ticket });
         })
-        .then(function () {
-          // "transferable" means Clerk recognised the provider account and has
-          // nobody to attach it to: the sign-in becomes a sign-up. Without this
-          // every first-time player is refused, and the message they get is that
-          // their Google account does not work.
-          if (si.firstFactorVerification.status === 'transferable') {
-            return c.client.signUp.create({ transfer: true })
-              .then(function (su) { return su.createdSessionId; });
-          }
-          return si.createdSessionId;
-        })
-        .then(function (session) {
-          if (!session) throw new Error('sign-in did not produce a session');
+        .then(function (si) {
+          var session = si && si.createdSessionId;
+          if (!session) throw new Error('the ticket did not produce a session');
           return c.setActive({ session: session });
         })
         .then(function () { return c.user || null; });
@@ -280,7 +290,7 @@
     var b = button('Sign in', function () {
       b.disabled = true;
       b.textContent = 'Signing in…';
-      signIn('oauth_google')
+      signIn()
         .then(function (u) { if (u) location.reload(); else reset(); })
         .catch(function (e) {
           console.warn('sign-in failed:', e.message);
@@ -322,10 +332,11 @@
     redirectUrl: REDIRECT,
     scheme: SCHEME,
     publishableKey: PUBLISHABLE_KEY,
-    // Exposed for scripts/test-native-auth.js. Reading the nonce off the
+    // Exposed for scripts/test-native-auth.js. Reading the ticket off the
     // callback URL is the one step of the flow that is pure, and getting it
     // wrong produces a sign-in that completes and grants nothing.
-    nonceFrom: nonceFrom,
+    ticketFrom: ticketFrom,
+    signInURL: signInURL,
     hostFromKey: hostFromKey
   };
 })(typeof window !== 'undefined' ? window : globalThis);

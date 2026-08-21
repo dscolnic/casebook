@@ -4,13 +4,13 @@
  *   node scripts/set-clerk-key.mjs --check
  *   node scripts/set-clerk-key.mjs pk_live_xxxxxxxxxxxxxxxxxxxx
  *
- * Three files carry the key. sign-in.html and sign-out.html carry it TWICE
- * each: once as the publishable key and once as the origin the Clerk script is
- * loaded from. native-auth.js — the iOS app's sign-in — carries it ONCE and
- * derives its host the same way this script does, which is why it needs no
- * second line to keep in step.
+ * Four files carry the key. sign-in.html, sign-out.html and native-signin.html
+ * carry it TWICE each: once as the publishable key and once as the origin the
+ * Clerk script is loaded from. native-auth.js — the sign-in inside the iOS app —
+ * carries it ONCE and derives its host the same way this script does, which is
+ * why it needs no second line to keep in step.
  *
- * Five places, one fact, and the failure mode when they disagree is quiet:
+ * Seven places, one fact, and the failure mode when they disagree is quiet:
  * sign-in works against production while sign-out still talks to the
  * development instance, so Clerk.signOut() runs against an instance that has no
  * session and the redirect happens anyway. It looks like signing out worked.
@@ -27,7 +27,7 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const FILES = ['sign-in.html', 'sign-out.html', 'native-auth.js'];
+const FILES = ['sign-in.html', 'sign-out.html', 'native-signin.html', 'native-auth.js'];
 
 const KEY_ATTR = /data-clerk-publishable-key="(pk_(?:test|live)_[A-Za-z0-9+/=_-]+)"/g;
 // native-auth.js is a script, not a page: the same fact, stated as a variable.
