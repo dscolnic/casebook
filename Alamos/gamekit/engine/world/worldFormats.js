@@ -138,7 +138,7 @@ const WALK_PAD = 0.55;
 
 export function createWorldFormats({ scene, getPosition, groundHeight, spawn, player,
   onLeaveRoom, people = () => [], pins = null, bounds = Infinity, blocked = null,
-  camera = null, floorRise = 0 }){
+  camera = null, floorRise = 0, panelOpen = null }){
   let run = null;
   FLOOR_RISE = +floorRise || 0;
 
@@ -284,7 +284,12 @@ export function createWorldFormats({ scene, getPosition, groundHeight, spawn, pl
     run = { cfg, group, seconds: 0, el: hudEl(), done: onDone, onKey: null, state: null };
     run.state = cfg.build(group) ?? {};
     run.onKey = (e) => {
-      if(e.code === 'Escape'){ api.finish(true); return; }
+      // Escape gives the run up, unless a panel is open over it — the lift, in a
+      // stacked building. See the same guard in trial.js.
+      if(e.code === 'Escape'){
+        if(!panelOpen?.()) api.finish(true);
+        return;
+      }
       // The format's own key, if it wants one. The world's `activate` is off for
       // the duration of a run (`runActive()` in main.js), so `KeyE` is free here
       // — and the touch layer fires the same synthetic KeyE, so a thumb works

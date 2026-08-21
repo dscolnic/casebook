@@ -105,12 +105,14 @@ export function trialLimit(gates, spawn = { x: 0, z: 0 }, { pace = WALK, cap = 9
  *   spawn        where every run starts, {x, z, yaw}
  *   player       { teleport }
  *   onLeaveRoom  optional: called before a run, to put the player outdoors
+ *   panelOpen    optional: () -> boolean. While a panel is over the run, Escape
+ *                belongs to the panel — see the key handler below.
  *   rise         optional: floor-to-floor, where the world has floors stacked on
  *                one footprint. 0 everywhere else, and every term it enters
  *                vanishes at 0 — see `floorRise` in interiorTower.js.
  */
 export function createTrial({ scene, camera = null, getPosition, groundHeight, spawn, player,
-  onLeaveRoom, pins = null, rise = 0 }){
+  onLeaveRoom, pins = null, rise = 0, panelOpen = null }){
   let run = null;
   const RISE = +rise || 0;
 
@@ -186,7 +188,17 @@ export function createTrial({ scene, camera = null, getPosition, groundHeight, s
         done: onDone,
         onKey: null,
       };
-      run.onKey = (e) => { if(e.code === 'Escape') api.finish(true); };
+      /**
+       * Escape gives the run up — unless a panel is open over it.
+       *
+       * A player who opens the lift mid-lap and presses Escape to close it means
+       * "close this", and it used to also mean "abandon the lap". One key press,
+       * two meanings, and the destructive one won. The topmost thing consumes it,
+       * which is what Escape means everywhere else in this game.
+       */
+      run.onKey = (e) => {
+        if(e.code === 'Escape' && !panelOpen?.()) api.finish(true);
+      };
       window.addEventListener('keydown', run.onKey);
       // The map belongs to the run while it lasts: the gates still to take, and
       // not the day's own open calls, which are the one thing the player must

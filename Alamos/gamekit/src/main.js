@@ -258,6 +258,9 @@ const trial = createTrial({
   // Floor-to-floor, where the world has floors on one footprint. Undefined in
   // every other game, and TRIAL then behaves exactly as it always has.
   rise: world.floorRise?.() ?? 0,
+  // Escape belongs to whatever is on top. Without this, closing the lift panel
+  // mid-lap also abandoned the lap.
+  panelOpen: () => overlay.classList.contains('show'),
   scene,
   camera,
   getPosition,
@@ -279,6 +282,7 @@ const trial = createTrial({
 const worldFormats = createWorldFormats({
   scene,
   camera,
+  panelOpen: () => overlay.classList.contains('show'),
   // Floor-to-floor, where the world has floors on one footprint. Undefined in
   // every other game, and all seven runs then measure exactly as they always did.
   floorRise: world.floorRise?.() ?? 0,
@@ -306,6 +310,16 @@ const worldFormats = createWorldFormats({
  * and the only thing that ends a run is the run.
  */
 const runActive = () => trial.active || worldFormats.active;
+/**
+ * The interactions a run leaves switched on, because they are not content.
+ *
+ * A lift is the only way between the floors of a stacked building and a vehicle
+ * is what a far lap is taken in — so with interaction off wholesale, a TRIAL that
+ * spans floors cannot be finished and neither can the far lap that says "take the
+ * vehicle" on its own card. Reported by a player, on a run, in a tower: the lift
+ * worked all day and did nothing during the lap.
+ */
+const RUN_LOCOMOTION = new Set(['lift', 'vehicle', 'aircraft']);
 setWorldHandle({
   run: (spec, done) => trial.start(spec, done),
   greet: (spec, done) => worldFormats.greet(spec, done),
@@ -779,8 +793,14 @@ window.addEventListener('keydown', (e) => {
       if(!flying.exit()) promptEl.textContent = 'Land first — set it down before you get out.';
       return;
     }
-    if(runActive()) return;              // a run owns the world; see runActive
-    activate(getCurrentTarget());
+    // A run owns the world, and the key is the other half of that — but the
+    // prompt is already filtered to locomotion while a run is going, so what
+    // `getCurrentTarget()` can hold here is a lift or a vehicle and nothing else.
+    // Guarding the key as well as the prompt is what made the lift dead during a
+    // lap while working all day outside one.
+    const target = getCurrentTarget();
+    if(runActive() && !RUN_LOCOMOTION.has(target?.type)) return;
+    activate(target);
   }
   if(e.code === 'KeyR') lift.up = true;
   if(e.code === 'KeyF') lift.down = true;
@@ -820,7 +840,11 @@ function frame(now){
   // buttons for it come and go with the aircraft. Null on anything with a mouse.
   touchControls?.setMode(flying.active ? 'fly' : driving.active ? 'drive' : 'walk');
   miniMap?.update(now);
-  if(isLocked && !driving.active && !flying.active && !runActive()) updateInteractions(promptEl);
+  // A run owns the world, with one exception: the things that *move* you. See
+  // `RUN_LOCOMOTION` and `updateInteractions`.
+  if(isLocked && !driving.active && !flying.active){
+    updateInteractions(promptEl, runActive() ? RUN_LOCOMOTION : null);
+  }
   else if(driving.active){
     // A scooter is not got out of. The vehicle carries its own line where the
     // default one would be wrong.

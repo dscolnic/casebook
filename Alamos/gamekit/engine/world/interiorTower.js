@@ -364,7 +364,26 @@ export function initWorld(canvas, activeTheme){
   RISE = +plan.rise || 4.4;
   const look = theme.look ?? {};
 
-  renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
+  /**
+   * A logarithmic depth buffer, because this building needs a near plane for a
+   * 26 m corridor **and** a far plane for a city twelve kilometres wide.
+   *
+   * Depth precision goes as the ratio of the two. The rest of the set runs
+   * near 0.08 / far 160 — a ratio of 2,000 — and every sign in the engine sits
+   * about 10 mm off its own backing board and 30 mm off the plaster, which at
+   * that ratio is many depth values. Opening the far plane to clear a sky dome
+   * took the ratio past 20,000, and those same 10 mm stopped resolving: the
+   * signs and their boards began fighting, which reads as stripes shimmering
+   * across every notice as the player turns. Reported from play; a screenshot
+   * cannot show it, because the defect *is* the movement.
+   *
+   * Enabled from the far plane rather than from a flag, because the far plane is
+   * the reason. Every other world builds its renderer without this and is
+   * unaffected.
+   */
+  const deepView = (look.far ?? 160) > 600;
+  renderer = new THREE.WebGLRenderer({ canvas, antialias: true,
+    logarithmicDepthBuffer: deepView, powerPreference: 'high-performance' });
   tuneRendererForDevice(renderer);
   renderer.setSize(innerWidth, innerHeight);
   renderer.toneMapping = THREE.ACESFilmicToneMapping;

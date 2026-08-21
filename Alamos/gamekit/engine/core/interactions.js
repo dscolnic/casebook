@@ -6,7 +6,19 @@ const raycaster = new THREE.Raycaster();
 const center = new THREE.Vector2(0,0);
 let currentTarget=null;
 
-export function updateInteractions(promptEl){
+/**
+ * What the player is looking at, and the prompt for it.
+ *
+ * `only` is an optional set of interaction types. A caller passes one when the
+ * world is not the player's to poke at: during a warm-up run every other kind of
+ * interaction is off — walking up to somebody during a GREET *is* the greeting,
+ * and opening their biography over it answers a question nobody asked — but
+ * **locomotion is not content**. In a stacked building the lift is the only way
+ * to another floor, so a blanket refusal makes any run that spans floors
+ * unfinishable; the same is true of the vehicle a far lap is explicitly taken in.
+ * So the run allows the types that move you and nothing else.
+ */
+export function updateInteractions(promptEl, only = null){
   if(!camera || !promptEl) return null;
   raycaster.setFromCamera(center, camera);
   raycaster.far = 12; // nothing is interactable past 10 — skip the rest of the floor
@@ -22,7 +34,7 @@ export function updateInteractions(promptEl){
                 : found?.type==='case' ? 5
                 : found?.type==='roomexit' ? 3.4
                 : 4.5;
-    if(hits[0].distance >= limit) {
+    if(hits[0].distance >= limit || (only && !only.has(found?.type))) {
       target = null;
     } else {
       target = found;

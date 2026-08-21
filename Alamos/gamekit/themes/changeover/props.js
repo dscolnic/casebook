@@ -119,7 +119,7 @@ export function decorate(scene, ctx){
   // ---- the sky. A dome rather than a background colour, because a flat clear
   // colour at this altitude reads as fog and the horizon is what tells the
   // player how high up they are.
-  const dome = new THREE.Mesh(new THREE.SphereGeometry(1500, 24, 16), M.sky);
+  const dome = new THREE.Mesh(new THREE.SphereGeometry(1200, 24, 16), M.sky);
   dome.position.y = PLAZA_Y + 200;
   dome.userData.ignoreAudit = true;
   markStructure([dome], 'sky');
@@ -231,7 +231,7 @@ export function decorate(scene, ctx){
   // Measured off a screenshot, not reasoned about in advance.
   const RINGS = [
     { cell: 34, reach: 760, lo: 62 },
-    { cell: 96, reach: 2000, lo: 760 },
+    { cell: 96, reach: 1600, lo: 760 },
   ];
   const buckets = [[], [], []];
   for(const R of RINGS){

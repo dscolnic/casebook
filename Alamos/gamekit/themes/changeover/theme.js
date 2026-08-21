@@ -106,12 +106,18 @@ export default {
 
   look: {
     fov: 66,            // a 72° field distorts badly in a corridor
-    near: 0.08,
+    // Not 0.08. The near plane is the dominant term in depth precision and this
+    // game's far plane is a city away; 0.15 is still far closer than the 0.38 m
+    // the player's own radius keeps them from any wall.
+    near: 0.15,
     // Far enough to clear the sky dome from the far end of the plate — rule 18.
-    // The dome is 1,500 m and the city inside it reaches 760, so a 160 m camera
-    // (which is what a corridor needs) clips the sky away and renders black
-    // above the horizon in broad daylight, with no error anywhere.
-    far: 2200,
+    // The dome is 1,200 m and the city inside it reaches 1,600, so a 160 m camera
+    // (which is what a corridor needs) clips the sky away and renders black above
+    // the horizon in broad daylight, with no error anywhere. It is no larger than
+    // that, because the near/far ratio is what the depth buffer has to resolve a
+    // sign against its own backing board with — see the renderer in
+    // engine/world/interiorTower.js.
+    far: 1800,
     // And the fog starts past the far end of the corridor, because it is here
     // for the twelve kilometres of city and not for the twenty-six metres of
     // building. The colour is the sky's own horizon band: a mismatch puts a seam

@@ -77,6 +77,9 @@ function person(id, x, z, y = 0){
 function rig(people = [], blocked = null, floorRise = 0){
   const pos = new THREE.Vector3(0, 0, 0);
   const drawn = [];
+  // A panel over the run, which the caller can raise and lower. Escape belongs to
+  // whatever is on top: see the case at the end of this file.
+  const panel = { open: false };
   const w = createWorldFormats({
     scene: new THREE.Scene(),
     getPosition: () => pos,
@@ -86,6 +89,7 @@ function rig(people = [], blocked = null, floorRise = 0){
     people: () => people,
     pins: (list) => drawn.push(list),
     floorRise,
+    panelOpen: () => panel.open,
     ...(blocked ? { blocked } : {}),
   });
   // Frames of a fixed length: a run measured in wall clock cannot be asserted
@@ -94,7 +98,7 @@ function rig(people = [], blocked = null, floorRise = 0){
     for(let t = 0; t < seconds - 1e-9; t += dt) w.update(dt);
   };
   const go = (x, z, y = 0) => pos.set(x, y, z);
-  return { w, pos, go, step, drawn, people };
+  return { w, pos, go, step, drawn, people, panel };
 }
 
 console.log('worldFormats — the world half of GREET, FOLLOW, HUNT, CANVASS, EVADE\n');
@@ -466,6 +470,26 @@ console.log('worldFormats — the world half of GREET, FOLLOW, HUNT, CANVASS, EV
     ok(out0 && out0.got === 2,
       'HUNT: with no floors declared, two points at one (x, z) are both collected');
   }
+}
+
+/* ------------------------------------------- Escape, with a panel over the run */
+//
+// Escape gives a run up. It is also how every panel in this game is closed — so a
+// player who opens the lift mid-lap to reach another floor and presses Escape to
+// shut it meant "close this", and it also meant "abandon the lap". One key, two
+// meanings, and the destructive one won. Reported by a player in a tower.
+{
+  const r = rig([person('a', 10, 0)]);
+  let out = null;
+  r.w.greet({ roster: [{ id: 'a' }], target: 1, minutes: 30, radius: 3 },
+    (res) => { out = res; });
+  r.panel.open = true;
+  press('Escape');
+  r.step(0.2);
+  ok(out === null, 'Escape with a panel open closes the panel and not the run');
+  r.panel.open = false;
+  press('Escape');
+  ok(out && out.ok === false, 'Escape with nothing over the run still gives it up');
 }
 
 console.log(`\n${failures ? '✗' : '✓'} worldFormats: ${failures} failing case(s).`);

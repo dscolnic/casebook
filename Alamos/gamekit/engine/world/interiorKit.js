@@ -624,7 +624,13 @@ export function bladeSign({ box, mats: M, z, halfWidth, ceilingH, west = '', eas
       g.textAlign = 'right';
       g.fillText(`${String(rightLabel).slice(0, 22)} \u25b6`, c.width - 18, mid);
     }
-    return new THREE.CanvasTexture(c);
+    const t = new THREE.CanvasTexture(c);
+    t.colorSpace = THREE.SRGBColorSpace;
+    // The same 8 every other sign texture in this file asks for. A blade sign is
+    // read down the length of a corridor, which is the most glancing angle
+    // anything in the building is seen at and the one place anisotropy shows.
+    t.anisotropy = 8;
+    return t;
   };
   // Which hand each side is on, and it is worth deriving rather than guessing —
   // the first version had it backwards and the sign pointed right at a lift that
