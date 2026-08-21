@@ -52,9 +52,20 @@ function hostFromKey(key) {
 // Count occurrences without consuming the regex's lastIndex across calls.
 const all = (re, s) => [...s.matchAll(new RegExp(re.source, re.flags))];
 
+/* A file on the list that is not in this checkout is SKIPPED and said so.
+ *
+ * native-auth.js is the iOS app's sign-in and lives on the app branch; the
+ * server branch has the same key in native-signin.html and nowhere else. Without
+ * this, running the script on main dies on a missing file — and the failure mode
+ * that matters is the other one: a key rotated on a branch that cannot see every
+ * file holding it, silently leaving one behind. So absence is reported rather
+ * than either ignored or fatal.
+ */
 function read(file) {
   const path = resolve(ROOT, file);
-  const text = readFileSync(path, 'utf8');
+  let text;
+  try { text = readFileSync(path, 'utf8'); }
+  catch { return { path, file, missing: true, keys: [], srcs: [], derives: false }; }
   const keys = [...all(KEY_ATTR, text), ...all(KEY_VAR, text)].map(m => m[1]);
   const srcs = all(SCRIPT_SRC, text).map(m => ({ host: m[1], major: m[2] }));
   // A page carries the key and the origin separately, so the two can disagree.
@@ -73,6 +84,7 @@ if (!arg || arg === '--check') {
   const seen = new Set();
   for (const f of files) {
     console.log(f.file);
+    if (f.missing) { console.log('  – not in this checkout, skipped'); continue; }
     const wantSrcs = f.derives ? 0 : 1;
     if (f.keys.length !== 1 || f.srcs.length !== wantSrcs) {
       bad++;
@@ -98,7 +110,8 @@ if (!arg || arg === '--check') {
   }
   if (seen.size > 1) { bad++; console.log('\n! the files carry DIFFERENT keys'); }
   if (bad) { console.log(`\n${bad} problem(s).`); process.exit(1); }
-  console.log(`\nAll ${files.length} files agree.` + ([...seen][0].startsWith('pk_live_')
+  const present = files.filter(f => !f.missing).length;
+  console.log(`\nAll ${present} files present agree.` + ([...seen][0].startsWith('pk_live_')
     ? '' : ' Still on a development key — production needs a pk_live_ one.'));
   process.exit(0);
 }
@@ -120,6 +133,7 @@ catch (e) { console.error(e.message); process.exit(1); }
 
 // Refuse before writing anything, so a shape change cannot half-apply.
 for (const f of files) {
+  if (f.missing) continue;
   if (f.keys.length !== 1 || f.srcs.length !== (f.derives ? 0 : 1)) {
     console.error(`${f.file}: expected exactly one key and ${f.derives ? 'no' : 'one'} script src, found `
       + `${f.keys.length} and ${f.srcs.length}. Fix the file by hand — a partial `
@@ -129,6 +143,7 @@ for (const f of files) {
 }
 
 for (const f of files) {
+  if (f.missing) { console.log(`${f.file}\n  – not in this checkout, skipped`); continue; }
   const was = { key: f.keys[0], host: f.derives ? hostFromKey(f.keys[0]) : f.srcs[0].host };
   const next = f.text
     .replace(KEY_ATTR, `data-clerk-publishable-key="${key}"`)
