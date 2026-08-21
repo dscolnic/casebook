@@ -43,6 +43,18 @@ npm run drive <theme>               # open every live panel in Chrome, answer it
 | **Project Y** | `gamekit/themes/projecty` | Los Alamos 1943–45, five divisions | Outdoor mesa, timber and gabled, pre-computer — chalkboards and typed sheets, no screens anywhere. The last game to lose its own entry point: `project-y-fps/` is a tombstone now |
 | **Hospital Heroes** | `gamekit/themes/hospital` | ~grade 3–4. Junior doctor, children's hospital | Interior ward: a spine with rooms off it, and the floor `engine/world/interiorSite.js` was generalised out of. `audience: { grade: 2 }`, so its whole interface comes up 1.18× larger |
 
+**Three games were built for the three largest uncovered AP courses**, in August
+2026. Each place was chosen to solve a specific problem the course has in a
+first-person game:
+
+| Game | Where | The place, and why it is that place | Run it |
+| --- | --- | --- | --- |
+| **Carrying Capacity** | `gamekit/themes/carrying` | Vellan Island: ninety-one people, one borehole, one cable, one tip. AP Environmental Science, all nine units. **On an island every budget closes** — the water is what fell on it, the fish are what the boats did not take, the waste stays. A mainland site lets a student assume an elsewhere for every quantity | `THEME=carrying npm run dev` |
+| **Ghost Light** | `gamekit/themes/ghostlight` | The Ellery Variety Theatre, dark eleven years, opening in a fortnight. AP Precalculus, all four units. **Every family of function is a piece of equipment**: the board is polar and matrices, the pit is sinusoids and logarithms, the box office is a rational function with a real asymptote, the fly floor is vectors | `THEME=ghostlight npm run dev` |
+| **Changeover** | `gamekit/themes/changeover` | Halvern Central Station, commandeered for a currency changeover. AP Macroeconomics, all six units. **Macro is national, aggregated and invisible**; a changeover makes every quantity local for a fortnight — the money supply is a mass on a parcels scale, the multiplier is a column in a ledger, the rate is set forty metres from the queue it lands on | `THEME=changeover npm run dev` |
+
+All three compute every equation on their own syllabus: 17/17, 16/16 and 16/16.
+
 **Three of these ship a high-school edition on the same world**, because their
 setting is a workplace and a workplace runs on the professional layer of its
 subject — see `gamekit/RETARGET_PASS.md`. Same place, same cast, same grade, a

@@ -1,6 +1,6 @@
 # Alamos — mission-based learning games
 
-Nineteen first-person, mission-driven educational games on three.js, plus the shared
+Twenty-two first-person, mission-driven educational games on three.js, plus the shared
 engine they run on. Each is the same loop in a different setting: missions × stops,
 walk to a place, answer a science question, hand off. No combat, no weapons.
 
@@ -25,7 +25,7 @@ walk to a place, answer a science question, hand off. No combat, no weapons.
 | `gamekit/MIDDLE_SCHOOL_EDITIONS.md` | The junior-edition plan. |
 | `gamekit/FOURTH_GAME.md` | The plan the Project Y flip came from. |
 
-## The nineteen games
+## The twenty-two games
 
 `GAMES.md` is the full inventory. This is the place, and the command.
 
@@ -48,6 +48,9 @@ walk to a place, answer a science question, hand off. No combat, no weapons.
 | Yellow Bay | `gamekit/themes/yellowbay/` | Ardley Fab 7 — its own world: two parallel gowned wings joined by a glass crossing over the subfab, the litho end lit amber. AP Chemistry, the structure half | `THEME=yellowbay npm run dev` |
 | Sightline | `gamekit/themes/sightline/` | The Hallam Exchange: one hall with the Ferrier Street corner rebuilt across the end, identification distance painted on the floor. AP Psychology | `THEME=sightline npm run dev` |
 | Ground Truth | `gamekit/themes/groundtruth/` | Station 12, Sablon Flats: a salt flat, a 60 m instrumented mast, a storm season. AP Physics C E&M, ten derivations | `THEME=groundtruth npm run dev` |
+| Carrying Capacity | `gamekit/themes/carrying/` | Vellan Island: a low maritime island, ninety-one people, the sea on the horizon from the road. AP Environmental Science | `THEME=carrying npm run dev` |
+| Ghost Light | `gamekit/themes/ghostlight/` | The Ellery: a backstage spine from the stage door to the house, and the fly floor over it. AP Precalculus | `THEME=ghostlight npm run dev` |
+| Changeover | `gamekit/themes/changeover/` | Halvern Central Station: a terminus concourse with a queue in it and a furnace on platform one. AP Macroeconomics | `THEME=changeover npm run dev` |
 | Project Y | `gamekit/themes/projecty/` | Los Alamos 1943–45, outdoor mesa | `THEME=projecty npm run dev` |
 | Hospital Heroes | `gamekit/themes/hospital/` | Children's hospital, interior, ~grades 3–4 | `THEME=hospital npm run dev` |
 

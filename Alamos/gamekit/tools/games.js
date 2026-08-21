@@ -171,6 +171,30 @@ export const GAMES = [
     editions: [{ suffix: 'ms', level: 'middle', grades: '6–8',
                  course: 'Traits, inheritance and breeding · life science' }] },
 
+  { id: 'carrying', title: 'Carrying Capacity',
+    course: 'AP Environmental Science · all nine units', field: 'Earth & Space', accent: '#4e9b7a',
+    place: 'Vellan Island: ninety-one people, one borehole, one cable and a hole with eleven years left in it.',
+    hero: 'the-point-and-the-sea.png',
+    // The place was chosen because on an island every budget closes: the water is
+    // what fell on it, the fish are what the boats did not take, and the waste stays.
+    level: 'high', grades: '11–12' },
+
+  { id: 'ghostlight', title: 'Ghost Light',
+    course: 'AP Precalculus · all four units', field: 'Maths & Stats', accent: '#b0763c',
+    place: 'The Ellery Variety Theatre, dark eleven years and opening in a fortnight: a fly floor, a pit and a box office.',
+    hero: 'the-house--end.png',
+    // Every family of function in the course is a piece of equipment here — the
+    // board is polar, the pit is sinusoids and logs, the box office is rational.
+    level: 'high', grades: '10–12' },
+
+  { id: 'changeover', title: 'Changeover',
+    course: 'AP Macroeconomics · all six units', field: 'Economics', accent: '#7f6fa8',
+    place: 'Halvern Central Station, commandeered for a currency changeover: a queue in the ticket hall and a furnace on platform one.',
+    hero: 'exchange-counter--end.png',
+    // Macroeconomics is national, aggregated and invisible. A changeover makes
+    // every quantity in it local and physical for a fortnight.
+    level: 'high', grades: '11–12' },
+
   { id: 'hospital', title: 'Hospital Heroes',
     course: 'Anatomy & physiology', field: 'Biology', accent: '#e0868f',
     place: "A children's hospital ward — a spine with rooms off it, and everything a size larger.",
