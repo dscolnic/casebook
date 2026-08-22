@@ -205,7 +205,7 @@ roster:
 
       On 2 December 1942 his team achieved the first self-sustaining chain reaction in Chicago Pile-1 beneath Stagg Field, with Leona Woods operating the boron-trifluoride counters that confirmed criticality. At Los Alamos he led F Division, advised on critical mass, designed the water-tank “Fermi method” for yield estimation, and during Trinity famously dropped shredded paper to estimate the blast wave at roughly 10 kilotons. He lectured almost every young theorist on the mesa and was known for back-of-the-envelope estimates that cut through complexity.
 
-      Post-war he returned to Chicago’s Institute for Nuclear Studies and became a leading figure in particle physics, lending his name to fermions, Fermi statistics, and Fermilab. He advocated for civilian nuclear power while cautioning about weapons. He died of stomach cancer in 1954, likely related to radiation exposure, and remains 1 of the most cited experimental-theoretical physicists of the twentieth century.
+      Post-war he returned to Chicago’s Institute for Nuclear Studies and became a leading figure in particle physics, lending his name to fermions, Fermi statistics, and Fermilab. He advocated for civilian nuclear power while cautioning about weapons. He died of stomach cancer in 1954, likely related to radiation exposure, and remains one of the most cited experimental-theoretical physicists of the twentieth century.
     quiz:
       - q: How did Fermi estimate the Trinity yield where he stood?
         a: He dropped shredded paper and watched how far it blew
@@ -403,7 +403,7 @@ roster:
 
       Despite personal invitations, she refused to join the Manhattan Project, stating “I will have nothing to do with a bomb.” From Sweden she followed the Los Alamos work with anguish, corresponding with Hahn about moral responsibility while recognizing that fission had made weapons inevitable. She was excluded from the 1944 Nobel Prize awarded to Hahn, a lasting controversy over credit for fission.
 
-      Post-war she became a prominent voice for women in science and for the peaceful use of nuclear energy, receiving the Enrico Fermi Award in 1966. Element 109, meitnerium, and the Hahn-Meitner Institute honor her. She died in Cambridge in 1968 and is regarded as 1 of the most significant physicists denied a Nobel for her central discovery.
+      Post-war she became a prominent voice for women in science and for the peaceful use of nuclear energy, receiving the Enrico Fermi Award in 1966. Element 109, meitnerium, and the Hahn-Meitner Institute honor her. She died in Cambridge in 1968 and is regarded as one of the most significant physicists denied a Nobel for her central discovery.
     quiz:
       - q: What did Meitner do when the Manhattan Project invited her personally?
         a: She refused, and never worked on the weapon programme
@@ -525,7 +525,7 @@ roster:
     division: P
     color: "#5a4a4a"
     bio: |-
-      <b>Joan Hinton (1921–2010)</b> was an American physicist who earned her degree at Bennington and Wisconsin, working under Elmer Hutchison. She joined the Metallurgical Laboratory in Chicago, where she worked on Enrico Fermi’s pile and on the gaseous diffusion problem, and then was invited to Los Alamos at age 22 as 1 of the youngest women in Experimental Physics.
+      <b>Joan Hinton (1921–2010)</b> was an American physicist who earned her degree at Bennington and Wisconsin, working under Elmer Hutchison. She joined the Metallurgical Laboratory in Chicago, where she worked on Enrico Fermi’s pile and on the gaseous diffusion problem, and then was invited to Los Alamos at age 22 as one of the youngest women in Experimental Physics.
 
       At Los Alamos she worked on reactor construction and on the Trinity cloud-tracking team, calibrating detectors that measured the radioactive plume. She witnessed the July 1945 test and was deeply unsettled by the August uses. She refused the post-war secrecy oath required for Bikini Atoll tests and left Los Alamos in 1946, disillusioned with weapons work.
 
@@ -1516,7 +1516,7 @@ glossary:
       - environmental control
     def: Tracking, containing, treating, and monitoring unwanted radioactive or chemical material so it does not spread to workers or the environment.
 
-# The campaign: 1 working day each, 3 stops and a callback from day 3.
+# The campaign: One working day each, 3 stops and a callback from day 3.
 missions:
   - title: Read the atomic world
     objective: Build a shared language for nuclei, isotopes, and detector signals before any team begins advanced work.
@@ -1529,7 +1529,7 @@ missions:
         task: Match each information need or situation to the best action, instrument, or control. Each option is used once.
         title: The nucleus as a physical system
         setup: A theorist receives four unfamiliar nuclide labels and must extract the right quantity before doing any calculation.
-        scene: Your first morning on the Hill. The Theoretical Division hands you four nuclide labels with no explanation and expects you to pull the right quantity out of each one before anybody calculates anything.
+        scene: Your first morning on the Hill. Oppenheimer stops at your bench with four nuclide labels and no explanation, and expects the right quantity pulled out of each one before anybody calculates anything.
         guide: >-
           Four things you need and four ways to get them. Pair them by asking what each
           symbol counts. One counts protons. One counts protons and neutrons together.
@@ -1582,7 +1582,7 @@ missions:
       - group: CM
         task: Match each information need or situation to the best action, instrument, or control. Each option is used once.
         title: Isotopes and chemical identity
-        scene: Chemistry and Metallurgy is being asked what it can and cannot deliver, and the answer turns on one fact about isotopes. Everything shipped here has both a chemical form and an isotopic composition.
+        scene: Glenn Seaborg, the chemist charged with isolating plutonium, wants a straight answer about what Chemistry and Metallurgy can deliver, and it turns on one fact — everything shipped here has both a chemical form and an isotopic composition.
         guide: >-
           Four questions and four answers, and three of them say yes. Ask of each
           whether the property lives in the electrons or in the nucleus. Bonding is
@@ -1637,7 +1637,7 @@ missions:
       - group: P
         task: Arrange the four cards from earliest cause or prerequisite to latest result.
         title: Ionization and detector signals
-        scene: The Physics Division cannot see a single neutron or alpha particle, and neither can anybody else. Everything the Hill will claim about cross sections, backgrounds and yields rests on a chain of conversions working in order.
+        scene: Robert Bacher, who heads the physics division, puts it plainly — nobody here can see a single neutron or alpha particle. Everything the Hill will claim about cross sections, backgrounds and yields rests on a chain of conversions working in order.
         guide: >-
           These four are one chain, and a detector never measures the radiation itself.
           Ask of each card what has to exist before it. Nothing is amplified before
@@ -1691,7 +1691,7 @@ missions:
       - group: T
         task: Estimate the total binding energy and the binding energy per nucleon.
         title: Mass defect and binding energy
-        scene: "A theorist at the blackboard wants a number before lunch: how tightly a medium-heavy nucleus is bound. The arithmetic is small enough for one line, but the energy scale is the reason this laboratory exists at all."
+        scene: "Hans Bethe, who heads the Theoretical Division, wants a number before lunch: how tightly a medium-heavy nucleus is bound. The arithmetic is small enough for one line, but the energy scale is the reason this laboratory exists at all."
         guide: >-
           Four numbers, and two of them are the same defect written a thousand times
           apart. Ask of each whether it is per nucleon or per nucleus. The conversion
@@ -1742,7 +1742,7 @@ missions:
       - group: P
         task: Use the first reference line to map every gain-and-offset pair it allows. Then add the second line and lock the calibration that satisfies both.
         title: One reference line is not a calibration
-        scene: Two Physics groups bring spectra from different instruments, and the peaks refuse to line up. Each group trusts its own axis. An afternoon comparison meeting is approaching, and somebody has to decide whether the disagreement belongs to the samples or to the instruments.
+        scene: Two Physics groups bring spectra from different instruments to Bacher’s afternoon comparison meeting, and the peaks refuse to line up. Each group trusts its own axis. Somebody has to decide whether the disagreement belongs to the samples or to the instruments.
         guide: >-
           Two controls, gain and offset, slide along a family of calibrations that all
           put one reference line where it belongs. Find out how wide that family is
@@ -1885,7 +1885,7 @@ missions:
           - "Fission, neutron multiplication and chain reactions"
         concept: "Criticality: mass, geometry, reflectors, moderation"
         place: Physics Division
-        scene: A shipment has arrived and the vault wants it sorted before anything is stored together. Some of what is on this bench will sustain a chain reaction given enough of it. The rest will not, whatever you do with it.
+        scene: Elizabeth Graves, the critical-assemblies physicist, wants the new shipment sorted before anything is stored together. Some of what is on this bench will sustain a chain reaction given enough of it. The rest will not, whatever you do with it.
         guide: >-
           Two bins. A nuclide that fissions on slow neutrons will hold a chain given enough
           mass and the right geometry. One that only fissions on fast neutrons, or not at all,
@@ -1962,7 +1962,7 @@ missions:
       - group: T
         task: Estimate how many nuclei remain after the shift, then use the half-life to estimate the sample's activity at that moment.
         title: Radioactive decay law
-        scene: A tracer sample has been sitting through a six-hour shift and somebody needs to know what is left in it. Every count taken here is a count of something that has been decaying since it was made.
+        scene: A tracer sample has sat through a six-hour shift, and Seaborg needs to know what is left in it before the next separation starts. Every count taken here is a count of something that has been decaying since it was made.
         guide: >-
           Four numbers, and two of them are counts of half-lives that differ by a factor
           of ten. Ask of each whether it is a population, a fraction, or a number of
@@ -2017,7 +2017,7 @@ missions:
         task: Estimate the chemical yield.
         title: Radiochemical tracers
         setup: A process begins with 5,000 tracer counts per minute and, once corrected for decay during the separation, recovers 4,000 counts per minute.
-        scene: Chemistry and Metallurgy is running separations on quantities too small to weigh and needs to know how much is being lost. Every percent lost is weeks of production at Hanford.
+        scene: Seaborg is running separations on quantities too small to weigh and wants to know how much is being lost between the steps. Every percent that goes missing is weeks of production at Hanford.
         guide: >-
           Four numbers, in two pairs, and only one pair belongs to this separation. Ask
           of each whether it is what went in or what came out. And note what makes a raw
@@ -2066,7 +2066,7 @@ missions:
         task: Change one condition at a time, compare the count rate, and confirm the cause by removing it and then restoring it.
         title: Find what carries the background
         concept: Attenuation of radiation through matter
-        scene: A weak sample has been counting for an hour and the question is whether it is emitting anything at all. This is where an experimental group either establishes a real signal or convinces itself of one.
+        scene: A weak sample has been counting for an hour, and Graves wants to know whether it is emitting anything at all. This is where an experimental group either establishes a real signal or convinces itself of one.
         guide: >-
           The number you are watching is the counting rate with no sample in the
           station, and the excess is how much of it cannot be accounted for. A change
@@ -2128,7 +2128,7 @@ missions:
       - group: T
         task: Estimate the macroscopic cross section, the mean free path, and the fraction of an uncollided beam left after one mean free path.
         title: Reaction cross sections
-        scene: The Theoretical Division needs a reaction rate and has a cross section written in barns. Nearly every number this laboratory argues about is built out of the multiplication that follows.
+        scene: Bethe needs a reaction rate before the afternoon seminar and hands you a cross section written in barns. Nearly every number this laboratory argues about is built out of the multiplication that follows.
         guide: >-
           Four numbers, and two of them are areas thirty powers of ten apart. Ask of
           each whether it is a density, an area, or a bare one. Check the units before
@@ -2180,7 +2180,7 @@ missions:
       - group: P
         task: Estimate the fractional statistical uncertainty.
         title: Poisson counting statistics
-        scene: A run has finished with 400 net counts and somebody wants to know how well the result is known. Beam time, detector time, material, and shift hours are all scarce here.
+        scene: Joan Hinton, the young experimenter running the counter, has finished a run with 400 net counts and wants to know how well the result is known. Beam time, detector time, material, and shift hours are all scarce here.
         guide: >-
           Four numbers, and three of them are count totals. Only one belongs to this
           run. Ask of each whether it is the numerator or the total. And note how slowly
@@ -2233,7 +2233,7 @@ missions:
         task: Read the reported quantities, decide which belong in the material ledger, and close the input to within the allowed tolerance.
         title: Close the material balance
         concept: "Units and conversions: MeV, u, barns, scientific notation"
-        scene: A separation batch has come back and the numbers do not close. Downstream, somebody is going to cast this material assuming the report meant what they thought it meant, so Chemistry has to close the ledger before release.
+        scene: A separation batch has come back and the numbers do not close. Seaborg will not release the report until the ledger does — downstream, somebody is going to cast this material assuming the numbers meant what they said.
         guide: >-
           Read every stream first, because reading costs nothing. Then count only the
           masses that belong to the same material ledger. The batch does not close, and
@@ -2303,7 +2303,7 @@ missions:
         task: Match each information need or situation to the best action, instrument, or control. Each option is used once.
         title: Neutron energy and moderation
         setup: Match each physical observation to the most relevant interaction idea.
-        scene: A neutron leaving a fission event carries a great deal of energy, and what happens next depends entirely on what it hits. Confusing the possibilities is how a shielding calculation goes quietly wrong.
+        scene: Bethe sketches a fission neutron on the board and asks what happens next — it carries a great deal of energy, and everything depends on what it hits. Confusing the possibilities is how a shielding calculation goes quietly wrong.
         guide: >-
           Four things that can happen to a neutron, and four processes. Pair them by
           asking two questions. Is the neutron still there afterwards? And how much
@@ -2359,7 +2359,7 @@ missions:
         task: Open the dependency chain behind each check, keep the evidence that does not share the counter threshold, and name the shared source that explains the low recorded rate.
         title: Are the neutrons missing, or the counts?
         concept: "Detectors: ionisation, count rate, efficiency, dead time"
-        scene: A neutron counter is reading well below prediction and nobody yet knows whether the physics or the instrument is at fault. The measurement about to be built on this counter is one the whole plutonium programme depends on.
+        scene: A neutron counter is reading well below prediction, and Bacher wants to know whether the physics or the instrument is at fault before anybody reports it upstairs. The measurement built on this counter is one the whole plutonium programme depends on.
         guide: >-
           Open each reading to see what it was computed from. Keep the ones that could
           still see neutrons arriving without passing through the discriminator, and
@@ -2448,7 +2448,7 @@ missions:
       - group: X
         task: Match each situation to the best action, control, document, or interpretation. Each option is used once.
         title: Why plutonium required implosion
-        scene: Measurements on reactor-produced plutonium have come back from the counters and Ordnance has been called in. The result changes not one component but the direction of the entire programme, and the reason has to be understood before the reorganization makes sense.
+        scene: Measurements on reactor-produced plutonium have come back from the counters, and Oppenheimer has called Ordnance in. The result changes not one component but the direction of the entire programme, and the reason has to be understood before the reorganization makes sense.
         guide: >-
           Four situations and four responses. Ask of each whether it is about the
           material or about the engineering. This material emits neutrons on its own, at
@@ -2511,7 +2511,7 @@ missions:
       - group: T
         task: Estimate the neutrons expected during the slow assembly, then compare with the fast one.
         title: Spontaneous fission and neutron backgrounds
-        scene: A sample on the bench is emitting neutrons all by itself, at a rate the counters can measure. 2 assembly schemes are on the table, and 1 takes 1000 times longer than the other.
+        scene: A sample on the bench is emitting neutrons all by itself, at a rate Graves can measure on her counters. 2 assembly schemes are on the table, and one takes 1000 times longer than the other.
         guide: >-
           Four numbers: two rates and two windows. Ask of each which assembly it belongs
           to. The rate is the same either way and the window is not. A thousandth of a
@@ -2537,7 +2537,7 @@ missions:
         answerText: About 10 neutrons for the slow assembly, against about 0.01 for the fast 1.
         why: A spontaneous-fission source gives a steady random background of neutrons. Whether that background matters depends on the time spent vulnerable to an early neutron. The expected number in that window is simply rate times time. A process lasting a thousandth of a second sees 1000 times as many chances as 1 lasting a millionth. The material and source rate can stay the same while the timing changes the verdict completely. That is why the arithmetic matters.
         call: Understand spontaneous-fission backgrounds
-        setup: A sample emits spontaneous-fission neutrons at about 10^4 per second. A slow mechanical assembly takes about 10^-3 s; a fast 1 takes about 10^-6 s.
+        setup: A sample emits spontaneous-fission neutrons at about 10^4 per second. A slow mechanical assembly takes about 10^-3 s; a fast one takes about 10^-6 s.
         estimate:
           prompt: A sample emits spontaneous-fission neutrons at about 10⁴ per second, and a slow mechanical assembly takes about 10⁻³ s to complete. Estimate how many neutrons are expected during the assembly window.
           question: Choose the spontaneous-fission rate and the assembly time.
@@ -2566,7 +2566,7 @@ missions:
         task: Arrange the four cards from earliest cause or prerequisite to latest result.
         title: Why Thin Man was abandoned
         setup: Order the historical reasoning that turned an unexpected material result into a program-wide redesign.
-        scene: Thin Man was the plutonium gun design and much of the site's effort was pointed at it. Then the counters returned a number the concept could not survive, and within weeks the laboratory reorganised.
+        scene: Thin Man was the plutonium gun design, and much of the site's effort was pointed at it. Then the counters returned a number the concept could not survive, and within weeks Oppenheimer reorganised the laboratory.
         guide: >-
           These four are one chain, from a measurement to a decision that cost a year.
           Ask of each card what has to be known before it. Nothing is unacceptable
@@ -2612,7 +2612,7 @@ missions:
       - group: X
         task: Arrange the four cards from earliest cause or prerequisite to latest result.
         title: From outward detonation to inward compression
-        scene: Ordinary high explosive detonates outward from wherever it was lit, and every intuition anybody on the Hill has comes from that. Implosion needs the opposite, and nobody has done it before.
+        scene: George Kistiakowsky, the explosives chemist running X Division, says it plainly — ordinary high explosive detonates outward from wherever it was lit, and every intuition on the Hill comes from that. Implosion needs the opposite, and nobody has done it before.
         guide: >-
           These four are one chain, and the problem is convergence rather than power.
           Ask of each card what has to happen first. One point of initiation gives one
@@ -2668,7 +2668,7 @@ missions:
         task: Estimate the work scale.
         title: Equations of state
         setup: A notional sample experiences an average pressure of 5 x 10^9 Pa while its volume decreases by 2 x 10^-6 m^3.
-        scene: The Theoretical Division is calculating work done on a material at pressures nothing in the laboratory has ever measured. An error in the units looks exactly like an error in the physics.
+        scene: Von Neumann is calculating work done on a material at pressures nothing in the laboratory has ever measured, and wants the units checked line by line. An error in the units looks exactly like an error in the physics.
         guide: >-
           Four numbers: two pressures and two volumes, each pair a hundredfold apart.
           Ask of each whether it describes this regime or handbook conditions. Work is a
@@ -2719,7 +2719,7 @@ missions:
         task: Read the whole reading panel, including the calm readings, then select the one cause that fits all of it.
         title: Phase diagrams
         setup: You are explaining a microstructure the phase diagram does not predict.
-        scene: A metallurgist has a microstructure under the microscope that the phase diagram says should not be there. Everything the laboratory does with this metal is an argument with a diagram drawn from very little data.
+        scene: Hornig has a microstructure under the microscope that the phase diagram says should not be there. Everything the laboratory does with this metal is an argument with a diagram drawn from very little data.
         guide: >-
           A phase diagram is drawn for one composition. Ask of each candidate whether it
           questions the map, or what the map was drawn for. Plutonium has several solid
@@ -2758,7 +2758,7 @@ missions:
         task: Match each lens-program question to the measurement or engineering action that can answer it.
         title: What an explosive lens does
         concept: "Chemical explosives: energy release and detonation velocity"
-        scene: The lens programme has been given the problem of shaping a detonation front, and the name is a deliberate analogy. Every part of that analogy has to be earned against real firing data.
+        scene: Kistiakowsky’s lens programme has been given the problem of shaping a detonation front, and the name is a deliberate analogy. He wants every part of that analogy earned against real firing data before anybody uses it in a memo.
         guide: >-
           Four questions and four ways to answer them. Pair them by asking what each
           measurement isolates. One material alone? Two acting together? The joints
@@ -2824,7 +2824,7 @@ missions:
         title: How many half-lives have passed
         place: Diagnostics Bay
         question: Estimate the elapsed time since the first count.
-        scene: A sample counted at 8,000 counts a minute reads 500 today, and the notebook does not say how long ago the first count was taken. The half-life is on the chart at 12 hours.
+        scene: A sample counted at 8,000 counts a minute reads 500 today, and the notebook does not say when the first count was taken. Kistiakowsky wants the elapsed time; the chart puts the half-life at 12 hours.
         guide: >-
           Six numbers, and three of them are steps of the working: a ratio, a count of
           halvings, and a base. Ask of each whether the relationship needs it or
@@ -2871,7 +2871,7 @@ missions:
       - group: P
         task: Change one part of the timing chain at a time. Compare the arrival-time spread after each substitution, then restore the live path to confirm which change actually removes the jitter.
         title: Find where timing jitter enters
-        scene: A timing array is disagreeing with itself, and until that is settled no symmetry claim from it means anything. The Hill is about to spend months measuring differences of nanoseconds.
+        scene: A timing array is disagreeing with itself, and Bacher has ruled that until this is settled no symmetry claim from it means anything. The Hill is about to spend months measuring differences of nanoseconds.
         guide: >-
           The number you are watching is the spread in arrival times between channels,
           and the live path gives about fourteen nanoseconds of it. Substituting a
@@ -2904,7 +2904,7 @@ missions:
         format: CONTROL
         question: Which part of the live timing path is responsible for the broad arrival-time spread?
         control:
-          hint: Run 1 substitution at a time and compare the channel-to-channel spread with the 14 ns live baseline. After you find a change that removes the spread, restore the original path and check that the spread returns.
+          hint: Run one substitution at a time and compare the channel-to-channel spread with the 14 ns live baseline. After you find a change that removes the spread, restore the original path and check that the spread returns.
           baseline: 14
           noise: 1
           tolerance: 2
@@ -2927,7 +2927,7 @@ missions:
       - group: E
         task: Estimate the delay difference.
         title: Why simultaneity became an engineering requirement
-        scene: Several initiation channels have to act so nearly together that their separate wavefronts merge into one coordinated event. On the timing bench, path length is one measurable source of delay, and the conversion from length to time has to be explicit.
+        scene: Deak Parsons, the naval ordnance officer engineering the weapon, wants the delay budget explicit — several initiation channels have to act so nearly together that their wavefronts merge into one event. On the timing bench, path length is one measurable source of delay.
         guide: >-
           Four numbers, and two of them are signal speeds a hundred times apart. Ask of
           each whether it could carry a pulse down a cable. And note what the answer is
@@ -2982,7 +2982,7 @@ missions:
           - "Radioactive decay modes: alpha, beta, gamma"
         concept: "Fission, neutron multiplication and chain reactions"
         place: Experimental Area
-        scene: The pile has to sit exactly critical while a foil is irradiated on the other side of the shield. The control rod is the only thing that answers it, and everything else in the room is quietly changing the balance.
+        scene: The pile has to sit exactly critical while a foil is irradiated behind the shield, and Graves hands you the control rod — the only thing that answers it. Everything else in the room is quietly changing the balance.
         guide: >-
           Hold the pile at the neutron level on the meter, inside the band. The band narrows
           as the run goes on, because the foil's exposure has to be known to a few per cent

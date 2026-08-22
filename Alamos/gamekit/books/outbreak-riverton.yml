@@ -418,7 +418,7 @@ glossary:
       - vectors
     def: An organism that carries an agent between hosts — a mosquito, a tick — without being where the agent lives.
 
-# The campaign: 1 working day each, 3 stops and a callback from day 3.
+# The campaign: One working day each, 3 stops and a callback from day 3.
 missions:
   - title: The First Cluster
     objective: Open an investigation using a defensible provisional case definition and an explicit comparison baseline.
@@ -1009,7 +1009,7 @@ missions:
   - title: Hijacked Cells
     objective: Build the information-flow model and choose a measurement that distinguishes more RNA from more efficient translation.
     briefing: Molecular data suggest that affected cells are producing unfamiliar RNA and proteins. The player must reconstruct how information flows from nucleic acid to protein and identify where the agent interrupts normal cell function.
-    stake: Day six. Infected cells are turning out RNA and proteins the sequencing centre does not recognise, 1 of them at 40 times the level of anything beside it. A genomic epidemiologist, Lena Bergström, has the time- course data and thinks everybody is looking at the wrong molecule; she has had it for two days and nobody has asked for it. This stage you decide where in the cell's own production line the agent is interfering. The loudest molecule in a sample is often a consequence rather than a cause. Aim at the wrong stage and the whole molecular programme goes into a bystander.
+    stake: Day six. Infected cells are turning out RNA and proteins the sequencing centre does not recognise, one of them at 40 times the level of anything beside it. A genomic epidemiologist, Lena Bergström, has the time- course data and thinks everybody is looking at the wrong molecule; she has had it for two days and nobody has asked for it. This stage you decide where in the cell's own production line the agent is interfering. The loudest molecule in a sample is often a consequence rather than a cause. Aim at the wrong stage and the whole molecular programme goes into a bystander.
     takeaway: Use DNA and RNA, transcription, translation, codons, protein function, gene regulation as an evidence chain rather than as isolated facts.
     stops:
       - group: MOL
@@ -1573,6 +1573,22 @@ missions:
               relationship it is going into. Reading the label is how a unit mismatch, or a
               quantity belonging to a different part of the problem, is caught before it is
               placed — which is the habit this format exists to build.
+        # Was a second, complete CHOICE grafted onto this card — four options, a key and
+        # three rebuttals about *what to measure next* — sitting above an estimate block
+        # that computes a pH. Two questions on one card, and the CHOICE's key gave away
+        # what the estimate is for. The teaching in those four lines is kept here.
+        background:
+          - >-
+              What this number settles, and what it does not. A pH of 7.28 with a low
+              bicarbonate and a low carbon dioxide is acidaemia with a metabolic cause and a
+              respiratory compensation — the lungs are already working on it. What it does not
+              say is where the acid is coming from. Arterial oxygenation and carbon dioxide are
+              on the chart from the earlier panel, so measuring them again is precision about a
+              number nobody is disputing. Cardiac output reports the pump, and the pump has
+              already read normal. And three devices agreeing on the same blood-oxygen reading
+              tells you the devices agree, not anything new about the patient. The missing
+              measurement is tissue lactate: it is the one that says whether the acid is coming
+              from tissue that is not getting enough blood, whatever the pump is reporting.
         assumes:
           - bicarbonate is the major measured base in this buffer pair
           - PaCO₂ is the arterial carbon-dioxide pressure in mmHg
@@ -1581,16 +1597,6 @@ missions:
         question: Estimate the pH from bicarbonate 14 mmol/L and PaCO₂ 31 mmHg.
         answerText: The estimate is about pH 7.28. The low bicarbonate drives the pH downward, while the lower PaCO₂ partly compensates. The acid–base result supports a metabolic component but does not identify its cause by itself.
         why: For the blood bicarbonate buffer, dissolved carbon dioxide is proportional to PaCO₂. The useful clinical form is pH = 6.1 + log₁₀([HCO₃⁻]/(0.03×PaCO₂)). With bicarbonate 14 and PaCO₂ 31, the ratio is about 15 and the pH is about 7.28. The low bicarbonate supports a metabolic acid–base disturbance, while the reduced PaCO₂ moves pH upward as respiratory compensation. The calculation does not identify the cause by itself; the pending lactate and the rest of the oxygen-delivery evidence still matter.
-        choices:
-          - Tissue lactate and acid-base status.
-          - Arterial oxygenation and carbon dioxide.
-          - Cardiac output, or a validated stand-in for flow.
-          - The same blood-oxygen reading, repeated on three devices.
-        answer: Tissue lactate and acid-base status.
-        rebuttals:
-          - Arterial oxygenation and carbon dioxide are already on the chart from the earlier panel. Measuring them again is precision about a number that is not in dispute.
-          - Cardiac output reports the pump, and the pump has already read normal. Worth repeating if the patient changes; not the missing measurement now.
-          - Three identical devices agreeing tells you the devices agree. It does not add an independent observation.
         estimate:
           prompt: Arterial bicarbonate is 14 mmol/L and PaCO₂ is 31 mmHg.
           question: Estimate arterial pH using the blood bicarbonate Henderson–Hasselbalch relation.
@@ -1700,7 +1706,7 @@ missions:
         takeaway: A biological response can become part of the problem. The strongest explanation must account for timing as well as the direction of each measurement.
         format: DIAGNOSIS
         rebuttals:
-          - Uncontrolled replication would show a rising pathogen signal. This 1 is falling, over 48 hours, while the patient declines.
+          - Uncontrolled replication would show a rising pathogen signal. This one is falling, over 48 hours, while the patient declines.
           - A second, bacterial infection on top of the first is the classic late deterioration, and it is the reason cultures were sent. They are negative.
           - Measurement noise does not move four readings in a coherent direction at once, and the antibody result is not noise.
         takesAsRead:
@@ -1723,8 +1729,8 @@ missions:
           - zone: Neutralizing antibody
             label: Neutralizing antibody
             value: Present
-            status: alarm
-            note: Adaptive response is active
+            status: high
+            note: Adaptive response is active — notable, and not itself a bad sign
           - zone: Oxygenation
             label: Oxygenation
             value: Worsening
@@ -2484,13 +2490,13 @@ missions:
           - zone: Reference isolate
             label: Reference isolate
             value: Remains drug-sensitive
-            status: alarm
-            note: The assay can still detect drug activity
+            status: normal
+            note: The assay can still detect drug activity, so the drug itself has not stopped working
           - zone: Administration record
             label: Administration record
             value: Doses documented
-            status: alarm
-            note: No major missed-dose pattern
+            status: normal
+            note: No major missed-dose pattern, so delivery is not the explanation
         choices:
           - label: Poor drug delivery
             mechanism: The drug never reaches an effective concentration in the patient.
@@ -3511,3 +3517,200 @@ copy:
   TRANSIT: <p>The transit and mobility centre. Trip counts nobody has yet matched to the case map.</p>
   BRIEF: <p>The public briefing room. What the city is told, and how much of it is hedged.</p>
   WASTE: <p>The wastewater plant. Surveillance that sees the city before the city sees a doctor.</p>
+
+# --------------------------------------------------------------- the reviews
+# Callback variants. From day 3 the day model serves the oldest taught lesson
+# that has an unserved "— Review" variant; matching is on the base title. Each
+# is the base's idea on a different case, never a re-serve of its board.
+lessons:
+  - group: POP
+    title: Signal or noise? — Review
+    task: Is the Mercy General jump a signal, and what on the desk decides it?
+    place: Epidemiology Operations Room
+    scene: >-
+      Mercy General reports twelve new cases in two days, the sharpest jump of the
+      outbreak. Dr. Sofia Morales, the epidemiology lead, has the hospital's testing
+      log and the other two hospitals' counts on the desk before anyone briefs the
+      city.
+    guide: >-
+      Six readings, and the same question as the first morning: a count against what
+      was expected. Ask of each candidate which readings it predicts should have
+      moved, and which it needs flat. A count can rise because the city changed or
+      because the counting did, and two readings on this board separate those.
+    assumes:
+      - more searching finds more cases whether or not the disease has moved
+      - a rate is a count measured against a population and a length of time
+    takeaway: A count is not a signal until a comparison says what was expected — and until the way it was counted has been ruled out.
+    format: DIAGNOSIS
+    question: Is the Mercy General jump a signal, and what on the desk decides it?
+    headline: Twelve cases in two days at one hospital, and a screening tent that opened on Monday.
+    readings:
+      - zone: Count
+        label: New cases at Mercy General
+        value: 12 in two days
+        status: alarm
+      - zone: Testing
+        label: Tests run there
+        value: tripled since the screening tent opened
+        status: key
+      - zone: Positivity
+        label: Share of tests positive
+        value: falling
+        status: key
+      - zone: Elsewhere
+        label: Counts at the other two hospitals
+        value: flat
+        status: normal
+      - zone: Dates
+        label: Specimen dates
+        value: all taken this week
+        status: normal
+      - zone: Wastewater
+        label: Community signal
+        value: flat this week
+        status: normal
+    choices:
+      - label: A true acceleration of the outbreak
+        mechanism: More disease in the city, arriving first at the busiest hospital.
+      - label: An artifact of the new screening tent
+        mechanism: More searching finds more of what was always there, without anything changing in the city.
+      - label: A reporting backlog clearing at once
+        mechanism: Cases from earlier days filed together read as a two-day jump.
+      - label: An ordinary seasonal rise
+        mechanism: Autumn respiratory illness lifting every count with it.
+    answer: An artifact of the new screening tent
+    rebuttals:
+      - More disease raises the share of tests positive along with the count. Positivity is falling while testing triples, and the other hospitals and the wastewater see nothing.
+      - A backlog carries old specimen dates with it, and every swab in this jump was taken this week.
+      - A seasonal rise lifts the other two hospitals too. Their counts are flat, so whatever moved at Mercy General is local to how Mercy General is counting.
+    why: >-
+      The count rose because the counting did. A screening tent triples the
+      searching, and more searching finds more of whatever was always there — so the
+      test of a real acceleration is the share of tests coming back positive, and it
+      is falling. A true rise lifts positivity, the neighbouring counts and the
+      wastewater together, and all three are quiet. Day one's rule runs both ways:
+      two cases found a second way made that cluster real, and twelve found only one
+      way is what an artifact looks like.
+
+  - group: POP
+    title: Build the provisional case definition — Review
+    task: Order the revision so the counting stays comparable across the change.
+    place: Epidemiology Operations Room
+    scene: >-
+      Week three, and the molecular assay is now reliable enough to join the case
+      definition. Each hospital has drafted the change differently. Dr. Lena Ortiz
+      wants one revision on every desk by tonight, without breaking three weeks of
+      curve counted the old way.
+    guide: >-
+      All four steps will happen, so ask what each one lets you check before the
+      next depends on it. A revised definition is still an instrument wrong in a
+      known direction, and it now has a second job: the counts made before and after
+      the change have to stay comparable.
+    assumes:
+      - a curve counted under two definitions is two curves unless both are stated
+    takeaway: An operational definition can change, provided the change itself is tested and the record stays comparable across it.
+    format: SEQUENCE
+    cards:
+      - Draft the revised definition, adding the laboratory criterion where the evidence says.
+      - Read the discordant cases — definition-positive but assay-negative, and the reverse.
+      - Test the revision on known cases and obvious non-cases.
+      - Issue it with a version date, and restate the earlier weeks under both definitions.
+    order: [1, 0, 2, 3]
+    rebuttals:
+      - The discordant cases first, because where the assay and the definition disagree is the evidence for what to change. Drafting before reading them is writing down what you expected.
+      - "The draft second: the laboratory criterion goes in where the discordance says the old definition was wrong, not wherever it is easiest to add."
+      - Testing before issue, same as three weeks ago. Known cases catch a revision now too narrow; obvious non-cases catch one the assay has made too wide.
+      - The version date and the restated weeks go out together. A curve that changes definition midstream without both is a step nobody can interpret.
+    why: >-
+      The order is the same instrument logic as the first definition, with one new
+      obligation. Evidence first: the discordant cases are the record of exactly
+      where the old definition and the assay disagree, and they say what the
+      revision should fix. Draft from that evidence, then test both ways before
+      anything is issued. The new step is the last one — a definition changed
+      mid-outbreak splits the curve, so the earlier weeks are restated under both
+      definitions and the change is dated, or every trend across it is lost.
+
+  - group: MOL
+    title: When heat changes an enzyme assay — Review
+    task: Two reagent batches, one hot van, and the same samples in both runs.
+    place: Molecular Diagnostics Bench
+    scene: >-
+      A reagent shipment for the reporter assay spent a day in an unrefrigerated
+      van. Dr. Ravi Patel runs the same patient samples with the old batch and the
+      van batch — same buffer, same readout — and the van batch gives almost no
+      signal.
+    guide: >-
+      Four options, and the two runs share almost everything. Ask of each option
+      what it would do to both runs, and what it would do to only one. An
+      explanation that would drag both batches down together cannot account for a
+      difference between them.
+    assumes:
+      - an enzyme is a protein whose function depends on it keeping its shape
+    takeaway: A side-by-side comparison indicts the one component that changed, because anything shared cannot explain a difference.
+    format: CHOICE
+    question: What does the batch comparison show?
+    choices:
+      - Heat in the van disrupted the reporter enzyme's structure.
+      - The patient samples themselves degraded before the second batch was run.
+      - The van's heat destroyed the target sequence inside the patient specimens.
+      - The reading instrument drifted between the two batches' runs.
+    answer: Heat in the van disrupted the reporter enzyme's structure.
+    rebuttals:
+      - The same samples read normally with the old batch minutes apart, so the samples had not degraded.
+      - The specimens never went in the van. The target was not the thing that was heated.
+      - Instrument drift would move both batches alike, and only the van batch lost its signal.
+    why: >-
+      Only one thing differs between the two runs: which batch of reporter enzyme
+      went into the tube. The samples, buffer and readout are shared, so anything
+      wrong with them would drag both batches down together. An enzyme is a folded
+      protein, and a day of van heat is enough to loosen the fold that makes its
+      active site — the 55-degree lesson from the bench, arriving as a shipping
+      problem. The comparison indicts the one component that was actually heated,
+      and nothing else.
+
+  - group: CELL
+    title: Choose the membrane mechanism — Review
+    task: Name each delivery route by its mechanism, from what the membrane is seen doing.
+    place: Membrane Biology Lab
+    scene: >-
+      The therapy meeting has moved on to delivery. Four candidate ways a treatment
+      could reach the inside of an airway cell are on the board, each described by
+      what is observed at the membrane. Dr. Maya Chen wants each named by mechanism
+      before costs are argued.
+    guide: >-
+      Four observations, four mechanisms, each used once. Pair them on the same
+      three tests as before. Which way does the movement run against the gradient?
+      Is a protein required? And is energy being spent? The poisoning result is the
+      receipt for one of those answers.
+    assumes:
+      - a concentration gradient has a direction
+      - ATP is the cell's energy currency
+    takeaway: Transport mechanisms are named from direction, protein and energy — never from what the molecule is called.
+    format: PROTOCOL
+    columns:
+      - What is observed at the membrane
+      - Which mechanism that is
+    scenarios:
+      - The candidate crosses fastest when its outside concentration is highest, with no membrane protein needed.
+      - The candidate crosses down its gradient, but only in cells expressing one carrier protein.
+      - Uptake continues after the inside concentration exceeds the outside, and stops when ATP production is poisoned.
+      - The candidate, packaged in a particle too large for any pore, appears inside membrane-bound vesicles.
+    choices:
+      - Simple diffusion.
+      - Facilitated diffusion through a carrier.
+      - Active transport.
+      - Endocytosis.
+    mapping: [0, 1, 2, 3]
+    rebuttals:
+      - Downhill with no protein is simple diffusion — the rate tracks the gradient because the gradient is the only push.
+      - Downhill but carrier-dependent is facilitated diffusion. No energy is spent; the protein supplies the selectivity, not the push.
+      - Uphill once the inside exceeds the outside, and dead when ATP is poisoned — the energy receipt names active transport.
+      - A particle too large for any pore arriving in vesicles has been wrapped, not passed through. That is endocytosis.
+    why: >-
+      The same three constraints do all the work, on a therapy instead of a
+      nutrient. Direction first: anything moving down its gradient needs no energy,
+      so the ATP-poisoning result marks the one true uphill mover. Protein next: a
+      gradient-driven crossing that still needs a carrier is facilitated, not
+      simple. Size last: a particle too large for any pore cannot cross the bilayer
+      at all, so finding it in vesicles means the membrane wrapped it. Choosing a
+      delivery route is choosing which of these doors the therapy will use.
