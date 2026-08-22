@@ -407,7 +407,7 @@ glossary:
       - state vector
     def: Where something is and how fast it is going, written down together for one moment in time.
 
-# The campaign: 1 working day each, 3 stops and a callback from day 3.
+# The campaign: One working day each, 3 stops and a callback from day 3.
 missions:
   - title: The Failure
     objective: Create a trusted state vector and a prioritized anomaly list before commanding the crew.
@@ -420,7 +420,7 @@ missions:
         title: The spacecraft, or the sensors?
         concept: What a measurement can honestly say, and what it cannot
         place: Mission Control
-        scene: Nine minutes after the bang, three cabin pressure readings fall in the same second. Cabin pressure is how hard the air inside is pushing on the walls, and it drops when air leaks out. The dial gauge beside them, which is a needle on a spring rather than anything electrical, has not moved.
+        scene: Nine minutes after the bang, three cabin pressure readings fall in the same second. Cabin pressure is how hard the air inside is pushing on the walls, and it drops when air leaks out. The dial gauge beside them, which is a needle on a spring rather than anything electrical, has not moved. Carter wants to know what could do that.
         guide: >-
           Four options, and two facts have to be explained together. Three readings fell
           in the same second. The dial gauge did not move at all. Ask of each option how
@@ -466,7 +466,7 @@ missions:
         task: Put the four steps in the order they have to happen.
         title: Build the first picture
         place: Telemetry Analysis Room
-        scene: Three consoles hold numbers that disagree. One of the two main power lines reads zero. The guidance computer, which keeps track of where the spacecraft is and which way it points, has restarted with no memory of what it saw. Nothing has been written down yet.
+        scene: Three consoles hold numbers that disagree. One of the two main power lines reads zero. The guidance computer, which keeps track of where the spacecraft is and which way it points, has restarted with no memory of what it saw. Erika Lindqvist, who keeps the room's log, has an empty page in front of her.
         guide: >-
           All four steps will be done, so ask what each one needs to be true first. The
           recordings are wiped over within minutes. A neat answer worked out from two
@@ -558,7 +558,7 @@ missions:
         task: Match each thing you need to know to the measurement that gives it.
         title: Which measurement gives what
         place: Deep-Space Tracking Station
-        scene: The onboard computer has restarted and the tracking comes and goes. The room has to rebuild where the spacecraft is from whatever can still be measured, and say what each measurement buys.
+        scene: The onboard computer has restarted and the tracking comes and goes. Whitaker lays out whatever can still be measured. The room has to rebuild where the spacecraft is, and say what each measurement buys.
         guide: >-
           Four things you need to know, and four ways to measure. Pair them by asking
           what each measurement actually notices. An angle? A time? A change of pitch?
@@ -608,7 +608,7 @@ missions:
         title: Rebuild where it is
         concept: Speed, distance and time, and how they give each other
         place: Guidance Room
-        scene: The computer restarted and lost its bearings. A distance, two angles and a pitch trace remain, recorded on different clocks. The next tracking pass will test whatever the room reconstructs.
+        scene: The computer restarted and lost its bearings. A distance, two angles and a pitch trace remain, recorded on different clocks. The next tracking pass will test whatever Reyes signs.
         guide: >-
           All four steps will happen. Ask of each what has to be sorted out first.
           Measurements on different clocks cannot be fitted together until they are on
@@ -650,7 +650,7 @@ missions:
         title: What holds it in the curve
         concept: Something moving in space keeps going until something pushes it
         place: Guidance Computer Room
-        scene: The return path swings the spacecraft round the Moon at two and a half thousand kilometres up. Somebody on the loop has asked why it does not simply fall onto the surface.
+        scene: The return path swings the spacecraft round the Moon at two and a half thousand kilometres up. Somebody on the loop has asked why it does not simply fall onto the surface. Whitaker wants the room to give a real answer.
         guide: >-
           All four options offer something holding the spacecraft up. Ask of each
           whether it names a real push. Two of them invent one. There is nothing out
@@ -701,7 +701,7 @@ missions:
         task: Match each change to what it does to the turning.
         title: How a spacecraft turns
         place: Attitude Dynamics Lab
-        scene: The guidance computer is out and the crew is about to fly by hand. Before anybody touches a thruster, the room says plainly what each change does.
+        scene: The guidance computer is out and the crew is about to fly by hand. Reyes wants the words agreed first. Before anybody touches a thruster, the room says plainly what each change does.
         guide: >-
           Four changes on the left, four results on the right. Pair them by asking what
           each change does to two things. How hard is it being turned? And how hard is
@@ -751,7 +751,7 @@ missions:
         title: Turning it by hand
         concept: Spinning things keep spinning, and a nudge takes a while to show
         place: Crew Procedures Room
-        scene: The guidance computer is off. The crew has to turn the spacecraft ninety degrees using two thruster pairs and a mark on the window. Every extra correction spends fuel meant for the return.
+        scene: The guidance computer is off. The crew has to turn the spacecraft ninety degrees using two thruster pairs and a mark on the window. Every extra correction spends fuel meant for the return, and Whitaker is counting that fuel.
         guide: >-
           You set two things: how hard to start the turn, and where to start braking.
           Then the plan runs and you watch it. Nothing slows this turn down by itself,
@@ -802,7 +802,7 @@ missions:
         task: Work out the turning effect of the thruster.
         title: Turning effect from a thruster
         place: Guidance Console
-        scene: A thruster pushes with two hundred newtons, three metres out from the middle of the spacecraft. The crew needs the turning effect before it can predict how fast the turn starts.
+        scene: A thruster pushes with two hundred newtons, three metres out from the middle of the spacecraft. Reyes wants the turning effect first, so the crew can predict how fast the turn starts.
         guide: >-
           Five numbers, and three belong elsewhere. The weight of the spacecraft, the
           docking ring, and a half. Ask of each whether the turning depends on it. Then
@@ -851,7 +851,7 @@ missions:
         title: The spacecraft, or the sensor
         concept: "What a measurement can honestly say, and what it cannot"
         place: Telemetry Room
-        scene: The console has flagged more numbers than the team can look at before handover. Some of them are the spacecraft doing something. The rest are the sensor going wrong, and both are just numbers on a list.
+        scene: The console has flagged more numbers than the team can look at before handover. Lindqvist slides the list across. Some flags are the spacecraft doing something. The rest are a sensor going wrong, and both look the same on the list.
         guide: >-
           Two bins. Ask whether anything else on board agrees. A real change shows up in more
           than one place and happens at a speed that is possible. A broken sensor jumps
@@ -925,7 +925,7 @@ missions:
         task: Turn the store and the draw into hours.
         title: How long can the battery last?
         place: Electrical Systems Room
-        scene: The fuel cells are gone, and the crew is on the entry batteries days earlier than any plan allowed. The flight doctor, who watches the crew's health from the ground, wants a number of hours before the next decision about switching things off.
+        scene: The fuel cells are gone, and the crew is on the entry batteries days earlier than any plan allowed. The flight doctor, who watches the crew's health from the ground, wants a number of hours. Shah has to give it before the next decision about switching things off.
         guide: >-
           Five numbers, and three belong to other questions. The voltage, the brief
           peak, and the time to the next burn. Ask of each whether it is an amount
@@ -973,7 +973,7 @@ missions:
         task: Say which fault fits the voltage, the current and the heat together.
         title: Why is the voltage sagging?
         place: Spacecraft Load Panel
-        scene: A main power line is sagging at twenty-four volts instead of twenty-eight, while the current drawn from it sits where it was planned to be. Engineers want to start pulling equipment off.
+        scene: A main power line is sagging at twenty-four volts instead of twenty-eight, while the current drawn from it sits where it was planned to be. Ana Ferreira, who keeps the power list, wants the fault named before anything is pulled off.
         guide: >-
           Four options, and three facts have to fit together. The supply is fine. The
           current is where it was planned. Something is hot. Ask of each option how many
@@ -1049,7 +1049,7 @@ missions:
         task: Share out the amp-hours, and keep every needed condition met.
         title: Switch things off without losing the mission
         place: Mission Planning Desk
-        scene: Forty-one amp-hours left, and sixty-two hours to fly. An amp-hour is one hour of giving one amp, so forty-one of them is not much. Guidance, radio, heating and life support all want power. Something has to be turned down within minutes.
+        scene: Forty-one amp-hours left, and sixty-two hours to fly. An amp-hour is one hour of giving one amp, so forty-one of them is not much. Guidance, radio, heating and life support all want power, and Shah says something has to be turned down within minutes.
         guide: >-
           Forty-one amp-hours, sixty-two hours to fly, and everything switched on uses
           more than that. Watch the list of questions rather than the loads: it shows
@@ -1132,7 +1132,7 @@ missions:
         title: How much does the cabin cool?
         concept: Energy moves from hot to cold, and insulation slows it down
         place: Thermal Control Lab
-        scene: With most things switched off, the cabin is losing about a kilowatt more heat than it makes. The flight doctor wants to know how long the crew has before the cold becomes a medical problem.
+        scene: With most things switched off, the cabin is losing about a kilowatt more heat than it makes. The flight doctor asks Brooks how long the crew has before the cold becomes a medical problem.
         guide: >-
           Four numbers, and two of them belong elsewhere. The temperature now, and the
           hours, are not in this sum. Ask of each whether it is energy lost, or energy
@@ -1179,7 +1179,7 @@ missions:
         task: Match each thing happening in the cabin to how the heat is moving.
         title: How the heat is getting out
         place: Cabin Environment Console
-        scene: The cabin is cooling and the crew wants to do something about it. What they can do depends on how the heat is actually leaving, so the room names the route first.
+        scene: The cabin is cooling and the crew wants to do something about it. What they can do depends on how the heat is actually leaving, so Brooks has the room name each route first.
         guide: >-
           Four things happening in the cabin, and four ways heat moves. Pair them by
           asking what is carrying the warmth. Touching? Moving air? Or nothing at all?
@@ -1230,7 +1230,7 @@ missions:
         title: Keep the cabin survivable
         concept: Energy moves from hot to cold, and insulation slows it down
         place: Materials and Insulation Shop
-        scene: The cabin is at four degrees and falling. Water is beading on the walls and the crew is sleeping in their suits. Heating all of it is not affordable on what is left.
+        scene: The cabin is at four degrees and falling. Water is beading on the walls and the crew is sleeping in their suits. Shah says heating all of it is not affordable on what is left.
         guide: >-
           All four options spend the same fixed energy. Ask of each whether it slows the
           loss, or puts back heat that has already gone. Wrapping does the first and
@@ -1275,7 +1275,7 @@ missions:
         title: Cabin pressure, through the work period
         concept: "Air is a mixture, and the share of each gas has to stay in range"
         place: Environmental Console
-        scene: The crew are working in the middle module and the cabin has to hold its pressure while they do. An airlock cycles, the air cleaner comes on, and the small leak on the log is still there.
+        scene: The crew are working in the middle module and the cabin has to hold its pressure while they do. Petra Novak, the life support engineer, watches the trace. An airlock cycles, the air cleaner comes on, and the small leak on the log is still there.
         guide: >-
           Hold the cabin pressure inside the band on the console. The band narrows later,
           because the crew move towards the module with the suspect seal. A leak keeps
@@ -1332,7 +1332,7 @@ missions:
         title: Follow the air
         concept: Air is a mixture, and the share of each gas has to stay in range
         place: Life-Support Laboratory
-        scene: Carbon dioxide keeps climbing. The scrubber, which is the machine that takes that gas back out of the air, has a fan that sounds normal and draws its usual current. The airflow through it is low. There are pressure readings on both sides of the filter.
+        scene: Carbon dioxide keeps climbing. The scrubber, which is the machine that takes that gas back out of the air, has a fan that sounds normal and draws its usual current. The airflow through it is low. Novak reads out the pressures on both sides of the filter.
         guide: >-
           Build the path the air takes, in order, then name the link where it becomes
           the problem. The fan sounds normal and draws its usual current, which tells
@@ -1399,7 +1399,7 @@ missions:
         task: Work out how much carbon dioxide the crew makes in six hours.
         title: How much they breathe out
         place: Cabin Air Console
-        scene: Three crew, each breathing out about twenty litres of carbon dioxide an hour. The workshop needs to know what a home-made scrubber has to keep up with over the next six hours.
+        scene: Three crew, each breathing out about twenty litres of carbon dioxide an hour. Brooks wants a number before the workshop starts building. A home-made scrubber has to keep up with all of it for the next six hours.
         guide: >-
           Five numbers, and two belong to a different question. A whole day, and a
           figure by weight rather than by volume. Ask of each whether it is a rate, a
@@ -1447,7 +1447,7 @@ missions:
         task: Say what the improvised fix has to get right.
         title: Make the air breathable
         place: Crew Hardware Workshop
-        scene: Carbon dioxide is close to the limit and still climbing. The spare canisters are square, the socket is round, and there is tape, a suit hose, a sock and a plastic cover.
+        scene: Carbon dioxide is close to the limit and still climbing. The spare canisters are square and the socket is round. Novak asks the crew what is aboard. There is tape, a suit hose, a sock and a plastic cover.
         guide: >-
           All four options describe something the fix could be judged on. Ask of each
           whether it changes how much air really goes through the canister. Air that
@@ -1497,7 +1497,7 @@ missions:
         task: Change one thing at a time, and put it back, until the fade follows something.
         title: Why did the signal fade?
         place: Deep-Space Antenna
-        scene: Voice and data have gone weak at two ground stations at once. A ground station is a dish antenna on Earth, and these two are on opposite sides of the world. The spacecraft's transmitter is putting out what it should. Three things can be swapped without risking anything.
+        scene: Voice and data have gone weak at two ground stations at once. A ground station is a dish antenna on Earth, and these two are on opposite sides of the world. The spacecraft's transmitter is putting out what it should. Ito lists three things that can be swapped without risking anything.
         guide: >-
           The number you watch is how strong the signal is. Right now it is about twelve
           decibels low at both dishes. Each test changes one part of the path and can be
@@ -1551,7 +1551,7 @@ missions:
         title: How long is one wave
         concept: Signals take time to travel, and distance costs strength
         place: Communications Analysis Room
-        scene: The link is fading, and the antenna team needs the length of one wave for its pointing model. The spacecraft transmits two billion waves a second.
+        scene: The link is fading. Marcus Haldane, who works the numbers on the radio link, needs the length of one wave for his pointing model. The spacecraft transmits two billion waves a second.
         guide: >-
           Four numbers, and two of them are traps. One is the same figure misread as
           millions rather than billions. One is the speed of sound, which has nothing to
@@ -1598,7 +1598,7 @@ missions:
         task: Put the four moves in order.
         title: Get the link back
         place: Spacecraft Attitude Console
-        scene: The signal is weak and drifting. The crew is answering calls it can barely hear. The next navigation update depends on getting the link back.
+        scene: The signal is weak and drifting. The crew is answering calls it can barely hear. The next navigation update depends on getting the link back, and Ito wants the recovery steps agreed before anyone touches the dish.
         guide: >-
           All four moves will be made, so ask which buys most for least. Where the
           spacecraft points is the biggest thing in the whole link, and it costs nothing
@@ -1647,7 +1647,7 @@ missions:
         title: What is shaking it?
         concept: Spinning things keep spinning, and a nudge takes a while to show
         place: Structural Dynamics Lab
-        scene: A bad vibration only appears when the wheel runs near one speed. Above and below that it dies away. Two sensors on different parts of the structure see the same narrow band.
+        scene: A bad vibration only appears when the wheel runs near one speed. Above and below that it dies away. Okoye pulls up two sensors on different parts of the structure. Both see the same narrow band.
         guide: >-
           Four options, and three facts have to fit. It only happens near one speed. It
           dies away either side. Two sensors on different parts see the same thing. Ask
@@ -1723,7 +1723,7 @@ missions:
         title: How far to stay clear
         concept: Speed, distance and time, and how they give each other
         place: Spacecraft Vibration Console
-        scene: The bad band runs from three thousand one hundred to three thousand three hundred turns a minute. The rule is to stay two hundred clear of it, and the pump still has to run.
+        scene: The bad band runs from three thousand one hundred to three thousand three hundred turns a minute. Kwame Mensah, the structures lead, has one rule. Stay two hundred clear of it. The pump still has to run.
         guide: >-
           Four numbers, and two of them are the top of the band and the worst point in
           it. Those belong to the other side of the problem. Ask which two the question
@@ -1770,7 +1770,7 @@ missions:
         task: Say which change stops the pushes landing in time.
         title: Stop the shaking
         place: Operations Planning Room
-        scene: A panel shakes whenever the pump runs near one speed, and it has grown worse over three cycles. The pump is needed, and its speed can still be changed from the panel.
+        scene: A panel shakes whenever the pump runs near one speed, and Okoye has watched it grow worse over three cycles. The pump is needed, and its speed can still be changed.
         guide: >-
           Shaking like this needs two things. A structure with its own rhythm, and
           something pushing in time with it. All four options act on one of those, or on
@@ -1816,7 +1816,7 @@ missions:
         title: What the room is answering now
         concept: "Ordering work when several things are wrong at once"
         place: Flight Director's Console
-        scene: Calls come in faster than they can all be answered. One rule says which get answered first, and it changes as the situation does.
+        scene: Calls come in faster than they can all be answered. Lindqvist posts the rule that says which get answered first, and it changes as the situation does.
         guide: >-
           Answer what the rule asks for and hold the rest. The rule is said once and then it
           stands. What counts is the calls either side of a change, because they show whether
@@ -1891,7 +1891,7 @@ missions:
         task: Say which explanation fits all four checks.
         title: Really off course, or one bad clock?
         place: Global Tracking Network
-        scene: Several ground measurements suddenly put the spacecraft ahead of where it should be. They agree with each other. A star camera and the clock records are both available.
+        scene: Several ground measurements suddenly put the spacecraft ahead of where it should be. They agree with each other. A star camera and the clock records are both available, and Carter wants them used before Whitaker gets his burn.
         guide: >-
           Open each measurement to see what it depended on. Keep the ones that would
           still stand if one clock were wrong, and untick the rest. Then name what the
@@ -2003,7 +2003,7 @@ missions:
         title: How much room is left
         concept: "Rates: how fast something is used up, and how long it lasts"
         place: Navigation Covariance Room
-        scene: The entry corridor is forty kilometres wide. The circle of doubt around the spacecraft's position is ten kilometres across. Sandoval needs a margin before the burn is called.
+        scene: The entry corridor is forty kilometres wide. The circle of doubt around the spacecraft's position is ten kilometres across. Whitaker needs a margin before the burn is called.
         guide: >-
           Three numbers, and one of them is a single one of the two errors. That was
           used earlier to work out the circle of doubt. Ask which two this needs. The
@@ -2151,7 +2151,7 @@ missions:
         task: Put the entry steps in order around the four minutes of silence.
         title: The order the silence forces
         place: Crew Capsule
-        scene: Everything now depends on eleven minutes, and four of them have no radio at all. Anything that needs the ground has to happen before the silence starts.
+        scene: Everything now depends on eleven minutes, and four of them have no radio at all. Lindqvist reads the timeline out loud. Anything that needs the ground has to happen before the silence starts.
         guide: >-
           Four minutes with no radio is what puts these in order. Ask of each step
           whether it needs the ground, and whether it could be done after the silence
@@ -2192,7 +2192,7 @@ missions:
         task: Say which proposal removes the cause rather than improving the response.
         title: What the review should fix
         place: Entry Tracking Network
-        scene: The crew is aboard the recovery ship and the review board meets Monday. Four proposals compete for three funded places.
+        scene: The crew is aboard the recovery ship and the review board meets Monday. Four proposals compete for three funded places, and Carter will read every one.
         guide: >-
           All four proposals are worth money, and there are three places. Ask of each
           whether it removes a cause, or helps you cope with one. The same weakness

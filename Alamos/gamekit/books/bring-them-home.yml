@@ -356,7 +356,7 @@ glossary:
       - transponder
     def: The box aboard the spacecraft that answers a radio pulse from the ground, which is what makes timing the round trip a distance measurement.
 
-# The campaign: 1 working day each, 3 stops and a callback from day 3.
+# The campaign: One working day each, 3 stops and a callback from day 3.
 missions:
   - title: The Failure
     objective: Create a trusted state vector and a prioritized anomaly list before commanding the crew.
@@ -368,7 +368,7 @@ missions:
         task: Open the dependency chain behind each pressure reading. Keep the evidence that stands independently, then name the shared source that explains the false alarm.
         title: "What failed: the spacecraft or the sensors?"
         place: Mission Control
-        scene: Nine minutes after the bang, three digital cabin-pressure channels fall together. A mechanical gauge, an acoustic leak monitor, and the sensor-electronics page are also live. The flight director wants one diagnosis before the crew starts opening panels.
+        scene: Nine minutes after the bang, three digital cabin-pressure channels fall together. A mechanical gauge, an acoustic leak monitor, and the sensor-electronics page are also live. Carter wants one diagnosis on the loop before the crew starts opening panels.
         guide: >-
           Open each pressure channel to see what it depends on. Keep the ones that would
           still stand if the sensor electronics were at fault, and untick the rest. Then
@@ -451,7 +451,7 @@ missions:
         task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.
         title: Build the first state estimate
         place: Telemetry Analysis Room
-        scene: Three consoles hold contradictory numbers. One bus reads zero. The guidance platform has restarted with no record of what it saw. Nothing has been written down in an order the next controller could reconstruct.
+        scene: Three consoles hold contradictory numbers. One bus reads zero. The guidance platform has restarted with no record of what it saw. Carter asks for the log rebuilt in an order the next controller could follow.
         guide: >-
           All four of these will be done, so this is not a list of options. Ask of each
           what would be lost or wasted if it came later. Telemetry across the failure is
@@ -496,7 +496,7 @@ missions:
         task: Ten minutes to the next tracking pass. What does the flight director do first?
         title: Spend the first ten minutes
         place: Spacecraft Systems Console
-        scene: Four controllers, a crew flying a vehicle that is venting something, and ten minutes to the next tracking pass. Every subsystem wants the loop, and each believes its own problem is the one that kills the crew.
+        scene: Four controllers, a crew flying a vehicle that is venting something, and ten minutes to the next tracking pass. Reyes wants the loop for guidance, every other lead wants it too, and each believes their own problem is the one that kills the crew.
         guide: >-
           All four options are real work that has to happen in the next hour. Ask of
           each what it costs in the only resource that is short, which is attention.
@@ -549,7 +549,7 @@ missions:
         task: Match each quantity the state estimate needs to the measurement that provides it.
         title: Which measurement constrains what?
         place: Deep-Space Tracking Station
-        scene: The onboard computer has restarted and the tracking is intermittent, so the state has to be rebuilt from whatever measurements can still be taken. The room has to say what each type buys before it schedules any of them.
+        scene: The onboard computer has restarted and the tracking is intermittent, so the state must be rebuilt from whatever measurements can still be taken. Reyes wants the room to say what each type buys before any of them is scheduled.
         guide: >-
           Four things the state estimate needs, and four ways of measuring. Pair them by
           asking what each measurement is physically sensitive to. An angle? A travel
@@ -605,7 +605,7 @@ missions:
         task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.
         title: Reconstruct the state vector
         place: Guidance Room
-        scene: The computer restarted and lost its alignment. A range, two bearing angles, and a Doppler trace remain. They were recorded on different clocks, and the next tracking pass will test whatever state the room reconstructs.
+        scene: The computer restarted and lost its alignment. A range, two bearing angles, and a Doppler trace remain, recorded on different clocks. Whitaker starts fitting, and the next tracking pass will test whatever state the room reconstructs.
         guide: >-
           All four steps will happen, so ask what each one needs to be true already. A
           fit across two clocks can look clean and still be wrong, so the frames come
@@ -650,7 +650,7 @@ missions:
         task: Why does the spacecraft need any speed at all to stay in that orbit?
         title: What holds it in the curve
         place: Guidance Computer Room
-        scene: The free-return path swings the spacecraft round the Moon at 2,500 kilometres altitude. Somebody on the loop has asked why it does not simply fall onto the surface, and the room owes them an answer.
+        scene: The free-return path swings the spacecraft round the Moon at 2,500 kilometres altitude. Somebody on the loop has asked why it does not simply fall onto the surface, and Reyes turns the question to the room.
         guide: >-
           All four options offer something that holds the spacecraft up. Ask of each
           whether it names a real force. Two of them invent one: an outward push, and
@@ -707,7 +707,7 @@ missions:
         title: From force to trajectory change
         concept: Newton's laws and free-body reasoning
         place: Orbital Analysis Room
-        scene: The spacecraft is drifting off the free-return path by an amount that is small today and fatal at the atmosphere. The crew wants to know why a few seconds of thrust now beats minutes of thrust tomorrow.
+        scene: The spacecraft is drifting off the free-return path by an amount that is small today and fatal at the atmosphere. Whitaker fields the crew's question about why a few seconds of thrust now beats minutes of thrust tomorrow.
         guide: >-
           These four are one chain, so each card has something before it and something
           after. Ask what has to exist first. A force before an acceleration. An
@@ -755,7 +755,7 @@ missions:
         title: Small burn, large consequence
         concept: Momentum, impulse and conservation
         place: Guidance Console
-        scene: A 30,000 kg spacecraft takes 6,000 N of thrust for 20 seconds. The flight-dynamics officer needs the resulting acceleration and change in speed before the correction burn is approved.
+        scene: A 30,000 kg spacecraft takes 6,000 N of thrust for 20 seconds. Whitaker needs the resulting acceleration and change in speed on the board before the correction burn is approved.
         guide: >-
           Five numbers, and two of them belong to other questions. Surface gravity and
           specific impulse are not in this chain. Ask of each whether it is a force, a
@@ -805,7 +805,7 @@ missions:
         task: The tank reads 40 psi and the regulator wants 15. What is the flow doing?
         title: What the pressure difference is for
         place: Life Support Lab
-        scene: The oxygen tank reads 40 psi, the cabin regulator is set to 15, and the flow has fallen to half of what the plan assumed. The line is the same line it was yesterday.
+        scene: The oxygen tank reads 40 psi, the cabin regulator is set to 15, and the flow has fallen to half of what the plan assumed. The thermal and life support lead, Aaron Brooks, points out the line is the same line it was yesterday.
         guide: >-
           All four options explain a flow that has halved. They differ in what they hold
           responsible: the difference, the path, the sensor, or the temperature. Ask of
@@ -860,7 +860,7 @@ missions:
         task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.
         title: Read rotational motion
         place: Attitude Dynamics Lab
-        scene: The main guidance platform is unavailable and the crew is about to fly the vehicle by hand. Before anybody touches a thruster the room states the rotational mechanics plainly, because each one has a consequence the crew will feel.
+        scene: The main guidance platform is unavailable and the crew is about to fly the vehicle by hand. Before anybody touches a thruster, Mensah has the room state the rotational mechanics plainly, because each one has a consequence the crew will feel.
         guide: >-
           Four changes on the left, and four consequences on the right. Pair them by
           asking what each change does to the two terms that matter: the torque, and the
@@ -916,7 +916,7 @@ missions:
         task: Choose the opening pulse and the angle where counter-torque begins. Run the maneuver and stop the spacecraft at 90 degrees with almost no remaining rotation.
         title: Execute a manual attitude maneuver
         place: Crew Procedures Room
-        scene: The guidance platform is off. The crew must turn the spacecraft 90 degrees using 2 opposing thruster pairs and a window reticle. Every extra correction spends propellant reserved for entry.
+        scene: The guidance platform is off. The crew must turn the spacecraft 90 degrees using 2 opposing thruster pairs and a window reticle. Mensah reminds the loop that every extra correction spends propellant reserved for entry.
         guide: >-
           You set two things: how hard to start the turn and where to start braking.
           Then the plan runs and you watch it. Nothing damps this rotation, so whatever
@@ -957,8 +957,12 @@ missions:
           start: 0
           startRate: 0
           pulse:
+            # 4 s and 6 s are both flyable and brake at different angles, which is the
+            # lesson. An 8 s pulse reaches 16 deg/s after 64 degrees and needs another 64
+            # to stop — 128 against a 90-degree target — so it overshoots under every
+            # brake setting and no tolerance can rescue it.
             min: 4
-            max: 8
+            max: 6
             step: 2
             unit: s
           budget: 16
@@ -972,7 +976,7 @@ missions:
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: Torque from a thruster
         place: Guidance Console
-        scene: A 200 N thruster fires at right angles, 3 metres from the centre of mass. The crew needs the torque before it can predict how fast the vehicle starts to turn.
+        scene: A 200 N thruster fires at right angles, 3 metres from the centre of mass. Mensah wants the torque on the board before the crew predicts how fast the vehicle starts to turn.
         guide: >-
           Five numbers, and three of them belong elsewhere: the vehicle mass, the
           docking ring, and a cosine. Ask of each whether the turning effect depends on
@@ -1024,7 +1028,7 @@ missions:
         title: Off-nominal, or off-scale
         concept: "Measurement uncertainty and error propagation"
         place: Telemetry Room
-        scene: The console has flagged more parameters than the team can look at before handover. Some of them are the spacecraft behaving unexpectedly. The rest are the measurement failing, and the two look identical in a list.
+        scene: The console has flagged more parameters than the team can read before handover. Some flags are the spacecraft behaving unexpectedly. The rest are the measurement failing, and in a list the two look identical. Erika Lindqvist, the flight dynamics integrator, wants each one sorted.
         guide: >-
           Two bins. A spacecraft doing something unexpected moves in ways that are physically
           possible and that other parameters agree with. A measurement failing moves in ways
@@ -1103,7 +1107,7 @@ missions:
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: How long can the battery last?
         place: Electrical Systems Room
-        scene: The fuel cells are gone and the crew is on entry batteries days earlier than any plan allowed for. The flight surgeon wants an endurance number before the next powerdown decision.
+        scene: The fuel cells are gone and the crew is on entry batteries days earlier than any plan allowed for. Shah wants an endurance number in hours before the next powerdown decision is argued.
         guide: >-
           Five numbers, and three of them belong to other questions: the bus voltage,
           the brief peak, and the time to the next burn. Ask of each whether it is an
@@ -1153,7 +1157,7 @@ missions:
         task: Which fault fits the voltage, current, generation, and thermal evidence?
         title: Why is bus voltage collapsing?
         place: Spacecraft Load Panel
-        scene: The power bus is sagging at 24 volts instead of 28 while the total load current sits near its planned value. Engineers want to start pulling equipment off the bus.
+        scene: The power bus is sagging at 24 volts instead of 28 while the total load current sits near its planned value. Engineers want to start pulling equipment off the bus, and Shah will not let them until the sag is explained.
         guide: >-
           Four options, and three readings have to be explained together. Generation is
           normal. Total load current is near plan. Something is hot. Ask of each option
@@ -1230,7 +1234,7 @@ missions:
         task: Allocate 41 amp-hours across life support, thermal control, guidance windows, and communications. Keep every required mission condition satisfied through the 62-hour return.
         title: Shed load without losing the mission
         place: Mission Planning Desk
-        scene: 41 amp-hours remain for a 62-hour return. Current draw is 4.2 amps. Guidance, communications, thermal control, and life support all want power, and at least one load must be reduced within minutes.
+        scene: 41 amp-hours remain for a 62-hour return. Current draw is 4.2 amps. Guidance, communications, thermal control, and life support all want power. Shah slides the ledger across, and at least one load must come down within minutes.
         guide: >-
           Forty-one amp-hours, sixty-two hours to fly, and a current draw of 4.2 amps
           that does not fit. Watch the questions list rather than the loads: it shows
@@ -1316,7 +1320,7 @@ missions:
         task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.
         title: Series or parallel?
         place: Battery Test Bench
-        scene: Engineers want to reconnect battery modules to buy hours of endurance. The room agrees what each wiring choice does before anything is bolted up, because adding a module can also take capability away.
+        scene: Ferreira wants battery modules reconnected to buy hours of endurance. The room agrees what each wiring choice does before anything is bolted up, because adding a module can also take capability away.
         guide: >-
           Four wiring changes, and four consequences. Pair them by asking what stays the
           same in that arrangement: the voltage across each part, or the current through
@@ -1370,7 +1374,7 @@ missions:
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: Heating at a bad connection
         place: Electrical Integration Room
-        scene: A connector in the improvised battery path develops 0.05 ohms while carrying 20 amps. The joint is inside a sealed cabin. The power team needs its heating rate before the hardware is approved.
+        scene: A connector in the improvised battery path develops 0.05 ohms while carrying 20 amps. The joint is inside a sealed cabin, and Ferreira needs its heating rate before she approves the hardware.
         guide: >-
           Five numbers, and three of them belong elsewhere: the bus voltage, the whole
           cable run, and half the current. Ask of each whether the heating at this joint
@@ -1418,7 +1422,7 @@ missions:
         task: Lock a predicted equalization current, make the protected test connection, then choose whether to spend a check on the current that actually flows.
         title: Qualify the emergency battery plan
         place: Crew Procedure Simulator
-        scene: The emergency module reads 31 volts against a nominal 37. Its state of charge is uncertain, and the available connector is rated for 8 amps. The crew needs more endurance, but the hardware is inside the sealed cabin.
+        scene: The emergency module reads 31 volts against a nominal 37, its charge state uncertain, and the healthy bus still holds 24. The path between them measures half an ohm, the connector is rated for 8 amps, and Ferreira wants a prediction before anything is qualified.
         guide: >-
           Lock what current you expect before anything is connected. Then make the
           connection and decide whether to spend what it costs to measure the electrical
@@ -1483,7 +1487,7 @@ missions:
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: How much does the cabin cool?
         place: Thermal Control Lab
-        scene: With the systems powered down the cabin is losing about a kilowatt more than it generates. The flight surgeon wants to know how long the crew has before the temperature becomes a medical problem.
+        scene: With the systems powered down the cabin is losing about a kilowatt more than it generates. Brooks wants to know how long the crew has before the temperature becomes a medical problem.
         guide: >-
           Five numbers, and two of them are the same three hours written in different
           units. Another is the present cabin temperature, which the drop does not use.
@@ -1531,7 +1535,7 @@ missions:
         task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.
         title: Choose the heat-transfer mechanism
         place: Cabin Environment Console
-        scene: The cabin is cooling and the crew wants to do something about it. What can be done depends on how the heat is actually leaving, so the room names the pathway first.
+        scene: The cabin is cooling and the crew wants to do something about it. What can be done depends on how the heat is actually leaving, so Brooks has the room name the pathway first.
         guide: >-
           Four situations, and four ways heat moves. Pair them by asking what carries
           the energy: touching, moving air, or nothing at all. One of these needs no
@@ -1585,7 +1589,7 @@ missions:
         task: Four degrees and falling, on a fixed energy budget. What do you spend it on?
         title: Keep the cabin survivable
         place: Materials and Insulation Shop
-        scene: The cabin is at four degrees and falling, condensation is forming on the walls, and the crew is sleeping in their suits. Heating everything is not affordable on the energy that is left.
+        scene: The cabin is at four degrees and falling, condensation is forming on the walls, and the crew is sleeping in their suits. Shah says heating everything is not affordable on the energy that is left.
         guide: >-
           All four options are ways to spend a fixed energy budget. Ask of each whether
           it slows the loss or replaces energy already gone. Insulation does the first
@@ -1634,7 +1638,7 @@ missions:
         task: Hold the cabin while the crew works.
         title: Cabin pressure, through the work period
         place: Environmental Console
-        scene: The crew are working in the middle module and the cabin has to hold pressure while they do. A sample airlock cycles, the scrubber comes on line, and the leak that has been on the log for a week is still on the log.
+        scene: The crew are working in the middle module and the cabin has to hold pressure while they do. Petra Novak, the life support engineer, tracks a cycling airlock, the scrubber coming on line, and a leak that has been on the log for a week.
         guide: >-
           Hold the cabin pressure inside the band on the console. The band narrows through the
           work period, because the crew are moving toward the module with the suspect seal and
@@ -1697,7 +1701,7 @@ missions:
         task: Trace the air path from the cabin through the scrubber loop. Put the links in order, then name the link that governs how much carbon dioxide reaches the sorbent.
         title: Diagnose the air system
         place: Life-Support Laboratory
-        scene: Cabin carbon dioxide keeps rising. The scrubber fan sounds normal and draws its usual current, but airflow is low. Pressure readings are available on both sides of the filter and scrubber bed.
+        scene: Cabin carbon dioxide keeps rising. The scrubber fan sounds normal and draws its usual current, but airflow is low. Novak has pressure readings from both sides of the filter and scrubber bed on her console.
         guide: >-
           Build the path the air takes, in order, and then name the link where it
           becomes limiting. The fan sounds normal and draws its usual current, which
@@ -1763,7 +1767,7 @@ missions:
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: CO2 production scale
         place: Cabin Air Console
-        scene: 3 crew members each exhale roughly 20 litres of carbon dioxide an hour. The workshop needs to know what an improvised scrubber has to keep up with over the next six hours.
+        scene: 3 crew members each exhale roughly 20 litres of carbon dioxide an hour. Novak needs to know what an improvised scrubber has to keep up with over the next six hours.
         guide: >-
           Five numbers, and two of them belong to a different question: a whole day, and
           a figure by mass rather than by volume. Ask of each whether it is a rate, a
@@ -1811,7 +1815,7 @@ missions:
         task: Tape, a suit hose, a sock and a flight-plan cover. What must the fix get right?
         title: Restore breathable air
         place: Crew Hardware Workshop
-        scene: Carbon dioxide is at 13 millimetres of mercury and still rising. The limit is 15. Spare canisters are square, the socket is round, and only tape, a suit hose, cloth, and a flight-plan cover are available.
+        scene: Carbon dioxide is at 13 millimetres of mercury and still rising, and the limit is 15. Spare canisters are square, the socket is round, and Novak lists what is aboard — tape, a suit hose, cloth, and a flight-plan cover.
         guide: >-
           All four options describe something the fix could be judged on. Ask of each
           whether it changes how much air actually crosses the sorbent. Carbon dioxide
@@ -1864,7 +1868,7 @@ missions:
         task: Change one link condition at a time, measure received power, and reverse the change. Identify the cause only when the signal follows the change both ways.
         title: Why did the signal fade?
         place: Deep-Space Antenna
-        scene: Voice and telemetry are down about 12 decibels at 2 ground stations. Spacecraft transmitter output is nominal. The antenna solution, redundant transmitter chain, and a backup receiver path can each be tested without committing the mission.
+        scene: Voice and telemetry are down about 12 decibels at 2 ground stations. Spacecraft transmitter output is nominal. Ito lists what can be tested without committing the mission. The antenna solution, the redundant transmitter chain, and a backup receiver path each qualify.
         guide: >-
           The number you are watching is the received signal strength, currently about
           twelve decibels low at both stations. Each test swaps or corrects one part of
@@ -1923,7 +1927,7 @@ missions:
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: Wavelength of the radio link
         place: Communications Analysis Room
-        scene: The communications link is fading, and the antenna team needs the carrier wavelength for its pointing model. The spacecraft transmits at 2.0 gigahertz, while received power is being tracked at the ground stations.
+        scene: The communications link is fading and the pointing model needs the carrier wavelength. The spacecraft transmits at 2.0 gigahertz, and Marcus Haldane, the link analyst, is tracking received power at both ground stations.
         guide: >-
           Five numbers, and three of them are traps. One is the carrier misread as
           megahertz. One is the speed of sound. One is the observed loss. Ask of each
@@ -1973,7 +1977,7 @@ missions:
         task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.
         title: Recover the weak link
         place: Spacecraft Attitude Console
-        scene: The carrier is down 12 decibels and drifting in frequency. The crew is answering calls it can barely hear, and the next navigation update depends on getting the link back.
+        scene: The carrier is down 12 decibels and drifting in frequency. The crew is answering calls it can barely hear, and Ito reminds the room the next navigation update depends on getting the link back.
         guide: >-
           All four steps will be taken, so ask which buys the most for the least.
           Pointing is the largest term in the link budget and costs nothing but
@@ -2026,7 +2030,7 @@ missions:
         task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.
         title: What shifts the apparent direction?
         place: Optics Test Room
-        scene: The crew will aim the next maneuver through a window reticle. Before that view is trusted, the room compares eye position, focus, target parallax, and spacecraft rotation so each apparent shift has a physical interpretation.
+        scene: The crew will aim the next maneuver through a window reticle. Before that view is trusted, Reyes compares eye position, focus, target parallax, and spacecraft rotation, so each apparent shift has a physical interpretation.
         guide: >-
           Four apparent shifts, and four causes. Pair them by asking what actually
           moved. The eye? The optics? The viewpoint? The vehicle? Two of them change
@@ -2080,7 +2084,7 @@ missions:
         task: Match each feature of the plotted trace to what it tells you about the motion.
         title: Reading the trace instead of the number
         place: Flight Director console
-        scene: The plot board has 90 minutes of range against time on it, and the room keeps quoting the latest value out loud. The shape of the line has more in it than the last point does.
+        scene: The plot board has 90 minutes of range against time on it, and the room keeps quoting the latest value out loud. Whitaker says the shape of the line has more in it than the last point does.
         guide: >-
           Four features of one plotted line, and four things they could mean. Pair them
           by asking what changes and what does not. A slope is a rate. A change of slope
@@ -2136,7 +2140,7 @@ missions:
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: How far it drifts while nobody is steering
         place: Guidance Computer Room
-        scene: Between burns the spacecraft is unpowered. A residual acceleration of 0.004 metres per second squared acts for 90 seconds. The navigation team needs the resulting drift before deciding whether it matters.
+        scene: Between burns the spacecraft is unpowered. A residual acceleration of 0.004 metres per second squared acts for 90 seconds, and Reyes needs the resulting drift before deciding whether it matters.
         guide: >-
           Four numbers, and one of them is surface gravity, offered for scale rather
           than for use. Another is the one-half that belongs in the relationship. Ask of
@@ -2192,7 +2196,7 @@ missions:
         task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.
         title: Where orbital energy goes
         place: Entry Dynamics Room
-        scene: The capsule reaches the atmosphere carrying enormous kinetic energy. It must arrive at the ocean with almost none of that energy left. The entry team traces where the energy goes as drag begins to act.
+        scene: The capsule reaches the atmosphere carrying enormous kinetic energy and must arrive at the ocean with almost none of it left. Lindqvist has the entry team trace where the energy goes as drag begins to act.
         guide: >-
           These four are one chain, and reentry is an energy problem before it is a
           temperature problem. Ask of each card what has to be true first. There is no
@@ -2239,7 +2243,7 @@ missions:
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: Kinetic-energy scale
         place: Thermal Protection Lab
-        scene: A 5,000 kg capsule returning from the Moon arrives at about 11,000 metres per second. The thermal protection team needs the kinetic energy before it can argue about heat load.
+        scene: A 5,000 kg capsule returning from the Moon arrives at about 11,000 metres per second. Lindqvist needs the kinetic energy on the board before the thermal protection team can argue about heat load.
         guide: >-
           Five numbers, and two of them belong to other entries: the speed from low
           orbit, and surface gravity. Ask of each whether this energy depends on it. And
@@ -2289,7 +2293,7 @@ missions:
         task: Use the available tracking and targeting actions to place enough of the entry-angle distribution inside the safe corridor.
         title: Protect the entry corridor
         place: Crew G-Load Console
-        scene: The safe entry corridor runs from 5.3 to 7.7 degrees. The current solution is centered at 6.2 degrees with a one-sigma width of 0.5 degrees. Two actions remain before commitment.
+        scene: The safe entry corridor runs from 5.3 to 7.7 degrees, and the current solution is centered at 6.2 degrees with a one-sigma width of 0.5. Two actions remain before commitment, and Lindqvist wants the solution reported honestly first.
         guide: >-
           The band is every entry angle the tracking permits: centred at 6.2 degrees
           with half a degree of one-sigma width, against a corridor from 5.3 to 7.7. Two
@@ -2348,7 +2352,7 @@ missions:
         task: Which explanation fits the frequency, speed dependence, and independent accelerometers?
         title: What is driving the vibration?
         place: Structural Dynamics Lab
-        scene: A structural vibration becomes severe only near 3,200 rpm of reaction-wheel speed. The amplitude falls away above and below that band. Two accelerometers on different parts of the structure record the same narrow response.
+        scene: A structural vibration becomes severe only near 3,200 rpm of reaction-wheel speed. The amplitude falls away above and below that band. Okoye shows the room two accelerometers on different parts of the structure recording the same narrow response.
         guide: >-
           Four options, and three facts have to be covered. The response peaks in a
           narrow band of wheel speed. It falls away either side. Two accelerometers on
@@ -2425,7 +2429,7 @@ missions:
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: Spring-mass period
         place: Spacecraft Vibration Console
-        scene: A mounted component is modeled as a 4 kg mass on a 400 N/m spring. The structural analyst needs its natural period and frequency before nearby equipment operating speeds are approved.
+        scene: A mounted component is modeled as a 4 kg mass on a 400 N/m spring. Mensah needs its natural period and frequency on the board before nearby equipment operating speeds are approved.
         guide: >-
           Five numbers, and three belong to other things on the vehicle: a wheel speed,
           a damper, and a nearby mode. Ask of each whether this component's own
@@ -2475,7 +2479,7 @@ missions:
         task: The pump is needed and the panel is entering resonance. What is the safest immediate control-panel action?
         title: Stop the resonance
         place: Operations Planning Room
-        scene: A structural panel oscillates whenever the pump runs near one speed. The amplitude has grown for three cycles. The pump is needed, but its operating speed can still be changed from the control panel.
+        scene: A structural panel oscillates whenever the pump runs near one speed, and the amplitude has grown for three cycles. The pump is needed, and Okoye points out its operating speed can still be changed from the control panel.
         guide: >-
           Resonance needs two things: a structure, and a forcing frequency. All four
           options act on one of them, or on neither. Ask of each which, and how fast it
@@ -2525,7 +2529,7 @@ missions:
         title: What the room is calling now
         concept: "Systems thinking: dependency, redundancy, failure modes"
         place: Flight Director's Console
-        scene: Calls come to the loop faster than they can all be answered. The flight director holds one rule about which get answered first, and changes it as the situation does — after the burn, after the leak is confirmed, after the crew wake.
+        scene: Calls come to the loop faster than they can all be answered. Lindqvist posts one rule about which get answered first, and changes it as the situation does — after the burn, after the leak is confirmed, after the crew wake.
         guide: >-
           Answer the calls the current rule wants and hold the rest. The rule is called once
           on the loop and then it stands; nobody repeats it. What is scored is the calls
@@ -2603,7 +2607,7 @@ missions:
         task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.
         title: Name the binding constraint
         place: Mission Design Center
-        scene: Four return paths are on the mission board. Each one stresses a different subsystem, and the fastest route is not best on every constraint. The flight director asks the room to name what each option spends.
+        scene: Four return paths are on the mission board. Each one stresses a different subsystem, and the fastest route is not best on every constraint. Carter asks the room to name what each option spends.
         guide: >-
           Four return paths, and four subsystems that pay for them. Pair them by asking
           what each path spends: consumables, propellant, heating, or the crew's own
@@ -2657,7 +2661,7 @@ missions:
         task: Move the consumable-endurance assumption through its allowed range and choose the return path that remains feasible at the pessimistic end.
         title: Select the robust trajectory
         place: Life-Support Desk
-        scene: "Four return paths are on the board: 58, 63, 66, and 71 hours. Their propellant and entry margins differ. The usable consumable endurance is uncertain by about a day, and water is the tightest supply."
+        scene: "Four return paths are on the board: 58, 63, 66, and 71 hours, and their propellant and entry margins differ. Whitaker reads out the consumable endurance — uncertain by about a day — and water is the tightest supply."
         guide: >-
           Four return paths, and the consumable estimate is uncertain by about a day.
           Move that estimate to its pessimistic end before choosing, and watch which
@@ -2697,20 +2701,24 @@ missions:
             unit: h
             step: 1
           criteria:
+            # `key` indexes into each candidate's `scores`, and these three named fields
+            # that do not exist there — so every cell in the table rendered as an em dash
+            # and the panel put no numbers at all in front of the player. The keys are the
+            # score field names now.
             - id: life_support
               label: Return before consumables run out
               type: returnHours<=assumption
-              key: life_support
+              key: returnHours
             - id: entry_margin
               label: Entry-angle margin
               minimum: 0.4
               unit: deg
-              key: entry_margin
+              key: entryMarginDeg
             - id: propellant_margin
               label: Propellant reserve
               minimum: 6
               unit: kg
-              key: propellant_margin
+              key: propellantMarginKg
           candidates:
             - id: fast
               label: Fast return
@@ -2750,7 +2758,7 @@ missions:
         task: Order the commitment so the abort trigger still has something to act on.
         title: Commit to the path
         place: Thermal and Entry Review
-        scene: The decision has to be made this shift, and once the burn is executed most of the alternatives close. Nobody has yet written down what would show the choice was wrong.
+        scene: The decision has to be made this shift, and once the burn is executed most of the alternatives close. Carter notes that nobody has yet written down what would show the choice was wrong.
         guide: >-
           All four of these will happen, and the burn closes most of the alternatives.
           Ask of each what would be impossible afterwards. Comparing candidates under
@@ -2801,7 +2809,7 @@ missions:
         task: Which explanation fits the ranging, angle, clock, and independent-time checks?
         title: Real trajectory error or common clock drift?
         place: Global Tracking Network
-        scene: Several ground measurements suddenly place the spacecraft ahead of prediction. The range and Doppler solutions agree with one another. An optical star-angle solution and the station timing records are available before any correction burn is commanded.
+        scene: Several ground measurements suddenly place the spacecraft ahead of prediction. The range and Doppler solutions agree with one another. Whitaker has a burn ready. An optical star-angle solution and the station timing records are also available.
         guide: >-
           Four options, and two measurements agree. Ask what they share before treating
           that as confirmation. Range and Doppler both use the ground timing reference.
@@ -2878,7 +2886,7 @@ missions:
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: Combine independent uncertainties
         place: Navigation Covariance Room
-        scene: The navigation board carries two position errors. 1 is 6 kilometres, the other 8, and they lie along axes at right angles. Sandoval needs a single number for the entry brief, and the burn is called from it.
+        scene: The navigation board carries two position errors. One is 6 kilometres, the other 8, and they lie along axes at right angles. Lindqvist needs a single number for the entry brief, and the burn is called from it.
         guide: >-
           Five numbers, and three of them are wrong ways to combine the two errors:
           their sum, their average, and the number of axes. Ask of each whether it
@@ -2926,7 +2934,7 @@ missions:
         task: Spend the remaining tracking budget on the observation that can actually change the burn decision.
         title: Burn or observe?
         place: Flight Director Console
-        scene: Two timing-based tracking solutions disagree, and both depend on the same station clock model. A correction burn is ready. There is time for only a small amount of additional evidence before the decision closes.
+        scene: Two timing-based tracking solutions disagree, and both depend on the same station clock model. A correction burn is ready, and Carter allows time for only a small amount of additional evidence before the decision closes.
         guide: >-
           Two tracking solutions disagree, and both are computed through the same
           station clock model. Open each piece of evidence and ask what its result would
@@ -3000,7 +3008,7 @@ missions:
         task: Choose which readiness claims to verify before entry. You have two checks for four signed claims, so spend them where an unverified error would matter most.
         title: Disposition final readiness
         place: Integrated Flight Room
-        scene: 11 minutes remain before atmospheric entry. Four signed readiness claims sit on the flight director's console. Some have independent evidence behind them and one does not. Only two physical verification checks can still be completed.
+        scene: 11 minutes remain before atmospheric entry. Four signed readiness claims sit on the console, and Carter reminds you some have independent evidence behind them and one does not. Only two physical verification checks can still be completed.
         guide: >-
           Four signed readiness claims, eleven minutes, and two physical checks that can
           still be completed. Open each claim and read what backs it. Some rest on
@@ -3066,7 +3074,7 @@ missions:
         task: Order the entry around the four minutes with no communications.
         title: Execute the final physical chain
         place: Crew Capsule
-        scene: Everything now depends on the next 11 minutes, including 4 minutes without communications. The final entry sequence is on the console. Anything needing ground input must happen before the radio goes quiet.
+        scene: Everything now depends on the next 11 minutes, including 4 minutes without communications. The final entry sequence is on the console, and Ito flags that anything needing ground input must happen before the radio goes quiet.
         guide: >-
           Four minutes with no radio is what orders these four. Ask of each whether it
           needs ground input, and whether it can be done after the interface. Anything
@@ -3112,7 +3120,7 @@ missions:
         title: Fund the mission legacy
         concept: "Systems thinking: dependency, redundancy, failure modes"
         place: Entry Tracking Network
-        scene: "The crew is aboard the recovery ship, and the review board meets Monday. Four proposals compete for three funded slots: a tank redesign, a second telemetry path, a full-duration thermal test article, and a simulator upgrade."
+        scene: "The crew is aboard the recovery ship, and the review board meets Monday. Carter puts four proposals up for three funded slots: a tank redesign, a second telemetry path, a full-duration thermal test article, and a simulator upgrade."
         guide: >-
           All four proposals are worth funding and three slots exist. Ask of each
           whether it removes a cause or improves the response to one. The same weakness

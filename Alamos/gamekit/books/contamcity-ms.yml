@@ -383,7 +383,7 @@ roster:
     bio: |-
       Works the sediment cores, and is usually the one who finds the contaminant the water samples say has gone.
 
-      A core is a vertical slice of recent history: material settles in layers, so depth is roughly time, and a contaminant band sitting 12 centimetres down was deposited before 1 sitting at 2. To measure it she has to get the compound out of the solid first — solvent extraction, then a cleanup step to strip the natural organic matter that would otherwise swamp the instrument. She reports on dry weight, because a wet core is mostly water and the fraction varies from sample to sample.
+      A core is a vertical slice of recent history: material settles in layers, so depth is roughly time, and a contaminant band sitting 12 centimetres down was deposited before one sitting at 2. To measure it she has to get the compound out of the solid first — solvent extraction, then a cleanup step to strip the natural organic matter that would otherwise swamp the instrument. She reports on dry weight, because a wet core is mostly water and the fraction varies from sample to sample.
 
       The number she cares most about is the organic carbon content of the sediment, since that is what greasy compounds bind to. Two cores from the same river with different organic carbon will hold very different amounts of the same contaminant, and comparing them without that correction produces a hotspot that does not exist.
     quiz:
@@ -1227,7 +1227,7 @@ glossary:
       - yield
     def: A course concept used in Mission 6. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.
 
-# The campaign: 1 working day each, 3 stops and a callback from day 3.
+# The campaign: One working day each, 3 stops and a callback from day 3.
 missions:
   - title: The Unknown Containers
     objective: Create a provisional identity list and choose the next discriminating measurements.
@@ -1239,7 +1239,7 @@ missions:
         task: Match each thing on the record to what it lets you conclude.
         title: Read the label, not the rumour
         place: Accident Command Post
-        scene: A fire at the freight yard has damaged several unlabelled drums, eighty metres from the river. Three different guesses are already on the radio. Firefighters are choosing what to spray based on whatever you tell them.
+        scene: A fire at the freight yard has damaged several unlabelled drums, eighty metres from the river. Nils Sørensen, who commands the fire crews, has three different guesses on his radio. His firefighters will spray whatever you tell them to.
         guide: >-
           The left side is four kinds of record. The right side is four things you could
           say from one. Ask of each record what it really pins down. Which elements? How
@@ -1295,7 +1295,7 @@ missions:
         title: From damaged drum to a first answer
         concept: Everything is made of matter, and matter comes in solids, liquids and gases
         place: Molecular Identification Lab
-        scene: In the mobile laboratory, the first sealed drum sample is on the bench. The markings on the outside are readable now, and opening the drum will scuff them off. Opening it also lets the air above the liquid escape. There is enough liquid for two tests.
+        scene: In the mobile laboratory, Okonjo sets the first sealed drum sample on the bench. The markings on the outside are readable now, and opening the drum will scuff them off. Opening it also lets the air above the liquid escape. She has enough liquid for two tests.
         guide: >-
           Every one of these can be done right now. So this is not about time. It is
           about what you can still do afterwards. Ask what each step uses up. The
@@ -1397,7 +1397,7 @@ missions:
         title: How long before it reaches the school
         concept: Gases spread out, and the wind decides where
         place: Mobile Weather Station
-        scene: A colourless cloud is drifting away from the yard toward two neighbourhoods. Police are holding the evacuation roads open. The wind is steady, and there is a school two kilometres downwind.
+        scene: A colourless cloud is drifting away from the yard toward two neighbourhoods. Varga is watching it from the weather station. Police are holding the evacuation roads open. The wind is steady, and there is a school two kilometres downwind.
         guide: >-
           Four numbers, and two of them are distances to other places. One is how wide
           the cloud is, which does not change when it arrives. Ask of each number what
@@ -1452,7 +1452,7 @@ missions:
         task: Match each change in the field to what it does.
         title: What changes the cloud
         place: Gas Properties Lab
-        scene: The weather station shows the temperature rising and the pressure falling, with the wind picking up. Crews report vapour pooling in a low channel downwind.
+        scene: The weather station shows the temperature rising and the pressure falling, with the wind picking up. Erik Lindqvist, the cloud modeller, wants each change sorted out. Crews report vapour pooling in a low channel downwind.
         guide: >-
           Four changes in the field. Two of them change how much room the gas takes up.
           Two of them change where the gas goes. Ask which of the two each change does.
@@ -1552,7 +1552,7 @@ missions:
         title: Water helps, or water makes it worse
         concept: "A mixture is things sharing a space without becoming one another"
         place: Container Yard
-        scene: The contractor lifts at four and the yard has to be sorted first. Some of these drums are made safer by water. Others react with water, and a hose is the worst thing that could reach them.
+        scene: The contractor lifts at four, and Sørensen wants the yard sorted first. Some of these drums are made safer by water. Others react with water, and a hose is the worst thing that could reach them.
         guide: >-
           Two bins. Ask what happens when water reaches it. Something that dissolves is made
           weaker by water. Something that reacts with water makes heat or gas, and then the
@@ -1626,7 +1626,7 @@ missions:
         task: Match each kind of chemical to where it ends up.
         title: Where will it go?
         place: River Sampling Boat
-        scene: Runoff from the fire has reached the river. Predict the wrong place and the team samples the wrong thing, and a clean water result gets read by the city as an all-clear.
+        scene: Runoff from the fire has reached the river. Ferreira holds the sampling boat at the first bend. Predict the wrong place and she samples the wrong thing, and a clean water result gets read by the city as an all-clear.
         guide: >-
           Four kinds of chemical, and four places in the river. Pair them by asking what
           water does with each one. Does it dissolve? Does it refuse to mix? Does it
@@ -1679,7 +1679,7 @@ missions:
         task: Work out what eight times the partner chemical does to the metal.
         title: Push it back out of the water
         place: Water and Sediment Laboratory
-        scene: The filtered water holds 3.1 milligrams of dissolved metal in every litre. The limit is 0.5. The rig can put in eight times as much of the partner chemical.
+        scene: The filtered water holds 3.1 milligrams of dissolved metal in every litre. The limit is 0.5. Kwabena Osei, the treatment engineer, can set his rig to put in eight times as much of the partner chemical.
         guide: >-
           All four options give a number and a reason. The reasons are what differ. One
           says nothing changes. One says both go up together. Two say the metal falls,
@@ -1725,7 +1725,7 @@ missions:
         task: Spend the twenty bottles so the survey can answer all three questions.
         title: Spend the river survey
         place: Sediment Analysis Room
-        scene: The survey has twenty bottles. The chemical barely dissolves, the river runs nine hundred metres from the spill to the water intake, and two samples taken so far disagree six times over.
+        scene: The survey has twenty bottles. Camila Ibarra, the analyst who reads the mud samples, lays out the map. The chemical barely dissolves, the river runs nine hundred metres from the spill to the water intake, and two samples taken so far disagree six times over.
         guide: >-
           Twenty bottles is the whole survey. Each package you pick spends some of them.
           Watch the list of questions rather than the map: it shows which ones your plan
@@ -1814,7 +1814,7 @@ missions:
         title: Undo the dilution
         concept: "Concentration: how much of something is in how much of everything"
         place: Quantitative Analysis Lab
-        scene: The lab watered the sample down before measuring it. So the number is what was in the vial, not the river. It is in mg/L, which means milligrams in every litre. The city is about to hold that number against a limit.
+        scene: Nakamura hands over the lab record. The sample was watered down before it was measured, so the number is what was in the vial, not the river. It is in mg/L, which means milligrams in every litre. The city is about to hold that number against a limit.
         guide: >-
           Five numbers, and two belong to other questions. One is the smallest the
           instrument can see. One is the size of the bottle. Two are the volumes before
@@ -1868,7 +1868,7 @@ missions:
         task: Predict what watering it down does, do it, and check the reading.
         title: Say what should happen, then check
         place: River Mapping Center
-        scene: The reading is above the range this meter was calibrated for. Calibration is the check against known samples. It is what turns a signal into a number. The meter still prints one, and it is going into a report.
+        scene: The reading is above the range this meter was calibrated for. Calibration is the check against known samples. It is what turns a signal into a number. The meter still prints one, and Dana Whitfield, the calibration technician, does not want it in a report unchecked.
         guide: >-
           Lock the reading you expect after watering the sample down by half, before you
           do it. Then water it down and see what the meter says. Checking costs a
@@ -1937,7 +1937,7 @@ missions:
         title: Map the river with thirty samples
         concept: A sample stands for a place and a moment, and only those
         place: Quality Assurance Desk
-        scene: The city wants a picture of eleven kilometres of river. The laboratory can run thirty samples. The field kit is far rougher than the laboratory.
+        scene: The city wants a picture of eleven kilometres of river, and Reyes is asking for it by tonight. The laboratory can run thirty samples. The field kit is far rougher than the laboratory.
         guide: >-
           Every option buys something real, and they trade against each other. Wide
           coverage costs detail. Repeats and checks cost samples. Thirty is all there
@@ -1991,7 +1991,7 @@ missions:
         title: How much heat is stored in there
         concept: Reactions give out heat or take it in, and heat speeds things up
         place: Thermal Camera Team
-        scene: The visible fire has been out for two hours, and the water bath beside the damaged bay is still warming. Fire Command wants the size of the heat before deciding whether the cooling on site is enough.
+        scene: The visible fire has been out for two hours, and the water bath beside the damaged bay is still warming. Sørensen wants the size of the heat before deciding whether the cooling on site is enough.
         guide: >-
           Five numbers. One is for boiling the water away, which is not what happened.
           One is a temperature on another scale. Ask of each what it describes. How much
@@ -2046,7 +2046,7 @@ missions:
         task: Say which explanation fits both bays.
         title: Left-over heat, or something still going?
         place: Calorimetry Lab
-        scene: Two bays saw the same fire. Ninety minutes after the cooling stopped, the east bay is cooling and the west bay is warming. The west bay is giving off more gas, and the hot spot has not moved.
+        scene: Two bays saw the same fire. Ninety minutes after the cooling stopped, the east bay is cooling and the west bay is warming. Brandt lays the two logs side by side. The west bay is giving off more gas, and the hot spot has not moved.
         guide: >-
           Six readings, and the east bay is the useful one. Same fire, nothing left
           running. Compare the two bays, reading by reading. A broken sensor would move
@@ -2170,7 +2170,7 @@ missions:
         task: Say what has to be in place before the site is released.
         title: Control the self-heating
         place: Fire Command
-        scene: Fire Command wants the site released tonight. Bay three has gone from thirty-one degrees to forty-four in eight hours, and it is climbing faster than it was. There are four tonnes in there.
+        scene: Sørensen wants the site released tonight. Bay three has gone from thirty-one degrees to forty-four in eight hours, and it is climbing faster than it was. There are four tonnes in there.
         guide: >-
           Four numbers. Two are temperatures the bay has read. One is the difference
           between them. One is the hours between. Ask which of those the question needs.
@@ -2221,7 +2221,7 @@ missions:
         title: What the bench is running now
         concept: "A sample stands for a place and a moment, and only those"
         place: Analytical Laboratory
-        scene: Samples queue on the bench all day. One priority says which are run first, and it is changed as the day goes on.
+        scene: Samples queue on the bench all day, and Hiroshi Tanaka, the records and shipping clerk, wheels in more every hour. One priority says which are run first, and it is changed as the day goes on.
         guide: >-
           Run what the priority asks for and leave the rest queued. The card on the bench
           changes during the day and nobody says so. What counts is the samples either side
@@ -2299,7 +2299,7 @@ missions:
         title: How much more acidic
         concept: Acids and bases, and why the middle is where things are stable
         place: Water Intake Laboratory
-        scene: The intake water reads four on the acid scale. Ordinary water reads seven. The plant is about to add something to bring it back, and wants the size of the problem first.
+        scene: The intake water reads four on the acid scale. Ordinary water reads seven. The plant is about to add something to bring it back, and Reyes wants the size of the problem first.
         guide: >-
           Four numbers. Two are readings on the scale. One is the gap between them. The
           scale counts steps, and each step is ten times. So the gap is what the answer
@@ -2351,7 +2351,7 @@ missions:
         task: Say what the test explains about the overshoot.
         title: Why the first dose overshot
         place: Acid-Base Bench
-        scene: A dose worked out from the intake reading overshot badly. The bench test is up beside a curve for a simple acid. That test is a titration: add a little at a time, until the water changes, and count how much it took.
+        scene: A dose worked out from the intake reading overshot badly. Osei has the bench test up beside a curve for a simple acid. That test is a titration: add a little at a time, until the water changes, and count how much it took.
         guide: >-
           Six readings, and two are there to rule things out. The fresh meter checks,
           and the simple acid at the same reading. Compare the test curve against that
@@ -2468,7 +2468,7 @@ missions:
         task: Set the slow-down and stop rules before the stream runs.
         title: Neutralise without overshooting
         place: Treatment Control Room
-        scene: The pump is primed and the operators are waiting on the valve. The water is acidic and the iron pipe is corroding. Every change to the pump shows up one reading later.
+        scene: The pump is primed and the operators are waiting on the valve. The water is acidic, and Novák says the iron pipe is corroding. Every change to the pump shows up one reading later.
         guide: >-
           One rule, written now and fixed once you release it. The base feed is pushing the tank
           up. Past pH 7.5 the water is bad again the other way. Here is the catch: a pump change
@@ -2585,7 +2585,7 @@ missions:
         title: Where the metal is going
         concept: "Weight is conserved: what goes in has to come out somewhere"
         place: Pipeline Inspection Gallery
-        scene: Acidic water is flowing through a section where two different metals are bolted together. An inspection has found one small break in the coating. The team wants the circuit understood before choosing a repair.
+        scene: Acidic water is flowing through a section where two different metals are bolted together. Novák has found one small break in the coating. She wants the circuit understood before choosing a repair.
         guide: >-
           The loop needs four things at once. A place where metal is lost. A place that
           takes the electrons. A path through the metal, and a path through the water.
@@ -2639,7 +2639,7 @@ missions:
         title: How fast is the wall going
         concept: A sample stands for a place and a moment, and only those
         place: Electrochemistry Lab
-        scene: A test piece from the intake has lost two kilograms of steel in a year, spread over four square metres. The wall that is left is six millimetres thick.
+        scene: Novák hands over a test piece from the intake. It has lost two kilograms of steel in a year, spread over four square metres. The wall that is left is six millimetres thick.
         guide: >-
           Four numbers. One is the wall that is left, which belongs to the comparison.
           One is how much steel makes a millimetre over that patch. Ask which numbers
@@ -2692,7 +2692,7 @@ missions:
         task: Say which control goes in first.
         title: Protect the pipe
         place: Maintenance Control
-        scene: The thinnest part of the intake pipe has three millimetres of wall left, and the loss has sped up eight times. The gallery stays cleared until the first control is chosen. Water is still flowing.
+        scene: The thinnest part of the intake pipe has three millimetres of wall left, and the loss has sped up eight times. Femi Oyelaran, the safety officer, keeps the gallery cleared until the first control is chosen. Water is still flowing.
         guide: >-
           Three of the four options act on a real part of the loop. One only moves
           paper. Ask which part each one removes. Then ask whether one small hole could
@@ -2740,7 +2740,7 @@ missions:
         title: Neutral, while the works keeps feeding
         concept: "Acids and bases, and why the middle is where things are stable"
         place: Treatment Works
-        scene: The tank has to sit in the middle of the pH scale before anything goes to the river. Acid keeps arriving from the works in batches, and the lime pump is the only control.
+        scene: The tank has to sit in the middle of the pH scale before anything goes to the river. Acid keeps arriving from the works in batches, and Osei's lime pump is the only control.
         guide: >-
           Hold the tank at pH 7, inside the band on the meter. The band narrows as the
           discharge time comes closer. Each batch keeps arriving for as long as it is being
@@ -2795,7 +2795,7 @@ missions:
         title: What did the treatment actually do?
         concept: "Weight is conserved: what goes in has to come out somewhere"
         place: Pilot Treatment Plant
-        scene: The pilot treated a batch holding a hundred kilograms of the chemical. The treated water, the sludge and the gas coming off have each been measured. The city is waiting to hear whether it was destroyed.
+        scene: Osei's pilot treated a batch holding a hundred kilograms of the chemical. The treated water, the sludge and the gas coming off have each been measured. The city is waiting to hear whether it was destroyed.
         guide: >-
           Read every stream first, because reading is free. Then count only the masses
           that are the same chemical the batch went in with. A hundred kilograms went
@@ -2863,7 +2863,7 @@ missions:
         task: Put the four stages in the order they have to run.
         title: Put the treatment in order
         place: Byproduct Analysis Lab
-        scene: Four stages are on the table and the plant wants an order for them. Riverton has one intake, and it cannot run this experiment twice while the water is off.
+        scene: Four stages are on the table, laid out by Rafael Delgado, the analyst who tracks what each treatment leaves behind. The plant wants an order for them. Riverton has one intake, and it cannot run this experiment twice while the water is off.
         guide: >-
           These four are not four separate machines. Each one changes what reaches the
           next. Ask what has to be there already. You cannot filter a solid before there
@@ -2908,7 +2908,7 @@ missions:
         task: Say what the pilot has to measure.
         title: Choose what the pilot measures
         place: Waste Management Office
-        scene: The pilot has room for one question, four weeks, and a tenth of the flow. All three methods claim to remove the chemical, and the full plant is committed in June whatever the pilot finds.
+        scene: The pilot has room for one question, four weeks, and a tenth of the flow. All three methods claim to remove the chemical, and Nakamura points out the full plant is committed in June whatever the pilot finds.
         guide: >-
           All three methods remove the chemical. That is why they are all on the table.
           So measuring removal cannot separate them. Ask what each option would tell you
@@ -2962,7 +2962,7 @@ missions:
         title: Two candidates, one difference
         concept: Separating a mixture, using a difference between the parts
         place: Quantitative Analysis Suite
-        scene: Two substances fit the result equally well. Their formulas differ by one oxygen atom. An instrument that weighs molecules has already measured this sample.
+        scene: Two substances fit the result equally well. Their formulas differ by one oxygen atom. Okonjo's instrument that weighs molecules has already measured this sample.
         guide: >-
           The two candidates differ by one oxygen atom. So ask which measurement notices
           one atom. Sort the options by what each one measures. How fast it travelled?
@@ -3008,7 +3008,7 @@ missions:
         title: Close the gaps before release
         concept: "A blank and a standard: how a laboratory knows a number is real"
         place: Water Distribution Network
-        scene: A number can be perfectly correct and still answer the wrong question. The pipes are about to be brought back up to pressure on the strength of this evidence.
+        scene: A number can be perfectly correct and still answer the wrong question. Nakamura is going through the evidence line by line. The pipes are about to be brought back up to pressure on the strength of it.
         guide: >-
           The left side is four separate holes in the evidence. Each has its own fix.
           Pair them by asking what was not tested. Sampling at the plant leaves the taps
@@ -3061,7 +3061,7 @@ missions:
         task: Move and narrow the band, and say whether the valves can open.
         title: Open, hold, or open with conditions
         place: Independent Review Board
-        scene: The pumps are idle while the board meets. The result is nine against a limit of ten, give or take two. Operators are waiting at the valves, and the city has already been given two different reopening times.
+        scene: The pumps are idle while the board meets. The result is nine against a limit of ten, give or take two. Reyes has operators waiting at the valves, and the city has already been given two different reopening times.
         guide: >-
           The band on screen is every result the test allows, not just the best guess.
           It is nine against a limit of ten, give or take two, so part of the band is
@@ -3127,7 +3127,7 @@ missions:
         title: What each claim has earned
         concept: Saying what you know and how well you know it
         place: Scientific Review Hall
-        scene: The city wants one sentence, and the chemistry does not support one. Turning all of it into a single green light is how a place gets reopened above a problem nobody wrote down.
+        scene: The city wants one sentence, and Mbeki has to put it on a screen tonight. The chemistry does not support one. Turning all of it into a single green light is how a place gets reopened above a problem nobody wrote down.
         guide: >-
           The evidence is in four different states at once. Each state needs a different
           sentence. Ask what would have to happen for each one to be settled. Another
@@ -3181,7 +3181,7 @@ missions:
         title: Did the cell do what it should?
         concept: Measuring the same thing several times, and averaging
         place: Treatment Plant Gallery
-        scene: The polishing cell ran for six hours. From the current it drew, it should have taken out about four and a half kilograms of metal. The water figures say it took out three and a half.
+        scene: Osei's polishing cell ran for six hours. From the current it drew, it should have taken out about four and a half kilograms of metal. The water figures say it took out three and a half.
         guide: >-
           Four numbers. Two are the current and the hours, and they were used to work
           out the most it could remove. That work is already done. Ask which two numbers
@@ -3245,7 +3245,7 @@ missions:
         task: Say what the city should keep paying for.
         title: What the city keeps
         place: Long-Term Monitoring Office
-        scene: The temporary laboratory is being packed up as the emergency money ends. The plant is running. The mud still holds about seventy-one kilograms. One monitoring station has funding after next month.
+        scene: The temporary laboratory is being packed up as the emergency money ends. The plant is running. The mud still holds about seventy-one kilograms. Stavros has funding for one monitoring station after next month.
         guide: >-
           All four options are fair uses of the last money. They protect different
           things. Ask what nobody would notice if it were not funded. Seventy-one

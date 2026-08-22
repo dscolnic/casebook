@@ -359,7 +359,7 @@ glossary:
       - solar elongation
     def: The angular separation between an object and the Sun as seen from the observer.
 
-# The campaign: 1 working day each, 3 stops and a callback from day 3.
+# The campaign: One working day each, 3 stops and a callback from day 3.
 missions:
   - title: The Discovery Image
     objective: Validate a new-object candidate and preserve the measurements needed for follow-up.
@@ -372,7 +372,7 @@ missions:
         title: Object or artifact?
         concept: "Telescopes: aperture, resolution, signal-to-noise"
         place: Survey Telescope Control
-        scene: Three survey frames show the same star-like point at three sky positions and on three different detector pixels. The background stars stay registered. A second telescope on another mountain then finds the source close to the predicted next position.
+        scene: Virtanen brings you three survey frames — the same star-like point at three sky positions, on three different detector pixels, while the background stars stay registered. A second telescope on another mountain then finds the source close to her predicted next position.
         guide: >-
           Four options, and the test is whether the thing moves in the sky or on the
           chip. Ask of each candidate what it would leave behind. A cosmic ray arrives
@@ -450,7 +450,7 @@ missions:
         task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.
         title: Validate the discovery
         place: Image Processing Lab
-        scene: 40000 catalogued stars, 2 satellite trails and a hot-pixel column share the frames with the moving point. The formal discovery notice goes out at dawn. If the reduction is wrong, follow-up telescopes will spend the next night chasing an artifact.
+        scene: 40000 catalogued stars, 2 satellite trails and a hot-pixel column share the frames with the moving point. Virtanen sends the formal discovery notice at dawn; if her reduction is wrong, follow-up telescopes spend the next night chasing an artifact.
         guide: >-
           All four steps will happen before dawn, so ask what each one removes. Forty
           thousand catalogued stars, two satellite trails and a bad column share these
@@ -497,7 +497,7 @@ missions:
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: How far did it move?
         place: Minor-Planet Operations Desk
-        scene: The object shifted between 2 frames 20 minutes apart, and the desk has to say where the next telescope should point. Nobody has turned that shift into a rate yet.
+        scene: The object shifted between 2 frames 20 minutes apart, and the desk has to say where the next telescope should point. Virtanen has the raw shift on her screen; nobody has turned it into a rate yet.
         guide: >-
           Five numbers, and two of them are the same interval in different units, with a
           third being the exposure count. Ask of each whether this rate needs it. And
@@ -551,7 +551,7 @@ missions:
         task: Which explanation fits the residual pattern across field position, timing, catalog stars, and the independent telescope?
         title: Why do the measured positions disagree?
         place: Follow-Up Telescope Network
-        scene: The wide-field camera's reference stars and asteroid share a residual that grows toward one edge of the detector. Exposure times agree with the observatory clock. A second telescope shows neither pattern and agrees with the current orbit fit.
+        scene: Delacroix flags a residual the wide-field camera's reference stars and asteroid share, growing toward one edge of the detector. Exposure times agree with the observatory clock. A second telescope shows neither pattern and agrees with the current orbit fit.
         guide: >-
           Four options, and the reference stars are the control. They show the same
           pattern as the asteroid. Ask of each candidate whether it would move both, or
@@ -630,7 +630,7 @@ missions:
         title: Build the observation arc
         concept: Time and coordinate standards
         place: Astrometry Lab
-        scene: Six observatories have reported. Two use a different time standard, one recorded no plate solution at all, and together they cover four hours. The next uncertainty region has to come out of this.
+        scene: Six observatories have reported to Delacroix. Two use a different time standard, one recorded no plate solution at all, and together they cover four hours. He wants the next uncertainty region built out of all of it.
         guide: >-
           All four steps will happen. Six observatories have reported, two on a
           different time standard and one with no plate solution. Ask of each step what
@@ -675,7 +675,7 @@ missions:
         task: Spend the single follow-up booking on the observation that most reduces the short-arc orbit ambiguity.
         title: Buy the best next observation
         place: Time Standards Room
-        scene: 4 hours of discretionary time are available on a 2-metre telescope. The object is magnitude 22.4, sets 2 hours after dusk, and the current arc is only 4 hours. The same field is observable again in six nights; the press office is waiting.
+        scene: 4 hours of discretionary time are open on a 2-metre telescope. The object is magnitude 22.4, sets 2 hours after dusk, and the arc is 4 hours. The field returns in six nights; Delacroix holds the booking while the press office waits.
         guide: >-
           Four hours of discretionary time, an object at magnitude 22.4 that sets two
           hours after dusk, and an arc only four hours long. Open each booking and ask
@@ -744,7 +744,7 @@ missions:
         title: Moving with the sky, or across it
         concept: Detectors and image artifacts
         place: Survey Dome
-        scene: The survey produced four hundred detections tonight and the report goes at dawn. Most of them are not objects at all. What separates them is how a thing moves between frames.
+        scene: The survey produced four hundred detections tonight and Nguyen's report goes at dawn. Most of them are not objects at all, and what separates them is how a thing moves between frames. She hands you the stack.
         guide: >-
           Two bins. A real object in the solar system moves against the stars from frame to
           frame, in the same direction, by a consistent amount. Everything else — cosmic ray
@@ -823,7 +823,7 @@ missions:
         task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.
         title: From angles to orbit family
         place: Orbit Determination Center
-        scene: Every orbit that fits the arc projects to almost the same track across the sky. Some of them pass 1 million kilometres from Earth and some do not, and nothing measured so far separates them.
+        scene: Rossi refuses to quote a single orbit — every one that fits the arc projects to almost the same track across the sky. Some pass 1 million kilometres from Earth and some do not, and nothing measured so far separates them.
         guide: >-
           All four steps will happen, and every orbit that fits projects to nearly the
           same track. Ask of each step what keeps the family a family rather than a best
@@ -869,7 +869,7 @@ missions:
         task: Match each part of the orbit to the observation that pins it down. Each choice is used once.
         title: Which orbit feature does the data constrain?
         place: Celestial Mechanics Group
-        scene: Four kinds of evidence are on offer and the group has to say what each one buys before it spends any telescope time. Each is strong in a different direction.
+        scene: Four kinds of evidence are on offer, each strong in a different direction, and Rossi wants the group to say what each one buys before it spends any telescope time.
         guide: >-
           Four parts of the orbit, and four ways to measure. Pair them by asking what
           each measurement is physically sensitive to. A time of flight? A frequency
@@ -925,7 +925,7 @@ missions:
         task: Radar has a window in nine days. What do you do with the nine nights before it?
         title: Collapse the orbit uncertainty
         place: Follow-Up Scheduling Desk
-        scene: The allowed orbits sweep a 40,000-kilometre corridor at Earth. The object fades below the survey limit in 12 nights, radar can see it in 9 days, and the beam needs a usable ephemeris. Tonight’s schedule decides whether that window exists.
+        scene: The allowed orbits sweep a 40,000-kilometre corridor at Earth. The object fades below the survey limit in 12 nights, radar can see it in 9 days, and the beam needs a usable ephemeris. Rossi says tonight's schedule decides whether that window exists.
         guide: >-
           Four options, and the object fades in twelve nights while radar opens in nine
           days. Ask of each what it does to the pointing prediction radar will need.
@@ -978,7 +978,7 @@ missions:
         task: Move and narrow the encounter cloud until the full allowed band clears Earth.
         title: Read the risk correctly
         place: Impact Monitoring Center
-        scene: "The nominal orbit misses Earth, but the uncertainty cloud still reaches the impact boundary. A press briefing is scheduled this afternoon, and the monitoring chief wants one sentence: safe enough to stand down, or dangerous enough to keep tracking?"
+        scene: "The nominal orbit misses Earth, but the uncertainty cloud still reaches the impact boundary. A press briefing is set for this afternoon, and Ellery wants one sentence for her two counties: safe enough to stand down, or dangerous enough to keep tracking?"
         guide: >-
           The band is every miss distance the observations permit. Its middle clears
           Earth; its edge still touches the impact boundary, which is why this is not
@@ -1033,7 +1033,7 @@ missions:
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: Probability from an ensemble
         place: Statistical Orbit Lab
-        scene: A simplified Monte Carlo run has finished at the statistical orbit lab. What it produced is a count of samples, and the figure that leaves this room will be quoted in public for years.
+        scene: A simplified Monte Carlo run has finished at the statistical orbit lab, and what it produced is a count of samples. Rossi reminds you the figure that leaves this room will be quoted in public for years.
         guide: >-
           Five numbers, and three of them belong to other runs or other questions: the
           first quick run, the misses, and the years to encounter. Ask of each whether
@@ -1083,7 +1083,7 @@ missions:
         task: A thin set of solutions still hits Earth. Where do you point next week?
         title: Reduce the dangerous uncertainty
         place: Planetary Defense Coordination Office
-        scene: The nominal orbit misses by four Earth radii. Roughly 1 in 600 allowed solutions impact instead. Next Tuesday those solutions place the object eight arcseconds from the rest of the family; after that the two predictions begin to converge again.
+        scene: The nominal orbit misses by four Earth radii; roughly 1 in 600 allowed solutions impact instead. Rossi's ephemeris puts those solutions eight arcseconds from the rest of the family next Tuesday — after that, the two predictions begin to converge again.
         guide: >-
           Four places to point, and a measurement is only informative where the live
           hypotheses disagree. Ask of each option whether the impacting and missing
@@ -1136,7 +1136,7 @@ missions:
         task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.
         title: What controls apparent brightness?
         place: Photometry Lab
-        scene: The object was bright enough for a survey telescope to find, and that single number is being read across the room as a size. Four things that change reflected flux are on the board.
+        scene: The object was bright enough for a survey telescope to find, and that single number is being read across the room as a size. Sorokin lists four things that change reflected flux on the board.
         guide: >-
           Four things that change reflected flux, and four effects. Pair them by asking
           whether each one changes how much light arrives, how much is sent back, or how
@@ -1192,7 +1192,7 @@ missions:
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: Diameter-albedo degeneracy
         place: Infrared Telescope Team
-        scene: Two objects show the same reflected brightness and one is four times as reflective as the other. The infrared team wants the size comparison written down before anybody quotes a diameter.
+        scene: Two objects show the same reflected brightness and one is four times as reflective as the other. Sorokin wants the size comparison written down before anybody in the room quotes a diameter.
         guide: >-
           Five numbers, and three of them are wrong ways to use the albedo ratio: its
           square, its reciprocal, and the brightness itself. Ask of each whether it
@@ -1242,7 +1242,7 @@ missions:
         task: Fit the reflected brightness, then use the thermal spectrum to break the size–albedo degeneracy.
         title: Bound the diameter
         place: Physical Characterization Group
-        scene: Reflected light alone leaves the asteroid somewhere between roughly 120 and 600 metres across. The thermal team now has a calibrated infrared spectrum peaking near 10.0 μm and a heat-flux measurement from the same observing geometry.
+        scene: Reflected light alone leaves the asteroid somewhere between roughly 120 and 600 metres across. Sorokin has come back with a calibrated infrared spectrum peaking near 10.0 μm and a heat-flux measurement from the same observing geometry.
         guide: >-
           Two controls slide diameter and albedo along a family of pairs that all
           reproduce the reflected light. Find out how wide that family is first. Then
@@ -1334,7 +1334,7 @@ missions:
         task: Open the dependency chain behind each spectrum, keep the independent checks, and identify the shared source of the 1.4 μm dip.
         title: Real absorption or spectral artifact?
         place: Spectroscopy Observatory
-        scene: A broad dip near 1.4 microns has appeared in the spectrum, and it would change the composition class if it is real. The observatory has the standard star, the airmass record and a space-based spectrum of the same object.
+        scene: A broad dip near 1.4 microns has appeared in the spectrum, and it would change the composition class if it is real. Adebayo puts the standard star, the airmass record and a space-based spectrum of the same object in front of you.
         guide: >-
           Open each piece of evidence and see what the spectrum depended on. Keep what
           would still stand if the atmosphere or the detector chain were at fault, and
@@ -1426,7 +1426,7 @@ missions:
         task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.
         title: From photons to composition class
         place: Meteorite Comparison Lab
-        scene: The spectrum has two broad features and a slope, and three mineral models reproduce all of them within the noise. Space weathering reddens a surface, grain size changes band depth, and viewing geometry shifts the continuum.
+        scene: The spectrum has two broad features and a slope, and three mineral models reproduce all of them within the noise. Adebayo notes that space weathering reddens a surface, grain size changes band depth, and viewing geometry shifts the continuum.
         guide: >-
           All four steps will happen, and three mineral models fit the spectrum within
           the noise. Ask of each step what would be uninterpretable without it. The Sun,
@@ -1473,7 +1473,7 @@ missions:
         task: One spectrum, one phase angle, one rotation — and a draft circular naming a class. What do you require?
         title: Improve the composition claim
         place: Composition Review Room
-        scene: The draft circular names a composition class outright. One spectrum supports it. In the next room, the deflection team is using the implied density to size the impactor. If the class is wrong, the spacecraft design starts from the wrong mass estimate.
+        scene: Adebayo's draft circular names a composition class outright, and one spectrum supports it. In the next room the deflection team is using the implied density to size the impactor; a wrong class starts the spacecraft design from the wrong mass.
         guide: >-
           Four options, and there is one spectrum, one phase angle, one rotation. Ask of
           each whether it repeats the current method or brings different physics.
@@ -1526,7 +1526,7 @@ missions:
         task: Which explanation fits the repeatability, comparison stars, filters, and observing geometry?
         title: Rotation or observing artifact?
         place: Time-Series Photometry Network
-        scene: The asteroid repeats a 4.8-hour brightness cycle in 2 filters while comparison stars stay steady. The source crosses different detector pixels during the run, and the Sun-object-observer phase angle changes only slowly across the same nights.
+        scene: The asteroid repeats a 4.8-hour brightness cycle in 2 filters while comparison stars stay steady. Nguyen points out that the source crosses different detector pixels during the run, and the Sun-object-observer phase angle changes only slowly across the same nights.
         guide: >-
           Four options, and the comparison stars and second filter are what rule three
           of them out. Ask of each candidate whether it survives them. Stars on the same
@@ -1604,7 +1604,7 @@ missions:
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: Rotation period from repeating peaks
         place: Rotation Dynamics Lab
-        scene: Similar maxima in the light curve are separated by 3.5 hours. An elongated body presents its long profile twice in every turn, and the spacecraft has to arrive at a known face.
+        scene: Similar maxima in the light curve are separated by 3.5 hours. An elongated body presents its long profile twice in every turn, and Nguyen wants the period settled before the spacecraft is aimed at a known face.
         guide: >-
           Five numbers, and two of them are wrong ways to use the peak spacing: half of
           it, and four peaks per turn. One is the amplitude, which belongs elsewhere.
@@ -1652,7 +1652,7 @@ missions:
         task: A single rotation, half of one, or a tumbler — and the spacecraft launches on whichever is true. What do you organise?
         title: Resolve the spin state
         place: Mission Design Office
-        scene: The light curve varies by a factor of three over about seven hours, which could be one rotation, half of one, or a tumbling body seen from a changing angle. The spacecraft launches on whichever is true.
+        scene: The light curve varies by a factor of three over seven hours — one rotation, half of one, or a tumbling body seen from a changing angle. Nguyen will not sign the spin state until something separates them; the spacecraft launches on whichever is true.
         guide: >-
           Four campaigns, and the ambiguity is between one rotation, half of one, and a
           tumbler. Ask of each option whether it samples the cycle at new times and new
@@ -1700,7 +1700,7 @@ missions:
         title: On target, while the ridge blows
         concept: "Radar ranging, light travel time and Doppler"
         place: Radar Dish
-        scene: The object is faint and the pass is eleven minutes long. The dish has to stay pointed within the beam while a katabatic wind comes down the ridge and the drive fights it.
+        scene: The object is faint and the pass is eleven minutes long. Thabo Mbeki-Rowe, the radar astronomer, needs the dish held inside the beam while a katabatic wind comes down the ridge and the drive fights it.
         guide: >-
           Hold the pointing error inside the band on the console. The band narrows through the
           pass, because the object is closing and the return needs more of the beam on it, not
@@ -1761,7 +1761,7 @@ missions:
         task: Match each quantity to the radar observable that measures it. Each choice is used once.
         title: What does radar measure?
         place: Planetary Radar Facility
-        scene: The radar room has its first clean echo train from the asteroid. Delay, Doppler shift and echo width are displayed together, and the optical orbit team is standing by to decide which new constraint belongs in the next fit.
+        scene: Fischer has her first clean echo train from the asteroid. Delay, Doppler shift and echo width are displayed together, and the optical orbit team is standing by to decide which new constraint belongs in the next fit.
         guide: >-
           Four quantities and four radar observables. Pair them by asking what each
           observable physically is: a time, a frequency spread, a power against delay,
@@ -1817,7 +1817,7 @@ missions:
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: Diameter from angular width
         place: Coordination Office
-        scene: A radar image resolves the echo to about 0.09 arcsecond across while the orbit solution places the asteroid 4.0 × 10^8 metres away. The characterization team wants a physical diameter before the next consequence run begins.
+        scene: A radar image resolves the echo to about 0.09 arcsecond across while the orbit solution places the asteroid 4.0 × 10^8 metres away. Adebayo wants a physical diameter before the next consequence run begins.
         guide: >-
           Five numbers, and three of them belong elsewhere: an astronomical unit, that
           night's seeing, and a distance from a different solution. Ask of each whether
@@ -1843,29 +1843,29 @@ missions:
         why: "Angular width becomes a physical diameter only when a distance is supplied. For a small angle in radians, size is approximately distance times angular size. Convert 0.09 arcsecond to radians, about 4.36×10⁻⁷ rad, and multiply by 4.0×10⁸ m. The result is about 1.7×10² m, or roughly 170 m across. The calculation is powerful because radar has supplied an independent distance: without that distance, an angular width alone cannot tell whether the object is small and nearby or larger and farther away."
         estimate:
           relationship: Diameter = angular width in radians × distance. An arcsecond is 1/206,265 of a radian.
-          prompt: Radar puts the object 6.0×10^8 m away, and the dome measured an angular width of 0.10 arcsec.
+          prompt: The orbit solution puts the object 4.0×10^8 m away, and the dome measured an angular width of 0.09 arcsec.
           question: Estimate the diameter of the object.
           labels:
-            - 0.10 arcsec (measured angular width)
+            - 0.09 arcsec (measured angular width)
             - 206,265 (arcsec in 1 radian)
-            - 6.0e8 m (distance, from radar)
+            - 4.0e8 m (distance, from the orbit solution)
             - 1.5e11 m (1 astronomical unit)
             - 0.5 arcsec (the seeing that night)
-          values: [0.1, 206265, 600000000, 150000000000, 0.5]
+          values: [0.09, 206265, 400000000, 150000000000, 0.5]
           slots: 3
           template: "{0} ÷ {1} × {2}"
           formula: a/b*c
           correct: [0, 1, 2]
-          target: 291
-          tolerance: 40
+          target: 174.5
+          tolerance: 25
           units: m
-          solution: 0.10 ÷ 206,265 = 4.8×10^-7 rad; × 6.0×10^8 m ≈ 290 m.
+          solution: 0.09 ÷ 206,265 = 4.36×10^-7 rad; × 4.0×10^8 m ≈ 175 m.
           explanation: The distance has to be the measured one. An astronomical unit in that slot gives a diameter of 70 km.
       - group: ORBIT
         task: Radar has settled this pass. What has to be computed before anybody calls the object safe?
         title: What this pass does to the next one
         place: Orbit Determination
-        scene: "Radar has pinned this pass at 2.4 Earth radii, and the control room starts to relax. Then the return solution flashes: 11 years. Earth’s gravity is about to rewrite the orbit, and nobody yet knows where that rewritten orbit brings it back."
+        scene: "Fischer has pinned this pass at 2.4 Earth radii, and the control room starts to relax. Then the return solution flashes: 11 years. Earth’s gravity is about to rewrite the orbit, and nobody yet knows where that rewritten orbit brings it back."
         guide: >-
           Four options, and radar has settled this pass at 2.4 Earth radii. Ask of each
           whether it says anything about the return in eleven years. Passing that close
@@ -1913,14 +1913,14 @@ missions:
   - title: Impact Energy
     objective: Provide low, central, and high impact-energy scenarios with transparent assumptions.
     briefing: The latest size and speed estimates imply regional consequences, but uncertainty in diameter, density, and velocity spans a wide range. The player must compute scales without presenting a false point estimate.
-    stake: "The object passed a week ago at four times the distance of the Moon, and is now heading away. What it left behind is a characterisation: about 180 metres across, and roughly 400 megatons if the eight-year return arrives. That is not the end of the world. It is one metropolitan region — or, if it comes down at sea off a populated coast, a wave reaching a shoreline with hours of warning. Rohan Banerjee, who models impact physics, wants one number for civil defence today; Adebayo says the diameter is still the widest term and everything else is decoration. Today you produce low, central and high scenarios and say which unknown is still doing the damage."
+    stake: "The object passed a week ago at four times the distance of the Moon, and is now heading away. What it left behind is a characterisation: about 180 metres across, and roughly 255 megatons if the eight-year return arrives. That is not the end of the world. It is one metropolitan region — or, if it comes down at sea off a populated coast, a wave reaching a shoreline with hours of warning. Rohan Banerjee, who models impact physics, wants one number for civil defence today; Adebayo says the diameter is still the widest term and everything else is decoration. Today you produce low, central and high scenarios and say which unknown is still doing the damage."
     takeaway: Use mass and density, kinetic energy, scaling, how uncertainty carries forward, orders of magnitude as an evidence chain rather than as isolated facts.
     stops:
       - group: IMPACT
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: Energy of a notional impactor
         place: Impact Physics Group
-        scene: Civil defence will not convene anybody without an energy figure. The impact physics group has a radius, a density from the presumed composition class, and an approach speed, each with its own uncertainty.
+        scene: Civil defence will not convene anybody without an energy figure. Banerjee has a radius, a density from the presumed composition class, and an approach speed, each with its own uncertainty, and wants the number built in front of him.
         guide: >-
           Five numbers, and two of them are traps. One is the diameter where the formula
           wants a radius. One is Earth's escape speed, which belongs to a later stop.
@@ -1954,24 +1954,24 @@ missions:
           labels:
             - 90 m (radius)
             - 2,600 kg/m³ (density)
-            - 20,000 m/s (approach speed)
+            - 16,400 m/s (entry speed, after Earth's gravity)
             - 180 m (diameter)
             - 11,000 m/s (Earth escape velocity)
-          values: [90, 2600, 20000, 180, 11000]
+          values: [90, 2600, 16400, 180, 11000]
           slots: 3
           template: 0.5 × ( (4π/3) {0}³ {1} ) × {2}²
           formula: 0.5*((4*Math.PI/3)*a*a*a*b)*c*c
           correct: [0, 1, 2]
-          target: 1588000000000000000
-          tolerance: 200000000000000000
+          target: 1068000000000000000
+          tolerance: 140000000000000000
           units: J
-          solution: Mass about 7.9 × 10⁹ kg, kinetic energy about 1.6 × 10¹⁸ J — roughly 400 megatons.
+          solution: Mass about 7.9 × 10⁹ kg, kinetic energy about 1.07 × 10¹⁸ J — roughly 255 megatons.
           explanation: The sphere formula takes a radius, and the diameter tile put into it gives an object eight times too massive. That factor of eight is the same one that makes the diameter measurement worth more than any other.
       - group: OPS
         task: Use gravitational focusing and the asteroid mass estimate to calculate the corrected kinetic energy at atmospheric entry.
         title: The speed it actually arrives at
         place: Coordination Office
-        scene: The approach speed far from Earth is 12 kilometres a second. That number has gone to civil defence as the entry speed, and the energy in their briefing was computed from it.
+        scene: The approach speed far from Earth is 12 kilometres a second. Banerjee flags that the number has gone to civil defence as the entry speed, and the energy in their briefing was computed from it.
         guide: >-
           Five numbers, and two of them are the radius and the density, already folded
           into the mass. Ask of each whether this energy needs it again. The two speeds
@@ -1991,6 +1991,19 @@ missions:
               placed — which is the habit this format exists to build.
         takesAsRead:
           - Kepler's laws
+        # Was a second, complete CHOICE grafted onto this card, whose key stated the very
+        # conclusion the estimate below exists to produce. The teaching in its four options
+        # is kept here instead.
+        background:
+          - >-
+              Why the far-field speed is not the entry speed. The two differ by Earth's escape
+              speed, 11.2 kilometres a second, which is not negligible against 12 — an object
+              arriving at 12 far out is nearer 16 at the top of the atmosphere, and energy goes
+              as the square, so that is roughly eighty per cent more energy than the far-field
+              figure implies. The atmosphere cannot help: it decelerates the object *after*
+              entry begins, so it cannot lower the speed at which entry begins. And this is not
+              a detail that only affects the crater — the speed error propagates straight into
+              the energy, which is the number the evacuation decision rests on.
         assumes:
           - a falling object speeds up as it falls, and Earth's escape speed is 11.2 km/s
         takeaway: Earth gravity can raise a slow encounter speed enough to change impact energy materially before atmospheric entry begins.
@@ -1998,16 +2011,6 @@ missions:
         question: What kinetic energy follows once Earth’s gravity has raised the entry speed above 12 km/s?
         answerText: About 1.06 × 10^18 J. Earth’s gravity raises the speed from 12 km/s far away to about 16.4 km/s at entry, making the kinetic energy about 1.87 times larger for the same mass.
         why: "Far from Earth the object approaches at 12 km/s, but Earth's gravity accelerates it before atmospheric entry. Combine the speeds in quadrature: v = √(12² + 11.2²) ≈ 16.4 km/s. For the same mass, kinetic energy scales as speed squared, so the energy ratio is 16.4²/12² ≈ 1.87. The entry energy is therefore about 87% larger than a calculation that uses the far-field speed directly. Gravitational focusing changes both the trajectory and the energy scale that consequence models inherit."
-        choices:
-          - Earth's gravity accelerates it, so entry is nearer 16 km/s and the energy is roughly 80% higher.
-          - Nothing. Speed far from Earth and speed at the top of the atmosphere are the same.
-          - The atmosphere slows it first, so entry is lower than 12 km/s.
-          - It matters only for the crater, not for the energy.
-        answer: Earth's gravity accelerates it, so entry is nearer 16 km/s and the energy is roughly 80% higher.
-        rebuttals:
-          - The 2 speeds differ by Earth's escape speed, which is 11.2 km/s and not negligible against 12.
-          - The atmosphere decelerates the object after entry, so it cannot lower the speed at which entry begins.
-          - Energy is proportional to the square of entry speed, so the speed error propagates straight into the energy.
         estimate:
           prompt: The asteroid mass estimate is 7.9 × 10^9 kg. Its speed far from Earth is 12 km/s, and Earth’s escape speed is 11.2 km/s.
           question: Estimate the corrected kinetic energy at atmospheric entry.
@@ -2032,7 +2035,7 @@ missions:
         task: The consequence range spans two orders of magnitude. Which measurement narrows it most?
         title: Reduce consequence uncertainty
         place: Emergency Planning Office
-        scene: The consequence range runs from a regional evacuation to a continent-wide emergency, and every part of that range traces back to a physical measurement. The planning office can improve one of them before the region has to be told anything.
+        scene: The consequence range runs from a regional evacuation to a continent-wide emergency, and every part of that range traces back to a physical measurement. Banerjee can improve one of them before the region has to be told anything.
         guide: >-
           Four options, and the consequence range spans two orders of magnitude. Ask of
           each how strongly it enters the energy. Mass goes as the cube of diameter, so
@@ -2078,14 +2081,14 @@ missions:
   - title: Through the Atmosphere
     objective: Build multiple entry scenarios and identify observations that discriminate monolithic from weak aggregate behavior.
     briefing: Models disagree on whether the object reaches the ground, fragments in the atmosphere, or produces a damaging airburst. The player must reason about drag, strength, heating, and uncertain structure.
-    stake: Two weeks after the pass, and Marta Schulz, who models impact physics, has three groups modelling the same object from the same data. 1 has it reaching the ground, 1 has it coming apart 30 kilometres up, 1 is between. Evacuation distances differ by a factor of five across those three, and a planning office wants a number this week. Today you build the entry scenarios properly and say what would tell them apart. Strength is the property we can least measure from here, and the one that decides what people are told to do.
+    stake: Two weeks after the pass, and Marta Schulz, who models impact physics, has three groups modelling the same object from the same data. One has it reaching the ground, one has it coming apart 30 kilometres up, one is between. Evacuation distances differ by a factor of five across those three, and a planning office wants a number this week. Today you build the entry scenarios properly and say what would tell them apart. Strength is the property we can least measure from here, and the one that decides what people are told to do.
     takeaway: Use drag, deceleration, heating, fragmentation, material strength as an evidence chain rather than as isolated facts.
     stops:
       - group: IMPACT
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: From joules to megatons
         place: Entry and Consequences Lab
-        scene: The entry model reports 3.1×10^17 joules. Every emergency manager on the call works in megatons, and the last briefing sent them a number with the exponent copied wrongly.
+        scene: The entry model reports 3.1×10^17 joules. Every emergency manager on Schulz's call works in megatons, and the last briefing sent them a number with the exponent copied wrongly. She wants this conversion checked twice.
         guide: >-
           Four numbers, and two of them belong elsewhere: joules in a megajoule, and the
           1945 test offered for scale. Ask of each whether this conversion uses it. A
@@ -2107,31 +2110,31 @@ missions:
         takeaway: A quantity is only communicable once it is in the units the decision is made in.
         format: BALLPARK
         question: Estimate the energy in megatons of TNT.
-        why: "A megaton of TNT is a unit of energy, not a statement about an explosion mechanism. Using 1 megaton TNT ≈ 4.184×10¹⁵ J, divide 3.1×10¹⁷ J by that conversion factor. The result is about 74 megatons of TNT equivalent. The purpose is scale: it lets planners compare an unfamiliar joule value with other energetic events. It does not say that an asteroid deposits the energy in the same place, time, or way as an explosive device; atmospheric entry determines how that energy is distributed."
+        why: "A megaton of TNT is a unit of energy, not a statement about an explosion mechanism. Using 1 megaton TNT ≈ 4.184×10¹⁵ J, divide 1.07×10¹⁸ J by that conversion factor. The result is about 255 megatons of TNT equivalent. The purpose is scale: it lets planners compare an unfamiliar joule value with other energetic events. It does not say that an asteroid deposits the energy in the same place, time, or way as an explosive device; atmospheric entry determines how that energy is distributed."
         estimate:
           relationship: Energy in megatons = energy in joules ÷ 4.184×10^15 joules per megaton.
           prompt: The entry model gives 3.1×10^17 J, and the call is conducted in megatons of TNT.
           question: Estimate the energy in megatons of TNT.
           labels:
-            - 3.1e17 J (kinetic energy at entry)
+            - 1.07e18 J (kinetic energy at entry)
             - 4.184e15 J (1 megaton of TNT)
             - 1.0e6 (joules in a megajoule)
             - 15 kt (the 1945 test, for scale)
-          values: [310000000000000000, 4184000000000000, 1000000, 15]
+          values: [1070000000000000000, 4184000000000000, 1000000, 15]
           slots: 2
           template: "{0} ÷ {1}"
           formula: a/b
           correct: [0, 1]
-          target: 74
-          tolerance: 8
+          target: 255.7
+          tolerance: 25
           units: megatons
-          solution: 3.1×10^17 ÷ 4.184×10^15 ≈ 74 megatons.
+          solution: 1.07×10^18 ÷ 4.184×10^15 ≈ 255 megatons.
           explanation: Subtract the exponents first — 10^17 ÷ 10^15 is 10^2 — then divide 3.1 by 4.184.
       - group: OPS
         task: Which atmospheric-entry outcome best fits the optical, deceleration, low-frequency sound, and ground evidence?
         title: Why did the object break up high in the atmosphere?
         place: High-Altitude Observation Network
-        scene: The optical track brightens high in the atmosphere while the measured speed drops sharply. Low-frequency sound arrives later, several fading tracks separate from the main one, and ground teams report neither a crater nor a matching seismic signal.
+        scene: The optical track brightens high in the atmosphere while the measured speed drops sharply. Schulz adds what came after — low-frequency sound arriving late, several fading tracks separating from the main one, and ground teams reporting neither a crater nor a matching seismic signal.
         guide: >-
           Four outcomes, and the silent channels do as much work as the loud ones. No
           crater. No matching seismic signal. Ask of each candidate how many of the
@@ -2209,7 +2212,7 @@ missions:
         task: Three groups model the same object and get ground impact, high fragmentation, and a city-wide airburst. What do you commission?
         title: Bound the atmospheric outcome
         place: Consequence Modeling Center
-        scene: "Three entry models give three outcomes: ground impact, breakup at 30 kilometres, and a city-wide airburst at 12 kilometres. Emergency planners are waiting for one map. The disagreement comes from a material strength nobody has measured."
+        scene: "Three entry models give three outcomes: ground impact, breakup at 30 kilometres, and a city-wide airburst at 12 kilometres. Emergency planners are waiting for one map, and Schulz traces the disagreement to a material strength nobody has measured."
         guide: >-
           Four options, and three models disagree because of a material strength nobody
           has measured. Ask of each whether it removes that uncertainty or hides it.
@@ -2262,7 +2265,7 @@ missions:
         task: Which explanation fits the pre-discovery geometry and how the survey was running at the time?
         title: Why was it missed?
         place: Survey Strategy Center
-        scene: Before discovery, the object's solar elongation stayed below about 30 degrees. Weather logs are mostly clear, detector health is normal, and the predicted brightness is within the survey limit whenever the object finally reaches dark enough sky.
+        scene: Before discovery, the object's solar elongation stayed below about 30 degrees. Garcia pulls the records — weather logs mostly clear, detector health normal, predicted brightness within the survey limit whenever the object finally reaches dark enough sky.
         guide: >-
           Four options, and three of them would mean the survey was broken. Ask of each
           whether the logs support it. The weather was clear. The detector was healthy.
@@ -2340,7 +2343,7 @@ missions:
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: Volume gain from deeper sensitivity
         place: Telescope Network
-        scene: The survey team can improve limiting sensitivity so an object of the same type is detectable from twice as far away. The strategy desk wants the resulting search-volume gain before deciding whether that depth is worth the observing cost.
+        scene: The survey team can improve limiting sensitivity so an object of the same type is detectable from twice as far away. Garcia wants the resulting search-volume gain before deciding whether that depth is worth the observing cost.
         guide: >-
           Four numbers, and two of them are wrong powers: twice the distance squared,
           and the depth gain in magnitudes. Ask of each what dimension the answer lives
@@ -2387,7 +2390,7 @@ missions:
         task: Inject known synthetic objects through the survey strategies and choose the configuration that best repairs the known blind spot.
         title: Improve discovery completeness
         place: Population Statistics Lab
-        scene: The survey strategy lab has a synthetic catalogue of 1,000 near-Earth objects with known orbits, brightnesses and solar elongations. Three candidate observing strategies are ready to run through the same detection and linking pipeline before next year’s schedule is frozen.
+        scene: Virtanen has a synthetic catalogue of 1,000 near-Earth objects with known orbits, brightnesses and solar elongations. Three candidate observing strategies are ready to run through the same detection and linking pipeline before next year’s schedule is frozen.
         guide: >-
           A thousand synthetic objects with known orbits go through the same detection
           and linking pipeline as real data. Run the strategies you want to compare.
@@ -2456,7 +2459,7 @@ missions:
         title: What the dish is chasing tonight
         concept: "Observing constraints: elongation, visibility windows, scheduling"
         place: Operations Hut
-        scene: The target list runs all night and the priority on it is set by whoever has the desk. It changes as the night does — after the new object comes in, after the weather turns west, after the recovery deadline gets close.
+        scene: The target list runs all night, and tonight Nguyen has the desk that sets the priority. It changes as the night does — after the new object comes in, after the weather turns west, after the recovery deadline gets close.
         guide: >-
           Observe what the current priority wants and leave the rest on the list. The
           priority on the desk board changes during the night and nobody announces it. What
@@ -2537,7 +2540,7 @@ missions:
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: Velocity change from momentum transfer
         place: Deflection Physics Lab
-        scene: A kinetic impactor is being sized at the deflection lab. The spacecraft's mass and closing speed are known, and so is the asteroid's mass to within a factor of a few.
+        scene: A kinetic impactor is being sized at the deflection lab. Fischer hands over the numbers — the spacecraft's mass and closing speed are known, and so is the asteroid's mass to within a factor of a few.
         guide: >-
           Five numbers, and two of them belong to other stops: the encounter speed with
           Earth, and the ejecta enhancement. Ask of each whether this first estimate
@@ -2569,9 +2572,9 @@ missions:
             - 10,000 kg (impactor mass)
             - 12,000 m/s (impact speed)
             - 7.9e9 kg (asteroid mass)
-            - 20,000 m/s (the encounter speed with Earth)
+            - 16,400 m/s (the entry speed at Earth)
             - 2.0 (momentum enhancement from ejecta)
-          values: [10000, 12000, 7900000000, 20000, 2]
+          values: [10000, 12000, 7900000000, 16400, 2]
           slots: 3
           template: "{0} × {1} ÷ {2}"
           formula: a*b/c
@@ -2585,7 +2588,7 @@ missions:
         task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.
         title: What determines deflection success?
         place: Mission Engineering Center
-        scene: The impactor concept is on the mission board beside the asteroid mass estimate, encounter geometry and tracking plan. The director wants the team to separate what sets the delivered momentum from what determines whether that momentum becomes a useful orbital change.
+        scene: The impactor concept is on the mission board beside the asteroid mass estimate, encounter geometry and tracking plan. Garcia wants the team to separate what sets the delivered momentum from what determines whether that momentum becomes a useful orbital change.
         guide: >-
           Four things on the left, and four consequences on the right. Pair them by
           asking which link in the chain each one acts on. The momentum delivered? The
@@ -2641,7 +2644,7 @@ missions:
         task: Predict the velocity-change range, execute the impact, then verify the achieved deflection with post-impact tracking.
         title: Build the deflection campaign
         place: Orbit Monitoring Room
-        scene: The impactor has hit. Applause starts in the control room, but the asteroid’s orbit has not yet been remeasured. One dedicated tracking campaign remains, and the mission cannot say it worked until that campaign returns a post-impact velocity change.
+        scene: The impactor has hit. Applause starts in the control room, but the asteroid’s orbit has not yet been remeasured. One dedicated tracking campaign remains, and Fischer will not call it a success until it returns a post-impact velocity change.
         guide: >-
           Lock the velocity change you predicted before the impact, then run the
           tracking campaign and read what the orbit actually did. The applause is not
@@ -2706,7 +2709,7 @@ missions:
         task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.
         title: Which subsystem owns the constraint?
         place: Trajectory Design Center
-        scene: The intercept architecture is split across propulsion, guidance, characterization and tracking teams. Each group has a different hard limit, and the flight director wants every constraint assigned to the subsystem that can actually change it before margins are traded.
+        scene: The intercept architecture is split across propulsion, guidance, characterization and tracking teams. Each group has a different hard limit, and Garcia wants every constraint assigned to the subsystem that can actually change it before margins are traded.
         guide: >-
           Four constraints and four responses, and the responses are not
           interchangeable. Pair them by asking who can act on that constraint, and when.
@@ -2762,7 +2765,7 @@ missions:
         task: Match each orbit to the period it must have.
         title: When does it come back?
         place: Coordination Office
-        scene: Four candidate orbits are still consistent with the arc, and the intercept cannot be designed until somebody says when each one brings the object back. Nobody has turned the distances into times.
+        scene: Four candidate orbits are still consistent with the arc, and the intercept cannot be designed until somebody says when each one brings the object back. Rossi has the distances on the board; nobody has turned them into times.
         guide: >-
           Four orbit sizes and four periods. Pair them by asking what the relationship
           actually uses. Not the shape of the orbit, not the object's mass, only the
@@ -2816,7 +2819,7 @@ missions:
         task: The measured deflection is only about two centimetres a second. Why can that be enough years before encounter?
         title: Why a centimetre a second is enough
         place: Coordination Office
-        scene: Post-impact tracking reports a velocity change of about 2 centimetres a second, against an orbital speed near 25 kilometres a second. The intercept room is being asked how a change of only a few parts in 1 million can create a safe miss years later.
+        scene: Post-impact tracking reports a velocity change of about 2 centimetres a second, against an orbital speed near 25 kilometres a second. Garcia asks the intercept room how a change of a few parts in 1 million can create a safe miss years later.
         guide: >-
           Four explanations for how two centimetres a second matters. Ask of each
           whether it names a direction and a mechanism. One claims momentum is not
@@ -2869,7 +2872,7 @@ missions:
         task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.
         title: Match action to evidence state
         place: Risk Communication Center
-        scene: The regional emergency team is around one table. A wall display shows the newest orbit corridor, likely damage area, and time remaining. Today they must decide whether to keep watching, prepare supplies, warn the public, or order people to move.
+        scene: The regional emergency team is around one table, Ellery at the head of it. A wall display shows the newest orbit corridor, likely damage area, and time remaining. Today they decide whether to keep watching, prepare supplies, warn the public, or order people to move.
         guide: >-
           Four evidence states and four responses. Pair them by asking three things of
           each state: how bad, how long left, and how reversible the action is. Cheap
@@ -2924,7 +2927,7 @@ missions:
         title: Expected displaced population
         concept: Crater and blast scaling; ground effects
         place: Emergency Management Office
-        scene: The emergency management office needs a number to plan against. It has the population inside the corridor and the current impact probability, and it has to write something on a form today.
+        scene: Ellery's emergency management office needs a number to plan against. It has the population inside the corridor and the current impact probability, and something has to be written on the form today.
         guide: >-
           Five numbers, and three of them belong to other estimates: the largest city,
           an earlier probability, and the ensemble figure. Ask of each whether this
@@ -2972,7 +2975,7 @@ missions:
         task: Write the staged action thresholds before the next impact-probability updates arrive, then release the trace.
         title: Prepare without panic
         place: Scientific Advisory Board
-        scene: Five orbit updates are queued. Regional planners can still prepare without evacuating anyone, but planning and pre-positioning both take time. The action thresholds must be locked before the updates begin. Once the stream starts, nobody gets to move them.
+        scene: Five orbit updates are queued. Ellery can still prepare her regions without evacuating anyone, but planning and pre-positioning both take time. Rossi insists the action thresholds are locked before the updates begin — once the stream starts, nobody gets to move them.
         guide: >-
           One rule, written before the next orbit updates arrive and fixed once the board is
           released. Standing up the planning cell takes two days from the moment it is called, and
@@ -3062,14 +3065,14 @@ missions:
   - title: The Final Defense Review
     objective: Produce a claim-by-claim planetary-defense decision package and preserve monitoring after the immediate threat passes.
     briefing: The international board must decide whether the object is sufficiently characterized, whether the deflection worked, and which civil preparations remain necessary.
-    stake: Eight years after the discovery, and the encounter is next week. The impactor struck 5 years ago; tracking since then puts the object about 2 Earth radii out, and some 5000 kilometres of that was bought by the impact. It was on a path nobody would have accepted. Nothing further can be done now, which is as it should be, because everything that could be done was done seven years ago. Today you take the claims one at a time with Garcia, write the public record with Ellery, and decide what stays funded once nobody is frightened. The population this object came from has not changed. The next 1 is up there now, unfound, and the survey line that caught this 1 expires in 11 months.
+    stake: Eight years after the discovery, and the encounter is next week. The impactor struck 5 years ago; tracking since then puts the object about 2 Earth radii out, and some 5000 kilometres of that was bought by the impact. It was on a path nobody would have accepted. Nothing further can be done now, which is as it should be, because everything that could be done was done seven years ago. Today you take the claims one at a time with Garcia, write the public record with Ellery, and decide what stays funded once nobody is frightened. The population this object came from has not changed. The next one is up there now, unfound, and the survey line that caught this one expires in 11 months.
     takeaway: Use evidence synthesis, readiness, residual risk, international coordination, long-term stewardship as an evidence chain rather than as isolated facts.
     stops:
       - group: OPS
         task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.
         title: Disposition the final claims
         place: International Review Hall
-        scene: The board has to publish one account of an eight-year campaign, and the four claims in front of it carry very different weights of evidence. Whatever it writes will be read by whoever runs the next one.
+        scene: The board has to publish one account of an eight-year campaign, and the four claims in front of it carry very different weights of evidence. Garcia reminds the room that whatever it writes will be read by whoever runs the next one.
         guide: >-
           Four claims and four dispositions. Pair them by asking what state each claim
           is in: confirmed, still open, out of date, or outliving this object. Giving
@@ -3123,7 +3126,7 @@ missions:
         task: Use the two remaining independent checks on the final-record claims that most need physical verification.
         title: Build the final public record
         place: Orbit Monitoring Center
-        scene: The board has two independent checks left before release. Every claim is signed, but several could still change the public conclusion if wrong. The final record goes public tonight, and whatever survives becomes the starting point for the next threat.
+        scene: The board has two independent checks left before release. Every claim is signed, but several could still change the public conclusion if wrong. Ellery takes the record public tonight, and whatever survives becomes the starting point for the next threat.
         guide: >-
           Two independent checks left, and the record goes public tonight. Open each
           signed claim and read what actually backs it. Hold what the evidence does not
@@ -3186,7 +3189,7 @@ missions:
         task: The campaign budget ends with this review. What survives it?
         title: Fund the planetary-defense legacy
         place: Mission Operations
-        scene: The threat is gone, and so is most of the campaign budget. The discovery survey still misses parts of the sky, and two follow-up sites lose funding at year’s end. The board must decide what capability survives this success.
+        scene: The threat is gone, and so is most of the campaign budget. The discovery survey still misses parts of the sky, and two follow-up sites lose funding at year’s end. Garcia asks the board what capability survives this success.
         guide: >-
           Four options, and the threat is gone along with most of the budget. Ask of
           each what it does to warning time. Finding an object earlier buys nights for
@@ -3302,7 +3305,7 @@ interiors:
       title: Entry model
       rows:
         - label: Kinetic energy
-          value: 3.1e17 J
+          value: 1.07e18 J
           status: alarm
         - label: Assumed strength
           value: unmeasured

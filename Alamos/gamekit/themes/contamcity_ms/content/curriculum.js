@@ -7,7 +7,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Read the label, not the rumour",
-      "scene": "A fire at the freight yard has damaged several unlabelled drums, eighty metres from the river. Three different guesses are already on the radio. Firefighters are choosing what to spray based on whatever you tell them.",
+      "scene": "A fire at the freight yard has damaged several unlabelled drums, eighty metres from the river. Nils Sørensen, who commands the fire crews, has three different guesses on his radio. His firefighters will spray whatever you tell them to.",
       "takeaway": "A name is a label. A formula says what something is made of, which is what decides how it behaves.",
       "place": "Accident Command Post",
       "guide": "The left side is four kinds of record. The right side is four things you could say from one. Ask of each record what it really pins down. Which elements? How many of each? What charge? A trade name pins down none of them. Firefighters are choosing what to spray from your answer.",
@@ -74,7 +74,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "From damaged drum to a first answer",
-      "scene": "In the mobile laboratory, the first sealed drum sample is on the bench. The markings on the outside are readable now, and opening the drum will scuff them off. Opening it also lets the air above the liquid escape. There is enough liquid for two tests.",
+      "scene": "In the mobile laboratory, Okonjo sets the first sealed drum sample on the bench. The markings on the outside are readable now, and opening the drum will scuff them off. Opening it also lets the air above the liquid escape. She has enough liquid for two tests.",
       "takeaway": "Do the tests that cost nothing before the ones that cannot be taken back.",
       "place": "Molecular Identification Lab",
       "guide": "Every one of these can be done right now. So this is not about time. It is about what you can still do afterwards. Ask what each step uses up. The markings? The air above the liquid? The drops? The sample itself? There is only enough liquid for two tests.",
@@ -174,7 +174,7 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Water helps, or water makes it worse",
-      "scene": "The contractor lifts at four and the yard has to be sorted first. Some of these drums are made safer by water. Others react with water, and a hose is the worst thing that could reach them.",
+      "scene": "The contractor lifts at four, and Sørensen wants the yard sorted first. Some of these drums are made safer by water. Others react with water, and a hose is the worst thing that could reach them.",
       "takeaway": "The usual answer is right for most things and dangerous for a few.",
       "place": "Container Yard",
       "guide": "Two bins. Ask what happens when water reaches it. Something that dissolves is made weaker by water. Something that reacts with water makes heat or gas, and then the hose has made things worse.",
@@ -182,7 +182,7 @@ export const CURRICULUM = {
         "Why this is the first question. Water is what a fire crew has, so water is what usually arrives. For most of a yard that is right, and for a short list it is the worst possible move.",
         "What reacting looks like. Heat, sometimes enough to boil the water. Gas coming off that was not there before. Both happen in seconds and neither can be undone."
       ],
-      "story": "The contractor lifts at four and the yard has to be sorted first. Some of these drums are made safer by water. Others react with water, and a hose is the worst thing that could reach them.",
+      "story": "The contractor lifts at four, and Sørensen wants the yard sorted first. Some of these drums are made safer by water. Others react with water, and a hose is the worst thing that could reach them.",
       "game": {
         "type": "BELT",
         "title": "Water helps, or water makes it worse",
@@ -329,7 +329,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "How long before it reaches the school",
-      "scene": "A colourless cloud is drifting away from the yard toward two neighbourhoods. Police are holding the evacuation roads open. The wind is steady, and there is a school two kilometres downwind.",
+      "scene": "A colourless cloud is drifting away from the yard toward two neighbourhoods. Varga is watching it from the weather station. Police are holding the evacuation roads open. The wind is steady, and there is a school two kilometres downwind.",
       "takeaway": "A hazard has a speed, and a speed turns a distance into the time you have.",
       "place": "Mobile Weather Station",
       "guide": "Four numbers, and two of them are distances to other places. One is how wide the cloud is, which does not change when it arrives. Ask of each number what it measures. A distance? A speed? A size? Police are holding roads open on this answer.",
@@ -371,7 +371,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "What changes the cloud",
-      "scene": "The weather station shows the temperature rising and the pressure falling, with the wind picking up. Crews report vapour pooling in a low channel downwind.",
+      "scene": "The weather station shows the temperature rising and the pressure falling, with the wind picking up. Erik Lindqvist, the cloud modeller, wants each change sorted out. Crews report vapour pooling in a low channel downwind.",
       "takeaway": "Some things change what the gas is doing. Others change where it is going. They are not the same question.",
       "place": "Gas Properties Lab",
       "guide": "Four changes in the field. Two of them change how much room the gas takes up. Two of them change where the gas goes. Ask which of the two each change does. Get that wrong and the map moves for the wrong reason. Vapour is pooling in a low channel.",
@@ -480,7 +480,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Where will it go?",
-      "scene": "Runoff from the fire has reached the river. Predict the wrong place and the team samples the wrong thing, and a clean water result gets read by the city as an all-clear.",
+      "scene": "Runoff from the fire has reached the river. Ferreira holds the sampling boat at the first bend. Predict the wrong place and she samples the wrong thing, and a clean water result gets read by the city as an all-clear.",
       "takeaway": "Not finding something in the water does not mean it is not in the river.",
       "place": "River Sampling Boat",
       "guide": "Four kinds of chemical, and four places in the river. Pair them by asking what water does with each one. Does it dissolve? Does it refuse to mix? Does it stick to the specks? A chemical that leaves the water has not left the river. Sample the wrong place and the city hears an all-clear.",
@@ -540,7 +540,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Push it back out of the water",
-      "scene": "The filtered water holds 3.1 milligrams of dissolved metal in every litre. The limit is 0.5. The rig can put in eight times as much of the partner chemical.",
+      "scene": "The filtered water holds 3.1 milligrams of dissolved metal in every litre. The limit is 0.5. Kwabena Osei, the treatment engineer, can set his rig to put in eight times as much of the partner chemical.",
       "takeaway": "Two things that settle together can be pushed apart by adding more of one.",
       "place": "Water and Sediment Laboratory",
       "guide": "All four options give a number and a reason. The reasons are what differ. One says nothing changes. One says both go up together. Two say the metal falls, by different amounts. So work out how the two chemicals are tied to each other. The limit is well below where the water sits now.",
@@ -549,7 +549,7 @@ export const CURRICULUM = {
         "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
         "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
       ],
-      "story": "The filtered water holds 3.1 milligrams of dissolved metal in every litre. The limit is 0.5. The rig can put in eight times as much of the partner chemical.",
+      "story": "The filtered water holds 3.1 milligrams of dissolved metal in every litre. The limit is 0.5. Kwabena Osei, the treatment engineer, can set his rig to put in eight times as much of the partner chemical.",
       "game": {
         "type": "CHOICE",
         "title": "Push it back out of the water",
@@ -587,7 +587,7 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Spend the river survey",
-      "scene": "The survey has twenty bottles. The chemical barely dissolves, the river runs nine hundred metres from the spill to the water intake, and two samples taken so far disagree six times over.",
+      "scene": "The survey has twenty bottles. Camila Ibarra, the analyst who reads the mud samples, lays out the map. The chemical barely dissolves, the river runs nine hundred metres from the spill to the water intake, and two samples taken so far disagree six times over.",
       "takeaway": "A sampling plan is the set of questions it can answer, and every bottle spent is a question given up.",
       "place": "Sediment Analysis Room",
       "guide": "Twenty bottles is the whole survey. Each package you pick spends some of them. Watch the list of questions rather than the map: it shows which ones your plan can answer. Two samples already disagree six times over, so a plan that cannot explain why will be argued with.",
@@ -689,7 +689,7 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "How much more acidic",
-      "scene": "The intake water reads four on the acid scale. Ordinary water reads seven. The plant is about to add something to bring it back, and wants the size of the problem first.",
+      "scene": "The intake water reads four on the acid scale. Ordinary water reads seven. The plant is about to add something to bring it back, and Reyes wants the size of the problem first.",
       "takeaway": "A scale where each step is ten times hides how big a difference really is.",
       "place": "Water Intake Laboratory",
       "guide": "Four numbers. Two are readings on the scale. One is the gap between them. The scale counts steps, and each step is ten times. So the gap is what the answer is built from, not the readings. The plant is sizing a dose from it.",
@@ -750,7 +750,7 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Why the first dose overshot",
-      "scene": "A dose worked out from the intake reading overshot badly. The bench test is up beside a curve for a simple acid. That test is a titration: add a little at a time, until the water changes, and count how much it took.",
+      "scene": "A dose worked out from the intake reading overshot badly. Osei has the bench test up beside a curve for a simple acid. That test is a titration: add a little at a time, until the water changes, and count how much it took.",
       "takeaway": "A reading tells you what is loose right now. It does not tell you what is held in reserve.",
       "place": "Acid-Base Bench",
       "guide": "Six readings, and two are there to rule things out. The fresh meter checks, and the simple acid at the same reading. Compare the test curve against that simple acid. A long flat stretch is something a simple acid does not have. The first dose overshot, so the answer has to explain that too.",
@@ -956,7 +956,7 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Neutralise without overshooting",
-      "scene": "The pump is primed and the operators are waiting on the valve. The water is acidic and the iron pipe is corroding. Every change to the pump shows up one reading later.",
+      "scene": "The pump is primed and the operators are waiting on the valve. The water is acidic, and Novák says the iron pipe is corroding. Every change to the pump shows up one reading later.",
       "takeaway": "When the answer arrives late, the rule has to fire early.",
       "place": "Treatment Control Room",
       "guide": "One rule, written now and fixed once you release it. The base feed is pushing the tank up. Past pH 7.5 the water is bad again the other way. Here is the catch: a pump change shows on the meter one reading late, so the tank keeps rising after you stop the feed. Put your line below 7.5 by that one reading of rise. Do not put it so low that it fires on water which has not shown anything yet.",
@@ -1116,7 +1116,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Undo the dilution",
-      "scene": "The lab watered the sample down before measuring it. So the number is what was in the vial, not the river. It is in mg/L, which means milligrams in every litre. The city is about to hold that number against a limit.",
+      "scene": "Nakamura hands over the lab record. The sample was watered down before it was measured, so the number is what was in the vial, not the river. It is in mg/L, which means milligrams in every litre. The city is about to hold that number against a limit.",
       "takeaway": "What was done to a sample before it was measured is part of the answer.",
       "place": "Quantitative Analysis Lab",
       "guide": "Five numbers, and two belong to other questions. One is the smallest the instrument can see. One is the size of the bottle. Two are the volumes before and after watering down. Only how those two compare matters. The city will hold your answer against a limit.",
@@ -1198,7 +1198,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Say what should happen, then check",
-      "scene": "The reading is above the range this meter was calibrated for. Calibration is the check against known samples. It is what turns a signal into a number. The meter still prints one, and it is going into a report.",
+      "scene": "The reading is above the range this meter was calibrated for. Calibration is the check against known samples. It is what turns a signal into a number. The meter still prints one, and Dana Whitfield, the calibration technician, does not want it in a report unchecked.",
       "takeaway": "Predict what a change should do, make it, and check. That is what turns a reading into a result.",
       "place": "River Mapping Center",
       "guide": "Lock the reading you expect after watering the sample down by half, before you do it. Then water it down and see what the meter says. Checking costs a verification slot, and spending it is the point. A meter prints a number for almost anything, and only the comparison shows whether this one can be trusted.",
@@ -1286,7 +1286,7 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Map the river with thirty samples",
-      "scene": "The city wants a picture of eleven kilometres of river. The laboratory can run thirty samples. The field kit is far rougher than the laboratory.",
+      "scene": "The city wants a picture of eleven kilometres of river, and Reyes is asking for it by tonight. The laboratory can run thirty samples. The field kit is far rougher than the laboratory.",
       "takeaway": "Good numbers in the wrong places and rough numbers in the right ones both mislead.",
       "place": "Quality Assurance Desk",
       "guide": "Every option buys something real, and they trade against each other. Wide coverage costs detail. Repeats and checks cost samples. Thirty is all there is. Ask what decision each choice would improve. The city's decisions all happen in one place. Detail somewhere else is detail nobody uses.",
@@ -1354,7 +1354,7 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "What the bench is running now",
-      "scene": "Samples queue on the bench all day. One priority says which are run first, and it is changed as the day goes on.",
+      "scene": "Samples queue on the bench all day, and Hiroshi Tanaka, the records and shipping clerk, wheels in more every hour. One priority says which are run first, and it is changed as the day goes on.",
       "takeaway": "The cost of a rule that has changed is paid by whoever is still using the old one.",
       "place": "Analytical Laboratory",
       "guide": "Run what the priority asks for and leave the rest queued. The card on the bench changes during the day and nobody says so. What counts is the samples either side of a change.",
@@ -1362,7 +1362,7 @@ export const CURRICULUM = {
         "Why the priority changes. Early it is whatever the commander is waiting for. Then it is whatever is about to go out of date, because a sample tested too late is not a result. Then it is drinking water, because people are asking.",
         "Why it costs. The bench has one clean instrument. A sample run under the old priority uses it, and the one that mattered sits in the fridge going out of date."
       ],
-      "story": "Samples queue on the bench all day. One priority says which are run first, and it is changed as the day goes on.",
+      "story": "Samples queue on the bench all day, and Hiroshi Tanaka, the records and shipping clerk, wheels in more every hour. One priority says which are run first, and it is changed as the day goes on.",
       "game": {
         "type": "SPOT",
         "title": "What the bench is running now",
@@ -1475,7 +1475,7 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Two candidates, one difference",
-      "scene": "Two substances fit the result equally well. Their formulas differ by one oxygen atom. An instrument that weighs molecules has already measured this sample.",
+      "scene": "Two substances fit the result equally well. Their formulas differ by one oxygen atom. Okonjo's instrument that weighs molecules has already measured this sample.",
       "takeaway": "When two answers fit, use a measurement that depends on something they differ in.",
       "place": "Quantitative Analysis Suite",
       "guide": "The two candidates differ by one oxygen atom. So ask which measurement notices one atom. Sort the options by what each one measures. How fast it travelled? How much there was? What it weighs? Two of these are real numbers about the wrong thing.",
@@ -1484,7 +1484,7 @@ export const CURRICULUM = {
         "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
         "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
       ],
-      "story": "Two substances fit the result equally well. Their formulas differ by one oxygen atom. An instrument that weighs molecules has already measured this sample.",
+      "story": "Two substances fit the result equally well. Their formulas differ by one oxygen atom. Okonjo's instrument that weighs molecules has already measured this sample.",
       "game": {
         "type": "CHOICE",
         "title": "Two candidates, one difference",
@@ -1522,7 +1522,7 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Close the gaps before release",
-      "scene": "A number can be perfectly correct and still answer the wrong question. The pipes are about to be brought back up to pressure on the strength of this evidence.",
+      "scene": "A number can be perfectly correct and still answer the wrong question. Nakamura is going through the evidence line by line. The pipes are about to be brought back up to pressure on the strength of it.",
       "takeaway": "A correct number is only useful if the sample it came from matches the decision.",
       "place": "Water Distribution Network",
       "guide": "The left side is four separate holes in the evidence. Each has its own fix. Pair them by asking what was not tested. Sampling at the plant leaves the taps untested. Running the tap first tests water nobody drinks. A machine that cannot see the limit cannot test it.",
@@ -1582,7 +1582,7 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Open, hold, or open with conditions",
-      "scene": "The pumps are idle while the board meets. The result is nine against a limit of ten, give or take two. Operators are waiting at the valves, and the city has already been given two different reopening times.",
+      "scene": "The pumps are idle while the board meets. The result is nine against a limit of ten, give or take two. Reyes has operators waiting at the valves, and the city has already been given two different reopening times.",
       "takeaway": "Moving the middle and narrowing the band are different moves, and a boundary needs both.",
       "place": "Independent Review Board",
       "guide": "The band on screen is every result the test allows, not just the best guess. It is nine against a limit of ten, give or take two, so part of the band is over the limit. Two pieces of follow-up work are ready. Each one does something different to the band, so watch its middle and its width separately. Apply what you would authorise, then say whether the rule is met.",
@@ -1646,7 +1646,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "How much heat is stored in there",
-      "scene": "The visible fire has been out for two hours, and the water bath beside the damaged bay is still warming. Fire Command wants the size of the heat before deciding whether the cooling on site is enough.",
+      "scene": "The visible fire has been out for two hours, and the water bath beside the damaged bay is still warming. Sørensen wants the size of the heat before deciding whether the cooling on site is enough.",
       "takeaway": "A small temperature rise across something heavy is a very large amount of energy.",
       "place": "Thermal Camera Team",
       "guide": "Five numbers. One is for boiling the water away, which is not what happened. One is a temperature on another scale. Ask of each what it describes. How much water there is? What water is like? How much it changed? A small warming in a big tank is a lot of energy.",
@@ -1687,7 +1687,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Left-over heat, or something still going?",
-      "scene": "Two bays saw the same fire. Ninety minutes after the cooling stopped, the east bay is cooling and the west bay is warming. The west bay is giving off more gas, and the hot spot has not moved.",
+      "scene": "Two bays saw the same fire. Ninety minutes after the cooling stopped, the east bay is cooling and the west bay is warming. Brandt lays the two logs side by side. The west bay is giving off more gas, and the hot spot has not moved.",
       "takeaway": "A thing that keeps changing after its cause is removed has a cause of its own.",
       "place": "Calorimetry Lab",
       "guide": "Six readings, and the east bay is the useful one. Same fire, nothing left running. Compare the two bays, reading by reading. A broken sensor would move both bays. Left-over heat can only drain away. Warming, with more gas, at one fixed spot is a different story. Fire Command releases the site on this.",
@@ -1912,7 +1912,7 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Control the self-heating",
-      "scene": "Fire Command wants the site released tonight. Bay three has gone from thirty-one degrees to forty-four in eight hours, and it is climbing faster than it was. There are four tonnes in there.",
+      "scene": "Sørensen wants the site released tonight. Bay three has gone from thirty-one degrees to forty-four in eight hours, and it is climbing faster than it was. There are four tonnes in there.",
       "takeaway": "A rising temperature is a rate, and a rate can be run forward to a time somebody has to act by.",
       "place": "Fire Command",
       "guide": "Four numbers. Two are temperatures the bay has read. One is the difference between them. One is the hours between. Ask which of those the question needs. A temperature is not a rise, and a rise is not a temperature. The site is released tonight on this number.",
@@ -1951,7 +1951,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Where the metal is going",
-      "scene": "Acidic water is flowing through a section where two different metals are bolted together. An inspection has found one small break in the coating. The team wants the circuit understood before choosing a repair.",
+      "scene": "Acidic water is flowing through a section where two different metals are bolted together. Novák has found one small break in the coating. She wants the circuit understood before choosing a repair.",
       "takeaway": "Rusting is a loop. Break any part of the loop and it stops.",
       "place": "Pipeline Inspection Gallery",
       "guide": "The loop needs four things at once. A place where metal is lost. A place that takes the electrons. A path through the metal, and a path through the water. Each thing on the left gives or squeezes one of those. Ask which one. Break any single part and the loop stops.",
@@ -2011,7 +2011,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "How fast is the wall going",
-      "scene": "A test piece from the intake has lost two kilograms of steel in a year, spread over four square metres. The wall that is left is six millimetres thick.",
+      "scene": "Novák hands over a test piece from the intake. It has lost two kilograms of steel in a year, spread over four square metres. The wall that is left is six millimetres thick.",
       "takeaway": "An amount lost is not a warning until somebody turns it into a depth.",
       "place": "Electrochemistry Lab",
       "guide": "Four numbers. One is the wall that is left, which belongs to the comparison. One is how much steel makes a millimetre over that patch. Ask which numbers the sum needs. And note what an average cannot see. The same loss in one small spot goes through the wall much sooner.",
@@ -2060,7 +2060,7 @@ export const CURRICULUM = {
           "s": "A small concentration in a very large volume can still be a large amount of material."
         },
         {
-          "e": "depth lost each year = weight lost ÷ (how heavy it is × the area)",
+          "e": "depth lost each year = mass lost ÷ (density × area)",
           "c": "how fast a wall is thinning",
           "v": [
             [
@@ -2095,7 +2095,7 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Protect the pipe",
-      "scene": "The thinnest part of the intake pipe has three millimetres of wall left, and the loss has sped up eight times. The gallery stays cleared until the first control is chosen. Water is still flowing.",
+      "scene": "The thinnest part of the intake pipe has three millimetres of wall left, and the loss has sped up eight times. Femi Oyelaran, the safety officer, keeps the gallery cleared until the first control is chosen. Water is still flowing.",
       "takeaway": "Break the loop where you can break it today, and do the rest afterwards.",
       "place": "Maintenance Control",
       "guide": "Three of the four options act on a real part of the loop. One only moves paper. Ask which part each one removes. Then ask whether one small hole could beat it. The water is still flowing and three millimetres are left. The first fix has to stop the loop, not slow it.",
@@ -2142,7 +2142,7 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Neutral, while the works keeps feeding",
-      "scene": "The tank has to sit in the middle of the pH scale before anything goes to the river. Acid keeps arriving from the works in batches, and the lime pump is the only control.",
+      "scene": "The tank has to sit in the middle of the pH scale before anything goes to the river. Acid keeps arriving from the works in batches, and Osei's lime pump is the only control.",
       "takeaway": "A feed you do not answer does not stop on its own.",
       "place": "Treatment Works",
       "guide": "Hold the tank at pH 7, inside the band on the meter. The band narrows as the discharge time comes closer. Each batch keeps arriving for as long as it is being pumped in, so set the lime to match the feed rather than chasing the meter.",
@@ -2150,7 +2150,7 @@ export const CURRICULUM = {
         "Why the middle is the target. Strong acid and strong base both do damage. Near the middle, water is safe for the river and for the people who work near it.",
         "Why the last part is the hardest. The pH scale is not even. Near the middle, a small amount of lime moves the tank much further than the same amount did at the acid end."
       ],
-      "story": "The tank has to sit in the middle of the pH scale before anything goes to the river. Acid keeps arriving from the works in batches, and the lime pump is the only control.",
+      "story": "The tank has to sit in the middle of the pH scale before anything goes to the river. Acid keeps arriving from the works in batches, and Osei's lime pump is the only control.",
       "game": {
         "type": "HOLD",
         "title": "Neutral, while the works keeps feeding",
@@ -2207,7 +2207,7 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "What did the treatment actually do?",
-      "scene": "The pilot treated a batch holding a hundred kilograms of the chemical. The treated water, the sludge and the gas coming off have each been measured. The city is waiting to hear whether it was destroyed.",
+      "scene": "Osei's pilot treated a batch holding a hundred kilograms of the chemical. The treated water, the sludge and the gas coming off have each been measured. The city is waiting to hear whether it was destroyed.",
       "takeaway": "Taking something out of one place is not destroying it. The ledger has to close.",
       "place": "Pilot Treatment Plant",
       "guide": "Read every stream first, because reading is free. Then count only the masses that are the same chemical the batch went in with. A hundred kilograms went in, and the treated water, the sludge and the gas have each been measured. Whatever the counted streams do not account for is missing, and that gap is what the claim rests on.",
@@ -2301,7 +2301,7 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Put the treatment in order",
-      "scene": "Four stages are on the table and the plant wants an order for them. Riverton has one intake, and it cannot run this experiment twice while the water is off.",
+      "scene": "Four stages are on the table, laid out by Rafael Delgado, the analyst who tracks what each treatment leaves behind. The plant wants an order for them. Riverton has one intake, and it cannot run this experiment twice while the water is off.",
       "takeaway": "Each stage is ordered by what it leaves the next one to work with.",
       "place": "Byproduct Analysis Lab",
       "guide": "These four are not four separate machines. Each one changes what reaches the next. Ask what has to be there already. You cannot filter a solid before there is one. There is no solid until the metal is in the right form. Riverton has one intake and cannot try twice.",
@@ -2352,7 +2352,7 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Choose what the pilot measures",
-      "scene": "The pilot has room for one question, four weeks, and a tenth of the flow. All three methods claim to remove the chemical, and the full plant is committed in June whatever the pilot finds.",
+      "scene": "The pilot has room for one question, four weeks, and a tenth of the flow. All three methods claim to remove the chemical, and Nakamura points out the full plant is committed in June whatever the pilot finds.",
       "takeaway": "Measure the thing that would tell the options apart, not the thing they all agree on.",
       "place": "Waste Management Office",
       "guide": "All three methods remove the chemical. That is why they are all on the table. So measuring removal cannot separate them. Ask what each option would tell you that the others would not. Judged on removal alone, the winner is whichever makes the most leftovers fastest.",
@@ -2400,7 +2400,7 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "What each claim has earned",
-      "scene": "The city wants one sentence, and the chemistry does not support one. Turning all of it into a single green light is how a place gets reopened above a problem nobody wrote down.",
+      "scene": "The city wants one sentence, and Mbeki has to put it on a screen tonight. The chemistry does not support one. Turning all of it into a single green light is how a place gets reopened above a problem nobody wrote down.",
       "takeaway": "Readiness is claim by claim. There is no single green light.",
       "place": "Scientific Review Hall",
       "guide": "The evidence is in four different states at once. Each state needs a different sentence. Ask what would have to happen for each one to be settled. Another method? A way to measure it? More money? A trigger? Collapsing four states into one is how the sentence stops being true.",
@@ -2461,7 +2461,7 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "Did the cell do what it should?",
-      "scene": "The polishing cell ran for six hours. From the current it drew, it should have taken out about four and a half kilograms of metal. The water figures say it took out three and a half.",
+      "scene": "Osei's polishing cell ran for six hours. From the current it drew, it should have taken out about four and a half kilograms of metal. The water figures say it took out three and a half.",
       "takeaway": "Comparing what happened with what should have happened is how a claim gets checked.",
       "place": "Treatment Plant Gallery",
       "guide": "Four numbers. Two are the current and the hours, and they were used to work out the most it could remove. That work is already done. Ask which two numbers the comparison needs. A share compares what happened with what was possible. Nothing above a hundred per cent is possible.",
@@ -2469,7 +2469,7 @@ export const CURRICULUM = {
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "The polishing cell ran for six hours. From the current it drew, it should have taken out about four and a half kilograms of metal. The water figures say it took out three and a half.",
+      "story": "Osei's polishing cell ran for six hours. From the current it drew, it should have taken out about four and a half kilograms of metal. The water figures say it took out three and a half.",
       "game": {
         "type": "BALLPARK",
         "title": "Did the cell do what it should?",
@@ -2569,7 +2569,7 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "What the city keeps",
-      "scene": "The temporary laboratory is being packed up as the emergency money ends. The plant is running. The mud still holds about seventy-one kilograms. One monitoring station has funding after next month.",
+      "scene": "The temporary laboratory is being packed up as the emergency money ends. The plant is running. The mud still holds about seventy-one kilograms. Stavros has funding for one monitoring station after next month.",
       "takeaway": "What outlasts an emergency is the part that went quiet, not the part that stopped.",
       "place": "Long-Term Monitoring Office",
       "guide": "All four options are fair uses of the last money. They protect different things. Ask what nobody would notice if it were not funded. Seventy-one kilograms are still in the mud. None of it was destroyed. It went quiet. What lasts after a spill is the part that went quiet.",
