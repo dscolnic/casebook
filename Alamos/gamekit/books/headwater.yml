@@ -546,7 +546,7 @@ missions:
         why: >
           An average rate of change is a slope, and the two readings are the two ends of it. It says
           nothing about what happened between them — the same pair comes from a river that climbed
-          steadily and from 1 that sat still for 90 minutes and then jumped. Shrinking the
+          steadily and from one that sat still for 90 minutes and then jumped. Shrinking the
           interval is the only cure, and the number that shrinking approaches, the limit of this
           slope as the two readings close together, is the instantaneous rate the forecast wants.
         estimate:
@@ -697,8 +697,8 @@ missions:
           The difference quotient is the slope of a line through two points on the curve, and its
           value depends on how far apart they are. Taking the limit closes that gap without ever
           setting it to 0, which is the whole manoeuvre — at h = 0 the quotient is 0/0 and says
-          nothing, while its limit is 1 number. What comes out is a rule, 10t + 40, good at every
-          hour of the night, and the four-hour figure is 1 substitution away from it.
+          nothing, while its limit is one number. What comes out is a rule, 10t + 40, good at every
+          hour of the night, and the four-hour figure is one substitution away from it.
       - group: SAFE
         task: Say what the trace has no rate at
         title: The instant the gate moved
@@ -1078,7 +1078,7 @@ missions:
           dividing by 2.6 million square metres cuts the rate by 6 orders of magnitude.
         why: >
           Every link on this path multiplies the rate by its own derivative, and the product is what
-          arrives. The spillway link is the 1 everybody watches because its exponent makes it
+          arrives. The spillway link is the one everybody watches because its exponent makes it
           dramatic, but three-halves of a square root is a factor near 40 and the storage-to-level
           link divides by a surface area of 2 and a half million. That single division is why a
           catchment can double its flow in a morning and the level move eight centimetres. It is also
@@ -1260,7 +1260,7 @@ missions:
           and the published figure is wrong in the direction the curvature points.
 
   # ---------------------------------------------------------------- day 9
-  # Unit 7 — a separable differential equation, and what 1 measurement does and
+  # Unit 7 — a separable differential equation, and what one measurement does and
   # does not fix about its solution.
   - title: Two days of not deciding
     objective: Use an antiderivative to evaluate an accumulation, and say what the accumulation function's own rate is.
@@ -1984,7 +1984,7 @@ missions:
                   why: >-
                     The power rule brings the exponent 2 down as a factor, so −0.03t² differentiates
                     to −0.06t. Halving it doubles the day the level turns over, and every line after
-                    this 1 stays perfectly consistent with it.
+                    this one stays perfectly consistent with it.
                 - text: "h'(t) = 0.9t − 0.06t"
                   rule: power
                   why: >-
@@ -2031,7 +2031,7 @@ missions:
         why: >
           Setting the derivative to zero finds where the level stands still. On its own that
           does not say whether it is a crest or a trough. A reservoir topping out on day 15 and
-          1 bottoming out on day 15 have the same first derivative there. The second
+          One bottoming out on day 15 have the same first derivative there. The second
           derivative settles it with no further data. Because it is a constant here, it settles
           it on every day at once. A curve concave down over the whole fortnight has at most one
           turning point, so the day is unique as well as classified.
@@ -2145,7 +2145,7 @@ missions:
           Differentiating gives 12 − 3a, and the 3 is the whole answer: the exponent 2 comes down as
           a factor and multiplies the 1.5 that was already there. Using the 1.5 instead puts the worst
           case at 8 metres, which is past the downstream toe and outside the wall entirely — an
-          answer that is not merely wrong but physically impossible, and 1 nobody catches because
+          answer that is not merely wrong but physically impossible, and one nobody catches because
           the arithmetic is clean. The moment there is 24 against a true worst of 24 at 4 metres.
         estimate:
           prompt: >
@@ -2796,7 +2796,7 @@ missions:
           commit: Report the drain constant
         answerText: >-
           About 0.10 an hour, from a starting head near 25 metres — and it takes both readings to
-          say so, because either 1 alone is matched by a whole line of pairs.
+          say so, because either one alone is matched by a whole line of pairs.
         why: >
           Integrating produced a constant, and the equation cannot supply it; only a measurement can.
           One reading is one equation in two unknowns, so a higher starting head paired with a faster
@@ -3901,7 +3901,7 @@ missions:
           the same number, and much less arithmetic. On a window where both rates hold steady the
           integral collapses to a rectangle, and the only thing that can go wrong is integrating the
           inflow alone. That gives 2.07 million and describes a reservoir with no machines running
-          and no gates open, which is not the 1 anybody is standing in.
+          and no gates open, which is not the one anybody is standing in.
         estimate:
           prompt: >
             The inflow averaged 96 cubic metres a second and the release held at 62, for 6 hours.
@@ -4004,7 +4004,7 @@ missions:
                   rule: antiderivative
                   why: >-
                     The antiderivative of one over u is the natural logarithm, not the next power
-                    down. An exponent of −1 is the 1 case the power rule cannot handle.
+                    down. An exponent of −1 is the one case the power rule cannot handle.
                 - text: '30·ln(u), evaluated from u = 4 to u = 20'
                   rule: limits
                 - text: '30·ln(u), evaluated from t = 0 to t = 4'
@@ -4392,7 +4392,7 @@ missions:
           accept: quad
           commit: Carry this fit forward
         answerText: >-
-          The 1 with the square term, at 0.26. The drift fit scores better and its residuals still
+          The one with the square term, at 0.26. The drift fit scores better and its residuals still
           change sign across the gallery, which means the drift parameter absorbed the curvature
           rather than removing it.
         why: >
@@ -4404,7 +4404,7 @@ missions:
           small ones in a pattern are a missing term.
       - group: STORE
         task: Reduce the fortnight to one figure
-        title: 14 days, 1 number
+        title: 14 days, one number
         place: Storage & Level Board
         scene: >
           Ferrand has 47.2 million cubic metres through the site over 14 days and 1 line on

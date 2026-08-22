@@ -124,7 +124,7 @@ export const INTERIORS = {
     }
   },
   "BUMPER": {
-    "caption": "100 collisions an hour, and every 1 of them is the same equation.",
+    "caption": "100 collisions an hour, and every one of them is the same equation.",
     "standLine": "400 logged impacts, and nothing to compare them against.",
     "station": {
       "kind": "panel",
@@ -154,7 +154,7 @@ export const INTERIORS = {
     }
   },
   "SHIP": {
-    "caption": "A pendulum with 60 people on it, and a period that ignores every 1 of them.",
+    "caption": "A pendulum with 60 people on it, and a period that ignores every one of them.",
     "standLine": "A drive set in 1996, and an operator who has been right for 2 seasons.",
     "station": {
       "kind": "panel",

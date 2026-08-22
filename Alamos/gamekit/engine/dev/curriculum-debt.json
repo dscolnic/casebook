@@ -8,7 +8,6 @@
     "rate = k[A]ⁿ"
   ],
   "projecty": [
-    "A = λN",
     "I ∝ 1 / r²"
   ],
   "deepwatch": [
@@ -46,19 +45,15 @@
   "icecore": [
     "N(t) = N₀ e^(−t/τ)"
   ],
-  "midway": [
-    "ΣF = ma",
-    "safety factor = capacity ÷ demand"
-  ],
   "planetary_defense_ms": [
     "average = total ÷ how many",
     "KE = ½ × m × v²",
-    "momentum = weight × speed",
-    "change in speed = momentum ÷ weight",
+    "momentum = how heavy it is × speed",
+    "change in speed = momentum ÷ how heavy it is",
     "change in position = change in speed × time"
   ],
   "deepwatch_ms": [
-    "density = weight ÷ volume",
+    "density = how heavy it is ÷ volume",
     "part = whole × share",
     "average = total ÷ how many"
   ],
@@ -73,12 +68,10 @@
     "rate = cases ÷ people",
     "part = whole × share",
     "average = total ÷ how many",
-    "how many times = bigger ÷ smaller",
-    "how many after n rounds = start × 2 each round"
+    "how many times = bigger ÷ smaller"
   ],
   "blackout_ms": [
     "how long = amount ÷ rate",
-    "part = whole × share",
     "average = total ÷ how many",
     "spare = what can be made − what is being used"
   ],
@@ -92,7 +85,7 @@
   "contamcity_ms": [
     "amount = concentration × volume",
     "average = total ÷ how many",
-    "depth lost each year = weight lost ÷ (how heavy it is × the area)",
+    "depth lost each year = mass lost ÷ (density × area)",
     "how many times = bigger ÷ smaller"
   ]
 }

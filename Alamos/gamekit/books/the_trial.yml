@@ -621,7 +621,7 @@ missions:
       Tuesday. 20 days to the interim, and the board pack has 2 outcomes in it rather than
       1. CLARION-3 counts a clinical event, which a committee rules on from the notes, and it also
       carries a symptom score the treating doctor writes down at each visit. Kwame Ansah trusts the
-      first and says so at every meeting; Nuno Iriarte, the principal investigator, at site 12 thinks the second is the 1 that
+      first and says so at every meeting; Nuno Iriarte, the principal investigator, at site 12 thinks the second is the one that
       matters to patients, and Maggie Doyle, who speaks for the participants, agrees with him. Today you work out where each number is
       actually made, and what each is worth when the two arms are compared — because in three weeks
       they will be on the same page.
@@ -738,7 +738,7 @@ missions:
         place: Regulatory & Registry
         scene: >
           Nkechi Umeh, the regulatory lead, has four versions of the analysis plan, each dated. Feldman wants to know which
-          1 governs the interim in 20 days, and the sponsor's lawyer wants to know how anybody
+          One governs the interim in 20 days, and the sponsor's lawyer wants to know how anybody
           could prove it.
         guide: >-
           All four steps will happen, so ask what order makes the claim provable.
@@ -1799,7 +1799,7 @@ missions:
           relationship: The relative risk is RR = p_treatment / p_control — the event rate on treatment over the event rate on control.
       - group: SITE
         task: Allocate the monitoring time so the required questions can still be answered before the file is frozen.
-        title: 40 hours before the lock
+        title: Forty hours before the lock
         place: Monitors' Room
         scene: Lucia Marchetti has a fortnight, 31 sites and 40 monitoring hours she can still deploy. Four recoverable gaps compete for that time. 14 people who withdrew consent are locked out of the plan and cannot be contacted again.
         guide: >-
@@ -2533,9 +2533,9 @@ missions:
           - Collection continues after the lock, which is why the next analysis has a different cut.
       - group: SITE
         task: Keep the one query that cannot miss Thursday's cut and delegate the others with an owner, first action and return condition.
-        title: 3 days, 41 queries
+        title: Three days, forty-one queries
         place: Monitors' Room
-        scene: 41 queries remain and the interim file locks in 3 working days. 1 concerns a primary-event date, 1 a duplicated visit, and 39 are contact-field corrections. Renner has two people available, and you can keep only one problem yourself.
+        scene: 41 queries remain and the interim file locks in 3 working days. One concerns a primary-event date, one a duplicated visit, and 39 are contact-field corrections. Renner has two people available, and you can keep only one problem yourself.
         guide: >-
           Forty-one queries, three working days, two people, and one problem you keep
           yourself. For each thing you hand over, name the owner, the first action, and
@@ -2577,7 +2577,7 @@ missions:
               trend: stable
               irreversible: false
               consequence: A visit-level measure could be duplicated until the source note is checked.
-              rate: 1 duplicated visit is open; no second duplicate has appeared in the last 6 working days.
+              rate: One duplicated visit is open; no second duplicate has appeared in the last 6 working days.
               delegable: true
             - id: contact_fields
               label: Large pile of contact-field corrections
@@ -2985,7 +2985,7 @@ missions:
           when they are stacked. With independent tests the probability that none misfires is 0.95
           multiplied by itself once per test, so 14 tests leave barely half the outcomes
           clean. That is the arithmetic behind every impressive subgroup: not that anybody cheated,
-          but that a room looking in 14 places will usually find something in 1 of them.
+          but that a room looking in 14 places will usually find something in one of them.
           Real subgroups overlap and correlate, which softens the number without changing the
           lesson.
         estimate:
@@ -3309,7 +3309,7 @@ missions:
         task: Move the two event rates until they reproduce the reported relative risk, then use the absolute risk reduction to collapse the possibilities.
         title: One relative risk, many absolute effects
         place: Regulatory & Registry
-        scene: 2 lines for the board chair’s closed briefing describe the same CLARION-3 result. 1 says risk fell about 22%; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.
+        scene: 2 lines for the board chair’s closed briefing describe the same CLARION-3 result. One says risk fell about 22%; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.
         guide: >-
           Two controls slide the two arm risks along a family of pairs that all give the
           same relative result. Find out how wide that family is before choosing a line

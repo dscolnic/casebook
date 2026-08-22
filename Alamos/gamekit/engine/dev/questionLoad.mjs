@@ -35,9 +35,23 @@
 // WHAT IT CANNOT SEE. Whether the science is familiar, whether a day depends on
 // the day before it, whether a number means anything to a child. Those still
 // need a person, and — the expensive lesson — a person of the right age.
-import { pathToFileURL } from 'node:url';
-import { resolve } from 'node:path';
+import { pathToFileURL, fileURLToPath } from 'node:url';
+import { resolve, dirname } from 'node:path';
+import { readFileSync } from 'node:fs';
 import { themeDir, themeNames, editionBase } from './registry.mjs';
+
+// Same two properties as concept-debt and the rest: a row not on the list fails
+// immediately, and a row on the list that has since been fixed also fails,
+// naming the line to delete. It only shrinks.
+const HERE = dirname(fileURLToPath(import.meta.url));
+const DEBT_FILE = 'questionload-debt.json';
+const debt = (() => {
+  try{
+    const j = JSON.parse(readFileSync(resolve(HERE, DEBT_FILE), 'utf8'));
+    delete j._;
+    return j;
+  }catch{ return {}; }
+})();
 
 const args = process.argv.slice(2);
 const wanted = args.includes('--all') || !args[0] ? themeNames() : [args[0]];
@@ -508,12 +522,24 @@ for (const name of selftest ? [] : wanted) {
 
   const { problems, notes, advice, demanding } = analyse(content);
 
-  // An edition is held to this; a game written for its audience from scratch is
-  // only advised. The gate was built after nine editions had shipped, and
-  // failing a game nobody has complained about — Hospital Heroes is grade 2 and
-  // was playtested at it — would be the checker making a content decision that
-  // belongs to a person. Every finding still prints.
-  const isEdition = !!editionBase(name);
+  // Held to it at grade 8 and below, whether or not the game is a derived edition.
+  //
+  // This used to be `!!editionBase(name)`, and the consequence nobody measured is
+  // that across all 42 themes **Hospital Heroes was the only theme this gate
+  // reported at all, and it was the one theme it could not fail** — 110 findings,
+  // advisory for ever, on the youngest audience in the catalogue. The twelve
+  // junior editions were all swept and pass. So the four numbers in this file
+  // exist because of a lesson learned on the editions, and the one grade-2
+  // campaign in the repo was exempt from them.
+  //
+  // The argument for the old rule was that failing a game nobody has complained
+  // about is the checker making a content decision. That is what the debt file is
+  // for: the rows go in, nothing new drifts in, and a row that is fixed has to be
+  // deleted. Fifty-one of Hospital's 110 are one decision — a four-card SEQUENCE
+  // graded as one exact permutation with no feedback is a 1-in-24 guess for a
+  // seven-year-old — and it is a decision for a person, recorded rather than
+  // forced.
+  const isEdition = Number.isFinite(grade) ? grade <= 8 : !!editionBase(name);
 
   if (problems.length) {
     console.log(`\n${isEdition ? '✗' : '·'} ${name} (grade ${grade}): ${problems.length} thing(s) ask more than the audience${isEdition ? '' : ' (advisory — not an edition)'}`);
@@ -524,7 +550,18 @@ for (const name of selftest ? [] : wanted) {
       console.log('\n  stops that ask for judgement:');
       demanding.forEach(j => console.log('    · ' + j));
     }
-    if (isEdition) failed++;
+    if (isEdition){
+      const known = new Set(debt[name] ?? []);
+      const fresh = problems.filter(p => !known.has(p));
+      const stale = [...known].filter(k => !problems.includes(k));
+      if(fresh.length){
+        console.log(`  ${fresh.length} not recorded in ${DEBT_FILE}:`);
+        fresh.slice(0, 8).forEach(p => console.log('    ' + p));
+        failed++;
+      }
+      for(const k of stale) console.log(`  ✗ fixed since it was recorded — delete from ${DEBT_FILE}: ${k}`);
+      if(stale.length) failed++;
+    }
   } else {
     console.log(`\n✓ ${name} (grade ${grade}): the questions are as small as the sentences${notes.length ? ' — ' + notes.join(', ') : ''}`);
   }

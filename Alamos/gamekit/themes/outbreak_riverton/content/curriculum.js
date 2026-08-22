@@ -316,8 +316,7 @@ export const CURRICULUM = {
       "place": "Clinical Chemistry Bench",
       "guide": "Six numbers, and two of them are normal values rather than this patient's: a middle-of-range pH, and a normal carbon dioxide. Ask of each whether the relationship uses it. The dissolved gas is the carbon dioxide times its solubility, so those two go together. And note what the answer settles: a disturbance and a compensation, not a cause.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "What this number settles, and what it does not. A pH of 7.28 with a low bicarbonate and a low carbon dioxide is acidaemia with a metabolic cause and a respiratory compensation — the lungs are already working on it. What it does not say is where the acid is coming from. Arterial oxygenation and carbon dioxide are on the chart from the earlier panel, so measuring them again is precision about a number nobody is disputing. Cardiac output reports the pump, and the pump has already read normal. And three devices agreeing on the same blood-oxygen reading tells you the devices agree, not anything new about the patient. The missing measurement is tissue lactate: it is the one that says whether the acid is coming from tissue that is not getting enough blood, whatever the pump is reporting."
       ],
       "story": "The oxygen-delivery panel points toward a lung bottleneck, but the team still needs a downstream consequence. Arterial bicarbonate is 14 mmol/L and PaCO₂ is 31 mmHg; lactate is still pending.",
       "game": {
@@ -329,11 +328,6 @@ export const CURRICULUM = {
         "question": "Estimate the pH from bicarbonate 14 mmol/L and PaCO₂ 31 mmHg.",
         "answer": "The estimate is about pH 7.28. The low bicarbonate drives the pH downward, while the lower PaCO₂ partly compensates. The acid–base result supports a metabolic component but does not identify its cause by itself.",
         "why": "For the blood bicarbonate buffer, dissolved carbon dioxide is proportional to PaCO₂. The useful clinical form is pH = 6.1 + log₁₀([HCO₃⁻]/(0.03×PaCO₂)). With bicarbonate 14 and PaCO₂ 31, the ratio is about 15 and the pH is about 7.28. The low bicarbonate supports a metabolic acid–base disturbance, while the reduced PaCO₂ moves pH upward as respiratory compensation. The calculation does not identify the cause by itself; the pending lactate and the rest of the oxygen-delivery evidence still matter.",
-        "rebuttals": [
-          "Arterial oxygenation and carbon dioxide are already on the chart from the earlier panel. Measuring them again is precision about a number that is not in dispute.",
-          "Cardiac output reports the pump, and the pump has already read normal. Worth repeating if the patient changes; not the missing measurement now.",
-          "Three identical devices agreeing tells you the devices agree. It does not add an independent observation."
-        ],
         "givens": [],
         "relationship": "pH = 6.1 + log10([HCO₃⁻] ÷ (0.03 × PaCO₂)).",
         "calcKey": "CLIN-4"
@@ -400,7 +394,7 @@ export const CURRICULUM = {
         "answer": "Inflammation out of control",
         "why": "Timing is the discriminator. If the agent were driving this, its curve and the damage would rise together — instead the pathogen signal is falling while inflammatory signals climb and the patient gets worse. That is a response that has outlived its cause. Neutralising antibody being present says the specific response has arrived, and the negative bacterial cultures remove the rival that would otherwise explain a late deterioration.",
         "rebuttals": [
-          "Uncontrolled replication would show a rising pathogen signal. This 1 is falling, over 48 hours, while the patient declines.",
+          "Uncontrolled replication would show a rising pathogen signal. This one is falling, over 48 hours, while the patient declines.",
           "A second, bacterial infection on top of the first is the classic late deterioration, and it is the reason cultures were sent. They are negative.",
           "Measurement noise does not move four readings in a coherent direction at once, and the antibody result is not noise."
         ],
@@ -424,8 +418,8 @@ export const CURRICULUM = {
             "zone": "Neutralizing antibody",
             "label": "Neutralizing antibody",
             "value": "Present",
-            "status": "alarm",
-            "note": "Adaptive response is active"
+            "status": "high",
+            "note": "Adaptive response is active — notable, and not itself a bad sign"
           },
           {
             "zone": "Oxygenation",
@@ -966,6 +960,65 @@ export const CURRICULUM = {
           "Transcription, translation and gene expression"
         ]
       }
+    },
+    {
+      "day": 6,
+      "title": "Choose the membrane mechanism — Review",
+      "scene": "The therapy meeting has moved on to delivery. Four candidate ways a treatment could reach the inside of an airway cell are on the board, each described by what is observed at the membrane. Dr. Maya Chen wants each named by mechanism before costs are argued.",
+      "takeaway": "Transport mechanisms are named from direction, protein and energy — never from what the molecule is called.",
+      "place": "Membrane Biology Lab",
+      "guide": "Four observations, four mechanisms, each used once. Pair them on the same three tests as before. Which way does the movement run against the gradient? Is a protein required? And is energy being spent? The poisoning result is the receipt for one of those answers.",
+      "story": "The therapy meeting has moved on to delivery. Four candidate ways a treatment could reach the inside of an airway cell are on the board, each described by what is observed at the membrane. Dr. Maya Chen wants each named by mechanism before costs are argued.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "Choose the membrane mechanism — Review",
+        "setup": "Membrane Biology Lab",
+        "play": "Name each delivery route by its mechanism, from what the membrane is seen doing.",
+        "task": "Name each delivery route by its mechanism, from what the membrane is seen doing.",
+        "question": "Name each delivery route by its mechanism, from what the membrane is seen doing.",
+        "answer": "",
+        "why": "The same three constraints do all the work, on a therapy instead of a nutrient. Direction first: anything moving down its gradient needs no energy, so the ATP-poisoning result marks the one true uphill mover. Protein next: a gradient-driven crossing that still needs a carrier is facilitated, not simple. Size last: a particle too large for any pore cannot cross the bilayer at all, so finding it in vesicles means the membrane wrapped it. Choosing a delivery route is choosing which of these doors the therapy will use.",
+        "rebuttals": [
+          "Downhill with no protein is simple diffusion — the rate tracks the gradient because the gradient is the only push.",
+          "Downhill but carrier-dependent is facilitated diffusion. No energy is spent; the protein supplies the selectivity, not the push.",
+          "Uphill once the inside exceeds the outside, and dead when ATP is poisoned — the energy receipt names active transport.",
+          "A particle too large for any pore arriving in vesicles has been wrapped, not passed through. That is endocytosis."
+        ],
+        "scenarios": [
+          "The candidate crosses fastest when its outside concentration is highest, with no membrane protein needed.",
+          "The candidate crosses down its gradient, but only in cells expressing one carrier protein.",
+          "Uptake continues after the inside concentration exceeds the outside, and stops when ATP production is poisoned.",
+          "The candidate, packaged in a particle too large for any pore, appears inside membrane-bound vesicles."
+        ],
+        "choices": [
+          "Simple diffusion.",
+          "Facilitated diffusion through a carrier.",
+          "Active transport.",
+          "Endocytosis."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "columns": [
+          "What is observed at the membrane",
+          "Which mechanism that is"
+        ]
+      },
+      "assumes": [
+        "a concentration gradient has a direction",
+        "ATP is the cell's energy currency"
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Membranes and transport",
+        "of": 30,
+        "rests": [
+          "Cell structure and function"
+        ]
+      }
     }
   ],
   "MOL": [
@@ -1470,6 +1523,73 @@ export const CURRICULUM = {
         "of": 30,
         "rests": [
           "Mutation and genetic variation"
+        ]
+      }
+    },
+    {
+      "day": 8,
+      "title": "When heat changes an enzyme assay — Review",
+      "scene": "A reagent shipment for the reporter assay spent a day in an unrefrigerated van. Dr. Ravi Patel runs the same patient samples with the old batch and the van batch — same buffer, same readout — and the van batch gives almost no signal.",
+      "takeaway": "A side-by-side comparison indicts the one component that changed, because anything shared cannot explain a difference.",
+      "place": "Molecular Diagnostics Bench",
+      "guide": "Four options, and the two runs share almost everything. Ask of each option what it would do to both runs, and what it would do to only one. An explanation that would drag both batches down together cannot account for a difference between them.",
+      "story": "A reagent shipment for the reporter assay spent a day in an unrefrigerated van. Dr. Ravi Patel runs the same patient samples with the old batch and the van batch — same buffer, same readout — and the van batch gives almost no signal.",
+      "game": {
+        "type": "CHOICE",
+        "title": "When heat changes an enzyme assay — Review",
+        "setup": "Molecular Diagnostics Bench",
+        "play": "Two reagent batches, one hot van, and the same samples in both runs.",
+        "task": "Two reagent batches, one hot van, and the same samples in both runs.",
+        "question": "What does the batch comparison show?",
+        "answer": "Heat in the van disrupted the reporter enzyme's structure.",
+        "why": "Only one thing differs between the two runs: which batch of reporter enzyme went into the tube. The samples, buffer and readout are shared, so anything wrong with them would drag both batches down together. An enzyme is a folded protein, and a day of van heat is enough to loosen the fold that makes its active site — the 55-degree lesson from the bench, arriving as a shipping problem. The comparison indicts the one component that was actually heated, and nothing else.",
+        "rebuttals": [
+          "The same samples read normally with the old batch minutes apart, so the samples had not degraded.",
+          "The specimens never went in the van. The target was not the thing that was heated.",
+          "Instrument drift would move both batches alike, and only the van batch lost its signal."
+        ],
+        "choices": [
+          "Heat in the van disrupted the reporter enzyme's structure.",
+          "The patient samples themselves degraded before the second batch was run.",
+          "The van's heat destroyed the target sequence inside the patient specimens.",
+          "The reading instrument drifted between the two batches' runs."
+        ],
+        "correctChoice": "Heat in the van disrupted the reporter enzyme's structure."
+      },
+      "assumes": [
+        "an enzyme is a protein whose function depends on it keeping its shape"
+      ],
+      "equations": [
+        {
+          "e": "pH = pKa + log([A⁻]/[HA])",
+          "c": "Henderson–Hasselbalch — buffering in a body",
+          "v": [
+            [
+              "pH",
+              "acidity of the blood"
+            ],
+            [
+              "pKa",
+              "the acid constant for that buffer pair, 6.1 for bicarbonate"
+            ],
+            [
+              "[A⁻]",
+              "concentration of the base form, bicarbonate"
+            ],
+            [
+              "[HA]",
+              "concentration of the acid form, dissolved carbon dioxide"
+            ]
+          ],
+          "s": "Blood pH is set by the ratio of base to acid rather than by either alone, which is why the lungs and the kidneys can compensate for each other."
+        }
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Enzymes and metabolism",
+        "of": 30,
+        "rests": [
+          "Cell structure and function"
         ]
       }
     }
@@ -2501,15 +2621,15 @@ export const CURRICULUM = {
             "zone": "Reference isolate",
             "label": "Reference isolate",
             "value": "Remains drug-sensitive",
-            "status": "alarm",
-            "note": "The assay can still detect drug activity"
+            "status": "normal",
+            "note": "The assay can still detect drug activity, so the drug itself has not stopped working"
           },
           {
             "zone": "Administration record",
             "label": "Administration record",
             "value": "Doses documented",
-            "status": "alarm",
-            "note": "No major missed-dose pattern"
+            "status": "normal",
+            "note": "No major missed-dose pattern, so delivery is not the explanation"
           }
         ],
         "choices": [
@@ -3357,6 +3477,149 @@ export const CURRICULUM = {
       },
       "assumes": [
         "capability that is not funded to continue stops when the emergency does"
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Epidemiology: case definitions, curves, R and reservoirs",
+        "of": 30,
+        "rests": [
+          "Populations, transmission chains and exponential growth",
+          "Rates, ratios and reading data"
+        ]
+      }
+    },
+    {
+      "day": 23,
+      "title": "Signal or noise? — Review",
+      "scene": "Mercy General reports twelve new cases in two days, the sharpest jump of the outbreak. Dr. Sofia Morales, the epidemiology lead, has the hospital's testing log and the other two hospitals' counts on the desk before anyone briefs the city.",
+      "takeaway": "A count is not a signal until a comparison says what was expected — and until the way it was counted has been ruled out.",
+      "place": "Epidemiology Operations Room",
+      "guide": "Six readings, and the same question as the first morning: a count against what was expected. Ask of each candidate which readings it predicts should have moved, and which it needs flat. A count can rise because the city changed or because the counting did, and two readings on this board separate those.",
+      "story": "Mercy General reports twelve new cases in two days, the sharpest jump of the outbreak. Dr. Sofia Morales, the epidemiology lead, has the hospital's testing log and the other two hospitals' counts on the desk before anyone briefs the city.",
+      "game": {
+        "type": "DIAGNOSIS",
+        "title": "Signal or noise? — Review",
+        "setup": "Epidemiology Operations Room",
+        "play": "Is the Mercy General jump a signal, and what on the desk decides it?",
+        "task": "Is the Mercy General jump a signal, and what on the desk decides it?",
+        "question": "Is the Mercy General jump a signal, and what on the desk decides it?",
+        "answer": "An artifact of the new screening tent",
+        "why": "The count rose because the counting did. A screening tent triples the searching, and more searching finds more of whatever was always there — so the test of a real acceleration is the share of tests coming back positive, and it is falling. A true rise lifts positivity, the neighbouring counts and the wastewater together, and all three are quiet. Day one's rule runs both ways: two cases found a second way made that cluster real, and twelve found only one way is what an artifact looks like.",
+        "rebuttals": [
+          "More disease raises the share of tests positive along with the count. Positivity is falling while testing triples, and the other hospitals and the wastewater see nothing.",
+          "A backlog carries old specimen dates with it, and every swab in this jump was taken this week.",
+          "A seasonal rise lifts the other two hospitals too. Their counts are flat, so whatever moved at Mercy General is local to how Mercy General is counting."
+        ],
+        "headline": "Twelve cases in two days at one hospital, and a screening tent that opened on Monday.",
+        "readings": [
+          {
+            "zone": "Count",
+            "label": "New cases at Mercy General",
+            "value": "12 in two days",
+            "status": "alarm"
+          },
+          {
+            "zone": "Testing",
+            "label": "Tests run there",
+            "value": "tripled since the screening tent opened",
+            "status": "key"
+          },
+          {
+            "zone": "Positivity",
+            "label": "Share of tests positive",
+            "value": "falling",
+            "status": "key"
+          },
+          {
+            "zone": "Elsewhere",
+            "label": "Counts at the other two hospitals",
+            "value": "flat",
+            "status": "normal"
+          },
+          {
+            "zone": "Dates",
+            "label": "Specimen dates",
+            "value": "all taken this week",
+            "status": "normal"
+          },
+          {
+            "zone": "Wastewater",
+            "label": "Community signal",
+            "value": "flat this week",
+            "status": "normal"
+          }
+        ],
+        "choices": [
+          {
+            "label": "A true acceleration of the outbreak",
+            "mechanism": "More disease in the city, arriving first at the busiest hospital."
+          },
+          {
+            "label": "An artifact of the new screening tent",
+            "mechanism": "More searching finds more of what was always there, without anything changing in the city."
+          },
+          {
+            "label": "A reporting backlog clearing at once",
+            "mechanism": "Cases from earlier days filed together read as a two-day jump."
+          },
+          {
+            "label": "An ordinary seasonal rise",
+            "mechanism": "Autumn respiratory illness lifting every count with it."
+          }
+        ],
+        "correctChoice": "An artifact of the new screening tent"
+      },
+      "assumes": [
+        "more searching finds more cases whether or not the disease has moved",
+        "a rate is a count measured against a population and a length of time"
+      ],
+      "concept": {
+        "n": 26,
+        "c": "Signalling: nervous and endocrine control",
+        "of": 30,
+        "rests": [
+          "Homeostasis and feedback"
+        ]
+      }
+    },
+    {
+      "day": 24,
+      "title": "Build the provisional case definition — Review",
+      "scene": "Week three, and the molecular assay is now reliable enough to join the case definition. Each hospital has drafted the change differently. Dr. Lena Ortiz wants one revision on every desk by tonight, without breaking three weeks of curve counted the old way.",
+      "takeaway": "An operational definition can change, provided the change itself is tested and the record stays comparable across it.",
+      "place": "Epidemiology Operations Room",
+      "guide": "All four steps will happen, so ask what each one lets you check before the next depends on it. A revised definition is still an instrument wrong in a known direction, and it now has a second job: the counts made before and after the change have to stay comparable.",
+      "story": "Week three, and the molecular assay is now reliable enough to join the case definition. Each hospital has drafted the change differently. Dr. Lena Ortiz wants one revision on every desk by tonight, without breaking three weeks of curve counted the old way.",
+      "game": {
+        "type": "SEQUENCE",
+        "title": "Build the provisional case definition — Review",
+        "setup": "Epidemiology Operations Room",
+        "play": "Order the revision so the counting stays comparable across the change.",
+        "task": "Order the revision so the counting stays comparable across the change.",
+        "question": "Order the revision so the counting stays comparable across the change.",
+        "answer": "",
+        "why": "The order is the same instrument logic as the first definition, with one new obligation. Evidence first: the discordant cases are the record of exactly where the old definition and the assay disagree, and they say what the revision should fix. Draft from that evidence, then test both ways before anything is issued. The new step is the last one — a definition changed mid-outbreak splits the curve, so the earlier weeks are restated under both definitions and the change is dated, or every trend across it is lost.",
+        "rebuttals": [
+          "The discordant cases first, because where the assay and the definition disagree is the evidence for what to change. Drafting before reading them is writing down what you expected.",
+          "The draft second: the laboratory criterion goes in where the discordance says the old definition was wrong, not wherever it is easiest to add.",
+          "Testing before issue, same as three weeks ago. Known cases catch a revision now too narrow; obvious non-cases catch one the assay has made too wide.",
+          "The version date and the restated weeks go out together. A curve that changes definition midstream without both is a step nobody can interpret."
+        ],
+        "cards": [
+          "Draft the revised definition, adding the laboratory criterion where the evidence says.",
+          "Read the discordant cases — definition-positive but assay-negative, and the reverse.",
+          "Test the revision on known cases and obvious non-cases.",
+          "Issue it with a version date, and restate the earlier weeks under both definitions."
+        ],
+        "order": [
+          1,
+          0,
+          2,
+          3
+        ]
+      },
+      "assumes": [
+        "a curve counted under two definitions is two curves unless both are stated"
       ],
       "concept": {
         "n": 16,

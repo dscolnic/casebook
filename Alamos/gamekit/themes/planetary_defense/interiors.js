@@ -112,7 +112,7 @@ export const INTERIORS = {
       "rows": [
         {
           "label": "Kinetic energy",
-          "value": "3.1e17 J",
+          "value": "1.07e18 J",
           "status": "alarm"
         },
         {

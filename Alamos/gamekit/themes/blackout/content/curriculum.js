@@ -1190,7 +1190,7 @@ export const CURRICULUM = {
           "Current stays the same and only the insulation requirement changes.",
           "Current rises by 20× and resistive line loss rises by 400×."
         ],
-        "correctChoice": "Current falls by 20× and resistive line loss falls by 20×."
+        "correctChoice": "Current falls by 20× and resistive line loss falls by 400×."
       },
       "assumes": [
         "a transformer changes voltage in proportion to its turns",
@@ -2065,7 +2065,7 @@ export const CURRICULUM = {
           "230 V ≈ 325 V × √2",
           "230 V ≈ 325 V ÷ 2"
         ],
-        "correctChoice": "325 V ≈ 230 V × 2"
+        "correctChoice": "325 V ≈ 230 V × √2"
       },
       "assumes": [
         "an alternating voltage changes continuously through each cycle",
@@ -4365,7 +4365,7 @@ export const BALLPARK_CALCS = {
     "explanation": "About five and a half megawatts. Using three instead of root three gives nearly ten, which is a different circuit. The phase count is a real fact about the system and is not the multiplier here. Sin φ belongs to the reactive part, which is a separate question."
   },
   "TRANS-5": {
-    "prompt": "The total leaving the busbar is 900 A. The older circuit is 6 ohms and the newer 1 is 3 ohms. Both run between the same two busbars.",
+    "prompt": "The total leaving the busbar is 900 A. The older circuit is 6 ohms and the newer one is 3 ohms. Both run between the same two busbars.",
     "question": "Choose the total current, the other path's impedance and the sum of the two.",
     "labels": [
       "900 A  (total current)",

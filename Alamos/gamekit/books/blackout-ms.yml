@@ -1080,13 +1080,13 @@ missions:
         format: CHOICE
         question: Which relation should hold if both instruments are right?
         answerText: The peak is about 1.4 times the meter's reading. Both are right, and they are quoting different things about the same voltage.
-        why: An alternating voltage is never one number. It rises to a peak, falls back through zero, and does the same the other way, fifty times a second. The scope shows the highest it reaches. The meter shows the steady voltage that would do the same work — heat the same kettle in the same time. For this shape of wave the peak sits about one and a half times higher, and 325 against 230 is exactly that. Two instruments, one voltage.
+        why: An alternating voltage is never one number. It rises to a peak, falls back through zero, and does the same the other way, fifty times a second. The scope shows the highest it reaches. The meter shows the steady voltage that would do the same work — heat the same kettle in the same time. For this shape of wave the peak sits about 1.4 times as high, and 325 against 230 is exactly that. Two instruments, one voltage.
         choices:
           - The peak is about 1.4 times the meter's number.
           - The peak is about twice the meter's number.
           - The meter's number is about 1.4 times the peak.
           - The meter's number is about half the peak.
-        answer: The peak is about twice the meter's number.
+        answer: The peak is about 1.4 times the meter's number.
         rebuttals:
           - Twice would make the peak 460, and the scope is showing 325.
           - The meter reads lower than the peak, so multiplying it the other way goes in the wrong direction.

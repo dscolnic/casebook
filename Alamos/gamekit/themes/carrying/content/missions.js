@@ -384,6 +384,10 @@ export const WARMUPS = {
   },
   "hunt": {
     "title": "Six standpipes, and one of them is the leak",
+    "item": {
+      "name": "standpipe",
+      "plural": "standpipes"
+    },
     "why": "The distribution main is losing about a fifth of what the borehole lifts, and Mairead Sorley, the water engineer, has narrowed it to the six standpipes along the island road. Find all six and read them. A fifth of the island's water is a bigger number than anything the ferry argument is about."
   },
   "canvass": {

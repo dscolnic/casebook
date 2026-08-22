@@ -1776,6 +1776,14 @@ function gameFor(s, at, group, day){
       return { ...base, derive: {
         start: String(b.start), goal: String(b.goal),
         ...(b.startNote ? { startNote: String(b.startNote) } : {}),
+        // The flag, and not only the list. `instruments.js` asks for the rule on
+        // `d.askRule === true && rules.length > 0`; every check above this line
+        // was validating a flag that then reached no content, so three campaigns
+        // authored `askRule: true` on thirty-six stops and the second half of
+        // every derivation was inert in the shipped game. `bookParity` could not
+        // see it — the generated content is byte-identical either way — which is
+        // the same blind spot `export-book.mjs` had with `takesAsRead`.
+        ...(asksRule ? { askRule: true } : {}),
         rules: rules.map(String),
         steps: steps.map(st => ({
           ask: String(st.ask),
@@ -1982,6 +1990,20 @@ function gameFor(s, at, group, day){
       need(best !== String(b.robust),
         `the robust candidate also wins on ${b.optimiseOn} at the nominal — nothing is traded`
         + ' away by choosing well, so moving the slider teaches nothing');
+      // And every criterion has to name a score field that exists. `instruments.js`
+      // renders the table as scores[candidate][criterion.key], so a key naming
+      // nothing prints an em dash in every cell of that column — which is what
+      // Bring Them Home shipped: three criteria keyed `life_support`,
+      // `entry_margin` and `propellant_margin` against scores keyed `returnHours`,
+      // `entryMarginDeg` and `propellantMarginKg`, so the whole table was dashes
+      // and the panel put no numbers in front of the player at all.
+      for(const c of crits){
+        const k = String(c.key ?? '');
+        need(k, 'every stress criterion needs a `key` naming the score field it reads');
+        need(ids.some(id => ((b.scores ?? {})[id] ?? {})[k] !== undefined),
+          `the stress criterion "${c.label ?? k}" is keyed to "${k}", which no candidate has a`
+          + ' score for — that column renders as an em dash for every candidate');
+      }
       return { ...base, stress: {
         candidates: cands.map(c => ({ id: String(c.id), label: String(c.label) })),
         criteria: crits.map(c => ({ key: String(c.key), label: String(c.label),

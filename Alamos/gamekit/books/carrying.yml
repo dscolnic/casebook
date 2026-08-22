@@ -419,6 +419,7 @@ warmups:
       it was taken rather than what it said.
   hunt:
     title: Six standpipes, and one of them is the leak
+    item: { name: standpipe, plural: standpipes }
     why: >-
       The distribution main is losing about a fifth of what the borehole lifts, and Mairead Sorley,
       the water engineer, has

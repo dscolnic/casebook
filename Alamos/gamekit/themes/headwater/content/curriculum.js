@@ -24,7 +24,7 @@ export const CURRICULUM = {
         "task": "Get a rate out of two readings",
         "question": "Estimate the average rate of change of the inflow between 14 o'clock.",
         "answer": "About 3.5 cubic metres a second per hour, averaged across the 2 hours.",
-        "why": "An average rate of change is a slope, and the two readings are the two ends of it. It says nothing about what happened between them — the same pair comes from a river that climbed steadily and from 1 that sat still for 90 minutes and then jumped. Shrinking the interval is the only cure, and the number that shrinking approaches, the limit of this slope as the two readings close together, is the instantaneous rate the forecast wants.\n",
+        "why": "An average rate of change is a slope, and the two readings are the two ends of it. It says nothing about what happened between them — the same pair comes from a river that climbed steadily and from one that sat still for 90 minutes and then jumped. Shrinking the interval is the only cure, and the number that shrinking approaches, the limit of this slope as the two readings close together, is the instantaneous rate the forecast wants.\n",
         "givens": [
           "41 m³/s at 06:00, 48 m³/s at 08:00",
           "Two hours between the readings"
@@ -296,7 +296,7 @@ export const CURRICULUM = {
         "play": "Say what one reading leaves undetermined",
         "task": "Say what one reading leaves undetermined",
         "question": "Match the six-hour reading, then say what the drain constant actually is.",
-        "answer": "About 0.10 an hour, from a starting head near 25 metres — and it takes both readings to say so, because either 1 alone is matched by a whole line of pairs.",
+        "answer": "About 0.10 an hour, from a starting head near 25 metres — and it takes both readings to say so, because either one alone is matched by a whole line of pairs.",
         "why": "Integrating produced a constant, and the equation cannot supply it; only a measurement can. One reading is one equation in two unknowns, so a higher starting head paired with a faster drain reproduces it exactly, which is why the match stays perfect all along the curve. The second reading is not a repeat of the first — it is taken at a different time, so it constrains the same two unknowns in a different combination and the two lines cross once. Sliding along a locus with a perfect match is what an underdetermined problem feels like from the inside.\n",
         "degeneracy": {
           "controls": [
@@ -728,7 +728,7 @@ export const CURRICULUM = {
                 {
                   "text": "30·u^(−1), evaluated from u = 4 to u = 20",
                   "rule": "antiderivative",
-                  "why": "The antiderivative of one over u is the natural logarithm, not the next power down. An exponent of −1 is the 1 case the power rule cannot handle."
+                  "why": "The antiderivative of one over u is the natural logarithm, not the next power down. An exponent of −1 is the one case the power rule cannot handle."
                 },
                 {
                   "text": "30·ln(u), evaluated from u = 4 to u = 20",
@@ -837,7 +837,7 @@ export const CURRICULUM = {
         "task": "Get a rate out of a formula, from the definition",
         "question": "Work the difference quotient down to an instantaneous rate, and evaluate it at four hours.",
         "answer": "80 thousand cubic metres an hour at 4 hours — a limit of the difference quotient, not an average across any interval.",
-        "why": "The difference quotient is the slope of a line through two points on the curve, and its value depends on how far apart they are. Taking the limit closes that gap without ever setting it to 0, which is the whole manoeuvre — at h = 0 the quotient is 0/0 and says nothing, while its limit is 1 number. What comes out is a rule, 10t + 40, good at every hour of the night, and the four-hour figure is 1 substitution away from it.\n",
+        "why": "The difference quotient is the slope of a line through two points on the curve, and its value depends on how far apart they are. Taking the limit closes that gap without ever setting it to 0, which is the whole manoeuvre — at h = 0 the quotient is 0/0 and says nothing, while its limit is one number. What comes out is a rule, 10t + 40, good at every hour of the night, and the four-hour figure is one substitution away from it.\n",
         "derive": {
           "start": "V(t) = 5t² + 40t",
           "goal": "V'(4), from the definition rather than from a rule",
@@ -1209,7 +1209,7 @@ export const CURRICULUM = {
         "task": "Find the day the level turns over, and prove it is a maximum",
         "question": "Find the day the level stops rising, and establish that it is a maximum rather than a minimum.",
         "answer": "Day 15, and it is a maximum — the second derivative is −0.06 at every day, so the curve is concave down everywhere and the single critical point can only be a top.",
-        "why": "Setting the derivative to zero finds where the level stands still. On its own that does not say whether it is a crest or a trough. A reservoir topping out on day 15 and 1 bottoming out on day 15 have the same first derivative there. The second derivative settles it with no further data. Because it is a constant here, it settles it on every day at once. A curve concave down over the whole fortnight has at most one turning point, so the day is unique as well as classified.\n",
+        "why": "Setting the derivative to zero finds where the level stands still. On its own that does not say whether it is a crest or a trough. A reservoir topping out on day 15 and One bottoming out on day 15 have the same first derivative there. The second derivative settles it with no further data. Because it is a constant here, it settles it on every day at once. A curve concave down over the whole fortnight has at most one turning point, so the day is unique as well as classified.\n",
         "derive": {
           "start": "h(t) = 214.6 + 0.9t − 0.03t²",
           "goal": "the day h stops rising, classified",
@@ -1232,7 +1232,7 @@ export const CURRICULUM = {
                 {
                   "text": "h'(t) = 0.9 − 0.03t",
                   "rule": "power",
-                  "why": "The power rule brings the exponent 2 down as a factor, so −0.03t² differentiates to −0.06t. Halving it doubles the day the level turns over, and every line after this 1 stays perfectly consistent with it.",
+                  "why": "The power rule brings the exponent 2 down as a factor, so −0.03t² differentiates to −0.06t. Halving it doubles the day the level turns over, and every line after this one stays perfectly consistent with it.",
                   "survives": true
                 },
                 {
@@ -2038,7 +2038,7 @@ export const CURRICULUM = {
     },
     {
       "day": 11,
-      "title": "14 days, 1 number",
+      "title": "14 days, one number",
       "scene": "Ferrand has 47.2 million cubic metres through the site over 14 days and 1 line on the annual return for it. He wants the steady flow that would have delivered the same water.",
       "takeaway": "The same operation that reduced a morning to one flow reduces a fortnight to one, and neither is the mean of the readings.",
       "place": "Storage & Level Board",
@@ -2050,7 +2050,7 @@ export const CURRICULUM = {
       "story": "Ferrand has 47.2 million cubic metres through the site over 14 days and 1 line on the annual return for it. He wants the steady flow that would have delivered the same water.",
       "game": {
         "type": "BALLPARK",
-        "title": "14 days, 1 number",
+        "title": "14 days, one number",
         "setup": "Storage & Level Board",
         "play": "Reduce the fortnight to one figure",
         "task": "Reduce the fortnight to one figure",
@@ -2313,7 +2313,7 @@ export const CURRICULUM = {
         "task": "Follow the rate from the hills to the sill",
         "question": "Put the transfers in the order the rate travels, then name the one that decides how much of it reaches the sill.",
         "answer": "Runoff, inflow, storage, level, head, discharge — governed by storage into level, where dividing by 2.6 million square metres cuts the rate by 6 orders of magnitude.",
-        "why": "Every link on this path multiplies the rate by its own derivative, and the product is what arrives. The spillway link is the 1 everybody watches because its exponent makes it dramatic, but three-halves of a square root is a factor near 40 and the storage-to-level link divides by a surface area of 2 and a half million. That single division is why a catchment can double its flow in a morning and the level move eight centimetres. It is also the link the resurvey is about to change, which is the reason it is worth naming now rather than in a week.\n",
+        "why": "Every link on this path multiplies the rate by its own derivative, and the product is what arrives. The spillway link is the one everybody watches because its exponent makes it dramatic, but three-halves of a square root is a factor near 40 and the storage-to-level link divides by a surface area of 2 and a half million. That single division is why a catchment can double its flow in a morning and the level move eight centimetres. It is also the link the resurvey is about to change, which is the reason it is worth naming now rather than in a week.\n",
         "chain": {
           "links": [
             {
@@ -2948,7 +2948,7 @@ export const CURRICULUM = {
         "task": "Total the window where the inflow ran clear",
         "question": "Estimate the volume the reservoir gained between eight and two.",
         "answer": "About 734,000 cubic metres gained between 10.",
-        "why": "Two curves and one integral: the storage gained is the area between them, which is the integral of the difference rather than the difference of two integrals worked separately — the same number, and much less arithmetic. On a window where both rates hold steady the integral collapses to a rectangle, and the only thing that can go wrong is integrating the inflow alone. That gives 2.07 million and describes a reservoir with no machines running and no gates open, which is not the 1 anybody is standing in.\n",
+        "why": "Two curves and one integral: the storage gained is the area between them, which is the integral of the difference rather than the difference of two integrals worked separately — the same number, and much less arithmetic. On a window where both rates hold steady the integral collapses to a rectangle, and the only thing that can go wrong is integrating the inflow alone. That gives 2.07 million and describes a reservoir with no machines running and no gates open, which is not the one anybody is standing in.\n",
         "givens": [
           "Inflow about 96 m³/s, release held at 62 m³/s",
           "The window ran six hours"
@@ -3242,7 +3242,7 @@ export const CURRICULUM = {
         "task": "Find the extent that makes the moment largest",
         "question": "Estimate the uplift extent at which the overturning moment is greatest.",
         "answer": "4 metres of uplift extent, for a moment of about 24 meganewton metres per metre.",
-        "why": "Differentiating gives 12 − 3a, and the 3 is the whole answer: the exponent 2 comes down as a factor and multiplies the 1.5 that was already there. Using the 1.5 instead puts the worst case at 8 metres, which is past the downstream toe and outside the wall entirely — an answer that is not merely wrong but physically impossible, and 1 nobody catches because the arithmetic is clean. The moment there is 24 against a true worst of 24 at 4 metres.\n",
+        "why": "Differentiating gives 12 − 3a, and the 3 is the whole answer: the exponent 2 comes down as a factor and multiplies the 1.5 that was already there. Using the 1.5 instead puts the worst case at 8 metres, which is past the downstream toe and outside the wall entirely — an answer that is not merely wrong but physically impossible, and one nobody catches because the arithmetic is clean. The moment there is 24 against a true worst of 24 at 4 metres.\n",
         "givens": [
           "M(a) = 12a − 1.5a², in meganewton metres per metre of wall",
           "The base is 6.5 m from heel to toe"
@@ -3493,7 +3493,7 @@ export const CURRICULUM = {
         "play": "Say which fit you would carry forward",
         "task": "Say which fit you would carry forward",
         "question": "Look at each field before choosing. Which of these fits would you carry into next season?",
-        "answer": "The 1 with the square term, at 0.26. The drift fit scores better and its residuals still change sign across the gallery, which means the drift parameter absorbed the curvature rather than removing it.",
+        "answer": "The one with the square term, at 0.26. The drift fit scores better and its residuals still change sign across the gallery, which means the drift parameter absorbed the curvature rather than removing it.",
         "why": "Two of these three leave residuals that are positive on one side of the wall and negative on the other. That is not scatter; it is a quantity the model does not contain, and adding a free parameter that soaks it up improves the summary number while leaving the cause exactly where it was. It will then bias every extrapolation in the same direction, quietly, because nothing about the fit looks wrong afterwards. One large residual is a bad gauge; six small ones in a pattern are a missing term.\n",
         "residual": {
           "fits": [

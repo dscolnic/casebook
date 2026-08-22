@@ -2,7 +2,7 @@
 #
 # THIS BOOK IS THE WORKED EXAMPLE OF THE 12 FORMATS IN `FORMATS.md`. One
 # stop each, over four days, in a place invented for the purpose: an office that
-# checks other people's measurements, so every 1 of the 12 is something
+# checks other people's measurements, so every one of the 12 is something
 # somebody there does on an ordinary Tuesday.
 #
 # It exists for the reason `tools/BOOK_TEMPLATE.md` exists — a format nobody has
@@ -1675,7 +1675,7 @@ missions:
         place: Sample Room
         scene: >
           5000 synthetic events with known times and sizes, ready to push
-          through the monitoring network exactly as a real 1 would go. Kit
+          through the monitoring network exactly as a real one would go. Kit
           Sorensen has the recovery display up and nothing on it yet.
         guide: >-
           Move the endurance figure through the range it actually came with, and watch

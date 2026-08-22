@@ -81,7 +81,8 @@ export default {
     + 'coordinating centre, which means the pack the safety board reads is the pack you put '
     + 'together. That board sits in three weeks and it can stop the trial. Stop it early on a '
     + 'result that turns out to be luck, and a drug that works is buried for ten years. Carry on '
-    + 'too long, and everybody who joins after today is in a trial that already had its answer.',
+    + 'too long, and everybody who joins after today is in a trial that already had its answer. '
+    + 'Dr. Miriam Feldman, who does the trial arithmetic, thinks this result will not grow.',
   ],
 
   ending: [

@@ -22,6 +22,40 @@ let failed = 0;
 for(const theme of wanted){
   for(const tool of ['validateContent.mjs', 'smokeCampaign.mjs', 'probeQuestions.mjs', 'personStops.mjs',
                      'checkStory.mjs', 'checkNames.mjs', 'checkJargon.mjs', 'jargonDepth.mjs', 'answerShape.mjs', 'checkVoice.mjs', 'placeStory.mjs',
+                     // answerShape asks whether the key is identifiable by its shape.
+                     // This asks the flatter question nothing was asking: is the key the
+                     // option the verdict names? Seven stops shipped keyed to a distractor
+                     // their own answerText contradicted, so a correct player was marked
+                     // wrong and then shown a verdict agreeing with them.
+                     'answerKey.mjs',
+                     // answerKey compares the key against the verdict on a CHOICE. This
+                     // is the same question one format over: does an estimate board grade
+                     // the quantity its own stop asks for? Deep Watch asked for a gauge
+                     // pressure at ninety metres and graded 143 gallons a minute, in two
+                     // editions, with the formula check green — because the tiles and the
+                     // question were each internally consistent and about different things.
+                     'boardAnswer.mjs',
+                     // The DERIVE half of the same question. The importer validated
+                     // `askRule: true` four ways and then never emitted it, so 177 rule
+                     // questions across four campaigns were inert in the shipped game
+                     // and `bookParity` could not see it — the content is byte-identical
+                     // either way, which is `export-book`'s `takesAsRead` blind spot.
+                     'deriveRules.mjs',
+                     // A numeral-normalisation pass over the books replaced spelled-out
+                     // numbers with digits and could not tell a count from a pronoun, so
+                     // 27 books shipped sentences like "She is the 1 who keeps saying so"
+                     // and ten of Hospital's review-variant titles read "6 Patients, 1
+                     // First Room". The list of words is closed and short on purpose: a
+                     // unit, a count, an ordinal label and a ratio all keep their digits.
+                     'numeralWords.mjs',
+                     // Whether anybody is in the room where the question is asked. Four
+                     // campaigns name somebody in every one of their fifteen day stakes and
+                     // in almost none of their forty-eight scenes, so the cast is introduced
+                     // and then absent from the work. Reports a rate for every theme and
+                     // fails only under one scene in ten, which no defensible campaign
+                     // reaches — a scene can be about an instrument, and Deep Watch at 33%
+                     // is a submarine.
+                     'sceneCast.mjs',
                      'checkPassages.mjs',
                      // The half before checkPassages: whether there is a passage at
                      // all. Three campaigns shipped with six of twelve people written
@@ -112,6 +146,33 @@ if(!process.argv[2]){
                      // `takesAsRead` declaration deliberately not.
                      'equationSupply.mjs --selftest',
                      'formatMix.mjs --selftest',
+                     // And the tenth, which is mostly a statement about what it
+                     // refuses to measure. Three broader versions were written first
+                     // and all three reported correct keys as wrong, because a `why`
+                     // discusses the distractors by design. The case that matters is
+                     // the one that has to PASS: a correct key whose verdict merely
+                     // talks about the wrong options.
+                     'answerKey.mjs --selftest',
+                     // And the eleventh. The case that has to PASS is the one eight
+                     // benign boards rest on: a solution may show a *later* stage of its
+                     // own working, so operands that match no tile are only a defect
+                     // when the board's own target is not stated either.
+                     'boardAnswer.mjs --selftest',
+                     // And the twelfth. The case that has to PASS is a step whose
+                     // candidates share a rule: the buttons are the chain's whole list,
+                     // so the question is still answerable. Failing those 44 steps is
+                     // what the first version did, and it hid the real defect under them.
+                     'deriveRules.mjs --selftest',
+                     // And the thirteenth. Eleven of its fifteen cases have to PASS:
+                     // "Day 1 had 96 events", "1 of 600 allowed solutions", "about 1
+                     // litre a day", "e^(−t/T) goes to 1 at t = 0", "a 3 : 1 fit". A gate
+                     // that failed those would fire on ordinary house style in every book.
+                     'numeralWords.mjs --selftest',
+                     // And the fourteenth. Its load-bearing case is that a first name alone
+                     // does not match: "Ines" is in two rosters and "Marta" in three, so a
+                     // first-name matcher would report a campaign as fine on somebody else's
+                     // cast.
+                     'sceneCast.mjs --selftest',
                      'warmupOrder.mjs --selftest',
                      // And the ninth. Two ways it can lie: keying a serving on the
                      // *base* title reads a review variant as a duplicate of its

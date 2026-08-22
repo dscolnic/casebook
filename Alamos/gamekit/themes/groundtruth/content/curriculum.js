@@ -74,6 +74,7 @@ export const CURRICULUM = {
           "start": "∮E·dA = Q_enc/ε₀",
           "goal": "the charge per square metre on the layer, in coulombs per square metre",
           "startNote": "the mills read E = 4.5 × 10³ V/m, and ε₀ = 8.85 × 10⁻¹² F/m",
+          "askRule": true,
           "rules": [
             "Gauss's law",
             "symmetry argument",
@@ -277,6 +278,7 @@ export const CURRICULUM = {
           "start": "V_b − V_a = −∫E·dl",
           "goal": "the potential of the cloud base relative to the ground, in volts",
           "startNote": "E = 4.5 × 10³ V/m, directed downward; the cloud base is 1.2 × 10³ m up",
+          "askRule": true,
           "rules": [
             "Gauss's law",
             "symmetry argument",
@@ -801,6 +803,7 @@ export const CURRICULUM = {
           "start": "C = Q/V",
           "goal": "the capacitance of the pair, in farads",
           "startNote": "A = 1.0 × 10⁷ m², d = 1.2 × 10³ m, ε₀ = 8.85 × 10⁻¹² F/m",
+          "askRule": true,
           "rules": [
             "Gauss's law",
             "symmetry argument",
@@ -959,6 +962,7 @@ export const CURRICULUM = {
           "start": "dU = V dq",
           "goal": "the energy stored in one stage, in joules",
           "startNote": "one stage is C = 100 nF, charged to V = 5.0 × 10⁴ V",
+          "askRule": true,
           "rules": [
             "Gauss's law",
             "symmetry argument",
@@ -1424,6 +1428,7 @@ export const CURRICULUM = {
           "start": "n = 12 stages, each C = 100 nF charged to V₀ = 50 kV",
           "goal": "the output voltage, the series capacitance and the stored energy",
           "startNote": "in parallel while charging, in series once the gaps break down",
+          "askRule": true,
           "rules": [
             "Gauss's law",
             "symmetry argument",
@@ -1630,6 +1635,7 @@ export const CURRICULUM = {
           "start": "V = kQ/r and E = kQ/r² for an isolated sphere",
           "goal": "the field at the tip surface, in volts per metre",
           "startNote": "undisturbed potential at 60 m is E_flat × h = 4.5 × 10³ × 60 = 2.7 × 10⁵ V; tip radius 0.020 m",
+          "askRule": true,
           "rules": [
             "Gauss's law",
             "symmetry argument",
@@ -1960,6 +1966,7 @@ export const CURRICULUM = {
           "start": "∮B·dl = μ₀I_enc",
           "goal": "the magnetic field at the cabinet, in tesla",
           "startNote": "I = 3.0 × 10⁴ A at the peak, r = 2.0 m, μ₀ = 4π × 10⁻⁷ T·m/A",
+          "askRule": true,
           "rules": [
             "Gauss's law",
             "symmetry argument",
@@ -2464,7 +2471,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Twenty-five ohms, at what",
-      "scene": "Earthing engineer Ana Sifuentes, the earthing engineer, sets the April certificate on the bench: 25 ohms, instrument named, operator signed. She wants the measured quantity stated exactly before anyone uses the number to make a claim about the storm season.",
+      "scene": "Ana Sifuentes, the earthing engineer, sets the April certificate on the bench: 25 ohms, instrument named, operator signed. She wants the measured quantity stated exactly before anyone uses the number to make a claim about the storm season.",
       "takeaway": "A measurement carries the conditions it was made under, and a number quoted without them is a number about nothing in particular.",
       "place": "Earthing Compound",
       "guide": "Four readings of the same certificate. Ask of each what the tester actually did: it pushed a small steady current into the soil and measured the voltage. So the number belongs to steady current. A strike changes by tens of kiloamps in a microsecond, which is a different regime. Nothing on the certificate is wrong. The error would be treating it as the whole story.",
@@ -2473,7 +2480,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Earthing engineer Ana Sifuentes, the earthing engineer, sets the April certificate on the bench: 25 ohms, instrument named, operator signed. She wants the measured quantity stated exactly before anyone uses the number to make a claim about the storm season.",
+      "story": "Ana Sifuentes, the earthing engineer, sets the April certificate on the bench: 25 ohms, instrument named, operator signed. She wants the measured quantity stated exactly before anyone uses the number to make a claim about the storm season.",
       "game": {
         "type": "CHOICE",
         "title": "Twenty-five ohms, at what",
@@ -2643,6 +2650,7 @@ export const CURRICULUM = {
           "start": "V = IR for the steady case, V = L·dI/dt for the changing one",
           "goal": "the two voltages across the same lead, in volts",
           "startNote": "R = 3.0 × 10⁻⁴ Ω, L ≈ 1 µH/m over 6 m, I = 3.0 × 10⁴ A, dI/dt = 3.0 × 10¹⁰ A/s",
+          "askRule": true,
           "rules": [
             "Gauss's law",
             "symmetry argument",
@@ -2898,6 +2906,7 @@ export const CURRICULUM = {
           "start": "q/C + IR = 0 around the loop",
           "goal": "the charge as a function of time, and the time constant",
           "startNote": "R = 1.0 × 10⁷ Ω, C = 1.0 × 10⁻¹⁰ F, and the current out of the capacitor is I = −dq/dt",
+          "askRule": true,
           "rules": [
             "Gauss's law",
             "symmetry argument",
@@ -3297,7 +3306,7 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "The loop nobody drew",
-      "scene": "Instrumentation specialist Sam Abioye, the instrumentation technician, has the outstation trench route on the wall. For forty metres, the signal pair runs beside the down-conductor. Its near side is 1.5 m away; the far side is 3.5 m away.",
+      "scene": "Sam Abioye, the instrumentation technician, has the outstation trench route on the wall. For forty metres, the signal pair runs beside the down-conductor. Its near side is 1.5 m away; the far side is 3.5 m away.",
       "takeaway": "The field across the loop is not uniform, so the flux is an integral, and it comes out as a logarithm of the two distances.",
       "place": "Cable Trench",
       "guide": "Build it a line at a time. The field from the down-conductor falls as one over the distance, so the flux through the trench loop needs an integral across it, from the near side to the far side. Then Faraday's law turns the changing flux into a voltage. Evaluate it at the front of the August stroke.",
@@ -3306,7 +3315,7 @@ export const CURRICULUM = {
         "Why the ratio is what matters. Only b over a appears, so moving both sides of the pair further out changes the answer far less than separating them does. A signal pair run tight together in the same trench sees very little; the same pair split by two metres sees a great deal.",
         "What the voltage does. It appears in series with the signal, so the instrument at the far end cannot distinguish it from the measurement. That is the mechanism behind most of the station's unexplained records, and it is why the trench route on the wall is a wiring diagram and a physics problem at once."
       ],
-      "story": "Instrumentation specialist Sam Abioye, the instrumentation technician, has the outstation trench route on the wall. For forty metres, the signal pair runs beside the down-conductor. Its near side is 1.5 m away; the far side is 3.5 m away.",
+      "story": "Sam Abioye, the instrumentation technician, has the outstation trench route on the wall. For forty metres, the signal pair runs beside the down-conductor. Its near side is 1.5 m away; the far side is 3.5 m away.",
       "game": {
         "type": "DERIVE",
         "title": "The loop nobody drew",
@@ -3320,6 +3329,7 @@ export const CURRICULUM = {
           "start": "B(r) = μ₀I/(2πr)",
           "goal": "the EMF driven around the trench loop, in volts",
           "startNote": "ℓ = 40 m parallel, a = 1.5 m, b = 3.5 m, dI/dt = 3.0 × 10¹⁰ A/s at the front",
+          "askRule": true,
           "rules": [
             "Gauss's law",
             "symmetry argument",

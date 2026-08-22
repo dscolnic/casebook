@@ -125,7 +125,7 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "What a catalyst cannot do",
-      "scene": "Kaur has two charges on the bench: the spent 1 from sol 288 and a fresh 1 still in its sealed can. Sundqvist's proposal assumes a better catalyst would raise the methane a pass can give.",
+      "scene": "Kaur has two charges on the bench: the spent one from sol 288 and a fresh one still in its sealed can. Sundqvist's proposal assumes a better catalyst would raise the methane a pass can give.",
       "takeaway": "A catalyst changes how long the balance takes to arrive and leaves the balance where it was.",
       "place": "Catalyst Bay",
       "guide": "Four accounts of what a better catalyst buys. Ask of each whether the catalyst could deliver it. It lowers the barrier by the same amount in both directions, so their ratio is untouched, and that ratio is the equilibrium constant. Nor does the route change how much heat comes out. What it buys is time, which a fixed number of sols makes valuable.",
@@ -134,7 +134,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Kaur has two charges on the bench: the spent 1 from sol 288 and a fresh 1 still in its sealed can. Sundqvist's proposal assumes a better catalyst would raise the methane a pass can give.",
+      "story": "Kaur has two charges on the bench: the spent one from sol 288 and a fresh one still in its sealed can. Sundqvist's proposal assumes a better catalyst would raise the methane a pass can give.",
       "game": {
         "type": "CHOICE",
         "title": "What a catalyst cannot do",
@@ -794,8 +794,8 @@ export const CURRICULUM = {
         "play": "Separate the thermodynamic temperature effect from the flow change in the hot run.",
         "task": "Separate the thermodynamic temperature effect from the flow change in the hot run.",
         "question": "Compute the reaction quotient at the hot run's outlet, and say which way that mixture still has to go.",
-        "answer": "Q ≈ 283. K is 190 at the hot temperature and about 1,050 at the cooler one, so the outlet is past the hot ceiling and would run backwards there, while the same mixture is well short of the cooler ceiling.",
-        "why": "The Sabatier reaction is CO₂ + 4H₂ → CH₄ + 2H₂O, so Q = p(CH₄) × p(H₂O)² ÷ (p(CO₂) × p(H₂)⁴). At the hot outlet that is 0.42 × 0.7056 ÷ (0.10 × 0.0105) ≈ 283. K is 190 at 573 K and about 1,050 at 533 K, because the reaction gives out heat and heating an exothermic equilibrium lowers its constant. So the same outlet mixture is above the ceiling at the hot setting — Q exceeds K, and the reactor would run backwards to reach balance — and comfortably below it at the cooler setting. That settles the thermodynamic half of Herrera's question without settling the kinetic half: the higher throughput also shortened residence time, and only a flow test at fixed temperature and pressure separates those two.",
+        "answer": "Q ≈ 282. K is 192 at the hot temperature and about 1,350 at the cooler one, so the outlet is past the hot ceiling and would run backwards there, while the same mixture is well short of the cooler ceiling.",
+        "why": "The Sabatier reaction is CO₂ + 4H₂ → CH₄ + 2H₂O, so Q = p(CH₄) × p(H₂O)² ÷ (p(CO₂) × p(H₂)⁴). At the hot outlet that is 0.42 × 0.7056 ÷ (0.10 × 0.0105) ≈ 282. K is 192 at 573 K and about 1,350 at 533 K, because the reaction gives out heat and heating an exothermic equilibrium lowers its constant. So the same outlet mixture is above the ceiling at the hot setting — Q exceeds K, and the reactor would run backwards to reach balance — and comfortably below it at the cooler setting. That settles the thermodynamic half of Herrera's question without settling the kinetic half: the higher throughput also shortened residence time, and only a flow test at fixed temperature and pressure separates those two.",
         "givens": [
           "outlet partial pressures 0.42, 0.84, 0.10 and 0.32 bar",
           "K = 190 at 573 K and about 1,050 at 533 K"
@@ -1045,8 +1045,8 @@ export const CURRICULUM = {
         "play": "Calculate the reaction quotient from the snapshot and compare it with the equilibrium constant.",
         "task": "Calculate the reaction quotient from the snapshot and compare it with the equilibrium constant.",
         "question": "Estimate Q from the four partial pressures. Is the mixture driven forward or backward?",
-        "answer": "Q ≈ 0.016, which is well below K = 0.14. The net reaction therefore runs forward and makes more methane and water.",
-        "why": "The reaction quotient uses the same pressure expression as the equilibrium constant, but it uses the mixture that exists right now. Here Q is about 0.016 while K is 0.14. The mixture therefore has too little product relative to equilibrium, so the forward reaction is favoured until Q rises to K. The comparison predicts direction, not speed. A poor catalyst could take a long time to close the gap. Temperature can change K itself; the catalyst cannot.",
+        "answer": "Q ≈ 0.016, which is far below K = 80. The net reaction therefore runs forward and makes more methane and water.",
+        "why": "The reaction quotient uses the same pressure expression as the equilibrium constant, but it uses the mixture that exists right now. Here Q is about 0.016 while K is 80. The mixture therefore has too little product relative to equilibrium, so the forward reaction is favoured until Q rises to K. The comparison predicts direction, not speed. A poor catalyst could take a long time to close the gap. Temperature can change K itself; the catalyst cannot.",
         "rebuttals": [
           "A low quotient means the products are scarce rather than in excess, which is the opposite reading of the same number.",
           "At equilibrium the two expressions are equal, and these two differ by a factor of nine.",
@@ -1057,14 +1057,14 @@ export const CURRICULUM = {
           "PH₂O = 0.50 bar",
           "PCO₂ = 1.0 bar",
           "PH₂ = 2.0 bar",
-          "Kp = 0.14 at 593 K"
+          "Kp = 80 at 593 K"
         ],
         "relationship": "For CO₂ + 4H₂ ⇌ CH₄ + 2H₂O, Qp = PCH₄(PH₂O)² ÷ [PCO₂(PH₂)⁴]. Compare Qp with Kp to get the net direction.",
         "calcKey": "EQUIL-5"
       },
       "assumes": [
         "for CO₂ + 4H₂ ⇌ CH₄ + 2H₂O, Qp = PCH₄(PH₂O)² / [PCO₂(PH₂)⁴]",
-        "Kp is 0.14 at this bed temperature"
+        "Kp is 80 at this bed temperature"
       ],
       "equations": [
         {
@@ -2297,7 +2297,7 @@ export const CURRICULUM = {
         "task": "Which explanation fits every reading?",
         "question": "Which explanation fits every reading?",
         "answer": "Carbon dioxide past the trap is freezing in the line",
-        "why": "Three readings do the ruling out. A cold head at its set point has not lost capacity, and a steady jacket pressure is intact insulation. A valve moving would change the flow in the minute it moved rather than over two sols. What is left is something accumulating, and the trap's breakthrough figure names the material. It matters which material: carbon dioxide sublimes away when the line is warmed to 220 K, so this 1 is cleared without opening anything.",
+        "why": "Three readings do the ruling out. A cold head at its set point has not lost capacity, and a steady jacket pressure is intact insulation. A valve moving would change the flow in the minute it moved rather than over two sols. What is left is something accumulating, and the trap's breakthrough figure names the material. It matters which material: carbon dioxide sublimes away when the line is warmed to 220 K, so this one is cleared without opening anything.",
         "headline": "An oxygen line has slowed over two sols with the refrigerator holding temperature.",
         "readings": [
           {
@@ -2392,7 +2392,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Which electrode does which job",
-      "scene": "The hall runs two kinds of cell: 1 splits water, the other splits carbon dioxide at 800 degrees. Rosalind Achebe, the power and electrolysis engineer, has the four parts listed on the board.",
+      "scene": "The hall runs two kinds of cell: One splits water, the other splits carbon dioxide at 800 degrees. Rosalind Achebe, the power and electrolysis engineer, has the four parts listed on the board.",
       "takeaway": "The two halves of one electron transfer can be run in separate places if something carries an ion between them.",
       "place": "Electrolysis Hall",
       "guide": "Four parts of the cell, and four jobs. Pair them by asking which way the electrons go. In means reduction; out means oxidation. Then ask what the electrolyte is for: it carries ions and refuses electrons, which is what forces the circuit through the wire. And one item on the list decides an amount rather than a direction.",
@@ -2401,7 +2401,7 @@ export const CURRICULUM = {
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
         "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
       ],
-      "story": "The hall runs two kinds of cell: 1 splits water, the other splits carbon dioxide at 800 degrees. Rosalind Achebe, the power and electrolysis engineer, has the four parts listed on the board.",
+      "story": "The hall runs two kinds of cell: One splits water, the other splits carbon dioxide at 800 degrees. Rosalind Achebe, the power and electrolysis engineer, has the four parts listed on the board.",
       "game": {
         "type": "PROTOCOL",
         "title": "Which electrode does which job",
@@ -3087,7 +3087,7 @@ export const CURRICULUM = {
         "task": "Work out the free-energy change at the bed's temperature",
         "question": "Estimate the free-energy change for the reaction at the bed's temperature.",
         "answer": "",
-        "why": "The enthalpy and entropy terms oppose each other. Methanation releases heat, which favours products, but it also reduces the number of gas molecules and gives a negative entropy change. The TΔS term therefore becomes more important as temperature rises. At 593 K the estimate is still strongly negative. Using the same tabulated ΔH and ΔS gives 0 crossing near 960 K. Real thermodynamic values vary somewhat with temperature, so 960 K is a course-model threshold rather than an exact plant limit.",
+        "why": "The enthalpy and entropy terms oppose each other. Methanation releases heat, which favours products, but it also reduces the number of gas molecules and gives a negative entropy change. The TΔS term therefore becomes more important as temperature rises. At 593 K the estimate is still comfortably negative. Using the same tabulated ΔH and ΔS gives 0 crossing near 720 K. Real thermodynamic values vary somewhat with temperature, so 720 K is a course-model threshold rather than an exact plant limit.",
         "givens": [],
         "relationship": "ΔG = ΔH − TΔS, with ΔG the free-energy change, ΔH the heat given out at constant pressure, T the absolute temperature in kelvin and ΔS the entropy change of the reaction.",
         "calcKey": "GIBBS-2"
@@ -3316,28 +3316,28 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "What the station stops doing",
-      "scene": "The dust storm has cut the sol from about 2,000 kilowatt-hours to 430. Tank refrigeration is already drawing power, and six other demands are queued. Demir and Wells want the sacrifices written down before breakers are opened.",
+      "scene": "The dust storm has cut the sol from about 2,000 kilowatt-hours to 600. Tank refrigeration is already drawing power, and six other demands are queued. Demir and Wells want the sacrifices written down before breakers are opened.",
       "takeaway": "Loads are ranked by what stopping them costs to undo, rather than by what they draw.",
       "place": "Plant Control",
-      "guide": "Four hundred and thirty kilowatt-hours for the whole sol, against about two thousand on a clear one. Watch the answers list rather than the equipment: it shows what the station can still say at the end of the sol under your plan. Tank refrigeration is already drawing, so the sacrifices have to come from the six demands queued behind it.",
+      "guide": "Six hundred kilowatt-hours for the whole sol, against about two thousand on a clear one. Watch the answers list rather than the equipment: it shows what the station can still say at the end of the sol under your plan. Tank refrigeration is already drawing, so the sacrifices have to come from the six demands queued behind it.",
       "background": [
         "Why refrigeration is not negotiable first. Liquid oxygen already made is stored energy the station cannot remake cheaply. Letting it boil off spends propellant that took sols of power to produce, so cutting refrigeration to save power usually loses more power than it saves.",
         "What the answers list is for. Each demand buys the ability to make a particular claim at the end of the sol — that the tank is full, that the assay is current, that the soil work is on schedule. A plan is a choice of which claims survive the storm.",
         "Why writing the sacrifices down matters. Breakers opened without a record become an argument afterwards about what was agreed. Demir and Wells are asking for the list because the storm will last longer than anybody's memory of the reasoning."
       ],
-      "story": "The dust storm has cut the sol from about 2,000 kilowatt-hours to 430. Tank refrigeration is already drawing power, and six other demands are queued. Demir and Wells want the sacrifices written down before breakers are opened.",
+      "story": "The dust storm has cut the sol from about 2,000 kilowatt-hours to 600. Tank refrigeration is already drawing power, and six other demands are queued. Demir and Wells want the sacrifices written down before breakers are opened.",
       "game": {
         "type": "ALLOCATE",
         "title": "What the station stops doing",
         "setup": "Plant Control",
         "play": "Build a plan for the power there is",
         "task": "Build a plan for the power there is",
-        "question": "430 kilowatt-hours. Build the sol's plan, and know what it stops the station being able to say.",
-        "answer": "Keep the protected habitat bus and cryogenic refrigeration inside the 430 kWh limit. Then choose at most one substantial optional job. The jobs left unfunded are part of the answer.",
+        "question": "600 kilowatt-hours. Build the sol's plan, and know what it stops the station being able to say.",
+        "answer": "Keep the protected habitat bus and cryogenic refrigeration inside the 600 kWh limit. Then choose at most one substantial optional job. The jobs left unfunded are part of the answer.",
         "why": "The power plan should rank loads by the cost of stopping them. Digging is recoverable because the ground remains available. Batteries can recharge on the next clear sol. Electrolysis can be made up later if schedule margin remains. Cryogenic refrigeration is different. When it stops, heat keeps entering the tanks and already-made propellant boils away. That loss cannot be recovered without making new propellant later. Habitat power is protected separately. The scarce pool should therefore preserve irreversible assets before funding work that can simply be deferred.",
         "allocate": {
           "pool": {
-            "amount": 430,
+            "amount": 600,
             "unit": "kWh",
             "mode": "scalar"
           },
@@ -3404,7 +3404,8 @@ export const CURRICULUM = {
               "question": "Does the cold end stay clear of ice?",
               "requires": [
                 "drier"
-              ]
+              ],
+              "required": true
             },
             {
               "question": "Is any ice cut today?",
@@ -4788,10 +4789,10 @@ export const BALLPARK_CALCS = {
       2,
       3
     ],
-    "target": 283,
+    "target": 282.24,
     "tolerance": 25,
     "units": "bar⁻²",
-    "solution": "0.42 × 0.7056 ÷ (0.10 × 0.0105) ≈ 283, against K = 190 hot and about 1,050 cool.",
+    "solution": "0.42 × 0.7056 ÷ (0.10 × 0.0105) ≈ 282, against K = 190 hot and about 1,050 cool.",
     "explanation": "Q compared with K says which way the mixture has to go — past the ceiling at the hot setting, short of it at the cool one."
   },
   "EQUIL-3": {
@@ -4826,17 +4827,17 @@ export const BALLPARK_CALCS = {
     "explanation": "Equal moles of the two gases, so the mass ratio is the ratio of the molar masses. The hydrogen and the water are elsewhere in the ledger."
   },
   "GIBBS-2": {
-    "prompt": "For this reaction the enthalpy change is −165,000 J per mole and the entropy change is −172 J per mole per kelvin. The bed is at 593 K.",
+    "prompt": "For this reaction the enthalpy change is −123,600 J per mole and the entropy change is −172 J per mole per kelvin. The bed is at 593 K.",
     "question": "Estimate the free-energy change for the reaction at the bed's temperature.",
     "labels": [
-      "−165000 J/mol  (enthalpy change)",
+      "−123600 J/mol  (enthalpy change)",
       "593 K  (bed temperature)",
       "−172 J/mol/K  (entropy change)",
       "8.314 J/mol/K  (the gas constant)",
       "298 K  (room temperature)"
     ],
     "values": [
-      -165000,
+      -123600,
       593,
       -172,
       8.314,
@@ -4850,10 +4851,10 @@ export const BALLPARK_CALCS = {
       1,
       2
     ],
-    "target": -63004,
-    "tolerance": 3000,
+    "target": -21604,
+    "tolerance": 1500,
     "units": "J per mole",
-    "solution": "ΔG = −165,000 − (593 × −172) = −63,000 J per mole.",
+    "solution": "ΔG = −123,600 − (593 × −172) = −21,600 J per mole.",
     "explanation": "Both terms are negative, and they pull opposite ways once the temperature multiplies the second. The gas constant and room temperature belong to other calculations."
   },
   "SOIL-4": {
@@ -4888,14 +4889,14 @@ export const BALLPARK_CALCS = {
     "explanation": "The particle count is what matters, so a salt giving three ions counts three times. The boiling-point constant and the molar mass belong to other questions."
   },
   "EQUIL-5": {
-    "prompt": "At 593 K: PCH₄ = 1.0 bar, PH₂O = 0.50 bar, PCO₂ = 1.0 bar, PH₂ = 2.0 bar, and Kp = 0.14.",
+    "prompt": "At 593 K: PCH₄ = 1.0 bar, PH₂O = 0.50 bar, PCO₂ = 1.0 bar, PH₂ = 2.0 bar, and Kp = 80.",
     "question": "Choose the four partial pressures needed to calculate Qp, then compare the result with Kp.",
     "labels": [
       "1.0  (methane partial pressure)",
       "0.50  (water partial pressure)",
       "1.0  (carbon-dioxide partial pressure)",
       "2.0  (hydrogen partial pressure)",
-      "0.14  (equilibrium constant Kp)",
+      "80  (equilibrium constant Kp)",
       "12  (total loop pressure, bar)"
     ],
     "values": [
@@ -4903,7 +4904,7 @@ export const BALLPARK_CALCS = {
       0.5,
       1,
       2,
-      0.14,
+      80,
       12
     ],
     "slots": 4,
@@ -4918,8 +4919,8 @@ export const BALLPARK_CALCS = {
     "target": 0.015625,
     "tolerance": 0.002,
     "units": "Qp",
-    "solution": "Qp = 1.0 × (0.50)² ÷ [1.0 × (2.0)⁴] = 0.0156 < 0.14, so the net direction is forward.",
-    "explanation": "Qp ≈ 0.016 and Kp = 0.14. Because Qp is smaller, the mixture moves toward products. Total loop pressure is not substituted separately into Qp."
+    "solution": "Qp = 1.0 × (0.50)² ÷ [1.0 × (2.0)⁴] = 0.0156 < 80, so the net direction is forward.",
+    "explanation": "Qp ≈ 0.016 and Kp = 80. Because Qp is smaller, the mixture moves toward products. Total loop pressure is not substituted separately into Qp."
   },
   "PHASE-4": {
     "prompt": "About 30 watts of heat reaches the liquid oxygen tank. Vaporising liquid oxygen takes 213,000 joules per kilogram.",

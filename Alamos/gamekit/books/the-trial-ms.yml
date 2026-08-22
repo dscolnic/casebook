@@ -1195,7 +1195,7 @@ missions:
             Difference = the share in one group minus the share in the other.
       - group: SITE
         task: Allocate the monitoring time so the required questions can still be answered before the file is frozen.
-        title: 40 hours before the lock
+        title: Forty hours before the lock
         concept: 'Say what you are measuring before you look'
         place: Monitors' Room
         scene: Lucia Marchetti has a fortnight, 31 sites and 40 monitoring hours she can still deploy. Four recoverable gaps compete for that time. 14 people who withdrew consent are locked out of the plan and cannot be contacted again.
@@ -1737,7 +1737,7 @@ missions:
           than chosen.
       - group: SITE
         task: Keep the one query that cannot miss Thursday's cut and delegate the others with an owner, first action and return condition.
-        title: 3 days, 41 queries
+        title: Three days, forty-one queries
         concept: 'The average, and how spread out the readings are'
         place: Monitors' Room
         scene: >-
@@ -1784,7 +1784,7 @@ missions:
               trend: stable
               irreversible: false
               consequence: A visit-level measure could be duplicated until the source note is checked.
-              rate: 1 duplicated visit is open; no second duplicate has appeared in the last 6 working days.
+              rate: One duplicated visit is open; no second duplicate has appeared in the last 6 working days.
               delegable: true
             - id: contact_fields
               label: Large pile of contact-field corrections
@@ -2076,7 +2076,7 @@ missions:
         title: One relative risk, many absolute effects
         concept: 'A difference can be real and still be small'
         place: Regulatory & Registry
-        scene: 2 lines for the board chair’s closed briefing describe the same CLARION-3 result. 1 says risk fell about 22%; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.
+        scene: 2 lines for the board chair’s closed briefing describe the same CLARION-3 result. One says risk fell about 22%; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.
         guide: >-
           Two controls slide the two arm risks along a family of pairs that all give the
           same relative result. Find out how wide that family is before choosing a line

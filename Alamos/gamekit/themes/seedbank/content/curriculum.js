@@ -7,7 +7,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Why the vault is cold",
-      "scene": "Mbaye has two lots of the same accession on the bench. 1 spent 4 years at minus 18 degrees and 6% moisture. The other sat in a warm shed and now germinates at 31%.",
+      "scene": "Mbaye has two lots of the same accession on the bench. One spent 4 years at minus 18 degrees and 6% moisture. The other sat in a warm shed and now germinates at 31%.",
       "takeaway": "Cold and low moisture extend orthodox-seed life by slowing the reactions that drive deterioration.",
       "place": "Seed Vault",
       "guide": "Deterioration is a chemical rate, so cold and dryness each multiply the time a seed lasts, and the two multiply together. The shed lot is the baseline. Work out how much longer the vault lot should last, using the temperature factor and the moisture factor and nothing else — two of the tiles are quantities from a different part of the problem.",
@@ -16,7 +16,7 @@ export const CURRICULUM = {
         "What the two factors do separately. Around this range each 5 °C drop roughly doubles storage life, and each 2 percentage points of seed moisture removed does much the same. Neither kills anything and neither stops anything — both slow the same reactions.",
         "Why they multiply. The reactions are the same reactions, and each factor divides their rate, so the effects compound rather than add. That is what makes a cold dry vault worth its electricity: sixty-four times is a different institution from eight times."
       ],
-      "story": "Mbaye has two lots of the same accession on the bench. 1 spent 4 years at minus 18 degrees and 6% moisture. The other sat in a warm shed and now germinates at 31%.",
+      "story": "Mbaye has two lots of the same accession on the bench. One spent 4 years at minus 18 degrees and 6% moisture. The other sat in a warm shed and now germinates at 31%.",
       "game": {
         "type": "BALLPARK",
         "title": "Why the vault is cold",
@@ -636,7 +636,7 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "What the catalogue says and what is there",
-      "scene": "90 accessions were genotyped. 30 had drifted, and every 1 of those had been regenerated at least twice. The other 60, regenerated once or not at all, still matched. About 9,000 accessions have 2 or more regenerations.",
+      "scene": "90 accessions were genotyped. 30 had drifted, and every one of those had been regenerated at least twice. The other 60, regenerated once or not at all, still matched. About 9,000 accessions have 2 or more regenerations.",
       "takeaway": "A sample can identify a high-risk group without proving the exact fraction affected in the entire collection.",
       "place": "Seed Vault",
       "guide": "Turn the sample into a number for the group it came from, and only for that group. Every drifted accession in the sample had been regenerated twice or more, and the collection holds about nine thousand of those. Two of the tiles belong to the whole collection rather than to the high-risk group, and putting one of them in gives the number the board must not be told.",
@@ -645,7 +645,7 @@ export const CURRICULUM = {
         "Why the whole-collection figure is the wrong one. Forty-one thousand accessions times any rate estimated from this sample would be a claim about material that was never tested, and most of the collection has never been regenerated at all — the group where nothing drifted.",
         "What the honest sentence looks like. A rate, the group it applies to, and the number in that group: about a third of roughly nine thousand twice-regenerated accessions, which is around three thousand and is not the same statement as a third of the collection."
       ],
-      "story": "90 accessions were genotyped. 30 had drifted, and every 1 of those had been regenerated at least twice. The other 60, regenerated once or not at all, still matched. About 9,000 accessions have 2 or more regenerations.",
+      "story": "90 accessions were genotyped. 30 had drifted, and every one of those had been regenerated at least twice. The other 60, regenerated once or not at all, still matched. About 9,000 accessions have 2 or more regenerations.",
       "game": {
         "type": "BALLPARK",
         "title": "What the catalogue says and what is there",
@@ -2392,7 +2392,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "One disagreement, two possible causes",
-      "scene": "Nakagawa has 400 F2 plants scored by a linked PCR marker and by resistance. 11 carry the marker but fail the resistance test. The PCR controls and gel bands look clean; the marker lies about four centimorgans from the gene.",
+      "scene": "Nakagawa has 400 F2 plants scored by a linked PCR marker and by resistance. 16 carry the marker but fail the resistance test. The PCR controls and gel bands look clean; the marker lies about four centimorgans from the gene.",
       "takeaway": "PCR can identify a DNA sequence, but a linked DNA marker can still separate from the gene it predicts.",
       "place": "Molecular Laboratory",
       "guide": "Two controls slide recombination rate and test error along a family of combinations that all produce eleven disagreements in four hundred plants. See how wide that family is before naming a cause. Then bring in the direct-gene test, which fails for one of those explanations and not the other, and watch it collapse.",
@@ -2401,7 +2401,7 @@ export const CURRICULUM = {
         "What the direct-gene test does. It asks about the gene itself rather than about the marker, so recombination between them is irrelevant to it. Plants that carry the gene and failed the resistance test are test error; plants that lack the gene are recombinants.",
         "Why the clean controls are not an answer. Controls show the reaction worked on known material. They cannot detect a plant-specific failure — poor template, an inhibitor, a mislabelled well — which is exactly the kind of error that produces a handful of disagreements in four hundred."
       ],
-      "story": "Nakagawa has 400 F2 plants scored by a linked PCR marker and by resistance. 11 carry the marker but fail the resistance test. The PCR controls and gel bands look clean; the marker lies about four centimorgans from the gene.",
+      "story": "Nakagawa has 400 F2 plants scored by a linked PCR marker and by resistance. 16 carry the marker but fail the resistance test. The PCR controls and gel bands look clean; the marker lies about four centimorgans from the gene.",
       "game": {
         "type": "DEGENERACY",
         "title": "One disagreement, two possible causes",
@@ -2431,7 +2431,7 @@ export const CURRICULUM = {
             }
           ],
           "observable": {
-            "label": "Marker–phenotype disagreement, 11 of 400 in this generation"
+            "label": "Marker–phenotype disagreement, 16 of 400 in this generation"
           },
           "locus": [
             {
@@ -2456,7 +2456,7 @@ export const CURRICULUM = {
             }
           ],
           "second": {
-            "label": "PCR aimed inside the resistance gene itself, on the 11 discordant plants",
+            "label": "PCR aimed inside the resistance gene itself, on the 16 discordant plants",
             "apply": "Run the direct-gene assay",
             "locus": [
               {
@@ -2739,7 +2739,7 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Which positive is worth the screenhouse slot",
-      "scene": "2 of 50 accessions carry a different resistance marker, and the screenhouse can increase only 1 this season. One seed vial is visibly thin and the other is full. Nakagawa has records and tests available before the slot is committed.",
+      "scene": "2 of 50 accessions carry a different resistance marker, and the screenhouse can increase only one this season. One seed vial is visibly thin and the other is full. Nakagawa has records and tests available before the slot is committed.",
       "takeaway": "The best measurement is the one that can change the decision, not the one that produces the most detailed description.",
       "place": "Molecular Laboratory",
       "guide": "Two positives, one screenhouse slot, and records and tests available before you commit. Open each piece of evidence and ask what it would change about which accession to increase. One vial is visibly thin and the other is full, which is a fact about how much seed there is rather than about which marker matters.",
@@ -2748,7 +2748,7 @@ export const CURRICULUM = {
         "What evidence would actually change the choice. Whether the marker in each accession is the one that confers resistance, whether the thin vial's seed is still viable, whether either accession is duplicated elsewhere. Any of those can flip the decision; a repeat of the marker screen cannot.",
         "Why buying evidence beats choosing carefully. The slot is committed for the season, and a wrong choice cannot be corrected until next year. That asymmetry is what makes a test worth its cost here."
       ],
-      "story": "2 of 50 accessions carry a different resistance marker, and the screenhouse can increase only 1 this season. One seed vial is visibly thin and the other is full. Nakagawa has records and tests available before the slot is committed.",
+      "story": "2 of 50 accessions carry a different resistance marker, and the screenhouse can increase only one this season. One seed vial is visibly thin and the other is full. Nakagawa has records and tests available before the slot is committed.",
       "game": {
         "type": "VALUE",
         "title": "Which positive is worth the screenhouse slot",
@@ -2845,7 +2845,7 @@ export const CURRICULUM = {
           "Challenge plants in every generation; use the DNA marker only after the final backcross",
           "Use the DNA marker early and late; DNA presence alone is enough to certify resistance"
         ],
-        "correctChoice": "Challenge plants in every generation; use the DNA marker only after the final backcross"
+        "correctChoice": "Use the DNA marker early; on the final line check induced mRNA and the resistance phenotype"
       },
       "assumes": [
         "a linked marker can separate from a gene by recombination",

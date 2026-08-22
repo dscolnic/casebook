@@ -551,7 +551,7 @@ missions:
           robust: composite
       - group: STAT
         task: Work out the average from the table
-        title: A trial ends at a number of events
+        title: Nine ages, and their middle
         takesAsRead:
           - 'A distribution of one variable: shape, centre and spread'
         place: Statistics & Analysis
@@ -617,7 +617,7 @@ missions:
       Tuesday. 20 days to the interim, and the board pack has 2 outcomes in it rather than
       1. CLARION-3 counts a clinical event, which a committee rules on from the notes, and it also
       carries a symptom score the treating doctor writes down at each visit. Kwame Ansah trusts the
-      first and says so at every meeting; Nuno Iriarte, the principal investigator, at site 12 thinks the second is the 1 that
+      first and says so at every meeting; Nuno Iriarte, the principal investigator, at site 12 thinks the second is the one that
       matters to patients, and Maggie Doyle, who speaks for the participants, agrees with him. Today you work out where each number is
       actually made, and what each is worth when the two arms are compared — because in three weeks
       they will be on the same page.
@@ -747,7 +747,7 @@ missions:
         place: Regulatory & Registry
         scene: >
           Nkechi Umeh, the regulatory lead, has four versions of the analysis plan, each dated. Feldman wants to know which
-          1 governs the interim in 20 days, and the sponsor's lawyer wants to know how anybody
+          One governs the interim in 20 days, and the sponsor's lawyer wants to know how anybody
           could prove it.
         guide: >-
           All four steps will happen, so ask what order makes the claim provable.
@@ -1162,7 +1162,7 @@ missions:
     stops:
       - group: SITE
         task: Work out the rate among the ones who qualify
-        title: What a short screening log says
+        title: Eighteen entered of twenty-four eligible
         place: Monitors' Room
         relationship: >-
           P(A|B) = P(A and B) / P(B): a conditional probability, which narrows the population before it asks.
@@ -1409,7 +1409,7 @@ missions:
     stops:
       - group: STAT
         task: Work out how many events to expect
-        title: How much of the trial has happened
+        title: How many events the year should bring
         place: Statistics & Analysis
         relationship: >-
           E(X) = Σx·P(x): an expected value, which weights every outcome by how often it happens.
@@ -1471,7 +1471,7 @@ missions:
           bigger arm points.
       - group: SITE
         task: Work out how much the average would wobble
-        title: Who a wider door lets in
+        title: Nine hundred people, and how tight the mean gets
         takesAsRead:
           - 'The sampling distribution of a statistic, and why it has a spread at all'
           - 'The normal model, and reading a proportion off it'
@@ -1716,7 +1716,7 @@ missions:
         mapping: [0, 1, 2, 3]
       - group: STAT
         task: Work out the chance of exactly that many
-        title: Everyone as assigned
+        title: Twelve of two hundred and forty
         place: Statistics & Analysis
         relationship: >-
           P(X = k) = C(n,k)·pᵏ(1−p)ⁿ⁻ᵏ: the binomial probability of exactly k successes in n trials.
@@ -1777,7 +1777,7 @@ missions:
           probability computed this way means anything.
       - group: SITE
         task: Allocate the monitoring time so the required questions can still be answered before the file is frozen.
-        title: 40 hours before the lock
+        title: Forty hours before the lock
         place: Monitors' Room
         scene: Lucia Marchetti has a fortnight, 31 sites and 40 monitoring hours she can still deploy. Four recoverable gaps compete for that time. 14 people who withdrew consent are locked out of the plan and cannot be contacted again.
         guide: >-
@@ -1863,7 +1863,7 @@ missions:
     stops:
       - group: RAND
         task: Work out how much a proportion would wobble
-        title: Kit that cannot be vouched for
+        title: How firmly a failure rate can be stated
         takesAsRead:
           - 'The sampling distribution of a statistic, and why it has a spread at all'
         place: Kit Warehouse & Cold Room
@@ -2054,7 +2054,7 @@ missions:
     stops:
       - group: ENDP
         task: Predict the walk distance from the line
-        title: The blind that had already gone
+        title: What the line predicts for this patient
         takesAsRead:
           - 'The correlation coefficient, and the four things it cannot tell you'
         place: Adjudication Room
@@ -2444,7 +2444,7 @@ missions:
     stops:
       - group: REG
         task: Work out the slope from the correlation
-        title: Freezing something that was moving
+        title: Metres per unit of biomarker
         place: Regulatory & Registry
         relationship: >-
           b = r · (s_y / s_x): the slope of the least-squares line, from the correlation and the two spreads.
@@ -2505,9 +2505,9 @@ missions:
           one is worth having on the record either way.
       - group: SITE
         task: Keep the one query that cannot miss Thursday's cut and delegate the others with an owner, first action and return condition.
-        title: 3 days, 41 queries
+        title: Three days, forty-one queries
         place: Monitors' Room
-        scene: 41 queries remain and the interim file locks in 3 working days. 1 concerns a primary-event date, 1 a duplicated visit, and 39 are contact-field corrections. Renner has two people available, and you can keep only one problem yourself.
+        scene: 41 queries remain and the interim file locks in 3 working days. One concerns a primary-event date, one a duplicated visit, and 39 are contact-field corrections. Renner has two people available, and you can keep only one problem yourself.
         guide: >-
           Forty-one queries, three working days, two people, and one problem you keep
           yourself. For each thing you hand over, name the owner, the first action, and
@@ -2549,7 +2549,7 @@ missions:
               trend: stable
               irreversible: false
               consequence: A visit-level measure could be duplicated until the source note is checked.
-              rate: 1 duplicated visit is open; no second duplicate has appeared in the last 6 working days.
+              rate: One duplicated visit is open; no second duplicate has appeared in the last 6 working days.
               delegable: true
             - id: contact_fields
               label: Large pile of contact-field corrections
@@ -2584,7 +2584,7 @@ missions:
         why: The biggest pile is not the most urgent problem. A missing event date can decide whether a primary event exists in Thursday's analysis at all. Once the file is cut, that omission cannot be repaired for this interim. The duplicate visit is important but stable, and a site monitor can reconcile it against the source note. Contact-field corrections are numerous and visible, yet they do not change the endpoint count. Good delegation protects the irreversible decision while giving stable work clear owners and return rules.
       - group: ENDP
         task: Predict the read, then open the record
-        title: Nothing left in the tray
+        title: Predict it from the line, then read the record
         place: Adjudication Room
         relationship: >-
           residual = y − ŷ: what the line missed by, which is where a pattern in the reads shows up.
@@ -2658,7 +2658,7 @@ missions:
     stops:
       - group: STAT
         task: Work out the test statistic for the subgroup
-        title: The subgroup that crossed
+        title: How far the over-seventies sit from the rest
         takesAsRead:
           - 'The sampling distribution of a statistic, and why it has a spread at all'
         place: Statistics & Analysis
@@ -2931,7 +2931,7 @@ missions:
     stops:
       - group: STAT
         task: Work out the chi-square on the table
-        title: How often something clears the line by luck
+        title: Four cells, and what the table is worth
         place: Statistics & Analysis
         relationship: >-
           χ² = Σ(O − E)² / E: the chi-square statistic, each cell's shortfall measured against what was expected there.
@@ -3159,7 +3159,7 @@ missions:
         mapping: [0, 1, 2, 3]
       - group: STAT
         task: Work out the two-sample statistic
-        title: What the rest of the trial would probably do
+        title: Twenty-nine metres, against its own spread
         place: Statistics & Analysis
         relationship: >-
           t = (x̄₁ − x̄₂) / √(s₁²/n₁ + s₂²/n₂): the two-sample statistic, a difference in means over how much it would wobble.
@@ -3276,7 +3276,7 @@ missions:
         task: Move the two event rates until they reproduce the reported relative risk, then use the absolute risk reduction to collapse the possibilities.
         title: One relative risk, many absolute effects
         place: Regulatory & Registry
-        scene: 2 lines for the board chair’s closed briefing describe the same CLARION-3 result. 1 says risk fell about 22%; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.
+        scene: 2 lines for the board chair’s closed briefing describe the same CLARION-3 result. One says risk fell about 22%; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.
         guide: >-
           Two controls slide the two arm risks along a family of pairs that all give the
           same relative result. Find out how wide that family is before choosing a line

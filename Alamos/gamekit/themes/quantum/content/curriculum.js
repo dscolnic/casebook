@@ -117,7 +117,7 @@ export const CURRICULUM = {
         "task": "Say why 42 millikelvin is not close enough",
         "question": "Using the 2 energy scales, estimate the equilibrium excited-state fraction at 42 mK.",
         "answer": "About 0.34%.",
-        "why": "\"A qubit sitting in a warm environment does not stay in its ground state: it is being offered energy all the time, and it takes some. The fraction that ends up excited follows the ratio of the thermal energy to the energy of one quantum, exponentially, which is why a factor of four in temperature is not a factor of four in behaviour. At 11 millikelvin almost nothing is excited. At 42 the population is large enough that a measurement of \\\"the ground state\\\" is partly a measurement of the fridge.\"",
+        "why": "A qubit sitting in a warm environment does not stay in its ground state: it is being offered energy all the time, and it takes some. The fraction that ends up excited follows the ratio of the thermal energy to the energy of one quantum, exponentially, which is why a factor of four in temperature is not a factor of four in behaviour. At 11 millikelvin almost nothing is excited. At 42 the population is large enough that a measurement of the ground state is partly a measurement of the fridge.",
         "givens": [
           "1 quantum at 5 GHz is 3.3 × 10⁻²⁴ J",
           "The thermal energy at 42 mK is 5.8 × 10⁻²⁵ J"
@@ -465,7 +465,7 @@ export const CURRICULUM = {
   "FAB": [
     {
       "day": 1,
-      "title": "1 bad qubit out of 12",
+      "title": "One bad qubit out of 12",
       "scene": "The twelfth qubit is found, but the weak feature beside it survives every repeat. Swapping chips would consume four of the days before Delft's slot. Lindqvist arrives with the fabrication coupon: its junction resistances spread twice as wide as usual.",
       "takeaway": "A device decision should compare the cost of its known imperfection with the cost and uncertainty of replacing it.",
       "place": "Fabrication & Materials",
@@ -479,7 +479,7 @@ export const CURRICULUM = {
       "story": "The twelfth qubit is found, but the weak feature beside it survives every repeat. Swapping chips would consume four of the days before Delft's slot. Lindqvist arrives with the fabrication coupon: its junction resistances spread twice as wide as usual.",
       "game": {
         "type": "SCIENCETANK",
-        "title": "1 bad qubit out of 12",
+        "title": "One bad qubit out of 12",
         "setup": "Fabrication & Materials",
         "play": "Decide whether to keep this chip",
         "task": "Decide whether to keep this chip",
@@ -489,7 +489,7 @@ export const CURRICULUM = {
         "proposals": [
           {
             "label": "A",
-            "text": "Keep this chip, characterise the 4.55 GHz feature, and operate the twelfth qubit away from it if possible, characterise the defect properly, and report 12 qubits with 1 of them worse."
+            "text": "Keep this chip, characterise the 4.55 GHz feature, and operate the twelfth qubit away from it if possible, characterise the defect properly, and report 12 qubits with one of them worse."
           },
           {
             "label": "B",
@@ -2902,7 +2902,7 @@ export const CURRICULUM = {
         "task": "Compute the quantity",
         "question": "Acquire the four correlations yourself and combine them. How large is the statistic, and how many shots did it take before it stopped moving?",
         "answer": "About 2.78, once every setting pair has several hundred shots behind it. Above the local-realist bound of 2, below the quantum ceiling of 2√2 ≈ 2.83.",
-        "why": "A correlation here is not the fraction of trials that agree; it is that fraction minus the fraction that disagree, which is why it runs from −1 to +1 and why a pair that almost always disagrees contributes a large negative number. Every 1 of those 4 values is a proportion from a finite number of shots, so each carries its own scatter, and the scatter shrinks as the square root of the count — which is why 100 shots per setting can put the combination either side of 600 usually does not. The bound of 2 belongs to local models satisfying the Bell assumptions; quantum mechanics allows up to 2√2, about 2.83. The arithmetic is trivial. Knowing when the number has stopped moving is the measurement.",
+        "why": "A correlation here is not the fraction of trials that agree; it is that fraction minus the fraction that disagree, which is why it runs from −1 to +1 and why a pair that almost always disagrees contributes a large negative number. Every one of those 4 values is a proportion from a finite number of shots, so each carries its own scatter, and the scatter shrinks as the square root of the count — which is why 100 shots per setting can put the combination either side of two, and 600 shots usually does not. The bound of 2 belongs to local models satisfying the Bell assumptions; quantum mechanics allows up to 2√2, about 2.83. The arithmetic is trivial. Knowing when the number has stopped moving is the measurement.",
         "tally": {
           "settings": [
             {
@@ -3659,7 +3659,7 @@ export const CURRICULUM = {
         "task": "Find the noise floor",
         "question": "Averaging for longer buys resolution, until it does not. How long should she average, and what stops her going further?",
         "answer": "About 35 seconds, resolving roughly 2.6 picotesla. Averaging for a minute is worse than averaging for half of one, so the extra hour of instrument time buys nothing.",
-        "why": "Random noise averages down as the square root of the number of independent measurements, so the first factor of 10 in resolution is cheap and the next costs 100 times the time — the reason sensing is a patience problem rather than a precision 3 things then fight. Averaging improves the number only while the measurements are independent, and past about half a minute the instrument itself has drifted, so later measurements are of a slightly different machine. Beyond the knee the curve turns back up and more data makes the answer worse. That is also why the hour does not help: the limit is drift, not the number of shots available.\n",
+        "why": "Random noise averages down as the square root of the number of independent measurements, so the first factor of 10 in resolution is cheap and the next costs 100 times the time — the reason sensing is a patience problem rather than a precision problem. Three things then fight. Averaging improves the number only while the measurements are independent, and past about half a minute the instrument itself has drifted, so later measurements are of a slightly different machine. Beyond the knee the curve turns back up and more data makes the answer worse. That is also why the hour does not help: the limit is drift, not the number of shots available.\n",
         "sweep": {
           "mode": "peak",
           "axis": {
@@ -4055,7 +4055,7 @@ export const CURRICULUM = {
         "play": "Distinguish no-cloning from communication",
         "task": "Distinguish no-cloning from communication",
         "question": "Why can Ridgeway email the preparation instructions but not email a complete classical description that lets Delft reconstruct an arbitrary unknown prepared state exactly?",
-        "answer": "Because the state contains too much information for any classical file, even if many identical copies were available.",
+        "answer": "Because an unknown quantum state cannot be perfectly duplicated from one copy.",
         "why": "A classical preparation recipe is ordinary information and can be copied without limit. An arbitrary unknown quantum state is different: there is no universal physical operation that takes one copy and produces two perfect copies of it. That is the no-cloning theorem. It does not say quantum information can never travel; a physical quantum system can be transferred. The restriction is that the original cannot remain behind as a second perfect copy. For this replication Delft needs the preparation instructions, not Ridgeway's particular instance of the state.",
         "rebuttals": [
           "The obstacle is not file size. The no-cloning rule applies to an arbitrary unknown state when only the state itself is available.",
@@ -4068,7 +4068,7 @@ export const CURRICULUM = {
           "Because a quantum state can never be transferred from one physical system to another.",
           "Because copying the preparation instructions would create a second copy of Ridgeway's original state."
         ],
-        "correctChoice": "Because the state contains too much information for any classical file, even if many identical copies were available."
+        "correctChoice": "Because an unknown quantum state cannot be perfectly duplicated from one copy."
       },
       "assumes": [
         "classical descriptions can be copied freely, while an arbitrary unknown quantum state cannot be perfectly cloned"

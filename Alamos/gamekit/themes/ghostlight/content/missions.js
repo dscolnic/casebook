@@ -380,6 +380,10 @@ export const WARMUPS = {
   },
   "hunt": {
     "title": "Six lanterns went out with the 1974 sale",
+    "item": {
+      "name": "lantern",
+      "plural": "lanterns"
+    },
     "why": "The rig plot lists six units that are not on the bars, and Nuno Ferreira, the chief electrician, thinks they are still in the building rather than sold. Find all six. Every one you turn up is a unit the budget does not have to hire, and the plot has to be right before the board is plotted."
   },
   "canvass": {

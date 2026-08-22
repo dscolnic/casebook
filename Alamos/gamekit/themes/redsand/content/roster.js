@@ -180,7 +180,7 @@ export const ROSTER = [
     "role": "Array Technician",
     "division": "ELEC",
     "color": "#3f9e8c",
-    "bio": "<p>Maintains 1800 square metres of photovoltaic panel on an open plain in a place with weather. Dust settles on every 1 of them at a rate he has measured, and a swept panel is worth a measurable fraction more than an unswept 1 for about 20 sols.</p><p>His argument with the plant is about when to sweep. Sweeping costs power and crew time, and a storm undoes it, so the decision is a forecast rather than a schedule.</p><p>His limit is that he cannot make the sun brighter. On a bad sol the array delivers what the sky lets through, and everything downstream is a choice about what to switch off.</p>",
+    "bio": "<p>Maintains 1800 square metres of photovoltaic panel on an open plain in a place with weather. Dust settles on every one of them at a rate he has measured, and a swept panel is worth a measurable fraction more than an unswept one for about 20 sols.</p><p>His argument with the plant is about when to sweep. Sweeping costs power and crew time, and a storm undoes it, so the decision is a forecast rather than a schedule.</p><p>His limit is that he cannot make the sun brighter. On a bad sol the array delivers what the sky lets through, and everything downstream is a choice about what to switch off.</p>",
     "quiz": [
       {
         "q": "Why is Petrov's sweeping schedule a forecast rather than a routine?",

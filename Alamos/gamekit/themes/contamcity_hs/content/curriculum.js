@@ -350,7 +350,7 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "What the position in the table tells you",
-      "scene": "Two unlabelled drums, one holding a sodium salt and one a caesium salt of the same anion. The bench has to say which will be the more violent with water before either is opened.",
+      "scene": "Two unlabelled drums, one holding sodium hydride and one caesium hydride — the same anion in both. The bench has to say which will be the more violent with water before either is opened.",
       "takeaway": "An element's position in the periodic table predicts how it behaves.",
       "place": "Molecular Identification Lab",
       "guide": "Two drums share an anion, so the anion cannot separate them. Each option offers a different basis for the ranking: position in a group, atomic mass, the shared part, or refusal to predict. Ask what changes down group 1, and why. The table exists to rank two substances a bench has never handled. That ranking is what a crew works to before either drum is opened.",
@@ -359,7 +359,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Two unlabelled drums, one holding a sodium salt and one a caesium salt of the same anion. The bench has to say which will be the more violent with water before either is opened.",
+      "story": "Two unlabelled drums, one holding sodium hydride and one caesium hydride — the same anion in both. The bench has to say which will be the more violent with water before either is opened.",
       "game": {
         "type": "CHOICE",
         "title": "What the position in the table tells you",
@@ -367,20 +367,20 @@ export const CURRICULUM = {
         "play": "Which drum is the more reactive with water, and on what grounds?",
         "task": "Which drum is the more reactive with water, and on what grounds?",
         "question": "Which drum is the more reactive with water, and on what grounds?",
-        "answer": "The caesium salt, because reactivity with water increases down group 1.",
-        "why": "Group 1 reactivity rises going down: the outer electron sits further from the nucleus and is more shielded, so it is lost more easily. Caesium is below sodium, so the caesium salt is the more energetic with water. The anion is the same in both, which is exactly why the cation decides it. This is what the table is for — it lets a bench rank two substances it has never handled, from position alone, before anything is opened.",
+        "answer": "The caesium hydride, because reactivity with water increases down group 1.",
+        "why": "Group 1 reactivity rises going down the group. The outer electron sits further out and is more shielded, so it is lost more easily, and the metal–hydride bond is more ionic and easier to break. In both drums it is the hydride ion that attacks water. Caesium is below sodium, so caesium hydride is the more energetic. The anion is shared, which is why the cation decides how violent it is. This is what the table is for — it lets a bench rank two substances it has never handled, from position alone, before anything is opened.",
         "rebuttals": [
           "Atomic mass is not the trend. What matters is how tightly the outer electron is held, and that weakens down the group.",
-          "A shared anion is the reason the comparison works: it isolates the difference to the metal.",
+          "The hydride ion is what reacts with water in both drums, and a shared anion isolates the difference to the cation.",
           "Ranking 2 group 1 metals is exactly what periodic trends are for, and running an unknown violent reaction to find out is the wrong order of work."
         ],
         "choices": [
-          "The caesium salt, because reactivity with water increases down group 1.",
-          "The sodium salt, because sodium is the lighter and lighter elements react faster.",
+          "The caesium hydride, because reactivity with water increases down group 1.",
+          "The sodium hydride, because sodium is the lighter and lighter elements react faster.",
           "Neither, because the anion is the same in both drums.",
           "It cannot be predicted without running both reactions."
         ],
-        "correctChoice": "The caesium salt, because reactivity with water increases down group 1."
+        "correctChoice": "The caesium hydride, because reactivity with water increases down group 1."
       },
       "assumes": [
         "the periodic table groups elements that behave alike"
@@ -588,7 +588,7 @@ export const CURRICULUM = {
       "scene": "At the command trailer, a colourless plume is moving toward two neighbourhoods. Police are holding the evacuation roads open while the wind shifts. The release inventory is finally known, and the incident commander wants the gas scale before moving the roadblocks.",
       "takeaway": "Simple gas laws provide scale while atmospheric transport determines exposure.",
       "place": "Mobile Weather Station",
-      "guide": "Five numbers, and two of them describe conditions the release is not at. One is the molar volume at standard temperature and pressure. One is zero Celsius in kelvin. The relationship is written for ambient conditions, so every term has to be the ambient one. A volume computed at the wrong conditions still looks like a volume. Roadblocks get moved on it.",
+      "guide": "Six numbers, and two of them describe conditions the release is not at. One is the molar volume at standard temperature and pressure. One is zero Celsius in kelvin. The relationship is written for ambient conditions, so every term has to be the ambient one. A volume computed at the wrong conditions still looks like a volume. Roadblocks get moved on it.",
       "background": [
         "What the relationship says. V = nRT/P, with V the volume, n the moles of gas, R the gas constant, T the absolute temperature and P the pressure.",
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
@@ -1252,7 +1252,7 @@ export const CURRICULUM = {
     },
     {
       "day": 2,
-      "title": "Use the common-ion effect to clear the limit",
+      "title": "What the sulphate leaves in solution",
       "scene": "The dissolved metal is over the discharge limit and the cheapest lever is the sulphate already coming off the flue-gas scrubber. Priya Raman has the solubility product for the sulphate salt and wants the metal left in solution once the sulphate is raised to 0.020 molar.",
       "takeaway": "A saturated solution holds a fixed ion product, so raising one ion forces the other down.",
       "place": "Water and Sediment Laboratory",
@@ -1265,7 +1265,7 @@ export const CURRICULUM = {
       "story": "The dissolved metal is over the discharge limit and the cheapest lever is the sulphate already coming off the flue-gas scrubber. Priya Raman has the solubility product for the sulphate salt and wants the metal left in solution once the sulphate is raised to 0.020 molar.",
       "game": {
         "type": "BALLPARK",
-        "title": "Use the common-ion effect to clear the limit",
+        "title": "What the sulphate leaves in solution",
         "setup": "Water and Sediment Laboratory",
         "play": "Work out what the common ion leaves in solution",
         "task": "Work out what the common ion leaves in solution",
@@ -1417,7 +1417,7 @@ export const CURRICULUM = {
     },
     {
       "day": 4,
-      "title": "How many moles of acid are present?",
+      "title": "What the pH meter is actually reporting",
       "scene": "The intake is reading acid and the operator wants to know how far from neutral it actually is. Raman has the hydrogen ion concentration off the electrode at 4.0 × 10⁻⁴ molar and a consent written, as consents are, in pH.",
       "takeaway": "pH is a logarithm, so one unit is a tenfold change in hydrogen ion concentration.",
       "place": "Water Intake Laboratory",
@@ -1430,7 +1430,7 @@ export const CURRICULUM = {
       "story": "The intake is reading acid and the operator wants to know how far from neutral it actually is. Raman has the hydrogen ion concentration off the electrode at 4.0 × 10⁻⁴ molar and a consent written, as consents are, in pH.",
       "game": {
         "type": "BALLPARK",
-        "title": "How many moles of acid are present?",
+        "title": "What the pH meter is actually reporting",
         "setup": "Water Intake Laboratory",
         "play": "Turn the hydrogen ion concentration into a pH",
         "task": "Turn the hydrogen ion concentration into a pH",
@@ -1477,26 +1477,6 @@ export const CURRICULUM = {
           ],
           "s": "In any aqueous solution the two multiply to the same number, so knowing one gives the other.",
           "demanded": true
-        },
-        {
-          "e": "n = m / M",
-          "c": "moles from a mass and a molar mass",
-          "v": [
-            [
-              "n",
-              "number of moles, in mol"
-            ],
-            [
-              "m",
-              "mass of the sample, in grams"
-            ],
-            [
-              "M",
-              "molar mass of the substance, in grams per mole"
-            ]
-          ],
-          "s": "Divide a weighed mass by the mass of one mole to get how many moles you are holding.",
-          "card": false
         }
       ],
       "takesAsRead": [

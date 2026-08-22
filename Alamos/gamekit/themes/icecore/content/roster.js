@@ -47,7 +47,7 @@ export const ROSTER = [
     "role": "Drill Engineer",
     "division": "DRILL",
     "color": "#2f6f9f",
-    "bio": "<p>22 seasons on deep drills, and he can tell from the winch load what the hole is doing 800 metres down. The drill is a three-tonne instrument that gets one attempt per run.</p><p>He runs the brittle zone slowly and refuses to be hurried through it. Ice between 51200 metres holds bubbles at pressures the surface cannot support, and a core brought up fast comes up as gravel.</p><p>His limit is that he cannot see anything. Everything he knows about the hole arrives as tension on a cable and the temperature of returning fluid.</p>",
+    "bio": "<p>22 seasons on deep drills, and he can tell from the winch load what the hole is doing 800 metres down. The drill is a three-tonne instrument that gets one attempt per run.</p><p>He runs the brittle zone slowly and refuses to be hurried through it. Ice between 500 and 1,200 metres holds bubbles at pressures the surface cannot support, and a core brought up fast comes up as gravel.</p><p>His limit is that he cannot see anything. Everything he knows about the hole arrives as tension on a cable and the temperature of returning fluid.</p>",
     "quiz": [
       {
         "q": "Why does Lindqvist slow the winch through the brittle zone?",
@@ -180,7 +180,7 @@ export const ROSTER = [
     "role": "Gas Laboratory Technician",
     "division": "GAS",
     "color": "#b3462f",
-    "bio": "<p>Runs the extraction line, which is a vacuum system with 14 fittings and a rule about every 1 of them. He tests the line against a standard gas before any sample is cut.</p>",
+    "bio": "<p>Runs the extraction line, which is a vacuum system with 14 fittings and a rule about every one of them. He tests the line against a standard gas before any sample is cut.</p>",
     "quiz": [
       {
         "q": "Why does Menon run a standard gas through the line before cutting a sample?",

@@ -32,6 +32,9 @@ export default {
   title: 'Ice Core',
   subtitle: 'Season Science Lead · Vestri Dome',
 
+  // Each mission is one day of the season before the aircraft comes in. The plan card prints this in front of the mission number.
+  dayNoun: 'Day',
+
   // The place. `site.kind` picks the world module in vite.config.js:
   //   'outdoor'   engine/world/outdoorTown.js — buildings on terrain
   //   'interior'  engine/world/interiorSite.js — a spine with rooms off it
@@ -79,7 +82,8 @@ export default {
     + 'kilometres away has published a record that disagrees with yours. The '
     + 'aircraft that takes everybody off the ice arrives in fifteen days. '
     + 'Whatever has not been measured by then is not measured until the next crew '
-    + 'flies in, two years from now.',
+    + 'flies in, two years from now. Marit Halvorsen, the chief scientist, says a disagreement '
+    + 'kept quiet is a decision made for everybody else.',
   ],
 
   // The last thing anybody reads. Says what happened, what it cost and what is

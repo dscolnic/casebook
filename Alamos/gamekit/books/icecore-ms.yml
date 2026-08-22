@@ -128,7 +128,7 @@ roster:
       three-tonne instrument that gets one attempt per run.
 
       He runs the brittle zone slowly and refuses to be hurried through it. Ice
-      between 51200 metres holds bubbles at pressures
+      between 500 and 1,200 metres holds bubbles at pressures
       the surface cannot support, and a core brought up fast comes up as gravel.
 
       His limit is that he cannot see anything. Everything he knows about the
@@ -262,7 +262,7 @@ roster:
     division: GAS
     bio: |
       Runs the extraction line, which is a vacuum system with 14 fittings
-      and a rule about every 1 of them. He tests the line against a standard
+      and a rule about every one of them. He tests the line against a standard
       gas before any sample is cut.
     quiz:
       - q: Why does Menon run a standard gas through the line before cutting a sample?

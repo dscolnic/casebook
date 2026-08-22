@@ -32,6 +32,9 @@ export default {
   title: 'Overwind',
   subtitle: "Winding Engineer's Assistant · Kerrow No. 3, twelve days before the licence",
 
+  // Each mission is one working day before the winder's certificate is renewed. The plan card prints this in front of the mission number.
+  dayNoun: 'Day',
+
   // The place. `site.kind` picks the world module in vite.config.js:
   //   'outdoor'   engine/world/outdoorTown.js — buildings on terrain
   //   'interior'  engine/world/interiorSite.js — a spine with rooms off it

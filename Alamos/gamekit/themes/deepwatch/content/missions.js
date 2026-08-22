@@ -199,7 +199,7 @@ export const MISSIONS = [
     "title": "Sonar Blinded by the Boat",
     "objective": "Find the noise the boat is making about itself, and prove which machine it is.",
     "briefing": "Sonar has lost the picture. There is a broadband rise across every bearing and a new narrowband line, and the ocean has not changed. The problem is aboard, which makes it the engineers' problem and sonar's evidence.",
-    "stake": "Eleventh day. The broadband noise floor is up across every bearing rather than in 1 sector, and the broadband operator, Kes Dunne, has found a new narrowband line at 113 hertz that grows with turns. Rask says the boat is shouting into its own array; Haruki says his plant is running exactly as it was yesterday. This watch you decide whether the noise is outside the boat or inside it, narrow it to one machine, and say what kind of fault makes a line like that. While the array is degraded other boats can still hear this one, and it cannot hear them.",
+    "stake": "Eleventh day. The broadband noise floor is up across every bearing rather than in 1 sector, and the broadband operator, Kes Dunne, has found a new narrowband line at 212 hertz that grows with turns. Rask says the boat is shouting into its own array; Haruki says his plant is running exactly as it was yesterday. This watch you decide whether the noise is outside the boat or inside it, narrow it to one machine, and say what kind of fault makes a line like that. While the array is degraded other boats can still hear this one, and it cannot hear them.",
     "takeaway": "Own-ship noise is diagnosed by correlating what sonar hears with what the plant is doing.",
     "stops": [
       {
@@ -257,7 +257,7 @@ export const MISSIONS = [
     "title": "The Cooling Path",
     "objective": "Trace one cooling path end to end and find where it stopped.",
     "briefing": "Lube oil temperature is rising on the main bearing and nothing has changed on the throttle. Somewhere between the sea and that bearing there is a chain of things that carry heat away, and one of them is not.",
-    "stake": "Thirteenth day, and this one was bought two watches ago. A main bearing is running hot: the oil is hot, the fresh water loop is hot, and the seawater leaving the heat exchanger is barely warmer than the seawater going in. The second cooling pump is still secured from the quiet lineup Rask asked for, and its breaker is open at the switchboard with nothing in the log. This watch you write the cooling path down in order and decide which link stopped handing the heat on. A bearing run hot for an hour is a bearing replaced in a shipyard.",
+    "stake": "Thirteenth day, and this one was bought two watches ago. A main bearing is running hot: the oil is hot, the fresh water loop is hot, and the seawater leaving the heat exchanger is far hotter than it should be for the flow it is at. The second cooling pump is still secured from the quiet lineup Rask asked for, and its breaker is open at the switchboard with nothing in the log. This watch you write the cooling path down in order and decide which link stopped handing the heat on. A bearing run hot for an hour is a bearing replaced in a shipyard.",
     "takeaway": "A cooling system is a chain, and a chain is diagnosed link by link.",
     "stops": [
       {

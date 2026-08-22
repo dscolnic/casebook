@@ -32,6 +32,9 @@ export default {
   title: 'Carrying Capacity',
   subtitle: 'Island Resources Officer · Vellan Island',
 
+  // Each mission is one working day of the fortnight before the council votes. The plan card prints this in front of the mission number.
+  dayNoun: 'Day',
+
   // The place. `site.kind` picks the world module in vite.config.js:
   //   'outdoor'   engine/world/outdoorTown.js — buildings on terrain
   //   'interior'  engine/world/interiorSite.js — a spine with rooms off it
@@ -87,12 +90,27 @@ export default {
   // `checkStory` fails a campaign whose closing paragraph is not addressed to
   // them, because a fortnight of work should not finish on a report.
   ending: [
-    'Say how it came out, in the same voice: what held, what it cost, and what the '
-    + 'next crew inherits.',
-    'Then say what the player did, and say it plainly. Name the two or three calls '
-    + 'that were theirs, name what those calls bought, and give them the credit for '
-    + 'it — you held the corridor, you brought them up, you are the reason it reads '
-    + 'that way.',
+    'The council carried the second sailing by five votes to four, with the abstraction licence '
+    + 'capped at recharge — two hundred and ninety-four thousand cubic metres a year, metered at '
+    + 'the berth and read monthly rather than annually. The west ground kept its quota at last '
+    + 'season\'s landing rather than the tonnage the ferry paper had asked for. Nineteen children '
+    + 'are still on the register, and the school has a second sailing\'s fees behind it for the '
+    + 'first time in eleven years.',
+    'What it cost: the graziers accepted an inspected limit and two of them will not speak to '
+    + 'the council office about it; the tip cell that should have been capped this summer waits '
+    + 'for next year\'s money; and the diesel plant was sized on the July peak half hour, which '
+    + 'means it runs at twenty-eight per cent of its plate for the other eleven months. What is '
+    + 'unfinished: a fifth of everything the borehole lifts is still lost somewhere between it '
+    + 'and the six standpipes, and nobody has dug up the island road to find out where. The tip '
+    + 'is still up-catchment of the borehole, which is a decision made in 1974 and never revisited. '
+    + 'The west ground is being worked at exactly the tonnage the model says it can replace, so '
+    + 'one bad year is the whole margin. And eleven springs of one man counting the same reef is '
+    + 'still the only baseline the island has.',
+    'The licence says what the rain puts back because you went and worked out what the rain puts '
+    + 'back. You capped the abstraction at recharge instead of at what the borehole could lift, you '
+    + 'priced the plant off the half hour in July that actually sizes it, and you found the fifth of '
+    + 'the water that never arrives. Ninety-one people have an island to live on for another eleven '
+    + 'years, and the number in the licence is yours.',
   ],
 
   look: {

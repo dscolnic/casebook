@@ -55,27 +55,6 @@ export const CURRICULUM = {
         "some germs are cells that can copy themselves, and viruses cannot copy themselves alone",
         "a test that comes back negative is a result, not a missing one"
       ],
-      "equations": [
-        {
-          "e": "how many after n rounds = start × 2 each round",
-          "c": "why an outbreak grows so fast",
-          "v": [
-            [
-              "how many after n rounds",
-              "the number of cases"
-            ],
-            [
-              "start",
-              "how many there were to begin with"
-            ],
-            [
-              "each round",
-              "one person passing it to two"
-            ]
-          ],
-          "s": "Doubling looks slow for a week and then is not slow at all, which is why a small outbreak is worth acting on."
-        }
-      ],
       "concept": {
         "n": 1,
         "c": "Some illnesses are caused by living things too small to see",
@@ -495,16 +474,72 @@ export const CURRICULUM = {
     },
     {
       "day": 4,
-      "title": "Same instructions, different cells",
-      "scene": "The stain shows the landing site all over the airway cells, and nowhere on the muscle cells two millimetres away. Same patient, same slice, same instructions inside every cell.",
-      "takeaway": "Every cell carries the same instructions and reads a different part of them.",
+      "title": "How many doublings by morning",
+      "scene": "The dish starts with five hundred cells, and this line doubles every forty minutes. The bench needs a number for eight hours from now, before deciding how much food to make up.",
+      "takeaway": "Doubling looks slow at first and then is not slow at all.",
       "place": "Cell Biology Laboratory",
-      "guide": "Four options, and both kinds of cell came from one patient, one slice, stained together. Ask of each whether having an instruction and using it are the same thing. Every cell holds all of them. So what has to differ is which ones get read, and that is what makes an airway cell an airway cell.",
+      "guide": "Five numbers, and two of them are the same eight hours written differently, with the minutes in an hour offered as a third. Ask of each whether the count of doublings needs it. The shape matters more than the answer. Add another ninety minutes and you add two more doublings, which multiplies the whole thing again by four.",
       "background": [
         "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
         "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
         "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
       ],
+      "story": "The dish starts with five hundred cells, and this line doubles every forty minutes. The bench needs a number for eight hours from now, before deciding how much food to make up.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "How many doublings by morning",
+        "setup": "Cell Biology Laboratory",
+        "play": "Work out how many cells there will be in eight hours.",
+        "task": "Work out how many cells there will be in eight hours.",
+        "question": "How many doublings fit into eight hours?",
+        "answer": "Twelve doublings — and twelve doublings is about four thousand times as many cells, not twelve times.",
+        "why": "Eight hours is four hundred and eighty minutes. At one doubling every forty minutes, that is twelve doublings. Twelve doublings is not twelve times as many. It is two multiplied by itself twelve times, which is about four thousand times as many. Five hundred cells become millions. The shape matters more than the number here. Add ninety minutes and you add two more doublings, which multiplies the answer again by four. That is why this arithmetic is frightening when the thing doubling is cases.",
+        "givens": [],
+        "relationship": "Cells at the end = cells at the start × two, doubled once for every doubling time.",
+        "calcKey": "CELL-4"
+      },
+      "assumes": [
+        "every division turns one cell into two"
+      ],
+      "equations": [
+        {
+          "e": "how many after n rounds = start × 2 each round",
+          "c": "why an outbreak grows so fast",
+          "v": [
+            [
+              "how many after n rounds",
+              "the number of cases"
+            ],
+            [
+              "start",
+              "how many there were to begin with"
+            ],
+            [
+              "each round",
+              "one person passing it to two"
+            ]
+          ],
+          "s": "Doubling looks slow for a week and then is not slow at all, which is why a small outbreak is worth acting on.",
+          "computed": true
+        }
+      ],
+      "concept": {
+        "n": 6,
+        "c": "One person passing it to more than one is why it grows",
+        "of": 16,
+        "rests": [
+          "A germ has to get from one person into another somehow",
+          "Counting cases as a rate, not just as a number"
+        ]
+      }
+    },
+    {
+      "day": 5,
+      "title": "Same instructions, different cells",
+      "scene": "The stain shows the landing site all over the airway cells, and nowhere on the muscle cells two millimetres away. Same patient, same slice, same instructions inside every cell.",
+      "takeaway": "Every cell carries the same instructions and reads a different part of them.",
+      "place": "Cell Biology Laboratory",
+      "guide": "Four options, and both kinds of cell came from one patient, one slice, stained together. Ask of each whether having an instruction and using it are the same thing. Every cell holds all of them. So what has to differ is which ones get read, and that is what makes an airway cell an airway cell.",
       "story": "The stain shows the landing site all over the airway cells, and nowhere on the muscle cells two millimetres away. Same patient, same slice, same instructions inside every cell.",
       "game": {
         "type": "CHOICE",
@@ -918,6 +953,27 @@ export const CURRICULUM = {
         "a rate counts cases against how many people there are and how long it took",
         "the system only sees the patients who reached a hospital"
       ],
+      "equations": [
+        {
+          "e": "part = whole × share",
+          "c": "a percentage of a group",
+          "v": [
+            [
+              "part",
+              "how many that share comes to"
+            ],
+            [
+              "whole",
+              "the whole group"
+            ],
+            [
+              "share",
+              "the percentage, written as a decimal"
+            ]
+          ],
+          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
+        }
+      ],
       "concept": {
         "n": 10,
         "c": "Repeats and numbers: a handful of cases proves little",
@@ -1013,6 +1069,27 @@ export const CURRICULUM = {
       },
       "assumes": [
         "three hospitals can only be added together if they counted the same way"
+      ],
+      "equations": [
+        {
+          "e": "part = whole × share",
+          "c": "a percentage of a group",
+          "v": [
+            [
+              "part",
+              "how many that share comes to"
+            ],
+            [
+              "whole",
+              "the whole group"
+            ],
+            [
+              "share",
+              "the percentage, written as a decimal"
+            ]
+          ],
+          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
+        }
       ],
       "concept": {
         "n": 16,
@@ -2229,6 +2306,36 @@ export const BALLPARK_CALCS = {
     "units": "L O₂/min",
     "solution": "3 × 0.20 is 0.6 litres of oxygen a minute, against 1.0 for the other patient.",
     "explanation": "Delivery is a rate. The saturation and the blood count describe what a litre carries, and neither of them says how many litres arrive."
+  },
+  "CELL-4": {
+    "prompt": "This cell line doubles every forty minutes, and there are eight hours to go.",
+    "question": "How many doublings fit into eight hours?",
+    "labels": [
+      "480 min (eight hours)",
+      "40 min (one doubling)",
+      "500 (cells at the start)",
+      "2 (cells from each division)",
+      "60 (minutes in an hour)"
+    ],
+    "values": [
+      480,
+      40,
+      500,
+      2,
+      60
+    ],
+    "slots": 2,
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 12,
+    "tolerance": 1,
+    "units": "doublings",
+    "solution": "Eight hours is 480 minutes, and a doubling every 40 minutes is twelve doublings.",
+    "explanation": "Count the doublings first. Twelve of them is about four thousand times as many cells, which is why the number in the morning is nothing like the number tonight."
   }
 };
 

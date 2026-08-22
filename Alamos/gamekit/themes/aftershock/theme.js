@@ -32,6 +32,9 @@ export default {
   title: 'Aftershock',
   subtitle: 'Building Safety Coordinator · Kestrel Bay',
 
+  // The campaign runs day by day through the third week after the earthquake. The plan card prints this in front of the mission number.
+  dayNoun: 'Day',
+
   // The place. `site.kind` picks the world module in vite.config.js:
   //   'outdoor'   engine/world/outdoorTown.js — buildings on terrain
   //   'interior'  engine/world/interiorSite.js — a spine with rooms off it
@@ -75,7 +78,8 @@ export default {
     + 'unevenly. You are the building safety coordinator, which means you decide which buildings '
     + 'people are allowed back into: green to enter, yellow for restricted use, red for nobody. '
     + 'Four hundred households are sleeping in halls waiting on those decisions, the hospital has '
-    + 'a yellow placard on its front door, and the aftershocks have not finished. Upper Town sits '
+    + 'a yellow placard on its front door, and Rei Tanaka, who forecasts the sequence, will not say '
+    + 'the aftershocks have finished. Upper Town sits '
     + 'on granite and lost its chimneys. The Flats sit on eighty-year-old fill and lost their '
     + 'streets.',
   ],

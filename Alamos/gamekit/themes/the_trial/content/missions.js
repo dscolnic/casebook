@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "Who measures, and how",
     "objective": "Find out where a number is made before deciding what it is worth.",
     "briefing": "Two outcomes, two ways of measuring, and only one of them has a committee.",
-    "stake": "Tuesday. 20 days to the interim, and the board pack has 2 outcomes in it rather than 1. CLARION-3 counts a clinical event, which a committee rules on from the notes, and it also carries a symptom score the treating doctor writes down at each visit. Kwame Ansah trusts the first and says so at every meeting; Nuno Iriarte, the principal investigator, at site 12 thinks the second is the 1 that matters to patients, and Maggie Doyle, who speaks for the participants, agrees with him. Today you work out where each number is actually made, and what each is worth when the two arms are compared — because in three weeks they will be on the same page.",
+    "stake": "Tuesday. 20 days to the interim, and the board pack has 2 outcomes in it rather than 1. CLARION-3 counts a clinical event, which a committee rules on from the notes, and it also carries a symptom score the treating doctor writes down at each visit. Kwame Ansah trusts the first and says so at every meeting; Nuno Iriarte, the principal investigator, at site 12 thinks the second is the one that matters to patients, and Maggie Doyle, who speaks for the participants, agrees with him. Today you work out where each number is actually made, and what each is worth when the two arms are compared — because in three weeks they will be on the same page.",
     "takeaway": "A measurement is worth what the procedure that made it is worth.",
     "stops": [
       {

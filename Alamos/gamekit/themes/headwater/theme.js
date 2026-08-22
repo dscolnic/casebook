@@ -84,7 +84,8 @@ export default {
     + 'You are the duty engineer, so the amount of water let out each morning is '
     + 'ordered by you. You order it out of gauge readings taken hours ago and a '
     + 'survey of the reservoir\'s shape made in 2003. The gates take six hours to '
-    + 'make any difference downstream. The river can rise in two.',
+    + 'make any difference downstream. The river can rise in two, and Bo Ferrand, who keeps the '
+    + 'rating curves, says the survey is the thing to fix before anything else.',
   ],
 
   // How it ends. Shown when the campaign closes, and the last thing the player

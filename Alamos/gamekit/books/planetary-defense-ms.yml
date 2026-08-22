@@ -373,7 +373,7 @@ glossary:
       - solar elongation
     def: The angular separation between an object and the Sun as seen from the observer.
 
-# The campaign: 1 working day each, 3 stops and a callback from day 3.
+# The campaign: One working day each, 3 stops and a callback from day 3.
 missions:
   - title: The Discovery Image
     objective: Validate a new-object candidate and preserve the measurements needed for follow-up.

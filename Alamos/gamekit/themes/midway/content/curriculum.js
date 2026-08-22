@@ -6,6 +6,96 @@ export const CURRICULUM = {
   "TOWER": [
     {
       "day": 1,
+      "title": "What a mass being stopped pushes back with",
+      "scene": "The drop test runs with 640 kilograms of ballast in the carriage instead of people. Vey wants the force the copper fins have to make while they take it to a stop, before he will witness anything.",
+      "takeaway": "A force is a mass times the rate its motion is changing, and every other force in this park is that statement with a different acceleration in it.",
+      "place": "The Drop Tower",
+      "guide": "Five numbers, and three of them belong to the fall rather than to the stop: the drop height, gravity, and the speed at the bottom. Ask of each whether the force on a body depends on it. A force is what it takes to change a motion, so what matters is the mass and the rate the motion is changing at, and nothing else on this board.",
+      "background": [
+        "Why this is the equation everything else here is built out of. Every certified number in this park comes back to it: the loop's minimum speed, the swing's period, the wheel's bolt load, the bumper collision's push on a neck. They are all the same statement with a different acceleration in it. Getting it once, on a mass being stopped by a brake, is what makes the other twelve derivations arithmetic rather than new physics.",
+        "Why a kilogram is not a newton. The ballast is quoted in kilograms because that is what it weighs on a bench. What the fins push against is a force, and turning one into the other is the multiplication below. A rider's own weight is a second force on the same body, which is why the number they *feel* is larger than this one."
+      ],
+      "story": "The drop test runs with 640 kilograms of ballast in the carriage instead of people. Vey wants the force the copper fins have to make while they take it to a stop, before he will witness anything.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "What a mass being stopped pushes back with",
+        "setup": "The Drop Tower",
+        "play": "Get the force the brake fins have to make",
+        "task": "Get the force the brake fins have to make",
+        "question": "Estimate the force the fins have to make on the ballast carriage.",
+        "answer": "About 29 kilonewtons — 640 kilograms slowed at 45.8 metres per second squared.",
+        "why": "A net force is a mass times an acceleration, and that is a definition rather than a result: it is what fixes the size of a newton. Here the mass is the 640 kilograms of ballast and the acceleration is the 45.8 metres per second squared the fins produce over nine metres, so the force is about 29 kilonewtons. The drop height, gravity and the entry speed all belong to the fall, and the fall is over by the time this force exists. Note what the rider feels is not this: their own weight is still acting, so the seat pushes with the sum of the two, which is why the drop test is judged in multiples of g rather than in newtons.",
+        "givens": [],
+        "relationship": "A net force is a mass times its acceleration, ΣF = ma.",
+        "calcKey": "TOWER-1"
+      },
+      "assumes": [
+        "a net force on a body is that body's mass times its acceleration",
+        "slowing down is an acceleration with the sign reversed",
+        "acceleration as the rate a velocity changes, whichever part of it changes — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "ΣF = ma",
+          "c": "what a net force is for",
+          "v": [
+            [
+              "ΣF",
+              "the sum of every force on the body, with direction"
+            ],
+            [
+              "m",
+              "its mass"
+            ],
+            [
+              "a",
+              "the acceleration that results"
+            ]
+          ],
+          "s": "Forces do not cause motion, they cause changes of motion — and the sum is what counts, which is why a free-body diagram with one arrow missing gives an answer that is wrong rather than approximate.",
+          "computed": true
+        },
+        {
+          "e": "v² = v₀² + 2aΔx",
+          "c": "the constant-acceleration relation with no time in it",
+          "v": [
+            [
+              "v",
+              "the speed at the end, in metres a second"
+            ],
+            [
+              "v₀",
+              "the speed at the start"
+            ],
+            [
+              "a",
+              "the acceleration, taken as constant"
+            ],
+            [
+              "Δx",
+              "the distance travelled while it acts"
+            ]
+          ],
+          "s": "This is the one to reach for whenever a problem gives a distance and asks for a speed, or gives a speed and asks over what distance it can be removed — which is a fall and a brake run written the same way."
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 2,
+          "c": "Acceleration as the rate a velocity changes, whichever part of it changes"
+        }
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Newton's second law as the definition of a net force",
+        "of": 36,
+        "rests": [
+          "Acceleration as the rate a velocity changes, whichever part of it changes"
+        ]
+      }
+    },
+    {
+      "day": 2,
       "title": "What 42 metres of fall is worth",
       "scene": "The tower drops its carriage 42 metres before the brakes begin. An old engineering notebook gives the bottom speed as 'about 29' and nothing else. The safety engineer wants the working written underneath.",
       "takeaway": "Choose the constant-acceleration relation that contains the quantities you know and omits the one you do not.",
@@ -168,7 +258,7 @@ export const CURRICULUM = {
       }
     },
     {
-      "day": 2,
+      "day": 3,
       "title": "9 metres to take back 29",
       "scene": "The carriage reaches the brakes at 28.7 metres a second and stops 9 metres later. The tower technician wants that turned into an acceleration before anyone argues about whether the stop feels acceptable.",
       "takeaway": "A stopping distance and a speed are enough to fix the acceleration, with no time measured at all.",
@@ -190,7 +280,7 @@ export const CURRICULUM = {
         "why": "The stopping relation is the same constant-acceleration equation used on the drop, but solved for a instead of v. With 28.7 m/s removed over 9.0 m, the average deceleration is about 45.8 m/s², or 4.7 g. The square on speed is the design lesson. Halving the stopping distance doubles the average deceleration. Likewise, a modest increase in entry speed demands much more braking force and leaves less room for error.",
         "givens": [],
         "relationship": "a = v² ÷ 2Δx: the deceleration is the entry speed squared divided by twice the distance it is removed over.",
-        "calcKey": "TOWER-2"
+        "calcKey": "TOWER-3"
       },
       "assumes": [
         "the same constant-acceleration relation runs backwards for slowing down",
@@ -232,11 +322,11 @@ export const CURRICULUM = {
       }
     },
     {
-      "day": 3,
+      "day": 4,
       "title": "One g, all the way down",
       "scene": "The tower's magnetic brake is set from the console and the car has to come down inside the deceleration band the certificate names. The car's mass changes with every load, and the brake does not know how many people are in it.",
       "takeaway": "The same force is a different ride, because what the rider feels is force divided by mass.",
-      "place": "Drop Tower",
+      "place": "The Drop Tower",
       "guide": "Hold the deceleration inside the band on the console. The band narrows toward the bottom, because the last stretch is where a rider's neck takes whatever the brake does. The brake current is your control, and every change in load changes what the same current produces.",
       "background": [
         "Why the same brake gives a different ride. A net force divided by mass is the acceleration, so the same braking force decelerates a heavy car less than a light one. The brake current sets the force; the riders set the mass; the certificate is written about the acceleration, which is the ratio.",
@@ -247,7 +337,7 @@ export const CURRICULUM = {
       "game": {
         "type": "HOLD",
         "title": "One g, all the way down",
-        "setup": "Drop Tower",
+        "setup": "The Drop Tower",
         "play": "Hold the tower brake while the car comes down.",
         "task": "Hold the tower brake while the car comes down.",
         "question": "Hold the deceleration inside the band all the way down.",
@@ -305,7 +395,7 @@ export const CURRICULUM = {
       }
     },
     {
-      "day": 4,
+      "day": 5,
       "title": "The order a drop test runs in",
       "scene": "The safety engineer must observe and sign off on the tower's annual drop test. The tower technician has the test weights, the accelerometer and four operations on a whiteboard. They are written in the order he thought of them.",
       "takeaway": "A test is designed backwards from the number it has to produce.",
@@ -378,7 +468,7 @@ export const CURRICULUM = {
       }
     },
     {
-      "day": 5,
+      "day": 6,
       "title": "Measuring gravity with a boat",
       "scene": "The ship's low-angle maintenance period is 5.90 seconds with an 8.60 metre effective length. The safety engineer notes that the tower calculations use a local value of g nobody at this park has measured directly.",
       "takeaway": "A physical constant measured by one system can calibrate another when both use a valid model of the same place.",
@@ -472,7 +562,7 @@ export const CURRICULUM = {
       }
     },
     {
-      "day": 6,
+      "day": 7,
       "title": "What a safety factor says",
       "scene": "The inspection file gives the coaster a margin of 1.38 using the old loop drawing. The measured top of the loop reduces it to 1.20. The park manager wants to know whether that still counts as a pass.",
       "takeaway": "A margin is a ratio, and it means nothing until both of its numbers are named.",
@@ -485,32 +575,39 @@ export const CURRICULUM = {
       ],
       "story": "The inspection file gives the coaster a margin of 1.38 using the old loop drawing. The measured top of the loop reduces it to 1.20. The park manager wants to know whether that still counts as a pass.",
       "game": {
-        "type": "CHOICE",
+        "type": "BALLPARK",
         "title": "What a safety factor says",
         "setup": "The Drop Tower",
         "play": "Say what a margin is a statement about",
         "task": "Say what a margin is a statement about",
-        "question": "The margin on the top of the loop falls from 1.38 to 1.20. What has actually changed?",
-        "answer": "The requirement rose, so the same train speed now sits closer to the limit.",
-        "why": "A safety margin is capacity divided by demand. Here the train's available speed at the top of the loop has not suddenly changed. The measured radius at the top of the loop changed the required speed. That raises the demand and lowers the ratio from 1.38 to 1.20. The physical ride was already in this state before anyone measured it correctly. What changed today is the park's knowledge. A smaller known margin is safer than a larger imaginary one because it can drive an operating rule.",
-        "rebuttals": [
-          "The train has slowed over three seasons, and that is a separate finding from this one.",
-          "Both figures are speed available over speed required, computed the same way.",
-          "The paperwork was wrong and the consequence is real: the ride has less in hand than anybody believed."
-        ],
-        "choices": [
-          "The requirement rose, so the same train speed now sits closer to the limit.",
-          "The train got slower over the winter, which is what a falling margin usually means.",
-          "The margin is a different quantity now and the two figures cannot be compared.",
-          "Nothing changed physically; only the paperwork was wrong."
-        ],
-        "correctChoice": "The requirement rose, so the same train speed now sits closer to the limit."
+        "question": "Recompute the margin at the top of the loop from the speed the train has and the speed the crown demands.",
+        "answer": "About 1.20 — 8.5 metres a second in hand against 8.5 demanded is not the 1.38 the file has carried since 1974.",
+        "why": "A safety margin is capacity divided by demand, and only one of them moved. The train still crosses the crown at about 10.2 metres a second, which is what it did last season and the season before. The measured radius raised the *demand* from 7.4 metres a second to 8.5, so the ratio falls from 1.38 to 1.20. The ride was already in this state before anybody measured it correctly: what changed today is the park's knowledge, and a smaller known margin is safer than a larger imaginary one because it can drive an operating rule. Note which two numbers the board wants — the drawing's 7.4 is the old demand and belongs to the comparison, not to the margin.",
+        "givens": [],
+        "relationship": "A safety factor is capacity divided by demand — here the speed the train has, over the speed the crown requires.",
+        "calcKey": "TOWER-7"
       },
       "assumes": [
         "a margin is a ratio between what is available and what is required",
         "a requirement can be recomputed when the geometry it rests on changes"
       ],
       "equations": [
+        {
+          "e": "safety factor = capacity ÷ demand",
+          "c": "the number this whole job is about",
+          "v": [
+            [
+              "capacity",
+              "what the part or the ride can take"
+            ],
+            [
+              "demand",
+              "what it is actually asked to take"
+            ]
+          ],
+          "s": "A margin is a ratio and it means nothing until both of its numbers are named — which is why a requirement that turns out to have been computed from the wrong drawing changes the margin without anything physical changing at all.",
+          "computed": true
+        },
         {
           "e": "v_min = √(gr) at the crown of a loop",
           "c": "the limiting case a rail cannot get out of",
@@ -529,21 +626,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A rail can push and cannot pull, so the limit is where it has stopped pushing and gravity alone bends the train round — and the mass cancels, which is why the limit is the same for a full train and an empty one."
-        },
-        {
-          "e": "safety factor = capacity ÷ demand",
-          "c": "the number this whole job is about",
-          "v": [
-            [
-              "capacity",
-              "what the part or the ride can take"
-            ],
-            [
-              "demand",
-              "what it is actually asked to take"
-            ]
-          ],
-          "s": "A margin is a ratio and it means nothing until both of its numbers are named — which is why a requirement that turns out to have been computed from the wrong drawing changes the margin without anything physical changing at all."
         }
       ],
       "concept": {
@@ -557,7 +639,7 @@ export const CURRICULUM = {
       }
     },
     {
-      "day": 7,
+      "day": 8,
       "title": "What the drop test has to show",
       "scene": "Thursday's official drop test has one afternoon to produce a number the safety engineer can compare with the certificate. The tower technician has test weights, a recording accelerometer and the full tower before the inspectors leave.",
       "takeaway": "A test is only evidence about a claim that was written down before it ran.",
@@ -588,7 +670,7 @@ export const CURRICULUM = {
           },
           "truth": 5.4,
           "passRatio": [
-            0.85,
+            0.93,
             1.15
           ],
           "intervention": {
@@ -616,7 +698,7 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 8,
+      "day": 9,
       "title": "Seven rides and what can be claimed",
       "scene": "The safety engineer's file has one line for each ride. Four are ready to be filled in. The wording matters because the sentence on a certificate is the sentence an insurer or court will later read.",
       "takeaway": "A certificate is a set of conditions with a number attached, and the conditions are the harder half.",
@@ -914,22 +996,6 @@ export const CURRICULUM = {
           ],
           "s": "A rail can push and cannot pull, so the limit is where it has stopped pushing and gravity alone bends the train round — and the mass cancels, which is why the limit is the same for a full train and an empty one.",
           "demanded": true
-        },
-        {
-          "e": "safety factor = capacity ÷ demand",
-          "c": "the number this whole job is about",
-          "v": [
-            [
-              "capacity",
-              "what the part or the ride can take"
-            ],
-            [
-              "demand",
-              "what it is actually asked to take"
-            ]
-          ],
-          "s": "A margin is a ratio and it means nothing until both of its numbers are named — which is why a requirement that turns out to have been computed from the wrong drawing changes the margin without anything physical changing at all.",
-          "card": false
         }
       ],
       "concept": {
@@ -2158,7 +2224,7 @@ export const CURRICULUM = {
         "play": "Say what makes a wheel hard to start",
         "task": "Say what makes a wheel hard to start",
         "question": "Two wheels have the same total mass. Which is harder to bring up to speed?",
-        "answer": "The center-heavy wheel, because its mass follows a tighter circle.",
+        "answer": "The outer-rim-heavy wheel, because radius enters rotational inertia squared.",
         "why": "Rotational inertia depends on both mass and where that mass sits. Each piece contributes in proportion to the square of its distance from the axis. A kilogram near the outer rim matters far more than a kilogram near the center hub. That makes outer-rim-heavy wheels harder to speed up or slow down. Ferris-wheel passenger cabins are therefore kept light when possible. A flywheel does the opposite on purpose, putting mass outward so its rotation resists changes.",
         "rebuttals": [
           "What the drive turns is the whole assembly, and the center hub contributes least of it whatever it weighs.",
@@ -2171,7 +2237,7 @@ export const CURRICULUM = {
           "Neither; equal total mass means equal rotational inertia.",
           "The center-heavy wheel, because its mass follows a tighter circle."
         ],
-        "correctChoice": "The center-heavy wheel, because its mass follows a tighter circle."
+        "correctChoice": "The outer-rim-heavy wheel, because radius enters rotational inertia squared."
       },
       "assumes": [
         "a torque is needed to change how fast something turns",
@@ -2669,7 +2735,7 @@ export const CURRICULUM = {
       "title": "Speed, or the turn",
       "scene": "The certificate needs every complaint on the log classified before it is written. Some of what the riders describe is the ride going fast. The rest is the ride turning, and a rider cannot tell the difference from the seat.",
       "takeaway": "What a rider feels is acceleration, and a turn supplies it without going any faster.",
-      "place": "Bumper Floor",
+      "place": "The Bumper Cars",
       "guide": "Two bins. What a rider feels in a turn is the seat pushing them toward the centre, and it depends on speed squared over radius — so a tight slow turn can beat a fast straight. Sort each complaint on whether it is about how fast or about how sharply.",
       "background": [
         "Why riders cannot tell. A body has no sense that measures speed. What it senses is acceleration, which is what a seat, a rail or a harness has to supply. On a straight at constant speed there is nothing to feel at all, however fast it is.",
@@ -2679,7 +2745,7 @@ export const CURRICULUM = {
       "game": {
         "type": "BELT",
         "title": "Speed, or the turn",
-        "setup": "Bumper Floor",
+        "setup": "The Bumper Cars",
         "play": "Sort the ride log before the certificate is written.",
         "task": "Sort the ride log before the certificate is written.",
         "question": "Send each complaint to the bin that says what actually produced it.",
@@ -3730,13 +3796,13 @@ export const CURRICULUM = {
           {
             "zone": "Drive",
             "label": "Push interval",
-            "value": "5.60 s (fixed since 1996)",
+            "value": "5.85 s (fixed since 1996)",
             "status": "alarm"
           },
           {
             "zone": "Swing",
             "label": "Measured period",
-            "value": "5.90 s either way",
+            "value": "5.90 s at low angle, either way",
             "status": "normal"
           },
           {
@@ -4377,7 +4443,7 @@ export const CURRICULUM = {
                 {
                   "text": "ρg(h₁ − h₂) = ½ρv₂², so v₂ = √(g(h₁ − h₂))",
                   "rule": "substitution",
-                  "why": "The half in the kinetic term becomes a two when it is moved across. Dropping it gives a speed 30% low, and the expression still looks like the 1 in every textbook.",
+                  "why": "The half in the kinetic term becomes a two when it is moved across. Dropping it gives a speed 30% low, and the expression still looks like the one in every textbook.",
                   "survives": true
                 },
                 {
@@ -4496,7 +4562,7 @@ export const CURRICULUM = {
       "title": "Angle and charge, at three marks",
       "scene": "The old midway stall has a water cannon and three targets across the pond. The pressure dial is unmarked, the pump is thirty years old, and nobody has a number for what it delivers.",
       "takeaway": "Some quantities are read off an instrument, and a few are found by trying them.",
-      "place": "Water Flume",
+      "place": "The Log Flume",
       "guide": "Set the angle and the charge, and fire. Three marks, working outward. The dial is relative and the pump is worn, so nothing here tells you the launch speed — the way to find it is to fire, watch, and put the next shot between two you have seen.",
       "background": [
         "Why there is no calculation to do first. Every other stop in this park hands you a number and asks what follows from it. This one hands you a dial with no units on a pump nobody has tested, which is the honest situation and the reason a fairground game is learned rather than solved.",
@@ -4507,7 +4573,7 @@ export const CURRICULUM = {
       "game": {
         "type": "LOB",
         "title": "Angle and charge, at three marks",
-        "setup": "Water Flume",
+        "setup": "The Log Flume",
         "play": "Set the water cannon on the midway stall.",
         "task": "Set the water cannon on the midway stall.",
         "question": "Land the jet on each mark, working outward.",
@@ -4663,7 +4729,37 @@ export const CURRICULUM = {
 };
 
 export const BALLPARK_CALCS = {
-  "TOWER-2": {
+  "TOWER-1": {
+    "prompt": "The ballast carriage is 640 kg and the fins slow it at about 45.8 m/s² over the braked section.",
+    "question": "Estimate the force the fins have to make.",
+    "labels": [
+      "640 kg  (mass of the ballast carriage)",
+      "45.8 m/s²  (deceleration in the fins)",
+      "42 m  (the free fall above the brakes)",
+      "9.8 m/s²  (g)",
+      "28.7 m/s  (speed entering the fins)"
+    ],
+    "values": [
+      640,
+      45.8,
+      42,
+      9.8,
+      28.7
+    ],
+    "slots": 2,
+    "template": "{0} × {1}",
+    "formula": "a*b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 29312,
+    "tolerance": 2000,
+    "units": "N (about 29 kN)",
+    "solution": "640 × 45.8 ≈ 29,300 N, or about 29 kilonewtons.",
+    "explanation": "Mass times acceleration, and nothing else. The height, gravity and the entry speed describe the fall, which has finished by the time the fins are doing anything."
+  },
+  "TOWER-3": {
     "prompt": "The carriage enters the fins at 28.7 m/s and stops in 9.0 m of travel.",
     "question": "Estimate the average deceleration in the braked section.",
     "labels": [
@@ -4882,6 +4978,36 @@ export const BALLPARK_CALCS = {
     "units": "m",
     "solution": "Volume displaced = 492 ÷ 1000 = 0.492 m³; over 3.19 m² of hull that is 0.154 m deep in the water.",
     "explanation": "The hull height left above the water is a separate safety margin used later; it is not part of this calculation."
+  },
+  "TOWER-7": {
+    "prompt": "The train crosses the crown at about 10.2 m/s. The measured radius demands 8.5 m/s; the 1974 drawing implied 7.4.",
+    "question": "Estimate the margin at the top of the loop against the measured requirement.",
+    "labels": [
+      "10.2 m/s  (speed the train actually has at the crown)",
+      "8.5 m/s  (speed the measured crown demands)",
+      "7.4 m/s  (speed the 1974 drawing implied)",
+      "1.38  (the margin on the certificate)",
+      "7.4 m  (measured radius at the crown)"
+    ],
+    "values": [
+      10.2,
+      8.5,
+      7.4,
+      1.38,
+      7.4
+    ],
+    "slots": 2,
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 1.2,
+    "tolerance": 0.06,
+    "units": "(ratio)",
+    "solution": "10.2 ÷ 8.5 = 1.20, against 10.2 ÷ 7.4 = 1.38 on the old drawing.",
+    "explanation": "Capacity over demand, and both have to be speeds at the same point on the track. The old drawing's figure is the comparison rather than the margin, and the radius and the certificate value are the inputs to the other two numbers rather than to this one."
   },
   "FLUME-4": {
     "prompt": "0.42 m³/s of water lifted 9.4 m, water at 1,000 kg per cubic metre, pump 72% efficient.",

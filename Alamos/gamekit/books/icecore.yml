@@ -116,7 +116,7 @@ roster:
       three-tonne instrument that gets one attempt per run.
 
       He runs the brittle zone slowly and refuses to be hurried through it. Ice
-      between 51200 metres holds bubbles at pressures
+      between 500 and 1,200 metres holds bubbles at pressures
       the surface cannot support, and a core brought up fast comes up as gravel.
 
       His limit is that he cannot see anything. Everything he knows about the
@@ -250,7 +250,7 @@ roster:
     division: GAS
     bio: |
       Runs the extraction line, which is a vacuum system with 14 fittings
-      and a rule about every 1 of them. He tests the line against a standard
+      and a rule about every one of them. He tests the line against a standard
       gas before any sample is cut.
     quiz:
       - q: Why does Menon run a standard gas through the line before cutting a sample?
@@ -612,7 +612,7 @@ missions:
           - Cut and distribute only after the section has stopped cracking
         order: [0, 1, 2, 3, 4]
         why: >-
-          Between about 51200 metres the bubbles are at pressures the
+          Between about 500 and 1,200 metres the bubbles are at pressures the
           surface cannot support, and the ice around them fractures as it is brought up. Each step
           buys the next one: a slow lift reduces the shock, resting the core at hole temperature
           lets the pressure equalise gradually, logging the breaks fixes what depth each fragment
@@ -1100,7 +1100,7 @@ missions:
         title: What is worth measuring before Thursday
         place: Science Module
         scene: >-
-          11 Skarv samples, 1 working day, and the isotope line can take 4 of them.
+          11 Skarv samples, one working day, and the isotope line can take 4 of them.
           The data manager, Jonas Aalto, has the two records side by side and the difference between
           them on a third screen.
         guide: >-
@@ -1717,7 +1717,7 @@ missions:
         answerText: About −35 per mil. The sample holds 3.5% less heavy oxygen than ocean water, which is what a polar site looks like.
         why: >-
           Isotope ratios differ from one another in the fourth decimal place, so nobody reports them
-          as ratios. The convention is to divide the sample's ratio by the ratio of 1 agreed
+          as ratios. The convention is to divide the sample's ratio by the ratio of one agreed
           water, subtract 1 so that the standard itself reads 0, and multiply by 1000 so
           the numbers are convenient. What comes out is a difference in parts per thousand, always
           negative for polar snow because every stage of the journey from the ocean has already
@@ -2067,7 +2067,7 @@ missions:
         place: Drill Trench
         scene: >-
           The ice is 3,010 metres thick here and the barrel is at 2,400. At the surface a year is
-          about 0.119 metres of ice equivalent, and Lindqvist wants to know what 1 is now.
+          about 0.119 metres of ice equivalent, and Lindqvist wants to know what one is now.
         guide: >-
           Four numbers, and one of them is the close-off depth, which belongs to the
           firn rather than to the flow. Ask of each whether it describes the surface,
@@ -2089,17 +2089,19 @@ missions:
           - Annual layer counting, and where counting fails
         assumes:
           - ice spreads outwards under its own weight, stretching the layers below
-        takeaway: Thinning is why a deep core holds so much time in so little ice.
+        takeaway: A simple thinning model gets the direction right and the size wrong, which is why a counted record and a modelled one end in different places.
         format: BALLPARK
-        question: Estimate the thickness of 1 annual layer at 2,400 metres.
-        answerText: About 0.024 metres — a fifth of a surface year, squeezed into 24 millimetres.
+        question: What does simple thinning predict for one annual layer at 2,400 metres?
+        answerText: About 0.024 metres — a fifth of a surface year, or 24 millimetres. The line measures 1.5 millimetres there, so the real thinning near the bed is sixteen times what uniform strain predicts.
         why: >-
           Ice flows outwards from the dome, and to keep going it has to stretch, so each layer
           thins as the weight above it grows. The simplest model treats the vertical strain as
           uniform, which makes a layer's thickness fall in proportion to the distance left to the
-          bed: at four-fifths of the way down, a layer is one-fifth of what it was. That is what
-          packs 100000 years into the bottom kilometre, and it is also why the count
-          stops and the dating starts depending on a model.
+          bed: at four-fifths of the way down, a layer is one-fifth of what it was. That gives 24
+          millimetres here. The scanner reads 1.5. The model is not wrong about the direction and
+          it is wrong about the size, because strain is not uniform near a bed the ice is being
+          dragged over — and that is the whole reason the counted record stops at 2,180 metres
+          while the modelled one carries on to the bottom with an uncertainty attached.
         estimate:
           prompt: The ice is 3,010 metres thick and the sample is from 2,400 metres. A year at the surface is 0.119 metres of ice equivalent.
           question: Estimate the thickness of one annual layer at that depth.
@@ -2811,7 +2813,7 @@ missions:
         rebuttals:
           - Sheltering is a real effect and would have to be established across several fortnights, not one
           - A fortnight's snowfall is what the whole array establishes, since drift cancels only in the sum
-          - 11 stakes losing snow is what redistribution looks like, and does not point at 1 disturbed stake
+          - 11 stakes losing snow is what redistribution looks like, and does not point at one disturbed stake
       - group: COLD
         task: Fix the order of a run
         title: The order a run is made in
@@ -2969,7 +2971,7 @@ missions:
         takeaway: Restart in the order of what is still being lost, not in the order of who asked.
         format: TRIAGE
         question: What is restarted first?
-        answerText: The core store. It is the only 1 of the 4 still losing something irreversibly, and every hour above minus 20 costs gas measurements that cannot be made again.
+        answerText: The core store. It is the only one of the 4 still losing something irreversibly, and every hour above minus 20 costs gas measurements that cannot be made again.
         choices:
           - The core store refrigeration, which is still warming
           - The drill, so the day's run is not lost

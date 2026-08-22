@@ -501,7 +501,7 @@ missions:
         question: Using the 2 energy scales, estimate the equilibrium excited-state fraction at 42 mK.
         answerText: About 0.34%.
         why: |-
-          "A qubit sitting in a warm environment does not stay in its ground state: it is being offered energy all the time, and it takes some. The fraction that ends up excited follows the ratio of the thermal energy to the energy of one quantum, exponentially, which is why a factor of four in temperature is not a factor of four in behaviour. At 11 millikelvin almost nothing is excited. At 42 the population is large enough that a measurement of \"the ground state\" is partly a measurement of the fridge."
+          A qubit sitting in a warm environment does not stay in its ground state: it is being offered energy all the time, and it takes some. The fraction that ends up excited follows the ratio of the thermal energy to the energy of one quantum, exponentially, which is why a factor of four in temperature is not a factor of four in behaviour. At 11 millikelvin almost nothing is excited. At 42 the population is large enough that a measurement of the ground state is partly a measurement of the fridge.
         estimate:
           prompt: |-
             For a 5.0 GHz qubit, hf = 3.3 × 10⁻²⁴ J. At 42 mK, kT = 5.8 × 10⁻²⁵ J. For hf ≫ kT, use p_excited ≈ e^(−hf/kT).
@@ -738,7 +738,7 @@ missions:
         answerText: About 42 ns.
       - group: FAB
         task: Decide whether to keep this chip
-        title: 1 bad qubit out of 12
+        title: One bad qubit out of 12
         place: Fabrication & Materials
         scene: "The twelfth qubit is found, but the weak feature beside it survives every repeat. Swapping chips would consume four of the days before Delft's slot. Lindqvist arrives with the fabrication coupon: its junction resistances spread twice as wide as usual."
         guide: >-
@@ -784,7 +784,7 @@ missions:
         why: The useful question is not whether this chip is perfect; it is whether changing chips is likely to improve the run Ridgeway is about to send to Delft. The present chip has 11 qubits close to target and a twelfth that can be driven and characterised. A swap costs four days, and the spare comes from the same suspicious fabrication run, so replacement does not remove the underlying uncertainty. The strongest plan is to keep this chip, map the nearby resonance, operate the qubit away from it if possible, and give Lindqvist the data needed to decide whether the feature tracks the process.
         proposals:
           - label: A
-            text: Keep this chip, characterise the 4.55 GHz feature, and operate the twelfth qubit away from it if possible, characterise the defect properly, and report 12 qubits with 1 of them worse.
+            text: Keep this chip, characterise the 4.55 GHz feature, and operate the twelfth qubit away from it if possible, characterise the defect properly, and report 12 qubits with one of them worse.
           - label: B
             text: Swap in the spare chip now, even though it came from the same fabrication run, at four days of warm-up and cooldown.
           - label: C
@@ -1401,7 +1401,7 @@ missions:
           - Because the state contains too much information for any classical file, even if many identical copies were available.
           - Because a quantum state can never be transferred from one physical system to another.
           - Because copying the preparation instructions would create a second copy of Ridgeway's original state.
-        answer: Because the state contains too much information for any classical file, even if many identical copies were available.
+        answer: Because an unknown quantum state cannot be perfectly duplicated from one copy.
         rebuttals:
           - The obstacle is not file size. The no-cloning rule applies to an arbitrary unknown state when only the state itself is available.
           - Quantum information can be physically transferred; the restriction is on producing a second perfect copy while leaving the first intact.
@@ -1758,7 +1758,7 @@ missions:
           Random noise averages down as the square root of the number of independent
           measurements, so the first factor of 10 in resolution is cheap and the next costs 100
           times the time — the reason sensing is a patience problem rather than a
-          precision 3 things then fight. Averaging improves the number only while the
+          precision problem. Three things then fight. Averaging improves the number only while the
           measurements are independent, and past about half a minute the instrument itself has
           drifted, so later measurements are of a slightly different machine. Beyond the knee
           the curve turns back up and more data makes the answer worse. That is also why the
@@ -1892,7 +1892,7 @@ missions:
     briefing: Two error numbers, both honest, differing by a factor of three.
     stake: >-
       Monday, and there are two error figures on the board. A direct measurement of a single gate says 0.4%. Randomised benchmarking over long sequences says 1.2. Anders Holm says both are correct and
-      they answer different questions; Priya Raghavan says the review will only print 1 of them. Dasha
+      they answer different questions; Priya Raghavan says the review will only print one of them. Dasha
       Petrova, the theory, wants whichever number is comparable with the threshold, because below that line adding
       qubits helps and above it they do not. Today you work out what randomised benchmarking actually
       measures, why a long sequence gives a different answer from a short one, and which number belongs in
@@ -2167,7 +2167,7 @@ missions:
         question: Acquire the four correlations yourself and combine them. How large is the statistic, and how many shots did it take before it stopped moving?
         answerText: About 2.78, once every setting pair has several hundred shots behind it. Above the local-realist bound of 2, below the quantum ceiling of 2√2 ≈ 2.83.
         why: |-
-          A correlation here is not the fraction of trials that agree; it is that fraction minus the fraction that disagree, which is why it runs from −1 to +1 and why a pair that almost always disagrees contributes a large negative number. Every 1 of those 4 values is a proportion from a finite number of shots, so each carries its own scatter, and the scatter shrinks as the square root of the count — which is why 100 shots per setting can put the combination either side of 600 usually does not. The bound of 2 belongs to local models satisfying the Bell assumptions; quantum mechanics allows up to 2√2, about 2.83. The arithmetic is trivial. Knowing when the number has stopped moving is the measurement.
+          A correlation here is not the fraction of trials that agree; it is that fraction minus the fraction that disagree, which is why it runs from −1 to +1 and why a pair that almost always disagrees contributes a large negative number. Every one of those 4 values is a proportion from a finite number of shots, so each carries its own scatter, and the scatter shrinks as the square root of the count — which is why 100 shots per setting can put the combination either side of two, and 600 shots usually does not. The bound of 2 belongs to local models satisfying the Bell assumptions; quantum mechanics allows up to 2√2, about 2.83. The arithmetic is trivial. Knowing when the number has stopped moving is the measurement.
         tally:
           settings:
             - label: a with b

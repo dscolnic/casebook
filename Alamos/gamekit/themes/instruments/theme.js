@@ -32,6 +32,9 @@ export default {
   title: 'Template',
   subtitle: 'Copy this to start a new game',
 
+  // The harness has no clock; the days are only a way of grouping the formats. The plan card prints this in front of the mission number.
+  dayNoun: 'Day',
+
   // The place. `site.kind` picks the world module in vite.config.js:
   //   'outdoor'   engine/world/outdoorTown.js — buildings on terrain
   //   'interior'  engine/world/interiorSite.js — a spine with rooms off it
@@ -71,12 +74,12 @@ export default {
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
   opening: [
-    'This is the format harness rather than a game. Four days hold one stop of every question '
+    'This is the format harness rather than a game. It holds one stop of every question '
     + 'format the engine can draw, so that a panel can be opened, answered right, answered wrong '
     + 'and looked at, without playing a campaign to the day that happens to hold it. You are '
     + 'whoever is checking that they all still work after a change to the engine. Nothing here '
-    + 'teaches a course, and every one of the twenty-eight is authored in the same book format a '
-    + 'real game uses.',
+    + 'teaches a course, and every one of them is authored in the same book format a '
+    + 'real game uses. Ada Merrick, who runs the station, signs whatever comes out of them.',
   ],
 
   // How it ends. Shown when the campaign closes, and the last thing the player

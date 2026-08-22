@@ -612,7 +612,7 @@ missions:
         task: Find out what the certificate measured
         title: Twenty-five ohms, at what
         place: Earthing Compound
-        scene: "Earthing engineer Ana Sifuentes, the earthing engineer, sets the April certificate on the bench: 25 ohms, instrument named, operator signed. She wants the measured quantity stated exactly before anyone uses the number to make a claim about the storm season."
+        scene: "Ana Sifuentes, the earthing engineer, sets the April certificate on the bench: 25 ohms, instrument named, operator signed. She wants the measured quantity stated exactly before anyone uses the number to make a claim about the storm season."
         guide: >-
           Four readings of the same certificate. Ask of each what the tester actually
           did: it pushed a small steady current into the soil and measured the voltage.
@@ -2266,7 +2266,7 @@ missions:
         task: Derive the voltage induced in the trench cable
         title: The loop nobody drew
         place: Cable Trench
-        scene: Instrumentation specialist Sam Abioye, the instrumentation technician, has the outstation trench route on the wall. For forty metres, the signal pair runs beside the down-conductor. Its near side is 1.5 m away; the far side is 3.5 m away.
+        scene: Sam Abioye, the instrumentation technician, has the outstation trench route on the wall. For forty metres, the signal pair runs beside the down-conductor. Its near side is 1.5 m away; the far side is 3.5 m away.
         guide: >-
           Build it a line at a time. The field from the down-conductor falls as one over
           the distance, so the flux through the trench loop needs an integral across it,

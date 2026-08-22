@@ -54,6 +54,16 @@ export default {
     + 'it knew and how well it knew it. The war ended. The mesa emptied over the following year: '
     + 'the theorists went back to universities, the metallurgists to industry, and the site to a '
     + 'laboratory that is still there.',
+    'What it cost, and what nobody here could close. Two years of a fence, and most of the '
+    + 'people behind it unable to tell their families what they did. Trinity was fired on one '
+    + 'shot with weather closing in, and the yield it returned was inside the prediction band '
+    + 'only because the band was wide. Two cities. The uncertainty budget was still open at the '
+    + 'freeze on the equation of state at the pressures nobody could reach on a bench, on the '
+    + 'symmetry of the last implosion at the last few per cent, and on what the fallout would do '
+    + 'downwind, which the site measured for weeks afterwards and could not agree on. What went '
+    + 'to Washington was a technical account of expected effects and their uncertainty, and it '
+    + 'was kept separate from what anybody here thought should be done with them — which is the '
+    + 'distinction this laboratory argued about most and the one it got right.',
     'The physics did not stay secret, because physics does not. What the people here could defend, '
     + 'claim by claim, is written down — and so is what they argued about once they could argue in '
     + 'public. That record is the part you inherit.',

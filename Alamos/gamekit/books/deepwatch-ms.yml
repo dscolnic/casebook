@@ -657,7 +657,7 @@ copy:
   machinery_control: <p><b>Machinery Control Room</b> — the plant is run from here rather than from beside it. Every gauge in this space is a report from somewhere else in the boat.</p>
   auxiliary: <p><b>Auxiliary Machinery &amp; Bilge</b> — scrubbers, oxygen generation, the drain pump and the lowest deck in the boat. Two of the three things keeping the crew alive are in this compartment.</p>
 
-# The campaign: 1 working day each, 3 stops and a callback from day 3.
+# The campaign: One working day each, 3 stops and a callback from day 3.
 missions:
   - title: Boat Walkdown
     objective: Learn the boat as a system of spaces, not a list of names.

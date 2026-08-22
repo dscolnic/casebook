@@ -24,8 +24,8 @@ export const CURRICULUM = {
         "play": "Compare the two records from one earthquake",
         "task": "Compare the two records from one earthquake",
         "question": "What does the difference between the two records mean?",
-        "answer": "The Flats record is about 3 times the rock-site amplitude in the strongest band, so A_soft/A_rock ≈ 3 there. That supports a real site-amplification effect; the factor is frequency-dependent and should not be applied blindly to every building or motion measure.",
-        "why": "Soft ground can amplify and lengthen shaking in a particular period band. Here the 2 records give A_soft/A_rock ≈ 3 for the strongest motion. That is a site effect, not a larger earthquake under the Flats. Buildings also have preferred periods. A rough rule is T ≈ 0.1N seconds for an N-storey building. If strong site motion overlaps a building period, resonance can increase response. The ratio is frequency-dependent, so one factor should not be applied to every motion measure.",
+        "answer": "The Flats record is about 3 times the vault's amplitude in the strongest band, so A_soft/A_rock ≈ 3 against that reference station. That supports a real site-amplification effect; the factor is frequency-dependent and should not be applied blindly to every building or motion measure.",
+        "why": "Soft ground can amplify and lengthen shaking in a particular period band. Here the two records give A_soft/A_rock ≈ 3 for the strongest motion — against the vault, which is the reference the district plan uses and is itself assumed to be competent rock. That is a site effect, not a larger earthquake under the Flats. Buildings also have preferred periods. A rough rule is T ≈ 0.1N seconds for an N-storey building. If strong site motion overlaps a building period, resonance can increase response. The ratio is frequency-dependent, so one factor should not be applied to every motion measure.",
         "rebuttals": [
           "Both instruments checked out against a second sensor this morning; the difference is real.",
           "1100 metres is nothing against a source 20 kilometres away, so distance cannot explain a factor of 3.",
@@ -3088,8 +3088,8 @@ export const CURRICULUM = {
     },
     {
       "day": 6,
-      "title": "Five times, not three",
-      "scene": "If the Flats amplify by five rather than three, the shaking a future earthquake will deliver there is much larger than the figure in the district plan. The revised district map is waiting for a replacement number.",
+      "title": "Four point eight, not three",
+      "scene": "The trace has just shown that the reference station itself amplifies by about 1.6, so the published Flats ratio of 3.0 was measured against ground that was already moving. The revised district map is waiting for a replacement number.",
       "takeaway": "Correcting site response changes forward-looking hazard and design assumptions; it does not rewrite damage that was observed directly.",
       "place": "Hazard & Forecasting",
       "guide": "Two instruments recorded the same earthquake, one on the Flats and one on rock above the town. The amplification is the ratio between what they measured, so pick the two peak accelerations and divide. One tile is the figure the district plan currently carries, which is the number being replaced rather than an input to it.",
@@ -3098,16 +3098,16 @@ export const CURRICULUM = {
         "Why one number is not a spectrum. Soft ground amplifies some frequencies far more than others, so a single ratio is a summary. It is the summary the district plan uses, which is why replacing three with five moves every design value that plan feeds — and why the full answer is a curve somebody still has to measure.",
         "What the correction cannot touch. The placards came from what inspectors saw in buildings, and the cracks are already photographed. A revised ratio changes the shaking a future earthquake is expected to deliver, and rewrites nothing that has already been observed."
       ],
-      "story": "If the Flats amplify by five rather than three, the shaking a future earthquake will deliver there is much larger than the figure in the district plan. The revised district map is waiting for a replacement number.",
+      "story": "The trace has just shown that the reference station itself amplifies by about 1.6, so the published Flats ratio of 3.0 was measured against ground that was already moving. The revised district map is waiting for a replacement number.",
       "game": {
         "type": "BALLPARK",
-        "title": "Five times, not three",
+        "title": "Four point eight, not three",
         "setup": "Hazard & Forecasting",
         "play": "Decide what a bigger amplification changes",
         "task": "Decide what a bigger amplification changes",
-        "question": "From the two records of the same earthquake, what is the Flats' amplification over rock?",
-        "answer": "About 5.0 — 0.41 g on the Flats against 0.082 g at the vault on granite. The district plan's 3 is the number being replaced, and what it changes is future design, not the placards already issued.",
-        "why": "Site amplification is A_soft / A_rock: the peak acceleration recorded on soft ground divided by the peak on competent rock for the same event. The Flats instrument recorded 0.41 g and the vault instrument on granite recorded 0.082 g, so the ratio is 0.41 ÷ 0.082 ≈ 5.0, against the 3 the district plan assumes. Both readings are in g, so the answer is dimensionless, which is what makes it a property of the ground rather than of this earthquake. Two things follow and one does not. The design values for rebuilding in the Flats rise, and the case for ground improvement gets much stronger. What does not change is anything already observed: the placards came from inspections of real buildings, and the magnitude of the earthquake was measured from waveforms, not inferred from a ratio. And one number is still only a summary — amplification varies with frequency, so the Flats need a response curve before anything is designed against them.",
+        "question": "Correct the published Flats ratio for the reference station's own site response.",
+        "answer": "About 4.8 — the published 3.0 times the reference station's own 1.6. The district plan's 3 is the number being replaced, and what it changes is future design, not the placards already issued.",
+        "why": "A ratio inherits whatever is wrong with the thing under the line. The published Flats figure of 3.0 was the Flats record divided by the vault record, and the trace has just shown the vault itself sits on four metres of weathered granite and amplifies by about 1.6. So the published number is 3.0 relative to a moving reference, and 3.0 × 1.6 ≈ 4.8 relative to competent rock. Both terms are ratios, so the answer is dimensionless, which is what makes it a property of the ground rather than of this earthquake. Two things follow and one does not. The design values for rebuilding in the Flats rise, and the case for ground improvement gets much stronger. What does not change is anything already observed: the placards came from inspections of real buildings, and the magnitude of the earthquake was measured from waveforms, not inferred from a ratio. And one number is still only a summary — amplification varies with frequency, so the Flats need a response curve before anything is designed against them.",
         "givens": [
           "0.41 g on the Flats and 0.082 g on granite, same event",
           "the district plan currently assumes 3"
@@ -3244,7 +3244,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "A notice somebody acts on",
-      "scene": "Adeyemi has 200 words and an audience that has heard 2 numbers and a rumour about a bigger 1 coming. She wants to know what the notice has to contain.",
+      "scene": "Adeyemi has 200 words and an audience that has heard 2 numbers and a rumour about a bigger one coming. She wants to know what the notice has to contain.",
       "takeaway": "A notice earns its place by changing what somebody does, and everything else in it competes with that.",
       "place": "Public Safety",
       "guide": "All four of these will be in the notice, so nothing is being left out. Ask instead which one somebody can act on while standing in the street, and which is a fact they will repeat later. Two hundred words are read in the order they are printed. A revision from 6.6 to 6.8 changes nothing about what to do outside this building, and a rate is not a prediction.",
@@ -3253,7 +3253,7 @@ export const CURRICULUM = {
         "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
         "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
       ],
-      "story": "Adeyemi has 200 words and an audience that has heard 2 numbers and a rumour about a bigger 1 coming. She wants to know what the notice has to contain.",
+      "story": "Adeyemi has 200 words and an audience that has heard 2 numbers and a rumour about a bigger one coming. She wants to know what the notice has to contain.",
       "game": {
         "type": "SEQUENCE",
         "title": "A notice somebody acts on",
@@ -4226,33 +4226,33 @@ export const BALLPARK_CALCS = {
   },
   "HAZ-6": {
     "prompt": "The same earthquake was recorded at 0.41 g on the Flats and 0.082 g at the vault instrument on granite above Upper Town.",
-    "question": "Choose the soft-ground peak and the rock peak.",
+    "question": "Choose the published ratio and the reference station's own site response.",
     "labels": [
+      "3.0  (the published Flats-to-vault ratio)",
+      "1.6  (the reference station's own measured site response)",
       "0.41  (peak acceleration on the Flats, in g)",
-      "0.082  (peak acceleration on granite, in g)",
-      "3  (the amplification the district plan currently assumes)",
-      "0.31  (the basement record inside the hospital, in g)",
+      "0.082  (peak acceleration at the vault, in g)",
       "6.8  (the moment magnitude of the event)"
     ],
     "values": [
+      3,
+      1.6,
       0.41,
       0.082,
-      3,
-      0.31,
       6.8
     ],
     "slots": 2,
-    "template": "{0} ÷ {1}",
-    "formula": "a/b",
+    "template": "{0} × {1}",
+    "formula": "a*b",
     "correct": [
       0,
       1
     ],
-    "target": 5,
+    "target": 4.8,
     "tolerance": 0.4,
     "units": "times (dimensionless)",
-    "solution": "0.41 ÷ 0.082 ≈ 5.0 against the plan's 3, and the ratio is dimensionless because both records are in g.",
-    "explanation": "Five rather than three moves every design value the district plan feeds, and rewrites nothing already observed."
+    "solution": "3.0 × 1.6 ≈ 4.8 against the plan's 3.0, and the result is dimensionless because both terms are ratios.",
+    "explanation": "The two raw peaks are the decoys: dividing them gives the published 3.0 back, which is the number being corrected rather than the correction. Four point eight rather than three moves every design value the district plan feeds, and rewrites nothing already observed."
   },
   "GEO-6": {
     "prompt": "The fill weighs about 18 kN/m³. The water table under Ferry Street is now 1.5 m down, so at 3 m the pore pressure is 9.81 × 1.5 ≈ 14.7 kPa.",

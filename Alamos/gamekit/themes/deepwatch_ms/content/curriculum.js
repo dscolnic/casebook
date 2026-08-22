@@ -2296,7 +2296,7 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "density = weight ÷ volume",
+          "e": "density = how heavy it is ÷ volume",
           "c": "what decides floating and sinking",
           "v": [
             [

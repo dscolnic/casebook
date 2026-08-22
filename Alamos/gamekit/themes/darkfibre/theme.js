@@ -32,6 +32,9 @@ export default {
   title: 'Dark Fibre',
   subtitle: 'Optical Measurements Lead · Pellow Head, twelve days with a cable down',
 
+  // Each mission is one working day before the repair ship sails on the thirteenth. The plan card prints this in front of the mission number.
+  dayNoun: 'Day',
+
   // The place. `site.kind` picks the world module in vite.config.js:
   //   'outdoor'   engine/world/outdoorTown.js — buildings on terrain
   //   'interior'  engine/world/interiorSite.js — a spine with rooms off it

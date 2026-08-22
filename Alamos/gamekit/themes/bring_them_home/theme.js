@@ -94,7 +94,8 @@ export default {
     + 'has just exploded. You are the flight director, and the calls are yours to make. Power is '
     + 'falling. The cabin is cooling. The trajectory is drifting off the one path that gets them back, '
     + 'and the air they are breathing is already on a countdown. The crew can hear every word said on '
-    + 'the loop.',
+    + 'the loop, and Dr. Camila Reyes, who leads guidance, has to fit every repair into one plan '
+    + 'that still adds up.',
   ],
 
   // How it ends. Shown when the campaign closes and printed as the book's last page.

@@ -53,7 +53,8 @@ export default {
     + 'told. Two neighbourhoods sit downwind of a cloud nobody has named. The drinking water for a '
     + 'hundred and forty thousand people is drawn from the river just below the yard, and the '
     + 'utility has shut the intake. So the city is drinking what it has stored, and what it has '
-    + 'stored is measured in days.',
+    + 'stored is measured in days. Adaeze Okonjo, who runs the laboratory, will not name what burned '
+    + 'until two different tests agree.',
   ],
 
   people: {

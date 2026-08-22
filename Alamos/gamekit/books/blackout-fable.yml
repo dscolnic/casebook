@@ -1382,7 +1382,7 @@ missions:
         why: Both circuits connect the same two busbars, so they have the same voltage across them. Current therefore divides inversely with impedance. For two parallel paths, one path takes the other path’s impedance divided by the sum. With 6 Ω and 3 Ω, the lower-impedance circuit carries twice the current of the older 1. This is why a new parallel circuit does not split flow evenly. The total busbar current constrains the sum, but the impedances determine the share in each route.
         estimate:
           prompt: |-
-            The total leaving the busbar is 900 A. The older circuit is 6 ohms and the newer 1 is 3 ohms. Both run between the same two busbars.
+            The total leaving the busbar is 900 A. The older circuit is 6 ohms and the newer one is 3 ohms. Both run between the same two busbars.
           question: Choose the total current, the other path's impedance and the sum of the two.
           labels:
             - 900 A  (total current)
@@ -2844,7 +2844,7 @@ missions:
     briefing: The reinforcement decision from last week has a date on it, and the date is today.
     stake: >-
       Monday, and the corridor decision comes back for the last time. The outage window that would let a
-      second circuit be strung this year closes at close of business, and if it closes the next 1 is
+      second circuit be strung this year closes at close of business, and if it closes the next one is
       18 months out. June Farrow has the corrected thermal record, which says the corridor has spent
       more hours over limit than anybody thought. Nadia Haddad has a storage quote that expires with the
       window. Dolores Reyes has a board that will not approve both. Today you work out what the corrected

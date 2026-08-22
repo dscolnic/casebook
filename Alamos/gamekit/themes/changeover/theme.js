@@ -30,6 +30,9 @@ export default {
   title: 'Changeover',
   subtitle: 'Chief Economist · Halvern Currency Board',
 
+  // Each mission is one working day of the fortnight before the mark stops being money. The plan card prints this in front of the mission number.
+  dayNoun: 'Day',
+
   // The place. `site.kind` picks the world module in vite.config.js:
   //   'interior'  engine/world/interiorSite.js — a spine with rooms off it
   //   'outdoor'   engine/world/outdoorTown.js — buildings on terrain

@@ -30,6 +30,7 @@ export const CURRICULUM = {
           "start": "a = dv/dt, with a(t) = 1.2·(1 − t/12)",
           "goal": "the speed at t = 12 s and the rope wound by then, in metres",
           "startNote": "metres a second squared, with t in seconds from the start of the ramp; the cage starts from rest",
+          "askRule": true,
           "rules": [
             "integration with respect to time",
             "the constant from the starting value",
@@ -344,6 +345,7 @@ export const CURRICULUM = {
           "start": "P = F·v",
           "goal": "the power supplied at that instant, in megawatts",
           "startNote": "cage 4,000 kg, rope 8.9 kg a metre, 1,182 m hanging, speed 7.2 m/s, no acceleration at this instant",
+          "askRule": true,
           "rules": [
             "power as force times speed",
             "the tension at that position",
@@ -564,6 +566,7 @@ export const CURRICULUM = {
           "start": "t_cycle = t_ramp + t_run + t_retard + t_crawl",
           "goal": "the saving against the present cycle, in seconds",
           "startNote": "1,240 m of shaft, ramp 12 s for 57.6 m, full speed 7.2 m/s, retardation to 4.5 m/s at 0.9 m/s², crawl 1.5 s",
+          "askRule": true,
           "rules": [
             "integration with respect to time",
             "a distance divided by a speed",
@@ -785,6 +788,7 @@ export const CURRICULUM = {
           "start": "I = ∫r² dm",
           "goal": "the moment of inertia about the axis, in kilogram metres squared",
           "startNote": "m = 18,000 kg between R₁ = 1.9 m and R₂ = 2.1 m, of uniform steel, turning about its axis",
+          "askRule": true,
           "rules": [
             "the choice of the mass element",
             "substitution of the element",
@@ -1015,6 +1019,7 @@ export const CURRICULUM = {
           "start": "τ_motor − T·R = I·α",
           "goal": "the motor torque at the start of the upward wind, in kilonewton metres",
           "startNote": "I = 72,200 kg·m², R = 2.1 m, T = 166 kN, and the cage accelerates at 1.2 m/s²",
+          "askRule": true,
           "rules": [
             "the angular second law",
             "the no-slip relation",
@@ -1366,6 +1371,7 @@ export const CURRICULUM = {
           "start": "E_pads = K_rot + K_trans ± mgh",
           "goal": "the energy the pads absorb in an upward emergency stop, in kilojoules",
           "startNote": "I = 72,200 kg·m², ω = 4.0 rad/s, cage and hanging rope 9,518 kg, v = 8.4 m/s, 3.8 m of travel",
+          "askRule": true,
           "rules": [
             "rotational kinetic energy",
             "kinetic energy of a translating mass",
@@ -1681,6 +1687,7 @@ export const CURRICULUM = {
           "start": "ΣF = ma, on the cage and the hanging rope together",
           "goal": "the tension at the drum, in kilonewtons",
           "startNote": "cage and load 4,000 kg, rope 8.9 kg a metre, 1,240 m hanging, accelerating upward at 1.2 m/s²",
+          "askRule": true,
           "rules": [
             "the choice of the body",
             "the second law on that body",
@@ -1994,6 +2001,7 @@ export const CURRICULUM = {
           "start": "k = E·A/L,  ω = √(k/m)",
           "goal": "the period of the cage on the rope, in seconds",
           "startNote": "E = 120 GPa, A = 1,140 mm², L = 1,240 m, cage and load 4,000 kg",
+          "askRule": true,
           "rules": [
             "stiffness from the material",
             "the frequency of a mass on a spring",
@@ -2357,6 +2365,7 @@ export const CURRICULUM = {
           "start": "W = ∫₀^H F(y)·dy",
           "goal": "the work done against gravity for one wind, in megajoules",
           "startNote": "H = 1,240 m, cage 4,000 kg, rope 8.9 kg a metre; the wind is taken as steady, so no acceleration term",
+          "askRule": true,
           "rules": [
             "work as an integral of force",
             "the force as a function of position",
@@ -2705,6 +2714,7 @@ export const CURRICULUM = {
           "start": "½mv² = ½kx²",
           "goal": "the extra travel of the cage after the drum has stopped, in metres",
           "startNote": "v = 8.4 m/s at the moment the drum stopped, m = 4,000 kg, k = 110,000 N/m, ω = 5.25 rad/s",
+          "askRule": true,
           "rules": [
             "the work–energy theorem",
             "energy stored in a spring",
@@ -3052,6 +3062,7 @@ export const CURRICULUM = {
           "start": "J = ∫F dt = Δp",
           "goal": "the horizontal force on the belt drive, in newtons",
           "startNote": "320 tonnes an hour arriving with no forward speed, onto a belt running at 2.5 m/s",
+          "askRule": true,
           "rules": [
             "conversion of the rate",
             "impulse and momentum",
@@ -3344,6 +3355,7 @@ export const CURRICULUM = {
           "start": "g(r) = G·M(r)/r²",
           "goal": "the predicted change in g over the depth of the shaft, in milligals",
           "startNote": "R = 6,371 km, g₀ = 9.812 m/s² at the surface; the inset is 1,240 m below it",
+          "askRule": true,
           "rules": [
             "the shell theorem",
             "the mass inside a radius",

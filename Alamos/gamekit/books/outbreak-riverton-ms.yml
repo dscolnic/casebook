@@ -424,7 +424,7 @@ glossary:
       - vectors
     def: An organism that carries an agent between hosts — a mosquito, a tick — without being where the agent lives.
 
-# The campaign: 1 working day each, 3 stops and a callback from day 3.
+# The campaign: One working day each, 3 stops and a callback from day 3.
 missions:
   - title: The First Cluster
     objective: Open an investigation using a defensible provisional case definition and an explicit comparison baseline.
@@ -1509,10 +1509,11 @@ missions:
         place: Cell Biology Laboratory
         scene: The dish starts with five hundred cells, and this line doubles every forty minutes. The bench needs a number for eight hours from now, before deciding how much food to make up.
         guide: >-
-          Four options, and both kinds of cell came from one patient, one slice, stained
-          together. Ask of each whether having an instruction and using it are the same
-          thing. Every cell holds all of them. So what has to differ is which ones get
-          read, and that is what makes an airway cell an airway cell.
+          Five numbers, and two of them are the same eight hours written differently,
+          with the minutes in an hour offered as a third. Ask of each whether the count
+          of doublings needs it. The shape matters more than the answer. Add another
+          ninety minutes and you add two more doublings, which multiplies the whole
+          thing again by four.
         background:
           - >-
               Why the wrong answers are worth reading. Each one is written to look right to
@@ -1557,10 +1558,16 @@ missions:
           units: doublings
           solution: Eight hours is 480 minutes, and a doubling every 40 minutes is twelve doublings.
           explanation: Count the doublings first. Twelve of them is about four thousand times as many cells, which is why the number in the morning is nothing like the number tonight.
+      - group: CELL
         task: Say why only some cells make the landing site.
         title: Same instructions, different cells
         place: Cell Biology Laboratory
         scene: The stain shows the landing site all over the airway cells, and nowhere on the muscle cells two millimetres away. Same patient, same slice, same instructions inside every cell.
+        guide: >-
+          Four options, and both kinds of cell came from one patient, one slice, stained
+          together. Ask of each whether having an instruction and using it are the same
+          thing. Every cell holds all of them. So what has to differ is which ones get read,
+          and that is what makes an airway cell an airway cell.
         assumes:
           - every cell in a body carries the same set of instructions
         takeaway: Every cell carries the same instructions and reads a different part of them.

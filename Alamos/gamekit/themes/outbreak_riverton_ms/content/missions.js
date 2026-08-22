@@ -148,6 +148,11 @@ export const MISSIONS = [
       {
         "group": "CELL",
         "lesson": 3,
+        "task": "Work out how many cells there will be in eight hours."
+      },
+      {
+        "group": "CELL",
+        "lesson": 4,
         "task": "Say why only some cells make the landing site."
       }
     ]

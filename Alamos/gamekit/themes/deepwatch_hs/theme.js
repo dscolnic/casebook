@@ -63,7 +63,8 @@ export default {
     + 'inside the hull is rising. The pencilled track on the chart drifts further '
     + 'from where the boat really is with every minute nobody corrects it. '
     + 'Surfacing is where every one of these problems stops being fatal. Somebody '
-    + 'has to be willing to call it.',
+    + 'has to be willing to call it, and Chief Petty Officer Dario Ferro, who has the damage control, '
+    + 'says the water is winning below.',
   ],
 
   // How it ends. Shown when the campaign closes and printed as the book's last page.

@@ -254,7 +254,7 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "change in speed = momentum ÷ weight",
+          "e": "change in speed = momentum ÷ how heavy it is",
           "c": "what a push does to something heavy",
           "v": [
             [
@@ -628,7 +628,7 @@ export const CURRICULUM = {
           "s": "Speed is how much ground is covered divided by how long it took."
         },
         {
-          "e": "momentum = weight × speed",
+          "e": "momentum = how heavy it is × speed",
           "c": "what a collision hands over",
           "v": [
             [
@@ -647,7 +647,7 @@ export const CURRICULUM = {
           "s": "A small thing moving fast can carry as much momentum as a big thing moving slowly, and a collision passes it on."
         },
         {
-          "e": "change in speed = momentum ÷ weight",
+          "e": "change in speed = momentum ÷ how heavy it is",
           "c": "what a push does to something heavy",
           "v": [
             [
@@ -740,7 +740,7 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "change in speed = momentum ÷ weight",
+          "e": "change in speed = momentum ÷ how heavy it is",
           "c": "what a push does to something heavy",
           "v": [
             [
@@ -1230,7 +1230,7 @@ export const CURRICULUM = {
           "s": "A radar pulse travels out and back at a known speed, so the time it takes gives the distance — halved, because it went twice."
         },
         {
-          "e": "change in speed = momentum ÷ weight",
+          "e": "change in speed = momentum ÷ how heavy it is",
           "c": "what a push does to something heavy",
           "v": [
             [
@@ -1389,7 +1389,7 @@ export const CURRICULUM = {
           "s": "Speed is how much ground is covered divided by how long it took."
         },
         {
-          "e": "momentum = weight × speed",
+          "e": "momentum = how heavy it is × speed",
           "c": "what a collision hands over",
           "v": [
             [
@@ -1408,7 +1408,7 @@ export const CURRICULUM = {
           "s": "A small thing moving fast can carry as much momentum as a big thing moving slowly, and a collision passes it on."
         },
         {
-          "e": "change in speed = momentum ÷ weight",
+          "e": "change in speed = momentum ÷ how heavy it is",
           "c": "what a push does to something heavy",
           "v": [
             [
@@ -1529,7 +1529,7 @@ export const CURRICULUM = {
           "s": "Speed is how much ground is covered divided by how long it took."
         },
         {
-          "e": "momentum = weight × speed",
+          "e": "momentum = how heavy it is × speed",
           "c": "what a collision hands over",
           "v": [
             [
@@ -1548,7 +1548,7 @@ export const CURRICULUM = {
           "s": "A small thing moving fast can carry as much momentum as a big thing moving slowly, and a collision passes it on."
         },
         {
-          "e": "change in speed = momentum ÷ weight",
+          "e": "change in speed = momentum ÷ how heavy it is",
           "c": "what a push does to something heavy",
           "v": [
             [
@@ -1735,7 +1735,7 @@ export const CURRICULUM = {
           "s": "Speed is how much ground is covered divided by how long it took."
         },
         {
-          "e": "change in speed = momentum ÷ weight",
+          "e": "change in speed = momentum ÷ how heavy it is",
           "c": "what a push does to something heavy",
           "v": [
             [
@@ -1984,7 +1984,7 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "change in speed = momentum ÷ weight",
+          "e": "change in speed = momentum ÷ how heavy it is",
           "c": "what a push does to something heavy",
           "v": [
             [
@@ -2391,7 +2391,8 @@ export const CURRICULUM = {
               "the percentage, written as a decimal"
             ]
           ],
-          "s": "A percentage is a share out of a hundred, so it has to become a decimal before anything is multiplied by it."
+          "s": "A percentage is a share out of a hundred, so it has to become a decimal before anything is multiplied by it.",
+          "computed": true
         }
       ],
       "concept": {
@@ -2777,7 +2778,7 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "change in speed = momentum ÷ weight",
+          "e": "change in speed = momentum ÷ how heavy it is",
           "c": "what a push does to something heavy",
           "v": [
             [

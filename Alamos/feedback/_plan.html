@@ -1,0 +1,61 @@
+<!doctype html><meta charset="utf-8"><title>What is left, and the order to do it in</title><style>
+@page { margin: 18mm 16mm; }
+body { font: 10.5pt/1.55 'Helvetica Neue', Helvetica, Arial, sans-serif; color:#1a1a1a; max-width:760px; margin:0 auto; }
+h1 { font-size:20pt; margin:0 0 2pt; letter-spacing:-0.3pt; }
+h1 + p.meta { color:#666; margin-top:0; font-size:9.5pt; }
+h2 { font-size:13.5pt; margin:22pt 0 6pt; border-bottom:1.5pt solid #1a1a1a; padding-bottom:3pt; }
+h3 { font-size:11.5pt; margin:14pt 0 4pt; }
+h4 { font-size:10.5pt; margin:10pt 0 3pt; }
+p { margin:5pt 0; }
+code { font:9pt 'SF Mono', Menlo, monospace; background:#f2f2f0; padding:0.5pt 3pt; border-radius:2pt; }
+blockquote { margin:6pt 0 6pt 10pt; padding-left:10pt; border-left:2.5pt solid #bbb; color:#444; font-style:italic; }
+ul,ol { margin:5pt 0 5pt 4pt; padding-left:16pt; }
+li { margin:2.5pt 0; }
+table { border-collapse:collapse; width:100%; margin:8pt 0; font-size:9.5pt; }
+th { text-align:left; border-bottom:1.5pt solid #1a1a1a; padding:3pt 6pt 3pt 0; vertical-align:bottom; }
+td { border-bottom:0.5pt solid #ccc; padding:3.5pt 6pt 3.5pt 0; vertical-align:top; }
+hr { border:none; border-top:0.5pt solid #999; margin:14pt 0; }
+.sev-fix { color:#a4232a; font-weight:600; } .sev-worth { color:#8a6d00; font-weight:600; } .sev-taste { color:#556; }
+strong { font-weight:600; }
+</style><body><h1>What is left, and the order to do it in</h1>
+<p><em>2026-08-22 · after 42 campaign reviews, 45 closed <span class="sev-fix">FIX</span> rows and six new gates. Everything here is work I chose not to do rather than work I could not find, and each item says why.</em></p>
+<h2>The state of the findings</h2>
+<table><tr><th>State</th><th>Rows</th><th>Meaning</th></tr><tr><td>CLOSED / FIXED</td><td>47</td><td>fixed and verified; <code>npm run check</code> green</td></tr><tr><td>WITHDRAWN</td><td>4</td><td>I was wrong; the reasoning is in the row</td></tr><tr><td>RECORDED</td><td>5</td><td>measured, in a debt file that only shrinks, deliberately not done</td></tr><tr><td>PLAN</td><td>2</td><td>this document</td></tr><tr><td><span class="sev-worth">WORTH</span></td><td>146</td><td>real improvements with a clear shape</td></tr><tr><td><span class="sev-taste">TASTE</span></td><td>66</td><td>recorded so nobody "fixes" them by accident</td></tr></table>
+<p><strong>No <span class="sev-fix">FIX</span> row is open.</strong> The four that were are now RECORDED or PLAN, each with the measurement behind the reclassification in its own row.</p>
+<hr>
+<h2>1. Spaced retrieval: 37 of 42 campaigns have none</h2>
+<p><strong>The finding.</strong> The day model adds a callback from day 3 — CLAUDE.md calls it "the spaced retrieval that fixes" blocked practice and "why a day has a second building to walk to". But a callback requires an <strong>unserved <code>— Review</code> variant</strong>, and only five books author any: hospital 105, sightline 10, sightline_ms 9, redsand 9, redsand_ms 9. Measured off the normalised content, days carrying a callback are hospital 13, redsand 8, sightline 7, redsand_ms 8, sightline_ms 6, <strong>and zero in the other thirty-seven.</strong></p>
+<p><strong>Why it is this shape.</strong> The 295-duplicate defect was fixed by making the callback conditional, which was right — 295 of 318 callbacks were byte-identical re-serves. The consequence nobody measured is that the mechanism then fired in 12% of campaigns.</p>
+<p><strong>The work, cheapest first.</strong></p>
+<ol><li><strong><code>the_trial_ms</code> is the best first target: ten days, every one of them three stops, zero variants.</strong> Four variants would give it callbacks on four days immediately, with no restructuring. Then <code>the_trial</code>, <code>the_trial_hs</code>, <code>ghostlight</code>, <code>carrying</code>, <code>changeover</code>, <code>yellowbay</code>, <code>blackout_fable</code> — all of which are three stops a day throughout.</li><li><strong>A variant is a second question on a lesson already written</strong>, so it is cheaper than it sounds: same concept, same equation, different numbers and a different discrimination. Red Sand and Sightline did nine each.</li><li><strong>Then decide the claim.</strong> If most campaigns are going to have three or four variants rather than a hundred, CLAUDE.md's "from day 3, every day carries a callback" should say "where a review variant exists", and the day model's documentation should stop describing it as the answer to blocked practice.</li></ol>
+<p><strong>Do not</strong> make the callback re-serve the same card to fill the slot. That is the defect that was fixed, and <code>dayCalls.mjs</code> will catch it.</p>
+<hr>
+<h2>2. The 296 scenes with nobody in them</h2>
+<p><strong>The finding.</strong> <code>sceneCast.mjs</code> measures the share of stop scenes naming somebody from the roster. The median across 42 campaigns is about 70%; Yellow Bay is 45 of 45. Eight campaigns are under one in ten:</p>
+<table><tr><th>Campaign</th><th>Scenes naming somebody</th></tr><tr><td>ContamCity</td><td>0 of 48</td></tr><tr><td>Bring Them Home</td><td>0 of 48</td></tr><tr><td>Planetary Defense</td><td>0 of 48</td></tr><tr><td>Project Y</td><td>1 of 153</td></tr><tr><td><code>planetary_defense_ms</code></td><td>1 of 33</td></tr><tr><td><code>contamcity_ms</code></td><td>1 of 33</td></tr><tr><td><code>contamcity_hs</code></td><td>2 of 48</td></tr><tr><td><code>bring_them_home_ms</code></td><td>3 of 33</td></tr></table>
+<p>All eight name somebody in <strong>every</strong> day stake, so the cast exists and is properly introduced. What is missing is people in the room where the work happens: "The Theoretical Division needs a reaction rate" rather than "Palmer has fitted a smooth curve through the last twelve hours of fixes".</p>
+<p><strong>Why it is recorded rather than done.</strong> 296 sentences of real writing, and a name pasted mechanically onto forty-eight scenes is worse than none — it would satisfy the gate and improve nothing.</p>
+<p><strong>The work.</strong> One campaign at a time, day by day, using the person the day's own stake already names. Roughly one sitting per campaign. <strong>Start with <code>bring_them_home</code></strong>, where the loss is sharpest: the place is a room full of named people at consoles and the opening card's last line is that the crew can hear every word anybody says.</p>
+<hr>
+<h2>3. Hospital's 51 four-card SEQUENCE boards, at grade 2</h2>
+<p><strong>The finding.</strong> <code>questionLoad</code> now fails at grade 8 and below rather than only on derived editions, and Hospital's 110 rows are in <code>questionload-debt.json</code>. Fifty-one of them are one decision: a four-card SEQUENCE graded as one exact permutation with no feedback until commit is a <strong>one-in-twenty-four guess</strong> for a seven-year-old. Dropping one card takes it to one in six.</p>
+<p><strong>Why it is recorded.</strong> Thirteen base stops plus their review variants, and each removal is a pedagogical choice about which step of a sequence is not load-bearing. That is a decision for a person who knows the audience.</p>
+<p><strong>The rest of the 110:</strong> 15 are 13-to-16-word options (four held in mind at once, limit 12) and 13 are stops naming three or four people where two is the limit. Both are rewrites rather than decisions and could go first.</p>
+<hr>
+<h2>4. Two junior editions want a tenth day</h2>
+<p><code>planetary_defense_ms</code> authors four stops on seven of nine days; <code>seedbank_ms</code> on six of nine. At 33 stops in 9 days that is 3.7 a day, against the 3.0–3.3 every other junior edition runs at.</p>
+<p><strong>Corrected reasoning.</strong> I first wrote that this is why neither has a callback. It is only half the reason — a callback also needs a variant, and neither authors one, so both would have no callback at three stops a day either. The day load is still worth fixing on its own terms.</p>
+<p><strong>The work.</strong> Split the two heaviest days in each, which needs a new mission title, objective, briefing, stake (80–110 words, four beats, <code>checkStory</code>'s sentence caps) and takeaway per split. Then re-run <code>warmupOrder</code> (the seven runs re-spread automatically), <code>equationOrder</code> and <code>conceptOrder</code> — <strong>a re-day can create an ordering defect, which is a standing rule in this repo.</strong> Do it in the same pass as item 1's variants for those two editions, so the freed days get callbacks.</p>
+<hr>
+<h2>5. Written stops for real curriculum gaps</h2>
+<p>Measured against the boards rather than taken from the debt file:</p>
+<ul><li><strong><code>blackout_ms</code></strong> — three real gaps: <code>how long = amount ÷ rate</code>, <code>average = total ÷ how many</code>, and <code>spare = capacity − demand</code> (the campaign computes the <em>shortfall</em>, 6,400 − 6,100, which is a different quantity from the headroom). <code>part = whole × share</code> was false and is cleared.</li><li><strong><code>bring_them_home_ms</code></strong> — four real gaps: <code>part = whole × share</code>, <code>speed = distance ÷ time</code>, <code>time = distance ÷ speed</code>, <code>change in position = change in speed × time</code>. <code>amount = rate × time</code> was false — "How much they breathe out" computes 3 × 20 × 6 from a per-person hourly rate.</li><li><strong><code>average = total ÷ how many</code> is the recurring one</strong>, absent from five junior editions. Each has an obvious home: several readings of one gauge, which is also what most of those campaigns' instrument threads are about.</li></ul>
+<p>Each stop needs a three-stop day to sit on, so this is item 4's work as well.</p>
+<hr>
+<h2>6. STACK</h2>
+<p><code>books/instruments.yml</code> was supposed to keep a commented STACK stop so that lifting the suspension would be a one-line change. It does not, and it cannot: the importer refuses a STACK stop at both ends while the format is suspended, so even a commented fixture could not be verified. The header now records that, so nobody discovers it by trying. Lifting the suspension means authoring one from scratch — which is exactly the outcome the commented stop was meant to prevent.</p>
+<hr>
+<h2>Where the gates now stand</h2>
+<p>Six new ones, each with a selftest, each validated by reintroducing the defect and confirming only the right case failed:</p>
+<table><tr><th>Gate</th><th>Catches</th></tr><tr><td><code>boardAnswer.mjs</code></td><td>an estimate board grading a different question from the one it asks</td></tr><tr><td><code>deriveRules.mjs</code></td><td>a <code>rules</code> list that reaches no screen; an unanswerable rule question</td></tr><tr><td><code>numeralWords.mjs</code></td><td>a digit standing in for the pronoun "one", in prose or in a title</td></tr><tr><td><code>sceneCast.mjs</code></td><td>a campaign whose scenes have stopped naming anybody</td></tr><tr><td><code>checkStory</code> (extended)</td><td>the scaffold's own text shipping; an opening card naming nobody</td></tr><tr><td><code>questionLoad</code> (retargeted)</td><td>fails on the reader's age rather than the file's provenance</td></tr></table>
+<p>Plus two importer refusals with traps behind them: a STRESS criterion keyed to a score field nothing has, and — the one that mattered most — <code>askRule: true</code> now actually reaching the content.</p></body>

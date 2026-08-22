@@ -2160,7 +2160,7 @@ export const CURRICULUM = {
         "task": "Put a number on 14 looks",
         "question": "Estimate the chance that at least 1 of 14 subgroups clears the line by luck alone.",
         "answer": "About 51% — near enough a coin toss.",
-        "why": "Each test carries its own small chance of being wrong, and the chances do not stay small when they are stacked. With independent tests the probability that none misfires is 0.95 multiplied by itself once per test, so 14 tests leave barely half the outcomes clean. That is the arithmetic behind every impressive subgroup: not that anybody cheated, but that a room looking in 14 places will usually find something in 1 of them. Real subgroups overlap and correlate, which softens the number without changing the lesson.\n",
+        "why": "Each test carries its own small chance of being wrong, and the chances do not stay small when they are stacked. With independent tests the probability that none misfires is 0.95 multiplied by itself once per test, so 14 tests leave barely half the outcomes clean. That is the arithmetic behind every impressive subgroup: not that anybody cheated, but that a room looking in 14 places will usually find something in one of them. Real subgroups overlap and correlate, which softens the number without changing the lesson.\n",
         "givens": [
           "14 subgroups were prespecified",
           "Each is tested at the 5% level"
@@ -2808,7 +2808,7 @@ export const CURRICULUM = {
     },
     {
       "day": 7,
-      "title": "40 hours before the lock",
+      "title": "Forty hours before the lock",
       "scene": "Lucia Marchetti has a fortnight, 31 sites and 40 monitoring hours she can still deploy. Four recoverable gaps compete for that time. 14 people who withdrew consent are locked out of the plan and cannot be contacted again.",
       "takeaway": "A monitoring plan is a set of questions it can answer and questions it deliberately leaves unanswered.",
       "place": "Monitors' Room",
@@ -2821,7 +2821,7 @@ export const CURRICULUM = {
       "story": "Lucia Marchetti has a fortnight, 31 sites and 40 monitoring hours she can still deploy. Four recoverable gaps compete for that time. 14 people who withdrew consent are locked out of the plan and cannot be contacted again.",
       "game": {
         "type": "ALLOCATE",
-        "title": "40 hours before the lock",
+        "title": "Forty hours before the lock",
         "setup": "Monitors' Room",
         "play": "Allocate the monitoring time so the required questions can still be answered before the file is frozen.",
         "task": "Allocate the monitoring time so the required questions can still be answered before the file is frozen.",
@@ -2965,8 +2965,8 @@ export const CURRICULUM = {
     },
     {
       "day": 9,
-      "title": "3 days, 41 queries",
-      "scene": "41 queries remain and the interim file locks in 3 working days. 1 concerns a primary-event date, 1 a duplicated visit, and 39 are contact-field corrections. Renner has two people available, and you can keep only one problem yourself.",
+      "title": "Three days, forty-one queries",
+      "scene": "41 queries remain and the interim file locks in 3 working days. One concerns a primary-event date, one a duplicated visit, and 39 are contact-field corrections. Renner has two people available, and you can keep only one problem yourself.",
       "takeaway": "Urgency belongs to the problem whose consequence becomes irreversible first, not to the problem making the most noise.",
       "place": "Monitors' Room",
       "guide": "Forty-one queries, three working days, two people, and one problem you keep yourself. For each thing you hand over, name the owner, the first action, and what brings it back to you. Thirty-nine of the queries are contact-field corrections, which is a volume problem. The other two are not.",
@@ -2975,10 +2975,10 @@ export const CURRICULUM = {
         "Which to keep. The primary-event date is the one that feeds the interim analysis directly. A wrong date can move an event across the analysis boundary, which is the one error in this list that changes a result rather than a record.",
         "What a return condition looks like here. Not 'come back if stuck'. A rule: any correction that would change a date, or any duplicate that cannot be resolved from the source document, comes back to you rather than being decided."
       ],
-      "story": "41 queries remain and the interim file locks in 3 working days. 1 concerns a primary-event date, 1 a duplicated visit, and 39 are contact-field corrections. Renner has two people available, and you can keep only one problem yourself.",
+      "story": "41 queries remain and the interim file locks in 3 working days. One concerns a primary-event date, one a duplicated visit, and 39 are contact-field corrections. Renner has two people available, and you can keep only one problem yourself.",
       "game": {
         "type": "DELEGATE",
-        "title": "3 days, 41 queries",
+        "title": "Three days, forty-one queries",
         "setup": "Monitors' Room",
         "play": "Keep the one query that cannot miss Thursday's cut and delegate the others with an owner, first action and return condition.",
         "task": "Keep the one query that cannot miss Thursday's cut and delegate the others with an owner, first action and return condition.",
@@ -3024,7 +3024,7 @@ export const CURRICULUM = {
               "id": "duplicate_visit",
               "label": "Visit appears twice in one week",
               "trend": "stable",
-              "rate": "1 duplicated visit is open; no second duplicate has appeared in the last 6 working days.",
+              "rate": "One duplicated visit is open; no second duplicate has appeared in the last 6 working days.",
               "consequence": "A visit-level measure could be duplicated until the source note is checked."
             },
             {
@@ -3115,7 +3115,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "The plan that was in force",
-      "scene": "Nkechi Umeh, the regulatory lead, has four versions of the analysis plan, each dated. Feldman wants to know which 1 governs the interim in 20 days, and the sponsor's lawyer wants to know how anybody could prove it.",
+      "scene": "Nkechi Umeh, the regulatory lead, has four versions of the analysis plan, each dated. Feldman wants to know which One governs the interim in 20 days, and the sponsor's lawyer wants to know how anybody could prove it.",
       "takeaway": "A result is worth more when the plan that produced it can be dated.",
       "place": "Regulatory & Registry",
       "guide": "All four steps will happen, so ask what order makes the claim provable. Prespecification is a claim about time: this analysis was chosen before anybody could see what it would give. The only support for that afterwards is a dated public record made before the data existed. Reverse any two of these and the arithmetic is still right about a question chosen after the fact.",
@@ -3124,7 +3124,7 @@ export const CURRICULUM = {
         "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
         "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
       ],
-      "story": "Nkechi Umeh, the regulatory lead, has four versions of the analysis plan, each dated. Feldman wants to know which 1 governs the interim in 20 days, and the sponsor's lawyer wants to know how anybody could prove it.",
+      "story": "Nkechi Umeh, the regulatory lead, has four versions of the analysis plan, each dated. Feldman wants to know which One governs the interim in 20 days, and the sponsor's lawyer wants to know how anybody could prove it.",
       "game": {
         "type": "SEQUENCE",
         "title": "The plan that was in force",
@@ -3572,7 +3572,7 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "One relative risk, many absolute effects",
-      "scene": "2 lines for the board chair’s closed briefing describe the same CLARION-3 result. 1 says risk fell about 22%; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.",
+      "scene": "2 lines for the board chair’s closed briefing describe the same CLARION-3 result. One says risk fell about 22%; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.",
       "takeaway": "A relative effect does not determine the absolute benefit until the baseline risk is known.",
       "place": "Regulatory & Registry",
       "guide": "Two controls slide the two arm risks along a family of pairs that all give the same relative result. Find out how wide that family is before choosing a line for the briefing. Then bring in the second measurement, which fixes one arm rather than the ratio, and watch the family collapse to a single pair.",
@@ -3581,7 +3581,7 @@ export const CURRICULUM = {
         "What the absolute figure adds. Four events prevented per hundred people is a statement about how common the outcome is, which the ratio deliberately hides. Both sentences are true of the same result, and only one of them tells the chair what the trial would do for a patient.",
         "Why boards are shown both. A relative figure travels well between populations and exaggerates importance in rare outcomes. An absolute figure is honest about scale and does not transfer to a population with a different baseline. Presenting one alone is the most common way a true result misleads."
       ],
-      "story": "2 lines for the board chair’s closed briefing describe the same CLARION-3 result. 1 says risk fell about 22%; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.",
+      "story": "2 lines for the board chair’s closed briefing describe the same CLARION-3 result. One says risk fell about 22%; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.",
       "game": {
         "type": "DEGENERACY",
         "title": "One relative risk, many absolute effects",

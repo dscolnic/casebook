@@ -50,27 +50,6 @@ export const CURRICULUM = {
       "assumes": [
         "the whole grid runs at one speed, and that speed is what frequency measures"
       ],
-      "equations": [
-        {
-          "e": "part = whole × share",
-          "c": "a share of the demand, or of the customers",
-          "v": [
-            [
-              "part",
-              "how much that share comes to"
-            ],
-            [
-              "whole",
-              "the total"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
-        }
-      ],
       "concept": {
         "n": 8,
         "c": "Supply has to match demand, minute by minute",
@@ -1162,7 +1141,7 @@ export const CURRICULUM = {
         "task": "Say how the two readings should relate if both are right.",
         "question": "Which relation should hold if both instruments are right?",
         "answer": "The peak is about 1.4 times the meter's reading. Both are right, and they are quoting different things about the same voltage.",
-        "why": "An alternating voltage is never one number. It rises to a peak, falls back through zero, and does the same the other way, fifty times a second. The scope shows the highest it reaches. The meter shows the steady voltage that would do the same work — heat the same kettle in the same time. For this shape of wave the peak sits about one and a half times higher, and 325 against 230 is exactly that. Two instruments, one voltage.",
+        "why": "An alternating voltage is never one number. It rises to a peak, falls back through zero, and does the same the other way, fifty times a second. The scope shows the highest it reaches. The meter shows the steady voltage that would do the same work — heat the same kettle in the same time. For this shape of wave the peak sits about 1.4 times as high, and 325 against 230 is exactly that. Two instruments, one voltage.",
         "rebuttals": [
           "Twice would make the peak 460, and the scope is showing 325.",
           "The meter reads lower than the peak, so multiplying it the other way goes in the wrong direction.",
@@ -1174,7 +1153,7 @@ export const CURRICULUM = {
           "The meter's number is about 1.4 times the peak.",
           "The meter's number is about half the peak."
         ],
-        "correctChoice": "The peak is about twice the meter's number."
+        "correctChoice": "The peak is about 1.4 times the meter's number."
       },
       "assumes": [
         "an alternating voltage rises and falls, over and over, rather than sitting still"
@@ -1278,7 +1257,8 @@ export const CURRICULUM = {
               "the percentage, written as a decimal"
             ]
           ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
+          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it.",
+          "computed": true
         },
         {
           "e": "spare = what can be made − what is being used",
@@ -1696,7 +1676,8 @@ export const CURRICULUM = {
               "the percentage, written as a decimal"
             ]
           ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
+          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it.",
+          "computed": true
         }
       ],
       "concept": {

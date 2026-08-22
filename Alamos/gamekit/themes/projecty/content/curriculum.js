@@ -451,7 +451,7 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Spontaneous fission and neutron backgrounds",
-      "scene": "A sample on the bench is emitting neutrons all by itself, at a rate the counters can measure. 2 assembly schemes are on the table, and 1 takes 1000 times longer than the other.",
+      "scene": "A sample on the bench is emitting neutrons all by itself, at a rate the counters can measure. 2 assembly schemes are on the table, and one takes 1000 times longer than the other.",
       "takeaway": "The same background source term is negligible or decisive depending on how long the system is exposed to it.",
       "place": "",
       "guide": "Four numbers: two rates and two windows. Ask of each which assembly it belongs to. The rate is the same either way and the window is not. A thousandth of a second gives a thousand times as many chances as a millionth. The material stays identical while the verdict changes.",
@@ -459,11 +459,11 @@ export const CURRICULUM = {
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "A sample on the bench is emitting neutrons all by itself, at a rate the counters can measure. 2 assembly schemes are on the table, and 1 takes 1000 times longer than the other.",
+      "story": "A sample on the bench is emitting neutrons all by itself, at a rate the counters can measure. 2 assembly schemes are on the table, and one takes 1000 times longer than the other.",
       "game": {
         "type": "BALLPARK",
         "title": "Spontaneous fission and neutron backgrounds",
-        "setup": "A sample emits spontaneous-fission neutrons at about 10^4 per second. A slow mechanical assembly takes about 10^-3 s; a fast 1 takes about 10^-6 s.",
+        "setup": "A sample emits spontaneous-fission neutrons at about 10^4 per second. A slow mechanical assembly takes about 10^-3 s; a fast one takes about 10^-6 s.",
         "play": "Estimate the neutrons expected during the slow assembly, then compare with the fast one.",
         "task": "Estimate the neutrons expected during the slow assembly, then compare with the fast one.",
         "question": "Estimate the neutrons expected during the slow assembly, then compare with the fast one.",
@@ -2613,7 +2613,7 @@ export const CURRICULUM = {
           "baseline": 14,
           "response": -13,
           "noise": 1,
-          "hint": "Run 1 substitution at a time and compare the channel-to-channel spread with the 14 ns live baseline. After you find a change that removes the spread, restore the original path and check that the spread returns.",
+          "hint": "Run one substitution at a time and compare the channel-to-channel spread with the 14 ns live baseline. After you find a change that removes the spread, restore the original path and check that the spread returns.",
           "run": "Run the measurement",
           "commit": "Name it"
         }

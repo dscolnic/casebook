@@ -103,7 +103,8 @@ export default {
     + 'hundred, which is the difference between damage to a city and damage to a country. You direct '
     + 'the campaign: the telescopes that track it, a radar window that opens once in eleven years, and '
     + 'a deflection mission that would have to launch years before anyone could be certain it is '
-    + 'needed.',
+    + 'needed. Dr. Anna Fischer, who runs the radar, gets that window once and has to say which '
+    + 'night it is spent on.',
   ],
 
   // How it ends. Printed on the last page of the book and shown when the campaign

@@ -2210,6 +2210,27 @@ export const CURRICULUM = {
       "assumes": [
         "a claim is supported when the evidence would have come out differently if it were false"
       ],
+      "equations": [
+        {
+          "e": "part = whole × share",
+          "c": "a share of a total, as a percentage",
+          "v": [
+            [
+              "part",
+              "how much that share comes to"
+            ],
+            [
+              "whole",
+              "the total"
+            ],
+            [
+              "share",
+              "the percentage, written as a decimal"
+            ]
+          ],
+          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
+        }
+      ],
       "concept": {
         "n": 16,
         "c": "Cold, power and daylight are the limits a polar camp works inside",

@@ -33,6 +33,9 @@ export default {
   title: 'Ice Core',
   subtitle: 'Season Science Lead · Vestri Dome',
 
+  // Each mission is one day of the season before the plane comes in. The plan card prints this in front of the mission number.
+  dayNoun: 'Day',
+
   // The place. `site.kind` picks the world module in vite.config.js:
   //   'outdoor'   engine/world/outdoorTown.js — buildings on terrain
   //   'interior'  engine/world/interiorSite.js — a spine with rooms off it

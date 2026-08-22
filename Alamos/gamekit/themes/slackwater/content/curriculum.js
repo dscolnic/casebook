@@ -30,6 +30,7 @@ export const CURRICULUM = {
           "start": "h(t) = A·cos(ω₁t) + A·cos(ω₂t)",
           "goal": "the interval between one spring tide and the next, in days",
           "startNote": "ω₁ = 28.98 °/h for the moon term, ω₂ = 30.00 °/h for the sun term, A = 1.7 m for both this month",
+          "askRule": true,
           "rules": [
             "trigonometric identity",
             "rearrangement",
@@ -287,6 +288,7 @@ export const CURRICULUM = {
           "start": "R = Σ_{n=9}^{37} Aₙ·cos(ωₙt − φₙ)",
           "goal": "a ceiling on |R| in metres, valid at any hour",
           "startNote": "the twenty-nine dropped amplitudes are 0.041, 0.033, 0.028, 0.022 and twenty-five more totalling 0.066 m",
+          "askRule": true,
           "rules": [
             "the size of a cosine",
             "triangle inequality",
@@ -658,6 +660,7 @@ export const CURRICULUM = {
           "start": "Q(η) = C·(H + η)^{3/2}",
           "goal": "the second-order term of Q, written in terms of the tidal movement",
           "startNote": "H = 2.1 m mean head, η the tidal movement about it, with amplitude a = 0.85 m",
+          "askRule": true,
           "rules": [
             "the power rule",
             "the coefficients of a Taylor polynomial",
@@ -853,6 +856,7 @@ export const CURRICULUM = {
           "start": "|R₂| ≤ M·|η|³ / 3!",
           "goal": "a ceiling on the error of the second-order expansion, as a fraction of the mean discharge",
           "startNote": "the third derivative of C(H + η)^{3/2} is −(3/8)C(H + η)^{−3/2}; H = 2.1 m, |η| ≤ 0.85 m",
+          "askRule": true,
           "rules": [
             "the form of the remainder",
             "the largest value on an interval",
@@ -1082,6 +1086,7 @@ export const CURRICULUM = {
           "start": "term n = cₙ·(η/H)ⁿ,  with cₙ₊₁/cₙ = (3/2 − n)/(n + 1)",
           "goal": "the largest movement for which the expansion has a total",
           "startNote": "H = 2.1 m; tomorrow's movement including the surge is |η| = 1.40 m",
+          "askRule": true,
           "rules": [
             "the ratio of consecutive terms",
             "taking the limit",
@@ -1280,6 +1285,7 @@ export const CURRICULUM = {
           "start": "x(t) = 5600·sin(πt/6.2),  y(t) = 380t − 14t²",
           "goal": "the speed at t = 2.0 h, in metres an hour",
           "startNote": "metres, with t in hours from local low water; the tide here comes round in 12.4 hours",
+          "askRule": true,
           "rules": [
             "chain rule",
             "power rule",
@@ -1462,6 +1468,7 @@ export const CURRICULUM = {
           "start": "x(t) = 300t²,  y(t) = 200t³",
           "goal": "the length of the path from t = 0 to t = 2, in metres",
           "startNote": "metres, with t in hours from release; the launch surveyed the float from t = 0 to t = 2",
+          "askRule": true,
           "rules": [
             "power rule",
             "definition of speed",
@@ -1839,6 +1846,7 @@ export const CURRICULUM = {
           "start": "r(θ) = 1.4 + 0.9·cos θ",
           "goal": "the area the rose encloses over that half turn",
           "startNote": "metres a second, with θ the bearing in radians; the ebb occupies θ from −π/2 to +π/2",
+          "askRule": true,
           "rules": [
             "area of a thin wedge",
             "expansion of a square",
@@ -2398,6 +2406,7 @@ export const CURRICULUM = {
           "start": "dh/dt = k·√(H − h)",
           "goal": "the time for h to reach H, in minutes",
           "startNote": "H = 7.4 m held outside, h₀ = 4.3 m in the impoundment, k = 0.11 in metres and minutes",
+          "askRule": true,
           "rules": [
             "separation of the variables",
             "integration of each side",
@@ -2753,6 +2762,7 @@ export const CURRICULUM = {
           "start": "M = ∫₀^{T} t·q₀·cos(ωt) dt",
           "goal": "the flow-weighted mean time, in hours into the ebb",
           "startNote": "ω = 0.5068 rad/h, T = 3.1 h so that ωT = π/2; the total release is ∫₀^T q₀cos(ωt)dt = q₀/ω",
+          "askRule": true,
           "rules": [
             "the choice of the two factors",
             "integration by parts",
@@ -3182,6 +3192,7 @@ export const CURRICULUM = {
           "start": "E = ∫₀^∞ 48·e^(−t/6.2) dt",
           "goal": "the total exposure, in kilogram-tides",
           "startNote": "kilograms against tides; the decay time is 6.2 tides",
+          "askRule": true,
           "rules": [
             "the definition of an improper integral",
             "antidifferentiation",
@@ -3437,6 +3448,7 @@ export const CURRICULUM = {
           "start": "a₀ = 0.34 m,  each return = 0.62 × the one before it",
           "goal": "the total height at the wall head, in metres",
           "startNote": "the round trip along the wall and back takes about one forcing period, so the returns arrive in step",
+          "askRule": true,
           "rules": [
             "the form of the nth term",
             "the partial sum",

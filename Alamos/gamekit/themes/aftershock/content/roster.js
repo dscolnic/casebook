@@ -47,7 +47,7 @@ export const ROSTER = [
     "role": "Geotechnical engineer",
     "division": "GEO",
     "color": "#8e6b2f",
-    "bio": "<p><p>She wrote her thesis on the fill under this town, which nobody read at the time and four people have asked her for this week. She can tell you which streets were creek in 1910 and it turns out those are the streets with sand in them now.</p> <p>She is the 1 who keeps saying that the buildings are not the story, the ground is.</p></p>",
+    "bio": "<p><p>She wrote her thesis on the fill under this town, which nobody read at the time and four people have asked her for this week. She can tell you which streets were creek in 1910 and it turns out those are the streets with sand in them now.</p> <p>She is the one who keeps saying that the buildings are not the story, the ground is.</p></p>",
     "quiz": [
       {
         "q": "Why does Navarro care which streets were a creek a century ago?",

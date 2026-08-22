@@ -30,6 +30,7 @@ export const CURRICULUM = {
           "start": "n₁·sin θ₁ = n₂·sin θ₂",
           "goal": "the largest launch angle from the axis, in degrees, and the numerical aperture",
           "startNote": "core n₁ = 1.4682, cladding n₂ = 1.4629, air n = 1.0003",
+          "askRule": true,
           "rules": [
             "Snell's law",
             "the critical-angle condition",
@@ -462,6 +463,7 @@ export const CURRICULUM = {
           "start": "v = c/n,  d = v·t/2",
           "goal": "the distance along the fibre to the event, in kilometres",
           "startNote": "c = 2.998 × 10⁸ m/s, n = 1.4682, round-trip delay t = 828.6 µs",
+          "askRule": true,
           "rules": [
             "the speed of light in a material",
             "the return journey",
@@ -832,6 +834,7 @@ export const CURRICULUM = {
           "start": "loss(dB) = 10·log₁₀(P_in/P_out)",
           "goal": "the total loss in decibels, and the margin against the allowance",
           "startNote": "84.6 km at 0.19 dB/km, 11 joints at 0.15 dB, one event at 4.1 dB, allowance 24 dB",
+          "askRule": true,
           "rules": [
             "loss per unit length",
             "decibels add along a path",
@@ -1066,6 +1069,7 @@ export const CURRICULUM = {
           "start": "d_route = d_optical × (n_core/n_group) ÷ (1 + h) ÷ (1 + s)",
           "goal": "the distance along the route, in kilometres",
           "startNote": "d_optical = 84.60 km at n = 1.4682; n_group = 1.4718; helix h = 0.003; slack s = 0.015",
+          "askRule": true,
           "rules": [
             "the index a pulse travels at",
             "the length of fibre in a cable",
@@ -1317,6 +1321,7 @@ export const CURRICULUM = {
           "start": "total = span + joints + event",
           "goal": "the residue after the pump is accounted for, and the margin now",
           "startNote": "span 16.1 dB, joints 1.65 dB, event 4.1 dB, allowance 24 dB, the switch returned 3.6 dB",
+          "askRule": true,
           "rules": [
             "decibels add along a path",
             "attributing a term",
@@ -1523,6 +1528,7 @@ export const CURRICULUM = {
           "start": "R = ((n₁ − n₂)/(n₁ + n₂))²",
           "goal": "the reflected fraction at a dry end, and the same in decibels",
           "startNote": "glass n₁ = 1.4682; air n₂ = 1.0003; gel n₂ = 1.4600",
+          "askRule": true,
           "rules": [
             "the reflection at a step",
             "power as the square of amplitude",
@@ -1858,6 +1864,7 @@ export const CURRICULUM = {
           "start": "2·n·t = (m + ½)·λ",
           "goal": "the thickness in nanometres and the index the film should have",
           "startNote": "glass 1.4682, air 1.0003, λ = 1550 nm in vacuum; take the thinnest film that works",
+          "askRule": true,
           "rules": [
             "the path difference in a film",
             "the wavelength inside a material",
@@ -2207,6 +2214,7 @@ export const CURRICULUM = {
           "start": "E = h·f = h·c/λ",
           "goal": "the photon energy in electron volts, and the arrival rate for one milliwatt",
           "startNote": "h = 6.626 × 10⁻³⁴ J·s, c = 2.998 × 10⁸ m/s, λ = 1550 nm, 1 eV = 1.602 × 10⁻¹⁹ J",
+          "askRule": true,
           "rules": [
             "the quantum of energy",
             "wavelength and frequency",
@@ -2599,6 +2607,7 @@ export const CURRICULUM = {
           "start": "P_signal ≤ P_pump × (E_signal/E_pump)",
           "goal": "the ceiling on added signal power, in milliwatts, and the loss if the pump has fallen",
           "startNote": "pump 980 nm, signal 1550 nm, pump power as logged 118 mW; suspected now 46 mW",
+          "askRule": true,
           "rules": [
             "one arrival for one arrival",
             "the energy of a photon",
@@ -2982,6 +2991,7 @@ export const CURRICULUM = {
           "start": "R_λ = η·e/(h·f)",
           "goal": "the current per watt, in amps a watt",
           "startNote": "η = 0.82, e = 1.602 × 10⁻¹⁹ C, photon energy at 1550 nm = 1.28 × 10⁻¹⁹ J",
+          "askRule": true,
           "rules": [
             "a power divided by an energy",
             "the efficiency of conversion",
@@ -3359,6 +3369,7 @@ export const CURRICULUM = {
           "start": "I = I₀·e^(−μx)",
           "goal": "the fraction through the wall, and the half-value thickness",
           "startNote": "μ = 0.666 per cm in steel at this energy, x = 4.0 cm of wall",
+          "askRule": true,
           "rules": [
             "exponential attenuation",
             "the half-value thickness",
@@ -3545,6 +3556,7 @@ export const CURRICULUM = {
           "start": "A = A₀·e^(−λt),  λ = ln2/T½",
           "goal": "the fraction of the original activity left, and the factor on the exposure",
           "startNote": "T½ = 73.8 days, t = 243 days since renewal",
+          "askRule": true,
           "rules": [
             "the decay constant from the half-life",
             "exponential decay",

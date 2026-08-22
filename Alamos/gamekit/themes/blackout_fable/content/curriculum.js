@@ -3896,7 +3896,7 @@ export const BALLPARK_CALCS = {
     "explanation": "750 amps where the stator needed 15,000. The transformer trades voltage for current, twenty times up on one side and twenty times down on the other. The real power and the power factor are both facts about this machine, and neither is the ratio the current follows."
   },
   "TRANS-4": {
-    "prompt": "The total leaving the busbar is 900 A. The older circuit is 6 ohms and the newer 1 is 3 ohms. Both run between the same two busbars.",
+    "prompt": "The total leaving the busbar is 900 A. The older circuit is 6 ohms and the newer one is 3 ohms. Both run between the same two busbars.",
     "question": "Choose the total current, the other path's impedance and the sum of the two.",
     "labels": [
       "900 A  (total current)",

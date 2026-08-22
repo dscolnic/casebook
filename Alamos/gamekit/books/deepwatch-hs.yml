@@ -668,7 +668,7 @@ copy:
   machinery_control: <p><b>Machinery Control Room</b> — the plant is run from here rather than from beside it. Every gauge in this space is a report from somewhere else in the boat.</p>
   auxiliary: <p><b>Auxiliary Machinery &amp; Bilge</b> — scrubbers, oxygen generation, the drain pump and the lowest deck in the boat. Two of the three things keeping the crew alive are in this compartment.</p>
 
-# The campaign: 1 working day each, 3 stops and a callback from day 3.
+# The campaign: One working day each, 3 stops and a callback from day 3.
 missions:
   - title: Boat Walkdown
     objective: Learn the boat as a system of spaces, not a list of names.
@@ -984,7 +984,7 @@ missions:
         answer: A weak external contact
       - group: NAV
         task: Turn the tonal into a wavelength
-        title: The bearing that does not move
+        title: Six metres between crests
         relationship: >-
           λ = v ÷ f: wavelength is the speed of sound in water divided by the frequency.
         place: Control Room
@@ -1184,7 +1184,7 @@ missions:
         answer: The plot is wrong and the sounding is right
       - group: SONAR
         task: Derive the angle the sound cannot cross
-        title: Where the sound will not go
+        title: The shallowest ray that still gets through
         place: Sonar Shack
         scene: The contact was held on the surface layer for 40 minutes and is gone. Nothing changed aboard. The bathythermograph shows 1500 metres a second above the layer and 1480 below it, and Rask wants the geometry written down.
         guide: >-
@@ -1335,7 +1335,7 @@ missions:
         order: [0, 1, 2, 3]
       - group: NAV
         task: Work out how much sky the periscope can see
-        title: The margin that survives being wrong
+        title: Forty-nine degrees, and no further
         relationship: >-
           θc = arcsin(n₂ ÷ n₁): the critical angle from the ratio of the two refractive indices.
         place: Control Room
@@ -1518,12 +1518,11 @@ missions:
         place: Forward Equipment & Handling
         scene: The suspected hull connection is 90 metres below the surface. Ferro writes seawater density as 1025 kilograms per cubic metre and g as 9.81 metres per second squared. He wants the gauge pressure on the sea side of the fitting.
         guide: >-
-          Five numbers, and they are not all about the same thing. Two describe the
-          bilge: how fast the level rose, and what a centimetre of it holds. One is what
-          the drain pump can shift at this head. One is the depth, and one is where the
-          level started. Ask of each whether it describes the water coming in or the
-          water going out. A rate the pump cannot beat is a different situation from one
-          it can.
+          Five numbers, and only three of them are about the pressure. Two describe the
+          bilge instead: what the drain pump can shift at this head, and where the level
+          stood at the first reading. Ask of each whether the sea pressure at a depth
+          depends on it. The water already inside the boat does not change what is
+          pushing on the outside of the fitting.
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
@@ -1547,19 +1546,19 @@ missions:
           prompt: The fitting is 90 m deep in seawater of density 1025 kg/m³. Use g = 9.81 m/s².
           question: Estimate the gauge pressure at the fitting.
           labels:
-            - 8 cm  (rise in 1 minute)
-            - 11 gallons per cm  (this bilge)
+            - 1025 kg/m³  (density of seawater)
+            - 9.81 m/s²  (g)
+            - 90 m  (depth of the fitting)
             - 55 gpm  (drain pump at this head)
-            - 90 m  (depth)
-            - 31 cm  (level at the first reading)
-          values: [8, 11, 55, 90, 31]
+            - 31 cm  (bilge level at the first reading)
+          values: [1025, 9.81, 90, 55, 31]
           slots: 3
-          template: "{0} × {1} + {2}"
-          formula: a*b + c
+          template: "{0} × {1} × {2}"
+          formula: a*b*c
           correct: [0, 1, 2]
-          target: 143
-          tolerance: 12
-          units: gallons per minute
+          target: 904972.5
+          tolerance: 60000
+          units: Pa (about 0.91 MPa)
           solution: 1025 × 9.81 × 90 ≈ 9.05 × 10^5 Pa = 0.91 MPa, about 9 atmospheres gauge.
           explanation: Depth multiplies the weight of the water column. The result is gauge pressure; atmospheric pressure is added only if absolute pressure is needed.
       - group: ENG
@@ -1747,7 +1746,7 @@ missions:
           with a single reading is the cheapest thing you will do all watch.
       - group: ATMO
         task: Set the insulation line before the next round of readings
-        title: Smoke is not only a breathing problem
+        title: The field the insulation will not hold
         takesAsRead:
           - Coulomb's law and the electric field around a charge
         relationship: >-
@@ -1916,7 +1915,7 @@ missions:
         answer: Berthing is outside the ventilation loop and its installed sensor is also wrong
       - group: ATMO
         task: Work out how much oxygen the space is actually holding
-        title: Nine people and a shut damper
+        title: How much gas is in the compartment
         relationship: >-
           The ideal gas law, PV = nRT, rearranged to n = PV ÷ RT: the moles of gas in a sealed
           space, from its pressure, volume and temperature.
@@ -1982,7 +1981,7 @@ missions:
           of consumption divides into it cleanly, and a percentage does not.
       - group: ENG
         task: Work out where the mass spectrometer puts the ion
-        title: What one fan takes with it
+        title: The radius a heavier ion is bent to
         relationship: >-
           r = mv / (qB): the radius a magnetic field bends a moving charge to.
         place: Machinery Room
@@ -2593,7 +2592,7 @@ missions:
         answer: Water coming aboard forward
       - group: DC
         task: Work out the work the air has to do
-        title: What 1.6 cubic metres of seawater is worth
+        title: What the blow has to push against
         place: Forward Equipment & Handling
         relationship: >-
           W = PΔV: the work done by the gas expanding against sea pressure, with the pressure taken
@@ -2949,7 +2948,7 @@ missions:
           assumed value, against an option that is never impossible.
       - group: FIRE
         task: Work out the heat the run is putting into the space
-        title: The breaker nobody logged
+        title: Two hundred and thirty watts in a cable run
         place: Electrical Distribution
         relationship: >-
           P = I²R: the power dissipated as heat in a conductor, which is why doubling the current
@@ -3147,7 +3146,7 @@ missions:
           explanation: 20 hours against a four-hour transit is a comfortable margin, and knowing it is what makes securing the train a decision rather than a gamble. Had the answer been three hours, the same action would have been reckless.
       - group: SONAR
         task: Work out where the periscope forms its image
-        title: What silence buys, term by term
+        title: Where the horizon comes to focus
         place: Sonar Shack
         relationship: >-
           1/f = 1/dₒ + 1/dᵢ: the thin-lens relation, with the objective's focal length fixing the
@@ -3405,7 +3404,7 @@ missions:
         order: [0, 1, 2, 3]
       - group: FIRE
         task: Predict how long the bank stays dangerous, then time it
-        title: What the last watch left open
+        title: Predict the bleed, then meter the bank
         place: Electrical Distribution
         relationship: >-
           τ = RC: the time constant of a discharge, so the bank falls to about a third of its voltage
@@ -3597,7 +3596,7 @@ missions:
           explanation: A logarithmic level difference turns subtraction in decibels into a power ratio.
       - group: NAV
         task: Work out whether the photocathode can see the wavelength at all
-        title: The value of a different failure
+        title: One photon at eight hundred nanometres
         place: Control Room
         relationship: >-
           K_max = hf − φ: the photoelectric equation, so a photon below the work function ejects no

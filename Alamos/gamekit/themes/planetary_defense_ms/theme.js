@@ -103,7 +103,8 @@ export default {
     + 'run the campaign. The telescopes that watch it are yours, and so is the radar dish that gets one '
     + 'window in eleven years. Nobody knows yet whether this rock is the width of a street or of a '
     + 'town. That is the difference between one city and one country, and the people in both are '
-    + 'waiting on what you can find out in time.',
+    + 'waiting on what you can find out in time. Dr. Anna Fischer, who runs the radar dish, gets one '
+    + 'window in eleven years and has to pick the night.',
   ],
 
   // How it ends. Printed on the last page of the book and shown when the campaign

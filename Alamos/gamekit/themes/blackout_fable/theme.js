@@ -84,7 +84,8 @@ export default {
     + 'rest of the system with them. You are the system operator on nights. The '
     + 'power stations belong to companies you can instruct under contract and '
     + 'cannot order about. Demand rises and falls with whatever four million '
-    + 'people happen to be doing. Holding the two together, second by second, is '
+    + 'people happen to be doing. Chinelo Obi, who runs the distribution wires, would rather shed '
+    + 'fourteen thousand homes than let the frequency fall. Holding the two together, second by second, is '
     + 'the job. A fault takes seconds. Getting a system back after one has gone '
     + 'down takes days, and the hospitals on this network hold about eight hours '
     + 'of their own generation.',

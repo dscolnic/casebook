@@ -119,8 +119,7 @@
     "Signal-to-noise and detection thresholds ← Decibels and logarithmic scales",
     "Signal-to-noise and detection thresholds ← Spectra: broadband and narrowband",
     "Snell's law, ray paths and shadow zones ← Sound in water: refraction, layers, propagation paths",
-    "Spectra: broadband and narrowband ← Resonance and harmonics",
-    "Spectra: broadband and narrowband ← Sound as a wave: frequency, wavelength, speed"
+    "Spectra: broadband and narrowband ← Resonance and harmonics"
   ],
   "bring_them_home": [
     "Simple harmonic motion and resonance ← Springs and Hooke's law"
@@ -206,7 +205,8 @@
     "A test can be wrong in two different directions ← Counting cases as a rate, not just as a number",
     "Breaking one step of the chain stops the spread ← One person passing it to more than one is why it grows",
     "Deciding while the answer is still unknown ← What a measurement can honestly say, and what it cannot",
-    "Germs change, and a change can beat a treatment ← Some illnesses are caused by living things too small to see"
+    "Germs change, and a change can beat a treatment ← Some illnesses are caused by living things too small to see",
+    "One person passing it to more than one is why it grows ← Counting cases as a rate, not just as a number"
   ],
   "bring_them_home_ms": [
     "A budget: a finite store shared between competing demands ← Rates: how fast something is used up, and how long it lasts",

@@ -141,7 +141,7 @@ export const CURRICULUM = {
     },
     {
       "day": 4,
-      "title": "Kit that cannot be vouched for",
+      "title": "How firmly a failure rate can be stated",
       "scene": "A cold-chain excursion covers 140 kits and the question is what fraction of them are still within specification. Nine of a sample of 140 have failed the assay, and Bruno Aches wants to know how firm that nine per cent is before condemning the batch.",
       "takeaway": "A proportion's standard error depends on the proportion and on the root of the count.",
       "place": "Kit Warehouse & Cold Room",
@@ -154,7 +154,7 @@ export const CURRICULUM = {
       "story": "A cold-chain excursion covers 140 kits and the question is what fraction of them are still within specification. Nine of a sample of 140 have failed the assay, and Bruno Aches wants to know how firm that nine per cent is before condemning the batch.",
       "game": {
         "type": "BALLPARK",
-        "title": "Kit that cannot be vouched for",
+        "title": "How firmly a failure rate can be stated",
         "setup": "Kit Warehouse & Cold Room",
         "play": "Work out how much a proportion would wobble",
         "task": "Work out how much a proportion would wobble",
@@ -546,7 +546,7 @@ export const CURRICULUM = {
     },
     {
       "day": 5,
-      "title": "The blind that had already gone",
+      "title": "What the line predicts for this patient",
       "scene": "The adjudication panel has a fitted line relating baseline haemoglobin to the walk test, and a reader who unblinded herself is arguing her reads were unaffected. Cardoso wants the predicted distance for the disputed patient before the argument goes further.",
       "takeaway": "A line predicts from an intercept and a slope, and the slope is a rate with units.",
       "place": "Adjudication Room",
@@ -559,7 +559,7 @@ export const CURRICULUM = {
       "story": "The adjudication panel has a fitted line relating baseline haemoglobin to the walk test, and a reader who unblinded herself is arguing her reads were unaffected. Cardoso wants the predicted distance for the disputed patient before the argument goes further.",
       "game": {
         "type": "BALLPARK",
-        "title": "The blind that had already gone",
+        "title": "What the line predicts for this patient",
         "setup": "Adjudication Room",
         "play": "Predict the walk distance from the line",
         "task": "Predict the walk distance from the line",
@@ -738,7 +738,7 @@ export const CURRICULUM = {
     },
     {
       "day": 7,
-      "title": "Nothing left in the tray",
+      "title": "Predict it from the line, then read the record",
       "scene": "The adjudication tray is empty and one reader's file is still open. The line predicts 409 metres for the disputed patient. Cardoso will not close the file on an argument, so the recorded value gets read out of the database rather than remembered.",
       "takeaway": "A residual is observed minus predicted, and its pattern says more than its size.",
       "place": "Adjudication Room",
@@ -751,7 +751,7 @@ export const CURRICULUM = {
       "story": "The adjudication tray is empty and one reader's file is still open. The line predicts 409 metres for the disputed patient. Cardoso will not close the file on an argument, so the recorded value gets read out of the database rather than remembered.",
       "game": {
         "type": "VERIFY",
-        "title": "Nothing left in the tray",
+        "title": "Predict it from the line, then read the record",
         "setup": "Adjudication Room",
         "play": "Predict the read, then open the record",
         "task": "Predict the read, then open the record",
@@ -1432,7 +1432,7 @@ export const CURRICULUM = {
   "STAT": [
     {
       "day": 1,
-      "title": "A trial ends at a number of events",
+      "title": "Nine ages, and their middle",
       "scene": "The baseline table has to be signed before the first interim look. Ines Cardoso has the ages of the nine people randomised at the Lisbon site and wants the mean in the table rather than a range.",
       "takeaway": "A mean is the sum over the count, and one extreme value moves it.",
       "place": "Statistics & Analysis",
@@ -1445,7 +1445,7 @@ export const CURRICULUM = {
       "story": "The baseline table has to be signed before the first interim look. Ines Cardoso has the ages of the nine people randomised at the Lisbon site and wants the mean in the table rather than a range.",
       "game": {
         "type": "BALLPARK",
-        "title": "A trial ends at a number of events",
+        "title": "Nine ages, and their middle",
         "setup": "Statistics & Analysis",
         "play": "Work out the average from the table",
         "task": "Work out the average from the table",
@@ -1580,7 +1580,7 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "How much of the trial has happened",
+      "title": "How many events the year should bring",
       "scene": "The board wants to know how many primary events the trial should have by the end of the year. Cardoso has the event rate in each arm and the number of people at risk, and the answer decides whether the second interim look happens at all.",
       "takeaway": "An expected count weights each outcome by its probability and adds them.",
       "place": "Statistics & Analysis",
@@ -1593,7 +1593,7 @@ export const CURRICULUM = {
       "story": "The board wants to know how many primary events the trial should have by the end of the year. Cardoso has the event rate in each arm and the number of people at risk, and the answer decides whether the second interim look happens at all.",
       "game": {
         "type": "BALLPARK",
-        "title": "How much of the trial has happened",
+        "title": "How many events the year should bring",
         "setup": "Statistics & Analysis",
         "play": "Work out how many events to expect",
         "task": "Work out how many events to expect",
@@ -1640,7 +1640,7 @@ export const CURRICULUM = {
     },
     {
       "day": 4,
-      "title": "Everyone as assigned",
+      "title": "Twelve of two hundred and forty",
       "scene": "Twelve people at one site were given the wrong kit. The site says it was chance, and Cardoso wants the probability of exactly twelve dispensing errors in that site's 240 dispensings before she accepts the explanation.",
       "takeaway": "A binomial count needs a fixed number of tries, one rate, and no influence between them.",
       "place": "Statistics & Analysis",
@@ -1653,7 +1653,7 @@ export const CURRICULUM = {
       "story": "Twelve people at one site were given the wrong kit. The site says it was chance, and Cardoso wants the probability of exactly twelve dispensing errors in that site's 240 dispensings before she accepts the explanation.",
       "game": {
         "type": "BALLPARK",
-        "title": "Everyone as assigned",
+        "title": "Twelve of two hundred and forty",
         "setup": "Statistics & Analysis",
         "play": "Work out the chance of exactly that many",
         "task": "Work out the chance of exactly that many",
@@ -1935,7 +1935,7 @@ export const CURRICULUM = {
     },
     {
       "day": 7,
-      "title": "The subgroup that crossed",
+      "title": "How far the over-seventies sit from the rest",
       "scene": "The diabetic subgroup crossed the line and somebody has drafted a sentence about it. Cardoso has the observed event rate in that subgroup and the rate the trial as a whole assumed, and she wants the test statistic before the sentence goes anywhere.",
       "takeaway": "A test statistic is a distance from the claim, in units of its own standard error.",
       "place": "Statistics & Analysis",
@@ -1948,7 +1948,7 @@ export const CURRICULUM = {
       "story": "The diabetic subgroup crossed the line and somebody has drafted a sentence about it. Cardoso has the observed event rate in that subgroup and the rate the trial as a whole assumed, and she wants the test statistic before the sentence goes anywhere.",
       "game": {
         "type": "BALLPARK",
-        "title": "The subgroup that crossed",
+        "title": "How far the over-seventies sit from the rest",
         "setup": "Statistics & Analysis",
         "play": "Work out the test statistic for the subgroup",
         "task": "Work out the test statistic for the subgroup",
@@ -2033,7 +2033,7 @@ export const CURRICULUM = {
     },
     {
       "day": 8,
-      "title": "How often something clears the line by luck",
+      "title": "Four cells, and what the table is worth",
       "scene": "The adverse-event table has four categories and two arms, and somebody has noticed that one category looks uneven. Cardoso has the observed counts and the expected ones under no difference, and wants the statistic across the whole table rather than an argument about one cell.",
       "takeaway": "Chi-square scales each cell's shortfall by what was expected there, and adds them.",
       "place": "Statistics & Analysis",
@@ -2046,7 +2046,7 @@ export const CURRICULUM = {
       "story": "The adverse-event table has four categories and two arms, and somebody has noticed that one category looks uneven. Cardoso has the observed counts and the expected ones under no difference, and wants the statistic across the whole table rather than an argument about one cell.",
       "game": {
         "type": "BALLPARK",
-        "title": "How often something clears the line by luck",
+        "title": "Four cells, and what the table is worth",
         "setup": "Statistics & Analysis",
         "play": "Work out the chi-square on the table",
         "task": "Work out the chi-square on the table",
@@ -2113,7 +2113,7 @@ export const CURRICULUM = {
     },
     {
       "day": 9,
-      "title": "What the rest of the trial would probably do",
+      "title": "Twenty-nine metres, against its own spread",
       "scene": "The board has to decide whether to carry on, and the walk-test difference between arms is the evidence in front of it. Cardoso has both arm means, both standard deviations and both sample sizes, and no pooled figure to hide behind.",
       "takeaway": "The difference of two means has a standard error built from both arms' variances.",
       "place": "Statistics & Analysis",
@@ -2126,7 +2126,7 @@ export const CURRICULUM = {
       "story": "The board has to decide whether to carry on, and the walk-test difference between arms is the evidence in front of it. Cardoso has both arm means, both standard deviations and both sample sizes, and no pooled figure to hide behind.",
       "game": {
         "type": "BALLPARK",
-        "title": "What the rest of the trial would probably do",
+        "title": "Twenty-nine metres, against its own spread",
         "setup": "Statistics & Analysis",
         "play": "Work out the two-sample statistic",
         "task": "Work out the two-sample statistic",
@@ -2341,7 +2341,7 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "What a short screening log says",
+      "title": "Eighteen entered of twenty-four eligible",
       "scene": "The screening log at the smallest site is short and the monitor thinks the site is turning people away. Of 80 screened, 24 met the criteria and 18 of those were entered. Cardoso wants the rate among the eligible, not among everybody.",
       "takeaway": "A conditional probability narrows the population first, and the narrowing is the claim.",
       "place": "Monitors' Room",
@@ -2354,7 +2354,7 @@ export const CURRICULUM = {
       "story": "The screening log at the smallest site is short and the monitor thinks the site is turning people away. Of 80 screened, 24 met the criteria and 18 of those were entered. Cardoso wants the rate among the eligible, not among everybody.",
       "game": {
         "type": "BALLPARK",
-        "title": "What a short screening log says",
+        "title": "Eighteen entered of twenty-four eligible",
         "setup": "Monitors' Room",
         "play": "Work out the rate among the ones who qualify",
         "task": "Work out the rate among the ones who qualify",
@@ -2455,7 +2455,7 @@ export const CURRICULUM = {
     },
     {
       "day": 5,
-      "title": "Who a wider door lets in",
+      "title": "Nine hundred people, and how tight the mean gets",
       "scene": "Widening the criteria would add about 300 people and Cardoso is asked what that buys. The walk-test measure scatters 96 metres across patients, and the question is how precisely the trial would know the average with 900 rather than 600.",
       "takeaway": "An average scatters by the population spread over the root of the count.",
       "place": "Monitors' Room",
@@ -2468,7 +2468,7 @@ export const CURRICULUM = {
       "story": "Widening the criteria would add about 300 people and Cardoso is asked what that buys. The walk-test measure scatters 96 metres across patients, and the question is how precisely the trial would know the average with 900 rather than 600.",
       "game": {
         "type": "BALLPARK",
-        "title": "Who a wider door lets in",
+        "title": "Nine hundred people, and how tight the mean gets",
         "setup": "Monitors' Room",
         "play": "Work out how much the average would wobble",
         "task": "Work out how much the average would wobble",
@@ -2678,7 +2678,7 @@ export const CURRICULUM = {
     },
     {
       "day": 7,
-      "title": "40 hours before the lock",
+      "title": "Forty hours before the lock",
       "scene": "Lucia Marchetti has a fortnight, 31 sites and 40 monitoring hours she can still deploy. Four recoverable gaps compete for that time. 14 people who withdrew consent are locked out of the plan and cannot be contacted again.",
       "takeaway": "A monitoring plan is a set of questions it can answer and questions it deliberately leaves unanswered.",
       "place": "Monitors' Room",
@@ -2691,7 +2691,7 @@ export const CURRICULUM = {
       "story": "Lucia Marchetti has a fortnight, 31 sites and 40 monitoring hours she can still deploy. Four recoverable gaps compete for that time. 14 people who withdrew consent are locked out of the plan and cannot be contacted again.",
       "game": {
         "type": "ALLOCATE",
-        "title": "40 hours before the lock",
+        "title": "Forty hours before the lock",
         "setup": "Monitors' Room",
         "play": "Allocate the monitoring time so the required questions can still be answered before the file is frozen.",
         "task": "Allocate the monitoring time so the required questions can still be answered before the file is frozen.",
@@ -2850,8 +2850,8 @@ export const CURRICULUM = {
     },
     {
       "day": 9,
-      "title": "3 days, 41 queries",
-      "scene": "41 queries remain and the interim file locks in 3 working days. 1 concerns a primary-event date, 1 a duplicated visit, and 39 are contact-field corrections. Renner has two people available, and you can keep only one problem yourself.",
+      "title": "Three days, forty-one queries",
+      "scene": "41 queries remain and the interim file locks in 3 working days. One concerns a primary-event date, one a duplicated visit, and 39 are contact-field corrections. Renner has two people available, and you can keep only one problem yourself.",
       "takeaway": "Urgency belongs to the problem whose consequence becomes irreversible first, not to the problem making the most noise.",
       "place": "Monitors' Room",
       "guide": "Forty-one queries, three working days, two people, and one problem you keep yourself. For each thing you hand over, name the owner, the first action, and what brings it back to you. Thirty-nine of the queries are contact-field corrections, which is a volume problem. The other two are not.",
@@ -2860,10 +2860,10 @@ export const CURRICULUM = {
         "Which to keep. The primary-event date is the one that feeds the interim analysis directly. A wrong date can move an event across the analysis boundary, which is the one error in this list that changes a result rather than a record.",
         "What a return condition looks like here. Not 'come back if stuck'. A rule: any correction that would change a date, or any duplicate that cannot be resolved from the source document, comes back to you rather than being decided."
       ],
-      "story": "41 queries remain and the interim file locks in 3 working days. 1 concerns a primary-event date, 1 a duplicated visit, and 39 are contact-field corrections. Renner has two people available, and you can keep only one problem yourself.",
+      "story": "41 queries remain and the interim file locks in 3 working days. One concerns a primary-event date, one a duplicated visit, and 39 are contact-field corrections. Renner has two people available, and you can keep only one problem yourself.",
       "game": {
         "type": "DELEGATE",
-        "title": "3 days, 41 queries",
+        "title": "Three days, forty-one queries",
         "setup": "Monitors' Room",
         "play": "Keep the one query that cannot miss Thursday's cut and delegate the others with an owner, first action and return condition.",
         "task": "Keep the one query that cannot miss Thursday's cut and delegate the others with an owner, first action and return condition.",
@@ -2909,7 +2909,7 @@ export const CURRICULUM = {
               "id": "duplicate_visit",
               "label": "Visit appears twice in one week",
               "trend": "stable",
-              "rate": "1 duplicated visit is open; no second duplicate has appeared in the last 6 working days.",
+              "rate": "One duplicated visit is open; no second duplicate has appeared in the last 6 working days.",
               "consequence": "A visit-level measure could be duplicated until the source note is checked."
             },
             {
@@ -3000,7 +3000,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "The plan that was in force",
-      "scene": "Nkechi Umeh, the regulatory lead, has four versions of the analysis plan, each dated. Feldman wants to know which 1 governs the interim in 20 days, and the sponsor's lawyer wants to know how anybody could prove it.",
+      "scene": "Nkechi Umeh, the regulatory lead, has four versions of the analysis plan, each dated. Feldman wants to know which One governs the interim in 20 days, and the sponsor's lawyer wants to know how anybody could prove it.",
       "takeaway": "A result is worth more when the plan that produced it can be dated.",
       "place": "Regulatory & Registry",
       "guide": "All four steps will happen, so ask what order makes the claim provable. Prespecification is a claim about time: this analysis was chosen before anybody could see what it would give. The only support for that afterwards is a dated public record made before the data existed. Reverse any two of these and the arithmetic is still right about a question chosen after the fact.",
@@ -3009,7 +3009,7 @@ export const CURRICULUM = {
         "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
         "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
       ],
-      "story": "Nkechi Umeh, the regulatory lead, has four versions of the analysis plan, each dated. Feldman wants to know which 1 governs the interim in 20 days, and the sponsor's lawyer wants to know how anybody could prove it.",
+      "story": "Nkechi Umeh, the regulatory lead, has four versions of the analysis plan, each dated. Feldman wants to know which One governs the interim in 20 days, and the sponsor's lawyer wants to know how anybody could prove it.",
       "game": {
         "type": "SEQUENCE",
         "title": "The plan that was in force",
@@ -3278,7 +3278,7 @@ export const CURRICULUM = {
     },
     {
       "day": 5,
-      "title": "Freezing something that was moving",
+      "title": "Metres per unit of biomarker",
       "scene": "The statistical plan has to be locked before the next data cut, and the biomarker analysis it names gives a correlation but not a slope. Cardoso has the correlation and both standard deviations and needs the slope on the record before the plan freezes.",
       "takeaway": "A correlation is unitless; the two spreads turn it into a slope with units.",
       "place": "Regulatory & Registry",
@@ -3291,7 +3291,7 @@ export const CURRICULUM = {
       "story": "The statistical plan has to be locked before the next data cut, and the biomarker analysis it names gives a correlation but not a slope. Cardoso has the correlation and both standard deviations and needs the slope on the record before the plan freezes.",
       "game": {
         "type": "BALLPARK",
-        "title": "Freezing something that was moving",
+        "title": "Metres per unit of biomarker",
         "setup": "Regulatory & Registry",
         "play": "Work out the slope from the correlation",
         "task": "Work out the slope from the correlation",
@@ -3555,7 +3555,7 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "One relative risk, many absolute effects",
-      "scene": "2 lines for the board chair’s closed briefing describe the same CLARION-3 result. 1 says risk fell about 22%; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.",
+      "scene": "2 lines for the board chair’s closed briefing describe the same CLARION-3 result. One says risk fell about 22%; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.",
       "takeaway": "A relative effect does not determine the absolute benefit until the baseline risk is known.",
       "place": "Regulatory & Registry",
       "guide": "Two controls slide the two arm risks along a family of pairs that all give the same relative result. Find out how wide that family is before choosing a line for the briefing. Then bring in the second measurement, which fixes one arm rather than the ratio, and watch the family collapse to a single pair.",
@@ -3564,7 +3564,7 @@ export const CURRICULUM = {
         "What the absolute figure adds. Four events prevented per hundred people is a statement about how common the outcome is, which the ratio deliberately hides. Both sentences are true of the same result, and only one of them tells the chair what the trial would do for a patient.",
         "Why boards are shown both. A relative figure travels well between populations and exaggerates importance in rare outcomes. An absolute figure is honest about scale and does not transfer to a population with a different baseline. Presenting one alone is the most common way a true result misleads."
       ],
-      "story": "2 lines for the board chair’s closed briefing describe the same CLARION-3 result. 1 says risk fell about 22%; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.",
+      "story": "2 lines for the board chair’s closed briefing describe the same CLARION-3 result. One says risk fell about 22%; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.",
       "game": {
         "type": "DEGENERACY",
         "title": "One relative risk, many absolute effects",

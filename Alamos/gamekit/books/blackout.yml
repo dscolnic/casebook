@@ -473,7 +473,7 @@ missions:
           - Current falls by 20× and resistive line loss falls by 20×.
           - Current stays the same and only the insulation requirement changes.
           - Current rises by 20× and resistive line loss rises by 400×.
-        answer: Current falls by 20× and resistive line loss falls by 20×.
+        answer: Current falls by 20× and resistive line loss falls by 400×.
         rebuttals:
           - At fixed power, current scales inversely with voltage. Loss then scales with the square of that current, not in direct proportion.
           - The insulation requirement does change, but the electrical reason for stepping up voltage is the large reduction in current and I²R loss.
@@ -1516,7 +1516,7 @@ missions:
           - 325 V ≈ 230 V × 2
           - 230 V ≈ 325 V × √2
           - 230 V ≈ 325 V ÷ 2
-        answer: 325 V ≈ 230 V × 2
+        answer: 325 V ≈ 230 V × √2
         rebuttals:
           - Doubling would make peak twice RMS, but a sine wave differs by root two.
           - RMS is smaller than peak, so multiplying the peak by root two moves in the wrong direction.
@@ -1565,7 +1565,7 @@ missions:
         why: Both circuits connect the same two busbars, so they have the same voltage across them. Current therefore divides inversely with impedance. For two parallel paths, one path takes the other path’s impedance divided by the sum. With 6 Ω and 3 Ω, the lower-impedance circuit carries twice the current of the older 1. This is why a new parallel circuit does not split flow evenly. The total busbar current constrains the sum, but the impedances determine the share in each route.
         estimate:
           prompt: |-
-            The total leaving the busbar is 900 A. The older circuit is 6 ohms and the newer 1 is 3 ohms. Both run between the same two busbars.
+            The total leaving the busbar is 900 A. The older circuit is 6 ohms and the newer one is 3 ohms. Both run between the same two busbars.
           question: Choose the total current, the other path's impedance and the sum of the two.
           labels:
             - 900 A  (total current)
@@ -3070,7 +3070,7 @@ missions:
     briefing: The reinforcement decision from last week has a date on it, and the date is today.
     stake: >-
       Monday, and the corridor decision comes back for the last time. The outage window that would let a
-      second circuit be strung this year closes at close of business, and if it closes the next 1 is
+      second circuit be strung this year closes at close of business, and if it closes the next one is
       18 months out. June Farrow has the corrected thermal record, which says the corridor has spent
       more hours over limit than anybody thought. Amira Haddad has a storage quote that expires with the
       window. Dolores Reyes has a board that will not approve both. Today you work out what the corrected
@@ -3427,7 +3427,7 @@ interiors:
       rows:
         - { label: Frequency, value: 49.82 Hz, status: low }
         - { label: Rate of change, value: 0.24 Hz/s at trip, status: high }
-        - { label: Generation online, value: '6, 400 MW', status: normal }
+        - { label: Generation online, value: '6,400 MW', status: normal }
         - { label: Spinning reserve, value: 310 MW, status: low }
   GEN:
     caption: A generator is a flywheel first and a power source second.
@@ -3437,7 +3437,7 @@ interiors:
       title: Machine hall
       rows:
         - { label: Units online, value: 4 of 5, status: low }
-        - { label: Stored inertia, value: '4, 200 MW·s', status: normal }
+        - { label: Stored inertia, value: '4,200 MW·s', status: normal }
         - { label: Fastest ramp, value: 8 MW/min, status: low }
         - { label: Governor droop, value: 4%, status: normal }
   TRANS:
@@ -3448,8 +3448,8 @@ interiors:
       title: Corridor loading
       rows:
         - { label: Circuit 2 loading, value: 108%, status: high }
-        - { label: Continuous rating, value: '1, 060 A', status: normal }
-        - { label: Emergency rating, value: '1, 240 A for 30 min', status: high }
+        - { label: Continuous rating, value: '1,060 A', status: normal }
+        - { label: Emergency rating, value: '1,240 A for 30 min', status: high }
         - { label: Conductor temperature, value: 78 °C, status: high }
   DIST:
     caption: Restoration is measured in households and how long they waited.
@@ -3459,7 +3459,7 @@ interiors:
       title: Feeder status
       rows:
         - { label: Feeders out, value: 11, status: high }
-        - { label: Households off, value: '14, 200', status: high }
+        - { label: Households off, value: '14,200', status: high }
         - { label: Priority load off, value: 2 circuits, status: high }
         - { label: Crews available, value: 3, status: low }
   LOAD:
@@ -3469,7 +3469,7 @@ interiors:
       kind: panel
       title: Demand forecast
       rows:
-        - { label: Forecast peak, value: '6, 900 MW', status: normal }
+        - { label: Forecast peak, value: '6,900 MW', status: normal }
         - { label: Forecast width, value: plus or minus 400 MW, status: high }
         - { label: Reserve held, value: 310 MW, status: low }
         - { label: Temperature at peak, value: -4 °C, status: normal }

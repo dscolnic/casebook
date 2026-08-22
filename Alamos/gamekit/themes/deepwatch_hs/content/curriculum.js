@@ -148,7 +148,7 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "Where the sound will not go",
+      "title": "The shallowest ray that still gets through",
       "scene": "The contact was held on the surface layer for 40 minutes and is gone. Nothing changed aboard. The bathythermograph shows 1500 metres a second above the layer and 1480 below it, and Rask wants the geometry written down.",
       "takeaway": "A ray crossing into slower water bends toward the vertical, so shallow rays never cross at all.",
       "place": "Sonar Shack",
@@ -161,7 +161,7 @@ export const CURRICULUM = {
       "story": "The contact was held on the surface layer for 40 minutes and is gone. Nothing changed aboard. The bathythermograph shows 1500 metres a second above the layer and 1480 below it, and Rask wants the geometry written down.",
       "game": {
         "type": "DERIVE",
-        "title": "Where the sound will not go",
+        "title": "The shallowest ray that still gets through",
         "setup": "Sonar Shack",
         "play": "Derive the angle the sound cannot cross",
         "task": "Derive the angle the sound cannot cross",
@@ -626,7 +626,7 @@ export const CURRICULUM = {
     },
     {
       "day": 8,
-      "title": "What silence buys, term by term",
+      "title": "Where the horizon comes to focus",
       "scene": "The night channel on the search periscope is being set up for the dark hours. Hoyt has the objective's focal length and the range to the horizon, and the eyepiece has to be positioned for where the image will actually form.",
       "takeaway": "For a distant object the image forms essentially at the focal point, which is why a periscope stays focused.",
       "place": "Sonar Shack",
@@ -639,7 +639,7 @@ export const CURRICULUM = {
       "story": "The night channel on the search periscope is being set up for the dark hours. Hoyt has the objective's focal length and the range to the horizon, and the eyepiece has to be positioned for where the image will actually form.",
       "game": {
         "type": "BALLPARK",
-        "title": "What silence buys, term by term",
+        "title": "Where the horizon comes to focus",
         "setup": "Sonar Shack",
         "play": "Work out where the periscope forms its image",
         "task": "Work out where the periscope forms its image",
@@ -893,7 +893,7 @@ export const CURRICULUM = {
     },
     {
       "day": 2,
-      "title": "The bearing that does not move",
+      "title": "Six metres between crests",
       "scene": "The fourth trace has held bearing 041 for 11 minutes and is getting louder. Narrowband has it at 250 hertz, one clean line. Vance wants to know how big a thing radiates a line that low.",
       "takeaway": "A frequency in water is also a length, and the length is what tells you how big the source is.",
       "place": "Control Room",
@@ -906,7 +906,7 @@ export const CURRICULUM = {
       "story": "The fourth trace has held bearing 041 for 11 minutes and is getting louder. Narrowband has it at 250 hertz, one clean line. Vance wants to know how big a thing radiates a line that low.",
       "game": {
         "type": "BALLPARK",
-        "title": "The bearing that does not move",
+        "title": "Six metres between crests",
         "setup": "Control Room",
         "play": "Turn the tonal into a wavelength",
         "task": "Turn the tonal into a wavelength",
@@ -1052,7 +1052,7 @@ export const CURRICULUM = {
     },
     {
       "day": 5,
-      "title": "The margin that survives being wrong",
+      "title": "Forty-nine degrees, and no further",
       "scene": "The boat is coming to periscope depth in daylight. Vance wants to know how much of the sky the head will actually show her before she commits to a look, and Hoyt has the refractive indices written on the slate.",
       "takeaway": "Looking up from under water, the whole sky arrives inside a cone set by two refractive indices.",
       "place": "Control Room",
@@ -1065,7 +1065,7 @@ export const CURRICULUM = {
       "story": "The boat is coming to periscope depth in daylight. Vance wants to know how much of the sky the head will actually show her before she commits to a look, and Hoyt has the refractive indices written on the slate.",
       "game": {
         "type": "BALLPARK",
-        "title": "The margin that survives being wrong",
+        "title": "Forty-nine degrees, and no further",
         "setup": "Control Room",
         "play": "Work out how much sky the periscope can see",
         "task": "Work out how much sky the periscope can see",
@@ -1339,7 +1339,7 @@ export const CURRICULUM = {
     },
     {
       "day": 9,
-      "title": "The value of a different failure",
+      "title": "One photon at eight hundred nanometres",
       "scene": "The refit list has a low-light channel for the search periscope. Its photocathode has a work function of 1.9 electronvolts, and the light the boat actually needs to see by at night is starlight scattered off the sea at around 800 nanometres. Vance wants to know if the thing works before it is bought.",
       "takeaway": "A photon either clears the work function or it does not, and brightness cannot make up the difference.",
       "place": "Control Room",
@@ -1352,7 +1352,7 @@ export const CURRICULUM = {
       "story": "The refit list has a low-light channel for the search periscope. Its photocathode has a work function of 1.9 electronvolts, and the light the boat actually needs to see by at night is starlight scattered off the sea at around 800 nanometres. Vance wants to know if the thing works before it is bought.",
       "game": {
         "type": "BALLPARK",
-        "title": "The value of a different failure",
+        "title": "One photon at eight hundred nanometres",
         "setup": "Control Room",
         "play": "Work out whether the photocathode can see the wavelength at all",
         "task": "Work out whether the photocathode can see the wavelength at all",
@@ -1629,7 +1629,7 @@ export const CURRICULUM = {
       "scene": "The suspected hull connection is 90 metres below the surface. Ferro writes seawater density as 1025 kilograms per cubic metre and g as 9.81 metres per second squared. He wants the gauge pressure on the sea side of the fitting.",
       "takeaway": "Hydrostatic gauge pressure rises in direct proportion to depth.",
       "place": "Forward Equipment & Handling",
-      "guide": "Five numbers, and they are not all about the same thing. Two describe the bilge: how fast the level rose, and what a centimetre of it holds. One is what the drain pump can shift at this head. One is the depth, and one is where the level started. Ask of each whether it describes the water coming in or the water going out. A rate the pump cannot beat is a different situation from one it can.",
+      "guide": "Five numbers, and only three of them are about the pressure. Two describe the bilge instead: what the drain pump can shift at this head, and where the level stood at the first reading. Ask of each whether the sea pressure at a depth depends on it. The water already inside the boat does not change what is pushing on the outside of the fitting.",
       "background": [
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
@@ -1728,7 +1728,7 @@ export const CURRICULUM = {
     },
     {
       "day": 5,
-      "title": "What 1.6 cubic metres of seawater is worth",
+      "title": "What the blow has to push against",
       "scene": "The boat is 1.6 cubic metres heavy and 90 metres down. Blowing the forward group will push that water out through the flood ports, and Yorke wants to know what the air bottles are being asked to spend before she opens a valve.",
       "takeaway": "Pushing water out against sea pressure is work, and the depth sets the price.",
       "place": "Forward Equipment & Handling",
@@ -1741,7 +1741,7 @@ export const CURRICULUM = {
       "story": "The boat is 1.6 cubic metres heavy and 90 metres down. Blowing the forward group will push that water out through the flood ports, and Yorke wants to know what the air bottles are being asked to spend before she opens a valve.",
       "game": {
         "type": "BALLPARK",
-        "title": "What 1.6 cubic metres of seawater is worth",
+        "title": "What the blow has to push against",
         "setup": "Forward Equipment & Handling",
         "play": "Work out the work the air has to do",
         "task": "Work out the work the air has to do",
@@ -2278,7 +2278,7 @@ export const CURRICULUM = {
     },
     {
       "day": 4,
-      "title": "The breaker nobody logged",
+      "title": "Two hundred and thirty watts in a cable run",
       "scene": "The bilge pump is off and its breaker is closed, which should not both be true. Yorke finds the run warm to the hand, carrying 46 amps through a cable rated for 30, and wants the heat it is putting into the space.",
       "takeaway": "Heating in a conductor goes as the square of the current, so fifty per cent over rating is double the heat.",
       "place": "Electrical Distribution",
@@ -2291,7 +2291,7 @@ export const CURRICULUM = {
       "story": "The bilge pump is off and its breaker is closed, which should not both be true. Yorke finds the run warm to the hand, carrying 46 amps through a cable rated for 30, and wants the heat it is putting into the space.",
       "game": {
         "type": "BALLPARK",
-        "title": "The breaker nobody logged",
+        "title": "Two hundred and thirty watts in a cable run",
         "setup": "Electrical Distribution",
         "play": "Work out the heat the run is putting into the space",
         "task": "Work out the heat the run is putting into the space",
@@ -2366,7 +2366,7 @@ export const CURRICULUM = {
     },
     {
       "day": 5,
-      "title": "What the last watch left open",
+      "title": "Predict the bleed, then meter the bank",
       "scene": "The transducer drive cabinet is isolated and the last watch signed it as safe to open. Yorke has the bleed resistor's value and the bank's capacitance in front of her and wants a number before anybody puts a hand in.",
       "takeaway": "A discharge falls by the same fraction each time constant, so safe is five of them, not one.",
       "place": "Electrical Distribution",
@@ -2379,7 +2379,7 @@ export const CURRICULUM = {
       "story": "The transducer drive cabinet is isolated and the last watch signed it as safe to open. Yorke has the bleed resistor's value and the bank's capacitance in front of her and wants a number before anybody puts a hand in.",
       "game": {
         "type": "VERIFY",
-        "title": "What the last watch left open",
+        "title": "Predict the bleed, then meter the bank",
         "setup": "Electrical Distribution",
         "play": "Predict how long the bank stays dangerous, then time it",
         "task": "Predict how long the bank stays dangerous, then time it",
@@ -2458,7 +2458,7 @@ export const CURRICULUM = {
   "ATMO": [
     {
       "day": 1,
-      "title": "Smoke is not only a breathing problem",
+      "title": "The field the insulation will not hold",
       "scene": "The fire is out and the space is full of conductive soot. Insulation resistance on the 300-volt bus is falling every time it is read, and Yorke wants a written threshold before the next round rather than a judgement call at three in the morning.",
       "takeaway": "Insulation fails on volts per unit gap, not on volts, and contamination shortens the gap.",
       "place": "Auxiliary Machinery & Bilge",
@@ -2471,7 +2471,7 @@ export const CURRICULUM = {
       "story": "The fire is out and the space is full of conductive soot. Insulation resistance on the 300-volt bus is falling every time it is read, and Yorke wants a written threshold before the next round rather than a judgement call at three in the morning.",
       "game": {
         "type": "TRIGGER",
-        "title": "Smoke is not only a breathing problem",
+        "title": "The field the insulation will not hold",
         "setup": "Auxiliary Machinery & Bilge",
         "play": "Set the insulation line before the next round of readings",
         "task": "Set the insulation line before the next round of readings",
@@ -2696,7 +2696,7 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "Nine people and a shut damper",
+      "title": "How much gas is in the compartment",
       "scene": "The damper to berthing shut when the fire alarm went and nobody has opened it. Nine people are in a space of 74 cubic metres at 1.4 atmospheres, and Ferreira wants to know how much oxygen is in there before she decides who leaves.",
       "takeaway": "A sealed compartment holds an amount of gas set by its pressure, volume and temperature.",
       "place": "Berthing, Mess & Medical",
@@ -2709,7 +2709,7 @@ export const CURRICULUM = {
       "story": "The damper to berthing shut when the fire alarm went and nobody has opened it. Nine people are in a space of 74 cubic metres at 1.4 atmospheres, and Ferreira wants to know how much oxygen is in there before she decides who leaves.",
       "game": {
         "type": "BALLPARK",
-        "title": "Nine people and a shut damper",
+        "title": "How much gas is in the compartment",
         "setup": "Berthing, Mess & Medical",
         "play": "Work out how much oxygen the space is actually holding",
         "task": "Work out how much oxygen the space is actually holding",
@@ -3029,7 +3029,7 @@ export const CURRICULUM = {
     },
     {
       "day": 4,
-      "title": "What one fan takes with it",
+      "title": "The radius a heavier ion is bent to",
       "scene": "The atmosphere rig is arguing with itself. Its mass spectrometer shows a peak the watch has logged as carbon dioxide and Okonkwo thinks it is nitrogen at the same nominal mass. The magnet is at 0.42 tesla and the ion optics accelerate everything to 3.1 kilometres a second.",
       "takeaway": "A magnetic field bends a moving charge into a circle whose radius grows with mass.",
       "place": "Machinery Room",
@@ -3042,7 +3042,7 @@ export const CURRICULUM = {
       "story": "The atmosphere rig is arguing with itself. Its mass spectrometer shows a peak the watch has logged as carbon dioxide and Okonkwo thinks it is nitrogen at the same nominal mass. The magnet is at 0.42 tesla and the ion optics accelerate everything to 3.1 kilometres a second.",
       "game": {
         "type": "BALLPARK",
-        "title": "What one fan takes with it",
+        "title": "The radius a heavier ion is bent to",
         "setup": "Machinery Room",
         "play": "Work out where the mass spectrometer puts the ion",
         "task": "Work out where the mass spectrometer puts the ion",
@@ -3847,30 +3847,30 @@ export const BALLPARK_CALCS = {
     "prompt": "The fitting is 90 m deep in seawater of density 1025 kg/m³. Use g = 9.81 m/s².",
     "question": "Estimate the gauge pressure at the fitting.",
     "labels": [
-      "8 cm  (rise in 1 minute)",
-      "11 gallons per cm  (this bilge)",
+      "1025 kg/m³  (density of seawater)",
+      "9.81 m/s²  (g)",
+      "90 m  (depth of the fitting)",
       "55 gpm  (drain pump at this head)",
-      "90 m  (depth)",
-      "31 cm  (level at the first reading)"
+      "31 cm  (bilge level at the first reading)"
     ],
     "values": [
-      8,
-      11,
-      55,
+      1025,
+      9.81,
       90,
+      55,
       31
     ],
     "slots": 3,
-    "template": "{0} × {1} + {2}",
-    "formula": "a*b + c",
+    "template": "{0} × {1} × {2}",
+    "formula": "a*b*c",
     "correct": [
       0,
       1,
       2
     ],
-    "target": 143,
-    "tolerance": 12,
-    "units": "gallons per minute",
+    "target": 904972.5,
+    "tolerance": 60000,
+    "units": "Pa (about 0.91 MPa)",
     "solution": "1025 × 9.81 × 90 ≈ 9.05 × 10^5 Pa = 0.91 MPa, about 9 atmospheres gauge.",
     "explanation": "Depth multiplies the weight of the water column. The result is gauge pressure; atmospheric pressure is added only if absolute pressure is needed."
   },

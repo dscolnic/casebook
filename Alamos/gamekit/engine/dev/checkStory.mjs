@@ -16,9 +16,12 @@
 //
 // None of that is catchable by reading one card. All of it is catchable by
 // reading fifteen against each other, which is what this does.
-import { pathToFileURL } from 'node:url';
-import { resolve } from 'node:path';
+import { pathToFileURL, fileURLToPath } from 'node:url';
+import { resolve, dirname } from 'node:path';
+import { readFileSync } from 'node:fs';
 import { themeDir as resolveTheme } from './registry.mjs';
+
+const HERE = dirname(fileURLToPath(import.meta.url));
 
 const themeName = process.argv[2];
 if(!themeName){
@@ -232,6 +235,76 @@ if(!manifest.dayNoun){
   note(`no dayNoun in the manifest, so the plan card says "Day N" — right only if a mission really is a day`);
 }
 
+// ——— the scaffold's own words ————————————————————————————————————————
+//
+// `carrying` shipped its ENDING as the template's instructions to the author:
+// "Say how it came out, in the same voice: what held, what it cost, and what
+// the next crew inherits." … "Then say what the player did … you held the
+// corridor, you brought them up, you are the reason it reads that way."
+// A player who finished fifteen days closed the campaign on a specification for
+// the paragraph they were supposed to get, including a reference to holding a
+// corridor, which is Blackout's fiction.
+//
+// Every other check in this file passed it, and the ending check passed it for
+// the worst possible reason: the rule is "the last paragraph is addressed to the
+// player and says what they did", and the placeholder *quotes an example* of
+// exactly that — "you held the corridor, you brought them up". A measurement
+// that produces a plausible answer, arriving through the one door where the
+// thing being measured is a description of itself.
+//
+// So: no shipped card may share a sentence with the scaffold. The comparison is
+// against `themes/_template/theme.js` itself rather than against a copy of its
+// text, because two copies of one string drift the first time either is edited.
+{
+  // Read the scaffold's two card blocks as text, not the whole file and not the
+  // module. Joining every quoted string in the file puts unrelated keys between
+  // the sentences and the boundaries move; importing it depends on the scaffold's
+  // generated content still being loadable, which it is not, and a try/catch
+  // round that is a check that silently does nothing.
+  const TMPL = resolve(HERE, '..', '..', 'themes', '_template', 'theme.js');
+  let scaffold = null;
+  try{
+    const src = readFileSync(TMPL, 'utf8');
+    const block = (key) => {
+      const a = src.indexOf(`  ${key}: [`);
+      if(a < 0) return '';
+      const b = src.indexOf('\n  ],', a);
+      return b < 0 ? '' : src.slice(a, b);
+    };
+    const quotes = (t) => (t.match(/'((?:[^'\\]|\\.)*)'/g) ?? [])
+      .map(q => q.slice(1, -1).replace(/\\'/g, "'")).join('');
+    scaffold = quotes(block('opening')) + ' ' + quotes(block('ending'));
+  }catch{ scaffold = null; }
+  if(scaffold === null){
+    note('the scaffold at themes/_template/theme.js could not be read, so shipped cards '
+       + 'were not compared against it — carrying shipped the template\'s own ending once');
+  } else if(themeName !== '_template'){
+    const strip = (t) => String(t ?? '').toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim();
+    const sents = (t) => strip(t).split(/(?<=[.!?])\s+/);
+    // The scaffold's text with punctuation stripped is one run; split the shipped
+    // card the same way and look for a long shared run rather than a sentence, so
+    // a placeholder edited at one comma is still caught.
+    const flat = (paras) => strip((paras ?? []).map(p => String(p ?? '')).join(' '));
+    const sc = strip(scaffold).split(' ');
+    const RUN = 10;                    // ten words of the scaffold verbatim
+    const runs = new Set();
+    for(let k = 0; k + RUN <= sc.length; k++) runs.add(sc.slice(k, k + RUN).join(' '));
+    for(const [where, paras] of [['opening', manifest.opening], ['ending', manifest.ending]]){
+      const w = flat(paras).split(' ');
+      let hit = null;
+      for(let k = 0; k + RUN <= w.length && !hit; k++){
+        const r = w.slice(k, k + RUN).join(' ');
+        if(runs.has(r)) hit = r;
+      }
+      if(hit){
+        fail(`the ${where} card is still the scaffold's own text — "${hit.slice(0, 64)}…" `
+           + 'is the instruction to the author, not the card the player reads');
+      }
+    }
+    void sents;
+  }
+}
+
 // ——— the opening card ————————————————————————————————————————————————
 //
 // The first thing anybody reads, and the one card with no day behind it to make
@@ -298,8 +371,16 @@ if(!manifest.dayNoun){
       fail(`the opening ends on "${closing.trim().slice(0, 72)}…" — a closing line with no number, `
          + 'no clock and nobody in it is a specification rather than a stake');
     }
+    // Beat three is "the clock or the argument, WITH SOMEBODY FROM THE ROSTER IN IT",
+    // and this was a note for as long as seventeen of forty-two campaigns ignored it —
+    // including The Trial and Ice Core, whose openings are among the best-written in the
+    // set and whose arguments are between two people neither of whom was on the card. A
+    // note nobody has to clear is a note nobody clears. All seventeen carry a name now,
+    // so this fails.
     if(!surnames.some(s => card.includes(s))){
-      note('the opening names nobody from the roster — a clock can carry a card instead, and a person carries it better');
+      fail('the opening names nobody from the roster — the third beat is the clock or the '
+         + 'argument with somebody in it, and an argument with no people in it reads as a '
+         + 'property of the place rather than as something anybody has to settle');
     }
   }
 }

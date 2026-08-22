@@ -82,7 +82,8 @@ export default {
     + 'board sits in three weeks, and it can stop the trial. Stop it early on a '
     + 'result that turns out to be noise, and a drug that works is buried for a '
     + 'decade. Carry on past the point the evidence was in, and every patient who '
-    + 'joined after today was in a trial that already had its answer.',
+    + 'joined after today was in a trial that already had its answer. Dr. Miriam Feldman, the '
+    + 'trial statistician, holds that a result this size will not grow.',
   ],
 
   // The last thing anybody reads. Says what happened, what it cost and what is

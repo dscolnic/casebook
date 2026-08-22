@@ -79,7 +79,7 @@ export const CURRICULUM = {
         "task": "Bring a brittle section up whole",
         "question": "Bring a brittle section up whole",
         "answer": "",
-        "why": "Between about 51200 metres the bubbles are at pressures the surface cannot support, and the ice around them fractures as it is brought up. Each step buys the next one: a slow lift reduces the shock, resting the core at hole temperature lets the pressure equalise gradually, logging the breaks fixes what depth each fragment came from before anything moves, and storing it for weeks lets it finish cracking. Cutting first destroys the depth information and cuts a section that is still moving.",
+        "why": "Between about 500 and 1,200 metres the bubbles are at pressures the surface cannot support, and the ice around them fractures as it is brought up. Each step buys the next one: a slow lift reduces the shock, resting the core at hole temperature lets the pressure equalise gradually, logging the breaks fixes what depth each fragment came from before anything moves, and storing it for weeks lets it finish cracking. Cutting first destroys the depth information and cuts a section that is still moving.",
         "cards": [
           "Slow the winch through the depth band where bubbles are at their highest pressure",
           "Let the section rest in the trench at drill-hole temperature before it is handled",
@@ -292,24 +292,24 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "A year at 2400 metres",
-      "scene": "The ice is 3,010 metres thick here and the barrel is at 2,400. At the surface a year is about 0.119 metres of ice equivalent, and Lindqvist wants to know what 1 is now.",
-      "takeaway": "Thinning is why a deep core holds so much time in so little ice.",
+      "scene": "The ice is 3,010 metres thick here and the barrel is at 2,400. At the surface a year is about 0.119 metres of ice equivalent, and Lindqvist wants to know what one is now.",
+      "takeaway": "A simple thinning model gets the direction right and the size wrong, which is why a counted record and a modelled one end in different places.",
       "place": "Drill Trench",
       "guide": "Four numbers, and one of them is the close-off depth, which belongs to the firn rather than to the flow. Ask of each whether it describes the surface, this depth, or the whole sheet. The thinning depends on how much ice is left below, so what matters is the distance to the bed. That is what packs a hundred thousand years into the bottom kilometre.",
       "background": [
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "The ice is 3,010 metres thick here and the barrel is at 2,400. At the surface a year is about 0.119 metres of ice equivalent, and Lindqvist wants to know what 1 is now.",
+      "story": "The ice is 3,010 metres thick here and the barrel is at 2,400. At the surface a year is about 0.119 metres of ice equivalent, and Lindqvist wants to know what one is now.",
       "game": {
         "type": "BALLPARK",
         "title": "A year at 2400 metres",
         "setup": "Drill Trench",
         "play": "Work out how thin a year is down there",
         "task": "Work out how thin a year is down there",
-        "question": "Estimate the thickness of 1 annual layer at 2,400 metres.",
-        "answer": "About 0.024 metres — a fifth of a surface year, squeezed into 24 millimetres.",
-        "why": "Ice flows outwards from the dome, and to keep going it has to stretch, so each layer thins as the weight above it grows. The simplest model treats the vertical strain as uniform, which makes a layer's thickness fall in proportion to the distance left to the bed: at four-fifths of the way down, a layer is one-fifth of what it was. That is what packs 100000 years into the bottom kilometre, and it is also why the count stops and the dating starts depending on a model.",
+        "question": "What does simple thinning predict for one annual layer at 2,400 metres?",
+        "answer": "About 0.024 metres — a fifth of a surface year, or 24 millimetres. The line measures 1.5 millimetres there, so the real thinning near the bed is sixteen times what uniform strain predicts.",
+        "why": "Ice flows outwards from the dome, and to keep going it has to stretch, so each layer thins as the weight above it grows. The simplest model treats the vertical strain as uniform, which makes a layer's thickness fall in proportion to the distance left to the bed: at four-fifths of the way down, a layer is one-fifth of what it was. That gives 24 millimetres here. The scanner reads 1.5. The model is not wrong about the direction and it is wrong about the size, because strain is not uniform near a bed the ice is being dragged over — and that is the whole reason the counted record stops at 2,180 metres while the modelled one carries on to the bottom with an uncertainty attached.",
         "givens": [],
         "relationship": "λ(z) = λ₀ × (H − z) ÷ H — the layer's original thickness, scaled by how much of the ice sheet is left below it.",
         "calcKey": "DRILL-5"
@@ -319,6 +319,30 @@ export const CURRICULUM = {
         "annual layer counting, and where counting fails — taken as read"
       ],
       "equations": [
+        {
+          "e": "λ(z) = λ₀ (H − z) / H",
+          "c": "layer thinning with depth, as ice flows outwards",
+          "v": [
+            [
+              "λ(z)",
+              "the thickness an annual layer has at depth z"
+            ],
+            [
+              "λ₀",
+              "the thickness it had when it fell"
+            ],
+            [
+              "z",
+              "depth below the surface"
+            ],
+            [
+              "H",
+              "the total thickness of the ice sheet"
+            ]
+          ],
+          "s": "Ice spreads outwards under its own weight, so every layer is stretched thinner as it sinks — which is why the oldest ice is the thinnest and why a record ends before the bed does.",
+          "demanded": true
+        },
         {
           "e": "b = λ × ρ_snow / ρ_ice",
           "c": "accumulation, converted to ice equivalent",
@@ -341,29 +365,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A metre of new snow is not a metre of ice, so an accumulation rate only means something once the layer has been converted to the ice it will become."
-        },
-        {
-          "e": "λ(z) = λ₀ (H − z) / H",
-          "c": "layer thinning with depth, as ice flows outwards",
-          "v": [
-            [
-              "λ(z)",
-              "the thickness an annual layer has at depth z"
-            ],
-            [
-              "λ₀",
-              "the thickness it had when it fell"
-            ],
-            [
-              "z",
-              "depth below the surface"
-            ],
-            [
-              "H",
-              "the total thickness of the ice sheet"
-            ]
-          ],
-          "s": "Ice spreads outwards under its own weight, so every layer is stretched thinner as it sinks — which is why the oldest ice is the thinnest and why a record ends before the bed does."
         },
         {
           "e": "age(z) = Σ Δz / λ(z)",
@@ -548,7 +549,7 @@ export const CURRICULUM = {
         "play": "Put the restart in order",
         "task": "Put the restart in order",
         "question": "What is restarted first?",
-        "answer": "The core store. It is the only 1 of the 4 still losing something irreversibly, and every hour above minus 20 costs gas measurements that cannot be made again.",
+        "answer": "The core store. It is the only one of the 4 still losing something irreversibly, and every hour above minus 20 costs gas measurements that cannot be made again.",
         "why": "Three of these are waiting and one is deteriorating. Ice above minus 20 starts losing gas from the bubbles near its cut faces, and that loss cannot be undone or measured around; every hour is more of the core that can no longer answer a gas question. A lost drilling day is a day, the queued samples are as good tomorrow as today, and a report sent six hours late is a report sent. Order by what is still being lost.",
         "rebuttals": [
           "A drilling day is recoverable, and the drill is not losing anything while it stands idle",
@@ -1985,7 +1986,7 @@ export const CURRICULUM = {
         "task": "Report a ratio the way everyone else does",
         "question": "Estimate the isotope value of this sample in parts per thousand.",
         "answer": "About −35 per mil. The sample holds 3.5% less heavy oxygen than ocean water, which is what a polar site looks like.",
-        "why": "Isotope ratios differ from one another in the fourth decimal place, so nobody reports them as ratios. The convention is to divide the sample's ratio by the ratio of 1 agreed water, subtract 1 so that the standard itself reads 0, and multiply by 1000 so the numbers are convenient. What comes out is a difference in parts per thousand, always negative for polar snow because every stage of the journey from the ocean has already removed some of the heavy isotope. The scale is a comparison, and it only means anything if everyone uses the same water.",
+        "why": "Isotope ratios differ from one another in the fourth decimal place, so nobody reports them as ratios. The convention is to divide the sample's ratio by the ratio of one agreed water, subtract 1 so that the standard itself reads 0, and multiply by 1000 so the numbers are convenient. What comes out is a difference in parts per thousand, always negative for polar snow because every stage of the journey from the ocean has already removed some of the heavy isotope. The scale is a comparison, and it only means anything if everyone uses the same water.",
         "givens": [],
         "relationship": "δ¹⁸O = (R_sample ÷ R_standard − 1) × 1000 — the sample's heavy-to-light ratio against ocean water's, in parts per thousand.",
         "calcKey": "COLD-5"
@@ -3499,7 +3500,7 @@ export const CURRICULUM = {
         "rebuttals": [
           "Sheltering is a real effect and would have to be established across several fortnights, not one",
           "A fortnight's snowfall is what the whole array establishes, since drift cancels only in the sum",
-          "11 stakes losing snow is what redistribution looks like, and does not point at 1 disturbed stake"
+          "11 stakes losing snow is what redistribution looks like, and does not point at one disturbed stake"
         ],
         "choices": [
           "Little on its own; the whole array separates snowfall from drift",
@@ -3675,7 +3676,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What is worth measuring before Thursday",
-      "scene": "11 Skarv samples, 1 working day, and the isotope line can take 4 of them. The data manager, Jonas Aalto, has the two records side by side and the difference between them on a third screen.",
+      "scene": "11 Skarv samples, one working day, and the isotope line can take 4 of them. The data manager, Jonas Aalto, has the two records side by side and the difference between them on a third screen.",
       "takeaway": "A measurement is worth its cost when the decision changes depending on how it comes out.",
       "place": "Science Module",
       "guide": "Eleven samples, one working day, and the isotope line takes four. Open each candidate and ask what its result would change about the difference between the two records. Four runs that confirm what is already agreed have spent the day; four that could move the disagreement have bought something.",
@@ -3684,7 +3685,7 @@ export const CURRICULUM = {
         "What a day of the isotope line is worth. It is the only instrument that can settle certain questions and it runs four samples. That makes each slot a choice against the other seven, and the deadline is Thursday rather than the end of the season.",
         "Why sampling depth matters as much as sample count. Four runs clustered in one interval answer one question well. Four spread across the disagreement answer a different question — which of them is worth more depends on whether the gap is thought to be an offset or a shape."
       ],
-      "story": "11 Skarv samples, 1 working day, and the isotope line can take 4 of them. The data manager, Jonas Aalto, has the two records side by side and the difference between them on a third screen.",
+      "story": "11 Skarv samples, one working day, and the isotope line can take 4 of them. The data manager, Jonas Aalto, has the two records side by side and the difference between them on a third screen.",
       "game": {
         "type": "VALUE",
         "title": "What is worth measuring before Thursday",

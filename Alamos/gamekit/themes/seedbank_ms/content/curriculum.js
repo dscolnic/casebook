@@ -512,6 +512,27 @@ export const CURRICULUM = {
       "assumes": [
         "a sample can support a statement about the group it came from"
       ],
+      "equations": [
+        {
+          "e": "part = whole × share",
+          "c": "how many of a batch will do something",
+          "v": [
+            [
+              "part",
+              "how many"
+            ],
+            [
+              "whole",
+              "how many there are altogether"
+            ],
+            [
+              "share",
+              "the percentage, written as a decimal"
+            ]
+          ],
+          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
+        }
+      ],
       "concept": {
         "n": 14,
         "c": "A label and a record are part of the seed",
@@ -1981,7 +2002,7 @@ export const CURRICULUM = {
           "Put rust on every generation, and the DNA test at the end.",
           "Use the DNA test early and late. Carrying the gene is enough."
         ],
-        "correctChoice": "Put rust on every generation, and the DNA test at the end."
+        "correctChoice": "Use the DNA test early, then test the final line against rust."
       },
       "assumes": [
         "a nearby marker can come apart from the gene it stands for",
@@ -2039,7 +2060,7 @@ export const CURRICULUM = {
             }
           ],
           "observable": {
-            "label": "Marker–phenotype disagreement, 11 of 400 in this generation"
+            "label": "Marker–phenotype disagreement, 16 of 400 in this generation"
           },
           "locus": [
             {
@@ -2064,7 +2085,7 @@ export const CURRICULUM = {
             }
           ],
           "second": {
-            "label": "PCR aimed inside the resistance gene itself, on the 11 discordant plants",
+            "label": "PCR aimed inside the resistance gene itself, on the 16 discordant plants",
             "apply": "Run the direct-gene assay",
             "locus": [
               {
@@ -2313,7 +2334,8 @@ export const CURRICULUM = {
               "the percentage, written as a decimal"
             ]
           ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
+          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it.",
+          "computed": true
         }
       ],
       "concept": {
@@ -2443,7 +2465,8 @@ export const CURRICULUM = {
               "the percentage, written as a decimal"
             ]
           ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
+          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it.",
+          "computed": true
         }
       ],
       "concept": {

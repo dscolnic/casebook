@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "What the generation tells you",
     "objective": "Read the second generation of last year's cross, and check it against a marker.",
     "briefing": "400 plants in the warm bay, and a ratio to count.",
-    "stake": "Tuesday. The F2 of Volpe's 2024 cross is in the warm bay — 400 plants, and the first generation of any cross where the parents' alleles come apart and show themselves. Hana Nakagawa, the molecular laboratory lead, has run a marker on the same plants and has a disagreement to explain: 11 of them score as carrying the resistance allele and do not look it. Osman Toft, the agronomist, wants somebody to explain to the trainees where the grain in his drying hall came from. Today you count what the generation is telling you, decide what the marker mismatch means, and follow the carbon.",
+    "stake": "Tuesday. The F2 of Volpe's 2024 cross is in the warm bay — 400 plants, and the first generation of any cross where the parents' alleles come apart and show themselves. Hana Nakagawa, the molecular laboratory lead, has run a marker on the same plants and has a disagreement to explain: 16 of them score as carrying the resistance allele and do not look it. Osman Toft, the agronomist, wants somebody to explain to the trainees where the grain in his drying hall came from. Today you count what the generation is telling you, decide what the marker mismatch means, and follow the carbon.",
     "takeaway": "A ratio is evidence about what the parents carried, not a decoration on a data sheet.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "What a collection is made of",
     "objective": "Count what the vault holds at the level that actually matters.",
     "briefing": "Not varieties. Frequencies.",
-    "stake": "Wednesday. Tomas Ivanescu, the population geneticist, has genotyped a sample from 1 landrace accession — the 1 that the farmer Idris Fenn's grandfather gave Wellmere in 1994 — and has put the numbers on the board rather than a description. Sylvie Pirelli, the data & passport records, has found that two accession numbers point at the same collection site, which may mean one of them is a duplicate taking a regeneration slot. Today you learn what a population is made of, what the numbers would look like if nothing were acting on it, and how many plants a grow-out actually needs.",
+    "stake": "Wednesday. Tomas Ivanescu, the population geneticist, has genotyped a sample from 1 landrace accession — the one that the farmer Idris Fenn's grandfather gave Wellmere in 1994 — and has put the numbers on the board rather than a description. Sylvie Pirelli, the data & passport records, has found that two accession numbers point at the same collection site, which may mean one of them is a duplicate taking a regeneration slot. Today you learn what a population is made of, what the numbers would look like if nothing were acting on it, and how many plants a grow-out actually needs.",
     "takeaway": "A population is a set of frequencies, and everything the vault protects is in those numbers.",
     "stops": [
       {
@@ -227,7 +227,7 @@ export const MISSIONS = [
   {
     "title": "What is left to work with",
     "objective": "Rebuild the season's plan around material that has not been through a bottleneck.",
-    "briefing": "The vault is one copy. The other 1 is in a field 40 miles away.",
+    "briefing": "The vault is one copy. The other one is in a field 40 miles away.",
     "stake": "Friday. The finding is written up and the season has to be re-planned around it. 22 of the 50 screening candidates are unreliable, the ground is already committed, and the 1 source of unbottlenecked material is Idris Fenn's 4 landraces, which have been grown every year on his own farm and selected by his own weather. Fenn is willing. Volpe points out, not unfairly, that none of this changes what is already in seed increase. Today you decide what the screen is run on, what regeneration looks like from now on, and what the field can absorb.",
     "takeaway": "A collection kept in one place is one copy, however carefully it is kept.",
     "stops": [
@@ -334,7 +334,7 @@ export const MISSIONS = [
     "title": "What goes in the crossing block",
     "objective": "Decide what the next seven years are made of, on the last day it can be changed.",
     "briefing": "The block is drilled tomorrow. After that the parents are fixed.",
-    "stake": "Thursday. The crossing block goes in tomorrow morning and it decides what the programme is working on until 2033 — a cross made in it is a line in 4 years and a release in 7. Volpe has her list, Qureshi has hers, and this year they overlap more than they ever have. The screen has 1 clean source of a second resistance gene, Fenn has 40 marked plants being threshed individually, and there is room in the block for 8 crosses. Today you fix the eight, and after tomorrow nothing in this season can be changed.",
+    "stake": "Thursday. The crossing block goes in tomorrow morning and it decides what the programme is working on until 2033 — a cross made in it is a line in 4 years and a release in 7. Volpe has her list, Qureshi has hers, and this year they overlap more than they ever have. The screen has one clean source of a second resistance gene, Fenn has 40 marked plants being threshed individually, and there is room in the block for 8 crosses. Today you fix the eight, and after tomorrow nothing in this season can be changed.",
     "takeaway": "A crossing block is a decision about a decade, made in one morning with what is to hand.",
     "stops": [
       {

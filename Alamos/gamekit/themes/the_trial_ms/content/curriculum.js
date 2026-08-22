@@ -1011,6 +1011,22 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
+          "e": "percentage = part ÷ whole × 100",
+          "c": "a count turned into a share of a hundred",
+          "v": [
+            [
+              "part",
+              "how many it happened to"
+            ],
+            [
+              "whole",
+              "how many there were altogether"
+            ]
+          ],
+          "s": "Two groups are almost never the same size, so counts cannot be compared until both are written as a share of their own group.",
+          "computed": true
+        },
+        {
           "e": "difference = one group − the other group",
           "c": "how much better one group did",
           "v": [
@@ -1036,22 +1052,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Turning a difference upside down says how many people have to take a treatment for one extra person to be helped, which is the form a patient can actually use.",
-          "computed": true
-        },
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "a count turned into a share of a hundred",
-          "v": [
-            [
-              "part",
-              "how many it happened to"
-            ],
-            [
-              "whole",
-              "how many there were altogether"
-            ]
-          ],
-          "s": "Two groups are almost never the same size, so counts cannot be compared until both are written as a share of their own group.",
+          "computed": true,
           "card": false
         }
       ],
@@ -1463,7 +1464,7 @@ export const CURRICULUM = {
     },
     {
       "day": 4,
-      "title": "40 hours before the lock",
+      "title": "Forty hours before the lock",
       "scene": "Lucia Marchetti has a fortnight, 31 sites and 40 monitoring hours she can still deploy. Four recoverable gaps compete for that time. 14 people who withdrew consent are locked out of the plan and cannot be contacted again.",
       "takeaway": "A monitoring plan is a set of questions it can answer and questions it deliberately leaves unanswered.",
       "place": "Monitors' Room",
@@ -1476,7 +1477,7 @@ export const CURRICULUM = {
       "story": "Lucia Marchetti has a fortnight, 31 sites and 40 monitoring hours she can still deploy. Four recoverable gaps compete for that time. 14 people who withdrew consent are locked out of the plan and cannot be contacted again.",
       "game": {
         "type": "ALLOCATE",
-        "title": "40 hours before the lock",
+        "title": "Forty hours before the lock",
         "setup": "Monitors' Room",
         "play": "Allocate the monitoring time so the required questions can still be answered before the file is frozen.",
         "task": "Allocate the monitoring time so the required questions can still be answered before the file is frozen.",
@@ -1640,7 +1641,7 @@ export const CURRICULUM = {
     },
     {
       "day": 6,
-      "title": "3 days, 41 queries",
+      "title": "Three days, forty-one queries",
       "scene": "Renner has forty-one open questions on the data and three days to close them. He cannot do them all himself and neither can you.",
       "takeaway": "Urgency belongs to the problem whose consequence becomes irreversible first, not to the problem making the most noise.",
       "place": "Monitors' Room",
@@ -1653,7 +1654,7 @@ export const CURRICULUM = {
       "story": "Renner has forty-one open questions on the data and three days to close them. He cannot do them all himself and neither can you.",
       "game": {
         "type": "DELEGATE",
-        "title": "3 days, 41 queries",
+        "title": "Three days, forty-one queries",
         "setup": "Monitors' Room",
         "play": "Keep the one query that cannot miss Thursday's cut and delegate the others with an owner, first action and return condition.",
         "task": "Keep the one query that cannot miss Thursday's cut and delegate the others with an owner, first action and return condition.",
@@ -1699,7 +1700,7 @@ export const CURRICULUM = {
               "id": "duplicate_visit",
               "label": "Visit appears twice in one week",
               "trend": "stable",
-              "rate": "1 duplicated visit is open; no second duplicate has appeared in the last 6 working days.",
+              "rate": "One duplicated visit is open; no second duplicate has appeared in the last 6 working days.",
               "consequence": "A visit-level measure could be duplicated until the source note is checked."
             },
             {
@@ -2040,7 +2041,7 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "One relative risk, many absolute effects",
-      "scene": "2 lines for the board chair’s closed briefing describe the same CLARION-3 result. 1 says risk fell about 22%; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.",
+      "scene": "2 lines for the board chair’s closed briefing describe the same CLARION-3 result. One says risk fell about 22%; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.",
       "takeaway": "A relative effect does not determine the absolute benefit until the baseline risk is known.",
       "place": "Regulatory & Registry",
       "guide": "Two controls slide the two arm risks along a family of pairs that all give the same relative result. Find out how wide that family is before choosing a line for the briefing. Then bring in the second measurement, which fixes one arm rather than the ratio, and watch the family collapse to a single pair.",
@@ -2049,7 +2050,7 @@ export const CURRICULUM = {
         "What the absolute figure adds. Four events prevented per hundred people is a statement about how common the outcome is, which the ratio deliberately hides. Both sentences are true of the same result, and only one of them tells the chair what the trial would do for a patient.",
         "Why boards are shown both. A relative figure travels well between populations and exaggerates importance in rare outcomes. An absolute figure is honest about scale and does not transfer to a population with a different baseline. Presenting one alone is the most common way a true result misleads."
       ],
-      "story": "2 lines for the board chair’s closed briefing describe the same CLARION-3 result. 1 says risk fell about 22%; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.",
+      "story": "2 lines for the board chair’s closed briefing describe the same CLARION-3 result. One says risk fell about 22%; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.",
       "game": {
         "type": "DEGENERACY",
         "title": "One relative risk, many absolute effects",

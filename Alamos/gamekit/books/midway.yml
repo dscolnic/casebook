@@ -81,7 +81,7 @@ groups:
     code: BUMPER
     name: The Bumper Cars
     color: '#3f9e6b'
-    desc: 100 collisions an hour, and every 1 of them is the same equation.
+    desc: 100 collisions an hour, and every one of them is the same equation.
     defaultLeader: chen
     milestones:
       - Count the momentum before and after
@@ -588,6 +588,78 @@ missions:
       pay for the other 259, and nothing opens on a setting nobody can derive.
     takeaway: A number that works is not the same as a number somebody can justify.
     stops:
+      # ΣF = ma is shown on a card from day 1 and, until this stop, was computed by no
+      # question in the game — six of the seven rows in `equation-debt.json` were
+      # inversions rooted in it, because the energy books, centripetal force, torque, the
+      # pendulum and fluid pressure are all derived from it. One stop clears all six, and
+      # it belongs on day 1 beside the first thing the tower is asked to justify: the
+      # brake has to take a mass to a stop, and the force is that mass times the rate it
+      # is slowed at. Nothing else on this board is a force.
+      - group: TOWER
+        task: Get the force the brake fins have to make
+        title: What a mass being stopped pushes back with
+        concept: Newton's second law as the definition of a net force
+        place: The Drop Tower
+        scene: >-
+          The drop test runs with 640 kilograms of ballast in the carriage instead of people. Vey
+          wants the force the copper fins have to make while they take it to a stop, before he will
+          witness anything.
+        guide: >-
+          Five numbers, and three of them belong to the fall rather than to the stop: the drop
+          height, gravity, and the speed at the bottom. Ask of each whether the force on a body
+          depends on it. A force is what it takes to change a motion, so what matters is the mass
+          and the rate the motion is changing at, and nothing else on this board.
+        background:
+          - >-
+              Why this is the equation everything else here is built out of. Every certified
+              number in this park comes back to it: the loop's minimum speed, the swing's period,
+              the wheel's bolt load, the bumper collision's push on a neck. They are all the same
+              statement with a different acceleration in it. Getting it once, on a mass being
+              stopped by a brake, is what makes the other twelve derivations arithmetic rather
+              than new physics.
+          - >-
+              Why a kilogram is not a newton. The ballast is quoted in kilograms because that is
+              what it weighs on a bench. What the fins push against is a force, and turning one
+              into the other is the multiplication below. A rider's own weight is a second force
+              on the same body, which is why the number they *feel* is larger than this one.
+        takesAsRead:
+          - Acceleration as the rate a velocity changes, whichever part of it changes
+        assumes:
+          - a net force on a body is that body's mass times its acceleration
+          - slowing down is an acceleration with the sign reversed
+        takeaway: A force is a mass times the rate its motion is changing, and every other force in this park is that statement with a different acceleration in it.
+        format: BALLPARK
+        question: Estimate the force the fins have to make on the ballast carriage.
+        answerText: About 29 kilonewtons — 640 kilograms slowed at 45.8 metres per second squared.
+        why: >-
+          A net force is a mass times an acceleration, and that is a definition rather than a
+          result: it is what fixes the size of a newton. Here the mass is the 640 kilograms of
+          ballast and the acceleration is the 45.8 metres per second squared the fins produce over
+          nine metres, so the force is about 29 kilonewtons. The drop height, gravity and the entry
+          speed all belong to the fall, and the fall is over by the time this force exists. Note
+          what the rider feels is not this: their own weight is still acting, so the seat pushes
+          with the sum of the two, which is why the drop test is judged in multiples of g rather
+          than in newtons.
+        estimate:
+          relationship: A net force is a mass times its acceleration, ΣF = ma.
+          prompt: The ballast carriage is 640 kg and the fins slow it at about 45.8 m/s² over the braked section.
+          question: Estimate the force the fins have to make.
+          labels:
+            - 640 kg  (mass of the ballast carriage)
+            - 45.8 m/s²  (deceleration in the fins)
+            - 42 m  (the free fall above the brakes)
+            - 9.8 m/s²  (g)
+            - 28.7 m/s  (speed entering the fins)
+          values: [640, 45.8, 42, 9.8, 28.7]
+          slots: 2
+          template: "{0} × {1}"
+          formula: a*b
+          correct: [0, 1]
+          target: 29312
+          tolerance: 2000
+          units: N (about 29 kN)
+          solution: 640 × 45.8 ≈ 29,300 N, or about 29 kilonewtons.
+          explanation: Mass times acceleration, and nothing else. The height, gravity and the entry speed describe the fall, which has finished by the time the fins are doing anything.
       - group: TOWER
         task: Derive the speed at the bottom of the drop
         title: What 42 metres of fall is worth
@@ -948,7 +1020,7 @@ missions:
         takesAsRead:
           - "Acceleration as the rate a velocity changes, whichever part of it changes"
         concept: "Newton's second law as the definition of a net force"
-        place: Drop Tower
+        place: The Drop Tower
         scene: The tower's magnetic brake is set from the console and the car has to come down inside the deceleration band the certificate names. The car's mass changes with every load, and the brake does not know how many people are in it.
         guide: >-
           Hold the deceleration inside the band on the console. The band narrows toward the
@@ -1414,7 +1486,7 @@ missions:
         takesAsRead:
           - "Velocity against speed: direction is part of the quantity"
         concept: "Centripetal acceleration: v² over r, pointing at the centre"
-        place: Bumper Floor
+        place: The Bumper Cars
         scene: The certificate needs every complaint on the log classified before it is written. Some of what the riders describe is the ride going fast. The rest is the ride turning, and a rider cannot tell the difference from the seat.
         guide: >-
           Two bins. What a rider feels in a turn is the seat pushing them toward the centre,
@@ -1870,7 +1942,7 @@ missions:
           - The center-heavy wheel, because the drive shaft turns the center hub directly.
           - Neither; equal total mass means equal rotational inertia.
           - The center-heavy wheel, because its mass follows a tighter circle.
-        answer: The center-heavy wheel, because its mass follows a tighter circle.
+        answer: The outer-rim-heavy wheel, because radius enters rotational inertia squared.
         rebuttals:
           - What the drive turns is the whole assembly, and the center hub contributes least of it whatever it weighs.
           - Straight-line inertia depends on mass alone; rotational inertia depends on where the mass is.
@@ -2277,7 +2349,7 @@ missions:
   # ------------------------------------------------------------------ day 9
   - title: The loop is not the loop on the drawing
     objective: Derive what the loop demands, and measure what it actually is.
-    briefing: Kovač taped the crown of the loop yesterday and the radius is not the 1 on the 1974 drawing.
+    briefing: Kovač taped the crown of the loop yesterday and the radius is not the one on the 1974 drawing.
     stake: >-
       Thursday, and Marta Kovač put a tape over the crown of the loop yesterday afternoon because
       nobody could find a reason not to. The drawing says the radius there is 5.6 metres. The tape
@@ -2414,19 +2486,46 @@ missions:
           - a margin is a ratio between what is available and what is required
           - a requirement can be recomputed when the geometry it rests on changes
         takeaway: A margin is a ratio, and it means nothing until both of its numbers are named.
-        format: CHOICE
-        question: The margin on the top of the loop falls from 1.38 to 1.20. What has actually changed?
-        why: A safety margin is capacity divided by demand. Here the train's available speed at the top of the loop has not suddenly changed. The measured radius at the top of the loop changed the required speed. That raises the demand and lowers the ratio from 1.38 to 1.20. The physical ride was already in this state before anyone measured it correctly. What changed today is the park's knowledge. A smaller known margin is safer than a larger imaginary one because it can drive an operating rule.
-        choices:
-          - The requirement rose, so the same train speed now sits closer to the limit.
-          - The train got slower over the winter, which is what a falling margin usually means.
-          - The margin is a different quantity now and the two figures cannot be compared.
-          - Nothing changed physically; only the paperwork was wrong.
-        answer: The requirement rose, so the same train speed now sits closer to the limit.
-        rebuttals:
-          - The train has slowed over three seasons, and that is a separate finding from this one.
-          - Both figures are speed available over speed required, computed the same way.
-          - "The paperwork was wrong and the consequence is real: the ride has less in hand than anybody believed."
+        # Converted from a CHOICE. `safety factor = capacity ÷ demand` is on this course's
+        # syllabus and was computed by no question in the game, because a CHOICE has no
+        # relationship, template or worked solution and so cannot compute anything. The
+        # campaign's headline number — a certificate that has said 1.38 for twenty-five
+        # years while the ride has had 1.20 — was a number the player read rather than one
+        # they worked out. The objective is unchanged: a margin is a ratio, and it means
+        # nothing until both of its numbers are named.
+        format: BALLPARK
+        question: Recompute the margin at the top of the loop from the speed the train has and the speed the crown demands.
+        answerText: About 1.20 — 8.5 metres a second in hand against 8.5 demanded is not the 1.38 the file has carried since 1974.
+        why: >-
+          A safety margin is capacity divided by demand, and only one of them moved. The
+          train still crosses the crown at about 10.2 metres a second, which is what it did
+          last season and the season before. The measured radius raised the *demand* from
+          7.4 metres a second to 8.5, so the ratio falls from 1.38 to 1.20. The ride was
+          already in this state before anybody measured it correctly: what changed today is
+          the park's knowledge, and a smaller known margin is safer than a larger imaginary
+          one because it can drive an operating rule. Note which two numbers the board wants
+          — the drawing's 7.4 is the old demand and belongs to the comparison, not to the
+          margin.
+        estimate:
+          relationship: A safety factor is capacity divided by demand — here the speed the train has, over the speed the crown requires.
+          prompt: The train crosses the crown at about 10.2 m/s. The measured radius demands 8.5 m/s; the 1974 drawing implied 7.4.
+          question: Estimate the margin at the top of the loop against the measured requirement.
+          labels:
+            - 10.2 m/s  (speed the train actually has at the crown)
+            - 8.5 m/s  (speed the measured crown demands)
+            - 7.4 m/s  (speed the 1974 drawing implied)
+            - 1.38  (the margin on the certificate)
+            - 7.4 m  (measured radius at the crown)
+          values: [10.2, 8.5, 7.4, 1.38, 7.4]
+          slots: 2
+          template: "{0} ÷ {1}"
+          formula: a/b
+          correct: [0, 1]
+          target: 1.2
+          tolerance: 0.06
+          units: (ratio)
+          solution: 10.2 ÷ 8.5 = 1.20, against 10.2 ÷ 7.4 = 1.38 on the old drawing.
+          explanation: Capacity over demand, and both have to be speeds at the same point on the track. The old drawing's figure is the comparison rather than the margin, and the radius and the certificate value are the inputs to the other two numbers rather than to this one.
       - group: SHIP
         task: Which explanation fits every reading?
         title: Idowu was right
@@ -2469,11 +2568,11 @@ missions:
         readings:
           - zone: Drive
             label: Push interval
-            value: 5.60 s (fixed since 1996)
+            value: 5.85 s (fixed since 1996)
             status: alarm
           - zone: Swing
             label: Measured period
-            value: 5.90 s either way
+            value: 5.90 s at low angle, either way
             status: normal
           - zone: Swing
             label: Angle reached
@@ -2742,7 +2841,7 @@ missions:
                 - text: ρg(h₁ − h₂) = ½ρv₂², so v₂ = √(g(h₁ − h₂))
                   rule: substitution
                   survives: true
-                  why: The half in the kinetic term becomes a two when it is moved across. Dropping it gives a speed 30% low, and the expression still looks like the 1 in every textbook.
+                  why: The half in the kinetic term becomes a two when it is moved across. Dropping it gives a speed 30% low, and the expression still looks like the one in every textbook.
                 - text: ρg(h₁ − h₂) = ½ρv₂², so v₂ = 2g(h₁ − h₂)/ρ
                   rule: substitution
                   why: The density is on both sides and divides out. Leaving it below makes the answer depend on what the liquid is, and this expression is the same for water, oil and mercury.
@@ -2871,7 +2970,7 @@ missions:
         task: Set the water cannon on the midway stall.
         title: Angle and charge, at three marks
         concept: "Free fall: everything falls at the same rate whatever its mass"
-        place: Water Flume
+        place: The Log Flume
         scene: The old midway stall has a water cannon and three targets across the pond. The pressure dial is unmarked, the pump is thirty years old, and nobody has a number for what it delivers.
         guide: >-
           Set the angle and the charge, and fire. Three marks, working outward. The dial is
@@ -3113,7 +3212,12 @@ missions:
             max: 8
             step: 0.1
           truth: 5.4
-          passRatio: [0.85, 1.15]
+          # 0.85 of 5.4 is 4.59, and day two's *average* deceleration is 4.7 g — so the
+          # old band accepted the one answer this stop exists to rule out. A magnetic
+          # brake bites hardest at entry, so the peak is above the average; the floor
+          # now sits above it. The band stays asymmetric on purpose: over-predicting a
+          # peak is the conservative error.
+          passRatio: [0.93, 1.15]
           intervention:
             label: The witnessed drop
             note: Ballast to 640 kg aboard, released from the full height, site closed to the public.
@@ -3713,7 +3817,7 @@ interiors:
         - { label: Weld indication, value: 41 mm, status: alarm }
         - { label: Wind limit, value: 22 m/s, status: normal }
   BUMPER:
-    caption: 100 collisions an hour, and every 1 of them is the same equation.
+    caption: 100 collisions an hour, and every one of them is the same equation.
     standLine: 400 logged impacts, and nothing to compare them against.
     station:
       kind: panel
@@ -3724,7 +3828,7 @@ interiors:
         - { label: Contact time for the car, value: 0.10 s, status: normal }
         - { label: Contact time for the rider, value: 0.18 s, status: high }
   SHIP:
-    caption: A pendulum with 60 people on it, and a period that ignores every 1 of them.
+    caption: A pendulum with 60 people on it, and a period that ignores every one of them.
     standLine: A drive set in 1996, and an operator who has been right for 2 seasons.
     station:
       kind: panel
@@ -3785,11 +3889,11 @@ warmups:
       used to do at the top of the swing, because a complaint pattern is evidence and a rumour
       is not.
   evade:
-    title: The owner who wants an opening date today
+    title: Delia Marsh wants an opening date today
     why: >-
-      He has been on the midway since eight wanting a date for the press, and Vey, the county
-      ride inspector, has said plainly that the date comes out of the inspection rather than the
-      other way round. Keep clear of him and get your round done.
+      Delia Marsh, who owns the park, has been on the midway since eight wanting a date for the
+      press, and Vey, the county ride inspector, has said plainly that the date comes out of the
+      inspection rather than the other way round. Keep clear of her and get your round done.
   tag:
     title: Catch the ride engineer before the tower test drop
     why: >-

@@ -54,7 +54,8 @@ export default {
     + 'is told about it — is decided by you. Two neighbourhoods are downwind of a plume nobody has '
     + 'identified. The drinking-water intake for a hundred and forty thousand people sits nine '
     + 'hundred metres downstream of the outfall, and the utility has closed it, which means the '
-    + 'city is drinking its reserves and the reserves are measured in days.',
+    + 'city is drinking its reserves and the reserves are measured in days. Adaeze Okonjo, who runs '
+    + 'analytical chemistry, will not name the compound on one method.',
   ],
 
   people: {

@@ -27,6 +27,9 @@ export default {
   title: 'Quantum',
   subtitle: 'Group Lead · Ridgeway Quantum Laboratory',
 
+  // Each mission is one working day on the run-up to the review. The plan card prints this in front of the mission number.
+  dayNoun: 'Day',
+
   // The place. `site.kind` picks the world module in vite.config.js:
   //   'interior'  engine/world/interiorSite.js — a spine with rooms off it
   //   'outdoor'   engine/world/outdoorTown.js — buildings on terrain

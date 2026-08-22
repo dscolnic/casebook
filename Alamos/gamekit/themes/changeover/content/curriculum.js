@@ -1743,7 +1743,7 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "Nine per cent, less eleven",
+      "title": "Nine a year, against eleven a month",
       "scene": "Haldane's loan book is written at 9 per cent a year. Prices are rising at 10.9 per cent a month, which is about 250 per cent a year.",
       "takeaway": "An unexpected rise in prices moves wealth from lenders to borrowers.",
       "place": "Ledger Hall",
@@ -1755,7 +1755,7 @@ export const CURRICULUM = {
       "story": "Haldane's loan book is written at 9 per cent a year. Prices are rising at 10.9 per cent a month, which is about 250 per cent a year.",
       "game": {
         "type": "BALLPARK",
-        "title": "Nine per cent, less eleven",
+        "title": "Nine a year, against eleven a month",
         "setup": "Ledger Hall",
         "play": "Work out what the lender is actually earning",
         "task": "Work out what the lender is actually earning",
@@ -2759,7 +2759,7 @@ export const CURRICULUM = {
         "play": "Spend the last of the reserves",
         "task": "Spend the last of the reserves",
         "question": "187 million of reserves. Build the first week, and know what it stops you being able to do.",
-        "answer": "The float is protected, the defence is what the rate is held with, and flour and a buffer are the two that keep the week survivable. That is 128 million, which leaves the banks or the wages and not both.",
+        "answer": "The float is protected and the defence is what the rate is held with. That leaves 135 million against four jobs, and the three banks and the early wages come to 142 million between them — so the decision is which of those two is not funded.",
         "why": "The float is not a choice: a counter that cannot pay out new marks on the fifteenth makes every other decision irrelevant. Defending the rate for the first week costs ten million and is what the announcement was made with, so it is the second thing bought. Flour is the one item on the list the public will notice within days, and a buffer is what makes week two possible at all. That leaves the three weak banks or the early wages, and not both — which is the decision. The honest form is to say which one is not being funded rather than to plan for both and discover it on Thursday.\n",
         "allocate": {
           "pool": {
@@ -2804,11 +2804,17 @@ export const CURRICULUM = {
           ],
           "answers": [
             {
-              "question": "Can the counter pay out new marks all week?",
+              "question": "Is the announced rate defended through the first week?",
               "requires": [
                 "defend"
               ],
               "required": true
+            },
+            {
+              "question": "Can the counter pay out new marks at all?",
+              "requires": [
+                "float"
+              ]
             },
             {
               "question": "Do the three weak banks meet the requirement on the first?",

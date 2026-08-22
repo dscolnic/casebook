@@ -27,6 +27,9 @@ export default {
   title: 'Yellow Bay',
   subtitle: 'Process Integration Lead · Ardley Fab 7',
 
+  // Each mission is one working day before the proving batch runs. The plan card prints this in front of the mission number.
+  dayNoun: 'Day',
+
   audience: { grade: 12 },
 
   // The place. `site.kind` picks the world module in vite.config.js:

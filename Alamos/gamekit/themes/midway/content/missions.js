@@ -13,6 +13,11 @@ export const MISSIONS = [
       {
         "group": "TOWER",
         "lesson": 0,
+        "task": "Get the force the brake fins have to make"
+      },
+      {
+        "group": "TOWER",
+        "lesson": 1,
         "task": "Derive the speed at the bottom of the drop"
       },
       {
@@ -36,7 +41,7 @@ export const MISSIONS = [
     "stops": [
       {
         "group": "TOWER",
-        "lesson": 1,
+        "lesson": 2,
         "task": "Get the deceleration the fins have to produce"
       },
       {
@@ -51,7 +56,7 @@ export const MISSIONS = [
       },
       {
         "group": "TOWER",
-        "lesson": 2,
+        "lesson": 3,
         "task": "Hold the tower brake while the car comes down."
       }
     ]
@@ -123,7 +128,7 @@ export const MISSIONS = [
       },
       {
         "group": "TOWER",
-        "lesson": 3,
+        "lesson": 4,
         "task": "Order the operations for the official drop test."
       },
       {
@@ -176,7 +181,7 @@ export const MISSIONS = [
       },
       {
         "group": "TOWER",
-        "lesson": 4,
+        "lesson": 5,
         "task": "Get the local strength of gravity out of a period"
       }
     ]
@@ -208,7 +213,7 @@ export const MISSIONS = [
   {
     "title": "The loop is not the loop on the drawing",
     "objective": "Derive what the loop demands, and measure what it actually is.",
-    "briefing": "Kovač taped the crown of the loop yesterday and the radius is not the 1 on the 1974 drawing.",
+    "briefing": "Kovač taped the crown of the loop yesterday and the radius is not the one on the 1974 drawing.",
     "stake": "Thursday, and Marta Kovač put a tape over the crown of the loop yesterday afternoon because nobody could find a reason not to. The drawing says the radius there is 5.6 metres. The tape says 7.4. In Brennan's ninth notebook, under 1998, there is a line about regrading the top of the loop after complaints of a rough ride, and no drawing was ever changed. Vey is right this morning and says so quietly: a ride that has run for 25 years on a number nobody checked is not the same thing as a ride with a margin. Today you derive the speed the loop demands at its crown, settle what a margin actually is, and read the ship's drive against yesterday's period. Everything computed this fortnight above the first drop now has to be done again.",
     "takeaway": "A flatter loop is a gentler ride and a hungrier one, and both of those are the same number.",
     "stops": [
@@ -219,7 +224,7 @@ export const MISSIONS = [
       },
       {
         "group": "TOWER",
-        "lesson": 5,
+        "lesson": 6,
         "task": "Say what a margin is a statement about"
       },
       {
@@ -301,7 +306,7 @@ export const MISSIONS = [
       },
       {
         "group": "TOWER",
-        "lesson": 6,
+        "lesson": 7,
         "task": "Prove the brake rather than assert it"
       }
     ]
@@ -339,7 +344,7 @@ export const MISSIONS = [
     "stops": [
       {
         "group": "TOWER",
-        "lesson": 7,
+        "lesson": 8,
         "task": "Match each ride to the claim its working actually supports."
       },
       {
@@ -406,8 +411,8 @@ export const WARMUPS = {
     "why": "The swinging ship has a fault history that never made it into the log, and half the original crew still live in the town. Ask around until enough accounts agree on what it used to do at the top of the swing, because a complaint pattern is evidence and a rumour is not."
   },
   "evade": {
-    "title": "The owner who wants an opening date today",
-    "why": "He has been on the midway since eight wanting a date for the press, and Vey, the county ride inspector, has said plainly that the date comes out of the inspection rather than the other way round. Keep clear of him and get your round done."
+    "title": "Delia Marsh wants an opening date today",
+    "why": "Delia Marsh, who owns the park, has been on the midway since eight wanting a date for the press, and Vey, the county ride inspector, has said plainly that the date comes out of the inspection rather than the other way round. Keep clear of her and get your round done."
   },
   "tag": {
     "title": "Catch the ride engineer before the tower test drop",

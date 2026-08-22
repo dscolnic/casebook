@@ -174,7 +174,7 @@ export const GROUPS = [
     "color": "#3f9e6b",
     "difficulty": 3,
     "type": "protocol",
-    "desc": "100 collisions an hour, and every 1 of them is the same equation.",
+    "desc": "100 collisions an hour, and every one of them is the same equation.",
     "defaultLeader": "chen",
     "budget": 70,
     "milestones": [

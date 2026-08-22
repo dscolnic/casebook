@@ -1177,7 +1177,7 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "More detections, the same amount of notice",
-      "scene": "5000 synthetic events with known times and sizes, ready to push through the monitoring network exactly as a real 1 would go. Kit Sorensen has the recovery display up and nothing on it yet.",
+      "scene": "5000 synthetic events with known times and sizes, ready to push through the monitoring network exactly as a real one would go. Kit Sorensen has the recovery display up and nothing on it yet.",
       "takeaway": "Injecting a population whose truth you know measures the pipeline rather than the world, and what never comes back is not absent.",
       "place": "Sample Room",
       "guide": "Move the endurance figure through the range it actually came with, and watch which options go dark. All four are ranked at one number, which is why they look separable. Commit to the one that still works at the pessimistic end, not the one that wins in the middle.",
@@ -1186,7 +1186,7 @@ export const CURRICULUM = {
         "What the range represents. Not disagreement between people — the honest spread of what is known. Choosing at its middle accepts a real chance of being on the wrong side, and containment failures are not the kind of error that can be corrected afterwards.",
         "Why Oyelaran has said nothing. The board as presented is defensible and incomplete, which is the ordinary way a decision gets made badly. Being the person who asks for the range is most of the job."
       ],
-      "story": "5000 synthetic events with known times and sizes, ready to push through the monitoring network exactly as a real 1 would go. Kit Sorensen has the recovery display up and nothing on it yet.",
+      "story": "5000 synthetic events with known times and sizes, ready to push through the monitoring network exactly as a real one would go. Kit Sorensen has the recovery display up and nothing on it yet.",
       "game": {
         "type": "INJECT",
         "title": "More detections, the same amount of notice",

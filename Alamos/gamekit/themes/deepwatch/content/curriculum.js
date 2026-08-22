@@ -988,6 +988,65 @@ export const CURRICULUM = {
           "Resonance and harmonics"
         ]
       }
+    },
+    {
+      "day": 11,
+      "title": "Four traces, one of them ours — Review",
+      "scene": "Middle watch, and Sonarman Kes Dunne has four fresh marks on the broadband stack. The boat came shallow through a squall twenty minutes ago. She reads out her log of what own-ship did and asks you to call each mark.",
+      "takeaway": "What a trace did when own-ship changed is the first question; bearing and bandwidth answer the rest.",
+      "place": "Sonar Shack",
+      "guide": "Dunne's log gives you own-ship's last twenty minutes, and that is the first test to apply. Then ask of each mark how wide it is, whether it holds a bearing, and what the bearing is doing over time. Pair on the combination. The loudest mark is not the important one, and one of these four is not out there at all.",
+      "story": "Middle watch, and Sonarman Kes Dunne has four fresh marks on the broadband stack. The boat came shallow through a squall twenty minutes ago. She reads out her log of what own-ship did and asks you to call each mark.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "Four traces, one of them ours — Review",
+        "setup": "Sonar Shack",
+        "play": "Match each new trace to what is making it.",
+        "task": "Match each new trace to what is making it.",
+        "question": "Match each new trace to what is making it.",
+        "answer": "",
+        "why": "Own-ship is still the first filter: nothing in the water knows the boat changed depth, so a sound that arrived with the change was made by the hull. After that, bearing behaviour and bandwidth do the sorting. Weather is broadband and comes from everywhere at once, so it cannot sit on one bearing. Machinery on another vessel is narrow and keeps its own course, drifting as the geometry changes. The trace to report is the steady bearing getting louder, because steady plus rising means something is closing.",
+        "rebuttals": [
+          "It arrived with our own depth change, and nothing out in the water knows what our depth is doing. Sounds that follow own-ship are own-ship.",
+          "A source on every bearing at once is not a vessel. Weather arrives from everywhere; a hull has to be somewhere.",
+          "A narrow line with machinery rhythm in it, drifting as the geometry changes, is a working boat holding its own course.",
+          "A steady bearing with a rising level is the one to say out loud. Steady plus louder means the geometry is closing."
+        ],
+        "scenarios": [
+          "A burst of sharp crackling right after our depth changed, then silence.",
+          "Broadband hiss arriving on every bearing at once, strongest toward the surface.",
+          "A narrow line with a slow rhythmic beat in it, drifting aft.",
+          "One clean tone on a bearing that barely moves, its level creeping up."
+        ],
+        "choices": [
+          "The hull itself, working as it adjusted to the new depth.",
+          "Rain on the surface overhead.",
+          "A trawler on its own course, falling astern of us.",
+          "A closing contact."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "columns": [
+          "What you hear",
+          "What it is"
+        ]
+      },
+      "assumes": [
+        "passive sonar listens and does not transmit"
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Spectra: broadband and narrowband",
+        "of": 30,
+        "rests": [
+          "Sound as a wave: frequency, wavelength, speed",
+          "Resonance and harmonics"
+        ]
+      }
     }
   ],
   "NAV": [
@@ -1651,6 +1710,39 @@ export const CURRICULUM = {
           "Dependency order and interlocks"
         ]
       }
+    },
+    {
+      "day": 11,
+      "title": "How far the water has carried us — Review",
+      "scene": "Quartermaster Anya Petrov has the plot for the evening watch. The last trusted fix is two and a half hours old, and the tide tables give a set of most of a knot across the track. Nobody has drawn it yet.",
+      "takeaway": "Dead reckoning tells you where you would be if nothing pushed you.",
+      "place": "Control Room",
+      "guide": "Five tiles, and the question is about the water rather than the boat. Ask of each number whether the hull's own instruments could see it. Speed through the water cannot see a current, and depth and the time since the last turn describe the boat's handling, not the sea. What is left is a rate and how long it has been running.",
+      "story": "Quartermaster Anya Petrov has the plot for the evening watch. The last trusted fix is two and a half hours old, and the tide tables give a set of most of a knot across the track. Nobody has drawn it yet.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "How far the water has carried us — Review",
+        "setup": "Control Room",
+        "play": "Age the position again, on a different watch",
+        "task": "Age the position again, on a different watch",
+        "question": "Estimate how far the set could have carried the boat since the last fix.",
+        "answer": "",
+        "why": "The plot is built from course, speed and time, and all three are the boat's own numbers. The water does not appear in any of them, so a set can carry the whole track sideways without the log ever noticing. The error is rate times age: 0.8 of a knot for two and a half hours is two miles, and it grows every hour the set goes unmeasured. Own speed, depth and the time since the last turn describe the boat, not the water.",
+        "givens": [],
+        "relationship": "Distance = speed × time. A knot is one nautical mile per hour.",
+        "calcKey": "NAV-11"
+      },
+      "assumes": [
+        "the log measures speed through the water, not over the ground"
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Relative motion, vectors and dead reckoning",
+        "of": 30,
+        "rests": [
+          "Bearings, triangulation and geometry"
+        ]
+      }
     }
   ],
   "DC": [
@@ -1786,7 +1878,7 @@ export const CURRICULUM = {
       "scene": "The suspected hull connection is 90 metres below the surface. Ferro writes seawater density as 1025 kilograms per cubic metre and g as 9.81 metres per second squared. He wants the gauge pressure on the sea side of the fitting.",
       "takeaway": "Hydrostatic gauge pressure rises in direct proportion to depth.",
       "place": "Forward Equipment & Handling",
-      "guide": "Five numbers, and they are not all about the same thing. Two describe the bilge: how fast the level rose, and what a centimetre of it holds. One is what the drain pump can shift at this head. One is the depth, and one is where the level started. Ask of each whether it describes the water coming in or the water going out. A rate the pump cannot beat is a different situation from one it can.",
+      "guide": "Five numbers, and only three of them are about the pressure. Two describe the bilge instead: what the drain pump can shift at this head, and where the level stood at the first reading. Ask of each whether the sea pressure at a depth depends on it. The water already inside the boat does not change what is pushing on the outside of the fitting.",
       "background": [
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
@@ -2087,6 +2179,54 @@ export const CURRICULUM = {
         "of": 30,
         "rests": [
           "Dependency order and interlocks"
+        ]
+      }
+    },
+    {
+      "day": 8,
+      "title": "What a walkdown is for — Review",
+      "scene": "Machinist's Mate Ruth Hallam meets you at the auxiliary space aft. Pumps down both sides, a sea suction low on the hull, one hatch forward and a trunk overhead. She wants it learned the way Ferro taught the forward space.",
+      "takeaway": "A compartment is a pressure boundary first: everything you learn about it hangs off that.",
+      "place": "Auxiliary Machinery & Bilge",
+      "guide": "Nothing here takes longer than a minute, so the clock will not order it. Ask instead which fact the others are read against, and which is a judgement rather than an observation. A locker of patches means one thing beside a sea suction and another beside a switchboard. Hallam's test is the same as Ferro's — could you fight this space's casualty in the dark.",
+      "story": "Machinist's Mate Ruth Hallam meets you at the auxiliary space aft. Pumps down both sides, a sea suction low on the hull, one hatch forward and a trunk overhead. She wants it learned the way Ferro taught the forward space.",
+      "game": {
+        "type": "SEQUENCE",
+        "title": "What a walkdown is for — Review",
+        "setup": "Auxiliary Machinery & Bilge",
+        "play": "Learn the aft auxiliary space in the order the facts depend on each other",
+        "task": "Learn the aft auxiliary space in the order the facts depend on each other",
+        "question": "Learn the aft auxiliary space in the order the facts depend on each other",
+        "answer": "",
+        "why": "The order is the same in every space because the dependencies are. The boundary makes it a compartment: until you know where it runs, a flood here cannot be told from a flood next door. The ways out come second, and working them is the only proof that counts. Then the threats — the sea suction, the cabling, the oil — because equipment can only be judged against what it might have to fight. The judgement comes last; it is a conclusion about the first three facts, not a fourth fact.",
+        "rebuttals": [
+          "The boundary first. Until you know where it runs, this is not a space yet, and neither is the casualty.",
+          "Both ways out second, and worked rather than looked at. A trunk you have not opened is not a way out.",
+          "The threats third: the sea suction, the cabling, the oil. They are what the equipment will be judged against.",
+          "The judgement last. Whether this space can fight its own casualty is a conclusion about the first three facts, not a fourth fact."
+        ],
+        "cards": [
+          "Trace where the pressure boundary runs, including the sea suction that pierces it low on the hull.",
+          "Prove the forward hatch and the overhead trunk both open, by working them.",
+          "Find what in here could start a casualty: the sea suction, the pump cabling, the oil stowage.",
+          "Judge whether the pumps and patching gear stowed here could fight a flood or a fire in this space."
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "assumes": [
+        "a submarine is divided into compartments that can be sealed off"
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Fluid flow and cavitation",
+        "of": 30,
+        "rests": [
+          "Pressure, depth and hydrostatics"
         ]
       }
     }
@@ -3332,16 +3472,15 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "Four hours of quiet",
-      "scene": "2 narrowband components sit at 147 and 150 hertz on the same bearing. In seawater the sound speed is about 1500 metres per second. The audio level swells and fades regularly while both spectral lines themselves remain steady.",
+      "scene": "Four hours of quiet running against a six-hour passage ceiling, and three candidate lineups on the board. Rask wants the second seawater pump and half the scrubbing secured; Lindqvist has done the arithmetic on the scrubbing and will not sign it.",
       "takeaway": "A robust choice still works when the margin you thought you had disappears.",
       "place": "Machinery Control Room",
-      "guide": "Move the two-hour schedule margin down to zero and watch which lineups go dark. A lineup that works only with margin in hand is not a lineup. Sound speed in seawater is about 1500 metres a second, and both lines stay steady while the level swells and fades — those are the facts the surviving plan has to be consistent with.",
+      "guide": "Move the two-hour schedule margin down to zero and watch which lineups go dark. A lineup that works only with margin in hand is not a lineup. Ask of each candidate what it stops the boat being able to do, and how long that lasts after the quiet run ends — the bill for a silent lineup arrives late, in another department.",
       "background": [
-        "What the swelling and fading is. Two steady tones close in frequency add and cancel as they drift in and out of phase, at a rate set by their difference — three hertz here, so a swell every third of a second. It sounds like a machine changing load and it is two machines that are not.",
         "Why the margin is the thing to stress. A schedule with two hours spare hides a lot: a slow transit, a delayed evolution, a repair that runs long. Testing at zero is what separates plans that work from plans that have been lucky.",
-        "Why sound speed appears in a scheduling problem. It sets how long the boat is detectable at a given range as the geometry changes, so the acoustic constraint and the timetable are the same constraint written twice."
+        "Why the cost lands in another department. Securing a seawater pump buys quiet now and costs cooling later, and halving the scrubbing buys quiet now and costs breathable air later. Neither appears on the gauge the decision is made from, which is why the surviving lineup has to be the one that is still legal when the clock runs out rather than the one that is quietest today."
       ],
-      "story": "2 narrowband components sit at 147 and 150 hertz on the same bearing. In seawater the sound speed is about 1500 metres per second. The audio level swells and fades regularly while both spectral lines themselves remain steady.",
+      "story": "Four hours of quiet running against a six-hour passage ceiling, and three candidate lineups on the board. Rask wants the second seawater pump and half the scrubbing secured; Lindqvist has done the arithmetic on the scrubbing and will not sign it.",
       "game": {
         "type": "STRESS",
         "title": "Four hours of quiet",
@@ -3416,12 +3555,11 @@ export const CURRICULUM = {
         "quieting measures can trade acoustic benefit against equipment endurance"
       ],
       "concept": {
-        "n": 6,
-        "c": "Spectra: broadband and narrowband",
+        "n": 20,
+        "c": "Risk, redundancy and failure propagation",
         "of": 30,
         "rests": [
-          "Sound as a wave: frequency, wavelength, speed",
-          "Resonance and harmonics"
+          "Dependency order and interlocks"
         ]
       }
     },
@@ -3537,6 +3675,56 @@ export const CURRICULUM = {
         "c": "Decibels and logarithmic scales",
         "of": 30
       }
+    },
+    {
+      "day": 12,
+      "title": "Every fitting is an argument — Review",
+      "scene": "Machinist's Mate Tunde Adeyemi chalks numbers on four fittings in the machinery room and asks what each one is for. None carries a purpose label. He wipes his hands, steps back from the bulkhead, and waits for the distinctions.",
+      "takeaway": "What a fitting is for is decided by what is on the other side of it, and at what pressure.",
+      "place": "Machinery Room",
+      "guide": "Numbers, not purpose labels, same as forward. Work from shape, position and what lies beyond. A spring, a gland, a cap and a wheel each answer a different question about what somebody feared would happen here. Settle the two you are sure of, then make the last pair argue it out. One of these four has the sea behind it.",
+      "story": "Machinist's Mate Tunde Adeyemi chalks numbers on four fittings in the machinery room and asks what each one is for. None carries a purpose label. He wipes his hands, steps back from the bulkhead, and waits for the distinctions.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "Every fitting is an argument — Review",
+        "setup": "Machinery Room",
+        "play": "Match each fitting to what it is there to do, in a different space.",
+        "task": "Match each fitting to what it is there to do, in a different space.",
+        "question": "Match each fitting to what it is there to do, in a different space.",
+        "answer": "",
+        "why": "The reasoning transfers because it never depended on the forward space. Ask of each fitting what is on the far side of it and what operating it would admit or interrupt. A spring that shuts a valve by itself is a failure position somebody chose. A packed gland exists so a cable can cross a boundary without defeating it. A capped sounding connection is an opening into a tank, kept shut for the same reason. And any wheel on a sea connection has the ocean behind it at whatever pressure the depth sets.",
+        "rebuttals": [
+          "A valve that shuts itself is a valve somebody decided the failure position of. Bilge suction fails shut, so an unattended line cannot flood back.",
+          "A packed gland is the argument that a cable and a pressure boundary can share a bulkhead. Without it, one of them loses.",
+          "A capped, stencilled connection at deck level is an opening into a tank. It is kept shut for the same reason the boundary is.",
+          "The wheel on the sea suction is the one with the ocean behind it. Depth decides what comes through, which is why it is the one you do not guess about."
+        ],
+        "scenarios": [
+          "A spring-loaded valve on a line that drops into the bilge well.",
+          "A heavy cable passing through the bulkhead inside a packed gland.",
+          "A capped connection at deck level, stencilled with a tank number.",
+          "A wheel valve on the sea suction that feeds the main pump."
+        ],
+        "choices": [
+          "It pulls water out of the bilge, and the spring shuts it the moment nobody is holding it open.",
+          "It lets power cross the bulkhead without the bulkhead giving up being a boundary.",
+          "It is where the tank below is sounded, and the cap stays on so the tank cannot vent into the space.",
+          "Opening it puts the sea on this side of the hull, at whatever pressure the depth sets."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "columns": [
+          "What you are looking at",
+          "What it does"
+        ]
+      },
+      "assumes": [
+        "pressure rises about one atmosphere for every ten metres of depth"
+      ]
     }
   ]
 };
@@ -3605,30 +3793,30 @@ export const BALLPARK_CALCS = {
     "prompt": "The fitting is 90 m deep in seawater of density 1025 kg/m³. Use g = 9.81 m/s².",
     "question": "Estimate the gauge pressure at the fitting.",
     "labels": [
-      "8 cm  (rise in 1 minute)",
-      "11 gallons per cm  (this bilge)",
+      "1025 kg/m³  (density of seawater)",
+      "9.81 m/s²  (g)",
+      "90 m  (depth of the fitting)",
       "55 gpm  (drain pump at this head)",
-      "90 m  (depth)",
-      "31 cm  (level at the first reading)"
+      "31 cm  (bilge level at the first reading)"
     ],
     "values": [
-      8,
-      11,
-      55,
+      1025,
+      9.81,
       90,
+      55,
       31
     ],
     "slots": 3,
-    "template": "{0} × {1} + {2}",
-    "formula": "a*b + c",
+    "template": "{0} × {1} × {2}",
+    "formula": "a*b*c",
     "correct": [
       0,
       1,
       2
     ],
-    "target": 143,
-    "tolerance": 12,
-    "units": "gallons per minute",
+    "target": 904972.5,
+    "tolerance": 60000,
+    "units": "Pa (about 0.91 MPa)",
     "solution": "1025 × 9.81 × 90 ≈ 9.05 × 10^5 Pa = 0.91 MPa, about 9 atmospheres gauge.",
     "explanation": "Depth multiplies the weight of the water column. The result is gauge pressure; atmospheric pressure is added only if absolute pressure is needed."
   },
@@ -3876,6 +4064,36 @@ export const BALLPARK_CALCS = {
     "units": "Hz",
     "solution": "fbeat = |150−147| = 3 Hz. As a follow-on, λ147 ≈ 10.20 m and λ150 = 10.00 m.",
     "explanation": "Only the two frequencies set the beat rate. Sound speed is useful later for wavelength, but not for this subtraction."
+  },
+  "NAV-11": {
+    "prompt": "The tide tables give a set of about 0.8 knots across the track.",
+    "question": "Estimate how far the set could have carried the boat since the last fix.",
+    "labels": [
+      "0.8 kn  (the set, from the tide tables)",
+      "2.5 h  (since the last trusted fix)",
+      "6 kn  (own speed)",
+      "60 fathoms  (charted depth)",
+      "45 min  (since the last course change)"
+    ],
+    "values": [
+      0.8,
+      2.5,
+      6,
+      60,
+      45
+    ],
+    "slots": 2,
+    "template": "{0} × {1}",
+    "formula": "a*b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 2,
+    "tolerance": 0.35,
+    "units": "nautical miles",
+    "solution": "0.8 kn × 2.5 h = 2.0 nautical miles of set nobody has drawn on the plot.",
+    "explanation": "Distance is rate times time, and the rate here belongs to the water. Own speed, depth and the time since the last turn are the boat's own numbers, so none of them measures the set."
   }
 };
 

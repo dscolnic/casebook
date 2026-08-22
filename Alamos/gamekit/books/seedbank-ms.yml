@@ -1693,7 +1693,7 @@ missions:
           - Check the switching every generation. The final rust test is then unnecessary.
           - Put rust on every generation, and the DNA test at the end.
           - Use the DNA test early and late. Carrying the gene is enough.
-        answer: Put rust on every generation, and the DNA test at the end.
+        answer: Use the DNA test early, then test the final line against rust.
         rebuttals:
           - Switching on is worth knowing, and the plant still has to beat the rust in the end.
           - Waiting for real rust every generation throws away the months the DNA test buys.
@@ -2091,7 +2091,7 @@ missions:
               step: 0.01
               unit: fraction
           observable:
-            label: Marker–phenotype disagreement, 11 of 400 in this generation
+            label: Marker–phenotype disagreement, 16 of 400 in this generation
           locus:
             - a: 0
               b: 0.04
@@ -2104,7 +2104,7 @@ missions:
             - a: 0.04
               b: 0
           second:
-            label: PCR aimed inside the resistance gene itself, on the 11 discordant plants
+            label: PCR aimed inside the resistance gene itself, on the 16 discordant plants
             apply: Run the direct-gene assay
             locus:
               - a: 0.02

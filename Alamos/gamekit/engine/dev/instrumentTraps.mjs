@@ -252,6 +252,14 @@ const BREAKS = [
     [['            hybrid: { hours: 71, cost: 160, residual: 9 }',
       '            hybrid: { hours: 50, cost: 160, residual: 9 }']],
     'also wins on hours at the nominal'],
+  // `instruments.js` renders the table as scores[candidate][criterion.key], so a
+  // criterion keyed to a field no candidate scores prints an em dash down its whole
+  // column. Bring Them Home shipped three of them at once — the entire table was
+  // dashes and the panel put no numbers in front of the player.
+  ['STRESS', 'a criterion keyed to a score field nothing has',
+    [['            - { key: residual, label: Left behind, unit: kg }',
+      '            - { key: leftBehind, label: Left behind, unit: kg }']],
+    'which no candidate has a score for'],
   ['DELEGATE', 'two problems are rising toward something irreversible',
     [['              consequence: contained, and cleanup cost rises with volume',
       '              consequence: contained, and cleanup cost rises with volume\n              irreversible: true']],

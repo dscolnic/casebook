@@ -522,7 +522,7 @@ export const CURRICULUM = {
     },
     {
       "day": 10,
-      "title": "6 Patients, 1 First Room — Review 2",
+      "title": "Six Patients, One First Room — Review 2",
       "scene": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. Our patient DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Our patient Fatima has itchy eyes. Owen has a small covered scrape.",
       "takeaway": "Triage means asking, “Which problem could become dangerous fastest?”",
       "place": "",
@@ -535,7 +535,7 @@ export const CURRICULUM = {
       "story": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. Our patient DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Our patient Fatima has itchy eyes. Owen has a small covered scrape.",
       "game": {
         "type": "TRIAGE",
-        "title": "6 Patients, 1 First Room — Review 2",
+        "title": "Six Patients, One First Room — Review 2",
         "setup": "Nora, DeShawn, Mei, Mr. Alvarez, Fatima, and Owen  •  Central Triage",
         "play": "Who should go to the first available room?",
         "task": "Who should go to the first available room?",
@@ -900,7 +900,7 @@ export const CURRICULUM = {
     },
     {
       "day": 16,
-      "title": "6 Patients, 1 First Room — Review 3",
+      "title": "Six Patients, One First Room — Review 3",
       "scene": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. Our patient DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Our patient Fatima has itchy eyes. Owen has a small covered scrape.",
       "takeaway": "Triage means asking, “Which problem could become dangerous fastest?”",
       "place": "",
@@ -913,7 +913,7 @@ export const CURRICULUM = {
       "story": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. Our patient DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Our patient Fatima has itchy eyes. Owen has a small covered scrape.",
       "game": {
         "type": "TRIAGE",
-        "title": "6 Patients, 1 First Room — Review 3",
+        "title": "Six Patients, One First Room — Review 3",
         "setup": "Nora, DeShawn, Mei, Mr. Alvarez, Fatima, and Owen  •  Central Triage",
         "play": "Who should go to the first available room?",
         "task": "Who should go to the first available room?",
@@ -1278,7 +1278,7 @@ export const CURRICULUM = {
     },
     {
       "day": 22,
-      "title": "6 Patients, 1 First Room — Review 4",
+      "title": "Six Patients, One First Room — Review 4",
       "scene": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. Our patient DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Our patient Fatima has itchy eyes. Owen has a small covered scrape.",
       "takeaway": "Triage means asking, “Which problem could become dangerous fastest?”",
       "place": "",
@@ -1291,7 +1291,7 @@ export const CURRICULUM = {
       "story": "The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. Our patient DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Our patient Fatima has itchy eyes. Owen has a small covered scrape.",
       "game": {
         "type": "TRIAGE",
-        "title": "6 Patients, 1 First Room — Review 4",
+        "title": "Six Patients, One First Room — Review 4",
         "setup": "Nora, DeShawn, Mei, Mr. Alvarez, Fatima, and Owen  •  Central Triage",
         "play": "Who should go to the first available room?",
         "task": "Who should go to the first available room?",
@@ -1893,7 +1893,7 @@ export const CURRICULUM = {
     },
     {
       "day": 7,
-      "title": "Follow 1 Breath — Review 2",
+      "title": "Follow One Breath — Review 2",
       "scene": "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood.",
       "takeaway": "The lungs are the meeting place between outside air and the blood.",
       "place": "",
@@ -1906,7 +1906,7 @@ export const CURRICULUM = {
       "story": "Priya asks what happens to the air when she takes a deep breath. The respiratory therapist gives you four picture cards: nose and mouth, windpipe, lungs, and blood carrying oxygen away.",
       "game": {
         "type": "SEQUENCE",
-        "title": "Follow 1 Breath — Review 2",
+        "title": "Follow One Breath — Review 2",
         "setup": "Priya  •  Respiratory Room",
         "play": "Put the path of a breath in order.",
         "task": "Put the path of a breath in order.",
@@ -2247,7 +2247,7 @@ export const CURRICULUM = {
     },
     {
       "day": 13,
-      "title": "Follow 1 Breath — Review 3",
+      "title": "Follow One Breath — Review 3",
       "scene": "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood.",
       "takeaway": "The lungs are the meeting place between outside air and the blood.",
       "place": "",
@@ -2260,7 +2260,7 @@ export const CURRICULUM = {
       "story": "Priya asks what happens to the air when she takes a deep breath. The respiratory therapist gives you four picture cards: nose and mouth, windpipe, lungs, and blood carrying oxygen away.",
       "game": {
         "type": "SEQUENCE",
-        "title": "Follow 1 Breath — Review 3",
+        "title": "Follow One Breath — Review 3",
         "setup": "Priya  •  Respiratory Room",
         "play": "Put the path of a breath in order.",
         "task": "Put the path of a breath in order.",
@@ -2582,7 +2582,7 @@ export const CURRICULUM = {
     },
     {
       "day": 19,
-      "title": "Follow 1 Breath — Review 4",
+      "title": "Follow One Breath — Review 4",
       "scene": "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood.",
       "takeaway": "The lungs are the meeting place between outside air and the blood.",
       "place": "",
@@ -2595,7 +2595,7 @@ export const CURRICULUM = {
       "story": "Priya asks what happens to the air when she takes a deep breath. The respiratory therapist gives you four picture cards: nose and mouth, windpipe, lungs, and blood carrying oxygen away.",
       "game": {
         "type": "SEQUENCE",
-        "title": "Follow 1 Breath — Review 4",
+        "title": "Follow One Breath — Review 4",
         "setup": "Priya  •  Respiratory Room",
         "play": "Put the path of a breath in order.",
         "task": "Put the path of a breath in order.",
@@ -2917,7 +2917,7 @@ export const CURRICULUM = {
     },
     {
       "day": 25,
-      "title": "Follow 1 Breath — Review 5",
+      "title": "Follow One Breath — Review 5",
       "scene": "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood.",
       "takeaway": "The lungs are the meeting place between outside air and the blood.",
       "place": "",
@@ -2930,7 +2930,7 @@ export const CURRICULUM = {
       "story": "Priya asks what happens to the air when she takes a deep breath. The respiratory therapist gives you four picture cards: nose and mouth, windpipe, lungs, and blood carrying oxygen away.",
       "game": {
         "type": "SEQUENCE",
-        "title": "Follow 1 Breath — Review 5",
+        "title": "Follow One Breath — Review 5",
         "setup": "Priya  •  Respiratory Room",
         "play": "Put the path of a breath in order.",
         "task": "Put the path of a breath in order.",
@@ -3351,7 +3351,7 @@ export const CURRICULUM = {
     },
     {
       "day": 9,
-      "title": "3 Jobs, 3 Organs — Review 2",
+      "title": "Three Jobs, Three Organs — Review 2",
       "scene": "Three cards each need one picture. Owen needs the part that starts breaking food up. Sam needs the part that mixes it. Nia needs the part that soaks it up.",
       "takeaway": "A body system works because specialized parts each do a piece of the job.",
       "place": "",
@@ -3364,7 +3364,7 @@ export const CURRICULUM = {
       "story": "Three patient cards need one teaching picture each. Owen needs the organ that starts breaking food into smaller pieces, Sam needs the organ that mixes food, and Nia needs the organ that absorbs many nutrients.",
       "game": {
         "type": "CASEBOOK",
-        "title": "3 Jobs, 3 Organs — Review 2",
+        "title": "Three Jobs, Three Organs — Review 2",
         "setup": "Sam, Nia, and Owen  •  Pediatric Exam Room",
         "play": "Which matching set is correct?",
         "task": "Which matching set is correct?",
@@ -3654,7 +3654,7 @@ export const CURRICULUM = {
     },
     {
       "day": 15,
-      "title": "3 Jobs, 3 Organs — Review 3",
+      "title": "Three Jobs, Three Organs — Review 3",
       "scene": "Three cards each need one picture. Owen needs the part that starts breaking food up. Sam needs the part that mixes it. Nia needs the part that soaks it up.",
       "takeaway": "A body system works because specialized parts each do a piece of the job.",
       "place": "",
@@ -3667,7 +3667,7 @@ export const CURRICULUM = {
       "story": "Three patient cards need one teaching picture each. Owen needs the organ that starts breaking food into smaller pieces, Sam needs the organ that mixes food, and Nia needs the organ that absorbs many nutrients.",
       "game": {
         "type": "CASEBOOK",
-        "title": "3 Jobs, 3 Organs — Review 3",
+        "title": "Three Jobs, Three Organs — Review 3",
         "setup": "Sam, Nia, and Owen  •  Pediatric Exam Room",
         "play": "Which matching set is correct?",
         "task": "Which matching set is correct?",
@@ -3957,7 +3957,7 @@ export const CURRICULUM = {
     },
     {
       "day": 21,
-      "title": "3 Jobs, 3 Organs — Review 4",
+      "title": "Three Jobs, Three Organs — Review 4",
       "scene": "Three cards each need one picture. Owen needs the part that starts breaking food up. Sam needs the part that mixes it. Nia needs the part that soaks it up.",
       "takeaway": "A body system works because specialized parts each do a piece of the job.",
       "place": "",
@@ -3970,7 +3970,7 @@ export const CURRICULUM = {
       "story": "Three patient cards need one teaching picture each. Owen needs the organ that starts breaking food into smaller pieces, Sam needs the organ that mixes food, and Nia needs the organ that absorbs many nutrients.",
       "game": {
         "type": "CASEBOOK",
-        "title": "3 Jobs, 3 Organs — Review 4",
+        "title": "Three Jobs, Three Organs — Review 4",
         "setup": "Sam, Nia, and Owen  •  Pediatric Exam Room",
         "play": "Which matching set is correct?",
         "task": "Which matching set is correct?",
@@ -7241,7 +7241,7 @@ export const CURRICULUM = {
       "takeaway": "A change on its own is not enough; how long it took is what says whether it is fast.",
       "place": "",
       "guide": "Two things matter here. How much it changed, and how long that took. Ask what the question wants. It wants a speed, so it needs both. One number alone is just a number. The same change in ten minutes would worry you more.",
-      "story": "A chart shows 2 temperatures for Ms. Kim. The earlier 1 is 98°F. The later 1 is 101°F, and the times beside them are 3 hours apart. One temperature alone is just a number. Two of them make a change, and the times make that change a speed. That is why charts keep the old readings and the clock beside them. The care team decides what it means.",
+      "story": "A chart shows 2 temperatures for Ms. Kim. The earlier one is 98°F. The later one is 101°F, and the times beside them are 3 hours apart. One temperature alone is just a number. Two of them make a change, and the times make that change a speed. That is why charts keep the old readings and the clock beside them. The care team decides what it means.",
       "game": {
         "type": "BALLPARK",
         "title": "Temperature Difference",
@@ -7721,7 +7721,7 @@ export const CURRICULUM = {
       "takeaway": "A change on its own is not enough; how long it took is what says whether it is fast.",
       "place": "",
       "guide": "Two things matter here. How much it changed, and how long that took. Ask what the question wants. It wants a speed, so it needs both. One number alone is just a number. The same change in ten minutes would worry you more.",
-      "story": "A chart shows 2 temperatures for Ms. Kim. The earlier 1 is 98°F. The later 1 is 101°F, and the times beside them are 3 hours apart. One temperature alone is just a number. Two of them make a change, and the times make that change a speed. That is why charts keep the old readings and the clock beside them. The care team decides what it means.",
+      "story": "A chart shows 2 temperatures for Ms. Kim. The earlier one is 98°F. The later one is 101°F, and the times beside them are 3 hours apart. One temperature alone is just a number. Two of them make a change, and the times make that change a speed. That is why charts keep the old readings and the clock beside them. The care team decides what it means.",
       "game": {
         "type": "BALLPARK",
         "title": "Temperature Difference — Review 2",

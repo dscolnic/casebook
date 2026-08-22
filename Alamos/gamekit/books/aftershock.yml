@@ -106,7 +106,7 @@ roster:
       <p>She wrote her thesis on the fill under this town, which nobody read at the time and four
       people have asked her for this week. She can tell you which streets were creek in 1910 and it
       turns out those are the streets with sand in them now.</p>
-      <p>She is the 1 who keeps saying that the buildings are not the story, the ground is.</p>
+      <p>She is the one who keeps saying that the buildings are not the story, the ground is.</p>
     quiz:
       - q: Why does Navarro care which streets were a creek a century ago?
         a: Loose saturated fill in an old channel is where liquefaction shows up
@@ -406,8 +406,8 @@ missions:
         takeaway: A record describes one place, so two records of one earthquake can disagree and both be right.
         format: CHOICE
         question: What does the difference between the two records mean?
-        answerText: The Flats record is about 3 times the rock-site amplitude in the strongest band, so A_soft/A_rock ≈ 3 there. That supports a real site-amplification effect; the factor is frequency-dependent and should not be applied blindly to every building or motion measure.
-        why: Soft ground can amplify and lengthen shaking in a particular period band. Here the 2 records give A_soft/A_rock ≈ 3 for the strongest motion. That is a site effect, not a larger earthquake under the Flats. Buildings also have preferred periods. A rough rule is T ≈ 0.1N seconds for an N-storey building. If strong site motion overlaps a building period, resonance can increase response. The ratio is frequency-dependent, so one factor should not be applied to every motion measure.
+        answerText: The Flats record is about 3 times the vault's amplitude in the strongest band, so A_soft/A_rock ≈ 3 against that reference station. That supports a real site-amplification effect; the factor is frequency-dependent and should not be applied blindly to every building or motion measure.
+        why: Soft ground can amplify and lengthen shaking in a particular period band. Here the two records give A_soft/A_rock ≈ 3 for the strongest motion — against the vault, which is the reference the district plan uses and is itself assumed to be competent rock. That is a site effect, not a larger earthquake under the Flats. Buildings also have preferred periods. A rough rule is T ≈ 0.1N seconds for an N-storey building. If strong site motion overlaps a building period, resonance can increase response. The ratio is frequency-dependent, so one factor should not be applied to every motion measure.
         choices:
           - One of the two instruments is faulty and its record should be discarded.
           - The soft ground under the Flats amplified and lengthened the shaking.
@@ -683,7 +683,7 @@ missions:
         title: A notice somebody acts on
         place: Public Safety
         scene: |-
-          Adeyemi has 200 words and an audience that has heard 2 numbers and a rumour about a bigger 1 coming. She wants to know what the notice has to contain.
+          Adeyemi has 200 words and an audience that has heard 2 numbers and a rumour about a bigger one coming. She wants to know what the notice has to contain.
         guide: >-
           All four of these will be in the notice, so nothing is being left out. Ask
           instead which one somebody can act on while standing in the street, and which
@@ -2600,10 +2600,10 @@ missions:
         mapping: [0, 1, 2, 3]
       - group: HAZ
         task: Decide what a bigger amplification changes
-        title: Five times, not three
+        title: Four point eight, not three
         concept: "Site effect: soft ground amplifies"
         place: Hazard & Forecasting
-        scene: If the Flats amplify by five rather than three, the shaking a future earthquake will deliver there is much larger than the figure in the district plan. The revised district map is waiting for a replacement number.
+        scene: The trace has just shown that the reference station itself amplifies by about 1.6, so the published Flats ratio of 3.0 was measured against ground that was already moving. The revised district map is waiting for a replacement number.
         guide: >-
           Two instruments recorded the same earthquake, one on the Flats and one on rock
           above the town. The amplification is the ratio between what they measured, so pick
@@ -2631,28 +2631,28 @@ missions:
           - design values are chosen from expected shaking
         takeaway: Correcting site response changes forward-looking hazard and design assumptions; it does not rewrite damage that was observed directly.
         format: BALLPARK
-        question: From the two records of the same earthquake, what is the Flats' amplification over rock?
-        answerText: About 5.0 — 0.41 g on the Flats against 0.082 g at the vault on granite. The district plan's 3 is the number being replaced, and what it changes is future design, not the placards already issued.
-        why: "Site amplification is A_soft / A_rock: the peak acceleration recorded on soft ground divided by the peak on competent rock for the same event. The Flats instrument recorded 0.41 g and the vault instrument on granite recorded 0.082 g, so the ratio is 0.41 ÷ 0.082 ≈ 5.0, against the 3 the district plan assumes. Both readings are in g, so the answer is dimensionless, which is what makes it a property of the ground rather than of this earthquake. Two things follow and one does not. The design values for rebuilding in the Flats rise, and the case for ground improvement gets much stronger. What does not change is anything already observed: the placards came from inspections of real buildings, and the magnitude of the earthquake was measured from waveforms, not inferred from a ratio. And one number is still only a summary — amplification varies with frequency, so the Flats need a response curve before anything is designed against them."
+        question: Correct the published Flats ratio for the reference station's own site response.
+        answerText: About 4.8 — the published 3.0 times the reference station's own 1.6. The district plan's 3 is the number being replaced, and what it changes is future design, not the placards already issued.
+        why: "A ratio inherits whatever is wrong with the thing under the line. The published Flats figure of 3.0 was the Flats record divided by the vault record, and the trace has just shown the vault itself sits on four metres of weathered granite and amplifies by about 1.6. So the published number is 3.0 relative to a moving reference, and 3.0 × 1.6 ≈ 4.8 relative to competent rock. Both terms are ratios, so the answer is dimensionless, which is what makes it a property of the ground rather than of this earthquake. Two things follow and one does not. The design values for rebuilding in the Flats rise, and the case for ground improvement gets much stronger. What does not change is anything already observed: the placards came from inspections of real buildings, and the magnitude of the earthquake was measured from waveforms, not inferred from a ratio. And one number is still only a summary — amplification varies with frequency, so the Flats need a response curve before anything is designed against them."
         estimate:
           prompt: The same earthquake was recorded at 0.41 g on the Flats and 0.082 g at the vault instrument on granite above Upper Town.
-          question: Choose the soft-ground peak and the rock peak.
+          question: Choose the published ratio and the reference station's own site response.
           labels:
+            - 3.0  (the published Flats-to-vault ratio)
+            - 1.6  (the reference station's own measured site response)
             - 0.41  (peak acceleration on the Flats, in g)
-            - 0.082  (peak acceleration on granite, in g)
-            - 3  (the amplification the district plan currently assumes)
-            - 0.31  (the basement record inside the hospital, in g)
+            - 0.082  (peak acceleration at the vault, in g)
             - 6.8  (the moment magnitude of the event)
-          values: [0.41, 0.082, 3, 0.31, 6.8]
+          values: [3.0, 1.6, 0.41, 0.082, 6.8]
           slots: 2
-          template: '{0} ÷ {1}'
-          formula: a/b
+          template: '{0} × {1}'
+          formula: a*b
           correct: [0, 1]
-          target: 5.0
+          target: 4.8
           tolerance: 0.4
           units: times (dimensionless)
-          solution: 0.41 ÷ 0.082 ≈ 5.0 against the plan's 3, and the ratio is dimensionless because both records are in g.
-          explanation: Five rather than three moves every design value the district plan feeds, and rewrites nothing already observed.
+          solution: 3.0 × 1.6 ≈ 4.8 against the plan's 3.0, and the result is dimensionless because both terms are ratios.
+          explanation: The two raw peaks are the decoys: dividing them gives the published 3.0 back, which is the number being corrected rather than the correction. Four point eight rather than three moves every design value the district plan feeds, and rewrites nothing already observed.
           givens:
             - 0.41 g on the Flats and 0.082 g on granite, same event
             - the district plan currently assumes 3

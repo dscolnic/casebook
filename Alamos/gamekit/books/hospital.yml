@@ -959,7 +959,7 @@ glossary:
       - triage
     def: Deciding who needs help first based on how urgent the clue is.
 
-# The campaign: 1 working day each, 3 stops and a callback from day 3.
+# The campaign: One working day each, 3 stops and a callback from day 3.
 missions:
   - title: Morning Rush
     objective: How doctors use clues and decide who needs help first
@@ -2682,7 +2682,7 @@ missions:
           Two things matter here. How much it changed, and how long that took. Ask what
           the question wants. It wants a speed, so it needs both. One number alone is
           just a number. The same change in ten minutes would worry you more.
-        story: A chart shows 2 temperatures for Ms. Kim. The earlier 1 is 98°F. The later 1 is 101°F, and the times beside them are 3 hours apart. One temperature alone is just a number. Two of them make a change, and the times make that change a speed. That is why charts keep the old readings and the clock beside them. The care team decides what it means.
+        story: A chart shows 2 temperatures for Ms. Kim. The earlier one is 98°F. The later one is 101°F, and the times beside them are 3 hours apart. One temperature alone is just a number. Two of them make a change, and the times make that change a speed. That is why charts keep the old readings and the clock beside them. The care team decides what it means.
         assumes:
           - you can take one number away from another
         takeaway: A change on its own is not enough; how long it took is what says whether it is fast.
@@ -3000,7 +3000,7 @@ lessons:
     answerText: 1. Clean your hands, so nothing from the last patient travels to Ben. 2. Ask Ben what happened, and where it hurts most. 3. Look at the ankle, using what Ben said to know where to look. 4. Write down the clues, so the next person sees what you saw.
   - group: TRI
     task: Who should go to the first available room?
-    title: 6 Patients, 1 First Room — Review 2
+    title: Six Patients, One First Room — Review 2
     setup: Nora, DeShawn, Mei, Mr. Alvarez, Fatima, and Owen  •  Central Triage
     scene: The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. Our patient DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Our patient Fatima has itchy eyes. Owen has a small covered scrape.
     guide: >-
@@ -3239,7 +3239,7 @@ lessons:
     answerText: 1. Clean your hands, so nothing from the last patient travels to Ben. 2. Ask Ben what happened, and where it hurts most. 3. Look at the ankle, using what Ben said to know where to look. 4. Write down the clues, so the next person sees what you saw.
   - group: TRI
     task: Who should go to the first available room?
-    title: 6 Patients, 1 First Room — Review 3
+    title: Six Patients, One First Room — Review 3
     setup: Nora, DeShawn, Mei, Mr. Alvarez, Fatima, and Owen  •  Central Triage
     scene: The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. Our patient DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Our patient Fatima has itchy eyes. Owen has a small covered scrape.
     guide: >-
@@ -3478,7 +3478,7 @@ lessons:
     answerText: 1. Clean your hands, so nothing from the last patient travels to Ben. 2. Ask Ben what happened, and where it hurts most. 3. Look at the ankle, using what Ben said to know where to look. 4. Write down the clues, so the next person sees what you saw.
   - group: TRI
     task: Who should go to the first available room?
-    title: 6 Patients, 1 First Room — Review 4
+    title: Six Patients, One First Room — Review 4
     setup: Nora, DeShawn, Mei, Mr. Alvarez, Fatima, and Owen  •  Central Triage
     scene: The waiting board is full. Nora is breathing hard and cannot finish a sentence comfortably. Our patient DeShawn can walk on a sore ankle. Mei has fever and cough but is breathing comfortably. Mr. Alvarez feels lightheaded but is awake and talking. Our patient Fatima has itchy eyes. Owen has a small covered scrape.
     guide: >-
@@ -3638,7 +3638,7 @@ lessons:
     answer: Ava, because breathing trouble can affect the whole body quickly.
   - group: RESP
     task: Put the path of a breath in order.
-    title: Follow 1 Breath — Review 2
+    title: Follow One Breath — Review 2
     setup: Priya  •  Respiratory Room
     scene: "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood."
     guide: >-
@@ -3851,7 +3851,7 @@ lessons:
       unmeasuredMoral: If you say the pulse came down without counting it, you never find out whether you knew what his body would do.
   - group: RESP
     task: Put the path of a breath in order.
-    title: Follow 1 Breath — Review 3
+    title: Follow One Breath — Review 3
     setup: Priya  •  Respiratory Room
     scene: "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood."
     guide: >-
@@ -4058,7 +4058,7 @@ lessons:
     answer: Working muscles need more oxygen, so the heart moves blood faster.
   - group: RESP
     task: Put the path of a breath in order.
-    title: Follow 1 Breath — Review 4
+    title: Follow One Breath — Review 4
     setup: Priya  •  Respiratory Room
     scene: "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood."
     guide: >-
@@ -4265,7 +4265,7 @@ lessons:
     answer: Working muscles need more oxygen, so the heart moves blood faster.
   - group: RESP
     task: Put the path of a breath in order.
-    title: Follow 1 Breath — Review 5
+    title: Follow One Breath — Review 5
     setup: Priya  •  Respiratory Room
     scene: "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood."
     guide: >-
@@ -4383,7 +4383,7 @@ lessons:
     answer: The small intestine
   - group: NUTR
     task: Which matching set is correct?
-    title: 3 Jobs, 3 Organs — Review 2
+    title: Three Jobs, Three Organs — Review 2
     setup: Sam, Nia, and Owen  •  Pediatric Exam Room
     scene: Three cards each need one picture. Owen needs the part that starts breaking food up. Sam needs the part that mixes it. Nia needs the part that soaks it up.
     guide: >-
@@ -4608,7 +4608,7 @@ lessons:
     answer: The small intestine
   - group: NUTR
     task: Which matching set is correct?
-    title: 3 Jobs, 3 Organs — Review 3
+    title: Three Jobs, Three Organs — Review 3
     setup: Sam, Nia, and Owen  •  Pediatric Exam Room
     scene: Three cards each need one picture. Owen needs the part that starts breaking food up. Sam needs the part that mixes it. Nia needs the part that soaks it up.
     guide: >-
@@ -4833,7 +4833,7 @@ lessons:
     answer: The small intestine
   - group: NUTR
     task: Which matching set is correct?
-    title: 3 Jobs, 3 Organs — Review 4
+    title: Three Jobs, Three Organs — Review 4
     setup: Sam, Nia, and Owen  •  Pediatric Exam Room
     scene: Three cards each need one picture. Owen needs the part that starts breaking food up. Sam needs the part that mixes it. Nia needs the part that soaks it up.
     guide: >-
@@ -6653,7 +6653,7 @@ lessons:
       Two things matter here. How much it changed, and how long that took. Ask what
       the question wants. It wants a speed, so it needs both. One number alone is
       just a number. The same change in ten minutes would worry you more.
-    story: A chart shows 2 temperatures for Ms. Kim. The earlier 1 is 98°F. The later 1 is 101°F, and the times beside them are 3 hours apart. One temperature alone is just a number. Two of them make a change, and the times make that change a speed. That is why charts keep the old readings and the clock beside them. The care team decides what it means.
+    story: A chart shows 2 temperatures for Ms. Kim. The earlier one is 98°F. The later one is 101°F, and the times beside them are 3 hours apart. One temperature alone is just a number. Two of them make a change, and the times make that change a speed. That is why charts keep the old readings and the clock beside them. The care team decides what it means.
     assumes:
       - you can take one number away from another
     takeaway: A change on its own is not enough; how long it took is what says whether it is fast.

@@ -380,6 +380,10 @@ export const WARMUPS = {
   },
   "hunt": {
     "title": "Six ledgers, and one of them does not reconcile",
+    "item": {
+      "name": "ledger",
+      "plural": "ledgers"
+    },
     "why": "Femi Adeyinka, the vault officer, has six regional ledgers out across these four floors and a weighed total that does not match their sum. Find all six and read them. The gap between the weighed returns and the ledgers is either an accounting error or several hundred thousand marks that never came back."
   },
   "canvass": {

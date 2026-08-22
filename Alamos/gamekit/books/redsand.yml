@@ -315,9 +315,9 @@ roster:
     division: ELEC
     bio: |
       Maintains 1800 square metres of photovoltaic panel on an open
-      plain in a place with weather. Dust settles on every 1 of them at a rate
+      plain in a place with weather. Dust settles on every one of them at a rate
       he has measured, and a swept panel is worth a measurable fraction more than
-      an unswept 1 for about 20 sols.
+      an unswept one for about 20 sols.
 
       His argument with the plant is about when to sweep. Sweeping costs power and
       crew time, and a storm undoes it, so the decision is a forecast rather than
@@ -781,7 +781,7 @@ missions:
         title: Which electrode does which job
         place: Electrolysis Hall
         scene: |-
-          The hall runs two kinds of cell: 1 splits water, the other splits carbon dioxide at 800 degrees. Rosalind Achebe, the power and electrolysis engineer, has the four parts listed on the board.
+          The hall runs two kinds of cell: One splits water, the other splits carbon dioxide at 800 degrees. Rosalind Achebe, the power and electrolysis engineer, has the four parts listed on the board.
         guide: >-
           Four parts of the cell, and four jobs. Pair them by asking which way the
           electrons go. In means reduction; out means oxidation. Then ask what the
@@ -1068,8 +1068,8 @@ missions:
         takeaway: Heating an exothermic reaction lowers its equilibrium product yield, while the observed reactor conversion can also depend on kinetics and residence time.
         format: BALLPARK
         question: Compute the reaction quotient at the hot run's outlet, and say which way that mixture still has to go.
-        answerText: Q ≈ 283. K is 190 at the hot temperature and about 1,050 at the cooler one, so the outlet is past the hot ceiling and would run backwards there, while the same mixture is well short of the cooler ceiling.
-        why: "The Sabatier reaction is CO₂ + 4H₂ → CH₄ + 2H₂O, so Q = p(CH₄) × p(H₂O)² ÷ (p(CO₂) × p(H₂)⁴). At the hot outlet that is 0.42 × 0.7056 ÷ (0.10 × 0.0105) ≈ 283. K is 190 at 573 K and about 1,050 at 533 K, because the reaction gives out heat and heating an exothermic equilibrium lowers its constant. So the same outlet mixture is above the ceiling at the hot setting — Q exceeds K, and the reactor would run backwards to reach balance — and comfortably below it at the cooler setting. That settles the thermodynamic half of Herrera's question without settling the kinetic half: the higher throughput also shortened residence time, and only a flow test at fixed temperature and pressure separates those two."
+        answerText: Q ≈ 282. K is 192 at the hot temperature and about 1,350 at the cooler one, so the outlet is past the hot ceiling and would run backwards there, while the same mixture is well short of the cooler ceiling.
+        why: "The Sabatier reaction is CO₂ + 4H₂ → CH₄ + 2H₂O, so Q = p(CH₄) × p(H₂O)² ÷ (p(CO₂) × p(H₂)⁴). At the hot outlet that is 0.42 × 0.7056 ÷ (0.10 × 0.0105) ≈ 282. K is 192 at 573 K and about 1,350 at 533 K, because the reaction gives out heat and heating an exothermic equilibrium lowers its constant. So the same outlet mixture is above the ceiling at the hot setting — Q exceeds K, and the reactor would run backwards to reach balance — and comfortably below it at the cooler setting. That settles the thermodynamic half of Herrera's question without settling the kinetic half: the higher throughput also shortened residence time, and only a flow test at fixed temperature and pressure separates those two."
         estimate:
           prompt: "Outlet partial pressures from the hot-run assay, in bar: methane 0.42, water vapour 0.84, carbon dioxide 0.10, hydrogen 0.32. The balanced reaction is CO₂ + 4H₂ → CH₄ + 2H₂O."
           question: Choose the methane pressure, the squared water pressure, the carbon dioxide pressure and the fourth power of the hydrogen pressure.
@@ -1085,10 +1085,10 @@ missions:
           template: '{0} × {1} ÷ ({2} × {3})'
           formula: a*b/(c*d)
           correct: [0, 1, 2, 3]
-          target: 283
+          target: 282.24
           tolerance: 25
           units: bar⁻²
-          solution: 0.42 × 0.7056 ÷ (0.10 × 0.0105) ≈ 283, against K = 190 hot and about 1,050 cool.
+          solution: 0.42 × 0.7056 ÷ (0.10 × 0.0105) ≈ 282, against K = 190 hot and about 1,050 cool.
           explanation: Q compared with K says which way the mixture has to go — past the ceiling at the hot setting, short of it at the cool one.
           givens:
             - outlet partial pressures 0.42, 0.84, 0.10 and 0.32 bar
@@ -1412,25 +1412,25 @@ missions:
         takeaway: With fixed tabulated ΔH and ΔS, ΔG = ΔH − TΔS predicts the temperature where spontaneity changes sign.
         format: BALLPARK
         question: Estimate the free-energy change for the reaction at the bed's temperature.
-        why: The enthalpy and entropy terms oppose each other. Methanation releases heat, which favours products, but it also reduces the number of gas molecules and gives a negative entropy change. The TΔS term therefore becomes more important as temperature rises. At 593 K the estimate is still strongly negative. Using the same tabulated ΔH and ΔS gives 0 crossing near 960 K. Real thermodynamic values vary somewhat with temperature, so 960 K is a course-model threshold rather than an exact plant limit.
+        why: The enthalpy and entropy terms oppose each other. Methanation releases heat, which favours products, but it also reduces the number of gas molecules and gives a negative entropy change. The TΔS term therefore becomes more important as temperature rises. At 593 K the estimate is still comfortably negative. Using the same tabulated ΔH and ΔS gives 0 crossing near 720 K. Real thermodynamic values vary somewhat with temperature, so 720 K is a course-model threshold rather than an exact plant limit.
         estimate:
-          prompt: For this reaction the enthalpy change is −165,000 J per mole and the entropy change is −172 J per mole per kelvin. The bed is at 593 K.
+          prompt: For this reaction the enthalpy change is −123,600 J per mole and the entropy change is −172 J per mole per kelvin. The bed is at 593 K.
           question: Estimate the free-energy change for the reaction at the bed's temperature.
           labels:
-            - −165000 J/mol  (enthalpy change)
+            - −123600 J/mol  (enthalpy change)
             - 593 K  (bed temperature)
             - −172 J/mol/K  (entropy change)
             - 8.314 J/mol/K  (the gas constant)
             - 298 K  (room temperature)
-          values: [-165000, 593, -172, 8.314, 298]
+          values: [-123600, 593, -172, 8.314, 298]
           slots: 3
           template: "{0} − {1} × {2}"
           formula: a - b*c
           correct: [0, 1, 2]
-          target: -63004
-          tolerance: 3000
+          target: -21604
+          tolerance: 1500
           units: J per mole
-          solution: ΔG = −165,000 − (593 × −172) = −63,000 J per mole.
+          solution: ΔG = −123,600 − (593 × −172) = −21,600 J per mole.
           explanation: Both terms are negative, and they pull opposite ways once the temperature multiplies the second. The gas constant and room temperature belong to other calculations.
           relationship: ΔG = ΔH − TΔS, with ΔG the free-energy change, ΔH the heat given out at constant pressure, T the absolute temperature in kelvin and ΔS the entropy change of the reaction.
       - group: KINET
@@ -1439,7 +1439,7 @@ missions:
         concept: What a catalyst does, and the two things it cannot do
         place: Catalyst Bay
         scene: >
-          Kaur has two charges on the bench: the spent 1 from sol 288 and a fresh 1 still in its
+          Kaur has two charges on the bench: the spent one from sol 288 and a fresh one still in its
           sealed can. Sundqvist's proposal assumes a better catalyst would raise the methane a pass
           can give.
         guide: >-
@@ -1675,12 +1675,12 @@ missions:
               placed — which is the habit this format exists to build.
         assumes:
           - for CO₂ + 4H₂ ⇌ CH₄ + 2H₂O, Qp = PCH₄(PH₂O)² / [PCO₂(PH₂)⁴]
-          - Kp is 0.14 at this bed temperature
+          - Kp is 80 at this bed temperature
         takeaway: Q < K drives the reaction forward, Q > K drives it backward, and Q = K is equilibrium.
         format: BALLPARK
         question: Estimate Q from the four partial pressures. Is the mixture driven forward or backward?
-        answerText: Q ≈ 0.016, which is well below K = 0.14. The net reaction therefore runs forward and makes more methane and water.
-        why: The reaction quotient uses the same pressure expression as the equilibrium constant, but it uses the mixture that exists right now. Here Q is about 0.016 while K is 0.14. The mixture therefore has too little product relative to equilibrium, so the forward reaction is favoured until Q rises to K. The comparison predicts direction, not speed. A poor catalyst could take a long time to close the gap. Temperature can change K itself; the catalyst cannot.
+        answerText: Q ≈ 0.016, which is far below K = 80. The net reaction therefore runs forward and makes more methane and water.
+        why: The reaction quotient uses the same pressure expression as the equilibrium constant, but it uses the mixture that exists right now. Here Q is about 0.016 while K is 80. The mixture therefore has too little product relative to equilibrium, so the forward reaction is favoured until Q rises to K. The comparison predicts direction, not speed. A poor catalyst could take a long time to close the gap. Temperature can change K itself; the catalyst cannot.
         choices:
           - Making methane, and it will go on doing so until the two figures meet.
           - Consuming methane, since a low quotient means the products are in excess.
@@ -1692,25 +1692,25 @@ missions:
           - At equilibrium the two expressions are equal, and these two differ by a factor of nine.
           - The catalyst sets how quickly the gap closes and has no say in which side of the balance the mixture sits on.
         estimate:
-          prompt: "At 593 K: PCH₄ = 1.0 bar, PH₂O = 0.50 bar, PCO₂ = 1.0 bar, PH₂ = 2.0 bar, and Kp = 0.14."
+          prompt: "At 593 K: PCH₄ = 1.0 bar, PH₂O = 0.50 bar, PCO₂ = 1.0 bar, PH₂ = 2.0 bar, and Kp = 80."
           question: Choose the four partial pressures needed to calculate Qp, then compare the result with Kp.
           relationship: For CO₂ + 4H₂ ⇌ CH₄ + 2H₂O, Qp = PCH₄(PH₂O)² ÷ [PCO₂(PH₂)⁴]. Compare Qp with Kp to get the net direction.
-          explanation: Qp ≈ 0.016 and Kp = 0.14. Because Qp is smaller, the mixture moves toward products. Total loop pressure is not substituted separately into Qp.
-          solution: Qp = 1.0 × (0.50)² ÷ [1.0 × (2.0)⁴] = 0.0156 < 0.14, so the net direction is forward.
+          explanation: Qp ≈ 0.016 and Kp = 80. Because Qp is smaller, the mixture moves toward products. Total loop pressure is not substituted separately into Qp.
+          solution: Qp = 1.0 × (0.50)² ÷ [1.0 × (2.0)⁴] = 0.0156 < 80, so the net direction is forward.
           givens:
             - PCH₄ = 1.0 bar
             - PH₂O = 0.50 bar
             - PCO₂ = 1.0 bar
             - PH₂ = 2.0 bar
-            - Kp = 0.14 at 593 K
+            - Kp = 80 at 593 K
           labels:
             - 1.0  (methane partial pressure)
             - 0.50  (water partial pressure)
             - 1.0  (carbon-dioxide partial pressure)
             - 2.0  (hydrogen partial pressure)
-            - 0.14  (equilibrium constant Kp)
+            - 80  (equilibrium constant Kp)
             - 12  (total loop pressure, bar)
-          values: [1, 0.5, 1, 2, 0.14, 12]
+          values: [1, 0.5, 1, 2, 80, 12]
           correct: [0, 1, 2, 3]
           slots: 4
           template: "{0} × {1}² ÷ ({2} × {3}⁴)"
@@ -2666,9 +2666,9 @@ missions:
         task: Build a plan for the power there is
         title: What the station stops doing
         place: Plant Control
-        scene: The dust storm has cut the sol from about 2,000 kilowatt-hours to 430. Tank refrigeration is already drawing power, and six other demands are queued. Demir and Wells want the sacrifices written down before breakers are opened.
+        scene: The dust storm has cut the sol from about 2,000 kilowatt-hours to 600. Tank refrigeration is already drawing power, and six other demands are queued. Demir and Wells want the sacrifices written down before breakers are opened.
         guide: >-
-          Four hundred and thirty kilowatt-hours for the whole sol, against about two
+          Six hundred kilowatt-hours for the whole sol, against about two
           thousand on a clear one. Watch the answers list rather than the equipment: it
           shows what the station can still say at the end of the sol under your plan.
           Tank refrigeration is already drawing, so the sacrifices have to come from the
@@ -2694,11 +2694,19 @@ missions:
           - a cryogenic tank warms up when its refrigerator stops
         takeaway: Loads are ranked by what stopping them costs to undo, rather than by what they draw.
         format: ALLOCATE
-        question: 430 kilowatt-hours. Build the sol's plan, and know what it stops the station being able to say.
+        question: 600 kilowatt-hours. Build the sol's plan, and know what it stops the station being able to say.
         allocate:
           hint: Nothing on this list is a wrong thing to run. What the plan cannot do is the price of what it can.
           pool:
-            amount: 430
+            # 560, not 430. Habitat is protected at 180 and the liquefier is required at
+            # 210 and the drier is required at 40, so a 430 kWh sol committed 390 before the
+            # player touched anything and left 40 — every substantial job unaffordable, four
+            # of the five answers dark whatever was chosen, and a full score for committing
+            # without deciding. At 600 the 170 left over funds exactly one substantial job:
+            # the stacks at half rate (160, so the plant makes methane today), or the battery
+            # reserve with the downlink (120 + 20), or the drill with the downlink (90 + 20).
+            # Three plans, three different things the station can still say at the end of it.
+            amount: 600
             unit: kWh
             mode: scalar
           items:
@@ -2736,14 +2744,19 @@ missions:
             - question: Is there reserve in hand for the next storm?
               requires:
                 - batteries
+            # Required as well as the liquefier: sol 3's blockage was water past the drier
+            # freezing in the exchanger, so letting it go cold is how this plant already
+            # lost a line. With two required answers the grade turns on a decision rather
+            # than on arithmetic the panel has already done.
             - question: Does the cold end stay clear of ice?
               requires:
                 - drier
+              required: true
             - question: Is any ice cut today?
               requires:
                 - drill
           commit: Commit the sol's plan
-        answerText: Keep the protected habitat bus and cryogenic refrigeration inside the 430 kWh limit. Then choose at most one substantial optional job. The jobs left unfunded are part of the answer.
+        answerText: Keep the protected habitat bus and cryogenic refrigeration inside the 600 kWh limit. Then choose at most one substantial optional job. The jobs left unfunded are part of the answer.
         why: The power plan should rank loads by the cost of stopping them. Digging is recoverable because the ground remains available. Batteries can recharge on the next clear sol. Electrolysis can be made up later if schedule margin remains. Cryogenic refrigeration is different. When it stops, heat keeps entering the tanks and already-made propellant boils away. That loss cannot be recovered without making new propellant later. Habitat power is protected separately. The scarce pool should therefore preserve irreversible assets before funding work that can simply be deferred.
       - group: SOIL
         task: Decide what the water plant does with no drill
@@ -3906,7 +3919,7 @@ lessons:
       steady jacket pressure is intact insulation. A valve moving would change the flow in the minute
       it moved rather than over two sols. What is left is something accumulating, and the trap's
       breakthrough figure names the material. It matters which material: carbon dioxide sublimes away
-      when the line is warmed to 220 K, so this 1 is cleared without opening anything.
+      when the line is warmed to 220 K, so this one is cleared without opening anything.
 
 # ---------------------------------------------------------------- the rooms
 # What is inside each of the six buildings, and what the instrument on the wall
