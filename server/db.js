@@ -60,6 +60,22 @@ CREATE TABLE IF NOT EXISTS game_saves (
   PRIMARY KEY (user_id, theme)
 );
 
+-- What a player thought of a game they finished. One row per (user, game),
+-- not an append-only log like game_results: a second campaign re-rates rather
+-- than voting twice, so the shelf's average is an average over people rather
+-- than over playthroughs. The star value is constrained here because the
+-- average is the only thing anybody ever sees — a 0 or a 7 written once is
+-- invisible afterwards and moves every reading of that game for ever.
+CREATE TABLE IF NOT EXISTS game_ratings (
+  user_id VARCHAR NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  game_id VARCHAR NOT NULL,
+  stars SMALLINT NOT NULL CHECK (stars BETWEEN 1 AND 5),
+  rated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  PRIMARY KEY (user_id, game_id)
+);
+-- The shelf reads every game's average in one query, which is game-first.
+CREATE INDEX IF NOT EXISTS idx_game_ratings_game ON game_ratings(game_id);
+
 -- A teacher's roster. There is no role column and there does not need to be:
 -- whoever created the class teaches it, and every other member is a student of
 -- it. The same account can teach one class and sit in another.

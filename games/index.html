@@ -287,6 +287,19 @@
   }
   .concepts li::before{content:''; position:absolute; left:0; top:.5em;
     width:5px; height:5px; border-radius:50%; background:var(--accent)}
+  /* What everybody who finished it thought. The bar is drawn as two rows of
+     the same five glyphs with the filled one clipped to the average, because a
+     rating is fractional and rounding 4.4 up to five stars overstates it by
+     more than the difference anybody is choosing between.
+     No click target: rating happens at the end of a campaign, on the card that
+     closes it, and a shelf that let you rate a game you have not played would
+     be averaging something else. */
+  .rating{margin:0; flex:none; display:flex; align-items:center; gap:6px;
+          font:500 12px/1 inherit; color:var(--dim)}
+  .rating--none{color:var(--faint)}
+  .stars{position:relative; display:inline-block; white-space:nowrap;
+         font-size:13px; letter-spacing:1px; color:var(--line)}
+  .stars__on{position:absolute; left:0; top:0; overflow:hidden; color:var(--accent)}
   .progress{margin:0; font:500 12px/1.45 inherit; color:var(--accent)}
   .progress__bar{display:block; height:3px; margin-top:6px; border-radius:2px;
     background:var(--line); overflow:hidden}
@@ -369,6 +382,10 @@
 
 </div>
 
+
+<!-- Where the API is and how a request to it authenticates. Must be
+     evaluated before anything calls it. See api-base.js. -->
+<script src="/api-base.js"></script>
 <script>
 const esc = (s) => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;')
   .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
@@ -376,6 +393,14 @@ const esc = (s) => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;')
 // A game the player has a campaign in, keyed by theme id. Empty for a signed-out
 // visitor, and empty when there is no API at all.
 let saves = {};
+// Every game's average rating and how many people it is an average of, keyed by
+// game id. Empty where there is no API — the shelf then simply says nothing
+// about ratings, rather than drawing an empty row of stars for every card.
+let ratings = {};
+// Whether the ratings endpoint answered at all. Absent is not the same as
+// unrated: on a static host there is no rating system, and a shelf of cards all
+// saying "Not rated yet" would be promising a control that is not there.
+let ratingsLive = false;
 let games = [];
 let field = 'All';
 
@@ -394,10 +419,18 @@ let field = 'All';
 // Heroes), and a whole reading level offered for a single card promises a shelf
 // that is not there yet. Delete the flag when there are enough to be worth
 // choosing; nothing else here needs to change.
+//
+// `high` used to read "High school + above" because there was no tier over it,
+// so seven games whose syllabus no high-school course contains sat under a
+// senior-high label — a teacher choosing by that label got a soil-mechanics
+// campaign. `university` is that tier, and the seven are named in gamekit's
+// tools/games.js with what each one actually is. The test is containment rather
+// than difficulty, so AP Physics C and AP Calculus AB stay in `high`.
 const LEVELS = [
-  { id: 'elementary', label: 'Elementary',           has: (g) => g.level === 'elementary', hold: true },
-  { id: 'middle',     label: 'Middle School',        has: (g) => g.level === 'middle' },
-  { id: 'high',       label: 'High school + above',  has: (g) => g.level === 'high' },
+  { id: 'elementary', label: 'Elementary',    has: (g) => g.level === 'elementary', hold: true },
+  { id: 'middle',     label: 'Middle School', has: (g) => g.level === 'middle' },
+  { id: 'high',       label: 'High School',   has: (g) => g.level === 'high' },
+  { id: 'university', label: 'University',    has: (g) => g.level === 'university' },
 ];
 const SHOWN = LEVELS.filter(l => !l.hold);
 const LEVEL_KEY = 'casebook_shelf_level';
@@ -409,9 +442,18 @@ let level = SHOWN.some(l => l.id === stored) ? stored : 'high';
 
 const inLevel = (g) => (SHOWN.find(l => l.id === level) ?? SHOWN[0]).has(g);
 
+// Every request goes through FPL_API (api-base.js), which is where the API is
+// and how it authenticates. On the web it is the identity; inside the iOS app
+// the pages come out of the app bundle, so a relative /api/ path resolves into
+// the bundle and there is no server there. Absent — a static host with no
+// api-base.js — this falls back to a plain relative fetch, which is what that
+// deployment wants anyway.
+const apiFetch = (u, o) => (window.FPL_API ? window.FPL_API.fetch(u, o)
+                                           : fetch(u, { credentials: 'same-origin', ...o }));
+
 async function json(url){
   try{
-    const r = await fetch(url, { credentials: 'same-origin' });
+    const r = await apiFetch(url);
     return r.ok ? await r.json() : null;
   }catch(e){ return null; }
 }
@@ -444,6 +486,13 @@ async function loadSaves(){
   for(const s of (out?.saves ?? [])) saves[s.theme] = s;
 }
 
+async function loadRatings(){
+  const out = await json('/api/ratings');
+  if(!out) return;
+  ratings = out.ratings ?? {};
+  ratingsLive = true;
+}
+
 // The corner mark on the shot, and the line under the card. A campaign in
 // progress is the one piece of state worth putting on a shelf — it is the
 // difference between twenty things to start and one thing to carry on with.
@@ -472,6 +521,23 @@ const CONCEPTS_MARK = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor
   <circle cx="6" cy="7.5" r="2.3"/><circle cx="18" cy="6" r="2.3"/><circle cx="12.5" cy="17.5" r="2.3"/>
   <path d="M7.6 9.3 11 15.4M16.4 8 13.8 15.3M8.3 7 15.7 6.2"/></svg>`;
 
+// The average, as a bar rather than a number alone. The count travels with it:
+// 4.5 from two people and 4.5 from two hundred are the same number and not the
+// same claim, and a card has room to say which it is.
+function ratingHTML(g){
+  if(!ratingsLive) return '';
+  const r = ratings[g.id];
+  if(!r || !r.count) return '<p class="rating rating--none">Not rated yet</p>';
+  const avg = Number(r.avg);
+  const pct = Math.max(0, Math.min(100, (avg / 5) * 100));
+  return `<p class="rating">
+    <span class="stars" role="img" aria-label="Rated ${avg.toFixed(1)} out of 5 by ${r.count} ${r.count === 1 ? 'player' : 'players'}">
+      <span aria-hidden="true">★★★★★</span><span class="stars__on" style="width:${pct.toFixed(1)}%" aria-hidden="true">★★★★★</span>
+    </span>
+    <span aria-hidden="true">${avg.toFixed(1)} (${r.count})</span>
+  </p>`;
+}
+
 function cardHTML(g, i){
   const p = progressOf(g);
   const built = g.built !== false;
@@ -498,6 +564,7 @@ function cardHTML(g, i){
         ${g.concepts?.length ? `<button class="conceptsBtn" type="button"
             aria-expanded="false" aria-controls="${panel}"
             title="What this one teaches" aria-label="What this one teaches">${CONCEPTS_MARK}</button>` : ''}
+        ${ratingHTML(g)}
         ${p ? `<p class="progress${p.text ? '' : ' progress--barOnly'}"
                   >${p.text ? esc(p.text) : ''}<span class="progress__bar" role="img"
                        aria-label="${esc(p.label ?? p.text)}"><i style="width:${Math.round(p.frac * 100)}%"></i></span></p>` : ''}
@@ -641,7 +708,7 @@ function wireDelete(){
     go.textContent = 'Deleting…';
     let ok = false;
     try{
-      const r = await fetch('/api/account', { method: 'DELETE', credentials: 'same-origin' });
+      const r = await apiFetch('/api/account', { method: 'DELETE' });
       ok = r.ok;
       if(!ok){
         const body = await r.json().catch(() => null);
@@ -664,7 +731,7 @@ function wireDelete(){
   wireDelete();
   // The account and the catalogue are independent — the shelf must draw even if
   // the API never answers, so neither await blocks the other.
-  const [cat] = await Promise.all([json('./games.json'), loadAccount(), loadSaves()]);
+  const [cat] = await Promise.all([json('./games.json'), loadAccount(), loadSaves(), loadRatings()]);
   // A held level is dropped here rather than at each place that reads `games`,
   // so the segments, the subject chips and the campaigns-in-progress note cannot
   // disagree about which games exist.

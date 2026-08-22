@@ -8,6 +8,7 @@ const { appOrigin } = require("./appOrigin");
 const {
   getUser, recordResult, getStats, getAvatar, setAvatar,
   getGameSave, putGameSave, deleteGameSave, listGameSaves,
+  setRating, ratingSummary, ratingsByUser,
 } = require("./storage");
 const {
   createClass, listClassesForTeacher, listClassesForStudent,
@@ -182,6 +183,39 @@ async function main() {
       if (!userId) return res.json({ saves: [] });
       res.json({ saves: await listGameSaves(userId) });
     } catch (err) {
+      next(err);
+    }
+  });
+
+  // ---------------------------------------------------------------------
+  // Ratings. The game asks for one when a campaign ends; the shelf shows the
+  // average of them under every card.
+
+  // Signed out is an empty answer rather than a 401, for the same reason
+  // /api/saves is: the shelf draws either way, and a static host that has no
+  // account at all should get "nobody has rated anything" and carry on.
+  app.get("/api/ratings", async (req, res, next) => {
+    try {
+      const ratings = await ratingSummary();
+      const userId = getUserId(req);
+      const mine = userId ? await ratingsByUser(userId) : {};
+      res.json({ ratings, mine });
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  app.post("/api/ratings", requireUser, async (req, res, next) => {
+    try {
+      const { gameId, stars } = req.body || {};
+      if (!gameId) return res.status(400).json({ message: "gameId is required" });
+      const saved = await setRating(req.userId, String(gameId), stars);
+      // The new average comes back with it, so a game that has just been rated
+      // can say what it now stands at without a second request.
+      const summary = await ratingSummary();
+      res.json({ gameId: String(gameId), stars: saved, ...(summary[String(gameId)] || { avg: saved, count: 1 }) });
+    } catch (err) {
+      if (err.status === 400) return res.status(400).json({ message: err.message });
       next(err);
     }
   });
