@@ -30,6 +30,35 @@
       "built": true
     },
     {
+      "id": "contamcity_hs",
+      "title": "The Contaminated City",
+      "course": "AP Chemistry · aqueous equilibria and titration",
+      "field": "Chemistry",
+      "accent": "#4ea3d8",
+      "place": "A wide river city, three days after a freight-yard fire.",
+      "hero": "shots/contamcity.jpg",
+      "level": "high",
+      "grades": "11–12",
+      "build": "contamcity_hs",
+      "pair": "contamcity",
+      "shotsFrom": "contamcity",
+      "role": "Chief Scientific Officer · Riverton Contamination Response",
+      "grade": 12,
+      "drama": "A freight yard beside the river burned last night, and nobody can say what came off it. You are the city's Chief Scientific Officer, which means what gets measured — and what the city is told about it — is decided by you.",
+      "concepts": [
+        "The mole as a count, and molar mass as the bridge to a mass",
+        "The ideal gas law, and a headspace that tells you what is dissolved",
+        "Le Chatelier: a stress, and the shift that answers it",
+        "Titration: equivalence, half-equivalence, and choosing an indicator",
+        "Reading a number as a claim about a sample, not about a river"
+      ],
+      "size": {
+        "days": 22,
+        "stops": 48
+      },
+      "built": true
+    },
+    {
       "id": "contamcity_ms",
       "title": "The Contaminated City",
       "course": "Matter, mixtures and clean water · physical science",
@@ -177,7 +206,7 @@
     {
       "id": "the_trial",
       "title": "The Trial",
-      "course": "AP Statistics · trial design",
+      "course": "AP Statistics → clinical epidemiology",
       "field": "Maths & Stats",
       "accent": "#cf7fae",
       "place": "One long floor, where walking north is distance from the patient.",
@@ -196,6 +225,35 @@
         "Multiplicity: every extra look and every extra slice costs something",
         "Confidence intervals: what a point estimate does not say",
         "Consent, and the obligations a trial keeps to the people in it"
+      ],
+      "size": {
+        "days": 22,
+        "stops": 48
+      },
+      "built": true
+    },
+    {
+      "id": "the_trial_hs",
+      "title": "The Trial",
+      "course": "AP Statistics · all nine units",
+      "field": "Maths & Stats",
+      "accent": "#cf7fae",
+      "place": "One long floor, where walking north is distance from the patient.",
+      "hero": "shots/the_trial.jpg",
+      "level": "high",
+      "grades": "11–12",
+      "build": "the_trial_hs",
+      "pair": "the_trial",
+      "shotsFrom": "the_trial",
+      "role": "Methodology & Operations Lead · CLARION-3",
+      "grade": 12,
+      "drama": "CLARION-3 has been running for four years: 2,400 people across thirty-one hospitals, half of them getting a new drug and half the usual treatment. You are the methodology and operations lead at the coordinating centre, so the pack the independent monitoring board reads is the pack you assemble.",
+      "concepts": [
+        "A distribution of one variable: shape, centre and spread",
+        "Least-squares regression, and the slope as a rate",
+        "Probability rules: and, or, and not double-counting the overlap",
+        "A confidence interval, and what the level is a statement about",
+        "Inference for a slope, and whether an association survives the noise"
       ],
       "size": {
         "days": 22,
@@ -293,7 +351,7 @@
     {
       "id": "quantum",
       "title": "Quantum",
-      "course": "Modern quantum · 2nd-year physics",
+      "course": "Modern quantum · 2nd-year physics & EE",
       "field": "Physics",
       "accent": "#7f8fe0",
       "place": "A laboratory spine that is a temperature gradient, walked end to end.",
@@ -380,7 +438,7 @@
     {
       "id": "deepwatch",
       "title": "Deep Watch",
-      "course": "Waves & sound · systems engineering",
+      "course": "Waves & sound → sonar engineering",
       "field": "Physics",
       "accent": "#3f8f86",
       "place": "A submarine — one line of ten compartments, hatches between them, and no sky at all.",
@@ -399,6 +457,35 @@
         "Gas laws and life support",
         "Diffraction, beamwidth and array directivity",
         "Human factors: checklists, handover and communication"
+      ],
+      "size": {
+        "days": 22,
+        "stops": 48
+      },
+      "built": true
+    },
+    {
+      "id": "deepwatch_hs",
+      "title": "Deep Watch",
+      "course": "AP Physics 2 · all seven units",
+      "field": "Physics",
+      "accent": "#3f8f86",
+      "place": "A submarine — one line of ten compartments, hatches between them, and no sky at all.",
+      "hero": "shots/deepwatch.jpg",
+      "level": "high",
+      "grades": "11–12",
+      "build": "deepwatch_hs",
+      "pair": "deepwatch",
+      "shotsFrom": "deepwatch",
+      "role": "Reasoning Under Pressure Beneath the Surface",
+      "grade": 12,
+      "drama": "You have the watch on a submarine at ninety metres. Everybody aboard is asleep, on watch, or working in a compartment they cannot see out of.",
+      "concepts": [
+        "Pressure as force over area, and what a depth gauge is reading",
+        "Potential difference as energy per unit charge, and the field between two plates",
+        "Force on a moving charge, and the radius a mass spectrometer bends it to",
+        "Sound as a longitudinal wave: frequency, wavelength and speed",
+        "Radioactive decay and half-life, and a marker that has faded"
       ],
       "size": {
         "days": 22,
@@ -496,7 +583,7 @@
     {
       "id": "blackout",
       "title": "Blackout",
-      "course": "AP Physics 2 · circuits & induction",
+      "course": "AP Physics 2 → power systems",
       "field": "Engineering",
       "accent": "#d9b23c",
       "place": "Calder Switching Station, and two circuits of lattice towers walking off the edge of the map.",
@@ -554,7 +641,7 @@
     {
       "id": "aftershock",
       "title": "Aftershock",
-      "course": "Earth science · statics & materials",
+      "course": "Seismology → civil engineering",
       "field": "Engineering",
       "accent": "#b6553f",
       "place": "Kestrel Bay three days after, where the fault broke the surface and you can walk the scarp.",
@@ -699,7 +786,7 @@
     {
       "id": "icecore",
       "title": "Ice Core",
-      "course": "Earth & environmental science",
+      "course": "Earth science → palaeoclimate",
       "field": "Earth & Space",
       "accent": "#6fc7d8",
       "place": "A deep-drilling camp on a polar plateau, with the flattest, emptiest horizon in the set.",
@@ -867,6 +954,93 @@
       "size": {
         "days": 17,
         "stops": 33
+      },
+      "built": true
+    },
+    {
+      "id": "carrying",
+      "title": "Carrying Capacity",
+      "course": "AP Environmental Science · all nine units",
+      "field": "Earth & Space",
+      "accent": "#4e9b7a",
+      "place": "Vellan Island: ninety-one people, one borehole, one cable and a hole with eleven years left in it.",
+      "hero": "shots/carrying.jpg",
+      "level": "high",
+      "grades": "11–12",
+      "build": "carrying",
+      "pair": "carrying",
+      "shotsFrom": "carrying",
+      "role": "Island Resources Officer · Vellan Island",
+      "grade": 12,
+      "drama": "The council votes on the second ferry in a fortnight, and Vellan has eleven months of water in the ground. You are the island\\u2019s resources officer, which means the permit to take water, the fishery quota and the tip are all signed by you, and the vote is advised by whatever you put in front of it.",
+      "concepts": [
+        "An ecosystem as a budget: what comes in, what leaves, what stays",
+        "Ecosystem services, and the ones nobody is billed for",
+        "The tragedy of the commons, and the rule that answers it",
+        "Capacity factor and intermittency: what a turbine gives on average",
+        "Reading an environmental claim: what a number is about, and over what period"
+      ],
+      "size": {
+        "days": 23,
+        "stops": 45
+      },
+      "built": true
+    },
+    {
+      "id": "ghostlight",
+      "title": "Ghost Light",
+      "course": "AP Precalculus · all four units",
+      "field": "Maths & Stats",
+      "accent": "#b0763c",
+      "place": "The Ellery Variety Theatre, dark eleven years and opening in a fortnight: a fly floor, a pit and a box office.",
+      "hero": "shots/ghostlight.jpg",
+      "level": "high",
+      "grades": "10–12",
+      "build": "ghostlight",
+      "pair": "ghostlight",
+      "shotsFrom": "ghostlight",
+      "role": "Production Manager · The Ellery Variety Theatre",
+      "grade": 11,
+      "drama": "The Ellery has been dark for eleven years and opens in a fortnight, on a licence that expires the same night. You are the production manager, which means the rig, the sightlines and every number in the licence file are signed by you.",
+      "concepts": [
+        "A function as a rule, its domain and what the domain rules out",
+        "Choosing a model, and what a residual says about the choice",
+        "Semi-log plots: a straight line means an exponential",
+        "Polar coordinates, and a beam described as r of theta",
+        "Reading a model: what it is a model of, and where it stops being one"
+      ],
+      "size": {
+        "days": 22,
+        "stops": 45
+      },
+      "built": true
+    },
+    {
+      "id": "changeover",
+      "title": "Changeover",
+      "course": "AP Macroeconomics · all six units",
+      "field": "Economics",
+      "accent": "#7f6fa8",
+      "place": "Halvern Central Station, commandeered for a currency changeover: a queue in the ticket hall and a furnace on platform one.",
+      "hero": "shots/changeover.jpg",
+      "level": "high",
+      "grades": "11–12",
+      "build": "changeover",
+      "pair": "changeover",
+      "shotsFrom": "changeover",
+      "role": "Chief Economist · Halvern Currency Board",
+      "grade": 12,
+      "drama": "Halvern stops accepting the old mark in fourteen days, and nobody has agreed what the new one is worth. You are the chief economist to the currency board, which means the rate, the money supply and every figure the board publishes are signed by you.",
+      "concepts": [
+        "Scarcity, and why every choice has a next-best alternative",
+        "Nominal against real: taking the price change out of a figure",
+        "Demand-pull and cost-push inflation, and telling them apart",
+        "Fiscal policy: spending and taxation as levers",
+        "Reading an economic statistic: what it counts, over what period, and revised how often"
+      ],
+      "size": {
+        "days": 22,
+        "stops": 45
       },
       "built": true
     },
