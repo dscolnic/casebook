@@ -325,6 +325,11 @@
       <p class="lede">Designed by a Duke University astrophysics professor, a series of
         STEM games with immersive worlds. Save the day by understanding the material.</p>
     </div>
+    <!-- The signed-out door. The shelf is public (server/publicPaths.js), so a
+         visitor with no session sees the catalogue; this appears only when the
+         API answers 401 — a server with a gate and nobody signed in. A static
+         host answers nothing and keeps the header bare, as before. -->
+    <a class="signout" id="signinDoor" href="/sign-in.html" hidden>Sign in</a>
     <div class="account" id="account">
       <div class="avatarpic" id="accountPic"></div>
       <div class="who"><b id="accountName"></b><span id="accountMail"></span></div>
@@ -465,9 +470,19 @@ function initialsOf(u, name){
 }
 
 // The account header. Absent is the normal case on a static host, so failure
-// here is silent and the header simply never appears.
+// here is silent and the header simply never appears. A 401 is different: that
+// is a server with a sign-in gate and nobody signed in — the public shelf's
+// ordinary visitor — and it gets the sign-in door instead of nothing.
 async function loadAccount(){
-  const u = await json('/api/auth/user');
+  let r = null;
+  try{ r = await apiFetch('/api/auth/user'); }catch(e){}
+  if(r && r.status === 401){
+    document.getElementById('signinDoor').hidden = false;
+    return;
+  }
+  if(!r || !r.ok) return;
+  let u = null;
+  try{ u = await r.json(); }catch(e){}
   if(!u) return;
   const name = [u.firstName, u.lastName].filter(Boolean).join(' ') || u.email || 'Signed in';
   document.getElementById('accountName').textContent = name;
