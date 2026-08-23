@@ -31,7 +31,9 @@ const DIST = resolve(root, 'dist');
 //
 // The catalogue lives in tools/games.js — this page and the casebook shelf
 // both read it, and a second copy is how a shipped game ends up with no card.
-import { GAMES, cards, LEVELS } from './games.js';
+import { GAMES, cards, LEVELS, KINDS } from './games.js';
+// One description of what is read back off a theme; see tools/themeFacts.js.
+import { themeDirOf, gradeOf, roleOf, dayNounOf, plural, sizeOf } from './themeFacts.js';
 
 // ------------------------------------------------------------------ helpers
 
@@ -43,52 +45,6 @@ const pageOnly = has('--page');
 // One level at a time, for when only the middle-school set has changed. Thirty
 // builds is ten minutes; fourteen of them is four.
 const onlyLevel = valueOf('--level');
-
-/** Where a theme's directory is — eight under themes/, two beside gamekit. */
-const themeDirOf = (id) => {
-  const own = resolve(root, 'themes', id);
-  if (existsSync(own)) return own;
-  const reg = JSON.parse(readFileSync(resolve(root, 'themes.json'), 'utf8')).themes ?? {};
-  return reg[id] ? resolve(root, reg[id]) : own;
-};
-
-/** The reading level the theme declares, straight out of its manifest. */
-const gradeOf = (id) => {
-  const f = resolve(themeDirOf(id), 'theme.js');
-  if (!existsSync(f)) return null;
-  const m = /audience:\s*\{[^}]*grade:\s*(\d+)/.exec(readFileSync(f, 'utf8'));
-  return m ? +m[1] : null;
-};
-
-/** The role line the game itself puts under its title. */
-const roleOf = (id) => {
-  const f = resolve(themeDirOf(id), 'theme.js');
-  if (!existsSync(f)) return '';
-  const m = /subtitle:\s*'([^']*)'/.exec(readFileSync(f, 'utf8'));
-  return m ? m[1].replace(/\\'/g, "'") : '';
-};
-
-/**
- * What this game calls a day. Red Sand runs on sols and Bring Them Home on
- * "Day"; a picker that says "Mission 7" when the game itself says "Sol 7" is
- * describing a different game from the one behind the card.
- */
-const dayNounOf = (id) => {
-  const f = resolve(themeDirOf(id), 'theme.js');
-  if (!existsSync(f)) return 'Day';
-  const m = /dayNoun:\s*'([^']*)'/.exec(readFileSync(f, 'utf8'));
-  return m ? m[1] : 'Day';
-};
-
-/** How many days and how many stops the campaign actually runs to. */
-const sizeOf = (id) => {
-  const f = resolve(themeDirOf(id), 'content', 'missions.js');
-  if (!existsSync(f)) return null;
-  const src = readFileSync(f, 'utf8');
-  const days = (src.match(/^\s{4}"title":/gm) ?? []).length;
-  const stops = (src.match(/"group":/g) ?? []).length;
-  return days ? { days, stops } : null;
-};
 
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
   .replace(/"/g, '&quot;');
@@ -156,7 +112,7 @@ function card(g) {
   // localStorage directly.
   return `
       <${tag} class="card${built ? '' : ' card--unbuilt'}"${href} data-field="${esc(g.field)}"
-         data-level="${esc(g.level)}"
+         data-level="${esc(g.level)}" data-kind="${esc(g.kind ?? 'course')}"
          data-game="${esc(g.build)}" data-days="${size ? size.days : ''}"
          data-daynoun="${esc(dayNounOf(g.id))}"
          style="--accent:${g.accent}">
@@ -174,7 +130,7 @@ function card(g) {
           <p class="place">${esc(g.place)}</p>
           <p class="meta">
             ${role ? `<span>${esc(role)}</span>` : ''}
-            ${size ? `<span>${size.days} days · ${size.stops} stops</span>` : ''}
+            ${size ? `<span>${size.days} ${plural(dayNounOf(g.build))} · ${size.stops} stops</span>` : ''}
             ${grade && g.level !== 'university' ? `<span>reads at grade ${grade}</span>` : ''}
             ${g.grades ? `<span>${esc(g.grades)}</span>` : ''}
           </p>
@@ -191,6 +147,12 @@ function page(games) {
   // a control that filters everything away.
   const levels = LEVELS.filter(l => games.some(g => g.level === l.id));
   const defaultLevel = levels.some(l => l.id === 'high') ? 'high' : levels[0]?.id;
+  // Kinds come before levels: the length of the session is the first thing a
+  // player chooses. Only kinds with a card are drawn, for the same reason as
+  // the levels above.
+  const kindOf = (g) => g.kind ?? 'course';
+  const kinds = KINDS.filter(k => games.some(g => kindOf(g) === k.id));
+  const defaultKind = kinds.some(k => k.id === 'course') ? 'course' : kinds[0]?.id;
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -227,8 +189,31 @@ function page(games) {
     -webkit-background-clip:text; background-clip:text; color:transparent}
   .lede{margin:0; max-width:64ch; color:var(--dim); font-size:17px}
 
-  .levels{display:inline-flex; gap:4px; margin:26px 0 2px; padding:4px;
+  /* Kind is the outer control and reads as a heading, not a chip: it changes
+     what kind of thing the page is offering, where a level only changes who it
+     is written for. Underlined tabs rather than pills, so the two rows are not
+     two identical-looking controls doing different jobs. */
+  .kinds{display:flex; flex-wrap:wrap; gap:26px; margin:30px 0 0;
+    border-bottom:1px solid var(--line)}
+  .kind{
+    appearance:none; cursor:pointer; border:0; background:transparent; color:var(--dim);
+    padding:0 2px 12px; font:inherit; font-size:19px; font-weight:620; letter-spacing:-.01em;
+    display:flex; align-items:baseline; gap:8px;
+    border-bottom:2px solid transparent; margin-bottom:-1px;
+    transition:color .16s, border-color .16s;
+  }
+  .kind small{font:11.5px/1 ui-monospace,Menlo,monospace; color:var(--faint); letter-spacing:.04em}
+  .kind:hover{color:var(--ink)}
+  .kind[aria-pressed="true"]{color:var(--ink); border-bottom-color:var(--ink)}
+  .kind:focus-visible{outline:2px solid #6fc7d8; outline-offset:3px}
+  .kindNote{margin:16px 0 0; max-width:64ch; color:var(--dim); font-size:15px}
+
+  .levels{display:inline-flex; gap:4px; margin:20px 0 2px; padding:4px;
     border:1px solid var(--line); border-radius:999px; background:#111520}
+  /* A class-level display beats the UA stylesheet's rule for [hidden], so a
+     level with nothing in this kind went on drawing a control reading "0 games"
+     — the hidden attribute was set and had no effect. */
+  .levels[hidden], .level[hidden], .kind[hidden]{display:none}
   .level{
     appearance:none; cursor:pointer; border:0; background:transparent; color:var(--dim);
     border-radius:999px; padding:8px 18px; font:inherit; font-size:14px; line-height:1.15;
@@ -367,12 +352,22 @@ function page(games) {
     <p class="kicker">Alamos · mission-based learning games</p>
     <h1>Walk in, work it out, <em>hand it over.</em></h1>
     <p class="lede">
-      ${games.length} first-person games on one engine. Each is a fortnight of working days:
-      walk to a place, read the evidence, answer for it, hand off before the clock runs out.
-      No combat, no weapons — the stakes are time, money and other people.
+      ${games.length} first-person games on one engine. Walk to a place, read the evidence,
+      answer for it, hand off. No combat, no weapons — the stakes are time, money and other
+      people.
     </p>
 
-    <div class="levels" role="group" aria-label="Choose a level">
+    <div class="kinds" role="group" aria-label="Choose a kind of game">
+      ${kinds.map(k => {
+        const n = games.filter(g => kindOf(g) === k.id).length;
+        return `<button class="kind" data-k="${k.id}" data-note="${esc(k.note)}" ` +
+               `aria-pressed="${String(k.id === defaultKind)}">` +
+               `${esc(k.label)}<small>${n}</small></button>`;
+      }).join('\n      ')}
+    </div>
+    <p class="kindNote" id="kindNote"></p>
+
+    <div class="levels" id="levels" role="group" aria-label="Choose a level">
       ${levels.map(l => {
         const n = games.filter(g => g.level === l.id).length;
         return `<button class="level" data-l="${l.id}" aria-pressed="${String(l.id === defaultLevel)}">` +
@@ -436,26 +431,64 @@ function page(games) {
     }
   }
 
-  // ------------------------------------------------------------ two filters
+  // ----------------------------------------------------------- three filters
   //
-  // Level is the primary one: the same game exists at more than one, in the
-  // same place with the same cast, and a shelf that mixed them would offer the
-  // player two cards with one title and no way to tell them apart. Subject
-  // filters inside the chosen level.
+  // Kind is the outer one — a fortnight of working days or one sitting — because
+  // that is the first thing a player knows about how much time they have. Level
+  // sits inside it: the same game exists at more than one, in the same place
+  // with the same cast, and a shelf that mixed them would offer the player two
+  // cards with one title and no way to tell them apart. Subject filters inside
+  // the chosen level.
+  //
+  // Every count and every hidden control is derived from the cards on the page
+  // rather than written into the markup, so a level with nothing in this kind
+  // cannot draw a control that filters everything away.
   const chips = [...document.querySelectorAll('.chip')];
+  const kinds = [...document.querySelectorAll('.kind')];
   const levels = [...document.querySelectorAll('.level')];
   const cards = [...document.querySelectorAll('.card')];
   const empty = document.getElementById('empty');
+  const levelBar = document.getElementById('levels');
+  const kindNote = document.getElementById('kindNote');
 
   const pressed = (list) => (list.find(b => b.getAttribute('aria-pressed') === 'true') || list[0]);
   const LEVEL_KEY = 'gamekit_gallery_level';
+  const KIND_KEY = 'gamekit_gallery_kind';
 
   function apply() {
-    const level = pressed(levels)?.dataset.l;
+    const kind = pressed(kinds)?.dataset.k ?? 'course';
+    const inKind = cards.filter(c => c.dataset.kind === kind);
+
+    // A level with no card in this kind is hidden, and if the pressed one is
+    // the level that just went away, fall to the first that is left — otherwise
+    // switching kind shows an empty grid with a control pressed on nothing.
+    let live = [];
+    levels.forEach(l => {
+      const n = inKind.filter(c => c.dataset.level === l.dataset.l).length;
+      const small = l.querySelector('small');
+      if (small) small.textContent = n + ' game' + (n === 1 ? '' : 's');
+      l.hidden = !n;
+      if (n) live.push(l);
+    });
+    // A kind with one level strands whatever was chosen — the Quick Discoveries
+    // are all senior-high today, so somebody who had picked University would
+    // have theirs quietly rewritten. wanted is the level actually pressed, so
+    // switching back restores it rather than leaving the fallback in place.
+    const back = live.find(l => l.dataset.l === wanted);
+    if (back) levels.forEach(o => o.setAttribute('aria-pressed', String(o === back)));
+    else if (!live.some(l => l.getAttribute('aria-pressed') === 'true')) {
+      levels.forEach(o => o.setAttribute('aria-pressed', String(o === live[0])));
+    }
+    // One level is not a choice, so do not draw a control for it.
+    if (levelBar) levelBar.hidden = live.length < 2;
+    if (kindNote) kindNote.textContent = pressed(kinds)?.dataset.note ?? '';
+
+    const level = live.length ? pressed(live)?.dataset.l : null;
     const field = pressed(chips)?.dataset.f ?? '*';
     let shown = 0;
     cards.forEach(card => {
-      const on = (!level || card.dataset.level === level) &&
+      const on = card.dataset.kind === kind &&
+                 (!level || card.dataset.level === level) &&
                  (field === '*' || card.dataset.field === field);
       card.style.display = on ? '' : 'none';
       if (on) shown++;
@@ -464,7 +497,8 @@ function page(games) {
     // looks like a broken page. Hide it and fall back to All.
     chips.forEach(c => {
       if (c.dataset.f === '*') return;
-      const any = cards.some(card => card.dataset.field === c.dataset.f && card.dataset.level === level);
+      const any = inKind.some(card => card.dataset.field === c.dataset.f &&
+                                      (!level || card.dataset.level === level));
       c.hidden = !any;
       if (!any && c.getAttribute('aria-pressed') === 'true') {
         chips.forEach(o => o.setAttribute('aria-pressed', String(o.dataset.f === '*')));
@@ -479,17 +513,31 @@ function page(games) {
   }));
   levels.forEach(l => l.addEventListener('click', () => {
     levels.forEach(o => o.setAttribute('aria-pressed', String(o === l)));
+    wanted = l.dataset.l;
     try { localStorage.setItem(LEVEL_KEY, l.dataset.l); } catch (e) {}
     apply();
   }));
+  kinds.forEach(k => k.addEventListener('click', () => {
+    kinds.forEach(o => o.setAttribute('aria-pressed', String(o === k)));
+    try { localStorage.setItem(KIND_KEY, k.dataset.k); } catch (e) {}
+    apply();
+  }));
 
-  // ?level=middle wins over what this browser chose last time, so a link to a
-  // level is a link to that level for whoever opens it.
-  const asked = new URLSearchParams(location.search).get('level');
-  let want = null;
-  try { want = asked || localStorage.getItem(LEVEL_KEY); } catch (e) { want = asked; }
-  const target = levels.find(l => l.dataset.l === want);
-  if (target) levels.forEach(o => o.setAttribute('aria-pressed', String(o === target)));
+  // ?kind=quick and ?level=middle win over what this browser chose last time,
+  // so a link to a shelf is that shelf for whoever opens it.
+  const query = new URLSearchParams(location.search);
+  // Declared before apply() runs, and read by it: the level the player chose,
+  // as against the one a single-level kind forced on them.
+  let wanted = null;
+  const choose = (list, attr, asked, key) => {
+    let want = null;
+    try { want = asked || localStorage.getItem(key); } catch (e) { want = asked; }
+    const target = list.find(b => b.dataset[attr] === want);
+    if (target) list.forEach(o => o.setAttribute('aria-pressed', String(o === target)));
+  };
+  choose(kinds, 'k', query.get('kind'), KIND_KEY);
+  choose(levels, 'l', query.get('level'), LEVEL_KEY);
+  wanted = pressed(levels)?.dataset.l ?? null;
   apply();
 </script>
 </body>

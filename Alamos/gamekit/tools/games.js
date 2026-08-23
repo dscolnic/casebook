@@ -227,12 +227,40 @@ export const GAMES = [
   // else — the shelf already prints the length off the theme's own missions file,
   // so a card reading "3 levels · 9 stops" beside one reading "15 days · 45 stops"
   // says what it is without a second kind of row to maintain.
-  { id: 'qd_accel', title: 'Too Faint',
+  { id: 'qd_accel', kind: 'quick', title: 'Too Faint',
     course: 'Astronomy · how the accelerating expansion was measured',
     field: 'Earth & Space', accent: '#7a4fa3',
     place: 'Cerro Vela Survey Operations: an analysis floor stepped down to a wall of plot boards, and the measurement chain drawn along forty-five metres of corridor behind it.',
     hero: 'floor--boards.png',
     level: 'high', grades: '11–12' },
+
+  // The second Quick Discovery. Same 3 x 3 shape, a different subject, and its
+  // place is the engine's own interior world rather than a copy of anybody's —
+  // which is the cheap way to bring a building and the only way `placement` can
+  // fire rays at it.
+  { id: 'qd_dna', kind: 'quick', title: 'The Only Shape That Fits',
+    course: 'Biology · how the structure of DNA was forced by the evidence',
+    field: 'Biology', accent: '#3f7f6a',
+    place: 'A 1950s structural biology unit: one corridor, a chemistry bench and a model room down one side, an X-ray room and an evidence wall down the other.',
+    hero: 'evidence-room--doorway.png',
+    level: 'high', grades: '11–12' },
+
+  // The third Quick Discovery, and the first written for the plainer register the
+  // whole set moved to: grade 9 rather than AP, and every card teaches its method
+  // before it asks anything.
+  { id: 'qd_nucleus', kind: 'quick', title: 'The Impossible Bounce',
+    course: 'Physics · how the atomic nucleus was inferred from a scattering experiment',
+    field: 'Physics', accent: '#b5502f',
+    place: 'A 1910 university physics laboratory: the apparatus down one side of a corridor, the counting and the argument down the other, and a gold leaf in a vacuum between them.',
+    hero: 'scattering-chamber--doorway.png',
+    level: 'high', grades: '9–12' },
+
+  { id: 'qd_tectonics', kind: 'quick', title: 'One Moving System',
+    course: 'Earth science · how continental clues and ocean data became plate tectonics',
+    field: 'Earth & Space', accent: '#2f4a55',
+    place: 'A postwar government survey section: the land evidence down one side of a corridor, ten years of ships down the other, and thirty feet of continents on pins.',
+    hero: 'map-room--doorway.png',
+    level: 'high', grades: '9–12' },
 
   { id: 'hospital', title: 'Hospital Heroes',
     course: 'Anatomy & physiology', field: 'Biology', accent: '#e0868f',
@@ -262,6 +290,7 @@ export function cards(){
       build: g.id, pair: g.id, shotsFrom: g.id,
       level: g.level ?? 'high',
       grades: g.grades ?? '9–12',
+      kind: g.kind ?? 'course',
     });
     for(const e of editions){
       out.push({
@@ -272,11 +301,31 @@ export function cards(){
         // is — so only the course line and the level are the edition's own.
         course: e.course ?? g.course,
         level: e.level, grades: e.grades,
+        // An edition of a Quick Discovery is still a Quick Discovery: the shape
+        // of the session is the game's, not the reading level's.
+        kind: g.kind ?? 'course',
       });
     }
   }
   return out;
 }
+
+// ------------------------------------------------------------------- kinds
+//
+// The first split a player makes is not the reading level, it is how long they
+// have: a Course Adventure is a fortnight of working days, a Quick Discovery is
+// nine stops in one sitting. Levels sit *inside* that, because a middle-school
+// Quick Discovery and a middle-school fortnight are not the same offer, and a
+// single level control mixed them into one list of thirty.
+//
+// `kind` defaults to 'course' on every row, so only the Quick Discoveries say
+// what they are.
+export const KINDS = [
+  { id: 'course', label: 'Course Adventures',
+    note: 'A fortnight of working days: walk to a place, read the evidence, answer for it, hand off before the clock runs out.' },
+  { id: 'quick', label: 'Quick Discoveries',
+    note: 'One sitting, ten to twenty minutes: establish the tool, meet the anomaly, make the claim.' },
+];
 
 /** The levels that actually have cards, coarsest first. */
 export const LEVELS = [
