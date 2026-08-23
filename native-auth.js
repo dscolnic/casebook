@@ -177,6 +177,18 @@
       })
       .then(function (c) {
         clerk = c;
+        // One line, at boot, saying whether the session survived the last page
+        // load and whether the machinery that should make it survive is even
+        // present. Capacitor forwards this into the Xcode console, which is the
+        // only log anybody can read on a device without attaching Safari — and
+        // Safari's inspector drops its target on every relaunch, which is every
+        // time you would want it. Cheap enough to keep: one line per boot, no
+        // secret in it, and the three facts that separate "not signed in" from
+        // "signed in and not remembered" from "this build cannot remember".
+        console.log('[auth] hooks=' + (typeof c.__unstable__onBeforeRequest === 'function')
+          + ' storedClient=' + (readJWT() ? 'yes' : 'no')
+          + ' session=' + (c.session ? 'yes' : 'no')
+          + ' user=' + (c.user ? 'yes' : 'no'));
         // Every request asks for a token rather than being given one, because a
         // Clerk session token lives about a minute. getToken() serves a cached
         // one and refreshes it near expiry.
