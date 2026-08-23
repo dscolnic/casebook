@@ -112,9 +112,15 @@
         <input type="email" id="email" name="email" maxlength="200" autocomplete="email">
       </div>
 
+      <!-- The honeypot. Not named "website": that is a token Chrome's autofill
+           and every password manager recognise, so it gets filled in for a real
+           person and their message is dropped as spam behind a Sent card.
+           readonly for the same reason — Chrome will not fill a readonly field,
+           and a bot posting JSON never sees the attribute. -->
       <div class="trap" aria-hidden="true">
-        <label for="website">Leave this field empty</label>
-        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        <label for="contact_ref">Leave this field empty</label>
+        <input type="text" id="contact_ref" name="contact_ref" tabindex="-1"
+               readonly autocomplete="off" data-lpignore="true" data-1p-ignore>
       </div>
 
       <div class="row">
@@ -169,7 +175,7 @@ form.addEventListener('submit', async (e) => {
     message: document.getElementById('message').value,
     name: document.getElementById('name').value,
     email: document.getElementById('email').value,
-    website: document.getElementById('website').value,
+    contact_ref: document.getElementById('contact_ref').value,
   };
 
   // Checked here as well as on the server, only so the answer is instant. The

@@ -62,10 +62,25 @@ function validate(body) {
   const b = body && typeof body === "object" ? body : {};
   const str = (v, cap) => (typeof v === "string" ? v.trim().slice(0, cap) : "");
 
-  // The honeypot. A field no human sees and no human fills in; a bot fills in
-  // everything it finds. Accepted rather than refused — a 400 tells the bot to
-  // try a different shape, and a 200 that quietly drops it does not.
-  if (str(b.website, 200)) return { drop: true };
+  /* The honeypot. A field no human sees and no human fills in; a bot fills in
+   * everything it finds. Accepted rather than refused — a 400 tells the bot to
+   * try a different shape, and a 200 that quietly drops it does not.
+   *
+   * The field is NOT called "website", which is what it was called for exactly
+   * one afternoon. That is a name Chrome's autofill and every password manager
+   * recognise, so the first real person to use the form had it filled in for
+   * them and their message was dropped as spam — with a Sent card, because the
+   * whole design of the trap is that its victim cannot tell. A honeypot has to
+   * be a name no autofill heuristic knows, and it is `readonly` on the page for
+   * the same reason: Chrome will not fill a readonly field, and a bot posting
+   * JSON never sees the attribute.
+   *
+   * `website` is deliberately not checked any more, rather than checked as
+   * well. A page cached on somebody's device still posts it, still autofilled,
+   * and treating it as a trap would go on silently eating their messages until
+   * the cache turned over.
+   */
+  if (str(b.contact_ref, 200)) return { drop: true };
 
   const message = str(b.message, MAX.message);
   if (message.length < 10) {
@@ -209,9 +224,15 @@ async function handle(req, res) {
   }
 
   const { drop, error, value } = validate(req.body);
-  // A dropped honeypot submission looks to its sender exactly like a delivered
-  // one, which is the point.
-  if (drop) return res.json({ ok: true, emailed: false });
+  // A dropped honeypot submission looks to its SENDER exactly like a delivered
+  // one, which is the point — and looked exactly like one to us too, which was
+  // not. A trap nobody can see firing is a trap you cannot tell from a broken
+  // route: both are a Sent card and no row. Logged without the message, so the
+  // log says how often it fires without becoming a copy of the spam.
+  if (drop) {
+    console.log(`[contact] honeypot dropped a submission from ${ip}`);
+    return res.json({ ok: true, emailed: false });
+  }
   if (error) return res.status(400).json({ message: error });
 
   const meta = {

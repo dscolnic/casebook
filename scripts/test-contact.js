@@ -90,15 +90,25 @@ for (const addr of ['a+tag@example.co.uk', "o'brien@example.org", 'a@b.io', 'ün
 // error, no stored value, and — asserted in the route, not here — a 200.
 
 {
-  const out = validate({ message: 'Buy this thing.', website: 'http://spam.example' });
+  const out = validate({ message: 'Buy this thing.', contact_ref: 'http://spam.example' });
   ok('a filled honeypot is dropped', out.drop === true);
   ok('and it is not reported as an error', !out.error);
   ok('and nothing is stored', !out.value);
 }
 ok('an empty honeypot is not a drop',
-   !validate({ message: 'A perfectly ordinary message.', website: '' }).drop);
+   !validate({ message: 'A perfectly ordinary message.', contact_ref: '' }).drop);
 ok('a whitespace-only honeypot is not a drop — a browser can autofill one',
-   !validate({ message: 'A perfectly ordinary message.', website: '   ' }).drop);
+   !validate({ message: 'A perfectly ordinary message.', contact_ref: '   ' }).drop);
+// The bug that cost an afternoon, kept as a case. The field was called
+// "website", which Chrome's autofill and every password manager fill in — so a
+// real person's message was dropped as spam behind a Sent card, and from the
+// outside that is indistinguishable from a route that does not exist. A page
+// cached on somebody's device still posts that field, still autofilled, so it
+// must NOT be a trap any more.
+ok('a filled "website" field is not a trap — an autofilled cached page still posts it',
+   !validate({ message: 'A perfectly ordinary message.', website: 'http://example.com' }).drop);
+ok('and that message is stored rather than dropped',
+   !!validate({ message: 'A perfectly ordinary message.', website: 'http://example.com' }).value);
 
 // ---------------------------------------------------------------------------
 // 4. Caps. A field longer than its column is a 500 from Postgres, which the
