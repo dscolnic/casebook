@@ -175,10 +175,38 @@
     });
     c[h.after](function (_req, response) {
       try {
-        var payload = response && (response.payload || response);
-        var jwt = (payload && payload.client && payload.client.jwt) || (payload && payload.jwt);
-        if (jwt) writeJWT(jwt);
-      } catch (e) { /* keep whatever we had */ }
+        // WHERE THE CLIENT COMES BACK. The header first, because that is what
+        // clerk-expo reads and it is the one place the value is guaranteed to
+        // be — the body carries it only on some responses, and reading only the
+        // body is why the first version of this stored nothing at all while
+        // every hook fired correctly.
+        var jwt = '';
+        var from = '';
+        if (response && response.headers && typeof response.headers.get === 'function') {
+          jwt = response.headers.get('authorization') || '';
+          if (jwt) from = 'header';
+        }
+        if (!jwt) {
+          var payload = response && (response.payload || response);
+          jwt = (payload && payload.client && payload.client.jwt)
+             || (payload && payload.jwt) || '';
+          if (jwt) from = 'payload';
+        }
+        if (!jwt) return;
+        writeJWT(jwt);
+        // Once per page load, and only the first time: this fires on every
+        // Clerk request, and a log line per request is a log nobody reads.
+        if (!cacheHooks.said) {
+          cacheHooks.said = true;
+          console.log('[auth] client stored from ' + from
+            + ', readback=' + (readJWT() ? 'ok' : 'FAILED'));
+        }
+      } catch (e) {
+        if (!cacheHooks.said) {
+          cacheHooks.said = true;
+          console.warn('[auth] could not keep the client: ' + e.message);
+        }
+      }
     });
   }
 
@@ -222,7 +250,14 @@
         // secret in it, and the three facts that separate "not signed in" from
         // "signed in and not remembered" from "this build cannot remember".
         var found = hookNames(c);
-        console.log('[auth] hooks=' + (found ? found.before : 'none')
+        var canStore = 'no';
+        try {
+          root.localStorage.setItem('__fpl_probe', '1');
+          canStore = root.localStorage.getItem('__fpl_probe') === '1' ? 'yes' : 'no';
+          root.localStorage.removeItem('__fpl_probe');
+        } catch (e) { canStore = 'threw:' + e.name; }
+        console.log('[auth] storage=' + canStore
+          + ' hooks=' + (found ? found.before : 'none')
           + ' storedClient=' + (readJWT() ? 'yes' : 'no')
           + ' session=' + (c.session ? 'yes' : 'no')
           + ' user=' + (c.user ? 'yes' : 'no'));
