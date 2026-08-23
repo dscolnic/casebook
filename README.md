@@ -32,6 +32,56 @@ development database before Publish can diff it into production.
 `node scripts/test-contact.js` covers the validation, the honeypot and the rate
 limit with no server, no database and no credentials.
 
+### Subscriptions and entitlement
+
+`server/entitlement.js` answers one question — may this account open this course
+— and it is the half that is ours rather than Stripe's or Apple's. Two rules
+built into it:
+
+**It is off by default.** `ENTITLEMENT_ENFORCED` unset means every signed-in
+account plays everything, exactly as before. That is what lets the layer be
+deployed and corrected while a beta runs unlocked, instead of a flag day where
+billing, enforcement and a public release land in one deploy.
+
+**It fails open.** A database that will not answer lets the player in and logs.
+Letting somebody play free for an afternoon costs a subscription; locking a
+paying teacher out in front of a class costs the customer.
+
+    ENTITLEMENT_ENFORCED=1        turn the paywall on (restart required)
+    FREE_THEMES=hospital,quantum  courses anybody signed in may play
+    ENTITLEMENT_GRACE_DAYS=3      how long past a period end access survives
+    ENTITLEMENT_OFFLINE_DAYS=7    how long a client may believe it while offline
+
+What is gated is course files and nothing else — not the shelf, not the
+catalogue, not the hero shots, and not `/api/*`, because a lapsed subscriber
+must still sync the day they played and delete their account. A lapsed
+subscription is a **lock, not a delete**: no save, result or account is touched,
+which is what terms.html promises.
+
+`entitlements` is one row per (user, source), so a renewal updates rather than
+accumulates and a webhook delivered twice is not two subscriptions. Any live row
+is enough — somebody may hold a personal subscription and a seat in a school
+licence. `current_period_end` NULL means no end.
+
+Grants by hand, which is how a beta tester, a comp or a school on a purchase
+order gets access:
+
+    node scripts/grant.js who dan@example.com
+    node scripts/grant.js grant user_2abc... --days 90
+    node scripts/grant.js grant user_2abc... --forever --source school --plan "Rye High"
+    node scripts/grant.js list
+    node scripts/grant.js revoke user_2abc...
+
+`node scripts/test-entitlement.js` covers the decisions and four traps, each a
+plausible implementation that passes every positive assertion: a `startsWith`
+path test that locks the shelf itself, cancelling ending access immediately
+rather than at the period end, a null period end sorting as zero so a school
+licence expires on someone's personal date, and no grace period at all.
+
+**Nothing bills anybody yet.** There is no Stripe, no StoreKit and no webhook —
+`grant()` is the only writer. Adding a processor means calling it from a webhook
+handler and nothing else changes.
+
 Everything below is **Casebook**, the deduction games, which the app **no longer
 serves**. `/casebook.html`, `/casebook_static.html`, `/reckon.html` and
 `/character.html` redirect to the shelf, `/api/shelf` and `/api/case/:id` answer

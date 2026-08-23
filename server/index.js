@@ -15,6 +15,7 @@ const {
 } = require("./classes");
 const { attach: attachRooms, createRoom, getRoom, issueTicket, roomSummary, forgetUser } = require("./rooms");
 const { handle: handleContact } = require("./contact");
+const { requireEntitlement, statusFor, ENFORCED: PAYWALL_ON } = require("./entitlement");
 
 const PORT = process.env.PORT || 5000;
 const ROOT = path.join(__dirname, "..");
@@ -416,6 +417,26 @@ async function main() {
     }
   });
 
+  /* What this account may play. Read by the shelf to mark locked courses, and
+   * by an installed app that has to decide offline — hence `offlineUntil`,
+   * which is how long the answer may be believed with no network.
+   *
+   * Answers for a signed-out visitor too, rather than 401: the shelf is public,
+   * it asks this on load, and "not signed in" is a perfectly good answer to
+   * "may I play" — it is `entitled: false`, and the shelf already knows what to
+   * do about a visitor with no account.
+   */
+  app.get("/api/entitlement", async (req, res, next) => {
+    try {
+      const userId = getUserId(req);
+      if (!userId) {
+        return res.json({ enforced: PAYWALL_ON, entitled: !PAYWALL_ON,
+                          signedIn: false, until: null, source: null, offlineUntil: null });
+      }
+      res.json({ signedIn: true, ...(await statusFor(userId)) });
+    } catch (err) { next(err); }
+  });
+
   // Site-wide sign-in gate: every page requires a signed-in user.
   //
   // WHAT may be read without one is server/publicPaths.js, and it is a separate
@@ -433,6 +454,21 @@ async function main() {
     // lands them in that game rather than back on the shelf.
     return goTo(res, "/sign-in.html?next=" + encodeURIComponent(req.originalUrl));
   });
+
+  /* The paywall, AFTER the sign-in gate and before static.
+   *
+   * The order is the whole of it. An unsubscribed visitor and a signed-out one
+   * need different answers, and asking a signed-out one to subscribe is asking
+   * the wrong question — so the sign-in gate goes first and this one can assume
+   * a user. What it gates is course files and nothing else: not the shelf, not
+   * the catalogue, not the hero shots, and not /api/*, because a lapsed
+   * subscriber must still sync the day they played, read their own results and
+   * delete their account.
+   *
+   * Inert unless ENTITLEMENT_ENFORCED is set, which is what lets it ship, deploy
+   * and be corrected while a beta runs unlocked. See server/entitlement.js.
+   */
+  app.use(requireEntitlement(goTo));
 
   // Static site: games/, icons, manifest, service worker, and whatever else is
   // in the root that has not been retired above.

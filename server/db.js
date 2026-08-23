@@ -157,6 +157,35 @@ CREATE TABLE IF NOT EXISTS contact_messages (
   created_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 CREATE INDEX IF NOT EXISTS idx_contact_messages_new ON contact_messages(created_at DESC);
+
+-- Who may open a course. One row per (user, source), so a renewal updates a row
+-- rather than adding one and a webhook delivered twice is not two
+-- subscriptions. A person may legitimately hold more than one — a personal
+-- subscription and a seat in a school's licence — and any live one is enough.
+--
+-- current_period_end NULL means an entitlement with no end: a school agreement,
+-- a comp, a lifetime grant. It lasts while its status says so.
+--
+-- ON DELETE CASCADE, unlike contact_messages: this row is about the account and
+-- means nothing without it. What must NOT cascade is the other direction — an
+-- entitlement lapsing deletes no save, no result and no account, which is what
+-- terms.html promises and server/entitlement.js is careful never to do.
+CREATE TABLE IF NOT EXISTS entitlements (
+  user_id VARCHAR NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  source VARCHAR NOT NULL,
+  status VARCHAR NOT NULL,
+  plan VARCHAR,
+  current_period_end TIMESTAMPTZ,
+  external_id VARCHAR,
+  raw JSONB,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  PRIMARY KEY (user_id, source)
+);
+-- "Whose subscription is about to lapse" and "which rows did that webhook
+-- touch" are the two questions asked of this table from outside a request.
+CREATE INDEX IF NOT EXISTS idx_entitlements_end ON entitlements(current_period_end);
+CREATE INDEX IF NOT EXISTS idx_entitlements_external ON entitlements(external_id);
 `;
 
 module.exports = { pool, SCHEMA_SQL };

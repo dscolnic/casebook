@@ -4,8 +4,10 @@
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
-    "test": "node scripts/test-classes.js && node scripts/test-sw.js && node scripts/test-public.js && node scripts/test-app-origin.js && node scripts/test-contact.js",
+    "test": "node scripts/test-classes.js && node scripts/test-sw.js && node scripts/test-public.js && node scripts/test-app-origin.js && node scripts/test-contact.js && node scripts/test-entitlement.js",
     "test:contact": "node scripts/test-contact.js",
+    "test:entitlement": "node scripts/test-entitlement.js",
+    "grant": "node scripts/grant.js",
     "test:sw": "node scripts/test-sw.js",
     "clerk:check": "node scripts/set-clerk-key.mjs --check",
     "clerk:set": "node scripts/set-clerk-key.mjs",
