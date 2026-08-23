@@ -82,6 +82,24 @@ licence expires on someone's personal date, and no grace period at all.
 `grant()` is the only writer. Adding a processor means calling it from a webhook
 handler and nothing else changes.
 
+### The iOS app
+
+Capacitor, bundle `com.firstpersonlearn.app`, project at
+`ios/App/App.xcodeproj`. `npm run ios` rebuilds `ios_www` and syncs it into the
+project — **run it before every archive**, or the app ships the previous bundle.
+
+`capacitor.config.json` sets **`scrollEnabled: true`**, and that is a decision
+rather than a default. It was `false`, which disables scrolling for the whole
+webview: the shelf, the privacy page, the terms and the teacher dashboard could
+all be tapped and none of them could be scrolled, which on the shelf means the
+games below the fold do not exist. What `false` was protecting against — a drag
+in a game world rubber-banding the page — is already handled, because
+`engine/core/touch.js` calls `preventDefault()` on every handler with
+`passive: false`, so a touch inside a game is consumed before the page sees it.
+If bounce ever does appear in a world, the fix belongs in the engine's own
+stylesheet (`overscroll-behavior: none`), not in a flag that breaks every
+document page in the app.
+
 Everything below is **Casebook**, the deduction games, which the app **no longer
 serves**. `/casebook.html`, `/casebook_static.html`, `/reckon.html` and
 `/character.html` redirect to the shelf, `/api/shelf` and `/api/case/:id` answer
