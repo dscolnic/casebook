@@ -124,7 +124,23 @@
   // out, not being broken.
   function cacheHooks(c) {
     if (typeof c.__unstable__onBeforeRequest !== 'function') {
-      console.warn('this build of Clerk has no request hooks; the session will not survive a reload');
+      // Say what IS there. "No hooks" is a dead end on its own — the names moved
+      // between clerk-js majors, and the whole question is which name this build
+      // uses. Prototype as well as own properties, because a class instance
+      // carries its methods on the prototype and Object.keys sees none of them.
+      var names = [];
+      try {
+        var o = c;
+        while (o && o !== Object.prototype) {
+          Object.getOwnPropertyNames(o).forEach(function (k) {
+            if (k.indexOf('__') === 0 && names.indexOf(k) === -1) names.push(k);
+          });
+          o = Object.getPrototypeOf(o);
+        }
+      } catch (e) { names.push('(could not enumerate: ' + e.message + ')'); }
+      console.warn('[auth] no __unstable__onBeforeRequest. version='
+        + (c.version || (root.Clerk && root.Clerk.version) || '?')
+        + ' internals=' + names.join(','));
       return;
     }
     c.__unstable__onBeforeRequest(function (requestInit) {
