@@ -34,8 +34,17 @@ body{overflow:hidden;margin:0;background:#0e1113;color:var(--ink);
         text-align:center;border:1px solid var(--line);box-shadow:0 8px 28px rgba(0,0,0,.35)}
 #prompt.hidden{display:none}
 
+/* SAFE AREAS. Every fixed element anchored to an edge adds the matching
+   env(safe-area-inset-*), because the same pages are loaded inside the iOS app
+   from the app bundle with viewport-fit=cover — so the viewport runs under the
+   status bar, the Dynamic Island and the home indicator. On a desktop browser
+   every one of these is 0px and the layout is unchanged, which is why it cannot
+   be seen anywhere but on the device: the HUD's five readings rendered UNDER
+   the island, with the clock and the money clipped, and every check was green.
+   The touch layer had it from the start; the HUD it sits under did not. */
 /* Status: five readings, top left, over the world rather than above it. */
-#hudStatus{position:fixed;top:10px;left:12px;z-index:4;display:flex;gap:0;
+#hudStatus{position:fixed;top:calc(10px + env(safe-area-inset-top));
+  left:calc(12px + env(safe-area-inset-left));z-index:4;display:flex;gap:0;
   background:rgba(251,249,244,.92);backdrop-filter:blur(10px);border:1px solid var(--line);
   border-radius:10px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.25)}
 .hudStat{padding:6px 13px;display:flex;flex-direction:column;gap:2px;min-width:74px;
@@ -55,7 +64,8 @@ body{overflow:hidden;margin:0;background:#0e1113;color:var(--ink);
 /* Under the clock on the left, not across the middle. Centred, it sat over the
    view you are walking into and fought the corner map for the top of the frame;
    the two HUD corners are where a player already looks. */
-#objective{position:fixed;top:66px;left:12px;z-index:4;
+#objective{position:fixed;top:calc(66px + env(safe-area-inset-top));
+  left:calc(12px + env(safe-area-inset-left));z-index:4;
   max-width:min(420px,42vw);text-align:left;pointer-events:none;
   /* A dark ground rather than a text shadow: the sky is nearly white at the top
      of the frame, and white-on-white survives no amount of shadow. */
@@ -68,7 +78,8 @@ body{overflow:hidden;margin:0;background:#0e1113;color:var(--ink);
 #objective.done #objectiveWhere{color:#9fe6a8}
 
 /* Map and settings, opposite the readings. */
-#hudTools{position:fixed;top:10px;right:12px;z-index:4;display:flex;gap:6px}
+#hudTools{position:fixed;top:calc(10px + env(safe-area-inset-top));
+  right:calc(12px + env(safe-area-inset-right));z-index:4;display:flex;gap:6px}
 .hudBtn{background:rgba(251,249,244,.92);backdrop-filter:blur(10px);border:1px solid var(--line);
   border-radius:10px;padding:7px 12px;font:700 .78rem/1 Inter,system-ui;color:var(--ink);cursor:pointer;
   box-shadow:0 6px 20px rgba(0,0,0,.25)}
@@ -182,12 +193,58 @@ body.touch #turnInBar .btn small{display:none}
 /* The corner map is hidden below 820px, which frees the top of the frame — so
    the look zone can start higher. #hudTools is still up there and still holds
    the Map button, which is why the touch layer draws none of its own. */
-@media (max-width:820px){ #touchLook{top:48px} .touchBtn.big{min-width:82px;height:82px} }
+@media (max-width:820px){ #touchLook{top:calc(48px + env(safe-area-inset-top))}
+  .touchBtn.big{min-width:82px;height:82px} }
+
+/* PHONE WIDTHS. The HUD was laid out for a desktop frame: five readings at a
+   74px floor each is 370px before padding, which on a 393pt phone runs the
+   Funds box off the right edge and puts #hudTools straight on top of the last
+   two. Both were only ever visible on a device — the layout is identical and
+   correct at 820px, which is where it was looked at.
+
+   What changes here is size and wrapping, not what is on screen: a reading the
+   player cannot see is the same defect as a reading drawn off the frame. The
+   status strip is allowed two rows and kept clear of the tools, the tools go
+   icon-only (their labels are duplicated by the tooltip and the M key), and the
+   objective is pushed down to clear a two-row strip. */
+@media (max-width:560px){
+  #hudStatus{
+    flex-wrap:wrap;
+    /* Clear of #hudTools, which is 2 icon buttons at the top right. */
+    max-width:calc(100vw - 108px - env(safe-area-inset-left) - env(safe-area-inset-right));
+  }
+  .hudStat{min-width:0;padding:5px 9px}
+  .hudLabel{font-size:.52rem;letter-spacing:.06em}
+  .hudStat b{font-size:.84rem}
+  /* Two rows of readings, so the objective cannot sit at 66px. */
+  #objective{top:calc(96px + env(safe-area-inset-top));max-width:calc(100vw - 24px)}
+  .hudBtn{padding:8px 10px;font-size:0}
+  .hudBtn span{font-size:15px}
+}
+
+/* SHORT VIEWPORTS — a phone in landscape, which is how an FPS is actually held.
+   The width is fine there (874pt keeps the desktop row); the scarce axis is
+   height, and at 402pt the readings and the objective together were taking a
+   third of the frame the game is played in. Sizes only: nothing is hidden,
+   because a reading the player cannot see is the same defect as one drawn off
+   the edge. */
+@media (max-height:480px){
+  .hudStat{padding:4px 10px}
+  .hudLabel{font-size:.5rem}
+  .hudStat b{font-size:.8rem}
+  /* The compact strip is ~47px tall including its 10px offset, so 50 put the
+     objective's top edge 6px inside it — visible only on a device, and only
+     in landscape, where the top inset is 0. */
+  #objective{top:calc(58px + env(safe-area-inset-top));padding:6px 14px}
+  #objectiveWhere{font-size:.84rem}
+  #objectiveWhy{font-size:.76rem}
+  .hudBtn{padding:6px 10px}
+}
 
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
-  <script type="module" crossorigin src="./assets/index-DetrULQ8.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CU5byQEh.css">
+  <script type="module" crossorigin src="./assets/index-CDlhRx1a.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BBM74WTD.css">
 </head>
 <body>
 <canvas id="canvas"></canvas>
@@ -230,6 +287,10 @@ body.touch #turnInBar .btn small{display:none}
   </div>
     <label class="settingRow"><input type="checkbox" id="setHighContrast"> <span><b>High contrast</b><small>Darker outlines on panels and readings.</small></span></label>
     <label class="settingRow"><input type="checkbox" id="setReduceMotion"> <span><b>Reduce motion</b><small>Turns off the verdict animation and the counting readout.</small></span></label>
+    <!-- The way out. Above the destructive row, because leaving is not
+         destructive and the two should not read as a pair. -->
+    <div class="settingRow"><span><b>Back to the game shelf</b><small>Leaves this campaign. The day, the clock and everything answered are saved.</small></span>
+      <button class="btn small" id="setLeave" type="button">Main menu</button></div>
     <div class="settingRow danger"><span><b>Restart the campaign</b><small>Clears the saved run and starts again at Mission 1.</small></span>
       <button class="btn small" id="setReset" type="button">Restart</button></div>
   </div>
@@ -266,6 +327,19 @@ body.touch #turnInBar .btn small{display:none}
     <button class="btn primary" id="startBtn" type="button">Take the response</button>
   </div>
 </div>
+
+<!-- Where the API is, and how a request to it authenticates. Served from the
+     casebook app's root and bundled at the root of the iOS app; inside that app
+     these pages come out of the app bundle, so a relative /api/ path resolves
+     into the bundle and there is no server behind it.
+
+     A plain static `gamekit/dist` has no such file and this 404s, which is
+     correct there and deliberately not worked around: the engine falls back to
+     a relative fetch, which is what a static host wants, and cloudSave turns
+     itself off on the first call anyway. The alternative is a second copy of
+     the file in this repo, and two copies of one rule drift the first time
+     either is corrected. -->
+<script src="/api-base.js"></script>
 
 <!-- The account's campaign is read BEFORE the entry point, not inside it.
      `main.js` calls tryLoadSaved() during module evaluation, so hydrating from

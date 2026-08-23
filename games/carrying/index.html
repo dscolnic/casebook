@@ -243,8 +243,8 @@ body.touch #turnInBar .btn small{display:none}
 
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
-  <script type="module" crossorigin src="./assets/index-DcoW2ia5.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-ChdaNpuB.css">
+  <script type="module" crossorigin src="./assets/index-DXFBD9Gg.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BBM74WTD.css">
 </head>
 <body>
 <canvas id="canvas"></canvas>
@@ -287,6 +287,10 @@ body.touch #turnInBar .btn small{display:none}
   </div>
     <label class="settingRow"><input type="checkbox" id="setHighContrast"> <span><b>High contrast</b><small>Darker outlines on panels and readings.</small></span></label>
     <label class="settingRow"><input type="checkbox" id="setReduceMotion"> <span><b>Reduce motion</b><small>Turns off the verdict animation and the counting readout.</small></span></label>
+    <!-- The way out. Above the destructive row, because leaving is not
+         destructive and the two should not read as a pair. -->
+    <div class="settingRow"><span><b>Back to the game shelf</b><small>Leaves this campaign. The day, the clock and everything answered are saved.</small></span>
+      <button class="btn small" id="setLeave" type="button">Main menu</button></div>
     <div class="settingRow danger"><span><b>Restart the campaign</b><small>Clears the saved run and starts again at Mission 1.</small></span>
       <button class="btn small" id="setReset" type="button">Restart</button></div>
   </div>

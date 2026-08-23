@@ -14,6 +14,7 @@
       "pair": "contamcity",
       "shotsFrom": "contamcity",
       "role": "Chief Scientific Officer · Riverton Contamination Response",
+      "dayNoun": "Day",
       "grade": 12,
       "drama": "A freight yard beside the river burned last night, and nobody can say what came off it. You are the city's Chief Scientific Officer, which means what gets measured — and what the city is told about it — is decided by you.",
       "concepts": [
@@ -24,7 +25,7 @@
         "Concentration units and conversions: ppm, mg/L, molarity"
       ],
       "size": {
-        "days": 22,
+        "days": 15,
         "stops": 48
       },
       "built": true
@@ -43,6 +44,7 @@
       "pair": "contamcity",
       "shotsFrom": "contamcity",
       "role": "Chief Scientific Officer · Riverton Contamination Response",
+      "dayNoun": "Day",
       "grade": 12,
       "drama": "A freight yard beside the river burned last night, and nobody can say what came off it. You are the city's Chief Scientific Officer, which means what gets measured — and what the city is told about it — is decided by you.",
       "concepts": [
@@ -53,7 +55,7 @@
         "Reading a number as a claim about a sample, not about a river"
       ],
       "size": {
-        "days": 22,
+        "days": 15,
         "stops": 48
       },
       "built": true
@@ -72,6 +74,7 @@
       "pair": "contamcity",
       "shotsFrom": "contamcity",
       "role": "Chief Scientific Officer · Riverton Contamination Response",
+      "dayNoun": "Day",
       "grade": 6,
       "drama": "A freight yard beside the river burned last night, and nobody can say what came off it. You are the city's chief scientist, which means you decide what gets measured, and what the city gets told.",
       "concepts": [
@@ -82,7 +85,7 @@
         "Saying what you know and how well you know it"
       ],
       "size": {
-        "days": 17,
+        "days": 10,
         "stops": 33
       },
       "built": true
@@ -101,8 +104,9 @@
       "level": "high",
       "grades": "9–12",
       "role": "Propellant Lead · Arcadia Rise",
+      "dayNoun": "Sol",
       "grade": 12,
-      "drama": "Everyone here goes home on a rocket, and the rocket can only leave when Mars and Earth line up. You are the propellant lead at Arcadia Rise, so every kilogram loaded into that rocket is signed for by you.",
+      "drama": "Everyone here goes home on a rocket that can only leave when Mars and Earth line up. You are the propellant lead at Arcadia Rise, so every kilogram loaded aboard is signed for by you.",
       "concepts": [
         "Stoichiometry as a feed rate: turning a production target into kilograms in",
         "Rate constants, and how steeply they climb with temperature",
@@ -111,7 +115,7 @@
         "What an assay is for, and what a specification is a list of"
       ],
       "size": {
-        "days": 22,
+        "days": 15,
         "stops": 48
       },
       "built": true
@@ -130,8 +134,9 @@
       "level": "middle",
       "grades": "6–8",
       "role": "Propellant Lead · Arcadia Rise",
+      "dayNoun": "Sol",
       "grade": 6,
-      "drama": "The window opens on sol 486 and does not open again for twenty-six months. You are the propellant lead, which means the plant is yours: the reactor, the water, the power and the cold end.",
+      "drama": "The window opens on sol 486 and does not open again for twenty-six months. You are the propellant lead, so the plant is yours.",
       "concepts": [
         "Everything is made of atoms, and atoms are never lost",
         "Temperature is how fast the particles are moving",
@@ -140,7 +145,7 @@
         "Change one thing at a time and see what moves"
       ],
       "size": {
-        "days": 17,
+        "days": 10,
         "stops": 30
       },
       "built": true
@@ -159,8 +164,9 @@
       "level": "high",
       "grades": "9–12",
       "role": "Process Integration Lead · Ardley Fab 7",
+      "dayNoun": "Day",
       "grade": 12,
-      "drama": "Fab 7 has been losing four wafers in ten since the second week of March, and the qualification lot for the customer that buys sixty per cent of what this plant makes has to run in fifteen days. You are the process integration lead, which means the signature on that lot is yours and so is every decision between here and it.",
+      "drama": "Ardley Fab 7 prints silicon chips, layer by layer, on wafers the size of a dinner plate. You are the process integration lead, so the signature on that batch is yours.",
       "concepts": [
         "Atomic structure: protons, electrons and the shells they occupy",
         "Percent composition: what a formula asserts about a film",
@@ -169,7 +175,7 @@
         "Surface oxidation: a clean surface, and what the air does to it in minutes"
       ],
       "size": {
-        "days": 22,
+        "days": 15,
         "stops": 45
       },
       "built": true
@@ -188,6 +194,7 @@
       "level": "high",
       "grades": "9–12",
       "role": "Duty Engineer · Ashfell Dam",
+      "dayNoun": "Day",
       "grade": 12,
       "drama": "Ashfell Dam holds ninety-two million cubic metres of water in a gorge, with four villages along the river below it. You are the duty engineer, so the amount of water let out each morning is ordered by you.",
       "concepts": [
@@ -198,7 +205,7 @@
         "Reading a quantity off the graph of its own derivative"
       ],
       "size": {
-        "days": 22,
+        "days": 15,
         "stops": 48
       },
       "built": true
@@ -217,6 +224,7 @@
       "pair": "the_trial",
       "shotsFrom": "the_trial",
       "role": "Methodology & Operations Lead · CLARION-3",
+      "dayNoun": "Day",
       "grade": 12,
       "drama": "CLARION-3 has been running for four years: 2,400 people across thirty-one hospitals, half of them getting a new drug and half the usual treatment. You are the methodology and operations lead at the coordinating centre, so the pack the independent monitoring board reads is the pack you assemble.",
       "concepts": [
@@ -227,7 +235,7 @@
         "Consent, and the obligations a trial keeps to the people in it"
       ],
       "size": {
-        "days": 22,
+        "days": 15,
         "stops": 48
       },
       "built": true
@@ -246,6 +254,7 @@
       "pair": "the_trial",
       "shotsFrom": "the_trial",
       "role": "Methodology & Operations Lead · CLARION-3",
+      "dayNoun": "Day",
       "grade": 12,
       "drama": "CLARION-3 has been running for four years: 2,400 people across thirty-one hospitals, half of them getting a new drug and half the usual treatment. You are the methodology and operations lead at the coordinating centre, so the pack the independent monitoring board reads is the pack you assemble.",
       "concepts": [
@@ -256,7 +265,7 @@
         "Inference for a slope, and whether an association survives the noise"
       ],
       "size": {
-        "days": 22,
+        "days": 15,
         "stops": 48
       },
       "built": true
@@ -275,6 +284,7 @@
       "pair": "the_trial",
       "shotsFrom": "the_trial",
       "role": "Methodology & Operations Lead · CLARION-3",
+      "dayNoun": "Day",
       "grade": 6,
       "drama": "CLARION-3 has been running for four years. You are the methods and operations lead at the coordinating centre, which means the pack the safety board reads is the pack you put together.",
       "concepts": [
@@ -285,7 +295,7 @@
         "What the people in the trial are owed"
       ],
       "size": {
-        "days": 17,
+        "days": 10,
         "stops": 30
       },
       "built": true
@@ -304,8 +314,9 @@
       "level": "high",
       "grades": "9–12",
       "role": "Review Analyst · Conviction Integrity Unit",
+      "dayNoun": "Day",
       "grade": 12,
-      "drama": "On a November night in 2019, a stranger watched a robbery from the far side of Ferrier Street. You are the review analyst at the Conviction Integrity Unit, which means the report that goes to the review board in fifteen working days is the one you write.",
+      "drama": "On a November night in 2019 a stranger watched a robbery from across Ferrier Street. You are the review analyst at the Conviction Integrity Unit, and the report going to the board in fifteen days is yours.",
       "concepts": [
         "Acuity as an angle: what the eye can resolve falls off with distance",
         "Encoding: memory is built at the moment, from what was attended to",
@@ -314,7 +325,7 @@
         "False confession: minimisation, maximisation and the innocent person's arithmetic"
       ],
       "size": {
-        "days": 22,
+        "days": 15,
         "stops": 48
       },
       "built": true
@@ -333,8 +344,9 @@
       "level": "middle",
       "grades": "6–8",
       "role": "Review Analyst · Conviction Integrity Unit",
+      "dayNoun": "Day",
       "grade": 6,
-      "drama": "On a November night in 2019, a stranger watched a robbery from the other side of Ferrier Street. You are the review analyst at the Conviction Integrity Unit, which means the report that goes to the board in fifteen days is yours to write.",
+      "drama": "On a November night in 2019 a stranger watched a robbery from across Ferrier Street. You are the review analyst at the Conviction Integrity Unit, and the report that goes to the board in fifteen days is yours.",
       "concepts": [
         "Memory is rebuilt each time, not played back",
         "Repeat a measurement and take the average",
@@ -343,7 +355,7 @@
         "What a report may say, and what it may not"
       ],
       "size": {
-        "days": 17,
+        "days": 10,
         "stops": 30
       },
       "built": true
@@ -362,6 +374,7 @@
       "pair": "quantum",
       "shotsFrom": "quantum",
       "role": "Group Lead · Ridgeway Quantum Laboratory",
+      "dayNoun": "Day",
       "grade": null,
       "drama": "Ridgeway runs a quantum processor: twelve qubits, held a hundredth of a degree above absolute zero by a refrigerator the size of a wardrobe. You lead the group.",
       "concepts": [
@@ -372,7 +385,7 @@
         "Provenance of data, and what a shared calibration hides"
       ],
       "size": {
-        "days": 22,
+        "days": 15,
         "stops": 48
       },
       "built": true
@@ -391,6 +404,7 @@
       "level": "high",
       "grades": "9–12",
       "role": "Flight Director · Lunar Return Mission",
+      "dayNoun": "Shift",
       "grade": 12,
       "drama": "Three people are in a spacecraft on the far side of a quarter-million miles, and something aboard has just exploded. You are the flight director, and the calls are yours to make.",
       "concepts": [
@@ -401,7 +415,7 @@
         "Graphical analysis of motion data"
       ],
       "size": {
-        "days": 22,
+        "days": 15,
         "stops": 48
       },
       "built": true
@@ -420,8 +434,9 @@
       "level": "middle",
       "grades": "6–8",
       "role": "Flight Director · Lunar Return Mission",
+      "dayNoun": "Shift",
       "grade": 6,
-      "drama": "Three people are in a spacecraft on the far side of a quarter-million miles, and something aboard has just exploded. You are the flight director, and the calls are yours to make.",
+      "drama": "Three people are in a spacecraft, a quarter of a million miles from home, and something on board has just exploded. You are the flight director.",
       "concepts": [
         "Speed, distance and time, and how they give each other",
         "Rates: how fast something is used up, and how long it lasts",
@@ -430,7 +445,7 @@
         "Ordering work when several things are wrong at once"
       ],
       "size": {
-        "days": 17,
+        "days": 10,
         "stops": 33
       },
       "built": true
@@ -449,6 +464,7 @@
       "pair": "deepwatch",
       "shotsFrom": "deepwatch",
       "role": "Reasoning Under Pressure Beneath the Surface",
+      "dayNoun": "Watch",
       "grade": 12,
       "drama": "You have the watch on a submarine at ninety metres. Everybody aboard is asleep, on watch, or working in a compartment they cannot see out of.",
       "concepts": [
@@ -459,7 +475,7 @@
         "Human factors: checklists, handover and communication"
       ],
       "size": {
-        "days": 22,
+        "days": 15,
         "stops": 48
       },
       "built": true
@@ -478,6 +494,7 @@
       "pair": "deepwatch",
       "shotsFrom": "deepwatch",
       "role": "Reasoning Under Pressure Beneath the Surface",
+      "dayNoun": "Watch",
       "grade": 12,
       "drama": "You have the watch on a submarine at ninety metres. Everybody aboard is asleep, on watch, or working in a compartment they cannot see out of.",
       "concepts": [
@@ -488,7 +505,7 @@
         "Radioactive decay and half-life, and a marker that has faded"
       ],
       "size": {
-        "days": 22,
+        "days": 15,
         "stops": 48
       },
       "built": true
@@ -507,6 +524,7 @@
       "pair": "deepwatch",
       "shotsFrom": "deepwatch",
       "role": "Reasoning Under Pressure Beneath the Surface",
+      "dayNoun": "Watch",
       "grade": 6,
       "drama": "You have the watch on a submarine, ninety metres down. Nobody aboard can see out, and neither can you.",
       "concepts": [
@@ -517,7 +535,7 @@
         "Two instruments that share a source are really one instrument"
       ],
       "size": {
-        "days": 17,
+        "days": 10,
         "stops": 33
       },
       "built": true
@@ -536,8 +554,9 @@
       "level": "high",
       "grades": "9–12",
       "role": "Los Alamos · 1943–45",
+      "dayNoun": "Stage",
       "grade": 12,
-      "drama": "It is April 1943, and the site is three weeks old: a boys' school on a mesa in New Mexico, with a laboratory going up around it. You are a scientist newly assigned to Project Y.",
+      "drama": "It is April 1943, and the site is three weeks old: a boys' school on a mesa in New Mexico with a laboratory going up around it. You are a scientist newly assigned to Project Y, which has one problem to solve and a schedule set by a war.",
       "concepts": [
         "Nuclear structure: protons, neutrons, isotopes, nuclide notation",
         "Criticality: mass, geometry, reflectors, moderation",
@@ -546,7 +565,7 @@
         "Criticality safety: administrative limits and controls"
       ],
       "size": {
-        "days": 22,
+        "days": 15,
         "stops": 52
       },
       "built": true
@@ -565,8 +584,9 @@
       "level": "high",
       "grades": "9–12",
       "role": "Measurements Lead · Station 12, where lightning is made on purpose",
+      "dayNoun": "Day",
       "grade": 12,
-      "drama": "Station 12 makes lightning on purpose. You are the measurements lead, which means no number reaches the season report unless you can show where it came from.",
+      "drama": "Station 12 makes lightning on purpose. You are the measurements lead, so no number reaches the season report unless you can show where it came from.",
       "concepts": [
         "Charge, and where it sits on a conductor",
         "Potential and field as derivative and integral of one another",
@@ -575,7 +595,7 @@
         "Measurement in the right regime: shunts, dividers and what they load"
       ],
       "size": {
-        "days": 22,
+        "days": 15,
         "stops": 48
       },
       "built": true
@@ -594,8 +614,9 @@
       "pair": "blackout",
       "shotsFrom": "blackout",
       "role": "System Operator · Calder Interconnection",
+      "dayNoun": "Day",
       "grade": 12,
-      "drama": "Four million people are supplied from the Calder network, and the whole of it runs on one number. You are the system operator on nights.",
+      "drama": "The Calder network carries electricity to four million people, and all of it runs on one number. You are the system operator on nights.",
       "concepts": [
         "Charge, current, voltage and resistance",
         "Reactance, impedance and phasors",
@@ -604,7 +625,7 @@
         "Load shedding as a decision under uncertainty"
       ],
       "size": {
-        "days": 22,
+        "days": 15,
         "stops": 48
       },
       "built": true
@@ -623,8 +644,9 @@
       "pair": "blackout",
       "shotsFrom": "blackout",
       "role": "System Operator · Calder Interconnection",
+      "dayNoun": "Day",
       "grade": 6,
-      "drama": "Four million people are supplied from the Calder network, and the whole of it runs on one number. You are the system operator on nights.",
+      "drama": "Four million people get their electricity from the Calder network, and the whole network runs on one number. You are the system operator on nights, and holding the two sides together is the job.",
       "concepts": [
         "A circuit is a loop, and a break anywhere stops it",
         "Current through something makes heat, and that is why wires have limits",
@@ -633,7 +655,7 @@
         "Deciding while the picture is incomplete"
       ],
       "size": {
-        "days": 17,
+        "days": 10,
         "stops": 33
       },
       "built": true
@@ -652,6 +674,7 @@
       "pair": "aftershock",
       "shotsFrom": "aftershock",
       "role": "Building Safety Coordinator · Kestrel Bay",
+      "dayNoun": "Day",
       "grade": 12,
       "drama": "A magnitude 6.8 earthquake hit Kestrel Bay three days ago and the town is still standing, unevenly. You are the building safety coordinator, which means you decide which buildings people are allowed back into: green to enter, yellow for restricted use, red for nobody.",
       "concepts": [
@@ -662,7 +685,7 @@
         "Documentation: the record somebody inherits"
       ],
       "size": {
-        "days": 23,
+        "days": 15,
         "stops": 48
       },
       "built": true
@@ -681,6 +704,7 @@
       "pair": "aftershock",
       "shotsFrom": "aftershock",
       "role": "Building Safety Coordinator · Kestrel Bay",
+      "dayNoun": "Day",
       "grade": 6,
       "drama": "An earthquake hit Kestrel Bay three days ago. You are the building safety coordinator, which means you say which buildings people may go back into.",
       "concepts": [
@@ -691,7 +715,7 @@
         "An instrument that is wrong needs a check from something else"
       ],
       "size": {
-        "days": 18,
+        "days": 10,
         "stops": 33
       },
       "built": true
@@ -710,6 +734,7 @@
       "level": "high",
       "grades": "9–12",
       "role": "Campaign Director · International NEO Response",
+      "dayNoun": "Phase",
       "grade": 12,
       "drama": "A survey telescope flagged a faint moving point near the ecliptic four hours ago. You direct the campaign: the telescopes that track it, a radar window that opens once in eleven years, and a deflection mission that would have to launch years before anyone could be certain it is needed.",
       "concepts": [
@@ -720,7 +745,7 @@
         "Crater and blast scaling; ground effects"
       ],
       "size": {
-        "days": 23,
+        "days": 15,
         "stops": 48
       },
       "built": true
@@ -739,6 +764,7 @@
       "level": "middle",
       "grades": "6–8",
       "role": "Campaign Director · International NEO Response",
+      "dayNoun": "Phase",
       "grade": 6,
       "drama": "Four hours ago a survey telescope found a faint dot moving against the stars. You run the campaign.",
       "concepts": [
@@ -749,7 +775,7 @@
         "Independent checks: a second method that could disagree"
       ],
       "size": {
-        "days": 17,
+        "days": 10,
         "stops": 33
       },
       "built": true
@@ -768,8 +794,9 @@
       "level": "high",
       "grades": "9–12",
       "role": "Ride Engineer · Corbin Park",
+      "dayNoun": "Day",
       "grade": 11,
-      "drama": "Corbin Park lost its certificate in October and the season opens in three weeks. You are the ride engineer, hired in February.",
+      "drama": "Corbin Park is an amusement park, and in October the county took away its certificate to open. You are the ride engineer, hired in February, and what you inherited is eleven notebooks of settings and timings, forty-one years of them, with not one line of working anywhere.",
       "concepts": [
         "Velocity against speed: direction is part of the quantity",
         "What supplies the centripetal force in each case — a rail, a chain, a seat",
@@ -778,8 +805,8 @@
         "Wind load, and why the last few metres a second cost the most"
       ],
       "size": {
-        "days": 22,
-        "stops": 48
+        "days": 15,
+        "stops": 49
       },
       "built": true
     },
@@ -797,6 +824,7 @@
       "pair": "icecore",
       "shotsFrom": "icecore",
       "role": "Season Science Lead · Vestri Dome",
+      "dayNoun": "Day",
       "grade": 12,
       "drama": "Vestri Dome is a drilling camp on the polar plateau: six huts up on legs, a trench with a tower over it, and two and a half kilometres of ice already pulled out of the ground. You are the season science lead, which means the climate record this station sends home is the one you signed.",
       "concepts": [
@@ -807,7 +835,7 @@
         "Reporting an uncertain record: what it licenses and what it does not"
       ],
       "size": {
-        "days": 22,
+        "days": 15,
         "stops": 48
       },
       "built": true
@@ -826,8 +854,9 @@
       "pair": "icecore",
       "shotsFrom": "icecore",
       "role": "Season Science Lead · Vestri Dome",
+      "dayNoun": "Day",
       "grade": 6,
-      "drama": "Vestri Dome is a drilling camp on the polar plateau: six huts up on legs, a trench with a tower over it, and two and a half kilometres of ice already pulled out of the ground. You are the season science lead, which means the climate record this station sends home is the one you signed.",
+      "drama": "Vestri Dome is a camp on the polar ice. You are the season science lead, and the record this camp sends home is the one you sign.",
       "concepts": [
         "Snow that never melts piles up in layers, one year at a time",
         "Something measured today can stand in for something nobody measured then",
@@ -836,7 +865,7 @@
         "Cold, power and daylight are the limits a polar camp works inside"
       ],
       "size": {
-        "days": 17,
+        "days": 10,
         "stops": 33
       },
       "built": true
@@ -855,6 +884,7 @@
       "level": "high",
       "grades": "9–12",
       "role": "Scientific Response Director · Riverton",
+      "dayNoun": "Stage",
       "grade": 12,
       "drama": "Three hospitals in one river city reported the same unusual illness inside a day of each other, and the ambulances are still arriving. You are the scientific response director, which means what gets measured is your decision and the city acts on whatever comes back.",
       "concepts": [
@@ -865,7 +895,7 @@
         "Epidemic modelling and projection"
       ],
       "size": {
-        "days": 23,
+        "days": 15,
         "stops": 48
       },
       "built": true
@@ -884,6 +914,7 @@
       "level": "middle",
       "grades": "6–8",
       "role": "Scientific Response Director · Riverton",
+      "dayNoun": "Stage",
       "grade": 6,
       "drama": "Three hospitals in one river city have reported the same strange illness within a day of each other. You are the science lead for the city, which means what gets measured is your call, and the city acts on whatever comes back.",
       "concepts": [
@@ -894,8 +925,8 @@
         "Deciding while the answer is still unknown"
       ],
       "size": {
-        "days": 18,
-        "stops": 32
+        "days": 10,
+        "stops": 33
       },
       "built": true
     },
@@ -913,6 +944,7 @@
       "level": "high",
       "grades": "9–12",
       "role": "Season Lead · Wellmere Seed Bank",
+      "dayNoun": "Day",
       "grade": 12,
       "drama": "Two hundred kilometres east there is a wheat disease the breeding programme has exactly one gene against. You are Season Lead at Wellmere.",
       "concepts": [
@@ -923,7 +955,7 @@
         "In situ against ex situ conservation, and what each preserves"
       ],
       "size": {
-        "days": 23,
+        "days": 15,
         "stops": 48
       },
       "built": true
@@ -942,8 +974,9 @@
       "level": "middle",
       "grades": "6–8",
       "role": "Season Lead · Wellmere Seed Bank",
+      "dayNoun": "Day",
       "grade": 6,
-      "drama": "Two hundred kilometres east there is a wheat disease the breeding programme has exactly one gene against. You are Season Lead at Wellmere.",
+      "drama": "Two hundred kilometres east there is a wheat disease, and the breeding programme at Wellmere has one gene that stands up to it. You are the season lead.",
       "concepts": [
         "Living things pass traits to their offspring",
         "Counting the offspring, and comparing counts with what was expected",
@@ -952,7 +985,7 @@
         "Deciding with a season that does not come round again"
       ],
       "size": {
-        "days": 17,
+        "days": 10,
         "stops": 33
       },
       "built": true
@@ -971,8 +1004,9 @@
       "pair": "carrying",
       "shotsFrom": "carrying",
       "role": "Island Resources Officer · Vellan Island",
+      "dayNoun": "Day",
       "grade": 12,
-      "drama": "The council votes on the second ferry in a fortnight, and Vellan has eleven months of water in the ground. You are the island\\u2019s resources officer, which means the permit to take water, the fishery quota and the tip are all signed by you, and the vote is advised by whatever you put in front of it.",
+      "drama": "Vellan is a low island with ninety-one people on it, one ferry a day, and eleven months of fresh water left underground. You are the island's resources officer, so the water licence, the fishing quota and the tip are all signed by you.",
       "concepts": [
         "An ecosystem as a budget: what comes in, what leaves, what stays",
         "Ecosystem services, and the ones nobody is billed for",
@@ -981,7 +1015,7 @@
         "Reading an environmental claim: what a number is about, and over what period"
       ],
       "size": {
-        "days": 23,
+        "days": 15,
         "stops": 45
       },
       "built": true
@@ -992,7 +1026,7 @@
       "course": "AP Precalculus · all four units",
       "field": "Maths & Stats",
       "accent": "#b0763c",
-      "place": "The Ellery Variety Theatre, dark eleven years and opening in a fortnight: a fly floor, a pit and a box office.",
+      "place": "The Ellery Variety Theatre, dark eleven years and opening in a fortnight: nine hundred seats on a rake, a fly tower over the stage, and the offices round the dock yard behind it.",
       "hero": "shots/ghostlight.jpg",
       "level": "high",
       "grades": "10–12",
@@ -1000,8 +1034,9 @@
       "pair": "ghostlight",
       "shotsFrom": "ghostlight",
       "role": "Production Manager · The Ellery Variety Theatre",
+      "dayNoun": "Day",
       "grade": 11,
-      "drama": "The Ellery has been dark for eleven years and opens in a fortnight, on a licence that expires the same night. You are the production manager, which means the rig, the sightlines and every number in the licence file are signed by you.",
+      "drama": "The Ellery is a theatre shut for eleven years, and it opens in a fortnight. You are the production manager, so the lighting rig, the seats an audience can see from, and every number in that licence file are signed by you.",
       "concepts": [
         "A function as a rule, its domain and what the domain rules out",
         "Choosing a model, and what a residual says about the choice",
@@ -1010,7 +1045,7 @@
         "Reading a model: what it is a model of, and where it stops being one"
       ],
       "size": {
-        "days": 22,
+        "days": 15,
         "stops": 45
       },
       "built": true
@@ -1022,15 +1057,16 @@
       "field": "Economics",
       "accent": "#7f6fa8",
       "place": "Halvern Central Station, commandeered for a currency changeover: a queue in the ticket hall and a furnace on platform one.",
-      "hero": "shots/changeover.jpg",
+      "hero": null,
       "level": "high",
       "grades": "11–12",
       "build": "changeover",
       "pair": "changeover",
       "shotsFrom": "changeover",
       "role": "Chief Economist · Halvern Currency Board",
+      "dayNoun": "Day",
       "grade": 12,
-      "drama": "Halvern stops accepting the old mark in fourteen days, and nobody has agreed what the new one is worth. You are the chief economist to the currency board, which means the rate, the money supply and every figure the board publishes are signed by you.",
+      "drama": "Halvern is a country of nine hundred thousand people, and in fourteen days its shops and banks stop taking the mark, the money it has always used. You are the chief economist to the currency board, so the rate and its published figures are yours to sign.",
       "concepts": [
         "Scarcity, and why every choice has a next-best alternative",
         "Nominal against real: taking the price change out of a figure",
@@ -1039,10 +1075,130 @@
         "Reading an economic statistic: what it counts, over what period, and revised how often"
       ],
       "size": {
-        "days": 22,
+        "days": 15,
         "stops": 45
       },
       "built": true
+    },
+    {
+      "id": "slackwater",
+      "title": "Slack Water",
+      "course": "AP Calculus BC · parametric, polar, vector and series",
+      "field": "Mathematics",
+      "accent": "#4f7fa8",
+      "place": "Sarn Barrage: six sluice gates across the neck of an estuary, mud at low water and a training wall running out into the channel.",
+      "hero": null,
+      "level": "high",
+      "grades": "11–12",
+      "build": "slackwater",
+      "pair": "slackwater",
+      "shotsFrom": "slackwater",
+      "role": "Tidal Prediction Lead · Sarn Barrage, twelve days before the springs",
+      "dayNoun": "Day",
+      "grade": 12,
+      "drama": "Sarn Barrage is six gates across the neck of an estuary, holding four hundred hectares of water. You are the tidal prediction lead, so no level reaches it unless you can show how it was worked out and how wrong it may be.",
+      "concepts": [
+        "A quantity written as a sum of periodic terms",
+        "Speed as the magnitude of a velocity vector",
+        "Sequences, partial sums, and what convergence means",
+        "The Lagrange error bound",
+        "A prediction, a bound and a measurement, and which of the three a decision rests on"
+      ],
+      "size": {
+        "days": 12,
+        "stops": 36
+      },
+      "built": false
+    },
+    {
+      "id": "overwind",
+      "title": "Overwind",
+      "course": "AP Physics C: Mechanics · in derivations",
+      "field": "Physics",
+      "accent": "#c2703f",
+      "place": "Kerrow No. 3: a thirty-two metre headframe over a 1,240 m shaft, alone on a moor, with the winding rope crossing the yard at head height.",
+      "hero": null,
+      "level": "high",
+      "grades": "11–12",
+      "build": "overwind",
+      "pair": "overwind",
+      "shotsFrom": "overwind",
+      "role": "",
+      "dayNoun": "Day",
+      "grade": 12,
+      "drama": "Kerrow No. You are the winding engineer's assistant, so every number in it has to be one you can show the working for.",
+      "concepts": [
+        "Position, velocity and acceleration as successive derivatives",
+        "Newton's third law, and which force acts on which body",
+        "A system whose mass is changing, and the momentum it carries",
+        "The period of an oscillation, and what it does not depend on",
+        "A measurement carries the conditions it was made under"
+      ],
+      "size": {
+        "days": 12,
+        "stops": 36
+      },
+      "built": false
+    },
+    {
+      "id": "darkfibre",
+      "title": "Dark Fibre",
+      "course": "AP Physics 2 · optics and modern physics",
+      "field": "Physics",
+      "accent": "#3f8f7a",
+      "place": "Pellow Head: a low concrete landing station in the dunes, a manhole above the tide line, and a radiography bay three hundred metres out.",
+      "hero": null,
+      "level": "high",
+      "grades": "11–12",
+      "build": "darkfibre",
+      "pair": "darkfibre",
+      "shotsFrom": "darkfibre",
+      "role": "Optical Measurements Lead · Pellow Head, twelve days with a cable down",
+      "dayNoun": "Day",
+      "grade": 12,
+      "drama": "An undersea cable runs out from Pellow Head, and nineteen days ago the light coming back dropped away. You are the optical measurements lead, so no position goes on that chart unless you can show how it was worked out.",
+      "concepts": [
+        "Refractive index, and the speed of light in a material",
+        "Diffraction, and what a grating does to a mixture of wavelengths",
+        "Photodetection: quantum efficiency and responsivity",
+        "Mass–energy equivalence",
+        "A record that carries the conditions it was taken under"
+      ],
+      "size": {
+        "days": 12,
+        "stops": 36
+      },
+      "built": false
+    },
+    {
+      "id": "qd_accel",
+      "title": "Too Faint",
+      "course": "Astronomy · how the accelerating expansion was measured",
+      "field": "Earth & Space",
+      "accent": "#7a4fa3",
+      "place": "Cerro Vela Survey Operations: an analysis floor stepped down to a wall of plot boards, and the measurement chain drawn along forty-five metres of corridor behind it.",
+      "hero": "shots/qd_accel.jpg",
+      "level": "high",
+      "grades": "11–12",
+      "build": "qd_accel",
+      "pair": "qd_accel",
+      "shotsFrom": "qd_accel",
+      "role": "Analyst · High-Redshift Supernova Team",
+      "dayNoun": "Level",
+      "grade": 11,
+      "drama": "Two years of observing have come down to forty-two exploding stars, none of which anybody will ever see up close. You are the analyst on a high-redshift supernova team, which means the distances are yours to build and yours to defend.",
+      "concepts": [
+        "Standardising a Type Ia supernova by its decline rate",
+        "Flux falls as the inverse square of distance",
+        "A universe with matter only must decelerate",
+        "Comparing expansion histories against one distance-redshift sample",
+        "The deceleration parameter, and what its sign means"
+      ],
+      "size": {
+        "days": 3,
+        "stops": 9
+      },
+      "built": false
     },
     {
       "id": "hospital",
@@ -1058,6 +1214,7 @@
       "pair": "hospital",
       "shotsFrom": "hospital",
       "role": "Junior Doctor · Children’s Hospital",
+      "dayNoun": "Shift",
       "grade": 2,
       "drama": "You are a new doctor at the children's hospital. Today is your first day on the ward.",
       "concepts": [
@@ -1068,7 +1225,7 @@
         "Imaging: X-rays and pictures of the inside"
       ],
       "size": {
-        "days": 22,
+        "days": 15,
         "stops": 45
       },
       "built": true
