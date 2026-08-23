@@ -133,13 +133,37 @@
   dialog.confirm button:disabled{opacity:.45; cursor:not-allowed}
   dialog.confirm .err{color:#e8737f; font-size:13px; min-height:1.2em; margin:10px 0 0}
 
+  /* Kind is the outer control and reads as a heading rather than a chip: it
+     changes what kind of thing the shelf is offering, where a level only
+     changes who it is written for. Underlined tabs, so the two rows are not two
+     identical-looking controls doing different jobs. */
+  .kinds{display:flex; flex-wrap:wrap; gap:26px; margin:30px 0 0;
+    border-bottom:1px solid var(--line)}
+  .kinds[hidden]{display:none}
+  .kind{
+    appearance:none; cursor:pointer; border:0; background:transparent; color:var(--dim);
+    padding:0 2px 12px; font:inherit; font-size:19px; font-weight:620; letter-spacing:-.01em;
+    display:flex; align-items:baseline; gap:8px;
+    border-bottom:2px solid transparent; margin-bottom:-1px;
+    transition:color .16s, border-color .16s;
+  }
+  .kind small{font:11.5px/1 ui-monospace,Menlo,monospace; color:var(--faint); letter-spacing:.04em}
+  .kind:hover{color:var(--ink)}
+  .kind[aria-pressed="true"]{color:var(--ink); border-bottom-color:var(--ink)}
+  .kind:focus-visible{outline:2px solid #6fc7d8; outline-offset:3px}
+  .kindNote{margin:16px 0 0; max-width:64ch; color:var(--dim); font-size:15px}
+  .kindNote[hidden]{display:none}
+
   /* One segmented control, not a row of loose pills: the levels are alternatives
      and the shared track says so. The count under each label is what makes it
      honest — a level with two games in it should look like a level with two
      games in it before you press it. */
-  .levels{display:inline-flex; gap:4px; margin:26px 0 2px; padding:4px;
+  .levels{display:inline-flex; gap:4px; margin:20px 0 2px; padding:4px;
     border:1px solid var(--line); border-radius:999px; background:#111520}
-  .levels[hidden]{display:none}
+  /* A class-level display beats the UA stylesheet's rule for [hidden], so a
+     level with nothing in the chosen kind would go on drawing a segment reading
+     "0 games" with the attribute set and no effect. */
+  .levels[hidden], .level[hidden]{display:none}
   .level{
     appearance:none; cursor:pointer; border:0; background:transparent; color:var(--dim);
     border-radius:999px; padding:8px 18px; font:inherit; font-size:14px; line-height:1.15;
@@ -355,6 +379,8 @@
     </div>
   </dialog>
 
+  <div class="kinds" id="kinds" role="group" aria-label="Choose a kind of game"></div>
+  <p class="kindNote" id="kindNote" hidden></p>
   <div class="levels" id="levels" role="group" aria-label="Choose a level"></div>
   <div class="filters" id="filters"></div>
   <div class="grid" id="grid"></div>
@@ -438,8 +464,40 @@ const LEVEL_KEY = 'casebook_shelf_level';
 // than emptying the page.
 const stored = localStorage.getItem(LEVEL_KEY);
 let level = SHOWN.some(l => l.id === stored) ? stored : 'high';
+// The level the player actually chose, as against the one a kind with a single
+// level forced on them.
+let wanted = level;
 
 const inLevel = (g) => (SHOWN.find(l => l.id === level) ?? SHOWN[0]).has(g);
+
+// -------------------------------------------------------------------- kind
+//
+// The first thing a player knows is how much time they have, not what reading
+// level they want: a Course Adventure is a fortnight of working days and a Quick
+// Discovery is nine stops in one sitting. So kind is the outer control and level
+// sits inside it — one shelf of thirty mixed the two lengths into a single list
+// with nothing saying which was which.
+//
+// `kind` is stamped on every catalogue row by gamekit's tools/games.js. A row
+// written before that field existed carries none, and 'course' is the honest
+// default: everything on this shelf was a fortnight until the Quick Discoveries
+// arrived.
+const kindOf = (g) => g.kind ?? 'course';
+const KINDS = [
+  { id: 'course', label: 'Course Adventures',
+    note: 'A fortnight of working days: walk to a place, read the evidence, answer for it, hand off before the clock runs out.' },
+  { id: 'quick', label: 'Quick Discoveries',
+    note: 'One sitting, ten to twenty minutes: establish the tool, meet the anomaly, make the claim.' },
+];
+const KIND_KEY = 'casebook_shelf_kind';
+// ?kind=quick wins over what this browser chose last time, so a link to a shelf
+// is that shelf for whoever opens it.
+const askedKind = new URLSearchParams(location.search).get('kind');
+const storedKind = (() => { try{ return localStorage.getItem(KIND_KEY); }catch(e){ return null; } })();
+let kind = KINDS.some(k => k.id === askedKind) ? askedKind
+         : KINDS.some(k => k.id === storedKind) ? storedKind : 'course';
+
+const inKind = (g) => kindOf(g) === kind;
 
 async function json(url){
   try{
@@ -568,7 +626,7 @@ document.getElementById('grid').addEventListener('click', (e) => {
 });
 
 function render(){
-  const shown = games.filter(g => inLevel(g) && (field === 'All' || g.field === field));
+  const shown = games.filter(g => inKind(g) && inLevel(g) && (field === 'All' || g.field === field));
   document.getElementById('grid').innerHTML = shown.map(cardHTML).join('');
   const resumable = games.filter(g => saves[g.id] && saves[g.id].status === 'playing').length;
   document.getElementById('note').textContent = resumable
@@ -577,11 +635,27 @@ function render(){
 }
 
 function renderFilters(){
+  // Resolve kind and level BEFORE anything is drawn from them. The subject chips
+  // are computed from the chosen level, so correcting a stranded level further
+  // down would list the chips of the level just left behind.
+  if(!KINDS.some(k => k.id === kind && games.some(g => kindOf(g) === k.id))){
+    kind = KINDS.find(k => games.some(g => kindOf(g) === k.id))?.id ?? 'course';
+  }
+  {
+    // A kind with one level strands whatever was chosen — Quick Discoveries are
+    // all senior-high today, so a visitor who had picked University would have
+    // theirs quietly rewritten. `wanted` is what they last pressed, so switching
+    // back restores it instead of leaving them on the fallback.
+    const live = SHOWN.filter(l => games.filter(inKind).some(l.has));
+    if(live.some(l => l.id === wanted)) level = wanted;
+    else if(live.length && !live.some(l => l.id === level)) level = live[0].id;
+  }
+
   // The subjects offered are the subjects the chosen level actually has. Listing
   // every field regardless would offer Psychology to a middle-school reader and
   // then draw an empty shelf, which reads as a broken page rather than as a
   // subject that has no edition yet.
-  const here = games.filter(inLevel);
+  const here = games.filter(g => inKind(g) && inLevel(g));
   const fields = ['All', ...Array.from(new Set(here.map(g => g.field)))];
   // Switching level can strand the chosen subject. Fall back rather than
   // showing nothing.
@@ -594,20 +668,45 @@ function renderFilters(){
     b.addEventListener('click', () => { field = b.dataset.field; renderFilters(); render(); });
   });
 
-  // Only offer a level that has games in it. If every game were senior-high —
-  // which was true until the first edition shipped — there is nothing to choose
-  // between and the control hides itself rather than offering to empty the page.
-  const live = SHOWN.filter(l => games.some(l.has));
+  // Only offer a kind that has games in it: a static host with no Quick
+  // Discovery synced draws no tab row at all rather than one tab that cannot be
+  // pressed, which is how the shelf looked before this existed.
+  const liveKinds = KINDS.filter(k => games.some(g => kindOf(g) === k.id));
+  const kbox = document.getElementById('kinds');
+  kbox.hidden = liveKinds.length < 2;
+  kbox.innerHTML = liveKinds.map(k => {
+    const n = games.filter(g => kindOf(g) === k.id).length;
+    return `<button class="kind" type="button" data-kind="${k.id}" aria-pressed="${k.id === kind}">`
+      + `<span>${esc(k.label)}</span><small>${n}</small></button>`;
+  }).join('');
+  kbox.querySelectorAll('.kind').forEach(b => {
+    b.addEventListener('click', () => {
+      kind = b.dataset.kind;
+      try{ localStorage.setItem(KIND_KEY, kind); }catch(e){}
+      renderFilters(); render();
+    });
+  });
+  const note = document.getElementById('kindNote');
+  note.textContent = KINDS.find(k => k.id === kind)?.note ?? '';
+  note.hidden = kbox.hidden || !note.textContent;
+
+  // Only offer a level that has games in it *in this kind*. If every game were
+  // senior-high — which was true until the first edition shipped — there is
+  // nothing to choose between and the control hides itself rather than offering
+  // to empty the page. Switching kind can strand the chosen level the same way
+  // switching level strands a subject, so fall back rather than showing nothing.
+  const inThisKind = games.filter(inKind);
+  const live = SHOWN.filter(l => inThisKind.some(l.has));
   const box = document.getElementById('levels');
   box.hidden = live.length < 2;
   box.innerHTML = live.map(l => {
-    const n = games.filter(l.has).length;
+    const n = inThisKind.filter(l.has).length;
     return `<button class="level" type="button" data-level="${l.id}" aria-pressed="${l.id === level}">`
       + `<span>${esc(l.label)}</span><small>${n} game${n === 1 ? '' : 's'}</small></button>`;
   }).join('');
   box.querySelectorAll('.level').forEach(b => {
     b.addEventListener('click', () => {
-      level = b.dataset.level;
+      level = wanted = b.dataset.level;
       try{ localStorage.setItem(LEVEL_KEY, level); }catch(e){}
       renderFilters(); render();
     });
