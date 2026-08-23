@@ -100,7 +100,15 @@ function load(opts = {}, mutate) {
         get textContent() { return this._text; },
       }),
     },
-    console: { warn: (...a) => log.push('warn ' + a.join(' ')) },
+    // Both, because native-auth.js uses both and a console with only one of
+    // them is not a smaller console — it is a TypeError inside load(), which
+    // rejects, which fails every case in this file for a reason none of them is
+    // about. A stub that is missing a method the real environment always has
+    // tests the stub.
+    console: {
+      warn: (...a) => log.push('warn ' + a.join(' ')),
+      log: (...a) => log.push('log ' + a.join(' ')),
+    },
     setTimeout, clearTimeout, URLSearchParams, Promise, Object, Error, String,
   };
   win.window = win;
