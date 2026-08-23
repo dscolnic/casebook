@@ -176,14 +176,20 @@ window.addEventListener("load", async function () {
   }
   try {
     await Clerk.load();
-    // Already signed in → go straight to the hub.
-    if (Clerk.user) { location.replace("/games/"); return; }
+    // Where to land after the sign-in. The gate appends ?next=<the page you
+    // were after> — usually a game clicked on the public shelf. Same-origin
+    // paths only: a full URL or a protocol-relative //host here would make
+    // this an open redirect.
+    var q = new URLSearchParams(location.search).get("next");
+    var next = (q && q.charAt(0) === "/" && q.charAt(1) !== "/" && q.charAt(1) !== "\\") ? q : "/games/";
+    // Already signed in → go straight on.
+    if (Clerk.user) { location.replace(next); return; }
     // Redirect the moment a session is established (version-proof).
-    Clerk.addListener(function (res) { if (res && res.user) location.replace("/games/"); });
+    Clerk.addListener(function (res) { if (res && res.user) location.replace(next); });
     box.innerHTML = "";
     Clerk.mountSignIn(box, {
-      afterSignInUrl: "/games/",
-      afterSignUpUrl: "/games/",
+      afterSignInUrl: next,
+      afterSignUpUrl: next,
       // Clerk titles its own card from the APPLICATION NAME in its dashboard,
       // which is still "Reckon" — the product this app used to be. That name is
       // on the first screen anybody sees, above a page headed First Person

@@ -53,6 +53,13 @@ const PUBLIC = [
   ['/games/shots/red_sand.jpg', 'hero shots, either extension'],
   ['/api/save', 'answers 401 itself; a 302 would reach a JSON parser as HTML'],
   ['/api/auth/user', 'same'],
+  // The shelf. The front door is the catalogue, and a visitor decides whether
+  // to sign in by looking at it; the games themselves stay gated, so clicking
+  // a card is what meets the sign-in.
+  ['/games/', 'the shelf is the public front door'],
+  ['/games', 'the slashless spelling has to reach static to gain its slash'],
+  ['/games/index.html', 'the shelf by its file name'],
+  ['/games/games.json', 'the catalogue the shelf reads'],
 ];
 for (const [p, why] of PUBLIC) ok(`public: ${p} — ${why}`, isPublic(p) === true);
 
@@ -60,10 +67,9 @@ for (const [p, why] of PUBLIC) ok(`public: ${p} — ${why}`, isPublic(p) === tru
 // 2. Gated. The app is behind a sign-in and these must stay behind it.
 
 const GATED = [
-  '/games/',                   // the shelf
-  '/games/index.html',
-  '/games/quantum/index.html', // a campaign
-  '/games/games.json',         // the catalogue
+  '/games/quantum/index.html', // a campaign — the shelf is public, the games are not
+  '/games/quantum/',           // and not by the directory spelling either
+  '/games/quantum',
   '/teacher.html',             // somebody else's roster
   '/room.html',
   '/join.html',
@@ -86,6 +92,10 @@ const NEAR = [
   '/notprivacy.html',
   '/apix/save',
   '/api',                      // the prefix without its slash is not the API
+  '/gamesx/',                  // the shelf entries are exact paths, not a prefix —
+  '/games/x',                  // startsWith('/games') would open every campaign
+  '/games/games.jsonx',
+  '/games/Index.html',         // static is case-insensitive on a Mac; the set is not
 ];
 for (const p of NEAR) ok(`near miss stays gated: ${p}`, isPublic(p) === false);
 
@@ -103,7 +113,8 @@ for (const junk of [null, undefined, 42, {}, '', 'privacy.html', 'https://elsewh
 
 for (const p of ['/privacy.html', '/support.html', '/legal.css', '/offline.html',
                  '/manifest.webmanifest', '/sw.js', '/sw-policy.js',
-                 '/icon-180.png', '/icon-192.png', '/icon-512.png']) {
+                 '/icon-180.png', '/icon-192.png', '/icon-512.png',
+                 '/games/index.html', '/games/games.json']) {
   ok(`file exists: ${p}`, fs.existsSync(path.join(ROOT, p.slice(1))));
 }
 
@@ -158,12 +169,14 @@ const SETS = {
   shell: ['/manifest.webmanifest', '/sw.js', '/sw-policy.js', '/offline.html'],
   pages: ['/privacy.html', '/support.html', '/legal.css'],
 };
-function build({ drop = [], icon = /^\/icon-\d+\.png$/, shot = /^\/games\/shots\/[A-Za-z0-9_-]+\.(jpg|png)$/, api = true } = {}) {
-  const all = new Set([...SETS.auth, ...SETS.shell, ...SETS.pages].filter(p => !drop.includes(p)));
+const SHELF_REF = ['/games', '/games/', '/games/index.html', '/games/games.json'];
+function build({ drop = [], icon = /^\/icon-\d+\.png$/, shot = /^\/games\/shots\/[A-Za-z0-9_-]+\.(jpg|png)$/, api = true, shelf = SHELF_REF, shelfPrefix = false } = {}) {
+  const all = new Set([...SETS.auth, ...SETS.shell, ...SETS.pages, ...shelf].filter(p => !drop.includes(p)));
   return (p) => {
     if (typeof p !== 'string' || p[0] !== '/') return false;
     if (api && p.startsWith('/api/')) return true;
     if (all.has(p)) return true;
+    if (shelfPrefix && p.startsWith('/games')) return true;
     if (icon.test(p)) return true;
     if (shot.test(p)) return true;
     return false;
@@ -197,10 +210,25 @@ trap('the manifest is dropped, so the app is not installable',
 // that checks only the positive cases sees nothing wrong. What it also passes is
 // every path ending in "html" — which is most of the app.
 trap('the icon pattern loses its anchors',
-     ['/icon-192.png.html', '/notprivacy.html', '/games/index.html',
+     ['/icon-192.png.html', '/notprivacy.html', '/games/Index.html',
       '/games/quantum/index.html', '/games/shots/quantum.png/../../index.html',
       '/teacher.html', '/room.html', '/join.html'],
      build({ icon: /icon-\d+\.png|html$/ }));
+
+// The shelf is exact paths. Written as a prefix — the obvious refactor — every
+// campaign under /games/ is public, and so is anything merely spelled like it.
+trap('the shelf entries become a startsWith prefix, opening every campaign',
+     ['/games/quantum/index.html', '/games/quantum/', '/games/quantum',
+      '/gamesx/', '/games/x', '/games/games.jsonx', '/games/Index.html',
+      '/games/shots/../../server/db.js', '/games/shots/../../server/leaked.png',
+      '/games/shots/quantum.png/../../index.html', '/games/shotsx/quantum.png'],
+     build({ shelfPrefix: true }));
+
+// And dropping the shelf re-gates the front door: the shelf 302s to sign-in,
+// which is exactly the behaviour this change removed.
+trap('the shelf is dropped, so the front door meets the gate again',
+     ['/games', '/games/', '/games/index.html', '/games/games.json'],
+     build({ shelf: [] }));
 
 // A dot that is not escaped: /iconx192.png is then public. One character.
 trap('the icon pattern does not escape its dot',

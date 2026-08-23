@@ -410,7 +410,10 @@ async function main() {
   app.use((req, res, next) => {
     if (isPublic(req.path)) return next();
     if (getUserId(req)) return next();
-    return goTo(res, "/sign-in.html");
+    // Carry the destination: the shelf is public, so the usual visitor to meet
+    // this gate has just clicked a game on it — sign-in.html reads `next` and
+    // lands them in that game rather than back on the shelf.
+    return goTo(res, "/sign-in.html?next=" + encodeURIComponent(req.originalUrl));
   });
 
   // Static site: games/, icons, manifest, service worker, and whatever else is

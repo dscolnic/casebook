@@ -45,6 +45,13 @@ const PUBLIC_PAGES = new Set([
 // ticket, so the app would sit there while the browser quietly succeeded.
 const AUTH_PAGES = new Set(['/sign-in.html', '/sign-out.html', '/native-signin.html']);
 
+// The shelf itself. The front door of the app is the game catalogue, and a
+// visitor decides whether to sign in by looking at it — so the page, the
+// catalogue it reads, and nothing else under /games/ is public. The games stay
+// gated: clicking a card is what meets the sign-in. Exact paths, never a
+// prefix — startsWith('/games') would open every campaign with them.
+const SHELF = new Set(['/games', '/games/', '/games/index.html', '/games/games.json']);
+
 // The app icons.
 const ICON = /^\/icon-\d+\.png$/;
 
@@ -68,9 +75,10 @@ function isPublic(pathname) {
   if (AUTH_PAGES.has(pathname)) return true;
   if (PWA_SHELL.has(pathname)) return true;
   if (PUBLIC_PAGES.has(pathname)) return true;
+  if (SHELF.has(pathname)) return true;
   if (ICON.test(pathname)) return true;
   if (SHOT.test(pathname)) return true;
   return false;
 }
 
-module.exports = { isPublic, PWA_SHELL, PUBLIC_PAGES, AUTH_PAGES, ICON, SHOT };
+module.exports = { isPublic, PWA_SHELL, PUBLIC_PAGES, AUTH_PAGES, SHELF, ICON, SHOT };
