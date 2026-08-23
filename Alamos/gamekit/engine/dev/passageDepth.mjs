@@ -44,6 +44,9 @@ import { readFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 import { themeDir, themeNames } from './registry.mjs';
+// Where a sentence ends. Markup is stripped by the caller: `judge` hands this
+// `plain(bio)`, because a `<p>` is not a word either.
+import { sentenceCount } from '../../tools/sentences.js';
 
 const DEBT = resolve(new URL('.', import.meta.url).pathname, 'passage-debt.json');
 
@@ -61,29 +64,11 @@ export const wordCount = (bio) => {
   return t ? t.split(' ').length : 0;
 };
 
-// An abbreviation is not a full stop, and this repo has paid for that once
-// already — `checkNames` split "the laboratory director, J. Robert Oppenheimer"
-// at the `J.` and reported an introduction that was right there. Here the error
-// runs the other way: every unprotected `Dr.` turns a one-sentence stub into a
-// two-sentence passage and the gate waves it through. The three shapes that are
-// not sentence ends:
-//
-//   a title      Dr. · Mr · Mrs · Ms · Prof · St · Lt · Sgt · Capt · Cdr · Adm
-//   an initial   a single capital letter and a dot — "J. Robert", "A. K. Mensah"
-//   a decimal    1.5 metres, 4.8 relative to competent rock
-const TITLES = /\b(?:Dr|Mr|Mrs|Ms|Prof|Rev|St|Lt|Sgt|Capt|Cdr|Adm|Gen|Col|Maj|Sr|Jr|vs|etc|e\.g|i\.e)\.\s/g;
-const INITIAL = /\b[A-Z]\.\s/g;
-const DECIMAL = /(\d)\.(\d)/g;
-
-/** How many sentences a player reads in this passage. */
-export function sentenceCount(bio){
-  const t = plain(bio)
-    .replace(DECIMAL, '$1·$2')
-    .replace(TITLES, (m) => m.replace('.', '·'))
-    .replace(INITIAL, (m) => m.replace('.', '·'));
-  if(!t) return 0;
-  return t.split(/(?<=[.?!])\s+/).map(s => s.trim()).filter(Boolean).length;
-}
+// Where a sentence ends is `tools/sentences.js`. It used to be here, and the
+// copy in `tools/sync-casebook.mjs` guarded decimals only — so the shelf printed
+// "Kerrow No. You are the winding engineer's assistant" under Overwind, an
+// abbreviation this file had never met either. One splitter, four guards.
+export { sentenceCount };
 
 /**
  * What is wrong with one person's passage, or null.
@@ -226,6 +211,10 @@ function selftest(){
       () => sentenceCount('The laboratory director, J. Robert Oppenheimer, ran the technical board here.') === 1],
     ['a decimal is not a full stop',
       () => sentenceCount('The scarp is 1.8 m high and runs for 400 m.') === 1],
+    ['a number label is not a full stop',
+      () => sentenceCount('Kerrow No. 3 winds twelve hundred metres of rope onto one drum.') === 1],
+    ['a sentence that really ends in No. is still two sentences',
+      () => sentenceCount('Asked whether the rope could take it, he said no. The drum was re-cut.') === 2],
     ['one long sentence is still a stub',
       () => judge(bio('Uses independent tracking and dynamics together with the whole of the room\'s '
         + 'accumulated telemetry to decide whether an apparent trajectory change is physical or '

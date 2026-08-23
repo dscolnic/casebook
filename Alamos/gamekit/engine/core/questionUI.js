@@ -291,7 +291,33 @@ function runPanelCleanup(){
   }
 }
 
+/**
+ * Whether the card on the overlay may be dismissed without answering it.
+ *
+ * The plan card, the warm-up card and the end-of-day card all carry their own
+ * named ways out — take the run, pay to skip it, start the day, take it again —
+ * and the corner X is none of them: it puts the overlay down with the decision
+ * unmade, so the run is neither taken nor marked and the day's clock never
+ * starts. Those cards lock. A question does not: walking away from one hands the
+ * stop back and costs the answer, which is a decision the player is allowed to
+ * make.
+ *
+ * The flag lives here because this file owns the overlay and is the only thing
+ * that can honestly unlock it again — `openModal` is what puts a question up.
+ */
+let modalLock = false;
+export function setModalLock(on){
+  modalLock = !!on;
+  const btn = document.getElementById('modalClose');
+  if(btn) btn.hidden = modalLock;
+}
+export function modalLocked(){ return modalLock; }
+
 function openModal(title, bodyHTML){
+  // A question is dismissible whatever was on the overlay before it, and the
+  // button has to come back with it — a hidden X left over from the plan card
+  // would take the way out of every question for the rest of the session.
+  setModalLock(false);
   // Whatever was up before is gone: its loop stops here, not when the next thing
   // to touch the DOM happens to notice.
   runPanelCleanup();

@@ -26,6 +26,10 @@
 // In a co-op room the countdown belongs to the server and this charge is
 // ignored, the same as every other local charge. See `tickDay`.
 
+// The overlay's dismiss button belongs to questionUI, which is the one thing
+// that knows whether the card on it may be walked away from. This one may.
+import { setModalLock } from './questionUI.js';
+
 /** How long a floor takes, in minutes of the day. */
 export const MINUTES_PER_FLOOR = 1;
 
@@ -90,6 +94,9 @@ export function createLift(opts){
       + 'is running while it does.</p></div>'
       + `<div class="liftPad">${rows}</div>`
       + `<div class="modalActions"><button class="btn" id="liftClose" type="button">Stay on this floor</button></div>`;
+    // Dismissible, so the X comes back — a lock left over from a plan card would
+    // otherwise take the corner off a panel that is allowed to be walked away from.
+    setModalLock(false);
     overlay.classList.add('show');
     if(document.pointerLockElement) document.exitPointerLock();
     document.getElementById('liftClose').onclick = close;

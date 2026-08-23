@@ -26,7 +26,7 @@ import { updateHUD, updateDayClock, renderStats } from '../engine/core/dashboard
 import { renderMap, setMapPins } from '../engine/core/map.js';
 import { passageHTML, bindPassage } from '../engine/core/personQuiz.js';
 import { openVisit, openPersonVisit, closeModal, panelFreezesClock,
-         setWorldHandle } from '../engine/core/questionUI.js';
+         setWorldHandle, setModalLock, modalLocked } from '../engine/core/questionUI.js';
 import { def, groupPct } from '../engine/core/simulation.js';
 import { createInteriors, makeActivate, exposeDebug, createDay, openPersonOrPassage,
          showEnding, createMiniMap, openCaseGroups } from '../engine/core/app.js';
@@ -194,6 +194,7 @@ function showInfo(title, html){
   document.getElementById('modalBody').innerHTML =
     `<div class="briefBox">${html}</div>`
     + `<div class="modalActions"><button class="btn primary" id="infoClose" type="button">Close</button></div>`;
+  setModalLock(false);
   overlay.classList.add('show');
   if(document.pointerLockElement) document.exitPointerLock();
   document.getElementById('infoClose').onclick = () => closeModal();
@@ -487,6 +488,14 @@ const day = createDay({
   pace: () => (panelFreezesClock() ? 0
     : overlay.classList.contains('show') ? PANEL_PACE : 1),
   ui: {
+    // Every card that comes through here is a decision with named ways out on
+    // it: take the run or pay to skip it, start the day or go back to it, take
+    // the day again. The corner X and Escape are neither of those — they put the
+    // overlay down and leave the decision unmade, so the morning carries on with
+    // the run not taken and not marked, or the plan never accepted and the clock
+    // never started. A question is different: walking away from one hands the
+    // stop back and costs the player the answer, which is a real choice, so
+    // `questionUI` keeps both and clears the lock on its way in.
     open(title, html, actions){
       document.getElementById('modalTitle').textContent = title;
       document.getElementById('modalEyebrow').textContent = '';
@@ -494,6 +503,7 @@ const day = createDay({
         + `<div class="modalActions">` + actions.map(a =>
             `<button class="btn ${a.primary ? 'primary' : ''}" id="${a.id}" type="button"`
             + `${a.disabled ? ' disabled' : ''}>${a.label}</button>`).join('') + `</div>`;
+      setModalLock(true);
       overlay.classList.add('show');
       if(document.pointerLockElement) document.exitPointerLock();
       for(const a of actions){
@@ -501,7 +511,7 @@ const day = createDay({
         if(b) b.onclick = a.onClick;
       }
     },
-    close(){ overlay.classList.remove('show'); },
+    close(){ setModalLock(false); overlay.classList.remove('show'); },
   },
   onDayStart: () => { updateHUD(); refreshWorld(); },
   onDayEnd: (outstanding) => showDayOver(outstanding),
@@ -545,7 +555,7 @@ function showDayOver(outstanding){
       label: lastDay ? 'See how it ended' : `Start the next ${DAY_NOUN.toLowerCase()}`,
       primary: true, onClick: () => {
       const res = completeMission();
-      overlay.classList.remove('show');
+      day.ui.close();
       updateHUD(); refreshWorld();
       // The last mission ends the campaign, and a campaign that ends without saying
       // how it turned out is fifteen days of work answered with a HUD label.
@@ -778,7 +788,10 @@ document.getElementById('setReset').addEventListener('click', () => {
   location.reload();
 });
 
-document.getElementById('modalClose').addEventListener('click', () => closeModal());
+document.getElementById('modalClose').addEventListener('click', () => {
+  if(modalLocked()) return;
+  closeModal();
+});
 document.getElementById('statsOverlay').addEventListener('click', (e) => {
   if(e.target.id === 'statsOverlay') e.currentTarget.classList.remove('show');
 });
@@ -805,7 +818,9 @@ window.addEventListener('keydown', (e) => {
   if(e.code === 'KeyR') lift.up = true;
   if(e.code === 'KeyF') lift.down = true;
   if(e.code === 'Escape'){
-    overlay.classList.remove('show');
+    // A locked card keeps the overlay: Escape here would leave the run untaken
+    // and unmarked, or the day unaccepted, which is the same bypass as the X.
+    if(!modalLocked()) overlay.classList.remove('show');
     document.getElementById('statsOverlay').classList.remove('show');
     sheet('mapOverlay', false);
     sheet('settingsOverlay', false);

@@ -25,7 +25,10 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { GAMES, cards } from './games.js';
+import { splitSentences } from './sentences.js';
 import { SYLLABUS } from './syllabus.js';
+// One description of what is read back off a theme; see tools/themeFacts.js.
+import { themeDirOf, gradeOf, roleOf, dayNounOf, sizeOf } from './themeFacts.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = resolve(here, '..');
@@ -49,29 +52,6 @@ if (!existsSync(OUT)) {
   console.error(`no casebook checkout at ${OUT}\n  pass --out /path/to/casebook, or set CASEBOOK_DIR`);
   process.exit(1);
 }
-
-const themeDirOf = (id) => {
-  const own = resolve(root, 'themes', id);
-  if (existsSync(own)) return own;
-  const reg = JSON.parse(readFileSync(resolve(root, 'themes.json'), 'utf8')).themes ?? {};
-  return reg[id] ? resolve(root, reg[id]) : own;
-};
-
-/** The reading level the theme declares, straight out of its manifest. */
-const gradeOf = (id) => {
-  const f = resolve(themeDirOf(id), 'theme.js');
-  if (!existsSync(f)) return null;
-  const m = /audience:\s*\{[^}]*grade:\s*(\d+)/.exec(readFileSync(f, 'utf8'));
-  return m ? +m[1] : null;
-};
-
-/** The role line the game itself puts under its title. */
-const roleOf = (id) => {
-  const f = resolve(themeDirOf(id), 'theme.js');
-  if (!existsSync(f)) return '';
-  const m = /subtitle:\s*'([^']*)'/.exec(readFileSync(f, 'utf8'));
-  return m ? m[1].replace(/\\'/g, "'") : '';
-};
 
 /**
  * The drama, in the game's own words.
@@ -98,11 +78,10 @@ const dramaOf = (id, budget = 330) => {
   const text = parts.join('').replace(/\\'/g, "'").replace(/\s+/g, ' ').trim();
   if (!text) return '';
 
-  // A full stop between two digits is a decimal point, not the end of a
-  // sentence. Aftershock opens on "A magnitude 6.2 struck…" and the naive split
-  // made the whole card read "A magnitude 6."
-  const sentences = (text.replace(/(\d)\.(\d)/g, '$1\u0000$2')
-    .match(/[^.!?]+[.!?]+(\s|$)/g) ?? [text]).map(x => x.replace(/\u0000/g, '.').trim());
+  // Where a sentence ends is `tools/sentences.js`, not this file. It used to be
+  // this file, guarding decimals only, and the missing case put "Kerrow No. You
+  // are the winding engineer's assistant" on the shelf under Overwind.
+  const sentences = splitSentences(text);
   if (sentences.length <= 2) return text;
 
   // The first two beats of the card, and only those.
@@ -146,16 +125,6 @@ const conceptsOf = (id, n = 5) => {
   if (all.length <= n) return all;
   const step = (all.length - 1) / (n - 1);
   return Array.from({ length: n }, (_, i) => all[Math.round(i * step)]);
-};
-
-/** How many days and how many stops the campaign actually runs to. */
-const sizeOf = (id) => {
-  const f = resolve(themeDirOf(id), 'content', 'missions.js');
-  if (!existsSync(f)) return null;
-  const src = readFileSync(f, 'utf8');
-  const days = (src.match(/^\s{4}"title":/gm) ?? []).length;
-  const stops = (src.match(/"group":/g) ?? []).length;
-  return days ? { days, stops } : null;
 };
 
 function buildTheme(id) {
@@ -233,6 +202,9 @@ const catalogue = ALL.map(g => ({
   ...g,
   hero: copyHero(g),
   role: roleOf(g.build),
+  // What the game calls a day, so the shelf can print "3 levels" rather than
+  // "3 days" for a campaign that has none.
+  dayNoun: dayNounOf(g.build),
   grade: gradeOf(g.build),
   drama: dramaOf(g.build),
   concepts: conceptsOf(g.build),
