@@ -122,8 +122,28 @@
   // back. Both hooks are best-effort: a throw in either would take down every
   // Clerk request, and the worst honest outcome of failing here is being signed
   // out, not being broken.
+  // The two hook names, newest first. clerk-js renamed them from __unstable__ to
+  // __internal_ in v6 — same signatures, same job — and a build carrying only
+  // one of the two names is how "the sign-in works and never survives a reload"
+  // arrives with nothing in the log to say why. Named rather than assumed, so
+  // the next rename is one entry rather than a rewrite.
+  var HOOKS = [
+    { before: '__internal_onBeforeRequest', after: '__internal_onAfterResponse' },
+    { before: '__unstable__onBeforeRequest', after: '__unstable__onAfterResponse' },
+  ];
+
+  function hookNames(c) {
+    for (var i = 0; i < HOOKS.length; i++) {
+      if (typeof c[HOOKS[i].before] === 'function' && typeof c[HOOKS[i].after] === 'function') {
+        return HOOKS[i];
+      }
+    }
+    return null;
+  }
+
   function cacheHooks(c) {
-    if (typeof c.__unstable__onBeforeRequest !== 'function') {
+    var h = hookNames(c);
+    if (!h) {
       // Say what IS there. "No hooks" is a dead end on its own — the names moved
       // between clerk-js majors, and the whole question is which name this build
       // uses. Prototype as well as own properties, because a class instance
@@ -138,12 +158,12 @@
           o = Object.getPrototypeOf(o);
         }
       } catch (e) { names.push('(could not enumerate: ' + e.message + ')'); }
-      console.warn('[auth] no __unstable__onBeforeRequest. version='
+      console.warn('[auth] no request hooks under any known name. version='
         + (c.version || (root.Clerk && root.Clerk.version) || '?')
         + ' internals=' + names.join(','));
       return;
     }
-    c.__unstable__onBeforeRequest(function (requestInit) {
+    c[h.before](function (requestInit) {
       try {
         requestInit.credentials = 'omit';
         if (requestInit.url && requestInit.url.searchParams) {
@@ -153,7 +173,7 @@
         if (requestInit.headers && jwt) requestInit.headers.set('authorization', jwt);
       } catch (e) { /* leave the request as it was */ }
     });
-    c.__unstable__onAfterResponse(function (_req, response) {
+    c[h.after](function (_req, response) {
       try {
         var payload = response && (response.payload || response);
         var jwt = (payload && payload.client && payload.client.jwt) || (payload && payload.jwt);
@@ -201,7 +221,8 @@
         // time you would want it. Cheap enough to keep: one line per boot, no
         // secret in it, and the three facts that separate "not signed in" from
         // "signed in and not remembered" from "this build cannot remember".
-        console.log('[auth] hooks=' + (typeof c.__unstable__onBeforeRequest === 'function')
+        var found = hookNames(c);
+        console.log('[auth] hooks=' + (found ? found.before : 'none')
           + ' storedClient=' + (readJWT() ? 'yes' : 'no')
           + ' session=' + (c.session ? 'yes' : 'no')
           + ' user=' + (c.user ? 'yes' : 'no'));
