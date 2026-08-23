@@ -35,7 +35,17 @@ function db() { return require("./db").pool; }
 // ends up quietly delivered to an address nobody reads.
 const TO = process.env.CONTACT_TO || process.env.CONTACT_SMTP_USER || "";
 const SMTP_USER = process.env.CONTACT_SMTP_USER || "";
-const SMTP_PASS = process.env.CONTACT_SMTP_PASS || "";
+/* Whitespace stripped, and that is not tidiness. Google shows an app password
+ * as four blocks of four — "abcd efgh ijkl mnop" — and says the spaces do not
+ * matter, which is true of its own web forms and false of SMTP AUTH, where the
+ * string is taken literally and a space in it is simply a wrong password. What
+ * Gmail then answers is "535-5.7.8 Username and Password not accepted", the
+ * same refusal it gives for a password that was never valid, so the error reads
+ * as "your credential is wrong" when the credential is right and the copy and
+ * paste was ordinary. Nobody pasting from that page has any reason to know.
+ */
+function cleanSecret(v) { return String(v || "").replace(/\s+/g, ""); }
+const SMTP_PASS = cleanSecret(process.env.CONTACT_SMTP_PASS);
 const SMTP_HOST = process.env.CONTACT_SMTP_HOST || "smtp.gmail.com";
 const SMTP_PORT = Number(process.env.CONTACT_SMTP_PORT || 465);
 
@@ -270,4 +280,4 @@ async function handle(req, res) {
   res.json({ ok: true, emailed });
 }
 
-module.exports = { handle, validate, overLimit, compose, clientIp, TOPICS };
+module.exports = { handle, validate, overLimit, compose, clientIp, cleanSecret, TOPICS };

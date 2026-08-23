@@ -16,7 +16,7 @@
  *
  *   node scripts/test-contact.js
  */
-const { validate, overLimit, compose, clientIp, TOPICS } = require('../server/contact');
+const { validate, overLimit, compose, clientIp, cleanSecret, TOPICS } = require('../server/contact');
 
 let pass = 0;
 const fails = [];
@@ -169,6 +169,27 @@ ok('and that message is stored rather than dropped',
   const nothing = { get: () => '', socket: {} };
   ok('and a request with neither does not crash', typeof clientIp(nothing) === 'string');
 }
+
+// ---------------------------------------------------------------------------
+// 5b. The app password, as it arrives from a copy and paste.
+//
+// Google displays it as four blocks of four and says the spaces do not matter.
+// True of its own web forms, false of SMTP AUTH, which takes the string
+// literally — and Gmail's answer to a password with a space in it is
+// "535-5.7.8 Username and Password not accepted", the same refusal it gives a
+// credential that was never valid. So the error says "wrong password" about a
+// password that is right, and nobody pasting from that page has any reason to
+// know. An afternoon.
+
+ok('a pasted app password keeps its sixteen characters',
+   cleanSecret('abcd efgh ijkl mnop') === 'abcdefghijklmnop');
+ok('one already stripped is untouched',
+   cleanSecret('abcdefghijklmnop') === 'abcdefghijklmnop');
+ok('a trailing newline from a paste goes too',
+   cleanSecret(' abcd efgh ijkl mnop\n') === 'abcdefghijklmnop');
+ok('an unset secret is the empty string, not "undefined"', cleanSecret(undefined) === '');
+ok('and that is falsy, so the module reports no credentials rather than trying one',
+   !cleanSecret(undefined));
 
 // ---------------------------------------------------------------------------
 // 6. What lands in the inbox. The subject has to say which of the four this is,
