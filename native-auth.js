@@ -102,6 +102,50 @@
     });
   }
 
+  // Where the client lives between page loads. One key, and it is Clerk's own
+  // name for it so that anything else reading the same web view agrees.
+  var JWT_KEY = '__clerk_client_jwt';
+
+  function readJWT() {
+    try { return root.localStorage.getItem(JWT_KEY) || ''; } catch (e) { return ''; }
+  }
+  function writeJWT(v) {
+    // Wrapped because a web view with site data blocked throws on both, and a
+    // session that cannot be remembered is still a session that works right now.
+    try {
+      if (v) root.localStorage.setItem(JWT_KEY, v);
+      else root.localStorage.removeItem(JWT_KEY);
+    } catch (e) { /* not fatal: this load stays signed in, the next will not */ }
+  }
+
+  // Attach the stored client on the way out, keep the returned one on the way
+  // back. Both hooks are best-effort: a throw in either would take down every
+  // Clerk request, and the worst honest outcome of failing here is being signed
+  // out, not being broken.
+  function cacheHooks(c) {
+    if (typeof c.__unstable__onBeforeRequest !== 'function') {
+      console.warn('this build of Clerk has no request hooks; the session will not survive a reload');
+      return;
+    }
+    c.__unstable__onBeforeRequest(function (requestInit) {
+      try {
+        requestInit.credentials = 'omit';
+        if (requestInit.url && requestInit.url.searchParams) {
+          requestInit.url.searchParams.append('_is_native', '1');
+        }
+        var jwt = readJWT();
+        if (requestInit.headers && jwt) requestInit.headers.set('authorization', jwt);
+      } catch (e) { /* leave the request as it was */ }
+    });
+    c.__unstable__onAfterResponse(function (_req, response) {
+      try {
+        var payload = response && (response.payload || response);
+        var jwt = (payload && payload.client && payload.client.jwt) || (payload && payload.jwt);
+        if (jwt) writeJWT(jwt);
+      } catch (e) { /* keep whatever we had */ }
+    });
+  }
+
   // Load Clerk once. Resolves with null rather than throwing when there is no
   // network: a player who opened the app on a train is playing offline, and the
   // shelf has to draw for them.
@@ -114,6 +158,21 @@
         if (typeof Ctor !== 'function') throw new Error('Clerk did not load');
         var c = new Ctor(PUBLISHABLE_KEY);
         // The whole reason for the native build: cookies cannot be set here.
+        //
+        // AND THE HALF THAT COOKIES WERE ALSO DOING. In standardBrowser mode a
+        // cookie carries the client between page loads without anybody writing
+        // code. Turning it off does not move that job to localStorage by itself
+        // — clerk-js hands the client JWT back on every response and expects the
+        // host to keep it and send it up again, which is what @clerk/expo's
+        // token cache does. Without these two hooks the sign-in works perfectly,
+        // the session is active, and the very next page load starts signed out:
+        // the browser opens, closes, the page reloads, and there is a Sign in
+        // button again, which reads as a sign-in that did nothing.
+        //
+        // `_is_native=1` is what makes Clerk put the client JWT in the response
+        // body at all, and `credentials: omit` stops the browser attaching a
+        // cookie that cannot be set from capacitor://localhost anyway.
+        cacheHooks(c);
         return c.load({ standardBrowser: false }).then(function () { return c; });
       })
       .then(function (c) {
@@ -220,6 +279,10 @@
   }
 
   function signOut() {
+    // The stored client is cleared FIRST. If signOut succeeds and this throws,
+    // the next page load restores the session somebody just ended — and the
+    // reverse order is how that happens.
+    writeJWT(null);
     return load().then(function (c) { return c ? c.signOut() : null; });
   }
 
