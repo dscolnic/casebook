@@ -37,6 +37,8 @@ const PUBLIC = [
   // Linked from the shelf, which is public. Behind the gate the form answers
   // the sign-in page and the report of a wrong question is never written.
   ['/contact.html', 'the contact form is read by a visitor with no account'],
+  // Terms nobody can read without agreeing to them first are not terms.
+  ['/terms.html', 'the terms are read before there is an account, by definition'],
   ['/legal.css', 'the two public pages are unreadable without their stylesheet'],
   ['/manifest.webmanifest', 'fetched without credentials; a 302 makes the app uninstallable'],
   ['/sw.js', 'must arrive as JavaScript or registration fails'],
@@ -114,7 +116,7 @@ for (const junk of [null, undefined, 42, {}, '', 'privacy.html', 'https://elsewh
 // perfectly public and simply not be there. Both failures look identical from
 // App Store Connect, which reports only that the URL did not work.
 
-for (const p of ['/privacy.html', '/support.html', '/contact.html', '/legal.css', '/offline.html',
+for (const p of ['/privacy.html', '/support.html', '/contact.html', '/terms.html', '/legal.css', '/offline.html',
                  '/manifest.webmanifest', '/sw.js', '/sw-policy.js',
                  '/icon-180.png', '/icon-192.png', '/icon-512.png',
                  '/games/index.html', '/games/games.json']) {
@@ -149,6 +151,17 @@ ok('the contact page publishes no address',
    !/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/.test(contact) &&
    !/href=["']mailto:/.test(contact));
 ok('the contact page loads the shared stylesheet', contact.includes('/legal.css'));
+// The terms. A page of promises about what the app does is a statement of fact
+// that has to keep being one, so the assertions here are about reachability —
+// every public page reaches it, and it reaches the others.
+const terms = fs.readFileSync(path.join(ROOT, 'terms.html'), 'utf8');
+ok('the terms load the shared stylesheet', terms.includes('/legal.css'));
+ok('the terms link the privacy policy', terms.includes('/privacy.html'));
+ok('the terms carry a way to reach somebody',
+   terms.includes('/contact.html') && /mailto:[^"']+@[^"']+/.test(terms));
+ok('the shelf links the terms', shelf.includes('/terms.html'));
+ok('the other three public pages link the terms',
+   privacy.includes('/terms.html') && support.includes('/terms.html') && contact.includes('/terms.html'));
 ok('support carries a contact address', /mailto:[^"']+@[^"']+/.test(support));
 // The deletion route is the one claim in the policy that is a promise about
 // code. If the route goes, the sentence describing it is a false statement.
@@ -158,6 +171,11 @@ ok('the account-deletion route the policy promises exists',
 // Same shape of claim: the contact page is a form with no address on it, so if
 // the route goes the page is a control that answers nothing.
 ok('the route the contact form posts to exists', index.includes('app.post("/api/contact"'));
+// The one promise in there that is a claim about code: deletion from inside the
+// app. Same assertion the privacy policy gets, for the same reason.
+ok('the terms do not promise a deletion route that does not exist',
+   !/delete your account/i.test(terms) || index.includes('app.delete("/api/account"'));
+
 
 // ---------------------------------------------------------------------------
 // 4. index.js consults the list, and consults it BEFORE the session check.
@@ -190,7 +208,7 @@ function trap(name, breaks, fn) { traps.push({ name, breaks, fn }); }
 const SETS = {
   auth: ['/sign-in.html', '/sign-out.html', '/native-signin.html'],
   shell: ['/manifest.webmanifest', '/sw.js', '/sw-policy.js', '/offline.html'],
-  pages: ['/privacy.html', '/support.html', '/contact.html', '/legal.css'],
+  pages: ['/privacy.html', '/support.html', '/contact.html', '/terms.html', '/legal.css'],
 };
 const SHELF_REF = ['/games', '/games/', '/games/index.html', '/games/games.json'];
 function build({ drop = [], icon = /^\/icon-\d+\.png$/, shot = /^\/games\/shots\/[A-Za-z0-9_-]+\.(jpg|png)$/, api = true, shelf = SHELF_REF, shelfPrefix = false } = {}) {
@@ -227,6 +245,10 @@ trap('the support page is dropped from the list',
 trap('the contact page is dropped from the list',
      ['/contact.html'],
      build({ drop: ['/contact.html'] }));
+
+trap('the terms are dropped from the list',
+     ['/terms.html'],
+     build({ drop: ['/terms.html'] }));
 
 trap('the stylesheet is forgotten, so both public pages render unstyled',
      ['/legal.css'],

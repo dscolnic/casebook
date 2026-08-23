@@ -35,10 +35,13 @@ const PWA_SHELL = new Set([
 // the likeliest message it carries is a report of a wrong question from
 // somebody who has not made an account. Behind the gate the form would answer
 // the sign-in page and the report would never be written.
+// terms.html is the fourth, and the reason is the plainest of the lot: terms
+// nobody can read without first agreeing to them are not terms.
 const PUBLIC_PAGES = new Set([
   '/privacy.html',
   '/support.html',
   '/contact.html',
+  '/terms.html',
   '/legal.css',
 ]);
 

@@ -1,12 +1,12 @@
-/* The look of the three public pages — privacy.html, support.html and
- * contact.html.
+/* The look of the four public pages — privacy.html, support.html, contact.html
+ * and terms.html.
  *
- * A stylesheet rather than three copies of it, because these are the only pages
+ * A stylesheet rather than four copies of it, because these are the only pages
  * on the app a stranger reads and they must not drift apart. The tokens are the
  * shelf's own (games/index.html); the type is narrower, because this is prose
  * to be read once rather than a wall of cards to be scanned.
  *
- * Public by design: server/index.js exempts all three and this file from the
+ * Public by design: server/index.js exempts all four and this file from the
  * sign-in gate. An App Store reviewer opens the privacy URL without an account,
  * and a 302 to a sign-in form is a rejection. contact.html adds its own form
  * controls in a <style> block — nothing else on the app has a form in it, and a
