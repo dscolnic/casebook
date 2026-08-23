@@ -1057,7 +1057,7 @@
       "field": "Economics",
       "accent": "#7f6fa8",
       "place": "Halvern Central Station, commandeered for a currency changeover: a queue in the ticket hall and a furnace on platform one.",
-      "hero": null,
+      "hero": "shots/changeover.jpg",
       "level": "high",
       "grades": "11–12",
       "build": "changeover",
@@ -1087,7 +1087,7 @@
       "field": "Mathematics",
       "accent": "#4f7fa8",
       "place": "Sarn Barrage: six sluice gates across the neck of an estuary, mud at low water and a training wall running out into the channel.",
-      "hero": null,
+      "hero": "shots/slackwater.jpg",
       "level": "high",
       "grades": "11–12",
       "build": "slackwater",
@@ -1108,7 +1108,7 @@
         "days": 12,
         "stops": 36
       },
-      "built": false
+      "built": true
     },
     {
       "id": "overwind",
@@ -1117,7 +1117,7 @@
       "field": "Physics",
       "accent": "#c2703f",
       "place": "Kerrow No. 3: a thirty-two metre headframe over a 1,240 m shaft, alone on a moor, with the winding rope crossing the yard at head height.",
-      "hero": null,
+      "hero": "shots/overwind.jpg",
       "level": "high",
       "grades": "11–12",
       "build": "overwind",
@@ -1126,7 +1126,7 @@
       "role": "",
       "dayNoun": "Day",
       "grade": 12,
-      "drama": "Kerrow No. You are the winding engineer's assistant, so every number in it has to be one you can show the working for.",
+      "drama": "Kerrow No. 3 is a mine, and everyone who works in it goes down twelve hundred and forty metres of shaft in a cage on a steel rope. You are the winding engineer's assistant, so every number in it has to be one you can show the working for.",
       "concepts": [
         "Position, velocity and acceleration as successive derivatives",
         "Newton's third law, and which force acts on which body",
@@ -1138,7 +1138,7 @@
         "days": 12,
         "stops": 36
       },
-      "built": false
+      "built": true
     },
     {
       "id": "darkfibre",
@@ -1147,7 +1147,7 @@
       "field": "Physics",
       "accent": "#3f8f7a",
       "place": "Pellow Head: a low concrete landing station in the dunes, a manhole above the tide line, and a radiography bay three hundred metres out.",
-      "hero": null,
+      "hero": "shots/darkfibre.jpg",
       "level": "high",
       "grades": "11–12",
       "build": "darkfibre",
@@ -1168,7 +1168,7 @@
         "days": 12,
         "stops": 36
       },
-      "built": false
+      "built": true
     },
     {
       "id": "qd_accel",
