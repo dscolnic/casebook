@@ -8,6 +8,30 @@ and hand off. `/` goes to `/games/`; see [`games/README.md`](games/README.md) fo
 how they get here (they are built in the Alamos repo and synced, not authored
 here) and how a campaign is kept against the account.
 
+### Contact form
+
+`/contact.html` is public (`server/publicPaths.js`) and posts to `/api/contact`
+(`server/contact.js`). The destination address is **never written on the page** —
+a `mailto:` there publishes the inbox on the one page outside the sign-in gate —
+so it lives in the environment. On Replit, set these as Secrets:
+
+    CONTACT_SMTP_USER   the Gmail address messages are sent FROM and TO
+    CONTACT_SMTP_PASS   a Google App Password (not the account password; needs 2FA on)
+    CONTACT_TO          optional — where to deliver, if not the same address
+    CONTACT_SMTP_HOST   optional — defaults to smtp.gmail.com
+    CONTACT_SMTP_PORT   optional — defaults to 465
+
+With no credentials the route is **inert rather than broken**: every message is
+still written to `contact_messages` and a line is logged saying the mail was not
+sent. That table is the record and the email is a notification about it, because
+SMTP fails silently and a lost report is indistinguishable from one nobody sent
+— `SELECT * FROM contact_messages WHERE NOT emailed` is the ones that did not
+arrive. The table is new, so `scripts/init-db.js` has to be run once against the
+development database before Publish can diff it into production.
+
+`node scripts/test-contact.js` covers the validation, the honeypot and the rate
+limit with no server, no database and no credentials.
+
 Everything below is **Casebook**, the deduction games, which the app **no longer
 serves**. `/casebook.html`, `/casebook_static.html`, `/reckon.html` and
 `/character.html` redirect to the shelf, `/api/shelf` and `/api/case/:id` answer

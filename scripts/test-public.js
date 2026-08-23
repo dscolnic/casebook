@@ -34,6 +34,9 @@ function ok(label, cond) {
 const PUBLIC = [
   ['/privacy.html', 'App Store Connect requires the privacy URL, read with no account'],
   ['/support.html', 'App Store Connect requires the support URL, read with no account'],
+  // Linked from the shelf, which is public. Behind the gate the form answers
+  // the sign-in page and the report of a wrong question is never written.
+  ['/contact.html', 'the contact form is read by a visitor with no account'],
   ['/legal.css', 'the two public pages are unreadable without their stylesheet'],
   ['/manifest.webmanifest', 'fetched without credentials; a 302 makes the app uninstallable'],
   ['/sw.js', 'must arrive as JavaScript or registration fails'],
@@ -111,7 +114,7 @@ for (const junk of [null, undefined, 42, {}, '', 'privacy.html', 'https://elsewh
 // perfectly public and simply not be there. Both failures look identical from
 // App Store Connect, which reports only that the URL did not work.
 
-for (const p of ['/privacy.html', '/support.html', '/legal.css', '/offline.html',
+for (const p of ['/privacy.html', '/support.html', '/contact.html', '/legal.css', '/offline.html',
                  '/manifest.webmanifest', '/sw.js', '/sw-policy.js',
                  '/icon-180.png', '/icon-192.png', '/icon-512.png',
                  '/games/index.html', '/games/games.json']) {
@@ -129,12 +132,32 @@ ok('both load the shared stylesheet',
    privacy.includes('/legal.css') && support.includes('/legal.css'));
 // A policy with no way to contact anybody does not satisfy the requirement.
 ok('privacy carries a contact address', /mailto:[^"']+@[^"']+/.test(privacy));
+// The contact form. Three things, and the third is the whole reason it is a
+// form: the page must reach the route, the footer must reach the page, and no
+// address may be written on the page itself — this is public, so a mailto: here
+// is the inbox published in plain text to anything that crawls the shelf.
+const contact = fs.readFileSync(path.join(ROOT, 'contact.html'), 'utf8');
+const shelf = fs.readFileSync(path.join(ROOT, 'games', 'index.html'), 'utf8');
+ok('the contact form posts to the route', contact.includes("'/api/contact'"));
+ok('the shelf links the contact form', shelf.includes('/contact.html'));
+ok('the two public pages link the contact form',
+   privacy.includes('/contact.html') && support.includes('/contact.html'));
+// An address, not the word "mailto" — the comment at the top of that page
+// explains why there is no address on it, and a test that greps for the word
+// fails on its own explanation.
+ok('the contact page publishes no address',
+   !/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/.test(contact) &&
+   !/href=["']mailto:/.test(contact));
+ok('the contact page loads the shared stylesheet', contact.includes('/legal.css'));
 ok('support carries a contact address', /mailto:[^"']+@[^"']+/.test(support));
 // The deletion route is the one claim in the policy that is a promise about
 // code. If the route goes, the sentence describing it is a false statement.
 const index = fs.readFileSync(path.join(ROOT, 'server', 'index.js'), 'utf8');
 ok('the account-deletion route the policy promises exists',
    index.includes('app.delete("/api/account"'));
+// Same shape of claim: the contact page is a form with no address on it, so if
+// the route goes the page is a control that answers nothing.
+ok('the route the contact form posts to exists', index.includes('app.post("/api/contact"'));
 
 // ---------------------------------------------------------------------------
 // 4. index.js consults the list, and consults it BEFORE the session check.
@@ -167,7 +190,7 @@ function trap(name, breaks, fn) { traps.push({ name, breaks, fn }); }
 const SETS = {
   auth: ['/sign-in.html', '/sign-out.html', '/native-signin.html'],
   shell: ['/manifest.webmanifest', '/sw.js', '/sw-policy.js', '/offline.html'],
-  pages: ['/privacy.html', '/support.html', '/legal.css'],
+  pages: ['/privacy.html', '/support.html', '/contact.html', '/legal.css'],
 };
 const SHELF_REF = ['/games', '/games/', '/games/index.html', '/games/games.json'];
 function build({ drop = [], icon = /^\/icon-\d+\.png$/, shot = /^\/games\/shots\/[A-Za-z0-9_-]+\.(jpg|png)$/, api = true, shelf = SHELF_REF, shelfPrefix = false } = {}) {
@@ -197,6 +220,13 @@ trap("the app's sign-in page is dropped from the list",
 trap('the support page is dropped from the list',
      ['/support.html'],
      build({ drop: ['/support.html'] }));
+
+// The contact form. Its failure is the quietest on the list: the page 302s to
+// the sign-in form, a visitor signs in, lands on the shelf, and never learns
+// that the thing they were trying to tell us went nowhere.
+trap('the contact page is dropped from the list',
+     ['/contact.html'],
+     build({ drop: ['/contact.html'] }));
 
 trap('the stylesheet is forgotten, so both public pages render unstyled',
      ['/legal.css'],

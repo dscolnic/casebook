@@ -14,6 +14,7 @@ const {
   updateClass, deleteClass, joinClass, leaveClass, removeMember, classProgress,
 } = require("./classes");
 const { attach: attachRooms, createRoom, getRoom, issueTicket, roomSummary, forgetUser } = require("./rooms");
+const { handle: handleContact } = require("./contact");
 
 const PORT = process.env.PORT || 5000;
 const ROOT = path.join(__dirname, "..");
@@ -112,6 +113,23 @@ async function main() {
     } catch (err) {
       next(err);
     }
+  });
+
+  /* The contact form. Public on purpose — the two things it is most likely to
+   * carry are "a question on day 9 is wrong" and "have you got one on genetics",
+   * and neither of those is worth making somebody sign in to say. It attaches
+   * whoever IS signed in, because a report about a campaign is far easier to
+   * follow up with the account that played it.
+   *
+   * The address it delivers to is in server/contact.js and reaches no browser:
+   * a mailto: on the shelf publishes the inbox on the one page of this app that
+   * is outside the sign-in gate.
+   */
+  app.post("/api/contact", async (req, res, next) => {
+    try {
+      req.userId = getUserId(req) || null;
+      await handleContact(req, res);
+    } catch (err) { next(err); }
   });
 
   app.post("/api/results", requireUser, async (req, res, next) => {

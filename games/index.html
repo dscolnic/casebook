@@ -361,13 +361,19 @@
   <p class="note" id="note"></p>
 
   <!-- App Store Connect requires a privacy policy URL and a support URL, and a
-       reviewer looks for both inside the app as well as on the listing. Both
-       pages are outside the sign-in gate, which is server/publicPaths.js and is
-       asserted by scripts/test-public.js — behind it they answer the sign-in
-       page, which reads to a reviewer as a missing policy. -->
+       reviewer looks for both inside the app as well as on the listing. All
+       three pages are outside the sign-in gate, which is server/publicPaths.js
+       and is asserted by scripts/test-public.js — behind it they answer the
+       sign-in page, which reads to a reviewer as a missing policy.
+
+       Contact is a form rather than a mailto:. This page is public, so an
+       address written here is the inbox published in plain text for anything
+       that crawls it; the form posts to /api/contact and the server holds the
+       address (server/contact.js). -->
   <footer class="sitefoot">
     <span>First Person Learning</span>
     <span class="sp"></span>
+    <a href="/contact.html">Contact us</a>
     <a href="/privacy.html">Privacy policy</a>
     <a href="/support.html">Support</a>
   </footer>

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contact us — First Person Learning</title>
+<meta name="description" content="Ask for a course, report a problem with a question or a place, or just get in touch with First Person Learning.">
+<meta name="theme-color" content="#0d0f13">
+<link rel="stylesheet" href="/legal.css">
+<link rel="apple-touch-icon" href="/icon-180.png">
+<!-- PUBLIC PAGE, same as privacy.html and support.html: exempted from the
+     sign-in gate in server/publicPaths.js and asserted by scripts/test-public.js.
+     The reason here is not the App Store — it is that the message most worth
+     receiving is "the question on day 9 is wrong", and the person best placed to
+     send it is a visitor with no account.
+
+     THERE IS NO ADDRESS ON THIS PAGE. The form posts to /api/contact and the
+     server reads the destination out of its environment (server/contact.js), so
+     the inbox is not published on a page a scraper can read. Anything that puts
+     a mailto: back here undoes the only reason the route exists. -->
+<style>
+  /* Form controls only. Everything else on this page is legal.css, which the
+     two other public pages share — the tokens below are its own. */
+  form{margin:0 0 8px}
+  .field{margin:0 0 18px}
+  label{display:block; margin:0 0 6px; font-size:14px; font-weight:600; color:#e9ecf2}
+  .hint{display:block; margin:0 0 8px; color:#5d6675; font-size:13px; font-weight:400}
+  input[type=text], input[type=email], select, textarea{
+    width:100%; font:inherit; font-size:15px; padding:11px 13px;
+    color:#e9ecf2; background:#0d0f13; border:1px solid #242a36; border-radius:10px;
+  }
+  textarea{min-height:170px; resize:vertical; line-height:1.55}
+  input:focus, select:focus, textarea:focus{
+    outline:none; border-color:#4a6b78; box-shadow:0 0 0 3px rgba(143,208,221,.14);
+  }
+  /* The row of topics. Radio buttons rather than a <select>, because the four
+     choices ARE the answer to "what can I write to you about" — a collapsed
+     menu makes somebody open it to find out whether their reason counts. */
+  .topics{display:grid; gap:8px}
+  .topics label{
+    display:flex; gap:11px; align-items:flex-start; margin:0; font-weight:400;
+    border:1px solid #242a36; border-radius:10px; padding:12px 14px; cursor:pointer;
+    background:#141821; color:#cfd6e2; font-size:15px;
+  }
+  .topics label:hover{border-color:#39435a}
+  .topics input{margin:3px 0 0; accent-color:#8fd0dd; flex:none}
+  .topics input:checked + span{color:#e9ecf2; font-weight:600}
+  button{
+    font:inherit; font-size:15px; font-weight:600; cursor:pointer;
+    border-radius:999px; padding:12px 26px;
+    border:1px solid #39435a; background:#141821; color:#e9ecf2;
+  }
+  button:hover:not(:disabled){border-color:#8fd0dd; color:#fff}
+  button:disabled{cursor:default; opacity:.55}
+  .row{display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin-top:6px}
+  .status{font-size:14px; color:#98a1b2; margin:0}
+  .status.bad{color:#e8737f}
+  /* The honeypot. Off-screen rather than display:none — some bots skip a field
+     that is display:none, and none of them read a label. aria-hidden and
+     tabindex keep it out of the way of anybody using a screen reader or the
+     keyboard, which is the only way this trick is acceptable at all. */
+  .trap{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden}
+  /* The sent card replaces the form rather than sitting under it: a form still
+     standing there after a successful send reads as a form that did not send. */
+  #done{display:none}
+  #done.show{display:block}
+  #formwrap.gone{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="kicker">First Person Learning</p>
+  <h1>Contact us</h1>
+
+  <p class="lede">Ask for a course we have not built, tell us a question or a
+  place is wrong, ask about using these with a class, or just say hello. One
+  person reads all of it and answers within two working days.</p>
+
+  <div id="formwrap">
+    <form id="f" novalidate>
+      <div class="field">
+        <label id="topiclabel">What is this about?</label>
+        <div class="topics" role="radiogroup" aria-labelledby="topiclabel">
+          <label><input type="radio" name="topic" value="request" checked><span>A course or subject you would like us to build</span></label>
+          <label><input type="radio" name="topic" value="question"><span>A problem with a question, a place or a person in a game</span></label>
+          <label><input type="radio" name="topic" value="teaching"><span>Using these with a class</span></label>
+          <label><input type="radio" name="topic" value="other"><span>Something else</span></label>
+        </div>
+      </div>
+
+      <div class="field" id="coursefield">
+        <label for="course">Which course, and which day?</label>
+        <span class="hint">If it is about one — "Blackout, day 9" is enough to find it.</span>
+        <input type="text" id="course" name="course" maxlength="80" autocomplete="off">
+      </div>
+
+      <div class="field">
+        <label for="message">Your message</label>
+        <textarea id="message" name="message" maxlength="4000" required></textarea>
+      </div>
+
+      <div class="field">
+        <label for="name">Your name</label>
+        <span class="hint">Optional.</span>
+        <input type="text" id="name" name="name" maxlength="120" autocomplete="name">
+      </div>
+
+      <div class="field">
+        <label for="email">Your email</label>
+        <span class="hint">Optional — but we cannot answer without it.</span>
+        <input type="email" id="email" name="email" maxlength="200" autocomplete="email">
+      </div>
+
+      <div class="trap" aria-hidden="true">
+        <label for="website">Leave this field empty</label>
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="row">
+        <button type="submit" id="send">Send</button>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+
+    <p class="status" style="margin-top:20px">
+      Nothing here is stored for marketing and there is no mailing list — what
+      happens to a message is in the <a href="/privacy.html">privacy policy</a>.
+    </p>
+  </div>
+
+  <div class="card" id="done">
+    <p class="h">Sent</p>
+    <p id="doneword">Thank you — that has arrived. If you left an email address
+    we will answer within two working days.</p>
+    <p style="margin-bottom:0"><a href="/games/">Back to the courses</a></p>
+  </div>
+
+  <footer>
+    <a href="/games/">The courses</a>
+    <a href="/support.html">Support</a>
+    <a href="/privacy.html">Privacy policy</a>
+    First Person Learning
+  </footer>
+
+</div>
+
+<script>
+const form = document.getElementById('f');
+const status = document.getElementById('status');
+const send = document.getElementById('send');
+
+// The course field only makes sense for two of the four reasons. Hidden rather
+// than disabled for the other two: a greyed-out field somebody cannot type in
+// is a question they are left wondering whether they should have answered.
+const coursefield = document.getElementById('coursefield');
+function syncCourse(){
+  const t = form.querySelector('input[name=topic]:checked')?.value;
+  coursefield.style.display = (t === 'question' || t === 'teaching') ? '' : 'none';
+}
+form.querySelectorAll('input[name=topic]').forEach(r => r.addEventListener('change', syncCourse));
+syncCourse();
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const body = {
+    topic: form.querySelector('input[name=topic]:checked')?.value || 'other',
+    course: coursefield.style.display === 'none' ? '' : document.getElementById('course').value,
+    message: document.getElementById('message').value,
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    website: document.getElementById('website').value,
+  };
+
+  // Checked here as well as on the server, only so the answer is instant. The
+  // server's copy is the one that decides.
+  if (body.message.trim().length < 10){
+    status.className = 'status bad';
+    status.textContent = 'Tell us a little more than that — a sentence or two is plenty.';
+    document.getElementById('message').focus();
+    return;
+  }
+
+  send.disabled = true;
+  send.textContent = 'Sending…';
+  status.className = 'status';
+  status.textContent = '';
+
+  let r = null, out = null;
+  try{
+    r = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin',
+      body: JSON.stringify(body),
+    });
+    out = await r.json().catch(() => null);
+  }catch(err){
+    // Offline, or a network filter. Say which, because the remedy is different.
+    status.className = 'status bad';
+    status.textContent = 'Could not reach the server. Check your connection and try again — your message is still in the box.';
+    send.disabled = false; send.textContent = 'Send';
+    return;
+  }
+
+  if(!r.ok){
+    status.className = 'status bad';
+    status.textContent = (out && out.message) || ('Could not send that (' + r.status + '). Try again in a moment.');
+    send.disabled = false; send.textContent = 'Send';
+    return;
+  }
+
+  document.getElementById('formwrap').classList.add('gone');
+  document.getElementById('done').classList.add('show');
+  document.getElementById('done').scrollIntoView({ block: 'nearest' });
+});
+</script>
+</body>
+</html>

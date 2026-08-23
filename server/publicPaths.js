@@ -30,9 +30,15 @@ const PWA_SHELL = new Set([
 // are opened by a reviewer who has no account and will not make one. Behind the
 // gate that is a rejection under Guideline 5.1.1, and one that costs a review
 // cycle to learn.
+// contact.html is the third, and it is public for a different reason: it is
+// linked from the shelf, which a visitor reads before deciding to sign in, and
+// the likeliest message it carries is a report of a wrong question from
+// somebody who has not made an account. Behind the gate the form would answer
+// the sign-in page and the report would never be written.
 const PUBLIC_PAGES = new Set([
   '/privacy.html',
   '/support.html',
+  '/contact.html',
   '/legal.css',
 ]);
 

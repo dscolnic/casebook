@@ -131,6 +131,32 @@ CREATE TABLE IF NOT EXISTS daily_puzzles (
   game_id VARCHAR NOT NULL REFERENCES case_bank(game_id),
   assigned_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+
+-- Messages from the contact form (contact.html, server/contact.js).
+--
+-- The row is the record and the email is a notification about it: SMTP fails
+-- silently and from the outside a lost message is indistinguishable from one
+-- nobody sent. The emailed flag is stamped so the ones the mail did not carry
+-- can be found later.
+--
+-- user_id is NOT a foreign key, deliberately. The form is public — the point of
+-- it is that somebody with no account can report a broken question — and a
+-- signed-in sender who later deletes their account must not take their message
+-- with them by cascade, because the answer to it may still be owed. It holds
+-- whoever was signed in when the form was submitted, and nothing else.
+CREATE TABLE IF NOT EXISTS contact_messages (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR,
+  email VARCHAR,
+  topic VARCHAR NOT NULL,
+  course VARCHAR,
+  message TEXT NOT NULL,
+  user_id VARCHAR,
+  user_agent VARCHAR,
+  emailed BOOLEAN NOT NULL DEFAULT false,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS idx_contact_messages_new ON contact_messages(created_at DESC);
 `;
 
 module.exports = { pool, SCHEMA_SQL };
