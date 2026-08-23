@@ -357,6 +357,68 @@ export const CURRICULUM = {
           "Measure it more than once, and average the readings"
         ]
       }
+    },
+    {
+      "day": 6,
+      "title": "How far away it started — Review",
+      "scene": "Inês Cardoso, the network technician, has a third record in. It comes from Halloran Point, up the coast, and the clock there shows the first wave at forty-one seconds past and the strong shaking at fifty-two.",
+      "takeaway": "A wider gap between the two arrivals means a station further from where the slip began.",
+      "place": "Seismic Network",
+      "guide": "Five tiles, and three of them belong in the sum. Two are clock times, and what carries the distance is the gap between them. One tile says what a second of that gap is worth in kilometres. The other two are true about this earthquake and answer a different question. This station is not the vault, so do not expect the vault's answer.",
+      "background": [
+        "What one station can say. A gap of eleven seconds says how far the wave came. It says nothing at all about which direction it came from. Draw that distance round the station and you have a circle, and the earthquake started somewhere on it.",
+        "Why a third station helps. Two circles cross in two places. Three circles cross in one. That is why the network keeps instruments in several towns rather than one very good instrument in the best spot.",
+        "Why the tiles carry words as well as numbers. A bare number cannot be checked against anything. Reading the label is how you notice that a tile is in the wrong units, or is a fact about the earthquake rather than about this record."
+      ],
+      "story": "Inês Cardoso, the network technician, has a third record in. It comes from Halloran Point, up the coast, and the clock there shows the first wave at forty-one seconds past and the strong shaking at fifty-two.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "How far away it started — Review",
+        "setup": "Seismic Network",
+        "play": "Do the same sum on a station up the coast.",
+        "task": "Do the same sum on a station up the coast.",
+        "question": "How far away did it start, measured from Halloran Point?",
+        "answer": "About eighty-eight kilometres. That is a second circle, drawn round Halloran Point rather than round the vault.",
+        "why": "The two waves leave the fault together and one of them is faster, so the gap between them opens up as they travel. Here the gap is eleven seconds, and eleven seconds is about eighty-eight kilometres. The vault's record gave a hundred and four. Neither is the answer on its own. Each is a circle round its own station, and the place the earthquake started is where the circles meet.",
+        "givens": [
+          "The gap between the two arrivals is eleven seconds",
+          "Count about eight kilometres for each second of that gap"
+        ],
+        "relationship": "Distance = the gap in seconds × eight kilometres.",
+        "calcKey": "SEIS-6"
+      },
+      "assumes": [
+        "the first wave travels faster than the strong shaking behind it"
+      ],
+      "equations": [
+        {
+          "e": "distance = speed × time",
+          "c": "how far away the earthquake was",
+          "v": [
+            [
+              "distance",
+              "to the fault, in kilometres"
+            ],
+            [
+              "speed",
+              "the wave speed, in kilometres per second"
+            ],
+            [
+              "time",
+              "the delay, in seconds"
+            ]
+          ],
+          "s": "The gap between the first wave and the strong shaking grows with distance, so timing it gives a distance."
+        }
+      ],
+      "concept": {
+        "n": 2,
+        "c": "An earthquake sends waves through the ground, and some arrive first",
+        "of": 16,
+        "rests": [
+          "Plates move, and a fault is the crack where they slip past each other"
+        ]
+      }
     }
   ],
   "STRUCT": [
@@ -1383,6 +1445,53 @@ export const CURRICULUM = {
           "The ground itself changes the shaking: soft ground shakes more"
         ]
       }
+    },
+    {
+      "day": 7,
+      "title": "Ground that people put there — Review",
+      "scene": "Thandi Mbeki, the geotechnical field technician, has walked two schools this morning. Kestrel Point School is on the bench above the bay. Salt Meadow School is the same distance from the fault, down on the flat. One lost roof tiles. One lost its playground.",
+      "takeaway": "What a place stands on can matter more to it than how far it is from the fault.",
+      "place": "Geotechnical",
+      "guide": "Four answers, and every one of them is a real reason a building can come off worse. Work by ruling out. Both schools went up the same year. Both are single storey. Both are the same distance from the fault. Cross off what the two of them share, and read what is left over.",
+      "background": [
+        "Why the distance is the same and the day was not. The waves that reached both schools left the same fault at the same moment and had the same distance to cover. Everything that happened after that happened in the last few metres, under the floor.",
+        "What the playground shows. Salt Meadow's yard has grey fans of sand across it and a drop of two hundred millimetres along one fence. That is the ground moving, not the building. Kestrel Point lost tiles, which is the building being shaken.",
+        "Why this keeps coming back. It is the same finding as the chimneys in Upper Town and the leaning block in the Flats. Two places, one earthquake, two very different mornings, and the difference is under the foundations in every case."
+      ],
+      "story": "Thandi Mbeki, the geotechnical field technician, has walked two schools this morning. Kestrel Point School is on the bench above the bay. Salt Meadow School is the same distance from the fault, down on the flat. One lost roof tiles. One lost its playground.",
+      "game": {
+        "type": "CHOICE",
+        "title": "Ground that people put there — Review",
+        "setup": "Geotechnical",
+        "play": "Say why two schools the same distance out came off so differently.",
+        "task": "Say why two schools the same distance out came off so differently.",
+        "question": "Two schools, the same distance from the fault. Why did only one lose its playground?",
+        "answer": "Salt Meadow stands on loose wet ground, and loose wet ground shakes harder and further than rock does.",
+        "why": "Waves arriving at rock and waves arriving at loose wet fill do not stay the same size. Rock is stiff, so it passes the shaking on much as it received it. Loose wet ground is not, and the wave slows down and grows as it comes up through it. Salt Meadow got a bigger shake than Kestrel Point from the same earthquake, and the ground under the playground then settled and let water up through the sand.",
+        "rebuttals": [
+          "Both schools went up in the same year, so age separates nothing here.",
+          "An empty building shakes exactly as hard as a full one does.",
+          "Mbeki measured both distances off the same map, and they match."
+        ],
+        "choices": [
+          "Salt Meadow is older, so it was already the weaker building.",
+          "Salt Meadow stands on loose wet ground, which shakes harder.",
+          "Salt Meadow was empty that morning, so nobody was watching.",
+          "The two schools are not really the same distance from the fault."
+        ],
+        "correctChoice": "Salt Meadow stands on loose wet ground, which shakes harder."
+      },
+      "assumes": [
+        "two places the same distance from an earthquake can feel different shaking"
+      ],
+      "concept": {
+        "n": 5,
+        "c": "The ground itself changes the shaking: soft ground shakes more",
+        "of": 16,
+        "rests": [
+          "Distance from the fault changes what a place feels"
+        ]
+      }
     }
   ],
   "MAT": [
@@ -1826,6 +1935,56 @@ export const CURRICULUM = {
           "How big the earthquake was, and how hard the shaking felt, are two different things"
         ]
       }
+    },
+    {
+      "day": 6,
+      "title": "Why the number moved — Review",
+      "scene": "Rei Tanaka, the seismologist, has three lines written down from three calls this morning. Every one of them is a number about Thursday, and no two of them are numbers about the same thing.",
+      "takeaway": "An earthquake has one size, and as many felt strengths as there are streets in the town.",
+      "place": "Hazard & Forecasting",
+      "guide": "Three lines on the left and three descriptions on the right, and each one is used once. Ask of every line whether it belongs to the whole earthquake or to one street. One of them is the same wherever you stand. The other two are what a particular place felt, and those two do not match each other.",
+      "background": [
+        "The two kinds of number. One says how much the fault let go, and there is only ever one of it. The other says how hard a given street shook, and there is one of those for every street in the town.",
+        "Why the mix-up costs something. A caller who hears one figure for the whole earthquake and then feels almost nothing decides the office is exaggerating. A caller whose road split open decides the figure was far too small. Both are reading a whole-event number as a report on their own street.",
+        "How the one-each rule helps. Every description is used, and used once. So the line you are sure about takes its description out of play for the other two, and two settled lines decide the third for you."
+      ],
+      "story": "Rei Tanaka, the seismologist, has three lines written down from three calls this morning. Every one of them is a number about Thursday, and no two of them are numbers about the same thing.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "Why the number moved — Review",
+        "setup": "Hazard & Forecasting",
+        "play": "Sort three phone calls into what each one is actually about.",
+        "task": "Sort three phone calls into what each one is actually about.",
+        "question": "Say what each of the three callers is describing",
+        "answer": "",
+        "why": "The bulletin figure is worked out from the records and describes the fault. It is one number and it does not change from street to street. What the two callers describe is what their own ground did, and their two streets sit on different ground. Rattled pictures on the bench and a split road on the fill are the same earthquake felt twice. Neither caller is wrong, and neither is talking about the bulletin.",
+        "scenarios": [
+          "A caller in Upper Town: the pictures rattled and stayed up.",
+          "The bulletin gives one figure for the whole earthquake.",
+          "A caller on Bay Road: the road split and sand rose."
+        ],
+        "choices": [
+          "How hard one street shook, and it was mild in that street.",
+          "How much the fault let go, the same figure everywhere.",
+          "How hard one street shook, and it was severe in that street."
+        ],
+        "mapping": [
+          0,
+          1,
+          2
+        ]
+      },
+      "assumes": [
+        "one earthquake is felt differently in different streets"
+      ],
+      "concept": {
+        "n": 3,
+        "c": "How big the earthquake was, and how hard the shaking felt, are two different things",
+        "of": 16,
+        "rests": [
+          "An earthquake sends waves through the ground, and some arrive first"
+        ]
+      }
     }
   ],
   "SAFE": [
@@ -2034,11 +2193,11 @@ export const CURRICULUM = {
         "use can be limited by how many people, by which rooms, and for how long"
       ],
       "concept": {
-        "n": 11,
-        "c": "Materials: what a crack means, and what a strength test can tell you",
+        "n": 10,
+        "c": "A building carries its weight down a path, and the weakest needed link governs",
         "of": 16,
         "rests": [
-          "A building carries its weight down a path, and the weakest needed link governs"
+          "Plates move, and a fault is the crack where they slip past each other"
         ]
       }
     },
@@ -2329,6 +2488,51 @@ export const CURRICULUM = {
           "Counting damage as a share, not as a number of buildings"
         ]
       }
+    },
+    {
+      "day": 8,
+      "title": "A notice somebody acts on — Review",
+      "scene": "Funmi Adeyemi, the public information officer, has a text message going to four thousand phones at six o'clock. It fits three lines and no more. A rumour has gone round that Thursday was promised to be the last of the shaking.",
+      "takeaway": "The line somebody can act on goes at the top, because a message is read from the top and often no further.",
+      "place": "Public Safety",
+      "guide": "All three lines are going out, so nothing here is being cut. Ask which line a person can act on while they are standing in the street reading it. Then ask which line is the reason they keep doing it tomorrow. A message is read from the top, and plenty of people stop before the end.",
+      "background": [
+        "Why the order is graded whole. Putting the lines in an order is a claim that each one needs the one above it. Swap any pair and the claim is no longer true, so there is no half mark for getting most of it right.",
+        "Start at the ends. The line that has nothing before it and the line that has nothing after it are usually the two you can settle straight away. Pin those and there is only one place left for the third.",
+        "What a rate is doing at the bottom. Written as a chance for the week, it stays a chance, and it goes down as the days pass. Written as a date, the same fact turns into a promise the office cannot keep, and the next aftershock makes a liar of it."
+      ],
+      "story": "Funmi Adeyemi, the public information officer, has a text message going to four thousand phones at six o'clock. It fits three lines and no more. A rumour has gone round that Thursday was promised to be the last of the shaking.",
+      "game": {
+        "type": "SEQUENCE",
+        "title": "A notice somebody acts on — Review",
+        "setup": "Public Safety",
+        "play": "Order the three lines of tonight's text message.",
+        "task": "Order the three lines of tonight's text message.",
+        "question": "Put the three lines in the order they will be read",
+        "answer": "The instruction first, then the reason it holds, then the chance for the week.",
+        "why": "People act on the first thing in a message they can use, so the instruction goes at the top. The reason comes second, because a reason is what makes somebody keep to an instruction after they have walked away from the notice. The chance for the week goes last. It is the part that answers the rumour, and it has to stay a chance: aftershocks get rarer every day, and rarer is not the same as finished.",
+        "cards": [
+          "Stay out of any building with a red notice on the door.",
+          "A smaller shake can bring down a wall the big one cracked.",
+          "About a one in five chance of a magnitude five this week."
+        ],
+        "order": [
+          0,
+          1,
+          2
+        ]
+      },
+      "assumes": [
+        "a short message is read once, quickly, in the order it is printed"
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Aftershocks get rarer as time passes, and a chance is not a promise",
+        "of": 16,
+        "rests": [
+          "How big the earthquake was, and how hard the shaking felt, are two different things"
+        ]
+      }
     }
   ]
 };
@@ -2478,6 +2682,37 @@ export const BALLPARK_CALCS = {
     "units": "kilonewtons on each metre",
     "solution": "650 ÷ 12 ≈ 54 kilonewtons per metre, against about 90 it was built for.",
     "explanation": "There is room on paper. Cracking under a tenth of Friday's shake says the wall is holding less than it was."
+  },
+  "SEIS-6": {
+    "prompt": "The first wave arrived at forty-one seconds past, and the strong shaking at fifty-two. Count about eight kilometres for each second between them.",
+    "question": "How far away did it start, measured from Halloran Point?",
+    "labels": [
+      "52 s (strong shaking, seconds past the minute)",
+      "41 s (first wave, seconds past the minute)",
+      "8 km for each second of the gap",
+      "6.8 (the magnitude)",
+      "40 km (how far up the coast this station stands)"
+    ],
+    "values": [
+      52,
+      41,
+      8,
+      6.8,
+      40
+    ],
+    "slots": 3,
+    "template": "({0} − {1}) × {2}",
+    "formula": "(a-b)*c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 88,
+    "tolerance": 10,
+    "units": "km",
+    "solution": "Fifty-two take away forty-one is eleven seconds. Eleven times eight is eighty-eight kilometres.",
+    "explanation": "The magnitude says how big the earthquake was, not how far off it was. How far up the coast the station stands is a fact about the station."
   }
 };
 

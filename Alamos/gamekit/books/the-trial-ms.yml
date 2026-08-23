@@ -2322,3 +2322,163 @@ copy:
   UNBLIND: <p>Unblinded statistics. One desk, one locked screen, printouts face down. The smallest room on the floor.</p>
   RANDOM: <p>The randomisation office. The allocation server, its monitors facing the wall, and a cabinet of code-break envelopes with two entries in the log.</p>
   ARCHIVE: <p>The trial master file. Every version of the protocol, every approval, and the dates that make the rest of it mean anything.</p>
+
+# ------------------------------------------------------------- review variants
+# Spaced retrieval. Each is the base stop's idea on a different case, so the
+# callback from day 3 has something to serve that is not the card already seen.
+# Four groups, deliberately, because a callback whose group is already in the
+# day is skipped.
+lessons:
+  - group: RAND
+    title: Concealment is not the same as blinding — Review
+    concept: 'A fair test changes one thing and keeps the rest the same'
+    task: Sort three hospitals by whether the next group can be read
+    place: Kit Warehouse & Cold Room
+    scene: >-
+      Farida Diouf, the trial pharmacist, has asked three hospitals how they get the next box
+      number. All three sent back a different answer, and she has them on the bench.
+    guide: >-
+      Three arrangements and three verdicts. Ask of each whether somebody standing at the desk
+      could learn the next group before a patient has agreed to join.
+    assumes:
+      - participants are assigned to arms by chance rather than by choice
+    takeaway: >-
+      Chance decides the split only while nobody can read what the next slot holds.
+    format: PROTOCOL
+    task: Match each hospital's arrangement to what it does to concealment.
+    scenarios:
+      - Site 3 rings a central line and is read the next number.
+      - Site 9 keeps the list in a drawer the clerk opens.
+      - Site 14 opens a sealed envelope in front of the patient.
+    choices:
+      - Hidden. Nobody at the hospital can see what is next.
+      - Not hidden. Somebody at the desk can read ahead.
+      - Hidden. The seal is broken after the patient has joined.
+    mapping: [0, 1, 2]
+    why: >-
+      Concealment is about the minutes before somebody joins. If the next group can be read, a
+      doctor who wants the sickest patients on the new drug can wait for the right one to walk in.
+      Nobody has to be dishonest for the two groups to end up unlike each other. A central line
+      hands over the number after the patient is entered. A sealed envelope opened in front of the
+      patient does the same job by hand. A drawer anybody can open does not, because the order can
+      be read ahead of the queue.
+
+  - group: ENDP
+    title: One outcome, named in advance — Review
+    concept: 'Say what you are measuring before you look'
+    task: Put the three steps of naming a measurement in order
+    place: Endpoint Adjudication
+    scene: >-
+      A second trial on this floor wants to add a measurement. Kwame Ansah, who chairs the
+      committee that rules on each event, has been sent the three steps in no order at all.
+    guide: >-
+      Three steps. Two of them are promises and one of them is looking. Ask what a promise is
+      still worth once the looking has been done.
+    assumes:
+      - a trial has to say in advance what it is measuring
+    takeaway: >-
+      A measurement is only named in advance if the naming sits somewhere nobody can quietly edit.
+    format: SEQUENCE
+    task: Order the three steps of adding a measurement to a trial.
+    cards:
+      - Agree the exact wording of what will count.
+      - Post the wording in the public register.
+      - Unlock the data and start counting.
+    order: [0, 1, 2]
+    why: >-
+      All the worth of naming a measurement comes from the word advance. The wording goes first,
+      because a register entry that says nothing exact protects nothing at all. The register goes
+      next, because that is the copy other people hold and nobody here can change. The counting
+      goes last. Move the counting ahead of either promise and somebody can see a number and then
+      settle what to count, which tells you about the person choosing rather than about the drug.
+
+  - group: STAT
+    title: A trial ends at a number of events — Review
+    concept: 'A bigger sample is a steadier answer'
+    task: Work out how far a second trial has got
+    place: Statistics & Analysis
+    scene: >-
+      Miriam Feldman, the trial statistician, keeps a second board for a smaller trial the centre
+      runs. It ends at a number of events too, and the board wants to know where it has got to.
+    guide: >-
+      Two of the five tiles carry events. Those two and the hundred make a percentage. The people
+      and the hospitals tell you the size of the trial, not how far along it is.
+    assumes:
+      - the trial compares how often an event happens in two arms
+      - events accumulate over time, at some rate per participant per year
+    takeaway: >-
+      A trial that ends at a count of events measures its progress in events, never in people.
+    format: BALLPARK
+    question: >-
+      How far through its events is the smaller trial?
+    estimate:
+      prompt: >
+        The smaller trial needs 260 events before it can answer anything. It has counted 156 of
+        them so far, across twelve hospitals.
+      question: Choose the events counted so far and the events the trial needs.
+      labels:
+        - 156  (events counted so far)
+        - 260  (events the trial needs altogether)
+        - 100  (to turn a share into a percentage)
+        - 900  (people in the smaller trial)
+        - 12  (hospitals taking part)
+      values: [156, 260, 100, 900, 12]
+      slots: 3
+      template: '{0} ÷ {1} × {2}'
+      formula: a/b*c
+      correct: [0, 1, 2]
+      target: 60
+      tolerance: 3
+      units: per cent
+      solution: >-
+        156 ÷ 260 × 100 = 60 per cent of the events this trial needs.
+      explanation: >-
+        The people and the hospitals are why events arrive at all. Neither says how far the count
+        has got.
+      givens:
+        - The design requires 260 primary events
+        - 156 have been counted and checked so far
+      relationship: >-
+        Percentage = the part divided by the whole, multiplied by a hundred.
+    why: >-
+      A trial like this one is measured in events and in nothing else. Sixty per cent means every
+      figure it can print today rests on three fifths of the evidence it was built to need. How
+      many people have joined does not answer the question, because two people can sit in a trial
+      for a year and neither of them have an event. The count of hospitals says less again. It is
+      the events that decide when the answer is allowed to be given.
+    answerText: >-
+      About 60 per cent. Anything this trial says tonight is standing on three fifths of its
+      evidence, and that has to be said beside it.
+
+  - group: SITE
+    title: What counts as a deviation — Review
+    concept: 'Two groups have to start out alike'
+    task: Sort three write-ups by what each does to the comparison
+    place: Monitors' Room
+    scene: >-
+      Lucia Marchetti, the lead monitor, came back from site 22 with three things written up. She
+      wants them sorted by what each one does to the trial rather than by how much work it made.
+    guide: >-
+      Three write-ups and three verdicts. Ask of each whether it changes who is in the trial, or
+      only what was written down about somebody already in it.
+    assumes:
+      - the protocol states what should happen at each visit
+    takeaway: >-
+      Rank a mistake by what it does to the comparison, not by how much tidying it costs.
+    format: PROTOCOL
+    task: Match each write-up to what it does to the comparison.
+    scenarios:
+      - Two people were entered who did not meet the age rule.
+      - A nurse wrote a weight in pounds instead of kilograms.
+      - The monthly report from the site went in eight days late.
+    choices:
+      - Changes who is being compared, so it changes the answer.
+      - Spoils one reading. The person is still the right person.
+      - Untidy. It touches neither the people nor the readings.
+    mapping: [0, 1, 2]
+    why: >-
+      A trial holds one group against another. So a mistake is judged by what it does to that
+      comparison. People who should never have been entered are answering a different question.
+      Lifting them out later means somebody picks which results to drop. A weight in the wrong
+      units is one bad reading on the right person. It can be fixed, and nobody moves between
+      groups. A late report changes nothing at all.

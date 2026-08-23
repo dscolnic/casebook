@@ -1036,7 +1036,14 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "passive sonar listens and does not transmit"
+        "passive sonar listens and does not transmit",
+        "sound as a wave: frequency, wavelength, speed — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Sound as a wave: frequency, wavelength, speed"
+        }
       ],
       "concept": {
         "n": 6,
@@ -2219,7 +2226,14 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "a submarine is divided into compartments that can be sealed off"
+        "a submarine is divided into compartments that can be sealed off",
+        "pressure, depth and hydrostatics — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 11,
+          "c": "Pressure, depth and hydrostatics"
+        }
       ],
       "concept": {
         "n": 13,
@@ -3723,8 +3737,23 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "pressure rises about one atmosphere for every ten metres of depth"
-      ]
+        "pressure rises about one atmosphere for every ten metres of depth",
+        "pressure, depth and hydrostatics — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 11,
+          "c": "Pressure, depth and hydrostatics"
+        }
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Fluid flow and cavitation",
+        "of": 30,
+        "rests": [
+          "Pressure, depth and hydrostatics"
+        ]
+      }
     }
   ]
 };

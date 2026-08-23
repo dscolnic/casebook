@@ -531,6 +531,47 @@ export const CURRICULUM = {
           "Effective nuclear charge, and shielding by the inner shells"
         ]
       }
+    },
+    {
+      "day": 9,
+      "title": "The one number that names an element — Review",
+      "scene": "Chidi Nkemdirim, the implant technician, has run boron into a test wafer and annealed it, and the travellers now call the disc doped silicon. Ferreira has been asked at the bench what on it is genuinely a second element.",
+      "takeaway": "A lattice can be displaced, ionised and heated without one atom in it changing what it is; only a nucleus with a different proton count does that.",
+      "place": "Metrology Bay",
+      "guide": "Four things the beam and the anneal did to that lattice, and they differ in which part of the atom they touched. Ask of each whether it changed the positive charge in a nucleus or only something outside one. Getting this wrong is how a damaged wafer gets reported as a contaminated one.",
+      "story": "Chidi Nkemdirim, the implant technician, has run boron into a test wafer and annealed it, and the travellers now call the disc doped silicon. Ferreira has been asked at the bench what on it is genuinely a second element.",
+      "game": {
+        "type": "CHOICE",
+        "title": "The one number that names an element — Review",
+        "setup": "Metrology Bay",
+        "play": "Say which change to a lattice renames an atom",
+        "task": "Say which change to a lattice renames an atom",
+        "question": "After the implant, which of these has actually put a second element into the disc?",
+        "answer": "Boron nuclei coming to rest in the lattice, with five protons each.",
+        "why": "Only the proton count names an element, and only the boron nuclei carry a different one. A silicon atom knocked into a gap is silicon in the wrong place, which is a defect the anneal exists to repair. A silicon atom short of electrons is a silicon ion, the same element carrying a charge, and it takes electrons back as soon as any are available. A silicon atom vibrating harder is the same atom hotter. The lattice is disturbed four ways and renamed once.",
+        "rebuttals": [
+          "A displaced atom is the same element in the wrong site, which is damage rather than contamination.",
+          "An atom that has lost electrons is an ion of the same element, and it takes them back within the anneal.",
+          "Vibration is what temperature is; nothing about the nucleus changes and the anneal removes it."
+        ],
+        "choices": [
+          "Boron nuclei coming to rest in the lattice, with five protons each.",
+          "Silicon atoms knocked out of position by the beam and left sitting in gaps in the lattice.",
+          "Silicon atoms stripped of some of their electrons by the beam and given them back later.",
+          "Silicon atoms left vibrating harder than their neighbours until the anneal takes the heat away."
+        ],
+        "correctChoice": "Boron nuclei coming to rest in the lattice, with five protons each."
+      },
+      "assumes": [
+        "an atom is a nucleus of protons and neutrons with electrons around it",
+        "an implanter fires ions into a solid hard enough to knock atoms out of place"
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Atomic structure: protons, electrons and the shells they occupy",
+        "t": "An atom is a small positive nucleus with electrons arranged in shells around it, and which shell an electron sits in decides how tightly it is held. That is what lets one measurement of electron energies say what an element is.",
+        "of": 33
+      }
     }
   ],
   "WAFER": [
@@ -1008,6 +1049,60 @@ export const CURRICULUM = {
           "Metallic bonding: delocalised electrons, and what makes a metal conduct",
           "Bond enthalpy, and the energy ledger of breaking and making bonds"
         ]
+      }
+    },
+    {
+      "day": 9,
+      "title": "What is actually in a lot — Review",
+      "scene": "Twill has a quartz carrier ring off one of the furnaces on the store balance and a supplier claim about how much silica a ring holds. Hale wants the claim checked as a count before the next order is signed.",
+      "takeaway": "Divide by the molar mass of what was actually put on the balance, not of the element you happen to be interested in.",
+      "place": "Wafer Store",
+      "guide": "Two molar masses are on the tiles — one for a whole formula unit and one for a single element in it — and they answer different questions about the same piece of glass. The other two tiles describe the delivery rather than the ring that was weighed. Pick the mass and the molar mass that belong to one another.",
+      "story": "Twill has a quartz carrier ring off one of the furnaces on the store balance and a supplier claim about how much silica a ring holds. Hale wants the claim checked as a count before the next order is signed.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "What is actually in a lot — Review",
+        "setup": "Wafer Store",
+        "play": "Weigh something that is not silicon and count what is in it",
+        "task": "Weigh something that is not silicon and count what is in it",
+        "question": "How many moles of silica are in one carrier ring?",
+        "answer": "",
+        "why": "A balance reads grams. Everything a specification says happens atom by atom, so the molar mass is the step that makes the two commensurable. What was weighed is silicon dioxide. Dividing by silicon's molar mass alone counts something that was never on the pan — a larger number, about a substance the ring is not made of. Twenty-five moles of silica is about one and a half times ten to the twenty-fifth formula units. That is the scale any contamination figure for this ring is read against.",
+        "givens": [],
+        "relationship": "Amount in moles = mass in grams ÷ molar mass in grams per mole.",
+        "calcKey": "WAFER-9"
+      },
+      "assumes": [
+        "a balance reads mass and a specification is written in atoms",
+        "a formula unit of silica holds one silicon atom and two oxygen atoms"
+      ],
+      "equations": [
+        {
+          "e": "n = m / M",
+          "c": "a mass on a balance turned into a count of atoms",
+          "v": [
+            [
+              "n",
+              "the amount, in moles"
+            ],
+            [
+              "m",
+              "the mass weighed out, in grams"
+            ],
+            [
+              "M",
+              "the molar mass, in grams per mole"
+            ]
+          ],
+          "s": "A balance reads grams and a reaction happens in atoms, so every quantity in this building passes through this one division before it means anything.",
+          "computed": true
+        }
+      ],
+      "concept": {
+        "n": 2,
+        "c": "The mole, molar mass and counting atoms by weighing them",
+        "t": "A mole is a fixed number of particles, so a mass divided by a molar mass is a count. It is the only way to get from something a balance can read to the number of atoms actually involved in a reaction.",
+        "of": 33
       }
     }
   ],
@@ -2630,6 +2725,77 @@ export const CURRICULUM = {
         "t": "Light arrives in packets whose energy rises as the wavelength falls, and a packet either has enough energy for a given job or it has none. That threshold is why one wavelength exposes a resist and a longer one is safe to work under.",
         "of": 33
       }
+    },
+    {
+      "day": 8,
+      "title": "Why the bay is lit amber — Review",
+      "scene": "Park has four light sources listed for the bay refit — a new exposure lamp, the amber safelight, an inspection illuminator and an alignment laser. Tanabe will not sign the order until they are ranked by what each one can do to a resist.",
+      "takeaway": "Ranking light sources by what they can do to a material ranks them by wavelength, and the power rating plays no part in it.",
+      "place": "Yellow Bay",
+      "guide": "Four sources, all of them switched on in the same room, so nothing here happens before anything else. What orders them is the energy carried by one packet of each, and the constants in that expression are the same for every lamp in the building. The watts on the labels are a rate of arrival.",
+      "story": "Park has four light sources listed for the bay refit — a new exposure lamp, the amber safelight, an inspection illuminator and an alignment laser. Tanabe will not sign the order until they are ranked by what each one can do to a resist.",
+      "game": {
+        "type": "SEQUENCE",
+        "title": "Why the bay is lit amber — Review",
+        "setup": "Yellow Bay",
+        "play": "Order the four sources by the energy one photon of each carries.",
+        "task": "Order the four sources by the energy one photon of each carries.",
+        "question": "Order the four sources by the energy one photon of each carries.",
+        "answer": "",
+        "why": "The energy one packet carries is fixed by the wavelength alone, so the ranking is the wavelength order reversed and the wattage never enters it. The alignment laser at 193 nanometres carries three times what the amber safelight does, which is why eight tenths of a watt of it will expose a resist and thirty watts of amber will not. Brightness decides how many packets arrive each second; the wavelength decides whether a single one of them can do the job at all.",
+        "cards": [
+          "The amber safelight, 580 nanometres, 30 watts.",
+          "The inspection illuminator, 436 nanometres, 12 watts.",
+          "The exposure lamp, 248 nanometres, 40 watts.",
+          "The alignment laser, 193 nanometres, 0.8 watts."
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "axis": "Order the four by the energy one photon of each carries, smallest first. This is not a clock — all four are switched on in the bay at once, and the question is what their wavelengths do to a single packet.",
+        "ends": [
+          "Least per photon",
+          "Most per photon"
+        ]
+      },
+      "assumes": [
+        "light of a given wavelength arrives in packets of a fixed energy",
+        "Planck's constant and the speed of light do not vary between lamps"
+      ],
+      "equations": [
+        {
+          "e": "E = hc / λ",
+          "c": "the energy one photon carries",
+          "v": [
+            [
+              "E",
+              "the energy of a single photon, in joules"
+            ],
+            [
+              "h",
+              "Planck's constant, 6.63 × 10⁻³⁴ J s"
+            ],
+            [
+              "c",
+              "the speed of light, 3.00 × 10⁸ m/s"
+            ],
+            [
+              "λ",
+              "the wavelength of the light, in metres"
+            ]
+          ],
+          "s": "Energy per photon rises as wavelength falls, and a photon either carries enough for a given job or contributes nothing at all — which is why one lamp exposes a resist and a longer-wavelength one is safe to work under."
+        }
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Photons: energy, wavelength and what light does to matter",
+        "t": "Light arrives in packets whose energy rises as the wavelength falls, and a packet either has enough energy for a given job or it has none. That threshold is why one wavelength exposes a resist and a longer one is safe to work under.",
+        "of": 33
+      }
     }
   ],
   "WET": [
@@ -2919,6 +3085,77 @@ export const CURRICULUM = {
         "of": 33,
         "rests": [
           "Metallic bonding: delocalised electrons, and what makes a metal conduct"
+        ]
+      }
+    },
+    {
+      "day": 6,
+      "title": "The top nanometre, and everything under it — Review",
+      "scene": "Ivy Bramall, the wet bench operator, has four results back on a single rinsed wafer and two of them disagree. Aubrey will not change the bath chemistry until each result has been attributed to what it was actually looking at.",
+      "takeaway": "How deep a method reached is part of what its number means, so a contamination result cannot be read without it.",
+      "place": "Wet Bench",
+      "guide": "Four methods and four statements, and the pairing turns on how far into the wafer each one reached rather than on how good the instrument is. Ask of each what quantity of silicon its number was divided by. Every statement is used once, so settling the two you are sure of constrains the rest.",
+      "story": "Ivy Bramall, the wet bench operator, has four results back on a single rinsed wafer and two of them disagree. Aubrey will not change the bath chemistry until each result has been attributed to what it was actually looking at.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "The top nanometre, and everything under it — Review",
+        "setup": "Wet Bench",
+        "play": "Match each result on the wafer to what it is a statement about.",
+        "task": "Match each result on the wafer to what it is a statement about.",
+        "question": "Match each result on the wafer to what it is a statement about.",
+        "answer": "",
+        "why": "Every method reports a total divided by whatever it sampled, so the depth it reached is part of the answer rather than a detail of the instrument. Dissolving the disc divides a surface contaminant by three-quarters of a millimetre of silicon and loses it in the average. The spectrum divides it by a nanometre and finds it, and says what it is bonded to. The area count places it without depth. Only the profile answers depth, and it costs the wafer.",
+        "scenarios": [
+          "The whole wafer is dissolved and the solution is analysed for metals.",
+          "A photoelectron spectrum is taken at the centre of the wafer.",
+          "A grazing X-ray measurement counts metal atoms over each square centimetre of the face.",
+          "A cross-section is cut through the edge and read at intervals from the top face downwards."
+        ],
+        "choices": [
+          "An average over the full thickness, in which anything sitting on the face is divided by about a million times more silicon than it rests on.",
+          "A statement about the outermost nanometre only, and about what the atoms there are bonded to.",
+          "A count over an area, which locates the metal on the face and says nothing about how far in it goes.",
+          "The same quantity reported again and again as a function of depth, which is the one result that answers how far in directly."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "assumes": [
+        "a contamination figure is an average over whatever the instrument sampled",
+        "a wafer is about three-quarters of a millimetre thick and a device layer a few nanometres"
+      ],
+      "equations": [
+        {
+          "e": "KE = hν − BE",
+          "c": "a photoelectron spectrum read as an energy ledger",
+          "v": [
+            [
+              "KE",
+              "the kinetic energy the ejected electron leaves with"
+            ],
+            [
+              "hν",
+              "the energy of the incoming photon, known exactly"
+            ],
+            [
+              "BE",
+              "the binding energy — how tightly that electron was held"
+            ]
+          ],
+          "s": "The photon energy is known and the electron energy is measured, so the difference is how hard the atom was holding on: a spectrum of peaks is a direct picture of the shells."
+        }
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Surface analysis: measuring the top nanometre rather than the bulk",
+        "t": "A measurement has a depth, and a bulk method averages away anything that only exists on the outside. Knowing which one an instrument is doing decides whether a clean result means a clean wafer.",
+        "of": 33,
+        "rests": [
+          "Parts per billion: what a purity specification actually claims"
         ]
       }
     }
@@ -3229,6 +3466,36 @@ export const BALLPARK_CALCS = {
     "units": "per cent by mass",
     "solution": "(28.1 × 3) ÷ 140.3 × 100 ≈ 60 per cent silicon by mass.",
     "explanation": "The nitrogen molar mass and count are already inside the mass of the formula unit."
+  },
+  "WAFER-9": {
+    "prompt": "One quartz carrier ring, cleaned and weighed on the store balance.",
+    "question": "How many moles of silica are in one carrier ring?",
+    "labels": [
+      "1480 g  (the mass of one carrier ring)",
+      "60.1 g/mol  (the molar mass of silicon dioxide)",
+      "28.1 g/mol  (the molar mass of silicon on its own)",
+      "12  (rings in this delivery)",
+      "2.2 mm  (the thickness of a ring)"
+    ],
+    "values": [
+      1480,
+      60.1,
+      28.1,
+      12,
+      2.2
+    ],
+    "slots": 2,
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 24.6,
+    "tolerance": 1.6,
+    "units": "mol",
+    "solution": "n = 1480 ÷ 60.1 ≈ 24.6 mol of silicon dioxide.",
+    "explanation": "The delivery count and the thickness describe the box; silicon's own molar mass answers a different question."
   }
 };
 

@@ -706,6 +706,82 @@ export const CURRICULUM = {
           "The RC circuit, and what a time constant means"
         ]
       }
+    },
+    {
+      "day": 9,
+      "title": "A spinning shutter and a sign — Review",
+      "scene": "Field-instruments technician Mira Halvorsen has the reference set for the mill out on the bench: two steel spheres of the same size, one solid and one hollow, and a small charged ball on a silk thread. Nothing has been charged yet.",
+      "takeaway": "Charge on a conductor ends up on a surface, because anywhere else there would still be a field left pushing it.",
+      "place": "Field Station",
+      "guide": "Four arrangements and four descriptions of where the charge ends up. Ask of each arrangement which surfaces exist: a hollow sphere has an inner one as well as an outer one, and a solid sphere has only the outside. Then ask whether the ball has touched anything, because that decides whether what it carried is still its own. One description goes to each arrangement, so settling the two you are sure of constrains the rest.",
+      "background": [
+        "Why a conductor cannot hold charge in its interior. Charge in a metal is free to move, and it goes on moving for as long as any field is pushing it. Equilibrium is the state where nothing is pushing, which means the field inside the metal is zero. Gauss's law on a surface drawn just inside the metal then says the charge enclosed there is zero, so whatever the conductor carries has to be on a boundary.",
+        "What a cavity adds. A closed cavity gives the conductor a second surface, and the two behave differently. Charge lowered into the cavity without touching anything draws an equal and opposite amount onto the cavity wall and pushes the same amount out onto the outside. Seen from beyond the sphere the arrangement is invisible: the outer surface reports the total and says nothing about how it got there.",
+        "Why this is the mill's problem too. The plate the shutter uncovers is a conductor standing in somebody else's field, and what the electronics measure is the charge induced on that plate's own face. Knowing that charge lives on surfaces, and that an enclosure has an inner surface of its own, is what lets a mill be checked against a known field rather than against another mill."
+      ],
+      "story": "Field-instruments technician Mira Halvorsen has the reference set for the mill out on the bench: two steel spheres of the same size, one solid and one hollow, and a small charged ball on a silk thread. Nothing has been charged yet.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "A spinning shutter and a sign — Review",
+        "setup": "Field Station",
+        "play": "Match each arrangement to where its charge ends up.",
+        "task": "Match each arrangement to where its charge ends up.",
+        "question": "Match each arrangement to where its charge ends up.",
+        "answer": "",
+        "why": "Charge in a metal is free to move, and it moves for as long as a field is pushing it. Equilibrium is the state where nothing is pushing, so the field inside the metal is zero. Draw a Gaussian surface just inside the metal and the charge it encloses must be zero too, which puts everything the sphere carries on a boundary. A solid sphere has one boundary. A hollow sphere has two, and an empty cavity stays field-free. A charged ball lowered inside draws an equal and opposite charge onto the cavity wall and pushes its own share out.",
+        "scenarios": [
+          "The solid sphere is charged from the impulse set and left standing on its insulator.",
+          "The hollow sphere is charged the same way, with nothing inside it.",
+          "The charged ball is lowered into the hollow sphere on its thread, touching nothing.",
+          "The ball is lowered in again and touched against the inside wall."
+        ],
+        "choices": [
+          "All of it on the outer surface, with no field anywhere in the metal itself.",
+          "All of it on the outer surface, and the empty cavity is field-free as well.",
+          "An equal and opposite charge on the cavity wall, and the ball's share pushed out to the outer surface.",
+          "The ball comes out with nothing, and everything it carried is now on the outer surface with the rest."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "assumes": [
+        "charge in a conductor is free to move",
+        "flux out of a closed surface counts the charge inside it"
+      ],
+      "equations": [
+        {
+          "e": "∮E·dA = Q_enc/ε₀",
+          "c": "Gauss's law — flux out of a closed surface counts the charge inside it",
+          "v": [
+            [
+              "E",
+              "the electric field, in volts per metre"
+            ],
+            [
+              "dA",
+              "an element of the closed surface, pointing outward"
+            ],
+            [
+              "Q_enc",
+              "the charge inside that surface, in coulombs"
+            ],
+            [
+              "ε₀",
+              "the permittivity of free space, 8.85 × 10⁻¹² F/m"
+            ]
+          ],
+          "s": "The flux out of any closed surface depends only on the charge inside it, which turns a field problem into an arithmetic one wherever the surface can be chosen so the field is constant on it and along it."
+        }
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Charge, and where it sits on a conductor",
+        "of": 30
+      }
     }
   ],
   "BANK": [
@@ -1531,6 +1607,71 @@ export const CURRICULUM = {
         "of": 30,
         "rests": [
           "Capacitance as a ratio, before it is a formula"
+        ]
+      }
+    },
+    {
+      "day": 9,
+      "title": "Two plates, and a factor of two — Review",
+      "scene": "Josefa Ruiz, the impulse hall technician, has one plate of the pair standing on its own trestle while the other is away for a new insulator. Its charge per square metre is known from the last shot. Strand wants the field beside it.",
+      "takeaway": "Which sheet result applies is settled by how many sheets are contributing, not by how much charge any one of them carries.",
+      "place": "Impulse Hall",
+      "guide": "One plate, not two. The board carries the plate's charge per square metre, the permittivity of free space, and three quantities that belong to other stops. Pick the two a charged sheet needs, then decide which of the two sheet results this is. The pair in the hall has a second plate driving field the same way across the gap; this plate has nothing across from it at all.",
+      "background": [
+        "Why the distance is not in the answer. A pillbox through a sheet has flux out of its two faces and none through its sides, and neither the height of the box nor its area survives the algebra. So the field of a wide sheet is the same a centimetre away and a metre away, which is what makes a plate hazardous to stand near and a cloud base readable from the ground.",
+        "What the second plate does. Bring back the other plate with the opposite charge and its field points the same way as the first one everywhere between them, so the two add. That is superposition rather than a new law, and it is also why the field outside the pair nearly vanishes: out there the two contributions point opposite ways.",
+        "Why the hall cares which case it is in. The insulation is specified against a field, and a factor of two is the difference between a margin and a flashover. Ruiz measures the standing plate on its own precisely because the answer for a lone sheet is the one that applies while the other is out for repair."
+      ],
+      "story": "Josefa Ruiz, the impulse hall technician, has one plate of the pair standing on its own trestle while the other is away for a new insulator. Its charge per square metre is known from the last shot. Strand wants the field beside it.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "Two plates, and a factor of two — Review",
+        "setup": "Impulse Hall",
+        "play": "Get the field beside a sheet that has no partner",
+        "task": "Get the field beside a sheet that has no partner",
+        "question": "What field stands beside the single charged plate?",
+        "answer": "About 2,300 volts per metre. With the second plate back in place the same charge per square metre would give twice that, and neither answer contains the distance from the plate.",
+        "why": "A charged sheet drives field out of both of its faces, so the pillbox has flux through two of them and the result is σ divided by twice the permittivity of free space — about 2,300 volts per metre here. Bring the second plate back carrying the opposite charge and its field points the same way across the gap, so the two add and the answer doubles. Neither result contains the distance from the plate or the area of it. That is why a lone sheet and a pair are two different questions with the same σ.",
+        "givens": [
+          "the standing plate carries 4.0 × 10⁻⁸ C/m²",
+          "ε₀ is 8.85 × 10⁻¹² F/m",
+          "nothing stands across the gap from it"
+        ],
+        "relationship": "The field of a wide charged sheet is E = σ / (2ε₀) — the surface charge density divided by twice the permittivity of free space, and it does not fall off with distance.",
+        "calcKey": "BANK-9"
+      },
+      "assumes": [
+        "fields from separate charges add as vectors",
+        "a plate far wider than the distance of interest can be treated as unbounded"
+      ],
+      "equations": [
+        {
+          "e": "E = σ / (2ε₀)",
+          "c": "the field of a charged layer, which does not fall off with distance",
+          "v": [
+            [
+              "E",
+              "field between the layer and the ground, in volts per metre"
+            ],
+            [
+              "σ",
+              "charge per unit area on the layer, in coulombs per square metre"
+            ],
+            [
+              "ε₀",
+              "the permittivity of free space"
+            ]
+          ],
+          "s": "A sheet of charge produces the same field however far away you stand, which is why a cloud base a kilometre up can be read from a meter on the ground and why the reading says nothing about the height.",
+          "computed": true
+        }
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Field of a charged sheet, line and sphere",
+        "of": 30,
+        "rests": [
+          "Gauss's law, and choosing a surface it can be used on"
         ]
       }
     }
@@ -3141,6 +3282,67 @@ export const CURRICULUM = {
           "Charge, and where it sits on a conductor"
         ]
       }
+    },
+    {
+      "day": 8,
+      "title": "Twenty-five ohms, at what — Review",
+      "scene": "Blessing Okoro, the test engineer, has the earth tester and two spikes laid out on the tailgate at the compound. She wants the outstation rod measured the same way the April certificate was, and the steps agreed before anybody walks the tape out.",
+      "takeaway": "A resistance measured in soil is a property of the path the current took, so the number is worth exactly as much as the arrangement that produced it.",
+      "place": "Earthing Compound",
+      "guide": "Four steps, and the order decides whether the number belongs to the rod or to the network around it. Ask of each what has to have happened before it. Two of the four are arrangements — what is disconnected, and where the spikes are driven — and two are the measurement and what gets written beside it. An arrangement made late does not slow the test down; it makes the reading describe something other than the rod.",
+      "background": [
+        "Why soil is a resistor with no fixed value. The current from an electrode spreads into the ground, and almost all of the voltage appears within the first few metres, where the cross-section it is spreading through is still small. That volume is the electrode's resistance area. What the tester reports is a property of that region and of the path the current happened to take, not a property of the rod's metal.",
+        "What the plateau is. Walk the potential probe along the line between the rod and the current spike and the reading climbs, flattens, then climbs again as the spike's own resistance area is entered. The flat part is where neither region is being sampled, and it is the only part of the curve that means anything. Put the spike in too close and the two regions overlap, and no plateau appears at all.",
+        "Why the frequency is worth recording. An earth tester works at a low frequency chosen to step over the stray currents already in the soil, which makes its answer a steady-current answer. That is the whole of the argument the April certificate started: the figure is correct, it is honest, and it describes a regime a strike is not in."
+      ],
+      "story": "Blessing Okoro, the test engineer, has the earth tester and two spikes laid out on the tailgate at the compound. She wants the outstation rod measured the same way the April certificate was, and the steps agreed before anybody walks the tape out.",
+      "game": {
+        "type": "SEQUENCE",
+        "title": "Twenty-five ohms, at what — Review",
+        "setup": "Earthing Compound",
+        "play": "Order the fall-of-potential test on the outstation rod.",
+        "task": "Order the fall-of-potential test on the outstation rod.",
+        "question": "Order the fall-of-potential test on the outstation rod.",
+        "answer": "",
+        "why": "Soil is a resistor whose value depends on where the current goes, so the test measures the rod only if the current has nowhere else to travel and nothing it has already raised. Lifting the bond settles the first. Driving the spike well out settles the second, because two overlapping resistance areas give a curve that never flattens. The plateau is the rod alone. The frequency belongs on the certificate because the answer is a steady-current answer, and a strike arrives in a microsecond.",
+        "cards": [
+          "Lift the rod's bond to the down-conductor, so the tester sees this electrode on its own.",
+          "Drive the current spike far enough out that its resistance area does not overlap the rod's.",
+          "Take a potential reading at each of several fractions of that distance, along the line between them.",
+          "Read the resistance off the flat part of the curve, and write the test frequency beside it."
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "assumes": [
+        "current spreading through soil produces a potential that falls with distance",
+        "an instrument measures under the conditions it applies, not the ones you care about",
+        "current as a flow, and current density — taken as read",
+        "electric potential as a line integral of the field — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 15,
+          "c": "Current as a flow, and current density"
+        },
+        {
+          "n": 7,
+          "c": "Electric potential as a line integral of the field"
+        }
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Resistance, resistivity and the ground as a resistor",
+        "of": 30,
+        "rests": [
+          "Current as a flow, and current density",
+          "Electric potential as a line integral of the field"
+        ]
+      }
     }
   ],
   "COUPLE": [
@@ -3619,6 +3821,55 @@ export const CURRICULUM = {
         "of": 30,
         "rests": [
           "Faraday's law: an EMF from a changing flux"
+        ]
+      }
+    },
+    {
+      "day": 7,
+      "title": "One foot and the other — Review",
+      "scene": "Sam Abioye, the instrumentation technician, has the injection set on the outstation's own earth rod, the one with no grading ring around it. The rings on his plot crowd hard at two metres. Lauwers wants the number a stride would cross there.",
+      "takeaway": "A grading ring cannot make the current smaller, and flattening the gradient it produces is the only thing that makes the ground beside a rod safe to walk on.",
+      "place": "Outstation",
+      "guide": "The board carries the gradient two metres out, the length of a stride, and three numbers that belong to the site rather than to anybody's feet. One of them is the potential the ground itself sits at, which is the largest figure on the board and the wrong one. Pick the pair whose product is a voltage across a single stride.",
+      "background": [
+        "What the rings are. Each is a set of points at the same potential, so a foot moved along one crosses no voltage at all and a foot moved across them crosses the difference. The rings crowd where the current is spreading through the least ground, which is close to the rod, and they open out as the cross-section grows.",
+        "Why an ungraded rod is the worse case. A grading ring cannot reduce the current the rod has to pass, and it does not try to. What it does is spread the same potential drop over more distance, which flattens the gradient near the rod. The outstation rod has none, so the whole drop happens in the first few metres, which is exactly where anybody working on the trailer stands.",
+        "Why the ground's own potential is the wrong number to quote. A body at one potential has nothing driving current through it, which is the whole reason a bird on a transmission line is unharmed at hundreds of kilovolts. What decides the current through a person is the difference between their contact points, and on a flat that means the distance between their feet."
+      ],
+      "story": "Sam Abioye, the instrumentation technician, has the injection set on the outstation's own earth rod, the one with no grading ring around it. The rings on his plot crowd hard at two metres. Lauwers wants the number a stride would cross there.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "One foot and the other — Review",
+        "setup": "Outstation",
+        "play": "Work the step voltage at a rod nobody has graded",
+        "task": "Work the step voltage at a rod nobody has graded",
+        "question": "What voltage does one stride cross two metres from the ungraded rod?",
+        "answer": "About 1,400 volts across a single 0.9 m stride. Out at twenty metres the same stride crosses eighteen, and the ground's own potential is larger than either and does nothing.",
+        "why": "The rings are contours of equal potential, so walking along one crosses nothing and crossing them costs the difference. Two metres from an ungraded rod the injection test gives a gradient near 1,600 volts per metre, and an ordinary stride of nine tenths of a metre crosses about 1,400 volts. Twenty metres out the gradient has fallen to twenty volts per metre and the same stride crosses eighteen. The ground's own potential is larger in both places, and nothing passes through a body held at one potential.",
+        "givens": [
+          "gradient 1,600 V/m at two metres, 20 V/m at twenty metres",
+          "an ordinary stride is 0.9 m"
+        ],
+        "relationship": "The step voltage is the potential gradient times the stride — V_step = (dV/dr) × d, which is the line integral of the field over the distance between the feet.",
+        "calcKey": "COUPLE-7"
+      },
+      "assumes": [
+        "current spreading through soil produces a potential that falls with distance",
+        "a potential difference across two contact points is what drives current through a body",
+        "electric potential as a line integral of the field — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 7,
+          "c": "Electric potential as a line integral of the field"
+        }
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Equipotentials, and what they mean on the ground",
+        "of": 30,
+        "rests": [
+          "Electric potential as a line integral of the field"
         ]
       }
     }
@@ -4573,6 +4824,66 @@ export const BALLPARK_CALCS = {
     "units": "coulombs",
     "solution": "8.0 × 10⁻⁸ × 1.0 × 10⁷ = 0.8 C.",
     "explanation": "About eight tenths of a coulomb. The height is the quantity that famously does not appear — it cancelled out of the field of a wide layer on day two and it has no business here either — and the field itself is what σ was computed from rather than a second factor to multiply by."
+  },
+  "BANK-9": {
+    "prompt": "The standing plate carries 4.0 × 10⁻⁸ C/m². The permittivity of free space is 8.85 × 10⁻¹² F/m. Nothing stands across the gap from it.",
+    "question": "Choose the charge per square metre on the plate and the permittivity of free space.",
+    "labels": [
+      "4.0e-8  (σ on the standing plate, in C/m²)",
+      "8.85e-12  (ε₀, the permittivity of free space, in F/m)",
+      "1.0  (the gap the pair normally stands at, in m)",
+      "2.6  (the area of one plate, in m²)",
+      "8.0e-8  (σ on the cloud layer from the mill reading, in C/m²)"
+    ],
+    "values": [
+      4e-8,
+      8.85e-12,
+      1,
+      2.6,
+      8e-8
+    ],
+    "slots": 2,
+    "template": "{0} ÷ (2 × {1})",
+    "formula": "a/(2*b)",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 2260,
+    "tolerance": 150,
+    "units": "volts per metre",
+    "solution": "4.0 × 10⁻⁸ ÷ (2 × 8.85 × 10⁻¹²) ≈ 2,300 V/m beside the lone plate, and twice that between the pair.",
+    "explanation": "The field of a wide sheet does not fall off with distance, so no distance appears in the answer, and the plate's area does not appear either."
+  },
+  "COUPLE-7": {
+    "prompt": "The injection test gives a potential gradient of about 1,600 V/m two metres from the outstation rod. An ordinary stride is 0.9 m. The ground there sits at 5,200 V.",
+    "question": "Choose the potential gradient two metres from the rod and the length of one stride.",
+    "labels": [
+      "1600  (potential gradient at 2 m, in V/m)",
+      "0.9  (one ordinary stride, in m)",
+      "5200  (the ground's own potential at 2 m, in V)",
+      "20  (the gradient twenty metres out, in V/m)",
+      "12  (the outstation rod's resistance, in ohms)"
+    ],
+    "values": [
+      1600,
+      0.9,
+      5200,
+      20,
+      12
+    ],
+    "slots": 2,
+    "template": "{0} × {1}",
+    "formula": "a*b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 1440,
+    "tolerance": 100,
+    "units": "volts between the feet",
+    "solution": "1,600 × 0.9 ≈ 1,400 V across one stride two metres out, against 20 × 0.9 = 18 V twenty metres out.",
+    "explanation": "Only the difference between the feet passes through a person. The 5,200 V the ground sits at does nothing on its own."
   }
 };
 

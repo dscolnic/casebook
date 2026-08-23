@@ -378,6 +378,40 @@ export const CURRICULUM = {
           "Refractive index, and the speed of light in a material"
         ]
       }
+    },
+    {
+      "day": 5,
+      "title": "Two hundred thousand kilometres a second — Review",
+      "scene": "Okonkwo, the station chief, has the spare drum's certificate out. It is a different make of fibre, wound eleven years ago as the repair length for this span, and its core index is 1.4571.",
+      "takeaway": "A speed in a material comes out of one division, and the work is deciding which of the indices on the bench belongs in it.",
+      "place": "Cable Termination Room",
+      "guide": "Three indices are on the bench and only one belongs in this division. The one you want is the index of the glass the light will actually be travelling in, which is the repair fibre's core. The span's own core is here because the two will be compared once the repair length is in. The cladding is here because it belongs to a boundary rather than to a path.",
+      "background": [
+        "Why the answer is close to the span's own and still worth taking. The two glasses differ in the third decimal place, which is under one per cent of a speed and about seven hundred metres over a span of this length. That is inside a grapnel run and outside the tolerance the ship is being given.",
+        "What an index actually is. It is the vacuum speed divided by the speed in the material, so it is a ratio of two speeds and carries no units of its own. Anything that comes out of it with a unit attached has had a unit invented for it somewhere in the working."
+      ],
+      "story": "Okonkwo, the station chief, has the spare drum's certificate out. It is a different make of fibre, wound eleven years ago as the repair length for this span, and its core index is 1.4571.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "Two hundred thousand kilometres a second — Review",
+        "setup": "Cable Termination Room",
+        "play": "Take the speed in a different glass, the one the ship will put in",
+        "task": "Take the speed in a different glass, the one the ship will put in",
+        "question": "How fast does light travel in the core of the repair fibre?",
+        "answer": "",
+        "why": "Light makes about 2.058 × 10⁸ metres a second in this glass, one per cent faster than in the span it will be joined into. An index is the ratio of the vacuum speed to the speed in the material. The arithmetic is therefore one division, and the whole difficulty is which of three indices goes into it. A repair length of different glass puts a short stretch of the span at a different speed. Every later distance is worked out as though the whole fibre were one glass.",
+        "givens": [],
+        "relationship": "Speed in the material = the speed of light in empty space divided by the index of that material.",
+        "calcKey": "TERM-5"
+      },
+      "assumes": [
+        "the index of a material is the factor by which light is slowed in it"
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Refractive index, and the speed of light in a material",
+        "of": 32
+      }
     }
   ],
   "TEST": [
@@ -1441,6 +1475,73 @@ export const CURRICULUM = {
         "of": 32,
         "rests": [
           "Scattering, absorption and what makes a material lossy"
+        ]
+      }
+    },
+    {
+      "day": 9,
+      "title": "What came back, and when — Review",
+      "scene": "Tobias Meier, the test room technician, has four readings from the diverse route pinned on the board. None of them came off the same instrument, and none of them has been carried any further than the box that produced it.",
+      "takeaway": "A set of readings is usually three different kinds of thing, and saying which kind each one is comes before comparing any of them.",
+      "place": "Test Room",
+      "guide": "Four readings and four descriptions. Sort them by what the instrument itself could know. A quantity a box measured, a quantity software has already converted and a note of the conditions are three different kinds of thing. Only the first of the three is evidence before anybody has argued about it.",
+      "background": [
+        "Why this is a matching board rather than four separate questions. Each description is written to be defensible against more than one of the readings, so choosing them one at a time lets a nearly-right answer through. Placing all four forces the comparison the stop is about.",
+        "What a condition is doing on a list of measurements. It is not evidence about the cable at all. It is the thing that decides whether two readings taken on different nights are comparable, and a reading whose conditions are unrecorded cannot be compared with anything."
+      ],
+      "story": "Tobias Meier, the test room technician, has four readings from the diverse route pinned on the board. None of them came off the same instrument, and none of them has been carried any further than the box that produced it.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "What came back, and when — Review",
+        "setup": "Test Room",
+        "play": "Match each reading from the diverse route to what it is.",
+        "task": "Match each reading from the diverse route to what it is.",
+        "question": "Match each reading from the diverse route to what it is.",
+        "answer": "",
+        "why": "Only one of the four is a number nobody has interpreted. The delay is what the instrument recorded, so it carries no assumption at all. The power is a measurement too, and it becomes a margin only once an allowance is subtracted from it. The printed position is a conversion already performed, resting on a speed in the glass and a slack figure from a lay chart eleven years old. The pulse width is none of those. It is a condition, and conditions decide whether two readings may be compared.",
+        "scenarios": [
+          "The reflectometer prints a round-trip delay of 611.4 microseconds.",
+          "The power meter at the far end reads 42 nanowatts.",
+          "The software prints a position 62.4 kilometres from this building.",
+          "The log records the pulse width the trace was taken with."
+        ],
+        "choices": [
+          "A time, and it becomes a distance only once a speed in the glass has been chosen.",
+          "A power, and it becomes a margin only once an allowance has been subtracted from it.",
+          "A conversion already made, resting on a speed and a slack figure nobody here has checked.",
+          "A condition, and it decides whether this trace may be compared with an older one."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "assumes": [
+        "a reflectometer reports the delay of a pulse that has been out and back",
+        "the position printed beside a trace is worked out from the delay by software",
+        "time of flight, and turning a delay into a distance — taken as read",
+        "power in decibels, and why a loss budget adds — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 13,
+          "c": "Time of flight, and turning a delay into a distance"
+        },
+        {
+          "n": 11,
+          "c": "Power in decibels, and why a loss budget adds"
+        }
+      ],
+      "concept": {
+        "n": 29,
+        "c": "A measurement in an instrument’s own units, and what converts it",
+        "t": "An instrument measures what it measures; every step from there to a decision is a conversion somebody has to make and be able to show. The corrections are usually small, of known sign, and larger together than the tolerance of the thing being decided.",
+        "of": 32,
+        "rests": [
+          "Time of flight, and turning a delay into a distance",
+          "Power in decibels, and why a loss budget adds"
         ]
       }
     }
@@ -2858,6 +2959,77 @@ export const CURRICULUM = {
           "Power in decibels, and why a loss budget adds"
         ]
       }
+    },
+    {
+      "day": 9,
+      "title": "Current, and not light — Review",
+      "scene": "Bruno Salas, the power feed engineer, has a wall chart of the erbium levels taped up beside repeater 6's telemetry. Four things happen to one atom in that coil, and the chart has them in no particular order.",
+      "takeaway": "Gain is a count of atoms already waiting in the upper level, so every step that fills that level is part of the answer.",
+      "place": "Amplifier and Power Hall",
+      "guide": "Four cards, and the rail here is a clock. Start from the fact that nothing can be amplified until an atom is already waiting in the long-lived level. Ask of each card whether it puts an atom there, keeps it there, or spends it.",
+      "background": [
+        "Why one of the four levels is short-lived and one is not. The pump lands atoms on a level they leave almost at once, and they leave it downwards, to a level they sit on for milliseconds. Only a level atoms sit on can hold a population, which is why the pump wavelength and the signal wavelength are different.",
+        "What this chain has to do with a drive current. Nothing on the telemetry screen touches any of the four steps. A current says power is going into the pump diode, and how many atoms that power lands on the upper level is a question about the diode's optical output."
+      ],
+      "story": "Bruno Salas, the power feed engineer, has a wall chart of the erbium levels taped up beside repeater 6's telemetry. Four things happen to one atom in that coil, and the chart has them in no particular order.",
+      "game": {
+        "type": "SEQUENCE",
+        "title": "Current, and not light — Review",
+        "setup": "Amplifier and Power Hall",
+        "play": "Order the four events in the life of one erbium atom.",
+        "task": "Order the four events in the life of one erbium atom.",
+        "question": "Order the four events in the life of one erbium atom.",
+        "answer": "",
+        "why": "Amplification is a queue. The pump lifts atoms to a level they do not stay in. They settle almost at once to a longer-lived level below it, and a population can be held there. An arriving signal photon then finds an atom already excited and triggers a second photon exactly like itself. Nothing in that chain is reached by a drive current: the pump's optical output sets how many atoms are waiting. Everything the amplifier delivers is a count of atoms rather than a reading on a supply.",
+        "cards": [
+          "A pump photon at 980 nanometres is absorbed, and the atom is lifted to a short-lived level.",
+          "The atom settles to the long-lived level below it without emitting anything.",
+          "A signal photon at 1550 nanometres arrives while the atom is still in that level.",
+          "The atom falls to the ground level and sends out a second photon identical to the one that arrived."
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "assumes": [
+        "an amplifier works by holding more atoms excited than not",
+        "atomic energy levels, and the wavelengths they allow — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "ΔE = h·c/λ",
+          "c": "the wavelength a transition between two levels gives",
+          "v": [
+            [
+              "ΔE",
+              "the energy gap between the two levels, in electron volts"
+            ],
+            [
+              "λ",
+              "the wavelength emitted or absorbed, in nanometres"
+            ]
+          ],
+          "s": "An atom can only take or give the exact gap between two of its levels, so the wavelengths it works at are a property of the atom rather than a setting on the equipment."
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 19,
+          "c": "Atomic energy levels, and the wavelengths they allow"
+        }
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Stimulated emission, population inversion and gain",
+        "t": "An amplifier works by holding more atoms excited than not, and each pump arrival can produce at most one signal arrival. That puts a ceiling on gain which is a statement about counting rather than about design, and which no better engineering gets past.",
+        "of": 32,
+        "rests": [
+          "Atomic energy levels, and the wavelengths they allow"
+        ]
+      }
     }
   ],
   "RECV": [
@@ -3284,6 +3456,55 @@ export const CURRICULUM = {
           "Photons: energy, momentum and the quantum of light",
           "Interference of two beams, and the path difference that decides it"
         ]
+      }
+    },
+    {
+      "day": 6,
+      "title": "A few hundred of something — Review",
+      "scene": "Karl Osgood, the photodiode technician, has four facts about the far end pinned over the bench, collected on different days by different people. None of them was written down with this fortnight's argument in mind.",
+      "takeaway": "Which description an observation belongs to decides whether better equipment at this end could change it.",
+      "place": "Receiver Lab",
+      "guide": "Four observations and four accounts of what each one is a statement about. A wave has a wavelength, and everything the glass does to it on the way follows from that. A stream of arrivals has a count, and a count has a scatter of its own that nothing downstream removes. Two of these belong to each.",
+      "background": [
+        "Why the distinction is worth making at a receiver. It decides what better equipment could change. A loss that belongs to the wavelength is fixed by choosing a different channel or a different glass; a limit that belongs to the count is fixed only by sending more light.",
+        "Why both descriptions are needed at once. The wave picture says how the fibre treated the signal on the way and what the amplifier could do to it. The arrival picture says how steady the number reaching the diode is, which is what an error rate is a statement about."
+      ],
+      "story": "Karl Osgood, the photodiode technician, has four facts about the far end pinned over the bench, collected on different days by different people. None of them was written down with this fortnight's argument in mind.",
+      "game": {
+        "type": "CASEBOOK",
+        "title": "A few hundred of something — Review",
+        "setup": "Receiver Lab",
+        "play": "Match each fact about the far end to what it is a statement about.",
+        "task": "Match each fact about the far end to what it is a statement about.",
+        "question": "Match each fact about the far end to what it is a statement about.",
+        "answer": "",
+        "why": "Two of the four are about the wave and two are about the stream, and the fibre only ever acts on the first pair. A wavelength is what the transmitter is locked to, and how much a kilometre of glass scatters depends steeply on it, so the colour decides the loss. The other two are counting. Arrivals scatter about their average whatever the electronics are doing, and halving the power halves the number counted for each bit, which raises the errors by itself.",
+        "scenarios": [
+          "The channel is specified at 1550 nanometres and the transmitter is locked to it.",
+          "The error floor does not improve when a quieter amplifier is fitted.",
+          "A kilometre of this fibre loses less at 1550 nanometres than at 1310.",
+          "Halving the transmitted power roughly doubles the errors, with the electronics untouched."
+        ],
+        "choices": [
+          "About the wave: one wavelength, and the one frequency that goes with it.",
+          "About the stream: the arrivals scatter about their average, and no amplifier makes them regular.",
+          "About the wave: scattering by the glass depends steeply on the wavelength, so the colour decides the loss.",
+          "About the stream: fewer arrivals a bit is a noisier count, whatever the electronics are doing."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "assumes": [
+        "light can be described as a wave and as a stream of arrivals"
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Light as a wave: wavelength, frequency and the relation between them",
+        "of": 32
       }
     }
   ],
@@ -3973,6 +4194,34 @@ export const BALLPARK_CALCS = {
     "units": "m",
     "solution": "2.0 × √(640 ÷ 7.5) = 2.0 × 9.24 = 18.5 m.",
     "explanation": "The exposure time changes the total dose somebody would receive and not the rate at the boundary, so it does not enter this arithmetic. Dividing the rates without taking the root gives 171 metres, which is off the site."
+  },
+  "TERM-5": {
+    "prompt": "The ship will join this glass into the span. What a pulse does in it decides where every later measurement puts the fault.",
+    "question": "How fast does light travel in the core of the repair fibre?",
+    "labels": [
+      "2.998e8 m/s  (light in empty space)",
+      "1.4571  (index of the repair fibre's core)",
+      "1.4682  (index of the span's own core)",
+      "1.4519  (index of the repair fibre's cladding)"
+    ],
+    "values": [
+      299800000,
+      1.4571,
+      1.4682,
+      1.4519
+    ],
+    "slots": 2,
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 205751150,
+    "tolerance": 900000,
+    "units": "m/s",
+    "solution": "2.998 × 10⁸ ÷ 1.4571 = 2.058 × 10⁸ m/s.",
+    "explanation": "The span's own core is on the bench because the two will be compared, and the cladding because it belongs to the boundary rather than to the path. Neither of them is the glass this pulse is in."
   }
 };
 

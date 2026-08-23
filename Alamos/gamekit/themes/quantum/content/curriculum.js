@@ -460,6 +460,73 @@ export const CURRICULUM = {
           "Probability from amplitude, and why one shot tells you nothing"
         ]
       }
+    },
+    {
+      "day": 7,
+      "title": "The energy of one quantum against the energy of the room — Review",
+      "scene": "Every qubit is read through a resonator, and a resonator is a mode with an energy of its own. Ijeoma Okafor, the cryogenic engineer, writes 7.2 gigahertz beside the 42 millikelvin the fridge is holding, and asks what is sitting in it.",
+      "takeaway": "The comparison of one quantum against the thermal energy settles the occupation of every mode on the chip, not only the qubit's.",
+      "place": "Cryogenics & Vacuum",
+      "guide": "Five numbers, and only two of them are energies belonging to today's fridge. One thermal energy is quoted at a temperature this machine is not at, and two of the tiles are the raw frequency and the raw temperature the energies were built from. The exponent is a ratio of two energies, so both have to be in joules, and the resonator's own quantum is the one on top.",
+      "background": [
+        "Why the resonator gets the same treatment. Nothing in the comparison is about qubits. Any mode with a level spacing sits in a thermal population set by that spacing against the energy of its surroundings, so a resonator, a package mode and a filter cavity are all read the same way. What changes between them is the frequency, and the frequency is what decides the answer.",
+        "Why a small number is still worth computing. An average occupation of a few parts in ten thousand sounds like nothing until it is compared with how long a measurement runs. A resonator holding a fraction of a photon on average is holding a whole photon some of the time, and while it does the qubit it is coupled to is at a different frequency."
+      ],
+      "story": "Every qubit is read through a resonator, and a resonator is a mode with an energy of its own. Ijeoma Okafor, the cryogenic engineer, writes 7.2 gigahertz beside the 42 millikelvin the fridge is holding, and asks what is sitting in it.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "The energy of one quantum against the energy of the room — Review",
+        "setup": "Cryogenics & Vacuum",
+        "play": "Put the same comparison on the resonator instead of the qubit",
+        "task": "Put the same comparison on the resonator instead of the qubit",
+        "question": "Using the 2 energy scales, estimate the average photon number left in the readout resonator.",
+        "answer": "About 2.6 × 10⁻⁴ photons.",
+        "why": "A resonator is not a wire. It is a mode with its own level spacing, and the same comparison applies to it. At 7.2 gigahertz one quantum is about eight times the thermal energy at 42 millikelvin, so the average occupation comes out at a few parts in ten thousand. That sounds negligible and is not: a photon in the readout resonator shifts the qubit's frequency for as long as it is there, and a shift that comes and goes between repetitions is phase scrambled without any energy leaving the qubit. The ratio is what matters, never either energy on its own.",
+        "givens": [
+          "1 quantum at 7.2 GHz is 4.8 × 10⁻²⁴ J",
+          "The thermal energy at 42 mK is 5.8 × 10⁻²⁵ J"
+        ],
+        "relationship": "For hf several times larger than kT, average occupation ≈ e^(−hf/kT); a higher mode frequency suppresses the population exponentially at the same temperature.",
+        "calcKey": "CRYO-7"
+      },
+      "assumes": [
+        "a mode in contact with something warm holds a thermal population of its own"
+      ],
+      "equations": [
+        {
+          "e": "E = hf,  compare with  kT",
+          "c": "why a superconducting qubit needs millikelvin",
+          "v": [
+            [
+              "E",
+              "energy of one quantum, in joules"
+            ],
+            [
+              "h",
+              "Planck's constant, 6.63 × 10⁻³⁴ J s"
+            ],
+            [
+              "f",
+              "transition frequency, in hertz"
+            ],
+            [
+              "k",
+              "Boltzmann's constant, 1.38 × 10⁻²³ J per kelvin"
+            ],
+            [
+              "T",
+              "temperature, in kelvin"
+            ]
+          ],
+          "s": "A qubit only stays in its ground state if the thermal energy around it is well below the energy of one quantum, which for a 5 GHz qubit means tens of millikelvin.",
+          "computed": true
+        }
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Energy quantisation, and why a level spacing sets everything else",
+        "of": 30
+      }
     }
   ],
   "FAB": [
@@ -819,6 +886,110 @@ export const CURRICULUM = {
         "of": 30,
         "rests": [
           "Energy quantisation, and why a level spacing sets everything else"
+        ]
+      }
+    },
+    {
+      "day": 5,
+      "title": "What scrambles a phase without taking energy — Review",
+      "scene": "Sara Lindqvist, the fabrication lead, has a fortnight of coherence logs from this chip and four entries she can date to something that changed in the room. She wants each one read back to the source it points at before anybody orders shielding.",
+      "takeaway": "A noise source is identified by what it moved and when, not by whether it is present in the room.",
+      "place": "Fabrication & Materials",
+      "guide": "Four observations, and each one is a fact about what changed and what moved with it. Pair them by asking two things of each: did the relaxation time move, or only the coherence time, and what in the room was different at the time. A source that takes energy shows up in both numbers. One that only shifts the frequency shows up in one.",
+      "background": [
+        "Why an observation is better evidence than a mechanism. Every source on this list is present in every superconducting laboratory, so listing them proves nothing. What separates them is that each leaves a different fingerprint — one is tied to a frequency, one to a piece of equipment being on, one to a physical route on the chip, one to what is outside the shield.",
+        "Why the pairing is graded whole. The four sources are written to be plausible for more than one observation, so taking them one at a time lets a nearly-right answer through. Placing all four forces the comparison that matters: not whether a source could explain an entry, but whether it explains that entry better than the other three do.",
+        "What a wrong pairing costs here. Each of these sources has a different remedy, and three of the four remedies take a warm-up. Shielding a chip whose problem is on the bias line spends four days and moves no number, and the log will look exactly the same afterwards."
+      ],
+      "story": "Sara Lindqvist, the fabrication lead, has a fortnight of coherence logs from this chip and four entries she can date to something that changed in the room. She wants each one read back to the source it points at before anybody orders shielding.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "What scrambles a phase without taking energy — Review",
+        "setup": "Fabrication & Materials",
+        "play": "Match each entry in the log to the source it points at.",
+        "task": "Match each entry in the log to the source it points at.",
+        "question": "Match each entry in the log to the source it points at.",
+        "answer": "",
+        "why": "Two of these entries name a number that did not move, and that is the useful half. A defect at a fixed frequency exchanges energy with anything parked there, so it shows in the relaxation time and is tied to a frequency rather than to a piece of equipment. The other three took no energy at all and are therefore frequency shifts: one arrives from outside and is answered by the can, one arrives with the amplifiers and goes away overnight, and one arrived on the day a harness was moved. Each of them is dated by something that changed in the room.",
+        "rebuttals": [
+          "A source tied to one frequency and visible in the relaxation time is a resonant defect, not something outside the shield.",
+          "A can made of mu-metal keeps out magnetic noise, which is the source that stops mattering when the sample goes inside it.",
+          "A source that follows the amplifiers on and off is photons left in the resonators, not something built into the chip.",
+          "A source that arrived on the day a harness was re-routed is picked up on that harness."
+        ],
+        "scenarios": [
+          "Qubit 9's relaxation time falls to a third whenever it is parked at 5.31 GHz, and comes back if it is moved 30 MHz away.",
+          "Coherence on every qubit improves by half once the sample is inside the mu-metal can, and the relaxation times do not move.",
+          "Coherence is worst for four hours after the amplifier chain is switched on, and is back to normal by morning.",
+          "Every qubit dephases faster since the bias harness was re-routed alongside the pump line, and no relaxation time changed."
+        ],
+        "choices": [
+          "A two-level defect sitting at that frequency, opening a channel the qubit can give its energy to.",
+          "Magnetic noise from outside the shield, threading the loops and moving the frequencies about.",
+          "Photons left in the readout resonators by a warm amplifier chain, shifting the qubit frequency while they are there.",
+          "Current noise picked up on the bias line, moving the frequency between one repetition and the next."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "columns": [
+          "What the log says",
+          "What it points at"
+        ]
+      },
+      "assumes": [
+        "a source that takes energy from the qubit shows up in the relaxation time as well as the coherence time"
+      ],
+      "equations": [
+        {
+          "e": "P(t) = e^(−t/T₁)",
+          "c": "relaxation, as a decay you fit",
+          "v": [
+            [
+              "P(t)",
+              "chance the qubit is still excited after time t"
+            ],
+            [
+              "t",
+              "time since the pulse, in microseconds"
+            ],
+            [
+              "T₁",
+              "relaxation time, in microseconds"
+            ]
+          ],
+          "s": "An excited qubit loses its energy at random, so the population falls by the same fraction in every equal interval and T₁ is the time it takes to fall to about a third."
+        },
+        {
+          "e": "1/T₂ = 1/(2T₁) + 1/T_φ",
+          "c": "why dephasing is usually the harder number",
+          "v": [
+            [
+              "T₂",
+              "coherence time, in microseconds"
+            ],
+            [
+              "T₁",
+              "relaxation time, in microseconds"
+            ],
+            [
+              "T_φ",
+              "pure dephasing time, from noise that scrambles phase without taking energy"
+            ]
+          ],
+          "s": "Coherence is limited both by energy leaving and by phase being scrambled, and T₂ can never be more than twice T₁ however quiet the phase noise is."
+        }
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Where decoherence comes from: two-level defects, photons, flux noise",
+        "of": 30,
+        "rests": [
+          "Relaxation time T1 — energy leaving the system",
+          "Dephasing time T2 — the phase going before the energy does"
         ]
       }
     }
@@ -2214,6 +2385,171 @@ export const CURRICULUM = {
           "Measurement collapses the state and returns one outcome"
         ]
       }
+    },
+    {
+      "day": 14,
+      "title": "Where the qubit actually is — Review",
+      "scene": "Qubit 5 came back from the thermal cycle answering 200 megahertz below where it was, and its loop is holding trapped flux. Kofi Mensah, the control engineer, has the bias source on a slow ramp with the transition frequency plotted against it.",
+      "takeaway": "A tunable qubit has an operating point as well as a frequency, and the operating point has to be measured after every cooldown.",
+      "place": "Control & Readout",
+      "guide": "Drag the bias. The readout is the transition frequency at that bias, and only the points you stop at are plotted. Sweep the whole range before deciding: the frequency climbs to a maximum and falls away again, and what you want is the bias where a small change in bias moves the frequency least. Mark that bias and commit. You are graded on the bias you mark, not on the frequency you read there.",
+      "background": [
+        "Why the frequency depends on the bias at all. This qubit's inductance comes from a loop, and the loop's response depends on the magnetic flux threading it. So the transition frequency is not a property of the chip alone; it is a property of the chip at a bias, and the design value quoted a bias of zero.",
+        "What trapped flux does. Cooling through the superconducting transition can freeze a fraction of a flux quantum into the loop, and it stays there until the chip is warmed past that transition again. It does not change the shape of the curve. It slides the whole curve along the bias axis, which is why the arc has a top and the top is not where it was last cooldown.",
+        "Why the top of the arc is the place to sit. The slope of the curve is how much qubit frequency you get per unit of bias noise. At the top the slope is zero to first order, so the same noisy bias current buys far less frequency wander — the qubit is still exposed to the noise and has stopped listening to it."
+      ],
+      "story": "Qubit 5 came back from the thermal cycle answering 200 megahertz below where it was, and its loop is holding trapped flux. Kofi Mensah, the control engineer, has the bias source on a slow ramp with the transition frequency plotted against it.",
+      "game": {
+        "type": "SWEEP",
+        "title": "Where the qubit actually is — Review",
+        "setup": "Control & Readout",
+        "play": "Find the operating point rather than the frequency",
+        "task": "Find the operating point rather than the frequency",
+        "question": "The design assumed a clean loop. At which bias does this qubit's frequency stop responding to a small change in bias?",
+        "answer": "At the top of the arc, −0.18 flux quanta, where the transition sits at 4.94 GHz and the slope against bias has gone to zero. The design put that point at zero bias, and the trapped flux has slid the whole arc along.",
+        "why": "The frequency of a flux-tunable qubit follows an arc in bias, and at the top of that arc the slope is zero. That is the whole reason for finding it. Away from the top, every wobble in the bias current is a wobble in the qubit frequency, and a frequency that changes between repetitions is a phase scrambled without any energy being lost. Trapped flux does not change the shape of the arc; it slides it sideways. So the operating point is measured after a cooldown rather than inherited from the drawing.",
+        "sweep": {
+          "mode": "peak",
+          "axis": {
+            "label": "Flux bias",
+            "unit": "Φ₀",
+            "min": -0.5,
+            "max": 0.3,
+            "step": 0.01
+          },
+          "readout": {
+            "label": "Transition frequency",
+            "unit": "GHz"
+          },
+          "series": [
+            {
+              "label": "Transition frequency",
+              "unit": "",
+              "response": [
+                {
+                  "at": -0.5,
+                  "value": 3.62
+                },
+                {
+                  "at": -0.4,
+                  "value": 4.34
+                },
+                {
+                  "at": -0.28,
+                  "value": 4.82
+                },
+                {
+                  "at": -0.18,
+                  "value": 4.94
+                },
+                {
+                  "at": -0.08,
+                  "value": 4.82
+                },
+                {
+                  "at": 0.02,
+                  "value": 4.44
+                },
+                {
+                  "at": 0.14,
+                  "value": 3.62
+                },
+                {
+                  "at": 0.24,
+                  "value": 2.47
+                },
+                {
+                  "at": 0.3,
+                  "value": 1.24
+                }
+              ]
+            }
+          ],
+          "response": [
+            {
+              "at": -0.5,
+              "value": 3.62
+            },
+            {
+              "at": -0.4,
+              "value": 4.34
+            },
+            {
+              "at": -0.28,
+              "value": 4.82
+            },
+            {
+              "at": -0.18,
+              "value": 4.94
+            },
+            {
+              "at": -0.08,
+              "value": 4.82
+            },
+            {
+              "at": 0.02,
+              "value": 4.44
+            },
+            {
+              "at": 0.14,
+              "value": 3.62
+            },
+            {
+              "at": 0.24,
+              "value": 2.47
+            },
+            {
+              "at": 0.3,
+              "value": 1.24
+            }
+          ],
+          "baseline": 1.2,
+          "target": -0.18,
+          "tolerance": 0.05,
+          "start": -0.5,
+          "commit": "Mark the operating point"
+        }
+      },
+      "assumes": [
+        "a flux-tunable qubit's frequency depends on the magnetic flux through its loop"
+      ],
+      "equations": [
+        {
+          "e": "E = hf,  compare with  kT",
+          "c": "why a superconducting qubit needs millikelvin",
+          "v": [
+            [
+              "E",
+              "energy of one quantum, in joules"
+            ],
+            [
+              "h",
+              "Planck's constant, 6.63 × 10⁻³⁴ J s"
+            ],
+            [
+              "f",
+              "transition frequency, in hertz"
+            ],
+            [
+              "k",
+              "Boltzmann's constant, 1.38 × 10⁻²³ J per kelvin"
+            ],
+            [
+              "T",
+              "temperature, in kelvin"
+            ]
+          ],
+          "s": "A qubit only stays in its ground state if the thermal energy around it is well below the energy of one quantum, which for a 5 GHz qubit means tens of millikelvin."
+        }
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Resonance, detuning, and finding a qubit frequency",
+        "of": 30,
+        "rests": [
+          "Energy quantisation, and why a level spacing sets everything else"
+        ]
+      }
     }
   ],
   "VER": [
@@ -3568,6 +3904,93 @@ export const CURRICULUM = {
           "Gate fidelity, and how error compounds with depth"
         ]
       }
+    },
+    {
+      "day": 13,
+      "title": "Energy out, or phase scrambled — Review",
+      "scene": "Anders Holm, the verification lead, has the same two measurements from the spare chip. Its relaxation time is 20 microseconds and its coherence time is 38, which is the opposite shape to the numbers that have run the week so far.",
+      "takeaway": "How close the coherence time sits to twice the relaxation time is what decides which group spends the next week.",
+      "place": "Error & Verification",
+      "guide": "Both times are measured the same way and read at the same fraction, so they are comparable. The four statements disagree about which loss is doing the work and about what the two numbers are allowed to be. One of them is ruled out by a ceiling rather than by an argument, and the ceiling is not the relaxation time itself.",
+      "background": [
+        "What the ceiling is. Energy leaving the qubit destroys the phase along with it, so relaxation alone already imposes a limit on coherence, and that limit is twice the relaxation time. A coherence time above twice the relaxation time is a measurement to re-take. A coherence time above the relaxation time on its own is ordinary.",
+        "Why a chip close to its ceiling is a different job. When coherence is far below the ceiling, the work is wiring, shielding and filtering, because something is scrambling phase for free. When it is close to the ceiling, none of that will help: the loss is energy going somewhere, and energy loss is materials, surfaces and the fridge."
+      ],
+      "story": "Anders Holm, the verification lead, has the same two measurements from the spare chip. Its relaxation time is 20 microseconds and its coherence time is 38, which is the opposite shape to the numbers that have run the week so far.",
+      "game": {
+        "type": "CHOICE",
+        "title": "Energy out, or phase scrambled — Review",
+        "setup": "Error & Verification",
+        "play": "Read a second chip's pair of numbers",
+        "task": "Read a second chip's pair of numbers",
+        "question": "On the spare chip, T1 is 20 µs and T2 is 38 µs. What do the two numbers say together?",
+        "answer": "Energy relaxation sets the limit, and there is very little pure dephasing left to remove.",
+        "why": "Thirty-eight against a ceiling of forty is the whole answer. Relaxation destroys phase as well as energy, so coherence can never exceed twice the relaxation time, and this chip is within five per cent of that. Almost nothing is scrambling phase for free. That reverses the week's work list: on the first chip the coherence time was a third of its ceiling and the wiring was worth chasing, and here the wiring is already as good as it can usefully be. What is left is energy leaving the qubit, which is surfaces, materials and the fridge.",
+        "rebuttals": [
+          "A coherence time larger than a relaxation time is the ordinary case, and it is the distance from the ceiling rather than the ordering that says which loss dominates.",
+          "The ceiling is twice the relaxation time, not the relaxation time, so 38 against a T1 of 20 is inside what the physics allows.",
+          "Reproducing this on a second device is worth doing and is a different question; the pair on its own already says which of the two losses is in charge."
+        ],
+        "choices": [
+          "Energy relaxation sets the limit, and there is very little pure dephasing left to remove.",
+          "Dephasing sets the limit, because T2 has come out larger than T1 and the larger number is the dominant loss.",
+          "One of the two traces has been misread, since a coherence time may never come out larger than the relaxation time measured beside it.",
+          "Neither number can be interpreted without the other chip, because a pair of times means nothing until it has been reproduced elsewhere."
+        ],
+        "correctChoice": "Energy relaxation sets the limit, and there is very little pure dephasing left to remove."
+      },
+      "assumes": [
+        "relaxation destroys phase as well as energy, so it sets a ceiling on the coherence time"
+      ],
+      "equations": [
+        {
+          "e": "P(t) = e^(−t/T₁)",
+          "c": "relaxation, as a decay you fit",
+          "v": [
+            [
+              "P(t)",
+              "chance the qubit is still excited after time t"
+            ],
+            [
+              "t",
+              "time since the pulse, in microseconds"
+            ],
+            [
+              "T₁",
+              "relaxation time, in microseconds"
+            ]
+          ],
+          "s": "An excited qubit loses its energy at random, so the population falls by the same fraction in every equal interval and T₁ is the time it takes to fall to about a third."
+        },
+        {
+          "e": "1/T₂ = 1/(2T₁) + 1/T_φ",
+          "c": "why dephasing is usually the harder number",
+          "v": [
+            [
+              "T₂",
+              "coherence time, in microseconds"
+            ],
+            [
+              "T₁",
+              "relaxation time, in microseconds"
+            ],
+            [
+              "T_φ",
+              "pure dephasing time, from noise that scrambles phase without taking energy"
+            ]
+          ],
+          "s": "Coherence is limited both by energy leaving and by phase being scrambled, and T₂ can never be more than twice T₁ however quiet the phase noise is."
+        }
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Relaxation time T1 — energy leaving the system",
+        "of": 30,
+        "rests": [
+          "Energy quantisation, and why a level spacing sets everything else",
+          "Measurement collapses the state and returns one outcome"
+        ]
+      }
     }
   ],
   "SENSE": [
@@ -4672,6 +5095,36 @@ export const BALLPARK_CALCS = {
     "units": "across the register",
     "solution": "0.941^12 ≈ 0.48.",
     "explanation": "About 0.48. For comparison, 0.962^12 ≈ 0.63. These are register-readout projections under identical, independent per-qubit errors — not measured twelve-qubit circuit fidelities.\n"
+  },
+  "CRYO-7": {
+    "prompt": "For a 7.2 GHz resonator, hf = 4.8 × 10⁻²⁴ J. At 42 mK, kT = 5.8 × 10⁻²⁵ J. For hf ≫ kT the average occupation is n̄ ≈ e^(−hf/kT).",
+    "question": "Choose the resonator's quantum energy and the thermal energy of today's fridge.",
+    "labels": [
+      "4.8e-24  (hf at 7.2 GHz, in joules)",
+      "5.8e-25  (kT at 42 mK, in joules)",
+      "1.5e-25  (kT at 11 mK, in joules)",
+      "7.2  (the resonator frequency in GHz)",
+      "42  (the fridge temperature in mK)"
+    ],
+    "values": [
+      4.8e-24,
+      5.8e-25,
+      1.5e-25,
+      7.2,
+      42
+    ],
+    "slots": 2,
+    "template": "e^(−{0} ÷ {1})",
+    "formula": "Math.exp(-a/b)",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 0.00026,
+    "tolerance": 0.0001,
+    "units": "photons on average",
+    "solution": "e^(−4.8e-24 / 5.8e-25) = e^(−8.3) ≈ 0.00026.",
+    "explanation": "About 2.6 × 10⁻⁴ photons. Taking the colder thermal energy instead answers for a fridge that is working, and gives about 1 × 10⁻¹⁴ — eleven orders of magnitude away, which is the size of the mistake a wrong tile makes here."
   }
 };
 

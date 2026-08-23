@@ -395,6 +395,65 @@ export const CURRICULUM = {
           "Deciding with a deadline that does not move"
         ]
       }
+    },
+    {
+      "day": 8,
+      "title": "Which measurement gives what — Review",
+      "scene": "The service module was cast off an hour ago and is drifting somewhere near the ship. Dale Whitaker, the trajectory officer, has to say where it is going. The station has the same three measurements it had before.",
+      "takeaway": "A measurement gives one piece. Anything built out of two measurements is rougher than either.",
+      "place": "Deep-Space Tracking Station",
+      "guide": "Three things to find out, and three ways to measure. Pair them by asking what each measurement actually notices. A trip time? A change of pitch? Or the gap between two earlier answers? One of the three is built out of the other two, which is what makes it the roughest.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. One line you trust can decide another for you.",
+        "Why one wrong line is impossible. If two lines are right, the third response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
+      "story": "The service module was cast off an hour ago and is drifting somewhere near the ship. Dale Whitaker, the trajectory officer, has to say where it is going. The station has the same three measurements it had before.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "Which measurement gives what — Review",
+        "setup": "Deep-Space Tracking Station",
+        "play": "Match each thing you want to know to the measurement that gives it.",
+        "task": "Match each thing you want to know to the measurement that gives it.",
+        "question": "Match each thing you want to know to the measurement that gives it.",
+        "answer": "",
+        "why": "Each measurement notices one thing and misses the rest. Timing a pulse out and back gives a distance, because the pulse travels at a speed we already know. The pitch coming back says how fast the module is closing or opening, and nothing about how far away it is. Neither of them gives a change of speed at all. That one has to be built: take a speed, take another a few minutes later, and compare them. Anything built that way carries the errors of both, which is why it is the roughest number on the board.",
+        "rebuttals": [
+          "A distance is a speed multiplied by a time, and the round trip gives the time.",
+          "Moving toward us or away shows up in the pitch of what comes back, and nowhere else.",
+          "A change of speed comes from repeating. Two speeds give it, and one measurement never does."
+        ],
+        "scenarios": [
+          "How far off the module is now.",
+          "Whether it is drifting toward the ship or away.",
+          "How that drift is changing."
+        ],
+        "choices": [
+          "Time a radio pulse out to it and back again.",
+          "Compare the pitch coming back with the pitch sent out.",
+          "Take two speeds a few minutes apart and compare them."
+        ],
+        "mapping": [
+          0,
+          1,
+          2
+        ],
+        "columns": [
+          "What we want to know",
+          "How we measure it"
+        ]
+      },
+      "assumes": [
+        "saying where something is and how it is moving takes more than one number"
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Signals take time to travel, and distance costs strength",
+        "of": 16,
+        "rests": [
+          "Speed, distance and time, and how they give each other"
+        ]
+      }
     }
   ],
   "ELEC": [
@@ -422,6 +481,65 @@ export const CURRICULUM = {
         "givens": [],
         "relationship": "Hours = what is in the store ÷ how fast it is being used.",
         "calcKey": "ELEC-1"
+      },
+      "assumes": [
+        "a store is an amount, and a draw is how fast it is being used"
+      ],
+      "equations": [
+        {
+          "e": "how long = amount ÷ rate",
+          "c": "how long a store lasts",
+          "v": [
+            [
+              "how long",
+              "in hours"
+            ],
+            [
+              "amount",
+              "what is in the store"
+            ],
+            [
+              "rate",
+              "how fast it is being used"
+            ]
+          ],
+          "s": "A store divided by the rate it is being drawn at gives the hours before it is empty.",
+          "computed": true
+        }
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Circuits: a break, a short, and why a battery has limits",
+        "of": 16,
+        "rests": [
+          "Rates: how fast something is used up, and how long it lasts"
+        ]
+      }
+    },
+    {
+      "day": 2,
+      "title": "How long can the battery last? — Review",
+      "scene": "The lander was meant to sit dark until the surface. Now it is carrying the whole stack. Ana Ferreira, the electrical load officer, has the lander's own battery figures. The room has asked her for a number of hours.",
+      "takeaway": "A store divided by a draw is a time. A voltage is not part of that sum at all.",
+      "place": "Electrical Systems Room",
+      "guide": "Four numbers, and two of them belong to other questions. The bus voltage and the time to the next pass are not in this sum. Ask of each number whether it is an amount stored, or a rate of use. An amount divided by a rate leaves a time.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
+      "story": "The lander was meant to sit dark until the surface. Now it is carrying the whole stack. Ana Ferreira, the electrical load officer, has the lander's own battery figures. The room has asked her for a number of hours.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "How long can the battery last? — Review",
+        "setup": "Electrical Systems Room",
+        "play": "Turn the lander's store and draw into hours.",
+        "task": "Turn the lander's store and draw into hours.",
+        "question": "How long will the lander's batteries last?",
+        "answer": "About four hours at this draw. It is rough, and every switch-off argued today is measured against it.",
+        "why": "There is a store and there is a draw, and dividing one by the other gives hours. Eight kilowatt hours at two kilowatts is four hours. The bus voltage is not part of it. Voltage says how the energy is delivered, not how much of it there is. Four hours is an ideal figure as well. It assumes nothing else switches on and that the last drop is usable, and a cold battery gives less than its label. It is still the number the next hour of argument gets measured against.",
+        "givens": [],
+        "relationship": "Hours = what is in the store ÷ how fast it is being used.",
+        "calcKey": "ELEC-2"
       },
       "assumes": [
         "a store is an amount, and a draw is how fast it is being used"
@@ -665,6 +783,62 @@ export const CURRICULUM = {
       "concept": {
         "n": 8,
         "c": "Air is a mixture, and the share of each gas has to stay in range",
+        "of": 16
+      }
+    },
+    {
+      "day": 5,
+      "title": "How much does the cabin cool? — Review",
+      "scene": "The heater is allowed back on for a two-hour period, and the crew wants to know whether it is worth the power. Dr. Aaron Brooks, the thermal and life support lead, has the cabin figures in front of him.",
+      "takeaway": "Warming and cooling are the same sum. A heavy cabin is slow in both directions.",
+      "place": "Thermal Control Lab",
+      "guide": "Four numbers, and two of them are not in this sum. The cabin temperature now, and the hours, are already accounted for. Ask of each whether it is energy put in, or energy for one degree. Two energies divide into a number of degrees.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
+      "story": "The heater is allowed back on for a two-hour period, and the crew wants to know whether it is worth the power. Dr. Aaron Brooks, the thermal and life support lead, has the cabin figures in front of him.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "How much does the cabin cool? — Review",
+        "setup": "Thermal Control Lab",
+        "play": "Work out how far the cabin warms while the heater runs.",
+        "task": "Work out how far the cabin warms while the heater runs.",
+        "question": "How far does the cabin warm over the two hours?",
+        "answer": "About half a degree. The cabin is heavy, so even a heater running two hours barely moves it.",
+        "why": "Warming is the cooling sum run the other way. Over the two hours the heater puts in about six million joules more than the cabin loses. Shifting this cabin by one degree takes about twelve million joules. Six shared out at twelve for each degree is half a degree. That is the honest answer and it cuts both ways. The cabin is slow to cool, which is what bought the crew hours in the first place, and it is just as slow to warm back up.",
+        "givens": [],
+        "relationship": "Degrees gained = energy put in ÷ energy needed for one degree.",
+        "calcKey": "THERM-5"
+      },
+      "assumes": [
+        "it takes energy to warm something up, and the same energy leaves as it cools"
+      ],
+      "equations": [
+        {
+          "e": "degrees lost = energy lost ÷ energy for one degree",
+          "c": "how far something cools",
+          "v": [
+            [
+              "degrees lost",
+              "in °C"
+            ],
+            [
+              "energy lost",
+              "in joules"
+            ],
+            [
+              "energy for one degree",
+              "in joules"
+            ]
+          ],
+          "s": "Heavy things need a lot of energy per degree, which is why they cool slowly.",
+          "computed": true
+        }
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Energy moves from hot to cold, and insulation slows it down",
         "of": 16
       }
     }
@@ -1061,6 +1235,54 @@ export const CURRICULUM = {
         "n": 1,
         "c": "Speed, distance and time, and how they give each other",
         "of": 16
+      }
+    },
+    {
+      "day": 4,
+      "title": "How a spacecraft turns — Review",
+      "scene": "The lander is still bolted to the ship. That makes the stack heavier and longer than anything the crew has flown by hand. Chidi Okoye, the structural dynamics engineer, wants the turn agreed first. Nobody fires a thruster yet.",
+      "takeaway": "Two things set a turn: how much there is to swing, and how far out the push acts.",
+      "place": "Attitude Dynamics Lab",
+      "guide": "Four answers, and they disagree about two things. Does a heavier, longer stack turn faster or slower for the same push? And does firing closer to the middle turn it more or less? Settle those two and one answer is left standing.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
+      "story": "The lander is still bolted to the ship. That makes the stack heavier and longer than anything the crew has flown by hand. Chidi Okoye, the structural dynamics engineer, wants the turn agreed first. Nobody fires a thruster yet.",
+      "game": {
+        "type": "CHOICE",
+        "title": "How a spacecraft turns — Review",
+        "setup": "Attitude Dynamics Lab",
+        "play": "Say what the same thruster pulse does to the heavier stack.",
+        "task": "Say what the same thruster pulse does to the heavier stack.",
+        "question": "The stack is heavier now and the thruster fires closer to the middle. What does the same pulse do?",
+        "answer": "Less turning than before, and it builds more slowly, because both changes work the same way.",
+        "why": "Two things changed and both of them make the turn smaller. The lander adds mass, and it puts that mass far from the middle, so the stack resists turning much harder than the ship did alone. Firing closer to the middle takes away leverage, so the same thruster has less turning effect. A smaller effect on something that resists more gives a slower turn. That is not all bad news. A stack that starts turning slowly stops slowly too, so the crew has time to catch it.",
+        "rebuttals": [
+          "A longer, heavier stack is harder to turn, not easier.",
+          "Both the mass and the distance from the middle changed, so the turn cannot be the same.",
+          "An off-centre push does shove the stack, and it always turns it as well."
+        ],
+        "choices": [
+          "It turns the stack more slowly, and it turns it less.",
+          "It turns the stack faster, because a longer stack swings easily.",
+          "It turns the stack exactly as before, since the push is unchanged.",
+          "It shoves the stack sideways instead of turning it at all."
+        ],
+        "correctChoice": "It turns the stack more slowly, and it turns it less."
+      },
+      "assumes": [
+        "a push off to one side is what makes something start or stop turning"
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Ordering work when several things are wrong at once",
+        "of": 16,
+        "rests": [
+          "A budget: a finite store shared between competing demands",
+          "Deciding with a deadline that does not move"
+        ]
       }
     }
   ],
@@ -2311,6 +2533,62 @@ export const BALLPARK_CALCS = {
     "units": "km",
     "solution": "Forty take away ten is thirty. Down the middle, that is 15 kilometres on each side.",
     "explanation": "Take the doubt off the corridor first, then split what is left between the two sides. Both are widths, so both belong to the whole corridor rather than to one edge of it."
+  },
+  "ELEC-2": {
+    "prompt": "The lander's batteries hold about 8 kilowatt hours that can actually be used. What has to stay on draws about 2 kilowatts.",
+    "question": "How long will the lander's batteries last?",
+    "labels": [
+      "8 kWh (usable in the lander batteries)",
+      "2 kW (what has to stay on)",
+      "30 V (the lander bus voltage)",
+      "5 h (time to the next tracking pass)"
+    ],
+    "values": [
+      8,
+      2,
+      30,
+      5
+    ],
+    "slots": 2,
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 4,
+    "tolerance": 0.3,
+    "units": "h",
+    "solution": "8 ÷ 2 is 4 hours.",
+    "explanation": "The bus voltage says how the energy is delivered, and nothing about how much there is. The time to the next pass is a deadline rather than an ingredient."
+  },
+  "THERM-5": {
+    "prompt": "Over two hours the heater puts in about 6 million joules more than the cabin loses. Warming this cabin by one degree takes about 12 million joules.",
+    "question": "How far does the cabin warm over the two hours?",
+    "labels": [
+      "6 million joules (put in over two hours)",
+      "12 million joules (to warm it one degree)",
+      "4 °C (the cabin now)",
+      "2 h (how long the heater runs)"
+    ],
+    "values": [
+      6,
+      12,
+      4,
+      2
+    ],
+    "slots": 2,
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 0.5,
+    "tolerance": 0.1,
+    "units": "°C",
+    "solution": "Six million shared out at twelve million for each degree is half a degree.",
+    "explanation": "Both numbers are energies, so they divide straight into a number of degrees. The 4 °C is where the cabin is now, not how far it moves, and the two hours are already inside the six million."
   }
 };
 

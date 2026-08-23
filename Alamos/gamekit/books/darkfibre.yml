@@ -3472,3 +3472,217 @@ copy:
   MANHOLE: <p>The beach manhole. Where the sea cable stops being a sea cable, under a concrete lid two hundred metres up the dune from the low-water mark.</p>
   GEN: <p>The generator house. Two sets, one running, because a landing station that loses power stops feeding the repeaters and every one of them is on the seabed.</p>
   STORE: <p>The ship's store. Spare housings, spare pumps, jointing kits and a grapnel, all of it staged for a charter that starts on the thirteenth.</p>
+
+# --------------------------------------------------------------- review variants
+#
+# Four lessons no mission stop points at. From day 3 every day carries a callback,
+# and `shapeMissions` only issues one where the oldest taught lesson has an unserved
+# "— Review" variant; with none authored this campaign served no callbacks at all.
+#
+# Each is its base lesson's concept on a different case, in a different format, and
+# none of them is a DERIVE — the twelve derivations are the course and they are not
+# to be duplicated, re-ordered or paraphrased. `concept:` is written out rather than
+# left to the picker, because a variant is the one stop whose subject is already
+# decided by the stop it is a review of.
+lessons:
+  - group: TEST
+    title: What came back, and when — Review
+    task: Sort four readings from the diverse route by what each one is
+    concept: 'A measurement in an instrument’s own units, and what converts it'
+    place: Test Room
+    scene: >-
+      Tobias Meier, the test room technician, has four readings from the diverse route pinned on the
+      board. None of them came off the same instrument, and none of them has been carried any further
+      than the box that produced it.
+    guide: >-
+      Four readings and four descriptions. Sort them by what the instrument itself could know. A
+      quantity a box measured, a quantity software has already converted and a note of the conditions
+      are three different kinds of thing. Only the first of the three is evidence before anybody has
+      argued about it.
+    background:
+      - >-
+        Why this is a matching board rather than four separate questions. Each description is written
+        to be defensible against more than one of the readings, so choosing them one at a time lets a
+        nearly-right answer through. Placing all four forces the comparison the stop is about.
+      - >-
+        What a condition is doing on a list of measurements. It is not evidence about the cable at
+        all. It is the thing that decides whether two readings taken on different nights are
+        comparable, and a reading whose conditions are unrecorded cannot be compared with anything.
+    takesAsRead:
+      - Time of flight, and turning a delay into a distance
+      - Power in decibels, and why a loss budget adds
+    assumes:
+      - a reflectometer reports the delay of a pulse that has been out and back
+      - the position printed beside a trace is worked out from the delay by software
+    takeaway: A set of readings is usually three different kinds of thing, and saying which kind each one is comes before comparing any of them.
+    format: PROTOCOL
+    task: Match each reading from the diverse route to what it is.
+    scenarios:
+      - The reflectometer prints a round-trip delay of 611.4 microseconds.
+      - The power meter at the far end reads 42 nanowatts.
+      - The software prints a position 62.4 kilometres from this building.
+      - The log records the pulse width the trace was taken with.
+    choices:
+      - A time, and it becomes a distance only once a speed in the glass has been chosen.
+      - A power, and it becomes a margin only once an allowance has been subtracted from it.
+      - A conversion already made, resting on a speed and a slack figure nobody here has checked.
+      - A condition, and it decides whether this trace may be compared with an older one.
+    mapping: [0, 1, 2, 3]
+    why: >-
+      Only one of the four is a number nobody has interpreted. The delay is what the instrument
+      recorded, so it carries no assumption at all. The power is a measurement too, and it becomes a
+      margin only once an allowance is subtracted from it. The printed position is a conversion
+      already performed, resting on a speed in the glass and a slack figure from a lay chart eleven
+      years old. The pulse width is none of those. It is a condition, and conditions decide whether
+      two readings may be compared.
+
+  - group: TERM
+    title: Two hundred thousand kilometres a second — Review
+    task: Take the speed in a different glass, the one the ship will put in
+    concept: Refractive index, and the speed of light in a material
+    place: Cable Termination Room
+    scene: >-
+      Okonkwo, the station chief, has the spare drum's certificate out. It is a different make of
+      fibre, wound eleven years ago as the repair length for this span, and its core index is 1.4571.
+    guide: >-
+      Three indices are on the bench and only one belongs in this division. The one you want is the
+      index of the glass the light will actually be travelling in, which is the repair fibre's core.
+      The span's own core is here because the two will be compared once the repair length is in. The
+      cladding is here because it belongs to a boundary rather than to a path.
+    background:
+      - >-
+        Why the answer is close to the span's own and still worth taking. The two glasses differ in
+        the third decimal place, which is under one per cent of a speed and about seven hundred metres
+        over a span of this length. That is inside a grapnel run and outside the tolerance the ship is
+        being given.
+      - >-
+        What an index actually is. It is the vacuum speed divided by the speed in the material, so it
+        is a ratio of two speeds and carries no units of its own. Anything that comes out of it with a
+        unit attached has had a unit invented for it somewhere in the working.
+    assumes:
+      - the index of a material is the factor by which light is slowed in it
+    takeaway: A speed in a material comes out of one division, and the work is deciding which of the indices on the bench belongs in it.
+    format: BALLPARK
+    question: How fast does light travel in the core of the repair fibre?
+    estimate:
+      prompt: >-
+        The ship will join this glass into the span. What a pulse does in it decides where every
+        later measurement puts the fault.
+      question: How fast does light travel in the core of the repair fibre?
+      relationship: >-
+        Speed in the material = the speed of light in empty space divided by the index of that
+        material.
+      labels:
+        - 2.998e8 m/s  (light in empty space)
+        - 1.4571  (index of the repair fibre's core)
+        - 1.4682  (index of the span's own core)
+        - 1.4519  (index of the repair fibre's cladding)
+      values: [299800000, 1.4571, 1.4682, 1.4519]
+      slots: 2
+      template: '{0} ÷ {1}'
+      formula: a/b
+      correct: [0, 1]
+      target: 205751150
+      tolerance: 900000
+      units: m/s
+      solution: 2.998 × 10⁸ ÷ 1.4571 = 2.058 × 10⁸ m/s.
+      explanation: >-
+        The span's own core is on the bench because the two will be compared, and the cladding
+        because it belongs to the boundary rather than to the path. Neither of them is the glass this
+        pulse is in.
+    why: >-
+      Light makes about 2.058 × 10⁸ metres a second in this glass, one per cent faster than in the
+      span it will be joined into. An index is the ratio of the vacuum speed to the speed in the
+      material. The arithmetic is therefore one division, and the whole difficulty is which of three
+      indices goes into it. A repair length of different glass puts a short stretch of the span at a
+      different speed. Every later distance is worked out as though the whole fibre were one glass.
+
+  - group: RECV
+    title: A few hundred of something — Review
+    task: Place four facts about the far end against what each one is about
+    concept: 'Light as a wave: wavelength, frequency and the relation between them'
+    place: Receiver Lab
+    scene: >-
+      Karl Osgood, the photodiode technician, has four facts about the far end pinned over the bench,
+      collected on different days by different people. None of them was written down with this
+      fortnight's argument in mind.
+    guide: >-
+      Four observations and four accounts of what each one is a statement about. A wave has a
+      wavelength, and everything the glass does to it on the way follows from that. A stream of
+      arrivals has a count, and a count has a scatter of its own that nothing downstream removes. Two
+      of these belong to each.
+    background:
+      - >-
+        Why the distinction is worth making at a receiver. It decides what better equipment could
+        change. A loss that belongs to the wavelength is fixed by choosing a different channel or a
+        different glass; a limit that belongs to the count is fixed only by sending more light.
+      - >-
+        Why both descriptions are needed at once. The wave picture says how the fibre treated the
+        signal on the way and what the amplifier could do to it. The arrival picture says how steady
+        the number reaching the diode is, which is what an error rate is a statement about.
+    assumes:
+      - light can be described as a wave and as a stream of arrivals
+    takeaway: Which description an observation belongs to decides whether better equipment at this end could change it.
+    format: CASEBOOK
+    task: Match each fact about the far end to what it is a statement about.
+    scenarios:
+      - The channel is specified at 1550 nanometres and the transmitter is locked to it.
+      - The error floor does not improve when a quieter amplifier is fitted.
+      - A kilometre of this fibre loses less at 1550 nanometres than at 1310.
+      - Halving the transmitted power roughly doubles the errors, with the electronics untouched.
+    choices:
+      - 'About the wave: one wavelength, and the one frequency that goes with it.'
+      - 'About the stream: the arrivals scatter about their average, and no amplifier makes them regular.'
+      - 'About the wave: scattering by the glass depends steeply on the wavelength, so the colour decides the loss.'
+      - 'About the stream: fewer arrivals a bit is a noisier count, whatever the electronics are doing.'
+    mapping: [0, 1, 2, 3]
+    why: >-
+      Two of the four are about the wave and two are about the stream, and the fibre only ever acts on
+      the first pair. A wavelength is what the transmitter is locked to, and how much a kilometre of
+      glass scatters depends steeply on it, so the colour decides the loss. The other two are
+      counting. Arrivals scatter about their average whatever the electronics are doing, and halving
+      the power halves the number counted for each bit, which raises the errors by itself.
+
+  - group: AMP
+    title: Current, and not light — Review
+    task: Put one atom's four events in the order they happen
+    concept: 'Stimulated emission, population inversion and gain'
+    place: Amplifier and Power Hall
+    scene: >-
+      Bruno Salas, the power feed engineer, has a wall chart of the erbium levels taped up beside
+      repeater 6's telemetry. Four things happen to one atom in that coil, and the chart has them in
+      no particular order.
+    guide: >-
+      Four cards, and the rail here is a clock. Start from the fact that nothing can be amplified
+      until an atom is already waiting in the long-lived level. Ask of each card whether it puts an
+      atom there, keeps it there, or spends it.
+    background:
+      - >-
+        Why one of the four levels is short-lived and one is not. The pump lands atoms on a level they
+        leave almost at once, and they leave it downwards, to a level they sit on for milliseconds.
+        Only a level atoms sit on can hold a population, which is why the pump wavelength and the
+        signal wavelength are different.
+      - >-
+        What this chain has to do with a drive current. Nothing on the telemetry screen touches any of
+        the four steps. A current says power is going into the pump diode, and how many atoms that
+        power lands on the upper level is a question about the diode's optical output.
+    takesAsRead:
+      - Atomic energy levels, and the wavelengths they allow
+    assumes:
+      - an amplifier works by holding more atoms excited than not
+    takeaway: Gain is a count of atoms already waiting in the upper level, so every step that fills that level is part of the answer.
+    format: SEQUENCE
+    task: Order the four events in the life of one erbium atom.
+    cards:
+      - A pump photon at 980 nanometres is absorbed, and the atom is lifted to a short-lived level.
+      - The atom settles to the long-lived level below it without emitting anything.
+      - A signal photon at 1550 nanometres arrives while the atom is still in that level.
+      - The atom falls to the ground level and sends out a second photon identical to the one that arrived.
+    order: [0, 1, 2, 3]
+    why: >-
+      Amplification is a queue. The pump lifts atoms to a level they do not stay in. They settle
+      almost at once to a longer-lived level below it, and a population can be held there. An arriving
+      signal photon then finds an atom already excited and triggers a second photon exactly like
+      itself. Nothing in that chain is reached by a drive current: the pump's optical output sets how
+      many atoms are waiting. Everything the amplifier delivers is a count of atoms rather than a
+      reading on a supply.

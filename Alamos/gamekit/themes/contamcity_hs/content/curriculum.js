@@ -7,7 +7,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Read the formula, not the rumor",
-      "scene": "A freight-yard fire has damaged several unlabelled containers, 80 metres from the river. Three different guesses about what is in them are already on the radio. Firefighters are picking a suppression agent from whatever identity you give them.",
+      "scene": "A freight-yard fire has damaged several unlabelled containers, 80 metres from the river. Three different guesses about what is in them are already on the radio. The fire chief, Nils Sørensen, is picking a suppression agent from whatever identity you give him.",
       "takeaway": "Chemical identity begins with explicit composition and charge.",
       "place": "Accident Command Post",
       "guide": "The left column is four kinds of record. The right column is four kinds of claim. Ask of each record what it actually fixes: which elements, in what ratio, carrying what charge. A trade name fixes none of the three. Some substances on the shortlist react with water. A firefighter is choosing a suppression agent from whatever identity comes back.",
@@ -67,7 +67,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "From damaged container to provisional identity",
-      "scene": "Inside the mobile laboratory, the first intact sample from the damaged drums is sealed on the bench. Its outside markings are legible now and will be scuffed off by the opening. Breaking the seal to draw liquid vents the headspace, and there is only enough liquid for two runs.",
+      "scene": "Okonjo has the first intact sample from the damaged drums sealed on the mobile laboratory bench. Its outside markings are legible now and will be scuffed off by the opening. Breaking the seal vents the headspace, and there is liquid for only two runs.",
       "takeaway": "Analytical work runs from what costs nothing to what cannot be undone.",
       "place": "Molecular Identification Lab",
       "guide": "Every one of these four is available right now, so nothing here is a clock. What separates them is what you can still do afterwards. Ask of each step what it consumes: the markings, the headspace, the liquid, or the sample itself. There is enough liquid for two runs. A step that ends the sample answers best and answers once, which puts it somewhere very particular in the order.",
@@ -122,7 +122,7 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Spend the first of the lab budget",
-      "scene": "An $800 laboratory budget is left for the first round of evidence. Three damaged drums have lost their labels, and the first extract is ready. Firefighters are waiting at the fence line for the provisional identity that will determine their next move.",
+      "scene": "An $800 laboratory budget is left for the first round of evidence. Three damaged drums have lost their labels, and the first extract is ready. The incident commander, Grace Boateng, is holding firefighters at the fence line for a provisional identity.",
       "takeaway": "Independent evidence is more valuable than a repeated result when the decision depends on whether the identity itself is right.",
       "place": "Records and Shipping Office",
       "guide": "Open each evidence card to see what it would actually tell you, then spend up to $800. A card's price is not its value. Firefighters at the fence need an identity firm enough to choose their next move, so buy the evidence that could distinguish between the candidates. Repeating a test you have already run buys certainty about something you already knew.",
@@ -190,7 +190,7 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Water first, or never water",
-      "scene": "The contractor lifts at four and wants the yard sorted by then. Some of these drums are made safe by dilution. Others react with water, and a hose is the worst thing that could reach them.",
+      "scene": "The contractor lifts at four and wants the yard sorted by then. Sørensen has crews standing by with hoses. Some of these drums are made safe by dilution. Others react with water, and a hose is the worst thing that could reach them.",
       "takeaway": "The default response is right for most things and catastrophic for a short list.",
       "place": "Container Yard",
       "guide": "Two bins. Something that simply dissolves is diluted by water and made less dangerous by it. Something that reacts with water makes heat, gas or both, so water is what turns a spill into an event. Sort on what the substance does when water reaches it.",
@@ -198,7 +198,7 @@ export const CURRICULUM = {
         "Why this is the first question at a yard. The default response to almost anything is water — hoses are what a fire crew has. For most of what is here that is right, and for a short list it is the one action that makes the situation worse.",
         "What reacting with water looks like. Alkali metals and hydrides give off hydrogen. Concentrated acids give off enough heat to boil what is poured onto them. Carbides and some chlorides give off gas that is worse than what was in the drum."
       ],
-      "story": "The contractor lifts at four and wants the yard sorted by then. Some of these drums are made safe by dilution. Others react with water, and a hose is the worst thing that could reach them.",
+      "story": "The contractor lifts at four and wants the yard sorted by then. Sørensen has crews standing by with hoses. Some of these drums are made safe by dilution. Others react with water, and a hose is the worst thing that could reach them.",
       "game": {
         "type": "BELT",
         "title": "Water first, or never water",
@@ -350,7 +350,7 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "What the position in the table tells you",
-      "scene": "Two unlabelled drums, one holding sodium hydride and one caesium hydride — the same anion in both. The bench has to say which will be the more violent with water before either is opened.",
+      "scene": "Two unlabelled drums are on Okonjo's bench, one holding sodium hydride and one caesium hydride — the same anion in both. She has to say which will be the more violent with water before either is opened.",
       "takeaway": "An element's position in the periodic table predicts how it behaves.",
       "place": "Molecular Identification Lab",
       "guide": "Two drums share an anion, so the anion cannot separate them. Each option offers a different basis for the ranking: position in a group, atomic mass, the shared part, or refusal to predict. Ask what changes down group 1, and why. The table exists to rank two substances a bench has never handled. That ranking is what a crew works to before either drum is opened.",
@@ -359,7 +359,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Two unlabelled drums, one holding sodium hydride and one caesium hydride — the same anion in both. The bench has to say which will be the more violent with water before either is opened.",
+      "story": "Two unlabelled drums are on Okonjo's bench, one holding sodium hydride and one caesium hydride — the same anion in both. She has to say which will be the more violent with water before either is opened.",
       "game": {
         "type": "CHOICE",
         "title": "What the position in the table tells you",
@@ -394,7 +394,7 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Read analytical disagreement",
-      "scene": "Two methods have been run on the same extract and they do not tell the same story. A false identification here sends the plant a chemistry that could create a worse product than the one it removes.",
+      "scene": "Two methods have been run on the same extract and they disagree. The independent reviewer, Yusra Haddad, has both sets. A false identification here sends the plant a chemistry that could create a worse product than the one it removes.",
       "takeaway": "Agreement counts as independent evidence only when the measurements do not inherit the same failure path.",
       "place": "Spectroscopy Suite",
       "guide": "Open each channel to see what its result depended on. Keep the ones that stand on an independent measurement, and untick the ones whose chain runs through a shared step. Then name the step they have in common. Two methods disagreeing is information, not an error to be averaged away.",
@@ -487,7 +487,7 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Resolve the ambiguous peak",
-      "scene": "The reference library has narrowed the peak to two candidates and the deciding evidence is how much of it is there. Nadia Osei has 0.86 grams of the recovered solid dissolved into 250 millilitres and wants the molarity before she commits to an identity.",
+      "scene": "The reference library has narrowed the peak to two candidates and the deciding evidence is how much of it is there. Ana Kowalski, who keeps the reference library, has 0.86 grams of the recovered solid dissolved into 250 millilitres and wants the molarity before she commits to an identity.",
       "takeaway": "A concentration is moles per litre, and the moles come from the mass and the molar mass.",
       "place": "Reference Library",
       "guide": "A concentration is an amount divided by a volume, and the amount has to come from the mass first. Divide the mass by the molar mass to get moles, then divide the moles by the volume of solution in litres. Watch the volume unit: the flask is marked in millilitres and molarity is per litre, so that factor of a thousand is part of the arithmetic rather than an afterthought.",
@@ -496,7 +496,7 @@ export const CURRICULUM = {
         "Volume of solution, not volume of solvent. Molarity is defined against the final volume in the flask, which is why the solid is dissolved and then made up to the mark rather than added to 250 millilitres of water. For dilute aqueous work the difference is small; for a standard it is the whole of the accuracy.",
         "Why this quantity carries the rest of the fortnight. Every later number here is a concentration or comes from one: the dilution factor on day 6, the solubility product on day 5, the moles matched in a titration on day 7. This is the unit the whole course counts in."
       ],
-      "story": "The reference library has narrowed the peak to two candidates and the deciding evidence is how much of it is there. Nadia Osei has 0.86 grams of the recovered solid dissolved into 250 millilitres and wants the molarity before she commits to an identity.",
+      "story": "The reference library has narrowed the peak to two candidates and the deciding evidence is how much of it is there. Ana Kowalski, who keeps the reference library, has 0.86 grams of the recovered solid dissolved into 250 millilitres and wants the molarity before she commits to an identity.",
       "game": {
         "type": "BALLPARK",
         "title": "Resolve the ambiguous peak",
@@ -579,13 +579,189 @@ export const CURRICULUM = {
           "The mole as a count, and molar mass as the bridge to a mass"
         ]
       }
+    },
+    {
+      "day": 8,
+      "title": "Read the formula, not the rumor — Review",
+      "scene": "Ana Kowalski, who keeps the reference library, has pulled four records on a second consignment at the depot. None is a spectrum, and the analytical chemistry lead, Adaeze Okonjo, wants to know which of them narrows anything.",
+      "takeaway": "A record is worth exactly what it constrains, and different records constrain different things.",
+      "place": "Reference Library",
+      "guide": "The left column is four records and the right column is four claims, each used once. Ask of each record what it pins down and what it leaves open. A mass is not an amount until a molar mass converts it. A formula fixes ratio and charge and says nothing about how big the unit is. A percentage by mass fixes that same ratio from the other side. Nothing here has been near an instrument, so what you may conclude is what the paper supports and no more.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison.",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually in a join you made early and stopped questioning."
+      ],
+      "story": "Ana Kowalski, who keeps the reference library, has pulled four records on a second consignment at the depot. None is a spectrum, and the analytical chemistry lead, Adaeze Okonjo, wants to know which of them narrows anything.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "Read the formula, not the rumor — Review",
+        "setup": "Match each paper record to the one claim it supports.",
+        "play": "Match each record to what it actually fixes about the substance.",
+        "task": "Match each record to what it actually fixes about the substance.",
+        "question": "Match each record to what it actually fixes about the substance.",
+        "answer": "1. A consignment note gives a mass in kilograms and names no molar mass. → The amount in moles cannot be worked out from it. 2. Two sealed containers hold the same mass of two different compounds. → They do not hold the same number of particles. 3. A formula shows two singly charged positive ions for every one of the other ion. → The other ion must carry two negative charges. 4. A supplier sheet gives the percentage by mass of each element and no formula. → It fixes the ratio of atoms and not the size of the unit.",
+        "why": "A mass is a weight of stuff and a mole is a count of particles. The molar mass is the only bridge between them, so a kilogram with no molar mass fixes no amount. Equal masses of two compounds are equal counts only when the molar masses match. A formula fixes the ratio of ions and the charges that balance. A percentage by mass fixes that same ratio from the other side and leaves the size of the unit open.",
+        "rebuttals": [
+          "A mass becomes an amount only once a molar mass is attached to it. Without one the figure counts nothing.",
+          "Equal masses are equal counts only where the molar masses agree, and two different compounds do not agree.",
+          "Charges in a formula balance to zero overall, so two single positives against one other ion fixes that ion at two negative.",
+          "A percentage by mass gives the ratio of atoms and says nothing about how many atoms the unit contains."
+        ],
+        "scenarios": [
+          "A consignment note gives a mass in kilograms and names no molar mass.",
+          "Two sealed containers hold the same mass of two different compounds.",
+          "A formula shows two singly charged positive ions for every one of the other ion.",
+          "A supplier sheet gives the percentage by mass of each element and no formula."
+        ],
+        "choices": [
+          "The amount in moles cannot be worked out from it.",
+          "They do not hold the same number of particles.",
+          "The other ion must carry two negative charges.",
+          "It fixes the ratio of atoms and not the size of the unit."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "columns": [
+          "What the record shows",
+          "What it actually fixes"
+        ]
+      },
+      "assumes": [
+        "a molar mass is what turns a mass into a number of particles"
+      ],
+      "equations": [
+        {
+          "e": "n = m / M",
+          "c": "moles from a mass and a molar mass",
+          "v": [
+            [
+              "n",
+              "number of moles, in mol"
+            ],
+            [
+              "m",
+              "mass of the sample, in grams"
+            ],
+            [
+              "M",
+              "molar mass of the substance, in grams per mole"
+            ]
+          ],
+          "s": "Divide a weighed mass by the mass of one mole to get how many moles you are holding."
+        }
+      ],
+      "concept": {
+        "n": 1,
+        "c": "The mole as a count, and molar mass as the bridge to a mass",
+        "of": 30
+      }
+    },
+    {
+      "day": 9,
+      "title": "From damaged container to provisional identity — Review",
+      "scene": "A sealed rail tanker recovered from the wharf is standing in the yard, still under pressure. Nils Sørensen, who has fire command, has a two-hour window with a crew before it is moved, and nothing has been opened yet.",
+      "takeaway": "Spend the reversible observations first, because the irreversible one is worth more once you know what to ask it.",
+      "place": "Container Yard",
+      "guide": "Every one of these four can be done in the next hour, so nothing here is a clock. What separates them is what remains possible afterwards. Ask of each step what it spends — paperwork, the vapour space, a little liquid, or the sample itself. The gauge line is already fitted, so reading the vapour space breaches nothing. A step that ends the sample answers best and answers once, which puts it somewhere very particular in the order.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it."
+      ],
+      "story": "A sealed rail tanker recovered from the wharf is standing in the yard, still under pressure. Nils Sørensen, who has fire command, has a two-hour window with a crew before it is moved, and nothing has been opened yet.",
+      "game": {
+        "type": "SEQUENCE",
+        "title": "From damaged container to provisional identity — Review",
+        "setup": "Order the work on a tanker nobody has opened.",
+        "play": "Order the four steps on a sealed tanker by what each one costs you.",
+        "task": "Order the four steps on a sealed tanker by what each one costs you.",
+        "question": "Order the four steps on a sealed tanker by what each one costs you.",
+        "answer": "Record the plate, the placards and the seal numbers. → Read pressure and temperature at the vapour space. → Draw a small liquid sample and run a spectrum. → Commit part of that sample to a combustion analysis.",
+        "why": "The order is set by what each step spends rather than by when it can be done. The plate and the seals are paperwork, and they survive only until the tanker is moved. Pressure and temperature at the vapour space come off a line already fitted, so they cost no liquid and can be read again. A spectrum uses an aliquot and hands it back. The combustion analysis answers best and answers once, which makes it the last thing you spend.",
+        "rebuttals": [
+          "The plate and the seals go first. They cost nothing and they stop existing the moment the tanker is moved.",
+          "The vapour space second: the gauge line is already fitted, so pressure and temperature come off it without breaching anything.",
+          "A spectrum third. It borrows an aliquot and returns it, so a mistake here costs no material.",
+          "The combustion analysis last. It answers best and it answers once, which makes it what you spend when you know the question."
+        ],
+        "cards": [
+          "Record the plate, the placards and the seal numbers, which consumes nothing.",
+          "Read pressure and temperature at the vapour space off the gauge line already fitted.",
+          "Draw a small liquid sample through the sampling valve and run a spectrum that hands it back.",
+          "Commit part of that sample to a combustion analysis that destroys it."
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "axis": "Order the four by what each one costs you, cheapest first. Every step is available in the next hour, so this is not a clock.",
+        "ends": [
+          "Costs nothing",
+          "Cannot be undone"
+        ]
+      },
+      "assumes": [
+        "some measurements leave the sample as they found it and some use it up"
+      ],
+      "equations": [
+        {
+          "e": "C₁V₁ = C₂V₂",
+          "c": "dilution, and carrying a factor back",
+          "v": [
+            [
+              "C₁",
+              "concentration before dilution"
+            ],
+            [
+              "V₁",
+              "volume taken of the stronger solution"
+            ],
+            [
+              "C₂",
+              "concentration after dilution"
+            ],
+            [
+              "V₂",
+              "final volume, in the same units as V₁"
+            ]
+          ],
+          "s": "Diluting adds solvent and not solute, so the product of concentration and volume is unchanged."
+        },
+        {
+          "e": "yield % = actual / theoretical × 100",
+          "c": "percent yield",
+          "v": [
+            [
+              "actual",
+              "what was recovered, in grams or moles"
+            ],
+            [
+              "theoretical",
+              "what the mole ratio says was available"
+            ]
+          ],
+          "s": "Divide what you got by what the balanced equation entitled you to, and the gap is the question."
+        }
+      ],
+      "concept": {
+        "n": 8,
+        "c": "The ideal gas law, and a headspace that tells you what is dissolved",
+        "of": 30
+      }
     }
   ],
   "GASES": [
     {
       "day": 1,
       "title": "How much volume can the gas occupy?",
-      "scene": "At the command trailer, a colourless plume is moving toward two neighbourhoods. Police are holding the evacuation roads open while the wind shifts. The release inventory is finally known, and the incident commander wants the gas scale before moving the roadblocks.",
+      "scene": "At the command trailer, a colourless plume is moving toward two neighbourhoods. The evacuation coordinator, Simran Kaur, is holding the roads open while the wind shifts. The release inventory is finally known, and the incident commander wants the gas scale before the roadblocks move.",
       "takeaway": "Simple gas laws provide scale while atmospheric transport determines exposure.",
       "place": "Mobile Weather Station",
       "guide": "Six numbers, and two of them describe conditions the release is not at. One is the molar volume at standard temperature and pressure. One is zero Celsius in kelvin. The relationship is written for ambient conditions, so every term has to be the ambient one. A volume computed at the wrong conditions still looks like a volume. Roadblocks get moved on it.",
@@ -675,7 +851,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Interpret plume behavior",
-      "scene": "The weather station shows rising temperature, falling pressure and a strengthening afternoon wind while the plume is still moving. Ground crews also report vapour pooling in a low drainage channel on the downwind side of the freight yard.",
+      "scene": "The weather station shows rising temperature, falling pressure and a strengthening afternoon wind. The plume is still moving. Lindqvist, the dispersion modeller, has ground crews reporting vapour pooling in a low drainage channel downwind of the freight yard.",
       "takeaway": "A plume is a coupled thermodynamic and transport problem.",
       "place": "Gas Properties Lab",
       "guide": "Two different physics run at once here, and the four situations do not all belong to one. Some change what a fixed amount of gas occupies. Others change where the parcel goes. Ask which of the two each one acts on before pairing it. Read a transport change as a gas-law change and the corridor is drawn from the wrong physics. The vapour is pooling in a drainage channel.",
@@ -783,7 +959,7 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Why the drum is worse in the afternoon",
-      "scene": "The same open drum reads three times the vapour concentration at two in the afternoon as it did at six in the morning. Nothing has been added to it and nothing has been taken out.",
+      "scene": "The same open drum reads three times the vapour concentration at two in the afternoon as it did at six in the morning. Nothing has been added to it and nothing taken out, and Varga wants the reading explained before the next briefing.",
       "takeaway": "How much of a liquid is in the air above it depends steeply on how warm it is.",
       "place": "Atmospheric Monitoring Post",
       "guide": "All four options would explain a rising reading, and they differ in what has changed. One changes the liquid, one changes the instrument, one changes the amount, and one changes only the partition between liquid and air. Nothing was added and nothing was removed, which is the fact that does the work. Getting this wrong sets an exposure limit from a dawn reading and clears a site that is worse by mid-afternoon.",
@@ -792,7 +968,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "The same open drum reads three times the vapour concentration at two in the afternoon as it did at six in the morning. Nothing has been added to it and nothing has been taken out.",
+      "story": "The same open drum reads three times the vapour concentration at two in the afternoon as it did at six in the morning. Nothing has been added to it and nothing taken out, and Varga wants the reading explained before the next briefing.",
       "game": {
         "type": "CHOICE",
         "title": "Why the drum is worse in the afternoon",
@@ -830,7 +1006,7 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Build a secondary-pollutant pathway",
-      "scene": "The primary vapour is falling after the source was sealed, but a different compound is rising at the neighbourhood monitor each afternoon. Sunlight, oxidant measurements and wind data from the same period are posted beside the chemical traces.",
+      "scene": "The primary vapour is falling now the source is sealed. A different compound is rising at Varga's neighbourhood monitor each afternoon. Sunlight, oxidant measurements and wind data from the same period are posted beside the chemical traces.",
       "takeaway": "Exposure can peak after the original emission begins to decline.",
       "place": "Atmospheric Monitoring Station",
       "guide": "These four are a chain, and each step makes what the next one needs. Ask what has to be present before each card can happen. Radicals cannot attack anything before something creates them. Nothing can be transported before it exists. The primary vapour is falling while a different compound rises each afternoon. The order of this chain tells the monitoring team which compounds to add.",
@@ -880,7 +1056,7 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Read the day-night pattern",
-      "scene": "The source has been sealed, but the afternoon monitor is climbing again. The shelter notice expires today unless the health desk renews it. Two stations have run through a full day, and their traces do not look like a plume drifting away.",
+      "scene": "The source has been sealed, but the afternoon monitor is climbing again. Delacroix, who runs the neighbourhood health desk, must renew the shelter notice today. Two stations have run a full day, and their traces do not look like a plume drifting away.",
       "takeaway": "Atmospheric chemistry must be inferred from coordinated chemical and weather patterns.",
       "place": "Photochemistry Lab",
       "guide": "Six readings, and the inert tracer and the shared inlet material are there to rule two candidates out. Compare the whole day at both stations rather than the afternoon at one. A plume that drifted back carries its own tracer with it; an inlet artefact appears at both monitors together. A compound made in the air has a shape: it rises with the sun, lags the maximum, and falls overnight.",
@@ -1120,7 +1296,7 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Monitor the transformed plume",
-      "scene": "Residents want to come home. The released compound is down to 3 parts per billion at both monitors. Total oxidant is up fourfold since Tuesday, and afternoon readings remain highest even though the source has been sealed for six days.",
+      "scene": "Abara, who chairs the riverfront resident association, wants people home. The released compound is down to 3 parts per billion at both monitors. Total oxidant is up fourfold since Tuesday, and afternoon readings remain highest even though the source has been sealed for six days.",
       "takeaway": "When chemistry transforms a released compound, monitoring must follow the exposure product rather than only the original source or its drivers.",
       "place": "Neighborhood Health Desk",
       "guide": "Two channels can be added this week, and residents want to come home. Open each measurement and ask whether its result could change that decision. The released compound is already low at both monitors, so more of the same measurement cannot move anything. Buy the channels that can.",
@@ -1184,13 +1360,60 @@ export const CURRICULUM = {
         "a monitoring network only detects the compounds it is configured to measure",
         "chemical drivers can explain exposure without being the exposure themselves"
       ]
+    },
+    {
+      "day": 7,
+      "title": "Why the drum is worse in the afternoon — Review",
+      "scene": "A sealed vial, half full of the liquid from the yard drum, spent the afternoon in a van that reached forty degrees. The dispersion modeller, Erik Lindqvist, wants the vapour figure explained before he puts it into a model.",
+      "takeaway": "A balance that has settled is still running in both directions, and where it settles moves with the conditions.",
+      "place": "Gas Properties Lab",
+      "guide": "All four options describe the same warmed vial and they disagree about whether anything is still going on inside it. One has the process finished, one has it running away, one has it frozen at capping, and one has it balanced and able to move. Nothing entered the vial and nothing left it, so the only thing that can have changed is where the liquid and the vapour divide. A model fed the wrong reading puts the corridor in the wrong street.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit, so the key used to be the longest option far more often than chance. It is now checked per game as a binomial tail, and length has had the signal taken out of it deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the approximation is what is being tested."
+      ],
+      "story": "A sealed vial, half full of the liquid from the yard drum, spent the afternoon in a van that reached forty degrees. The dispersion modeller, Erik Lindqvist, wants the vapour figure explained before he puts it into a model.",
+      "game": {
+        "type": "CHOICE",
+        "title": "Why the drum is worse in the afternoon — Review",
+        "setup": "Nothing entered the vial and nothing left it.",
+        "play": "Say what is happening above the liquid in a sealed vial that has been warmed.",
+        "task": "Say what is happening above the liquid in a sealed vial that has been warmed.",
+        "question": "The vial is sealed and nothing has been added to it. What is going on above the liquid at forty degrees?",
+        "answer": "Molecules leave and return at equal rates, and the balance sits higher when it is warm.",
+        "why": "Equilibrium is not the process stopping. Molecules keep leaving the liquid and keep arriving back from the vapour, and equilibrium is the point where those two rates match. Warming the liquid speeds departures far more than it speeds returns, so the balance re-establishes itself with more molecules in the gas. Capping the vial fixed how much matter is inside and left that split free to move. This is why a vapour figure has to carry the temperature it was measured at.",
+        "rebuttals": [
+          "A filled space is what this equilibrium looks like, and where it sits depends on the temperature.",
+          "A sealed vial reaches a balance and holds there. The liquid does not disappear into a space that is already full.",
+          "Capping fixed the amount of matter inside the vial, not the division of it between liquid and vapour."
+        ],
+        "choices": [
+          "Molecules leave and return at equal rates, and the balance sits higher when it is warm.",
+          "Evaporation stopped as soon as the space above the liquid filled up, so warming the vial afterwards changes nothing at all.",
+          "The liquid goes on evaporating until the vial is dry, since a sealed container gives the vapour nowhere to escape to.",
+          "The balance was fixed at the moment the vial was capped, so the vapour is whatever it was at loading."
+        ],
+        "correctChoice": "Molecules leave and return at equal rates, and the balance sits higher when it is warm."
+      },
+      "assumes": [
+        "a liquid and its vapour sit in equilibrium at a temperature"
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Dynamic equilibrium: both directions still running",
+        "of": 30,
+        "rests": [
+          "A balanced equation as a ratio of amounts"
+        ]
+      }
     }
   ],
   "WATER": [
     {
       "day": 1,
       "title": "Where will the chemical go?",
-      "scene": "Runoff from the accident has reached the river. If you predict the wrong phase you will sample the wrong thing, and a clean water result will be read by the city as an all-clear.",
+      "scene": "Runoff from the accident has reached the river and Ferreira is on the bank waiting on a sampling plan. If you predict the wrong phase you will sample the wrong thing, and a clean water result will be read by the city as an all-clear.",
       "takeaway": "The absence of a chemical from water does not mean it has disappeared.",
       "place": "River Sampling Boat",
       "guide": "The left column is four molecular structures and the right column is four places a chemical can end up. Pair them by asking what water can do for that structure: hydrate an ion, hydrogen-bond a polar molecule, or refuse a non-polar one. A compound that avoids water sits on the particles instead. Sample the wrong phase and a clean water result gets read by the city as an all-clear.",
@@ -1253,7 +1476,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "What the sulphate leaves in solution",
-      "scene": "The dissolved metal is over the discharge limit and the cheapest lever is the sulphate already coming off the flue-gas scrubber. Priya Raman has the solubility product for the sulphate salt and wants the metal left in solution once the sulphate is raised to 0.020 molar.",
+      "scene": "The dissolved metal is over the discharge limit and the cheapest lever is the sulphate already coming off the flue-gas scrubber. Osei has the solubility product for the sulphate salt and wants the metal left in solution once the sulphate is raised to 0.020 molar.",
       "takeaway": "A saturated solution holds a fixed ion product, so raising one ion forces the other down.",
       "place": "Water and Sediment Laboratory",
       "guide": "A saturated solution holds its two ions at a fixed product, whatever route they arrived by. So if you raise one of them deliberately, the other has to fall until the product is back to the solubility product — that is the whole of the common-ion effect. Divide the solubility product by the sulphate concentration you are dosing to, and what comes out is the metal concentration left behind.",
@@ -1262,7 +1485,7 @@ export const CURRICULUM = {
         "What this buys over adding more of the treatment reagent. Nothing has to be bought. The scrubber liquor is already sulphate-rich and is currently being neutralised and discharged, so the lever is a pipe rather than a purchase. That is the argument the day is about.",
         "Where it stops working. Driving the metal down needs the sulphate up, and sulphate has a discharge limit of its own. There is a concentration beyond which the fix trades one exceedance for another, and finding it is arithmetic rather than judgement."
       ],
-      "story": "The dissolved metal is over the discharge limit and the cheapest lever is the sulphate already coming off the flue-gas scrubber. Priya Raman has the solubility product for the sulphate salt and wants the metal left in solution once the sulphate is raised to 0.020 molar.",
+      "story": "The dissolved metal is over the discharge limit and the cheapest lever is the sulphate already coming off the flue-gas scrubber. Osei has the solubility product for the sulphate salt and wants the metal left in solution once the sulphate is raised to 0.020 molar.",
       "game": {
         "type": "BALLPARK",
         "title": "What the sulphate leaves in solution",
@@ -1324,7 +1547,7 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Spend the river survey budget",
-      "scene": "The survey has 20 samples in the budget. The compound is sparingly soluble, and the river runs 900 metres from the release to the intake. Two grab samples taken so far disagree by a factor of six.",
+      "scene": "The survey has 20 samples in the budget. The compound is sparingly soluble, and the river runs 900 metres from the release to the intake. The sediment analyst, Camila Ibarra, has two grab samples that disagree by a factor of six.",
       "takeaway": "A sampling plan is a set of questions it can answer, and every bottle spent on one question is unavailable to another.",
       "place": "Sediment Analysis Room",
       "guide": "Twenty bottles is the whole survey. Each package you select spends some of them, and the panel shows which river questions your current plan can answer. Watch that list rather than the map. Two grab samples already disagree by a factor of six, so a plan that cannot explain why is a plan that will be argued with.",
@@ -1418,7 +1641,7 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "What the pH meter is actually reporting",
-      "scene": "The intake is reading acid and the operator wants to know how far from neutral it actually is. Raman has the hydrogen ion concentration off the electrode at 4.0 × 10⁻⁴ molar and a consent written, as consents are, in pH.",
+      "scene": "The intake is reading acid and the operator wants to know how far from neutral it actually is. Ferreira has the hydrogen ion concentration off the electrode at 4.0 × 10⁻⁴ molar and a consent written, as consents are, in pH.",
       "takeaway": "pH is a logarithm, so one unit is a tenfold change in hydrogen ion concentration.",
       "place": "Water Intake Laboratory",
       "guide": "pH is not a different measurement from hydrogen ion concentration — it is that concentration written as a logarithm, so the scale runs backwards and each step of one is a factor of ten. Take the negative log of the concentration in moles per litre. Then look at how far the answer sits from the consent, and remember what one unit means before deciding whether it is close.",
@@ -1427,7 +1650,7 @@ export const CURRICULUM = {
         "What neutral actually means. At 25 °C water's own ionisation fixes the product of hydrogen and hydroxide at 1.0 × 10⁻¹⁴, so neutral is 1.0 × 10⁻⁷ molar in each and pH 7.00. That number comes from a temperature-dependent constant, which is why a hot sample's neutral point is not 7.00 and why the electrode was calibrated yesterday against a known buffer.",
         "Why the dosing decision needs the log and not the concentration. Neutralising is a molar business — moles of base against moles of acid — so the concentration is what sizes the dose. The pH is what the consent is written in. Both are needed, and confusing which is which is how a plant doses ten times too much."
       ],
-      "story": "The intake is reading acid and the operator wants to know how far from neutral it actually is. Raman has the hydrogen ion concentration off the electrode at 4.0 × 10⁻⁴ molar and a consent written, as consents are, in pH.",
+      "story": "The intake is reading acid and the operator wants to know how far from neutral it actually is. Ferreira has the hydrogen ion concentration off the electrode at 4.0 × 10⁻⁴ molar and a consent written, as consents are, in pH.",
       "game": {
         "type": "BALLPARK",
         "title": "What the pH meter is actually reporting",
@@ -1497,7 +1720,7 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Read the titration curve",
-      "scene": "A trial dose calculated from the intake pH overshot badly. The bench titration is now beside a strong-acid reference curve. Fresh pH 4 and pH 7 calibration checks from the same electrode are also on the screen.",
+      "scene": "A trial dose calculated from the intake pH overshot badly. The bench titration is now beside a strong-acid reference curve. Nakamura has put fresh pH 4 and pH 7 calibration checks from the same electrode on the screen.",
       "takeaway": "Titration is both a quantitative method and a diagnostic fingerprint.",
       "place": "Acid-Base Bench",
       "guide": "Six readings, and two of them exist to rule things out: the fresh calibration checks and the strong-acid reference at the same pH. Compare the shape of the trial curve against that reference before choosing. A long plateau and an equivalence point above neutral are both features a strong acid does not have. The trial dose overshot, which means whatever explains the curve also has to explain a demand the starting pH never showed.",
@@ -1796,7 +2019,7 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Control pH without overshoot",
-      "scene": "The base pump is primed and operators are waiting to open the valve. Intake water is at pH 4.8, the cast-iron line is corroding, and every pump change appears 1 sampling interval later on the mixed-tank electrode.",
+      "scene": "The base pump is primed and operators are waiting to open the valve. Intake water is at pH 4.8, Novák's cast-iron line is corroding, and every pump change appears 1 sampling interval later on the mixed-tank electrode.",
       "takeaway": "When a process has delay, a control threshold must be set before the final limit because the system keeps moving while the action takes effect.",
       "place": "Treatment Control Room",
       "guide": "One rule, written before the run and fixed the moment you release it. The base feed is pushing the tank up, and anything past pH 7.5 breaches consent from the other side. The catch is delay: a pump command shows on the mixed-tank electrode one reading later, so the tank goes on climbing after the feed is off. Put the line back from 7.5 by that one reading of travel — and not so far back that it fires on water which has shown nothing yet.",
@@ -1983,7 +2206,7 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "From condition change to new equilibrium",
-      "scene": "After the pH adjustment the dissolved concentration has fallen and the sediment concentration has risen. Reading only the water is how a reservoir gets declared clean while the contaminant settles to the bottom of it.",
+      "scene": "After the pH adjustment the dissolved concentration has fallen and the sediment concentration has risen. Stavros is the only person still asking about it. Reading only the water is how a reservoir gets declared clean while the contaminant settles to the bottom of it.",
       "takeaway": "A lower dissolved concentration may mean phase transfer, not removal from the system.",
       "place": "Reservoir Sampling Dock",
       "guide": "Each of these four needs something the others supply. Ask what each one cannot be done without. An equilibrium expression cannot be written for chemistry nobody has named. Changing a condition means nothing until the model balances mass. And the last card is the one this stop turns on: a prediction nobody measured against is not a prediction.",
@@ -2043,7 +2266,7 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Interpret the shift",
-      "scene": "The settling tank was dosed overnight and the operator wants to know whether more solid will come out or whether what is there will redissolve. Raman has the two ion concentrations off the morning sample and the solubility product on the sheet.",
+      "scene": "The settling tank was dosed overnight and the operator wants to know whether more solid will come out or whether what is there will redissolve. Ferreira has the two ion concentrations off the morning sample and the solubility product on the sheet.",
       "takeaway": "The quotient is built from what you have; comparing it with K gives the direction.",
       "place": "Equilibrium Chemistry Group",
       "guide": "Build the same product the solubility constant is a value of, but out of the concentrations you actually have. That number is the reaction quotient. If it is below the constant the solution is not yet saturated and solid will dissolve; if it is above, solid comes out until the two agree; if they are equal nothing moves. Compute the quotient and compare.",
@@ -2052,7 +2275,7 @@ export const CURRICULUM = {
         "What equal means. Not that the reaction has stopped. Both directions are still running at the same rate, which is why a tank at equilibrium redissolves solid the moment the water above it is changed. That is the difference between finished and balanced.",
         "Why the operator's question is the right one. Solid already on the floor of the tank is an asset if it stays there and a liability if it goes back into solution before the water is discharged. The quotient decides which, and the dosing overnight moved it."
       ],
-      "story": "The settling tank was dosed overnight and the operator wants to know whether more solid will come out or whether what is there will redissolve. Raman has the two ion concentrations off the morning sample and the solubility product on the sheet.",
+      "story": "The settling tank was dosed overnight and the operator wants to know whether more solid will come out or whether what is there will redissolve. Ferreira has the two ion concentrations off the morning sample and the solubility product on the sheet.",
       "game": {
         "type": "BALLPARK",
         "title": "Interpret the shift",
@@ -2129,7 +2352,7 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "Predict how much of the weak acid is ionised",
-      "scene": "The organic acid in the sediment porewater is present at 0.050 molar and the electrode reads pH 3.10. Raman needs its dissociation constant, because the treatment plan turns on whether it behaves as an acid at the pH the river runs at.",
+      "scene": "The organic acid in the sediment porewater is present at 0.050 molar and the electrode reads pH 3.10. Ibarra needs its dissociation constant, because the treatment plan turns on whether it behaves as an acid at the pH the river runs at.",
       "takeaway": "A weak acid sits at an equilibrium, and its constant predicts behaviour at any concentration.",
       "place": "Water and Sediment Laboratory",
       "guide": "A weak acid sits at an equilibrium rather than dissociating completely, and the constant that describes it is built from the three concentrations at that equilibrium. The pH gives you the hydrogen ion concentration; in a simple weak acid the conjugate base is present in the same amount, and what is left undissociated is very nearly the amount you started with. Assemble the constant from those three.",
@@ -2138,7 +2361,7 @@ export const CURRICULUM = {
         "What the constant is for. It is a property of the acid rather than of this sample, so once it is measured here it predicts behaviour at any concentration and any pH. That is the whole value of doing the arithmetic instead of just recording a pH.",
         "Why the treatment plan needs it. An acid whose pKa is well below the river's pH is almost entirely dissociated in the river, which changes what it binds to, how it moves through sediment and whether activated carbon holds it at all. The pH of the sample tells you about the sample; the constant tells you about the river."
       ],
-      "story": "The organic acid in the sediment porewater is present at 0.050 molar and the electrode reads pH 3.10. Raman needs its dissociation constant, because the treatment plan turns on whether it behaves as an acid at the pH the river runs at.",
+      "story": "The organic acid in the sediment porewater is present at 0.050 molar and the electrode reads pH 3.10. Ibarra needs its dissociation constant, because the treatment plan turns on whether it behaves as an acid at the pH the river runs at.",
       "game": {
         "type": "BALLPARK",
         "title": "Predict how much of the weak acid is ionised",
@@ -2223,7 +2446,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Undo the dilution",
-      "scene": "The instrument reports what was in the vial, not what was in the river. City leaders are comparing your number against a threshold and closing or opening a water system with it.",
+      "scene": "The instrument reports what was in the vial, not what was in the river. Reyes is holding your number against a legal threshold and closing or opening a water system with it, one system at a time.",
       "takeaway": "Sample preparation is part of the quantitative result.",
       "place": "Quantitative Analysis Lab",
       "guide": "Five numbers, and two of them belong to different questions: a detection limit and the volume of the bottle. Two others are the volumes before and after the dilution, and only their ratio matters. Ask of each number whether it describes the vial, the river, or the method. A dilution not carried back understates the river tenfold, and nothing about the reported number says it was diluted.",
@@ -2310,7 +2533,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Protect the calibration",
-      "scene": "An instrument will return a number for almost anything you put in front of it. The panel in front of you has everything needed to decide whether this reading can be defended.",
+      "scene": "An instrument will return a number for almost anything you put in front of it. The calibration technician, Dana Whitfield, has left the bench panel with everything needed to decide whether this reading can be defended.",
       "takeaway": "A measurement outside its calibrated range becomes defensible only after a controlled change moves it into-range and the predicted response is verified.",
       "place": "River Mapping Center",
       "guide": "Lock the absorbance you expect after a one-to-one dilution before you make it. Then make the dilution and read what the instrument returns. The last step costs a verification slot, and spending it is the point. An instrument returns a number for almost anything, and only the comparison says whether this one can be defended.",
@@ -2539,7 +2762,7 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "What the bench is running now",
-      "scene": "Samples queue on the bench all day. The laboratory manager holds one priority, and changes it as the incident does — after the river result, after the schools ask, after the hold times start expiring.",
+      "scene": "Samples queue on the bench all day. Nakamura holds one priority, and changes it as the incident does — after the river result, after the schools ask, after the hold times start expiring.",
       "takeaway": "The cost of a withdrawn instruction is paid by whoever is still working to it.",
       "place": "Analytical Laboratory",
       "guide": "Run the samples the current priority wants and leave the rest queued. The priority on the bench card is changed during the day and nobody announces it. What is scored is the samples either side of a change, because they are the only ones that show whether the bench is reading the card.",
@@ -2547,7 +2770,7 @@ export const CURRICULUM = {
         "Why a laboratory priority changes. Early it is whatever the incident commander is waiting on. Then it is whatever is closest to a hold time, because a sample analysed after its hold time is not a result. Then it is whatever a decision is actually waiting on, which is rarely the same list.",
         "Why the changeover costs. A bench working to the old priority for another twenty minutes spends its one clean instrument on a sample nobody is waiting for, and the sample that was waiting expires quietly in the fridge."
       ],
-      "story": "Samples queue on the bench all day. The laboratory manager holds one priority, and changes it as the incident does — after the river result, after the schools ask, after the hold times start expiring.",
+      "story": "Samples queue on the bench all day. Nakamura holds one priority, and changes it as the incident does — after the river result, after the schools ask, after the hold times start expiring.",
       "game": {
         "type": "SPOT",
         "title": "What the bench is running now",
@@ -2652,7 +2875,7 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Reading a mass spectrum",
-      "scene": "Two candidate compounds fit the chromatography peak equally well. Their proposed formulas differ by one oxygen atom, and the mass spectrometer has already measured the ion from that same fraction. The review board wants the tie broken before release paperwork is signed.",
+      "scene": "Two candidate compounds fit the chromatography peak equally well. Their proposed formulas differ by one oxygen atom, and Kowalski, who keeps the reference library, has the ion from that fraction already measured. The review board wants the tie broken before release paperwork is signed.",
       "takeaway": "A mass spectrum measures mass-to-charge, which distinguishes formulas that other methods cannot.",
       "place": "Quantitative Analysis Suite",
       "guide": "The two candidates differ by one oxygen, so the question is which measurement responds to that difference. Sort the options by what each one actually measures: how fast something travels, how much of it there is, or what it weighs. Retention time and peak area are both real numbers about the wrong property. Release paperwork gets signed on this identification, and one atom is the whole of the difference.",
@@ -2661,7 +2884,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Two candidate compounds fit the chromatography peak equally well. Their proposed formulas differ by one oxygen atom, and the mass spectrometer has already measured the ion from that same fraction. The review board wants the tie broken before release paperwork is signed.",
+      "story": "Two candidate compounds fit the chromatography peak equally well. Their proposed formulas differ by one oxygen atom, and Kowalski, who keeps the reference library, has the ion from that fraction already measured. The review board wants the tie broken before release paperwork is signed.",
       "game": {
         "type": "CHOICE",
         "title": "Reading a mass spectrum",
@@ -2699,7 +2922,7 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Close the verification gaps",
-      "scene": "A number can be perfectly valid and still fail to answer the question that was asked. The distribution network is about to be brought back up to pressure on the strength of this evidence package.",
+      "scene": "A number can be perfectly valid and still fail to answer the question that was asked. Nakamura has the evidence package open, and the distribution network is about to be brought back up to pressure on the strength of it.",
       "takeaway": "A compliant number is meaningful only if the sampling and method address the actual decision.",
       "place": "Water Distribution Network",
       "guide": "The left column is four separate weak points in a verification package. Each has its own remedy. Pair them by asking what specifically was not tested. Sampling only the plant leaves the endpoints untested. Sampling after long flushing measures water nobody receives. A detection limit above the release limit cannot test the standard at all. The network goes back up to pressure on this evidence.",
@@ -2762,7 +2985,7 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Approve, condition, or hold",
-      "scene": "Distribution pumps are idle while the board meets. The verification result is 9 units against a limit of 10, plus or minus 2. Operators are waiting at the valves, and the city has already been given two different reopening times.",
+      "scene": "Distribution pumps are idle while the board meets and Reyes waits on a signature. The verification result is 9 units against a limit of 10, plus or minus 2. Operators are at the valves, and the city has been given two different reopening times.",
       "takeaway": "Changing a best estimate and reducing uncertainty are different operations; a boundary decision depends on where the full supported range lies.",
       "place": "Independent Review Board",
       "guide": "The band on screen is every result the measurement permits, not the one most likely — nine against a limit of ten, give or take two, so part of it is over the limit. Two pieces of follow-up work are available, and each does something different to the band: watch what happens to its middle and to its width separately. Apply what you would authorise, then say whether the release criterion is met.",
@@ -2829,7 +3052,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "From identity to reaction estimate",
-      "scene": "At the tunnel entrance, two drainage streams may be meeting behind a closed access door. A repair crew is waiting at the barricade, and the storm bypass remains shut. The laboratory has analyses from both drains but no reaction estimate yet.",
+      "scene": "At the tunnel entrance, two drainage streams may be meeting behind a closed access door. Oyelaran has a repair crew waiting at the barricade and the storm bypass shut. The laboratory has analyses from both drains but no reaction estimate yet.",
       "takeaway": "Stoichiometry is a conditional prediction based on a specified reaction.",
       "place": "Sewer Monitoring Station",
       "guide": "These four are not four independent tasks. Each needs the output of another. Ask of each card what it requires before it can be done at all. Coefficients cannot be used until the equation is balanced. Masses cannot be compared until they are moles. A prediction is worth making only once there is a measurement to compare it against. A repair crew is at the barricade.",
@@ -2903,7 +3126,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Which reactant limits?",
-      "scene": "A reaction takes two moles of A for every mole of B, and both are arriving in the tunnel in amounts nobody chose. Closed-space entry decisions are being made from this number.",
+      "scene": "A reaction takes two moles of A for every mole of B, and both are arriving in the tunnel in amounts nobody chose. The reactions and energy lead, Tomas Brandt, is making closed-space entry decisions from this number.",
       "takeaway": "Stoichiometric limits are set in moles, and percent yield compares what was recovered with that theoretical limit.",
       "place": "Stoichiometry Lab",
       "guide": "Four numbers, and one of them is the two reactant amounts added together. Another is the reaction's own ratio rather than a quantity of anything. A balanced equation compares particles, so amounts have to be in moles before the ratio can be applied. Adding two reactants gives a number that no stoichiometry uses, and closed-space entry decisions are being made from whichever number comes out.",
@@ -2981,7 +3204,7 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Heat release is not the spontaneity test",
-      "scene": "A clean-up reagent is staged beside the tunnel, but the tank test has shown no product after 6 days at 18 °C. Its measured ΔH and ΔS are on the clipboard. Operations wants to know whether the chemistry is impossible or simply slow.",
+      "scene": "A clean-up reagent is staged beside the tunnel, but the tank test showed no product after 6 days at 18 °C. Its ΔH and ΔS are on the clipboard. The reaction-rate researcher, Léa Moreau, asks whether the chemistry is impossible or simply slow.",
       "takeaway": "Free energy sets thermodynamic favorability; activation barriers set how quickly a favorable reaction proceeds.",
       "place": "Reactions and Energy Bay",
       "guide": "Four numbers, and two of them are the same temperature written in different scales. The relationship needs an absolute temperature, so degrees Celsius put straight into it is not a small error but a different quantity. Note what the answer does and does not settle: a favourable sign says the reaction can go, not that it will go this week. The tank has had six days and shows nothing.",
@@ -2990,7 +3213,7 @@ export const CURRICULUM = {
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "A clean-up reagent is staged beside the tunnel, but the tank test has shown no product after 6 days at 18 °C. Its measured ΔH and ΔS are on the clipboard. Operations wants to know whether the chemistry is impossible or simply slow.",
+      "story": "A clean-up reagent is staged beside the tunnel, but the tank test showed no product after 6 days at 18 °C. Its ΔH and ΔS are on the clipboard. The reaction-rate researcher, Léa Moreau, asks whether the chemistry is impossible or simply slow.",
       "game": {
         "type": "BALLPARK",
         "title": "Heat release is not the spontaneity test",
@@ -3061,7 +3284,7 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "How much energy raises the temperature?",
-      "scene": "The visible fire has been out for two hours, but the containment bath beside the damaged storage bay is still warming. Fire Command wants the size of the stored heat load before deciding whether the cooling equipment on site is adequate.",
+      "scene": "The visible fire has been out for two hours, but the containment bath beside the damaged storage bay is still warming. Sørensen wants the size of the stored heat load before deciding whether the cooling equipment on site is adequate.",
       "takeaway": "Temperature becomes meaningful when connected to mass and heat capacity.",
       "place": "Thermal Camera Team",
       "guide": "Five numbers, and two of them belong elsewhere: one to a change of phase, one to the surrounding air. Ask of each whether it describes the mass, the material, or the change. Latent heat answers a different question and is much the largest number here. A small warming across a large thermal mass is a great deal of energy. Fire Command is sizing cooling equipment from the answer.",
@@ -3136,7 +3359,7 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Stored heat or continuing reaction?",
-      "scene": "Two storage bays were exposed to the same fire. 90 minutes after cooling stopped, the east bay is cooling while the west bay is warming. West-bay off-gas is increasing, and the hottest point remains fixed at the drum stack.",
+      "scene": "Two storage bays were exposed to the same fire. 90 minutes after cooling stopped, Brandt finds the east bay cooling and the west bay warming. West-bay off-gas is increasing, and the hottest point remains fixed at the drum stack.",
       "takeaway": "Thermal diagnosis requires an energy balance, not a single temperature threshold.",
       "place": "Calorimetry Lab",
       "guide": "Six readings are on the panel and the east bay is the useful one, because it is the same fire with nothing left running. Compare the two bays reading by reading before choosing. A miscalibration moves both bays together; stored heat can only drain toward cooler surroundings. Rising temperature with rising off-gas at one fixed point is a different claim from either, and Fire Command releases the site on this answer.",
@@ -3369,7 +3592,7 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Control the self-heating risk",
-      "scene": "Fire Command wants the site released tonight. Bay 3 has risen from 31 to 44 degrees in 8 hours, the rate of rise is itself increasing, and the mass is 4 tonnes with a two-metre depth.",
+      "scene": "Fire Command wants the site released tonight. Moreau reports Bay 3 has risen from 31 to 44 degrees in 8 hours and the rate of rise is itself increasing. The mass is 4 tonnes at a two-metre depth.",
       "takeaway": "High-consequence thermal systems need detection, understanding, and mitigation.",
       "place": "Fire Command",
       "guide": "All four options are things somebody could require tonight, and three of them are genuinely useful. Ask of each what it would tell you that you do not already know, and how soon. Self-heating is a race between heat made and heat carried away, so only a trend says which side is winning. One reading at the door cannot show a trend, however good the reading is.",
@@ -3464,7 +3687,7 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "What changes the rate?",
-      "scene": "The same treatment mixture is quiet in a cool drum and vigorous in the warmed pilot vessel. On the bench are concentration logs, temperature records and a catalyst trial, all taken from the same batch before scale-up begins.",
+      "scene": "The same treatment mixture is quiet in a cool drum and vigorous in the warmed pilot vessel. Moreau has concentration logs, temperature records and a catalyst trial on the bench, all taken from the same batch before scale-up begins.",
       "takeaway": "A reaction can be favorable yet slow, or fast only after a barrier is lowered.",
       "place": "Kinetics Lab",
       "guide": "The four changes on the left act at three different places. One is the concentration term. One is the fraction of collisions that clear the barrier. One is the height of the barrier itself. Ask which of the three each change touches before pairing it. One of them changes the thermodynamics and leaves the barrier alone. That is the difference between quiet in a drum and vigorous in a warm vessel.",
@@ -3525,7 +3748,7 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Build a runaway feedback loop",
-      "scene": "The pilot vessel showed a sharp temperature rise during one treatment run. Four events from the log are posted on the control-room board. They have been printed out of order, and the engineering team needs the causal sequence reconstructed.",
+      "scene": "The pilot vessel showed a sharp temperature rise during one treatment run. Brandt has posted four events from the log on the control-room board. They have been printed out of order, and the engineering team needs the causal sequence reconstructed.",
       "takeaway": "Runaway risk emerges from coupling reaction rate to imperfect heat removal.",
       "place": "Pilot Treatment Vessel",
       "guide": "These four are one loop, so every card has something before it and something after it. Ask of each what has to be true already for it to happen. Heat has to exist before it can raise a temperature, and a temperature has to rise before a rate constant does. Put the chain in order and a run that looked alarming becomes something a cooling system can be sized against.",
@@ -3611,7 +3834,7 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "Define the safe operating envelope",
-      "scene": "The first full-scale treatment batch is scheduled before dawn. Bench work stopped at 55 °C, the proposed vessel runs at 60 °C, and the cooling jacket tops out at 40 kilowatts. Heat release above 65 °C has never been measured.",
+      "scene": "Osei has the first full-scale treatment batch scheduled before dawn. Bench work stopped at 55 °C, the proposed vessel runs at 60 °C, and the cooling jacket tops out at 40 kilowatts. Heat release above 65 °C has never been measured.",
       "takeaway": "A safe operating choice is one that still satisfies the thermal constraint when a key kinetic assumption is wrong in the dangerous direction.",
       "place": "Process Control Room",
       "guide": "Move the uncertain doubling interval to its pessimistic end before you commit to anything. A plan that survives only at the nominal value is not a plan. The jacket removes 40 kilowatts and no more, bench work stopped at 55 °C, and nothing above 65 °C has ever been measured. Choose the operating plan that still holds at the bad end of the range.",
@@ -3702,13 +3925,81 @@ export const CURRICULUM = {
         "heat generation tracks reaction rate over these compared operating points",
         "a plan is infeasible when heat generation exceeds available cooling"
       ]
+    },
+    {
+      "day": 10,
+      "title": "Which reactant limits? — Review",
+      "scene": "Sixty moles of the spilled acid have reached the sump, and the treatment engineering lead, Kwabena Osei, has forty moles of carbonate on the pallet beside it. The reaction takes one carbonate for every two acid.",
+      "takeaway": "A ratio decides which ingredient is exhausted, and the smaller pile on the bench is not the answer on its own.",
+      "place": "Stoichiometry Lab",
+      "guide": "Two amounts and one ratio, and the ratio is the part that does the work. Turn the question into how much carbonate sixty moles of acid can actually consume, then compare that with what is on the pallet. Two of the options name a reactant and a leftover, so check the leftover as well as the name. Dose from the wrong one and the sump stays acid while a pallet of carbonate is written off.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit, so the key used to be the longest option far more often than chance. It is now checked per game as a binomial tail, and length has had the signal taken out of it deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the approximation is what is being tested."
+      ],
+      "story": "Sixty moles of the spilled acid have reached the sump, and the treatment engineering lead, Kwabena Osei, has forty moles of carbonate on the pallet beside it. The reaction takes one carbonate for every two acid.",
+      "game": {
+        "type": "CHOICE",
+        "title": "Which reactant limits? — Review",
+        "setup": "Two amounts, one ratio, and a sump that has to be neutral by dark.",
+        "play": "Say which reactant is exhausted when the ratio and the amounts disagree.",
+        "task": "Say which reactant is exhausted when the ratio and the amounts disagree.",
+        "question": "Which reactant is exhausted, and what is left over when the reaction stops?",
+        "answer": "The acid runs out first, leaving ten moles of carbonate unreacted.",
+        "why": "Amounts of two reactants cannot be compared until the balanced ratio is applied. A coefficient states how many of one are spent for each one of the other. Two acid for every carbonate means sixty moles of acid can consume thirty moles of carbonate. Forty moles are on the pallet, so ten remain once the acid is gone. The smaller pile is not automatically the limiting one, and dosing on that assumption leaves an untreated sump and a pallet nobody needed.",
+        "rebuttals": [
+          "Having less of something is not the same as running out of it first. The ratio is what decides that.",
+          "The two amounts are not comparable until the ratio is applied, and applied here it leaves a clear surplus.",
+          "That reverses the ratio. Forty moles of carbonate would call for eighty moles of acid, and only sixty arrived."
+        ],
+        "choices": [
+          "The acid runs out first, leaving ten moles of carbonate unreacted.",
+          "The carbonate runs out first, since there is less of it on hand than there is acid.",
+          "Neither is exhausted, because the two amounts are close enough to react away completely.",
+          "The carbonate runs out first, and twenty moles of the acid are left in the sump."
+        ],
+        "correctChoice": "The acid runs out first, leaving ten moles of carbonate unreacted."
+      },
+      "assumes": [
+        "a reaction stops when one ingredient runs out"
+      ],
+      "equations": [
+        {
+          "e": "n = m / M",
+          "c": "moles from a mass and a molar mass",
+          "v": [
+            [
+              "n",
+              "number of moles, in mol"
+            ],
+            [
+              "m",
+              "mass of the sample, in grams"
+            ],
+            [
+              "M",
+              "molar mass of the substance, in grams per mole"
+            ]
+          ],
+          "s": "Divide a weighed mass by the mass of one mole to get how many moles you are holding."
+        }
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Limiting reactant, and which one runs out first",
+        "of": 30,
+        "rests": [
+          "A balanced equation as a ratio of amounts"
+        ]
+      }
     }
   ],
   "TREAT": [
     {
       "day": 1,
       "title": "pH seven, while the plant keeps feeding",
-      "scene": "The neutralisation tank has to sit at pH 7 before anything leaves for the river. Acid liquor arrives from the works in batches, the lime dosing pump is the only control, and the analyser on the outfall reads every few seconds.",
+      "scene": "Osei's neutralisation tank has to sit at pH 7 before anything leaves for the river. Acid liquor arrives from the works in batches, the lime dosing pump is the only control, and the analyser on the outfall reads every few seconds.",
       "takeaway": "A feed you do not answer is not a feed that stops.",
       "place": "Treatment Works",
       "guide": "Hold the tank at pH 7 inside the band on the analyser. The band narrows as the discharge window approaches, because a consent is written on what leaves rather than on what was in the tank an hour ago. The lime pump is your control, and each batch that arrives keeps pushing until the dosing answers it.",
@@ -3717,7 +4008,7 @@ export const CURRICULUM = {
         "Why the buffer decides how twitchy this is. Water with carbonate in it resists change: the same acid batch moves a buffered tank much less. When the buffer is used up the tank stops resisting and moves fast, which is what an operator means by the tank \"going\".",
         "Why a batch is not a step in the reading. Liquor arriving is a rate, and it keeps arriving. A tank left alone does not settle at a new pH — it carries on moving until the dosing is set to match what is coming in."
       ],
-      "story": "The neutralisation tank has to sit at pH 7 before anything leaves for the river. Acid liquor arrives from the works in batches, the lime dosing pump is the only control, and the analyser on the outfall reads every few seconds.",
+      "story": "Osei's neutralisation tank has to sit at pH 7 before anything leaves for the river. Acid liquor arrives from the works in batches, the lime dosing pump is the only control, and the analyser on the outfall reads every few seconds.",
       "game": {
         "type": "HOLD",
         "title": "pH seven, while the plant keeps feeding",
@@ -3797,7 +4088,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Find the anode and cathode",
-      "scene": "The pipeline is losing wall where it crosses the wet ground and two explanations are on the table. Idris Bello has the standard potentials for both half-reactions on the gallery whiteboard and wants to know whether the pair can run without anything driving it.",
+      "scene": "The pipeline is losing wall where it crosses the wet ground and two explanations are on the table. Osei has the standard potentials for both half-reactions on the gallery whiteboard and wants to know whether the pair can run without anything driving it.",
       "takeaway": "A positive cell potential means the couple runs by itself; a negative one means something is driving it.",
       "place": "Pipeline Inspection Gallery",
       "guide": "Two half-reactions make a cell, and which one is the cathode is not a matter of where the corrosion is — it is decided by the potentials. Subtract the anode's standard potential from the cathode's. A positive answer means the pair runs on its own and the metal is being consumed by ordinary electrochemistry; a negative one means something is driving it, and on a pipeline that means stray current from somewhere.",
@@ -3806,7 +4097,7 @@ export const CURRICULUM = {
         "What standard means here. Standard potentials are quoted at unit activity and 25 degrees, and the ground beside the river is neither. The sign is robust to that; the magnitude is not, which is why this arithmetic answers the direction question and not the corrosion rate.",
         "Why the more positive half-reaction is the cathode. It is the one with the greater tendency to be reduced, so it takes the electrons. Naming the anode is then automatic, and it is the electrode that loses metal — which is the sentence to keep hold of when reading the wall thickness survey."
       ],
-      "story": "The pipeline is losing wall where it crosses the wet ground and two explanations are on the table. Idris Bello has the standard potentials for both half-reactions on the gallery whiteboard and wants to know whether the pair can run without anything driving it.",
+      "story": "The pipeline is losing wall where it crosses the wet ground and two explanations are on the table. Osei has the standard potentials for both half-reactions on the gallery whiteboard and wants to know whether the pair can run without anything driving it.",
       "game": {
         "type": "BALLPARK",
         "title": "Find the anode and cathode",
@@ -3865,7 +4156,7 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "How fast can material disappear?",
-      "scene": "A pipe coupon from the intake gallery has lost 2.0 kilograms of steel per year across 4.0 square metres of exposed surface. The steel density is 7,900 kilograms per cubic metre, and the remaining wall is 6 millimetres thick.",
+      "scene": "A pipe coupon from Novák's intake gallery has lost 2.0 kilograms of steel per year across 4.0 square metres of exposed surface. The steel density is 7,900 kilograms per cubic metre, and the remaining wall is 6 millimetres thick.",
       "takeaway": "A corrosion rate becomes a decision only once it is a depth compared against a wall.",
       "place": "Electrochemistry Lab",
       "guide": "Six numbers, and one of them is the density of water rather than of steel. Another is the wall that is left, which belongs to the comparison and not to the rate. Ask of each whether the relationship needs it or the decision does. Notice what a uniform rate cannot see. The same metal loss concentrated into one coating defect perforates far sooner than the average suggests.",
@@ -3898,7 +4189,7 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Protect the pipeline",
-      "scene": "The thinnest section of intake pipe has only 3 millimetres of wall left. Corrosion has accelerated eightfold, and the maintenance chief has cleared the gallery until the first control is chosen. Water is still moving through the line.",
+      "scene": "The thinnest section of intake pipe has only 3 millimetres of wall left. Corrosion has accelerated eightfold, and Novák has cleared the gallery until the first control is chosen. Water is still moving through the line.",
       "takeaway": "Corrosion protection is a designed system of materials, environment, and inspection.",
       "place": "Maintenance Control",
       "guide": "Three of the four options act on a real part of the corrosion circuit. One only moves paper. Ask of each which of the four parts it removes, and whether one small defect can defeat it. The water is still moving and three millimetres of wall are left. So the first control has to break the circuit, not merely slow it down.",
@@ -3937,7 +4228,7 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "What did the treatment actually do?",
-      "scene": "The pilot treatment processed a batch containing 100 kilograms of contaminant. Treated water, sludge and off-gas have each been measured. City officials are waiting to hear whether the process destroyed the material or merely moved it into another reservoir.",
+      "scene": "The pilot treatment processed a batch containing 100 kilograms of contaminant. The byproduct analyst, Rafael Delgado, has measured the treated water, the sludge and the off-gas. City officials are waiting to hear whether the process destroyed the material or moved it into another reservoir.",
       "takeaway": "Removal from one stream is not destruction; a treatment claim must conserve mass across all measured products and reservoirs.",
       "place": "Pilot Treatment Plant",
       "guide": "Read every stream first, because reading costs nothing. Then count only the masses that belong to the same contaminant ledger. The batch went in with 100 kilograms, and treated water, sludge and off-gas have each been measured. Whatever the counted streams do not account for is the missing mass, and that gap is what the destruction claim rests on.",
@@ -4002,7 +4293,7 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Select a treatment train",
-      "scene": "Four unit processes are on the table and the plant wants them in an order. Riverton has one intake and cannot run this experiment twice while the water is off.",
+      "scene": "Four unit processes are on Osei's table and the plant wants them in an order. Riverton has one intake, and it cannot run this experiment twice while the water is off.",
       "takeaway": "A treatment train is ordered by what each stage leaves the next one to work with.",
       "place": "Byproduct Analysis Lab",
       "guide": "These four are not independent machines. Each changes the chemical form that reaches the next. Ask of each card what has to exist before it can do anything at all. Nothing can be settled or filtered until there is a solid. There is no solid until the metal is in the right state at the right pH. Riverton has one intake and cannot run this twice.",
@@ -4079,7 +4370,7 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Choose the safest pilot program",
-      "scene": "The pilot has room for one question, four weeks, and a tenth of the full-scale flow. Three of the four proposals depend on the same unmeasured quantity, and the full plant is committed in June whatever the pilot says.",
+      "scene": "The pilot has room for one question, four weeks, and a tenth of the full-scale flow. Nakamura points out that three of the four proposals depend on the same unmeasured quantity, and the full plant is committed in June whatever the pilot says.",
       "takeaway": "The best treatment minimizes total hazard, not merely one measured concentration.",
       "place": "Waste Management Office",
       "guide": "Every method on the table removes the target compound, which is why all of them are on the table. So a pilot measuring removal cannot see the difference it was run to find. Ask of each option what it would tell you that the others would not, and whether it would change the June decision. Judged on removal alone, the winner is whichever method makes the most byproduct fastest.",
@@ -4118,7 +4409,7 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Disposition the final chemical claims",
-      "scene": "The city wants one sentence and the chemistry does not support one. Collapsing everything into a single green light is how a site gets reoccupied above a problem nobody wrote down.",
+      "scene": "Mbeki wants one sentence for the mayor's screen tonight and the chemistry does not support one. Collapsing everything into a single green light is how a site gets reoccupied above a problem nobody wrote down.",
       "takeaway": "Chemical readiness is claim-by-claim, not a single green light.",
       "place": "Scientific Review Hall",
       "guide": "At the end of a release the evidence sits in four different states at once. Each state calls for a different sentence. Ask of each claim what would have to happen for it to become settled. Another method? A validated standard? Continued funding? A chemistry trigger? Collapsing four states into one is how the sentence stops being true.",
@@ -4173,7 +4464,7 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "Audit the electrochemical removal from the charge passed",
-      "scene": "The electrochemical polishing cell has run for 6 hours at 40 amperes. Before the plant trusts the number for the water leaving it, it wants to know how much metal that should have taken out.",
+      "scene": "Osei's electrochemical polishing cell has run for 6 hours at 40 amperes. Before the plant trusts the number for the water leaving it, it wants to know how much metal that should have taken out.",
       "takeaway": "Faraday’s law turns measured charge into a quantitative upper bound on electrochemical removal.",
       "place": "Treatment Plant Gallery",
       "guide": "Five numbers, and two of them are the same duration in hours and in seconds. Another is the electrons each metal ion needs, which is a property of the metal. Check the units the constant is written in before choosing anything. What comes out is an upper bound rather than a removal. Side reactions carry some of the current. Measured removal below it is efficiency; above it is impossible.",
@@ -4182,7 +4473,7 @@ export const CURRICULUM = {
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "The electrochemical polishing cell has run for 6 hours at 40 amperes. Before the plant trusts the number for the water leaving it, it wants to know how much metal that should have taken out.",
+      "story": "Osei's electrochemical polishing cell has run for 6 hours at 40 amperes. Before the plant trusts the number for the water leaving it, it wants to know how much metal that should have taken out.",
       "game": {
         "type": "BALLPARK",
         "title": "Audit the electrochemical removal from the charge passed",
@@ -4269,7 +4560,7 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "Fund the chemical legacy",
-      "scene": "The temporary laboratory is being packed up as the emergency budget closes. The plant is back online, but sediment still holds an estimated 71 kilograms. Four monitoring stations were built during the response; only one has permanent funding after next month.",
+      "scene": "The temporary laboratory is being packed up as the emergency budget closes. The plant is back online, but sediment still holds an estimated 71 kilograms. Stavros has four monitoring stations built during the response; only one has permanent funding after next month.",
       "takeaway": "Stewardship continues after concentrations fall below the immediate threshold.",
       "place": "Long-Term Monitoring Office",
       "guide": "All four options are defensible uses of the last of the money, and they protect different things. Ask of each what would go unnoticed if it were not funded. Seventy-one kilograms are in sediment, twenty are unaccounted for, and a transformation product is still being characterised. None of that was destroyed; it fell below a threshold. What outlasts a release is the part that went quiet, not the part that stopped.",
@@ -4430,7 +4721,7 @@ export const BALLPARK_CALCS = {
     "explanation": "Twenty millimolar — well below the saturation limit of one candidate and impossible for the other."
   },
   "WATER-2": {
-    "prompt": "Raman is dosing sulphate from the scrubber liquor to 0.020 M. She wants the metal left in solution.",
+    "prompt": "Osei is dosing sulphate from the scrubber liquor to 0.020 M. He wants the metal left in solution.",
     "question": "Estimate the metal concentration left once the sulphate is at 0.020 M.",
     "labels": [
       "2.4e-5  (Ksp of the sulphate salt)",
@@ -4634,7 +4925,7 @@ export const BALLPARK_CALCS = {
     "explanation": "A rise of only five degrees looks negligible until it is multiplied by a large thermal mass. Note this is sensible heat alone — a phase change or a continuing reaction would add far more."
   },
   "TREAT-2": {
-    "prompt": "Bello has the two half-reactions on the board: oxygen reduction at +0.40 V and iron dissolution at −0.44 V.",
+    "prompt": "Osei has the two half-reactions on the board: oxygen reduction at +0.40 V and iron dissolution at −0.44 V.",
     "question": "Estimate the standard cell potential of the pair.",
     "labels": [
       "+0.40 V  (E° for oxygen reduction, the cathode)",

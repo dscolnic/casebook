@@ -272,6 +272,71 @@ export const CURRICULUM = {
           "Telescopes: aperture, resolution, signal-to-noise"
         ]
       }
+    },
+    {
+      "day": 4,
+      "title": "Object or artifact? — Review",
+      "scene": "Nguyen, the survey imaging lead, moved the telescope 30 arcseconds between three exposures of a second field. Two faint candidates came out of the run. The stars shifted across the chip by the commanded amount; one candidate did not.",
+      "takeaway": "Moving the pointing on purpose separates the sky from the instrument, and whatever stays put is the instrument.",
+      "place": "Survey Telescope Control",
+      "guide": "Four candidates for one mark, and the deliberate 30-arcsecond move is the control. Ask of each what it would have done while the telescope was being shifted. Two of them travel with the stars. One of them arrives once and stays once. And one of them would have taken the whole field with it.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
+      "story": "Nguyen, the survey imaging lead, moved the telescope 30 arcseconds between three exposures of a second field. Two faint candidates came out of the run. The stars shifted across the chip by the commanded amount; one candidate did not.",
+      "game": {
+        "type": "CHOICE",
+        "title": "Object or artifact? — Review",
+        "setup": "Survey Telescope Control",
+        "play": "Which explanation fits a mark that holds its place while the sky is moved under it?",
+        "task": "Which explanation fits a mark that holds its place while the sky is moved under it?",
+        "question": "Candidate B keeps the same pixel address through all three exposures. What is it?",
+        "answer": "A fixed defect at that place on the sensor",
+        "why": "The deliberate shift is the test. Moving the telescope thirty arcseconds carries the whole sky thirty arcseconds across the sensor, so anything real travels with the stars. A mark that holds its pixel address through all three exposures is a property of the silicon rather than of the sky. A slow object is still an object, and it rides with the field. A cosmic ray appears once. A tracking failure would take the stars with it, and the stars went exactly where they were sent.",
+        "rebuttals": [
+          "A slow object still holds still on the sky, so the pointing shift carries it across the sensor with the stars.",
+          "A cosmic ray arrives once and sharp. This mark is in all three exposures at the same place.",
+          "A tracking failure moves every star in the frame, and here the stars went where they were commanded."
+        ],
+        "choices": [
+          "A fixed defect at that place on the sensor",
+          "A very distant object, too slow to move between frames",
+          "A single cosmic-ray hit in one of the exposures",
+          "A tracking failure during the second and third exposures"
+        ],
+        "correctChoice": "A fixed defect at that place on the sensor"
+      },
+      "assumes": [
+        "a commanded pointing shift moves the whole sky across the sensor by a known amount"
+      ],
+      "equations": [
+        {
+          "e": "θ = s / d",
+          "c": "the small-angle formula — angular size to physical size",
+          "v": [
+            [
+              "θ",
+              "angular size, in radians"
+            ],
+            [
+              "s",
+              "true size across, in kilometres"
+            ],
+            [
+              "d",
+              "distance to it, in kilometres"
+            ]
+          ],
+          "s": "For small angles the angle an object subtends is simply its size divided by its distance."
+        }
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Telescopes: aperture, resolution, signal-to-noise",
+        "of": 30
+      }
     }
   ],
   "ORBIT": [
@@ -769,6 +834,61 @@ export const CURRICULUM = {
           "Momentum conservation in collisions"
         ]
       }
+    },
+    {
+      "day": 8,
+      "title": "How far did it move? — Review",
+      "scene": "Delacroix, the campaign astrometrist, has a second candidate from the same night and a shift measured in arcminutes rather than arcseconds. The scheduling desk wants a rate before it books the eleven o'clock slot on the follow-up telescope.",
+      "takeaway": "A rate is only as trustworthy as the units it was built from, so the conversion belongs inside the measurement.",
+      "place": "Minor-Planet Operations Desk",
+      "guide": "Five numbers, and three of them are the same ninety minutes wearing different units, or a count of frames. Ask of each whether a rate in arcseconds per hour needs it. The shift was quoted in arcminutes and the answer is not, so the conversion is part of the measurement rather than tidying afterwards.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
+      "story": "Delacroix, the campaign astrometrist, has a second candidate from the same night and a shift measured in arcminutes rather than arcseconds. The scheduling desk wants a rate before it books the eleven o'clock slot on the follow-up telescope.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "How far did it move? — Review",
+        "setup": "Minor-Planet Operations Desk",
+        "play": "Turn a shift quoted in arcminutes into a sky rate the scheduling desk can point with",
+        "task": "Turn a shift quoted in arcminutes into a sky rate the scheduling desk can point with",
+        "question": "Estimate the apparent motion in arcseconds per hour.",
+        "answer": "",
+        "why": "Angular speed is an angle over a time, and both have to be in the units the answer is quoted in. Four and a half arcminutes is 270 arcseconds, because an arcminute holds 60 of them. Ninety minutes is an hour and a half. Three arcseconds a minute is 180 an hour. The conversion is not decoration: the arcminutes handed over straight give 3 arcseconds an hour, a main-belt rate, and the follow-up telescope would lose the object by dawn.",
+        "givens": [],
+        "relationship": "Rate = angle moved ÷ time taken. Multiply by 60 to go from per minute to per hour.",
+        "calcKey": "ORBIT-8"
+      },
+      "assumes": [
+        "an arcminute is 60 arcseconds"
+      ],
+      "equations": [
+        {
+          "e": "θ = s / d",
+          "c": "the small-angle formula — angular size to physical size",
+          "v": [
+            [
+              "θ",
+              "angular size, in radians"
+            ],
+            [
+              "s",
+              "true size across, in kilometres"
+            ],
+            [
+              "d",
+              "distance to it, in kilometres"
+            ]
+          ],
+          "s": "For small angles the angle an object subtends is simply its size divided by its distance."
+        }
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Celestial coordinates and angular measure",
+        "of": 30
+      }
     }
   ],
   "CHAR": [
@@ -1199,6 +1319,87 @@ export const CURRICULUM = {
         "rests": [
           "Apparent and absolute magnitude; inverse-square brightness",
           "Celestial coordinates and angular measure"
+        ]
+      }
+    },
+    {
+      "day": 5,
+      "title": "What controls apparent brightness? — Review",
+      "scene": "Adebayo, the physical characterization lead, has a second body from the same survey and one night of photometry on it. The consequence model downstream wants a diameter, and the room has to agree what order the work is done in.",
+      "takeaway": "A size inferred from brightness inherits every assumption made on the way to it, and the reflectivity is the largest of them.",
+      "place": "Photometry Lab",
+      "guide": "Four cards, and each one takes something out that is not the object. Ask of each what would be wrong if it were done later than it should be. Two of them remove the instrument and the geometry. One of them is the assumption everybody wants to skip, and the last is the only card the consequence model ever sees.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
+      "story": "Adebayo, the physical characterization lead, has a second body from the same survey and one night of photometry on it. The consequence model downstream wants a diameter, and the room has to agree what order the work is done in.",
+      "game": {
+        "type": "SEQUENCE",
+        "title": "What controls apparent brightness? — Review",
+        "setup": "Photometry Lab",
+        "play": "Order the steps that turn one night of photometry into a diameter with a range on it",
+        "task": "Order the steps that turn one night of photometry into a diameter with a range on it",
+        "question": "Order the steps that turn one night of photometry into a diameter with a range on it",
+        "answer": "",
+        "why": "Brightness is what arrives; a diameter is what is inferred. The order matters because each step takes out something that is not the object. Calibration takes out the instrument. The two distances take out the geometry and leave a property of the body. Only then does reflectivity enter, and it enters as a range because nobody has measured it here. The diameter comes out last and comes out as a band, because a size from a borrowed reflectivity is a guess with a decimal point on it.",
+        "rebuttals": [
+          "The magnitude first, and against standards. An uncalibrated brightness is wrong in a way nothing downstream recovers.",
+          "Distances second. Absolute magnitude is what apparent magnitude means once the geometry has been taken out of it.",
+          "The reflectivity third, and as a range. Committing to one number here is how a size becomes a fact nobody measured.",
+          "The diameter last, with its band attached. A single figure from a borrowed reflectivity is the failure this whole stop is about."
+        ],
+        "cards": [
+          "Measure the apparent magnitude against catalogue standards on the reduced frames.",
+          "Correct it for the Sun-to-object and object-to-Earth distances to get an absolute magnitude.",
+          "State a reflectivity as a range, from the darkest to the brightest plausible surface.",
+          "Turn absolute magnitude and reflectivity into a diameter, and carry the range through as a size band."
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "assumes": [
+        "absolute magnitude is apparent magnitude with the two distances taken out of it",
+        "scientific notation and unit conversion — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "F = L / 4πd²",
+          "c": "inverse-square brightness, and the size–albedo degeneracy",
+          "v": [
+            [
+              "F",
+              "flux received here, in watts per square metre"
+            ],
+            [
+              "L",
+              "how much light the object sends out, in watts"
+            ],
+            [
+              "d",
+              "distance, in metres"
+            ]
+          ],
+          "s": "Brightness at the telescope is the emitted light spread over a sphere, which is why a small bright object and a large dark one can look identical."
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 17,
+          "c": "Scientific notation and unit conversion"
+        }
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Apparent and absolute magnitude; inverse-square brightness",
+        "of": 30,
+        "rests": [
+          "Scientific notation and unit conversion"
         ]
       }
     }
@@ -1710,6 +1911,63 @@ export const CURRICULUM = {
         "of": 30,
         "rests": [
           "Momentum conservation in collisions"
+        ]
+      }
+    },
+    {
+      "day": 6,
+      "title": "Read the risk correctly — Review",
+      "scene": "Schulz, the impact physics modeller, has four proposals on the board for this week's risk update. Ellery wants to know which of them would change the number she has to read out at Friday's briefing.",
+      "takeaway": "Only new information narrows a risk; correcting a systematic moves it, and rewording it does neither.",
+      "place": "Impact Monitoring Center",
+      "guide": "Four proposals and four effects, one each. Ask of each proposal whether it adds information, moves where the existing information points, or only changes the wording. Two of them touch the distribution and two of them do not, and the pair that does not is the pair that will be argued for hardest on Friday.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
+      "story": "Schulz, the impact physics modeller, has four proposals on the board for this week's risk update. Ellery wants to know which of them would change the number she has to read out at Friday's briefing.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "Read the risk correctly — Review",
+        "setup": "Impact Monitoring Center",
+        "play": "Match each proposal to what it actually does to the risk distribution",
+        "task": "Match each proposal to what it actually does to the risk distribution",
+        "question": "Match each proposal to what it actually does to the risk distribution",
+        "answer": "",
+        "why": "A risk figure is a distribution, and only two kinds of work move it. Correcting a systematic in the reference frame shifts the whole cloud and leaves its width alone — the same uncertainty, somewhere else. An independent measurement adds information and narrows it. More samples only resolve a tail that was already there. And restating the same fraction in other words changes nothing except how it is heard. Two of the four are presentation, and presentation is not evidence.",
+        "scenarios": [
+          "A catalogue bias in the reference stars is found and corrected.",
+          "An independent radar range is added to the orbit fit.",
+          "The ensemble is re-run with 10 times as many sampled trajectories.",
+          "The forecast is restated as 1 chance in 600 rather than 0.17 per cent."
+        ],
+        "choices": [
+          "Moves the whole cloud and leaves its width alone — the same uncertainty, somewhere else.",
+          "Narrows the cloud around wherever its middle now sits, because information has been added.",
+          "Leaves the distribution as it was, and resolves the tail it already had more finely.",
+          "Leaves everything as it was, and changes only how large the figure sounds to a listener."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "columns": [
+          "What is proposed",
+          "What it does to the distribution"
+        ]
+      },
+      "assumes": [
+        "a risk figure is a distribution rather than a single number"
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Probability, risk and expected value",
+        "of": 30,
+        "rests": [
+          "Uncertainty, error bars and covariance"
         ]
       }
     }
@@ -3928,6 +4186,36 @@ export const BALLPARK_CALCS = {
     "units": "people (expectation)",
     "solution": "9 × 10⁶ × 0.005 = 45,000 people, as an expectation.",
     "explanation": "A probability written as a percentage has to be converted before it is multiplied, which is what makes the 0.037 tile dangerous: it is the right quantity in the wrong units, and it would put the answer out by a factor of 100."
+  },
+  "ORBIT-8": {
+    "prompt": "The second candidate shifts 4.5 arcminutes in 90 minutes, and the scheduling desk needs a rate before it books the follow-up slot.",
+    "question": "Estimate the apparent motion in arcseconds per hour.",
+    "labels": [
+      "270 arcsec (the 4.5 arcmin shift, converted)",
+      "90 min (between the first and last frame)",
+      "4 exposures",
+      "5,400 s (the same interval, in seconds)",
+      "1.5 h (the same interval, in hours)"
+    ],
+    "values": [
+      270,
+      90,
+      4,
+      5400,
+      1.5
+    ],
+    "slots": 2,
+    "template": "{0} ÷ {1} × 60",
+    "formula": "a/b*60",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 180,
+    "tolerance": 15,
+    "units": "arcsec/hour",
+    "solution": "270 ÷ 90 = 3 arcsec/min, so about 180 arcsec/hour.",
+    "explanation": "The 60 in the template is minutes per hour, so the interval has to be in minutes and the angle in arcseconds. Handing it the interval in seconds gives an answer 60 times too small."
   }
 };
 

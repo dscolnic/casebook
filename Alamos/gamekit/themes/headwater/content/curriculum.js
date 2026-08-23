@@ -813,6 +813,162 @@ export const CURRICULUM = {
           "Antiderivatives, and the constant an integration cannot recover"
         ]
       }
+    },
+    {
+      "day": 9,
+      "title": "The slope between two readings — Review",
+      "scene": "June Sato, the forecast liaison, has the Braith tributary gauge beside the Ashfell one — 62 cubic metres a second at noon, 47 at 3. She is drafting the recession note and wants the rate of fall stated, not the 2 readings quoted.",
+      "takeaway": "A slope carries a direction, and the order the 2 readings are subtracted in is the only place that direction lives.",
+      "place": "Catchment & Inflow Desk",
+      "guide": "Five tiles and only 3 of them are ends of an interval. The order the 2 readings are subtracted in decides the sign, and the sign is most of what this number reports. A sum of the readings has thrown the difference away, and the clock hour is a label rather than a length. Subtract the wrong way round and the note tells a committee the river is climbing.",
+      "background": [
+        "Where the direction lives. The magnitude of a slope survives being subtracted backwards; the sign does not. Later minus earlier, over later minus earlier, is the only arrangement that puts the river's direction into the answer, and it is the arrangement worth doing by habit rather than by thought.",
+        "What a falling limb does to a straight-line carry. A recession bends: the fall is quickest just after the crest and slackens for days afterwards. An average slope taken across the steep part and projected forward therefore empties the reservoir faster on paper than the river will empty it, which is the opposite of the error the rising limb produces."
+      ],
+      "story": "June Sato, the forecast liaison, has the Braith tributary gauge beside the Ashfell one — 62 cubic metres a second at noon, 47 at 3. She is drafting the recession note and wants the rate of fall stated, not the 2 readings quoted.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "The slope between two readings — Review",
+        "setup": "Catchment & Inflow Desk",
+        "play": "Get a signed rate out of two falling readings",
+        "task": "Get a signed rate out of two falling readings",
+        "question": "Estimate the average rate of change of the Braith gauge across those 3 hours.",
+        "answer": "About 5 cubic metres a second per hour downward, so a rate of −5 across the 3 hours.",
+        "why": "The slope of the line through 2 points does not care which way the river is going. Taking the later reading first puts the direction into the sign, and a negative average rate is a fall of about 5 cubic metres a second every hour. Reverse the subtraction and the arithmetic still works and the units still read correctly, so nothing on the sheet objects. A recession also bends, so the fall slackens and this slope carried forward overstates how quickly the tributary empties.\n",
+        "givens": [
+          "62 m³/s at 12:00, 47 m³/s at 15:00",
+          "Three hours between the readings"
+        ],
+        "relationship": "Average rate of change = (Q(t₂) − Q(t₁)) ÷ (t₂ − t₁), which is the slope of the line through the 2 points on the hydrograph, sign included.\n",
+        "calcKey": "INFLOW-9"
+      },
+      "assumes": [
+        "an average rate of change is the change in a quantity divided by the change in time",
+        "subtracting the earlier reading from the later one is what makes a rate signed"
+      ],
+      "equations": [
+        {
+          "e": "f'(t) = lim (f(t + h) − f(t)) / h  as h → 0",
+          "c": "the derivative, from the definition rather than from a rule",
+          "v": [
+            [
+              "f(t)",
+              "the quantity, as a function of time"
+            ],
+            [
+              "h",
+              "the length of the interval, which is sent to zero"
+            ],
+            [
+              "f'(t)",
+              "the instantaneous rate of change at t"
+            ]
+          ],
+          "s": "The quotient is the slope of a line through two points on the curve, and letting the two points close together without ever meeting is what turns an average rate into an instantaneous one.",
+          "computed": true
+        },
+        {
+          "e": "dQ/dt = −k·Q  ⟹  Q(t) = Q₀·e^(−k·t),  t½ = ln 2 / k",
+          "c": "exponential decay, and the halving time that does not depend on where you started",
+          "v": [
+            [
+              "k",
+              "the recession constant, per unit time"
+            ],
+            [
+              "Q₀",
+              "the flow at the start"
+            ],
+            [
+              "t½",
+              "the time to fall by half"
+            ]
+          ],
+          "s": "A rate proportional to the quantity itself falls by the same fraction in every equal interval, so the halving time is a property of the constant alone and the starting value cancels out of it."
+        },
+        {
+          "e": "ΔV = ∫ (I(t) − R(t)) dt",
+          "c": "the area between two rate curves, taken with its sign",
+          "v": [
+            [
+              "I, R",
+              "the two rates, in the same units"
+            ],
+            [
+              "ΔV",
+              "the net change over the interval"
+            ]
+          ],
+          "s": "Where the first rate runs above the second the integrand is positive and the store fills; where it runs below, the integral subtracts, which is what separates a net change from an unsigned area.",
+          "card": false
+        }
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Limits, one-sided limits, and where a limit fails to exist",
+        "of": 28
+      }
+    },
+    {
+      "day": 10,
+      "title": "Adding up a curve nobody wrote down — Review",
+      "scene": "Ayo Ekundayo, the catchment hydrologist, has 5 readings off the overnight tape, and the recorder skipped twice. Two of the gaps are 90 minutes and 2 are half an hour. Sato has already totalled the column with the half-ends rule.",
+      "takeaway": "The half-ends form is an arithmetic shortcut that assumed equal spacing, and the trapezia are what survive when the spacing goes.",
+      "place": "Catchment & Inflow Desk",
+      "guide": "The 4 answers disagree about what the half-ends form actually is — a weighting of readings, or a shortcut that quietly assumed something about the clock. Ask what a single trapezium is made of before arguing about weights. Getting this wrong does not shift the total slightly. It multiplies most of the night by a width the tape never had.",
+      "background": [
+        "What the half-ends form is a shortcut for. Add the 4 trapezia of a 5-reading tape and collect the terms: every interior reading turns up in 2 of them and every end reading in 1, which is where the halves come from. That collection is only legal when the widths are equal, because it is the common width that was factored out.",
+        "Why the fix is cheap. Nothing about a trapezium needs its neighbours to match it. Average the pair, multiply by the gap that separates that pair, and add the 4 results. It is more arithmetic than the shortcut and exactly as exact, which is why an uneven tape is an inconvenience rather than a lost measurement."
+      ],
+      "story": "Ayo Ekundayo, the catchment hydrologist, has 5 readings off the overnight tape, and the recorder skipped twice. Two of the gaps are 90 minutes and 2 are half an hour. Sato has already totalled the column with the half-ends rule.",
+      "game": {
+        "type": "CHOICE",
+        "title": "Adding up a curve nobody wrote down — Review",
+        "setup": "Catchment & Inflow Desk",
+        "play": "Say what an uneven tape costs the trapezoid rule",
+        "task": "Say what an uneven tape costs the trapezoid rule",
+        "question": "What is wrong with Sato's total, and what does it take to put right?",
+        "answer": "Each pair has to be averaged and multiplied by its own gap, not by one common width",
+        "why": "The trapezoid rule is a sum of trapezia, and the half-ends form is what that sum collapses to when every width is the same. Take the widths apart and the shortcut is gone. Each adjacent pair is averaged and multiplied by the gap that separates it, and 5 readings give 4 areas to add. The uneven tape costs the arithmetic and nothing else. A 90-minute gap totalled as if it were half an hour reports a third of the water that arrived across it.\n",
+        "rebuttals": [
+          "Averaging a pair says nothing about how far apart the pair was taken, and that gap is the width of the trapezium.",
+          "Unequal spacing costs the shortcut and not the measurement; 4 trapezia of 4 different widths still add up.",
+          "The half weight on each end is right in both forms, because an end reading borders 1 interval and an interior reading borders 2."
+        ],
+        "choices": [
+          "Each pair has to be averaged and multiplied by its own gap, not by one common width",
+          "Nothing is wrong, because averaging each adjacent pair already accounts for the gap between them",
+          "No area can be recovered from these readings until the tape is re-read at a fixed interval",
+          "The half-ends weighting is the fault, so every reading on the tape should count at full weight"
+        ],
+        "correctChoice": "Each pair has to be averaged and multiplied by its own gap, not by one common width"
+      },
+      "assumes": [
+        "the area under a flow-against-time curve is a volume",
+        "a trapezium's area is the average of its 2 parallel sides times its width"
+      ],
+      "equations": [
+        {
+          "e": "Volume ≈ Δt·(½f₀ + f₁ + … + ½f_n)",
+          "c": "the trapezoid rule, for a rate that exists only as readings",
+          "v": [
+            [
+              "Δt",
+              "the spacing between readings"
+            ],
+            [
+              "f₀ … f_n",
+              "the readings themselves"
+            ]
+          ],
+          "s": "Each adjacent pair is treated as a trapezium, which is why every interior reading is counted twice as heavily as an end one, and it is exact wherever the rate runs straight."
+        }
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Riemann sums, left and right endpoints, and the trapezoid rule",
+        "of": 28
+      }
     }
   ],
   "STORE": [
@@ -3628,6 +3784,60 @@ export const CURRICULUM = {
           "The definite integral as an accumulation, and its units"
         ]
       }
+    },
+    {
+      "day": 7,
+      "title": "Which end of the interval you believed — Review",
+      "scene": "Dr. Halina Zawadzka, the structural engineer, has 4 shifts of weir readings on the gallery board and the same 2 totals against each — one built on opening readings, one on closing. No shift behaved like the one before it.",
+      "takeaway": "Which endpoint total is short is decided by the direction of the record, and a record that turns is bracketed by neither.",
+      "place": "Seepage & Uplift Bay",
+      "guide": "Four shifts and 4 verdicts, one each. What settles every pairing is the direction the seepage moved rather than how large the readings were. Take the 2 shifts that only go one way first, and the pair left over separates on whether the record turns. A total nobody can rank is worth less than 2 that bracket the answer between them.",
+      "background": [
+        "Why the direction is the whole of it. A rectangle one hour wide and as tall as the opening reading sits under the curve on a rising hour and over it on a falling one. The closing-reading rectangle does the reverse. Nothing else about the readings enters, which is why a shift can be ranked before its numbers are read.",
+        "What a bracket is worth. Two totals that are known to sit either side of the truth are a statement with a width, and the width is a measurement of how coarse the hourly tape is. One total that is nearly right and cannot be placed is not, which is the argument for keeping both rather than picking the better-looking one."
+      ],
+      "story": "Dr. Halina Zawadzka, the structural engineer, has 4 shifts of weir readings on the gallery board and the same 2 totals against each — one built on opening readings, one on closing. No shift behaved like the one before it.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "Which end of the interval you believed — Review",
+        "setup": "Seepage & Uplift Bay",
+        "play": "Say what each shift does to the 2 totals",
+        "task": "Say what each shift does to the 2 totals",
+        "question": "Match each shift's record to what the 2 totals do.",
+        "answer": "",
+        "why": "A rectangle built on an hour's opening reading sits under the curve wherever the rate is rising and over it wherever the rate is falling, and the closing-reading rectangle does the opposite. So the direction of the record decides which total is short, and the size of the readings never enters. A shift that only rises is bracketed one way and a shift that only falls the other way. A shift with a peak in it is bracketed by neither, because each total is short across half the shift and long across the rest. A flat shift has no error at all.\n",
+        "scenarios": [
+          "Seepage climbed from the first hour of the shift to the last.",
+          "Seepage fell all shift as the gallery drained.",
+          "Seepage rose to a peak at 4 o'clock and fell back.",
+          "Seepage held at the same reading every hour."
+        ],
+        "choices": [
+          "The opening total is short and the closing total long, so the truth lies between them.",
+          "The opening total is long and the closing total short, and the truth is still between them.",
+          "Neither total brackets the truth, because the 2 errors change sides half way through.",
+          "The 2 totals come out equal, and each of them is the accumulation exactly."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "columns": [
+          "What the shift did",
+          "What the totals do"
+        ]
+      },
+      "assumes": [
+        "a rate multiplied by an interval accumulates exactly only where the rate holds still",
+        "a sum of rectangles approximates the area under a curve"
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Riemann sums, left and right endpoints, and the trapezoid rule",
+        "of": 28
+      }
     }
   ],
   "POWER": [
@@ -5109,6 +5319,81 @@ export const CURRICULUM = {
           "Linear approximation, differentials, and the error the curvature costs"
         ]
       }
+    },
+    {
+      "day": 11,
+      "title": "The instant the gate moved — Review",
+      "scene": "Nadine Baptiste, the downstream warning officer, has Thursday's tailrace trace. Gate 2 was wound open across 4 minutes and then stopped dead. The discharge climbs the whole way and holds after. She wants the instant the winding stopped read off it.",
+      "takeaway": "Continuity is a promise about the value and never about the slope, and a corner is where the difference between the 2 shows.",
+      "place": "Downstream Warning Desk",
+      "guide": "The 4 answers mix 2 separate questions together: whether the trace breaks, and whether it has a slope. Settle the break first, from the readings either side of that instant. Then ask the slope question again from the left and from the right, as a second question with its own answer. Calling a corner a break sends a fault report about a gauge that is working.",
+      "background": [
+        "Two limits, not one. The limit of the discharge across an instant asks what value the trace approaches; the limit of the difference quotient asks what slope it approaches. They are separately capable of existing, and a corner is exactly the case where the first one does and the second one does not.",
+        "Why a corner is common and a jump is rare. Water has mass, so a discharge cannot teleport, and every genuine jump in this record is a gauge or a logging artefact. A corner needs nothing so dramatic — a hoist reaching its set position is enough, and the trace goes on being trustworthy on both sides of it."
+      ],
+      "story": "Nadine Baptiste, the downstream warning officer, has Thursday's tailrace trace. Gate 2 was wound open across 4 minutes and then stopped dead. The discharge climbs the whole way and holds after. She wants the instant the winding stopped read off it.",
+      "game": {
+        "type": "CHOICE",
+        "title": "The instant the gate moved — Review",
+        "setup": "Downstream Warning Desk",
+        "play": "Say whether a corner in the trace has a rate",
+        "task": "Say whether a corner in the trace has a rate",
+        "question": "What is true of the discharge at the instant the winding stopped?",
+        "answer": "The trace is continuous there, and still has no rate of change at that instant",
+        "why": "Nothing jumps here. Both one-sided limits of the discharge are the same number, so the trace is continuous at that instant and a value can be read straight off it. The derivative is a different limit — of the difference quotient, taken across the instant — and it has 2 answers: a steep climb approaching from the left, and a flat line approaching from the right. Two one-sided slopes that disagree leave the 2-sided one undefined. Continuity buys the value and it never buys the rate.\n",
+        "rebuttals": [
+          "Two one-sided slopes do not average into a derivative. A limit either exists or it does not.",
+          "A corner is not a break. The discharge has 1 value there and the trace runs unbroken through it.",
+          "Continuity guarantees the value and says nothing about the slope, which is a second limit and a harder one."
+        ],
+        "choices": [
+          "The trace is continuous there, and still has no rate of change at that instant",
+          "The trace has a rate of change there, and it is the average of the 2 slopes",
+          "The trace is discontinuous there, since the slope changes without warning",
+          "The trace has a rate of change there, because the discharge itself never jumps"
+        ],
+        "correctChoice": "The trace is continuous there, and still has no rate of change at that instant"
+      },
+      "assumes": [
+        "a limit describes what a quantity approaches from one side",
+        "a derivative is a limit of the difference quotient taken across the instant",
+        "limits, one-sided limits, and where a limit fails to exist — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "f'(t) = lim (f(t + h) − f(t)) / h  as h → 0",
+          "c": "the derivative, from the definition rather than from a rule",
+          "v": [
+            [
+              "f(t)",
+              "the quantity, as a function of time"
+            ],
+            [
+              "h",
+              "the length of the interval, which is sent to zero"
+            ],
+            [
+              "f'(t)",
+              "the instantaneous rate of change at t"
+            ]
+          ],
+          "s": "The quotient is the slope of a line through two points on the curve, and letting the two points close together without ever meeting is what turns an average rate into an instantaneous one."
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Limits, one-sided limits, and where a limit fails to exist"
+        }
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Continuity, and what a jump costs you",
+        "of": 28,
+        "rests": [
+          "Limits, one-sided limits, and where a limit fails to exist"
+        ]
+      }
     }
   ]
 };
@@ -5480,6 +5765,37 @@ export const BALLPARK_CALCS = {
     "units": "cubic metres a second",
     "solution": "47,200,000 ÷ 1,209,600 ≈ 39 cubic metres a second.",
     "explanation": "About 39 cubic metres a second, against a peak of 136. Dividing by the 14 rather than by the seconds gives 3.4 million, which is not a flow — and it is the version that reaches an annual return, because nobody checks the units on a number that large.\n"
+  },
+  "INFLOW-9": {
+    "prompt": "The Braith gauge read 62 cubic metres a second at 12:00 and 47 at 15:00. An average rate of change is the change in the quantity divided by the change in the time.\n",
+    "question": "Choose the later reading, the earlier reading and the length of the interval.",
+    "labels": [
+      "47  (the reading at 3, cubic metres a second)",
+      "62  (the reading at noon, cubic metres a second)",
+      "3  (hours between the 2 readings)",
+      "109  (the 2 readings added together)",
+      "15  (the hour the later reading was taken)"
+    ],
+    "values": [
+      47,
+      62,
+      3,
+      109,
+      15
+    ],
+    "slots": 3,
+    "template": "({0} − {1}) ÷ {2}",
+    "formula": "(a-b)/c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": -5,
+    "tolerance": 0.6,
+    "units": "cubic metres a second per hour",
+    "solution": "(47 − 62) ÷ 3 = −5 cubic metres a second per hour.",
+    "explanation": "About 5 cubic metres a second an hour, downward. Carried forward 6 hours that is another 30 off the gauge, which no recession has ever managed — the fall slackens as the tributary drains, and the straight-line carry is the pessimistic end of it.\n"
   }
 };
 

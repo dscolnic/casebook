@@ -464,6 +464,82 @@ export const CURRICULUM = {
           "Average rate of change over an interval"
         ]
       }
+    },
+    {
+      "day": 8,
+      "title": "Off the flat part — Review",
+      "scene": "Ruth Dowd, the box office manager, has the telephone log from the on-sale week: 120 bookings by the end of day one, 168 by day three, 300 by day five, 540 by day seven. Four people have quoted four different rates off it.",
+      "takeaway": "A rate belongs to the interval it was measured over, so one table gives as many rates as it has intervals.",
+      "place": "Box Office",
+      "guide": "Take each interval on its own. Subtract the earlier reading from the later one, divide by the number of days between the two, and pair the interval with the figure it gives. All four are honest arithmetic about one log. The count to watch is days rather than readings, because four readings across the week have six days between the first and the last.",
+      "background": [
+        "Why one table gives four rates. A rate of change is a property of an interval rather than of a curve, so every pair of readings in the log has its own. None of them is more correct than another. What differs is the stretch of the week each one describes, and that is the part a quoted figure usually leaves out.",
+        "What the spread across these four says. Twenty-four a day at the start and 120 a day at the end is a rate that has multiplied by five inside one week. A quantity whose rate of change is itself rising cannot be summarised by any single average, which is why Dowd keeps the log by day rather than by week.",
+        "Why the staffing argument turns on this. Two clerks were rostered against the week's average of 70 a day. The last pair of days ran at 120 and the queue reached the street, and the fortnight ahead is steeper than either figure."
+      ],
+      "story": "Ruth Dowd, the box office manager, has the telephone log from the on-sale week: 120 bookings by the end of day one, 168 by day three, 300 by day five, 540 by day seven. Four people have quoted four different rates off it.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "Off the flat part — Review",
+        "setup": "Box Office",
+        "play": "Match each interval of the booking log to the rate it gives.",
+        "task": "Match each interval of the booking log to the rate it gives.",
+        "question": "Match each interval of the booking log to the rate it gives.",
+        "answer": "",
+        "why": "Each interval is a difference divided by the days between the two readings, so one log gives four honest rates. The whole week averages 70 a day. The opening pair gives 24, the last pair 120, and the middle pair 66. Nothing is inconsistent: the rate is rising, and each figure is the average across the stretch it was taken from. The common slip is counting readings rather than days — four readings across the week, but six days between the first and the last.\n",
+        "relationship": "The average rate of change, rate = Δy ÷ Δx: the change in bookings divided by the days it happened over.",
+        "scenarios": [
+          "Day one to day seven, the whole on-sale week.",
+          "Day one to day three, the opening pair of days.",
+          "Day five to day seven, the last pair.",
+          "Day three to day five, the middle pair."
+        ],
+        "choices": [
+          "70 bookings a day, the week averaged, and the figure the counter was staffed against.",
+          "24 bookings a day, which is the slowest stretch anywhere in the log.",
+          "120 bookings a day, which is nearly twice the average for the week.",
+          "66 bookings a day, the stretch that happens to land nearest the week's own average."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "columns": [
+          "The interval",
+          "The rate it gives"
+        ]
+      },
+      "assumes": [
+        "the log is cumulative and each reading is taken at the end of that day"
+      ],
+      "equations": [
+        {
+          "e": "rate = Δy ÷ Δx",
+          "c": "average rate of change over an interval",
+          "v": [
+            [
+              "Δy",
+              "the change in the output"
+            ],
+            [
+              "Δx",
+              "the change in the input it happened over"
+            ]
+          ],
+          "s": "The change in one quantity divided by the change in the other, which is a slope between two points rather than at one.",
+          "computed": true
+        }
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Average rate of change over an interval",
+        "of": 31,
+        "rests": [
+          "A function as a rule, its domain and what the domain rules out"
+        ]
+      }
     }
   ],
   "BOARD": [
@@ -1644,6 +1720,90 @@ export const CURRICULUM = {
           "Log properties, and why a product becomes a sum"
         ]
       }
+    },
+    {
+      "day": 8,
+      "title": "Four stages, each times something — Review",
+      "scene": "The pit foldback runs through three stages of 2.5 from a 0.006 volt pickup, and Thandi Mbatha, the musical director, cannot hear the cello. Ilse Brand has four changes on the desk and wants them thought through first.",
+      "takeaway": "What goes in, the factor and the number of stages are three handles, and only one of them compounds.",
+      "place": "Orchestra Pit and Sound",
+      "guide": "A chain that multiplies has three handles and they do different things: what goes in, the factor each stage applies, and how many stages there are. Take each proposed change, ask which of the three it touches, and pair it with the effect. One of the four touches none of them.",
+      "background": [
+        "Why the three handles are separate. The output is the input times the factor raised to the number of stages. Changing the input scales everything by the same amount. Changing the number of stages adds or removes a whole factor. Changing the factor itself is the one that compounds, because it is raised to a power.",
+        "Why halving is worth more than it looks. Halving one gain halves the output. Halving all three divides it by eight, because each half is a factor and the factors multiply. That is the same arithmetic that makes a chain clip suddenly, run the other way.",
+        "What reordering does change. The level at the amplifier is the same whatever order the stages come in, because a product does not depend on its order. What moves is the noise: a stage that adds hiss early has that hiss amplified by everything after it, which is why the quietest gain sits at the front."
+      ],
+      "story": "The pit foldback runs through three stages of 2.5 from a 0.006 volt pickup, and Thandi Mbatha, the musical director, cannot hear the cello. Ilse Brand has four changes on the desk and wants them thought through first.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "Four stages, each times something — Review",
+        "setup": "Orchestra Pit and Sound",
+        "play": "Match each proposed change to what it does to the level at the foldback amplifier.",
+        "task": "Match each proposed change to what it does to the level at the foldback amplifier.",
+        "question": "Match each proposed change to what it does to the level at the foldback amplifier.",
+        "answer": "",
+        "why": "A chain of gain stages is a geometric sequence, so it has three separate handles. Adding a stage adds a term, and the output picks up one more factor of 2.5. Halving all three gains divides the product by two cubed, which is an eighth. Doubling the pickup changes the first term and leaves the ratio alone, so everything downstream doubles with it. Reordering the stages changes nothing at all, because a product does not depend on the order of its factors.\n",
+        "relationship": "The geometric sequence aₙ = a₁ · rⁿ⁻¹, with r the common ratio multiplied in at each stage.",
+        "scenarios": [
+          "A fourth identical stage of 2.5 is patched in at the end of the chain.",
+          "All three gains are turned down to half of what they are now.",
+          "The pickup is swapped for one giving twice the signal, gains untouched.",
+          "The three stages are reordered, group first and preamp last."
+        ],
+        "choices": [
+          "One more factor of 2.5, because a stage added is a term added rather than an amount added.",
+          "An eighth of the level, because halving each of three factors divides the product by two cubed.",
+          "Twice the level, because the first term changes and the ratio does not, so everything after it scales.",
+          "No change to the level at all, because a product does not depend on the order of its factors."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "columns": [
+          "The change on the desk",
+          "What it does to the level"
+        ]
+      },
+      "assumes": [
+        "each stage passes its input to the next without limiting"
+      ],
+      "equations": [
+        {
+          "e": "aₙ = a₁ · rⁿ⁻¹",
+          "c": "the nth term of a geometric sequence",
+          "v": [
+            [
+              "aₙ",
+              "the term you want"
+            ],
+            [
+              "a₁",
+              "the first term"
+            ],
+            [
+              "r",
+              "the common ratio multiplied in each time"
+            ],
+            [
+              "n",
+              "which term it is"
+            ]
+          ],
+          "s": "A sequence that multiplies by the same factor each time grows or decays by a constant proportion.",
+          "computed": true
+        }
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Geometric sequences: a constant ratio",
+        "of": 31,
+        "rests": [
+          "Arithmetic sequences: a constant difference"
+        ]
+      }
     }
   ],
   "FLY": [
@@ -2148,6 +2308,85 @@ export const CURRICULUM = {
           "Matrices as transformations of the plane"
         ]
       }
+    },
+    {
+      "day": 8,
+      "title": "The same step, eleven times — Review",
+      "scene": "Simone Haigh, the stage manager, has four hemp sets to dead-hang before the run-through. The drawing gives each one as a starting height and a step rather than as a height. Kwame Osei wants them in order before anybody goes up.",
+      "takeaway": "A start, a step and a term number are three separate handles, and no two of them decide a height.",
+      "place": "Fly Floor",
+      "guide": "Work each set out before you order any of them. A term is the starting height plus the step added one time fewer than the term number, so the ninth batten of a set has eight steps in it. None of the three numbers settles the order on its own: the set with the lowest start does not finish lowest, and the set with the biggest step does not finish highest.",
+      "background": [
+        "Why the drawing is written this way. A hemp set is a run of battens on one ironwork rake, so the rake is a start and a constant rise. Writing the rule rather than eleven heights is shorter and it survives the set being extended, which is why the fly floor has kept the convention since 1911.",
+        "Where the off-by-one lands. Nine battens have eight gaps between them. Using the term number as the step count adds one extra rise to every set, and because the steps here differ it adds a different amount to each, which is what changes the order rather than just the heights.",
+        "Why the order is the thing wanted. Osei is not hanging to a number, he is hanging four pieces that pass one another in the same 12 metres of grid. What decides whether they foul is which is under which, and that is settled before anybody weighs anything."
+      ],
+      "story": "Simone Haigh, the stage manager, has four hemp sets to dead-hang before the run-through. The drawing gives each one as a starting height and a step rather than as a height. Kwame Osei wants them in order before anybody goes up.",
+      "game": {
+        "type": "SEQUENCE",
+        "title": "The same step, eleven times — Review",
+        "setup": "Fly Floor",
+        "play": "Put the four hemp sets in order of the trim height each rule gives.",
+        "task": "Put the four hemp sets in order of the trim height each rule gives.",
+        "question": "Put the four hemp sets in order of the trim height each rule gives.",
+        "answer": "",
+        "why": "A term is the start plus one step fewer than the term number: three steps to the fourth, six to the seventh, eight to the ninth, eleven to the twelfth. That gives 3.76, 3.90, 4.04 and 4.25 metres, so Set 3 hangs lowest and Set 12 highest. None of the three numbers decides it alone. Set 19 starts lowest and finishes third, and Set 3 has the highest start and the lowest trim. Using the term number itself as the step count swaps Set 7 and Set 19.\n",
+        "relationship": "The arithmetic sequence aₙ = a₁ + (n − 1)d, with d the common difference added each time.",
+        "cards": [
+          "Set 3: first batten at 3.10 m, rising 0.22 m a batten, hung at its fourth.",
+          "Set 19: first batten at 1.20 m, rising 0.45 m a batten, hung at its seventh.",
+          "Set 7: first batten at 1.80 m, rising 0.28 m a batten, hung at its ninth.",
+          "Set 12: first batten at 2.60 m, rising 0.15 m a batten, hung at its twelfth."
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "axis": "Order the four sets by the trim height each rule works out to, lowest first. Nothing here is a clock — all four are hung in the same hour, and the question is which piece ends up under which.",
+        "ends": [
+          "Lowest trim",
+          "Highest trim"
+        ]
+      },
+      "assumes": [
+        "the rise between battens is constant along each set"
+      ],
+      "equations": [
+        {
+          "e": "aₙ = a₁ + (n − 1)d",
+          "c": "the nth term of an arithmetic sequence",
+          "v": [
+            [
+              "aₙ",
+              "the term you want"
+            ],
+            [
+              "a₁",
+              "the first term"
+            ],
+            [
+              "n",
+              "which term it is"
+            ],
+            [
+              "d",
+              "the common difference added each time"
+            ]
+          ],
+          "s": "A sequence that adds the same amount each time is a straight line through the term numbers.",
+          "computed": true
+        }
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Arithmetic sequences: a constant difference",
+        "of": 31,
+        "rests": [
+          "Average rate of change over an interval"
+        ]
+      }
     }
   ],
   "SHOP": [
@@ -2612,6 +2851,92 @@ export const CURRICULUM = {
         "rests": [
           "Average rate of change over an interval"
         ]
+      }
+    },
+    {
+      "day": 8,
+      "title": "An arc, a radius and an angle — Review",
+      "scene": "Eamon Quirke, the master carpenter, is bending a steel handrail round the front of the new orchestra rail. The setting-out on the shop floor gives a radius of 3.6 metres and an angle of 1.45 radians. The steel is ordered by the metre.",
+      "takeaway": "An arc computed from a drawing is the length of the line, not of the thing bent round it.",
+      "place": "Scene Shop",
+      "guide": "Multiply the radius by the angle in radians and you have the arc, with no conversion factor anywhere in it. Lock that figure before anything is chalked. Then have the curve set out full size and run a tape round it, and read what the floor says rather than what the drawing says. The gap between the two is the thing worth knowing before the steel is cut.",
+      "background": [
+        "Why the formula has nothing else in it. A radian is defined as the angle whose arc equals its radius, so the arc is the radius scaled by however many radians the curve turns through. In degrees the same calculation carries a factor of pi over 180, and a calculator in the wrong mode gives 299 metres here without complaining.",
+        "Why a tape is worth a prediction. The chalk line is a mathematical curve on a flat floor. The handrail is a real section with a thickness, bent round the outside of that line, so it follows a slightly larger radius than the one on the drawing.",
+        "What the gap costs if it is ignored. Steel comes in a stock length and is cut once. A rail ordered short is a joint in the middle of the front of the orchestra rail, at waist height, where the front rows lean on it all evening."
+      ],
+      "story": "Eamon Quirke, the master carpenter, is bending a steel handrail round the front of the new orchestra rail. The setting-out on the shop floor gives a radius of 3.6 metres and an angle of 1.45 radians. The steel is ordered by the metre.",
+      "game": {
+        "type": "VERIFY",
+        "title": "An arc, a radius and an angle — Review",
+        "setup": "Scene Shop",
+        "play": "Predict the length of the handrail, then run a tape round the setting-out and report.",
+        "task": "Predict the length of the handrail, then run a tape round the setting-out and report.",
+        "question": "Predict the length of the handrail, then run a tape round the setting-out and report.",
+        "answer": "About 5.22 metres from the setting-out, 5.31 round the outside face — nine centimetres of section thickness, and nowhere near the 10.4 the diameter would have given.",
+        "why": "Radius times angle in radians is the arc, so the setting-out gives 3.6 by 1.45, or 5.22 metres. The tape says 5.31. The gap is nine centimetres, and it is geometry rather than error: the chalk line is the centre of the curve and the handrail is bent round its outside face, sixty millimetres further out. Sixty millimetres of extra radius over 1.45 radians is nine centimetres of extra steel. Order to the chalk line and the rail is short at the joint.\n",
+        "relationship": "The arc length s = rθ, with θ in radians: the arc a radius sweeps is the radius multiplied by the angle.",
+        "verify": {
+          "prediction": {
+            "label": "Predicted length of the handrail",
+            "unit": "m",
+            "min": 2,
+            "max": 12,
+            "step": 0.05
+          },
+          "truth": 5.31,
+          "passRatio": [
+            0.9,
+            1.1
+          ],
+          "intervention": {
+            "label": "Chalk the curve out full size on the shop floor",
+            "note": "Trammel from the centre point Quirke has marked, at the radius on the drawing.",
+            "outcome": "Curve chalked, both ends squared off to the setting-out marks."
+          },
+          "measurement": {
+            "label": "Tape run round the chalk line",
+            "note": "5.31 metres round the outside face, where the rail actually sits.",
+            "cost": 1,
+            "costUnit": "setting-out"
+          },
+          "hint": "Lock the prediction before the curve is chalked. Both numbers you need are on the setting-out, and the angle is already in radians.",
+          "unmeasuredMoral": "An arc worked out from a radius is a statement about a line with no thickness. The rail is bent round the outside of that line, and only the tape knows how far out that is.",
+          "lock": "Lock the prediction",
+          "run": "Commit it",
+          "measure": "Take the measurement",
+          "commit": "Report the length to order"
+        }
+      },
+      "assumes": [
+        "the curve is a single arc of constant radius"
+      ],
+      "equations": [
+        {
+          "e": "s = rθ",
+          "c": "arc length in radians",
+          "v": [
+            [
+              "s",
+              "arc length, in the same units as r"
+            ],
+            [
+              "r",
+              "the radius"
+            ],
+            [
+              "θ",
+              "the angle at the centre, in radians"
+            ]
+          ],
+          "s": "An angle measured in radians is the arc it sweeps divided by the radius, which is why the formula has nothing else in it.",
+          "computed": true
+        }
+      ],
+      "concept": {
+        "n": 17,
+        "c": "Radians, and the arc a radius sweeps",
+        "of": 31
       }
     }
   ],

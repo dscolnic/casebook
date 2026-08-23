@@ -3548,3 +3548,232 @@ copy:
   SCHOOL: <p>The island school. Nineteen on the register, five to eleven, one room. It closes at twelve.</p>
   CHAPEL: <p>The chapel and hall. The council meets here, and the vote is at seven.</p>
   LIGHT: <p>The old light, unlit since 1974. The lens went to the mainland museum and the tower is a landmark and a bird roost.</p>
+
+# ---------------------------------------------------------------------------
+# Review variants. No mission stop points at these; `shapeMissions` reaches one
+# by title from the third day on, so the campaign has something to serve when it
+# comes back to an area it taught in the first week. Each is the same concept on
+# a different case — new situation, new board, new verdict — because a callback
+# that re-serves the original card is recognition rather than retrieval.
+lessons:
+  - group: HARB
+    title: Down from what, over how long — Review
+    task: Say what each figure on the observer's sheet is a measure of
+    place: Harbour Office
+    concept: 'An ecosystem as a budget: what comes in, what leaves, what stays'
+    scene: >
+      Petra Rask, the fisheries observer, has four figures pencilled on the back of her
+      sheet and no headings on any of them. Calloway wants all four in the council pack
+      and will not send them up unlabelled.
+    guide: >-
+      Four figures and four descriptions of what a figure can be. Ask of each whether it
+      is an amount standing there at one moment, an amount crossing the ground's edge
+      over a stretch of time, or the gap between two readings of the same amount. The
+      first kind takes a date. The second kind takes a period. The third is not a rate
+      until somebody says how long it took.
+    background:
+      - >-
+          Why the label decides the argument. The same figure supports opposite claims
+          depending on what it is a measure of. Three hundred tonnes standing on the ground
+          is a fishery in trouble; three hundred tonnes arriving each year is a fishery that
+          can be worked. Nothing in the number itself separates those two readings, and the
+          council pack has to.
+      - >-
+          Why a difference is the awkward one. A stock and a flow each carry their own unit
+          and their own time word, so a reader who wants to check them can. A bare difference
+          carries neither: it is tonnes, like the stock, and it happened over a stretch, like
+          the flow, and it is the figure most often quoted with the wrong period attached.
+    assumes:
+      - the observer's sheet records the west ground alone rather than all island landings
+    takeaway: A figure is a stock, a flow or a difference, and which of the three it is decides what it can be compared with.
+    format: PROTOCOL
+    task: Match each of Rask's figures to what it is a measure of.
+    columns:
+      - What Rask has written down
+      - What kind of figure it is
+    scenarios:
+      - Nineteen hundred tonnes of mature fish estimated on the west ground this spring
+      - About three hundred tonnes of young fish reaching working size each year
+      - One hundred and sixty-eight tonnes taken off the ground last season
+      - Forty-six tonnes fewer than the season five years before it
+    choices:
+      - 'A stock, standing there at one moment, and it needs a date rather than a period'
+      - 'An inflow, gained by the ground over a stretch of time, and useless without the stretch'
+      - 'An outflow, taken out over a stretch of time, and the only one of the four the harbour weighs directly'
+      - 'A difference between two readings of the same stock, which is not a rate until a period is put on it'
+    mapping: [0, 1, 2, 3]
+    rebuttals:
+      - Nineteen hundred tonnes is what is standing there now; it belongs to a date, not to a season.
+      - Three hundred tonnes a year is what the ground gains, and the year is part of the figure.
+      - The landed tonnage is what left the ground, and it is the one quantity the harbour weighs itself.
+      - Forty-six tonnes is a gap between two readings, and it says nothing until the gap between the readings is stated.
+    answerText: >-
+      The nineteen hundred is a stock, the three hundred an inflow, the hundred and sixty-eight
+      an outflow, and the forty-six a difference between two readings of the stock.
+    why: >
+      A budget has three kinds of entry and they are not interchangeable. A stock is an amount
+      present at an instant, so it is quoted with a date. A flow crosses the boundary over a
+      stretch, so it is quoted with a period, and inflow and outflow are the two directions of
+      it. A difference between two readings of a stock is neither: it has the stock's unit and
+      the flow's need for a period, and it becomes a rate only when the years between the
+      readings are stated. Mislabel one and every comparison drawn from it is against something
+      of a different kind.
+
+  - group: REEF
+    title: The wall nobody built — Review
+    task: Name the service the dredging quote quietly spends
+    place: Reef Station
+    concept: 'Ecosystem services, and the ones nobody is billed for'
+    scene: >
+      Berhane has a second chart out: four hectares of seagrass inside the bay, between the
+      pier and the burn mouth. A quote has come across from the mainland for dredging a
+      deeper channel straight through it.
+    guide: >-
+      Ask what the island would have to start doing for itself if the bed were gone. Three
+      of the four candidates describe work that something else on the island already does,
+      or that no marine plant does at this scale. One of them is work the harbour currently
+      gets for nothing and would have to buy every year. The quote prices the dredging and
+      not that.
+    background:
+      - >-
+          Why a one-off quote hides an annual cost. Cutting the channel is a single payment and
+          the service it removes was a payment avoided every year. A cost that recurs is worth
+          far more than a cost that happens once, and the paper in front of the council shows
+          only the second of them because only the second has an invoice attached.
+      - >-
+          How to tell a service from a fact about the place. The test is substitution. If the
+          thing stopped, would somebody have to build or buy a replacement? A reef breaking a
+          swell substitutes for a breakwater. A view from the pier substitutes for nothing, and
+          is not counted here whatever else it is worth.
+    assumes:
+      - the berth is dredged only when it has silted enough to shoal
+    takeaway: The test of a service is substitution: what the island would have to build or buy if the thing stopped.
+    format: CHOICE
+    question: Which service would the island have to start paying for if the channel is cut through the bed?
+    choices:
+      - Holding the bay's sediment in place against the tide
+      - Supplying the market garden with seaweed for building soil, as the strandline has done for two centuries
+      - Cleaning the smoke that the diesel house puts into the air above the bay
+      - Providing the freshwater that seeps out along the shore at every low tide
+    answer: Holding the bay's sediment in place against the tide
+    why: >
+      Seagrass roots bind the soft sediment of an inner bay and the leaves slow the water over
+      it, so the fines settle in the bed instead of travelling to the deepest hole in the bay,
+      which is the berth. Cut the channel and that stops, and the island buys a dredger visit
+      on a cycle for as long as the harbour is used. That is the substitution test passing. The
+      other three fail it: the garden's seaweed comes off the strandline, no marine plant
+      cleans a diesel plume, and the shoreline seepage is the island's own lens coming out
+      through the rock.
+    rebuttals:
+      - The wrack the garden uses is thrown up on the strandline; the seagrass bed is subtidal and is not cut for it.
+      - A diesel plume is carried off by the air above the island, and no bed of marine plants works at that scale.
+      - The seepage at low water is the freshwater lens leaving the rock, and the bed sits on top of it rather than supplying it.
+
+  - group: WATER
+    title: What the rain leaves behind — Review
+    task: Put a year of rain in the order it moves
+    place: Waterworks
+    concept: 'The water cycle over a small island: rain in, runoff and abstraction out'
+    scene: >
+      Sorley has drawn the island's rainfall year on the back of a licence form as four
+      boxes with nothing written on them. Grace Nkemdi, the island nurse, wants it as a
+      poster for the school, and the boxes are in no order.
+    guide: >-
+      Four stages, and the rail runs in time. Ask of each what has to have happened already
+      for it to be possible at all, and where in the path the island loses the greater part
+      of what fell. One of the four is the only stage anybody on Vellan meters, and it is
+      not the first.
+    background:
+      - >-
+          Why the losses come before the store rather than after it. Evaporation, transpiration
+          and runoff all act on water that is still at or near the surface. Once it is past the
+          root zone it is out of reach of the turf and the burns, which is why the fraction
+          reaching the aquifer is settled within days of the rain falling.
+      - >-
+          What the order buys you on a licence form. Each stage is what is left of the stage
+          before it, so an abstraction limit written against rainfall is written against the
+          largest number in the chain rather than the smallest. The licence has to be set at
+          the last stage that is still a natural quantity, and that is the store, not the sky.
+    assumes:
+      - the burns on Vellan run to the sea rather than into the aquifer
+    takeaway: Each stage of an island water cycle is what is left of the one before it, so a limit is only honest at the stage it is written against.
+    format: SEQUENCE
+    task: Order the four stages by when they happen to one year's rain, earliest first.
+    cards:
+      - Rain lands on the catchment and wets the turf and the thin soil over the rock.
+      - Most of it leaves again — up through the turf and off the rock down the burns to the sea.
+      - What is left passes the root zone and joins the aquifer, mixing with the years already there.
+      - The pump at the borehole draws on the store, and the two tanks above the village fill.
+    order: [0, 1, 2, 3]
+    axis: Order the four stages by when they happen to one year's rain, earliest first. Each stage acts on what the stage before it left behind, so the volumes fall as you go down the rail.
+    ends: [First thing that happens to the rain, Last thing that happens to it]
+    why: >
+      The chain runs in one direction and each link is smaller than the one above it. Rain
+      arrives on the whole catchment. The turf, the wind and the burns take the greater part of
+      it back before it is anywhere useful. Only what gets past the root zone reaches the store,
+      and only what the pump draws reaches a tap. Putting abstraction before recharge is the
+      common error and it is the one that matters, because it is the shape of a licence written
+      against rainfall instead of against the store the pump actually empties.
+
+  - group: COMMON
+    title: Nine inches over rock — Review
+    task: Read a pit in the one deep soil on the island
+    place: Common Office
+    concept: 'Soil: horizons, texture and what a thin soil cannot do'
+    scene: >
+      Ewan Hollis has opened a pit in his own two acres of market garden: two feet of dark,
+      heavy, worked soil over the same rock as the common. Pike wants it read against the
+      pit at the top of the common before either acre is promised to the ferry.
+    guide: >-
+      The same four questions as the common pit, on ground that answers them differently.
+      How deep is the material a root can work in, what is the texture doing to the water,
+      where did the organic matter come from, and what is at the bottom. Three of the four
+      are better here than on the common. The fourth is the same on both, and it is the one
+      that sets the ceiling.
+    background:
+      - >-
+          What forty years of importing does to a profile. Seaweed and sorted compost worked in
+          every autumn raises the organic matter, darkens the surface and deepens the worked
+          layer until it meets rock. It builds depth downwards from the top because there is
+          nowhere else for it to come from on an island, and it stops the moment it reaches the
+          rock face.
+      - >-
+          Why the drainage reverses the usual advantage. On the common a sandy texture over rock
+          drains in twenty minutes and a dry August bites within a fortnight. A heavier, better
+          worked soil holds that water, which carries a crop through the month; the same
+          property leaves it wet in a late spring, which is the reason Hollis plants a fortnight
+          after the mainland does.
+    assumes:
+      - the two acres of garden are the only deep soil on Vellan
+    takeaway: Depth in an island soil is imported rather than found, and the rock underneath sets a ceiling no amount of importing lifts.
+    format: PROTOCOL
+    task: Match each thing the garden pit shows to what it decides about growing there.
+    columns:
+      - What Hollis's pit shows
+      - What it decides
+    scenarios:
+      - Two feet of dark worked soil where the common has nine inches
+      - Water still standing in the bottom of the pit an hour after digging
+      - Seaweed and sorted compost turned in every autumn for forty years
+      - The same unbroken rock at the base, two feet down instead of eleven inches
+    choices:
+      - Roughly three times the common's rooting depth, so a crop has a reserve under it
+      - A heavier texture holding its water, so a dry August bites weeks later than on the common
+      - The organic matter was carried here and made here, so the depth is a built thing rather than a found one
+      - A hard floor with no store below it, so the profile can only ever be deepened from above
+    mapping: [0, 1, 2, 3]
+    rebuttals:
+      - Two feet against nine inches is rooting depth, and rooting depth is the reserve a crop draws on in a dry month.
+      - Water standing an hour after digging is a heavy texture holding on to it, which is what delays a drought here.
+      - Four decades of seaweed and compost is where the organic matter came from; none of it was in the ground to start with.
+      - The rock is unchanged from the common pit, and nothing worked in at the surface moves it.
+    answerText: >-
+      The depth is rooting depth, the standing water is a heavy texture, the seaweed and compost
+      are where the profile came from, and the rock is the ceiling both pits share.
+    why: >
+      A profile is read as a set of limits, and on this island three of the four can be bought
+      and one cannot. Depth, organic matter and texture are all products of forty years of
+      importing seaweed and compost, and they are why two acres carry vegetables while sixty-two
+      hectares carry sheep. The rock at the base is the term that does not move: it caps the
+      profile, it caps the water held under it, and it is why the garden was built upwards
+      instead of dug deeper. Any plan for another acre is a plan to make soil, not to find it.

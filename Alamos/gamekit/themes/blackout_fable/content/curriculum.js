@@ -1520,6 +1520,86 @@ export const CURRICULUM = {
           "Synchronous machines and synchronisation"
         ]
       }
+    },
+    {
+      "day": 7,
+      "title": "How much power actually left the system — Review",
+      "scene": "The Kestrel smelter dropped its whole load at 21:40 and the frequency went up instead of down. Mina Sarraf, the wind fleet controller, is backing her machines off, and she wants the size of the step before she decides how far.",
+      "takeaway": "The same balance holds for a surplus as for a shortfall, and only the sign of the rate changes.",
+      "place": "Generation Hall",
+      "guide": "Five numbers again, and two of them belong to a later moment or a different question. The settled deviation is what the governors did afterwards. The demand at the time is a denominator elsewhere. Ask of each number whether it describes the first two seconds. The sign of the rate has changed and nothing else about the arithmetic has.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
+      "story": "The Kestrel smelter dropped its whole load at 21:40 and the frequency went up instead of down. Mina Sarraf, the wind fleet controller, is backing her machines off, and she wants the size of the step before she decides how far.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "How much power actually left the system — Review",
+        "setup": "Generation Hall",
+        "play": "Size the step when the balance goes the other way",
+        "task": "Size the step when the balance goes the other way",
+        "question": "Estimate the demand that came off the system at the moment the smelter tripped.",
+        "answer": "About 160 MW.",
+        "why": "The balance equation does not care which way the mismatch goes. Losing a large block of demand leaves generation in surplus. That surplus goes into the spinning machines as kinetic energy, so frequency rises rather than falls. The rate is set by how much inertia is there to absorb it. The same three quantities therefore return the size of the step. They are stored kinetic energy, the initial rate of change, and nominal frequency. The settled deviation belongs to the governors afterwards. The demand figure belongs to a different question.",
+        "givens": [
+          "Stored kinetic energy online is 18,000 MW·s",
+          "Initial rate of rise is 0.22 Hz per second",
+          "Nominal frequency is 50 Hz"
+        ],
+        "relationship": "Power imbalance magnitude = 2 × stored kinetic energy × |df/dt| ÷ nominal frequency.",
+        "calcKey": "GEN-7"
+      },
+      "assumes": [
+        "a rate of change can be read off the steep part of a trend",
+        "electrical power and energy over time — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "df/dt = f₀(P_gen − P_load) / 2H",
+          "c": "frequency as the running balance of supply and demand",
+          "v": [
+            [
+              "df/dt",
+              "how fast frequency is moving, in hertz per second"
+            ],
+            [
+              "f₀",
+              "nominal frequency, in hertz — 50 on this system"
+            ],
+            [
+              "P_gen",
+              "total generation, in megawatts"
+            ],
+            [
+              "P_load",
+              "total demand, in megawatts"
+            ],
+            [
+              "H",
+              "stored kinetic energy of the machines online, in megawatt-seconds"
+            ]
+          ],
+          "s": "Frequency falls at a rate set by how far generation is short, divided by the spinning inertia there to absorb it, and scaled by the frequency the system runs at.",
+          "computed": true
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 5,
+          "c": "Electrical power and energy over time"
+        }
+      ],
+      "concept": {
+        "n": 19,
+        "c": "Frequency as the balance of supply and demand",
+        "t": "Frequency is not set anywhere; it is what generation minus demand does to the energy stored in spinning machines. That makes it the fastest system-wide signal there is, and the same number everywhere in a connected network.",
+        "of": 32,
+        "rests": [
+          "Electrical power and energy over time",
+          "Synchronous machines and synchronisation"
+        ]
+      }
     }
   ],
   "TRANS": [
@@ -2632,6 +2712,130 @@ export const CURRICULUM = {
           "Frequency as the balance of supply and demand"
         ]
       }
+    },
+    {
+      "day": 6,
+      "title": "What is common and what divides — Review",
+      "scene": "Ewa Kowalczyk, the field crew lead, is reading a service drawing with an apprentice before they go out. Four parts of it are marked, and she wants each matched to what the arrangement keeps common and what it divides.",
+      "takeaway": "What stays common tells you which rule applies, and the number of paths for the current is what decides it.",
+      "place": "Distribution Depot",
+      "guide": "Four arrangements from one drawing, and the right column names what stays common in each. Ask how many paths the current has through the part you are looking at. One path means one current and a shared voltage split between the elements. Two common nodes mean one voltage and a current that splits. Then ask what another path, or another length, does to the total.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why the drawing decides it and the label does not. A part of a network is not in series or in parallel because of what it is called or where it is drawn on the page. It is one or the other because of how many paths the current has, and that is the only question worth asking of each marked section."
+      ],
+      "story": "Ewa Kowalczyk, the field crew lead, is reading a service drawing with an apprentice before they go out. Four parts of it are marked, and she wants each matched to what the arrangement keeps common and what it divides.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "What is common and what divides — Review",
+        "setup": "Distribution Depot",
+        "play": "Match each piece of the service to what stays common in it",
+        "task": "Match each piece of the service to what stays common in it",
+        "question": "Match each piece of the service to what stays common in it",
+        "answer": "",
+        "why": "Two transformers across one busbar share the two nodes, so they share the voltage and split the load current between them. A fuse, a cable and a motor on one spur offer the current a single path, so the current is the same in all three and the supply voltage divides. A second cable between the same points is another path, which lowers the combined impedance and lets more current flow for the same drop. More length in one path raises the impedance of that loop, drops more voltage along it, and leaves the far end lower than it was.",
+        "rebuttals": [
+          "Two units across the same busbar see the same voltage, and it is the current that shares between them.",
+          "One path end to end carries one current, with the voltage dividing across the elements in it.",
+          "Another route in parallel lowers the combined impedance and raises what the pair can carry.",
+          "Extra length adds impedance to the loop, so the current falls and the far end sits lower."
+        ],
+        "scenarios": [
+          "Two transformers connected across the same busbar to supply one feeder.",
+          "A fuse, a length of service cable and a motor on one spur.",
+          "A second cable pulled in beside the first between the same two substations.",
+          "A further length of the same cable added to reach a house at the end of the spur."
+        ],
+        "choices": [
+          "The voltage is common to both and the load current divides between them.",
+          "The current is common to all three and the supply voltage divides across them.",
+          "The combined impedance falls, so the pair carries more current for the same volt drop.",
+          "The impedance in the loop rises, so the current falls and the far end sits lower still."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "columns": [
+          "The part of the drawing",
+          "What it keeps common"
+        ]
+      },
+      "assumes": [
+        "a circuit can be connected end to end or side by side",
+        "kirchhoff's laws and nodal analysis — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "N₁/N₂ = V₁/V₂",
+          "c": "the transformer ratio, and why transmission is at high voltage",
+          "v": [
+            [
+              "N₁",
+              "turns on the primary winding"
+            ],
+            [
+              "N₂",
+              "turns on the secondary"
+            ],
+            [
+              "V₁",
+              "primary voltage"
+            ],
+            [
+              "V₂",
+              "secondary voltage"
+            ]
+          ],
+          "s": "A transformer trades voltage for current in the ratio of its turns, which is what makes long-distance transmission affordable."
+        },
+        {
+          "e": "ΔV ≈ I(R cos φ + X sin φ)",
+          "c": "voltage drop along a line, and why reactive power moves it",
+          "v": [
+            [
+              "ΔV",
+              "voltage drop along the line, in volts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "R",
+              "line resistance, in ohms"
+            ],
+            [
+              "X",
+              "line reactance, in ohms"
+            ],
+            [
+              "cos φ / sin φ",
+              "the power factor terms"
+            ]
+          ],
+          "s": "Voltage falls along a loaded line, and on a transmission line the reactance term dominates, which is why reactive power moves voltage."
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 3,
+          "c": "Kirchhoff's laws and nodal analysis"
+        }
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Series, parallel and equivalent circuits",
+        "t": "Series elements share a current and divide the voltage; parallel elements share a voltage and divide the current. Which arrangement you have decides whether a second path relieves the first or simply gives a fault somewhere else to go.",
+        "of": 32,
+        "rests": [
+          "Ohm's law and resistive networks",
+          "Kirchhoff's laws and nodal analysis"
+        ]
+      }
     }
   ],
   "LOAD": [
@@ -3061,6 +3265,82 @@ export const CURRICULUM = {
         "rests": [
           "Charge, current, voltage and resistance",
           "Ohm's law and resistive networks"
+        ]
+      }
+    },
+    {
+      "day": 7,
+      "title": "The power that never arrives — Review",
+      "scene": "Rafael Alvarez, the demand analyst, has a 33 kV cable circuit that will carry twenty per cent more current on Thursday than it did today. Nothing else about the circuit changes. He wants the heating stated before the forecast is signed off.",
+      "takeaway": "A quantity that depends on a square runs ahead of the thing it depends on, so margins go faster than loadings.",
+      "place": "Load & Forecasting",
+      "guide": "Four answers, and each is what you get from a different reading of the same relationship. Ask what the heat depends on, and then ask what power the current is raised to. One answer treats the rise as if heat followed current directly. One treats it as if a fixed voltage held the heat still. The square is the whole distinction, and it is worth twenty-four points here.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
+      "story": "Rafael Alvarez, the demand analyst, has a 33 kV cable circuit that will carry twenty per cent more current on Thursday than it did today. Nothing else about the circuit changes. He wants the heating stated before the forecast is signed off.",
+      "game": {
+        "type": "CHOICE",
+        "title": "The power that never arrives — Review",
+        "setup": "Load & Forecasting",
+        "play": "Say what a modest rise in current does to the heat",
+        "task": "Say what a modest rise in current does to the heat",
+        "question": "The current rises by a fifth and the resistance is unchanged. What happens to the heat in the cable?",
+        "answer": "It rises by about forty-four per cent, since the heat follows the square of the current.",
+        "why": "Resistive heating is the current squared times the resistance, so a proportional rise in current is not a proportional rise in heat. A factor of 1.2 on the current becomes 1.44 on the heat, which is forty-four per cent more warmth in the same cable for a fifth more delivery. That is why thermal margin disappears faster than a loading chart suggests. Voltage does not enter the loss at all. It decides what current a given delivery needs, and that is a separate step taken before this one.",
+        "rebuttals": [
+          "Heat follows the square, so a rise of a fifth in current is more than a rise of a fifth in heat.",
+          "There is no fraction of the current that is not resistive; the whole of it flows through the same resistance.",
+          "Nominal voltage says nothing about the heat, which is set by current and resistance alone."
+        ],
+        "choices": [
+          "It rises by about a fifth, since the heat follows the current.",
+          "It rises by about forty-four per cent, since the heat follows the square of the current.",
+          "It rises by about a tenth, since only half of the extra current is resistive.",
+          "It does not move, since the circuit is still at its nominal voltage."
+        ],
+        "correctChoice": "It rises by about forty-four per cent, since the heat follows the square of the current."
+      },
+      "assumes": [
+        "current through a resistance dissipates power as heat",
+        "charge, current, voltage and resistance — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "V = IR",
+          "c": "Ohm's law, on a conductor and on a whole network",
+          "v": [
+            [
+              "V",
+              "voltage across it, in volts"
+            ],
+            [
+              "I",
+              "current through it, in amperes"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Current through a resistance produces a voltage across it, in proportion."
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Charge, current, voltage and resistance"
+        }
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Ohm's law and resistive networks",
+        "t": "V = IR holds for any element whose resistance does not change with the current through it. It lets a whole network stand in as one number, which stays legitimate only while nothing in it is heating or saturating.",
+        "of": 32,
+        "rests": [
+          "Charge, current, voltage and resistance"
         ]
       }
     }
@@ -3735,6 +4015,112 @@ export const CURRICULUM = {
           "Electrical power and energy over time"
         ]
       }
+    },
+    {
+      "day": 8,
+      "title": "The order the records claim things happened in — Review",
+      "scene": "Klara Bergström, the calibration technician, has four pairs of readings of the same feeder current, each pair in close agreement. Farrow will accept one pair as corroboration and wants to know which, before the calibration round is planned.",
+      "takeaway": "Corroboration is a claim about independent paths, and two displays on one transducer are a single path.",
+      "place": "Metering & Standards",
+      "guide": "Four pairs, and every one of them agrees to within a per cent. Agreement is not what you are grading. Ask instead what each reading in the pair passed through on its way to the screen. Two displays fed by one transducer are one measurement shown twice. A pair is corroboration only where a fault in either path would move one number and leave the other alone.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why a shared front end is invisible from the screen. A panel meter and a historian trend are drawn differently, sit in different rooms and are read by different people, and none of that changes what they are fed by. The wiring diagram settles it and the display never will.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
+      "story": "Klara Bergström, the calibration technician, has four pairs of readings of the same feeder current, each pair in close agreement. Farrow will accept one pair as corroboration and wants to know which, before the calibration round is planned.",
+      "game": {
+        "type": "CHOICE",
+        "title": "The order the records claim things happened in — Review",
+        "setup": "Metering & Standards",
+        "play": "Say which pair of readings is two measurements rather than one",
+        "task": "Say which pair of readings is two measurements rather than one",
+        "question": "Which pair of agreeing readings counts as two measurements of the feeder current?",
+        "answer": "The protection relay's metering and a clamp meter put on the cable by the technician.",
+        "why": "A reading is only as independent as the chain it came down. The relay takes its current from the station transformer and a clamp meter takes its own from the conductor, so a fault in either chain moves one number and leaves the other where it was. Every other pair here shares a transducer, a link or a stored file, so the two numbers cannot disagree however wrong the shared part is. That is why a calibration round is planned from the wiring rather than from the screens.",
+        "rebuttals": [
+          "One current transformer feeding two displays is one measurement shown twice, whatever the two displays are called.",
+          "An archived copy of a trend is the same numbers with a date on them, so it can confirm storage and nothing else.",
+          "A value repeated onto a second screen has travelled no new path, so the agreement is a network test."
+        ],
+        "choices": [
+          "The panel ammeter and the historian trend, both fed from the same current transformer.",
+          "The protection relay's metering and a clamp meter put on the cable by the technician.",
+          "The historian trend and the archived copy of the historian trend from last night.",
+          "The control-room display and the same value repeated on the substation mimic."
+        ],
+        "correctChoice": "The protection relay's metering and a clamp meter put on the cable by the technician."
+      },
+      "assumes": [
+        "a reading reaches a screen through a transducer and a link",
+        "two channels can agree because they share the same source",
+        "rMS against peak and average — taken as read",
+        "faraday's law and electromagnetic induction — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "N₁/N₂ = V₁/V₂",
+          "c": "the transformer ratio, and why transmission is at high voltage",
+          "v": [
+            [
+              "N₁",
+              "turns on the primary winding"
+            ],
+            [
+              "N₂",
+              "turns on the secondary"
+            ],
+            [
+              "V₁",
+              "primary voltage"
+            ],
+            [
+              "V₂",
+              "secondary voltage"
+            ]
+          ],
+          "s": "A transformer trades voltage for current in the ratio of its turns, which is what makes long-distance transmission affordable."
+        },
+        {
+          "e": "η = E_out / E_in",
+          "c": "round-trip efficiency of storage",
+          "v": [
+            [
+              "η",
+              "round-trip efficiency, between 0 and 1"
+            ],
+            [
+              "E_out",
+              "energy you get back out"
+            ],
+            [
+              "E_in",
+              "energy you put in"
+            ]
+          ],
+          "s": "Storage returns less than it takes, so the reserve it is counted as is smaller than its nameplate."
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 7,
+          "c": "RMS against peak and average"
+        },
+        {
+          "n": 17,
+          "c": "Faraday's law and electromagnetic induction"
+        }
+      ],
+      "concept": {
+        "n": 31,
+        "c": "Metering, instrument transformers and measurement error",
+        "t": "Every number on the screen arrived through a transducer, a link and a timestamp, any of which can be wrong on its own. A reading is evidence about the instrument as much as about the system, and the two have to be told apart.",
+        "of": 32,
+        "rests": [
+          "RMS against peak and average",
+          "Faraday's law and electromagnetic induction"
+        ]
+      }
     }
   ]
 };
@@ -4074,6 +4460,37 @@ export const BALLPARK_CALCS = {
     "units": "W",
     "solution": "P_loss = 3 × 1280² × 4.2 ≈ 2.06 × 10⁷ W ≈ 21 MW.",
     "explanation": "About 21 megawatts, against 17 an hour ago. Current rose by 11% and the heat rose by nearly a quarter, because the square does the work. The earlier current and the corrected temperature are both real numbers about this corridor and neither enters the loss."
+  },
+  "GEN-7": {
+    "prompt": "Frequency rose at 0.22 Hz per second over the first 2 seconds. The machines online held 18,000 MW·s of stored kinetic energy. Nominal frequency is 50 Hz.",
+    "question": "Choose the stored energy, the rate of rise and the nominal frequency.",
+    "labels": [
+      "18000 MW·s  (stored kinetic energy)",
+      "0.22 Hz/s  (initial rate of rise)",
+      "50 Hz  (nominal frequency)",
+      "0.11 Hz  (the settled deviation)",
+      "5900 MW  (demand at the time)"
+    ],
+    "values": [
+      18000,
+      0.22,
+      50,
+      0.11,
+      5900
+    ],
+    "slots": 3,
+    "template": "2 × {0} × {1} ÷ {2}",
+    "formula": "2*a*b/c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 158,
+    "tolerance": 25,
+    "units": "MW",
+    "solution": "|ΔP| = 2 × 18,000 × 0.22 ÷ 50 ≈ 158 MW.",
+    "explanation": "About 160 megawatts of demand, gone in one step. The settled deviation and the demand at the time are both real figures, and neither belongs here. The first is what the governors did afterwards. The second is the denominator for a different question."
   }
 };
 

@@ -278,6 +278,50 @@ export const CURRICULUM = {
           "An experiment against an observational study, and what confounding costs"
         ]
       }
+    },
+    {
+      "day": 6,
+      "title": "Concealment is not the same as blinding — Review",
+      "scene": "Farida Diouf, the trial pharmacist, is on the phone to site 19, whose link to the allocation server has failed twice this month. They want to fall back on the sealed envelopes in the cupboard, and they want the steps written down before they use them.",
+      "takeaway": "Concealment is a property of the order the steps run in, not of what the assignment is kept in.",
+      "place": "Kit Warehouse & Cold Room",
+      "guide": "Four steps that all happen inside a minute, so the rail is not really a clock. Order them by what each one shuts. Ask of every step whether the site could still change its mind about this patient after it, and whether anything about the arm has been given away yet. Those two answers are what the order has to keep apart.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
+      "story": "Farida Diouf, the trial pharmacist, is on the phone to site 19, whose link to the allocation server has failed twice this month. They want to fall back on the sealed envelopes in the cupboard, and they want the steps written down before they use them.",
+      "game": {
+        "type": "SEQUENCE",
+        "title": "Concealment is not the same as blinding — Review",
+        "setup": "Kit Warehouse & Cold Room",
+        "play": "Order site 19's four fallback steps so no envelope is opened while entry is still a choice.",
+        "task": "Order site 19's four fallback steps so no envelope is opened while entry is still a choice.",
+        "question": "Order site 19's four fallback steps so no envelope is opened while entry is still a choice.",
+        "answer": "",
+        "why": "Concealment is about what a site can know while it can still choose. A numbered list taped in a cupboard can be read ahead. An envelope cannot, but only while the number is committed to the participant's file before anybody opens it. So eligibility and consent go down first, the number is allocated and written in, and only then is anything opened, in front of a witness. Reverse the middle pair and the site sees the arm at a moment when it can still decide this patient was not quite eligible after all.\n",
+        "cards": [
+          "Eligibility is checked and the signed consent is filed, with no envelope touched.",
+          "A number is allocated from the envelope run and written into the participant's own file.",
+          "The envelope carrying that number is opened, with a second member of staff watching.",
+          "The arm inside is dispensed, and the opened envelope is filed under that number."
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "assumes": [
+        "participants are assigned to arms by chance rather than by choice"
+      ],
+      "concept": {
+        "n": 11,
+        "c": "A sample and the population it is supposed to stand for",
+        "of": 30
+      }
     }
   ],
   "ENDP": [
@@ -998,6 +1042,50 @@ export const CURRICULUM = {
       "assumes": [
         "the interval around an estimate says what the data are compatible with"
       ]
+    },
+    {
+      "day": 10,
+      "title": "One outcome, named in advance — Review",
+      "scene": "Kwame Ansah, the endpoint adjudication chair, has an email from the sponsor's medical director. She has seen the walk-distance figures with both arms pooled, and asks that the endpoint be reported as the share of participants gaining more than thirty metres.",
+      "takeaway": "A definition settled after the numbers are on screen is a finding, not a promise the trial can be held to.",
+      "place": "Adjudication Room",
+      "guide": "The four options disagree about what a late definition damages: the measuring, the blind, the arithmetic, or the claim. Test each by asking whether it would still be a problem had the same threshold been fixed four years ago. A cost that survives that test is administrative. A cost that disappears belongs to the timing rather than to the endpoint.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
+      "story": "Kwame Ansah, the endpoint adjudication chair, has an email from the sponsor's medical director. She has seen the walk-distance figures with both arms pooled, and asks that the endpoint be reported as the share of participants gaining more than thirty metres.",
+      "game": {
+        "type": "CHOICE",
+        "title": "One outcome, named in advance — Review",
+        "setup": "Adjudication Room",
+        "play": "Say what a threshold picked after the fact costs the trial",
+        "task": "Say what a threshold picked after the fact costs the trial",
+        "question": "What does reporting a thirty-metre threshold, chosen now, cost CLARION-3?",
+        "answer": "The result becomes the best of several thresholds rather than one question answered",
+        "why": "A responder rate is a perfectly respectable endpoint. Chosen after the distribution is on the screen it becomes a different object, because the threshold could have been ten metres, twenty or fifty, and the one that gets written down is the one that separated best. What CLARION-3 promised was the mean change, and the sample size and the analysis were built on that promise. Everything already measured stays measured. What a late threshold costs is not the data but the sentence the trial is entitled to write about it.\n",
+        "rebuttals": [
+          "Nothing is remeasured; the same walk distances support either summary, which is the difficulty rather than the relief.",
+          "Responder status is scored from the distance walked, and needs no knowledge of the arm at all.",
+          "A recalculation would not help, because the sample size was fixed against a promise that has now moved."
+        ],
+        "choices": [
+          "The result becomes the best of several thresholds rather than one question answered",
+          "The walk distances already recorded would have to be measured again at the next visit",
+          "The adjudication committee would have to be unblinded before it could score a responder",
+          "The sample size would have to be recalculated before the database is locked next month"
+        ],
+        "correctChoice": "The result becomes the best of several thresholds rather than one question answered"
+      },
+      "assumes": [
+        "a trial collects more than one measurement from each participant"
+      ],
+      "concept": {
+        "n": 1,
+        "c": "A distribution of one variable: shape, centre and spread",
+        "of": 30
+      }
     }
   ],
   "SAFE": [
@@ -2204,6 +2292,114 @@ export const CURRICULUM = {
         "rests": [
           "A significance test: null, alternative, and what a p-value is",
           "The central limit theorem, and the standard error of a mean"
+        ]
+      }
+    },
+    {
+      "day": 10,
+      "title": "Nine ages, and their middle — Review",
+      "scene": "Miriam Feldman, the trial statistician, has the Lisbon baseline table back with four amendments pencilled on it. Before she signs the table off she wants each amendment matched to what it does to the two figures in the age row.",
+      "takeaway": "A mean is a balance point and a median is a position, so one change can move one of them and leave the other where it was.",
+      "place": "Statistics & Analysis",
+      "guide": "Four amendments to the same nine-row table, and two figures to keep separate. For each one ask what happens to the sum divided by the count, and then ask separately what happens to the value sitting in the middle position. An amendment can change how far out a value sits without changing which position it occupies, and the two figures answer to different things.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why the nine ages are worth carrying in your head. They are 49, 54, 55, 58, 60, 61, 63, 67 and 79, which sum to 546. Every row on this board is a small edit to that list, and each one can be settled by asking what the edit does to the sum, to the count, and to the fifth value from either end."
+      ],
+      "story": "Miriam Feldman, the trial statistician, has the Lisbon baseline table back with four amendments pencilled on it. Before she signs the table off she wants each amendment matched to what it does to the two figures in the age row.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "Nine ages, and their middle — Review",
+        "setup": "Statistics & Analysis",
+        "play": "Say what each correction does to the mean and to the median",
+        "task": "Say what each correction does to the mean and to the median",
+        "question": "Say what each correction does to the mean and to the median",
+        "answer": "",
+        "why": "A mean is a balance point and a median is a position, and that difference settles all four rows. Correcting one age upward changes the total and changes nobody's rank, so the mean rises alone. Removing the two oldest takes distance as well as rank, so both fall and the mean falls further. Adding a year to everybody moves both by exactly a year and leaves the spread alone. A tenth person at the middle pulls nothing anywhere, which is why a baseline table for a skewed variable carries both figures.\n",
+        "scenarios": [
+          "One age is corrected from 79 to 97 after a transcription check.",
+          "The two oldest participants withdraw and come out of the table.",
+          "Every age is re-recorded a year later, at the anniversary visit.",
+          "A tenth participant joins, aged exactly the current middle value."
+        ],
+        "choices": [
+          "The mean rises by two years and the median does not move: the total changed and nobody's rank did.",
+          "Both fall, and the mean falls further: the table lost distance as well as rank.",
+          "Both rise by exactly a year, and the spread is untouched: every value moved the same way.",
+          "Neither shifts to speak of: a value arriving at the middle pulls nothing anywhere."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "columns": [
+          "The amendment to the table",
+          "What it does to the age row"
+        ]
+      },
+      "assumes": [
+        "the nine listed ages are the people actually randomised at Lisbon",
+        "a distribution of one variable: shape, centre and spread — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "P(X = k) = C(n,k)·pᵏ(1−p)ⁿ⁻ᵏ",
+          "c": "the binomial probability",
+          "v": [
+            [
+              "n",
+              "the fixed number of trials"
+            ],
+            [
+              "k",
+              "the number of successes asked about"
+            ],
+            [
+              "p",
+              "the chance of success on one trial"
+            ],
+            [
+              "C(n,k)",
+              "the number of ways k can fall among n"
+            ]
+          ],
+          "s": "Any one arrangement has probability pᵏ(1−p)ⁿ⁻ᵏ, and there are C(n,k) arrangements that count."
+        },
+        {
+          "e": "χ² = Σ(O − E)² / E",
+          "c": "the chi-square statistic on a table of counts",
+          "v": [
+            [
+              "O",
+              "the count observed in a cell"
+            ],
+            [
+              "E",
+              "the count expected there if the null were true"
+            ],
+            [
+              "Σ",
+              "summed over every cell of the table"
+            ]
+          ],
+          "s": "Each cell contributes its squared shortfall relative to what was expected there, so big cells do not dominate by being big."
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "A distribution of one variable: shape, centre and spread"
+        }
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Mean against median, and which one an outlier moves",
+        "of": 30,
+        "rests": [
+          "A distribution of one variable: shape, centre and spread"
         ]
       }
     }
@@ -3652,6 +3848,93 @@ export const CURRICULUM = {
         "relative risk is treatment risk divided by control risk",
         "absolute risk reduction is control risk minus treatment risk"
       ]
+    },
+    {
+      "day": 9,
+      "title": "The plan that was in force — Review",
+      "scene": "Nkechi Umeh, the regulatory lead, has a draft of the sponsor's submission. Behind CLARION-3's own result somebody has added a national registry analysis of forty-one thousand treated patients, pointing the same way, and offered it as support.",
+      "takeaway": "What a dataset may say about cause is decided by whatever assigned the treatment, and never by how many people are in it.",
+      "place": "Regulatory & Registry",
+      "guide": "The four options disagree about what a registry may be used for: widening, sharpening, confirming, or nothing at all. One question separates them, and it is not the number of patients. Ask what decided who was treated in each dataset. Everything either comparison is allowed to say about cause follows from that answer, and forty-one thousand does not change it.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
+      "story": "Nkechi Umeh, the regulatory lead, has a draft of the sponsor's submission. Behind CLARION-3's own result somebody has added a national registry analysis of forty-one thousand treated patients, pointing the same way, and offered it as support.",
+      "game": {
+        "type": "CHOICE",
+        "title": "The plan that was in force — Review",
+        "setup": "Regulatory & Registry",
+        "play": "Say what the registry analysis adds to what the trial may claim",
+        "task": "Say what the registry analysis adds to what the trial may claim",
+        "question": "What does the registry analysis add to what CLARION-3 is entitled to claim?",
+        "answer": "Consistency in a wider group, with cause still resting on the trial",
+        "why": "Forty-one thousand people is a bigger number and a weaker design. In the registry a clinician decided who was treated, so the two groups differ by whatever that clinician was weighing — how ill somebody was, how old, what else they were taking — and no amount of size removes it. In CLARION-3 a server decided, which is exactly what licenses attributing a difference to the treatment. So the registry is worth including, and worth labelling as what it is: the finding holds more widely, and the causal sentence still belongs to the trial.\n",
+        "rebuttals": [
+          "Two datasets are not pooled by adding people to one of them, and the registry's interval is its own.",
+          "Size does not repair confounding; forty-one thousand people who chose their treatment differ in every way chance removes.",
+          "Observational evidence is reported constantly and clearly labelled; what it may not do is carry the causal claim."
+        ],
+        "choices": [
+          "Consistency in a wider group, with cause still resting on the trial",
+          "A larger sample, which narrows the interval around the trial's own estimate considerably",
+          "Independent confirmation, because forty-one thousand patients outweigh two thousand four hundred",
+          "Nothing usable, since observational data may not appear in a regulatory submission"
+        ],
+        "correctChoice": "Consistency in a wider group, with cause still resting on the trial"
+      },
+      "assumes": [
+        "a registry records patients whose treatment was chosen by a clinician"
+      ],
+      "equations": [
+        {
+          "e": "P(A|B) = P(A and B) / P(B)",
+          "c": "conditional probability",
+          "v": [
+            [
+              "P(A|B)",
+              "the chance of A given that B happened"
+            ],
+            [
+              "P(B)",
+              "the chance of the condition itself"
+            ]
+          ],
+          "s": "Conditioning narrows the population to the cases where B is true, and asks about A inside that."
+        },
+        {
+          "e": "P(X = k) = C(n,k)·pᵏ(1−p)ⁿ⁻ᵏ",
+          "c": "the binomial probability",
+          "v": [
+            [
+              "n",
+              "the fixed number of trials"
+            ],
+            [
+              "k",
+              "the number of successes asked about"
+            ],
+            [
+              "p",
+              "the chance of success on one trial"
+            ],
+            [
+              "C(n,k)",
+              "the number of ways k can fall among n"
+            ]
+          ],
+          "s": "Any one arrangement has probability pᵏ(1−p)ⁿ⁻ᵏ, and there are C(n,k) arrangements that count."
+        }
+      ],
+      "concept": {
+        "n": 14,
+        "c": "An experiment against an observational study, and what confounding costs",
+        "of": 30,
+        "rests": [
+          "A sample and the population it is supposed to stand for"
+        ]
+      }
     }
   ]
 };

@@ -638,6 +638,149 @@ export const CURRICULUM = {
         "c": "Systems thinking: dependency, redundancy, failure modes",
         "of": 30
       }
+    },
+    {
+      "day": 10,
+      "title": "Which measurement constrains what? — Review",
+      "scene": "Whitaker has one station and a twenty-minute pass, and every observation it can take leaves some part of the state unmeasured. Reyes wants the room to name what each one is blind to before the schedule is fixed.",
+      "takeaway": "Every observation is blind along some axis, and a schedule is chosen against the blind axes rather than the strong ones.",
+      "place": "Deep-Space Tracking Station",
+      "guide": "Four observations, and four things none of them can see. Pair them by asking what the instrument is physically sensitive to, then take the complement. A frequency shift responds to motion along the beam. A travel time responds to distance along a line. An angle fixes the line and nothing on it. And one of the four is built by subtracting two earlier answers.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "Why a blind axis is worth scheduling against. A pass is short and the station can only be pointed at one thing at a time, so the observation worth buying is the one whose blind axis is already covered by something else. Two measurements blind in the same direction cost twice and buy once.",
+        "Why the transverse direction is the hard one here. A Doppler track is the cheapest measurement on the list and the one the room trusts most, and it responds only to the component of velocity along the beam. A spacecraft drifting sideways at a kilometre a second moves the carrier by nothing."
+      ],
+      "story": "Whitaker has one station and a twenty-minute pass, and every observation it can take leaves some part of the state unmeasured. Reyes wants the room to name what each one is blind to before the schedule is fixed.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "Which measurement constrains what? — Review",
+        "setup": "Deep-Space Tracking Station",
+        "play": "Match each observation to the part of the state it leaves unmeasured.",
+        "task": "Match each observation to the part of the state it leaves unmeasured.",
+        "question": "Match each observation to the part of the state it leaves unmeasured.",
+        "answer": "",
+        "why": "Each observation responds to one part of the motion and is silent about the rest, so the useful question about a short pass is not which measurement is best but which axis is still uncovered. Doppler carries the line-of-sight component of velocity and nothing across it. Range fixes a distance and leaves the direction open. A bearing does the opposite. Differenced positions give a rate and carry both errors forward. Two observations blind in the same direction cost two passes and buy one answer.",
+        "rebuttals": [
+          "Doppler is a frequency shift, so it answers only for the component of velocity along the beam and is silent about the rest.",
+          "Range is a time multiplied by a speed. It puts the spacecraft on a sphere and leaves every direction on that sphere open.",
+          "A bearing is an angle against catalogued stars. It fixes a line through the station and puts nothing at all on that line.",
+          "A rate built by subtraction inherits the errors of both numbers subtracted, which is why it is the noisiest quantity on the board."
+        ],
+        "scenarios": [
+          "A Doppler track held through the whole pass.",
+          "A round-trip range measurement at closest approach.",
+          "A pair of star-camera bearings ninety minutes apart.",
+          "Two positions differenced to give a velocity."
+        ],
+        "choices": [
+          "Motion across the beam. A velocity at right angles to the line of sight shifts the returned frequency by nothing at all.",
+          "Direction. A distance says how far along a line the spacecraft has got and never which of the lines it is on.",
+          "Distance. An angle fixes the line the spacecraft lies along and says nothing whatever about how far out it is.",
+          "Precision. Each position arrives with its own error, and the subtraction carries both of them into the rate."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "columns": [
+          "The observation",
+          "What it cannot see"
+        ]
+      },
+      "assumes": [
+        "a measurement responds to one component of the motion and not to the others",
+        "subtracting two measured numbers carries both of their errors into the answer",
+        "waves: frequency, wavelength, speed — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "v = fλ",
+          "c": "wave speed, frequency and wavelength",
+          "v": [
+            [
+              "v",
+              "wave speed, in metres per second"
+            ],
+            [
+              "f",
+              "frequency, in hertz"
+            ],
+            [
+              "λ",
+              "wavelength, in metres"
+            ]
+          ],
+          "s": "For a given medium the speed is fixed, so raising the frequency shortens the wavelength in proportion."
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 12,
+          "c": "Waves: frequency, wavelength, speed"
+        }
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Doppler shift",
+        "of": 30,
+        "rests": [
+          "Waves: frequency, wavelength, speed"
+        ]
+      }
+    },
+    {
+      "day": 11,
+      "title": "Reconstruct the state vector — Review",
+      "scene": "The guidance platform has restarted a second time. What is left is a handful of sextant marks the crew read off by hand, on three different clocks. Whitaker starts writing them up, and Reyes wants the axes agreed first.",
+      "takeaway": "A vector is numbers plus the axes they are measured against, and the axes have to be settled before any of the numbers can be added.",
+      "place": "Guidance Room",
+      "guide": "All four of these will be done, so ask what each one needs to be true already. A direction is only a direction once somebody has said which way the axes point. Components cannot be added until they are components on the same axes. A velocity is a difference between two positions. And the crew read attitude in their own frame, not in the room's.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "What a hand-taken mark actually is. A sextant angle between a star and a landmark is a direction and a moment, and nothing else. It carries no distance, no frame and no clock of its own, which is why all three have to be supplied before any arithmetic is done to it.",
+        "Why the last step is a rotation rather than a calculation. The state is computed in the frame the ground works in, and the crew fly the vehicle in theirs. The same vector has different numbers in the two, so a state handed across without the rotation is right and unusable."
+      ],
+      "story": "The guidance platform has restarted a second time. What is left is a handful of sextant marks the crew read off by hand, on three different clocks. Whitaker starts writing them up, and Reyes wants the axes agreed first.",
+      "game": {
+        "type": "SEQUENCE",
+        "title": "Reconstruct the state vector — Review",
+        "setup": "Guidance Room",
+        "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result.",
+        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result.",
+        "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result.",
+        "answer": "",
+        "why": "A vector is a set of numbers together with the axes they are measured against, and the numbers mean nothing without the axes. So the frame and the clock are settled before anything is resolved. Each sextant mark then becomes components on those shared axes, which is what makes them addable at all. Position comes from combining components with a range, and velocity from differencing two positions. The rotation into body axes is last because it changes every number while changing nothing physical.",
+        "rebuttals": [
+          "Name the axes and the clock first. A direction with no frame behind it is three numbers that cannot be compared with anything.",
+          "Resolve the marks into components second. Angles taken against different references do not add; their components on shared axes do.",
+          "Combine into a position and difference for velocity third. Both steps are arithmetic on components, so they wait for the components.",
+          "Rotate into body axes last. The crew set attitude in their own frame, and a state handed over in the ground's frame is unusable to them."
+        ],
+        "cards": [
+          "Name one set of axes and one clock, and record which way each axis points.",
+          "Resolve every sextant mark into components along the three named axes.",
+          "Add the components against the last trusted range for a position, and difference two positions for a velocity.",
+          "Rotate the finished state into the crew's own body axes before any burn attitude is read off it."
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "assumes": [
+        "a direction is only a set of numbers once the axes have been named",
+        "components add only when they are components on the same axes"
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Vectors and components",
+        "of": 30
+      }
     }
   ],
   "ELEC": [
@@ -1301,6 +1444,85 @@ export const CURRICULUM = {
         "of": 30,
         "rests": [
           "Electrical power and energy budgets"
+        ]
+      }
+    },
+    {
+      "day": 8,
+      "title": "What the pressure difference is for — Review",
+      "scene": "The coolant loop is moving a third less glycol than the plan assumed. The pump is still holding twenty-four psi across the loop, and nothing has been touched since yesterday. Brooks asks the room what that combination means.",
+      "takeaway": "When the push has not changed and the flow has, the path is what moved.",
+      "place": "Life Support Lab",
+      "guide": "All four options explain a flow that has fallen. They differ in what they hold responsible: the path, the pump, the instrument, or the fluid. Ask of each whether it is consistent with a driving difference that has not moved. A pressure difference makes the fluid go; how obstructed the path is decides how much of it goes per minute.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why an unchanged difference is the informative half. Two numbers describe this loop: what pushes and what resists. If the push is where it was and the flow has fallen, the resistance is the only term left to have moved. Had the difference fallen with the flow, the pump would be the first thing to look at instead.",
+        "What can add resistance in a cold loop. A partly closed valve, a loaded filter, gas collected at a high point, or glycol thickening as the cabin cools. All four reduce the flow at an unchanged pressure difference, and the way to separate them is where in the loop the pressure is lost rather than how much."
+      ],
+      "story": "The coolant loop is moving a third less glycol than the plan assumed. The pump is still holding twenty-four psi across the loop, and nothing has been touched since yesterday. Brooks asks the room what that combination means.",
+      "game": {
+        "type": "CHOICE",
+        "title": "What the pressure difference is for — Review",
+        "setup": "Life Support Lab",
+        "play": "The pump still holds 24 psi across the loop and the flow has fallen by a third. What does that combination mean?",
+        "task": "The pump still holds 24 psi across the loop and the flow has fallen by a third. What does that combination mean?",
+        "question": "The pump still holds 24 psi across the loop and the flow has fallen by a third. What does that combination mean?",
+        "answer": "The push is unchanged, so the loss of flow points to added resistance in the loop.",
+        "why": "Two quantities describe this loop and only one of them has moved. The pressure difference is what drives the glycol, and the resistance of the path decides how much arrives per minute. With the difference held at twenty-four psi and the flow down by a third, the resistance is the only term left that can have changed. A part-closed valve, a loaded filter, gas trapped at a high point or glycol thickening in a cooling cabin all do that. A healthy pump guarantees a pressure rise, never a flow.",
+        "rebuttals": [
+          "A pump sets the pressure rise it can hold, not the flow that results. The flow that a given rise produces depends on what the loop does to it.",
+          "They are two different quantities. One is what drives the fluid, the other is how much of it arrives, and the ratio between them is the resistance.",
+          "Cooling thickens glycol rather than helping it along, so a denser, more viscous fluid moves more slowly at the same difference, not faster."
+        ],
+        "choices": [
+          "The push is unchanged, so the loss of flow points to added resistance in the loop.",
+          "A pump holding its pressure rise cannot have lost flow, so the flow meter is at fault.",
+          "Pressure difference and flow are one measurement in two units, so both readings cannot be right together.",
+          "Colder glycol is denser, and a denser fluid always carries more flow at the same pressure difference."
+        ],
+        "correctChoice": "The push is unchanged, so the loss of flow points to added resistance in the loop."
+      },
+      "assumes": [
+        "a pressure difference drives a flow and the path decides its rate",
+        "newton's laws and free-body reasoning — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "P = IV = I²R",
+          "c": "electrical power, and an energy budget over time",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on."
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 3,
+          "c": "Newton's laws and free-body reasoning"
+        }
+      ],
+      "concept": {
+        "n": 27,
+        "c": "Fluid pressure and flow",
+        "of": 30,
+        "rests": [
+          "Newton's laws and free-body reasoning"
         ]
       }
     }
@@ -3827,6 +4049,113 @@ export const CURRICULUM = {
       },
       "assumes": [
         "you cannot fix from the ground what happens while the radio is quiet"
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Systems thinking: dependency, redundancy, failure modes",
+        "of": 30
+      }
+    },
+    {
+      "day": 23,
+      "title": "What failed: the spacecraft or the sensors? — Review",
+      "scene": "A signal-conditioning card was swapped at the start of the shift. Four hours later three thermocouples on the descent-stage tank are all climbing together. Carter wants the diagnosis settled before anybody vents the tank to bring it down.",
+      "takeaway": "Redundancy only buys independence when the redundant paths do not meet, and they usually meet at the card.",
+      "place": "Mission Control",
+      "guide": "Open each temperature channel to see what it depends on. Keep the ones that would still stand if the new card were faulty, and untick the rest. Then name the shared source. Venting the tank is not free and it is not reversible, so the question is whether the gas is warming or the measurement chain is.",
+      "background": [
+        "Why three thermocouples can be one measurement. Redundant temperature channels are usually amplified and digitised by one conditioning card, which supplies the excitation and the cold-junction reference. A fault in either moves all three readings the same way at the same moment, which is exactly what a warming tank looks like on the display.",
+        "Why the boil-off rate is worth more than three thermocouples here. Gas leaving a tank through a relief path is a flow, measured by a different instrument on a different chain, and it is a direct consequence of the tank being warm. It cannot inherit a fault in the temperature electronics because it does not pass through them.",
+        "Why the timing matters as much as the pattern. The card was fitted this morning, and the divergence starts hours later rather than at the swap, which is how a marginal connection behaves as it warms. A shared cause does not have to act at the instant it is installed."
+      ],
+      "story": "A signal-conditioning card was swapped at the start of the shift. Four hours later three thermocouples on the descent-stage tank are all climbing together. Carter wants the diagnosis settled before anybody vents the tank to bring it down.",
+      "game": {
+        "type": "TRACE",
+        "title": "What failed: the spacecraft or the sensors? — Review",
+        "setup": "Mission Control",
+        "play": "Open the dependency chain behind each temperature reading, keep what stands on its own, and name the shared source.",
+        "task": "Open the dependency chain behind each temperature reading, keep what stands on its own, and name the shared source.",
+        "question": "Which temperature evidence survives the dependency check, and what shared source moved the rest?",
+        "answer": "Keep the boil-off rate and the crew's hand-held reading, and reject the three thermocouples as independent votes. The conditioning card fitted this morning is the shared source.",
+        "why": "Three channels agreeing is three votes only if they can fail separately, and these three are amplified and referenced by one card. A fault in that card moves all of them the same way at once, which is indistinguishable on the display from a tank that is genuinely warming. The boil-off rate is a flow on a different instrument, and the crew's hand-held reading is an optical measurement made in the cabin. Neither passes through the card, and both say the gas is where it was. Venting would have thrown away propellant to correct an electrical fault.",
+        "trace": {
+          "channels": [
+            {
+              "id": "tc_a",
+              "label": "Tank thermocouple A",
+              "reading": "up nine degrees Celsius in four minutes",
+              "depends": [
+                "tank",
+                "cond_card"
+              ]
+            },
+            {
+              "id": "tc_b",
+              "label": "Tank thermocouple B",
+              "reading": "up nine degrees Celsius in four minutes",
+              "depends": [
+                "tank",
+                "cond_card"
+              ]
+            },
+            {
+              "id": "tc_c",
+              "label": "Tank thermocouple C",
+              "reading": "up eight degrees Celsius in four minutes",
+              "depends": [
+                "tank",
+                "cond_card"
+              ]
+            },
+            {
+              "id": "boiloff",
+              "label": "Relief line boil-off rate",
+              "reading": "steady at 0.4 kilograms an hour since the bang",
+              "depends": [
+                "tank",
+                "vent_path"
+              ]
+            },
+            {
+              "id": "handheld",
+              "label": "Crew hand-held infrared reading",
+              "reading": "within a degree of the figure taken this morning",
+              "depends": [
+                "tank",
+                "crew_optics"
+              ]
+            }
+          ],
+          "resources": [
+            {
+              "id": "tank",
+              "label": "Tank gas temperature"
+            },
+            {
+              "id": "cond_card",
+              "label": "Signal conditioning card fitted this morning"
+            },
+            {
+              "id": "vent_path",
+              "label": "Relief line flow meter"
+            },
+            {
+              "id": "crew_optics",
+              "label": "Hand-held infrared thermometer"
+            }
+          ],
+          "independent": [
+            "boiloff",
+            "handheld"
+          ],
+          "target": "cond_card",
+          "hint": "Open each channel to see what it depends on. Keep the channels whose measurement path does not run through the suspect card.",
+          "commit": "Correct it"
+        }
+      },
+      "assumes": [
+        "redundant sensors often share one amplifier and one reference",
+        "an instrument on a different physical principle does not inherit that fault"
       ],
       "concept": {
         "n": 20,

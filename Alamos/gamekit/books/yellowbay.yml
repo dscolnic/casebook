@@ -2709,3 +2709,172 @@ copy:
   DEP: <p>The deposition bay. Gas molecules taken apart and left on a wafer as a solid.</p>
   LITHO: <p>The yellow bay, lit amber because the resist answers to blue and shorter and to nothing above it.</p>
   WET: <p>The wet bench. What the air puts on a surface, and what a bath takes off.</p>
+
+# --------------------------------------------------------------- the reviews
+#
+# Unattached lessons: four `— Review` variants of day 1 and day 2 stops, so the
+# campaign's callback days have something to serve. Each is the same idea on a
+# different case — new scene, new board, new verdict — because a callback that
+# re-serves the original card is recognition rather than retrieval, and the
+# engine will not hand one out at all where no variant exists.
+lessons:
+  - group: WAFER
+    title: What is actually in a lot — Review
+    task: Weigh something that is not silicon and count what is in it
+    place: Wafer Store
+    concept: The mole, molar mass and counting atoms by weighing them
+    scene: >-
+      Twill has a quartz carrier ring off one of the furnaces on the store balance and a
+      supplier claim about how much silica a ring holds. Hale wants the claim checked as a count
+      before the next order is signed.
+    guide: >-
+      Two molar masses are on the tiles — one for a whole formula unit and one for a single
+      element in it — and they answer different questions about the same piece of glass. The
+      other two tiles describe the delivery rather than the ring that was weighed. Pick the mass
+      and the molar mass that belong to one another.
+    assumes:
+      - a balance reads mass and a specification is written in atoms
+      - a formula unit of silica holds one silicon atom and two oxygen atoms
+    takeaway: Divide by the molar mass of what was actually put on the balance, not of the element you happen to be interested in.
+    format: BALLPARK
+    question: How many moles of silica are in one carrier ring?
+    estimate:
+      prompt: One quartz carrier ring, cleaned and weighed on the store balance.
+      question: How many moles of silica are in one carrier ring?
+      labels:
+        - 1480 g  (the mass of one carrier ring)
+        - 60.1 g/mol  (the molar mass of silicon dioxide)
+        - 28.1 g/mol  (the molar mass of silicon on its own)
+        - 12  (rings in this delivery)
+        - 2.2 mm  (the thickness of a ring)
+      values: [1480, 60.1, 28.1, 12, 2.2]
+      slots: 2
+      template: '{0} ÷ {1}'
+      formula: a/b
+      correct: [0, 1]
+      target: 24.6
+      tolerance: 1.6
+      units: mol
+      solution: n = 1480 ÷ 60.1 ≈ 24.6 mol of silicon dioxide.
+      explanation: The delivery count and the thickness describe the box; silicon's own molar mass answers a different question.
+      relationship: Amount in moles = mass in grams ÷ molar mass in grams per mole.
+    why: >-
+      A balance reads grams. Everything a specification says happens atom by atom, so the molar
+      mass is the step that makes the two commensurable. What was weighed is silicon dioxide.
+      Dividing by silicon's molar mass alone counts something that was never on the pan — a
+      larger number, about a substance the ring is not made of. Twenty-five moles of silica is
+      about one and a half times ten to the twenty-fifth formula units. That is the scale any
+      contamination figure for this ring is read against.
+
+  - group: ATOM
+    title: The one number that names an element — Review
+    task: Say which change to a lattice renames an atom
+    place: Metrology Bay
+    concept: 'Atomic structure: protons, electrons and the shells they occupy'
+    scene: >-
+      Chidi Nkemdirim, the implant technician, has run boron into a test wafer and annealed it,
+      and the travellers now call the disc doped silicon. Ferreira has been asked at the bench
+      what on it is genuinely a second element.
+    guide: >-
+      Four things the beam and the anneal did to that lattice, and they differ in which part of
+      the atom they touched. Ask of each whether it changed the positive charge in a nucleus or
+      only something outside one. Getting this wrong is how a damaged wafer gets reported as a
+      contaminated one.
+    assumes:
+      - an atom is a nucleus of protons and neutrons with electrons around it
+      - an implanter fires ions into a solid hard enough to knock atoms out of place
+    takeaway: A lattice can be displaced, ionised and heated without one atom in it changing what it is; only a nucleus with a different proton count does that.
+    format: CHOICE
+    question: After the implant, which of these has actually put a second element into the disc?
+    choices:
+      - Boron nuclei coming to rest in the lattice, with five protons each.
+      - Silicon atoms knocked out of position by the beam and left sitting in gaps in the lattice.
+      - Silicon atoms stripped of some of their electrons by the beam and given them back later.
+      - Silicon atoms left vibrating harder than their neighbours until the anneal takes the heat away.
+    answer: Boron nuclei coming to rest in the lattice, with five protons each.
+    why: >-
+      Only the proton count names an element, and only the boron nuclei carry a different one. A
+      silicon atom knocked into a gap is silicon in the wrong place, which is a defect the anneal
+      exists to repair. A silicon atom short of electrons is a silicon ion, the same element
+      carrying a charge, and it takes electrons back as soon as any are available. A silicon atom
+      vibrating harder is the same atom hotter. The lattice is disturbed four ways and renamed
+      once.
+    rebuttals:
+      - A displaced atom is the same element in the wrong site, which is damage rather than contamination.
+      - An atom that has lost electrons is an ion of the same element, and it takes them back within the anneal.
+      - Vibration is what temperature is; nothing about the nucleus changes and the anneal removes it.
+
+  - group: LITHO
+    title: Why the bay is lit amber — Review
+    task: Rank four sources by what one packet of each can do
+    place: Yellow Bay
+    concept: 'Photons: energy, wavelength and what light does to matter'
+    scene: >-
+      Park has four light sources listed for the bay refit — a new exposure lamp, the amber
+      safelight, an inspection illuminator and an alignment laser. Tanabe will not sign the order
+      until they are ranked by what each one can do to a resist.
+    guide: >-
+      Four sources, all of them switched on in the same room, so nothing here happens before
+      anything else. What orders them is the energy carried by one packet of each, and the
+      constants in that expression are the same for every lamp in the building. The watts on the
+      labels are a rate of arrival.
+    assumes:
+      - light of a given wavelength arrives in packets of a fixed energy
+      - Planck's constant and the speed of light do not vary between lamps
+    takeaway: Ranking light sources by what they can do to a material ranks them by wavelength, and the power rating plays no part in it.
+    format: SEQUENCE
+    task: Order the four sources by the energy one photon of each carries.
+    axis: Order the four by the energy one photon of each carries, smallest first. This is not a clock — all four are switched on in the bay at once, and the question is what their wavelengths do to a single packet.
+    ends: [Least per photon, Most per photon]
+    cards:
+      - The amber safelight, 580 nanometres, 30 watts.
+      - The inspection illuminator, 436 nanometres, 12 watts.
+      - The exposure lamp, 248 nanometres, 40 watts.
+      - The alignment laser, 193 nanometres, 0.8 watts.
+    order: [0, 1, 2, 3]
+    why: >-
+      The energy one packet carries is fixed by the wavelength alone, so the ranking is the
+      wavelength order reversed and the wattage never enters it. The alignment laser at 193
+      nanometres carries three times what the amber safelight does, which is why eight tenths of
+      a watt of it will expose a resist and thirty watts of amber will not. Brightness decides
+      how many packets arrive each second; the wavelength decides whether a single one of them
+      can do the job at all.
+
+  - group: WET
+    title: The top nanometre, and everything under it — Review
+    task: Attribute four results on one wafer to what each of them sampled
+    place: Wet Bench
+    concept: 'Surface analysis: measuring the top nanometre rather than the bulk'
+    scene: >-
+      Ivy Bramall, the wet bench operator, has four results back on a single rinsed wafer and two
+      of them disagree. Aubrey will not change the bath chemistry until each result has been
+      attributed to what it was actually looking at.
+    guide: >-
+      Four methods and four statements, and the pairing turns on how far into the wafer each one
+      reached rather than on how good the instrument is. Ask of each what quantity of silicon its
+      number was divided by. Every statement is used once, so settling the two you are sure of
+      constrains the rest.
+    assumes:
+      - a contamination figure is an average over whatever the instrument sampled
+      - a wafer is about three-quarters of a millimetre thick and a device layer a few nanometres
+    takeaway: How deep a method reached is part of what its number means, so a contamination result cannot be read without it.
+    format: PROTOCOL
+    task: Match each result on the wafer to what it is a statement about.
+    scenarios:
+      - The whole wafer is dissolved and the solution is analysed for metals.
+      - A photoelectron spectrum is taken at the centre of the wafer.
+      - A grazing X-ray measurement counts metal atoms over each square centimetre of the face.
+      - A cross-section is cut through the edge and read at intervals from the top face downwards.
+    choices:
+      - An average over the full thickness, in which anything sitting on the face is divided by about a million times more silicon than it rests on.
+      - A statement about the outermost nanometre only, and about what the atoms there are bonded to.
+      - A count over an area, which locates the metal on the face and says nothing about how far in it goes.
+      - The same quantity reported again and again as a function of depth, which is the one result that answers how far in directly.
+    mapping: [0, 1, 2, 3]
+    why: >-
+      Every method reports a total divided by whatever it sampled, so the depth it reached is
+      part of the answer rather than a detail of the instrument. Dissolving the disc divides a
+      surface contaminant by three-quarters of a millimetre of silicon and loses it in the
+      average. The spectrum divides it by a nanometre and finds it, and says what it is bonded
+      to. The area count places it without depth. Only the profile answers depth, and it costs
+      the wafer.

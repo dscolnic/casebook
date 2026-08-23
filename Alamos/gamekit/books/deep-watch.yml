@@ -3749,6 +3749,9 @@ missions:
 lessons:
   - group: DC
     title: What a walkdown is for — Review
+    concept: Fluid flow and cavitation
+    takesAsRead:
+      - Pressure, depth and hydrostatics
     task: Learn the aft auxiliary space in the order the facts depend on each other
     place: Auxiliary Machinery & Bilge
     scene: >-
@@ -3788,6 +3791,9 @@ lessons:
 
   - group: ENG
     title: Every fitting is an argument — Review
+    concept: Fluid flow and cavitation
+    takesAsRead:
+      - Pressure, depth and hydrostatics
     task: Match each fitting to what it is there to do, in a different space.
     place: Machinery Room
     scene: >-
@@ -3836,6 +3842,8 @@ lessons:
 
   - group: SONAR
     title: Four traces, one of them ours — Review
+    takesAsRead:
+      - "Sound as a wave: frequency, wavelength, speed"
     concept: "Spectra: broadband and narrowband"
     task: Match each new trace to what is making it.
     place: Sonar Shack

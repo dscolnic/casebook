@@ -287,6 +287,74 @@ export const CURRICULUM = {
           "Rates: how fast something builds up, and how long a job will take"
         ]
       }
+    },
+    {
+      "day": 6,
+      "title": "Why the hole is on the dome — Review",
+      "scene": "Tom Ekwueme, the drill assistant, has next season's map up on the trench wall. Three sites are marked on it. One is a low dome, one is a saddle, and one is a slope where the layers are known to be thicker.",
+      "takeaway": "Thick layers are worth nothing if the ice did not fall where it now sits.",
+      "place": "Drill Trench",
+      "guide": "Four things a slope might cost, and only one of them is about where the ice came from. An ice sheet spreads outwards from its high points, very slowly. Ask of each option whether it is about ice arriving from somewhere else, or about something the drill crew could fix. Thick layers are easier to count, and that is what makes the slope tempting.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
+      "story": "Tom Ekwueme, the drill assistant, has next season's map up on the trench wall. Three sites are marked on it. One is a low dome, one is a saddle, and one is a slope where the layers are known to be thicker.",
+      "game": {
+        "type": "CHOICE",
+        "title": "Why the hole is on the dome — Review",
+        "setup": "Drill Trench",
+        "play": "Say what a slope would cost next season's core.",
+        "task": "Say what a slope would cost next season's core.",
+        "question": "What would drilling the slope cost the record?",
+        "answer": "The ice at each depth arrived from uphill, so the column is one place's weather mixed with a journey.",
+        "why": "An ice sheet spreads outwards from its high points, like very slow treacle. Under a dome the ice goes almost straight down, so the column under the drill is close to the snow that fell on it. On a slope the ice at a given depth started uphill and travelled here. That column is one place's weather mixed with a journey, and nothing measured later can pull the two apart. Thick layers are what the slope offers in payment, and they do not cover it.",
+        "rebuttals": [
+          "Thick layers are easier to count, which is exactly why the slope is tempting.",
+          "A hole can be steered. Where the ice came from cannot be undone afterwards.",
+          "It is far too cold up here for summer melt, on the slope as much as the dome."
+        ],
+        "choices": [
+          "Ice at that depth arrived from uphill, not from above.",
+          "Thick layers are harder to count than thin ones.",
+          "The hole would drift sideways and be harder to keep straight.",
+          "Summer melt on a slope removes whole years of snow."
+        ],
+        "correctChoice": "Ice at that depth arrived from uphill, not from above."
+      },
+      "assumes": [
+        "ice spreads outwards from the high points of an ice sheet"
+      ],
+      "equations": [
+        {
+          "e": "years = depth ÷ thickness of one year",
+          "c": "turning a depth into an age",
+          "v": [
+            [
+              "years",
+              "how old the ice at that depth is"
+            ],
+            [
+              "depth",
+              "in metres"
+            ],
+            [
+              "thickness of one year",
+              "in metres of ice per year"
+            ]
+          ],
+          "s": "If each year leaves the same thickness, dividing depth by it gives an age — and the thickness shrinks with depth, which is why deep ice needs more care."
+        }
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Counting layers is counting years, and deeper means older",
+        "of": 16,
+        "rests": [
+          "Snow that never melts piles up in layers, one year at a time"
+        ]
+      }
     }
   ],
   "CORE": [
@@ -942,6 +1010,60 @@ export const CURRICULUM = {
           "Counting layers is counting years, and deeper means older"
         ]
       }
+    },
+    {
+      "day": 8,
+      "title": "What makes one year different from the next — Review",
+      "scene": "Sigrid Holt, the core line technician, has a metre from a hundred and twenty metres down on the light table. Three things show in it, and the coarse crystal banding that marks the shallow ice is not one of them.",
+      "takeaway": "A year is read off several different signals agreeing, not off the clearest one.",
+      "place": "Core Line",
+      "guide": "Three things marked on one metre, and three things that made them. Pair them by asking what each is made of first. Bubbles are snow and air. Glass came out of a volcano. Salt came off the sea. Only then ask which season it fits. No single marker lasts the whole core, so a year is where several signals agree.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If two lines are right, the third response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
+      "story": "Sigrid Holt, the core line technician, has a metre from a hundred and twenty metres down on the light table. Three things show in it, and the coarse crystal banding that marks the shallow ice is not one of them.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "What makes one year different from the next — Review",
+        "setup": "Core Line",
+        "play": "Match each thing in this metre to what put it there.",
+        "task": "Match each thing in this metre to what put it there.",
+        "question": "Match each thing in this metre to what put it there.",
+        "answer": "",
+        "why": "No single marker survives all the way down a core, so a year is counted where different signals line up. Winter snow falls fine and is buried before its crystals can grow, which leaves small bubbles and a milky band. Volcanic glass is ash, and ash reaches here inside one season. Sea salt is thrown inland by storms over open water, which are worst in the winter. Two of these three say winter, and it is that agreement a year is counted from.",
+        "scenarios": [
+          "A milky band of very small bubbles",
+          "A thin brown streak of volcanic glass",
+          "A rise in sea salt across the middle of the metre"
+        ],
+        "choices": [
+          "Winter snow, fine grained and buried before the crystals could grow.",
+          "An eruption, whose ash reached here inside one season.",
+          "Storms over open water, which throw salt a long way inland."
+        ],
+        "mapping": [
+          0,
+          1,
+          2
+        ],
+        "columns": [
+          "What is in the ice",
+          "What put it there"
+        ]
+      },
+      "assumes": [
+        "snow that falls in winter sits in different conditions from snow that falls in summer"
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Counting layers is counting years, and deeper means older",
+        "of": 16,
+        "rests": [
+          "Snow that never melts piles up in layers, one year at a time"
+        ]
+      }
     }
   ],
   "COLD": [
@@ -1390,6 +1512,56 @@ export const CURRICULUM = {
         "of": 16,
         "rests": [
           "Reading a graph: what the axes say, and what the wiggles mean"
+        ]
+      }
+    },
+    {
+      "day": 8,
+      "title": "Clean until it was handled — Review",
+      "scene": "Elena Cruz, the cold laboratory technician, has a new blade on the saw. A section is waiting for the isotope line. Three steps come before any number. One of them can be done only once.",
+      "takeaway": "Put the step that cannot be undone last, and the check that costs nothing first.",
+      "place": "Cold Laboratory",
+      "guide": "Three steps, and the rail is not a clock. Every one of them could be done right now. Ask instead what each one costs you if it goes wrong. A step that changes nothing can be taken back. A step that uses the ice up cannot, so it belongs last. And a check is only worth running while there is still something to save.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
+      "story": "Elena Cruz, the cold laboratory technician, has a new blade on the saw. A section is waiting for the isotope line. Three steps come before any number. One of them can be done only once.",
+      "game": {
+        "type": "SEQUENCE",
+        "title": "Clean until it was handled — Review",
+        "setup": "Cold Laboratory",
+        "play": "Order the three steps that keep a melt sample honest.",
+        "task": "Order the three steps that keep a melt sample honest.",
+        "question": "Order the three steps that keep a melt sample honest.",
+        "answer": "",
+        "why": "A blank is a run with nothing in it, so what it shows was added by the line rather than measured from the ice. Run it first and a dirty line costs an hour. Run it last and it costs the sample. The trim comes next, because the outside has touched the drill and the bench and the inside has not. Melting is last because there is no second melt. Order the steps by what you can still undo.",
+        "cards": [
+          "Run a blank through the line, with no ice in it.",
+          "Trim off the outer centimetre, which the drill has touched.",
+          "Melt the inside and send the water to the isotope line."
+        ],
+        "order": [
+          0,
+          1,
+          2
+        ],
+        "axis": "Order the three by what each one costs you, cheapest first. This is not a clock. Every step could be taken right now, and the question is which of them you can still undo afterwards.",
+        "ends": [
+          "Costs nothing",
+          "Cannot be undone"
+        ]
+      },
+      "assumes": [
+        "a blank goes through the whole process with no sample in it, so it measures the process"
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Contamination: a sample that has been got at tells you about the getting",
+        "of": 16,
+        "rests": [
+          "Air trapped in bubbles is a sample of the sky from long ago"
         ]
       }
     }
@@ -1907,6 +2079,41 @@ export const CURRICULUM = {
         "rests": [
           "Reading a graph: what the axes say, and what the wiggles mean"
         ]
+      }
+    },
+    {
+      "day": 6,
+      "title": "How thick a year is here — Review",
+      "scene": "Nadia Brandt, the field glaciologist, has a second pit open beside the flag line, four kilometres out from camp. Last summer's surface is marked forty-five centimetres down. The snow above it is heavier than the snow at the camp pit.",
+      "takeaway": "Two pits can only be set side by side once both are written as the ice they will become.",
+      "place": "Snow Study Hut",
+      "guide": "Five numbers, and two of them belong to a different question. How far the pit is from camp, and how deep last summer sat back at the hut. Ask of each whether this sum needs it. Snow and ice are the same stuff at different weights, so a thickness of snow is not a thickness of record. Only ice lets two pits be set side by side.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
+      "story": "Nadia Brandt, the field glaciologist, has a second pit open beside the flag line, four kilometres out from camp. Last summer's surface is marked forty-five centimetres down. The snow above it is heavier than the snow at the camp pit.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "How thick a year is here — Review",
+        "setup": "Snow Study Hut",
+        "play": "Turn a second pit's snow into the ice it will become.",
+        "task": "Turn a second pit's snow into the ice it will become.",
+        "question": "How much ice will this year's snow turn into at the flag line?",
+        "answer": "About 0.19 metres of ice — a little over four tenths of the snow, which is how heavy it is against solid ice.",
+        "why": "Snow and ice are the same stuff at different weights, so a thickness of snow is not a thickness of record. Scale it by how heavy the snow is against solid ice, and you get what it will become once the air is squeezed out of it. That is the only form in which two pits can be set side by side. This snow is heavier than the snow at camp, so the same year comes out thicker out here. The two figures only mean anything together.",
+        "givens": [],
+        "relationship": "Ice = the snow thickness × how heavy the snow is ÷ how heavy solid ice is.",
+        "calcKey": "FIELD-6"
+      },
+      "assumes": [
+        "snow turns into ice by being squashed under the snow that falls on top of it",
+        "density is how much a given amount of something weighs"
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Snow that never melts piles up in layers, one year at a time",
+        "of": 16
       }
     }
   ],
@@ -2471,6 +2678,37 @@ export const BALLPARK_CALCS = {
     "units": "years",
     "solution": "Sixteen ÷ twelve is about 1.3 years.",
     "explanation": "Use the deep layer thickness instead and you answer a different question — what the record can show two kilometres down, which is nearly seven years."
+  },
+  "FIELD-6": {
+    "prompt": "Last summer's surface sits forty-five centimetres down at the flag line, in snow heavier than the snow at camp.",
+    "question": "How much ice will this year's snow turn into at the flag line?",
+    "labels": [
+      "0.45 m (this year's snow at the flag line)",
+      "380 kg/m³ (how heavy this snow is)",
+      "917 kg/m³ (how heavy solid ice is)",
+      "4 (kilometres out from camp)",
+      "32 cm (last summer's depth at the camp pit)"
+    ],
+    "values": [
+      0.45,
+      380,
+      917,
+      4,
+      32
+    ],
+    "slots": 3,
+    "template": "{0} × {1} ÷ {2}",
+    "formula": "a*b/c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 0.186,
+    "tolerance": 0.019,
+    "units": "m ice equivalent per year",
+    "solution": "0.45 × 380 ÷ 917 is about 0.19 metres of ice.",
+    "explanation": "The distance out from camp and the camp pit's own depth belong to other questions. Neither is part of this sum."
   }
 };
 

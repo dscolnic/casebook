@@ -824,6 +824,100 @@ export const CURRICULUM = {
       "assumes": [
         "a distance can be too small as well as too large"
       ]
+    },
+    {
+      "day": 11,
+      "title": "Four channels, one denominator — Review",
+      "scene": "Three laboratories have reported the zinc in one river sample and agree to within half a milligram. A reading taken on the bank that morning against a colour disc is a third higher. Ines Vogel, the instrument technician, has the calibration records out.",
+      "takeaway": "A result quoted against a reference is only as true as that reference, however many places report it.",
+      "place": "Field Station",
+      "guide": "Open each of the five numbers and read what it was compared against. Keep the ones whose evidence stands on its own measurement, untick the ones whose arithmetic runs through a step they all used, and name that step. Three laboratories agreeing is three results or one result, and which of those it is depends entirely on what sits underneath the division.",
+      "background": [
+        "What a laboratory result is, underneath. An instrument gives a signal, and the signal becomes a concentration by comparing it with the signal from a solution of known strength. The known strength is a number somebody wrote on a bottle, and it enters every result as a multiplier.",
+        "Why three buildings is not three checks. Sending the sample to three laboratories protects against a mistake made in one of them. It protects against nothing at all if all three calibrated against the same batch, because the part they share is the part that is wrong.",
+        "What the odd reading is worth. The comparator disc on the bank is cruder than any of the three and it is tied to none of them. Being the outlier makes it suspect and being unattached makes it useful, and those are two different facts about it."
+      ],
+      "story": "Three laboratories have reported the zinc in one river sample and agree to within half a milligram. A reading taken on the bank that morning against a colour disc is a third higher. Ines Vogel, the instrument technician, has the calibration records out.",
+      "game": {
+        "type": "TRACE",
+        "title": "Four channels, one denominator — Review",
+        "setup": "Field Station",
+        "play": "Find out what the three agreeing laboratories were comparing against",
+        "task": "Find out what the three agreeing laboratories were comparing against",
+        "question": "The three laboratories agree and the bank reading does not. Open the derivations, keep what still stands, and name the source at fault.",
+        "answer": "The batch 7 zinc standard. It was taken to be 38 milligrams per litre and is 50, so every result compared against it is low by that ratio — while the gravimetric determination and the comparator disc, which never used the bottle, keep their evidence.",
+        "why": "Three of these numbers are the same comparison made in three buildings. Each is a signal divided by the signal from one bottle of standard solution, and the strength written on that bottle is the divisor. Understate the divisor and every result understates by the same proportion, which is why the three agree so well. The comparator disc on the bank never touched the bottle. Its higher reading is not an outlier to be discarded; it is the only evidence that survives the correction.\n",
+        "trace": {
+          "channels": [
+            {
+              "id": "north",
+              "label": "Northgate laboratory result",
+              "reading": "18.4 milligrams of dissolved zinc per litre",
+              "depends": [
+                "batch7"
+              ]
+            },
+            {
+              "id": "river",
+              "label": "Riverside laboratory result",
+              "reading": "17.9 milligrams of dissolved zinc per litre",
+              "depends": [
+                "batch7"
+              ]
+            },
+            {
+              "id": "rerun",
+              "label": "Meridian re-run of the retained bottle",
+              "reading": "18.1 milligrams of dissolved zinc per litre",
+              "depends": [
+                "batch7"
+              ]
+            },
+            {
+              "id": "grav",
+              "label": "Gravimetric determination, weighed dry",
+              "reading": "0.226 grams of residue from a two-litre draw",
+              "depends": [
+                "balance"
+              ]
+            },
+            {
+              "id": "disc",
+              "label": "Comparator disc read on the bank",
+              "reading": "24 milligrams per litre, matched by eye against the disc",
+              "depends": []
+            }
+          ],
+          "resources": [
+            {
+              "id": "batch7",
+              "label": "Batch 7 zinc standard, the solution the laboratories calibrated against"
+            },
+            {
+              "id": "balance",
+              "label": "Sample room analytical balance"
+            }
+          ],
+          "independent": [
+            "grav",
+            "disc"
+          ],
+          "target": "batch7",
+          "correction": {
+            "what": "Batch 7 zinc standard, re-weighed from the ampoule stock this week",
+            "was": "38 milligrams per litre, as printed on the bottle",
+            "now": "50 milligrams per litre, from the re-weighing",
+            "corrected": "Northgate 18.4 becomes about 24.2 milligrams per litre and Riverside 17.9 about 23.6; the Meridian re-run moves with them.",
+            "effect": "Every concentration read against this bottle is low in the same proportion."
+          },
+          "hint": "Open a channel to see what it was compared against. Tick the ones whose evidence still stands on its own, then name the source.",
+          "commit": "Correct it"
+        }
+      },
+      "assumes": [
+        "a concentration is a signal compared with a standard of stated strength",
+        "a multiplier applied to several results moves all of them the same way"
+      ]
     }
   ],
   "G2": [
@@ -1457,6 +1551,72 @@ export const CURRICULUM = {
       "assumes": [
         "two people moving the same way close at the difference between their speeds"
       ]
+    },
+    {
+      "day": 10,
+      "title": "What the level rise leaves out — Review",
+      "scene": "The evaporation pond took six millimetres of water yesterday across twelve hundred square metres, and the return pump ran all day. Farida Osman, the sample custodian, wants the figure for what came in, not the figure for what stayed.",
+      "takeaway": "What accumulates is what came in less everything that left while you were watching it.",
+      "place": "Sample Room",
+      "guide": "Reading a stream costs nothing, so read them all. Then count only what belongs in the total Osman asked for: the water arriving at the pond over the twenty-four hours, before anything took its share of it. A depth over an area is a volume, and the day is the same day for every row on this board.",
+      "background": [
+        "Why the level is not the arrival. What is left in the pond is what arrived minus everything that left while it was arriving. Any process running during the measurement has already been subtracted from what the staff gauge shows, and adding it back is the whole of the arithmetic.",
+        "How a depth becomes a volume. Millimetres are a depth, and a depth means nothing as a quantity of water until it is multiplied by the area it is spread over. The twelve hundred square metres are part of the measurement rather than a detail of the site.",
+        "Why the arrival rather than the level. The level says how full the pond is this morning. The arrival rate says whether the works can keep sending water here through the summer, which is the question the abstraction licence is written against."
+      ],
+      "story": "The evaporation pond took six millimetres of water yesterday across twelve hundred square metres, and the return pump ran all day. Farida Osman, the sample custodian, wants the figure for what came in, not the figure for what stayed.",
+      "game": {
+        "type": "BALANCE",
+        "title": "What the level rise leaves out — Review",
+        "setup": "Sample Room",
+        "play": "Account for the whole day's water, not the part still in the pond",
+        "task": "Account for the whole day's water, not the part still in the pond",
+        "question": "Read what you need and report the water arriving at the pond over the day.",
+        "answer": "About eighteen cubic metres over the day — the 7.2 still in the pond, the 6.0 the surface evaporated and the 4.8 the return pump sent back to the works.",
+        "why": "The rise in the pond is not the inflow; it is what was left after the day took its share. Evaporation removed water across the same twenty-four hours, and so did the return pump, so both belong back in the total. The pump is easy to remember because it is metered. Evaporation is easy to forget because nothing on the panel moves when it happens. Report the rise alone and the licence is written for two thirds of what the pond is actually taking.\n",
+        "balance": {
+          "total": {
+            "amount": 18,
+            "unit": "m3/day",
+            "label": "Water arriving at the pond"
+          },
+          "streams": [
+            {
+              "id": "rise",
+              "label": "Rise in the pond",
+              "value": 7.2,
+              "display": "6 mm over 1200 m2 in 24 hours = 7.2 m3"
+            },
+            {
+              "id": "evap",
+              "label": "Evaporation from the surface",
+              "value": 6,
+              "display": "5 mm a day over 1200 m2 = 6.0 m3",
+              "note": "the pan gauge has been read every morning this week",
+              "hidden": true
+            },
+            {
+              "id": "pump",
+              "label": "Return pump to the works",
+              "value": 4.8,
+              "display": "4.8 m3 metered at the pump"
+            },
+            {
+              "id": "rain",
+              "label": "Rain gauge",
+              "value": 0,
+              "display": "nothing recorded since Sunday"
+            }
+          ],
+          "tolerance": 1,
+          "hint": "Reading a stream is free. Counting it is the claim you are making about where the water went.",
+          "commit": "Report the total"
+        }
+      },
+      "assumes": [
+        "a volume is a depth multiplied by the area it lies over",
+        "what is left is what arrived less everything that departed in the same period"
+      ]
     }
   ],
   "G3": [
@@ -2059,6 +2219,83 @@ export const CURRICULUM = {
       "assumes": [
         "a sample can be unrepresentative without anybody lying"
       ]
+    },
+    {
+      "day": 8,
+      "title": "The signature and the thing it stands for — Review",
+      "scene": "Twelve gas detectors came back from the contractor this morning with a servicing certificate signed on every line. Grace Ntuli, the archivist, has pulled the store book and the cell records alongside it. There is time to verify two items.",
+      "takeaway": "A signature is an account of a claim, and only some claims are worth spending a check to settle.",
+      "place": "Records Office",
+      "guide": "Open each line and read what stands behind it. Some are backed by something somebody did and recorded, some by a second signature, and some by a document about a different object entirely. Verify what the two checks allow, and hold whatever cannot be closed on what is in front of you.",
+      "background": [
+        "What a servicing certificate is for. It is the contractor's account of a morning's work, line by line, with somebody's name against each line. That is a record of who accepted responsibility, which is a different object from the state of the detector on the wall.",
+        "Why a date stamped on a part is stronger than a signature. It is a fact about the object rather than a statement about it, and it was written by the maker rather than by anybody with an interest in the certificate closing today.",
+        "Why holding is a result. Two checks against twelve detectors leaves most of the list unverified whatever you do, and an unverified line recorded as unverified is honest. The same line read next year as closed is how a certificate becomes fiction."
+      ],
+      "story": "Twelve gas detectors came back from the contractor this morning with a servicing certificate signed on every line. Grace Ntuli, the archivist, has pulled the store book and the cell records alongside it. There is time to verify two items.",
+      "game": {
+        "type": "ATTEST",
+        "title": "The signature and the thing it stands for — Review",
+        "setup": "Records Office",
+        "play": "Decide which lines of the certificate can be closed on evidence",
+        "task": "Decide which lines of the certificate can be closed on evidence",
+        "question": "Verify what the two checks allow and hold whatever cannot be closed on the evidence present.",
+        "answer": "Hold detector 7 and the test gas certificate. Both matter, both were signed, and neither has anything behind it — the cell is past its date and the certificate is about a cylinder that is no longer here.",
+        "why": "A certificate records who accepted each line on the day it was signed. That is not the same as the condition being true this morning. The two failures here fail differently. One is contradicted by a date stamped on the part itself, which beats a signature because it is a fact rather than a report. The other rests on a cylinder no longer in the store, so nothing stands behind it. Most of the list stays unverified, and that is honest as long as it is recorded.\n",
+        "attest": {
+          "claims": [
+            {
+              "id": "span",
+              "label": "Detector 4 checked against a gas of known strength",
+              "signedBy": "Achterberg",
+              "evidence": "the gas was applied and the response recorded at 0810",
+              "critical": true,
+              "backed": true
+            },
+            {
+              "id": "alarm",
+              "label": "Audible alarm sounded on test",
+              "signedBy": "Reyes",
+              "evidence": "sounded, and heard from the corridor",
+              "backed": true
+            },
+            {
+              "id": "cell",
+              "label": "Detector 7 sensing cell within its service life",
+              "signedBy": "Ilić",
+              "evidence": "the cell is stamped with a date four months behind us",
+              "critical": true
+            },
+            {
+              "id": "cyl",
+              "label": "Test gas certificate current",
+              "signedBy": "Osman",
+              "evidence": "the certificate covers a cylinder the store book says went back in March",
+              "critical": true
+            },
+            {
+              "id": "log",
+              "label": "Fault log cleared",
+              "signedBy": "Adeyemi",
+              "evidence": "cleared, and countersigned the same morning",
+              "backed": true
+            },
+            {
+              "id": "mount",
+              "label": "Detector 2 remounted at breathing height",
+              "signedBy": "Lindqvist",
+              "evidence": "remounted as recorded"
+            }
+          ],
+          "checks": 2,
+          "hint": "Every line here is signed. Verifying costs time and there is not enough of it for twelve detectors.",
+          "commit": "Close the list"
+        }
+      },
+      "assumes": [
+        "a signature records that somebody accepted a line, not that a condition holds",
+        "a document can be current and still describe a different object"
+      ]
     }
   ],
   "G4": [
@@ -2646,6 +2883,74 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a fixed distance can be maintained by choosing ground rather than by speed"
+      ]
+    },
+    {
+      "day": 8,
+      "title": "One slot, three good proposals — Review",
+      "scene": "Four proposals for one funded slot, and the haulage firm has been told it will have an answer by six. Naomi Adeyemi, the duty officer, has read all four and is waiting on the desk rather than arguing for one of them.",
+      "takeaway": "Evidence is worth the decision it would move, and precision about a settled question moves nothing.",
+      "place": "Response Desk",
+      "guide": "Open each proposal and read what buying it would tell you. Then ask the only question the desk asks: if that result came back the other way, does anybody do anything differently tomorrow? Cost matters, and it matters second. Two of these narrow the same quantity, which is a good use of a morning and not a use of this slot.",
+      "background": [
+        "Why precision is not the test. A measurement can be careful, repeatable and properly reported, and still be about a quantity that appears nowhere in the choice being made. Narrowing such a number improves the file and changes nothing about the morning.",
+        "What buying the same axis twice buys. Two proposals about the deck surface answer one question with a smaller uncertainty on it. If that question was already settled enough to decide on, the second one is a purchase of confidence rather than of information.",
+        "Why the cheap option is still not the answer. Something can be genuinely worth knowing, cost almost nothing, and still not enter the decision on the table. The history of the structure is a good example: it explains a great deal and it settles nothing about what happens at seven."
+      ],
+      "story": "Four proposals for one funded slot, and the haulage firm has been told it will have an answer by six. Naomi Adeyemi, the duty officer, has read all four and is waiting on the desk rather than arguing for one of them.",
+      "game": {
+        "type": "VALUE",
+        "title": "One slot, three good proposals — Review",
+        "setup": "Response Desk",
+        "play": "Fund the measurement that would change tomorrow morning",
+        "task": "Fund the measurement that would change tomorrow morning",
+        "question": "You have six hours of the desk's budget. Buy what changes whether the lorries cross at seven.",
+        "answer": "Put the gauges under the girder and run the loaded lorry. It is the only proposal that measures the bridge doing the thing the decision is about, and the only one whose result either way settles seven o'clock.",
+        "why": "Two of these proposals measure the deck again. They would give a better record of cracking already logged, about a surface nobody doubts. That is the failure this desk exists to avoid: rigorous work can still answer a question that does not enter the choice. The test is whether a result the other way changes anything. Only the loaded run does: a girder straining past its design figure closes the bridge, while a sharper photograph closes nothing. The drawings are cheap and useful, and they still do not decide seven o'clock.\n",
+        "value": {
+          "budget": {
+            "amount": 6,
+            "unit": "h"
+          },
+          "decision": "Whether heavy vehicles cross the bridge at seven tomorrow morning",
+          "options": [
+            {
+              "id": "resurvey",
+              "label": "Repeat the deck crack survey from yesterday",
+              "cost": 2,
+              "axis": "deck surface condition",
+              "reveals": "The same crack widths, measured to a tenth of a millimetre."
+            },
+            {
+              "id": "photos",
+              "label": "Commission a photographic record of the parapet",
+              "cost": 2,
+              "axis": "deck surface condition",
+              "reveals": "A clear set of images of cracking already logged."
+            },
+            {
+              "id": "loaded",
+              "label": "Strain gauges under the main girder, with a loaded lorry driven across",
+              "cost": 5,
+              "axis": "how the structure carries a heavy load",
+              "reveals": "Strain at midspan sixty per cent above the design figure under one lorry.",
+              "decisive": true
+            },
+            {
+              "id": "drawings",
+              "label": "Retrieve the 1974 strengthening drawings from the archive",
+              "cost": 1,
+              "axis": "history of the structure",
+              "reveals": "The deck was strengthened in two phases and only one of them is on the current plan."
+            }
+          ],
+          "hint": "All four of these are real evidence. The question is which of them changes what happens at seven tomorrow.",
+          "commit": "Fund it"
+        }
+      },
+      "assumes": [
+        "a decision is changed by evidence about the quantity it turns on",
+        "a narrower result about a settled question leaves the decision where it was"
       ]
     }
   ]

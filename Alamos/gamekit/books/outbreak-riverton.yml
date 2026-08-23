@@ -3525,6 +3525,8 @@ copy:
 lessons:
   - group: POP
     title: Signal or noise? — Review
+    takesAsRead:
+      - Homeostasis and feedback
     task: Is the Mercy General jump a signal, and what on the desk decides it?
     place: Epidemiology Operations Room
     scene: >-
@@ -3594,6 +3596,9 @@ lessons:
 
   - group: POP
     title: Build the provisional case definition — Review
+    takesAsRead:
+      - Populations, transmission chains and exponential growth
+      - Rates, ratios and reading data
     task: Order the revision so the counting stays comparable across the change.
     place: Epidemiology Operations Room
     scene: >-
@@ -3632,6 +3637,8 @@ lessons:
 
   - group: MOL
     title: When heat changes an enzyme assay — Review
+    takesAsRead:
+      - Cell structure and function
     task: Two reagent batches, one hot van, and the same samples in both runs.
     place: Molecular Diagnostics Bench
     scene: >-
@@ -3670,6 +3677,8 @@ lessons:
 
   - group: CELL
     title: Choose the membrane mechanism — Review
+    takesAsRead:
+      - Cell structure and function
     task: Name each delivery route by its mechanism, from what the membrane is seen doing.
     place: Membrane Biology Lab
     scene: >-

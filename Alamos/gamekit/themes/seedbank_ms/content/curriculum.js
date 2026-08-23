@@ -395,6 +395,65 @@ export const CURRICULUM = {
     },
     {
       "day": 5,
+      "title": "What the catalogue says and what is there",
+      "scene": "Ninety batches were tested. Thirty had changed, and every one of those had been regrown at least twice. The sixty regrown once or never still match. Nine thousand batches have been regrown twice or more.",
+      "takeaway": "A sample can point at a risky group without proving how many in it are affected.",
+      "place": "Seed Vault",
+      "guide": "Turn the test into a number for the risky group, and only for that group. Every batch that had changed was one that had been regrown twice or more, and the store holds nine thousand of those. One tile is the whole collection, which is the number the board must not be given.",
+      "background": [
+        "What the test showed. All thirty of the changed batches came from the regrown-twice group, and none of the sixty from outside it had changed. That points hard at regrowing as the risky step.",
+        "What it did not show. How many batches nobody tested have changed. Most of the collection has never been regrown at all, and that is the group where nothing was found.",
+        "What the honest sentence sounds like. A share, the group it applies to, and the size of that group: about a third of nine thousand regrown batches, which is around three thousand. That is not the same sentence as a third of the collection."
+      ],
+      "story": "Ninety batches were tested. Thirty had changed, and every one of those had been regrown at least twice. The sixty regrown once or never still match. Nine thousand batches have been regrown twice or more.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "What the catalogue says and what is there",
+        "setup": "Seed Vault",
+        "play": "Say what the season established about the collection.",
+        "task": "Say what the season established about the collection.",
+        "question": "What number of batches does this season's test put at risk?",
+        "answer": "About three thousand — a third of the nine thousand that have been regrown twice or more. Not a third of the whole collection, which is the sentence the board must not be handed.",
+        "why": "Thirty of the ninety tested batches had changed, and every one of the thirty had been regrown twice or more. So the share that matters is a third, and the group it applies to is the nine thousand batches that have been regrown twice or more: 9,000 × 0.33 ≈ 3,000. That is the honest number. Doing the same sum on the whole collection gives thirteen thousand, and it is a claim about batches nobody tested — most of which have never been regrown at all, which is exactly the group where nothing was found. Both numbers come from the same test. Only one of them is a statement the test supports, and the board will quote whichever sentence it is given. That is why the group has to travel with the share every time it is written down.",
+        "givens": [
+          "thirty of ninety tested batches had changed, all of them regrown twice or more",
+          "nine thousand batches have been regrown twice or more"
+        ],
+        "relationship": "Part = whole × share, and the whole here is the group the sample came from rather than the whole collection.",
+        "calcKey": "VAULT-5"
+      },
+      "assumes": [
+        "a sample can support a statement about the group it came from"
+      ],
+      "equations": [
+        {
+          "e": "part = whole × share",
+          "c": "how many of a batch will do something",
+          "v": [
+            [
+              "part",
+              "how many"
+            ],
+            [
+              "whole",
+              "how many there are altogether"
+            ],
+            [
+              "share",
+              "the percentage, written as a decimal"
+            ]
+          ],
+          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
+        }
+      ],
+      "concept": {
+        "n": 14,
+        "c": "A label and a record are part of the seed",
+        "of": 16
+      }
+    },
+    {
+      "day": 6,
       "title": "The copy that was never in the vault",
       "scene": "The farmer Idris Fenn has old wheats growing in the station plots. His family has grown one of them without a break since before Wellmere existed. Rust arrives there most years.",
       "takeaway": "A population kept in the ground keeps being tested by the thing you might one day need it for.",
@@ -481,36 +540,46 @@ export const CURRICULUM = {
       }
     },
     {
-      "day": 6,
-      "title": "What the catalogue says and what is there",
-      "scene": "Ninety batches were tested. Thirty had changed, and every one of those had been regrown at least twice. The sixty regrown once or never still match. Nine thousand batches have been regrown twice or more.",
-      "takeaway": "A sample can point at a risky group without proving how many in it are affected.",
+      "day": 7,
+      "title": "Six per cent, while the lorries arrive — Review",
+      "scene": "Three packets of the same barley went out to three stores in 1998. All three have come back for testing. What was done to each one is written on the outside.",
+      "takeaway": "How long a seed keeps is set by two things at once, and getting one of them right is not enough.",
       "place": "Seed Vault",
-      "guide": "Turn the test into a number for the risky group, and only for that group. Every batch that had changed was one that had been regrown twice or more, and the store holds nine thousand of those. One tile is the whole collection, which is the number the board must not be given.",
+      "guide": "Three packets and three outcomes, one each. Two things set how fast a seed spends itself: how warm it is, and how much water is inside it. Ask of each packet which of the two was got wrong. The open packet is the special case, because dry seed takes water back out of damp air.",
       "background": [
-        "What the test showed. All thirty of the changed batches came from the regrown-twice group, and none of the sixty from outside it had changed. That points hard at regrowing as the risky step.",
-        "What it did not show. How many batches nobody tested have changed. Most of the collection has never been regrown at all, and that is the group where nothing was found.",
-        "What the honest sentence sounds like. A share, the group it applies to, and the size of that group: about a third of nine thousand regrown batches, which is around three thousand. That is not the same sentence as a third of the collection."
+        "Why cold and dry are two levers and not one. Cold slows the chemistry down. Dry leaves that chemistry less to work with. Getting one right and the other wrong is worth years, not decades.",
+        "Why a seal matters as much as a shelf. A sealed packet keeps whatever moisture it was sealed at. An open one drifts to match the room it is standing in, however good the shelf is.",
+        "Why this is a matching board. The three outcomes are close together, and picking them one at a time lets a nearly-right pairing through. Placing all three forces the comparison."
       ],
-      "story": "Ninety batches were tested. Thirty had changed, and every one of those had been regrown at least twice. The sixty regrown once or never still match. Nine thousand batches have been regrown twice or more.",
+      "story": "Three packets of the same barley went out to three stores in 1998. All three have come back for testing. What was done to each one is written on the outside.",
       "game": {
-        "type": "BALLPARK",
-        "title": "What the catalogue says and what is there",
+        "type": "PROTOCOL",
+        "title": "Six per cent, while the lorries arrive — Review",
         "setup": "Seed Vault",
-        "play": "Say what the season established about the collection.",
-        "task": "Say what the season established about the collection.",
-        "question": "What number of batches does this season's test put at risk?",
-        "answer": "About three thousand — a third of the nine thousand that have been regrown twice or more. Not a third of the whole collection, which is the sentence the board must not be handed.",
-        "why": "Thirty of the ninety tested batches had changed, and every one of the thirty had been regrown twice or more. So the share that matters is a third, and the group it applies to is the nine thousand batches that have been regrown twice or more: 9,000 × 0.33 ≈ 3,000. That is the honest number. Doing the same sum on the whole collection gives thirteen thousand, and it is a claim about batches nobody tested — most of which have never been regrown at all, which is exactly the group where nothing was found. Both numbers come from the same test. Only one of them is a statement the test supports, and the board will quote whichever sentence it is given. That is why the group has to travel with the share every time it is written down.",
-        "givens": [
-          "thirty of ninety tested batches had changed, all of them regrown twice or more",
-          "nine thousand batches have been regrown twice or more"
+        "play": "Match each packet to how long the seed in it lasts",
+        "task": "Match each packet to how long the seed in it lasts",
+        "question": "Match each packet to how long the seed in it lasts",
+        "answer": "The cold dry packet is still strong. The warm one lost decades. The open one did worst, because it drew water in off the room.",
+        "why": "A seed is alive in store, and a vault is a machine for slowing it down. Two things set the speed. Cold slows the chemistry. Dry gives that chemistry less to work with. They multiply, so a cold dry packet lasts decades. A packet with one of the two wrong lasts years. The open packet does worst of all. Dry seed pulls water out of damp air until it matches the room, so it ends up wet on a cold shelf.",
+        "scenarios": [
+          "Sealed at six per cent, held at minus eighteen.",
+          "Sealed at six per cent, but the store ran at plus five.",
+          "Left open on a cold shelf in a damp room."
         ],
-        "relationship": "Part = whole × share, and the whole here is the group the sample came from rather than the whole collection.",
-        "calcKey": "VAULT-6"
+        "choices": [
+          "Still strong: cold and dry both slow it down.",
+          "Years, not decades: warm seed spends itself faster.",
+          "Worst of the three: it drew water from the air."
+        ],
+        "mapping": [
+          0,
+          1,
+          2
+        ]
       },
       "assumes": [
-        "a sample can support a statement about the group it came from"
+        "seed is dried before it goes into store",
+        "a seed is alive and slowly using itself up"
       ],
       "equations": [
         {
@@ -534,8 +603,8 @@ export const CURRICULUM = {
         }
       ],
       "concept": {
-        "n": 14,
-        "c": "A label and a record are part of the seed",
+        "n": 2,
+        "c": "A seed is alive, and it can be kept alive or let die",
         "of": 16
       }
     }
@@ -856,7 +925,7 @@ export const CURRICULUM = {
         "task": "Spend the eight slots, and keep both resistance questions answered.",
         "question": "Which packages keep the programme defended without spending the board on work that can wait?",
         "answer": "Fund the second-gene backcross and the two unrelated crosses. That is six of the eight slots, and it answers both urgent questions.",
-        "why": "There are two urgent questions and eight slots. One is getting the second resistance gene into the wheat farmers already grow. The other is getting it into unrelated wheat, so the programme does not rebuild the same weak point. Yield crosses between elite parents are useful, and they narrow the same base further. Fenn's plants will not be understood for two seasons. Spend the board on what cannot wait.",
+        "why": "There are two urgent questions and eight slots. One is getting the second resistance gene into the wheat farmers already grow. The other is getting it into unrelated wheat, so the programme does not rebuild the same weak point. Yield crosses between elite parents are useful, and they narrow the same base further. The farmer Idris Fenn has old wheats on the station plots, and they will not be understood for two seasons. Spend the board on what cannot wait.",
         "allocate": {
           "pool": {
             "amount": 8,
@@ -920,6 +989,158 @@ export const CURRICULUM = {
       "assumes": [
         "a cross ties up glasshouse space and staff for several seasons",
         "closely related parents share the same weaknesses"
+      ],
+      "equations": [
+        {
+          "e": "average = total ÷ how many",
+          "c": "the mean of several plots or plants",
+          "v": [
+            [
+              "average",
+              "the mean"
+            ],
+            [
+              "total",
+              "the values added up"
+            ],
+            [
+              "how many",
+              "the number of them"
+            ]
+          ],
+          "s": "One plant is an accident. An average over many is a property of the seed."
+        }
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Choosing which plants to breed from, and what that costs",
+        "of": 16,
+        "rests": [
+          "Living things pass traits to their offspring",
+          "Counting the offspring, and comparing counts with what was expected"
+        ]
+      }
+    },
+    {
+      "day": 7,
+      "title": "Counting a generation — Review",
+      "scene": "A second cross is in the warm bay. Both parents are bearded, and both carry a hidden beardless copy. Two hundred and forty plants have been scored, and fifty-seven are beardless.",
+      "takeaway": "A count across a whole generation is evidence about what the parents were carrying.",
+      "place": "Crossing Hall",
+      "guide": "Work out the expected number before you look at what came. Beardless only shows in a plant that got a beardless copy from each parent. One pairing in four does that. So the sum is a share of the two hundred and forty. One tile is the count that actually came, which is what you compare against.",
+      "background": [
+        "Where one in four comes from. Each parent has two copies and gives one to each seed. There are four ways the copies can pair up, and only one of those four is beardless with beardless.",
+        "Why the hidden version can skip a year. Both parents here are bearded and both carry the beardless copy without showing it. The generation before this one looked entirely bearded.",
+        "Why close is right. Nobody expects exactly sixty. Two hundred and forty plants is enough for the count to land near the expected number rather than on it."
+      ],
+      "story": "A second cross is in the warm bay. Both parents are bearded, and both carry a hidden beardless copy. Two hundred and forty plants have been scored, and fifty-seven are beardless.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "Counting a generation — Review",
+        "setup": "Crossing Hall",
+        "play": "Work out what the beardless count should have been",
+        "task": "Work out what the beardless count should have been",
+        "question": "How many of the two hundred and forty plants should be beardless?",
+        "answer": "Sixty. One plant in four is 0.25 of 240, and 57 came in — close enough to say one gene is doing it, with the bearded copy the stronger one.",
+        "why": "Each parent carries two copies and gives one to each seed. Both of these plants show beards, and each is carrying the beardless version out of sight. There are four ways those copies can pair up. Only one of the four gives a seed two beardless copies, and only that seed is beardless. One in four of two hundred and forty is 240 × 0.25 = 60. Fifty-seven came in. A proportion lands near its expected number and not on it, so fifty-seven is what a single gene looks like.",
+        "givens": [
+          "two hundred and forty plants, 57 of them beardless",
+          "one in four expected when both parents carry a hidden copy"
+        ],
+        "relationship": "Expected number = how many × the fraction expected, which is a part = whole × share: 0.25 is the share of the plants expected to be beardless.",
+        "calcKey": "CROSS-7"
+      },
+      "assumes": [
+        "a plant carries two copies of each gene and passes on one of them"
+      ],
+      "equations": [
+        {
+          "e": "part = whole × share",
+          "c": "how many of a batch will do something",
+          "v": [
+            [
+              "part",
+              "how many"
+            ],
+            [
+              "whole",
+              "how many there are altogether"
+            ],
+            [
+              "share",
+              "the percentage, written as a decimal"
+            ]
+          ],
+          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it.",
+          "computed": true
+        },
+        {
+          "e": "expected number = how many × the fraction expected",
+          "c": "what a cross should produce",
+          "v": [
+            [
+              "expected number",
+              "how many of that kind to expect"
+            ],
+            [
+              "how many",
+              "the number of offspring"
+            ],
+            [
+              "fraction expected",
+              "the share the square predicts"
+            ]
+          ],
+          "s": "A square says what share of the offspring should carry a trait; multiplying by how many there are turns that share into a count you can check.",
+          "computed": true
+        }
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Living things pass traits to their offspring",
+        "of": 16
+      }
+    },
+    {
+      "day": 8,
+      "title": "An extra generation in the bay — Review",
+      "scene": "One screenhouse is free this summer, and three increases want it. The mesh is the only thing on the station that keeps other pollen off a crop while it flowers.",
+      "takeaway": "A scarce thing goes to the job with no alternative, not to the job that would also enjoy it.",
+      "place": "Crossing Hall",
+      "guide": "Three jobs want one mesh house, and the rail is not a clock. Ask of each what a strange father would cost it. A crop that takes pollen from anywhere loses most. A crop that mostly pollinates itself loses a little. Seed that is sown as a border and never kept loses nothing at all.",
+      "background": [
+        "What the mesh does. It keeps other pollen out. What comes back off a mesh house is the accession that went in, and nothing else has got at it.",
+        "Why crops differ. Rye will take pollen from any rye flowering nearby, so it has to be kept apart. Wheat mostly pollinates itself, and a few plants in a hundred take a strange father anyway.",
+        "Why the border seed goes last. It is sown round the trial to shelter it, cut with the rest, and never kept. Nothing that fathers it is ever passed on."
+      ],
+      "story": "One screenhouse is free this summer, and three increases want it. The mesh is the only thing on the station that keeps other pollen off a crop while it flowers.",
+      "game": {
+        "type": "SEQUENCE",
+        "title": "An extra generation in the bay — Review",
+        "setup": "Crossing Hall",
+        "play": "Order the three increases by how much the mesh is worth",
+        "task": "Order the three increases by how much the mesh is worth",
+        "question": "Order the three increases by how much the mesh is worth to each.",
+        "answer": "The rye first, the landrace second, the border seed last. Only the rye is certain to come back as something else without the mesh.",
+        "why": "The mesh does one thing. It keeps other pollen out, so what comes back is what went in. Rye takes pollen from any rye upwind. A rye sample grown in the open is a different sample by autumn, so it loses most. Wheat mostly pollinates itself, and a few plants in a hundred do not, so a landrace loses a little each time round. Border seed is sown, cut and never kept, so nothing that fathers it matters at all.",
+        "cards": [
+          "Increase the rye collected off a hillside in 1972",
+          "Increase the drifted landrace wheat",
+          "Bulk up border seed for the trial edges"
+        ],
+        "order": [
+          0,
+          1,
+          2
+        ],
+        "axis": "Order the three by how much the mesh is worth to each one, most first. This is not a clock — all three could go under the mesh this week, and the question is which one loses most without it.",
+        "ends": [
+          "Only the mesh can do it",
+          "An open field does it just as well"
+        ]
+      },
+      "assumes": [
+        "some crops take pollen from other plants and some mostly pollinate themselves"
       ],
       "concept": {
         "n": 10,
@@ -1197,71 +1418,6 @@ export const CURRICULUM = {
     },
     {
       "day": 4,
-      "title": "How narrow the base has become",
-      "scene": "Ivanescu has six elite parents' family trees across the wall. Four share a recent grandparent. All six carry the same resistance gene, and the new rust is beating it east of here.",
-      "takeaway": "A programme that keeps crossing its best with its best is narrowing what it can still draw on.",
-      "place": "Genetic Resources Office",
-      "guide": "Say how many of the six lines will lose to the new rust, then infect all six and count. Write the number down first. Four of them come down from one grandparent and carry that plant's resistance gene, and the new rust is already beating that gene east of here.",
-      "background": [
-        "Why the family tree matters. Related parents share more of their genes than unrelated ones do. Four of these six share a grandparent, so a gene that came from that grandparent is in all four of them.",
-        "What one gene beaten means. A rust race that gets past a gene gets past it in every plant carrying it, on the same afternoon. It has to be beaten once, not four times.",
-        "Why the other two are worth so much. Their resistance came from somewhere else, so a rust that beats the first gene has said nothing about theirs. Two different sources are worth more than six copies of one."
-      ],
-      "story": "Ivanescu has six elite parents' family trees across the wall. Four share a recent grandparent. All six carry the same resistance gene, and the new rust is beating it east of here.",
-      "game": {
-        "type": "VERIFY",
-        "title": "How narrow the base has become",
-        "setup": "Genetic Resources Office",
-        "play": "Say what the pedigree board shows about the programme.",
-        "task": "Say what the pedigree board shows about the programme.",
-        "question": "Predict how many of the six lines the new rust gets past, then infect them and count.",
-        "answer": "Four of the six. They share one grandparent and one resistance gene, and the new rust beats that gene — so beating it once beats all four.",
-        "why": "Four of the six parents come down from the same 1998 grandparent, and the resistance all four carry is that one plant's gene. The new rust has already got past that gene east of here. So it does not have to beat four defences; it has to beat one, and four lines fall together. Infected in the screenhouse, that is exactly what happens: four go down and two hold. The two that hold got their resistance from somewhere else — one from a cross with a Chinese wheat, one from an Anatolian landrace — and a rust that beats the first gene has said nothing about either of those. That is what a narrowing base costs, and it is why the pedigree board is worth having on the wall. Every line in the nursery scoring resistant looked like strength. Once you know where the resistance came from, it looks like one gene counted six times.",
-        "verify": {
-          "prediction": {
-            "label": "How many of the six lines the new rust gets past",
-            "unit": "lines",
-            "min": 0,
-            "max": 6,
-            "step": 1
-          },
-          "truth": 4,
-          "passRatio": [
-            0.7,
-            1.4
-          ],
-          "intervention": {
-            "label": "Infect all six lines in the screenhouse with the new rust race",
-            "note": "same spore load on every line, seedlings at the same stage",
-            "outcome": "All six are infected and scored fourteen days later."
-          },
-          "measurement": {
-            "label": "Count how many lines lost their resistance",
-            "note": "scored on leaf area affected, same scale as the field",
-            "cost": 14,
-            "costUnit": "days"
-          },
-          "unmeasuredMoral": "Reporting from the family tree without infecting anything is reasoning about a gene nobody has tested against this rust. The point of the board is what to test, not what to conclude.",
-          "lock": "Lock the prediction",
-          "run": "Commit it",
-          "measure": "Take the measurement",
-          "commit": "Report"
-        }
-      },
-      "assumes": [
-        "related parents share more of their genes than unrelated ones do"
-      ],
-      "concept": {
-        "n": 12,
-        "c": "Variety inside a collection, and why losing it is hard to undo",
-        "of": 16,
-        "rests": [
-          "Choosing which plants to breed from, and what that costs"
-        ]
-      }
-    },
-    {
-      "day": 5,
       "title": "What the crew is pulling today",
       "scene": "The rogueing crew works to one rule, chalked at the end of the row. It gets rewritten when the season turns. Nobody walks the rows to tell them.",
       "takeaway": "The cost of a rule that has changed is paid by whoever is still using the old one.",
@@ -1384,6 +1540,71 @@ export const CURRICULUM = {
         "of": 16,
         "rests": [
           "Living things pass traits to their offspring",
+          "Choosing which plants to breed from, and what that costs"
+        ]
+      }
+    },
+    {
+      "day": 5,
+      "title": "How narrow the base has become",
+      "scene": "Ivanescu has six elite parents' family trees across the wall. Four share a recent grandparent. All six carry the same resistance gene, and the new rust is beating it east of here.",
+      "takeaway": "A programme that keeps crossing its best with its best is narrowing what it can still draw on.",
+      "place": "Genetic Resources Office",
+      "guide": "Say how many of the six lines will lose to the new rust, then infect all six and count. Write the number down first. Four of them come down from one grandparent and carry that plant's resistance gene, and the new rust is already beating that gene east of here.",
+      "background": [
+        "Why the family tree matters. Related parents share more of their genes than unrelated ones do. Four of these six share a grandparent, so a gene that came from that grandparent is in all four of them.",
+        "What one gene beaten means. A rust race that gets past a gene gets past it in every plant carrying it, on the same afternoon. It has to be beaten once, not four times.",
+        "Why the other two are worth so much. Their resistance came from somewhere else, so a rust that beats the first gene has said nothing about theirs. Two different sources are worth more than six copies of one."
+      ],
+      "story": "Ivanescu has six elite parents' family trees across the wall. Four share a recent grandparent. All six carry the same resistance gene, and the new rust is beating it east of here.",
+      "game": {
+        "type": "VERIFY",
+        "title": "How narrow the base has become",
+        "setup": "Genetic Resources Office",
+        "play": "Say what the pedigree board shows about the programme.",
+        "task": "Say what the pedigree board shows about the programme.",
+        "question": "Predict how many of the six lines the new rust gets past, then infect them and count.",
+        "answer": "Four of the six. They share one grandparent and one resistance gene, and the new rust beats that gene — so beating it once beats all four.",
+        "why": "Four of the six parents come down from the same 1998 grandparent, and the resistance all four carry is that one plant's gene. The new rust has already got past that gene east of here. So it does not have to beat four defences; it has to beat one, and four lines fall together. Infected in the screenhouse, that is exactly what happens: four go down and two hold. The two that hold got their resistance from somewhere else — one from a cross with a Chinese wheat, one from an Anatolian landrace — and a rust that beats the first gene has said nothing about either of those. That is what a narrowing base costs, and it is why the pedigree board is worth having on the wall. Every line in the nursery scoring resistant looked like strength. Once you know where the resistance came from, it looks like one gene counted six times.",
+        "verify": {
+          "prediction": {
+            "label": "How many of the six lines the new rust gets past",
+            "unit": "lines",
+            "min": 0,
+            "max": 6,
+            "step": 1
+          },
+          "truth": 4,
+          "passRatio": [
+            0.7,
+            1.4
+          ],
+          "intervention": {
+            "label": "Infect all six lines in the screenhouse with the new rust race",
+            "note": "same spore load on every line, seedlings at the same stage",
+            "outcome": "All six are infected and scored fourteen days later."
+          },
+          "measurement": {
+            "label": "Count how many lines lost their resistance",
+            "note": "scored on leaf area affected, same scale as the field",
+            "cost": 14,
+            "costUnit": "days"
+          },
+          "unmeasuredMoral": "Reporting from the family tree without infecting anything is reasoning about a gene nobody has tested against this rust. The point of the board is what to test, not what to conclude.",
+          "lock": "Lock the prediction",
+          "run": "Commit it",
+          "measure": "Take the measurement",
+          "commit": "Report"
+        }
+      },
+      "assumes": [
+        "related parents share more of their genes than unrelated ones do"
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Variety inside a collection, and why losing it is hard to undo",
+        "of": 16,
+        "rests": [
           "Choosing which plants to breed from, and what that costs"
         ]
       }
@@ -1781,51 +2002,6 @@ export const CURRICULUM = {
     },
     {
       "day": 2,
-      "title": "The vial nobody has grown",
-      "scene": "Two of the fifty batches carry the resistance gene, and the screenhouse can grow only one this season. The full vial has been grown out three times. The thin one has never been grown out at all.",
-      "takeaway": "Copies of copies drift. The one nobody has copied is the one that still holds what was collected.",
-      "place": "Molecular Laboratory",
-      "guide": "Four options, and two facts to weigh: how much seed there is, and how many times it has been grown out. Ask of each which of the two it uses. The amount in the vial says nothing about what is in it. Every grow-out is another chance for rare things to be left out.",
-      "background": [
-        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
-        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
-        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
-      ],
-      "story": "Two of the fifty batches carry the resistance gene, and the screenhouse can grow only one this season. The full vial has been grown out three times. The thin one has never been grown out at all.",
-      "game": {
-        "type": "CHOICE",
-        "title": "The vial nobody has grown",
-        "setup": "The screenhouse can grow one of the two this season.",
-        "play": "Spend the two checks on evidence that could change which batch gets the slot.",
-        "task": "Spend the two checks on evidence that could change which batch gets the slot.",
-        "question": "One vial is full and has been grown out three times. The other is thin and never grown. Which is closer to the original plant?",
-        "answer": "The thin one. Every grow-out is a chance to drift, and that vial has had none.",
-        "why": "A seed batch is not a photograph. Every time it is grown out, only some of the plants set seed, and the batch that comes back is slightly different from the batch that went in. Do that three times and the difference adds up. The thin vial has never been through that, so whatever was collected is still in it. Being thin is a problem you can fix — three hundred seeds carefully grown is a full vial again. Being drifted is not a problem you can fix, because there is nothing left to go back to.",
-        "rebuttals": [
-          "How much there is says nothing about what is in it.",
-          "A grow-out is not a check. It is a chance for the batch to change.",
-          "Time in the cold changes a batch far less than a season in a field."
-        ],
-        "choices": [
-          "The thin one, because it has never been grown out",
-          "The full one, because there is more of it",
-          "The full one, because it has been checked three times",
-          "Neither, since both have been in store the same time"
-        ],
-        "correctChoice": "The thin one, because it has never been grown out"
-      },
-      "assumes": [
-        "every grow-out is a chance for a batch to drift from what it was",
-        "a small lot of living seed can usually be built back up"
-      ],
-      "concept": {
-        "n": 2,
-        "c": "A seed is alive, and it can be kept alive or let die",
-        "of": 16
-      }
-    },
-    {
-      "day": 3,
       "title": "A test fitted where it worked",
       "scene": "DNA is the set of instructions inside every seed. A marker is a short piece of DNA that sits near the gene you care about. Testing the marker is a cheap way to ask about the gene. This marker was worked out on the first population. Nakagawa now has a new cross, and a hundred plants scored both ways. A cut-off's score is how many of a hundred plants it calls right.",
       "takeaway": "A rule fitted on one set of plants has to be scored on a set it has never seen.",
@@ -1970,7 +2146,7 @@ export const CURRICULUM = {
       }
     },
     {
-      "day": 4,
+      "day": 3,
       "title": "Gene present, resistance working?",
       "scene": "Nakagawa can run the DNA test on two-leaf seedlings. On final plants she can also check whether the gene is switched on after rust, and put real rust on the leaves.",
       "takeaway": "DNA says what a plant carries. Only a real test says whether it works.",
@@ -2019,7 +2195,7 @@ export const CURRICULUM = {
       }
     },
     {
-      "day": 5,
+      "day": 4,
       "title": "One disagreement, two possible causes",
       "scene": "Nakagawa has four hundred plants scored two ways: by a DNA test, and by whether they fell ill. Eleven carry the marker and still fell ill. The test's own controls look clean.",
       "takeaway": "A test can be right about the marker and still be wrong about the plant.",
@@ -2127,6 +2303,51 @@ export const CURRICULUM = {
           "Two parents each give half, so the young are not copies",
           "A trait can hide in one generation and show up in the next"
         ]
+      }
+    },
+    {
+      "day": 5,
+      "title": "The vial nobody has grown",
+      "scene": "Two of the fifty batches carry the resistance gene, and the screenhouse can grow only one this season. The full vial has been grown out three times. The thin one has never been grown out at all.",
+      "takeaway": "Copies of copies drift. The one nobody has copied is the one that still holds what was collected.",
+      "place": "Molecular Laboratory",
+      "guide": "Four options, and two facts to weigh: how much seed there is, and how many times it has been grown out. Ask of each which of the two it uses. The amount in the vial says nothing about what is in it. Every grow-out is another chance for rare things to be left out.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
+      "story": "Two of the fifty batches carry the resistance gene, and the screenhouse can grow only one this season. The full vial has been grown out three times. The thin one has never been grown out at all.",
+      "game": {
+        "type": "CHOICE",
+        "title": "The vial nobody has grown",
+        "setup": "The screenhouse can grow one of the two this season.",
+        "play": "Spend the two checks on evidence that could change which batch gets the slot.",
+        "task": "Spend the two checks on evidence that could change which batch gets the slot.",
+        "question": "One vial is full and has been grown out three times. The other is thin and never grown. Which is closer to the original plant?",
+        "answer": "The thin one. Every grow-out is a chance to drift, and that vial has had none.",
+        "why": "A seed batch is not a photograph. Every time it is grown out, only some of the plants set seed, and the batch that comes back is slightly different from the batch that went in. Do that three times and the difference adds up. The thin vial has never been through that, so whatever was collected is still in it. Being thin is a problem you can fix — three hundred seeds carefully grown is a full vial again. Being drifted is not a problem you can fix, because there is nothing left to go back to.",
+        "rebuttals": [
+          "How much there is says nothing about what is in it.",
+          "A grow-out is not a check. It is a chance for the batch to change.",
+          "Time in the cold changes a batch far less than a season in a field."
+        ],
+        "choices": [
+          "The thin one, because it has never been grown out",
+          "The full one, because there is more of it",
+          "The full one, because it has been checked three times",
+          "Neither, since both have been in store the same time"
+        ],
+        "correctChoice": "The thin one, because it has never been grown out"
+      },
+      "assumes": [
+        "every grow-out is a chance for a batch to drift from what it was",
+        "a small lot of living seed can usually be built back up"
+      ],
+      "concept": {
+        "n": 2,
+        "c": "A seed is alive, and it can be kept alive or let die",
+        "of": 16
       }
     }
   ],
@@ -2650,6 +2871,74 @@ export const CURRICULUM = {
           "Repeats and averages: one plant proves nothing"
         ]
       }
+    },
+    {
+      "day": 7,
+      "title": "Covered early, or open to the wind — Review",
+      "scene": "A screenhouse increase of one old landrace has come in for cleaning. The mesh on the seaward end tore open some time in June. The trial plots were flowering eighty metres upwind.",
+      "takeaway": "A mother is known from the sowing plan. A father is only known if something kept other pollen out.",
+      "place": "Drying & Processing Hall",
+      "guide": "Four accounts of what is in the sack. Ask of each whether it is about the mother or about the father. The mothers are known, because they were sown here off one sack and nobody moved them. The fathers are the open question, and June is the month these flowers were open.",
+      "background": [
+        "What the mesh is for. It is not there to keep the plants in. It is there to keep other pollen out, so that an increase of an accession comes back as the same accession.",
+        "Why a date settles it. A hole in the mesh in April or in August costs nothing, because the flowers are shut. A hole while they are open is a father nobody wrote down.",
+        "Why the sack looks fine. Seed with a strange father is the same size, the same colour and the same weight. It grows perfectly well. It just grows into something that is half a trial line."
+      ],
+      "story": "A screenhouse increase of one old landrace has come in for cleaning. The mesh on the seaward end tore open some time in June. The trial plots were flowering eighty metres upwind.",
+      "game": {
+        "type": "CHOICE",
+        "title": "Covered early, or open to the wind — Review",
+        "setup": "Drying & Processing Hall",
+        "play": "Say what the torn mesh did to the seed inside",
+        "task": "Say what the torn mesh did to the seed inside",
+        "question": "The mesh tore in June. What is now uncertain about that sack?",
+        "answer": "The father of each seed, and so what the seed grows into. The mothers were never in doubt.",
+        "why": "Each seed has two parents. The mother is the plant it grew on, and the sowing plan says which plant that was. The father is whatever pollen reached the flower. Mesh keeps other pollen out, so an increase inside it comes back as the landrace that went in. A tear in June is a hole open while the flowers were. The trial plots were flowering upwind of it. Every seed downwind of that hole may be half trial wheat, and it will look exactly like the rest.",
+        "rebuttals": [
+          "The mothers were never in doubt. What reached them is.",
+          "A tear lets pollen in. It does nothing to whether seed grows.",
+          "The mothers are still that landrace. Some of their seed is half something else."
+        ],
+        "choices": [
+          "The father of each seed, and what grows from it.",
+          "Nothing much, because the mothers all came off one known sack.",
+          "Whether the seed will still germinate well after a wet June.",
+          "The variety name on the label, which now has to be rewritten."
+        ],
+        "correctChoice": "The father of each seed, and what grows from it."
+      },
+      "assumes": [
+        "a wheat flower can take pollen from its own plant or from another one"
+      ],
+      "equations": [
+        {
+          "e": "average = total ÷ how many",
+          "c": "the mean of several plots or plants",
+          "v": [
+            [
+              "average",
+              "the mean"
+            ],
+            [
+              "total",
+              "the values added up"
+            ],
+            [
+              "how many",
+              "the number of them"
+            ]
+          ],
+          "s": "One plant is an accident. An average over many is a property of the seed."
+        }
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Two parents each give half, so the young are not copies",
+        "of": 16,
+        "rests": [
+          "Living things pass traits to their offspring"
+        ]
+      }
     }
   ]
 };
@@ -2855,7 +3144,7 @@ export const BALLPARK_CALCS = {
     "solution": "30 × 5 ÷ 100 = 1.5 plants — one or two, often none. Two hundred plants would give 10.",
     "explanation": "The gene did not have to be destroyed to disappear. It only had to be missed."
   },
-  "VAULT-6": {
+  "VAULT-5": {
     "prompt": "A third of the tested batches had changed, and all of them came from the regrown-twice group. The store holds nine thousand batches regrown twice or more, and forty-one thousand in total.",
     "question": "Pick the group the test applies to, and the share of it that had changed.",
     "labels": [
@@ -2910,6 +3199,34 @@ export const BALLPARK_CALCS = {
     "units": "millimetres in an ordinary summer",
     "solution": "2,352 ÷ 12 = 196 millimetres, against 118 this summer.",
     "explanation": "An average says what is ordinary. It is what makes a single season readable."
+  },
+  "CROSS-7": {
+    "prompt": "Two hundred and forty plants scored. Both parents are bearded and both carry a hidden beardless copy, so one pairing in four gives a beardless plant.",
+    "question": "Choose the number of plants and the share expected to be beardless.",
+    "labels": [
+      "240  (plants scored)",
+      "0.25  (one in four, the share expected)",
+      "57  (plants that came out beardless)",
+      "0.75  (the share expected to be bearded)"
+    ],
+    "values": [
+      240,
+      0.25,
+      57,
+      0.75
+    ],
+    "slots": 2,
+    "template": "{0} × {1}",
+    "formula": "a*b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 60,
+    "tolerance": 8,
+    "units": "beardless plants expected",
+    "solution": "240 × 0.25 = 60 expected, against 57 counted.",
+    "explanation": "Sixty expected, fifty-seven counted. One gene, with the bearded copy the stronger one."
   }
 };
 

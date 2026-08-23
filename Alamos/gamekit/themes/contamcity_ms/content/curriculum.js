@@ -323,6 +323,52 @@ export const CURRICULUM = {
           "Everything is made of matter, and matter comes in solids, liquids and gases"
         ]
       }
+    },
+    {
+      "day": 5,
+      "title": "Float or sink — Review",
+      "scene": "A second drum has been sampled out in the container yard. Hiroshi Tanaka, the records and shipping clerk, has the bench slip in his hand. A litre of the liquid weighs 1.6 kilograms. Rain has left water standing across the bund floor.",
+      "takeaway": "One litre against one litre of water is the whole test. How much spilled does not come into it.",
+      "place": "Container Yard",
+      "guide": "All four answers spend the same one number. They disagree about what it decides. There is one weight here, and one thing to weigh it against. Ask what a litre of water weighs. How much leaked out is not part of that comparison.",
+      "background": [
+        "Why a litre is the unit to think in. A drum and a spoonful of one liquid behave the same way in water. So the comparison has to be made on the same amount of each. A litre against a litre is the fairest one to hold in your head.",
+        "What the answer changes on the ground. A layer riding on top spreads out and finds the drain. A layer that goes under collects on the floor, and the pump inlet is on the floor. Same drum, two different jobs tonight."
+      ],
+      "story": "A second drum has been sampled out in the container yard. Hiroshi Tanaka, the records and shipping clerk, has the bench slip in his hand. A litre of the liquid weighs 1.6 kilograms. Rain has left water standing across the bund floor.",
+      "game": {
+        "type": "CHOICE",
+        "title": "Float or sink — Review",
+        "setup": "Container Yard",
+        "play": "Say where the liquid will sit in the standing water.",
+        "task": "Say where the liquid will sit in the standing water.",
+        "question": "A litre of this liquid weighs 1.6 kilograms. Where will it sit in the standing water?",
+        "answer": "Under the water, down where the pump inlet sits. A litre of it outweighs a litre of water.",
+        "why": "A litre of water weighs about a kilogram. That is the thing to weigh against. A litre of this weighs 1.6 kilograms, which is more, so it goes under the water and sits on the floor of the bund. The pump inlet is on that floor. Had it come out lighter it would have ridden on top and run to the drain instead. Same drum, same night, two different problems. The weight of one litre is what tells them apart.",
+        "rebuttals": [
+          "Riding on top needs a litre lighter than a kilogram. This one is heavier.",
+          "Whether it mixes in is a different test. This number compares weights.",
+          "A spoonful and a full drum of one liquid settle exactly alike."
+        ],
+        "choices": [
+          "Under the water, down where the pump inlet sits",
+          "On top of the water, spreading out towards the drain",
+          "Mixed evenly through the water within an hour",
+          "It depends on how much of it leaked out"
+        ],
+        "correctChoice": "Under the water, down where the pump inlet sits"
+      },
+      "assumes": [
+        "a litre of water weighs about a kilogram"
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Dissolving, and why some things dissolve and others do not",
+        "of": 16,
+        "rests": [
+          "A mixture is things sharing a space without becoming one another"
+        ]
+      }
     }
   ],
   "GASES": [
@@ -469,6 +515,89 @@ export const CURRICULUM = {
       "concept": {
         "n": 13,
         "c": "Reactions give out heat or take it in, and heat speeds things up",
+        "of": 16,
+        "rests": [
+          "Everything is made of matter, and matter comes in solids, liquids and gases"
+        ]
+      }
+    },
+    {
+      "day": 4,
+      "title": "What changes the cloud — Review",
+      "scene": "Sunset, and the mast readings have all moved at once. Simran Kaur, who coordinates the evacuation, has three of them written on the board. She wants each one sorted out before she decides whether the low street stays closed overnight.",
+      "takeaway": "A change to the gas and a change to the wind are two different questions. Only one of them moves the map.",
+      "place": "Atmospheric Monitoring Post",
+      "guide": "Three changes, and one line each. For every change, ask what it acts on. The gas itself? Where the gas is carried? Or how well it gets stirred up and thinned? A cooling reading and a wind reading do not do the same job.",
+      "background": [
+        "Two questions that get mixed up. One is what the gas is doing, which warmth and pressure decide. The other is where it is going, which the wind decides. Nothing about the gas changed when the wind turned.",
+        "Why a still night is its own problem. Wind stirs a heavy vapour upward and thins it out. Take the wind away and the thinning stops, so a vapour heavier than air stays down at street level for hours."
+      ],
+      "story": "Sunset, and the mast readings have all moved at once. Simran Kaur, who coordinates the evacuation, has three of them written on the board. She wants each one sorted out before she decides whether the low street stays closed overnight.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "What changes the cloud — Review",
+        "setup": "Atmospheric Monitoring Post",
+        "play": "Match each change in the evening to what it does.",
+        "task": "Match each change in the evening to what it does.",
+        "question": "Match each change in the evening to what it does.",
+        "answer": "1. The air cools sharply after sunset. → The same gas takes up less room. 2. The wind swings round from north to west. → The corridor has to be drawn again. 3. The night goes still, and the vapour is heavy. → It lies low instead of thinning out.",
+        "why": "Three changes, and they are three different kinds of change. Cooling acts on the gas itself. Less warmth, less room, and not one word about where it is going. The wind swing acts only on where it goes. The gas is the same gas it was an hour ago. A still night acts on the mixing instead. Wind is what lifts a heavy vapour and thins it. With the wind gone, it stays down in the low street, which is why Kaur is asking tonight rather than tomorrow.",
+        "rebuttals": [
+          "Cooling a gas at the same pressure shrinks it, in step with the cooling.",
+          "A wind shift moves where it goes and changes nothing about the gas.",
+          "No wind means no stirring, so a heavy vapour stays down where it is."
+        ],
+        "scenarios": [
+          "The air cools sharply after sunset.",
+          "The wind swings round from north to west.",
+          "The night goes still, and the vapour is heavy."
+        ],
+        "choices": [
+          "The same gas takes up less room.",
+          "The corridor has to be drawn again.",
+          "It lies low instead of thinning out."
+        ],
+        "mapping": [
+          0,
+          1,
+          2
+        ],
+        "columns": [
+          "What the mast shows this evening",
+          "What it does"
+        ]
+      },
+      "assumes": [
+        "a gas has a state, and it also has a place, and those change for different reasons"
+      ],
+      "equations": [
+        {
+          "e": "depth lost each year = mass lost ÷ (density × area)",
+          "c": "how fast a wall is thinning",
+          "v": [
+            [
+              "depth lost each year",
+              "in millimetres"
+            ],
+            [
+              "weight lost",
+              "in kilograms"
+            ],
+            [
+              "how heavy it is",
+              "kilograms in a cubic metre"
+            ],
+            [
+              "the area",
+              "in square metres"
+            ]
+          ],
+          "s": "A weight loss spread over a wide area is a thin loss; over a small one it is a hole."
+        }
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Gases spread out, and the wind decides where",
         "of": 16,
         "rests": [
           "Everything is made of matter, and matter comes in solids, liquids and gases"
@@ -1640,6 +1769,52 @@ export const CURRICULUM = {
         "c": "A limit is a number somebody chose, for a reason worth knowing",
         "of": 16
       }
+    },
+    {
+      "day": 8,
+      "title": "Map the river with thirty samples — Review",
+      "scene": "The city wants one number for the tap water this week, and Sipho Mbeki, the public briefing officer, has to read it out on Thursday. The works pumps hardest between two and five in the morning. There are eighteen samples to spend.",
+      "takeaway": "A set of samples is only worth the range of moments it covers.",
+      "place": "Water Distribution Network",
+      "guide": "All four plans spend the same eighteen samples. They differ in which moments those samples stand for. Ask what actually changes hour by hour here. Then ask whether the plan puts any samples where the change is.",
+      "background": [
+        "What one sample is a claim about. It is a claim about the water in that pipe at that hour. It is not a claim about the day, and it is not a claim about the week, unless enough other samples fill those in.",
+        "Why agreeing is not the same as covering. Eighteen bottles filled in one hour will agree closely with each other, because they are all one hour. Agreement between them says nothing about the sixteen hours nobody sampled."
+      ],
+      "story": "The city wants one number for the tap water this week, and Sipho Mbeki, the public briefing officer, has to read it out on Thursday. The works pumps hardest between two and five in the morning. There are eighteen samples to spend.",
+      "game": {
+        "type": "CHOICE",
+        "title": "Map the river with thirty samples — Review",
+        "setup": "Water Distribution Network",
+        "play": "Say when the samples should be taken.",
+        "task": "Say when the samples should be taken.",
+        "question": "You have eighteen samples for one week of tap water. When do they go?",
+        "answer": "Across the hours the pumps run hardest, on several days. That is where the water changes.",
+        "why": "A sample stands for the moment it was taken and for no other moment. The works pumps hardest before dawn, so the water in the mains at four is not the water at nine. Eighteen readings from nine o'clock describe nine o'clock eighteen times. Spread them over the hours that differ, and over more than one day, and the set covers the week Mbeki has to speak for. Readings that agree with each other are not the same thing as readings that cover the question.",
+        "rebuttals": [
+          "Nine in the morning tells you about nine in the morning, every time.",
+          "A complaint is one moment somebody else chose. The week is not made of those.",
+          "Eighteen bottles from one hour describe one hour, eighteen times over."
+        ],
+        "choices": [
+          "Across the hours the pumps run hardest, on several days",
+          "At nine in the morning, on each day of the week",
+          "Whenever a resident telephones to say the water tastes wrong",
+          "All in one hour, so the eighteen readings agree"
+        ],
+        "correctChoice": "Across the hours the pumps run hardest, on several days"
+      },
+      "assumes": [
+        "a number describes the water that was in the bottle, not the water in the city"
+      ],
+      "concept": {
+        "n": 10,
+        "c": "A sample stands for a place and a moment, and only those",
+        "of": 16,
+        "rests": [
+          "Measuring the same thing several times, and averaging"
+        ]
+      }
     }
   ],
   "ENERGY": [
@@ -1936,6 +2111,47 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a rate of change can be carried forward to guess what comes next"
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Reactions give out heat or take it in, and heat speeds things up",
+        "of": 16,
+        "rests": [
+          "Everything is made of matter, and matter comes in solids, liquids and gases"
+        ]
+      }
+    },
+    {
+      "day": 4,
+      "title": "How much heat is stored in there — Review",
+      "scene": "In the calorimetry lab, Tomas Brandt, who leads on reactions and energy, has the jacket log from drum nine. The jacket holds five hundred kilograms, all of it water. Over the last forty minutes the water coming back has warmed by four degrees.",
+      "takeaway": "How fast the cooling water climbs is how fast heat is arriving from the drum.",
+      "place": "Calorimetry Lab",
+      "guide": "Five numbers on the board, and three of them belong in the sum. One is about boiling water away, which has not happened here. One is a clock. Ask of each number what it describes. How much water? What one degree costs? How many degrees?",
+      "background": [
+        "Why the jacket is worth measuring at all. It is there to carry heat away from the drum. Whatever it carries away turns up as its own water getting warmer, so the jacket is a measuring instrument as well as a cooler.",
+        "Why the labels matter. A bare number cannot be checked against the sum it is going into. Reading the label is how you catch a number that belongs to a different part of the problem before you place it."
+      ],
+      "story": "In the calorimetry lab, Tomas Brandt, who leads on reactions and energy, has the jacket log from drum nine. The jacket holds five hundred kilograms, all of it water. Over the last forty minutes the water coming back has warmed by four degrees.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "How much heat is stored in there — Review",
+        "setup": "Calorimetry Lab",
+        "play": "Work out how much energy the cooling jacket has taken in.",
+        "task": "Work out how much energy the cooling jacket has taken in.",
+        "question": "How much energy has the cooling jacket taken in?",
+        "answer": "About eight thousand four hundred units. Four degrees across half a tonne of water is a great deal of heat.",
+        "why": "Every kilogram of water needs 4.2 units of heat for each degree it warms. Five hundred kilograms warming four degrees is eight thousand four hundred units. All of that came out of drum nine in forty minutes, and the drum is still making more. Four degrees on a gauge looks like nothing. Against half a tonne of water it is a large amount of energy arriving, and the rate it arrives at is what decides whether the jacket can keep up.",
+        "givens": [
+          "mass = 500 kg",
+          "specific heat = 4.2 kJ kg^-1 K^-1",
+          "temperature rise = 4 K"
+        ],
+        "relationship": "Heat taken in = how much there is × what one degree costs × how many degrees.",
+        "calcKey": "ENERGY-4"
+      },
+      "assumes": [
+        "different materials need different amounts of energy to warm by one degree"
       ],
       "concept": {
         "n": 13,
@@ -2818,6 +3034,37 @@ export const BALLPARK_CALCS = {
     "units": "%",
     "solution": "3.6 ÷ 4.5, times a hundred, is 80 per cent.",
     "explanation": "Divide the actual by the possible, not the other way round. Upside down gives 125 per cent, which would be a cell removing more metal than the electricity allows."
+  },
+  "ENERGY-4": {
+    "prompt": "The jacket holds 500 kilograms of water. Every kilogram takes 4.2 units of heat for each degree, and it has warmed by 4 degrees.",
+    "question": "How much energy has the cooling jacket taken in?",
+    "labels": [
+      "500 kg (water in the jacket)",
+      "4.2 units for each kilogram, each degree",
+      "4 degrees (how much it warmed)",
+      "2,260 units for each kilogram (boiling it away)",
+      "40 minutes (how long the log covers)"
+    ],
+    "values": [
+      500,
+      4.2,
+      4,
+      2260,
+      40
+    ],
+    "slots": 3,
+    "template": "{0} × {1} × {2}",
+    "formula": "a*b*c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 8400,
+    "tolerance": 500,
+    "units": "kJ",
+    "solution": "500 × 4.2 × 4 is 8,400 units.",
+    "explanation": "The clock says how long the log covers, not how much energy went in. Boiling the water away is a different question again."
   }
 };
 

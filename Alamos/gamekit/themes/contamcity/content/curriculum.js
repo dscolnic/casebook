@@ -578,6 +578,162 @@ export const CURRICULUM = {
           "The mole, molar mass and stoichiometry"
         ]
       }
+    },
+    {
+      "day": 8,
+      "title": "Read the formula, not the rumor — Review",
+      "scene": "Hiroshi Tanaka, the records and shipping clerk, has pulled four entries for a second consignment that stood in the same shed. Each line describes its drum differently. Okonjo wants them sorted before the bench spends any sample on them.",
+      "takeaway": "A record constrains a substance only as far as it states composition.",
+      "place": "Records and Shipping Office",
+      "guide": "Four entries, and they do not constrain the same amount. Ask of each what it actually fixes: which elements, in what ratio, carrying what charge, or none of the three. Two of them fix a ratio and disagree about which ratio they have handed you. A drum sent to the bench on a line that fixes nothing costs a run of sample nobody can go back for.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
+      "story": "Hiroshi Tanaka, the records and shipping clerk, has pulled four entries for a second consignment that stood in the same shed. Each line describes its drum differently. Okonjo wants them sorted before the bench spends any sample on them.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "Read the formula, not the rumor — Review",
+        "setup": "Records and Shipping Office",
+        "play": "Match each paperwork entry to what it actually fixes about the drum. Each choice is used once.",
+        "task": "Match each paperwork entry to what it actually fixes about the drum. Each choice is used once.",
+        "question": "Match each paperwork entry to what it actually fixes about the drum. Each choice is used once.",
+        "answer": "1. A line reads \"iron chloride\" with no roman numeral after the metal. → The metal's charge is unstated, so more than one compound fits the name. 2. A line gives percentages by mass for every element and no name at all. → Composition by mass fixes the atom ratio, so the simplest formula follows from it. 3. A line gives a formula whose subscripts all divide by three. → It states a molecule three times the simplest ratio, which is not what is written. 4. A line carries a four-digit transport number and nothing else. → It sorts the drum for carriage and fixes nothing about the chemistry.",
+        "why": "A formula is a claim about composition, and each of these entries makes a different amount of that claim. A name without the metal's charge leaves two salts open, and they differ in solubility and in what they react with. Percentages by mass fix the ratio of atoms and therefore the simplest formula, but not how many of that unit a molecule holds. Subscripts sharing a divisor say the opposite. A transport number sorts a drum for carriage and fixes nothing chemical.",
+        "rebuttals": [
+          "A metal that takes more than one charge needs the charge said out loud, or the name covers two salts with different solubility.",
+          "Percentages by mass are a ratio of atoms once each is divided by its own atomic mass, which is what the simplest formula is.",
+          "Subscripts sharing a common divisor mean the molecule has been written out rather than reduced. The simplest ratio is a third of it.",
+          "A transport number is a carriage class. It groups drums that must not travel together and says nothing about what is inside one."
+        ],
+        "scenarios": [
+          "A line reads \"iron chloride\" with no roman numeral after the metal.",
+          "A line gives percentages by mass for every element and no name at all.",
+          "A line gives a formula whose subscripts all divide by three.",
+          "A line carries a four-digit transport number and nothing else."
+        ],
+        "choices": [
+          "The metal's charge is unstated, so more than one compound fits the name.",
+          "Composition by mass fixes the atom ratio, so the simplest formula follows from it.",
+          "It states a molecule three times the simplest ratio, which is not what is written.",
+          "It sorts the drum for carriage and fixes nothing about the chemistry."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "columns": [
+          "What the entry says",
+          "What it fixes"
+        ]
+      },
+      "assumes": [
+        "a chemical formula lists which elements are present and in what ratio",
+        "atomic structure, ions and electron configuration — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Atomic structure, ions and electron configuration"
+        }
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Chemical formulas, naming and composition",
+        "of": 30,
+        "rests": [
+          "Atomic structure, ions and electron configuration",
+          "Periodic trends and what an element can do"
+        ]
+      }
+    },
+    {
+      "day": 9,
+      "title": "From damaged container to provisional identity — Review",
+      "scene": "Ana Kowalski, who keeps the reference library and standards, signs in a warm sludge jar recovered from the outfall. It has a headspace, an intact seal, and enough material for one destructive run. Okonjo wants a handling order before anybody opens it.",
+      "takeaway": "The volatile fraction has the shortest life of any evidence in the jar, so it is taken while the seal still holds.",
+      "place": "Molecular Identification Lab",
+      "guide": "All four of these could be done in the next ten minutes, so nothing here is a clock. What separates them is what is still available afterwards. Ask of each step what it consumes and what it lets escape. The jar came in warm and there is material for one destructive run. Open it in the wrong order and the evidence that answers fastest is the evidence you lose.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
+      "story": "Ana Kowalski, who keeps the reference library and standards, signs in a warm sludge jar recovered from the outfall. It has a headspace, an intact seal, and enough material for one destructive run. Okonjo wants a handling order before anybody opens it.",
+      "game": {
+        "type": "SEQUENCE",
+        "title": "From damaged container to provisional identity — Review",
+        "setup": "Molecular Identification Lab",
+        "play": "Arrange the four cards from the step that costs the sample least to the step that ends it.",
+        "task": "Arrange the four cards from the step that costs the sample least to the step that ends it.",
+        "question": "Arrange the four cards from the step that costs the sample least to the step that ends it.",
+        "answer": "Weigh the sealed jar and log the temperature it arrived at. → Draw the headspace vapour onto a sorbent tube through the seal. → Take a sub-sample and run a spectrum that gives the material back. → Commit what is left to the method that destroys it.",
+        "why": "A warm sample is already partly in its own headspace. How much is up there depends on how volatile the compound is and on how warm the jar got on the way in. That vapour is the fraction with the shortest life. Break the seal and it is gone in seconds, and no later measurement recovers it. Weighing and logging cost nothing and can be repeated. A spectrum borrows an aliquot and returns it. The destructive run answers best and answers once, so it goes last.",
+        "rebuttals": [
+          "Weigh and log first. It touches nothing, it can be repeated, and the arrival temperature is the one number that stops being true the moment the jar warms to the bench.",
+          "The headspace second, through the seal. It is the fraction that leaves in seconds once the jar is open, and no later step recovers it.",
+          "A spectrum third. It borrows an aliquot and hands it back, so a mistake here costs nothing but the hour.",
+          "The destructive run last. It answers best and answers once, which makes it the thing you spend when you already know what to ask."
+        ],
+        "cards": [
+          "Weigh the sealed jar and log the temperature it arrived at, which changes nothing inside it.",
+          "Draw the headspace vapour onto a sorbent tube through the seal, before the seal is broken.",
+          "Take a sub-sample into a second jar and run a spectrum that gives the material back.",
+          "Commit what is left to the method that destroys it in order to name it."
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "axis": "Order the four by what each one costs the sample, cheapest first. Nothing here waits on a clock — every step could be taken this minute, and the question is which of them survive the step before.",
+        "ends": [
+          "Costs nothing",
+          "Ends the sample"
+        ]
+      },
+      "assumes": [
+        "the volatile fraction of a warm sample sits in the air above it",
+        "some measurements leave the sample as they found it and some use it up"
+      ],
+      "equations": [
+        {
+          "e": "C₁V₁ = C₂V₂",
+          "c": "dilution, and carrying a dilution factor back",
+          "v": [
+            [
+              "C₁",
+              "concentration before dilution"
+            ],
+            [
+              "V₁",
+              "volume taken of the stronger solution"
+            ],
+            [
+              "C₂",
+              "concentration after dilution"
+            ],
+            [
+              "V₂",
+              "final volume, in the same units as V₁"
+            ]
+          ],
+          "s": "Diluting adds solvent and not solute, so moles before equal moles after and the product of concentration and volume is unchanged."
+        }
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Kinetic molecular theory, diffusion and volatility",
+        "of": 30,
+        "rests": [
+          "Gas laws and the ideal gas equation",
+          "Molecular geometry, polarity and intermolecular forces"
+        ]
+      }
     }
   ],
   "GASES": [
@@ -1207,6 +1363,99 @@ export const CURRICULUM = {
         "of": 30,
         "rests": [
           "Equilibrium and Le Chatelier"
+        ]
+      }
+    },
+    {
+      "day": 7,
+      "title": "How much volume can the gas occupy? — Review",
+      "scene": "Erik Lindqvist, the dispersion modeller, has a second cylinder logged in the vented store on the north side of the yard. Simran Kaur, who coordinates evacuation, will not lift the shelter order until somebody says how much air that inventory becomes.",
+      "takeaway": "A gas-law volume is a scale for the release, and it is only as good as the conditions put into it.",
+      "place": "Mobile Weather Station",
+      "guide": "Six numbers, and two of them belong to conditions the store is not at. One is the Celsius figure on the thermometer, which is a reading rather than an absolute temperature. One is a molar volume quoted somewhere else. Every term in the relationship has to be the one measured in that store. A shelter order over two streets is being held on whatever comes back.",
+      "background": [
+        "What the relationship says. V = nRT/P, with V the volume, n the moles of gas, R the gas constant, T the absolute temperature and P the pressure.",
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
+      "story": "Erik Lindqvist, the dispersion modeller, has a second cylinder logged in the vented store on the north side of the yard. Simran Kaur, who coordinates evacuation, will not lift the shelter order until somebody says how much air that inventory becomes.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "How much volume can the gas occupy? — Review",
+        "setup": "Mobile Weather Station",
+        "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units. Estimate the gas volume at the conditions in the store.",
+        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units. Estimate the gas volume at the conditions in the store.",
+        "question": "Estimate the gas volume at the conditions measured in the store.",
+        "answer": "V ≈ 8.0×10^3 × 8.31 × 288 / 1.02×10^5 ≈ 190 m³, which is a scale for the release and not a hazard footprint.",
+        "why": "The ideal gas law converts an inventory into the volume it would fill at the conditions it is at, and that is all it does. The temperature and the pressure in the store are both off the round figures. The relationship takes the measured ones, or it answers a different question. Temperature has to be absolute, so degrees Celsius put straight in is not a small error but a different quantity. What comes out is a scale for the release rather than a footprint for it.",
+        "givens": [
+          "n = 8.0×10^3 mol",
+          "T = 288 K",
+          "P = 1.02×10^5 Pa",
+          "R = 8.31 J mol^-1 K^-1"
+        ],
+        "relationship": "V = nRT/P, with V the volume, n the moles of gas, R the gas constant, T the absolute temperature and P the pressure.",
+        "calcKey": "GASES-7"
+      },
+      "assumes": [
+        "a given amount of gas occupies a predictable volume at stated conditions"
+      ],
+      "equations": [
+        {
+          "e": "n = m / M",
+          "c": "moles from a mass and a molar mass",
+          "v": [
+            [
+              "n",
+              "number of moles, in mol"
+            ],
+            [
+              "m",
+              "mass of the sample, in grams"
+            ],
+            [
+              "M",
+              "molar mass of the substance, in grams per mole"
+            ]
+          ],
+          "s": "Divide a weighed mass by the mass of one mole to get how many moles you are holding.",
+          "computed": true
+        },
+        {
+          "e": "PV = nRT",
+          "c": "the ideal gas law",
+          "v": [
+            [
+              "P",
+              "pressure, in pascals"
+            ],
+            [
+              "V",
+              "volume, in cubic metres"
+            ],
+            [
+              "n",
+              "moles of gas"
+            ],
+            [
+              "R",
+              "the gas constant, 8.314 J per mole per kelvin"
+            ],
+            [
+              "T",
+              "absolute temperature, in kelvin"
+            ]
+          ],
+          "s": "For a gas, pressure times volume is fixed by how much gas there is and how hot it is.",
+          "computed": true
+        }
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Gas laws and the ideal gas equation",
+        "of": 30,
+        "rests": [
+          "The mole, molar mass and stoichiometry"
         ]
       }
     }
@@ -3649,6 +3898,89 @@ export const CURRICULUM = {
           "s": "Reaction rate depends on concentration raised to a power that has to be measured rather than assumed."
         }
       ]
+    },
+    {
+      "day": 10,
+      "title": "Which reactant limits? — Review",
+      "scene": "The dosing tank takes three moles of C for every two of D, and the tote arrived part-filled. Tomas Brandt, who leads reactions and energy, will not sign a gas-production figure until somebody says which of the two runs out first.",
+      "takeaway": "The reactant that runs out first sets the ceiling, and everything past that ceiling is arithmetic about a reaction that cannot happen.",
+      "place": "Stoichiometry Lab",
+      "guide": "Four numbers, and one of them is the two amounts added together, which no stoichiometry ever uses. Another is the reaction's own ratio rather than a quantity of anything. Ask what each number is a quantity of before you place it. One reactant's amount, put through the ratio, is a claim about the other. The tank is charged from whichever figure gets signed.",
+      "background": [
+        "What the relationship says. Convert one reactant through the coefficients to the amount of the other it can consume, then take the smaller. Percent yield = actual/theoretical × 100.",
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
+      "story": "The dosing tank takes three moles of C for every two of D, and the tote arrived part-filled. Tomas Brandt, who leads reactions and energy, will not sign a gas-production figure until somebody says which of the two runs out first.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "Which reactant limits? — Review",
+        "setup": "Stoichiometry Lab",
+        "play": "Use the available amounts and the reaction ratio to say which reactant limits and how much of the other can react.",
+        "task": "Use the available amounts and the reaction ratio to say which reactant limits and how much of the other can react.",
+        "question": "Which reactant limits, and how many moles of D can react?",
+        "answer": "C is limiting. Twelve moles of C can consume 8.0 mol of D, and the 9 mol of D on the pad leaves 1 mol unreacted. A recovered 7.2 mol equivalent is a 90% yield.",
+        "why": "A balanced equation compares particles, so the coefficients are a currency for converting one reactant into the other. Twelve moles of C at three C to two D is a demand for eight moles of D. There are nine on the pad, so C runs out and D is left over. The ceiling is set by the reactant that goes first, and nothing beyond it produces heat or gas. Recovering seven point two moles of reaction against that ceiling is ninety per cent of what was available.",
+        "givens": [
+          "Available C = 12 mol",
+          "Available D = 9 mol",
+          "Ratio = 3 mol C per 2 mol D"
+        ],
+        "relationship": "Convert one reactant through the coefficients to the amount of the other it can consume, then take the smaller. Percent yield = actual/theoretical × 100.",
+        "calcKey": "ENERGY-10"
+      },
+      "assumes": [
+        "a reaction stops when one ingredient runs out"
+      ],
+      "equations": [
+        {
+          "e": "percent yield = actual ÷ theoretical × 100",
+          "c": "yield against a stoichiometric prediction",
+          "v": [
+            [
+              "actual",
+              "mass or moles you really recovered"
+            ],
+            [
+              "theoretical",
+              "what the stoichiometry says you should have got"
+            ],
+            [
+              "100",
+              "the factor that turns the fraction into a percentage"
+            ]
+          ],
+          "s": "Yield measures what you actually collected against what the reaction could have produced at best.",
+          "computed": true
+        },
+        {
+          "e": "n = m / M",
+          "c": "moles from a mass and a molar mass",
+          "v": [
+            [
+              "n",
+              "number of moles, in mol"
+            ],
+            [
+              "m",
+              "mass of the sample, in grams"
+            ],
+            [
+              "M",
+              "molar mass of the substance, in grams per mole"
+            ]
+          ],
+          "s": "Divide a weighed mass by the mass of one mole to get how many moles you are holding."
+        }
+      ],
+      "concept": {
+        "n": 6,
+        "c": "Limiting reactant and percent yield",
+        "of": 30,
+        "rests": [
+          "The mole, molar mass and stoichiometry"
+        ]
+      }
     }
   ],
   "TREAT": [
@@ -4620,6 +4952,68 @@ export const BALLPARK_CALCS = {
     "units": "mol",
     "solution": "Q = 40 × (6×3600) = 864,000 C. n = 864,000 /(2×96,485) ≈ 4.48 mol metal.",
     "explanation": "Charge counts electrons. A divalent ion requires two moles of electrons per mole of metal, so side reactions can only make the real removal smaller than this theoretical ceiling."
+  },
+  "GASES-7": {
+    "prompt": "A second cylinder is logged in the vented store, and the shelter order is being held on what it would fill.",
+    "question": "Estimate the gas volume at the conditions measured in the store.",
+    "labels": [
+      "8.0×10³ mol  (n, the cylinder inventory)",
+      "8.31 J mol⁻¹ K⁻¹  (R)",
+      "288 K  (T, measured in the store)",
+      "1.02×10⁵ Pa  (P, measured in the store)",
+      "15  (the Celsius figure on the thermometer)",
+      "24.0 L mol⁻¹  (molar volume quoted at other conditions)"
+    ],
+    "values": [
+      8000,
+      8.31,
+      288,
+      102000,
+      15,
+      24
+    ],
+    "slots": 4,
+    "template": "{0} × {1} × {2} ÷ {3}",
+    "formula": "a*b*c/d",
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "target": 187.7,
+    "tolerance": 20,
+    "units": "m³",
+    "solution": "V = nRT/P ≈ (8.0×10³ × 8.31 × 288) / 1.02×10⁵ ≈ 190 m³.",
+    "explanation": "The relationship takes the conditions the gas is at. A volume computed at round figures instead of measured ones is a volume for a store that does not exist."
+  },
+  "ENERGY-10": {
+    "prompt": "The dosing tank is about to be charged, and the gas-production figure rests on how far the reaction can actually go.",
+    "question": "Identify the limiting reactant and the maximum moles of D that can react.",
+    "labels": [
+      "12 mol C available",
+      "9 mol D available",
+      "3 mol C per 2 mol D  (the ratio itself)",
+      "21 mol  (C and D added together)"
+    ],
+    "values": [
+      12,
+      9,
+      3,
+      21
+    ],
+    "slots": 2,
+    "template": "the smaller of  {0} × 2 ÷ 3  and  {1}",
+    "formula": "Math.min(a*2/3, b)",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 8,
+    "tolerance": 0.5,
+    "units": "mol D",
+    "solution": "12 mol C at three C to two D is a demand for 8.0 mol D. There are 9 mol D on the pad, so C limits and 8.0 mol D can react.",
+    "explanation": "The coefficients convert an amount of one reactant into how much of the other it can take. The limit is whichever of the two is smaller."
   }
 };
 

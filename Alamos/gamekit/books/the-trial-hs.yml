@@ -1281,6 +1281,7 @@ missions:
       - group: ENDP
         task: Change 1 feature of the re-scoring setup at a time and find which change removes site 12's offset.
         title: Make the three-point offset move
+        concept: 'An experiment against an observational study, and what confounding costs'
         place: Adjudication Room
         scene: Kwame Ansah has matched visit records from site 12 and 3 comparison sites. The symptom score sits about 3 points higher at site 12. A re-scoring console can change one feature of the setup for the same records.
         guide: >-
@@ -3443,6 +3444,241 @@ missions:
           - Releasing the interim result to participants unblinds the trial by another route.
           - Silence leaves people unaware that a review happened at all.
           - Telling somebody their arm removes them from the comparison they consented to be part of.
+
+# ------------------------------------------------------------------ the reviews
+# Lessons no mission stop points at. From day 3 a day carries a callback, and
+# `shapeMissions` only has one to serve where the oldest taught lesson has an
+# unserved "— Review" variant. Four bases, four different groups, because a
+# callback whose group is already in that day is skipped.
+lessons:
+  - group: RAND
+    title: Concealment is not the same as blinding — Review
+    task: Order site 19's fallback so the next arm cannot be read ahead
+    concept: 'A sample and the population it is supposed to stand for'
+    place: Kit Warehouse & Cold Room
+    scene: >
+      Farida Diouf, the trial pharmacist, is on the phone to site 19, whose link to the allocation
+      server has failed twice this month. They want to fall back on the sealed envelopes in the
+      cupboard, and they want the steps written down before they use them.
+    guide: >-
+      Four steps that all happen inside a minute, so the rail is not really a clock.
+      Order them by what each one shuts. Ask of every step whether the site could
+      still change its mind about this patient after it, and whether anything about
+      the arm has been given away yet. Those two answers are what the order has to
+      keep apart.
+    background:
+      - >-
+          Why the order is graded whole. A sequence is a claim about dependency: each
+          step is here because the one before it has already happened, or has to have.
+          One transposed pair falsifies that claim wherever it sits, so partial credit
+          would be credit for a sequence that does not work.
+      - >-
+          Why the ends are the place to start. The first and last cards are constrained
+          by having nothing before or after them, which usually makes them the two you
+          can settle from the scene alone. Pinning them collapses the remaining
+          arrangements sharply, and what is left in the middle is where the actual
+          judgement lives.
+      - >-
+          What the rail can be ordered on. Time is the usual axis, but it is not the
+          only one. An order can run on cost, on risk, or on reversibility — every
+          observation that leaves the sample as it was, before any that consumes it. On
+          those boards a chronological reading finds nothing, because none of the steps
+          has to happen at a particular hour.
+    assumes:
+      - participants are assigned to arms by chance rather than by choice
+    takeaway: Concealment is a property of the order the steps run in, not of what the assignment is kept in.
+    format: SEQUENCE
+    task: Order site 19's four fallback steps so no envelope is opened while entry is still a choice.
+    cards:
+      - Eligibility is checked and the signed consent is filed, with no envelope touched.
+      - A number is allocated from the envelope run and written into the participant's own file.
+      - The envelope carrying that number is opened, with a second member of staff watching.
+      - The arm inside is dispensed, and the opened envelope is filed under that number.
+    order: [0, 1, 2, 3]
+    why: >
+      Concealment is about what a site can know while it can still choose. A numbered list taped in
+      a cupboard can be read ahead. An envelope cannot, but only while the number is committed to
+      the participant's file before anybody opens it. So eligibility and consent go down first, the
+      number is allocated and written in, and only then is anything opened, in front of a witness.
+      Reverse the middle pair and the site sees the arm at a moment when it can still decide this
+      patient was not quite eligible after all.
+
+  - group: ENDP
+    title: One outcome, named in advance — Review
+    task: Say what a threshold picked after the fact costs the trial
+    concept: 'A distribution of one variable: shape, centre and spread'
+    place: Adjudication Room
+    scene: >
+      Kwame Ansah, the endpoint adjudication chair, has an email from the sponsor's medical
+      director. She has seen the walk-distance figures with both arms pooled, and asks that the
+      endpoint be reported as the share of participants gaining more than thirty metres.
+    guide: >-
+      The four options disagree about what a late definition damages: the measuring,
+      the blind, the arithmetic, or the claim. Test each by asking whether it would
+      still be a problem had the same threshold been fixed four years ago. A cost that
+      survives that test is administrative. A cost that disappears belongs to the
+      timing rather than to the endpoint.
+    background:
+      - >-
+          Why the wrong options are the interesting ones. Each distractor is written to
+          be the answer under one specific misreading — a step skipped, a quantity
+          confused with a rate, a correlation taken for a cause. Identifying which
+          misreading each belongs to is where the learning is; the right answer alone
+          can be reached on instinct and teach nothing.
+      - >-
+          Why the shape of an option tells you nothing. A correct answer collects the
+          qualifying clause and the unit. So across a whole game the key used to be the
+          longest option far more often than chance — 88 per cent of passage quizzes
+          here, before it was fixed. It is now checked per game as a binomial tail, so
+          length, hedging and specificity have had the signal taken out of them
+          deliberately.
+      - >-
+          What the verdict adds. Every wrong option carries its own rebuttal, and the
+          verdict prints them — the reason that option fails, not a restatement of the
+          right one. They are worth reading after a correct answer as well: a right
+          choice made for an approximate reason is indistinguishable from a sound one
+          until the day the approximation is what is being tested.
+    assumes:
+      - a trial collects more than one measurement from each participant
+    takeaway: A definition settled after the numbers are on screen is a finding, not a promise the trial can be held to.
+    format: CHOICE
+    question: What does reporting a thirty-metre threshold, chosen now, cost CLARION-3?
+    choices:
+      - The result becomes the best of several thresholds rather than one question answered
+      - The walk distances already recorded would have to be measured again at the next visit
+      - The adjudication committee would have to be unblinded before it could score a responder
+      - The sample size would have to be recalculated before the database is locked next month
+    answer: The result becomes the best of several thresholds rather than one question answered
+    why: >
+      A responder rate is a perfectly respectable endpoint. Chosen after the distribution is on the
+      screen it becomes a different object, because the threshold could have been ten metres, twenty
+      or fifty, and the one that gets written down is the one that separated best. What CLARION-3
+      promised was the mean change, and the sample size and the analysis were built on that promise.
+      Everything already measured stays measured. What a late threshold costs is not the data but
+      the sentence the trial is entitled to write about it.
+    rebuttals:
+      - Nothing is remeasured; the same walk distances support either summary, which is the difficulty rather than the relief.
+      - Responder status is scored from the distance walked, and needs no knowledge of the arm at all.
+      - A recalculation would not help, because the sample size was fixed against a promise that has now moved.
+
+  - group: STAT
+    title: Nine ages, and their middle — Review
+    task: Say what each correction does to the mean and to the median
+    concept: 'Mean against median, and which one an outlier moves'
+    takesAsRead:
+      - 'A distribution of one variable: shape, centre and spread'
+    place: Statistics & Analysis
+    scene: >
+      Miriam Feldman, the trial statistician, has the Lisbon baseline table back with four
+      amendments pencilled on it. Before she signs the table off she wants each amendment matched to
+      what it does to the two figures in the age row.
+    guide: >-
+      Four amendments to the same nine-row table, and two figures to keep separate.
+      For each one ask what happens to the sum divided by the count, and then ask
+      separately what happens to the value sitting in the middle position. An
+      amendment can change how far out a value sits without changing which position it
+      occupies, and the two figures answer to different things.
+    background:
+      - >-
+          Why this is a matching board and not four separate questions. Responses on
+          boards like this are written to be plausible for more than one situation, so
+          choosing them one at a time lets a nearly-right answer through unexamined.
+          Having to place all of them forces the comparison — not "is this reasonable
+          here", but "is it more right here than there".
+      - >-
+          How to use the one-each rule. Because the responses are a set to be
+          distributed rather than a list to be sampled, every join you make constrains
+          the rest. Settling the two you are confident of can leave the remaining pair
+          decided by elimination. Where it does not, two responses are still competing
+          for one situation, and that is exactly the distinction the stop is testing.
+      - >-
+          Why the nine ages are worth carrying in your head. They are 49, 54, 55, 58,
+          60, 61, 63, 67 and 79, which sum to 546. Every row on this board is a small
+          edit to that list, and each one can be settled by asking what the edit does to
+          the sum, to the count, and to the fifth value from either end.
+    assumes:
+      - the nine listed ages are the people actually randomised at Lisbon
+    takeaway: A mean is a balance point and a median is a position, so one change can move one of them and leave the other where it was.
+    format: PROTOCOL
+    columns:
+      - The amendment to the table
+      - What it does to the age row
+    scenarios:
+      - One age is corrected from 79 to 97 after a transcription check.
+      - The two oldest participants withdraw and come out of the table.
+      - Every age is re-recorded a year later, at the anniversary visit.
+      - A tenth participant joins, aged exactly the current middle value.
+    choices:
+      - "The mean rises by two years and the median does not move: the total changed and nobody's rank did."
+      - "Both fall, and the mean falls further: the table lost distance as well as rank."
+      - "Both rise by exactly a year, and the spread is untouched: every value moved the same way."
+      - "Neither shifts to speak of: a value arriving at the middle pulls nothing anywhere."
+    mapping: [0, 1, 2, 3]
+    why: >
+      A mean is a balance point and a median is a position, and that difference settles all four
+      rows. Correcting one age upward changes the total and changes nobody's rank, so the mean
+      rises alone. Removing the two oldest takes distance as well as rank, so both fall and the mean
+      falls further. Adding a year to everybody moves both by exactly a year and leaves the spread
+      alone. A tenth person at the middle pulls nothing anywhere, which is why a baseline table for
+      a skewed variable carries both figures.
+
+  - group: REG
+    title: The plan that was in force — Review
+    task: Say what the registry analysis adds to what the trial may claim
+    concept: 'An experiment against an observational study, and what confounding costs'
+    place: Regulatory & Registry
+    scene: >
+      Nkechi Umeh, the regulatory lead, has a draft of the sponsor's submission. Behind CLARION-3's
+      own result somebody has added a national registry analysis of forty-one thousand treated
+      patients, pointing the same way, and offered it as support.
+    guide: >-
+      The four options disagree about what a registry may be used for: widening,
+      sharpening, confirming, or nothing at all. One question separates them, and it
+      is not the number of patients. Ask what decided who was treated in each dataset.
+      Everything either comparison is allowed to say about cause follows from that
+      answer, and forty-one thousand does not change it.
+    background:
+      - >-
+          Why the wrong options are the interesting ones. Each distractor is written to
+          be the answer under one specific misreading — a step skipped, a quantity
+          confused with a rate, a correlation taken for a cause. Identifying which
+          misreading each belongs to is where the learning is; the right answer alone
+          can be reached on instinct and teach nothing.
+      - >-
+          Why the shape of an option tells you nothing. A correct answer collects the
+          qualifying clause and the unit. So across a whole game the key used to be the
+          longest option far more often than chance — 88 per cent of passage quizzes
+          here, before it was fixed. It is now checked per game as a binomial tail, so
+          length, hedging and specificity have had the signal taken out of them
+          deliberately.
+      - >-
+          What the verdict adds. Every wrong option carries its own rebuttal, and the
+          verdict prints them — the reason that option fails, not a restatement of the
+          right one. They are worth reading after a correct answer as well: a right
+          choice made for an approximate reason is indistinguishable from a sound one
+          until the day the approximation is what is being tested.
+    assumes:
+      - a registry records patients whose treatment was chosen by a clinician
+    takeaway: What a dataset may say about cause is decided by whatever assigned the treatment, and never by how many people are in it.
+    format: CHOICE
+    question: What does the registry analysis add to what CLARION-3 is entitled to claim?
+    choices:
+      - Consistency in a wider group, with cause still resting on the trial
+      - A larger sample, which narrows the interval around the trial's own estimate considerably
+      - Independent confirmation, because forty-one thousand patients outweigh two thousand four hundred
+      - Nothing usable, since observational data may not appear in a regulatory submission
+    answer: Consistency in a wider group, with cause still resting on the trial
+    why: >
+      Forty-one thousand people is a bigger number and a weaker design. In the registry a clinician
+      decided who was treated, so the two groups differ by whatever that clinician was weighing —
+      how ill somebody was, how old, what else they were taking — and no amount of size removes it.
+      In CLARION-3 a server decided, which is exactly what licenses attributing a difference to the
+      treatment. So the registry is worth including, and worth labelling as what it is: the finding
+      holds more widely, and the causal sentence still belongs to the trial.
+    rebuttals:
+      - Two datasets are not pooled by adding people to one of them, and the registry's interval is its own.
+      - Size does not repair confounding; forty-one thousand people who chose their treatment differ in every way chance removes.
+      - Observational evidence is reported constantly and clearly labelled; what it may not do is carry the causal claim.
 
 # --------------------------------------------------------------- the warm-ups
 warmups:

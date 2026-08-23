@@ -82,11 +82,6 @@ export const MISSIONS = [
         "group": "DRY",
         "lesson": 2,
         "task": "Say why a dry summer costs yield."
-      },
-      {
-        "group": "LAB",
-        "lesson": 1,
-        "task": "Choose the batch worth the slot"
       }
     ]
   },
@@ -104,7 +99,7 @@ export const MISSIONS = [
       },
       {
         "group": "LAB",
-        "lesson": 2,
+        "lesson": 1,
         "task": "Set the cut-off, freeze it, and score it on plants it has never seen."
       },
       {
@@ -162,7 +157,7 @@ export const MISSIONS = [
       },
       {
         "group": "LAB",
-        "lesson": 3,
+        "lesson": 2,
         "task": "Decide what gets tested early, and what the finished line must still show."
       }
     ]
@@ -188,11 +183,6 @@ export const MISSIONS = [
         "group": "POP",
         "lesson": 2,
         "task": "Work out what happened to the resistance in this batch."
-      },
-      {
-        "group": "VAULT",
-        "lesson": 4,
-        "task": "Say why the farm may hold what the vault lost."
       }
     ]
   },
@@ -209,18 +199,13 @@ export const MISSIONS = [
         "task": "Spend the eight slots, and keep both resistance questions answered."
       },
       {
-        "group": "POP",
-        "lesson": 3,
-        "task": "Say what the pedigree board shows about the programme."
-      },
-      {
         "group": "LAB",
-        "lesson": 4,
+        "lesson": 3,
         "task": "Fit the disagreement both ways, then use the direct gene test to separate them."
       },
       {
         "group": "POP",
-        "lesson": 4,
+        "lesson": 3,
         "task": "Pull the plants the rule asks for."
       }
     ]
@@ -234,7 +219,7 @@ export const MISSIONS = [
     "stops": [
       {
         "group": "VAULT",
-        "lesson": 5,
+        "lesson": 4,
         "task": "Say what the season established about the collection."
       },
       {
@@ -246,6 +231,30 @@ export const MISSIONS = [
         "group": "DRY",
         "lesson": 5,
         "task": "Say what the long record is worth keeping for."
+      }
+    ]
+  },
+  {
+    "title": "What Wellmere asks for next",
+    "objective": "Settle what the board is told, and what the station asks for on the strength of it.",
+    "briefing": "The board meets at eleven, and the season has to fit on one page.",
+    "stake": "Monday, and the board meets at eleven. Nasrin Qureshi, the collection curator, has to tell people who fund seed banks what the season cost and what it bought. You keep the records she reads from, so the numbers are yours. Thirty batches have drifted, and the ground for next year is already argued over. Six growers are waiting to hear which seed they can have. Today you settle what Wellmere asks for next.",
+    "takeaway": "A season is only worth what the next one can be built on. What you ask for on the strength of it is the last thing the season decides.",
+    "stops": [
+      {
+        "group": "POP",
+        "lesson": 4,
+        "task": "Say what the pedigree board shows about the programme."
+      },
+      {
+        "group": "VAULT",
+        "lesson": 5,
+        "task": "Say why the farm may hold what the vault lost."
+      },
+      {
+        "group": "LAB",
+        "lesson": 4,
+        "task": "Choose the batch worth the slot"
       }
     ]
   }

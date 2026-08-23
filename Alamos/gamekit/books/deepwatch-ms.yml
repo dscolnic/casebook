@@ -2604,3 +2604,216 @@ missions:
           target: 3
           tolerance: 0.25
           units: Hz
+# ------------------------------------------------------------- review stops
+# Lessons no mission points at. From day 3 the engine appends a callback to an
+# area taught earlier, and it only does so where that lesson has a "— Review"
+# variant to serve. So these are the spaced retrieval rather than spares: the
+# same idea, a different case, several days after it was first met. Four groups,
+# because a callback whose area is already in the day is skipped.
+lessons:
+  - group: ENG
+    title: Every fitting is an argument — Review
+    concept: Water pressure grows with depth
+    task: Match each sea-water fitting to what it does.
+    place: Propulsion Machinery
+    scene: >-
+      Machinist's Mate Tunde Adeyemi, who runs the propulsion plant, stops at three fittings on
+      one sea-water pipe. None of them is labelled. The boat is at ninety metres.
+    guide: >-
+      Three fittings, all on the same pipe from the sea. Pair each one by asking
+      whether it lets anything through. Some fittings are doors. Some only report
+      what is happening. One of them was shut for good. Depth is what decides how
+      hard the sea leans on all three.
+    background:
+      - >-
+          Why you match instead of choosing. A response that is right for one situation
+          is often nearly right for the next one. Picking from a list lets you take the
+          nearly-right answer and never notice. Matching makes you say which situation
+          it fits best, and that comparison is the whole point.
+      - >-
+          How to use the one-each rule. Every response goes somewhere, and nowhere
+          twice. So the situations you are sure about are worth more than themselves:
+          each one you settle leaves fewer responses for the ones you are not sure
+          about. Two lines you trust can decide the other two for you.
+      - >-
+          Why one wrong line is impossible. If three lines are right, the fourth
+          response has nowhere else to go, so it is right too. Being wrong always means
+          at least two are wrong at once. If a join feels forced, the mistake is
+          probably not in that join — it is in one you already made and stopped
+          questioning.
+    assumes:
+      - the sea pushes harder on a fitting the deeper the boat goes
+    takeaway: How hard the sea leans on a fitting is set by how deep the fitting is.
+    format: PROTOCOL
+    columns:
+      - What you are looking at
+      - What it does
+    scenarios:
+      - A hand valve low in the bilge, on the sea pipe.
+      - A gauge fitted to that same pipe, reading in bar.
+      - A bolted steel cap where a branch was cut out.
+    choices:
+      - It lets the sea in, and depth decides how hard.
+      - It reads how hard the sea is pushing on the pipe.
+      - It holds that same push, and nobody opens it at sea.
+    mapping: [0, 1, 2]
+    why: >-
+      All three sit on the sea-water side, so the sea decides what each one is worth. The valve
+      is a door. Open it at ninety metres and the water comes in under the weight of every metre
+      above it. The gauge is not a door. It only reports what that weight is doing to the steel.
+      The cap is a door that was shut for good, and it has to hold the same push the pipe holds.
+    rebuttals:
+      - The valve is the door. What comes through it is set by how deep the boat is.
+      - The gauge reports and never lets anything past. It is how you know the push before you touch a valve.
+      - The cap is not spare. It carries the same push as the pipe, and it is not a thing to open.
+  - group: SONAR
+    title: Four traces, one of them ours — Review
+    concept: "Loud and quiet, high and low: what a sound tells you about its source"
+    task: Put the three sounds in order of pitch, lowest first.
+    place: Sonar Room
+    scene: >-
+      Sonarman Kes Dunne, who works the broadband display, saved three sounds from the night
+      watch. He plays them back one at a time. All three were on the display together.
+    guide: >-
+      Time will not order these. All three were heard on the same watch. What orders
+      them is the thing making the sound. Ask how big it is and how fast it moves.
+      Loudness is not the axis here, and the loudest of the three is not the highest.
+    background:
+      - >-
+          Why the order is graded whole. A sequence is a claim that each step needs the
+          one before it to have happened. Get one pair the wrong way round and the claim
+          is wrong, even if everything else lines up. That is why there is no part
+          credit.
+      - >-
+          Why the ends are the place to start. The first and last steps are usually the
+          easiest to be sure of, because one has nothing before it and the other has
+          nothing after it. Fixing those two leaves fewer ways for the middle to go, and
+          the middle is where the real question usually is.
+      - >-
+          What the rail can be ordered on. Often it is time. It can also be size, or
+          pitch, or cost. A rail ordered on anything but time asks you to find the one
+          thing the cards really differ by, and then to read them against it.
+    assumes:
+      - a sound has a pitch as well as a loudness
+    takeaway: What makes a sound sets its pitch, and how loud it is asks a different question.
+    format: SEQUENCE
+    cards:
+      - A loaded tanker, turning one wide propeller slowly.
+      - A patrol boat, turning a small propeller fast.
+      - A bed of snapping shrimp on the bottom.
+    order: [0, 1, 2]
+    axis: Put the three sounds in order of pitch, from the lowest note to the highest. Nothing here happened before anything else — all three were on the display at the same time.
+    ends: [Lowest note, Highest note]
+    why: >-
+      Pitch tells you about the thing making the sound. A wide propeller turning slowly pushes
+      the water a few times a second, so the note is low enough to feel. A small propeller
+      turning fast pushes it far more often, and the note climbs with it. Shrimp are tiny and
+      each click is over in an instant, so they sit at the top. Loudness is a separate question.
+      The tanker is the loudest of the three and it is still the lowest.
+  - group: ATMO
+    title: Smoke is not only a breathing problem — Review
+    concept: Heat moves from hot to cold, and it needs a path
+    task: Match each instrument to what it can tell you in here.
+    place: Auxiliary Machinery & Bilge
+    scene: >-
+      The same space is full of smoke again. A heater behind a panel started it.
+      Ana Lindqvist, the atmosphere control officer, hands you three instruments.
+    guide: >-
+      Nobody can see across this space, so every answer has to be a reading. Pair
+      each instrument by asking which question it can answer. One of them looks at
+      the steel between here and the next compartment. One of them is only worth
+      anything if you use it twice. One of them is not about heat at all.
+    background:
+      - >-
+          Why you match instead of choosing. A response that is right for one situation
+          is often nearly right for the next one. Picking from a list lets you take the
+          nearly-right answer and never notice. Matching makes you say which situation
+          it fits best, and that comparison is the whole point.
+      - >-
+          How to use the one-each rule. Every response goes somewhere, and nowhere
+          twice. So the situations you are sure about are worth more than themselves:
+          each one you settle leaves fewer responses for the ones you are not sure
+          about. Two lines you trust can decide the other two for you.
+      - >-
+          Why one wrong line is impossible. If three lines are right, the fourth
+          response has nowhere else to go, so it is right too. Being wrong always means
+          at least two are wrong at once. If a join feels forced, the mistake is
+          probably not in that join — it is in one you already made and stopped
+          questioning.
+    assumes:
+      - hot air rises and gathers at the top of a space
+    takeaway: Heat only travels where there is something to carry it, and each reading follows a different path.
+    format: PROTOCOL
+    columns:
+      - What you are holding
+      - What it can tell you
+    scenarios:
+      - A heat gun aimed at the bulkhead to the next space.
+      - A thermometer read at the deck, then at head height.
+      - A gas meter drawn from the middle of the space.
+    choices:
+      - Whether the heat has found a path into the next compartment.
+      - How far the heat has stacked itself above the deck.
+      - What the air would do to somebody without a mask.
+    mapping: [0, 1, 2]
+    why: >-
+      Heat only moves where there is something to carry it. Steel is one such path, so a heat
+      gun on the bulkhead says whether the fire is already reaching the space next door. Inside
+      this compartment the hot air rises and sits in a layer. One reading cannot show that. Two,
+      at two heights, can. The gas meter answers a different question again. It is not about
+      where the heat has gone, but about what the air will do to a person standing in it.
+    rebuttals:
+      - The heat gun reads the boundary. A warm bulkhead means the heat is already crossing it.
+      - Two readings at two heights show the layer. One reading on its own says nothing about it.
+      - The gas meter is about the air rather than the heat. It says whether a mask is the only thing keeping somebody working.
+  - group: FIRE
+    title: Three legs, three different actions — Review
+    concept: Heat moves from hot to cold, and it needs a path
+    task: Say what the warm bulkhead means now the fire is out.
+    place: Electrical Distribution
+    scene: >-
+      The charging panel has stopped burning. Electrician's Mate Sipho Mbeki, who runs power
+      distribution, proved the cable dead an hour ago. The bulkhead aft still reads fifty degrees.
+    guide: >-
+      Four answers, and they disagree about what a warm bulkhead is. The fire is out
+      and the cable is dead, so nothing in here is making new heat. Ask of each
+      option where the heat that is already in the steel can go, and what it can do
+      when it gets there.
+    background:
+      - >-
+          Why the wrong answers are worth reading. Each one is written to look right to
+          somebody who made a particular mistake. Working out which mistake each one
+          belongs to is most of the learning in this format — more than getting the
+          right one, which you can sometimes do by feel.
+      - >-
+          Why sounding careful is not the same as being right. A long answer with a lot
+          of detail in it feels safer, and it is easy to write one that is still wrong.
+          The check that builds these questions measures option length across the whole
+          game so the longest one is not the answer more often than chance. Reading is
+          the only way through.
+      - >-
+          What the verdict adds. After you answer, the verdict says why each wrong
+          option is wrong, in its own words. That is written for the reader who picked
+          it. Read it even when you were right, because being right for a shaky reason
+          is the thing that catches up with you two stops later.
+    assumes:
+      - a fire needs fuel, air and something to start it
+    takeaway: Killing the power stops new heat. The heat already in the steel still has somewhere to go.
+    format: CHOICE
+    question: The panel is out and the cable is dead. What does a fifty-degree bulkhead mean?
+    choices:
+      - Heat is crossing the steel, so the next space needs watching.
+      - Nothing now. The fire is out, so the steel will settle.
+      - The meter is wrong, because a dead cable cannot stay hot.
+      - The next space is alight, and it has to be sealed.
+    answer: Heat is crossing the steel, so the next space needs watching.
+    why: >-
+      Opening the breaker stopped the fault making new heat. It did nothing about the heat
+      already in the metal. Steel carries heat well, and a bulkhead is a path from this
+      compartment into the next one. Fifty degrees says that path is being used. Nothing over
+      there is alight yet, and something stored against that wall can be. So somebody reads the
+      far side and keeps reading it until the number comes down.
+    rebuttals:
+      - Heat does not stop moving when the flame does. It keeps going until both sides are the same.
+      - A cable stays hot long after it is dead. That is why it is cooled rather than only switched off.
+      - Fifty degrees is warm, not alight. Sealing a space you have not read is how a small job becomes a big one.

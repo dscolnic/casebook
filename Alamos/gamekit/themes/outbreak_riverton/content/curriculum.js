@@ -1009,7 +1009,14 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a concentration gradient has a direction",
-        "ATP is the cell's energy currency"
+        "ATP is the cell's energy currency",
+        "cell structure and function — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Cell structure and function"
+        }
       ],
       "concept": {
         "n": 2,
@@ -1557,7 +1564,8 @@ export const CURRICULUM = {
         "correctChoice": "Heat in the van disrupted the reporter enzyme's structure."
       },
       "assumes": [
-        "an enzyme is a protein whose function depends on it keeping its shape"
+        "an enzyme is a protein whose function depends on it keeping its shape",
+        "cell structure and function — taken as read"
       ],
       "equations": [
         {
@@ -1582,6 +1590,12 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Blood pH is set by the ratio of base to acid rather than by either alone, which is why the lungs and the kidneys can compensate for each other."
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Cell structure and function"
         }
       ],
       "concept": {
@@ -3571,7 +3585,14 @@ export const CURRICULUM = {
       },
       "assumes": [
         "more searching finds more cases whether or not the disease has moved",
-        "a rate is a count measured against a population and a length of time"
+        "a rate is a count measured against a population and a length of time",
+        "homeostasis and feedback — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 11,
+          "c": "Homeostasis and feedback"
+        }
       ],
       "concept": {
         "n": 26,
@@ -3619,7 +3640,19 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "a curve counted under two definitions is two curves unless both are stated"
+        "a curve counted under two definitions is two curves unless both are stated",
+        "populations, transmission chains and exponential growth — taken as read",
+        "rates, ratios and reading data — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 10,
+          "c": "Populations, transmission chains and exponential growth"
+        },
+        {
+          "n": 20,
+          "c": "Rates, ratios and reading data"
+        }
       ],
       "concept": {
         "n": 16,

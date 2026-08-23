@@ -787,6 +787,89 @@ export const CURRICULUM = {
           "Static equilibrium: forces and torques both adding to zero"
         ]
       }
+    },
+    {
+      "day": 10,
+      "title": "What a mass being stopped pushes back with — Review",
+      "scene": "Rafael Santos, who maintains the tower brakes, has rigged the emergency arrestor for its annual proof test. It catches a 980 kilogram test sled rather than the passenger carriage, and Vey wants the force on the arrestor before he will watch it.",
+      "takeaway": "Change the mass, change the deceleration, and the force changes with them; the rule that turns one pair into the other is the same on every ride in the park.",
+      "place": "The Drop Tower",
+      "guide": "Five numbers, and three of them describe how the sled arrived rather than what the arrestor has to make: the entry speed, the length of the catch, and gravity. Ask of each whether a force on a body depends on it. What survives that question is the mass and the rate the motion is being changed at.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
+      "story": "Rafael Santos, who maintains the tower brakes, has rigged the emergency arrestor for its annual proof test. It catches a 980 kilogram test sled rather than the passenger carriage, and Vey wants the force on the arrestor before he will watch it.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "What a mass being stopped pushes back with — Review",
+        "setup": "The Drop Tower",
+        "play": "Get the force the arrestor has to make on the test sled",
+        "task": "Get the force the arrestor has to make on the test sled",
+        "question": "Estimate the force the arrestor has to make on the test sled.",
+        "answer": "About 61 kilonewtons — 980 kilograms slowed at 62.6 metres per second squared.",
+        "why": "A net force is a mass times an acceleration, and the statement does not care what is being stopped or what does the stopping. The mass is the 980 kilograms of sled and the acceleration is the 62.6 metres per second squared the arrestor makes, so the force is about 61 kilonewtons. That is roughly twice what the copper fins hold on a routine drop, on a sled that is heavier and caught in less room. The entry speed and the length of the catch are how that acceleration was arrived at, and gravity belongs to the fall above.",
+        "givens": [],
+        "relationship": "A net force is a mass times its acceleration, ΣF = ma.",
+        "calcKey": "TOWER-10"
+      },
+      "assumes": [
+        "a net force on a body is that body's mass times its acceleration",
+        "slowing down is an acceleration with the sign reversed"
+      ],
+      "equations": [
+        {
+          "e": "ΣF = ma",
+          "c": "what a net force is for",
+          "v": [
+            [
+              "ΣF",
+              "the sum of every force on the body, with direction"
+            ],
+            [
+              "m",
+              "its mass"
+            ],
+            [
+              "a",
+              "the acceleration that results"
+            ]
+          ],
+          "s": "Forces do not cause motion, they cause changes of motion — and the sum is what counts, which is why a free-body diagram with one arrow missing gives an answer that is wrong rather than approximate.",
+          "computed": true
+        },
+        {
+          "e": "v² = v₀² + 2aΔx",
+          "c": "the constant-acceleration relation with no time in it",
+          "v": [
+            [
+              "v",
+              "the speed at the end, in metres a second"
+            ],
+            [
+              "v₀",
+              "the speed at the start"
+            ],
+            [
+              "a",
+              "the acceleration, taken as constant"
+            ],
+            [
+              "Δx",
+              "the distance travelled while it acts"
+            ]
+          ],
+          "s": "This is the one to reach for whenever a problem gives a distance and asks for a speed, or gives a speed and asks over what distance it can be removed — which is a fall and a brake run written the same way."
+        }
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Newton's second law as the definition of a net force",
+        "of": 36,
+        "rests": [
+          "Acceleration as the rate a velocity changes, whichever part of it changes"
+        ]
+      }
     }
   ],
   "COASTER": [
@@ -1547,6 +1630,97 @@ export const CURRICULUM = {
           "s": "A rail can push and cannot pull, so the limit is where it has stopped pushing and gravity alone bends the train round — and the mass cancels, which is why the limit is the same for a full train and an empty one."
         }
       ]
+    },
+    {
+      "day": 8,
+      "title": "Reading a circuit as energy — Review",
+      "scene": "Marta Kovač, the maintenance lead, has chalked the far half of the circuit on the workshop wall this morning: the loop crown, the trim brakes, the second hill and the station. She wants the energy read off it the same way.",
+      "takeaway": "Past the lift hill every height the train reaches again is bought out of its speed, less whatever friction has already taken.",
+      "place": "The Coaster",
+      "guide": "Four places and four statements, all of them past the first drop. Pair them by asking the same two questions of each. Where is the energy sitting, in height or in motion? And is any being added or taken out here? Nothing beyond the lift hill adds any, so every join is about where it sits and what is being removed.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
+      "story": "Marta Kovač, the maintenance lead, has chalked the far half of the circuit on the workshop wall this morning: the loop crown, the trim brakes, the second hill and the station. She wants the energy read off it the same way.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "Reading a circuit as energy — Review",
+        "setup": "The Coaster",
+        "play": "Match each place on the far half of the circuit to what is true of the train's energy there.",
+        "task": "Match each place on the far half of the circuit to what is true of the train's energy there.",
+        "question": "Match each place on the far half of the circuit to what is true of the train's energy there.",
+        "answer": "",
+        "why": "The energy books close over the whole circuit rather than point by point. At the crown the train holds a large share in height and still enough in motion to stay on the rail, which is why a loop is placed early. The trim brakes take a measured amount out as heat deliberately, so the speed into the second half is a setting. The second hill is lower because friction has been taking a cut since the lift, and the station brakes remove what is left.",
+        "scenarios": [
+          "The train is at the crown of the loop, upside down and still travelling fast.",
+          "The train is passing through the trim brakes half way round the circuit.",
+          "The train is at the top of the second hill.",
+          "The train is standing in the station with the block brakes set."
+        ],
+        "choices": [
+          "Both stores are large at once, with the height near a maximum and the speed still high enough to hold the train against the rail.",
+          "A measured amount is being taken out as heat on purpose, so that the speed into what follows is a setting and not an accident.",
+          "Most of what is left is back in the height, and it is less than the first hill because losses have been taken all the way round.",
+          "Everything the lift put in has gone, some to friction and the rest to the brakes, and the books close on the circuit here."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "assumes": [
+        "energy stored in height can be turned back into motion",
+        "friction turns mechanical energy into heat and does not return it"
+      ],
+      "equations": [
+        {
+          "e": "v_min = √(gr) at the crown of a loop",
+          "c": "the limiting case a rail cannot get out of",
+          "v": [
+            [
+              "v_min",
+              "the least speed the train can cross the crown at"
+            ],
+            [
+              "g",
+              "the acceleration due to gravity"
+            ],
+            [
+              "r",
+              "the radius of the loop at its crown"
+            ]
+          ],
+          "s": "A rail can push and cannot pull, so the limit is where it has stopped pushing and gravity alone bends the train round — and the mass cancels, which is why the limit is the same for a full train and an empty one."
+        },
+        {
+          "e": "W_net = ΔK",
+          "c": "the work–energy theorem, and where the losses show up",
+          "v": [
+            [
+              "W_net",
+              "the net work done on the body, in joules"
+            ],
+            [
+              "ΔK",
+              "the change in its kinetic energy"
+            ]
+          ],
+          "s": "Friction does negative work along the whole path, so the gap between the ideal speed and the measured one is a measurement of the friction — which is the only way this park has of counting it."
+        }
+      ],
+      "concept": {
+        "n": 16,
+        "c": "Conservation of mechanical energy, and dividing the mass out of it",
+        "of": 36,
+        "rests": [
+          "Kinetic energy, and why the square matters",
+          "Gravitational potential energy as weight times height"
+        ]
+      }
     }
   ],
   "CAROUSEL": [
@@ -2089,6 +2263,78 @@ export const CURRICULUM = {
         "rests": [
           "Work as a force times a distance along it",
           "Free-body thinking: one object, every force on it, nothing else"
+        ]
+      }
+    },
+    {
+      "day": 7,
+      "title": "Going round at a steady speed — Review",
+      "scene": "Bisi Adeyemi, the ride electrician, has the new controller in and wants the inner ring on paper as well. Those horses sit 3.1 metres from the axis and go round on the same shaft at the same eight revolutions a minute.",
+      "takeaway": "One shaft turns every radius at the same rate, so both the speed and the acceleration of a seat are set by how far out it is.",
+      "place": "The Carousel and Swings",
+      "guide": "Five numbers, and two of them belong to the outer ring rather than this one. Ask of each which circle it describes. The turns a minute are shared by both rings, so the speed on each has already been worked out for you. And note where the square sits: it is on the speed and not on the radius.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
+      "story": "Bisi Adeyemi, the ride electrician, has the new controller in and wants the inner ring on paper as well. Those horses sit 3.1 metres from the axis and go round on the same shaft at the same eight revolutions a minute.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "Going round at a steady speed — Review",
+        "setup": "The Carousel and Swings",
+        "play": "Get the acceleration on the inner ring of horses",
+        "task": "Get the acceleration on the inner ring of horses",
+        "question": "Estimate the acceleration of a horse on the inner ring.",
+        "answer": "About 2.2 metres per second squared, pointing at the axle.",
+        "why": "Every point on the platform turns at the same rate, so a horse half as far out moves half as fast. Both terms of the ratio change together and the square sits on only one of them, which is what makes the acceleration fall in proportion to the radius rather than with its square. Here 2.6 metres a second on a 3.1 metre radius gives about 2.2 metres per second squared, still pointing at the axle. That is why a speed limit for this ride is written for the outer horses.",
+        "givens": [],
+        "relationship": "Centripetal acceleration is the speed squared over the radius, a_c = v²/r.",
+        "calcKey": "CAROUSEL-7"
+      },
+      "assumes": [
+        "a body going round a circle accelerates toward the centre of it",
+        "the size of that acceleration is the speed squared over the radius",
+        "velocity against speed: direction is part of the quantity — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "a_c = v²/r,  F_c = mv²/r",
+          "c": "what going round a corner costs",
+          "v": [
+            [
+              "a_c",
+              "the acceleration toward the centre"
+            ],
+            [
+              "v",
+              "the speed along the circle"
+            ],
+            [
+              "r",
+              "the radius of the circle travelled"
+            ],
+            [
+              "F_c",
+              "the net force that produces it"
+            ]
+          ],
+          "s": "Steady speed on a curve is still acceleration, because the direction is changing — and the force that supplies it is always something real: a rail, a chain, a pole or a seat.",
+          "computed": true
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Velocity against speed: direction is part of the quantity"
+        }
+      ],
+      "concept": {
+        "n": 9,
+        "c": "Centripetal acceleration: v² over r, pointing at the centre",
+        "of": 36,
+        "rests": [
+          "Acceleration as the rate a velocity changes, whichever part of it changes",
+          "Velocity against speed: direction is part of the quantity"
         ]
       }
     }
@@ -4031,6 +4277,76 @@ export const CURRICULUM = {
           "Free-body thinking: one object, every force on it, nothing else"
         ]
       }
+    },
+    {
+      "day": 7,
+      "title": "60 people and the same 5 seconds — Review",
+      "scene": "Sam Idowu, the senior ride operator, has been timing maintenance swings on an empty boat. Pushed out two degrees it takes 5.9 seconds, and pushed out four degrees it still takes 5.9. He wants that written down properly.",
+      "takeaway": "Amplitude drops out of a harmonic period, which is what makes an oscillator usable as a clock and useless as a record of how hard it was set going.",
+      "place": "The Pirate Ship",
+      "guide": "All four options explain a timing that does not move when the push gets bigger. Ask of each whether it names a cancellation or an excuse. A wider swing is a longer journey, so for the time to hold, the boat has to make it faster. Look for the option that says why the extra speed arrives, and note the limit: this holds at small angles and the ride swings 48 degrees.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
+      "story": "Sam Idowu, the senior ride operator, has been timing maintenance swings on an empty boat. Pushed out two degrees it takes 5.9 seconds, and pushed out four degrees it still takes 5.9. He wants that written down properly.",
+      "game": {
+        "type": "CHOICE",
+        "title": "60 people and the same 5 seconds — Review",
+        "setup": "The Pirate Ship",
+        "play": "Say why the amplitude drops out of the period at small angles",
+        "task": "Say why the amplitude drops out of the period at small angles",
+        "question": "At small angles, why does pushing the empty boat out further not lengthen the swing?",
+        "answer": "The restoring pull grows in proportion to the displacement, so the wider swing is also the faster one.",
+        "why": "At small angles the pull back toward the bottom grows very nearly in proportion to how far the boat has been displaced. Push it twice as far and it is pulled twice as hard, so it covers twice the distance at twice the average speed and arrives in the same time. That proportionality is what harmonic motion means, and a period that ignores amplitude is its signature. It stops holding as the angle opens: at the ride's 48 degrees the swing runs slightly slow, which is why the maintenance timings are taken small.",
+        "rebuttals": [
+          "The drive gives one push at the end of each swing, and it does not set the rate the boat returns at.",
+          "Doubling the angle doubles the distance, which a stopwatch at this length would show if the speed did not double with it.",
+          "Damping does take energy out, and what it shrinks is the size of the swing rather than the time one takes."
+        ],
+        "choices": [
+          "The pull back grows in step with the displacement, so a wider swing is also a faster one.",
+          "The drive motor lengthens its push as the angle grows, which holds every cycle to the same interval whatever the operator sets.",
+          "The difference is real, but far too small for a stopwatch to separate at the angles used on a maintenance swing.",
+          "Air resistance grows with the swing and takes back exactly the extra distance the boat has to travel."
+        ],
+        "correctChoice": "The pull back grows in step with the displacement, so a wider swing is also a faster one."
+      },
+      "assumes": [
+        "the boat is pulled back toward its lowest point whenever it is displaced",
+        "a longer path covered in the same time means a higher average speed"
+      ],
+      "equations": [
+        {
+          "e": "T = 2π√(L/g)",
+          "c": "the pendulum period, and the mass that is not in it",
+          "v": [
+            [
+              "T",
+              "the time for one complete swing"
+            ],
+            [
+              "L",
+              "the length from the pivot to the centre of mass"
+            ],
+            [
+              "g",
+              "the acceleration due to gravity"
+            ]
+          ],
+          "s": "A heavier boat is pulled back harder in exactly the same proportion as it is harder to accelerate, so the mass cancels — which also makes this the easiest accurate way to measure gravity anywhere."
+        }
+      ],
+      "concept": {
+        "n": 26,
+        "c": "Simple harmonic motion: a restoring force proportional to displacement",
+        "of": 36,
+        "rests": [
+          "Newton's second law as the definition of a net force",
+          "Work as a force times a distance along it"
+        ]
+      }
     }
   ],
   "FLUME": [
@@ -5110,6 +5426,66 @@ export const BALLPARK_CALCS = {
     "units": "× the rider's weight",
     "solution": "N/mg = 1 + v²/(rg) = 1 + 7.5² ÷ (8.6 × 9.8) ≈ 1.67.",
     "explanation": "The one is the rider's weight, which the seat carries even at rest. The period is what the swing takes and not what it does to anybody."
+  },
+  "TOWER-10": {
+    "prompt": "The arrestor catches a 980 kg sled entering at 29.6 m/s and holds it over 7.0 m, a deceleration of about 62.6 m/s².",
+    "question": "Estimate the force the arrestor has to make on the test sled.",
+    "labels": [
+      "980 kg  (mass of the test sled)",
+      "62.6 m/s²  (deceleration in the arrestor)",
+      "7.0 m  (the length of the catch)",
+      "29.6 m/s  (speed entering the arrestor)",
+      "9.8 m/s²  (g)"
+    ],
+    "values": [
+      980,
+      62.6,
+      7,
+      29.6,
+      9.8
+    ],
+    "slots": 2,
+    "template": "{0} × {1}",
+    "formula": "a*b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 61348,
+    "tolerance": 4000,
+    "units": "N (about 61 kN)",
+    "solution": "980 × 62.6 ≈ 61,300 N, or about 61 kilonewtons.",
+    "explanation": "Mass times acceleration, and nothing else. The entry speed and the length of the catch are what produced that acceleration, and gravity belongs to the fall above."
+  },
+  "CAROUSEL-7": {
+    "prompt": "The inner ring sits 3.1 m from the axis and moves at 2.6 m/s while the carousel turns at 8 revolutions a minute.",
+    "question": "Estimate the acceleration of a horse on the inner ring.",
+    "labels": [
+      "2.6 m/s  (speed on the inner ring)",
+      "3.1 m  (radius of the inner ring)",
+      "5.2 m/s  (speed on the outer ring)",
+      "6.2 m  (radius of the outer ring)",
+      "8  (turns a minute)"
+    ],
+    "values": [
+      2.6,
+      3.1,
+      5.2,
+      6.2,
+      8
+    ],
+    "slots": 2,
+    "template": "{0} × {0} ÷ {1}",
+    "formula": "a*a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 2.18,
+    "tolerance": 0.25,
+    "units": "m/s² toward the centre",
+    "solution": "2.6 × 2.6 ÷ 3.1 ≈ 2.2 m/s², pointing at the axle.",
+    "explanation": "The outer ring's speed and radius describe a different circle on the same shaft, and the turns a minute are the rate both of them share."
   }
 };
 

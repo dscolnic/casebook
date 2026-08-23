@@ -653,6 +653,73 @@ export const CURRICULUM = {
           "s": "The gap between what the system can make and what it is being asked for is the whole of its safety margin."
         }
       ]
+    },
+    {
+      "day": 10,
+      "title": "What the falling number tells you — Review",
+      "scene": "A Thursday evening. The import from the next system has stopped. The frequency fell, and it has been sitting low and flat for six minutes. Aaron Whitlock, the assistant operator, wants to know whether that counts as fixed.",
+      "takeaway": "A number that has stopped moving has found a balance. It has not been put right.",
+      "place": "System Operations",
+      "guide": "The four answers disagree about one thing. Is a number that has stopped moving a number that has come back? Ask what would have to be true for the frequency to return to fifty. Then ask whether anything on the desk says that has happened.",
+      "background": [
+        "What frequency is a measure of. Every machine on the system turns in step. The frequency is the speed they are all turning at. It is one number for the whole system, so it is not a reading from a place.",
+        "Why steady is not the same as right. The machines slow down until what they make matches what is being used. They can hold that slower speed for a long time. Steady tells you the falling has stopped. It does not tell you the gap has been filled."
+      ],
+      "story": "A Thursday evening. The import from the next system has stopped. The frequency fell, and it has been sitting low and flat for six minutes. Aaron Whitlock, the assistant operator, wants to know whether that counts as fixed.",
+      "game": {
+        "type": "CHOICE",
+        "title": "What the falling number tells you — Review",
+        "setup": "System Operations",
+        "play": "Say what a steady low frequency means, on a different evening.",
+        "task": "Say what a steady low frequency means, on a different evening.",
+        "question": "The frequency has been steady and low for six minutes. What does that tell you?",
+        "answer": "The machines settled at a slower speed, and the missing power is still missing.",
+        "why": "Take power away and the spinning machines cover it out of their own speed. They slow down. As they slow, they settle at a speed where what they make matches what is being used. That is why the number goes flat. The flat number is a new balance, not a repair. The import is still gone. Until somebody puts that power back, the whole system runs slow, and every machine on it is holding a share of the gap.",
+        "rebuttals": [
+          "A number can stop moving at the wrong value. Steady is not the same as back.",
+          "Frequency is one number for the whole system. A single meter cannot set it.",
+          "Demand falling would lift the frequency back up. It has not moved."
+        ],
+        "choices": [
+          "The machines settled slower, and the gap is still open",
+          "The system has recovered, because the number stopped moving",
+          "One substation's meter has drifted, so the reading is wrong",
+          "Demand fell to match, so nothing is missing now"
+        ],
+        "correctChoice": "The machines settled slower, and the gap is still open"
+      },
+      "assumes": [
+        "the whole grid runs at one speed, and that speed is what frequency measures"
+      ],
+      "equations": [
+        {
+          "e": "part = whole × share",
+          "c": "a share of the demand, or of the customers",
+          "v": [
+            [
+              "part",
+              "how much that share comes to"
+            ],
+            [
+              "whole",
+              "the total"
+            ],
+            [
+              "share",
+              "the percentage, written as a decimal"
+            ]
+          ],
+          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
+        }
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Supply has to match demand, minute by minute",
+        "of": 16,
+        "rests": [
+          "Energy used is power multiplied by time"
+        ]
+      }
     }
   ],
   "GEN": [
@@ -884,6 +951,46 @@ export const CURRICULUM = {
         "of": 16,
         "rests": [
           "Supply has to match demand, minute by minute"
+        ]
+      }
+    },
+    {
+      "day": 6,
+      "title": "How much went missing — Review",
+      "scene": "A cold Friday morning. A second unit has come off with a boiler leak, and the demand is still climbing. Nadia Haddad, the generation lead, wants the size of the new gap before she asks anybody for anything.",
+      "takeaway": "The gap is a subtraction, and both numbers for it are amounts of power.",
+      "place": "Generation Hall",
+      "guide": "Four numbers, and two of them are about the frequency. Those say what the shortfall did. They do not say how big it is. Ask of each number whether it is an amount of power. The gap is one of those numbers taken away from the other.",
+      "background": [
+        "Why the frequency numbers are on the board. They are true, and they are about the same event. They describe what happened after the gap opened. A rate of fall is not an amount of power, so it cannot be an answer in megawatts.",
+        "Why the labels matter. A bare number cannot be checked against the sum it is going into. Reading the label is how you catch a number that belongs to a different part of the problem before you place it."
+      ],
+      "story": "A cold Friday morning. A second unit has come off with a boiler leak, and the demand is still climbing. Nadia Haddad, the generation lead, wants the size of the new gap before she asks anybody for anything.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "How much went missing — Review",
+        "setup": "Generation Hall",
+        "play": "Work out the size of the new gap.",
+        "task": "Work out the size of the new gap.",
+        "question": "How much generation is missing now?",
+        "answer": "Three hundred and fifty megawatts. That is what the system needs minus what is left running.",
+        "why": "There is no store on a power system. What is used has to be made in the same second. So the gap is what is needed minus what the running units can make between them. Here that is three hundred and fifty megawatts. The frequency falling is the spinning machines paying for that gap out of their own speed, and they can do that for seconds rather than hours. The number is what tells Haddad how much to ask for.",
+        "givens": [
+          "The system needs 7,200 MW",
+          "The units still running can make 6,850 MW"
+        ],
+        "relationship": "Missing = what is needed − what can be made.",
+        "calcKey": "GEN-6"
+      },
+      "assumes": [
+        "the grid has to make exactly as much as it is using, every second"
+      ],
+      "concept": {
+        "n": 8,
+        "c": "Supply has to match demand, minute by minute",
+        "of": 16,
+        "rests": [
+          "Energy used is power multiplied by time"
         ]
       }
     }
@@ -1623,6 +1730,53 @@ export const CURRICULUM = {
           "Supply has to match demand, minute by minute"
         ]
       }
+    },
+    {
+      "day": 5,
+      "title": "Why the far end sits low — Review",
+      "scene": "A long rural feeder. Chinelo Obi, the distribution lead, has the substation meter reading its proper voltage all evening. The village at the far end says the lights dim every night at six.",
+      "takeaway": "The drop grows with the current, so a feeder is at its worst when it is busiest.",
+      "place": "Distribution Depot",
+      "guide": "The four answers disagree about where the missing voltage went. Ask whether voltage is one number for the whole feeder or a number that changes along it. Then ask what happens at six each evening that does not happen at noon.",
+      "background": [
+        "Why the far end is lower. Voltage is the push. Pushing current along kilometres of wire uses some of that push up on the way. The far end gets what is left, so it always sits below the substation end.",
+        "Why the evening is the worst of it. The drop grows with the current. At six o'clock the village is cooking and heating at once, so the feeder is carrying more. More current means more of the push used up, and a lower far end.",
+        "Why the meter is no help. The meter is at the substation, which is the end that does not sag. It will read normal on the night the far end is worst. The only way to know is to measure out there."
+      ],
+      "story": "A long rural feeder. Chinelo Obi, the distribution lead, has the substation meter reading its proper voltage all evening. The village at the far end says the lights dim every night at six.",
+      "game": {
+        "type": "CHOICE",
+        "title": "Why the far end sits low — Review",
+        "setup": "Distribution Depot",
+        "play": "Say why the far end sags while the meter reads normal.",
+        "task": "Say why the far end sags while the meter reads normal.",
+        "question": "The substation meter reads normal and the far end dims each evening. Why?",
+        "answer": "Current along the wire uses up voltage, and there is most current at six.",
+        "why": "Voltage is the push behind the current, and the wire pushes back. Every kilometre of it uses a little of that push up, so the far end always sits lower than the substation. How much lower depends on how much current is flowing. At six the village is cooking and heating together, the current is at its highest, and the drop is at its worst. The substation meter never sees any of it, because it sits at the end where nothing has been used up yet.",
+        "rebuttals": [
+          "The meter is at the end that does not sag. It can be right and useless.",
+          "Voltage changes along a feeder. That is the whole reason the far end is a problem.",
+          "Cold evenings make the village draw more current, not less."
+        ],
+        "choices": [
+          "Current along the wire uses up voltage on the way",
+          "The substation meter must be faulty, so replace it first",
+          "Voltage is one number for the whole feeder, everywhere",
+          "Cold evenings make the wire carry less current than usual"
+        ],
+        "correctChoice": "Current along the wire uses up voltage on the way"
+      },
+      "assumes": [
+        "current pushing along a wire uses up some of the voltage on the way"
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Something in the way makes it harder for current to flow",
+        "of": 16,
+        "rests": [
+          "Current is the flow, and voltage is the push behind it"
+        ]
+      }
     }
   ],
   "LOAD": [
@@ -2308,6 +2462,56 @@ export const CURRICULUM = {
           "Averages, and why one reading is not a measurement"
         ]
       }
+    },
+    {
+      "day": 5,
+      "title": "What a timestamp is made of — Review",
+      "scene": "Klara Bergström, the calibration technician, has three findings from the fault recorders on last night's event. Not one of the relays is faulty. She wants each finding matched to what it is actually evidence of.",
+      "takeaway": "Agreement between records is only worth something when the clocks behind them are separate.",
+      "place": "Metering & Standards",
+      "guide": "Three findings, and one response each. Split every finding into two questions. Did the thing happen? And was the clock that wrote the time telling the right time? A finding usually answers one of those and says nothing about the other.",
+      "background": [
+        "What a timestamp is made of. It is two claims written as one number. One is that something happened. The other is that the clock was correct when it wrote the time. They can fail on their own, one without the other.",
+        "Why two records are not always two opinions. Two records taken off the same clock carry the same clock error. They will agree with each other and both be wrong. Agreement only counts when the two clocks were set from different standards.",
+        "What a calibration is, and why it is the whole job here. Somebody holds the recorder's clock up against a clock already known to be right, and writes down how far apart the two of them are. Until that has been done, every time the recorder prints is a guess with a decimal point in it."
+      ],
+      "story": "Klara Bergström, the calibration technician, has three findings from the fault recorders on last night's event. Not one of the relays is faulty. She wants each finding matched to what it is actually evidence of.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "What a timestamp is made of — Review",
+        "setup": "Metering & Standards",
+        "play": "Match each finding to what it is really evidence of.",
+        "task": "Match each finding to what it is really evidence of.",
+        "question": "Match each finding to what it is really evidence of.",
+        "answer": "",
+        "why": "A record is a measurement and a clock, stuck together. Two recorders nine seconds apart is a clock problem, because the event happened once. A clock unchecked for eighteen months is not evidence of anything until it is checked, however sure it sounds. And a log and a printout off one recorder came from one clock, so they will agree whatever that clock is doing. A calibration is that check. The clock is held against one already known to be right. That is the only thing that turns a written time into a fact.",
+        "scenarios": [
+          "Two recorders stamp the same event nine seconds apart.",
+          "A recorder's clock was last checked against the standard eighteen months ago.",
+          "A relay's own log and its printed report give the same time."
+        ],
+        "choices": [
+          "At least one clock is wrong. The event is not in doubt.",
+          "Nothing yet. Its times cannot be trusted until somebody checks it.",
+          "One clock, written down twice. It is not a second opinion."
+        ],
+        "mapping": [
+          0,
+          1,
+          2
+        ]
+      },
+      "assumes": [
+        "a written-down time is a measurement plus a clock"
+      ],
+      "concept": {
+        "n": 13,
+        "c": "Measuring instruments need checking against a standard",
+        "of": 16,
+        "rests": [
+          "Averages, and why one reading is not a measurement"
+        ]
+      }
     }
   ]
 };
@@ -2565,6 +2769,34 @@ export const BALLPARK_CALCS = {
     "units": "MW",
     "solution": "1,280 is nearly thirteen hundreds, and 1.6 lost from each hundred is about 20 megawatts.",
     "explanation": "The share itself has gone up, from 0.015 to 0.016, because a busier wire wastes a bigger fraction. That is why the answer rises faster than the flow."
+  },
+  "GEN-6": {
+    "prompt": "The system needs 7,200 megawatts. The units still running can make 6,850 between them.",
+    "question": "How much generation is missing now?",
+    "labels": [
+      "7,200 MW (what the system needs)",
+      "6,850 MW (what is left running)",
+      "0.25 Hz each second (how fast the frequency fell)",
+      "50 Hz (the normal frequency)"
+    ],
+    "values": [
+      7200,
+      6850,
+      0.25,
+      50
+    ],
+    "slots": 2,
+    "template": "{0} − {1}",
+    "formula": "a-b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 350,
+    "tolerance": 25,
+    "units": "MW",
+    "solution": "7,200 − 6,850 is 350 megawatts.",
+    "explanation": "The frequency numbers say what happened next. The gap is a subtraction, and the two numbers for it are both in megawatts."
   }
 };
 

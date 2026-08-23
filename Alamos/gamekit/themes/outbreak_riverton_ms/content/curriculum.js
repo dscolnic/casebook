@@ -301,6 +301,51 @@ export const CURRICULUM = {
           "Repeats and numbers: a handful of cases proves little"
         ]
       }
+    },
+    {
+      "day": 5,
+      "title": "What kind of germ fits everything? — Review",
+      "scene": "A care home on Fenwick Street has three residents with the same four symptoms. Rin Nakamura, the critical care physician, sent their samples over last night. Four results are back from the bench, and they do not all point the same way at first glance.",
+      "takeaway": "A germ is named by the tests that agree, and by the ones that came back empty.",
+      "place": "Hospital Pathology Suite",
+      "guide": "Four results are on the bench. The slide shows rod-shaped cells. The marker built to find bacteria is positive. The stain built to find fungal walls is clean. And it keeps making more of itself in broth, where there are no living cells at all. Ask of each option how many of those four it fits.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
+      "story": "A care home on Fenwick Street has three residents with the same four symptoms. Rin Nakamura, the critical care physician, sent their samples over last night. Four results are back from the bench, and they do not all point the same way at first glance.",
+      "game": {
+        "type": "CHOICE",
+        "title": "What kind of germ fits everything? — Review",
+        "setup": "Hospital Pathology Suite",
+        "play": "Say what the four bench results add up to.",
+        "task": "Say what the four bench results add up to.",
+        "question": "Four results, two positive and two negative. What are they pointing at?",
+        "answer": "A bacterium of some kind. It is a cell in its own right, and it does not need a living cell to copy itself in.",
+        "why": "Four results agree here, and no single one of them settles it on its own. The slide shows rod-shaped cells, so something cell-shaped is there. The marker built to find bacteria is positive. The stain built to find fungal walls is clean, and its control worked. And it keeps making more of itself in broth with no living cells in it. A virus cannot do that at all. The blank is clean too, so none of it came out of the room.",
+        "rebuttals": [
+          "A virus cannot make copies in broth with no cells in it. This one did.",
+          "The fungal stain is clean and its control worked. That stain rarely misses.",
+          "Repeating is fair when results disagree. These four agree, and three carry controls."
+        ],
+        "choices": [
+          "A bacterium of some kind.",
+          "Something virus-like, as in the hospital cluster.",
+          "A fungus, because a wall stain can miss.",
+          "Nothing can be said until the run is repeated."
+        ],
+        "correctChoice": "A bacterium of some kind."
+      },
+      "assumes": [
+        "bacteria and fungi are cells of their own, and a virus is not a cell",
+        "a virus can only make copies of itself inside a living cell"
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Some illnesses are caused by living things too small to see",
+        "of": 16
+      }
     }
   ],
   "CELL": [
@@ -571,6 +616,57 @@ export const CURRICULUM = {
         "c": "Some illnesses are caused by living things too small to see",
         "of": 16
       }
+    },
+    {
+      "day": 6,
+      "title": "Getting into a cell — Review",
+      "scene": "Funke Adeyemi, the cell biologist, has gut cells on the bench now, and a drug that covers one piece on their surface. Three cards describe what happened after the drug went on, and the bench has them in the wrong order.",
+      "takeaway": "Block the first step of a chain and every later step stops with it.",
+      "place": "Cell Culture Wing",
+      "guide": "These three are one chain, so ask what has to happen before each one. The drug does one thing and one thing only. Everything else on the list is a consequence of that one thing. Ask of each card whether it could still be true if the card above it were false.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
+        "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
+        "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
+      ],
+      "story": "Funke Adeyemi, the cell biologist, has gut cells on the bench now, and a drug that covers one piece on their surface. Three cards describe what happened after the drug went on, and the bench has them in the wrong order.",
+      "game": {
+        "type": "SEQUENCE",
+        "title": "Getting into a cell — Review",
+        "setup": "Cell Culture Wing",
+        "play": "Put the three cards in the order the drug makes them happen.",
+        "task": "Put the three cards in the order the drug makes them happen.",
+        "question": "Put the three cards in the order the drug makes them happen.",
+        "answer": "",
+        "why": "This is the same chain as the airway cells, read with the first step blocked. The drug sits on the piece the germ has to be recognised by, and that is the only thing anybody did. Nothing binds, so nothing sets the layer bending. Nothing bends, so no material crosses. Each card is only true because the one above it is true. That is why a drug aimed at the first step stops all of them.",
+        "rebuttals": [
+          "The drug going on is the only thing anybody did, so it has to be first.",
+          "The layer bends because something bound to it. With nothing bound, it stays put.",
+          "Material crossing is the last thing, and it is the thing being prevented."
+        ],
+        "cards": [
+          "The drug covers the piece on the cell surface.",
+          "Nothing bends the cell's outer layer.",
+          "No material reaches the inside of the cell."
+        ],
+        "order": [
+          0,
+          1,
+          2
+        ]
+      },
+      "assumes": [
+        "a cell's outer layer lets some things through and keeps others out",
+        "a germ has to be recognised by something on the surface before it can get in"
+      ],
+      "concept": {
+        "n": 2,
+        "c": "A germ has to get from one person into another somehow",
+        "of": 16,
+        "rests": [
+          "Some illnesses are caused by living things too small to see"
+        ]
+      }
     }
   ],
   "MOL": [
@@ -770,6 +866,54 @@ export const CURRICULUM = {
         "of": 16,
         "rests": [
           "Counting cases as a rate, not just as a number"
+        ]
+      }
+    },
+    {
+      "day": 4,
+      "title": "When heat changes the test — Review",
+      "scene": "The test that worked all last week is missing cases from the north of the city. Lena Bergström, the scientist who reads how the germ is built, ran the same samples again on a second machine in another lab. The second machine missed exactly the same ones.",
+      "takeaway": "Swap one part and hold the rest. Whatever still fails is not the part you swapped.",
+      "place": "PCR Diagnostics Lab",
+      "guide": "Four options, and only one thing was swapped. The samples did not change. The chemicals did not change. The machine did, and the result did not move. Ask of each option whether that swap would have made a difference to it. Then ask which option also explains why only the northern samples are affected.",
+      "background": [
+        "Why the wrong answers are worth reading. Each one is written to look right to somebody who made a particular mistake. Working out which mistake each one belongs to is most of the learning in this format — more than getting the right one, which you can sometimes do by feel.",
+        "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
+        "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
+      ],
+      "story": "The test that worked all last week is missing cases from the north of the city. Lena Bergström, the scientist who reads how the germ is built, ran the same samples again on a second machine in another lab. The second machine missed exactly the same ones.",
+      "game": {
+        "type": "CHOICE",
+        "title": "When heat changes the test — Review",
+        "setup": "PCR Diagnostics Lab",
+        "play": "Say what the two machines rule out, and what is left.",
+        "task": "Say what the two machines rule out, and what is left.",
+        "question": "Two machines, same samples, same misses. What does that point to?",
+        "answer": "The germ has changed where the test looks. Swapping the machine held everything else the same, and the misses stayed.",
+        "why": "Swapping the machine changed one thing and held the rest. The samples were the same. The chemicals were the same. Only the machine was different, and the answer did not move. So the machine is not the part that is failing. A germ makes small mistakes every time it copies itself. One of those mistakes can land on the small piece the test looks for. When it does, the test looks in the right place and finds nothing there.",
+        "rebuttals": [
+          "Two machines in two labs failing the same week would be quite a coincidence.",
+          "Warmth would spoil the whole sample, not only the small piece the test looks for.",
+          "Two machines is enough when they are separate and both give the same answer."
+        ],
+        "choices": [
+          "The germ has changed where the test looks.",
+          "Both machines went wrong in the same week.",
+          "The northern samples were kept too warm on the way in.",
+          "Nothing, because two machines is too small a check."
+        ],
+        "correctChoice": "The germ has changed where the test looks."
+      },
+      "assumes": [
+        "a germ makes small mistakes each time it copies itself, and those mistakes add up",
+        "a test looks at one small piece of a germ rather than the whole of it"
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Germs change, and a change can beat a treatment",
+        "of": 16,
+        "rests": [
+          "Some illnesses are caused by living things too small to see"
         ]
       }
     }
@@ -1953,6 +2097,63 @@ export const CURRICULUM = {
         "rests": [
           "Breaking one step of the chain stops the spread"
         ]
+      }
+    },
+    {
+      "day": 17,
+      "title": "Signal or noise? — Review",
+      "scene": "Three reports came in overnight, from a school, a factory and a riverside street. Grace Oduya, the investigator who tracks cases across the city, has pinned all three to the board. Each one is a count, and none of them has anything beside it yet.",
+      "takeaway": "A count needs something beside it, and which missing piece it needs depends on the report.",
+      "place": "Epidemiology Operations Room",
+      "guide": "Three reports and three missing pieces. Ask of each report what would change your mind about it. Sometimes the missing piece is how many people the count came out of. Sometimes it is a group that was left alone. Sometimes it is what the same place normally does in a week. The words about time and about groups are what give each one away.",
+      "background": [
+        "Why you match instead of choosing. A response that is right for one situation is often nearly right for the next one. Picking from a list lets you take the nearly-right answer and never notice. Matching makes you say which situation it fits best, and that comparison is the whole point.",
+        "How to use the one-each rule. Every response goes somewhere, and nowhere twice. So the situations you are sure about are worth more than themselves: each one you settle leaves fewer responses for the ones you are not sure about. Two lines you trust can decide the other two for you.",
+        "Why one wrong line is impossible. If two lines are right, the third response has nowhere else to go, so it is right too. Being wrong always means at least two are wrong at once. If a join feels forced, the mistake is probably not in that join — it is in one you already made and stopped questioning."
+      ],
+      "story": "Three reports came in overnight, from a school, a factory and a riverside street. Grace Oduya, the investigator who tracks cases across the city, has pinned all three to the board. Each one is a count, and none of them has anything beside it yet.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "Signal or noise? — Review",
+        "setup": "Epidemiology Operations Room",
+        "play": "Match each report to the one thing that would settle it.",
+        "task": "Match each report to the one thing that would settle it.",
+        "question": "Match each report to the one thing that would settle it.",
+        "answer": "",
+        "why": "A count is a number with nothing beside it. What turns it into a signal is the thing you set it against, and that thing is different every time. The school report is about one week, so what it needs is an ordinary week in the same school. The factory report is about one group of workers, so what it needs is the shift that was not on. The street report is a small number from somewhere, and what it needs is how many people live there. One rule, three missing pieces.",
+        "rebuttals": [
+          "The school report is about one week, so the week to hold it against is the ordinary one.",
+          "The factory report names one shift, and the other shift is the group that was left alone.",
+          "The street report is a small number, and it means nothing until you know how many live there."
+        ],
+        "scenarios": [
+          "A school reports eleven children with a rash this week.",
+          "A factory reports four cases, all on the same night shift.",
+          "A riverside street reports two cases in a month."
+        ],
+        "choices": [
+          "What an ordinary week looks like in the same place.",
+          "The same-sized group that was not there.",
+          "How many people the count came out of."
+        ],
+        "mapping": [
+          0,
+          1,
+          2
+        ],
+        "columns": [
+          "The report",
+          "What it needs beside it"
+        ]
+      },
+      "assumes": [
+        "a count on its own does not say whether something is unusual",
+        "two groups can only be set against each other when they are the same size"
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Repeats and numbers: a handful of cases proves little",
+        "of": 16
       }
     }
   ],

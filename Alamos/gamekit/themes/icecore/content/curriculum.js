@@ -575,6 +575,67 @@ export const CURRICULUM = {
           "Gas age against ice age, and why the difference matters"
         ]
       }
+    },
+    {
+      "day": 8,
+      "title": "The run through the brittle zone — Review",
+      "scene": "The core line technician, Sigrid Holt, has a section from 1,150 metres on the light table and four teams down on the request sheet for a piece of it. Nothing on the sheet says which of them goes first.",
+      "takeaway": "Where a sample cannot be replaced, the order of work is set by what each step spends.",
+      "place": "Core Line",
+      "guide": "Five operations, all of which will happen to this section. Nothing here has to happen at a particular hour, so reading the rail as a timetable finds nothing. Ask of each how much of the section it spends: whether it could be done again next season, whether it leaves the inner core whole, or whether the ice is gone once it is finished.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
+      "story": "The core line technician, Sigrid Holt, has a section from 1,150 metres on the light table and four teams down on the request sheet for a piece of it. Nothing on the sheet says which of them goes first.",
+      "game": {
+        "type": "SEQUENCE",
+        "title": "The run through the brittle zone — Review",
+        "setup": "Core Line",
+        "play": "Order the work on a section that cannot be drilled again",
+        "task": "Order the work on a section that cannot be drilled again",
+        "question": "Order the work on a section that cannot be drilled again",
+        "answer": "",
+        "why": "Ice gets one reading, so the order of work on a section is decided by what each operation costs rather than by when anybody wants it. A photograph can be taken again next season. A non-contact scan reads the outside and leaves everything. A trim gives up the skin that handling and drill fluid have already reached, and keeps the core. A melt turns a length of ice into a number and nothing else, and a crush ends the section. Run that order backwards and no time is lost — the measurements the earlier steps would have made are.",
+        "cards": [
+          "Photograph the whole section on the light table, which touches nothing and can be repeated",
+          "Log the breaks and read the density along its length with the non-contact scanner",
+          "Take the outer trim for chemistry, leaving the inner core whole",
+          "Cut the inner core into sample lengths and melt them for the isotope run",
+          "Crush what is left of the ice under vacuum to release the trapped air"
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "axis": "Order the five operations by how much of the section each one spends, from the one that leaves it exactly as it arrived to the one that ends it. Nothing here has to happen at a particular hour.",
+        "ends": [
+          "Leaves the ice as it arrived",
+          "Ends the section"
+        ]
+      },
+      "assumes": [
+        "a length of ice removed from a core cannot be put back",
+        "why ice keeps a record at all: burial without melting — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 1,
+          "c": "Why ice keeps a record at all: burial without melting"
+        }
+      ],
+      "concept": {
+        "n": 22,
+        "c": "Drilling: fluid, brittle ice and what damage costs the record",
+        "of": 30,
+        "rests": [
+          "Why ice keeps a record at all: burial without melting"
+        ]
+      }
     }
   ],
   "CORE": [
@@ -1683,6 +1744,68 @@ export const CURRICULUM = {
           "Core logging, orientation and chain of custody"
         ]
       }
+    },
+    {
+      "day": 11,
+      "title": "What makes one year different from the next — Review",
+      "scene": "The chronology lead, Ines Okonkwo, has a metre from 540 metres on the light table. It is deeper than anything counted this week, and four features on it have to be attributed before the section is released to the teams.",
+      "takeaway": "A feature is a year only where whatever made it repeats every year.",
+      "place": "Core Line",
+      "guide": "Four features and four things that could have made them. Pair them by asking two questions of each: what the feature is physically made of, and how long whatever made it went on for. An eruption lasts a season or two. A shift in the weather lasts decades. A surface lasts a summer. Only one of these four repeats on a yearly beat, and that is the one a count can be built on.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
+      "story": "The chronology lead, Ines Okonkwo, has a metre from 540 metres on the light table. It is deeper than anything counted this week, and four features on it have to be attributed before the section is released to the teams.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "What makes one year different from the next — Review",
+        "setup": "Core Line",
+        "play": "Attribute four features on a deeper section",
+        "task": "Attribute four features on a deeper section",
+        "question": "Attribute four features on a deeper section",
+        "answer": "",
+        "why": "Attribution is the step before counting, and it runs on what a feature is made of and how long the thing that made it lasted. Acid arrives with an eruption and stops when the eruption does, so a pair of spikes is two events rather than two years. Sea salt is delivered by weather that shifts over decades. Coarse crystals with large bubbles are one surface that sat in the sun. Only the even banding is compression repeating on a yearly beat, and only that one can be counted.",
+        "rebuttals": [
+          "Sodium is carried in by weather rather than laid down by an eruption, and weather does not stop after a season",
+          "A decade of stormier winters is a slow rise and fall, not a band of grown crystals",
+          "Repeated banding is compression happening again and again, which no single exposed surface can produce"
+        ],
+        "scenarios": [
+          "Two sulphate spikes four centimetres apart",
+          "A steady rise and fall in sodium across thirty centimetres",
+          "A single band of coarse crystals with large bubbles in it",
+          "A run of a dozen evenly spaced light and dark bands"
+        ],
+        "choices": [
+          "Two eruptions a few years apart, each laying down its acid and then stopping",
+          "A stormier stretch of winters driving marine air inland for a decade or so",
+          "A summer surface that sat exposed long enough for its crystals to grow before burial",
+          "Successive years, each compressed by about the same amount on its way down"
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "columns": [
+          "What is in the ice",
+          "What put it there"
+        ]
+      },
+      "assumes": [
+        "a feature in the ice was put there by something with a duration of its own"
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Annual layer counting, and where counting fails",
+        "of": 30,
+        "rests": [
+          "Accumulation rate, and what a site with little snow buys and costs"
+        ]
+      }
     }
   ],
   "COLD": [
@@ -2503,6 +2626,85 @@ export const CURRICULUM = {
         "rests": [
           "Firn: snow densifying into ice, and the close-off depth",
           "Stable isotopes as a thermometer: δ¹⁸O and deuterium"
+        ]
+      }
+    },
+    {
+      "day": 11,
+      "title": "The sample that was clean until it was handled — Review",
+      "scene": "The cold laboratory technician, Elena Cruz, has a calcium result twice the runs either side of it. Both blanks are ordinary, the outer centimetre was trimmed to specification, and the replicate core from the second hole doubles at the same depth.",
+      "takeaway": "A control that did not move is a measurement, not the absence of one.",
+      "place": "Cold Laboratory",
+      "guide": "Four readings of one panel, and the argument turns on what a control that did not move is worth. Ask of each option which reading it would need to have gone the other way. A blank is the process with no ice in it, so an ordinary blank speaks for everything the sample touched; a second hole speaks for everything this hole did.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why a clean control is a result. A reading that stays where it always sits is easy to skip past, and it is the only kind of reading that can rule a mechanism out. The loud number is consistent with several explanations at once; the quiet ones are consistent with fewer, which is what makes them decisive.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
+      "story": "The cold laboratory technician, Elena Cruz, has a calcium result twice the runs either side of it. Both blanks are ordinary, the outer centimetre was trimmed to specification, and the replicate core from the second hole doubles at the same depth.",
+      "game": {
+        "type": "CHOICE",
+        "title": "The sample that was clean until it was handled — Review",
+        "setup": "Cold Laboratory",
+        "play": "Say what a quiet control has established",
+        "task": "Say what a quiet control has established",
+        "question": "What does this panel support?",
+        "answer": "The doubling belongs to the ice: every control that would have moved for a laboratory source stayed where it always sits.",
+        "why": "A blank is the process with no ice in it, so an ordinary blank is a positive statement about everything the sample touched on the way to the instrument: the saw, the gloves, the vials, the acid. Both of them are ordinary. The outer centimetre was trimmed, so the surface handling is out as well. What is left is a second core, recovered from a different hole, doubling at the same depth. Two independent recoveries agreeing on a number is the ice speaking, and the quiet readings are what allow it to be heard.",
+        "rebuttals": [
+          "A blank that catches sodium at a tenth of this level is not blind to calcium at twice it",
+          "The bench is inside what a blank measures, and both blanks came back at the usual level",
+          "A third hole would add a recovery, and two independent ones already rule out the process"
+        ],
+        "choices": [
+          "The doubling is in the ice, since the controls that would have moved did not",
+          "The doubling is contamination the blanks are not sensitive enough to have caught at this level",
+          "The doubling arrived at the cutting bench, which both of these sections passed over before melting",
+          "Nothing can be concluded until a third hole has been drilled and sampled at the same depth"
+        ],
+        "correctChoice": "The doubling is in the ice, since the controls that would have moved did not"
+      },
+      "assumes": [
+        "a blank is run through the same process as a sample, with no sample in it",
+        "what a proxy is: the chain between the thing and the number — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "ΔF = 5.35 ln(C / C₀)  W m⁻²",
+          "c": "turning a gas concentration into an energy imbalance",
+          "v": [
+            [
+              "ΔF",
+              "radiative forcing, in watts per square metre"
+            ],
+            [
+              "C",
+              "the carbon dioxide concentration now, in ppm"
+            ],
+            [
+              "C₀",
+              "the concentration it is being compared with"
+            ],
+            [
+              "5.35",
+              "the empirical coefficient for carbon dioxide"
+            ]
+          ],
+          "s": "The effect of carbon dioxide goes as the logarithm of its concentration, so each doubling adds about the same forcing — and a record of the gas becomes a record of the energy budget."
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 20,
+          "c": "What a proxy is: the chain between the thing and the number"
+        }
+      ],
+      "concept": {
+        "n": 21,
+        "c": "Contamination and blanks in a cold laboratory",
+        "of": 30,
+        "rests": [
+          "What a proxy is: the chain between the thing and the number"
         ]
       }
     }
@@ -3670,6 +3872,76 @@ export const CURRICULUM = {
         "c": "What a proxy is: the chain between the thing and the number",
         "of": 30
       }
+    },
+    {
+      "day": 7,
+      "title": "How thick a year is here — Review",
+      "scene": "The field glaciologist, Nadia Brandt, is back from the flank camp forty kilometres downslope with a pit wall of her own. The last summer surface there sits seventy-one centimetres down, and the snow above it is denser than anything on the dome.",
+      "takeaway": "A wetter site writes finer layers and runs out sooner, and ice equivalent is what shows the trade.",
+      "place": "Snow Study Hut",
+      "guide": "Five numbers, and only three of them describe the flank pit. Ask of each whether it says something about that snow as it lies. The close-off depth and the dome's own ice-equivalent figure are on the board so the two sites can be compared afterwards, not so they can go into the sum. The conversion is the one you ran on the dome, on a site that is not the dome.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
+      "story": "The field glaciologist, Nadia Brandt, is back from the flank camp forty kilometres downslope with a pit wall of her own. The last summer surface there sits seventy-one centimetres down, and the snow above it is denser than anything on the dome.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "How thick a year is here — Review",
+        "setup": "Snow Study Hut",
+        "play": "Put a second pit on the same axis as the first",
+        "task": "Put a second pit on the same axis as the first",
+        "question": "Estimate the flank camp's accumulation in ice equivalent.",
+        "answer": "About 0.30 metres of ice equivalent a year — roughly two and a half times what the dome lays down.",
+        "why": "Choosing a site is choosing between the detail a core carries and the span it covers, and that trade only becomes visible once both sites are stated in the ice their snow will become. The flank camp catches more than twice the snow and lays it down denser, so its layers stay thick enough to count far deeper than the dome's. It pays at the bottom: the same three kilometres of ice is spent in a third of the time, and the oldest year in it is a few thousand rather than tens of thousands.",
+        "givens": [],
+        "relationship": "b = λ × ρ_snow ÷ ρ_ice — the snow layer λ scaled by the ratio of its own density to the density of solid ice.",
+        "calcKey": "FIELD-7"
+      },
+      "assumes": [
+        "snow becomes ice by being compressed under the snow that falls on it",
+        "accumulation rate, and what a site with little snow buys and costs — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "b = λ × ρ_snow / ρ_ice",
+          "c": "accumulation, converted to ice equivalent",
+          "v": [
+            [
+              "b",
+              "accumulation in metres of ice equivalent per year"
+            ],
+            [
+              "λ",
+              "the measured thickness of one annual layer"
+            ],
+            [
+              "ρ_snow",
+              "the density of the snow as it fell"
+            ],
+            [
+              "ρ_ice",
+              "the density of solid ice, about 917 kg per cubic metre"
+            ]
+          ],
+          "s": "A metre of new snow is not a metre of ice, so an accumulation rate only means something once the layer has been converted to the ice it will become."
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 2,
+          "c": "Accumulation rate, and what a site with little snow buys and costs"
+        }
+      ],
+      "concept": {
+        "n": 11,
+        "c": "Resolution against record length — what choosing a site decides",
+        "of": 30,
+        "rests": [
+          "Accumulation rate, and what a site with little snow buys and costs",
+          "Thinning with depth: flow, and where a record runs out"
+        ]
+      }
     }
   ],
   "DATA": [
@@ -4505,10 +4777,11 @@ export const CURRICULUM = {
         "a claim is supported when the evidence would have come out differently if it were false"
       ],
       "concept": {
-        "n": 27,
-        "c": "Correlation between two records is not attribution",
+        "n": 30,
+        "c": "Reporting an uncertain record: what it licenses and what it does not",
         "of": 30,
         "rests": [
+          "Random against systematic uncertainty",
           "Separating a trend from year-to-year noise"
         ]
       }
@@ -4804,6 +5077,37 @@ export const BALLPARK_CALCS = {
     "units": "years",
     "solution": "2 × 0.08 ÷ 0.119 = 1.34 years.",
     "explanation": "Using the deep layer thickness instead would answer a different question — the resolution at 2,400 metres, which is nearly 7 years."
+  },
+  "FIELD-7": {
+    "prompt": "The last summer surface at the flank camp sits 0.71 metres down, in snow of density 385 kilograms per cubic metre.",
+    "question": "Estimate the flank camp's accumulation in metres of ice equivalent.",
+    "labels": [
+      "0.71 m  (the flank camp's snow layer)",
+      "385 kg/m³  (density of that snow)",
+      "917 kg/m³  (density of solid ice)",
+      "88 m  (close-off depth on the dome)",
+      "0.119 m/yr  (the dome's own accumulation in ice equivalent)"
+    ],
+    "values": [
+      0.71,
+      385,
+      917,
+      88,
+      0.119
+    ],
+    "slots": 3,
+    "template": "{0} × {1} ÷ {2}",
+    "formula": "a*b/c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 0.298,
+    "tolerance": 0.03,
+    "units": "m ice equivalent per year",
+    "solution": "0.71 × 385 ÷ 917 = 0.298 m of ice equivalent.",
+    "explanation": "The close-off depth and the dome's own rate are the tiles that do not belong: both are answers to other questions, and neither describes the snow in this pit."
   }
 };
 

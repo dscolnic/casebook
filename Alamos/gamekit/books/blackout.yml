@@ -3558,3 +3558,286 @@ copy:
   GATE: <p>The gatehouse. Badge, permit to work, and the day's calls.</p>
   STORE: <p>Spares and cable. Nothing here is interesting until the night a restoration is limited by it.</p>
   TRAINING: <p>The simulator room. Last year's event, replayed at quarter speed, with the log open beside it.</p>
+
+# --------------------------------------------------------------- the reviews
+# Lessons no mission stop points at. From day 3 every day carries a callback, and
+# `shapeMissions` will only add one where the oldest taught lesson has an unserved
+# "— Review" variant to hand out. Without these the campaign served no callbacks
+# at all, because a byte-identical re-serve is recognition rather than retrieval.
+#
+# Each one is the same concept on a different case, and each names its `concept:`
+# outright: the key-concept picker scores keywords across the whole campaign, and a
+# stop written after the rarity pass is exactly the kind it mis-resolves.
+lessons:
+  - group: LOAD
+    title: What comes out against what went in — Review
+    task: Estimate the round trip on the older store
+    concept: Storage, round-trip efficiency and ramp rate
+    place: Load & Forecasting
+    scene: >-
+      Sten Lindgren, the load forecasting analyst, has a second store's Thursday cycle open: one
+      charge overnight, one discharge into the morning rise. Rafael Alvarez, the demand analyst,
+      wants to know whether it is worth counting as reserve at all.
+    guide: >-
+      Four numbers, and only two of them are energies. The other two say how hard the
+      unit can push and for how long it can keep pushing, which is a different claim
+      about the same machine. Ask of each tile what it would be measured in. A round
+      trip is one energy divided by another energy of the same kind, over one complete
+      cycle. This unit is smaller and older than the one on Sunday's log, and nobody has
+      cycled it deliberately since spring.
+    background:
+      - >-
+          Why an estimate rather than a calculation. Every quantity on this board is
+          already measured or stated, so nothing here has to be derived. What is being
+          tested is whether you can pick the quantities the relationship actually needs,
+          and whether the size of the answer looks right once they are in place.
+      - >-
+          Why the tiles carry labels. A bare number cannot be checked against the
+          relationship it is going into. Reading the label is how a unit mismatch, or a
+          quantity belonging to a different part of the problem, is caught before it is
+          placed — which is the habit this format exists to build.
+    takesAsRead:
+      - Electrical power and energy over time
+    assumes:
+      - storing energy and recovering it both lose some of it
+      - a rating in megawatts is a rate rather than an amount
+    takeaway: A store's worth as reserve is a fraction, and the same fraction is asked of every machine whatever its nameplate says.
+    format: BALLPARK
+    question: Estimate the round-trip efficiency of the older store.
+    answerText: About 77% round-trip efficiency.
+    why: >-
+      Every store loses a share of what it is given, in the converter, in the chemistry
+      and in holding itself at temperature, and an older unit loses more. The test does
+      not change with the machine. Divide what came back out by what went in, over one
+      complete cycle. The answer is the fraction of the nameplate you may count as
+      reserve. A rating in megawatts answers how fast, and a duration answers how long.
+      Neither answers how much survives.
+    estimate:
+      prompt: >-
+        The store took in 96 MWh on Wednesday night and gave back 74 MWh into Thursday's morning
+        rise. It is rated at 30 MW for 3 hours.
+      question: Choose the energy out and the energy in.
+      labels:
+        - 74 MWh  (energy returned)
+        - 96 MWh  (energy taken in)
+        - 30 MW  (power rating)
+        - 3 h  (rated duration)
+      values: [74, 96, 30, 3]
+      slots: 2
+      template: "{0} ÷ {1}"
+      formula: a/b
+      correct: [0, 1]
+      target: 0.77
+      tolerance: 0.03
+      units: fraction
+      solution: η = 74 ÷ 96 = 0.77, or 77%.
+      explanation: >-
+        77%, so nearly a quarter of everything put in never comes back. That is eight points
+        worse than the newer store, and it is this figure the reserve has to be sized on. The
+        rating multiplied by the duration gives 90 MWh, which is a capability rather than a
+        measurement.
+      givens:
+        - Energy in was 96 MWh
+        - Energy returned was 74 MWh
+      relationship: Round-trip efficiency = the energy out ÷ the energy in, measured over a full cycle.
+
+  - group: GEN
+    title: The reason the wires are not at wall voltage — Review
+    task: Say what a transformer costs while it carries nothing
+    concept: Transformers, turns ratio and losses
+    place: Generation Hall
+    scene: >-
+      The spare bank at the far end of the yard has been left energised through three quiet
+      nights so it can be picked up instantly. Nadia Haddad, the generation lead, wants the
+      standing cost of that decision written down before the audit.
+    guide: >-
+      All four options divide the loss into two parts and disagree about which part the
+      load controls. The test is what each part is dissipated in, and what has to be
+      present for it to appear at all. Work out what is still going on inside a
+      transformer that is connected and carrying nothing. The distinction decides whether
+      leaving spare plant hot is free or is a bill every night of the year.
+    background:
+      - >-
+          Why the wrong options are the interesting ones. Each distractor is written to
+          be the answer under one specific misreading — a step skipped, a quantity
+          confused with a rate, a correlation taken for a cause. Identifying which
+          misreading each belongs to is where the learning is; the right answer alone
+          can be reached on instinct and teach nothing.
+      - >-
+          Why the shape of an option tells you nothing. A correct answer collects the
+          qualifying clause and the unit. So across a whole game the key used to be the
+          longest option far more often than chance — 88 per cent of passage quizzes
+          here, before it was fixed. It is now checked per game as a binomial tail, so
+          length, hedging and specificity have had the signal taken out of them
+          deliberately.
+      - >-
+          What the verdict adds. Every wrong option carries its own rebuttal, and the
+          verdict prints them — the reason that option fails, not a restatement of the
+          right one. They are worth reading after a correct answer as well: a right
+          choice made for an approximate reason is indistinguishable from a sound one
+          until the day the approximation is what is being tested.
+    takesAsRead:
+      - Electrical power and energy over time
+      - Faraday's law and electromagnetic induction
+    assumes:
+      - a transformer is energised the moment it is connected, whether or not it carries load
+    takeaway: A cost that does not follow the load is still a cost, and it is the one an idle machine goes on paying.
+    format: CHOICE
+    question: A transformer bank sits energised all night carrying almost no load. What is it costing?
+    answerText: The core loss carries on at close to its full-load figure while the winding loss falls away with the load.
+    why: >-
+      A transformer has two families of loss and they answer to different things. Copper
+      loss is dissipated in the windings by the current through them, so it rises and
+      falls with the load and disappears when the load does. Iron loss is dissipated in
+      the core by the flux reversing fifty times a second, and the flux is set by the
+      applied voltage rather than by the load. Energise the bank and you pay it, all
+      night, carrying nothing.
+    choices:
+      - The core loss carries on at close to its full-load figure while the winding loss falls away with the load.
+      - Both the core loss and the winding loss fall away with the load, since every loss in the machine is dissipated by the current flowing through its windings.
+      - The winding loss carries on at close to its full-load figure while the core loss falls away, because the windings stay at their working voltage overnight.
+      - Nothing measurable, because a transformer only dissipates while it is actually transferring power from one winding to the other.
+    answer: The core loss carries on at close to its full-load figure while the winding loss falls away with the load.
+    rebuttals:
+      - Only the winding loss is set by the current; the core is magnetised by the applied voltage, and that does not go away when the load does.
+      - Voltage across a winding is not current through it, and it is the current that heats the copper.
+      - An energised core is reversing its flux fifty times a second whether or not anything is drawing from the secondary.
+
+  - group: OPS
+    title: What a node has to add up to — Review
+    task: Say what each observation at the node establishes
+    concept: Kirchhoff's laws and nodal analysis
+    place: System Operations
+    scene: >-
+      A relay upgrade has left one branch meter dead on a four-way node, and the yard wants to
+      know whether the shift can carry on without it. Aaron Whitlock, the assistant operator,
+      has the four readings in front of him, one of them blank.
+    guide: >-
+      Four observations from the same substation, and the right column says what each one
+      establishes. Pair them by asking which of the two bookkeeping rules is being
+      invoked, and whether the observation settles anything on its own. One rule fixes a
+      sum at a junction. The other fixes a sum around a closed path. What neither of them
+      gives you is how a total divides between two ways round.
+    background:
+      - >-
+          Why this is a matching board and not four separate questions. Responses on
+          boards like this are written to be plausible for more than one situation, so
+          choosing them one at a time lets a nearly-right answer through unexamined.
+          Having to place all of them forces the comparison — not "is this reasonable
+          here", but "is it more right here than there".
+      - >-
+          How to use the one-each rule. Because the responses are a set to be
+          distributed rather than a list to be sampled, every join you make constrains
+          the rest. Settling the two you are confident of can leave the remaining pair
+          decided by elimination. Where it does not, two responses are still competing
+          for one situation, and that is exactly the distinction the stop is testing.
+      - >-
+          Why you cannot be wrong about exactly one. With every response used once,
+          three correct joins leave the fourth with only one place to go. Any error
+          therefore involves at least two joins. That is worth remembering when the last
+          pair looks forced: the fault is usually not in the join you are struggling
+          with, but in one you made early and stopped questioning.
+    takesAsRead:
+      - Charge, current, voltage and resistance
+      - Ohm's law and resistive networks
+    assumes:
+      - charge does not accumulate at a junction
+      - a network drawing can be read as a set of junctions and closed paths
+    takeaway: A rule that fixes a sum is how a term nobody measured is recovered from the terms somebody did.
+    format: PROTOCOL
+    why: >-
+      Both of these rules are bookkeeping, and bookkeeping is what makes a missing entry
+      recoverable. Currents at a junction have to sum to nothing, so three branch readings
+      and the incoming total give the fourth without a meter on it. Voltages around a
+      closed path have to sum to nothing, so a path that does not close is a statement
+      about the readings rather than about the network. Neither rule says how a total
+      divides. That takes the impedances.
+    scenarios:
+      - The three working branch meters and the incoming meter are read at the same instant.
+      - The measured voltages around a closed path of the network add to a figure well away from nothing.
+      - Two circuits between the same pair of busbars are carrying very different currents.
+      - A drawing shows the node feeding four branches and nothing else.
+    choices:
+      - The dead branch's current is recoverable, because the sum at the junction is fixed even when one term is unmeasured.
+      - Something in that path is unmetered or one of the readings is wrong, since a closed path has to come back to where it started.
+      - The two paths differ in impedance, which is the second relation the junction rule was never going to supply.
+      - Nothing is allowed to leave the node except down those branches, which is the assumption the whole sum rests on.
+    mapping: [0, 1, 2, 3]
+    rebuttals:
+      - Three readings and a total leave one unknown in one equation, which is a measurement by arithmetic rather than a gap.
+      - A path that does not close is evidence about the instruments; the network cannot store a voltage that goes nowhere.
+      - Equal voltage across two paths says nothing about how the current splits until their impedances are known.
+      - The sum only means anything while every way out of the junction is on the drawing.
+
+  - group: TRANS
+    title: Loss when the load turns up anyway — Review
+    task: Work out the heat in the circuit standing in
+    concept: Transmission losses and conductor sizing
+    place: Transmission & Protection
+    scene: >-
+      Thabo Dube, the substation technician, is standing at the second circuit with a clamp
+      meter and a drawing. It has picked up flow it does not normally carry, and Piotr Novak,
+      the protection engineer, wants the heat figure before dark.
+    guide: >-
+      Five numbers, and two of them are about the circuit rather than about tonight. The
+      current it normally carries belongs to a comparison you can make afterwards. The
+      operating voltage belongs to a different relationship entirely. Ask of each number
+      whether the heat depends on it. Then notice that the flow has doubled, and decide
+      what that does to a quantity the current enters twice.
+    background:
+      - >-
+          Why an estimate rather than a calculation. Every quantity on this board is
+          already measured or stated, so nothing here has to be derived. What is being
+          tested is whether you can pick the quantities the relationship actually needs,
+          and whether the size of the answer looks right once they are in place.
+      - >-
+          Why the tiles carry labels. A bare number cannot be checked against the
+          relationship it is going into. Reading the label is how a unit mismatch, or a
+          quantity belonging to a different part of the problem, is caught before it is
+          placed — which is the habit this format exists to build.
+    takesAsRead:
+      - Ohm's law and resistive networks
+      - Electrical power and energy over time
+    assumes:
+      - loss in a conductor rises with the square of the current
+      - a thermal rating is a temperature reached over a stated time
+    takeaway: A circuit standing in for another does not share out the heat in proportion to the flow it has taken on.
+    format: BALLPARK
+    question: Estimate the power now lost as heat in the second circuit.
+    answerText: About 13 MW.
+    why: >-
+      Resistive heating in one phase is the current squared times the resistance, and three
+      phases carry three times that. This circuit is holding twice its usual flow, so it
+      sheds four times its usual heat — about thirteen megawatts against a little over
+      three. What matters is what that does to the margin. A conductor's limit is a
+      temperature reached over time, and it is the heat that drives the temperature, so a
+      doubled current spends the margin far faster than the current figure suggests.
+    estimate:
+      prompt: >-
+        The circuit is carrying 820 A RMS in each phase. Each phase has 6.5 ohms of resistance
+        over its length.
+      question: Choose the current, the resistance and the number of phases.
+      labels:
+        - 820 A  (RMS current per phase now)
+        - 6.5 Ω  (resistance per phase)
+        - 3  (phases)
+        - 410 A  (the current this circuit normally carries)
+        - 33 kV  (the circuit's operating voltage)
+      values: [820, 6.5, 3, 410, 33]
+      slots: 3
+      template: "{0} × {0} × {1} × {2}"
+      formula: a*a*b*c
+      correct: [0, 1, 2]
+      target: 13111800
+      tolerance: 1200000
+      units: W
+      solution: P_loss = 3 × 820² × 6.5 ≈ 1.31 × 10⁷ W ≈ 13 MW.
+      explanation: >-
+        About 13 megawatts. At its usual 410 A the same circuit sheds a quarter of that, near
+        3.3 megawatts, because doubling the current quadruples the heat. The operating voltage
+        is a real figure about this circuit and it does not enter the loss at all.
+      givens:
+        - RMS current is now 820 A in each phase
+        - Resistance is 6.5 Ω per phase
+        - There are three phases
+      relationship: Total three-phase loss = 3 × I_rms² × R_phase, so doubling the current quadruples the heat.

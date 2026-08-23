@@ -1008,53 +1008,6 @@ missions:
           distractor: light
 
   # ---------------------------------------------------------------- day 5
-      - group: LAB
-        task: Spend the two checks on evidence that could change which batch gets the slot.
-        title: The vial nobody has grown
-        place: Molecular Laboratory
-        scene: Two of the fifty batches carry the resistance gene, and the screenhouse can grow only one this season. The full vial has been grown out three times. The thin one has never been grown out at all.
-        guide: >-
-          Four options, and two facts to weigh: how much seed there is, and how many
-          times it has been grown out. Ask of each which of the two it uses. The amount
-          in the vial says nothing about what is in it. Every grow-out is another chance
-          for rare things to be left out.
-        background:
-          - >-
-              Why the wrong answers are worth reading. Each one is written to look right to
-              somebody who made a particular mistake. Working out which mistake each one
-              belongs to is most of the learning in this format — more than getting the
-              right one, which you can sometimes do by feel.
-          - >-
-              Why sounding careful is not the same as being right. A long answer with a lot
-              of detail in it feels safer, and it is easy to write one that is still wrong.
-              The check that builds these questions measures option length across the whole
-              game so the longest one is not the answer more often than chance. Reading is
-              the only way through.
-          - >-
-              What the verdict adds. After you answer, the verdict says why each wrong
-              option is wrong, in its own words. That is written for the reader who picked
-              it. Read it even when you were right, because being right for a shaky reason
-              is the thing that catches up with you two stops later.
-        assumes:
-          - every grow-out is a chance for a batch to drift from what it was
-          - a small lot of living seed can usually be built back up
-        takeaway: Copies of copies drift. The one nobody has copied is the one that still holds what was collected.
-        format: CHOICE
-        question: One vial is full and has been grown out three times. The other is thin and never grown. Which is closer to the original plant?
-        answerText: The thin one. Every grow-out is a chance to drift, and that vial has had none.
-        why: A seed batch is not a photograph. Every time it is grown out, only some of the plants set seed, and the batch that comes back is slightly different from the batch that went in. Do that three times and the difference adds up. The thin vial has never been through that, so whatever was collected is still in it. Being thin is a problem you can fix — three hundred seeds carefully grown is a full vial again. Being drifted is not a problem you can fix, because there is nothing left to go back to.
-        choices:
-          - The thin one, because it has never been grown out
-          - The full one, because there is more of it
-          - The full one, because it has been checked three times
-          - Neither, since both have been in store the same time
-        answer: The thin one, because it has never been grown out
-        rebuttals:
-          - How much there is says nothing about what is in it.
-          - A grow-out is not a check. It is a chance for the batch to change.
-          - Time in the cold changes a batch far less than a season in a field.
-        call: Choose the batch worth the slot
-        setup: The screenhouse can grow one of the two this season.
   - title: What comes with what you wanted
     objective: Find out what else the resistance gene is dragging behind it.
     briefing: The resistant lines are shorter, and nobody bred them that way.
@@ -1874,50 +1827,6 @@ missions:
             - five plants in every hundred were resistant in 1994
             - the grow-out used thirty plants, against a standard of two hundred
           relationship: Expected number = how many × the fraction expected, counted out of a hundred. A small grow-out expects one or two of anything rare, and often none.
-      - group: VAULT
-        task: Say why the farm may hold what the vault lost.
-        title: The copy that was never in the vault
-        place: Seed Vault
-        scene: The farmer Idris Fenn has old wheats growing in the station plots. His family has grown one of them without a break since before Wellmere existed. Rust arrives there most years.
-        guide: >-
-          Four reasons the field copy might hold what the vault lost. Ask of each
-          whether it names a reason or just a difference. Fresher and bigger are not
-          reasons. Rust arriving every year means resistant plants leave more seed. In a
-          clean nursery, resistance had no advantage at all.
-        background:
-          - >-
-              Why the wrong answers are worth reading. Each one is written to look right to
-              somebody who made a particular mistake. Working out which mistake each one
-              belongs to is most of the learning in this format — more than getting the
-              right one, which you can sometimes do by feel.
-          - >-
-              Why sounding careful is not the same as being right. A long answer with a lot
-              of detail in it feels safer, and it is easy to write one that is still wrong.
-              The check that builds these questions measures option length across the whole
-              game so the longest one is not the answer more often than chance. Reading is
-              the only way through.
-          - >-
-              What the verdict adds. After you answer, the verdict says why each wrong
-              option is wrong, in its own words. That is written for the reader who picked
-              it. Read it even when you were right, because being right for a shaky reason
-              is the thing that catches up with you two stops later.
-        assumes:
-          - a crop growing where a disease turns up is being tested by it every year
-        takeaway: A population kept in the ground keeps being tested by the thing you might one day need it for.
-        format: CHOICE
-        question: Why is Fenn's field likely to hold what the vault lost?
-        answerText: Rust has tested his crop every year the vault stood still. What survives a test keeps being there; what is never tested can drift away.
-        why: Rust has come through Fenn's field most years. In a rust year the plants that shrug it off set more seed, and their share of the next crop goes up. Nobody planned that. It happens because the disease is there. The vault's grow-outs were done in clean nurseries, where resistance bought a plant nothing, so anything rare could quietly vanish. His field is not a frozen copy of 1994. It may be better than one.
-        choices:
-          - Rust has tested it every year the vault stood still.
-          - His seed is fresher, so it is more complete.
-          - He has more seed than the vault has of that batch.
-          - Farm-saved seed changes faster than stored seed.
-        answer: Rust has tested it every year the vault stood still.
-        rebuttals:
-          - Freshness decides whether seed grows. It says nothing about which genes are in it.
-          - Quantity is not the problem. The vault has plenty of a population that has lost the gene.
-          - New genes appear far too rarely to put one back in thirty years.
   # ---------------------------------------------------------------- day 14
   - title: What goes in the crossing block
     objective: Decide what the next seven years are made of, on the last day it can be changed.
@@ -1992,57 +1901,8 @@ missions:
                 - fenn_explore
               question: Can the programme explore Fenn’s uncharacterised source immediately?
         answerText: Fund the second-gene backcross and the two unrelated crosses. That is six of the eight slots, and it answers both urgent questions.
-        why: There are two urgent questions and eight slots. One is getting the second resistance gene into the wheat farmers already grow. The other is getting it into unrelated wheat, so the programme does not rebuild the same weak point. Yield crosses between elite parents are useful, and they narrow the same base further. Fenn's plants will not be understood for two seasons. Spend the board on what cannot wait.
+        why: There are two urgent questions and eight slots. One is getting the second resistance gene into the wheat farmers already grow. The other is getting it into unrelated wheat, so the programme does not rebuild the same weak point. Yield crosses between elite parents are useful, and they narrow the same base further. The farmer Idris Fenn has old wheats on the station plots, and they will not be understood for two seasons. Spend the board on what cannot wait.
         evidence: The programme's elite parents are closely related and carry the failing resistance gene between them. The unregenerated accession carries a second gene and has never been in a cross. Fenn's marked plants are unproven and will not be characterised for two seasons. Backcrossing the second gene into the current elite line takes four generations and the warm bay can run two a year. A yield cross onto elite parents is reliable and adds a fraction of a tonne. The rust race is expected to be regional within three years.
-      - group: POP
-        task: Say what the pedigree board shows about the programme.
-        title: How narrow the base has become
-        concept: Variety inside a collection, and why losing it is hard to undo
-        place: Genetic Resources Office
-        scene: Ivanescu has six elite parents' family trees across the wall. Four share a recent grandparent. All six carry the same resistance gene, and the new rust is beating it east of here.
-        guide: >-
-          Say how many of the six lines will lose to the new rust, then infect all six and
-          count. Write the number down first. Four of them come down from one grandparent and
-          carry that plant's resistance gene, and the new rust is already beating that gene
-          east of here.
-        background:
-          - >-
-              Why the family tree matters. Related parents share more of their genes than unrelated
-              ones do. Four of these six share a grandparent, so a gene that came from that grandparent
-              is in all four of them.
-          - >-
-              What one gene beaten means. A rust race that gets past a gene gets past it in every
-              plant carrying it, on the same afternoon. It has to be beaten once, not four times.
-          - >-
-              Why the other two are worth so much. Their resistance came from somewhere else, so a rust
-              that beats the first gene has said nothing about theirs. Two different sources are worth
-              more than six copies of one.
-        assumes:
-          - related parents share more of their genes than unrelated ones do
-        takeaway: A programme that keeps crossing its best with its best is narrowing what it can still draw on.
-        format: VERIFY
-        question: Predict how many of the six lines the new rust gets past, then infect them and count.
-        answerText: Four of the six. They share one grandparent and one resistance gene, and the new rust beats that gene — so beating it once beats all four.
-        why: Four of the six parents come down from the same 1998 grandparent, and the resistance all four carry is that one plant's gene. The new rust has already got past that gene east of here. So it does not have to beat four defences; it has to beat one, and four lines fall together. Infected in the screenhouse, that is exactly what happens: four go down and two hold. The two that hold got their resistance from somewhere else — one from a cross with a Chinese wheat, one from an Anatolian landrace — and a rust that beats the first gene has said nothing about either of those. That is what a narrowing base costs, and it is why the pedigree board is worth having on the wall. Every line in the nursery scoring resistant looked like strength. Once you know where the resistance came from, it looks like one gene counted six times.
-        verify:
-          prediction:
-            label: How many of the six lines the new rust gets past
-            unit: lines
-            min: 0
-            max: 6
-            step: 1
-          truth: 4
-          passRatio: [0.7, 1.4]
-          intervention:
-            label: Infect all six lines in the screenhouse with the new rust race
-            note: same spore load on every line, seedlings at the same stage
-            outcome: All six are infected and scored fourteen days later.
-          measurement:
-            label: Count how many lines lost their resistance
-            note: scored on leaf area affected, same scale as the field
-            cost: 14
-            costUnit: days
-          unmeasuredMoral: Reporting from the family tree without infecting anything is reasoning about a gene nobody has tested against this rust. The point of the board is what to test, not what to conclude.
       - group: LAB
         task: Fit the disagreement both ways, then use the direct gene test to separate them.
         title: One disagreement, two possible causes
@@ -2348,6 +2208,153 @@ missions:
             - the twelve summers add up to 2,352 mm
             - this summer gave 118 mm
           relationship: Average = total ÷ how many. Twelve seasons give a fair idea of ordinary; two or three would not.
+  # --------------------------------------------------------------- day 10
+  - title: What Wellmere asks for next
+    objective: Settle what the board is told, and what the station asks for on the strength of it.
+    briefing: The board meets at eleven, and the season has to fit on one page.
+    stake: "Monday, and the board meets at eleven. Nasrin Qureshi, the collection curator, has to tell people who fund seed banks what the season cost and what it bought. You keep the records she reads from, so the numbers are yours. Thirty batches have drifted, and the ground for next year is already argued over. Six growers are waiting to hear which seed they can have. Today you settle what Wellmere asks for next."
+    takeaway: A season is only worth what the next one can be built on. What you ask for on the strength of it is the last thing the season decides.
+    stops:
+      - group: POP
+        task: Say what the pedigree board shows about the programme.
+        title: How narrow the base has become
+        concept: Variety inside a collection, and why losing it is hard to undo
+        place: Genetic Resources Office
+        scene: Ivanescu has six elite parents' family trees across the wall. Four share a recent grandparent. All six carry the same resistance gene, and the new rust is beating it east of here.
+        guide: >-
+          Say how many of the six lines will lose to the new rust, then infect all six and
+          count. Write the number down first. Four of them come down from one grandparent and
+          carry that plant's resistance gene, and the new rust is already beating that gene
+          east of here.
+        background:
+          - >-
+              Why the family tree matters. Related parents share more of their genes than unrelated
+              ones do. Four of these six share a grandparent, so a gene that came from that grandparent
+              is in all four of them.
+          - >-
+              What one gene beaten means. A rust race that gets past a gene gets past it in every
+              plant carrying it, on the same afternoon. It has to be beaten once, not four times.
+          - >-
+              Why the other two are worth so much. Their resistance came from somewhere else, so a rust
+              that beats the first gene has said nothing about theirs. Two different sources are worth
+              more than six copies of one.
+        assumes:
+          - related parents share more of their genes than unrelated ones do
+        takeaway: A programme that keeps crossing its best with its best is narrowing what it can still draw on.
+        format: VERIFY
+        question: Predict how many of the six lines the new rust gets past, then infect them and count.
+        answerText: Four of the six. They share one grandparent and one resistance gene, and the new rust beats that gene — so beating it once beats all four.
+        why: Four of the six parents come down from the same 1998 grandparent, and the resistance all four carry is that one plant's gene. The new rust has already got past that gene east of here. So it does not have to beat four defences; it has to beat one, and four lines fall together. Infected in the screenhouse, that is exactly what happens: four go down and two hold. The two that hold got their resistance from somewhere else — one from a cross with a Chinese wheat, one from an Anatolian landrace — and a rust that beats the first gene has said nothing about either of those. That is what a narrowing base costs, and it is why the pedigree board is worth having on the wall. Every line in the nursery scoring resistant looked like strength. Once you know where the resistance came from, it looks like one gene counted six times.
+        verify:
+          prediction:
+            label: How many of the six lines the new rust gets past
+            unit: lines
+            min: 0
+            max: 6
+            step: 1
+          truth: 4
+          passRatio: [0.7, 1.4]
+          intervention:
+            label: Infect all six lines in the screenhouse with the new rust race
+            note: same spore load on every line, seedlings at the same stage
+            outcome: All six are infected and scored fourteen days later.
+          measurement:
+            label: Count how many lines lost their resistance
+            note: scored on leaf area affected, same scale as the field
+            cost: 14
+            costUnit: days
+          unmeasuredMoral: Reporting from the family tree without infecting anything is reasoning about a gene nobody has tested against this rust. The point of the board is what to test, not what to conclude.
+      - group: VAULT
+        task: Say why the farm may hold what the vault lost.
+        title: The copy that was never in the vault
+        place: Seed Vault
+        scene: The farmer Idris Fenn has old wheats growing in the station plots. His family has grown one of them without a break since before Wellmere existed. Rust arrives there most years.
+        guide: >-
+          Four reasons the field copy might hold what the vault lost. Ask of each
+          whether it names a reason or just a difference. Fresher and bigger are not
+          reasons. Rust arriving every year means resistant plants leave more seed. In a
+          clean nursery, resistance had no advantage at all.
+        background:
+          - >-
+              Why the wrong answers are worth reading. Each one is written to look right to
+              somebody who made a particular mistake. Working out which mistake each one
+              belongs to is most of the learning in this format — more than getting the
+              right one, which you can sometimes do by feel.
+          - >-
+              Why sounding careful is not the same as being right. A long answer with a lot
+              of detail in it feels safer, and it is easy to write one that is still wrong.
+              The check that builds these questions measures option length across the whole
+              game so the longest one is not the answer more often than chance. Reading is
+              the only way through.
+          - >-
+              What the verdict adds. After you answer, the verdict says why each wrong
+              option is wrong, in its own words. That is written for the reader who picked
+              it. Read it even when you were right, because being right for a shaky reason
+              is the thing that catches up with you two stops later.
+        assumes:
+          - a crop growing where a disease turns up is being tested by it every year
+        takeaway: A population kept in the ground keeps being tested by the thing you might one day need it for.
+        format: CHOICE
+        question: Why is Fenn's field likely to hold what the vault lost?
+        answerText: Rust has tested his crop every year the vault stood still. What survives a test keeps being there; what is never tested can drift away.
+        why: Rust has come through Fenn's field most years. In a rust year the plants that shrug it off set more seed, and their share of the next crop goes up. Nobody planned that. It happens because the disease is there. The vault's grow-outs were done in clean nurseries, where resistance bought a plant nothing, so anything rare could quietly vanish. His field is not a frozen copy of 1994. It may be better than one.
+        choices:
+          - Rust has tested it every year the vault stood still.
+          - His seed is fresher, so it is more complete.
+          - He has more seed than the vault has of that batch.
+          - Farm-saved seed changes faster than stored seed.
+        answer: Rust has tested it every year the vault stood still.
+        rebuttals:
+          - Freshness decides whether seed grows. It says nothing about which genes are in it.
+          - Quantity is not the problem. The vault has plenty of a population that has lost the gene.
+          - New genes appear far too rarely to put one back in thirty years.
+      - group: LAB
+        task: Spend the two checks on evidence that could change which batch gets the slot.
+        title: The vial nobody has grown
+        place: Molecular Laboratory
+        scene: Two of the fifty batches carry the resistance gene, and the screenhouse can grow only one this season. The full vial has been grown out three times. The thin one has never been grown out at all.
+        guide: >-
+          Four options, and two facts to weigh: how much seed there is, and how many
+          times it has been grown out. Ask of each which of the two it uses. The amount
+          in the vial says nothing about what is in it. Every grow-out is another chance
+          for rare things to be left out.
+        background:
+          - >-
+              Why the wrong answers are worth reading. Each one is written to look right to
+              somebody who made a particular mistake. Working out which mistake each one
+              belongs to is most of the learning in this format — more than getting the
+              right one, which you can sometimes do by feel.
+          - >-
+              Why sounding careful is not the same as being right. A long answer with a lot
+              of detail in it feels safer, and it is easy to write one that is still wrong.
+              The check that builds these questions measures option length across the whole
+              game so the longest one is not the answer more often than chance. Reading is
+              the only way through.
+          - >-
+              What the verdict adds. After you answer, the verdict says why each wrong
+              option is wrong, in its own words. That is written for the reader who picked
+              it. Read it even when you were right, because being right for a shaky reason
+              is the thing that catches up with you two stops later.
+        assumes:
+          - every grow-out is a chance for a batch to drift from what it was
+          - a small lot of living seed can usually be built back up
+        takeaway: Copies of copies drift. The one nobody has copied is the one that still holds what was collected.
+        format: CHOICE
+        question: One vial is full and has been grown out three times. The other is thin and never grown. Which is closer to the original plant?
+        answerText: The thin one. Every grow-out is a chance to drift, and that vial has had none.
+        why: A seed batch is not a photograph. Every time it is grown out, only some of the plants set seed, and the batch that comes back is slightly different from the batch that went in. Do that three times and the difference adds up. The thin vial has never been through that, so whatever was collected is still in it. Being thin is a problem you can fix — three hundred seeds carefully grown is a full vial again. Being drifted is not a problem you can fix, because there is nothing left to go back to.
+        choices:
+          - The thin one, because it has never been grown out
+          - The full one, because there is more of it
+          - The full one, because it has been checked three times
+          - Neither, since both have been in store the same time
+        answer: The thin one, because it has never been grown out
+        rebuttals:
+          - How much there is says nothing about what is in it.
+          - A grow-out is not a check. It is a chance for the batch to change.
+          - Time in the cold changes a batch far less than a season in a field.
+        call: Choose the batch worth the slot
+        setup: The screenhouse can grow one of the two this season.
 
 # --------------------------------------------------------------- the warm-ups
 warmups:
@@ -2415,3 +2422,208 @@ copy:
   RECORDS: <p>Passport Records. Where every accession came from, who collected it, on what date and off which hillside, in handwriting going back to 1961.</p>
   THRESH: <p>The threshing floor, by the gate end of the compound. Harvest in, chaff out, and 40 paper bags with a farmer's handwriting on them waiting to be threshed 1 plant at a time.</p>
   GATE: <p>Point Gate, at the landward end of the causeway. The only way on or off, and the bearing the wind comes from — which is the whole reason the crossing block is 300 metres the other way.</p>
+
+# ------------------------------------------------- the review variants
+#
+# Lessons no mission stop points at. From day 3 a day carries a callback, and
+# `shapeMissions` will only serve one where the oldest taught lesson has an
+# unserved "— Review" variant. Each of these is the same idea as its base on a
+# different case: a new scene, a new board, a new verdict. A byte-identical
+# re-serve is recognition rather than retrieval, which is what `dayCalls` fails.
+lessons:
+  - group: DRY
+    title: Covered early, or open to the wind — Review
+    task: Say what the torn mesh did to the seed inside
+    concept: "Two parents each give half, so the young are not copies"
+    place: Drying & Processing Hall
+    scene: A screenhouse increase of one old landrace has come in for cleaning. The mesh on the seaward end tore open some time in June. The trial plots were flowering eighty metres upwind.
+    guide: >-
+      Four accounts of what is in the sack. Ask of each whether it is about the
+      mother or about the father. The mothers are known, because they were sown
+      here off one sack and nobody moved them. The fathers are the open question,
+      and June is the month these flowers were open.
+    background:
+      - >-
+          What the mesh is for. It is not there to keep the plants in. It is there to
+          keep other pollen out, so that an increase of an accession comes back as the
+          same accession.
+      - >-
+          Why a date settles it. A hole in the mesh in April or in August costs nothing,
+          because the flowers are shut. A hole while they are open is a father nobody
+          wrote down.
+      - >-
+          Why the sack looks fine. Seed with a strange father is the same size, the same
+          colour and the same weight. It grows perfectly well. It just grows into
+          something that is half a trial line.
+    assumes:
+      - a wheat flower can take pollen from its own plant or from another one
+    takeaway: A mother is known from the sowing plan. A father is only known if something kept other pollen out.
+    format: CHOICE
+    question: The mesh tore in June. What is now uncertain about that sack?
+    answerText: The father of each seed, and so what the seed grows into. The mothers were never in doubt.
+    why: >-
+      Each seed has two parents. The mother is the plant it grew on, and the sowing
+      plan says which plant that was. The father is whatever pollen reached the flower.
+      Mesh keeps other pollen out, so an increase inside it comes back as the landrace
+      that went in. A tear in June is a hole open while the flowers were. The trial
+      plots were flowering upwind of it. Every seed downwind of that hole may be half
+      trial wheat, and it will look exactly like the rest.
+    choices:
+      - The father of each seed, and what grows from it.
+      - Nothing much, because the mothers all came off one known sack.
+      - Whether the seed will still germinate well after a wet June.
+      - The variety name on the label, which now has to be rewritten.
+    answer: The father of each seed, and what grows from it.
+    rebuttals:
+      - The mothers were never in doubt. What reached them is.
+      - A tear lets pollen in. It does nothing to whether seed grows.
+      - The mothers are still that landrace. Some of their seed is half something else.
+
+  - group: CROSS
+    title: Counting a generation — Review
+    task: Work out what the beardless count should have been
+    concept: Living things pass traits to their offspring
+    place: Crossing Hall
+    scene: A second cross is in the warm bay. Both parents are bearded, and both carry a hidden beardless copy. Two hundred and forty plants have been scored, and fifty-seven are beardless.
+    guide: >-
+      Work out the expected number before you look at what came. Beardless only
+      shows in a plant that got a beardless copy from each parent. One pairing in
+      four does that. So the sum is a share of the two hundred and forty. One tile
+      is the count that actually came, which is what you compare against.
+    background:
+      - >-
+          Where one in four comes from. Each parent has two copies and gives one to each
+          seed. There are four ways the copies can pair up, and only one of those four
+          is beardless with beardless.
+      - >-
+          Why the hidden version can skip a year. Both parents here are bearded and both
+          carry the beardless copy without showing it. The generation before this one
+          looked entirely bearded.
+      - >-
+          Why close is right. Nobody expects exactly sixty. Two hundred and forty plants
+          is enough for the count to land near the expected number rather than on it.
+    assumes:
+      - a plant carries two copies of each gene and passes on one of them
+    takeaway: A count across a whole generation is evidence about what the parents were carrying.
+    format: BALLPARK
+    question: How many of the two hundred and forty plants should be beardless?
+    answerText: Sixty. One plant in four is 0.25 of 240, and 57 came in — close enough to say one gene is doing it, with the bearded copy the stronger one.
+    why: >-
+      Each parent carries two copies and gives one to each seed. Both of these plants
+      show beards, and each is carrying the beardless version out of sight. There are
+      four ways those copies can pair up. Only one of the four gives a seed two beardless copies, and only
+      that seed is beardless. One in four of two hundred and forty is 240 × 0.25 = 60.
+      Fifty-seven came in. A proportion lands near its expected number and not on it,
+      so fifty-seven is what a single gene looks like.
+    estimate:
+      prompt: Two hundred and forty plants scored. Both parents are bearded and both carry a hidden beardless copy, so one pairing in four gives a beardless plant.
+      question: Choose the number of plants and the share expected to be beardless.
+      labels:
+        - 240  (plants scored)
+        - 0.25  (one in four, the share expected)
+        - 57  (plants that came out beardless)
+        - 0.75  (the share expected to be bearded)
+      values: [240, 0.25, 57, 0.75]
+      slots: 2
+      template: '{0} × {1}'
+      formula: a*b
+      correct: [0, 1]
+      target: 60
+      tolerance: 8
+      units: beardless plants expected
+      solution: 240 × 0.25 = 60 expected, against 57 counted.
+      explanation: Sixty expected, fifty-seven counted. One gene, with the bearded copy the stronger one.
+      givens:
+        - two hundred and forty plants, 57 of them beardless
+        - one in four expected when both parents carry a hidden copy
+      relationship: Expected number = how many × the fraction expected, which is a part = whole × share: 0.25 is the share of the plants expected to be beardless.
+
+  - group: VAULT
+    title: Six per cent, while the lorries arrive — Review
+    task: Match each packet to how long the seed in it lasts
+    concept: "A seed is alive, and it can be kept alive or let die"
+    place: Seed Vault
+    scene: Three packets of the same barley went out to three stores in 1998. All three have come back for testing. What was done to each one is written on the outside.
+    guide: >-
+      Three packets and three outcomes, one each. Two things set how fast a seed
+      spends itself: how warm it is, and how much water is inside it. Ask of each
+      packet which of the two was got wrong. The open packet is the special case,
+      because dry seed takes water back out of damp air.
+    background:
+      - >-
+          Why cold and dry are two levers and not one. Cold slows the chemistry down.
+          Dry leaves that chemistry less to work with. Getting one right and the other
+          wrong is worth years, not decades.
+      - >-
+          Why a seal matters as much as a shelf. A sealed packet keeps whatever moisture
+          it was sealed at. An open one drifts to match the room it is standing in,
+          however good the shelf is.
+      - >-
+          Why this is a matching board. The three outcomes are close together, and picking
+          them one at a time lets a nearly-right pairing through. Placing all three forces
+          the comparison.
+    assumes:
+      - seed is dried before it goes into store
+      - a seed is alive and slowly using itself up
+    takeaway: How long a seed keeps is set by two things at once, and getting one of them right is not enough.
+    format: PROTOCOL
+    scenarios:
+      - Sealed at six per cent, held at minus eighteen.
+      - Sealed at six per cent, but the store ran at plus five.
+      - Left open on a cold shelf in a damp room.
+    choices:
+      - 'Still strong: cold and dry both slow it down.'
+      - 'Years, not decades: warm seed spends itself faster.'
+      - 'Worst of the three: it drew water from the air.'
+    mapping: [0, 1, 2]
+    answerText: The cold dry packet is still strong. The warm one lost decades. The open one did worst, because it drew water in off the room.
+    why: >-
+      A seed is alive in store, and a vault is a machine for slowing it down. Two
+      things set the speed. Cold slows the chemistry. Dry gives that chemistry less to
+      work with. They multiply, so a cold dry packet lasts decades. A packet with one
+      of the two wrong lasts years. The open packet does worst of all. Dry seed pulls
+      water out of damp air until it matches the room, so it ends up wet on a cold
+      shelf.
+
+  - group: CROSS
+    title: An extra generation in the bay — Review
+    task: Order the three increases by how much the mesh is worth
+    concept: Choosing which plants to breed from, and what that costs
+    place: Crossing Hall
+    scene: One screenhouse is free this summer, and three increases want it. The mesh is the only thing on the station that keeps other pollen off a crop while it flowers.
+    guide: >-
+      Three jobs want one mesh house, and the rail is not a clock. Ask of each what
+      a strange father would cost it. A crop that takes pollen from anywhere loses
+      most. A crop that mostly pollinates itself loses a little. Seed that is sown
+      as a border and never kept loses nothing at all.
+    axis: Order the three by how much the mesh is worth to each one, most first. This is not a clock — all three could go under the mesh this week, and the question is which one loses most without it.
+    ends: [Only the mesh can do it, An open field does it just as well]
+    background:
+      - >-
+          What the mesh does. It keeps other pollen out. What comes back off a mesh house
+          is the accession that went in, and nothing else has got at it.
+      - >-
+          Why crops differ. Rye will take pollen from any rye flowering nearby, so it has
+          to be kept apart. Wheat mostly pollinates itself, and a few plants in a hundred
+          take a strange father anyway.
+      - >-
+          Why the border seed goes last. It is sown round the trial to shelter it, cut
+          with the rest, and never kept. Nothing that fathers it is ever passed on.
+    assumes:
+      - some crops take pollen from other plants and some mostly pollinate themselves
+    takeaway: A scarce thing goes to the job with no alternative, not to the job that would also enjoy it.
+    format: SEQUENCE
+    question: Order the three increases by how much the mesh is worth to each.
+    cards:
+      - Increase the rye collected off a hillside in 1972
+      - Increase the drifted landrace wheat
+      - Bulk up border seed for the trial edges
+    order: [0, 1, 2]
+    answerText: The rye first, the landrace second, the border seed last. Only the rye is certain to come back as something else without the mesh.
+    why: >-
+      The mesh does one thing. It keeps other pollen out, so what comes back is what
+      went in. Rye takes pollen from any rye upwind. A rye sample grown in the open is
+      a different sample by autumn, so it loses most. Wheat mostly
+      pollinates itself, and a few plants in a hundred do not, so a landrace loses a
+      little each time round. Border seed is sown, cut and never kept, so nothing that
+      fathers it matters at all.

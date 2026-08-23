@@ -696,6 +696,185 @@ export const CURRICULUM = {
           "Sampling and testing damaged material"
         ]
       }
+    },
+    {
+      "day": 8,
+      "title": "The same event, recorded twice — Review",
+      "scene": "Inês Cardoso, the network technician, has four records of one aftershock from four instruments around the bay. Same event, same minute. The traces disagree about how tall they are and about how long the shaking went on.",
+      "takeaway": "There is one number for the earthquake and one record for every place, and what the last few tens of metres of ground are made of decides the difference between them.",
+      "place": "Seismic Network",
+      "guide": "Four instruments, one event, four records that disagree. Two of the sites are the same short distance from the source and two are ten times further out. Pair them by asking two things of each site in turn: how far has the wave travelled, and what is it travelling through at the end of the journey. Distance takes amplitude away across the whole band at once. Ground gives some of it back in a band of its own. One of these sites is far away and still not quiet.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+      ],
+      "story": "Inês Cardoso, the network technician, has four records of one aftershock from four instruments around the bay. Same event, same minute. The traces disagree about how tall they are and about how long the shaking went on.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "The same event, recorded twice — Review",
+        "setup": "Seismic Network",
+        "play": "Pair four instruments with what each one recorded",
+        "task": "Pair four instruments with what each one recorded",
+        "question": "Pair four instruments with what each one recorded",
+        "answer": "",
+        "why": "Magnitude belongs to the source and there is one of it. What an instrument writes down is the shaking where it stands, which is the source motion after spreading, after attenuation, and after whatever the last few tens of metres of ground did to it. Distance removes amplitude across the whole band. Soft ground puts some of it back in a narrow band of periods and stretches the shaking out. So a far station on deep sediment can beat a near station on rock at long period, and both records are honest.",
+        "rebuttals": [
+          "Competent rock close in is the quietest trace anybody has, which is why the district plan quotes everything against it.",
+          "Same source, same distance, so the only thing left to explain a factor of several is the ground.",
+          "Spreading and attenuation cost a wave amplitude at every period, whatever it arrives on.",
+          "Deep soft sediment hands back at long period some of what the journey took out of the short one."
+        ],
+        "scenarios": [
+          "The vault on the granite bench, 4 kilometres from the source.",
+          "A field station on the reclaimed port, the same 4 kilometres out.",
+          "A station on the granite bench 40 kilometres away.",
+          "A station on deep soft basin sediment 40 kilometres away."
+        ],
+        "choices": [
+          "The quietest and shortest of the four, and the reference the others are quoted against.",
+          "Several times that amplitude and half a minute longer, from the same distance.",
+          "Quieter again than the reference, because the wave has spread out on the way.",
+          "Weak in the short periods for its distance, and surprisingly strong in the long ones."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "columns": [
+          "Where the instrument stands",
+          "What its record of the same event shows"
+        ]
+      },
+      "assumes": [
+        "an instrument records the shaking where it stands",
+        "distance costs a wave amplitude on the way"
+      ],
+      "equations": [
+        {
+          "e": "n(t) = K / (c + t)^p",
+          "c": "aftershock rate, falling as a power law",
+          "v": [
+            [
+              "n(t)",
+              "aftershocks per day at time t"
+            ],
+            [
+              "t",
+              "days since the mainshock"
+            ],
+            [
+              "K, c, p",
+              "constants fitted to this sequence, with p usually near 1"
+            ]
+          ],
+          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
+        },
+        {
+          "e": "A_soft / A_rock",
+          "c": "site amplification — the same wave on two grounds",
+          "v": [
+            [
+              "A_soft",
+              "shaking measured on the soft site"
+            ],
+            [
+              "A_rock",
+              "shaking measured on rock nearby, in the same units"
+            ]
+          ],
+          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town."
+        }
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Intensity against magnitude — one event, many shakings",
+        "of": 30,
+        "rests": [
+          "Magnitude as a logarithmic scale",
+          "Peak ground acceleration and what a building feels"
+        ]
+      }
+    },
+    {
+      "day": 9,
+      "title": "How far away it started — Review",
+      "scene": "Inês Cardoso, the network technician, is timing an aftershock rather than the mainshock. On the Bay Road field station the P arrival is at 21:47:06 and the S arrival at 21:47:14. She wants a distance before she calls the vault.",
+      "takeaway": "The gap between the arrivals is a distance and nothing else, and a distance from one station is a circle rather than a place.",
+      "place": "Seismic Network",
+      "guide": "Five numbers again, and the same two questions to ask of each. Does it belong to this station's record or to the earthquake itself, and is it half of a pair with a gap in it. The magnitude and the depth are both true about this aftershock and neither one is a distance. Read the seconds off the two arrivals, take the difference, and turn it into kilometres with the constant. Then ask what the answer is a radius around.",
+      "background": [
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+      ],
+      "story": "Inês Cardoso, the network technician, is timing an aftershock rather than the mainshock. On the Bay Road field station the P arrival is at 21:47:06 and the S arrival at 21:47:14. She wants a distance before she calls the vault.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "How far away it started — Review",
+        "setup": "Seismic Network",
+        "play": "Time a second event and turn the gap into a distance",
+        "task": "Time a second event and turn the gap into a distance",
+        "question": "Estimate the distance from this station to the aftershock.",
+        "answer": "About 64 km.",
+        "why": "Both waves leave the source together and the P wave travels faster, so the gap between the two arrivals grows with distance. Eight seconds at about eight kilometres of source distance for each second gives roughly 64 kilometres. Neither the magnitude nor the depth is read off this measurement: magnitude comes from the amplitude of the record and depth from how the arrivals vary across the network. One station gives a radius, so the aftershock is somewhere on a circle until two more stations cut that circle down to a place.",
+        "givens": [
+          "The S minus P interval is 8 seconds",
+          "Distance is about 8 km for each second of that gap"
+        ],
+        "relationship": "Distance = the S-minus-P interval × 8 km per second, because the 2 waves left together and travel at different speeds.",
+        "calcKey": "SEIS-9"
+      },
+      "assumes": [
+        "P waves travel faster than S waves through the same rock"
+      ],
+      "equations": [
+        {
+          "e": "d ≈ 8 km/s · (t_S − t_P)",
+          "c": "distance from the S-minus-P interval",
+          "v": [
+            [
+              "d",
+              "distance from the station to the source, in kilometres"
+            ],
+            [
+              "t_S − t_P",
+              "the gap between the S and P arrivals, in seconds"
+            ],
+            [
+              "8 km/s",
+              "the usual constant for shallow crust"
+            ]
+          ],
+          "s": "The S wave travels slower than the P wave, so the gap between them grows with distance and one station can say how far away the source was.",
+          "computed": true
+        },
+        {
+          "e": "n(t) = K / (c + t)^p",
+          "c": "aftershock rate, falling as a power law",
+          "v": [
+            [
+              "n(t)",
+              "aftershocks per day at time t"
+            ],
+            [
+              "t",
+              "days since the mainshock"
+            ],
+            [
+              "K, c, p",
+              "constants fitted to this sequence, with p usually near 1"
+            ]
+          ],
+          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
+        }
+      ],
+      "concept": {
+        "n": 1,
+        "c": "P and S waves, and what the gap between them measures",
+        "of": 30
+      }
     }
   ],
   "STRUCT": [
@@ -2269,11 +2448,11 @@ export const CURRICULUM = {
         }
       ],
       "concept": {
-        "n": 18,
-        "c": "Effective stress, and why water pressure matters",
+        "n": 12,
+        "c": "Stress, strain and the yield point",
         "of": 30,
         "rests": [
-          "Stress, strain and the yield point"
+          "Peak ground acceleration and what a building feels"
         ]
       }
     },
@@ -2314,6 +2493,89 @@ export const CURRICULUM = {
       },
       "assumes": [
         "liquefaction can be addressed in the ground or accommodated in the structure"
+      ],
+      "equations": [
+        {
+          "e": "σ' = σ − u",
+          "c": "effective stress, and how liquefaction happens",
+          "v": [
+            [
+              "σ'",
+              "effective stress holding the grains together, in kilopascals"
+            ],
+            [
+              "σ",
+              "total stress from the weight above, in kilopascals"
+            ],
+            [
+              "u",
+              "pore water pressure between the grains, in kilopascals"
+            ]
+          ],
+          "s": "Soil carries load through grain contact; when shaking drives the water pressure up to the total stress, the grains stop touching and the ground behaves as a liquid."
+        },
+        {
+          "e": "A_soft / A_rock",
+          "c": "site amplification — the same wave on two grounds",
+          "v": [
+            [
+              "A_soft",
+              "shaking measured on the soft site"
+            ],
+            [
+              "A_rock",
+              "shaking measured on rock nearby, in the same units"
+            ]
+          ],
+          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town."
+        }
+      ],
+      "concept": {
+        "n": 15,
+        "c": "Liquefaction: when saturated fill stops behaving as a solid",
+        "of": 30,
+        "rests": [
+          "Effective stress, and why water pressure matters"
+        ]
+      }
+    },
+    {
+      "day": 8,
+      "title": "Ground that people put there — Review",
+      "scene": "Thandi Mbeki, the geotechnical field technician, has photographed two streets 300 metres apart on the same fill. Ellis Street is grey with sand fans, kerb to kerb. Tarrant Street, on the same reclaimed ground and the same shaking, has none.",
+      "takeaway": "Susceptible soil, saturation and strong enough shaking are three separate conditions, and a street that fails any one of them stays where it is.",
+      "place": "Geotechnical",
+      "guide": "Both streets sit on the same hydraulic fill at the same distance from the source, and the two nearest instruments agree on what the shaking was, so the shaking is not the variable. Navarro's boreholes find the same loose sand at two to five metres under each of them. The one number the two logs disagree on is the depth of the water table: 1.5 metres under Ellis Street and 7 metres under Tarrant Street. Three conditions have to arrive together. Ask which option names the one Tarrant Street is missing.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+      ],
+      "story": "Thandi Mbeki, the geotechnical field technician, has photographed two streets 300 metres apart on the same fill. Ellis Street is grey with sand fans, kerb to kerb. Tarrant Street, on the same reclaimed ground and the same shaking, has none.",
+      "game": {
+        "type": "CHOICE",
+        "title": "Ground that people put there — Review",
+        "setup": "Geotechnical",
+        "play": "Say why one street on the fill stayed dry",
+        "task": "Say why one street on the fill stayed dry",
+        "question": "Why did one street liquefy and the neighbouring one not?",
+        "answer": "The loose layer under Tarrant Street sits above the water table, so it was never saturated.",
+        "why": "Liquefaction wants three things together: a soil loose enough to want to pack down, enough water in the gaps that it cannot pack down without raising the pore pressure, and shaking strong enough and long enough to drive it. It is the rising pore-water pressure that takes the grain contacts apart and leaves the layer with almost no shear strength to offer. Under Tarrant Street the loose layer sits above the water table, so there is no pore pressure there to raise. Same fill, same shaking, dry street.",
+        "rebuttals": [
+          "The two nearest instruments agree, and 300 metres cannot halve the shaking at this distance.",
+          "Both streets were pumped in from the same dredger over the same four summers, so age is not the difference.",
+          "Lateral spreading wants a free face; the pore pressure that liquefies a layer does not."
+        ],
+        "choices": [
+          "The shaking in Tarrant Street was too weak to pack the sand, whatever the ground is made of.",
+          "The loose layer under Tarrant Street sits above the water table, so it was never saturated.",
+          "The fill under Tarrant Street is older, and 80 years of consolidation has made it dense.",
+          "Tarrant Street has no free face nearby, and liquefaction only happens where ground can spread sideways."
+        ],
+        "correctChoice": "The loose layer under Tarrant Street sits above the water table, so it was never saturated."
+      },
+      "assumes": [
+        "ground can be loose without being wet"
       ],
       "equations": [
         {
@@ -4007,6 +4269,99 @@ export const CURRICULUM = {
           "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town."
         }
       ]
+    },
+    {
+      "day": 11,
+      "title": "A notice somebody acts on — Review",
+      "scene": "A magnitude 5.1 aftershock woke the town at ten past four. Funmi Adeyemi, the public information officer, has a radio slot at seven and four things she could put in it. The phones have been going since half past four.",
+      "takeaway": "A magnitude scale counts in factors, so the gap between two numbers is a ratio, and the ratio is the part a frightened listener actually needs.",
+      "place": "Public Safety",
+      "guide": "All four of these will be in the slot, so nothing is being cut. Order them instead. Ask of each whether somebody hears it at seven o'clock and does something differently, or whether it is a fact they will repeat to a neighbour later. Then ask which one stops a rumour rather than feeding it. A radio slot is heard once, in the order it is read, by somebody who did not sleep.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
+      "story": "A magnitude 5.1 aftershock woke the town at ten past four. Funmi Adeyemi, the public information officer, has a radio slot at seven and four things she could put in it. The phones have been going since half past four.",
+      "game": {
+        "type": "SEQUENCE",
+        "title": "A notice somebody acts on — Review",
+        "setup": "Public Safety",
+        "play": "Order what the seven o'clock slot says about an aftershock",
+        "task": "Order what the seven o'clock slot says about an aftershock",
+        "question": "Order what the seven o'clock slot says about an aftershock",
+        "answer": "",
+        "why": "The order is what somebody can use. The instruction goes first, because a person listening at seven acts on the first usable sentence and may not hear the rest. The reason follows, since a reason is what lets an instruction survive being retold. The comparison comes third: each unit of magnitude is about 32 times the energy, so 1.7 units of it is a factor near 350, and that number is what stops a 5.1 being heard as the start of something worse. The forecast is last, and it is a rate.",
+        "cards": [
+          "What to do this morning if you went back into a yellow or red building overnight.",
+          "Why, in one sentence a neighbour can repeat.",
+          "That a 5.1 carries about 350 times less energy than the 6.8 did, so it felt sharp and did little.",
+          "The forecast for the coming week, stated as events per day rather than as a prediction."
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "axis": "Order the four by what a listener can use, most usable first. This is not a clock — all four are true at seven o'clock, and the question is which one is worth the first sentence.",
+        "ends": [
+          "First sentence",
+          "Last sentence"
+        ]
+      },
+      "assumes": [
+        "a magnitude scale counts in factors rather than in equal steps",
+        "a public notice is heard once, quickly, by somebody who is tired"
+      ],
+      "equations": [
+        {
+          "e": "M_w = ⅔ log₁₀ M₀ − 6.06",
+          "c": "moment magnitude, and why the scale is logarithmic",
+          "v": [
+            [
+              "M_w",
+              "moment magnitude, no units"
+            ],
+            [
+              "M₀",
+              "seismic moment, in newton metres"
+            ],
+            [
+              "⅔ and 6.06",
+              "constants that make the scale line up with the older ones"
+            ]
+          ],
+          "s": "One unit of magnitude is about thirty-two times the energy, so a 7 is not a bit worse than a 6."
+        },
+        {
+          "e": "n(t) = K / (c + t)^p",
+          "c": "aftershock rate, falling as a power law",
+          "v": [
+            [
+              "n(t)",
+              "aftershocks per day at time t"
+            ],
+            [
+              "t",
+              "days since the mainshock"
+            ],
+            [
+              "K, c, p",
+              "constants fitted to this sequence, with p usually near 1"
+            ]
+          ],
+          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
+        }
+      ],
+      "concept": {
+        "n": 3,
+        "c": "Magnitude as a logarithmic scale",
+        "of": 30,
+        "rests": [
+          "P and S waves, and what the gap between them measures"
+        ]
+      }
     }
   ]
 };
@@ -4313,6 +4668,37 @@ export const BALLPARK_CALCS = {
     "units": "× stronger",
     "solution": "11 ÷ 4 ≈ 2.8 times the original resistance.",
     "explanation": "Nearly three times. The fill depth, the amplification factor and the library's concrete strength are all real numbers from this fortnight and none of them belongs here."
+  },
+  "SEIS-9": {
+    "prompt": "The P wave arrived at 21:47:06 and the S wave at 21:47:14. Use 8 km for each second of separation.",
+    "question": "Choose the two arrival times and the constant.",
+    "labels": [
+      "14 s  (S arrival, seconds past the minute)",
+      "6 s  (P arrival, seconds past the minute)",
+      "8 km/s  (distance per second of separation)",
+      "4.1  (the aftershock's magnitude)",
+      "9 km  (depth of the source)"
+    ],
+    "values": [
+      14,
+      6,
+      8,
+      4.1,
+      9
+    ],
+    "slots": 3,
+    "template": "({0} − {1}) × {2}",
+    "formula": "(a-b)*c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 64,
+    "tolerance": 8,
+    "units": "km",
+    "solution": "d = (14 − 6) × 8 = 64 km.",
+    "explanation": "About 64 kilometres, which is well inside the sequence and nowhere near the mainshock's 104. The magnitude and the depth are real numbers about this aftershock and neither of them is a distance."
   }
 };
 

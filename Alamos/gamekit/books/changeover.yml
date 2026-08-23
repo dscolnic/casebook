@@ -3097,3 +3097,225 @@ copy:
   CHAIR: <p>The chair's office. Ada Verhoeven has been sleeping in it since the announcement, which everybody knows and nobody says.</p>
   LOOKOUT: <p>The observation room, open to the corridor. Everything on the board is out of this window: the queue on the plaza, Vend Street, the port, and Ferrand Row where the bank used to be.</p>
   CANTEEN: <p>The staff canteen. Everybody in this building has argued about the rate in here, and none of it is minuted.</p>
+
+# ---------------------------------------------------------------------------
+# Review variants. Not spares: from day 3 every day carries a callback, and
+# `shapeMissions` only adds one where the oldest taught lesson has an unserved
+# `— Review` variant. Without these the campaign served none at all.
+#
+# Each is the base lesson's concept on a different case, on the base lesson's
+# own floor — the areas here are floor plates reached by lift, so a variant that
+# wanders to another room is a variant on another floor.
+lessons:
+  - group: PRICES
+    title: The same list, twice — Review
+    task: Say what each event does to a different index
+    place: Price Room
+    concept: 'A price index, and the basket it is an index of'
+    scene: >
+      Emil Radic, the chief statistician, keeps a second index for the port: a fixed list of
+      wholesale goods, priced monthly. Four things happened to it this month, and the board wants
+      each one accounted for separately.
+    guide: >-
+      Four events and four effects, on an index that prices something else entirely. Pair them by
+      asking one question of each event: does it move a price on the list, a price off the list, or
+      the year the ratio is measured from? Where a listed price moves, its weight decides how much
+      of that movement reaches the number.
+    background:
+      - >-
+          Why weight is the whole of it. An index is one number standing for a list, and each item
+          enters in proportion to what households or firms spend on it. A fifth of the weight carries
+          a fifth of its own price change into the index, which is why arguing about the weights is
+          arguing about the figure.
+      - >-
+          What re-basing is and is not. Setting the base year to this month divides every future
+          cost by this month's cost instead of the old one, so the series reads 100 again without a
+          single price having moved. It changes what the number is measured from and never what it
+          is measuring.
+    assumes:
+      - the wholesale list is held fixed between the two months
+      - each item enters the index in proportion to its weight
+    takeaway: An index moves only for prices on its own list, and only in proportion to their weight.
+    format: PROTOCOL
+    task: Match each event to what it does to the wholesale index.
+    columns:
+      - What happened at the port
+      - What it does to the index
+    scenarios:
+      - Coal, a fifth of the wholesale list by weight, doubles in price.
+      - Imported flour, which the wholesale list does not name, doubles in price.
+      - The base year is re-set to this month and the same list is priced again.
+      - Buyers switch to a cheaper grade of timber, and the list is left as it was.
+    choices:
+      - The index rises by about a fifth of the doubling, because that is the weight the item carries.
+      - The index does not move at all, because a price the list does not name is a price it cannot see.
+      - The index reads 100 with no price having changed, because the ratio is measured from here now.
+      - The index overstates what buyers now spend, because a fixed list cannot follow a substitution.
+    mapping: [0, 1, 2, 3]
+    rebuttals:
+      - A listed price enters in proportion to its weight, so a fifth of the list carries a fifth of the change.
+      - An index prices its own list, so a good that is not on the list cannot move it however far its price runs.
+      - Re-basing changes the year the ratio is divided by, which puts the series back to 100 without touching a price.
+      - Holding the list fixed is what makes two months comparable, and it is also what makes a substitution invisible.
+    answerText: >-
+      Coal carries a fifth of its doubling in; flour off the list does nothing; re-basing returns the
+      index to 100 with no price moved; and the substitution goes unseen, which is what a fixed list costs.
+    why: >-
+      Only a price on the list can move the number, and it moves it in proportion to its weight, so
+      coal at a fifth of the basket carries a fifth of its own doubling into the index. A price the
+      list does not name is invisible however far it moves. Re-basing changes nothing except where
+      the ratio is measured from, so the index reads a hundred again with every price where it was.
+      And substitution the fixed list cannot see is the cost of holding it fixed.
+
+  - group: COUNTER
+    title: Forty people, and what they have heard — Review
+    task: Decide what the board says to the plaza
+    place: Counter Room
+    concept: 'Expectations, credibility, and why a promise is a policy instrument'
+    takesAsRead:
+      - 'The short-run trade-off between inflation and unemployment'
+    scene: >
+      Ngozi Okonjo, the counter supervisor, has a rumour on the plaza that the counter shuts at noon
+      on Friday. It is not true. The queue has doubled again since eight and nobody at the window can
+      say otherwise.
+    guide: >-
+      Four things the board could put on the plaza, and each is a statement about the future that the
+      queue will act on this morning. Ask of each whether it gives people something they can check
+      afterwards, and what it costs the board on the fifteenth if the thing they checked turns out
+      to have been wrong.
+    background:
+      - >-
+          Why a promise is an instrument rather than a courtesy. People queue on what they expect,
+          so the belief moves before any policy does. A statement that can be checked later either
+          earns the board a cheaper way to move expectations next time or spends one it already had.
+      - >-
+          Why silence is not neutral. The plaza will have an expectation whether or not the board
+          supplies one, and it will be supplied by whoever is talking. The choice is not between
+          saying something and saying nothing; it is between the board's account and the rumour's.
+    assumes:
+      - the rumour is false and the counter will open as usual on Friday
+    takeaway: A statement people can check afterwards moves expectations; one they cannot is noise.
+    format: TRIAGE
+    question: What should the board put on the plaza this morning?
+    choices:
+      - Publish the closing times for every day to the fifteenth
+      - Deny the rumour and say nothing further
+      - Promise the counter stays open as long as there is a queue
+      - Wait until the rate is fixed on Friday and announce everything at once
+    answer: Publish the closing times for every day to the fifteenth
+    why: >-
+      A denial is a claim about a rumour rather than about the counter, and it leaves people with
+      nothing to hold the board to. A dated schedule does: anybody can check it on Friday, and a
+      promise that survives being checked is what makes the next one worth acting on. Open as long
+      as there is a queue cannot be kept on a day like the fifteenth, and a promise broken once
+      costs more than the silence it replaced. Waiting concedes the plaza to whoever is talking.
+    rebuttals:
+      - A denial gives the queue nothing to check on Friday, so it cannot earn the board any credit.
+      - A promise the counter cannot keep on the fifteenth spends credibility instead of building it.
+      - The plaza will have an expectation by Friday whether the board supplies one or the rumour does.
+
+  - group: NOTES
+    title: Money on a platform scale — Review
+    task: Place four things against the jobs money has to do
+    place: Note Room
+    concept: 'What counts as money, and the three things it has to do'
+    takesAsRead:
+      - 'Demand, supply and the price that clears a market'
+    scene: >
+      Femi Adeyinka, the vault officer, has four things in front of him that Halvern is using as
+      money this fortnight. Only one of them was issued by the board. Tulloch wants each one placed
+      against the jobs money has to do.
+    guide: >-
+      Money has three jobs: it settles a payment, it holds value between now and later, and it is
+      the ruler prices are quoted in. Take each of the four in turn and ask which job it is doing
+      and which it is failing. Nothing here fails all three, and one of them is failing none.
+    background:
+      - >-
+          Why the three jobs are listed separately. Most of the time one thing does all three and
+          nobody has cause to tell them apart. A changeover pulls them apart for a fortnight, which
+          is why a currency board is the one place the distinction is operational rather than
+          academic.
+      - >-
+          Which job fails first under inflation. Holding value goes before settling payments does:
+          people keep taking the notes and stop keeping them, so the same money changes hands faster
+          while nobody wants to be holding it at the end of the week.
+    assumes:
+      - all four are circulating in Halvern during the changeover fortnight
+    takeaway: Money does three separate jobs, and a thing can do one of them while failing another.
+    format: PROTOCOL
+    task: Match each thing to the job of money it is doing or failing.
+    columns:
+      - What is circulating
+      - Which job it is doing
+    scenarios:
+      - Old marks, which the counter will still exchange until the fifteenth.
+      - Board scrip, dated and redeemable, that the tram company takes and the bakery will not.
+      - Wage envelopes held back a week because nobody knows what they will buy.
+      - Stall prices on Vend Street, chalked in old marks and in new ones side by side.
+    choices:
+      - Still settling payments, because whoever it is handed to takes it, and that is all that job asks.
+      - Failing to settle payments, because something only some sellers accept has to be swapped first.
+      - Failing to hold value, because keeping it is a bet and people would rather hold goods.
+      - Working as the ruler twice over, because prices can be quoted in a currency nobody is paying in.
+    mapping: [0, 1, 2, 3]
+    rebuttals:
+      - Acceptance is the whole of that job, and the counter being open is what keeps the old notes accepted.
+      - Scrip half the city refuses has to be exchanged for something else before it can settle anything.
+      - Wages held back would still buy bread today; what is in doubt is what they buy next week.
+      - Two currencies chalked side by side is one of them being used purely as the unit prices are stated in.
+    answerText: >-
+      Old marks still settle payments; the scrip fails to; the held-back wages fail to hold value;
+      and the double-chalked prices are the unit of account doing its job in two currencies at once.
+    why: >-
+      The three jobs come apart during a changeover, which is the only time most people notice there
+      are three. Old marks still settle payments, because acceptance is all that job asks and the
+      counter is still open. Scrip half the city will not take fails there, whatever is printed on
+      it. Wages held back are a store-of-value failure and nothing else; they would still buy bread
+      today. And two currencies chalked side by side is one of them working purely as the unit
+      prices are quoted in.
+
+  - group: BANKS
+    title: Somebody else's loan — Review
+    task: Order the entries one deposit produces
+    place: Ledger Hall
+    concept: 'Fractional reserve banking: a deposit is somebody else’s loan'
+    scene: >
+      Ruth Haldane, who manages the largest of the eleven regional banks, has a single
+      ten-thousand-mark deposit walked in this morning. Iyer wants the four ledger entries it
+      produces set out in the order they happen.
+    guide: >-
+      Four entries from one deposit. Order them in time, and settle each by asking what has to have
+      been written before it can be written at all. Three of the four are on Haldane's own ledger
+      and one is not, which is a hint about where the last of them belongs.
+    background:
+      - >-
+          Why only one of the four is a decision. The deposit arriving and the payment leaving are
+          things that happen to the bank. The split between what is held and what is lent is the one
+          entry somebody chooses, which is exactly why a reserve requirement is a policy tool and the
+          other three entries are not.
+      - >-
+          What the third entry actually creates. A loan is not handed over in cash; it is credited to
+          an account, and an account balance is a deposit. So the borrower has money that did not
+          exist that morning, and the bank's books balance because the loan is an asset against it.
+    assumes:
+      - the bank holds a fraction of each deposit and lends the rest
+    takeaway: A loan is written as a deposit, which is why lending and deposits grow together.
+    format: SEQUENCE
+    task: Put the four ledger entries in the order they are written.
+    cards:
+      - The ten thousand is written up as a deposit, and the bank's cash rises by the same amount.
+      - A fraction of it is set aside as reserves, and the rest is recorded as lendable.
+      - A builder is lent that rest, credited to an account he holds at the same bank.
+      - The builder pays a supplier, and the money appears as a deposit at a second bank.
+    order: [0, 1, 2, 3]
+    axis: Put the four entries in the order they are written, earliest first. Each one needs something already on the books before it can be made, so the order is what has to have happened rather than what matters most.
+    ends: [written first, written last]
+    answerText: >-
+      The deposit, then the split into reserves and lendable funds, then the loan credited to the
+      builder's account, then the same money arriving as a deposit at a second bank.
+    why: >-
+      Nothing can be set aside out of money the bank does not yet hold, so the deposit is written
+      first. The split into reserves and lendable funds comes next, and it is the only entry that is
+      a decision rather than a consequence. The loan follows, and the thing worth noticing is that it
+      is credited as a deposit: the builder now has an account balance that did not exist this
+      morning. When he spends it, the same balance turns up at a second bank.

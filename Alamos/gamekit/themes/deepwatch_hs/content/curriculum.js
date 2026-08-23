@@ -807,6 +807,88 @@ export const CURRICULUM = {
           "Sound as a longitudinal wave: frequency, wavelength and speed"
         ]
       }
+    },
+    {
+      "day": 11,
+      "title": "Four traces, one of them ours — Review",
+      "scene": "Petty Officer Nils Rask, the sonar supervisor, has four fresh traces on the middle watch and a quiet plant. The boat has held one speed for an hour, so nothing here can be told apart by changing turns. He wants each one accounted for.",
+      "takeaway": "How low a line sits and how far it is spread say more about a source than how loud it is.",
+      "place": "Sonar Room",
+      "guide": "Each trace carries more than one clue. How low does it sit? How wide across the spectrum is it spread? How long does one of them last? And are its lines whole multiples of each other? Pair on the combination rather than on which is loudest. Two of these are settled by asking what size of thing could radiate a wave that long, and one by asking whether a machine could repeat that fast.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why the frequency axis is worth reading first. A line's place on it is a length, once the speed of sound in water is put beside it, and a length is a statement about the size of whatever is radiating. A spread with no line in it at all is a statement of a different kind: that whatever made it is not repeating on any schedule."
+      ],
+      "story": "Petty Officer Nils Rask, the sonar supervisor, has four fresh traces on the middle watch and a quiet plant. The boat has held one speed for an hour, so nothing here can be told apart by changing turns. He wants each one accounted for.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "Four traces, one of them ours — Review",
+        "setup": "Sonar Room",
+        "play": "Match each trace to what is making it, on a watch with nothing to throttle",
+        "task": "Match each trace to what is making it, on a watch with nothing to throttle",
+        "question": "Match each trace to what is making it, on a watch with nothing to throttle",
+        "answer": "",
+        "why": "Frequency, wavelength and speed are one relationship, and in seawater the speed barely moves. A tone under forty hertz is a wave tens of metres long, and nothing much smaller than a wavelength radiates it well, so that trace belongs to something large. A hiss carries no line because breaking water is not periodic. Clicks a few milliseconds long are shorter than any cycle a machine aboard turns through. And lines at whole multiples of one rate are a machine running at that rate, counted off in harmonics.",
+        "rebuttals": [
+          "A wave tens of metres long needs a radiator metres across. Nothing small enough to be missed on the plot is putting out a line that low.",
+          "A spread with no line anywhere in it did not come from anything turning. Weather is the broadband source, and it follows the swell.",
+          "A few milliseconds is faster than any shaft or gear aboard can repeat. That is a living source, not a hull.",
+          "Sixty, a hundred and twenty and a hundred and eighty are one rate and its harmonics, which is what a machine looks like on a spectrum."
+        ],
+        "scenarios": [
+          "A steady rumble below 40 hertz, drifting half a degree a minute, with nothing above it.",
+          "A hiss spread evenly from 200 hertz to 4 kilohertz, loudest when the swell is up.",
+          "Runs of clicks a few milliseconds long, repeating, sweeping fast across bearings.",
+          "A comb of lines at 60, 120 and 180 hertz on one bearing, holding a level."
+        ],
+        "choices": [
+          "A large slow-turning propeller a long way off, since only something big radiates a wave that long.",
+          "Surface weather, which is spread across everything because breaking water repeats on no schedule.",
+          "An echolocating animal, since the pulses are far shorter than any cycle a machine aboard can turn.",
+          "A generator set on another hull, whose lines are whole multiples of one turning rate."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "columns": [
+          "What you hear",
+          "What it is"
+        ]
+      },
+      "assumes": [
+        "passive sonar listens and does not transmit",
+        "sound in seawater travels at about 1500 metres per second"
+      ],
+      "equations": [
+        {
+          "e": "v = fλ",
+          "c": "wave speed, frequency and wavelength",
+          "v": [
+            [
+              "v",
+              "speed of sound in seawater, about 1500 metres per second"
+            ],
+            [
+              "f",
+              "frequency, in hertz"
+            ],
+            [
+              "λ",
+              "wavelength, in metres"
+            ]
+          ],
+          "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other."
+        }
+      ],
+      "concept": {
+        "n": 23,
+        "c": "Sound as a longitudinal wave: frequency, wavelength and speed",
+        "of": 30
+      }
     }
   ],
   "NAV": [
@@ -1477,6 +1559,71 @@ export const CURRICULUM = {
         "c": "Radioactive decay and half-life, and a marker that has faded",
         "of": 30
       }
+    },
+    {
+      "day": 11,
+      "title": "Six metres between crests — Review",
+      "scene": "Commander Iris Vance, the captain, has two tonals off the same bearing on the plot, one at 50 hertz and one at 1200 hertz. She wants to know what the pair of them says about whatever is making them.",
+      "takeaway": "A low tone is a long wave, and the length is set by the water and the frequency rather than by the level.",
+      "place": "Control Room",
+      "guide": "Two lines from one bearing, and a single relationship connects them. Sound runs at about fifteen hundred metres a second in seawater, and a wavelength is that speed divided by the frequency. Work both of them out rather than reasoning from the words high and low, which point the wrong way about as often as not. Then ask what size of structure could radiate each.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each is written to be the answer under one specific misreading — a division taken the wrong way round, a term dropped, a quantity confused with one that sounds like it. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the speed is the term that stays put. Seawater is far less compressible than air and only about eight hundred times denser, and the speed of sound goes as the square root of stiffness over density. The stiffness wins, so a wavelength in water is roughly four and a half times the one the same tone would have in the room you are standing in.",
+        "What loudness is and is not. Amplitude is how hard the source pushes the water; wavelength is how far the disturbance travels while the source completes one cycle. They are independent, which is why a faint line can be a very large object and a loud one a small object close by."
+      ],
+      "story": "Commander Iris Vance, the captain, has two tonals off the same bearing on the plot, one at 50 hertz and one at 1200 hertz. She wants to know what the pair of them says about whatever is making them.",
+      "game": {
+        "type": "CHOICE",
+        "title": "Six metres between crests — Review",
+        "setup": "Control Room",
+        "play": "Compare two tonals from one bearing",
+        "task": "Compare two tonals from one bearing",
+        "question": "Both lines come from one bearing in seawater. Which statement about their wavelengths holds?",
+        "answer": "About thirty metres for the 50-hertz line, and about a metre and a quarter for the 1200-hertz line.",
+        "why": "Wavelength is speed divided by frequency, and in seawater the speed stays near fifteen hundred metres a second whatever the tone. So fifty hertz is a wave about thirty metres from crest to crest, and twelve hundred hertz is about a metre and a quarter. Lower means longer, which is the opposite of what the words suggest. Loudness never enters: it is set by how hard the source pushes, not by how far apart the crests are. Two lines this far apart in frequency are almost certainly two different mechanisms on one hull.",
+        "rebuttals": [
+          "That is the answer for the twelve-hundred-hertz line. A lower frequency puts the crests further apart, not closer.",
+          "The same speed does not give the same wavelength. Frequency is the other term, and these two differ by a factor of twenty-four.",
+          "Loudness is amplitude and says nothing about spacing. Speed and frequency are the only two terms in the relationship."
+        ],
+        "choices": [
+          "About thirty metres for the 50-hertz line, and about a metre and a quarter for the 1200-hertz line.",
+          "About a metre and a quarter for the 50-hertz line, since a lower frequency crowds the crests closer together.",
+          "The same length for both of them, since they travel through the same seawater at the same speed throughout.",
+          "Neither can be had from the frequency alone, because a wavelength also depends on how loud the line is."
+        ],
+        "correctChoice": "About thirty metres for the 50-hertz line, and about a metre and a quarter for the 1200-hertz line."
+      },
+      "assumes": [
+        "sound in seawater travels at about 1500 metres per second"
+      ],
+      "equations": [
+        {
+          "e": "v = fλ",
+          "c": "wave speed, frequency and wavelength",
+          "v": [
+            [
+              "v",
+              "speed of sound in seawater, about 1500 metres per second"
+            ],
+            [
+              "f",
+              "frequency, in hertz"
+            ],
+            [
+              "λ",
+              "wavelength, in metres"
+            ]
+          ],
+          "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other."
+        }
+      ],
+      "concept": {
+        "n": 23,
+        "c": "Sound as a longitudinal wave: frequency, wavelength and speed",
+        "of": 30
+      }
     }
   ],
   "DC": [
@@ -1994,6 +2141,61 @@ export const CURRICULUM = {
           "s": "A photon either has enough energy to free an electron or it does not, and brightness cannot make up the difference."
         }
       ]
+    },
+    {
+      "day": 8,
+      "title": "What a walkdown is for — Review",
+      "scene": "Chief Petty Officer Dario Ferro, chief of the boat, stops you at the deck plates in the forward space. A sea suction was fitted here at the refit and nobody on this watch has learned it. He wants it taken apart in order.",
+      "takeaway": "What a fitting has to hold is a pressure and an area, and neither of them means anything without the other.",
+      "place": "Forward Equipment & Handling",
+      "guide": "All four of these could be done in the same minute, so this is not a timetable. Ask instead what each fact lets you interpret. A bore is a number with nothing attached to it until you know what is standing behind it, and what the locker holds is only worth judging once you know what it would be asked to hold back. One of these decides whether the other three are worth having.",
+      "background": [
+        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
+        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+      ],
+      "story": "Chief Petty Officer Dario Ferro, chief of the boat, stops you at the deck plates in the forward space. A sea suction was fitted here at the refit and nobody on this watch has learned it. He wants it taken apart in order.",
+      "game": {
+        "type": "SEQUENCE",
+        "title": "What a walkdown is for — Review",
+        "setup": "Forward Equipment & Handling",
+        "play": "Order what you establish about a fitting you have never seen before",
+        "task": "Order what you establish about a fitting you have never seen before",
+        "question": "Order what you establish about a fitting you have never seen before",
+        "answer": "",
+        "why": "Pressure is force over area, and the two terms arrive separately. Depth fixes the pressure, about one atmosphere for every ten metres, so the deepest ordered depth is the worst case the fitting will ever see. The bore fixes the area that pressure acts on, and the two together give the force. Only then does reaching the valve matter, and only then can anybody say whether the shoring in the locker is the right shoring for this fitting. The order is dependency and not chronology.",
+        "rebuttals": [
+          "The depth first. Everything after it is a question about what that pressure does, and none of them can be asked until the pressure is known.",
+          "The bore second. Pressure alone is not a force; it becomes one when it has an area to act over.",
+          "Reaching the valve third. It is worth knowing what the fitting can do to you before you decide how quickly you would have to get to it.",
+          "The shoring last. It is a judgement about the first three rather than a fourth independent fact."
+        ],
+        "cards": [
+          "Find the deepest the boat is allowed to go, because that depth is the pressure standing behind the fitting.",
+          "Measure the bore of the line, because the pressure acting over that area is the force the valve has to hold shut.",
+          "Prove the valve shuts, and that it can be reached with the deck plates down.",
+          "Judge whether the shoring stowed in this space could hold the fitting if the valve failed."
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "axis": "Order the four things you establish about the new sea connection, by what each one lets you judge next. Nothing here is a timetable — all four could be done in the same minute, and what puts them in order is which of them the next one rests on.",
+        "ends": [
+          "Established first",
+          "Established last"
+        ]
+      },
+      "assumes": [
+        "pressure rises about one atmosphere for every ten metres of depth"
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Pressure as force over area, and what a depth gauge is reading",
+        "of": 30
+      }
     }
   ],
   "FIRE": [
@@ -3751,6 +3953,95 @@ export const CURRICULUM = {
         "rests": [
           "Potential difference as energy per unit charge, and the field between two plates"
         ]
+      }
+    },
+    {
+      "day": 12,
+      "title": "Every fitting is an argument — Review",
+      "scene": "Chief Machinist's Mate Jun Haruki, the engineering watch supervisor, walks you to the after bulkhead of the machinery space. Four more fittings, none of them carrying a purpose label, only a number. He asks what each one would do if you opened it.",
+      "takeaway": "Where a fitting sits in a compartment is itself an argument about how much pressure is behind it.",
+      "place": "Propulsion Machinery",
+      "guide": "None of these carries a purpose label, so work from where it sits and what lies beyond it. Height in the space is itself a clue about pressure, since the lower a fitting is the more water stands above it. Ask of each what opening it would admit, and separately what shutting it would stop. Those are different questions, and one of these four stops nothing at all.",
+      "background": [
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
+        "Why height in the compartment is evidence. The water outside stands on every part of the hull, and the deeper the part the more of it there is above. Anything through the hull at the bottom of a space is therefore the fitting with the largest force on it, whatever its size, and anything routed up through the deckhead is carrying something the boat made rather than something the sea is pushing in."
+      ],
+      "story": "Chief Machinist's Mate Jun Haruki, the engineering watch supervisor, walks you to the after bulkhead of the machinery space. Four more fittings, none of them carrying a purpose label, only a number. He asks what each one would do if you opened it.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "Every fitting is an argument — Review",
+        "setup": "Propulsion Machinery",
+        "play": "Match each unlabelled fitting to what it does",
+        "task": "Match each unlabelled fitting to what it does",
+        "question": "Match each unlabelled fitting to what it does",
+        "answer": "",
+        "why": "What a fitting is for is decided by what is on the other side of it, and at what pressure. A drip tray under a small cock says whatever is beyond is meant to come out in small quantities and be looked at. A gauge line carries no flow at all, so shutting it stops nothing and only blinds the instrument. A red band on a line to the deckhead is firefighting water, charged and waiting. And the lowest fitting in the space has the whole depth of sea standing on it, which makes it the one nobody opens by mistake.",
+        "rebuttals": [
+          "The drip tray is the clue. Nothing that has to be caught in a tray is a system supply, and nothing structural drips on purpose.",
+          "A line thin enough to tap a gauge off carries no useful flow. Shutting it takes the reading away and changes nothing else.",
+          "A red band and a run to the deckhead is the fire main, held at pressure so a hose is live the moment the valve is cracked.",
+          "The lowest fitting in the space is the sea connection, and the force on it is the depth pressure over its whole bore."
+        ],
+        "scenarios": [
+          "A small bronze cock at deck level with a short pipe stub and a drip tray under it.",
+          "A narrow line tapped off a large pipe, with an isolating needle valve at eye height.",
+          "A red-banded wheel valve above head height, on a line running up through the deckhead.",
+          "A heavy flanged valve at the lowest point of the space, below the bilge boards."
+        ],
+        "choices": [
+          "A sampling point: it lets a little of what is in the pipe out where somebody can look at it.",
+          "A gauge connection: it reads the pressure in that pipe, and shutting it blinds the gauge rather than stopping any flow.",
+          "The fire main: charged water waiting at every deck, so no pump has to be started first.",
+          "The sea connection: the deepest fitting in the space, with the whole depth of water standing on it."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "columns": [
+          "What you are looking at",
+          "What it does"
+        ]
+      },
+      "assumes": [
+        "pressure rises about one atmosphere for every ten metres of depth"
+      ],
+      "equations": [
+        {
+          "e": "P = P₀ + ρgh",
+          "c": "pressure at a depth",
+          "v": [
+            [
+              "P",
+              "absolute pressure at depth, in pascals"
+            ],
+            [
+              "P₀",
+              "pressure at the surface, about 101 kPa"
+            ],
+            [
+              "ρ",
+              "density of seawater, 1025 kg per cubic metre"
+            ],
+            [
+              "g",
+              "9.8 metres per second squared"
+            ],
+            [
+              "h",
+              "depth below the surface, in metres"
+            ]
+          ],
+          "s": "Every ten metres of seawater adds about one atmosphere, on top of the atmosphere already there."
+        }
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Pressure as force over area, and what a depth gauge is reading",
+        "of": 30
       }
     }
   ]

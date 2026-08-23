@@ -719,6 +719,85 @@ export const CURRICULUM = {
           "Position, velocity and acceleration as successive derivatives"
         ]
       }
+    },
+    {
+      "day": 7,
+      "title": "Twelve seconds of ramp — Review",
+      "scene": "Grace Ubah, the banksman, has the other end of the same journey on the landing desk. The retardation ramp starts at 1.5 metres a second squared and tapers to nothing over eight seconds. She wants the speed it takes off.",
+      "takeaway": "A rate that tapers to nothing does half the work its quoted peak suggests, because what it delivers is the area underneath it.",
+      "place": "The Bank",
+      "guide": "Five quantities are offered and three of them belong in the sum. The ramp is stated as a rate that falls linearly to nothing, so what it removes is the area under it rather than a product of its peak and its length. Two of the five belong to the other end of the journey, or to the speed the ramp starts from.",
+      "story": "Grace Ubah, the banksman, has the other end of the same journey on the landing desk. The retardation ramp starts at 1.5 metres a second squared and tapers to nothing over eight seconds. She wants the speed it takes off.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "Twelve seconds of ramp — Review",
+        "setup": "The Bank",
+        "play": "Get the speed the retardation ramp removes",
+        "task": "Get the speed the retardation ramp removes",
+        "question": "How much speed does the retardation ramp take off?",
+        "answer": "",
+        "why": "The ramp takes off six metres a second, which is what leaves the cage creeping into the landing at 1.2. A retardation stated as a rate that falls linearly to nothing removes the area under itself rather than its peak times its length. The mean of a linear taper is half its peak, so eight seconds at a peak of 1.5 do the work of eight at 0.75. Using the peak throughout would take twelve off a wind that has only 7.2 to give.",
+        "givens": [],
+        "relationship": "The speed a ramp removes is its mean rate times how long it lasts, and the mean of a linear taper is half its peak.",
+        "calcKey": "BANK-7"
+      },
+      "assumes": [
+        "an acceleration that changes cannot be multiplied by a time"
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Position, velocity and acceleration as successive derivatives",
+        "t": "A record of position against time contains its own speed, acceleration and jerk, each one slope further down. It means a single pen on a single chart can answer three questions, and that none of the three has to be instrumented separately.",
+        "of": 34
+      }
+    },
+    {
+      "day": 8,
+      "title": "Three things out of one trace — Review",
+      "scene": "Tom Halloway, the onsetter, has the winder house tachometer roll beside the depth recorder's paper. This pen records speed against time and nothing else, and the inquiry wants the overrun distance out of it.",
+      "takeaway": "A record of a rate gives up its totals only to an integration, and an area is worth nothing until both of its limits are fixed.",
+      "place": "The Bank",
+      "guide": "Four steps, in the order they have to be done. This roll records a rate rather than a position, so the quantity the inquiry wants is not on the paper and has to be accumulated off it. Each step needs the one above it to have happened, which is what fixes the order.",
+      "story": "Tom Halloway, the onsetter, has the winder house tachometer roll beside the depth recorder's paper. This pen records speed against time and nothing else, and the inquiry wants the overrun distance out of it.",
+      "game": {
+        "type": "SEQUENCE",
+        "title": "Three things out of one trace — Review",
+        "setup": "The Bank",
+        "play": "Order the four steps that get the overrun distance out of a speed record.",
+        "task": "Order the four steps that get the overrun distance out of a speed record.",
+        "question": "Order the four steps that get the overrun distance out of a speed record.",
+        "answer": "",
+        "why": "A record of speed is a rate, so the total is not on the paper: distance is the area under the trace rather than anything read off it. That is the opposite move from the depth recorder, where the totals are on the paper and the rates are its slopes. Both limits have to be fixed before an area means anything, since an area is always between two of them. Only then does subtracting the distance to the landing say how far past it the cage went.",
+        "cards": [
+          "Mark the instant on the roll where the brake went on.",
+          "Mark where the trace reaches zero, which is where the cage stopped.",
+          "Take the area under the trace between the two marks.",
+          "Subtract the distance from the brake mark down to the landing."
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "axis": "Order the four steps, first to last. This is one procedure on one roll of paper, and every step needs the one before it to have been done.",
+        "ends": [
+          "First step",
+          "Last step"
+        ]
+      },
+      "assumes": [
+        "the area under a speed–time trace is a distance"
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Getting velocity and distance back by integrating an acceleration",
+        "t": "An acceleration that changes cannot be put through the constant-acceleration formulas, and integrating it is what replaces them. Each integration brings a constant that the starting condition fixes, and forgetting either is how a plausible answer comes out twice too large.",
+        "of": 34,
+        "rests": [
+          "Position, velocity and acceleration as successive derivatives"
+        ]
+      }
     }
   ],
   "WIND": [
@@ -1616,6 +1695,37 @@ export const CURRICULUM = {
           "Friction as a force with a limit"
         ]
       }
+    },
+    {
+      "day": 10,
+      "title": "Where twelve seconds come from — Review",
+      "scene": "Ruth Anand, the winder driver, has the cycle sheet up in the winder house: eleven hundred and fifty metres of the wind are run at full speed, between the ramps at one end and the crawl at the other. Marchetti wants that part timed.",
+      "takeaway": "The longest part of a winding cycle is set by the depth and the permitted speed, so it is not a place where time can be found.",
+      "place": "Winder House",
+      "guide": "Four quantities are offered and two of them belong in the sum. The section in question is the one where the winder is neither speeding up nor slowing down, so nothing has to be integrated and no ramp figure enters it. The other two numbers describe parts of the cycle that are not this one.",
+      "story": "Ruth Anand, the winder driver, has the cycle sheet up in the winder house: eleven hundred and fifty metres of the wind are run at full speed, between the ramps at one end and the crawl at the other. Marchetti wants that part timed.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "Where twelve seconds come from — Review",
+        "setup": "Winder House",
+        "play": "Time the part of the cycle nobody can shorten",
+        "task": "Time the part of the cycle nobody can shorten",
+        "question": "How long does the full-speed section of one wind last?",
+        "answer": "",
+        "why": "About a hundred and sixty seconds, and none of them are anybody's to give away. The full-speed run is a distance divided by a speed: the distance is the shaft less the ramps at each end, and the speed is what the licence allows. Neither moves because a ramp is made steeper. That is why the twelve seconds have to come out of the ramps and the crawl, which are the only parts of the cycle a winding engineer chooses.",
+        "givens": [],
+        "relationship": "At a steady speed, the time a section takes is its distance divided by that speed.",
+        "calcKey": "WIND-10"
+      },
+      "assumes": [
+        "a wind is made of a ramp up, a run at full speed, a ramp down and a crawl"
+      ],
+      "concept": {
+        "n": 1,
+        "c": "Position, velocity and acceleration as successive derivatives",
+        "t": "A record of position against time contains its own speed, acceleration and jerk, each one slope further down. It means a single pen on a single chart can answer three questions, and that none of the three has to be instrumented separately.",
+        "of": 34
+      }
     }
   ],
   "ROPE": [
@@ -2207,6 +2317,79 @@ export const CURRICULUM = {
         "rests": [
           "Kinetic energy and the work–energy theorem",
           "Potential energy, and what makes a force conservative"
+        ]
+      }
+    },
+    {
+      "day": 7,
+      "title": "Eleven tonnes, hung from what — Review",
+      "scene": "Kit Nowak, the rope splicer, has the ore skip's rope on the shop board: four hundred metres of it hanging below the sheave, with the skip and its load on the end. The submission puts every one of those forces in one line.",
+      "takeaway": "Two forces acting at the same place can belong to different diagrams, and which body each acts on is what decides the pairing.",
+      "place": "Rope Shop",
+      "guide": "Four forces and four bodies, one each. Ask of every force which body it acts on rather than where on the plant it happens, because a force belongs to a diagram and not to a place. Two of the four act on the same body, and telling those two apart is what the pairing turns on.",
+      "story": "Kit Nowak, the rope splicer, has the ore skip's rope on the shop board: four hundred metres of it hanging below the sheave, with the skip and its load on the end. The submission puts every one of those forces in one line.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "Eleven tonnes, hung from what — Review",
+        "setup": "Rope Shop",
+        "play": "Match each force to the body whose free-body diagram it belongs in.",
+        "task": "Match each force to the body whose free-body diagram it belongs in.",
+        "question": "Match each force to the body whose free-body diagram it belongs in.",
+        "answer": "",
+        "why": "A force enters the equation of whichever body it acts on. The hanging rope pulls down on nothing that is below it: each point carries what hangs beneath, so the whole weight is accounted for only in the tension the drum holds. The rope pulls up on the skip and the ore presses down on it, and both belong to the skip's own line. The steelwork's push belongs to the sheave, which carries both rope ends and accelerates nowhere.",
+        "scenarios": [
+          "The weight of the four hundred metres of rope hanging below the sheave.",
+          "The upward pull of the rope at the skip's cappel.",
+          "The weight of the ore riding in the skip.",
+          "The push of the headframe's steelwork up on the sheave's bearings."
+        ],
+        "choices": [
+          "The drum's, since the tension at the top of the rope is where the hanging length is finally carried.",
+          "The skip's, as the only upward force acting on it.",
+          "The skip's, as a downward force that adds to what the rope has to lift.",
+          "The sheave's, as the reaction holding it up against both ends of the rope."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "assumes": [
+        "a rope's tension at a point carries everything hanging below that point"
+      ],
+      "equations": [
+        {
+          "e": "T = (m_c + μy)(g + a)",
+          "c": "rope tension with the rope’s own weight in it",
+          "v": [
+            [
+              "m_c",
+              "the mass of the cage and its load, in kilograms"
+            ],
+            [
+              "μ",
+              "the mass of a metre of rope, in kilograms a metre"
+            ],
+            [
+              "y",
+              "how much rope is hanging, in metres"
+            ],
+            [
+              "a",
+              "the acceleration of the wind, upward positive"
+            ]
+          ],
+          "s": "A rope long enough to reach the bottom of this shaft weighs more than the cage it carries, so the tension at the drum depends on where the cage is as well as on what it is doing."
+        }
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Newton's second law as a vector statement",
+        "of": 34,
+        "rests": [
+          "Free-body thinking, and the net force on one chosen body"
         ]
       }
     }
@@ -3686,6 +3869,65 @@ export const BALLPARK_CALCS = {
     "units": "g/cm³",
     "solution": "(0.3086 − 0.0849) ÷ 0.0838 = 2.67 g/cm³.",
     "explanation": "A gradient is per metre, so the depth of the shaft cancels out of it. The earth's mean density is on the list because it is what a uniform-sphere model would have used, and it is twice what this rock actually is."
+  },
+  "BANK-7": {
+    "prompt": "The ramp starts at its peak and falls linearly to nothing at the end of the eight seconds.",
+    "question": "How much speed does the retardation ramp take off?",
+    "labels": [
+      "1.5 m/s²  (the peak of the retardation ramp)",
+      "8 s  (how long the ramp lasts)",
+      "0.5  (the mean of a linear taper, as a fraction of its peak)",
+      "7.2 m/s  (the full winding speed the ramp starts from)",
+      "1.2 m/s²  (the peak of the accelerating ramp at the other end)"
+    ],
+    "values": [
+      1.5,
+      8,
+      0.5,
+      7.2,
+      1.2
+    ],
+    "slots": 3,
+    "template": "{0} × {1} × {2}",
+    "formula": "a*b*c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 6,
+    "tolerance": 0.3,
+    "units": "m/s",
+    "solution": "1.5 × 8 × 0.5 = 6.0 m/s.",
+    "explanation": "Taking the peak for the whole eight seconds gives twelve metres a second, which is more speed than the wind has to give. The accelerating ramp's peak belongs to the other end of the journey and enters nothing here."
+  },
+  "WIND-10": {
+    "prompt": "The winder holds its permitted speed for this section and neither ramp reaches into it.",
+    "question": "How long does the full-speed section of one wind last?",
+    "labels": [
+      "1,150 m  (the shaft length left after both ramps and the crawl)",
+      "7.2 m/s  (the full winding speed the licence allows)",
+      "12 s  (how long the proposed accelerating ramp runs)",
+      "1,240 m  (the full depth of the shaft)"
+    ],
+    "values": [
+      1150,
+      7.2,
+      12,
+      1240
+    ],
+    "slots": 2,
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 159.7,
+    "tolerance": 3,
+    "units": "s",
+    "solution": "1,150 ÷ 7.2 = 159.7 s.",
+    "explanation": "Using the full depth of the shaft charges the full-speed section with ground the ramps and the crawl have already covered. The ramp length is a duration and belongs to a different part of the cycle."
   }
 };
 

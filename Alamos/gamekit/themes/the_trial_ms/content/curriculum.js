@@ -176,6 +176,62 @@ export const CURRICULUM = {
         "t": "To find out whether something works you give it to one group and not to another, and keep everything else about the two groups alike. Any difference left over is the thing you changed, and nothing else.",
         "of": 14
       }
+    },
+    {
+      "day": 4,
+      "title": "Concealment is not the same as blinding — Review",
+      "scene": "Farida Diouf, the trial pharmacist, has asked three hospitals how they get the next box number. All three sent back a different answer, and she has them on the bench.",
+      "takeaway": "Chance decides the split only while nobody can read what the next slot holds.",
+      "place": "Kit Warehouse & Cold Room",
+      "guide": "Three arrangements and three verdicts. Ask of each whether somebody standing at the desk could learn the next group before a patient has agreed to join.",
+      "story": "Farida Diouf, the trial pharmacist, has asked three hospitals how they get the next box number. All three sent back a different answer, and she has them on the bench.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "Concealment is not the same as blinding — Review",
+        "setup": "Kit Warehouse & Cold Room",
+        "play": "Match each hospital's arrangement to what it does to concealment.",
+        "task": "Match each hospital's arrangement to what it does to concealment.",
+        "question": "Match each hospital's arrangement to what it does to concealment.",
+        "answer": "",
+        "why": "Concealment is about the minutes before somebody joins. If the next group can be read, a doctor who wants the sickest patients on the new drug can wait for the right one to walk in. Nobody has to be dishonest for the two groups to end up unlike each other. A central line hands over the number after the patient is entered. A sealed envelope opened in front of the patient does the same job by hand. A drawer anybody can open does not, because the order can be read ahead of the queue.",
+        "scenarios": [
+          "Site 3 rings a central line and is read the next number.",
+          "Site 9 keeps the list in a drawer the clerk opens.",
+          "Site 14 opens a sealed envelope in front of the patient."
+        ],
+        "choices": [
+          "Hidden. Nobody at the hospital can see what is next.",
+          "Not hidden. Somebody at the desk can read ahead.",
+          "Hidden. The seal is broken after the patient has joined."
+        ],
+        "mapping": [
+          0,
+          1,
+          2
+        ]
+      },
+      "assumes": [
+        "participants are assigned to arms by chance rather than by choice"
+      ],
+      "equations": [
+        {
+          "e": "chance of a fluke = 1 ÷ how many things you tested",
+          "c": "how easily something looks special when you test a lot of things",
+          "v": [
+            [
+              "how many things you tested",
+              "the number of separate comparisons that were made"
+            ]
+          ],
+          "s": "Every extra comparison is another go at the same coin, so a striking result in a long list needs a different explanation before it needs a scientific one."
+        }
+      ],
+      "concept": {
+        "n": 1,
+        "c": "A fair test changes one thing and keeps the rest the same",
+        "t": "To find out whether something works you give it to one group and not to another, and keep everything else about the two groups alike. Any difference left over is the thing you changed, and nothing else.",
+        "of": 14
+      }
     }
   ],
   "ENDP": [
@@ -738,6 +794,44 @@ export const CURRICULUM = {
           "Say what you are measuring before you look"
         ]
       }
+    },
+    {
+      "day": 9,
+      "title": "One outcome, named in advance — Review",
+      "scene": "A second trial on this floor wants to add a measurement. Kwame Ansah, who chairs the committee that rules on each event, has been sent the three steps in no order at all.",
+      "takeaway": "A measurement is only named in advance if the naming sits somewhere nobody can quietly edit.",
+      "place": "Endpoint Adjudication",
+      "guide": "Three steps. Two of them are promises and one of them is looking. Ask what a promise is still worth once the looking has been done.",
+      "story": "A second trial on this floor wants to add a measurement. Kwame Ansah, who chairs the committee that rules on each event, has been sent the three steps in no order at all.",
+      "game": {
+        "type": "SEQUENCE",
+        "title": "One outcome, named in advance — Review",
+        "setup": "Endpoint Adjudication",
+        "play": "Order the three steps of adding a measurement to a trial.",
+        "task": "Order the three steps of adding a measurement to a trial.",
+        "question": "Order the three steps of adding a measurement to a trial.",
+        "answer": "",
+        "why": "All the worth of naming a measurement comes from the word advance. The wording goes first, because a register entry that says nothing exact protects nothing at all. The register goes next, because that is the copy other people hold and nobody here can change. The counting goes last. Move the counting ahead of either promise and somebody can see a number and then settle what to count, which tells you about the person choosing rather than about the drug.",
+        "cards": [
+          "Agree the exact wording of what will count.",
+          "Post the wording in the public register.",
+          "Unlock the data and start counting."
+        ],
+        "order": [
+          0,
+          1,
+          2
+        ]
+      },
+      "assumes": [
+        "a trial has to say in advance what it is measuring"
+      ],
+      "concept": {
+        "n": 5,
+        "c": "Say what you are measuring before you look",
+        "t": "The measurement that counts has to be chosen before anybody sees the data. Choose afterwards and you will pick the one that came out well, which every set of numbers contains somewhere.",
+        "of": 14
+      }
     }
   ],
   "SAFE": [
@@ -1279,6 +1373,86 @@ export const CURRICULUM = {
           "A bigger sample is a steadier answer"
         ]
       }
+    },
+    {
+      "day": 5,
+      "title": "A trial ends at a number of events — Review",
+      "scene": "Miriam Feldman, the trial statistician, keeps a second board for a smaller trial the centre runs. It ends at a number of events too, and the board wants to know where it has got to.",
+      "takeaway": "A trial that ends at a count of events measures its progress in events, never in people.",
+      "place": "Statistics & Analysis",
+      "guide": "Two of the five tiles carry events. Those two and the hundred make a percentage. The people and the hospitals tell you the size of the trial, not how far along it is.",
+      "story": "Miriam Feldman, the trial statistician, keeps a second board for a smaller trial the centre runs. It ends at a number of events too, and the board wants to know where it has got to.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "A trial ends at a number of events — Review",
+        "setup": "Statistics & Analysis",
+        "play": "Work out how far a second trial has got",
+        "task": "Work out how far a second trial has got",
+        "question": "How far through its events is the smaller trial?",
+        "answer": "About 60 per cent. Anything this trial says tonight is standing on three fifths of its evidence, and that has to be said beside it.",
+        "why": "A trial like this one is measured in events and in nothing else. Sixty per cent means every figure it can print today rests on three fifths of the evidence it was built to need. How many people have joined does not answer the question, because two people can sit in a trial for a year and neither of them have an event. The count of hospitals says less again. It is the events that decide when the answer is allowed to be given.",
+        "givens": [
+          "The design requires 260 primary events",
+          "156 have been counted and checked so far"
+        ],
+        "relationship": "Percentage = the part divided by the whole, multiplied by a hundred.",
+        "calcKey": "STAT-5"
+      },
+      "assumes": [
+        "the trial compares how often an event happens in two arms",
+        "events accumulate over time, at some rate per participant per year"
+      ],
+      "equations": [
+        {
+          "e": "percentage = part ÷ whole × 100",
+          "c": "a count turned into a share of a hundred",
+          "v": [
+            [
+              "part",
+              "how many it happened to"
+            ],
+            [
+              "whole",
+              "how many there were altogether"
+            ]
+          ],
+          "s": "Two groups are almost never the same size, so counts cannot be compared until both are written as a share of their own group.",
+          "computed": true
+        },
+        {
+          "e": "average = total ÷ how many",
+          "c": "the middle of a set of readings",
+          "v": [
+            [
+              "total",
+              "all the readings added together"
+            ],
+            [
+              "how many",
+              "the number of readings"
+            ]
+          ],
+          "s": "One person tells you about one person, and the average of a group is the first number that can be compared with another group at all."
+        },
+        {
+          "e": "how many needed = 100 ÷ the difference in shares",
+          "c": "how many people you have to treat for one of them to benefit",
+          "v": [
+            [
+              "the difference in shares",
+              "the gap between the two groups, in people per hundred"
+            ]
+          ],
+          "s": "Turning a difference upside down says how many people have to take a treatment for one extra person to be helped, which is the form a patient can actually use.",
+          "card": false
+        }
+      ],
+      "concept": {
+        "n": 7,
+        "c": "A bigger sample is a steadier answer",
+        "t": "Small groups bounce around by luck, so a small trial can show almost anything once. Adding people does not change what is true; it makes the answer you get closer to it.",
+        "of": 14
+      }
     }
   ],
   "SITE": [
@@ -1789,6 +1963,69 @@ export const CURRICULUM = {
         "of": 14,
         "rests": [
           "Say what you are measuring before you look"
+        ]
+      }
+    },
+    {
+      "day": 8,
+      "title": "What counts as a deviation — Review",
+      "scene": "Lucia Marchetti, the lead monitor, came back from site 22 with three things written up. She wants them sorted by what each one does to the trial rather than by how much work it made.",
+      "takeaway": "Rank a mistake by what it does to the comparison, not by how much tidying it costs.",
+      "place": "Monitors' Room",
+      "guide": "Three write-ups and three verdicts. Ask of each whether it changes who is in the trial, or only what was written down about somebody already in it.",
+      "story": "Lucia Marchetti, the lead monitor, came back from site 22 with three things written up. She wants them sorted by what each one does to the trial rather than by how much work it made.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "What counts as a deviation — Review",
+        "setup": "Monitors' Room",
+        "play": "Match each write-up to what it does to the comparison.",
+        "task": "Match each write-up to what it does to the comparison.",
+        "question": "Match each write-up to what it does to the comparison.",
+        "answer": "",
+        "why": "A trial holds one group against another. So a mistake is judged by what it does to that comparison. People who should never have been entered are answering a different question. Lifting them out later means somebody picks which results to drop. A weight in the wrong units is one bad reading on the right person. It can be fixed, and nobody moves between groups. A late report changes nothing at all.",
+        "scenarios": [
+          "Two people were entered who did not meet the age rule.",
+          "A nurse wrote a weight in pounds instead of kilograms.",
+          "The monthly report from the site went in eight days late."
+        ],
+        "choices": [
+          "Changes who is being compared, so it changes the answer.",
+          "Spoils one reading. The person is still the right person.",
+          "Untidy. It touches neither the people nor the readings."
+        ],
+        "mapping": [
+          0,
+          1,
+          2
+        ]
+      },
+      "assumes": [
+        "the protocol states what should happen at each visit"
+      ],
+      "equations": [
+        {
+          "e": "average = total ÷ how many",
+          "c": "the middle of a set of readings",
+          "v": [
+            [
+              "total",
+              "all the readings added together"
+            ],
+            [
+              "how many",
+              "the number of readings"
+            ]
+          ],
+          "s": "One person tells you about one person, and the average of a group is the first number that can be compared with another group at all."
+        }
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Two groups have to start out alike",
+        "t": "If the people in one group are healthier to begin with, the result says which group was healthier rather than which treatment worked. Making the groups alike at the start is what makes the ending mean anything.",
+        "of": 14,
+        "rests": [
+          "A fair test changes one thing and keeps the rest the same"
         ]
       }
     }
@@ -2335,6 +2572,37 @@ export const BALLPARK_CALCS = {
     "units": "per cent",
     "solution": "14 ÷ 20 × 100 = about 70 per cent.",
     "explanation": "The size of the trial is why each test is any good at all. It is not part of counting the tests."
+  },
+  "STAT-5": {
+    "prompt": "The smaller trial needs 260 events before it can answer anything. It has counted 156 of them so far, across twelve hospitals.\n",
+    "question": "Choose the events counted so far and the events the trial needs.",
+    "labels": [
+      "156  (events counted so far)",
+      "260  (events the trial needs altogether)",
+      "100  (to turn a share into a percentage)",
+      "900  (people in the smaller trial)",
+      "12  (hospitals taking part)"
+    ],
+    "values": [
+      156,
+      260,
+      100,
+      900,
+      12
+    ],
+    "slots": 3,
+    "template": "{0} ÷ {1} × {2}",
+    "formula": "a/b*c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 60,
+    "tolerance": 3,
+    "units": "per cent",
+    "solution": "156 ÷ 260 × 100 = 60 per cent of the events this trial needs.",
+    "explanation": "The people and the hospitals are why events arrive at all. Neither says how far the count has got."
   }
 };
 

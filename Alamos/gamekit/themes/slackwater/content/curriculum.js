@@ -1217,6 +1217,60 @@ export const CURRICULUM = {
           "Sequences, partial sums, and what convergence means"
         ]
       }
+    },
+    {
+      "day": 11,
+      "title": "Two terms and a fortnight — Review",
+      "scene": "Wren Achterberg, the harmonic analyst, has two more of the daily-sum terms on the board: the pair that rises once a day rather than twice. Their speeds are about a degree an hour apart. She wants the interval between one time they add and the next.",
+      "takeaway": "Two terms come back into step at the difference of their speeds, whatever their sizes and whatever each one's own period is.",
+      "place": "Prediction Office",
+      "guide": "Four quantities are on the board and three of them make the answer. The interval is not the period of either term, and neither term's own period will get you to it. What decides it is how long the faster of the two takes to gain a whole turn on the slower, so the whole turn goes over the gap between the two speeds. The entry that is already a period in hours is there to be left out.",
+      "background": [
+        "Why the two amplitudes do not appear. Adding two cosines of nearly equal speed gives a fast cosine inside a slow one, and the slow factor is built out of the difference of the speeds alone. The amplitudes decide how far the water moves when the two add; they decide nothing about how often that happens.",
+        "Why this pair matters at Sarn. The semidiurnal pair comes round every 14.7 days, which is the fortnight the springs are counted in. The diurnal pair comes round on its own cycle, a little under a fortnight, and the two are not in step with each other. The largest tides of the year happen where both patterns arrive together, which is what an equinoctial spring is."
+      ],
+      "story": "Wren Achterberg, the harmonic analyst, has two more of the daily-sum terms on the board: the pair that rises once a day rather than twice. Their speeds are about a degree an hour apart. She wants the interval between one time they add and the next.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "Two terms and a fortnight — Review",
+        "setup": "Prediction Office",
+        "play": "Get the beat of the diurnal pair, on speeds a degree apart",
+        "task": "Get the beat of the diurnal pair, on speeds a degree apart",
+        "question": "How long is it from one time the two diurnal terms add to the next?",
+        "answer": "",
+        "why": "The interval is about 328 hours, which is 13.7 days. Two terms of nearly the same speed drift in and out of step at the difference of those speeds, and a whole turn divided by that difference is how long the drift takes. Here the gap is 1.098 degrees an hour, so the pair comes back into step every fortnight or so. The semidiurnal pair on the board did the same thing for the same reason and arrived at 14.7 days. Amplitudes set how big the swing is and never how often it comes.",
+        "givens": [],
+        "relationship": "Interval between one time they add and the next = one whole turn ÷ the difference between the two speeds.",
+        "calcKey": "PRED-11"
+      },
+      "assumes": [
+        "a cosine of angular speed ω has period 360° ÷ ω",
+        "two terms add most strongly when their arguments differ by a whole number of turns"
+      ],
+      "equations": [
+        {
+          "e": "speed = √((dx/dt)² + (dy/dt)²)",
+          "c": "speed as the size of the velocity vector",
+          "v": [
+            [
+              "dx/dt, dy/dt",
+              "the two components of velocity, in metres a second"
+            ],
+            [
+              "speed",
+              "how fast the float is going along its path, in metres a second"
+            ]
+          ],
+          "s": "Velocity has a direction and speed does not: squaring both components, adding and taking the root throws the direction away and keeps the size.",
+          "computed": true
+        }
+      ],
+      "concept": {
+        "n": 1,
+        "c": "A quantity written as a sum of periodic terms",
+        "t": "A quantity built by adding several terms of different periods repeats on none of them and on all of them at once. It lets a record be described by a handful of constants instead of a table, and it makes every later question a question about the terms.",
+        "of": 34
+      }
     }
   ],
   "TRACK": [
@@ -1682,6 +1736,88 @@ export const CURRICULUM = {
         "rests": [
           "Truncating a sum, and stating what was left out"
         ]
+      }
+    },
+    {
+      "day": 5,
+      "title": "A clock and a position — Review",
+      "scene": "Owen Mbeki, the drifter technician, has float 9 out of the water and its card on the bench: a column of times and two columns of position, ten minutes apart, and nothing else on it. Four numbers are wanted from that card for the sediment annex.",
+      "takeaway": "How much of a track you have to touch is what tells you which kind of quantity you are asking it for.",
+      "place": "Survey Pontoon",
+      "guide": "Four quantities wanted from the card, and four descriptions of the work each one takes. Pair them. The test every time is how much of the record has to be touched: a single line, one neighbouring pair of lines, two rates taken together as a right-angled pair, or every interval in the card added up from the first line to the last.",
+      "story": "Owen Mbeki, the drifter technician, has float 9 out of the water and its card on the bench: a column of times and two columns of position, ten minutes apart, and nothing else on it. Four numbers are wanted from that card for the sediment annex.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "A clock and a position — Review",
+        "setup": "Survey Pontoon",
+        "play": "Match each number the annex wants to the work the card makes you do for it.",
+        "task": "Match each number the annex wants to the work the card makes you do for it.",
+        "question": "Match each number the annex wants to the work the card makes you do for it.",
+        "answer": "",
+        "why": "A parametric record holds the position outright and holds everything else as a rate or as a sum of rates. Speed comes from differencing both columns over one interval and combining the two rates as a right-angled pair, which is the size of the velocity. Heading comes from the same two rates as a ratio, which throws the size away and keeps the direction. Length has to be accumulated interval by interval, because no single line of the card contains any of it.",
+        "scenarios": [
+          "Where float 9 was at 09:20 on the third day.",
+          "How fast it was going at 09:20 on the third day.",
+          "Which way it was heading at 09:20 on the third day.",
+          "How much water it rode through over the whole eleven days."
+        ],
+        "choices": [
+          "Read one line off the card, because positions against time are what the card is.",
+          "Difference both position columns across one interval and combine the two rates as a right-angled pair.",
+          "Difference both position columns across one interval and take the ratio of the two rates.",
+          "Take a length for every interval in the card and add them from the first line to the last."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "assumes": [
+        "a fix is one position at one recorded time",
+        "a rate is a change divided by the interval it happened over"
+      ],
+      "equations": [
+        {
+          "e": "dy/dx = (dy/dt) / (dx/dt)",
+          "c": "the slope of a path from its two rates",
+          "v": [
+            [
+              "dx/dt",
+              "the eastward rate, in metres a second"
+            ],
+            [
+              "dy/dt",
+              "the northward rate, in metres a second"
+            ],
+            [
+              "dy/dx",
+              "the slope of the track on the chart, with no units"
+            ]
+          ],
+          "s": "The path has no formula in x and y, so its slope is the ratio of the two rates at that instant — and where the horizontal rate passes through zero the track has a vertical tangent rather than an error."
+        },
+        {
+          "e": "speed = √((dx/dt)² + (dy/dt)²)",
+          "c": "speed as the size of the velocity vector",
+          "v": [
+            [
+              "dx/dt, dy/dt",
+              "the two components of velocity, in metres a second"
+            ],
+            [
+              "speed",
+              "how fast the float is going along its path, in metres a second"
+            ]
+          ],
+          "s": "Velocity has a direction and speed does not: squaring both components, adding and taking the root throws the direction away and keeps the size."
+        }
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Parametric curves, and a path described by time rather than by x",
+        "of": 34
       }
     }
   ],
@@ -2245,6 +2381,57 @@ export const CURRICULUM = {
         "of": 34,
         "rests": [
           "Speed as the magnitude of a velocity vector"
+        ]
+      }
+    },
+    {
+      "day": 6,
+      "title": "The slope of a track with no formula — Review",
+      "scene": "Dr. Halina Vos, the currents scientist, has meter two's record for the turn of the ebb. For ten minutes either side of slack the eastward rate runs down through zero while the northward rate is still going at three hundred metres an hour.",
+      "takeaway": "A path can be perfectly smooth at an instant where its slope on the chart has no value at all.",
+      "place": "Currents Room",
+      "guide": "All four options describe the chart at the same instant. Ask first which of the two rates sits underneath in the ratio that makes a chart slope, and what a quotient does as that one closes on zero. Then ask separately whether anything about the water, the float or either rate is misbehaving at that moment, or only the number built out of the two of them.",
+      "story": "Dr. Halina Vos, the currents scientist, has meter two's record for the turn of the ebb. For ten minutes either side of slack the eastward rate runs down through zero while the northward rate is still going at three hundred metres an hour.",
+      "game": {
+        "type": "CHOICE",
+        "title": "The slope of a track with no formula — Review",
+        "setup": "Currents Room",
+        "play": "Say what the chart slope does as one of the two rates passes zero",
+        "task": "Say what the chart slope does as one of the two rates passes zero",
+        "question": "What is the track's chart slope doing as the eastward rate passes through zero?",
+        "answer": "The slope grows without limit, and the track is running due north at that moment.",
+        "why": "The chart slope is the northward rate over the eastward one, so it grows without limit as the eastward rate closes on zero, and the track stands vertical on the chart. Nothing is wrong with the float or with either meter at that instant: both coordinates are moving smoothly and both rates are perfectly well defined. What has failed is the description. A chart slope asks how far north per metre east, and for those few minutes there are no metres east to divide by.",
+        "rebuttals": [
+          "A vanishing denominator sends a ratio up rather than down; it is a vanishing numerator that flattens a track.",
+          "The track is smooth through slack, since both coordinates and both rates stay continuous; only their ratio misbehaves.",
+          "A slope built from two rates uses both of them, and here it is the eastward rate doing the work."
+        ],
+        "choices": [
+          "The slope grows without limit, and the track is running due north at that moment.",
+          "The slope falls to zero, since one of the two rates making it has vanished.",
+          "The slope is undefined for good, and the track has a genuine corner at slack.",
+          "The slope is unchanged, because only the northward rate decides which way a track leans."
+        ],
+        "correctChoice": "The slope grows without limit, and the track is running due north at that moment."
+      },
+      "assumes": [
+        "a slope on a chart is a change in northing divided by a change in easting",
+        "a ratio whose denominator vanishes has no finite value",
+        "the chain rule, and a quantity that moves because another one does — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 4,
+          "c": "The chain rule, and a quantity that moves because another one does"
+        }
+      ],
+      "concept": {
+        "n": 8,
+        "c": "The slope of a parametric path, dy/dx out of two rates",
+        "of": 34,
+        "rests": [
+          "Parametric curves, and a path described by time rather than by x",
+          "The chain rule, and a quantity that moves because another one does"
         ]
       }
     }
@@ -3027,6 +3214,37 @@ export const CURRICULUM = {
           "Sequences, partial sums, and what convergence means",
           "Alternating series, and the error after n terms"
         ]
+      }
+    },
+    {
+      "day": 9,
+      "title": "The rate does not wait — Review",
+      "scene": "Tomas Beke, the sluice engineer, has one row of last Thursday's gate table beside the recorder trace for the same half hour. The row was written from the flow at the top of it. The trace says what the flow averaged instead.",
+      "takeaway": "What a rate costs when it is used over an interval is its gap from the average rate, multiplied by the interval.",
+      "place": "Sluice Control",
+      "guide": "Four quantities are on the desk and three of them belong in the answer. The row assumed one flow held for the whole interval; the trace gives what the flow averaged across it. The gap between those two rates, run for the length of the interval, is the water the sheet claimed and the estuary did not supply. The impoundment level is on the desk because the row was written from it, and it plays no part here.",
+      "story": "Tomas Beke, the sluice engineer, has one row of last Thursday's gate table beside the recorder trace for the same half hour. The row was written from the flow at the top of it. The trace says what the flow averaged instead.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "The rate does not wait — Review",
+        "setup": "Sluice Control",
+        "play": "Price one row of the gate table against the trace of what happened",
+        "task": "Price one row of the gate table against the trace of what happened",
+        "question": "How much water does one row of the gate table claim that never passed?",
+        "answer": "",
+        "why": "About 11,900 cubic metres, out of one row. Flow through a part-open gate follows the head, and the head closes while the water is passing, so the rate at the top of a half hour is the largest rate of that half hour. Using it for the whole interval charges the sheet the difference. Every stepped calculation carries that error, and it has two handles: how fast the rate is changing, which the estuary decides, and how long the step is, which the table decides.",
+        "givens": [],
+        "relationship": "Water overstated = (the rate the row assumed − the rate that actually held on average) × the length of the interval.",
+        "calcKey": "SLUICE-9"
+      },
+      "assumes": [
+        "a rate quoted at an instant is the rate at that instant only",
+        "a volume is a rate multiplied by the time that rate ran for"
+      ],
+      "concept": {
+        "n": 2,
+        "c": "A rate of change, and the derivative as a rate",
+        "of": 34
       }
     }
   ],
@@ -3881,6 +4099,64 @@ export const BALLPARK_CALCS = {
     "units": "m",
     "solution": "0.30 + 0.375 × 0.5 = 0.49 m after one step.",
     "explanation": "The rate the model gives at 0.30 m is the forcing less the decay, which is 0.375 rather than 0.42. Stepping on the forcing alone ignores the term that is currently taking the surge back down."
+  },
+  "PRED-11": {
+    "prompt": "Two diurnal constituents, each running a little over and a little under one turn a day. The board wants the interval at which they come back into step.",
+    "question": "How long is it from one time the two diurnal terms add to the next?",
+    "labels": [
+      "15.041 °/h  (speed of the solar-lunar diurnal term)",
+      "13.943 °/h  (speed of the lunar diurnal term)",
+      "360 °  (one whole turn of the slower term's lag on the faster)",
+      "24.84 h  (the lunar diurnal term's own period)"
+    ],
+    "values": [
+      15.041,
+      13.943,
+      360,
+      24.84
+    ],
+    "slots": 3,
+    "template": "{2} ÷ ({0} − {1})",
+    "formula": "c/(a-b)",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 327.9,
+    "tolerance": 8,
+    "units": "hours",
+    "solution": "The two speeds differ by 1.098 °/h, so 360 ÷ 1.098 = 328 hours, or 13.7 days.",
+    "explanation": "Either term on its own comes round in about a day, and that period says nothing about how often the two add. What sets the interval is the rate at which one gains on the other."
+  },
+  "SLUICE-9": {
+    "prompt": "One half-hour row, written from the flow at the top of it, against the trace of what the flow actually averaged over the same half hour.",
+    "question": "How much water does one row of the gate table claim that never passed?",
+    "labels": [
+      "62.0 m³/s  (the flow at the top of the half hour, which the row used)",
+      "55.4 m³/s  (what the trace averaged across the half hour)",
+      "1800 s  (the length of one row of the table)",
+      "4.30 m  (the level being held in the impoundment)"
+    ],
+    "values": [
+      62,
+      55.4,
+      1800,
+      4.3
+    ],
+    "slots": 3,
+    "template": "({0} − {1}) × {2}",
+    "formula": "(a-b)*c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 11880,
+    "tolerance": 400,
+    "units": "m³",
+    "solution": "62.0 − 55.4 = 6.6 cubic metres a second, and 6.6 × 1800 = 11,880 cubic metres.",
+    "explanation": "The interval is what turns a difference of two rates into a volume. Shorten the row and the two rates have less time to come apart, which is the answer to the question Beke asks twice a year."
   }
 };
 

@@ -98,10 +98,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Your First Exam Room",
-      "scene": "Ben is here for his ankle check. The team has four things to do. Clean hands. Ben's story. A look at the ankle. A note for the next person.",
+      "scene": "Ben is here for his ankle check. The team has three things to do. Clean hands. Ben's story. A look at the ankle.",
       "takeaway": "Each step in a hospital routine is there to make the next one work.",
       "place": "",
-      "guide": "All four steps happen. So ask what each one needs first. What is on your hands goes on to Ben. His story tells you where to look. And the note is for the nurse who comes after you.",
+      "guide": "All three steps happen. So ask what each one needs first. What is on your hands goes on to Ben. His story tells you where to look. Then you look at the ankle.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -115,19 +115,17 @@ export const CURRICULUM = {
         "play": "Put these steps in the best order.",
         "task": "Put these steps in the best order.",
         "question": "Put these steps in the best order.",
-        "answer": "1. Clean your hands, so nothing from the last patient travels to Ben. 2. Ask Ben what happened, and where it hurts most. 3. Look at the ankle, using what Ben said to know where to look. 4. Write down the clues, so the next person sees what you saw.",
-        "why": "Each step makes the next one work. Hands come first. What is on them goes on to Ben. His story comes next. It tells you where to look. Then you look. Then you write it down, so the next person knows what you saw.",
+        "answer": "1. Clean your hands, so nothing from the last patient travels to Ben. 2. Ask Ben what happened, and where it hurts most. 3. Look at the ankle, using what Ben said to know where to look.",
+        "why": "Each step makes the next one work. Hands come first. What is on them goes on to Ben. His story comes next. It tells you where to look. Then you look at the ankle. You already know where to look.",
         "cards": [
           "Clean your hands, so nothing from the last patient travels to Ben.",
           "Ask Ben what happened, and where it hurts most.",
-          "Look closely at the sore ankle, and compare it with the other one.",
-          "Write down the clues, so the evening nurse sees what you saw."
+          "Look at the sore ankle, and compare it with the other one."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -231,13 +229,13 @@ export const CURRICULUM = {
         "rebuttals": [
           "B. DeShawn—Imaging/orthopedics; Mei—wound-care check; Mr. Alvarez—exam and measurements; Fatima—allergy/eye evaluation; Owen—exam/infection evaluation — Mei and Owen are swapped. Mei has a fever, and Owen has a scrape to clean.",
           "C. DeShawn—wound-care check; Mei—imaging/orthopedics; Mr. Alvarez—allergy/eye evaluation; Fatima—exam and measurements; Owen—exam/infection evaluation — Almost every one is in the wrong room. A sore ankle needs a picture of the bone.",
-          "D. Send all five to the emergency team, since that is where Nora went. — The emergency team is for the most urgent patient. Five more people would slow them down."
+          "D. Send all five to the emergency team, where Nora went. — The emergency team is for the most urgent patient. Five more people would slow them down."
         ],
         "choices": [
           "DeShawn—Imaging/orthopedics; Mei—exam/infection evaluation; Mr. Alvarez—exam and measurements; Fatima—allergy/eye evaluation; Owen—wound-care check",
           "DeShawn—Imaging/orthopedics; Mei—wound-care check; Mr. Alvarez—exam and measurements; Fatima—allergy/eye evaluation; Owen—exam/infection evaluation",
           "DeShawn—wound-care check; Mei—imaging/orthopedics; Mr. Alvarez—allergy/eye evaluation; Fatima—exam and measurements; Owen—exam/infection evaluation",
-          "Send all five to the emergency team, since that is where Nora went."
+          "Send all five to the emergency team, where Nora went."
         ],
         "correctChoice": "DeShawn—Imaging/orthopedics; Mei—exam/infection evaluation; Mr. Alvarez—exam and measurements; Fatima—allergy/eye evaluation; Owen—wound-care check"
       },
@@ -273,16 +271,16 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "End-of-Day Handoff",
-      "scene": "Your shift is ending. The evening team is arriving. They were not here for any of today. They cannot read every note in time. A handoff is a summary built for them. Who each patient is. What matters most. What has been done. What to watch for. Careful work only helps if the next person can use it.",
+      "scene": "Your shift is ending. The evening team is arriving. They were not here for any of today. They cannot read every note in time. A handoff is a summary built for them. Who each patient is. What matters most. What to watch for. Careful work only helps if the next person can use it.",
       "takeaway": "Science is only useful if the next person can understand and act on the evidence.",
       "place": "",
-      "guide": "All four things get said. Ask what the other nurse knows already. Nothing at all. So start with who it is and what is wrong. Then the clues, so they can judge. Get the order wrong and they hear the answer first.",
+      "guide": "All three things get said. Ask what the other nurse knows already. Nothing at all. So start with who it is and what is wrong. Then the clues, so they can judge. Get the order wrong and they hear the answer first.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
         "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
       ],
-      "story": "Your shift is ending. The evening team is arriving. They were not here for any of today. They cannot read every note in time. A handoff is a summary built for them. Who each patient is. What matters most. What has been done. What to watch for. Careful work only helps if the next person can use it.",
+      "story": "Your shift is ending. The evening team is arriving. They were not here for any of today. They cannot read every note in time. A handoff is a summary built for them. Who each patient is. What matters most. What to watch for. Careful work only helps if the next person can use it.",
       "game": {
         "type": "SEQUENCE",
         "title": "End-of-Day Handoff",
@@ -290,19 +288,17 @@ export const CURRICULUM = {
         "play": "Put the handoff information in the best order.",
         "task": "Put the handoff information in the best order.",
         "question": "Put the handoff information in the best order.",
-        "answer": "1. Say who the patient is and the main problem. 2. Give the most important observations and measurements. 3. Explain what the hospital team has already done or learned. 4. State what still needs to happen next.",
-        "why": "A handoff is for somebody who missed everything. So it starts with who and what is wrong. Then the clues you have, so they can judge for themselves. Then what has already been done, so nobody repeats it. Then what still needs doing. Get the order wrong and they hear the answer before they know the question.",
+        "answer": "1. Say who the patient is and the main problem. 2. Give the most important observations and measurements. 3. State what still needs to happen next.",
+        "why": "A handoff is for somebody who missed everything. So it starts with who and what is wrong. Then the clues you have. Now they can judge for themselves. Then what still needs doing. Get the order wrong and they hear the answer first. They do not know the question yet.",
         "cards": [
           "Say who the patient is and the main problem.",
           "Give the most important observations and measurements.",
-          "Explain what the hospital team has already done or learned.",
           "State what still needs to happen, and who will do it."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -459,10 +455,10 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "Your First Exam Room — Review 2",
-      "scene": "Ben is here for his ankle check. The team has four things to do. Clean hands. Ben's story. A look at the ankle. A note for the next person.",
+      "scene": "Ben is here for his ankle check. The team has three things to do. Clean hands. Ben's story. A look at the ankle.",
       "takeaway": "Each step in a hospital routine is there to make the next one work.",
       "place": "",
-      "guide": "All four steps happen. So ask what each one needs first. What is on your hands goes on to Ben. His story tells you where to look. And the note is for the nurse who comes after you.",
+      "guide": "All three steps happen. So ask what each one needs first. What is on your hands goes on to Ben. His story tells you where to look. Then you look at the ankle.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -476,19 +472,17 @@ export const CURRICULUM = {
         "play": "Put these steps in the best order.",
         "task": "Put these steps in the best order.",
         "question": "Put these steps in the best order.",
-        "answer": "1. Clean your hands, so nothing from the last patient travels to Ben. 2. Ask Ben what happened, and where it hurts most. 3. Look at the ankle, using what Ben said to know where to look. 4. Write down the clues, so the next person sees what you saw.",
-        "why": "Each step makes the next one work. Hands come first. What is on them goes on to Ben. His story comes next. It tells you where to look. Then you look. Then you write it down, so the next person knows what you saw.",
+        "answer": "1. Clean your hands, so nothing from the last patient travels to Ben. 2. Ask Ben what happened, and where it hurts most. 3. Look at the ankle, using what Ben said to know where to look.",
+        "why": "Each step makes the next one work. Hands come first. What is on them goes on to Ben. His story comes next. It tells you where to look. Then you look at the ankle. You already know where to look.",
         "cards": [
           "Clean your hands, so nothing from the last patient travels to Ben.",
           "Ask Ben what happened, and where it hurts most.",
-          "Look closely at the sore ankle, and compare it with the other one.",
-          "Write down the clues, so the evening nurse sees what you saw."
+          "Look at the sore ankle, and compare it with the other one."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -609,13 +603,13 @@ export const CURRICULUM = {
         "rebuttals": [
           "B. DeShawn—Imaging/orthopedics; Mei—wound-care check; Mr. Alvarez—exam and measurements; Fatima—allergy/eye evaluation; Owen—exam/infection evaluation — Mei and Owen are swapped. Mei has a fever, and Owen has a scrape to clean.",
           "C. DeShawn—wound-care check; Mei—imaging/orthopedics; Mr. Alvarez—allergy/eye evaluation; Fatima—exam and measurements; Owen—exam/infection evaluation — Almost every one is in the wrong room. A sore ankle needs a picture of the bone.",
-          "D. Send all five to the emergency team, since that is where Nora went. — The emergency team is for the most urgent patient. Five more people would slow them down."
+          "D. Send all five to the emergency team, where Nora went. — The emergency team is for the most urgent patient. Five more people would slow them down."
         ],
         "choices": [
           "DeShawn—Imaging/orthopedics; Mei—exam/infection evaluation; Mr. Alvarez—exam and measurements; Fatima—allergy/eye evaluation; Owen—wound-care check",
           "DeShawn—Imaging/orthopedics; Mei—wound-care check; Mr. Alvarez—exam and measurements; Fatima—allergy/eye evaluation; Owen—exam/infection evaluation",
           "DeShawn—wound-care check; Mei—imaging/orthopedics; Mr. Alvarez—allergy/eye evaluation; Fatima—exam and measurements; Owen—exam/infection evaluation",
-          "Send all five to the emergency team, since that is where Nora went."
+          "Send all five to the emergency team, where Nora went."
         ],
         "correctChoice": "DeShawn—Imaging/orthopedics; Mei—exam/infection evaluation; Mr. Alvarez—exam and measurements; Fatima—allergy/eye evaluation; Owen—wound-care check"
       },
@@ -651,16 +645,16 @@ export const CURRICULUM = {
     {
       "day": 12,
       "title": "End-of-Day Handoff — Review 2",
-      "scene": "Your shift is ending. The evening team does not need every tiny detail; they need the most important facts for each patient.",
+      "scene": "Your shift is ending. The evening team is arriving. They were not here for any of today. They cannot read every note in time. A handoff is a summary built for them. Who each patient is. What matters most. What to watch for. Careful work only helps if the next person can use it.",
       "takeaway": "Science is only useful if the next person can understand and act on the evidence.",
       "place": "",
-      "guide": "All four things get said. Ask what the other nurse knows already. Nothing at all. So start with who it is and what is wrong. Then the clues, so they can judge. Get the order wrong and they hear the answer first.",
+      "guide": "All three things get said. Ask what the other nurse knows already. Nothing at all. So start with who it is and what is wrong. Then the clues, so they can judge. Get the order wrong and they hear the answer first.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
         "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
       ],
-      "story": "Your shift is ending. The evening team does not need every tiny detail; they need the most important facts for each patient.",
+      "story": "Your shift is ending. The evening team is arriving. They were not here for any of today. They cannot read every note in time. A handoff is a summary built for them. Who each patient is. What matters most. What to watch for. Careful work only helps if the next person can use it.",
       "game": {
         "type": "SEQUENCE",
         "title": "End-of-Day Handoff — Review 2",
@@ -668,19 +662,17 @@ export const CURRICULUM = {
         "play": "Put the handoff information in the best order.",
         "task": "Put the handoff information in the best order.",
         "question": "Put the handoff information in the best order.",
-        "answer": "1. Say who the patient is and the main problem. 2. Give the most important observations and measurements. 3. Explain what the hospital team has already done or learned. 4. State what still needs to happen next.",
-        "why": "A handoff is for somebody who missed everything. So it starts with who and what is wrong. Then the clues you have, so they can judge for themselves. Then what has already been done, so nobody repeats it. Then what still needs doing. Get the order wrong and they hear the answer before they know the question.",
+        "answer": "1. Say who the patient is and the main problem. 2. Give the most important observations and measurements. 3. State what still needs to happen next.",
+        "why": "A handoff is for somebody who missed everything. So it starts with who and what is wrong. Then the clues you have. Now they can judge for themselves. Then what still needs doing. Get the order wrong and they hear the answer first. They do not know the question yet.",
         "cards": [
           "Say who the patient is and the main problem.",
           "Give the most important observations and measurements.",
-          "Explain what the hospital team has already done or learned.",
           "State what still needs to happen, and who will do it."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -837,10 +829,10 @@ export const CURRICULUM = {
     {
       "day": 15,
       "title": "Your First Exam Room — Review 3",
-      "scene": "Ben is here for his ankle check. The team has four things to do. Clean hands. Ben's story. A look at the ankle. A note for the next person.",
+      "scene": "Ben is here for his ankle check. The team has three things to do. Clean hands. Ben's story. A look at the ankle.",
       "takeaway": "Each step in a hospital routine is there to make the next one work.",
       "place": "",
-      "guide": "All four steps happen. So ask what each one needs first. What is on your hands goes on to Ben. His story tells you where to look. And the note is for the nurse who comes after you.",
+      "guide": "All three steps happen. So ask what each one needs first. What is on your hands goes on to Ben. His story tells you where to look. Then you look at the ankle.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -854,19 +846,17 @@ export const CURRICULUM = {
         "play": "Put these steps in the best order.",
         "task": "Put these steps in the best order.",
         "question": "Put these steps in the best order.",
-        "answer": "1. Clean your hands, so nothing from the last patient travels to Ben. 2. Ask Ben what happened, and where it hurts most. 3. Look at the ankle, using what Ben said to know where to look. 4. Write down the clues, so the next person sees what you saw.",
-        "why": "Each step makes the next one work. Hands come first. What is on them goes on to Ben. His story comes next. It tells you where to look. Then you look. Then you write it down, so the next person knows what you saw.",
+        "answer": "1. Clean your hands, so nothing from the last patient travels to Ben. 2. Ask Ben what happened, and where it hurts most. 3. Look at the ankle, using what Ben said to know where to look.",
+        "why": "Each step makes the next one work. Hands come first. What is on them goes on to Ben. His story comes next. It tells you where to look. Then you look at the ankle. You already know where to look.",
         "cards": [
           "Clean your hands, so nothing from the last patient travels to Ben.",
           "Ask Ben what happened, and where it hurts most.",
-          "Look closely at the sore ankle, and compare it with the other one.",
-          "Write down the clues, so the evening nurse sees what you saw."
+          "Look at the sore ankle, and compare it with the other one."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -987,13 +977,13 @@ export const CURRICULUM = {
         "rebuttals": [
           "B. DeShawn—Imaging/orthopedics; Mei—wound-care check; Mr. Alvarez—exam and measurements; Fatima—allergy/eye evaluation; Owen—exam/infection evaluation — Mei and Owen are swapped. Mei has a fever, and Owen has a scrape to clean.",
           "C. DeShawn—wound-care check; Mei—imaging/orthopedics; Mr. Alvarez—allergy/eye evaluation; Fatima—exam and measurements; Owen—exam/infection evaluation — Almost every one is in the wrong room. A sore ankle needs a picture of the bone.",
-          "D. Send all five to the emergency team, since that is where Nora went. — The emergency team is for the most urgent patient. Five more people would slow them down."
+          "D. Send all five to the emergency team, where Nora went. — The emergency team is for the most urgent patient. Five more people would slow them down."
         ],
         "choices": [
           "DeShawn—Imaging/orthopedics; Mei—exam/infection evaluation; Mr. Alvarez—exam and measurements; Fatima—allergy/eye evaluation; Owen—wound-care check",
           "DeShawn—Imaging/orthopedics; Mei—wound-care check; Mr. Alvarez—exam and measurements; Fatima—allergy/eye evaluation; Owen—exam/infection evaluation",
           "DeShawn—wound-care check; Mei—imaging/orthopedics; Mr. Alvarez—allergy/eye evaluation; Fatima—exam and measurements; Owen—exam/infection evaluation",
-          "Send all five to the emergency team, since that is where Nora went."
+          "Send all five to the emergency team, where Nora went."
         ],
         "correctChoice": "DeShawn—Imaging/orthopedics; Mei—exam/infection evaluation; Mr. Alvarez—exam and measurements; Fatima—allergy/eye evaluation; Owen—wound-care check"
       },
@@ -1029,16 +1019,16 @@ export const CURRICULUM = {
     {
       "day": 18,
       "title": "End-of-Day Handoff — Review 3",
-      "scene": "Your shift is ending. The evening team does not need every tiny detail; they need the most important facts for each patient.",
+      "scene": "Your shift is ending. The evening team is arriving. They were not here for any of today. They cannot read every note in time. A handoff is a summary built for them. Who each patient is. What matters most. What to watch for. Careful work only helps if the next person can use it.",
       "takeaway": "Science is only useful if the next person can understand and act on the evidence.",
       "place": "",
-      "guide": "All four things get said. Ask what the other nurse knows already. Nothing at all. So start with who it is and what is wrong. Then the clues, so they can judge. Get the order wrong and they hear the answer first.",
+      "guide": "All three things get said. Ask what the other nurse knows already. Nothing at all. So start with who it is and what is wrong. Then the clues, so they can judge. Get the order wrong and they hear the answer first.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
         "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
       ],
-      "story": "Your shift is ending. The evening team does not need every tiny detail; they need the most important facts for each patient.",
+      "story": "Your shift is ending. The evening team is arriving. They were not here for any of today. They cannot read every note in time. A handoff is a summary built for them. Who each patient is. What matters most. What to watch for. Careful work only helps if the next person can use it.",
       "game": {
         "type": "SEQUENCE",
         "title": "End-of-Day Handoff — Review 3",
@@ -1046,19 +1036,17 @@ export const CURRICULUM = {
         "play": "Put the handoff information in the best order.",
         "task": "Put the handoff information in the best order.",
         "question": "Put the handoff information in the best order.",
-        "answer": "1. Say who the patient is and the main problem. 2. Give the most important observations and measurements. 3. Explain what the hospital team has already done or learned. 4. State what still needs to happen next.",
-        "why": "A handoff is for somebody who missed everything. So it starts with who and what is wrong. Then the clues you have, so they can judge for themselves. Then what has already been done, so nobody repeats it. Then what still needs doing. Get the order wrong and they hear the answer before they know the question.",
+        "answer": "1. Say who the patient is and the main problem. 2. Give the most important observations and measurements. 3. State what still needs to happen next.",
+        "why": "A handoff is for somebody who missed everything. So it starts with who and what is wrong. Then the clues you have. Now they can judge for themselves. Then what still needs doing. Get the order wrong and they hear the answer first. They do not know the question yet.",
         "cards": [
           "Say who the patient is and the main problem.",
           "Give the most important observations and measurements.",
-          "Explain what the hospital team has already done or learned.",
           "State what still needs to happen, and who will do it."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -1215,10 +1203,10 @@ export const CURRICULUM = {
     {
       "day": 21,
       "title": "Your First Exam Room — Review 4",
-      "scene": "Ben is here for his ankle check. The team has four things to do. Clean hands. Ben's story. A look at the ankle. A note for the next person.",
+      "scene": "Ben is here for his ankle check. The team has three things to do. Clean hands. Ben's story. A look at the ankle.",
       "takeaway": "Each step in a hospital routine is there to make the next one work.",
       "place": "",
-      "guide": "All four steps happen. So ask what each one needs first. What is on your hands goes on to Ben. His story tells you where to look. And the note is for the nurse who comes after you.",
+      "guide": "All three steps happen. So ask what each one needs first. What is on your hands goes on to Ben. His story tells you where to look. Then you look at the ankle.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -1232,19 +1220,17 @@ export const CURRICULUM = {
         "play": "Put these steps in the best order.",
         "task": "Put these steps in the best order.",
         "question": "Put these steps in the best order.",
-        "answer": "1. Clean your hands, so nothing from the last patient travels to Ben. 2. Ask Ben what happened, and where it hurts most. 3. Look at the ankle, using what Ben said to know where to look. 4. Write down the clues, so the next person sees what you saw.",
-        "why": "Each step makes the next one work. Hands come first. What is on them goes on to Ben. His story comes next. It tells you where to look. Then you look. Then you write it down, so the next person knows what you saw.",
+        "answer": "1. Clean your hands, so nothing from the last patient travels to Ben. 2. Ask Ben what happened, and where it hurts most. 3. Look at the ankle, using what Ben said to know where to look.",
+        "why": "Each step makes the next one work. Hands come first. What is on them goes on to Ben. His story comes next. It tells you where to look. Then you look at the ankle. You already know where to look.",
         "cards": [
           "Clean your hands, so nothing from the last patient travels to Ben.",
           "Ask Ben what happened, and where it hurts most.",
-          "Look closely at the sore ankle, and compare it with the other one.",
-          "Write down the clues, so the evening nurse sees what you saw."
+          "Look at the sore ankle, and compare it with the other one."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -1365,13 +1351,13 @@ export const CURRICULUM = {
         "rebuttals": [
           "B. DeShawn—Imaging/orthopedics; Mei—wound-care check; Mr. Alvarez—exam and measurements; Fatima—allergy/eye evaluation; Owen—exam/infection evaluation — Mei and Owen are swapped. Mei has a fever, and Owen has a scrape to clean.",
           "C. DeShawn—wound-care check; Mei—imaging/orthopedics; Mr. Alvarez—allergy/eye evaluation; Fatima—exam and measurements; Owen—exam/infection evaluation — Almost every one is in the wrong room. A sore ankle needs a picture of the bone.",
-          "D. Send all five to the emergency team, since that is where Nora went. — The emergency team is for the most urgent patient. Five more people would slow them down."
+          "D. Send all five to the emergency team, where Nora went. — The emergency team is for the most urgent patient. Five more people would slow them down."
         ],
         "choices": [
           "DeShawn—Imaging/orthopedics; Mei—exam/infection evaluation; Mr. Alvarez—exam and measurements; Fatima—allergy/eye evaluation; Owen—wound-care check",
           "DeShawn—Imaging/orthopedics; Mei—wound-care check; Mr. Alvarez—exam and measurements; Fatima—allergy/eye evaluation; Owen—exam/infection evaluation",
           "DeShawn—wound-care check; Mei—imaging/orthopedics; Mr. Alvarez—allergy/eye evaluation; Fatima—exam and measurements; Owen—exam/infection evaluation",
-          "Send all five to the emergency team, since that is where Nora went."
+          "Send all five to the emergency team, where Nora went."
         ],
         "correctChoice": "DeShawn—Imaging/orthopedics; Mei—exam/infection evaluation; Mr. Alvarez—exam and measurements; Fatima—allergy/eye evaluation; Owen—wound-care check"
       },
@@ -1407,16 +1393,16 @@ export const CURRICULUM = {
     {
       "day": 24,
       "title": "End-of-Day Handoff — Review 4",
-      "scene": "Your shift is ending. The evening team does not need every tiny detail; they need the most important facts for each patient.",
+      "scene": "Your shift is ending. The evening team is arriving. They were not here for any of today. They cannot read every note in time. A handoff is a summary built for them. Who each patient is. What matters most. What to watch for. Careful work only helps if the next person can use it.",
       "takeaway": "Science is only useful if the next person can understand and act on the evidence.",
       "place": "",
-      "guide": "All four things get said. Ask what the other nurse knows already. Nothing at all. So start with who it is and what is wrong. Then the clues, so they can judge. Get the order wrong and they hear the answer first.",
+      "guide": "All three things get said. Ask what the other nurse knows already. Nothing at all. So start with who it is and what is wrong. Then the clues, so they can judge. Get the order wrong and they hear the answer first.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
         "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
       ],
-      "story": "Your shift is ending. The evening team does not need every tiny detail; they need the most important facts for each patient.",
+      "story": "Your shift is ending. The evening team is arriving. They were not here for any of today. They cannot read every note in time. A handoff is a summary built for them. Who each patient is. What matters most. What to watch for. Careful work only helps if the next person can use it.",
       "game": {
         "type": "SEQUENCE",
         "title": "End-of-Day Handoff — Review 4",
@@ -1424,19 +1410,17 @@ export const CURRICULUM = {
         "play": "Put the handoff information in the best order.",
         "task": "Put the handoff information in the best order.",
         "question": "Put the handoff information in the best order.",
-        "answer": "1. Say who the patient is and the main problem. 2. Give the most important observations and measurements. 3. Explain what the hospital team has already done or learned. 4. State what still needs to happen next.",
-        "why": "A handoff is for somebody who missed everything. So it starts with who and what is wrong. Then the clues you have, so they can judge for themselves. Then what has already been done, so nobody repeats it. Then what still needs doing. Get the order wrong and they hear the answer before they know the question.",
+        "answer": "1. Say who the patient is and the main problem. 2. Give the most important observations and measurements. 3. State what still needs to happen next.",
+        "why": "A handoff is for somebody who missed everything. So it starts with who and what is wrong. Then the clues you have. Now they can judge for themselves. Then what still needs doing. Get the order wrong and they hear the answer first. They do not know the question yet.",
         "cards": [
           "Say who the patient is and the main problem.",
           "Give the most important observations and measurements.",
-          "Explain what the hospital team has already done or learned.",
           "State what still needs to happen, and who will do it."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -1534,10 +1518,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "The Blood Loop",
-      "scene": "A heart model sits on the table. Four arrow cards lie beside it. The nurse says blood moves in a loop. Heart, lungs, heart, body, and back.",
+      "scene": "A heart model sits on the table. Three arrow cards lie beside it. The nurse says blood moves in a loop. Heart, lungs, heart, and body.",
       "takeaway": "Circulation is a loop, not a one-way trip.",
       "place": "",
-      "guide": "These four make a loop. Ask what each step needs before it. Blood cannot bring oxygen to the body before it picks any up. And it picks it up in the lungs. Start at the heart and follow it round.",
+      "guide": "These three make a loop. Ask what each step needs before it. Blood cannot bring oxygen to the body before it picks any up. And it picks it up in the lungs. Start at the heart and follow it round.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -1551,19 +1535,17 @@ export const CURRICULUM = {
         "play": "Put the simplified blood loop in order, starting at the heart.",
         "task": "Put the simplified blood loop in order, starting at the heart.",
         "question": "Put the simplified blood loop in order, starting at the heart.",
-        "answer": "The heart pumps blood toward the lungs. -> In the lungs, blood picks up oxygen. -> The heart pumps oxygen-rich blood to the body. -> Blood returns from the body to the heart.",
-        "why": "Blood does not go one way and stop. It goes around and around. The heart pumps it to the lungs. In the lungs it picks up oxygen. The heart pumps it out to the body. Then it comes back. That is a loop, and it never stops all day or all night.",
+        "answer": "The heart pumps blood toward the lungs. -> In the lungs, blood picks up oxygen. -> The heart pumps oxygen-rich blood to the body.",
+        "why": "Blood does not go one way and stop. It goes around and around. The heart pumps it to the lungs. In the lungs it picks up oxygen. The heart pumps it out to the body. Then it comes back and starts again. It never stops all day or all night.",
         "cards": [
           "The heart pumps blood toward the lungs.",
           "In the lungs, blood picks up oxygen.",
-          "The heart pumps oxygen-rich blood to the body.",
-          "Blood returns from the body to the heart."
+          "The heart pumps oxygen-rich blood to the body."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -1810,13 +1792,13 @@ export const CURRICULUM = {
         "answer": "The breathing system — the airways and lungs.",
         "why": "A whistle needs air squeezing through a narrow space. Noah makes that sound with every breath. So it is the breathing tubes that got narrow. That is what wheezing is. One clue on its own does not mean much. This one is useful because you can name the part that made it.",
         "rebuttals": [
-          "B. The throat and voice box, because that is where whistling sounds are made. — The voice box makes talking sounds. This whistle comes with every breath, from lower down.",
+          "B. The throat and voice box, where whistling sounds are made. — The voice box makes talking sounds. This whistle comes with every breath, from lower down.",
           "C. The heart and blood vessels, because a whistle could be blood rushing. — The heart makes a thump you hear with a stethoscope. It does not whistle when Noah breathes.",
           "D. The digestive system, because Noah breathed in dust and swallowed some. — Dust may reach his stomach. A stomach does not make a sound with each breath."
         ],
         "choices": [
           "The breathing system — the airways and lungs.",
-          "The throat and voice box, because that is where whistling sounds are made.",
+          "The throat and voice box, where whistling sounds are made.",
           "The heart and blood vessels, because a whistle could be blood rushing.",
           "The digestive system, because Noah breathed in dust and swallowed some."
         ],
@@ -1894,10 +1876,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Follow One Breath — Review 2",
-      "scene": "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood.",
+      "scene": "Priya takes a deep breath. She asks where the air goes. You have three picture cards: the nose and mouth, the lungs, and the blood.",
       "takeaway": "The lungs are the meeting place between outside air and the blood.",
       "place": "",
-      "guide": "These four are one journey. Ask what has to happen first. Air cannot reach the lungs before it goes down the windpipe. And oxygen cannot get into the blood before the air arrives. The path helps you guess where a problem is.",
+      "guide": "These three are one journey. Ask what has to happen first. Air cannot reach the lungs before it goes in at the nose or mouth. And oxygen cannot get into the blood before the air arrives. The path helps you guess where a problem is.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -1911,19 +1893,17 @@ export const CURRICULUM = {
         "play": "Put the path of a breath in order.",
         "task": "Put the path of a breath in order.",
         "question": "Put the path of a breath in order.",
-        "answer": "Air enters through the nose or mouth. -> Air moves down the windpipe. -> Air reaches the lungs. -> Oxygen moves into the blood to travel around the body.",
-        "why": "Air has to travel to get where it is needed. In through the nose or mouth. Down the windpipe. Into the lungs. Only then can oxygen move into the blood. The blood carries it to every part of the body. Knowing the path helps you guess where a problem might be.",
+        "answer": "Air enters through the nose or mouth. -> Air reaches the lungs. -> Oxygen moves into the blood to travel around the body.",
+        "why": "Air has to travel to get where it is needed. In through the nose or mouth. Down into the lungs. Only then can oxygen move into the blood. The blood carries it to every part of the body. Knowing the path helps you guess where a problem might be.",
         "cards": [
           "Air enters through the nose or mouth.",
-          "Air moves down the windpipe.",
           "Air reaches the lungs.",
           "Oxygen moves into the blood to travel around the body."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -1961,13 +1941,13 @@ export const CURRICULUM = {
         "answer": "The breathing system — the airways and lungs.",
         "why": "A whistle needs air squeezing through a narrow space. Noah makes that sound with every breath. So it is the breathing tubes that got narrow. That is what wheezing is. One clue on its own does not mean much. This one is useful because you can name the part that made it.",
         "rebuttals": [
-          "B. The throat and voice box, because that is where whistling sounds are made. — The voice box makes talking sounds. This whistle comes with every breath, from lower down.",
+          "B. The throat and voice box, where whistling sounds are made. — The voice box makes talking sounds. This whistle comes with every breath, from lower down.",
           "C. The heart and blood vessels, because a whistle could be blood rushing. — The heart makes a thump you hear with a stethoscope. It does not whistle when Noah breathes.",
           "D. The digestive system, because Noah breathed in dust and swallowed some. — Dust may reach his stomach. A stomach does not make a sound with each breath."
         ],
         "choices": [
           "The breathing system — the airways and lungs.",
-          "The throat and voice box, because that is where whistling sounds are made.",
+          "The throat and voice box, where whistling sounds are made.",
           "The heart and blood vessels, because a whistle could be blood rushing.",
           "The digestive system, because Noah breathed in dust and swallowed some."
         ],
@@ -2059,10 +2039,10 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "The Blood Loop — Review 2",
-      "scene": "A heart model sits on the table. Four arrow cards lie beside it. The nurse says blood moves in a loop. Heart, lungs, heart, body, and back.",
+      "scene": "A heart model sits on the table. Three arrow cards lie beside it. The nurse says blood moves in a loop. Heart, lungs, heart, and body.",
       "takeaway": "Circulation is a loop, not a one-way trip.",
       "place": "",
-      "guide": "These four make a loop. Ask what each step needs before it. Blood cannot bring oxygen to the body before it picks any up. And it picks it up in the lungs. Start at the heart and follow it round.",
+      "guide": "These three make a loop. Ask what each step needs before it. Blood cannot bring oxygen to the body before it picks any up. And it picks it up in the lungs. Start at the heart and follow it round.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -2076,19 +2056,17 @@ export const CURRICULUM = {
         "play": "Put the simplified blood loop in order, starting at the heart.",
         "task": "Put the simplified blood loop in order, starting at the heart.",
         "question": "Put the simplified blood loop in order, starting at the heart.",
-        "answer": "The heart pumps blood toward the lungs. -> In the lungs, blood picks up oxygen. -> The heart pumps oxygen-rich blood to the body. -> Blood returns from the body to the heart.",
-        "why": "Blood does not go one way and stop. It goes around and around. The heart pumps it to the lungs. In the lungs it picks up oxygen. The heart pumps it out to the body. Then it comes back. That is a loop, and it never stops all day or all night.",
+        "answer": "The heart pumps blood toward the lungs. -> In the lungs, blood picks up oxygen. -> The heart pumps oxygen-rich blood to the body.",
+        "why": "Blood does not go one way and stop. It goes around and around. The heart pumps it to the lungs. In the lungs it picks up oxygen. The heart pumps it out to the body. Then it comes back and starts again. It never stops all day or all night.",
         "cards": [
           "The heart pumps blood toward the lungs.",
           "In the lungs, blood picks up oxygen.",
-          "The heart pumps oxygen-rich blood to the body.",
-          "Blood returns from the body to the heart."
+          "The heart pumps oxygen-rich blood to the body."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -2248,10 +2226,10 @@ export const CURRICULUM = {
     {
       "day": 13,
       "title": "Follow One Breath — Review 3",
-      "scene": "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood.",
+      "scene": "Priya takes a deep breath. She asks where the air goes. You have three picture cards: the nose and mouth, the lungs, and the blood.",
       "takeaway": "The lungs are the meeting place between outside air and the blood.",
       "place": "",
-      "guide": "These four are one journey. Ask what has to happen first. Air cannot reach the lungs before it goes down the windpipe. And oxygen cannot get into the blood before the air arrives. The path helps you guess where a problem is.",
+      "guide": "These three are one journey. Ask what has to happen first. Air cannot reach the lungs before it goes in at the nose or mouth. And oxygen cannot get into the blood before the air arrives. The path helps you guess where a problem is.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -2265,19 +2243,17 @@ export const CURRICULUM = {
         "play": "Put the path of a breath in order.",
         "task": "Put the path of a breath in order.",
         "question": "Put the path of a breath in order.",
-        "answer": "Air enters through the nose or mouth. -> Air moves down the windpipe. -> Air reaches the lungs. -> Oxygen moves into the blood to travel around the body.",
-        "why": "Air has to travel to get where it is needed. In through the nose or mouth. Down the windpipe. Into the lungs. Only then can oxygen move into the blood. The blood carries it to every part of the body. Knowing the path helps you guess where a problem might be.",
+        "answer": "Air enters through the nose or mouth. -> Air reaches the lungs. -> Oxygen moves into the blood to travel around the body.",
+        "why": "Air has to travel to get where it is needed. In through the nose or mouth. Down into the lungs. Only then can oxygen move into the blood. The blood carries it to every part of the body. Knowing the path helps you guess where a problem might be.",
         "cards": [
           "Air enters through the nose or mouth.",
-          "Air moves down the windpipe.",
           "Air reaches the lungs.",
           "Oxygen moves into the blood to travel around the body."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -2315,13 +2291,13 @@ export const CURRICULUM = {
         "answer": "The breathing system — the airways and lungs.",
         "why": "A whistle needs air squeezing through a narrow space. Noah makes that sound with every breath. So it is the breathing tubes that got narrow. That is what wheezing is. One clue on its own does not mean much. This one is useful because you can name the part that made it.",
         "rebuttals": [
-          "B. The throat and voice box, because that is where whistling sounds are made. — The voice box makes talking sounds. This whistle comes with every breath, from lower down.",
+          "B. The throat and voice box, where whistling sounds are made. — The voice box makes talking sounds. This whistle comes with every breath, from lower down.",
           "C. The heart and blood vessels, because a whistle could be blood rushing. — The heart makes a thump you hear with a stethoscope. It does not whistle when Noah breathes.",
           "D. The digestive system, because Noah breathed in dust and swallowed some. — Dust may reach his stomach. A stomach does not make a sound with each breath."
         ],
         "choices": [
           "The breathing system — the airways and lungs.",
-          "The throat and voice box, because that is where whistling sounds are made.",
+          "The throat and voice box, where whistling sounds are made.",
           "The heart and blood vessels, because a whistle could be blood rushing.",
           "The digestive system, because Noah breathed in dust and swallowed some."
         ],
@@ -2413,10 +2389,10 @@ export const CURRICULUM = {
     {
       "day": 16,
       "title": "The Blood Loop — Review 3",
-      "scene": "A heart model sits on the table. Four arrow cards lie beside it. The nurse says blood moves in a loop. Heart, lungs, heart, body, and back.",
+      "scene": "A heart model sits on the table. Three arrow cards lie beside it. The nurse says blood moves in a loop. Heart, lungs, heart, and body.",
       "takeaway": "Circulation is a loop, not a one-way trip.",
       "place": "",
-      "guide": "These four make a loop. Ask what each step needs before it. Blood cannot bring oxygen to the body before it picks any up. And it picks it up in the lungs. Start at the heart and follow it round.",
+      "guide": "These three make a loop. Ask what each step needs before it. Blood cannot bring oxygen to the body before it picks any up. And it picks it up in the lungs. Start at the heart and follow it round.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -2430,19 +2406,17 @@ export const CURRICULUM = {
         "play": "Put the simplified blood loop in order, starting at the heart.",
         "task": "Put the simplified blood loop in order, starting at the heart.",
         "question": "Put the simplified blood loop in order, starting at the heart.",
-        "answer": "The heart pumps blood toward the lungs. -> In the lungs, blood picks up oxygen. -> The heart pumps oxygen-rich blood to the body. -> Blood returns from the body to the heart.",
-        "why": "Blood does not go one way and stop. It goes around and around. The heart pumps it to the lungs. In the lungs it picks up oxygen. The heart pumps it out to the body. Then it comes back. That is a loop, and it never stops all day or all night.",
+        "answer": "The heart pumps blood toward the lungs. -> In the lungs, blood picks up oxygen. -> The heart pumps oxygen-rich blood to the body.",
+        "why": "Blood does not go one way and stop. It goes around and around. The heart pumps it to the lungs. In the lungs it picks up oxygen. The heart pumps it out to the body. Then it comes back and starts again. It never stops all day or all night.",
         "cards": [
           "The heart pumps blood toward the lungs.",
           "In the lungs, blood picks up oxygen.",
-          "The heart pumps oxygen-rich blood to the body.",
-          "Blood returns from the body to the heart."
+          "The heart pumps oxygen-rich blood to the body."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -2583,10 +2557,10 @@ export const CURRICULUM = {
     {
       "day": 19,
       "title": "Follow One Breath — Review 4",
-      "scene": "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood.",
+      "scene": "Priya takes a deep breath. She asks where the air goes. You have three picture cards: the nose and mouth, the lungs, and the blood.",
       "takeaway": "The lungs are the meeting place between outside air and the blood.",
       "place": "",
-      "guide": "These four are one journey. Ask what has to happen first. Air cannot reach the lungs before it goes down the windpipe. And oxygen cannot get into the blood before the air arrives. The path helps you guess where a problem is.",
+      "guide": "These three are one journey. Ask what has to happen first. Air cannot reach the lungs before it goes in at the nose or mouth. And oxygen cannot get into the blood before the air arrives. The path helps you guess where a problem is.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -2600,19 +2574,17 @@ export const CURRICULUM = {
         "play": "Put the path of a breath in order.",
         "task": "Put the path of a breath in order.",
         "question": "Put the path of a breath in order.",
-        "answer": "Air enters through the nose or mouth. -> Air moves down the windpipe. -> Air reaches the lungs. -> Oxygen moves into the blood to travel around the body.",
-        "why": "Air has to travel to get where it is needed. In through the nose or mouth. Down the windpipe. Into the lungs. Only then can oxygen move into the blood. The blood carries it to every part of the body. Knowing the path helps you guess where a problem might be.",
+        "answer": "Air enters through the nose or mouth. -> Air reaches the lungs. -> Oxygen moves into the blood to travel around the body.",
+        "why": "Air has to travel to get where it is needed. In through the nose or mouth. Down into the lungs. Only then can oxygen move into the blood. The blood carries it to every part of the body. Knowing the path helps you guess where a problem might be.",
         "cards": [
           "Air enters through the nose or mouth.",
-          "Air moves down the windpipe.",
           "Air reaches the lungs.",
           "Oxygen moves into the blood to travel around the body."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -2650,13 +2622,13 @@ export const CURRICULUM = {
         "answer": "The breathing system — the airways and lungs.",
         "why": "A whistle needs air squeezing through a narrow space. Noah makes that sound with every breath. So it is the breathing tubes that got narrow. That is what wheezing is. One clue on its own does not mean much. This one is useful because you can name the part that made it.",
         "rebuttals": [
-          "B. The throat and voice box, because that is where whistling sounds are made. — The voice box makes talking sounds. This whistle comes with every breath, from lower down.",
+          "B. The throat and voice box, where whistling sounds are made. — The voice box makes talking sounds. This whistle comes with every breath, from lower down.",
           "C. The heart and blood vessels, because a whistle could be blood rushing. — The heart makes a thump you hear with a stethoscope. It does not whistle when Noah breathes.",
           "D. The digestive system, because Noah breathed in dust and swallowed some. — Dust may reach his stomach. A stomach does not make a sound with each breath."
         ],
         "choices": [
           "The breathing system — the airways and lungs.",
-          "The throat and voice box, because that is where whistling sounds are made.",
+          "The throat and voice box, where whistling sounds are made.",
           "The heart and blood vessels, because a whistle could be blood rushing.",
           "The digestive system, because Noah breathed in dust and swallowed some."
         ],
@@ -2748,10 +2720,10 @@ export const CURRICULUM = {
     {
       "day": 22,
       "title": "The Blood Loop — Review 4",
-      "scene": "A heart model sits on the table. Four arrow cards lie beside it. The nurse says blood moves in a loop. Heart, lungs, heart, body, and back.",
+      "scene": "A heart model sits on the table. Three arrow cards lie beside it. The nurse says blood moves in a loop. Heart, lungs, heart, and body.",
       "takeaway": "Circulation is a loop, not a one-way trip.",
       "place": "",
-      "guide": "These four make a loop. Ask what each step needs before it. Blood cannot bring oxygen to the body before it picks any up. And it picks it up in the lungs. Start at the heart and follow it round.",
+      "guide": "These three make a loop. Ask what each step needs before it. Blood cannot bring oxygen to the body before it picks any up. And it picks it up in the lungs. Start at the heart and follow it round.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -2765,19 +2737,17 @@ export const CURRICULUM = {
         "play": "Put the simplified blood loop in order, starting at the heart.",
         "task": "Put the simplified blood loop in order, starting at the heart.",
         "question": "Put the simplified blood loop in order, starting at the heart.",
-        "answer": "The heart pumps blood toward the lungs. -> In the lungs, blood picks up oxygen. -> The heart pumps oxygen-rich blood to the body. -> Blood returns from the body to the heart.",
-        "why": "Blood does not go one way and stop. It goes around and around. The heart pumps it to the lungs. In the lungs it picks up oxygen. The heart pumps it out to the body. Then it comes back. That is a loop, and it never stops all day or all night.",
+        "answer": "The heart pumps blood toward the lungs. -> In the lungs, blood picks up oxygen. -> The heart pumps oxygen-rich blood to the body.",
+        "why": "Blood does not go one way and stop. It goes around and around. The heart pumps it to the lungs. In the lungs it picks up oxygen. The heart pumps it out to the body. Then it comes back and starts again. It never stops all day or all night.",
         "cards": [
           "The heart pumps blood toward the lungs.",
           "In the lungs, blood picks up oxygen.",
-          "The heart pumps oxygen-rich blood to the body.",
-          "Blood returns from the body to the heart."
+          "The heart pumps oxygen-rich blood to the body."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -2918,10 +2888,10 @@ export const CURRICULUM = {
     {
       "day": 25,
       "title": "Follow One Breath — Review 5",
-      "scene": "Priya takes a deep breath. She asks where the air goes. You have four picture cards: the nose and mouth, the windpipe, the lungs, and the blood.",
+      "scene": "Priya takes a deep breath. She asks where the air goes. You have three picture cards: the nose and mouth, the lungs, and the blood.",
       "takeaway": "The lungs are the meeting place between outside air and the blood.",
       "place": "",
-      "guide": "These four are one journey. Ask what has to happen first. Air cannot reach the lungs before it goes down the windpipe. And oxygen cannot get into the blood before the air arrives. The path helps you guess where a problem is.",
+      "guide": "These three are one journey. Ask what has to happen first. Air cannot reach the lungs before it goes in at the nose or mouth. And oxygen cannot get into the blood before the air arrives. The path helps you guess where a problem is.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -2935,19 +2905,17 @@ export const CURRICULUM = {
         "play": "Put the path of a breath in order.",
         "task": "Put the path of a breath in order.",
         "question": "Put the path of a breath in order.",
-        "answer": "Air enters through the nose or mouth. -> Air moves down the windpipe. -> Air reaches the lungs. -> Oxygen moves into the blood to travel around the body.",
-        "why": "Air has to travel to get where it is needed. In through the nose or mouth. Down the windpipe. Into the lungs. Only then can oxygen move into the blood. The blood carries it to every part of the body. Knowing the path helps you guess where a problem might be.",
+        "answer": "Air enters through the nose or mouth. -> Air reaches the lungs. -> Oxygen moves into the blood to travel around the body.",
+        "why": "Air has to travel to get where it is needed. In through the nose or mouth. Down into the lungs. Only then can oxygen move into the blood. The blood carries it to every part of the body. Knowing the path helps you guess where a problem might be.",
         "cards": [
           "Air enters through the nose or mouth.",
-          "Air moves down the windpipe.",
           "Air reaches the lungs.",
           "Oxygen moves into the blood to travel around the body."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -2967,10 +2935,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Follow the Sandwich",
-      "scene": "Owen has a paper sandwich card. He wants to know where it goes after he swallows. The dietitian hands you four organ cards and asks you to put them in order.",
+      "scene": "Owen has a paper sandwich card. He wants to know where it goes after he swallows. The dietitian hands you three organ cards and asks you to put them in order.",
       "takeaway": "Different organs have different jobs in one connected system.",
       "place": "",
-      "guide": "These four are one journey, and each part has one job. Ask what has to happen first. Nothing can soak up tiny bits before something has made them tiny. Food is far too big for the body to use whole.",
+      "guide": "These three are one journey, and each part has one job. Ask what has to happen first. Nothing can soak up tiny bits before something has made them tiny. Food is far too big for the body to use whole.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -2984,19 +2952,17 @@ export const CURRICULUM = {
         "play": "Put the food journey in order.",
         "task": "Put the food journey in order.",
         "question": "Put the food journey in order.",
-        "answer": "The mouth chews food and mixes it with saliva. -> Food travels down the food tube to the stomach. -> The stomach mixes and breaks food down more. -> The small intestine takes many nutrients into the blood.",
-        "why": "Food is far too big for the body to use. It gets broken down in stages. The mouth chews it and wets it. It goes down the food tube. The stomach mixes it and breaks it down more. Then the small intestine takes the tiny bits into the blood. Each part does one piece of the job.",
+        "answer": "The mouth chews food and mixes it with saliva. -> The stomach mixes and breaks food down more. -> The small intestine takes many nutrients into the blood.",
+        "why": "Food is far too big for the body to use. It gets broken down in stages. The mouth chews it and wets it. The stomach mixes it and breaks it down more. Then the small intestine takes the tiny bits into the blood. Each part does one piece of the job.",
         "cards": [
           "The mouth chews food and mixes it with saliva.",
-          "Food travels down the food tube to the stomach.",
           "The stomach mixes and breaks food down more.",
           "The small intestine takes many nutrients into the blood."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -3031,7 +2997,7 @@ export const CURRICULUM = {
         "play": "Nina ran all morning and has not eaten. Why does she feel shaky?",
         "task": "Nina ran all morning and has not eaten. Why does she feel shaky?",
         "question": "Nina ran all morning and has not eaten. Why does she feel shaky?",
-        "answer": "Her body used up the energy from her food, and running uses more of it.",
+        "answer": "Her body used up the energy from her food. Running uses more.",
         "why": "Food is fuel. Your body breaks food down and uses the energy to move, to keep warm, and to think. Running uses a lot of energy fast. Nina ate at breakfast and then used it all up. When the fuel runs low, people feel shaky, tired, or grumpy. A snack puts the fuel back. This is why hospitals ask when someone last ate.",
         "rebuttals": [
           "Muscles do get stronger with exercise, but that takes weeks. It does not make you shaky today.",
@@ -3039,12 +3005,12 @@ export const CURRICULUM = {
           "Feeling nervous can make hands shake too. Here she is hungry, and that is easy to fix."
         ],
         "choices": [
-          "Her body used up the energy from her food, and running uses more of it.",
+          "Her body used up the energy from her food. Running uses more.",
           "Her muscles got bigger from running, so they need more room.",
           "She has too much water inside her from her drink bottle.",
           "Shaky hands are only about being nervous, not about food."
         ],
-        "correctChoice": "Her body used up the energy from her food, and running uses more of it."
+        "correctChoice": "Her body used up the energy from her food. Running uses more."
       },
       "assumes": [
         "food gives your body energy"
@@ -3261,10 +3227,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Follow the Sandwich — Review 2",
-      "scene": "Owen has a paper sandwich card. He wants to know where it goes after he swallows. The dietitian hands you four organ cards and asks you to put them in order.",
+      "scene": "Owen has a paper sandwich card. He wants to know where it goes after he swallows. The dietitian hands you three organ cards and asks you to put them in order.",
       "takeaway": "Different organs have different jobs in one connected system.",
       "place": "",
-      "guide": "These four are one journey, and each part has one job. Ask what has to happen first. Nothing can soak up tiny bits before something has made them tiny. Food is far too big for the body to use whole.",
+      "guide": "These three are one journey, and each part has one job. Ask what has to happen first. Nothing can soak up tiny bits before something has made them tiny. Food is far too big for the body to use whole.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -3278,19 +3244,17 @@ export const CURRICULUM = {
         "play": "Put the food journey in order.",
         "task": "Put the food journey in order.",
         "question": "Put the food journey in order.",
-        "answer": "The mouth chews food and mixes it with saliva. -> Food travels down the food tube to the stomach. -> The stomach mixes and breaks food down more. -> The small intestine takes many nutrients into the blood.",
-        "why": "Food is far too big for the body to use. It gets broken down in stages. The mouth chews it and wets it. It goes down the food tube. The stomach mixes it and breaks it down more. Then the small intestine takes the tiny bits into the blood. Each part does one piece of the job.",
+        "answer": "The mouth chews food and mixes it with saliva. -> The stomach mixes and breaks food down more. -> The small intestine takes many nutrients into the blood.",
+        "why": "Food is far too big for the body to use. It gets broken down in stages. The mouth chews it and wets it. The stomach mixes it and breaks it down more. Then the small intestine takes the tiny bits into the blood. Each part does one piece of the job.",
         "cards": [
           "The mouth chews food and mixes it with saliva.",
-          "Food travels down the food tube to the stomach.",
           "The stomach mixes and breaks food down more.",
           "The small intestine takes many nutrients into the blood."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -3520,7 +3484,7 @@ export const CURRICULUM = {
       "scene": "Harper sees a model of the kidneys and bladder. She wants to know why both are part of the same system.",
       "takeaway": "Kidneys filter; the bladder stores.",
       "place": "",
-      "guide": "These four are one path. Ask what has to happen first. The kidneys cannot clean blood that has not reached them yet. And urine cannot be stored before it is made. Two organs, one path, different jobs.",
+      "guide": "These three are one path. Ask what has to happen first. The kidneys cannot clean blood that has not reached them yet. And urine cannot be stored before it is made. Two organs, one path, different jobs.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -3534,19 +3498,17 @@ export const CURRICULUM = {
         "play": "Put the simplified pathway in order.",
         "task": "Put the simplified pathway in order.",
         "question": "Put the simplified pathway in order.",
-        "answer": "Blood flows through the kidneys. -> The kidneys remove some wastes and extra water from the blood. -> That liquid becomes urine and moves toward the bladder. -> The bladder stores urine until it leaves the body.",
-        "why": "Blood picks up waste from all over the body. It has to go somewhere. Blood flows through the kidneys. The kidneys take out waste and extra water. That makes urine. The urine moves to the bladder, which stores it until you go. Two organs, one path, different jobs.",
+        "answer": "Blood flows through the kidneys. -> The kidneys remove some wastes and extra water from the blood. -> The urine moves to the bladder and waits until it leaves.",
+        "why": "Blood picks up waste from all over the body. It has to go somewhere. Blood flows through the kidneys. The kidneys take out waste and extra water. That makes urine. The urine moves to the bladder and waits there. Two organs, one path, different jobs.",
         "cards": [
           "Blood flows through the kidneys.",
           "The kidneys remove some wastes and extra water from the blood.",
-          "That liquid becomes urine and moves toward the bladder.",
-          "The bladder stores urine until it leaves the body."
+          "The urine moves to the bladder and waits until it leaves."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -3564,10 +3526,10 @@ export const CURRICULUM = {
     {
       "day": 13,
       "title": "Follow the Sandwich — Review 3",
-      "scene": "Owen has a paper sandwich card. He wants to know where it goes after he swallows. The dietitian hands you four organ cards and asks you to put them in order.",
+      "scene": "Owen has a paper sandwich card. He wants to know where it goes after he swallows. The dietitian hands you three organ cards and asks you to put them in order.",
       "takeaway": "Different organs have different jobs in one connected system.",
       "place": "",
-      "guide": "These four are one journey, and each part has one job. Ask what has to happen first. Nothing can soak up tiny bits before something has made them tiny. Food is far too big for the body to use whole.",
+      "guide": "These three are one journey, and each part has one job. Ask what has to happen first. Nothing can soak up tiny bits before something has made them tiny. Food is far too big for the body to use whole.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -3581,19 +3543,17 @@ export const CURRICULUM = {
         "play": "Put the food journey in order.",
         "task": "Put the food journey in order.",
         "question": "Put the food journey in order.",
-        "answer": "The mouth chews food and mixes it with saliva. -> Food travels down the food tube to the stomach. -> The stomach mixes and breaks food down more. -> The small intestine takes many nutrients into the blood.",
-        "why": "Food is far too big for the body to use. It gets broken down in stages. The mouth chews it and wets it. It goes down the food tube. The stomach mixes it and breaks it down more. Then the small intestine takes the tiny bits into the blood. Each part does one piece of the job.",
+        "answer": "The mouth chews food and mixes it with saliva. -> The stomach mixes and breaks food down more. -> The small intestine takes many nutrients into the blood.",
+        "why": "Food is far too big for the body to use. It gets broken down in stages. The mouth chews it and wets it. The stomach mixes it and breaks it down more. Then the small intestine takes the tiny bits into the blood. Each part does one piece of the job.",
         "cards": [
           "The mouth chews food and mixes it with saliva.",
-          "Food travels down the food tube to the stomach.",
           "The stomach mixes and breaks food down more.",
           "The small intestine takes many nutrients into the blood."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -3823,7 +3783,7 @@ export const CURRICULUM = {
       "scene": "Harper sees a model of the kidneys and bladder. She wants to know why both are part of the same system.",
       "takeaway": "Kidneys filter; the bladder stores.",
       "place": "",
-      "guide": "These four are one path. Ask what has to happen first. The kidneys cannot clean blood that has not reached them yet. And urine cannot be stored before it is made. Two organs, one path, different jobs.",
+      "guide": "These three are one path. Ask what has to happen first. The kidneys cannot clean blood that has not reached them yet. And urine cannot be stored before it is made. Two organs, one path, different jobs.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -3837,19 +3797,17 @@ export const CURRICULUM = {
         "play": "Put the simplified pathway in order.",
         "task": "Put the simplified pathway in order.",
         "question": "Put the simplified pathway in order.",
-        "answer": "Blood flows through the kidneys. -> The kidneys remove some wastes and extra water from the blood. -> That liquid becomes urine and moves toward the bladder. -> The bladder stores urine until it leaves the body.",
-        "why": "Blood picks up waste from all over the body. It has to go somewhere. Blood flows through the kidneys. The kidneys take out waste and extra water. That makes urine. The urine moves to the bladder, which stores it until you go. Two organs, one path, different jobs.",
+        "answer": "Blood flows through the kidneys. -> The kidneys remove some wastes and extra water from the blood. -> The urine moves to the bladder and waits until it leaves.",
+        "why": "Blood picks up waste from all over the body. It has to go somewhere. Blood flows through the kidneys. The kidneys take out waste and extra water. That makes urine. The urine moves to the bladder and waits there. Two organs, one path, different jobs.",
         "cards": [
           "Blood flows through the kidneys.",
           "The kidneys remove some wastes and extra water from the blood.",
-          "That liquid becomes urine and moves toward the bladder.",
-          "The bladder stores urine until it leaves the body."
+          "The urine moves to the bladder and waits until it leaves."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -3867,10 +3825,10 @@ export const CURRICULUM = {
     {
       "day": 19,
       "title": "Follow the Sandwich — Review 4",
-      "scene": "Owen has a paper sandwich card. He wants to know where it goes after he swallows. The dietitian hands you four organ cards and asks you to put them in order.",
+      "scene": "Owen has a paper sandwich card. He wants to know where it goes after he swallows. The dietitian hands you three organ cards and asks you to put them in order.",
       "takeaway": "Different organs have different jobs in one connected system.",
       "place": "",
-      "guide": "These four are one journey, and each part has one job. Ask what has to happen first. Nothing can soak up tiny bits before something has made them tiny. Food is far too big for the body to use whole.",
+      "guide": "These three are one journey, and each part has one job. Ask what has to happen first. Nothing can soak up tiny bits before something has made them tiny. Food is far too big for the body to use whole.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -3884,19 +3842,17 @@ export const CURRICULUM = {
         "play": "Put the food journey in order.",
         "task": "Put the food journey in order.",
         "question": "Put the food journey in order.",
-        "answer": "The mouth chews food and mixes it with saliva. -> Food travels down the food tube to the stomach. -> The stomach mixes and breaks food down more. -> The small intestine takes many nutrients into the blood.",
-        "why": "Food is far too big for the body to use. It gets broken down in stages. The mouth chews it and wets it. It goes down the food tube. The stomach mixes it and breaks it down more. Then the small intestine takes the tiny bits into the blood. Each part does one piece of the job.",
+        "answer": "The mouth chews food and mixes it with saliva. -> The stomach mixes and breaks food down more. -> The small intestine takes many nutrients into the blood.",
+        "why": "Food is far too big for the body to use. It gets broken down in stages. The mouth chews it and wets it. The stomach mixes it and breaks it down more. Then the small intestine takes the tiny bits into the blood. Each part does one piece of the job.",
         "cards": [
           "The mouth chews food and mixes it with saliva.",
-          "Food travels down the food tube to the stomach.",
           "The stomach mixes and breaks food down more.",
           "The small intestine takes many nutrients into the blood."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -4126,7 +4082,7 @@ export const CURRICULUM = {
       "scene": "Harper sees a model of the kidneys and bladder. She wants to know why both are part of the same system.",
       "takeaway": "Kidneys filter; the bladder stores.",
       "place": "",
-      "guide": "These four are one path. Ask what has to happen first. The kidneys cannot clean blood that has not reached them yet. And urine cannot be stored before it is made. Two organs, one path, different jobs.",
+      "guide": "These three are one path. Ask what has to happen first. The kidneys cannot clean blood that has not reached them yet. And urine cannot be stored before it is made. Two organs, one path, different jobs.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -4140,19 +4096,17 @@ export const CURRICULUM = {
         "play": "Put the simplified pathway in order.",
         "task": "Put the simplified pathway in order.",
         "question": "Put the simplified pathway in order.",
-        "answer": "Blood flows through the kidneys. -> The kidneys remove some wastes and extra water from the blood. -> That liquid becomes urine and moves toward the bladder. -> The bladder stores urine until it leaves the body.",
-        "why": "Blood picks up waste from all over the body. It has to go somewhere. Blood flows through the kidneys. The kidneys take out waste and extra water. That makes urine. The urine moves to the bladder, which stores it until you go. Two organs, one path, different jobs.",
+        "answer": "Blood flows through the kidneys. -> The kidneys remove some wastes and extra water from the blood. -> The urine moves to the bladder and waits until it leaves.",
+        "why": "Blood picks up waste from all over the body. It has to go somewhere. Blood flows through the kidneys. The kidneys take out waste and extra water. That makes urine. The urine moves to the bladder and waits there. Two organs, one path, different jobs.",
         "cards": [
           "Blood flows through the kidneys.",
           "The kidneys remove some wastes and extra water from the blood.",
-          "That liquid becomes urine and moves toward the bladder.",
-          "The bladder stores urine until it leaves the body."
+          "The urine moves to the bladder and waits until it leaves."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -4170,10 +4124,10 @@ export const CURRICULUM = {
     {
       "day": 25,
       "title": "Follow the Sandwich — Review 5",
-      "scene": "Owen has a paper sandwich card. He wants to know where it goes after he swallows. The dietitian hands you four organ cards and asks you to put them in order.",
+      "scene": "Owen has a paper sandwich card. He wants to know where it goes after he swallows. The dietitian hands you three organ cards and asks you to put them in order.",
       "takeaway": "Different organs have different jobs in one connected system.",
       "place": "",
-      "guide": "These four are one journey, and each part has one job. Ask what has to happen first. Nothing can soak up tiny bits before something has made them tiny. Food is far too big for the body to use whole.",
+      "guide": "These three are one journey, and each part has one job. Ask what has to happen first. Nothing can soak up tiny bits before something has made them tiny. Food is far too big for the body to use whole.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -4187,19 +4141,17 @@ export const CURRICULUM = {
         "play": "Put the food journey in order.",
         "task": "Put the food journey in order.",
         "question": "Put the food journey in order.",
-        "answer": "The mouth chews food and mixes it with saliva. -> Food travels down the food tube to the stomach. -> The stomach mixes and breaks food down more. -> The small intestine takes many nutrients into the blood.",
-        "why": "Food is far too big for the body to use. It gets broken down in stages. The mouth chews it and wets it. It goes down the food tube. The stomach mixes it and breaks it down more. Then the small intestine takes the tiny bits into the blood. Each part does one piece of the job.",
+        "answer": "The mouth chews food and mixes it with saliva. -> The stomach mixes and breaks food down more. -> The small intestine takes many nutrients into the blood.",
+        "why": "Food is far too big for the body to use. It gets broken down in stages. The mouth chews it and wets it. The stomach mixes it and breaks it down more. Then the small intestine takes the tiny bits into the blood. Each part does one piece of the job.",
         "cards": [
           "The mouth chews food and mixes it with saliva.",
-          "Food travels down the food tube to the stomach.",
           "The stomach mixes and breaks food down more.",
           "The small intestine takes many nutrients into the blood."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -4316,7 +4268,7 @@ export const CURRICULUM = {
       "scene": "Eli's wrist may be hurt. He looks worried. In this game you do not fix it. You keep him safe and get the team what they need.",
       "takeaway": "The first action is the one that stops things getting worse; the rest can happen while it holds.",
       "place": "",
-      "guide": "All four steps happen. Ask which one stops things getting worse. Everything else can happen while the wrist is held still. Help takes time to come, so telling somebody is early. The note comes last, and it holds all of it.",
+      "guide": "All three steps happen. Ask which one stops things getting worse. Everything else can happen while the wrist is held still. Help takes time to come, so telling somebody is early. The trained team looks at the wrist last.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -4330,19 +4282,17 @@ export const CURRICULUM = {
         "play": "Put the safe hospital response in order.",
         "task": "Put the safe hospital response in order.",
         "question": "Put the safe hospital response in order.",
-        "answer": "1. Stop Eli using the wrist, because moving a broken bone can damage what is around it. 2. Tell the nurse or doctor, so trained help is already coming. 3. Let the trained team examine the wrist and decide about an image. 4. Record what happened and what the team found.",
-        "why": "Keeping the wrist still comes first. It is the only step that stops more harm. All the rest can happen while you hold it still. Then you tell a grown-up, because help takes time to come. The note goes last. It writes down all of it.",
+        "answer": "1. Stop Eli using the wrist, because moving it can cause more damage. 2. Tell the nurse or doctor, so trained help is already coming. 3. Let the trained team examine the wrist and decide about an image.",
+        "why": "Keeping the wrist still comes first. It is the only step that stops more harm. All the rest can happen while you hold it still. Then you tell a grown-up. Help takes time to come. The trained team looks at it last.",
         "cards": [
-          "Stop Eli using the wrist, because moving a broken bone can damage what is around it.",
+          "Stop Eli using the wrist, because moving it can cause more damage.",
           "Tell the nurse or doctor, so trained help is already coming.",
-          "Let the trained team examine the wrist and decide about an image.",
-          "Record what happened and what the team found."
+          "Let the trained team examine the wrist and decide about an image."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "axis": "Start with the one that stops things getting worse. Then put the rest in the order you would do them.",
         "ends": [
@@ -4365,16 +4315,16 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Make the Hand Move",
-      "scene": "Sophie wiggles her fingers. She asks how the message got there so fast. The therapist gives you four cards. Moving one finger takes a whole chain. First a decision. Then a message along a nerve. Then a muscle pulls. Then a bone moves at a joint. Therapists think about this chain a lot. When movement fails, the chain shows where to look.",
+      "scene": "Sophie wiggles her fingers. She asks how the message got there so fast. The therapist gives you three cards. Moving one finger takes a whole chain. First a decision. Then a muscle pulls. Then a bone moves at a joint. Therapists think about this chain a lot. When movement fails, the chain shows where to look.",
       "takeaway": "One movement needs several parts of the body working in turn.",
       "place": "",
-      "guide": "These four are one chain. Ask what has to happen first. A muscle cannot pull before the message reaches it. And bones do not move themselves. Muscles only pull, never push, which is why they come in pairs.",
+      "guide": "These three are one chain. Ask what has to happen first. A muscle cannot pull before the brain decides. And bones do not move themselves. Muscles only pull, never push, which is why they come in pairs.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
         "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
       ],
-      "story": "Sophie wiggles her fingers. She asks how the message got there so fast. The therapist gives you four cards. Moving one finger takes a whole chain. First a decision. Then a message along a nerve. Then a muscle pulls. Then a bone moves at a joint. Therapists think about this chain a lot. When movement fails, the chain shows where to look.",
+      "story": "Sophie wiggles her fingers. She asks how the message got there so fast. The therapist gives you three cards. Moving one finger takes a whole chain. First a decision. Then a muscle pulls. Then a bone moves at a joint. Therapists think about this chain a lot. When movement fails, the chain shows where to look.",
       "game": {
         "type": "SEQUENCE",
         "title": "Make the Hand Move",
@@ -4382,19 +4332,17 @@ export const CURRICULUM = {
         "play": "Put the movement pathway in order.",
         "task": "Put the movement pathway in order.",
         "question": "Put the movement pathway in order.",
-        "answer": "The brain decides to move the hand. -> Nerves carry the message toward the muscles. -> Muscles tighten and pull. -> Bones move at the joints.",
-        "why": "Moving takes four things in order. The brain decides. Nerves carry that message out to the muscles. The muscles tighten and pull. Bones move at the joints. Muscles can only pull, never push, which is why they come in pairs. Nothing moves until the message gets there.",
+        "answer": "The brain decides to move the hand. -> Muscles tighten and pull. -> Bones move at the joints.",
+        "why": "Moving takes three things in order. The brain decides and sends the message out. The muscles tighten and pull. Bones move at the joints. Muscles can only pull, never push. That is why they come in pairs. Nothing moves until the message gets there.",
         "cards": [
           "The brain decides to move the hand.",
-          "Nerves carry the message toward the muscles.",
           "Muscles tighten and pull.",
           "Bones move at the joints."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -4542,7 +4490,7 @@ export const CURRICULUM = {
       "scene": "Ella has a small scrape. The team cleaned it and covered it. She asks what her body will do next. Skin is not a wrapper. It is living tissue. It fixes itself in stages, in the same order every time. First the bleeding stops. Then the cleanup. Then rebuilding. Knowing the stages tells you what is normal.",
       "takeaway": "Skin is living tissue that can repair many small injuries.",
       "place": "",
-      "guide": "These four are stages, not choices. Ask what has to happen first. New skin cannot grow under a lid that is not there. And a clot has to close the gap first. The body shuts the door, then does the repairs.",
+      "guide": "These three are stages, not choices. Ask what has to happen first. New skin cannot grow under a lid that is not there. And a clot has to close the gap first. The body shuts the door, then does the repairs.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -4556,10 +4504,9 @@ export const CURRICULUM = {
         "play": "Put the steps of healing in order.",
         "task": "Put the steps of healing in order.",
         "question": "Put the steps of healing in order.",
-        "answer": "The skin barrier is broken by the scrape. -> Blood clotting helps close the damaged area. -> A scab or protective covering forms while healing continues. -> New skin grows underneath as the area repairs.",
-        "why": "Healing goes in stages. First the skin is broken open. Then the blood clots and closes the gap. Then a scab forms and covers it like a lid. Under that lid, new skin grows. The body shuts the door first and does the repairs after. That is why picking a scab sets it back.",
+        "answer": "Blood clotting helps close the damaged area. -> A scab or protective covering forms while healing continues. -> New skin grows underneath as the area repairs.",
+        "why": "Healing goes in stages. First the blood clots and closes the gap. Then a scab forms and covers it like a lid. Under that lid, new skin grows. The body shuts the door first. It does the repairs after. That is why picking a scab sets it back.",
         "cards": [
-          "The skin barrier is broken by the scrape.",
           "Blood clotting helps close the damaged area.",
           "A scab or protective covering forms while healing continues.",
           "New skin grows underneath as the area repairs."
@@ -4567,8 +4514,7 @@ export const CURRICULUM = {
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -4589,7 +4535,7 @@ export const CURRICULUM = {
       "scene": "You are the junior doctor in this game. Real wound care is a job for grown-ups. Your job is to keep things safe and in order.",
       "takeaway": "A scrape is a break in the barrier, so everything that touches it has to be clean.",
       "place": "",
-      "guide": "All four steps happen. Ask which one takes time to arrive. Help does, so telling somebody comes early. Then your hands, because a cut is a way in. The grown-up does the caring. You keep the notes.",
+      "guide": "All three steps happen. Ask which one takes time to arrive. Help does, so telling somebody comes early. Then your hands, because a cut is a way in. The grown-up does the caring.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -4603,19 +4549,17 @@ export const CURRICULUM = {
         "play": "Put the junior-doctor actions in order.",
         "task": "Put the junior-doctor actions in order.",
         "question": "Put the junior-doctor actions in order.",
-        "answer": "1. Tell the nurse or doctor, so trained help starts on its way. 2. Clean your own hands, because hands carry germs better than anything else you touch with. 3. Let the trained adult clean and cover the scrape. 4. Record what happened, and watch for instructions.",
-        "why": "Tell a grown-up first. Help takes time to come, and nothing else has to wait for it. Then clean your hands. A cut is a way in, and hands are how germs move. Then get the things they need. The grown-up cares for the cut. You keep the notes.",
+        "answer": "1. Tell the nurse or doctor, so trained help starts on its way. 2. Clean your own hands, because hands are how germs move about. 3. Let the trained adult clean and cover the scrape.",
+        "why": "Tell a grown-up first. Help takes time to come. Nothing else has to wait for it. Then clean your hands. A cut is a way in. Hands are how germs move. Then the grown-up cleans and covers the cut.",
         "cards": [
           "Tell the nurse or doctor, so trained help starts on its way.",
-          "Clean your own hands, because hands carry germs better than anything else you touch with.",
-          "Let the trained adult clean and cover the scrape.",
-          "Record what happened, and watch for instructions."
+          "Clean your own hands, because hands are how germs move about.",
+          "Let the trained adult clean and cover the scrape."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -4811,7 +4755,7 @@ export const CURRICULUM = {
       "scene": "Eli's wrist may be hurt. He looks worried. In this game you do not fix it. You keep him safe and get the team what they need.",
       "takeaway": "The first action is the one that stops things getting worse; the rest can happen while it holds.",
       "place": "",
-      "guide": "All four steps happen. Ask which one stops things getting worse. Everything else can happen while the wrist is held still. Help takes time to come, so telling somebody is early. The note comes last, and it holds all of it.",
+      "guide": "All three steps happen. Ask which one stops things getting worse. Everything else can happen while the wrist is held still. Help takes time to come, so telling somebody is early. The trained team looks at the wrist last.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -4825,19 +4769,17 @@ export const CURRICULUM = {
         "play": "Put the safe hospital response in order.",
         "task": "Put the safe hospital response in order.",
         "question": "Put the safe hospital response in order.",
-        "answer": "1. Stop Eli using the wrist, because moving a broken bone can damage what is around it. 2. Tell the nurse or doctor, so trained help is already coming. 3. Let the trained team examine the wrist and decide about an image. 4. Record what happened and what the team found.",
-        "why": "Keeping the wrist still comes first. It is the only step that stops more harm. All the rest can happen while you hold it still. Then you tell a grown-up, because help takes time to come. The note goes last. It writes down all of it.",
+        "answer": "1. Stop Eli using the wrist, because moving it can cause more damage. 2. Tell the nurse or doctor, so trained help is already coming. 3. Let the trained team examine the wrist and decide about an image.",
+        "why": "Keeping the wrist still comes first. It is the only step that stops more harm. All the rest can happen while you hold it still. Then you tell a grown-up. Help takes time to come. The trained team looks at it last.",
         "cards": [
-          "Stop Eli using the wrist, because moving a broken bone can damage what is around it.",
+          "Stop Eli using the wrist, because moving it can cause more damage.",
           "Tell the nurse or doctor, so trained help is already coming.",
-          "Let the trained team examine the wrist and decide about an image.",
-          "Record what happened and what the team found."
+          "Let the trained team examine the wrist and decide about an image."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "axis": "Start with the one that stops things getting worse. Then put the rest in the order you would do them.",
         "ends": [
@@ -4860,16 +4802,16 @@ export const CURRICULUM = {
     {
       "day": 13,
       "title": "Make the Hand Move — Review 2",
-      "scene": "Sophie wiggles her fingers and asks how the message got there. The therapist gives you four cards from signal to movement.",
+      "scene": "Sophie wiggles her fingers. She asks how the message got there so fast. The therapist gives you three cards. Moving one finger takes a whole chain. First a decision. Then a muscle pulls. Then a bone moves at a joint. Therapists think about this chain a lot. When movement fails, the chain shows where to look.",
       "takeaway": "Movement is teamwork between the brain, nerves, muscles, bones, and joints.",
       "place": "",
-      "guide": "These four are one chain. Ask what has to happen first. A muscle cannot pull before the message reaches it. And bones do not move themselves. Muscles only pull, never push, which is why they come in pairs.",
+      "guide": "These three are one chain. Ask what has to happen first. A muscle cannot pull before the brain decides. And bones do not move themselves. Muscles only pull, never push, which is why they come in pairs.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
         "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
       ],
-      "story": "Sophie wiggles her fingers and asks how the message got there. The therapist gives you four cards from signal to movement.",
+      "story": "Sophie wiggles her fingers. She asks how the message got there so fast. The therapist gives you three cards. Moving one finger takes a whole chain. First a decision. Then a muscle pulls. Then a bone moves at a joint. Therapists think about this chain a lot. When movement fails, the chain shows where to look.",
       "game": {
         "type": "SEQUENCE",
         "title": "Make the Hand Move — Review 2",
@@ -4877,19 +4819,17 @@ export const CURRICULUM = {
         "play": "Put the movement pathway in order.",
         "task": "Put the movement pathway in order.",
         "question": "Put the movement pathway in order.",
-        "answer": "The brain decides to move the hand. -> Nerves carry the message toward the muscles. -> Muscles tighten and pull. -> Bones move at the joints.",
-        "why": "Moving takes four things in order. The brain decides. Nerves carry that message out to the muscles. The muscles tighten and pull. Bones move at the joints. Muscles can only pull, never push, which is why they come in pairs. Nothing moves until the message gets there.",
+        "answer": "The brain decides to move the hand. -> Muscles tighten and pull. -> Bones move at the joints.",
+        "why": "Moving takes three things in order. The brain decides and sends the message out. The muscles tighten and pull. Bones move at the joints. Muscles can only pull, never push. That is why they come in pairs. Nothing moves until the message gets there.",
         "cards": [
           "The brain decides to move the hand.",
-          "Nerves carry the message toward the muscles.",
           "Muscles tighten and pull.",
           "Bones move at the joints."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -4928,13 +4868,13 @@ export const CURRICULUM = {
         "why": "Muscles use energy when they work. Do the same thing lots of times and they run low. Then they feel tired and weak. That is normal, and it is not the same as being hurt. Rest lets them fill back up. In therapy the rest is part of the plan, not a sign to stop.",
         "rebuttals": [
           "B. The arm is injured, and rest is how an injury heals. — Nothing here says he is hurt. Tired and hurt are not the same thing.",
-          "C. Muscles only grow while a person is resting, so the set is finished. — Rest does help. That is not a reason to stop in the middle of the plan.",
+          "C. Muscles only grow during rest, so the set is finished. — Rest does help. That is not a reason to stop in the middle of the plan.",
           "D. Tiredness means the therapy is not working and should be changed. — Getting tired is what is supposed to happen. It means the muscle is working."
         ],
         "choices": [
           "Muscles can get tired after repeated work and need recovery time.",
           "The arm is injured, and rest is how an injury heals.",
-          "Muscles only grow while a person is resting, so the set is finished.",
+          "Muscles only grow during rest, so the set is finished.",
           "Tiredness means the therapy is not working and should be changed."
         ],
         "correctChoice": "Muscles can get tired after repeated work and need recovery time."
@@ -4988,7 +4928,7 @@ export const CURRICULUM = {
       "scene": "Ella has a small scrape. The hospital team has cleaned and covered it. She asks what her body will do next.",
       "takeaway": "Skin is living tissue that can repair many small injuries.",
       "place": "",
-      "guide": "These four are stages, not choices. Ask what has to happen first. New skin cannot grow under a lid that is not there. And a clot has to close the gap first. The body shuts the door, then does the repairs.",
+      "guide": "These three are stages, not choices. Ask what has to happen first. New skin cannot grow under a lid that is not there. And a clot has to close the gap first. The body shuts the door, then does the repairs.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -5002,10 +4942,9 @@ export const CURRICULUM = {
         "play": "Put the steps of healing in order.",
         "task": "Put the steps of healing in order.",
         "question": "Put the steps of healing in order.",
-        "answer": "The skin barrier is broken by the scrape. -> Blood clotting helps close the damaged area. -> A scab or protective covering forms while healing continues. -> New skin grows underneath as the area repairs.",
-        "why": "Healing goes in stages. First the skin is broken open. Then the blood clots and closes the gap. Then a scab forms and covers it like a lid. Under that lid, new skin grows. The body shuts the door first and does the repairs after. That is why picking a scab sets it back.",
+        "answer": "Blood clotting helps close the damaged area. -> A scab or protective covering forms while healing continues. -> New skin grows underneath as the area repairs.",
+        "why": "Healing goes in stages. First the blood clots and closes the gap. Then a scab forms and covers it like a lid. Under that lid, new skin grows. The body shuts the door first. It does the repairs after. That is why picking a scab sets it back.",
         "cards": [
-          "The skin barrier is broken by the scrape.",
           "Blood clotting helps close the damaged area.",
           "A scab or protective covering forms while healing continues.",
           "New skin grows underneath as the area repairs."
@@ -5013,8 +4952,7 @@ export const CURRICULUM = {
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -5035,7 +4973,7 @@ export const CURRICULUM = {
       "scene": "You are the junior doctor in this game. Real wound care is a job for grown-ups. Your job is to keep things safe and in order.",
       "takeaway": "A scrape is a break in the barrier, so everything that touches it has to be clean.",
       "place": "",
-      "guide": "All four steps happen. Ask which one takes time to arrive. Help does, so telling somebody comes early. Then your hands, because a cut is a way in. The grown-up does the caring. You keep the notes.",
+      "guide": "All three steps happen. Ask which one takes time to arrive. Help does, so telling somebody comes early. Then your hands, because a cut is a way in. The grown-up does the caring.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -5049,19 +4987,17 @@ export const CURRICULUM = {
         "play": "Put the junior-doctor actions in order.",
         "task": "Put the junior-doctor actions in order.",
         "question": "Put the junior-doctor actions in order.",
-        "answer": "1. Tell the nurse or doctor, so trained help starts on its way. 2. Clean your own hands, because hands carry germs better than anything else you touch with. 3. Let the trained adult clean and cover the scrape. 4. Record what happened, and watch for instructions.",
-        "why": "Tell a grown-up first. Help takes time to come, and nothing else has to wait for it. Then clean your hands. A cut is a way in, and hands are how germs move. Then get the things they need. The grown-up cares for the cut. You keep the notes.",
+        "answer": "1. Tell the nurse or doctor, so trained help starts on its way. 2. Clean your own hands, because hands are how germs move about. 3. Let the trained adult clean and cover the scrape.",
+        "why": "Tell a grown-up first. Help takes time to come. Nothing else has to wait for it. Then clean your hands. A cut is a way in. Hands are how germs move. Then the grown-up cleans and covers the cut.",
         "cards": [
           "Tell the nurse or doctor, so trained help starts on its way.",
-          "Clean your own hands, because hands carry germs better than anything else you touch with.",
-          "Let the trained adult clean and cover the scrape.",
-          "Record what happened, and watch for instructions."
+          "Clean your own hands, because hands are how germs move about.",
+          "Let the trained adult clean and cover the scrape."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -5257,7 +5193,7 @@ export const CURRICULUM = {
       "scene": "Eli's wrist may be hurt. He looks worried. In this game you do not fix it. You keep him safe and get the team what they need.",
       "takeaway": "The first action is the one that stops things getting worse; the rest can happen while it holds.",
       "place": "",
-      "guide": "All four steps happen. Ask which one stops things getting worse. Everything else can happen while the wrist is held still. Help takes time to come, so telling somebody is early. The note comes last, and it holds all of it.",
+      "guide": "All three steps happen. Ask which one stops things getting worse. Everything else can happen while the wrist is held still. Help takes time to come, so telling somebody is early. The trained team looks at the wrist last.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -5271,19 +5207,17 @@ export const CURRICULUM = {
         "play": "Put the safe hospital response in order.",
         "task": "Put the safe hospital response in order.",
         "question": "Put the safe hospital response in order.",
-        "answer": "1. Stop Eli using the wrist, because moving a broken bone can damage what is around it. 2. Tell the nurse or doctor, so trained help is already coming. 3. Let the trained team examine the wrist and decide about an image. 4. Record what happened and what the team found.",
-        "why": "Keeping the wrist still comes first. It is the only step that stops more harm. All the rest can happen while you hold it still. Then you tell a grown-up, because help takes time to come. The note goes last. It writes down all of it.",
+        "answer": "1. Stop Eli using the wrist, because moving it can cause more damage. 2. Tell the nurse or doctor, so trained help is already coming. 3. Let the trained team examine the wrist and decide about an image.",
+        "why": "Keeping the wrist still comes first. It is the only step that stops more harm. All the rest can happen while you hold it still. Then you tell a grown-up. Help takes time to come. The trained team looks at it last.",
         "cards": [
-          "Stop Eli using the wrist, because moving a broken bone can damage what is around it.",
+          "Stop Eli using the wrist, because moving it can cause more damage.",
           "Tell the nurse or doctor, so trained help is already coming.",
-          "Let the trained team examine the wrist and decide about an image.",
-          "Record what happened and what the team found."
+          "Let the trained team examine the wrist and decide about an image."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ],
         "axis": "Start with the one that stops things getting worse. Then put the rest in the order you would do them.",
         "ends": [
@@ -5306,16 +5240,16 @@ export const CURRICULUM = {
     {
       "day": 22,
       "title": "Make the Hand Move — Review 3",
-      "scene": "Sophie wiggles her fingers and asks how the message got there. The therapist gives you four cards from signal to movement.",
+      "scene": "Sophie wiggles her fingers. She asks how the message got there so fast. The therapist gives you three cards. Moving one finger takes a whole chain. First a decision. Then a muscle pulls. Then a bone moves at a joint. Therapists think about this chain a lot. When movement fails, the chain shows where to look.",
       "takeaway": "Movement is teamwork between the brain, nerves, muscles, bones, and joints.",
       "place": "",
-      "guide": "These four are one chain. Ask what has to happen first. A muscle cannot pull before the message reaches it. And bones do not move themselves. Muscles only pull, never push, which is why they come in pairs.",
+      "guide": "These three are one chain. Ask what has to happen first. A muscle cannot pull before the brain decides. And bones do not move themselves. Muscles only pull, never push, which is why they come in pairs.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
         "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
       ],
-      "story": "Sophie wiggles her fingers and asks how the message got there. The therapist gives you four cards from signal to movement.",
+      "story": "Sophie wiggles her fingers. She asks how the message got there so fast. The therapist gives you three cards. Moving one finger takes a whole chain. First a decision. Then a muscle pulls. Then a bone moves at a joint. Therapists think about this chain a lot. When movement fails, the chain shows where to look.",
       "game": {
         "type": "SEQUENCE",
         "title": "Make the Hand Move — Review 3",
@@ -5323,19 +5257,17 @@ export const CURRICULUM = {
         "play": "Put the movement pathway in order.",
         "task": "Put the movement pathway in order.",
         "question": "Put the movement pathway in order.",
-        "answer": "The brain decides to move the hand. -> Nerves carry the message toward the muscles. -> Muscles tighten and pull. -> Bones move at the joints.",
-        "why": "Moving takes four things in order. The brain decides. Nerves carry that message out to the muscles. The muscles tighten and pull. Bones move at the joints. Muscles can only pull, never push, which is why they come in pairs. Nothing moves until the message gets there.",
+        "answer": "The brain decides to move the hand. -> Muscles tighten and pull. -> Bones move at the joints.",
+        "why": "Moving takes three things in order. The brain decides and sends the message out. The muscles tighten and pull. Bones move at the joints. Muscles can only pull, never push. That is why they come in pairs. Nothing moves until the message gets there.",
         "cards": [
           "The brain decides to move the hand.",
-          "Nerves carry the message toward the muscles.",
           "Muscles tighten and pull.",
           "Bones move at the joints."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -5374,13 +5306,13 @@ export const CURRICULUM = {
         "why": "Muscles use energy when they work. Do the same thing lots of times and they run low. Then they feel tired and weak. That is normal, and it is not the same as being hurt. Rest lets them fill back up. In therapy the rest is part of the plan, not a sign to stop.",
         "rebuttals": [
           "B. The arm is injured, and rest is how an injury heals. — Nothing here says he is hurt. Tired and hurt are not the same thing.",
-          "C. Muscles only grow while a person is resting, so the set is finished. — Rest does help. That is not a reason to stop in the middle of the plan.",
+          "C. Muscles only grow during rest, so the set is finished. — Rest does help. That is not a reason to stop in the middle of the plan.",
           "D. Tiredness means the therapy is not working and should be changed. — Getting tired is what is supposed to happen. It means the muscle is working."
         ],
         "choices": [
           "Muscles can get tired after repeated work and need recovery time.",
           "The arm is injured, and rest is how an injury heals.",
-          "Muscles only grow while a person is resting, so the set is finished.",
+          "Muscles only grow during rest, so the set is finished.",
           "Tiredness means the therapy is not working and should be changed."
         ],
         "correctChoice": "Muscles can get tired after repeated work and need recovery time."
@@ -5434,7 +5366,7 @@ export const CURRICULUM = {
       "scene": "Ella has a small scrape. The hospital team has cleaned and covered it. She asks what her body will do next.",
       "takeaway": "Skin is living tissue that can repair many small injuries.",
       "place": "",
-      "guide": "These four are stages, not choices. Ask what has to happen first. New skin cannot grow under a lid that is not there. And a clot has to close the gap first. The body shuts the door, then does the repairs.",
+      "guide": "These three are stages, not choices. Ask what has to happen first. New skin cannot grow under a lid that is not there. And a clot has to close the gap first. The body shuts the door, then does the repairs.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -5448,10 +5380,9 @@ export const CURRICULUM = {
         "play": "Put the steps of healing in order.",
         "task": "Put the steps of healing in order.",
         "question": "Put the steps of healing in order.",
-        "answer": "The skin barrier is broken by the scrape. -> Blood clotting helps close the damaged area. -> A scab or protective covering forms while healing continues. -> New skin grows underneath as the area repairs.",
-        "why": "Healing goes in stages. First the skin is broken open. Then the blood clots and closes the gap. Then a scab forms and covers it like a lid. Under that lid, new skin grows. The body shuts the door first and does the repairs after. That is why picking a scab sets it back.",
+        "answer": "Blood clotting helps close the damaged area. -> A scab or protective covering forms while healing continues. -> New skin grows underneath as the area repairs.",
+        "why": "Healing goes in stages. First the blood clots and closes the gap. Then a scab forms and covers it like a lid. Under that lid, new skin grows. The body shuts the door first. It does the repairs after. That is why picking a scab sets it back.",
         "cards": [
-          "The skin barrier is broken by the scrape.",
           "Blood clotting helps close the damaged area.",
           "A scab or protective covering forms while healing continues.",
           "New skin grows underneath as the area repairs."
@@ -5459,8 +5390,7 @@ export const CURRICULUM = {
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -5497,7 +5427,7 @@ export const CURRICULUM = {
         "play": "Theo grew four centimetres, mostly while asleep. What told his bones to do that?",
         "task": "Theo grew four centimetres, mostly while asleep. What told his bones to do that?",
         "question": "Theo grew four centimetres, mostly while asleep. What told his bones to do that?",
-        "answer": "A chemical message called a hormone, which travels in the blood and works slowly.",
+        "answer": "A chemical message called a hormone, moving slowly in the blood.",
         "why": "The body has two ways to send messages. Nerves are fast, like pulling your hand off something hot. Hormones are slow. They are chemicals that travel in the blood and can take hours or years to finish their job. Growth hormone is one of them, and the body makes most of it during sleep. That is why Theo grew while he was asleep, and why sleep is part of growing.",
         "rebuttals": [
           "Nerve messages are fast and short. Growing takes months, so it is not a nerve doing it.",
@@ -5505,12 +5435,12 @@ export const CURRICULUM = {
           "Children grow faster at some ages than others, which is a sign something is telling them when."
         ],
         "choices": [
-          "A chemical message called a hormone, which travels in the blood and works slowly.",
-          "A nerve message from his brain, which travels fast and stops right away.",
+          "A chemical message called a hormone, moving slowly in the blood.",
+          "A nerve message from his brain, fast and over right away.",
           "The food in his stomach, which pushes his bones longer.",
           "Nothing told them. Bones grow at the same speed all the time."
         ],
-        "correctChoice": "A chemical message called a hormone, which travels in the blood and works slowly."
+        "correctChoice": "A chemical message called a hormone, moving slowly in the blood."
       },
       "assumes": [
         "your blood carries things all around your body"
@@ -5527,16 +5457,16 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Touch, Think, Move",
-      "scene": "Lily, a patient, touches something very cold. She pulls her hand back fast. The brain doctor shows four cards. It felt like one instant to Lily. It was really a sequence. Something was noticed. A message travelled. The brain understood it. A muscle moved. Each stage takes a tiny bit of time. So the order can be worked out.",
+      "scene": "Lily, a patient, touches something very cold. She pulls her hand back fast. The brain doctor shows three cards. It felt like one instant to Lily. It was really a sequence. Something was noticed. The brain understood it. A muscle moved. Each stage takes a tiny bit of time. So the order can be worked out.",
       "takeaway": "The nervous system helps the body notice changes and respond.",
       "place": "",
-      "guide": "These four are one chain. Ask what has to happen first. You cannot answer something you have not noticed. So the skin comes before the thinking. And the moving comes after both. It feels like one thing. It is four.",
+      "guide": "These three are one chain. Ask what has to happen first. You cannot answer something you have not noticed. So the skin comes before the thinking. And the moving comes after both. It feels like one thing. It is three.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
         "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
       ],
-      "story": "Lily, a patient, touches something very cold. She pulls her hand back fast. The brain doctor shows four cards. It felt like one instant to Lily. It was really a sequence. Something was noticed. A message travelled. The brain understood it. A muscle moved. Each stage takes a tiny bit of time. So the order can be worked out.",
+      "story": "Lily, a patient, touches something very cold. She pulls her hand back fast. The brain doctor shows three cards. It felt like one instant to Lily. It was really a sequence. Something was noticed. The brain understood it. A muscle moved. Each stage takes a tiny bit of time. So the order can be worked out.",
       "game": {
         "type": "SEQUENCE",
         "title": "Touch, Think, Move",
@@ -5544,19 +5474,17 @@ export const CURRICULUM = {
         "play": "Put the stages in order.",
         "task": "Put the stages in order.",
         "question": "Put the stages in order.",
-        "answer": "Skin senses the cold touch. -> Nerves carry a message inward. -> The nervous system processes the signal. -> A message goes to muscles and the hand moves.",
-        "why": "You cannot answer something you have not noticed yet. So the skin senses the cold first. Nerves carry that message inward. The nervous system works out what it means. Then a message goes back out to the muscles and the hand moves. It feels like one thing. It is really four, in order.",
+        "answer": "Skin senses the cold touch. -> The nervous system processes the signal. -> A message goes to muscles and the hand moves.",
+        "why": "You cannot answer something you have not noticed yet. So the skin senses the cold first. The nervous system works out what it means. Then a message goes out to the muscles. The hand moves. It feels like one thing. It is really three, in order.",
         "cards": [
           "Skin senses the cold touch.",
-          "Nerves carry a message inward.",
           "The nervous system processes the signal.",
           "A message goes to muscles and the hand moves."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -5591,7 +5519,7 @@ export const CURRICULUM = {
         "play": "Who should the hospital team check first?",
         "task": "Who should the hospital team check first?",
         "question": "Who should the hospital team check first?",
-        "answer": "Arjun, because confusion after a head injury can be an important warning sign.",
+        "answer": "Arjun, because confusion after a head bump is a warning sign.",
         "why": "You can see a scrape and you cannot see a brain. So a change in how somebody thinks is the clue that matters after a head bump. Arjun is mixed up, and that is new. Bea's scrape can be cleaned. Cole's finger can wait for a picture. Only one of these could be getting worse right now.",
         "rebuttals": [
           "B. Bea, because her scrape is bleeding and can be cleaned quickly. — A scrape does need cleaning. Bleeding you can see is not the same as danger.",
@@ -5599,12 +5527,12 @@ export const CURRICULUM = {
           "D. Arjun last, because he is walking and talking on his own. — Walking and talking is good news. Being mixed up after a head bump is still a warning."
         ],
         "choices": [
-          "Arjun, because confusion after a head injury can be an important warning sign.",
+          "Arjun, because confusion after a head bump is a warning sign.",
           "Bea, because her scrape is bleeding and can be cleaned quickly.",
           "Cole, because a sore finger might be broken and needs an image.",
           "Arjun last, because he is walking and talking on his own."
         ],
-        "correctChoice": "Arjun, because confusion after a head injury can be an important warning sign."
+        "correctChoice": "Arjun, because confusion after a head bump is a warning sign."
       },
       "assumes": [
         "your brain is inside your head"
@@ -5715,16 +5643,16 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "From Light to Picture",
-      "scene": "Jules, a patient, wants to know how light becomes a picture. The brain doctor lays out four cards. Eyes do not really see on their own. They catch light and turn it into signals. The picture is put together later, in the brain. That is why seeing is a team job. Knowing the stages tells you where a problem could be.",
+      "scene": "Jules, a patient, wants to know how light becomes a picture. The brain doctor lays out three cards. Eyes do not really see on their own. They catch light and turn it into signals. The picture is put together later, in the brain. That is why seeing is a team job. Knowing the stages tells you where a problem could be.",
       "takeaway": "Seeing is a team job between the eyes, nerves, and brain.",
       "place": "",
-      "guide": "These four are one path. Ask what has to happen first. The brain cannot make sense of a pattern the eye has not picked up. So the eye collects, and the brain understands. A problem could be anywhere along the line.",
+      "guide": "These three are one path. Ask what has to happen first. The brain cannot make sense of a pattern the eye has not picked up. So the eye collects, and the brain understands. A problem could be anywhere along the line.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
         "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
       ],
-      "story": "Jules, a patient, wants to know how light becomes a picture. The brain doctor lays out four cards. Eyes do not really see on their own. They catch light and turn it into signals. The picture is put together later, in the brain. That is why seeing is a team job. Knowing the stages tells you where a problem could be.",
+      "story": "Jules, a patient, wants to know how light becomes a picture. The brain doctor lays out three cards. Eyes do not really see on their own. They catch light and turn it into signals. The picture is put together later, in the brain. That is why seeing is a team job. Knowing the stages tells you where a problem could be.",
       "game": {
         "type": "SEQUENCE",
         "title": "From Light to Picture",
@@ -5732,10 +5660,9 @@ export const CURRICULUM = {
         "play": "Put the simplified vision pathway in order.",
         "task": "Put the simplified vision pathway in order.",
         "question": "Put the simplified vision pathway in order.",
-        "answer": "Light enters the eye. -> The back of the eye detects the light pattern. -> A nerve carries signals toward the brain. -> The brain uses the signals to make sense of what is seen.",
-        "why": "Seeing is not one step. Light comes into the eye. The back of the eye picks up the pattern. A nerve carries that to the brain. The brain works out what it is. So the eye collects, and the brain understands. A problem could be at any point along that line.",
+        "answer": "The back of the eye detects the light pattern. -> A nerve carries signals toward the brain. -> The brain uses the signals to make sense of what is seen.",
+        "why": "Seeing is not one step. The back of the eye picks up the pattern. A nerve carries that to the brain. The brain works out what it is. So the eye collects, and the brain understands. A problem could be at any point along that line.",
         "cards": [
-          "Light enters the eye.",
           "The back of the eye detects the light pattern.",
           "A nerve carries signals toward the brain.",
           "The brain uses the signals to make sense of what is seen."
@@ -5743,8 +5670,7 @@ export const CURRICULUM = {
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -5809,16 +5735,16 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Touch, Think, Move — Review 2",
-      "scene": "Lily touches something very cold and quickly moves her hand. The brain doctor shows four simplified stages.",
+      "scene": "Lily, a patient, touches something very cold. She pulls her hand back fast. The brain doctor shows three cards. It felt like one instant to Lily. It was really a sequence. Something was noticed. The brain understood it. A muscle moved. Each stage takes a tiny bit of time. So the order can be worked out.",
       "takeaway": "The nervous system helps the body notice changes and respond.",
       "place": "",
-      "guide": "These four are one chain. Ask what has to happen first. You cannot answer something you have not noticed. So the skin comes before the thinking. And the moving comes after both. It feels like one thing. It is four.",
+      "guide": "These three are one chain. Ask what has to happen first. You cannot answer something you have not noticed. So the skin comes before the thinking. And the moving comes after both. It feels like one thing. It is three.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
         "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
       ],
-      "story": "Lily touches something very cold and quickly moves her hand. The brain doctor shows four simplified stages.",
+      "story": "Lily, a patient, touches something very cold. She pulls her hand back fast. The brain doctor shows three cards. It felt like one instant to Lily. It was really a sequence. Something was noticed. The brain understood it. A muscle moved. Each stage takes a tiny bit of time. So the order can be worked out.",
       "game": {
         "type": "SEQUENCE",
         "title": "Touch, Think, Move — Review 2",
@@ -5826,19 +5752,17 @@ export const CURRICULUM = {
         "play": "Put the stages in order.",
         "task": "Put the stages in order.",
         "question": "Put the stages in order.",
-        "answer": "Skin senses the cold touch. -> Nerves carry a message inward. -> The nervous system processes the signal. -> A message goes to muscles and the hand moves.",
-        "why": "You cannot answer something you have not noticed yet. So the skin senses the cold first. Nerves carry that message inward. The nervous system works out what it means. Then a message goes back out to the muscles and the hand moves. It feels like one thing. It is really four, in order.",
+        "answer": "Skin senses the cold touch. -> The nervous system processes the signal. -> A message goes to muscles and the hand moves.",
+        "why": "You cannot answer something you have not noticed yet. So the skin senses the cold first. The nervous system works out what it means. Then a message goes out to the muscles. The hand moves. It feels like one thing. It is really three, in order.",
         "cards": [
           "Skin senses the cold touch.",
-          "Nerves carry a message inward.",
           "The nervous system processes the signal.",
           "A message goes to muscles and the hand moves."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -5873,7 +5797,7 @@ export const CURRICULUM = {
         "play": "Who should the hospital team check first?",
         "task": "Who should the hospital team check first?",
         "question": "Who should the hospital team check first?",
-        "answer": "Arjun, because confusion after a head injury can be an important warning sign.",
+        "answer": "Arjun, because confusion after a head bump is a warning sign.",
         "why": "You can see a scrape and you cannot see a brain. So a change in how somebody thinks is the clue that matters after a head bump. Arjun is mixed up, and that is new. Bea's scrape can be cleaned. Cole's finger can wait for a picture. Only one of these could be getting worse right now.",
         "rebuttals": [
           "B. Bea, because her scrape is bleeding and can be cleaned quickly. — A scrape does need cleaning. Bleeding you can see is not the same as danger.",
@@ -5881,12 +5805,12 @@ export const CURRICULUM = {
           "D. Arjun last, because he is walking and talking on his own. — Walking and talking is good news. Being mixed up after a head bump is still a warning."
         ],
         "choices": [
-          "Arjun, because confusion after a head injury can be an important warning sign.",
+          "Arjun, because confusion after a head bump is a warning sign.",
           "Bea, because her scrape is bleeding and can be cleaned quickly.",
           "Cole, because a sore finger might be broken and needs an image.",
           "Arjun last, because he is walking and talking on his own."
         ],
-        "correctChoice": "Arjun, because confusion after a head injury can be an important warning sign."
+        "correctChoice": "Arjun, because confusion after a head bump is a warning sign."
       },
       "assumes": [
         "your brain is inside your head"
@@ -6014,16 +5938,16 @@ export const CURRICULUM = {
     {
       "day": 12,
       "title": "From Light to Picture — Review 2",
-      "scene": "Jules wants to know how light becomes the picture he experiences. The brain doctor uses four large picture cards.",
+      "scene": "Jules, a patient, wants to know how light becomes a picture. The brain doctor lays out three cards. Eyes do not really see on their own. They catch light and turn it into signals. The picture is put together later, in the brain. That is why seeing is a team job. Knowing the stages tells you where a problem could be.",
       "takeaway": "Seeing is a team job between the eyes, nerves, and brain.",
       "place": "",
-      "guide": "These four are one path. Ask what has to happen first. The brain cannot make sense of a pattern the eye has not picked up. So the eye collects, and the brain understands. A problem could be anywhere along the line.",
+      "guide": "These three are one path. Ask what has to happen first. The brain cannot make sense of a pattern the eye has not picked up. So the eye collects, and the brain understands. A problem could be anywhere along the line.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
         "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
       ],
-      "story": "Jules wants to know how light becomes the picture he experiences. The brain doctor uses four large picture cards.",
+      "story": "Jules, a patient, wants to know how light becomes a picture. The brain doctor lays out three cards. Eyes do not really see on their own. They catch light and turn it into signals. The picture is put together later, in the brain. That is why seeing is a team job. Knowing the stages tells you where a problem could be.",
       "game": {
         "type": "SEQUENCE",
         "title": "From Light to Picture — Review 2",
@@ -6031,10 +5955,9 @@ export const CURRICULUM = {
         "play": "Put the simplified vision pathway in order.",
         "task": "Put the simplified vision pathway in order.",
         "question": "Put the simplified vision pathway in order.",
-        "answer": "Light enters the eye. -> The back of the eye detects the light pattern. -> A nerve carries signals toward the brain. -> The brain uses the signals to make sense of what is seen.",
-        "why": "Seeing is not one step. Light comes into the eye. The back of the eye picks up the pattern. A nerve carries that to the brain. The brain works out what it is. So the eye collects, and the brain understands. A problem could be at any point along that line.",
+        "answer": "The back of the eye detects the light pattern. -> A nerve carries signals toward the brain. -> The brain uses the signals to make sense of what is seen.",
+        "why": "Seeing is not one step. The back of the eye picks up the pattern. A nerve carries that to the brain. The brain works out what it is. So the eye collects, and the brain understands. A problem could be at any point along that line.",
         "cards": [
-          "Light enters the eye.",
           "The back of the eye detects the light pattern.",
           "A nerve carries signals toward the brain.",
           "The brain uses the signals to make sense of what is seen."
@@ -6042,8 +5965,7 @@ export const CURRICULUM = {
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -6108,16 +6030,16 @@ export const CURRICULUM = {
     {
       "day": 14,
       "title": "Touch, Think, Move — Review 3",
-      "scene": "Lily touches something very cold and quickly moves her hand. The brain doctor shows four simplified stages.",
+      "scene": "Lily, a patient, touches something very cold. She pulls her hand back fast. The brain doctor shows three cards. It felt like one instant to Lily. It was really a sequence. Something was noticed. The brain understood it. A muscle moved. Each stage takes a tiny bit of time. So the order can be worked out.",
       "takeaway": "The nervous system helps the body notice changes and respond.",
       "place": "",
-      "guide": "These four are one chain. Ask what has to happen first. You cannot answer something you have not noticed. So the skin comes before the thinking. And the moving comes after both. It feels like one thing. It is four.",
+      "guide": "These three are one chain. Ask what has to happen first. You cannot answer something you have not noticed. So the skin comes before the thinking. And the moving comes after both. It feels like one thing. It is three.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
         "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
       ],
-      "story": "Lily touches something very cold and quickly moves her hand. The brain doctor shows four simplified stages.",
+      "story": "Lily, a patient, touches something very cold. She pulls her hand back fast. The brain doctor shows three cards. It felt like one instant to Lily. It was really a sequence. Something was noticed. The brain understood it. A muscle moved. Each stage takes a tiny bit of time. So the order can be worked out.",
       "game": {
         "type": "SEQUENCE",
         "title": "Touch, Think, Move — Review 3",
@@ -6125,19 +6047,17 @@ export const CURRICULUM = {
         "play": "Put the stages in order.",
         "task": "Put the stages in order.",
         "question": "Put the stages in order.",
-        "answer": "Skin senses the cold touch. -> Nerves carry a message inward. -> The nervous system processes the signal. -> A message goes to muscles and the hand moves.",
-        "why": "You cannot answer something you have not noticed yet. So the skin senses the cold first. Nerves carry that message inward. The nervous system works out what it means. Then a message goes back out to the muscles and the hand moves. It feels like one thing. It is really four, in order.",
+        "answer": "Skin senses the cold touch. -> The nervous system processes the signal. -> A message goes to muscles and the hand moves.",
+        "why": "You cannot answer something you have not noticed yet. So the skin senses the cold first. The nervous system works out what it means. Then a message goes out to the muscles. The hand moves. It feels like one thing. It is really three, in order.",
         "cards": [
           "Skin senses the cold touch.",
-          "Nerves carry a message inward.",
           "The nervous system processes the signal.",
           "A message goes to muscles and the hand moves."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -6172,7 +6092,7 @@ export const CURRICULUM = {
         "play": "Who should the hospital team check first?",
         "task": "Who should the hospital team check first?",
         "question": "Who should the hospital team check first?",
-        "answer": "Arjun, because confusion after a head injury can be an important warning sign.",
+        "answer": "Arjun, because confusion after a head bump is a warning sign.",
         "why": "You can see a scrape and you cannot see a brain. So a change in how somebody thinks is the clue that matters after a head bump. Arjun is mixed up, and that is new. Bea's scrape can be cleaned. Cole's finger can wait for a picture. Only one of these could be getting worse right now.",
         "rebuttals": [
           "B. Bea, because her scrape is bleeding and can be cleaned quickly. — A scrape does need cleaning. Bleeding you can see is not the same as danger.",
@@ -6180,12 +6100,12 @@ export const CURRICULUM = {
           "D. Arjun last, because he is walking and talking on his own. — Walking and talking is good news. Being mixed up after a head bump is still a warning."
         ],
         "choices": [
-          "Arjun, because confusion after a head injury can be an important warning sign.",
+          "Arjun, because confusion after a head bump is a warning sign.",
           "Bea, because her scrape is bleeding and can be cleaned quickly.",
           "Cole, because a sore finger might be broken and needs an image.",
           "Arjun last, because he is walking and talking on his own."
         ],
-        "correctChoice": "Arjun, because confusion after a head injury can be an important warning sign."
+        "correctChoice": "Arjun, because confusion after a head bump is a warning sign."
       },
       "assumes": [
         "your brain is inside your head"
@@ -6313,16 +6233,16 @@ export const CURRICULUM = {
     {
       "day": 18,
       "title": "From Light to Picture — Review 3",
-      "scene": "Jules wants to know how light becomes the picture he experiences. The brain doctor uses four large picture cards.",
+      "scene": "Jules, a patient, wants to know how light becomes a picture. The brain doctor lays out three cards. Eyes do not really see on their own. They catch light and turn it into signals. The picture is put together later, in the brain. That is why seeing is a team job. Knowing the stages tells you where a problem could be.",
       "takeaway": "Seeing is a team job between the eyes, nerves, and brain.",
       "place": "",
-      "guide": "These four are one path. Ask what has to happen first. The brain cannot make sense of a pattern the eye has not picked up. So the eye collects, and the brain understands. A problem could be anywhere along the line.",
+      "guide": "These three are one path. Ask what has to happen first. The brain cannot make sense of a pattern the eye has not picked up. So the eye collects, and the brain understands. A problem could be anywhere along the line.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
         "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
       ],
-      "story": "Jules wants to know how light becomes the picture he experiences. The brain doctor uses four large picture cards.",
+      "story": "Jules, a patient, wants to know how light becomes a picture. The brain doctor lays out three cards. Eyes do not really see on their own. They catch light and turn it into signals. The picture is put together later, in the brain. That is why seeing is a team job. Knowing the stages tells you where a problem could be.",
       "game": {
         "type": "SEQUENCE",
         "title": "From Light to Picture — Review 3",
@@ -6330,10 +6250,9 @@ export const CURRICULUM = {
         "play": "Put the simplified vision pathway in order.",
         "task": "Put the simplified vision pathway in order.",
         "question": "Put the simplified vision pathway in order.",
-        "answer": "Light enters the eye. -> The back of the eye detects the light pattern. -> A nerve carries signals toward the brain. -> The brain uses the signals to make sense of what is seen.",
-        "why": "Seeing is not one step. Light comes into the eye. The back of the eye picks up the pattern. A nerve carries that to the brain. The brain works out what it is. So the eye collects, and the brain understands. A problem could be at any point along that line.",
+        "answer": "The back of the eye detects the light pattern. -> A nerve carries signals toward the brain. -> The brain uses the signals to make sense of what is seen.",
+        "why": "Seeing is not one step. The back of the eye picks up the pattern. A nerve carries that to the brain. The brain works out what it is. So the eye collects, and the brain understands. A problem could be at any point along that line.",
         "cards": [
-          "Light enters the eye.",
           "The back of the eye detects the light pattern.",
           "A nerve carries signals toward the brain.",
           "The brain uses the signals to make sense of what is seen."
@@ -6341,8 +6260,7 @@ export const CURRICULUM = {
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -6407,16 +6325,16 @@ export const CURRICULUM = {
     {
       "day": 20,
       "title": "Touch, Think, Move — Review 4",
-      "scene": "Lily touches something very cold and quickly moves her hand. The brain doctor shows four simplified stages.",
+      "scene": "Lily, a patient, touches something very cold. She pulls her hand back fast. The brain doctor shows three cards. It felt like one instant to Lily. It was really a sequence. Something was noticed. The brain understood it. A muscle moved. Each stage takes a tiny bit of time. So the order can be worked out.",
       "takeaway": "The nervous system helps the body notice changes and respond.",
       "place": "",
-      "guide": "These four are one chain. Ask what has to happen first. You cannot answer something you have not noticed. So the skin comes before the thinking. And the moving comes after both. It feels like one thing. It is four.",
+      "guide": "These three are one chain. Ask what has to happen first. You cannot answer something you have not noticed. So the skin comes before the thinking. And the moving comes after both. It feels like one thing. It is three.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
         "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
       ],
-      "story": "Lily touches something very cold and quickly moves her hand. The brain doctor shows four simplified stages.",
+      "story": "Lily, a patient, touches something very cold. She pulls her hand back fast. The brain doctor shows three cards. It felt like one instant to Lily. It was really a sequence. Something was noticed. The brain understood it. A muscle moved. Each stage takes a tiny bit of time. So the order can be worked out.",
       "game": {
         "type": "SEQUENCE",
         "title": "Touch, Think, Move — Review 4",
@@ -6424,19 +6342,17 @@ export const CURRICULUM = {
         "play": "Put the stages in order.",
         "task": "Put the stages in order.",
         "question": "Put the stages in order.",
-        "answer": "Skin senses the cold touch. -> Nerves carry a message inward. -> The nervous system processes the signal. -> A message goes to muscles and the hand moves.",
-        "why": "You cannot answer something you have not noticed yet. So the skin senses the cold first. Nerves carry that message inward. The nervous system works out what it means. Then a message goes back out to the muscles and the hand moves. It feels like one thing. It is really four, in order.",
+        "answer": "Skin senses the cold touch. -> The nervous system processes the signal. -> A message goes to muscles and the hand moves.",
+        "why": "You cannot answer something you have not noticed yet. So the skin senses the cold first. The nervous system works out what it means. Then a message goes out to the muscles. The hand moves. It feels like one thing. It is really three, in order.",
         "cards": [
           "Skin senses the cold touch.",
-          "Nerves carry a message inward.",
           "The nervous system processes the signal.",
           "A message goes to muscles and the hand moves."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -6471,7 +6387,7 @@ export const CURRICULUM = {
         "play": "Who should the hospital team check first?",
         "task": "Who should the hospital team check first?",
         "question": "Who should the hospital team check first?",
-        "answer": "Arjun, because confusion after a head injury can be an important warning sign.",
+        "answer": "Arjun, because confusion after a head bump is a warning sign.",
         "why": "You can see a scrape and you cannot see a brain. So a change in how somebody thinks is the clue that matters after a head bump. Arjun is mixed up, and that is new. Bea's scrape can be cleaned. Cole's finger can wait for a picture. Only one of these could be getting worse right now.",
         "rebuttals": [
           "B. Bea, because her scrape is bleeding and can be cleaned quickly. — A scrape does need cleaning. Bleeding you can see is not the same as danger.",
@@ -6479,12 +6395,12 @@ export const CURRICULUM = {
           "D. Arjun last, because he is walking and talking on his own. — Walking and talking is good news. Being mixed up after a head bump is still a warning."
         ],
         "choices": [
-          "Arjun, because confusion after a head injury can be an important warning sign.",
+          "Arjun, because confusion after a head bump is a warning sign.",
           "Bea, because her scrape is bleeding and can be cleaned quickly.",
           "Cole, because a sore finger might be broken and needs an image.",
           "Arjun last, because he is walking and talking on his own."
         ],
-        "correctChoice": "Arjun, because confusion after a head injury can be an important warning sign."
+        "correctChoice": "Arjun, because confusion after a head bump is a warning sign."
       },
       "assumes": [
         "your brain is inside your head"
@@ -6612,16 +6528,16 @@ export const CURRICULUM = {
     {
       "day": 24,
       "title": "From Light to Picture — Review 4",
-      "scene": "Jules wants to know how light becomes the picture he experiences. The brain doctor uses four large picture cards.",
+      "scene": "Jules, a patient, wants to know how light becomes a picture. The brain doctor lays out three cards. Eyes do not really see on their own. They catch light and turn it into signals. The picture is put together later, in the brain. That is why seeing is a team job. Knowing the stages tells you where a problem could be.",
       "takeaway": "Seeing is a team job between the eyes, nerves, and brain.",
       "place": "",
-      "guide": "These four are one path. Ask what has to happen first. The brain cannot make sense of a pattern the eye has not picked up. So the eye collects, and the brain understands. A problem could be anywhere along the line.",
+      "guide": "These three are one path. Ask what has to happen first. The brain cannot make sense of a pattern the eye has not picked up. So the eye collects, and the brain understands. A problem could be anywhere along the line.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
         "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
       ],
-      "story": "Jules wants to know how light becomes the picture he experiences. The brain doctor uses four large picture cards.",
+      "story": "Jules, a patient, wants to know how light becomes a picture. The brain doctor lays out three cards. Eyes do not really see on their own. They catch light and turn it into signals. The picture is put together later, in the brain. That is why seeing is a team job. Knowing the stages tells you where a problem could be.",
       "game": {
         "type": "SEQUENCE",
         "title": "From Light to Picture — Review 4",
@@ -6629,10 +6545,9 @@ export const CURRICULUM = {
         "play": "Put the simplified vision pathway in order.",
         "task": "Put the simplified vision pathway in order.",
         "question": "Put the simplified vision pathway in order.",
-        "answer": "Light enters the eye. -> The back of the eye detects the light pattern. -> A nerve carries signals toward the brain. -> The brain uses the signals to make sense of what is seen.",
-        "why": "Seeing is not one step. Light comes into the eye. The back of the eye picks up the pattern. A nerve carries that to the brain. The brain works out what it is. So the eye collects, and the brain understands. A problem could be at any point along that line.",
+        "answer": "The back of the eye detects the light pattern. -> A nerve carries signals toward the brain. -> The brain uses the signals to make sense of what is seen.",
+        "why": "Seeing is not one step. The back of the eye picks up the pattern. A nerve carries that to the brain. The brain works out what it is. So the eye collects, and the brain understands. A problem could be at any point along that line.",
         "cards": [
-          "Light enters the eye.",
           "The back of the eye detects the light pattern.",
           "A nerve carries signals toward the brain.",
           "The brain uses the signals to make sense of what is seen."
@@ -6640,8 +6555,7 @@ export const CURRICULUM = {
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -6848,13 +6762,13 @@ export const CURRICULUM = {
         "rebuttals": [
           "B. Yes, because they were both in the same building this week. — Being in one place is a clue worth having. Lots of people share a building and are not sick.",
           "C. Yes, because feeling tired is an unusual thing to report. — Tired is one of the most common things people say. That is what makes it a weak clue.",
-          "D. No, because their other clues are different, so it must be a different germ. — Different clues are worth noticing. One germ can still make two people feel different things."
+          "D. No, their other clues differ, so it must be a different germ. — Different clues are worth noticing. One germ can still make two people feel different things."
         ],
         "choices": [
           "Not enough evidence — many different problems can make a person tired.",
           "Yes, because they were both in the same building this week.",
           "Yes, because feeling tired is an unusual thing to report.",
-          "No, because their other clues are different, so it must be a different germ."
+          "No, their other clues differ, so it must be a different germ."
         ],
         "correctChoice": "Not enough evidence — many different problems can make a person tired."
       },
@@ -6873,16 +6787,16 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "The Body Notices a Germ",
-      "scene": "Ruby is getting better. The immune doctor wants to show why. Four picture cards show what her body did. The steps happen in order. Something has to be noticed before it can be fought. Helpers have to arrive before the cleanup. The last step is the surprising one. The body keeps a record of what it met.",
+      "scene": "Ruby is getting better. The immune doctor wants to show why. Three picture cards show what her body did. The steps happen in order. Something has to be noticed before it can be fought. The last step is the surprising one. The body keeps a record of what it met.",
       "takeaway": "Immune memory can help the body respond faster when it meets the same threat again.",
       "place": "",
-      "guide": "These four are one order. Ask what has to happen first. Nothing gets attacked before it is spotted. And nothing is remembered before the fight. That last step is why you often do not get the same illness twice.",
+      "guide": "These three are one order. Ask what has to happen first. Nothing gets attacked before it is spotted. And nothing is remembered before the fight. That last step is why you often do not get the same illness twice.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
         "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
       ],
-      "story": "Ruby is getting better. The immune doctor wants to show why. Four picture cards show what her body did. The steps happen in order. Something has to be noticed before it can be fought. Helpers have to arrive before the cleanup. The last step is the surprising one. The body keeps a record of what it met.",
+      "story": "Ruby is getting better. The immune doctor wants to show why. Three picture cards show what her body did. The steps happen in order. Something has to be noticed before it can be fought. The last step is the surprising one. The body keeps a record of what it met.",
       "game": {
         "type": "SEQUENCE",
         "title": "The Body Notices a Germ",
@@ -6890,10 +6804,9 @@ export const CURRICULUM = {
         "play": "Put the body’s germ-fighting steps in order.",
         "task": "Put the body’s germ-fighting steps in order.",
         "question": "Put the body’s germ-fighting steps in order.",
-        "answer": "A germ gets past the body’s outside barriers. -> Immune cells notice signs that something does not belong. -> The immune system attacks the germ and helps clear it. -> Some immune cells remember important features for later.",
-        "why": "The immune system does four things, in order. A germ gets past the outside walls. Immune cells spot that something does not belong. They attack it and clear it out. Then some of them remember what it looked like. That last step is why you often do not get the same illness twice.",
+        "answer": "Immune cells notice signs that something does not belong. -> The immune system attacks the germ and helps clear it. -> Some immune cells remember important features for later.",
+        "why": "The immune system does three things, in order. Immune cells spot that something does not belong. They attack it and clear it out. Then some of them remember what it looked like. That last step is why you often do not get the same illness twice.",
         "cards": [
-          "A germ gets past the body’s outside barriers.",
           "Immune cells notice signs that something does not belong.",
           "The immune system attacks the germ and helps clear it.",
           "Some immune cells remember important features for later."
@@ -6901,8 +6814,7 @@ export const CURRICULUM = {
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -6970,7 +6882,7 @@ export const CURRICULUM = {
       "scene": "Mae is at the clinic with her mum. A nurse will give the shot. A shot lets the body practise, so it is ready if the real germ turns up.",
       "takeaway": "The wait at the end of a vaccine visit is part of the visit: fast reactions show up in the first few minutes.",
       "place": "",
-      "guide": "All four steps happen. Ask which one cannot be taken back. A shot cannot, so checking who it is comes first. Then telling Mae, so she can hold still. The wait at the end is not politeness.",
+      "guide": "All three steps happen. Ask which one cannot be taken back. A shot cannot, so checking who it is comes first. Then the nurse gives it. The wait at the end is not politeness.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -6984,19 +6896,17 @@ export const CURRICULUM = {
         "play": "Put the clinic process in the best order.",
         "task": "Put the clinic process in the best order.",
         "question": "Put the clinic process in the best order.",
-        "answer": "1. Check Mae’s name and the planned vaccine with her parent. 2. Explain what will happen, so Mae can hold still. 3. The trained clinician gives the vaccine. 4. Record it, and wait a short while before leaving.",
-        "why": "Check who it is first. A shot cannot be taken back. Then tell Mae what is coming, so she can hold still. Then the nurse gives it. Then you wait a few minutes. That wait is not just being polite. If a rare fast problem starts, it starts right then, and a nurse is still there.",
+        "answer": "1. Check Mae’s name and the planned vaccine with her parent. 2. The trained clinician gives the vaccine. 3. Record it, and wait a short while before leaving.",
+        "why": "Check who it is first. A shot cannot be taken back. Then the nurse gives it. Then you wait a few minutes. That wait is not just being polite. A rare fast problem starts right then. A nurse is still there to help.",
         "cards": [
           "Check Mae’s name and the planned vaccine with her parent.",
-          "Explain what will happen, so Mae can hold still.",
           "The trained clinician gives the vaccine.",
           "Record it, and wait a short while before leaving."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -7034,13 +6944,13 @@ export const CURRICULUM = {
         "answer": "Chloe, because swelling with trouble breathing can be a medical emergency.",
         "why": "Swelling with trouble breathing can get dangerous in minutes. That is why Chloe goes first. Itchy eyes are horrible and they stay about the same. A big rash looks worse than a small one, but how much skin it covers is not what makes it urgent. You go by what could get worse fastest.",
         "rebuttals": [
-          "B. Sofia, because itchy eyes come first and treating them early stops the rest. — Itchy eyes are no fun. They do not get dangerous the way trouble breathing does.",
+          "B. Sofia, because treating her itchy eyes early stops the rest. — Itchy eyes are no fun. They do not get dangerous the way trouble breathing does.",
           "C. Malik, because his rash covers a large area of skin. — A big rash looks worse than a small one. How much skin it covers is not what makes it urgent.",
           "D. Whoever has been waiting longest, so the queue stays fair. — Waiting your turn is fair most places. Here the fair thing is the sickest person first."
         ],
         "choices": [
           "Chloe, because swelling with trouble breathing can be a medical emergency.",
-          "Sofia, because itchy eyes come first and treating them early stops the rest.",
+          "Sofia, because treating her itchy eyes early stops the rest.",
           "Malik, because his rash covers a large area of skin.",
           "Whoever has been waiting longest, so the queue stays fair."
         ],
@@ -7095,20 +7005,20 @@ export const CURRICULUM = {
         "play": "Which comparison is most sensible?",
         "task": "Which comparison is most sensible?",
         "question": "Which comparison is most sensible?",
-        "answer": "Sofia’s repeating pollen-linked itching fits an allergy pattern; Ty’s fever plus sick contacts fits an infection pattern.",
+        "answer": "Sofia’s pollen itching is allergy; Ty’s fever and sick contacts are infection.",
         "why": "Look at the pattern, not just the word. Sofia itches when the pollen comes. It happens every year. That fits an allergy. Ty has a fever. He was near people who were sick. That fits a germ. Both feel unwell. The stories under them are not the same.",
         "rebuttals": [
-          "B. Both fit an allergy pattern, because both patients feel unwell at the same time of year. — The season is a real clue. Ty was also near sick people, and that points somewhere else.",
-          "C. Sofia’s itching fits an infection, because germs can make skin itch; Ty’s fever fits an allergy. — The two are swapped. Itching that comes back with the pollen is the allergy pattern.",
+          "B. Both are allergy, because both feel unwell in the same season. — The season is a real clue. Ty was also near sick people, and that points somewhere else.",
+          "C. Sofia’s itching is infection; Ty’s fever is allergy. — The two are swapped. Itching that comes back with the pollen is the allergy pattern.",
           "D. Neither pattern can be told apart until a blood test comes back. — A test would help. The patterns already point different ways, and that is worth saying now."
         ],
         "choices": [
-          "Sofia’s repeating pollen-linked itching fits an allergy pattern; Ty’s fever plus sick contacts fits an infection pattern.",
-          "Both fit an allergy pattern, because both patients feel unwell at the same time of year.",
-          "Sofia’s itching fits an infection, because germs can make skin itch; Ty’s fever fits an allergy.",
+          "Sofia’s pollen itching is allergy; Ty’s fever and sick contacts are infection.",
+          "Both are allergy, because both feel unwell in the same season.",
+          "Sofia’s itching is infection; Ty’s fever is allergy.",
           "Neither pattern can be told apart until a blood test comes back."
         ],
-        "correctChoice": "Sofia’s repeating pollen-linked itching fits an allergy pattern; Ty’s fever plus sick contacts fits an infection pattern."
+        "correctChoice": "Sofia’s pollen itching is allergy; Ty’s fever and sick contacts are infection."
       },
       "assumes": [
         "some things happen at the same time every year"
@@ -7128,7 +7038,7 @@ export const CURRICULUM = {
       "scene": "The team is helping Chloe now. In this game you do not pick or give medicine. Your job is to get the right grown-ups fast and tell them the story.",
       "takeaway": "In an emergency the first action is the one with a clock on it, and the last is the one that protects the record.",
       "place": "",
-      "guide": "All four steps happen. Ask which clock is already running. The team takes time to come, so calling is first. Then watch her breathing, because that changes fastest. Writing it down is last, so nobody has to guess the order.",
+      "guide": "All three steps happen. Ask which clock is already running. The team takes time to come, so calling is first. Then watch her breathing, because that changes fastest. Then tell them what she met and when.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -7142,19 +7052,17 @@ export const CURRICULUM = {
         "play": "Put the junior-doctor actions in order.",
         "task": "Put the junior-doctor actions in order.",
         "question": "Put the junior-doctor actions in order.",
-        "answer": "1. Call the emergency team, because everything else can happen while they come. 2. Stay with Chloe and watch her breathing, which is what can change fastest. 3. Tell the team what she was exposed to and when it started. 4. Write down what you saw, in the order it happened.",
-        "why": "Call first. That clock is running whether or not you do anything else. Then watch her breathing, because it can change fastest. Then say what she met and when. The team needs that before they act. Write it down last, so nobody has to guess the order later.",
+        "answer": "1. Call the emergency team, because everything else can happen while they come. 2. Stay with Chloe and watch her breathing, which changes fastest. 3. Tell the team what she was exposed to and when it started.",
+        "why": "Call first. That clock is running whether or not you do anything else. Then watch her breathing. It can change fastest. Then say what she met and when. The team needs that before they act.",
         "cards": [
           "Call the emergency team, because everything else can happen while they come.",
-          "Stay with Chloe and watch her breathing, which is what can change fastest.",
-          "Tell the team what she was exposed to and when it started.",
-          "Write down what you saw, in the order it happened."
+          "Stay with Chloe and watch her breathing, which changes fastest.",
+          "Tell the team what she was exposed to and when it started."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -7210,15 +7118,15 @@ export const CURRICULUM = {
         "answer": "Sweating helps cool; shivering uses muscle activity that helps make heat.",
         "why": "These two do opposite things. Sweat sits on your skin and dries. Drying takes heat away with it, so you cool down. Shivering is your muscles shaking fast, and working muscles make heat. So one cools and one warms. Your body uses both to stay at about the same temperature all day.",
         "rebuttals": [
-          "B. Both make heat, because the body is trying to warm up either way. — Shivering does make heat. Sweating does the opposite, which is the whole point.",
+          "B. Sweating and shivering both make heat, to warm the body up. — Shivering does make heat. Sweating does the opposite, which is the whole point.",
           "C. Sweating cools by wetting the skin; shivering cools by moving air. — Sweating does cool. Shivering is muscles working, and working muscles make heat.",
-          "D. Both are signs of being unwell rather than ways of holding a steady temperature. — You can be unwell and do both. A healthy body does both too, every day."
+          "D. Both are signs of being unwell, not ways to hold a temperature. — You can be unwell and do both. A healthy body does both too, every day."
         ],
         "choices": [
           "Sweating helps cool; shivering uses muscle activity that helps make heat.",
-          "Sweating and shivering both make heat, because the body is trying to warm up either way.",
-          "Sweating cools by wetting the skin; shivering cools by moving air across it.",
-          "Both are signs of being unwell rather than ways of holding a steady temperature."
+          "Sweating and shivering both make heat, to warm the body up.",
+          "Sweating cools by wetting the skin; shivering cools by moving air.",
+          "Both are signs of being unwell, not ways to hold a temperature."
         ],
         "correctChoice": "Sweating helps cool; shivering uses muscle activity that helps make heat."
       },
@@ -7424,7 +7332,7 @@ export const CURRICULUM = {
       "scene": "Lena asks why the hospital has so many sinks. The nurse explains that clean hands help stop germs from traveling between people and surfaces.",
       "takeaway": "Handwashing is a simple action that can break a chain of germ spread.",
       "place": "",
-      "guide": "All four steps happen. Ask what each one needs before it. Soap cannot spread on dry hands. And rinsing has nothing to carry away until the soap has loosened it. The rubbing is the part people cut short.",
+      "guide": "All three steps happen. Ask what each one needs before it. Soap cannot spread on dry hands. And rinsing has nothing to carry away until the soap has loosened it. The rubbing is the part people cut short.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -7438,19 +7346,17 @@ export const CURRICULUM = {
         "play": "Put the handwashing steps in order.",
         "task": "Put the handwashing steps in order.",
         "question": "Put the handwashing steps in order.",
-        "answer": "1. Wet hands with clean running water. 2. Use soap and scrub all parts of the hands. 3. Rinse the soap away with clean running water. 4. Dry the hands with a clean towel or air dryer.",
-        "why": "Hands are how germs get around. Somebody touches one thing, then another, then their own face. Washing breaks that chain. Soap loosens the germs, and running water carries them away. That is why it needs both, and why the rubbing part is the part people cut short.",
+        "answer": "1. Wet hands with clean running water. 2. Use soap and scrub all parts of the hands. 3. Rinse the soap away with clean running water.",
+        "why": "Hands are how germs get around. Somebody touches one thing, then another, then their own face. Washing breaks that chain. Soap loosens the germs. Running water carries them away. That is why it needs both. The rubbing part is the part people cut short.",
         "cards": [
           "Wet hands with clean running water.",
           "Use soap and scrub all parts of the hands.",
-          "Rinse the soap away with clean running water.",
-          "Dry the hands with a clean towel or air dryer."
+          "Rinse the soap away with clean running water."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -7507,13 +7413,13 @@ export const CURRICULUM = {
         "rebuttals": [
           "B. Yes, because they were both in the same building this week. — Being in one place is a clue worth having. Lots of people share a building and are not sick.",
           "C. Yes, because feeling tired is an unusual thing to report. — Tired is one of the most common things people say. That is what makes it a weak clue.",
-          "D. No, because their other clues are different, so it must be a different germ. — Different clues are worth noticing. One germ can still make two people feel different things."
+          "D. No, their other clues differ, so it must be a different germ. — Different clues are worth noticing. One germ can still make two people feel different things."
         ],
         "choices": [
           "Not enough evidence — many different problems can make a person tired.",
           "Yes, because they were both in the same building this week.",
           "Yes, because feeling tired is an unusual thing to report.",
-          "No, because their other clues are different, so it must be a different germ."
+          "No, their other clues differ, so it must be a different germ."
         ],
         "correctChoice": "Not enough evidence — many different problems can make a person tired."
       },
@@ -7532,16 +7438,16 @@ export const CURRICULUM = {
     {
       "day": 16,
       "title": "The Body Notices a Germ — Review 2",
-      "scene": "Ruby is getting better. The immunologist gives you four picture cards showing a very simplified immune response.",
+      "scene": "Ruby is getting better. The immune doctor wants to show why. Three picture cards show what her body did. The steps happen in order. Something has to be noticed before it can be fought. The last step is the surprising one. The body keeps a record of what it met.",
       "takeaway": "Immune memory can help the body respond faster when it meets the same threat again.",
       "place": "",
-      "guide": "These four are one order. Ask what has to happen first. Nothing gets attacked before it is spotted. And nothing is remembered before the fight. That last step is why you often do not get the same illness twice.",
+      "guide": "These three are one order. Ask what has to happen first. Nothing gets attacked before it is spotted. And nothing is remembered before the fight. That last step is why you often do not get the same illness twice.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
         "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
       ],
-      "story": "Ruby is getting better. The immunologist gives you four picture cards showing a very simplified immune response.",
+      "story": "Ruby is getting better. The immune doctor wants to show why. Three picture cards show what her body did. The steps happen in order. Something has to be noticed before it can be fought. The last step is the surprising one. The body keeps a record of what it met.",
       "game": {
         "type": "SEQUENCE",
         "title": "The Body Notices a Germ — Review 2",
@@ -7549,10 +7455,9 @@ export const CURRICULUM = {
         "play": "Put the body’s germ-fighting steps in order.",
         "task": "Put the body’s germ-fighting steps in order.",
         "question": "Put the body’s germ-fighting steps in order.",
-        "answer": "A germ gets past the body’s outside barriers. -> Immune cells notice signs that something does not belong. -> The immune system attacks the germ and helps clear it. -> Some immune cells remember important features for later.",
-        "why": "The immune system does four things, in order. A germ gets past the outside walls. Immune cells spot that something does not belong. They attack it and clear it out. Then some of them remember what it looked like. That last step is why you often do not get the same illness twice.",
+        "answer": "Immune cells notice signs that something does not belong. -> The immune system attacks the germ and helps clear it. -> Some immune cells remember important features for later.",
+        "why": "The immune system does three things, in order. Immune cells spot that something does not belong. They attack it and clear it out. Then some of them remember what it looked like. That last step is why you often do not get the same illness twice.",
         "cards": [
-          "A germ gets past the body’s outside barriers.",
           "Immune cells notice signs that something does not belong.",
           "The immune system attacks the germ and helps clear it.",
           "Some immune cells remember important features for later."
@@ -7560,8 +7465,7 @@ export const CURRICULUM = {
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -7626,7 +7530,7 @@ export const CURRICULUM = {
       "scene": "Mae is at the clinic with her mum. A nurse will give the shot. A shot lets the body practise, so it is ready if the real germ turns up.",
       "takeaway": "The wait at the end of a vaccine visit is part of the visit: fast reactions show up in the first few minutes.",
       "place": "",
-      "guide": "All four steps happen. Ask which one cannot be taken back. A shot cannot, so checking who it is comes first. Then telling Mae, so she can hold still. The wait at the end is not politeness.",
+      "guide": "All three steps happen. Ask which one cannot be taken back. A shot cannot, so checking who it is comes first. Then the nurse gives it. The wait at the end is not politeness.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -7640,19 +7544,17 @@ export const CURRICULUM = {
         "play": "Put the clinic process in the best order.",
         "task": "Put the clinic process in the best order.",
         "question": "Put the clinic process in the best order.",
-        "answer": "1. Check Mae’s name and the planned vaccine with her parent. 2. Explain what will happen, so Mae can hold still. 3. The trained clinician gives the vaccine. 4. Record it, and wait a short while before leaving.",
-        "why": "Check who it is first. A shot cannot be taken back. Then tell Mae what is coming, so she can hold still. Then the nurse gives it. Then you wait a few minutes. That wait is not just being polite. If a rare fast problem starts, it starts right then, and a nurse is still there.",
+        "answer": "1. Check Mae’s name and the planned vaccine with her parent. 2. The trained clinician gives the vaccine. 3. Record it, and wait a short while before leaving.",
+        "why": "Check who it is first. A shot cannot be taken back. Then the nurse gives it. Then you wait a few minutes. That wait is not just being polite. A rare fast problem starts right then. A nurse is still there to help.",
         "cards": [
           "Check Mae’s name and the planned vaccine with her parent.",
-          "Explain what will happen, so Mae can hold still.",
           "The trained clinician gives the vaccine.",
           "Record it, and wait a short while before leaving."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
@@ -7690,15 +7592,15 @@ export const CURRICULUM = {
         "answer": "Sweating helps cool; shivering uses muscle activity that helps make heat.",
         "why": "These two do opposite things. Sweat sits on your skin and dries. Drying takes heat away with it, so you cool down. Shivering is your muscles shaking fast, and working muscles make heat. So one cools and one warms. Your body uses both to stay at about the same temperature all day.",
         "rebuttals": [
-          "B. Both make heat, because the body is trying to warm up either way. — Shivering does make heat. Sweating does the opposite, which is the whole point.",
+          "B. Sweating and shivering both make heat, to warm the body up. — Shivering does make heat. Sweating does the opposite, which is the whole point.",
           "C. Sweating cools by wetting the skin; shivering cools by moving air. — Sweating does cool. Shivering is muscles working, and working muscles make heat.",
-          "D. Both are signs of being unwell rather than ways of holding a steady temperature. — You can be unwell and do both. A healthy body does both too, every day."
+          "D. Both are signs of being unwell, not ways to hold a temperature. — You can be unwell and do both. A healthy body does both too, every day."
         ],
         "choices": [
           "Sweating helps cool; shivering uses muscle activity that helps make heat.",
-          "Sweating and shivering both make heat, because the body is trying to warm up either way.",
-          "Sweating cools by wetting the skin; shivering cools by moving air across it.",
-          "Both are signs of being unwell rather than ways of holding a steady temperature."
+          "Sweating and shivering both make heat, to warm the body up.",
+          "Sweating cools by wetting the skin; shivering cools by moving air.",
+          "Both are signs of being unwell, not ways to hold a temperature."
         ],
         "correctChoice": "Sweating helps cool; shivering uses muscle activity that helps make heat."
       },
@@ -7778,7 +7680,7 @@ export const CURRICULUM = {
       "scene": "Parker notices sweat on his arm after exercise. The nurse explains why moving liquid water into the air can help remove heat from the skin.",
       "takeaway": "The body uses physical processes, not magic, to help control temperature.",
       "place": "",
-      "guide": "These four are one order. Ask what has to happen first. Sweat cannot dry before it is on your skin. And the drying is what cools you, not the wetness. That is why a wet day feels hotter.",
+      "guide": "These three are one order. Ask what has to happen first. Sweat cannot dry before it is on your skin. And the drying is what cools you, not the wetness. That is why a wet day feels hotter.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -7792,40 +7694,21 @@ export const CURRICULUM = {
         "play": "Put the simplified cooling story in order.",
         "task": "Put the simplified cooling story in order.",
         "question": "Put the simplified cooling story in order.",
-        "answer": "The body becomes warmer during activity. -> Sweat appears on the skin. -> Some sweat evaporates into the air. -> Evaporation carries away heat and helps cool the skin.",
-        "why": "Sweating alone does not cool you. The drying is what cools you. Here is the order. You get warm. Sweat comes out on your skin. Some of it dries into the air. Drying needs energy, and it takes that energy as heat from your skin. That is why a wet day feels so much hotter.",
+        "answer": "The body becomes warmer during activity. -> Sweat appears on the skin. -> Sweat dries into the air and takes heat away.",
+        "why": "Sweating alone does not cool you. The drying is what cools you. Here is the order. You get warm. Sweat comes out on your skin. Then some of it dries into the air. Drying takes heat from your skin. That is why a wet day feels so much hotter.",
         "cards": [
           "The body becomes warmer during activity.",
           "Sweat appears on the skin.",
-          "Some sweat evaporates into the air.",
-          "Evaporation carries away heat and helps cool the skin."
+          "Sweat dries into the air and takes heat away."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [
         "water dries up in the air"
-      ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
       ],
       "concept": {
         "n": 27,
@@ -7860,13 +7743,13 @@ export const CURRICULUM = {
         "answer": "Chloe, because swelling with trouble breathing can be a medical emergency.",
         "why": "Swelling with trouble breathing can get dangerous in minutes. That is why Chloe goes first. Itchy eyes are horrible and they stay about the same. A big rash looks worse than a small one, but how much skin it covers is not what makes it urgent. You go by what could get worse fastest.",
         "rebuttals": [
-          "B. Sofia, because itchy eyes come first and treating them early stops the rest. — Itchy eyes are no fun. They do not get dangerous the way trouble breathing does.",
+          "B. Sofia, because treating her itchy eyes early stops the rest. — Itchy eyes are no fun. They do not get dangerous the way trouble breathing does.",
           "C. Malik, because his rash covers a large area of skin. — A big rash looks worse than a small one. How much skin it covers is not what makes it urgent.",
           "D. Whoever has been waiting longest, so the queue stays fair. — Waiting your turn is fair most places. Here the fair thing is the sickest person first."
         ],
         "choices": [
           "Chloe, because swelling with trouble breathing can be a medical emergency.",
-          "Sofia, because itchy eyes come first and treating them early stops the rest.",
+          "Sofia, because treating her itchy eyes early stops the rest.",
           "Malik, because his rash covers a large area of skin.",
           "Whoever has been waiting longest, so the queue stays fair."
         ],
@@ -7921,20 +7804,20 @@ export const CURRICULUM = {
         "play": "Which comparison is most sensible?",
         "task": "Which comparison is most sensible?",
         "question": "Which comparison is most sensible?",
-        "answer": "Sofia’s repeating pollen-linked itching fits an allergy pattern; Ty’s fever plus sick contacts fits an infection pattern.",
+        "answer": "Sofia’s pollen itching is allergy; Ty’s fever and sick contacts are infection.",
         "why": "Look at the pattern, not just the word. Sofia itches when the pollen comes. It happens every year. That fits an allergy. Ty has a fever. He was near people who were sick. That fits a germ. Both feel unwell. The stories under them are not the same.",
         "rebuttals": [
-          "B. Both fit an allergy pattern, because both patients feel unwell at the same time of year. — The season is a real clue. Ty was also near sick people, and that points somewhere else.",
-          "C. Sofia’s itching fits an infection, because germs can make skin itch; Ty’s fever fits an allergy. — The two are swapped. Itching that comes back with the pollen is the allergy pattern.",
+          "B. Both are allergy, because both feel unwell in the same season. — The season is a real clue. Ty was also near sick people, and that points somewhere else.",
+          "C. Sofia’s itching is infection; Ty’s fever is allergy. — The two are swapped. Itching that comes back with the pollen is the allergy pattern.",
           "D. Neither pattern can be told apart until a blood test comes back. — A test would help. The patterns already point different ways, and that is worth saying now."
         ],
         "choices": [
-          "Sofia’s repeating pollen-linked itching fits an allergy pattern; Ty’s fever plus sick contacts fits an infection pattern.",
-          "Both fit an allergy pattern, because both patients feel unwell at the same time of year.",
-          "Sofia’s itching fits an infection, because germs can make skin itch; Ty’s fever fits an allergy.",
+          "Sofia’s pollen itching is allergy; Ty’s fever and sick contacts are infection.",
+          "Both are allergy, because both feel unwell in the same season.",
+          "Sofia’s itching is infection; Ty’s fever is allergy.",
           "Neither pattern can be told apart until a blood test comes back."
         ],
-        "correctChoice": "Sofia’s repeating pollen-linked itching fits an allergy pattern; Ty’s fever plus sick contacts fits an infection pattern."
+        "correctChoice": "Sofia’s pollen itching is allergy; Ty’s fever and sick contacts are infection."
       },
       "assumes": [
         "some things happen at the same time every year"
@@ -7954,7 +7837,7 @@ export const CURRICULUM = {
       "scene": "The team is helping Chloe now. In this game you do not pick or give medicine. Your job is to get the right grown-ups fast and tell them the story.",
       "takeaway": "In an emergency the first action is the one with a clock on it, and the last is the one that protects the record.",
       "place": "",
-      "guide": "All four steps happen. Ask which clock is already running. The team takes time to come, so calling is first. Then watch her breathing, because that changes fastest. Writing it down is last, so nobody has to guess the order.",
+      "guide": "All three steps happen. Ask which clock is already running. The team takes time to come, so calling is first. Then watch her breathing, because that changes fastest. Then tell them what she met and when.",
       "background": [
         "Why the order is graded whole. A sequence is a claim that each step needs the one before it to have happened. Get one pair the wrong way round and the claim is wrong, even if everything else lines up. That is why there is no part credit.",
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
@@ -7968,19 +7851,17 @@ export const CURRICULUM = {
         "play": "Put the junior-doctor actions in order.",
         "task": "Put the junior-doctor actions in order.",
         "question": "Put the junior-doctor actions in order.",
-        "answer": "1. Call the emergency team, because everything else can happen while they come. 2. Stay with Chloe and watch her breathing, which is what can change fastest. 3. Tell the team what she was exposed to and when it started. 4. Write down what you saw, in the order it happened.",
-        "why": "Call first. That clock is running whether or not you do anything else. Then watch her breathing, because it can change fastest. Then say what she met and when. The team needs that before they act. Write it down last, so nobody has to guess the order later.",
+        "answer": "1. Call the emergency team, because everything else can happen while they come. 2. Stay with Chloe and watch her breathing, which changes fastest. 3. Tell the team what she was exposed to and when it started.",
+        "why": "Call first. That clock is running whether or not you do anything else. Then watch her breathing. It can change fastest. Then say what she met and when. The team needs that before they act.",
         "cards": [
           "Call the emergency team, because everything else can happen while they come.",
-          "Stay with Chloe and watch her breathing, which is what can change fastest.",
-          "Tell the team what she was exposed to and when it started.",
-          "Write down what you saw, in the order it happened."
+          "Stay with Chloe and watch her breathing, which changes fastest.",
+          "Tell the team what she was exposed to and when it started."
         ],
         "order": [
           0,
           1,
-          2,
-          3
+          2
         ]
       },
       "assumes": [

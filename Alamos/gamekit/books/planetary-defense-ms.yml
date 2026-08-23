@@ -384,8 +384,9 @@ missions:
       - group: DISC
         task: Say which explanation fits all four readings on the board.
         title: Real object, or camera fault?
+        concept: Telling a real object from an artefact, by repeating the observation
         place: Survey Telescope Control
-        scene: Three survey pictures show the same faint dot in three different places. The background stars have not moved. A telescope on another mountain has just found the dot too.
+        scene: Virtanen has three survey pictures up on the screen. The same faint dot sits in three different places. The background stars have not moved. A telescope on another mountain has just found the dot too.
         guide: >-
           Four options, and the test is whether the thing moved in the sky or on the
           chip. Ask of each what it would leave behind. A cosmic ray arrives once. A hot
@@ -460,7 +461,7 @@ missions:
         title: Check it before you send it
         concept: Telling a real object from an artefact, by repeating the observation
         place: Image Processing Lab
-        scene: Forty thousand stars, two satellite streaks and a bad column of pixels share the pictures with the moving dot. The camera's calibration is the check against known stars that says what its numbers mean. The discovery notice goes out at dawn.
+        scene: Virtanen has the pictures open. Forty thousand stars, two satellite streaks and a bad column of pixels share them with the moving dot. The camera's calibration is the check against known stars that says what its numbers mean. The discovery notice goes out at dawn.
         guide: >-
           All four steps happen before dawn, so ask what each one rules out. The
           pictures are crowded with things that are not the dot: stars, streaks and a
@@ -501,7 +502,7 @@ missions:
         task: Turn the shift between two pictures into a rate the next telescope can use.
         title: How fast is it moving?
         place: Minor-Planet Operations Desk
-        scene: The dot shifted between two pictures taken twenty minutes apart. The next telescope has to be told where to point. Nobody has turned that shift into a rate yet.
+        scene: The dot shifted between two pictures taken twenty minutes apart. Rossi, the orbit lead, has to tell the next telescope where to point. Nobody has turned that shift into a rate yet.
         guide: >-
           Five numbers, and two of them are the same gap written in different units.
           Another is the number of exposures. Ask of each whether this rate needs it.
@@ -549,7 +550,7 @@ missions:
         title: Moving with the sky, or not moving at all
         concept: "Telling a real object from an artefact, by repeating the observation"
         place: Survey Dome
-        scene: The survey found four hundred things last night and the report goes at dawn. Most of them are not objects. What tells them apart is how they move between the pictures.
+        scene: Nguyen, the survey imaging lead, has four hundred things from last night. The report goes at dawn. Most of them are not objects. What tells them apart is how they move between the pictures.
         guide: >-
           Two bins. A real object out there moves against the stars, the same way and the
           same amount in each picture. Everything else either does not move at all, or moves
@@ -625,7 +626,7 @@ missions:
         task: Say which explanation fits the pattern in the misses.
         title: Why do the positions disagree?
         place: Follow-Up Telescope Network
-        scene: One wide camera's positions bend away from the orbit near one edge of its chip. The clock checks out. A second telescope, watching the same object, shows nothing odd.
+        scene: Delacroix has one wide camera's positions bending away from the orbit near one edge of its chip. The clock checks out. A second telescope, watching the same object, shows nothing odd.
         guide: >-
           Four options, and the misses appear at one edge of one chip. Ask of each
           whether it would show up everywhere or only there. A rock speeding up would
@@ -700,7 +701,7 @@ missions:
         title: Build the arc
         concept: "Position, time and speed: how fast something moves across the sky"
         place: Astrometry Lab
-        scene: Six observatories have sent positions. Two used a different time standard, and one sent no pointing solution at all. Together they cover four hours.
+        scene: Positions are in from six observatories, and Rossi has them all. Two used a different time standard. One sent no pointing solution at all. Together they cover four hours.
         guide: >-
           All four steps will happen. Six observatories have sent positions, two on a
           different clock and one with no pointing solution. Ask of each step what the
@@ -742,7 +743,7 @@ missions:
         title: Point where the answers disagree
         concept: Choosing the measurement that tells two explanations apart
         place: Planetary Defense Coordination Office
-        scene: The best guess misses by four Earth radii, and about one path in six hundred still hits. Next Tuesday the two sets of paths sit eight arcseconds apart. After that they close up again.
+        scene: Isabel Garcia, the response lead, has both sets of paths up. The best guess misses by four Earth radii, and about one path in six hundred still hits. Next Tuesday the two sets sit eight arcseconds apart. After that they close up again.
         guide: >-
           Four places to point, and a measurement only helps where the answers disagree.
           Ask of each option whether the hitting paths and the missing paths point
@@ -787,7 +788,7 @@ missions:
         title: Why waiting helps
         concept: Repeated measurements and their average
         place: Time Standards Room
-        scene: Four hours of spare time on a two-metre telescope, and the object sets soon after dusk. Two possible paths fit tonight's measurements equally well. The same patch of sky comes back in six nights.
+        scene: Delacroix has four hours of spare time on a two-metre telescope, and the object sets soon after dusk. Two possible paths fit tonight's measurements equally well. The same patch of sky comes back in six nights.
         guide: >-
           Four options, and two paths fit tonight equally well. Ask of each what it
           would change about that. A sharper picture tonight measures the same moment
@@ -840,7 +841,7 @@ missions:
         task: Match each change to what it does to the brightness we measure.
         title: What makes it look bright?
         place: Photometry Lab
-        scene: The object was bright enough for the survey to spot it, and people across the room are reading that one number as a size. Four things that change brightness are on the board.
+        scene: The object was bright enough for the survey to spot it. People across the room are reading that one number as a size. Sorokin has four things that change brightness up on the board.
         guide: >-
           Four changes, and four things they do to the brightness. Pair them by asking
           where in the journey each one acts. How much sunlight arrives? How much is
@@ -890,7 +891,7 @@ missions:
         title: Same brightness, different size
         concept: "Size and albedo: two explanations for one brightness"
         place: Infrared Telescope Team
-        scene: Two rocks look just as bright as each other. One reflects four times as well. The infrared team wants the sizes compared before anybody says a number out loud.
+        scene: Two rocks look just as bright as each other. One reflects four times as well. Sorokin wants the sizes compared before anybody says a number out loud.
         guide: >-
           Five numbers, and three of them are wrong ways to use the reflectivity. Its
           square. One divided by it. And the brightness itself. Ask of each whether it
@@ -939,7 +940,7 @@ missions:
         task: Fit the reflected light, then use the heat reading to settle the size and the surface.
         title: Settle the size
         place: Physical Characterization Group
-        scene: Reflected light alone puts the rock somewhere between one hundred and twenty and six hundred metres across. The heat team now has an infrared reading from the same night.
+        scene: Reflected light alone puts the rock somewhere between one hundred and twenty and six hundred metres across. Tola Adebayo is the lead on size and make-up. She now has an infrared reading from the same night.
         guide: >-
           Two controls slide the size and the surface brightness along a whole family of
           pairs that all match the reflected light. See how wide that family is first.
@@ -1027,7 +1028,7 @@ missions:
         task: Open what each spectrum depends on, keep the ones that stand alone, and name what the rest share.
         title: Whose dip is it?
         place: Spectroscopy Observatory
-        scene: A wide dip has turned up in the spectrum, which is the rock's brightness measured colour by colour. It would change what the rock is made of. The room has a standard star, an air record, and a spectrum taken from space.
+        scene: Adebayo has a wide dip in the spectrum, which is the rock's brightness measured colour by colour. It would change what the rock is made of. The room has a standard star, an air record, and a spectrum taken from space.
         guide: >-
           Open each piece of evidence to see what the spectrum depended on. Keep what
           would still stand if the air were at fault, and untick the rest. Then name
@@ -1102,7 +1103,7 @@ missions:
         task: Put the four steps in the order they have to be done.
         title: From light to what it is made of
         place: Meteorite Comparison Lab
-        scene: The spectrum has two dips and a slope. Three different mineral mixes match it just as well as each other. A draft notice naming one of them is already being typed.
+        scene: The spectrum has two dips and a slope. Three different mineral mixes match it just as well as each other. Adebayo's draft notice already names one of them.
         guide: >-
           All four steps will happen, and three mineral mixes fit just as well. Ask of
           each step what would be meaningless without it. The Sun, the air and the
@@ -1144,7 +1145,7 @@ missions:
         task: One spectrum, one angle, one spin — and a draft notice naming a class. Say what you require.
         title: Make the claim stronger
         place: Composition Review Room
-        scene: The draft notice names what the rock is made of. One spectrum backs it. Next door the deflection team is sizing a spacecraft from the weight that class implies.
+        scene: Garcia has the draft notice that names what the rock is made of. One spectrum backs it. Next door the deflection team is sizing a spacecraft from the weight that class implies.
         guide: >-
           Four options, and there is one spectrum, taken at one angle, at one point in
           the spin. Ask of each whether it repeats what has been done or brings
@@ -1194,7 +1195,7 @@ missions:
         task: Match each thing we want to know to the radar reading that measures it.
         title: What does radar measure?
         place: Planetary Radar Facility
-        scene: The radar room has its first clean run of echoes. Delay, pitch shift and echo width are up on one screen. The orbit team is waiting to hear which reading to use.
+        scene: Fischer has her first clean run of echoes. Delay, pitch shift and echo width are up on one screen. The orbit team is waiting to hear which reading to use.
         guide: >-
           Four things we want to know, and four radar readings. Pair them by asking what
           each reading really is. A time? A spread of pitch? A pattern of when the echo
@@ -1245,7 +1246,7 @@ missions:
         title: How far away, from the echo?
         concept: "Radar: distance from an echo, using speed and time"
         place: Coordination Office
-        scene: The dish sent a pulse, and the echo came back four seconds later. The characterisation team needs a distance before the next run starts.
+        scene: Mbeki-Rowe is the radar astronomer here. He sent a pulse from the dish. The echo came back four seconds later. The characterisation team needs a distance before the next run starts.
         guide: >-
           Five numbers, and two belong to other questions. The years to the encounter,
           and that night's seeing. Ask of each whether this distance needs it. And note
@@ -1292,7 +1293,7 @@ missions:
         task: Radar has settled this pass. Say what has to be worked out before anybody calls it safe.
         title: What this pass does to the next one
         place: Orbit Determination
-        scene: "Radar has pinned this pass at 2.4 Earth radii and the room starts to relax. Then the return solution flashes up on the board: eleven years."
+        scene: "Radar has pinned this pass at 2.4 Earth radii and the room starts to relax. Then Rossi puts the return solution up on the board: eleven years."
         guide: >-
           Four options, and radar has settled this pass. Ask of each whether it says
           anything about the one in eleven years. Passing that close lets Earth's pull
@@ -1337,7 +1338,7 @@ missions:
         title: On target, while the wind gets up
         concept: "Radar: distance from an echo, using speed and time"
         place: Radar Dish
-        scene: The object is faint and the pass lasts eleven minutes. The dish has to stay pointed at it while wind comes down the ridge and pushes the dish about.
+        scene: The object is faint and the pass lasts eleven minutes. Fischer has to keep the dish pointed at it while wind comes down the ridge and pushes the dish about.
         guide: >-
           Hold the pointing error inside the band on the console. The band narrows through the
           pass, because the object gets closer and the beam needs to be more exactly on it.
@@ -1393,7 +1394,7 @@ missions:
         title: How much energy does it carry?
         concept: "Impact energy: mass and speed, and why speed matters more"
         place: Impact Physics Group
-        scene: Civil defence will not call anyone in without an energy figure. The impact group has a weight for the rock. It also has the speed the rock would arrive at.
+        scene: Civil defence will not call anyone in without an energy figure. Banerjee has a weight for the rock. He also has the speed the rock would arrive at.
         guide: >-
           Four numbers, and two of them belong to other questions. How wide it is, and
           how many joules make a megaton. Ask of each whether this energy needs it. The
@@ -1439,7 +1440,7 @@ missions:
         task: Say what doubling the arrival speed does to the energy.
         title: Twice as fast
         place: Coordination Office
-        scene: The arrival speed in the briefing has just doubled after a new tracking run. The energy in that briefing came from the old speed, and it is read out in an hour.
+        scene: Banerjee has a briefing to read out in an hour. The arrival speed in it has just doubled after a new tracking run. The energy in that briefing came from the old speed.
         guide: >-
           Four options, and only the speed has changed. Ask of each how many times the
           speed enters the energy. Twice the speed gives twice the momentum and more
@@ -1503,7 +1504,7 @@ missions:
         task: Say which measurement would narrow the range of consequences most.
         title: Which measurement is worth the most?
         place: Emergency Planning Office
-        scene: The range of harm runs from one region to a whole continent. Every part of that range comes from a measurement. There is time to improve one of them.
+        scene: Marta Schulz, the impact physics modeller, has a range of harm from one region to a whole continent. Every part of that range comes from a measurement. There is time to improve one of them.
         guide: >-
           Four options, and every part of that range came from a measurement. Ask of
           each how strongly it feeds the energy. Weight grows with width three times
@@ -1542,53 +1543,6 @@ missions:
           - Density goes in once and is genuinely uncertain. Worth improving, and worth about a third as much.
           - Speed goes in twice, and it is already the best known of the three, so there is least left to win.
           - Reporting only the worst case settles nothing. It also spends public attention on a number nobody can defend.
-      - group: ORBIT
-        task: Turn the count of paths that hit into a chance anybody can quote.
-        title: Thirty-seven paths in a hundred thousand
-        concept: Uncertainty as a range, not a mistake
-        place: Statistical Orbit Lab
-        scene: The computer has finished flying every path that fits the measurements. What came back is a count. The number that leaves this room will be quoted in public for years.
-        guide: >-
-          Four numbers, and two belong to other things. The first quick run, and the
-          years to the encounter. Ask of each whether this share needs it. And note what
-          the answer means. It is the share of the paths that still fit, and one new
-          measurement can change it a lot.
-        background:
-          - >-
-              Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
-          - >-
-              Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
-        assumes:
-          - a chance can be worked out by counting how often something happens out of all the tries
-        takeaway: A very small chance can only be measured by trying a very large number of times.
-        format: BALLPARK
-        question: What is the chance of impact, as a percentage?
-        why: The computer draws many paths that all fit the measurements, then flies each one forward. Thirty-seven out of one hundred thousand land on Earth. That works out at 0.037 per cent. It is not a count of future impacts. It is the share of the spread that lands on us. So the number moves whenever the spread moves. One good measurement next week can shrink it to nothing, or double it.
-        estimate:
-          relationship: Chance = paths that hit ÷ all the paths tried. Multiply by one hundred for a percentage.
-          prompt: The computer flew one hundred thousand paths that all fit the measurements. Thirty-seven of them hit Earth.
-          question: How many paths in every thousand hit?
-          labels:
-            - 37 (paths that hit)
-            - 100 (thousands of paths tried)
-            - 1 (thousand paths, in the first quick run)
-            - 8 (years to the encounter)
-          values: [37, 100, 1, 8]
-          slots: 2
-          template: "{0} ÷ {1}"
-          formula: a/b
-          correct: [0, 1]
-          target: 0.37
-          tolerance: 0.04
-          units: paths in every thousand
-          solution: Thirty-seven hits in a hundred thousand paths is about a third of one path in every thousand.
-          explanation: The bottom number is every path tried, not only the ones that missed. And a thousand tries could never have found a chance this small.
   - title: Can We Move It?
     objective: Choose a deflection demonstration and define how success will be measured.
     briefing: Impact probability remains significant, and a scouting mission could arrive years before encounter. The player must compare momentum transfer, lead time, and uncertainty without treating deflection as a movie-style explosion.
@@ -1600,7 +1554,7 @@ missions:
         title: How much does the push move it?
         concept: Changing motion with a push, and why an early push does more
         place: Deflection Physics Lab
-        scene: The deflection lab is sizing a spacecraft. It knows the craft's weight and how fast it would close, and the rock's weight to within a factor of a few.
+        scene: Schulz is sizing a spacecraft. She knows the craft's weight and how fast it would close, and the rock's weight to within a factor of a few.
         guide: >-
           Four numbers, and two of them belong to an earlier step. The millimetres a
           second, and the extra push from thrown-off material, were used to get the
@@ -1647,7 +1601,7 @@ missions:
         task: Match each item on the board to what it does to the outcome.
         title: What makes a deflection work?
         place: Mission Engineering Center
-        scene: The impactor plan is up on the mission board. Beside it sit the weight estimate and the tracking plan. The director wants it all sorted before the review.
+        scene: Banerjee has the impactor plan up on the mission board. Beside it sit the weight estimate and the tracking plan. The director wants it all sorted before the review.
         guide: >-
           Four items on the board, and four effects. Pair them by asking which part each
           one changes. The push that lands? How much that push moves the rock? Or how
@@ -1692,61 +1646,6 @@ missions:
           - The size of the change cannot be predicted well.
           - The push that lands is bigger or smaller than planned.
         mapping: [0, 1, 2]
-      - group: ORBIT
-        task: Lock a predicted range, run the impact, then spend the tracking to find out what happened.
-        title: Say what you expect, then measure it
-        place: Orbit Monitoring Room
-        scene: The impactor has hit and the control room is cheering. Nobody has measured the orbit yet. One tracking campaign is left in the budget.
-        guide: >-
-          Write down the change you expected before the impact, and lock it. Then run
-          the tracking campaign and read what the orbit actually did. The cheering is
-          not the result. One campaign is left in the budget, so this is the only chance
-          to find out.
-        background:
-          - >-
-              Why hitting it is not the same as moving it. The spacecraft changes the rock's
-              speed by a few millimetres a second. How much depends mostly on the rubble
-              thrown off the surface when it hits, and nobody knows what that surface is
-              made of. So the size of the push has to be measured, not assumed.
-          - >-
-              What the campaign measures. Where the rock was going before, and where it is
-              going now, watched long enough that the difference is bigger than the
-              measurement error. That is what turns 'we hit it' into 'we moved it this
-              much'.
-          - >-
-              Why the prediction is written first. If the number is written after the
-              measurement, it becomes whatever makes the mission look right. Then the one
-              thing this whole mission existed to find out is lost.
-        assumes:
-          - the momentum sum gives the smallest change in speed to expect
-          - material thrown off the surface can add to the push
-        takeaway: An action is not finished until somebody measures what it did.
-        format: VERIFY
-        question: Did the measured change in the orbit match what was predicted before the impact?
-        verify:
-          hint: The momentum calculation gives the lower-bound scale, but ejecta can change the result. Lock the expected range before impact. After the hit, do not stop at a successful collision—buy the tracking measurement and compare it with what you predicted.
-          reference:
-            label: Actual asteroid velocity change after impact
-            truth: 2.1
-            unit: cm/s
-          measurement:
-            label: Post-impact orbit-fit velocity change
-            value: 2.1
-            unit: cm/s
-            cost: 1
-          passRatio: [0.6, 1.6]
-          prediction:
-            min: 1.5
-            max: 4.5
-            step: 0.05
-            label: Post-impact orbit-fit velocity change
-            unit: cm/s
-          truth: 2.1
-          intervention:
-            label: Execute the kinetic impact
-            alwaysSucceeds: true
-        answerText: The hit works. The job is finished only once tracking measures the new orbit. Here the measured change is 2.1 centimetres a second. That sits inside the predicted 1.5 to 4.5, so the model that sized the craft holds up.
-        why: The momentum sum gives a smallest change of about one and a half centimetres a second. Material thrown off the surface can add to that. So the prediction has to be a range, not one number. A hit proves the craft arrived. It does not measure the new orbit. Only tracking does that. Comparing it against a locked prediction tests the physics, not the aim.
       - group: IMPACT
         task: Move and narrow the cloud of paths until all of it clears Earth.
         title: Read the risk correctly
@@ -1814,7 +1713,7 @@ missions:
         task: Match each state of the evidence to what it justifies doing.
         title: Match what you do to what you know
         place: Risk Communication Center
-        scene: The regional team is round one table. The wall shows the newest corridor, the likely damage area and the time left. Today they choose what to do.
+        scene: Ellery has the regional team round one table. The wall shows the newest corridor, the likely damage area and the time left. Today they choose what to do.
         guide: >-
           Four states of the evidence, and four things to do. Pair them by asking three
           questions. How bad would it be? How long is left? And can the action be
@@ -1865,7 +1764,7 @@ missions:
         title: How many people is that share?
         concept: Ratios and unit rates in a measurement
         place: Emergency Management Office
-        scene: The emergency office needs a number to plan against. It has the people living inside the corridor. It has today's chance of impact. And it has a form to fill in.
+        scene: Ellery needs a number to plan against. She has the people living inside the corridor. She has today's chance of impact. And she has a form to fill in.
         guide: >-
           Five numbers, and three belong to other sums. The biggest city, the earlier
           chance, and the paths that hit. Ask of each whether this one needs it. A share
@@ -1913,7 +1812,7 @@ missions:
         title: Prepare without panic
         concept: Deciding what to tell people, and when
         place: Scientific Advisory Board
-        scene: Five orbit updates are queued. Planners can still prepare without moving anybody. Both planning and supplies take time, and the thresholds have to be set before the stream starts.
+        scene: Garcia has five orbit updates queued. Planners can still prepare without moving anybody. Both planning and supplies take time, and the thresholds have to be set before the stream starts.
         guide: >-
           One rule, written before the next updates arrive. Once the board is released the number
           cannot change. Starting the planning cell takes two days from the moment it is called, and
@@ -2000,12 +1899,18 @@ missions:
           covers the two days the cell needs. The 0.8 per cent update arrives with 24 hours and the
           last one with none.
         why: A threshold is a decision made before the next number lands. Preparation takes time, so an action that is right can still be useless if it starts too late. Setting the rule first also stops every new number being judged by a new standard. Early thresholds go on things that can be undone. Later ones go on the things that cost more. None of it pretends the chance is certain.
+  - title: Did We Move It?
+    objective: Measure the orbit change the impact actually made, and restate the chance from the new paths.
+    briefing: The kinetic impactor has arrived. The player must separate a successful collision from a measured deflection, protect the observing night that measures it, and rebuild impact probability from the new spread of paths.
+    stake: "The impactor struck the asteroid this morning, and the control room is still cheering. Marco Rossi, the orbit lead, has one tracking campaign left in the budget. Today you say what push you expected, then spend that campaign to find out what really happened. The telescope has one night, and the object sets in an hour. Get no measurement and nine million people are told a mission worked, on a cheer."
+    takeaway: Use prediction, momentum transfer, tracking, observing priorities, chance from a spread as an evidence chain rather than as isolated facts.
+    stops:
       - group: OPS
         task: Observe what the priority asks for.
         title: What the telescope is chasing tonight
         concept: "Deciding what to tell people, and when"
         place: Operations Hut
-        scene: The target list runs all night. One priority says which to observe, and whoever has the desk changes it as the night goes on.
+        scene: Nguyen has the target list running all night. One priority says which to observe, and whoever has the desk changes it as the night goes on.
         guide: >-
           Observe what the priority asks for and leave the rest on the list. The board
           changes during the night and nobody announces it. What counts is the targets either
@@ -2072,6 +1977,108 @@ missions:
             - say: Anything with a deadline
               want: [deadline]
           commit: Open the list
+      - group: ORBIT
+        task: Lock a predicted range, run the impact, then spend the tracking to find out what happened.
+        title: Say what you expect, then measure it
+        place: Orbit Monitoring Room
+        scene: The impactor has hit and the control room is cheering. Rossi has not measured the orbit yet. One tracking campaign is left in the budget.
+        guide: >-
+          Write down the change you expected before the impact, and lock it. Then run
+          the tracking campaign and read what the orbit actually did. The cheering is
+          not the result. One campaign is left in the budget, so this is the only chance
+          to find out.
+        background:
+          - >-
+              Why hitting it is not the same as moving it. The spacecraft changes the rock's
+              speed by a few millimetres a second. How much depends mostly on the rubble
+              thrown off the surface when it hits, and nobody knows what that surface is
+              made of. So the size of the push has to be measured, not assumed.
+          - >-
+              What the campaign measures. Where the rock was going before, and where it is
+              going now, watched long enough that the difference is bigger than the
+              measurement error. That is what turns 'we hit it' into 'we moved it this
+              much'.
+          - >-
+              Why the prediction is written first. If the number is written after the
+              measurement, it becomes whatever makes the mission look right. Then the one
+              thing this whole mission existed to find out is lost.
+        assumes:
+          - the momentum sum gives the smallest change in speed to expect
+          - material thrown off the surface can add to the push
+        takeaway: An action is not finished until somebody measures what it did.
+        format: VERIFY
+        question: Did the measured change in the orbit match what was predicted before the impact?
+        verify:
+          hint: The momentum calculation gives the lower-bound scale, but ejecta can change the result. Lock the expected range before impact. After the hit, do not stop at a successful collision—buy the tracking measurement and compare it with what you predicted.
+          reference:
+            label: Actual asteroid velocity change after impact
+            truth: 2.1
+            unit: cm/s
+          measurement:
+            label: Post-impact orbit-fit velocity change
+            value: 2.1
+            unit: cm/s
+            cost: 1
+          passRatio: [0.6, 1.6]
+          prediction:
+            min: 1.5
+            max: 4.5
+            step: 0.05
+            label: Post-impact orbit-fit velocity change
+            unit: cm/s
+          truth: 2.1
+          intervention:
+            label: Execute the kinetic impact
+            alwaysSucceeds: true
+        answerText: The hit works. The job is finished only once tracking measures the new orbit. Here the measured change is 2.1 centimetres a second. That sits inside the predicted 1.5 to 4.5, so the model that sized the craft holds up.
+        why: The momentum sum gives a smallest change of about one and a half centimetres a second. Material thrown off the surface can add to that. So the prediction has to be a range, not one number. A hit proves the craft arrived. It does not measure the new orbit. Only tracking does that. Comparing it against a locked prediction tests the physics, not the aim.
+      - group: ORBIT
+        task: Turn the count of paths that hit into a chance anybody can quote.
+        title: Thirty-seven paths in a hundred thousand
+        concept: Uncertainty as a range, not a mistake
+        place: Statistical Orbit Lab
+        scene: Rossi's computer has finished flying every path that fits the measurements. What came back is a count. The number that leaves this room will be quoted in public for years.
+        guide: >-
+          Four numbers, and two belong to other things. The first quick run, and the
+          years to the encounter. Ask of each whether this share needs it. And note what
+          the answer means. It is the share of the paths that still fit, and one new
+          measurement can change it a lot.
+        background:
+          - >-
+              Why an estimate rather than a calculation. Every quantity on this board is
+              already measured or stated, so nothing here has to be derived. What is being
+              tested is whether you can pick the quantities the relationship actually needs,
+              and whether the size of the answer looks right once they are in place.
+          - >-
+              Why the tiles carry labels. A bare number cannot be checked against the
+              relationship it is going into. Reading the label is how a unit mismatch, or a
+              quantity belonging to a different part of the problem, is caught before it is
+              placed — which is the habit this format exists to build.
+        assumes:
+          - a chance can be worked out by counting how often something happens out of all the tries
+        takeaway: A very small chance can only be measured by trying a very large number of times.
+        format: BALLPARK
+        question: What is the chance of impact, as a percentage?
+        why: The computer draws many paths that all fit the measurements, then flies each one forward. Thirty-seven out of one hundred thousand land on Earth. That works out at 0.037 per cent. It is not a count of future impacts. It is the share of the spread that lands on us. So the number moves whenever the spread moves. One good measurement next week can shrink it to nothing, or double it.
+        estimate:
+          relationship: Chance = paths that hit ÷ all the paths tried. Multiply by one hundred for a percentage.
+          prompt: The computer flew one hundred thousand paths that all fit the measurements. Thirty-seven of them hit Earth.
+          question: How many paths in every thousand hit?
+          labels:
+            - 37 (paths that hit)
+            - 100 (thousands of paths tried)
+            - 1 (thousand paths, in the first quick run)
+            - 8 (years to the encounter)
+          values: [37, 100, 1, 8]
+          slots: 2
+          template: "{0} ÷ {1}"
+          formula: a/b
+          correct: [0, 1]
+          target: 0.37
+          tolerance: 0.04
+          units: paths in every thousand
+          solution: Thirty-seven hits in a hundred thousand paths is about a third of one path in every thousand.
+          explanation: The bottom number is every path tried, not only the ones that missed. And a thousand tries could never have found a chance this small.
   - title: The Final Defense Review
     objective: Produce a claim-by-claim planetary-defense decision package and preserve monitoring after the immediate threat passes.
     briefing: The international board must decide whether the object is sufficiently characterized, whether the deflection worked, and which civil preparations remain necessary.
@@ -2083,7 +2090,7 @@ missions:
         title: What each claim has earned
         concept: "Independent checks: a second method that could disagree"
         place: International Review Hall
-        scene: The board has to publish one account of an eight-year campaign. The four claims in front of it rest on very different evidence. Whoever runs the next one will read it.
+        scene: Garcia has to publish one account of an eight-year campaign. The four claims in front of her rest on very different evidence. Whoever runs the next one will read it.
         guide: >-
           Four claims and four things to do about them. Pair them by asking what state
           each claim is in. Settled? Still open? Out of date? Or bigger than this rock?
@@ -2132,7 +2139,7 @@ missions:
         task: Spend the two checks on the signed claims that most need measuring.
         title: Signed is not checked
         place: Orbit Monitoring Center
-        scene: Two independent checks are left before the record goes public tonight. Every claim in it is signed. Some of them would change the conclusion if they were wrong.
+        scene: Rossi has two independent checks left before the record goes public tonight. Every claim in it is signed. Some of them would change the conclusion if they were wrong.
         guide: >-
           Two checks left, and the record goes out tonight. Open each signed claim and
           read what actually backs it. Hold the ones the evidence does not support, and
@@ -2186,7 +2193,7 @@ missions:
         task: Say which part of the system has to keep its funding.
         title: What survives the success
         place: Mission Operations
-        scene: The threat is gone, and so is most of the budget. The search still misses parts of the sky, and two follow-up sites lose their funding at the end of the year.
+        scene: Ellery says the threat is gone, and so is most of the budget. The search still misses parts of the sky, and two follow-up sites lose their funding at the end of the year.
         guide: >-
           Four options, and the threat is gone along with most of the money. Ask of each
           what it does to warning time. Finding a rock earlier buys nights for the path,
@@ -2288,3 +2295,189 @@ copy:
   BOARD: <p>The briefing hall. The board meets here, and the record it publishes outlives everyone in the room.</p>
   TIME: <p>Time and frequency standards. Every timestamp on this mountain traces back to this building.</p>
   ARCHIVE: <p>The plate and data archive. Objects are often found years later in images already taken.</p>
+
+# Review variants. A callback day reaches one of these by title: the same idea as
+# its base lesson, on a case the player has not seen.
+lessons:
+  - group: DISC
+    title: Check it before you send it — Review
+    concept: Telling a real object from an artefact, by repeating the observation
+    task: Put the three checks in the order they have to be done.
+    place: Image Processing Lab
+    scene: A second faint dot turned up last night, on the spare camera. Virtanen has ninety minutes before the notice goes out. Nobody has run a single check on it yet.
+    guide: >-
+      Three checks, and the notice goes in ninety minutes. Ask of each what it rules
+      out, and what it costs to run. Two of them use nothing but this mountain. One
+      spends a night that is not yours, and it is the one that could prove you wrong.
+    background:
+      - >-
+          Why the order is graded whole. A sequence is a claim that each step needs the
+          one before it to have happened. Get one pair the wrong way round and the claim
+          is wrong, even if everything else lines up. That is why there is no part
+          credit.
+      - >-
+          Why the ends are the place to start. The first and last steps are usually the
+          easiest to be sure of, because one has nothing before it and the other has
+          nothing after it. Fixing those two leaves fewer ways for the middle to go, and
+          the middle is where the real question usually is.
+      - >-
+          What the rail can be ordered on. Often it is time. It can also be cost, or
+          risk, or what you can still undo afterwards — do the steps that change nothing
+          before the ones that change something for good. A step that destroys the
+          sample can only be last.
+    assumes:
+      - a mark left by the camera does not come back in a fresh set of pictures
+    takeaway: Run the check that costs you an hour before the one that costs somebody else a night.
+    format: SEQUENCE
+    why: Each check throws out a different kind of mistake, and they cost different amounts. A second set of pictures on your own camera kills a cosmic ray or a hot pixel. That costs an hour. The lists kill anything already catalogued, and reading a list costs nothing at all. Asking another mountain is the strongest test, because it can prove you wrong. It also spends a night nobody owes you. So it goes last, on a candidate that has already survived the cheap checks.
+    rebuttals:
+      - The repeat comes first. A cosmic ray or a hot pixel dies here, on your own camera.
+      - The lists come second. A dot already catalogued is not news, and checking costs nothing.
+      - The outside telescope comes last. It spends somebody else's night, so send it only what has survived.
+    cards:
+      - Take a second set of pictures on the same camera tonight.
+      - Check the dot against the star, satellite and fault lists.
+      - Ask another mountain to look where you say it will be.
+    order: [0, 1, 2]
+
+  - group: ORBIT
+    title: Build the arc — Review
+    concept: "Position, time and speed: how fast something moves across the sky"
+    task: Turn the night's arc into a rate the morning telescope can point with.
+    place: Astrometry Lab
+    scene: "Rossi has a clean arc from one station: the dot crossed forty-five arcseconds in three hours. The morning telescope wants a rate, not two positions and a clock."
+    guide: >-
+      Four numbers, and two of them belong to other things. Ask of each whether this
+      rate needs it. One is the same stretch of time written a second way. One counts
+      telescopes. And note what the unit on your answer has to be.
+    background:
+      - >-
+          Why an estimate rather than a calculation. Every quantity on this board is
+          already measured or stated, so nothing here has to be derived. What is being
+          tested is whether you can pick the quantities the relationship actually needs,
+          and whether the size of the answer looks right once they are in place.
+      - >-
+          Why the tiles carry labels. A bare number cannot be checked against the
+          relationship it is going into. Reading the label is how a unit mismatch, or a
+          quantity belonging to a different part of the problem, is caught before it is
+          placed — which is the habit this format exists to build.
+    assumes:
+      - a rate is an amount divided by the time it took
+    takeaway: An arc is a table until somebody divides it, and then it is something you can point with.
+    format: BALLPARK
+    question: About how fast is it moving, in arcseconds per hour?
+    why: An arc is a list of positions and a clock. On its own it is a table. Divide one by the other and it becomes a rate. A rate is what a telescope can be pointed with. Forty-five arcseconds in three hours is fifteen an hour. Watch the units. Write those three hours as one hundred and eighty minutes and the number comes out sixty times smaller. That is not wrong. It is a rate per minute, and the unit is half the answer.
+    estimate:
+      relationship: Rate = how far it moved ÷ how long it took.
+      prompt: The dot crossed forty-five arcseconds of sky in three hours. Two of the numbers on the board belong to other parts of the night.
+      question: About how fast is it moving, in arcseconds per hour?
+      labels:
+        - forty-five arcseconds (how far it crossed)
+        - three hours (how long the arc lasted)
+        - six stations (that sent positions in)
+        - 180 minutes (the same stretch, in minutes)
+      values: [45, 3, 6, 180]
+      slots: 2
+      template: "{0} ÷ {1}"
+      formula: a/b
+      correct: [0, 1]
+      target: 15
+      tolerance: 1.5
+      units: arcsec/hour
+      solution: Forty-five arcseconds over three hours is fifteen arcseconds an hour.
+      explanation: The 180 is the same stretch of time written in minutes, and using it gives a rate per minute instead. Six stations counts telescopes, and belongs nowhere in a rate.
+
+  - group: OPS
+    title: Why waiting helps — Review
+    concept: Repeated measurements and their average
+    task: Say what the extra readings have bought.
+    place: Time Standards Room
+    scene: Delacroix has eight readings of the same spot on the sky. They came one after another. They sit either side of a middle value. Somebody asks if a ninth is worth the time.
+    guide: >-
+      Four options, and eight readings of one position. Ask of each what a random
+      wobble does when readings are added together. One option confuses scatter with
+      movement. And note the thing averaging cannot touch, however many readings go in.
+    background:
+      - >-
+          Why the wrong answers are worth reading. Each one is written to look right to
+          somebody who made a particular mistake. Working out which mistake each one
+          belongs to is most of the learning in this format — more than getting the
+          right one, which you can sometimes do by feel.
+      - >-
+          Why sounding careful is not the same as being right. A long answer with a lot
+          of detail in it feels safer, and it is easy to write one that is still wrong.
+          The check that builds these questions measures option length across the whole
+          game so the longest one is not the answer more often than chance. Reading is
+          the only way through.
+      - >-
+          What the verdict adds. After you answer, the verdict says why each wrong
+          option is wrong, in its own words. That is written for the reader who picked
+          it. Read it even when you were right, because being right for a shaky reason
+          is the thing that catches up with you two stops later.
+    assumes:
+      - repeated readings of the same thing scatter around a middle value
+    takeaway: Repeating a measurement steadies the middle, and does nothing to an error that leans the same way every time.
+    format: CHOICE
+    question: Eight readings of one position scatter either side of a middle. What does averaging them buy?
+    answerText: A steadier middle. Eight readings pull the random wobble down, and they cannot fix a fault that pushes every reading the same way.
+    why: Every reading carries a random wobble. Take one reading and you get the truth plus that wobble. Take eight and average them, and the wobbles pull against each other. The middle you are left with is steadier than any single reading. Four times as many readings halves the wobble, so a ninth buys much less than the second one did. And averaging cannot touch a fault that pushes every reading the same way. That kind of error survives any number of repeats.
+    choices:
+      - A middle value less shaken by any one reading
+      - A measurement with no error left in it
+      - Proof that the object moved between the pictures
+      - A wider range, because the readings disagree
+    answer: A middle value less shaken by any one reading
+    rebuttals:
+      - No average removes error. It shrinks the wobble, and it cannot touch a bias.
+      - Movement shows up as position changing over time, not as repeats of one moment.
+      - Disagreement between readings is the scatter. Averaging uses it, and does not add to it.
+
+  - group: CHAR
+    title: Settle the size — Review
+    concept: "Size and albedo: two explanations for one brightness"
+    task: Match each reading to what it settles about the rock.
+    place: Physical Characterization Group
+    scene: Adebayo has a second rock on the same list, and it looks just as bright as the first. Three readings came in overnight. Nobody has said a width out loud yet.
+    guide: >-
+      Three readings and three things they could settle. Pair them by asking what each
+      one depends on. Brightness depends on the area and on the shine together. Heat
+      depends mostly on the area. And one row is not a measurement at all.
+    background:
+      - >-
+          Why you match instead of choosing. A response that is right for one situation
+          is often nearly right for the next one. Picking from a list lets you take the
+          nearly-right answer and never notice. Matching makes you say which situation
+          it fits best, and that comparison is the whole point.
+      - >-
+          How to use the one-each rule. Every response goes somewhere, and nowhere
+          twice. So the situations you are sure about are worth more than themselves:
+          each one you settle leaves fewer responses for the ones you are not sure
+          about. Two lines you trust can decide the other two for you.
+      - >-
+          Why one wrong line is impossible. If three lines are right, the fourth
+          response has nowhere else to go, so it is right too. Being wrong always means
+          at least two are wrong at once. If a join feels forced, the mistake is
+          probably not in that join — it is in one you already made and stopped
+          questioning.
+    assumes:
+      - albedo is how well a surface reflects the light that lands on it
+      - a surface warmed by the Sun gives out heat of its own
+    takeaway: One brightness allows many widths, and only a second kind of measurement narrows them.
+    format: PROTOCOL
+    why: Brightness is the area facing us multiplied by how well that area reflects. One number and two unknowns. So brightness on its own can never give a width. Heat is different. The Sun warms the rock and the rock glows, and that glow follows the area rather than the shine. Put the two together and both unknowns come out. Assuming a reflectivity works as well, and the width you get is only as good as the assumption buried in it.
+    columns:
+      - What came in overnight
+      - What it settles
+    scenarios:
+      - A heat reading of the rock's own glow.
+      - A brighter reading, at the same distance.
+      - The surface is assumed to reflect like coal.
+    choices:
+      - The width, because warmth follows area rather than shine.
+      - Nothing on its own, because area and shine both raise it.
+      - A width that is only as good as the guess behind it.
+    mapping: [0, 1, 2]
+    rebuttals:
+      - Heat comes from the area the Sun warms, so it separates the size from the shine.
+      - A brighter reading can mean a bigger rock or a shinier one, and cannot say which.
+      - Assuming a reflectivity turns brightness into a width, and hides a guess inside it.

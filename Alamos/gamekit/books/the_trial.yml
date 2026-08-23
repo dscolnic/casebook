@@ -3547,6 +3547,253 @@ interiors:
         - { label: Registry updated, value: 11 days ago, status: normal }
         - { label: Safety update due, value: Friday, status: alarm }
 
+# ------------------------------------------------------- the review variants
+# Not pointed at by any mission stop. `shapeMissions` serves one of these as
+# the callback from day 3 on, oldest taught lesson first. Same concept as the
+# base, different case, so the second serving is retrieval rather than
+# recognition.
+lessons:
+  - group: RAND
+    title: Concealment is not the same as blinding — Review
+    task: Put site 22's four entry steps in an order that keeps the next slot hidden
+    concept: "Allocation concealment: protecting the moment of entry"
+    place: Kit Warehouse & Cold Room
+    scene: >
+      Farida Diouf, the trial pharmacist, is on a call with site 22, which has been entering
+      participants from a drawer of sealed envelopes since March. Diouf wants their next entries
+      done on the central allocation server, and the site coordinator wants the steps.
+    guide: >-
+      Four steps that all happen inside a minute, so the rail is not a clock. Order
+      them by what each one closes off. Ask of each whether the site could still
+      change its mind about this patient afterwards, and whether anything about the
+      arm has been given away yet. Those two answers are what the order has to keep
+      apart.
+    background:
+      - >-
+          Why the order is graded whole. A sequence is a claim about dependency: each
+          step is here because the one before it has already happened, or has to have.
+          One transposed pair falsifies that claim wherever it sits, so partial credit
+          would be credit for a sequence that does not work.
+      - >-
+          Why the ends are the place to start. The first and last cards are constrained
+          by having nothing before or after them, which usually makes them the two you
+          can settle from the scene alone. Pinning them collapses the remaining
+          arrangements sharply, and what is left in the middle is where the actual
+          judgement lives.
+      - >-
+          What the rail can be ordered on. Time is the usual axis, but it is not the
+          only one. An order can run on cost, on risk, or on reversibility — every
+          observation that leaves the sample as it was, before any that consumes it. On
+          those boards a chronological reading finds nothing, because none of the steps
+          has to happen at a particular hour.
+    assumes:
+      - participants are assigned to arms by chance rather than by choice
+    takeaway: Concealment is a property of the order the steps run in, not of how the envelope is stored.
+    format: SEQUENCE
+    task: Order the four steps so nobody at site 22 sees an assignment while entry is still a choice.
+    cards:
+      - Eligibility is checked against the criteria and the signed consent is filed.
+      - The participant's identifiers are entered on the allocation server and committed.
+      - The server issues a kit number and stamps the time of issue.
+      - Pharmacy dispenses against that kit number, and the log records a number and no arm.
+    order: [0, 1, 2, 3]
+    why: >
+      Concealment is about what a site can know while it can still act. Envelopes in a drawer can
+      be counted, held to the light, or taken out of order, and a coordinator doing any of that is
+      choosing patients rather than accepting them. A central server closes the gap by ordering the
+      steps: eligibility and consent are recorded, the entry is committed, and only then does a kit
+      number come back. The number names a box rather than an arm, so the blind survives the entry
+      as well.
+
+  - group: ENDP
+    title: One outcome, named in advance — Review
+    task: Say what a trial gives up by naming its primary outcome late
+    concept: The primary endpoint, named in advance, and everything else
+    place: Adjudication Room
+    scene: >
+      Dr. Kwame Ansah, the endpoint adjudication chair, is reading a draft protocol for HELIOS, a
+      smaller trial starting in this building. Its outcomes section lists five measurements and says
+      the primary will be picked once the first hundred participants have been followed.
+    guide: >-
+      Five measurements, and all five get collected whatever the protocol says. Ask
+      what changes when the choice of which one counts is made after somebody has seen
+      how they are moving. The cost is not in the measuring. It is in what the closing
+      sentence is entitled to claim, and in a sample size that was fixed on a different
+      assumption.
+    background:
+      - >-
+          Why the wrong options are the interesting ones. Each distractor is written to
+          be the answer under one specific misreading — a step skipped, a quantity
+          confused with a rate, a correlation taken for a cause. Identifying which
+          misreading each belongs to is where the learning is; the right answer alone
+          can be reached on instinct and teach nothing.
+      - >-
+          Why the shape of an option tells you nothing. A correct answer collects the
+          qualifying clause and the unit. So across a whole game the key used to be the
+          longest option far more often than chance — 88 per cent of passage quizzes
+          here, before it was fixed. It is now checked per game as a binomial tail, so
+          length, hedging and specificity have had the signal taken out of them
+          deliberately.
+      - >-
+          What the verdict adds. Every wrong option carries its own rebuttal, and the
+          verdict prints them — the reason that option fails, not a restatement of the
+          right one. They are worth reading after a correct answer as well: a right
+          choice made for an approximate reason is indistinguishable from a sound one
+          until the day the approximation is what is being tested.
+    assumes:
+      - a trial collects more than one measurement from each participant
+    takeaway: An outcome chosen after the data exist is a finding, not a promise the trial can be held to.
+    format: CHOICE
+    question: What does HELIOS give up by choosing its primary outcome after the first hundred participants?
+    choices:
+      - The result becomes the best of five rather than one question answered
+      - The four measurements it does not choose can no longer be reported at all
+      - Its adjudication committee would need to see the arms before it could rule
+      - The first hundred participants would have to be dropped from the final analysis
+    answer: The result becomes the best of five rather than one question answered
+    why: >
+      A primary outcome is a promise made before the data exist. It fixes the sample size, the
+      analysis and the sentence the trial may write at the end. Choose it after a hundred people
+      have been followed and the choice is informed by what the numbers are already doing, so the
+      reported result is the best of five rather than the answer to one. The other four are still
+      collected and still reported. Calling them secondary is what tells a reader how much weight
+      each finding will bear.
+    rebuttals:
+      - Secondary and exploratory outcomes are reported as such; naming a primary silences none of them.
+      - Adjudication stays blinded whatever the outcome is, and the arms are closed to the committee either way.
+      - Those participants are counted; what a late choice spoils is the claim rather than the follow-up.
+
+  - group: STAT
+    title: A trial ends at a number of events — Review
+    task: Work out how long a second trial has to follow its participants
+    concept: Event-driven trials, and information fraction as progress
+    place: Statistics & Analysis
+    scene: >
+      Dr. Miriam Feldman, the trial statistician, has been asked to sanity-check a schedule for
+      HELIOS, the smaller trial starting in this building. Its sponsor has written a finish date on
+      the front page. Feldman puts three of the trial's own numbers on the whiteboard instead.
+    guide: >-
+      Five numbers, and three of them belong to other questions. Ask of each whether
+      this schedule depends on it. The events adjudicated so far say how far HELIOS has
+      got rather than how long it has left. The count of hospitals sets how fast people
+      are recruited, which is a different arithmetic from how fast events arrive.
+    background:
+      - >-
+          Why an estimate rather than a calculation. Every quantity on this board is
+          already measured or stated, so nothing here has to be derived. What is being
+          tested is whether you can pick the quantities the relationship actually needs,
+          and whether the size of the answer looks right once they are in place.
+      - >-
+          Why the tiles carry labels. A bare number cannot be checked against the
+          relationship it is going into. Reading the label is how a unit mismatch, or a
+          quantity belonging to a different part of the problem, is caught before it is
+          placed — which is the habit this format exists to build.
+    assumes:
+      - the trial compares how often an event happens in two arms
+      - events accumulate over time, at some rate per participant per year
+    takeaway: A finish date is an output of the event rate, and the event rate is not the sponsor's to set.
+    format: BALLPARK
+    question: Estimate how long HELIOS has to follow its participants to reach the events it needs.
+    why: >
+      A trial that waits for events finishes when the events arrive. Nine hundred participants who
+      stay well carry almost no information about which arm is better; the comparison rests on the
+      ones something happened to. So the design fixes a number of events, and the calendar follows
+      from the rate those events arrive at, which belongs to the participants rather than to the
+      sponsor. A finish date written before the rate is known is a forecast in the clothes of a
+      commitment, and it is why progress is reported as events accumulated rather than months
+      elapsed.
+    estimate:
+      prompt: >
+        HELIOS was designed to need 210 primary events. It has randomised 900 people, and across
+        both arms together about 14 events occur per 100 participants per year — that is 0.14
+        events per participant per year.
+      question: Choose the events required, the number randomised and the event rate.
+      labels:
+        - 210  (primary events the design requires)
+        - 900  (participants randomised)
+        - 0.14  (events per participant per year, both arms)
+        - 46  (events adjudicated so far)
+        - 12  (hospitals recruiting)
+      values: [210, 900, 0.14, 46, 12]
+      slots: 3
+      template: '{0} ÷ ({1} × {2})'
+      formula: a/(b*c)
+      correct: [0, 1, 2]
+      target: 1.67
+      tolerance: 0.3
+      units: years
+      solution: 900 × 0.14 = 126 events a year, and 210 ÷ 126 ≈ 1.7 years.
+      explanation: >
+        About twenty months of follow-up. 900 people at 14 events per 100 per year produce
+        roughly 126 events a year, so the 210 the design needs take a little over one and a half of
+        them. The sponsor's date is not wrong so much as unowned: at 10 events per 100 per year the
+        same 210 events take well over two years. It is also why the 46 events already adjudicated,
+        rather than the calendar, is what says how far through HELIOS is.
+      givens:
+        - The design requires 210 primary events
+        - About 14 events per 100 participants per year, both arms together
+      relationship: >
+        Years of follow-up ≈ events required ÷ (participants × events per participant per year).
+    answerText: A little under two years of follow-up.
+
+  - group: REG
+    title: The plan that was in force — Review
+    task: Match each document to what it can actually prove about timing
+    concept: "Amendments and prespecification: a plan that can be dated"
+    place: Regulatory & Registry
+    scene: >
+      Nkechi Umeh, the regulatory lead, has a reviewer's letter asking how CLARION-3 can show its
+      main analysis was fixed before the data existed. Four documents are on her desk, and each one
+      proves something different about when a decision was made.
+    guide: >-
+      Four documents and four things they can prove. Pair them by asking two questions
+      of each: does it carry a date, and could anybody at the sponsor have set that
+      date? A record the sponsor controls is still worth keeping. It simply proves
+      something narrower than a record the sponsor cannot reach.
+    background:
+      - >-
+          Why this is a matching board and not four separate questions. Responses on
+          boards like this are written to be plausible for more than one situation, so
+          choosing them one at a time lets a nearly-right answer through unexamined.
+          Having to place all of them forces the comparison — not "is this reasonable
+          here", but "is it more right here than there".
+      - >-
+          How to use the one-each rule. Because the responses are a set to be
+          distributed rather than a list to be sampled, every join you make constrains
+          the rest. Settling the two you are confident of can leave the remaining pair
+          decided by elimination. Where it does not, two responses are still competing
+          for one situation, and that is exactly the distinction the stop is testing.
+      - >-
+          Why you cannot be wrong about exactly one. With every response used once,
+          three correct joins leave the fourth with only one place to go. Any error
+          therefore involves at least two joins. That is worth remembering when the last
+          pair looks forced: the fault is usually not in the join you are struggling
+          with, but in one you made early and stopped questioning.
+    assumes:
+      - a trial's plan can be amended while it is running
+    takeaway: What a document proves about timing depends on who was able to set the date on it.
+    format: PROTOCOL
+    task: Match each document to what it can prove about when the analysis was fixed.
+    columns: [What is on the desk, What it can prove]
+    scenarios:
+      - The public registry entry, timestamped by the registry when that version went up.
+      - The analysis plan on the sponsor's shared drive, last modified this morning.
+      - Signed minutes of the steering committee, dated by the chair.
+      - An email from the statistician setting out the intended analysis, sent last year.
+    choices:
+      - That this wording existed on a date nobody at the sponsor was able to set.
+      - Almost nothing about timing; the contents are current and the history is the drive's.
+      - That a named group agreed it, and when, on a record the sponsor keeps itself.
+      - That one person intended it, on a date their mail system stamped.
+    mapping: [0, 1, 2, 3]
+    why: >
+      Prespecification is a claim about time, so what supports it is a date somebody outside the
+      sponsor fixed. A registry timestamp is exactly that: the entry went up, and the registry
+      recorded when. A working file proves nothing about timing, because its history belongs to the
+      drive and its contents are whatever they are this morning. Signed minutes prove that a named
+      group agreed something on a stated day, on a record the sponsor keeps itself. An email proves
+      one person's intention. All four are evidence, and they are not the same evidence.
+
 # --------------------------------------------------------------- the warm-ups
 warmups:
   greet:

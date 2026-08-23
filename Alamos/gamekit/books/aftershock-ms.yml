@@ -2316,3 +2316,224 @@ copy:
   SCHOOL: <p>Bay Road School. Green placard, undamaged classrooms, and a gymnasium whose wall panels are held on by anchors that tested below demand.</p>
   PARADE: <p>The Parade. 1890s shopfronts with their parapets in the street and timber shores holding the façades in.</p>
   DEPOT: <p>The port gate. The quay moved two metres seaward and the cranes have not turned since.</p>
+
+# ---------------------------------------------------------------- review variants
+#
+# Four `— Review` lessons, one each in SEIS, GEO, HAZ and SAFE, so `shapeMissions`
+# has something to serve as the spaced-retrieval callback from day 3 on. No mission
+# stop points at any of them: the day picks one, oldest taught first, and the four
+# groups are deliberately different because a callback whose area is already in the
+# day is skipped.
+#
+# Each is the same idea on a different case — a different station, a different pair
+# of schools, a different set of phone calls, a different notice — because a
+# byte-identical re-serve is recognition rather than retrieval.
+lessons:
+  - group: SEIS
+    title: How far away it started — Review
+    concept: An earthquake sends waves through the ground, and some arrive first
+    task: Do the same sum on a station up the coast.
+    place: Seismic Network
+    scene: >-
+      Inês Cardoso, the network technician, has a third record in. It comes from Halloran Point,
+      up the coast, and the clock there shows the first wave at forty-one seconds past and the
+      strong shaking at fifty-two.
+    guide: >-
+      Five tiles, and three of them belong in the sum. Two are clock times, and what
+      carries the distance is the gap between them. One tile says what a second of
+      that gap is worth in kilometres. The other two are true about this earthquake
+      and answer a different question. This station is not the vault, so do not
+      expect the vault's answer.
+    background:
+      - >-
+          What one station can say. A gap of eleven seconds says how far the wave came. It
+          says nothing at all about which direction it came from. Draw that distance round
+          the station and you have a circle, and the earthquake started somewhere on it.
+      - >-
+          Why a third station helps. Two circles cross in two places. Three circles cross
+          in one. That is why the network keeps instruments in several towns rather than
+          one very good instrument in the best spot.
+      - >-
+          Why the tiles carry words as well as numbers. A bare number cannot be checked
+          against anything. Reading the label is how you notice that a tile is in the wrong
+          units, or is a fact about the earthquake rather than about this record.
+    assumes:
+      - the first wave travels faster than the strong shaking behind it
+    takeaway: A wider gap between the two arrivals means a station further from where the slip began.
+    format: BALLPARK
+    question: How far away did it start, measured from Halloran Point?
+    answerText: About eighty-eight kilometres. That is a second circle, drawn round Halloran Point rather than round the vault.
+    why: >-
+      The two waves leave the fault together and one of them is faster, so the gap between
+      them opens up as they travel. Here the gap is eleven seconds, and eleven seconds is
+      about eighty-eight kilometres. The vault's record gave a hundred and four. Neither is
+      the answer on its own. Each is a circle round its own station, and the place the
+      earthquake started is where the circles meet.
+    estimate:
+      prompt: The first wave arrived at forty-one seconds past, and the strong shaking at fifty-two. Count about eight kilometres for each second between them.
+      question: How far away did it start, measured from Halloran Point?
+      labels:
+        - 52 s (strong shaking, seconds past the minute)
+        - 41 s (first wave, seconds past the minute)
+        - 8 km for each second of the gap
+        - 6.8 (the magnitude)
+        - 40 km (how far up the coast this station stands)
+      values: [52, 41, 8, 6.8, 40]
+      slots: 3
+      template: ({0} − {1}) × {2}
+      formula: (a-b)*c
+      correct: [0, 1, 2]
+      target: 88
+      tolerance: 10
+      units: km
+      solution: Fifty-two take away forty-one is eleven seconds. Eleven times eight is eighty-eight kilometres.
+      explanation: The magnitude says how big the earthquake was, not how far off it was. How far up the coast the station stands is a fact about the station.
+      givens:
+        - The gap between the two arrivals is eleven seconds
+        - Count about eight kilometres for each second of that gap
+      relationship: Distance = the gap in seconds × eight kilometres.
+
+  - group: GEO
+    title: Ground that people put there — Review
+    concept: "The ground itself changes the shaking: soft ground shakes more"
+    task: Say why two schools the same distance out came off so differently.
+    place: Geotechnical
+    scene: >-
+      Thandi Mbeki, the geotechnical field technician, has walked two schools this morning.
+      Kestrel Point School is on the bench above the bay. Salt Meadow School is the same
+      distance from the fault, down on the flat. One lost roof tiles. One lost its playground.
+    guide: >-
+      Four answers, and every one of them is a real reason a building can come off
+      worse. Work by ruling out. Both schools went up the same year. Both are single
+      storey. Both are the same distance from the fault. Cross off what the two of
+      them share, and read what is left over.
+    background:
+      - >-
+          Why the distance is the same and the day was not. The waves that reached both
+          schools left the same fault at the same moment and had the same distance to cover.
+          Everything that happened after that happened in the last few metres, under the
+          floor.
+      - >-
+          What the playground shows. Salt Meadow's yard has grey fans of sand across it and
+          a drop of two hundred millimetres along one fence. That is the ground moving, not
+          the building. Kestrel Point lost tiles, which is the building being shaken.
+      - >-
+          Why this keeps coming back. It is the same finding as the chimneys in Upper Town
+          and the leaning block in the Flats. Two places, one earthquake, two very different
+          mornings, and the difference is under the foundations in every case.
+    assumes:
+      - two places the same distance from an earthquake can feel different shaking
+    takeaway: What a place stands on can matter more to it than how far it is from the fault.
+    format: CHOICE
+    question: Two schools, the same distance from the fault. Why did only one lose its playground?
+    answerText: Salt Meadow stands on loose wet ground, and loose wet ground shakes harder and further than rock does.
+    why: >-
+      Waves arriving at rock and waves arriving at loose wet fill do not stay the same size.
+      Rock is stiff, so it passes the shaking on much as it received it. Loose wet ground is
+      not, and the wave slows down and grows as it comes up through it. Salt Meadow got a
+      bigger shake than Kestrel Point from the same earthquake, and the ground under the
+      playground then settled and let water up through the sand.
+    choices:
+      - Salt Meadow is older, so it was already the weaker building.
+      - Salt Meadow stands on loose wet ground, which shakes harder.
+      - Salt Meadow was empty that morning, so nobody was watching.
+      - The two schools are not really the same distance from the fault.
+    answer: Salt Meadow stands on loose wet ground, which shakes harder.
+    rebuttals:
+      - Both schools went up in the same year, so age separates nothing here.
+      - An empty building shakes exactly as hard as a full one does.
+      - Mbeki measured both distances off the same map, and they match.
+
+  - group: HAZ
+    title: Why the number moved — Review
+    concept: How big the earthquake was, and how hard the shaking felt, are two different things
+    task: Sort three phone calls into what each one is actually about.
+    place: Hazard & Forecasting
+    scene: >-
+      Rei Tanaka, the seismologist, has three lines written down from three calls this morning.
+      Every one of them is a number about Thursday, and no two of them are numbers about the
+      same thing.
+    guide: >-
+      Three lines on the left and three descriptions on the right, and each one is
+      used once. Ask of every line whether it belongs to the whole earthquake or to
+      one street. One of them is the same wherever you stand. The other two are what
+      a particular place felt, and those two do not match each other.
+    background:
+      - >-
+          The two kinds of number. One says how much the fault let go, and there is only
+          ever one of it. The other says how hard a given street shook, and there is one of
+          those for every street in the town.
+      - >-
+          Why the mix-up costs something. A caller who hears one figure for the whole
+          earthquake and then feels almost nothing decides the office is exaggerating. A
+          caller whose road split open decides the figure was far too small. Both are
+          reading a whole-event number as a report on their own street.
+      - >-
+          How the one-each rule helps. Every description is used, and used once. So the
+          line you are sure about takes its description out of play for the other two, and
+          two settled lines decide the third for you.
+    assumes:
+      - one earthquake is felt differently in different streets
+    takeaway: An earthquake has one size, and as many felt strengths as there are streets in the town.
+    format: PROTOCOL
+    question: Say what each of the three callers is describing
+    scenarios:
+      - "A caller in Upper Town: the pictures rattled and stayed up."
+      - The bulletin gives one figure for the whole earthquake.
+      - "A caller on Bay Road: the road split and sand rose."
+    choices:
+      - How hard one street shook, and it was mild in that street.
+      - How much the fault let go, the same figure everywhere.
+      - How hard one street shook, and it was severe in that street.
+    mapping: [0, 1, 2]
+    why: >-
+      The bulletin figure is worked out from the records and describes the fault. It is one
+      number and it does not change from street to street. What the two callers describe is
+      what their own ground did, and their two streets sit on different ground. Rattled
+      pictures on the bench and a split road on the fill are the same earthquake felt twice.
+      Neither caller is wrong, and neither is talking about the bulletin.
+
+  - group: SAFE
+    title: A notice somebody acts on — Review
+    concept: Aftershocks get rarer as time passes, and a chance is not a promise
+    task: Order the three lines of tonight's text message.
+    place: Public Safety
+    scene: >-
+      Funmi Adeyemi, the public information officer, has a text message going to four thousand
+      phones at six o'clock. It fits three lines and no more. A rumour has gone round that
+      Thursday was promised to be the last of the shaking.
+    guide: >-
+      All three lines are going out, so nothing here is being cut. Ask which line a
+      person can act on while they are standing in the street reading it. Then ask
+      which line is the reason they keep doing it tomorrow. A message is read from
+      the top, and plenty of people stop before the end.
+    background:
+      - >-
+          Why the order is graded whole. Putting the lines in an order is a claim that each
+          one needs the one above it. Swap any pair and the claim is no longer true, so
+          there is no half mark for getting most of it right.
+      - >-
+          Start at the ends. The line that has nothing before it and the line that has
+          nothing after it are usually the two you can settle straight away. Pin those and
+          there is only one place left for the third.
+      - >-
+          What a rate is doing at the bottom. Written as a chance for the week, it stays a
+          chance, and it goes down as the days pass. Written as a date, the same fact turns
+          into a promise the office cannot keep, and the next aftershock makes a liar of it.
+    assumes:
+      - a short message is read once, quickly, in the order it is printed
+    takeaway: The line somebody can act on goes at the top, because a message is read from the top and often no further.
+    format: SEQUENCE
+    question: Put the three lines in the order they will be read
+    answerText: The instruction first, then the reason it holds, then the chance for the week.
+    why: >-
+      People act on the first thing in a message they can use, so the instruction goes at the
+      top. The reason comes second, because a reason is what makes somebody keep to an
+      instruction after they have walked away from the notice. The chance for the week goes
+      last. It is the part that answers the rumour, and it has to stay a chance: aftershocks
+      get rarer every day, and rarer is not the same as finished.
+    cards:
+      - Stay out of any building with a red notice on the door.
+      - A smaller shake can bring down a wall the big one cracked.
+      - About a one in five chance of a magnitude five this week.
+    order: [0, 1, 2]

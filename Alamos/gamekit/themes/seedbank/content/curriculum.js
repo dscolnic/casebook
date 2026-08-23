@@ -673,6 +673,128 @@ export const CURRICULUM = {
           "Allele frequency as the thing a collection actually holds"
         ]
       }
+    },
+    {
+      "day": 10,
+      "title": "Why the vault is cold — Review",
+      "scene": "Wren Ashworth, the genebank technician, has an aid-agency store's logbook on the bench. Four things about that store are being changed this year, and Mbaye wants each one's effect on shelf life named before the shipment is accepted.",
+      "takeaway": "Two factors that each divide the same rate combine by multiplying, so the cheaper second change is worth as much as the first.",
+      "place": "Seed Vault",
+      "guide": "Four changes and four effects, in a store nobody here built. Price them the way you would price this vault. Turn each change into doublings — degrees at roughly one per five, moisture at roughly one per two points removed — and read what that many doublings is worth as a factor. Then ask what the pair of them is worth together, and whether the fourth change touches the rate at all.",
+      "background": [
+        "Why a factor rather than a number of years. Nothing here says how long the seed will live, because that depends on the species and on what state it went in. What both variables do is divide a rate, and a divided rate is a multiplier on whatever the shelf life happened to be.",
+        "Why one of the four changes moves nothing. Sealing a packet does not slow a reaction; it stops the surrounding air undoing the drying that has already been paid for. That is a real reason to do it and it is not a factor, which is the distinction this board is about."
+      ],
+      "story": "Wren Ashworth, the genebank technician, has an aid-agency store's logbook on the bench. Four things about that store are being changed this year, and Mbaye wants each one's effect on shelf life named before the shipment is accepted.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "Why the vault is cold — Review",
+        "setup": "Seed Vault",
+        "play": "Match each change to the store to what it does to shelf life.",
+        "task": "Match each change to the store to what it does to shelf life.",
+        "question": "Match each change to the store to what it does to shelf life.",
+        "answer": "",
+        "why": "Deterioration in a stored seed is a chemical rate, and both variables act on the same reactions. Twenty degrees at roughly a doubling per five is two to the fourth, or sixteen times. Four points of moisture at roughly a doubling per two is four times. Because each divides the rate of one process, the store that gets both ends at sixty-four times the shelf life rather than twenty. Sealed packaging changes no rate; it stops the drying from being undone.",
+        "scenarios": [
+          "The cold room is taken from plus five degrees down to minus fifteen.",
+          "The seed is dried from ten per cent moisture to six before it goes in.",
+          "Both of those changes are made in the same refit.",
+          "The packets are moved from paper envelopes into sealed foil, with nothing else altered."
+        ],
+        "choices": [
+          "Sixteen times the shelf life, from four doublings at roughly one per five degrees.",
+          "Four times the shelf life, from two doublings at roughly one per two points of moisture.",
+          "Sixty-four times, because both factors divide the rate of the same reactions.",
+          "No factor at all, and worth doing because it holds the drying that has been paid for."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "assumes": [
+        "orthodox seeds are seeds that can survive drying and cold storage"
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Why cold and dry both work, and that they multiply",
+        "of": 26,
+        "rests": [
+          "Seed viability as a rate: what a stored seed is still doing"
+        ]
+      }
+    },
+    {
+      "day": 11,
+      "title": "How many plants make a population — Review",
+      "scene": "Ashworth has the harvest sheet from last season's grow-out of a barley accession. Forty plants flowered and all forty were cut. Qureshi, the collection curator, has ringed the line underneath: the packet that went back into store was bulked from the six heaviest heads.",
+      "takeaway": "A grow-out is measured by who contributed rather than by who stood there, and an unequal contribution makes a population behave as a smaller one.",
+      "place": "Seed Vault",
+      "guide": "Four accounts of what a lopsided bulk costs. Ask of each which number it is counting — the plants that stood in the plot, or the plants that put alleles into the packet. Those two are different here, and the options disagree about which of them drift responds to.",
+      "background": [
+        "Why a head count is the wrong census. A regeneration is a sample of the generation before it, and the sample is drawn by whoever actually contributes seed to the packet. A plant that flowered, was cut, and then went into the reject tray is in the field notebook and not in the next generation.",
+        "Why nothing routine catches it. Seed off a lopsided bulk germinates as well as any other seed, weighs the same or more, and passes every viability test the vault runs. What has changed is which alleles are present, and no test on the drying floor is looking for that."
+      ],
+      "story": "Ashworth has the harvest sheet from last season's grow-out of a barley accession. Forty plants flowered and all forty were cut. Qureshi, the collection curator, has ringed the line underneath: the packet that went back into store was bulked from the six heaviest heads.",
+      "game": {
+        "type": "CHOICE",
+        "title": "How many plants make a population — Review",
+        "setup": "Seed Vault",
+        "play": "Say what an unequal bulk costs",
+        "task": "Say what an unequal bulk costs",
+        "question": "Forty plants were grown out and the packet was bulked from six of them. What has that cost the accession?",
+        "answer": "It drifts like a much smaller population, six plants parenting the next generation",
+        "why": "Drift is set by the number of individuals that actually pass alleles on, not by the number that grew. Forty plants stood in the plot and six of them are the parents of everything in the packet, so the accession behaves as a population of about six. Whatever the other thirty-four carried and nobody else did has gone, and it has gone silently: the bulked seed germinates as well as any other seed and weighs more.",
+        "rebuttals": [
+          "Counting the plants that stood in the plot is the mistake itself; what counts is the plants that contributed seed.",
+          "Six heads carry six plants' worth of alleles, and whatever the other thirty-four held is not in the packet.",
+          "Inbreeding depression is a real second cost, and it follows the loss of variation rather than replacing it."
+        ],
+        "choices": [
+          "It drifts like a much smaller population, six plants parenting the next generation",
+          "It drifts like a population of forty, since forty plants stood in the plot and were harvested",
+          "Nothing is lost genetically, because six well-grown heads still carry the accession's range",
+          "The cost is vigour rather than variation, appearing as inbreeding depression next season"
+        ],
+        "correctChoice": "It drifts like a much smaller population, six plants parenting the next generation"
+      },
+      "assumes": [
+        "each generation's alleles are a sample of the last generation's",
+        "genetic drift, and why it is worst in a small sample — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "Nₑ ≈ 4NmNf / (Nm + Nf)",
+          "c": "effective population size, and why a grow-out of thirty is not thirty",
+          "v": [
+            [
+              "Nₑ",
+              "the effective size — how large the population behaves as, genetically"
+            ],
+            [
+              "Nm, Nf",
+              "the numbers actually contributing as each parent"
+            ]
+          ],
+          "s": "Genetic loss is set by how many individuals contribute rather than how many stand in the plot, so an unequal or a small contribution makes a population drift like one much smaller than it looks."
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 11,
+          "c": "Genetic drift, and why it is worst in a small sample"
+        }
+      ],
+      "concept": {
+        "n": 12,
+        "c": "Effective population size, and what a grow-out has to be",
+        "of": 26,
+        "rests": [
+          "Genetic drift, and why it is worst in a small sample"
+        ]
+      }
     }
   ],
   "CROSS": [
@@ -1135,6 +1257,80 @@ export const CURRICULUM = {
         "rests": [
           "Controlled crossing: emasculation, bagging and knowing the father",
           "Dominance, and why one allele is enough"
+        ]
+      }
+    },
+    {
+      "day": 9,
+      "title": "Counting a generation — Review",
+      "scene": "Otto Bengtsson, the glasshouse manager, has the second tray out of the warm bay — five hundred and sixty F2 plants from a waxy-bloom cross, scored this morning. Volpe wants the non-waxy count predicted before anybody reads the tally sheet out.",
+      "takeaway": "The recessive class is the smaller number and the sharper test, because it is the one a rival model moves furthest.",
+      "place": "Crossing Hall",
+      "guide": "Work from the class that shows nothing rather than the class that shows the trait. Two heterozygous parents give four equally likely gametic combinations, and only one of them carries neither dominant copy. Multiply the tray by that fraction. Two of the tiles belong to the dominant class or to a rival two-gene model, so read every label before you place anything.",
+      "background": [
+        "Why the recessive class is the one to count. Both models put most of the tray in the dominant class, so the two predictions sit close together there and a sampling wobble covers the gap. The recessive class is where they separate: a quarter under one gene, a sixteenth under two.",
+        "What a close fit is and is not evidence of. A count near the expectation says the data are consistent with one dominant locus. It does not rule out a second gene of small effect, or a locus so tightly linked that the two travel together. It rules out the models that predict something else, which is all a ratio ever does."
+      ],
+      "story": "Otto Bengtsson, the glasshouse manager, has the second tray out of the warm bay — five hundred and sixty F2 plants from a waxy-bloom cross, scored this morning. Volpe wants the non-waxy count predicted before anybody reads the tally sheet out.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "Counting a generation — Review",
+        "setup": "Crossing Hall",
+        "play": "Predict the class that shows nothing, on a different tray",
+        "task": "Predict the class that shows nothing, on a different tray",
+        "question": "How many of the 560 F2 plants should be non-waxy if a single dominant locus governs the bloom?",
+        "answer": "About 140 of the 560, against 147 counted. A two-gene either-way model would predict about 35, which the count rules out.",
+        "why": "Each parent carries one waxy allele and one non-waxy allele, and meiosis puts one of the two into every gamete. Four combinations follow and only one of them is recessive at both copies, so a quarter of the tray should show no bloom: 560 ÷ 4 = 140, against 147 counted. The two-gene either-way model puts the recessive class at one in sixteen, or about 35. Counting the smaller class is what separates them, because that is where the two predictions differ fourfold.",
+        "givens": [
+          "five hundred and sixty F2 plants, 147 of them non-waxy",
+          "two heterozygous parents, and the waxy bloom dominant"
+        ],
+        "relationship": "Expected recessive = plants × 1 ÷ 4, which is the other quarter of the same 3 : 1 expectation.",
+        "calcKey": "CROSS-9"
+      },
+      "assumes": [
+        "a plant carries two copies of each gene and passes on one"
+      ],
+      "equations": [
+        {
+          "e": "3 : 1",
+          "c": "the monohybrid ratio, and what a count of a whole generation is evidence for",
+          "v": [
+            [
+              "3",
+              "offspring showing the dominant phenotype"
+            ],
+            [
+              "1",
+              "offspring showing the recessive one"
+            ]
+          ],
+          "s": "Two heterozygous parents each pass one of two alleles at random, so one cross in four gets neither dominant copy — which is why three quarters show the trait and a count near three to one says one gene with a dominant allele.",
+          "computed": true
+        },
+        {
+          "e": "15 : 1",
+          "c": "two genes acting either-way, and the ratio that separates it from one",
+          "v": [
+            [
+              "15",
+              "offspring carrying a dominant copy at either locus"
+            ],
+            [
+              "1",
+              "offspring with neither"
+            ]
+          ],
+          "s": "Only the plants that are recessive at both loci show the recessive phenotype, and a quarter of a quarter is one in sixteen — which is how a count tells two genes from one without any sequencing at all.",
+          "demanded": true
+        }
+      ],
+      "concept": {
+        "n": 4,
+        "c": "Monohybrid ratios, and reading a count as evidence for a mechanism",
+        "of": 26,
+        "rests": [
+          "Meiosis and segregation: one copy of each gene into each gamete"
         ]
       }
     }
@@ -2879,6 +3075,73 @@ export const CURRICULUM = {
           "Dominance, and why one allele is enough"
         ]
       }
+    },
+    {
+      "day": 7,
+      "title": "One disagreement, two possible causes — Review",
+      "scene": "Sylvie Pirelli, who keeps the passport records, has brought Nakagawa a second family. The marker on it sits nine centimorgans off the gene. Twenty-six plants in three hundred have a band that their field reaction does not agree with.",
+      "takeaway": "A confirmatory test is worth running only once there is a shortlist for it, and the shortlist is made of disagreements.",
+      "place": "Molecular Laboratory",
+      "guide": "Four moves, and the order is forced by what each one needs to already exist. Ask of every card what has to be written down before it can be done at all. The direct-gene assay is the expensive one and it is aimed at a list, and the list cannot be written until two independent scores exist for the same plants.",
+      "background": [
+        "Why the shortlist is the whole economy of this. A direct assay on three hundred plants answers a question that twenty-six of them were ever going to raise. Running the cheap marker across the family and the field score across the same family is what produces the twenty-six, and nothing else does.",
+        "Why neither of the first two scores is the truth. The marker is a band near the gene and the field score is a plant's reaction to an inoculation, and both can be wrong for reasons of their own. A disagreement names a plant worth a third look; it does not say which of the two was mistaken."
+      ],
+      "story": "Sylvie Pirelli, who keeps the passport records, has brought Nakagawa a second family. The marker on it sits nine centimorgans off the gene. Twenty-six plants in three hundred have a band that their field reaction does not agree with.",
+      "game": {
+        "type": "SEQUENCE",
+        "title": "One disagreement, two possible causes — Review",
+        "setup": "Molecular Laboratory",
+        "play": "Order the four moves this family has to go through.",
+        "task": "Order the four moves this family has to go through.",
+        "question": "Order the four moves this family has to go through.",
+        "answer": "",
+        "why": "A marker nine centimorgans from a gene is separated from it in about nine meioses in a hundred, so twenty-six disagreements in three hundred is roughly what linkage alone predicts. Nothing in that number distinguishes recombination from a misread band, and neither score can be trusted over the other. The order matters because the direct assay answers only the plants it is run on. Score the marker, score the plants, take the difference, and spend the second assay on that difference.",
+        "cards": [
+          "Score every plant in the family with the linked marker.",
+          "Score the same plants for their reaction in the inoculated bay.",
+          "List the plants whose marker call and whose reaction disagree.",
+          "Run a second assay aimed inside the resistance gene, on the discordant plants only."
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "assumes": [
+        "a nearby marker can be separated from a gene by crossing over",
+        "PCR uses primers to amplify a chosen DNA region",
+        "independent assortment, and the ratios two genes give instead — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "recombination frequency ≈ map distance in cM",
+          "c": "linkage: how often a marker and a gene come apart",
+          "v": [
+            [
+              "cM",
+              "centimorgans — one per cent recombination per generation"
+            ]
+          ],
+          "s": "A marker four centimorgans from a gene is separated from it in about four meioses in a hundred, which is exactly the rate at which selecting on the marker selects the wrong plant."
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 6,
+          "c": "Independent assortment, and the ratios two genes give instead"
+        }
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Linkage and recombination: distance on a chromosome as a probability",
+        "of": 26,
+        "rests": [
+          "Independent assortment, and the ratios two genes give instead"
+        ]
+      }
     }
   ],
   "DRY": [
@@ -3835,6 +4098,37 @@ export const BALLPARK_CALCS = {
     "units": "accessions at risk",
     "solution": "30 ÷ 90 × 9,000 ≈ 3,000 accessions in the twice-regenerated group. Using 41,000 instead gives 13,700, which the sample cannot support.",
     "explanation": "A third of the high-risk group is about 3,000. The same arithmetic against the whole collection is a claim about material nobody tested."
+  },
+  "CROSS-9": {
+    "prompt": "Five hundred and sixty F2 plants from two heterozygous parents. The waxy bloom is dominant, so only a plant carrying neither dominant copy is non-waxy.",
+    "question": "Choose the number of plants, the number of gametic combinations carrying neither dominant copy, and the number of combinations there are.",
+    "labels": [
+      "560  (F2 plants scored in the tray)",
+      "1  (of the combinations carrying neither dominant copy)",
+      "4  (equally likely gametic combinations)",
+      "3  (combinations carrying at least one dominant copy)",
+      "16  (combinations under the two-gene either-way model)"
+    ],
+    "values": [
+      560,
+      1,
+      4,
+      3,
+      16
+    ],
+    "slots": 3,
+    "template": "{0} × {1} ÷ {2}",
+    "formula": "a*b/c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 140,
+    "tolerance": 10,
+    "units": "non-waxy plants",
+    "solution": "560 × 1 ÷ 4 = 140 non-waxy, against 147 counted. The two-gene model would want 560 ÷ 16, or about 35.",
+    "explanation": "140 expected against 147 counted is a 3 : 1 fit. The rival model wanted about 35, so the smaller class is what tells them apart."
   }
 };
 

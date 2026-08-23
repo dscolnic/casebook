@@ -319,7 +319,7 @@ roster:
 
       He works with three tools and each one moves the contaminant rather than destroying it. Activated carbon adsorbs organics onto an enormous internal surface area — the compound is now in the carbon bed, which becomes hazardous waste with a destination. Air stripping blows the volatile fraction out of the water and into the air, which is a genuine improvement only if the air is somewhere no one is standing. Chemical oxidation actually breaks bonds, but partially oxidised fragments are products too, and some are worse than what you started with.
 
-      So every option he offers arrives with the byproduct, the sludge and the destination attached. A treatment train that removes 99% of a contaminant and puts the rest through a neighbourhood’s air is not a success; it is a transfer, and he wants it named as 1.
+      So every option he offers arrives with the byproduct, the sludge and the destination attached. A treatment train that removes 99% of a contaminant and puts the rest through a neighbourhood’s air is not a success; it is a transfer, and he wants it named as one.
     quiz:
       - q: Why does Osei describe activated carbon and air stripping as moving a contaminant rather than removing it?
         a: Neither breaks the compound down
@@ -1259,7 +1259,7 @@ missions:
         concept: 'The mole as a count, and molar mass as the bridge to a mass'
         place: Accident Command Post
         setup: Match each formula-level observation to the correct chemical interpretation.
-        scene: A freight-yard fire has damaged several unlabelled containers, 80 metres from the river. Three different guesses about what is in them are already on the radio. Firefighters are picking a suppression agent from whatever identity you give them.
+        scene: A freight-yard fire has damaged several unlabelled containers, 80 metres from the river. Three different guesses about what is in them are already on the radio. The fire chief, Nils Sørensen, is picking a suppression agent from whatever identity you give him.
         story: "A freight-yard fire has damaged several unlabelled containers 80 metres from the river, and the shift supervisor's radio traffic is already carrying 3 different guesses about what is in them. A chemical formula is not a name: it states which elements are present, in what whole-number ratio, and what charge the unit carries, and each of those constrains what the substance can do. A subscript or a charge changed makes a different compound with different reactivity, different solubility and a different hazard class. Firefighters are choosing a suppression agent from whatever identity you give them, and some of the wrong answers react with water."
         assumes:
           - a chemical formula lists which elements are present and in what ratio
@@ -1295,9 +1295,10 @@ missions:
         call: From damaged container to provisional identity
         task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.
         title: From damaged container to provisional identity
+        concept: 'The ideal gas law, and a headspace that tells you what is dissolved'
         place: Molecular Identification Lab
         setup: Order the non-destructive evidence workflow.
-        scene: Inside the mobile laboratory, the first intact sample from the damaged drums is sealed on the bench. Its outside markings are legible now and will be scuffed off by the opening. Breaking the seal to draw liquid vents the headspace, and there is only enough liquid for two runs.
+        scene: Okonjo has the first intact sample from the damaged drums sealed on the mobile laboratory bench. Its outside markings are legible now and will be scuffed off by the opening. Breaking the seal vents the headspace, and there is liquid for only two runs.
         story: "The containers are now evidence as well as hazard. Identification runs in a fixed order for reasons that are chemical rather than bureaucratic: some observations leave the sample exactly as they found it and can be repeated all week, and some consume the material to produce their answer. A destructive method gives the best identification and gives it once. What is on the outside of the drum survives only until somebody opens it, and so does the air above the liquid: breaking the seal to draw an aliquot vents the headspace. You are choosing the order in which to spend a sample nobody can go back for."
         assumes:
           - some measurements leave the sample as they found it and some use it up
@@ -1332,7 +1333,7 @@ missions:
         place: Records and Shipping Office
         setup: What does the response run first?
         question: Which evidence do you buy before giving firefighters a chemical identity?
-        scene: An $800 laboratory budget is left for the first round of evidence. Three damaged drums have lost their labels, and the first extract is ready. Firefighters are waiting at the fence line for the provisional identity that will determine their next move.
+        scene: An $800 laboratory budget is left for the first round of evidence. Three damaged drums have lost their labels, and the first extract is ready. The incident commander, Grace Boateng, is holding firefighters at the fence line for a provisional identity.
         story: "You have a limited laboratory budget and four ways to spend it, and the first hours of a release are when uncertainty is most expensive. Analytical methods are not interchangeable: each one answers a different question, carries its own way of being fooled, and costs sample, time and exposure. Some of what looks like a fast answer is really a low-quality one taken at personal risk — smelling a container tells you almost nothing chemically and puts a responder in the vapour. One of them goes first, and the firefighters are waiting on whatever it returns."
         assumes:
           - different analytical methods can fail for different reasons
@@ -1382,7 +1383,7 @@ missions:
           - 'The mole as a count, and molar mass as the bridge to a mass'
         place: Container Yard
         question: Send each drum to the bin that says what water would do to it.
-        scene: The contractor lifts at four and wants the yard sorted by then. Some of these drums are made safe by dilution. Others react with water, and a hose is the worst thing that could reach them.
+        scene: The contractor lifts at four and wants the yard sorted by then. Sørensen has crews standing by with hoses. Some of these drums are made safe by dilution. Others react with water, and a hose is the worst thing that could reach them.
         assumes:
           - some substances dissolve in water and some react with it
         takeaway: The default response is right for most things and catastrophic for a short list.
@@ -1469,7 +1470,7 @@ missions:
         place: Mobile Weather Station
         setup: Use an idealized release only to establish scale.
         question: Estimate the gas volume at ambient conditions.
-        scene: At the command trailer, a colourless plume is moving toward two neighbourhoods. Police are holding the evacuation roads open while the wind shifts. The release inventory is finally known, and the incident commander wants the gas scale before moving the roadblocks.
+        scene: At the command trailer, a colourless plume is moving toward two neighbourhoods. The evacuation coordinator, Simran Kaur, is holding the roads open while the wind shifts. The release inventory is finally known, and the incident commander wants the gas scale before the roadblocks move.
         story: "A colourless plume is drifting toward two neighbourhoods and the incident commander wants a number before the wind shifts. The ideal gas law relates the amount of substance to the volume it occupies at a given temperature and pressure — at ordinary conditions about 24 litres per mole — which turns a mass in a tank into a scale you can reason about. It is a first-order tool and nothing more: it says how big the release is, not where it goes. Evacuating too little exposes people; evacuating too much blocks the roads the response needs."
         assumes:
           - a given amount of gas occupies a predictable volume at ordinary conditions
@@ -1514,7 +1515,7 @@ missions:
         title: Interpret plume behavior
         place: Gas Properties Lab
         setup: Match each change to its first-order consequence.
-        scene: The weather station shows rising temperature, falling pressure and a strengthening afternoon wind while the plume is still moving. Ground crews also report vapour pooling in a low drainage channel on the downwind side of the freight yard.
+        scene: The weather station shows rising temperature, falling pressure and a strengthening afternoon wind. The plume is still moving. Lindqvist, the dispersion modeller, has ground crews reporting vapour pooling in a low drainage channel downwind of the freight yard.
         story: "The weather is changing while the plume is still moving. Two different physics are operating at once here: gas-law behaviour, which says how a fixed amount of substance responds to changes in temperature and pressure, and atmospheric transport, which says where the resulting parcel actually goes. Density relative to air decides whether the cloud hugs the ground or lifts; wind and turbulence decide how fast it dilutes; terrain decides where it pools. Each change on the board pushes on one of those and not necessarily the others, and the neighbourhood downwind is where the arithmetic lands."
         assumes:
           - a gas has a state and also a place, and they change for different reasons
@@ -1550,8 +1551,9 @@ missions:
         call: Choose the next plume evidence
         task: Same drum, same liquid, three times the vapour. Why?
         title: Why the drum is worse in the afternoon
+        concept: 'Dynamic equilibrium: both directions still running'
         place: Atmospheric Monitoring Post
-        scene: The same open drum reads three times the vapour concentration at two in the afternoon as it did at six in the morning. Nothing has been added to it and nothing has been taken out.
+        scene: The same open drum reads three times the vapour concentration at two in the afternoon as it did at six in the morning. Nothing has been added to it and nothing taken out, and Varga wants the reading explained before the next briefing.
         assumes:
           - a liquid and its vapour sit in equilibrium at a temperature
         takeaway: How much of a liquid is in the air above it depends steeply on how warm it is.
@@ -1584,7 +1586,7 @@ missions:
         title: From identity to reaction estimate
         place: Sewer Monitoring Station
         setup: Order the stoichiometric workflow.
-        scene: At the tunnel entrance, two drainage streams may be meeting behind a closed access door. A repair crew is waiting at the barricade, and the storm bypass remains shut. The laboratory has analyses from both drains but no reaction estimate yet.
+        scene: At the tunnel entrance, two drainage streams may be meeting behind a closed access door. Oyelaran has a repair crew waiting at the barricade and the storm bypass shut. The laboratory has analyses from both drains but no reaction estimate yet.
         story: "Two drainage streams may be meeting in a confined tunnel, and crews are waiting for permission to enter. Every quantitative prediction about a reaction rests on a balanced chemical equation, because the balanced equation is what supplies the ratios: moles of one reactant to moles of another, and moles of reactant to moles of product. Written the wrong way round it produces confident numbers about a reaction that is not happening. The reason for the order of this work is that each step depends on the one before it being right."
         assumes:
           - a balanced equation says how many of one thing react with how many of another
@@ -1612,10 +1614,11 @@ missions:
         call: Which reactant limits?
         task: Use the masses and molar masses to identify the limiting reactant, the maximum amount of B that can react, and the percent yield from the recovered product.
         title: Which reactant limits?
+        concept: 'Limiting reactant, and which one runs out first'
         place: Stoichiometry Lab
         setup: Use the generic reaction 2A + B → products.
         question: Which reactant limits, how much B can react, and what percent yield was recovered?
-        scene: A reaction takes two moles of A for every mole of B, and both are arriving in the tunnel in amounts nobody chose. Closed-space entry decisions are being made from this number.
+        scene: A reaction takes two moles of A for every mole of B, and both are arriving in the tunnel in amounts nobody chose. The reactions and energy lead, Tomas Brandt, is making closed-space entry decisions from this number.
         story: "A generic reaction takes two moles of A for every mole of B, and both are arriving in the tunnel in amounts nobody chose. The limiting reactant is the one that runs out first, and it is what sets the maximum extent of reaction — the rest of the other reagent simply sits there once its partner is gone. That is why an estimate based on the larger quantity is not conservative but wrong: it predicts heat and gas that cannot physically be produced. Closed-space entry decisions are being made from this number."
         assumes:
           - a reaction stops when one ingredient runs out
@@ -1659,7 +1662,7 @@ missions:
         place: Reactions and Energy Bay
         setup: Separate the thermodynamic calculation from the observation about rate.
         question: At 18 °C, what is ΔG, and what does the lack of product say about the reaction rate?
-        scene: A clean-up reagent is staged beside the tunnel, but the tank test has shown no product after 6 days at 18 °C. Its measured ΔH and ΔS are on the clipboard. Operations wants to know whether the chemistry is impossible or simply slow.
+        scene: A clean-up reagent is staged beside the tunnel, but the tank test showed no product after 6 days at 18 °C. Its ΔH and ΔS are on the clipboard. The reaction-rate researcher, Léa Moreau, asks whether the chemistry is impossible or simply slow.
         assumes:
           - temperature in ΔG = ΔH − TΔS must be in kelvin
           - a negative ΔG means the forward reaction is thermodynamically favored
@@ -1710,7 +1713,7 @@ missions:
         task: Which drum is the more reactive with water, and on what grounds?
         title: What the position in the table tells you
         place: Molecular Identification Lab
-        scene: Two unlabelled drums, one holding sodium hydride and one caesium hydride — the same anion in both. The bench has to say which will be the more violent with water before either is opened.
+        scene: Two unlabelled drums are on Okonjo's bench, one holding sodium hydride and one caesium hydride — the same anion in both. She has to say which will be the more violent with water before either is opened.
         assumes:
           - the periodic table groups elements that behave alike
         takeaway: An element's position in the periodic table predicts how it behaves.
@@ -1738,7 +1741,7 @@ missions:
         place: Spectroscopy Suite
         setup: Match each pattern to the best response.
         question: Which channels remain trustworthy, and what shared source is at fault?
-        scene: Two methods have been run on the same extract and they do not tell the same story. A false identification here sends the plant a chemistry that could create a worse product than the one it removes.
+        scene: Two methods have been run on the same extract and they disagree. The independent reviewer, Yusra Haddad, has both sets. A false identification here sends the plant a chemistry that could create a worse product than the one it removes.
         story: "Two methods have been run on the same extract and they do not tell the same story. Every analytical run carries controls for exactly this moment: a blank, which is everything except the sample and therefore answers whether a signal could have come from the laboratory itself, and a second method that the same thing could not fool, which answers whether the first was fooled by something that merely resembles the target. Reading them together is the skill. A false identification here sends the plant a chemistry that could create a worse product than the one it removes."
         assumes:
           - a blank contains every preparation step except the sample
@@ -1799,7 +1802,7 @@ missions:
         place: Reference Library
         relationship: >-
           c = n / V, with n = m / M first: molarity is moles of solute per litre of solution.
-        scene: The reference library has narrowed the peak to two candidates and the deciding evidence is how much of it is there. Nadia Osei has 0.86 grams of the recovered solid dissolved into 250 millilitres and wants the molarity before she commits to an identity.
+        scene: The reference library has narrowed the peak to two candidates and the deciding evidence is how much of it is there. Ana Kowalski, who keeps the reference library, has 0.86 grams of the recovered solid dissolved into 250 millilitres and wants the molarity before she commits to an identity.
         guide: >-
           A concentration is an amount divided by a volume, and the amount has to come from the mass
           first. Divide the mass by the molar mass to get moles, then divide the moles by the volume of
@@ -1865,7 +1868,7 @@ missions:
         concept: 'Ions in solution, and net ionic equations'
         place: River Sampling Boat
         setup: Match each molecular feature to the most likely environmental behavior.
-        scene: Runoff from the accident has reached the river. If you predict the wrong phase you will sample the wrong thing, and a clean water result will be read by the city as an all-clear.
+        scene: Runoff from the accident has reached the river and Ferreira is on the bank waiting on a sampling plan. If you predict the wrong phase you will sample the wrong thing, and a clean water result will be read by the city as an all-clear.
         story: "Runoff from the accident has reached the river. A chemical released into water does not stay in one place or one phase: polar molecules dissolve readily, non-polar ones partition onto organic carbon in sediment and stay there, volatile ones leave for the atmosphere, and surface-active ones concentrate in the film on top. All of that follows from molecular structure — polarity, hydrogen bonding, and how the compound interacts with water compared with everything else on offer. If you predict the wrong phase you will sample the wrong thing, and a clean water result will be read by the city as an all-clear."
         assumes:
           - like dissolves like — polar mixes with polar, and non-polar does not
@@ -1905,7 +1908,7 @@ missions:
         place: Water and Sediment Laboratory
         relationship: >-
           Ksp = [A⁺][B⁻]: the solubility product stays fixed, so raising one ion forces the other down.
-        scene: The dissolved metal is over the discharge limit and the cheapest lever is the sulphate already coming off the flue-gas scrubber. Priya Raman has the solubility product for the sulphate salt and wants the metal left in solution once the sulphate is raised to 0.020 molar.
+        scene: The dissolved metal is over the discharge limit and the cheapest lever is the sulphate already coming off the flue-gas scrubber. Osei has the solubility product for the sulphate salt and wants the metal left in solution once the sulphate is raised to 0.020 molar.
         guide: >-
           A saturated solution holds its two ions at a fixed product, whatever route they arrived by.
           So if you raise one of them deliberately, the other has to fall until the product is back to
@@ -1933,7 +1936,7 @@ missions:
         concept: 'The common-ion effect, and a treatment that stops working'
         question: Estimate the metal concentration left once the sulphate is at 0.020 M.
         estimate:
-          prompt: Raman is dosing sulphate from the scrubber liquor to 0.020 M. She wants the metal left in solution.
+          prompt: Osei is dosing sulphate from the scrubber liquor to 0.020 M. He wants the metal left in solution.
           question: Estimate the metal concentration left once the sulphate is at 0.020 M.
           labels:
             - 2.4e-5  (Ksp of the sulphate salt)
@@ -1967,7 +1970,7 @@ missions:
         place: Sediment Analysis Room
         setup: The utility wants an answer this week. What does the survey sample?
         question: How do you spend 20 bottles without leaving a required river question unanswered?
-        scene: The survey has 20 samples in the budget. The compound is sparingly soluble, and the river runs 900 metres from the release to the intake. Two grab samples taken so far disagree by a factor of six.
+        scene: The survey has 20 samples in the budget. The compound is sparingly soluble, and the river runs 900 metres from the release to the intake. The sediment analyst, Camila Ibarra, has two grab samples that disagree by a factor of six.
         story: "The survey has 20 samples in the budget. The compound is sparingly soluble, the river is 900 metres upstream of the intake, and the 2 grab samples taken so far disagree by a factor of 6. Sampling design is where environmental chemistry is usually won or lost: coverage in space, coverage in time, and coverage across phases each buy a different kind of certainty, and a striking photograph of an oily bank buys none of them. The point of a survey is to test the model you built — to give the partitioning prediction a real chance to be wrong — rather than to collect confirmation from the most visually convincing spot on the river."
         assumes:
           - different sample locations and phases answer different questions
@@ -2034,7 +2037,7 @@ missions:
         place: Quantitative Analysis Lab
         setup: A river sample is diluted before analysis.
         question: Estimate the original concentration.
-        scene: The instrument reports what was in the vial, not what was in the river. City leaders are comparing your number against a threshold and closing or opening a water system with it.
+        scene: The instrument reports what was in the vial, not what was in the river. Reyes is holding your number against a legal threshold and closing or opening a water system with it, one system at a time.
         story: The instrument reports what was in the vial, not what was in the river. Samples are diluted so that the signal falls inside the range the method can actually measure, and the analyst has to carry that factor back through before the number means anything about the water — a tenfold dilution reported as-is understates the river by a factor of ten. Sample preparation is part of the result, not something that happened to it beforehand. City leaders are comparing the number you hand over against a threshold and closing or opening a water system with it.
         assumes:
           - diluting a sample lowers its concentration by a known factor
@@ -2079,7 +2082,7 @@ missions:
         place: River Mapping Center
         setup: Match each problem to the correction.
         question: What should the absorbance become after dilution, and does the rerun support the dilution model?
-        scene: An instrument will return a number for almost anything you put in front of it. The panel in front of you has everything needed to decide whether this reading can be defended.
+        scene: An instrument will return a number for almost anything you put in front of it. The calibration technician, Dana Whitfield, has left the bench panel with everything needed to decide whether this reading can be defended.
         story: An instrument will return a number for almost anything you put in front of it, which is why quality control exists. A calibration curve is a claim about a specific range of concentrations, built from standards that bracket that range; a blank says whether the laboratory contributed to the signal; a spike recovery says whether the matrix is suppressing or enhancing the response; replicates say whether the measurement is stable at all. Each of them fails in a distinct way, and the panel in front of you contains everything you need to decide whether this reading can be defended.
         assumes:
           - Beer–Lambert gives A proportional to concentration when path length and absorptivity are fixed
@@ -2179,7 +2182,7 @@ missions:
         title: What the bench is running now
         place: Analytical Laboratory
         question: Run to the priority on the bench card, and keep watching the card.
-        scene: Samples queue on the bench all day. The laboratory manager holds one priority, and changes it as the incident does — after the river result, after the schools ask, after the hold times start expiring.
+        scene: Samples queue on the bench all day. Nakamura holds one priority, and changes it as the incident does — after the river result, after the schools ask, after the hold times start expiring.
         assumes:
           - a laboratory works to a stated priority that somebody can change
         takeaway: The cost of a withdrawn instruction is paid by whoever is still working to it.
@@ -2255,7 +2258,7 @@ missions:
         place: Water Intake Laboratory
         relationship: >-
           pH = −log₁₀[H⁺]: each pH unit is a factor of ten in hydrogen ion concentration.
-        scene: The intake is reading acid and the operator wants to know how far from neutral it actually is. Raman has the hydrogen ion concentration off the electrode at 4.0 × 10⁻⁴ molar and a consent written, as consents are, in pH.
+        scene: The intake is reading acid and the operator wants to know how far from neutral it actually is. Ferreira has the hydrogen ion concentration off the electrode at 4.0 × 10⁻⁴ molar and a consent written, as consents are, in pH.
         guide: >-
           pH is not a different measurement from hydrogen ion concentration — it is that concentration
           written as a logarithm, so the scale runs backwards and each step of one is a factor of ten.
@@ -2319,7 +2322,7 @@ missions:
           - 'The ratio that sets a buffered pH, and where a buffer gives out'
         place: Acid-Base Bench
         setup: Match each feature to its meaning.
-        scene: A trial dose calculated from the intake pH overshot badly. The bench titration is now beside a strong-acid reference curve. Fresh pH 4 and pH 7 calibration checks from the same electrode are also on the screen.
+        scene: A trial dose calculated from the intake pH overshot badly. The bench titration is now beside a strong-acid reference curve. Nakamura has put fresh pH 4 and pH 7 calibration checks from the same electrode on the screen.
         story: "The curve on the screen is the result of adding base slowly and watching what the solution does. A titration is two instruments in one: quantitatively it measures how much base was needed to reach the equivalence point, which is a measure of total acid rather than free acid, and diagnostically its shape identifies the chemistry — the steepness of the rise, the presence or absence of a flat region, and where the equivalence point falls all say something about what kind of acid is in the water. The plant will dose the intake from your reading."
         assumes:
           - a weak acid holds most of its acidity undissociated
@@ -2422,7 +2425,7 @@ missions:
         place: Treatment Control Room
         setup: The plant wants a neutralisation dose this morning. What do you give them?
         question: The tank is climbing from 4.8 towards the 7.5 limit. At what pH do you stop the base feed?
-        scene: The base pump is primed and operators are waiting to open the valve. Intake water is at pH 4.8, the cast-iron line is corroding, and every pump change appears 1 sampling interval later on the mixed-tank electrode.
+        scene: The base pump is primed and operators are waiting to open the valve. Intake water is at pH 4.8, Novák's cast-iron line is corroding, and every pump change appears 1 sampling interval later on the mixed-tank electrode.
         story: "Neutralisation in a live water system is a control problem, not an arithmetic problem. The dose calculated from one grab sample assumes the water is uniform, the demand is fully characterised and the mixing is instantaneous, and none of those is true in a treatment train. Overshooting into strongly basic conditions is not a smaller mistake than under-dosing: it can mobilise metals from pipework and sediment that the acidic water was leaving alone. The plant is waiting on a dose, and what it is given first decides whether the correction is a measurement or a guess."
         assumes:
           - the mixed-tank pH reading lags a pump change by one sampling interval
@@ -2523,7 +2526,7 @@ missions:
         concept: 'Le Chatelier: a stress, and the shift that answers it'
         place: Reservoir Sampling Dock
         setup: Order the reasoning.
-        scene: After the pH adjustment the dissolved concentration has fallen and the sediment concentration has risen. Reading only the water is how a reservoir gets declared clean while the contaminant settles to the bottom of it.
+        scene: After the pH adjustment the dissolved concentration has fallen and the sediment concentration has risen. Stavros is the only person still asking about it. Reading only the water is how a reservoir gets declared clean while the contaminant settles to the bottom of it.
         story: "After the pH adjustment the dissolved concentration has fallen and the sediment concentration has risen. A chemical equilibrium shifts in response to changes in conditions, but the total amount of material is conserved throughout — nothing about a shift destroys anything. Predicting where a system lands takes both halves: the equilibrium expressions, which say which direction it moves, and a mass balance, which says how much of what has to be somewhere. Reading only the water is how a reservoir gets declared clean while the contaminant is settling to the bottom of it."
         assumes:
           - material is conserved — a shift moves it, it does not destroy it
@@ -2556,7 +2559,7 @@ missions:
         relationship: >-
           Q vs K: the reaction quotient is the same ratio as K built from the concentrations you have
           now, so comparing them says which way the reaction runs.
-        scene: The settling tank was dosed overnight and the operator wants to know whether more solid will come out or whether what is there will redissolve. Raman has the two ion concentrations off the morning sample and the solubility product on the sheet.
+        scene: The settling tank was dosed overnight and the operator wants to know whether more solid will come out or whether what is there will redissolve. Ferreira has the two ion concentrations off the morning sample and the solubility product on the sheet.
         guide: >-
           Build the same product the solubility constant is a value of, but out of the concentrations you
           actually have. That number is the reaction quotient. If it is below the constant the solution is
@@ -2619,7 +2622,7 @@ missions:
         relationship: >-
           Ka = [H⁺][A⁻] / [HA]: the acid dissociation constant, which fixes how far a weak acid ionises
           at a given concentration.
-        scene: The organic acid in the sediment porewater is present at 0.050 molar and the electrode reads pH 3.10. Raman needs its dissociation constant, because the treatment plan turns on whether it behaves as an acid at the pH the river runs at.
+        scene: The organic acid in the sediment porewater is present at 0.050 molar and the electrode reads pH 3.10. Ibarra needs its dissociation constant, because the treatment plan turns on whether it behaves as an acid at the pH the river runs at.
         guide: >-
           A weak acid sits at an equilibrium rather than dissociating completely, and the constant that
           describes it is built from the three concentrations at that equilibrium. The pH gives you the
@@ -2688,7 +2691,7 @@ missions:
         title: Build a secondary-pollutant pathway
         place: Atmospheric Monitoring Station
         setup: Order the generic atmospheric chain.
-        scene: The primary vapour is falling after the source was sealed, but a different compound is rising at the neighbourhood monitor each afternoon. Sunlight, oxidant measurements and wind data from the same period are posted beside the chemical traces.
+        scene: The primary vapour is falling now the source is sealed. A different compound is rising at Varga's neighbourhood monitor each afternoon. Sunlight, oxidant measurements and wind data from the same period are posted beside the chemical traces.
         story: "The source has been controlled and the monitors have not settled. Sunlight drives atmospheric chemistry: photons break bonds in molecules that were stable overnight, producing radicals that react with almost everything, and the products of those reactions can be more harmful than what was emitted. The chain runs in a fixed causal order — emission, radical production, reaction, accumulation — and its timing is what makes it dangerous, because exposure downwind can peak hours after the release itself has begun to fall. Residents are asking when they can come home."
         assumes:
           - sunlight carries enough energy to break chemical bonds
@@ -2718,7 +2721,7 @@ missions:
         title: Read the day-night pattern
         place: Photochemistry Lab
         setup: Match each trend to a useful inference.
-        scene: The source has been sealed, but the afternoon monitor is climbing again. The shelter notice expires today unless the health desk renews it. Two stations have run through a full day, and their traces do not look like a plume drifting away.
+        scene: The source has been sealed, but the afternoon monitor is climbing again. Delacroix, who runs the neighbourhood health desk, must renew the shelter notice today. Two stations have run a full day, and their traces do not look like a plume drifting away.
         story: "Two monitors have been running through a full day and the traces do not look like a plume drifting away. Photochemistry has a signature: production requires sunlight, so a compound formed in the atmosphere climbs while the sun is up, lags the solar maximum by the time the chemistry takes, and falls back overnight when the radicals that made it are no longer being produced. A compound merely being blown around has no reason to care what time it is. The health desk is deciding today whether to lift the shelter advice."
         assumes:
           - a compound blown around by wind has no reason to care what time it is
@@ -2828,7 +2831,7 @@ missions:
         place: Neighborhood Health Desk
         setup: Residents want to come home. What does the monitoring plan measure?
         question: Which measurements can change the return-home decision this week?
-        scene: Residents want to come home. The released compound is down to 3 parts per billion at both monitors. Total oxidant is up fourfold since Tuesday, and afternoon readings remain highest even though the source has been sealed for six days.
+        scene: Abara, who chairs the riverfront resident association, wants people home. The released compound is down to 3 parts per billion at both monitors. Total oxidant is up fourfold since Tuesday, and afternoon readings remain highest even though the source has been sealed for six days.
         story: What is in the air now is not what was released, and a monitoring plan built around the original compound will report an improving situation while exposure rises. Designing for transformation means measuring chemical families rather than a single target, measuring the environmental drivers that control the chemistry, and keeping enough temporal resolution to see a pattern instead of a daily average. The invisible half of an air emergency outlasts the visible half, and the neighbourhood's trust does not survive being told twice that it is over.
         assumes:
           - a monitoring network only detects the compounds it is configured to measure
@@ -2886,7 +2889,7 @@ missions:
         place: Thermal Camera Team
         setup: Estimate the sensible heat in a water-like containment bath.
         question: Estimate the absorbed heat.
-        scene: The visible fire has been out for two hours, but the containment bath beside the damaged storage bay is still warming. Fire Command wants the size of the stored heat load before deciding whether the cooling equipment on site is adequate.
+        scene: The visible fire has been out for two hours, but the containment bath beside the damaged storage bay is still warming. Sørensen wants the size of the stored heat load before deciding whether the cooling equipment on site is adequate.
         story: The visible fire has been out for two hours and the storage zone is still warming. The energy needed to change the temperature of a material is its mass times its specific heat capacity times the temperature change, which is why a small rise across a large thermal mass can represent a very large amount of energy — water's high heat capacity is exactly what makes it a good containment bath and also what hides how much energy has gone in. The number decides whether cooling capacity on site is adequate or decorative.
         assumes:
           - different materials need different amounts of energy to warm by one degree
@@ -2931,7 +2934,7 @@ missions:
           - 'Le Chatelier: a stress, and the shift that answers it'
         place: Calorimetry Lab
         setup: Match each trend to the next interpretation or test.
-        scene: Two storage bays were exposed to the same fire. 90 minutes after cooling stopped, the east bay is cooling while the west bay is warming. West-bay off-gas is increasing, and the hottest point remains fixed at the drum stack.
+        scene: Two storage bays were exposed to the same fire. 90 minutes after cooling stopped, Brandt finds the east bay cooling and the west bay warming. West-bay off-gas is increasing, and the hottest point remains fixed at the drum stack.
         story: "Two bays are warm and Fire Command wants to know whether to release the site. There are only two ways a mass can be hot: it absorbed energy earlier and has not yet lost it, or it is making energy now. Those behave completely differently over time — anything that is merely storing heat can only cool toward its surroundings once the source is removed, while a self-heating mass can rise on its own and rise faster as it goes. The panel gives you both bays, and getting this wrong sends responders home before a runaway."
         assumes:
           - heat flows from hot to cold and nowhere else on its own
@@ -3036,7 +3039,7 @@ missions:
         title: Control the self-heating risk
         place: Fire Command
         setup: Fire Command wants the site released tonight. What do you require first?
-        scene: Fire Command wants the site released tonight. Bay 3 has risen from 31 to 44 degrees in 8 hours, the rate of rise is itself increasing, and the mass is 4 tonnes with a two-metre depth.
+        scene: Fire Command wants the site released tonight. Moreau reports Bay 3 has risen from 31 to 44 degrees in 8 hours and the rate of rise is itself increasing. The mass is 4 tonnes at a two-metre depth.
         story: "A self-heating mass is a race between the energy a reaction produces and the energy the surroundings can carry away, and that race can be lost slowly enough that nobody notices until it cannot be won. Controlling it takes three separate things that no one of them substitutes for: detection early enough to act, understanding of the mechanism so that the action is the right one, and enough physical cooling or dilution capacity to change the balance. Fire Command wants the site released tonight, and one of the three has to be in place before that can happen."
         assumes:
           - a trend says something a single reading cannot
@@ -3065,7 +3068,7 @@ missions:
           pH = pKa + log₁₀([A⁻]/[HA]): the buffer ratio that sets the pH being held.
         place: Treatment Works
         question: Hold the tank at pH 7 while the works keeps feeding it.
-        scene: The neutralisation tank has to sit at pH 7 before anything leaves for the river. Acid liquor arrives from the works in batches, the lime dosing pump is the only control, and the analyser on the outfall reads every few seconds.
+        scene: Osei's neutralisation tank has to sit at pH 7 before anything leaves for the river. Acid liquor arrives from the works in batches, the lime dosing pump is the only control, and the analyser on the outfall reads every few seconds.
         assumes:
           - pH measures how acidic or basic a solution is
         takeaway: A feed you do not answer is not a feed that stops.
@@ -3114,7 +3117,7 @@ missions:
         place: Pipeline Inspection Gallery
         relationship: >-
           E°cell = E°cathode − E°anode: a positive cell potential means the reaction runs by itself.
-        scene: The pipeline is losing wall where it crosses the wet ground and two explanations are on the table. Idris Bello has the standard potentials for both half-reactions on the gallery whiteboard and wants to know whether the pair can run without anything driving it.
+        scene: The pipeline is losing wall where it crosses the wet ground and two explanations are on the table. Osei has the standard potentials for both half-reactions on the gallery whiteboard and wants to know whether the pair can run without anything driving it.
         guide: >-
           Two half-reactions make a cell, and which one is the cathode is not a matter of where the
           corrosion is — it is decided by the potentials. Subtract the anode's standard potential from the
@@ -3143,7 +3146,7 @@ missions:
         concept: 'Standard potentials, and whether a treatment reaction will run at all'
         question: Estimate the standard cell potential of the pair.
         estimate:
-          prompt: Bello has the two half-reactions on the board: oxygen reduction at +0.40 V and iron dissolution at −0.44 V.
+          prompt: Osei has the two half-reactions on the board: oxygen reduction at +0.40 V and iron dissolution at −0.44 V.
           question: Estimate the standard cell potential of the pair.
           labels:
             - +0.40 V  (E° for oxygen reduction, the cathode)
@@ -3177,7 +3180,7 @@ missions:
         place: Electrochemistry Lab
         setup: Use a simplified mass-loss estimate.
         question: What uniform wall-loss rate does 2.0 kg/year imply?
-        scene: A pipe coupon from the intake gallery has lost 2.0 kilograms of steel per year across 4.0 square metres of exposed surface. The steel density is 7,900 kilograms per cubic metre, and the remaining wall is 6 millimetres thick.
+        scene: A pipe coupon from Novák's intake gallery has lost 2.0 kilograms of steel per year across 4.0 square metres of exposed surface. The steel density is 7,900 kilograms per cubic metre, and the remaining wall is 6 millimetres thick.
         story: An average corrosion rate is a mass loss spread evenly over an area, and metal almost never obliges. A uniform rate of a fraction of a millimetre a year sounds survivable; the same total loss concentrated at a defect in a coating perforates the wall in a season, because the entire anodic current is being delivered into a small patch. Work out the average anyway — it bounds the problem and it is what maintenance budgets are written against — but the number to hand over is the one that says where the metal is going, not just how much.
         assumes:
           - a rate becomes a decision only when it is compared against a thickness
@@ -3220,7 +3223,7 @@ missions:
         title: Protect the pipeline
         place: Maintenance Control
         setup: The corrosion cell is running. Which control goes in first?
-        scene: The thinnest section of intake pipe has only 3 millimetres of wall left. Corrosion has accelerated eightfold, and the maintenance chief has cleared the gallery until the first control is chosen. Water is still moving through the line.
+        scene: The thinnest section of intake pipe has only 3 millimetres of wall left. Corrosion has accelerated eightfold, and Novák has cleared the gallery until the first control is chosen. Water is still moving through the line.
         story: Protecting a pipeline means attacking the circuit at whichever point is cheapest to break. Water chemistry changes how aggressive the electrolyte is; coatings interrupt the ion path but concentrate the attack wherever they fail; electrical isolation removes the galvanic couple between different metals; cathodic protection supplies electrons so that the pipe stops being the anode; inspection tells you which of them is working before a leak does. They are complementary, not alternatives, and the city cannot afford to lose the intake in the middle of the emergency.
         assumes:
           - a circuit stops when any one part of it is broken
@@ -3255,7 +3258,7 @@ missions:
         place: Kinetics Lab
         setup: Match each intervention to its direct kinetic effect.
         question: Which change affects collision frequency, barrier crossing, or activation energy?
-        scene: The same treatment mixture is quiet in a cool drum and vigorous in the warmed pilot vessel. On the bench are concentration logs, temperature records and a catalyst trial, all taken from the same batch before scale-up begins.
+        scene: The same treatment mixture is quiet in a cool drum and vigorous in the warmed pilot vessel. Moreau has concentration logs, temperature records and a catalyst trial on the bench, all taken from the same batch before scale-up begins.
         story: "The treatment chemical is quiet in the drum and vigorous in the warm vessel. Thermodynamics says whether a reaction can go and how much energy it releases; kinetics says how fast, and the two are independent — a strongly favourable reaction can sit unchanged for years behind a large activation barrier. Temperature, concentration and catalysis each act on the rate through a different mechanism: one supplies more molecules with enough energy to cross the barrier, one changes how often they meet, and one lowers the barrier itself. The pilot vessel is where the difference stops being academic."
         assumes:
           - kinetics means how fast a reaction proceeds and what controls that rate
@@ -3296,7 +3299,7 @@ missions:
           - 'Le Chatelier: a stress, and the shift that answers it'
         place: Pilot Treatment Vessel
         setup: Order the causal chain.
-        scene: The pilot vessel showed a sharp temperature rise during one treatment run. Four events from the log are posted on the control-room board. They have been printed out of order, and the engineering team needs the causal sequence reconstructed.
+        scene: The pilot vessel showed a sharp temperature rise during one treatment run. Brandt has posted four events from the log on the control-room board. They have been printed out of order, and the engineering team needs the causal sequence reconstructed.
         story: A runaway is not an explosion that comes out of nowhere; it is a feedback loop with an obvious first step. An exothermic reaction releases heat, that heat raises the temperature of the mixture, a higher temperature increases the reaction rate, and a faster reaction releases heat sooner — while the cooling system removes heat at a rate set by fixed geometry and a temperature difference it cannot control. Put the chain in order and it stops being alarming and starts being designable. Get the order wrong and you will engineer against the wrong link.
         assumes:
           - a reaction goes faster when it is hotter
@@ -3327,7 +3330,7 @@ missions:
         place: Process Control Room
         setup: What has to be true before the treatment vessel runs at scale?
         question: Which operating plan remains feasible when the reaction accelerates faster than the nominal assumption?
-        scene: The first full-scale treatment batch is scheduled before dawn. Bench work stopped at 55 °C, the proposed vessel runs at 60 °C, and the cooling jacket tops out at 40 kilowatts. Heat release above 65 °C has never been measured.
+        scene: Osei has the first full-scale treatment batch scheduled before dawn. Bench work stopped at 55 °C, the proposed vessel runs at 60 °C, and the cooling jacket tops out at 40 kilowatts. Heat release above 65 °C has never been measured.
         story: A safe operating envelope is a set of conditions under which the heat a process generates cannot outrun the heat it can lose. Establishing one takes measured rate data rather than assumed kinetics, honest heat-removal capacity at the worst case rather than the design case, and protection that works when the control system is the thing that has failed. Speed and yield are not safety, and a process that runs beautifully at the intended temperature can be the largest hazard on site 15 degrees above it. What the vessel needs before it runs at scale is the bound, not the throughput.
         assumes:
           - heat generation tracks reaction rate over these compared operating points
@@ -3400,7 +3403,7 @@ missions:
         place: Pilot Treatment Plant
         setup: Match each observation to the process implication.
         question: How much material is missing from the measured streams, and does the ledger support a destruction claim?
-        scene: The pilot treatment processed a batch containing 100 kilograms of contaminant. Treated water, sludge and off-gas have each been measured. City officials are waiting to hear whether the process destroyed the material or merely moved it into another reservoir.
+        scene: The pilot treatment processed a batch containing 100 kilograms of contaminant. The byproduct analyst, Rafael Delgado, has measured the treated water, the sludge and the off-gas. City officials are waiting to hear whether the process destroyed the material or moved it into another reservoir.
         story: "The pilot plant has run and the city wants to hear that the contaminant is gone. A mass balance across every stream is what makes that claim checkable: what came in, what left in the treated water, what left in the sludge, what left as off-gas, and what is unaccounted for. Removal from water and destruction are two different claims, and only one of them means the hazard has ended — a contaminant concentrated into a solid is smaller in volume, easier to handle, and still entirely present. Read all the streams, not the one being asked about."
         assumes:
           - mass is conserved across the treatment process
@@ -3448,7 +3451,7 @@ missions:
           - 'Ions in solution, and net ionic equations'
         place: Byproduct Analysis Lab
         setup: Order the decision workflow.
-        scene: Four unit processes are on the table and the plant wants them in an order. Riverton has one intake and cannot run this experiment twice while the water is off.
+        scene: Four unit processes are on Osei's table and the plant wants them in an order. Riverton has one intake, and it cannot run this experiment twice while the water is off.
         story: "Four unit processes are on the table and the plant wants them in an order. A treatment train is not four independent machines: each one changes the chemical form of what reaches the next, so a stage that receives the wrong form does nothing at all — or worse than nothing, because a carbon bed that receives suspended solids blinds in hours and stops polishing anything. Solubility is the pivot. Riverton has one intake and cannot run this experiment twice while the water is off."
         assumes:
           - a filter can only remove something that is already a solid
@@ -3478,7 +3481,7 @@ missions:
         title: Choose the safest pilot program
         place: Waste Management Office
         setup: All three methods claim removal. What does the pilot have to measure?
-        scene: The pilot has room for one question, four weeks, and a tenth of the full-scale flow. Three of the four proposals depend on the same unmeasured quantity, and the full plant is committed in June whatever the pilot says.
+        scene: The pilot has room for one question, four weeks, and a tenth of the full-scale flow. Nakamura points out that three of the four proposals depend on the same unmeasured quantity, and the full plant is committed in June whatever the pilot says.
         story: The pilot programme is the last point at which being wrong is cheap. What it needs to test is not which method removes the most contaminant — all three claim that — but which one's total hazard is smallest once byproducts, residuals and the lifecycle of the waste are counted. That means comparing mechanisms honestly, analysing for the products a mechanism would predict rather than only for the target, and running long enough for slow effects to show. The pilot has room for one question, and it should be the one that would change the decision.
         assumes:
           - a method that removes a compound has to put it somewhere
@@ -3511,7 +3514,7 @@ missions:
         task: Two candidates differing by one oxygen. What settles it, and how?
         title: Reading a mass spectrum
         place: Quantitative Analysis Suite
-        scene: Two candidate compounds fit the chromatography peak equally well. Their proposed formulas differ by one oxygen atom, and the mass spectrometer has already measured the ion from that same fraction. The review board wants the tie broken before release paperwork is signed.
+        scene: Two candidate compounds fit the chromatography peak equally well. Their proposed formulas differ by one oxygen atom, and Kowalski, who keeps the reference library, has the ion from that fraction already measured. The review board wants the tie broken before release paperwork is signed.
         assumes:
           - a molecule's formula fixes its mass
         takeaway: A mass spectrum measures mass-to-charge, which distinguishes formulas that other methods cannot.
@@ -3538,7 +3541,7 @@ missions:
         title: Close the verification gaps
         place: Water Distribution Network
         setup: Match each weakness to the needed evidence.
-        scene: A number can be perfectly valid and still fail to answer the question that was asked. The distribution network is about to be brought back up to pressure on the strength of this evidence package.
+        scene: A number can be perfectly valid and still fail to answer the question that was asked. Nakamura has the evidence package open, and the distribution network is about to be brought back up to pressure on the strength of it.
         story: "A number can be perfectly valid and still fail to answer the question that was asked. Verification has three separate weak points: whether the samples represent the exposure people will actually receive, whether the method's detection limit is low enough to test the standard at all, and whether what was measured is the compound the standard is about. Each weakness has its own remedy and they do not substitute for one another. The distribution network is about to be brought back up to pressure on the strength of this evidence package."
         assumes:
           - a sample tells you about the place and the moment it was taken
@@ -3577,7 +3580,7 @@ missions:
         place: Independent Review Board
         setup: The verification result is 9 units against a limit of 10, plus or minus 2. What does the board decide?
         question: Can the whole plausible band be brought below the limit, or only its central value? Place the bars to report the mean and its one-sigma uncertainty.
-        scene: Distribution pumps are idle while the board meets. The verification result is 9 units against a limit of 10, plus or minus 2. Operators are waiting at the valves, and the city has already been given two different reopening times.
+        scene: Distribution pumps are idle while the board meets and Reyes waits on a signature. The verification result is 9 units against a limit of 10, plus or minus 2. Operators are at the valves, and the city has been given two different reopening times.
         story: The review board's decision is not binary, and treating it as though it were is how emergencies end badly in both directions — a premature release exposes the city, an indefinite hold deprives hospitals and homes of water they need now. A conditional approval with monitoring, staged reopening and defined triggers is a way of acting under uncertainty without pretending it has been resolved. What the board decides has to be defensible to a city that has been told several things already.
         assumes:
           - the displayed width is the uncertainty band used for this decision
@@ -3625,7 +3628,7 @@ missions:
         title: Disposition the final chemical claims
         place: Scientific Review Hall
         setup: Match each evidence state to the correct recommendation.
-        scene: The city wants one sentence and the chemistry does not support one. Collapsing everything into a single green light is how a site gets reoccupied above a problem nobody wrote down.
+        scene: Mbeki wants one sentence for the mayor's screen tonight and the chemistry does not support one. Collapsing everything into a single green light is how a site gets reoccupied above a problem nobody wrote down.
         story: "The city wants one sentence and the chemistry does not support one. At the end of a release the evidence is in several different states at once: some claims are established and can be closed, some are unresolved and need work, some are managed by a control that has to keep being funded, and some are simply unknown. Each of those calls for a different recommendation, and collapsing them into a single green light is how a site gets reoccupied above a problem nobody wrote down."
         assumes:
           - evidence comes in strengths, and a claim inherits the weakest one under it
@@ -3664,7 +3667,7 @@ missions:
         place: Treatment Plant Gallery
         setup: Use the electrical log to set a theoretical ceiling before trusting the water analysis.
         question: What upper bound does 6 hours at 40 A place on metal removal?
-        scene: The electrochemical polishing cell has run for 6 hours at 40 amperes. Before the plant trusts the number for the water leaving it, it wants to know how much metal that should have taken out.
+        scene: Osei's electrochemical polishing cell has run for 6 hours at 40 amperes. Before the plant trusts the number for the water leaving it, it wants to know how much metal that should have taken out.
         assumes:
           - current is charge per unit time
           - a divalent metal ion needs two electrons to become neutral metal
@@ -3712,7 +3715,7 @@ missions:
         title: Fund the chemical legacy
         place: Long-Term Monitoring Office
         setup: The emergency money is about to move elsewhere. What does the city keep?
-        scene: The temporary laboratory is being packed up as the emergency budget closes. The plant is back online, but sediment still holds an estimated 71 kilograms. Four monitoring stations were built during the response; only one has permanent funding after next month.
+        scene: The temporary laboratory is being packed up as the emergency budget closes. The plant is back online, but sediment still holds an estimated 71 kilograms. Stavros has four monitoring stations built during the response; only one has permanent funding after next month.
         story: The immediate emergency is over and the money is about to move somewhere else. What outlasts a release is the contamination that fell below a threshold rather than disappearing, the sediment and infrastructure holding it, and the institutional memory of how any of this was measured. Long-term monitoring, resilient treatment and preserved methods are what convert 15 days of crisis work into capacity the city keeps. What the city keeps is what will still matter when nobody remembers the fire.
         assumes:
           - falling below a threshold is not the same as being gone
@@ -3811,3 +3814,197 @@ copy:
   READOUT_ENERGY: <b>Vessel temperature display</b> — Bulk temperature against time, with the cooling capacity drawn as a line the curve must not cross.
   READOUT_TREAT: <b>Treatment train display</b> — Water in and water out for each stage, plus the byproduct and sludge mass that leaves with them.
   BOARD: <b>Response status</b> — Mission, time remaining, scientific readiness and evidence independence, open issues, credits, risk and public trust, with the projection at the deadline. The assumptions behind the projection are inspectable, so a bottleneck can be fixed rather than merely out-spent.
+
+# ------------------------------------------------------------- review stops
+# Lessons no mission points at. From day 3 the engine appends a callback to an
+# area taught earlier and requires a "— Review" variant of that lesson, so these
+# are the spaced retrieval rather than spares: the same idea, a different case,
+# a week or more after it was first met.
+lessons:
+  - group: IDENT
+    title: Read the formula, not the rumor — Review
+    task: Match each record to what it actually fixes about the substance.
+    concept: 'The mole as a count, and molar mass as the bridge to a mass'
+    place: Reference Library
+    setup: Match each paper record to the one claim it supports.
+    scene: >-
+      Ana Kowalski, who keeps the reference library, has pulled four records on a second
+      consignment at the depot. None is a spectrum, and the analytical chemistry lead,
+      Adaeze Okonjo, wants to know which of them narrows anything.
+    assumes:
+      - a molar mass is what turns a mass into a number of particles
+    takeaway: A record is worth exactly what it constrains, and different records constrain different things.
+    format: PROTOCOL
+    columns:
+      - What the record shows
+      - What it actually fixes
+    scenarios:
+      - A consignment note gives a mass in kilograms and names no molar mass.
+      - Two sealed containers hold the same mass of two different compounds.
+      - A formula shows two singly charged positive ions for every one of the other ion.
+      - A supplier sheet gives the percentage by mass of each element and no formula.
+    choices:
+      - The amount in moles cannot be worked out from it.
+      - They do not hold the same number of particles.
+      - The other ion must carry two negative charges.
+      - It fixes the ratio of atoms and not the size of the unit.
+    mapping: [0, 1, 2, 3]
+    why: >-
+      A mass is a weight of stuff and a mole is a count of particles. The molar mass is the
+      only bridge between them, so a kilogram with no molar mass fixes no amount. Equal
+      masses of two compounds are equal counts only when the molar masses match. A formula
+      fixes the ratio of ions and the charges that balance. A percentage by mass fixes that
+      same ratio from the other side and leaves the size of the unit open.
+    rebuttals:
+      - A mass becomes an amount only once a molar mass is attached to it. Without one the figure counts nothing.
+      - Equal masses are equal counts only where the molar masses agree, and two different compounds do not agree.
+      - Charges in a formula balance to zero overall, so two single positives against one other ion fixes that ion at two negative.
+      - A percentage by mass gives the ratio of atoms and says nothing about how many atoms the unit contains.
+    guide: >-
+      The left column is four records and the right column is four claims, each used once.
+      Ask of each record what it pins down and what it leaves open. A mass is not an amount
+      until a molar mass converts it. A formula fixes ratio and charge and says nothing about
+      how big the unit is. A percentage by mass fixes that same ratio from the other side.
+      Nothing here has been near an instrument, so what you may conclude is what the paper
+      supports and no more.
+    background:
+      - Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison.
+      - How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination.
+      - "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually in a join you made early and stopped questioning."
+    answerText: 1. A consignment note gives a mass in kilograms and names no molar mass. → The amount in moles cannot be worked out from it. 2. Two sealed containers hold the same mass of two different compounds. → They do not hold the same number of particles. 3. A formula shows two singly charged positive ions for every one of the other ion. → The other ion must carry two negative charges. 4. A supplier sheet gives the percentage by mass of each element and no formula. → It fixes the ratio of atoms and not the size of the unit.
+
+  - group: IDENT
+    title: From damaged container to provisional identity — Review
+    task: Order the four steps on a sealed tanker by what each one costs you.
+    concept: 'The ideal gas law, and a headspace that tells you what is dissolved'
+    place: Container Yard
+    setup: Order the work on a tanker nobody has opened.
+    scene: >-
+      A sealed rail tanker recovered from the wharf is standing in the yard, still under
+      pressure. Nils Sørensen, who has fire command, has a two-hour window with a crew
+      before it is moved, and nothing has been opened yet.
+    assumes:
+      - some measurements leave the sample as they found it and some use it up
+    takeaway: Spend the reversible observations first, because the irreversible one is worth more once you know what to ask it.
+    format: SEQUENCE
+    cards:
+      - Record the plate, the placards and the seal numbers, which consumes nothing.
+      - Read pressure and temperature at the vapour space off the gauge line already fitted.
+      - Draw a small liquid sample through the sampling valve and run a spectrum that hands it back.
+      - Commit part of that sample to a combustion analysis that destroys it.
+    order: [0, 1, 2, 3]
+    axis: Order the four by what each one costs you, cheapest first. Every step is available in the next hour, so this is not a clock.
+    ends:
+      - Costs nothing
+      - Cannot be undone
+    why: >-
+      The order is set by what each step spends rather than by when it can be done. The
+      plate and the seals are paperwork, and they survive only until the tanker is moved.
+      Pressure and temperature at the vapour space come off a line already fitted, so they
+      cost no liquid and can be read again. A spectrum uses an aliquot and hands it back.
+      The combustion analysis answers best and answers once, which makes it the last thing
+      you spend.
+    rebuttals:
+      - The plate and the seals go first. They cost nothing and they stop existing the moment the tanker is moved.
+      - "The vapour space second: the gauge line is already fitted, so pressure and temperature come off it without breaching anything."
+      - A spectrum third. It borrows an aliquot and returns it, so a mistake here costs no material.
+      - The combustion analysis last. It answers best and it answers once, which makes it what you spend when you know the question.
+    guide: >-
+      Every one of these four can be done in the next hour, so nothing here is a clock. What
+      separates them is what remains possible afterwards. Ask of each step what it spends —
+      paperwork, the vapour space, a little liquid, or the sample itself. The gauge line is
+      already fitted, so reading the vapour space breaches nothing. A step that ends the
+      sample answers best and answers once, which puts it somewhere very particular in the
+      order.
+    background:
+      - "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work."
+      - Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply.
+      - What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it.
+    answerText: Record the plate, the placards and the seal numbers. → Read pressure and temperature at the vapour space. → Draw a small liquid sample and run a spectrum. → Commit part of that sample to a combustion analysis.
+
+  - group: GASES
+    title: Why the drum is worse in the afternoon — Review
+    task: Say what is happening above the liquid in a sealed vial that has been warmed.
+    concept: 'Dynamic equilibrium: both directions still running'
+    place: Gas Properties Lab
+    setup: Nothing entered the vial and nothing left it.
+    scene: >-
+      A sealed vial, half full of the liquid from the yard drum, spent the afternoon in a van
+      that reached forty degrees. The dispersion modeller, Erik Lindqvist, wants the vapour
+      figure explained before he puts it into a model.
+    assumes:
+      - a liquid and its vapour sit in equilibrium at a temperature
+    takeaway: A balance that has settled is still running in both directions, and where it settles moves with the conditions.
+    format: CHOICE
+    question: The vial is sealed and nothing has been added to it. What is going on above the liquid at forty degrees?
+    choices:
+      - Molecules leave and return at equal rates, and the balance sits higher when it is warm.
+      - Evaporation stopped as soon as the space above the liquid filled up, so warming the vial afterwards changes nothing at all.
+      - The liquid goes on evaporating until the vial is dry, since a sealed container gives the vapour nowhere to escape to.
+      - The balance was fixed at the moment the vial was capped, so the vapour is whatever it was at loading.
+    answer: Molecules leave and return at equal rates, and the balance sits higher when it is warm.
+    why: >-
+      Equilibrium is not the process stopping. Molecules keep leaving the liquid and keep
+      arriving back from the vapour, and equilibrium is the point where those two rates
+      match. Warming the liquid speeds departures far more than it speeds returns, so the
+      balance re-establishes itself with more molecules in the gas. Capping the vial fixed
+      how much matter is inside and left that split free to move. This is why a vapour
+      figure has to carry the temperature it was measured at.
+    rebuttals:
+      - A filled space is what this equilibrium looks like, and where it sits depends on the temperature.
+      - A sealed vial reaches a balance and holds there. The liquid does not disappear into a space that is already full.
+      - Capping fixed the amount of matter inside the vial, not the division of it between liquid and vapour.
+    guide: >-
+      All four options describe the same warmed vial and they disagree about whether anything
+      is still going on inside it. One has the process finished, one has it running away, one
+      has it frozen at capping, and one has it balanced and able to move. Nothing entered the
+      vial and nothing left it, so the only thing that can have changed is where the liquid
+      and the vapour divide. A model fed the wrong reading puts the corridor in the wrong
+      street.
+    background:
+      - Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is.
+      - Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit, so the key used to be the longest option far more often than chance. It is now checked per game as a binomial tail, and length has had the signal taken out of it deliberately.
+      - "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the approximation is what is being tested."
+
+  - group: ENERGY
+    title: Which reactant limits? — Review
+    task: Say which reactant is exhausted when the ratio and the amounts disagree.
+    concept: 'Limiting reactant, and which one runs out first'
+    place: Stoichiometry Lab
+    setup: Two amounts, one ratio, and a sump that has to be neutral by dark.
+    scene: >-
+      Sixty moles of the spilled acid have reached the sump, and the treatment engineering
+      lead, Kwabena Osei, has forty moles of carbonate on the pallet beside it. The reaction
+      takes one carbonate for every two acid.
+    assumes:
+      - a reaction stops when one ingredient runs out
+    takeaway: A ratio decides which ingredient is exhausted, and the smaller pile on the bench is not the answer on its own.
+    format: CHOICE
+    question: Which reactant is exhausted, and what is left over when the reaction stops?
+    choices:
+      - The acid runs out first, leaving ten moles of carbonate unreacted.
+      - The carbonate runs out first, since there is less of it on hand than there is acid.
+      - Neither is exhausted, because the two amounts are close enough to react away completely.
+      - The carbonate runs out first, and twenty moles of the acid are left in the sump.
+    answer: The acid runs out first, leaving ten moles of carbonate unreacted.
+    why: >-
+      Amounts of two reactants cannot be compared until the balanced ratio is applied. A
+      coefficient states how many of one are spent for each one of the other. Two acid for
+      every carbonate means sixty moles of acid can consume thirty moles of carbonate. Forty
+      moles are on the pallet, so ten remain once the acid is gone. The smaller pile is not
+      automatically the limiting one, and dosing on that assumption leaves an untreated sump
+      and a pallet nobody needed.
+    rebuttals:
+      - Having less of something is not the same as running out of it first. The ratio is what decides that.
+      - The two amounts are not comparable until the ratio is applied, and applied here it leaves a clear surplus.
+      - That reverses the ratio. Forty moles of carbonate would call for eighty moles of acid, and only sixty arrived.
+    guide: >-
+      Two amounts and one ratio, and the ratio is the part that does the work. Turn the
+      question into how much carbonate sixty moles of acid can actually consume, then compare
+      that with what is on the pallet. Two of the options name a reactant and a leftover, so
+      check the leftover as well as the name. Dose from the wrong one and the sump stays acid
+      while a pallet of carbonate is written off.
+    background:
+      - Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is.
+      - Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit, so the key used to be the longest option far more often than chance. It is now checked per game as a binomial tail, and length has had the signal taken out of it deliberately.
+      - "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the approximation is what is being tested."

@@ -1582,7 +1582,7 @@ missions:
       - group: CM
         task: Match each information need or situation to the best action, instrument, or control. Each option is used once.
         title: Isotopes and chemical identity
-        scene: Glenn Seaborg, the chemist charged with isolating plutonium, wants a straight answer about what Chemistry and Metallurgy can deliver, and it turns on one fact — everything shipped here has both a chemical form and an isotopic composition.
+        scene: Glenn Seaborg, the chemist charged with isolating plutonium, wants a straight answer from Chemistry and Metallurgy. It turns on one fact. Everything shipped here has a chemical form and an isotopic makeup, and they are not the same thing.
         guide: >-
           Four questions and four answers, and three of them say yes. Ask of each
           whether the property lives in the electrons or in the nucleus. Bonding is
@@ -2718,6 +2718,7 @@ missions:
         call: Read a phase diagram
         task: Read the whole reading panel, including the calm readings, then select the one cause that fits all of it.
         title: Phase diagrams
+        concept: "Materials: phases, allotropes, alloys, density"
         setup: You are explaining a microstructure the phase diagram does not predict.
         scene: Hornig has a microstructure under the microscope that the phase diagram says should not be there. Everything the laboratory does with this metal is an argument with a diagram drawn from very little data.
         guide: >-
@@ -3045,7 +3046,10 @@ missions:
       - group: CM
         task: Read the whole reading panel, including the calm readings, then select the one cause that fits all of it.
         title: Mechanical properties
-        scene: A component has failed in service and the failure analysis has landed on your bench. This programme cannot spare either the material or the weeks, so the question is what changed between the qualified coupon and this actual part.
+        scene: >-
+          A component has failed in service and Hornig has put the failure analysis on your
+          bench. This programme cannot spare either the material or the weeks, so the
+          question is what changed between the qualified coupon and this actual part.
         guide: >-
           Four properties, and none of them is a synonym for another. Ask of each what
           it actually measures. Deflection under load? Where permanent bending begins?
@@ -3087,7 +3091,11 @@ missions:
         task: The written limit is well below the critical mass. What is the argument for keeping it there?
         title: Why the limit is written down
         place: Chemistry and Metallurgy Building
-        scene: Two half-assemblies go on the same bench this afternoon. The procedure sets a mass limit and a spacing, both comfortably inside the calculated physical boundary, and the crew wants to know why the written margin is deliberately larger.
+        scene: >-
+          Two half-assemblies go on the same bench this afternoon. Diz Graves, the physicist
+          running critical assemblies, has set a mass limit and a spacing well inside the
+          calculated boundary. The crew wants to know why the written margin is deliberately
+          larger.
         guide: >-
           Four arguments for a written limit. Ask of each what it assumes about the
           other terms. Criticality answers to mass, geometry, reflection and moderation,
@@ -3134,7 +3142,12 @@ missions:
       - group: P
         task: Estimate the blur distance.
         title: High-speed imaging and radiography
-        scene: On the analysis table are high-speed photographs from yesterday’s implosion test. Beside them sit several radiographs of the opaque assembly. Each image is labeled with its exposure time. The notebook also lists estimated object speeds and the feature sizes the team wants measured.
+        concept: Order-of-magnitude estimation from givens
+        scene: >-
+          On the analysis table are high-speed photographs from yesterday’s implosion test,
+          with radiographs of the opaque assembly beside them. Each image is labeled with
+          its exposure time. Bacher has listed the object speeds and the feature sizes his
+          committee wants measured.
         guide: >-
           Four numbers, and two of them are exposure times a thousand apart. Ask of each
           which one this camera used. And note what the answer is: a limit the optics
@@ -3189,7 +3202,10 @@ missions:
       - group: T
         task: Estimate how far ahead the early side runs, in millimetres.
         title: Competing timescales
-        scene: Several physical clocks run at once during rapid compression, and the design problem lives in the gaps between them. On a test fixture, two initiation channels have different timestamps, and the team has the measured wave speed and a ruler.
+        scene: >-
+          Kistiakowsky's assembly has failed twice on the bench while every channel checks
+          out alone. On a test fixture, two initiation channels carry different timestamps,
+          and the team has the measured wave speed and a ruler.
         guide: >-
           Four numbers, and two of them are channel spreads a hundred apart. Ask of each
           which spread the measurement gave. And note why this matters at all. Several
@@ -3240,7 +3256,11 @@ missions:
       - group: E
         task: Spend the 100-point test budget on the evidence that can change the release decision for a manufactured lot.
         title: What evidence qualifies a lot?
-        scene: The detonator programme has competing requests and 100 points of test credit. A production lot is waiting for a release decision, while the bench holds one carefully built prototype, inspection records, and access to a full-system trial.
+        scene: >-
+          Kistiakowsky's detonator programme has competing requests and 100 points of test
+          credit. A production lot is waiting on a release decision, while the bench holds
+          one carefully built prototype, inspection records, and access to a full-system
+          trial.
         guide: >-
           One hundred points of test credit, and a production lot waiting on a release
           decision. Open each option and ask what it would tell you about the lot rather
@@ -3307,7 +3327,11 @@ missions:
       - group: X
         task: Estimate sigma_total.
         title: Synchronizing many channels
-        scene: The timing-budget meeting has stalled. Each subsystem lead insists that their contribution is small, yet the combined requirement is close enough that nobody wants to sign it. The system cannot move to the next review until one number closes the argument.
+        scene: >-
+          The timing-budget meeting has stalled. George Kistiakowsky, who heads the
+          Explosives Division, has three contributions on the board, and each subsystem lead
+          insists that theirs is the small one. Nobody will sign the combined figure until
+          one number closes the argument.
         guide: >-
           Four numbers, and one of them is the other three added straight. Ask whether
           independent errors add that way. They do not. They combine in quadrature, so
@@ -3364,7 +3388,10 @@ missions:
       - group: T
         task: Estimate the total fractional uncertainty.
         title: Carrying uncertainty through
-        scene: A predicted reaction rate rests on a cross section known to a few per cent and a flux known to a few more. Theory is being asked how well the prediction is known.
+        scene: >-
+          A predicted reaction rate rests on a cross section known to a few per cent and a
+          flux known to a few more. Bethe is asking the theory group how well that
+          prediction is actually known.
         guide: >-
           Four numbers, and one of them is the two others added straight. Ask whether
           independent uncertainties add that way. They do not: they combine in
@@ -3415,7 +3442,11 @@ missions:
         title: Where the fragments go
         concept: Conservation of energy and momentum in reactions
         place: Diagnostics Bay
-        scene: A nucleus initially at rest splits into a heavy fragment and a light fragment. The team has measured the fragment masses and is arguing about which one should carry the larger share of kinetic energy before looking at the detector data.
+        scene: >-
+          A nucleus at rest splits into a heavy fragment and a light one. The masses are
+          measured and the bay is arguing about which fragment carries the larger share of
+          kinetic energy. Bethe has asked for an answer before anyone looks at the detector
+          data.
         guide: >-
           Four answers, and the nucleus started at rest. Ask of each whether it respects
           that. Total momentum was zero, so the two fragments leave with equal and
@@ -3461,7 +3492,10 @@ missions:
       - group: X
         task: Read the whole reading panel, then select the two causes that together account for every reading. No single cause does.
         title: Build the implosion uncertainty budget
-        scene: An implosion trial has returned two anomalies, and the next development cycle can afford only one major push. Division leads are waiting outside the analysis room to learn where the effort goes. Name the wrong source and weeks disappear into the wrong fix.
+        scene: >-
+          An implosion trial has come back with two anomalies, and the next cycle can afford
+          one major push. Kistiakowsky has the division leads waiting outside the analysis
+          room. Name the wrong source and weeks disappear into the wrong fix.
         guide: >-
           The panel has more than one thing wrong, so no single cause covers it. Ask of
           each candidate which readings it leaves unexplained. A budget's value is the
@@ -3499,7 +3533,10 @@ missions:
       - group: CM
         task: Estimate the conservative lower bound of the measurement.
         title: Acceptance criteria
-        scene: A property has to be at least 100 units and the measurement reads 102, plus or minus 3. Material this scarce cannot be scrapped casually, or accepted on hope.
+        scene: >-
+          Seaborg has a property that has to be at least 100 units and a measurement reading
+          102, plus or minus 3. A batch waits on the answer. Material this scarce cannot be
+          scrapped casually, or accepted on hope.
         guide: >-
           Four numbers, and two of them are uncertainties ten times apart. Ask of each
           which one this measurement carries. And note what gets compared with the
@@ -3554,7 +3591,10 @@ missions:
       - group: P
         task: Spend the single week of facility time on the test whose possible outcomes would separate the competing timing hypotheses.
         title: Buy the test that can decide
-        scene: Three team leads are waiting outside the facility office, each with a test they say cannot wait. There is one week of access left in the schedule, and only one proposal can take it. The scheduler needs one name before Monday.
+        scene: >-
+          Three team leads are waiting outside the facility office, each with a test they
+          say cannot wait. There is one week of access left in the schedule and only one
+          proposal can take it. Bacher needs a name before Monday.
         guide: >-
           One week of access, three tests, and one name needed before Monday. Open each
           proposal and ask what decision its result would change. A test that everybody
@@ -3617,7 +3657,10 @@ missions:
       - group: E
         task: Estimate how much a parallel chain can slip before it controls the date.
         title: Critical path to an integrated trial
-        scene: "Three chains of work are running in parallel, and the integrated trial cannot happen until the longest one finishes. Fat Man's schedule is managed this way: the calendar is controlled by dependencies, not by how many tasks look busy."
+        scene: >-
+          Groves wants a date for the integrated trial, and three chains of work are running
+          in parallel toward it. Lens inspection, electrical qualification and casing work
+          each report their own weeks, and nobody has put the three on one sheet.
         guide: >-
           Four numbers, and two of them belong to other questions: one task, and both
           chains added together. Ask of each whether it is a chain length. Only the
@@ -3669,7 +3712,11 @@ missions:
         task: A half-scale shot is fired. Which of its results transfer to full scale?
         title: What a scaled shot can and cannot tell you
         place: Implosion Test Range
-        scene: "A half-scale shot is proposed: an eighth of the explosive and a much shorter schedule. The material detonation velocity is listed at both scales, and the team has geometric dimensions, reaction-zone measurements, and timing records spread across the table."
+        scene: >-
+          Robert Bacher, who heads the Gadget physics division, has a half-scale shot on the
+          table: an eighth of the explosive and a much shorter schedule. Detonation velocity
+          is listed at both scales, with geometric dimensions, reaction-zone measurements
+          and timing records beside it.
         guide: >-
           Four claims about a half-scale shot. Ask of each what it assumes scales.
           Ratios do, and the phenomena they govern come with them. A detonation
@@ -3719,7 +3766,10 @@ missions:
         title: What the shop is making today
         concept: "Experimental method: controls, calibration, systematic vs random error"
         place: Theoretical Division
-        scene: The machine shop takes work from every division and cannot take it all. The priority is set on a card at the window, and it is changed when the schedule changes — after the test date moves, after the assay comes back, after somebody senior walks in.
+        scene: >-
+          The machine shop takes work from every division and cannot take it all. The
+          priority is set on a card at the window. Bacher's committee changes it whenever
+          the schedule does, after a test date moves or an assay comes back.
         guide: >-
           Release the jobs the current priority wants and hold the rest. The card at the
           window is changed during the day and nobody announces it. What is scored is the
@@ -3799,7 +3849,11 @@ missions:
         task: Match each question Trinity must answer to the evidence that can actually settle that question.
         title: What Trinity had to answer
         concept: "Experimental method: controls, calibration, systematic vs random error"
-        scene: Trinity is being written as a set of questions before it becomes an event. One full-system attempt will carry dozens of expectations, and every division wants its own result treated as decisive. There will be no second shot to clarify what the first one meant.
+        scene: >-
+          Hans Bethe, head of the Theoretical Division, wants Trinity written down as a set
+          of questions before it becomes an event. One full-system attempt carries dozens of
+          expectations, and every division wants its own result treated as decisive. There
+          will be no second shot.
         guide: >-
           Four questions and four kinds of evidence. Pair them by asking what each
           question needs: the whole event, one subsystem's traces, a comparison with
@@ -3855,7 +3909,10 @@ missions:
       - group: E
         task: Arrange the four cards from earliest cause or prerequisite to latest result.
         title: Trinity field engineering
-        scene: The desert crew has the tower, cables, cameras, power, and communications spread across a schedule that is running out of room. Bainbridge has a forecast that closes the window in four days, whatever is unfinished. Every team wants to know whether the field is truly ready.
+        scene: >-
+          The desert crew has the tower, cables, cameras, power and communications spread
+          across a schedule running out of room. Norris Bradbury, who is assembling the
+          shot, has a forecast that closes the window in four days, whatever is unfinished.
         guide: >-
           All four will happen, and field work succeeds or fails on interfaces. Ask of
           each card what has to be proved before the thing that depends on it arrives.
@@ -3903,7 +3960,10 @@ missions:
         title: The plot that makes a decay a straight line
         concept: "Graphical analysis: semi-log plots and slopes"
         place: Diagnostics Bay
-        scene: Two counters have produced a table of count rate against time, and the notebook has it plotted on ordinary axes as a curve that nobody can read a number off.
+        scene: >-
+          Two counters have produced a table of count rate against time. The notebook has it
+          plotted on ordinary axes, as a curve nobody can read a number off. Bethe wants the
+          half-life out of it before the tower crew drives out.
         guide: >-
           Four ways to plot the same data. Ask of each what shape it turns an
           exponential into. Then ask what the slope of that shape means. One option
@@ -3951,7 +4011,10 @@ missions:
         title: Where the energy in fission comes from
         concept: Binding energy per nucleon and the stability curve
         place: Theoretical Division
-        scene: A visitor asks why splitting a heavy nucleus releases energy while splitting a light one costs energy. The blackboard has the binding-energy curve on it and nobody has used it to answer.
+        scene: >-
+          A visitor at Bethe's blackboard asks why splitting a heavy nucleus releases energy
+          while splitting a light one costs energy. The binding-energy curve is already
+          drawn there, and nobody has used it to answer.
         guide: >-
           Four accounts of where the energy comes from. Ask of each whether it uses the
           shape of the binding-energy curve. It rises steeply, peaks near iron, and
@@ -4005,7 +4068,10 @@ missions:
         task: Estimate the offset in units of the measurement uncertainty, then state the strongest justified conclusion.
         title: Compare a prediction band with an observation
         setup: A classroom model predicts an observable between 15 and 25 units; the measurement reads 21 units with an uncertainty of +/-2.
-        scene: A model predicts an observable between 40 units. The measurement reads 21, plus or minus 2. The temptation after Trinity is to read one comparison as a verdict on everything.
+        scene: >-
+          Bethe has the theory division's prediction band chalked up beside a single
+          diagnostic reading of 21 units, plus or minus 2. The temptation after Trinity is
+          to treat one comparison as a verdict on the whole model.
         guide: >-
           Four numbers, and two of them describe the band rather than the measurement:
           its midpoint and its lower edge. Ask of each what the comparison needs. A gap
@@ -4054,7 +4120,11 @@ missions:
         task: Why is ordinary chemistry a poor way to separate uranium-235 from uranium-238 in bulk?
         title: Why separation is a physical problem
         place: Chemistry and Metallurgy Building
-        scene: At Chemistry and Metallurgy, a production planner brings a request to enrich uranium-235 relative to uranium-238 by an ordinary chemical route. The division has been asked to decide whether the two isotopes give chemistry enough contrast to make that plan practical.
+        scene: >-
+          At Chemistry and Metallurgy a production planner has brought Seaborg a request to
+          enrich uranium-235 relative to uranium-238 by an ordinary chemical route. He has
+          to decide whether the two isotopes give chemistry enough contrast to make that
+          plan practical.
         guide: >-
           Four explanations, and all four mention a difference. Ask of each whether that
           difference is chemical or physical. The electron structures are almost
@@ -4100,7 +4170,11 @@ missions:
       - group: T
         task: Choose two follow-up checks. Buy evidence that can distinguish a shared calibration problem from a real physics discrepancy.
         title: Spend the follow-up checks on independence
-        scene: Theory and experiment disagree by three standard deviations. The division can complete two follow-up checks before the next review, and every extra run that repeats the same dependency consumes one of those chances.
+        scene: >-
+          Fermi's blast estimate and the theory prediction disagree by three standard
+          deviations. The division can complete two follow-up checks before the next review,
+          and every extra run that repeats the same dependency consumes one of those
+          chances.
         guide: >-
           Two follow-up checks, and a three-sigma disagreement between theory and
           experiment. Open each check and ask what it depends on. A run that repeats a
@@ -4167,7 +4241,11 @@ missions:
       - group: E
         task: Arrange the four cards from earliest cause or prerequisite to latest result.
         title: Post-Trinity design freeze
-        scene: "Trinity has produced new evidence, and a last-minute improvement is already being argued over. Drawings are moving toward production while engineers are still proposing changes. The room has one uncomfortable question: what can still change without severing the link to what was tested?"
+        scene: >-
+          Trinity has produced new evidence and a last-minute improvement is already being
+          argued over. Drawings are moving toward production while engineers keep proposing
+          changes, and Bradbury wants somebody to say what may still change and what may
+          not.
         guide: >-
           All four will happen, so ask what each one is the input to. There is nothing
           to compare with a prediction until the separate records agree with each other.
@@ -4220,7 +4298,10 @@ missions:
         task: If fusion releases energy, why is it difficult to start?
         title: Why light nuclei release energy too
         place: Theoretical Division
-        scene: The binding-energy curve on the board rises steeply from light nuclei toward iron. A younger theorist has noticed that fusion moves uphill on that same curve and asks why an energy-releasing reaction does not simply happen whenever light nuclei meet.
+        scene: >-
+          The binding-energy curve on the board rises steeply from light nuclei toward iron.
+          A younger theorist asks Maria Goeppert Mayer, a physicist in Teller's group, why
+          an energy-releasing reaction does not simply happen whenever light nuclei meet.
         guide: >-
           Four accounts of why fusion is hard. Ask of each whether it is about the
           energy released or about getting there. Two positive nuclei repel, and the
@@ -4266,7 +4347,11 @@ missions:
       - group: P
         task: Arrange the four cards from earliest cause or prerequisite to latest result.
         title: Final diagnostic readiness review
-        scene: The final readiness review asks whether the instruments will actually record what happens. There is exactly one event to record, no repeat shot to recover a missed observable, and a diagnostic that saturates or loses timing can erase an answer permanently.
+        scene: >-
+          Bacher has called the final readiness review, and the question in front of it is
+          whether the instruments will actually record what happens. There is one event and
+          no repeat shot. A channel that saturates or loses its timing erases an answer for
+          good.
         guide: >-
           All four steps happen, so ask what each one proves that the others cannot. An
           instrument nobody can describe afterwards produces data nobody can use. A
@@ -4312,7 +4397,10 @@ missions:
       - group: CM
         task: Spend the final 100-credit improvement budget on the evidence system that will remain useful when the next batch behaves differently.
         title: Leave a materials capability, not just better numbers
-        scene: The final dossier has to show more than that components existed. The division has one last hundred credits of improvement to spend, and the choice says what it thinks a materials capability is.
+        scene: >-
+          Hornig's final dossier has to show more than that components existed. The division
+          has one last hundred credits of improvement to spend, and the choice says what it
+          thinks a materials capability is. It is the last money the division will be given.
         guide: >-
           One hundred credits, and the choice says what the division thinks a materials
           capability is. Open each investment and ask what it leaves behind when the
@@ -4377,7 +4465,11 @@ missions:
       - group: X
         task: Which statement best separates the laboratory's technical responsibility from the political decision that follows?
         title: Scientific responsibility after Trinity
-        scene: After Trinity, reports of yield, fallout, and measurement uncertainty are spread across the laboratory. Officials outside the site are asking what the results mean. Scientists now have to decide what belongs in their technical assessment before it leaves Los Alamos.
+        scene: >-
+          After Trinity the yield, fallout and uncertainty reports are spread across the
+          laboratory. Officials outside the site are asking what they mean. Oppenheimer, the
+          laboratory director, has to settle what belongs in a technical assessment before
+          it leaves Los Alamos.
         guide: >-
           Four ways to draw one line. Ask of each what it gives away. One keeps the
           laboratory to raw readings, which leaves officials judging consequences nobody
@@ -4427,7 +4519,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: The binding-energy curve
     setup: Place the reasoning steps that connect the curve to energy release.
-    scene: Nuclei near the middle of the periodic table are bound more tightly per particle than very heavy nuclei. When a heavy nucleus splits into medium-mass fragments, the products sit lower in energy and the difference is released. This binding-energy curve gives Los Alamos scientists the broad physical reason fission can power a bomb, while reminding them that energy comes from comparing the starting and ending nuclei.
+    scene: >-
+      The binding-energy curve is chalked up in the Theoretical Division. Bethe wants the
+      reasoning behind fission's energy release written out step by step, before it goes
+      into the notebook the laboratory will work from.
     guide: >-
       These four are one argument, and it only reaches an answer by comparison. Ask
       of each card what has to be located first. Nothing can be called more tightly
@@ -4465,7 +4560,10 @@ lessons:
     task: Match each information need or situation to the best action, instrument, or control. Each option is used once.
     title: Activity and count rate
     setup: A calculation group must choose the missing factor for four count-rate questions.
-    scene: Activity is the number of nuclear decays occurring each second, but a detector records only some of them and also records background events from the room and electronics. The bomb program depends on turning detector counts into trustworthy estimates of what a source is actually doing. That requires separating source behavior from efficiency, geometry, and background instead of treating the displayed count rate as the whole truth.
+    scene: >-
+      Leona Woods, who builds the counters, has four count-rate questions on the bench and a
+      group of calculators waiting. Each one needs a different missing factor before a
+      detector reading can be quoted as what the source is doing.
     guide: >-
       Four conversions and four operations. Pair them by asking what belongs to the
       source and what belongs to the instrument. Activity is the source's. A count
@@ -4512,7 +4610,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Exponential attenuation and mean free path
     setup: Order the conceptual chain behind exponential attenuation.
-    scene: A neutron moving through matter has some chance of interacting in every small distance it travels, so the surviving population falls exponentially rather than linearly. The mean free path is the average distance between interactions, not a fixed distance traveled by every neutron. For bomb theory, attenuation and mean free path help predict how many neutrons will remain available as they cross different materials and geometries.
+    scene: >-
+      Fermi wants the reasoning behind attenuation set out in order before anybody uses the
+      tables. The theory group keeps quoting a mean free path for neutrons crossing a slab,
+      and nobody has agreed what that average is over.
     guide: >-
       These four are one argument, and the exponential is the conclusion rather than
       the assumption. Ask of each card what has to be true before it. Probabilities
@@ -4548,9 +4649,9 @@ lessons:
     answerText: 2 -> 3 -> 4 -> 5 (A particle enters a uniform material -> Each short path interval carries a small interaction probability -> Survival probabilities multiply along the path -> The surviving intensity becomes exponential in thickness)
   - group: T
     scene: >-
-      A bomb is finite rather than an infinite block of material. So the theory
-      group has to estimate a competition: collisions inside the assembly against
-      escape through its surface.
+      A bomb is finite rather than an infinite block of material. Klaus Fuchs, a theorist in
+      T Division, is estimating a competition: collisions inside the assembly against escape
+      through its surface. The test case is a neutron in a large water tank.
     guide: >-
       Four numbers, and two of them are the total path rather than a step, and a
       step count ten times too small. Ask of each which the relationship needs. A
@@ -4599,7 +4700,10 @@ lessons:
     task: Estimate the population after two generations.
     title: Neutron multiplication factor
     setup: A simplified system begins with 1,000 neutrons and has k=0.95.
-    scene: The multiplication factor k compares the number of neutrons in one generation with the number in the previous generation. If k is below one the chain fades, at one it stays steady, and above one it grows. A bomb requires a rapidly growing chain for a very short time, so even a small change in k can have a large effect after many generations.
+    scene: >-
+      Fermi is settling the theory group's language for chain reactions, because every group
+      on the mesa quotes the multiplication factor with a different meaning attached to it.
+      A simplified system on the board starts with a thousand neutrons.
     guide: >-
       Four numbers, and two of them are multiplication factors. Only one belongs to
       this system. Ask of each whether it describes the generation, the population,
@@ -4646,7 +4750,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Prompt and delayed neutron timescales
     setup: Order the reasoning used to analyze a mixed prompt-delayed population.
-    scene: Most fission neutrons appear almost immediately, while a small fraction are emitted later by radioactive fragments. Delayed neutrons make reactors controllable on human timescales, but a bomb’s energy release is governed mainly by prompt neutrons because the assembly changes in microseconds. The theory team therefore must separate two very different clocks that come from the same fission process.
+    scene: >-
+      Most fission neutrons appear almost immediately and a small fraction arrive later.
+      Bethe wants the analysis of a mixed population written out in order, because reactor
+      people and bomb people keep using one word for two different clocks.
     guide: >-
       All four steps happen, and the small population matters out of proportion to
       its size. Ask of each card what would be missing without it. A delay is
@@ -4684,7 +4791,11 @@ lessons:
     task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Criticality safety as a systems concept
     setup: A laboratory has 100 credits to reduce uncertainty in routine handling of fissile materials.
-    scene: A system can become dangerous long before anyone intends to build a weapon if enough fissile material, reflection, moderation, or favorable geometry brings k close to one. Criticality safety treats those factors as a connected system rather than relying on a single rule. At Los Alamos, scientists must study chain reactions while also designing handling arrangements that prevent an accidental self-sustaining reaction.
+    scene: >-
+      Elizabeth Graves, the critical-assemblies physicist, has a hundred credits to spend on
+      reducing uncertainty in the routine handling of fissile material. Three proposals are
+      on the table, and the handling arrangements have grown up piecemeal around the
+      benches.
     guide: >-
       k depends on mass, reflection, moderation and geometry together, and an
       accident needs only one of them to move. Mass accounting is independent of the
@@ -4737,7 +4848,10 @@ lessons:
     task: Estimate joules per fission.
     title: Energy released in fission
     setup: Assume a notional fission releases about 200 MeV and 1 MeV=1.60 x 10^-13 joule.
-    scene: A single fission releases energy in several forms, and multiplying that microscopic energy by an enormous number of nuclei produces a macroscopic explosion. Estimating the total energy requires the theory group to move carefully from energy per event to number of events. This scale conversion helps connect nuclear physics to the blast, heat, and radiation that a bomb can produce.
+    scene: >-
+      Oppenheimer wants a figure he can quote for the energy in a single fission before the
+      next colloquium. The theory group has the notional two hundred million electron volts
+      per event and a conversion to joules on the board.
     guide: >-
       Four numbers, and two of them are conversions. One belongs to atomic mass
       units rather than to joules. Ask of each what units it carries. And note the
@@ -4783,7 +4897,10 @@ lessons:
     task: Match each information need or situation to the best action, instrument, or control. Each option is used once.
     title: Fission fragments and heat deposition
     setup: Match each fission-energy carrier to its dominant transport behavior.
-    scene: Most fission energy first appears as the kinetic energy of two heavy fragments, which stop quickly and heat nearby material. Neutrons and gamma rays travel farther, while later radioactive decays continue to release energy after the initial event. Understanding these channels is essential for predicting both the rapid heating that drives an explosion and the radiation hazards that remain afterward.
+    scene: >-
+      Chien-Shiung Wu, the Columbia physicist working on fission, is asking where the energy
+      from one event actually ends up. Several carriers leave that event at once, and the
+      theory group has been treating them as though they all behave alike.
     guide: >-
       Four carriers and four behaviours. Pair them by asking two things of each: how
       far it travels before it stops, and for how long it keeps arriving. One stops
@@ -4830,7 +4947,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Neutron spectra
     setup: Order the steps in a spectrum-aware reaction calculation.
-    scene: Neutrons are not all born with the same energy, and reaction probabilities can change sharply across the neutron-energy spectrum. A useful prediction must combine how many neutrons exist at each energy with the cross section at that energy. For bomb design, this prevents the theory group from replacing a broad spectrum with one misleading ‘average neutron.’
+    scene: >-
+      Klaus Fuchs, a theorist in T Division, is reworking a reaction-rate calculation in
+      which the group replaced a whole neutron energy spectrum with one average neutron.
+      Reaction probabilities move sharply across that spectrum.
     guide: >-
       These four are one calculation, and the point of it is that one average energy
       is not enough. Ask of each card what has to exist before it. A cross section
@@ -4868,7 +4988,10 @@ lessons:
     task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Resonances and thresholds
     setup: Only one of three measurement campaigns can be fully supported.
-    scene: Some nuclear reactions become especially likely at resonance energies, while others require a threshold energy before they can occur at all. These features make reaction rates sensitive to the neutron spectrum and material composition. Los Alamos needs to know where such sharp changes occur because a small shift in energy can alter whether neutrons multiply, scatter, or disappear.
+    scene: >-
+      Fermi has three measurement campaigns competing for the same beam time and can fully
+      support only one. Reaction probabilities on the mesa's tables jump at some neutron
+      energies and vanish below others, and nobody knows where all those edges sit.
     guide: >-
       Cross sections can change by orders of magnitude across a narrow band of
       energy, and nobody yet knows where the structure sits. A single precise point
@@ -4921,7 +5044,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Branching processes
     setup: Order the steps in a simple neutron-family simulation.
-    scene: "A neutron chain reaction is a branching process: each neutron may produce zero, one, or several descendants. Even when the average grows, individual chains can die out by chance, while others become unusually large. This statistical picture helps Los Alamos scientists understand why averages alone cannot describe the early generations of a bomb’s chain reaction."
+    scene: >-
+      John von Neumann is putting a simple neutron-family simulation on paper for the theory
+      group. Each neutron may leave behind no descendants, one, or several, and the early
+      generations of a chain have been argued about all week.
     guide: >-
       These four are one procedure, and an average multiplication factor is not what
       it produces. Ask of each card what has to be defined first. Nothing can be
@@ -4959,7 +5085,10 @@ lessons:
     task: Estimate the surface-to-volume ratio, then say what doubling the radius does to it.
     title: Geometry and neutron leakage
     setup: A sphere has a radius of 5 cm.
-    scene: A compact shape has less surface area relative to its volume than an elongated or fragmented shape, so fewer neutrons reach a boundary and escape. Geometry therefore changes neutron leakage even when the material is unchanged. Bomb theorists must connect shape and compression to multiplication because increasing density and reducing leakage can push the system into a rapidly growing chain reaction.
+    scene: >-
+      Oppenheimer wants a shape argument he can put to Ordnance without waiting for a full
+      transport calculation. There is a sphere of five centimetres radius on the board, and
+      the same material can be cast compact or drawn out.
     guide: >-
       Four numbers, and two of them are radii. Only one is this sphere's. Ask of
       each whether the relationship needs it. Leakage follows the surface and
@@ -5006,7 +5135,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Monte Carlo transport
     setup: Arrange one simulated particle history.
-    scene: Neutron transport through a complicated assembly involves many possible collisions and paths, so scientists use Monte Carlo methods to follow large numbers of simulated neutrons chosen by random sampling. The result is a statistical estimate rather than one exact trajectory. This gives Los Alamos a way to study complex geometry and rare paths that are difficult to solve with pencil-and-paper equations alone.
+    scene: >-
+      Stanisław Ulam, the mathematician who devised the method, wants one simulated neutron
+      history written out in order before the group runs thousands of them. The assembly's
+      geometry has become too tangled for the pencil-and-paper equations.
     guide: >-
       These four are one history repeated many times, and the order is physical. Ask
       of each card what has to happen first. A particle cannot interact where it has
@@ -5044,7 +5176,10 @@ lessons:
     task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Sensitivity analysis
     setup: A model depends on three uncertain inputs.
-    scene: Sensitivity analysis changes one input at a time to see which uncertain quantity most strongly changes the prediction. A parameter can be poorly known yet unimportant, or precisely known yet crucial. With limited wartime time and equipment, the bomb program needs sensitivity studies to decide which measurements or calculations will most reduce risk.
+    scene: >-
+      Von Neumann has a prediction resting on three uncertain inputs and a hundred credits
+      to spend on reducing that uncertainty. Wartime schedules mean only some of the three
+      can be measured or calculated any better.
     guide: >-
       Decision value is uncertainty multiplied by sensitivity, and the two are
       quoted separately here. One parameter carries the widest uncertainty on the
@@ -5097,7 +5232,10 @@ lessons:
     task: Match each information need or situation to the best action, instrument, or control. Each option is used once.
     title: Transport equations and approximations
     setup: Match each modeling need to the most appropriate simplified method.
-    scene: No single transport method is best for every problem. Diffusion gives quick estimates when scattering smooths the neutron population, deterministic solvers treat equations directly, and Monte Carlo follows individual random histories. Los Alamos must choose the simplest method that still captures the physics, then check it against more detailed calculations where the approximation might fail.
+    scene: >-
+      Bethe has four modelling jobs waiting and three methods available to the theory group.
+      Each job has been going to whichever method its author happens to prefer, and nothing
+      on the mesa says which one suits which problem.
     guide: >-
       Four needs and four methods, and no method is best everywhere. Pair them by
       asking what each one costs and what it assumes. One needs scattering to have
@@ -5144,7 +5282,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Shock waves and conservation laws
     setup: Order the reasoning for a one-dimensional shock calculation.
-    scene: A shock wave is a very thin region where pressure, density, and velocity change abruptly. Conservation of mass, momentum, and energy connects the material before and after the shock. Implosion depends on using shocks to compress material inward, so theory must predict how those waves change at boundaries and whether they produce the intended density increase.
+    scene: >-
+      Von Neumann wants a one-dimensional shock calculation written out in order before the
+      tables are redone. A shock is a very thin region where pressure, density and velocity
+      change abruptly, and implosion rests on getting those changes right.
     guide: >-
       These four are one derivation. Ask of each card what has to be chosen or
       applied first. Conservation laws cannot be applied across a front before the
@@ -5182,7 +5323,10 @@ lessons:
     task: Match each information need or situation to the best action, instrument, or control. Each option is used once.
     title: Symmetry and perturbations
     setup: Match the observed pattern to the simplest qualitative description.
-    scene: A perfectly spherical implosion is an idealization; real systems contain timing errors, material variations, gaps, and surface roughness. Scientists describe those departures as perturbations with different spatial patterns. Because asymmetries can grow during compression and prevent the core from reaching the required state, Los Alamos must identify which patterns are harmless and which can spoil the bomb.
+    scene: >-
+      A perfectly spherical implosion is an idealisation, and Kistiakowsky's lens work keeps
+      producing departures from it: timing errors, gaps, surface roughness. The theory group
+      has four observed patterns on the bench and no shared vocabulary for them.
     guide: >-
       Four shapes and four mode names. Pair them by asking what each one does to the
       assembly. Changes its size and not its shape? Moves its centre? Keeps the
@@ -5229,7 +5373,10 @@ lessons:
     task: Match each information need or situation to the best action, instrument, or control. Each option is used once.
     title: Gas-filled detectors
     setup: Match the measurement goal to the best operating regime.
-    scene: A gas-filled detector collects charge created when radiation ionizes gas molecules. Depending on the applied voltage, the same tube can measure average current, amplify individual ionization events, or produce nearly identical large pulses. Choosing the correct operating region matters because the bomb program needs different instruments for dose, counting, and pulse information rather than one detector used beyond its useful range.
+    scene: >-
+      Leona Woods, who builds counters for the physics division, has four gas-filled tubes
+      on one bench and a shared high-voltage supply between them. Four groups have asked her
+      for four different measurements, and each tube has to be set for its own job.
     guide: >-
       Four needs and four operating regions. Pair them by asking what the field
       strength does to the signal. No multiplication gives a steady current. Large
@@ -5276,7 +5423,10 @@ lessons:
     task: Estimate the fractional statistical fluctuation.
     title: Scintillation detectors
     setup: A scintillator produces about 10,000 detected photoelectrons for a reference event.
-    scene: A scintillator gives off tiny flashes of light when radiation deposits energy, and a photosensor converts those flashes into electrical pulses. Different scintillators vary in speed, brightness, and sensitivity to particle type. Los Alamos uses fast scintillation signals when timing is crucial, but must separate real flashes from electronic noise and understand how light output relates to deposited energy.
+    scene: >-
+      Joan Hinton, the young experimenter running the fast counters, has a scintillator that
+      gives about ten thousand detected photoelectrons for a reference event. Timing work
+      depends on it, and she wants to know how steady that pulse height is run to run.
     guide: >-
       Four numbers, and three of them are photoelectron counts. Only one belongs to
       this measurement. Ask of each whether it is the numerator or the count. And
@@ -5322,7 +5472,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Semiconductor detectors
     setup: Order the detector preparation and measurement steps.
-    scene: "In a semiconductor detector, radiation creates mobile electrons and holes inside a solid crystal. An electric field sweeps those charges to electrodes, producing a pulse whose size can measure energy very precisely. Such detectors illustrate the same basic challenge that appears throughout the bomb program: preserve a small physical signal while preventing leakage current, noise, and imperfect charge collection from distorting it."
+    scene: >-
+      A crystal detector has arrived and Woods has it on the bench with its bias supply, a
+      preamplifier and a weak source. Nothing about the assembly is standard here, and she
+      wants the bring-up written down before anybody trusts a pulse height from it.
     guide: >-
       These four are one chain, and each step has to work before the next means
       anything. Ask of each card what it needs first. Carriers cannot be collected
@@ -5360,7 +5513,10 @@ lessons:
     task: Estimate the absolute efficiency.
     title: Efficiency and geometry
     setup: A small detector intercepts 1% of isotropically emitted particles and detects 50% of those that enter.
-    scene: Detector efficiency is the fraction of emitted particles that are actually recorded, and geometry controls how many particles travel toward the detector at all. Moving a detector farther away can reduce the count even though the source has not changed. Los Alamos must correct for both effects before comparing experiments or using count rates to test bomb calculations.
+    scene: >-
+      Elizabeth Graves, the critical-assemblies physicist, has moved a small counter further
+      from a source and the count has dropped, though the source has not changed. She wants
+      the recorded fraction worked out before anyone compares today’s run with last week’s.
     guide: >-
       Four numbers, in two pairs, and only one of each pair belongs here. Ask of
       each whether it describes how much of the emission reaches the detector, or
@@ -5406,7 +5562,10 @@ lessons:
     task: Estimate net counts and its standard deviation.
     title: Background subtraction uncertainty
     setup: A sample run records 1,000 counts and an equal-duration background run records 100 counts.
-    scene: A corrected signal is often the sample count minus a separately measured background count. Both measurements fluctuate, so their uncertainties must be combined rather than assigning all uncertainty to the sample alone. In bomb experiments, weak diagnostic signals can be overwhelmed by an uncertain background even when the subtraction produces a positive number.
+    scene: >-
+      Woods has a sample run of a thousand counts and an equal-length background run of a
+      hundred beside it. She will not report a number until both are on the sheet, and the
+      group upstairs wants the corrected figure with its error today.
     guide: >-
       Four numbers, in two pairs, and only one of each belongs to this run. Ask of
       each whether it is the sample or the background. And note what happens to the
@@ -5453,7 +5612,11 @@ lessons:
     task: Estimate the live fraction.
     title: Dead time
     setup: A detector has nonparalyzable dead time tau = 10 microseconds and records 2,000 counts/s.
-    scene: After recording an event, a detector or electronic circuit may need a short recovery time during which it cannot record another event. At high rates, this dead time causes the measured count to fall below the true rate. Los Alamos must correct or avoid dead-time losses because the most important bomb experiments can produce signals far faster than ordinary laboratory measurements.
+    scene: >-
+      Theodore Hall, nineteen and the youngest physicist in the division, has a counter
+      reading two thousand counts a second with a ten-microsecond recovery on its circuit.
+      The rate is climbing as the source is brought in, and the run sheet still says raw
+      counts.
     guide: >-
       Four numbers, and two of them are dead times a hundred apart. Ask of each
       which one this detector has. And note what the answer is for. It says what
@@ -5499,7 +5662,10 @@ lessons:
     task: Estimate the percent resolution.
     title: Energy resolution
     setup: A spectral peak is centered at 1.0 MeV with FWHM 0.05 MeV.
-    scene: Energy resolution describes whether a detector can distinguish two nearby energies. Even a perfectly monoenergetic source produces a peak with finite width because charge production, light collection, and electronics fluctuate. Los Alamos needs enough resolution to tell whether a broad feature represents one process, several overlapping processes, or an instrument that is performing poorly.
+    scene: >-
+      Chien-Shiung Wu, the Columbia physicist on fission products, has a spectrum with a
+      peak at 1.0 MeV, 0.05 MeV wide at half its height. Two lines she cares about fall
+      close together in that region.
     guide: >-
       Four numbers, and two of them are widths ten times apart. Ask of each which
       one this line has. And note what the answer compares. A width means nothing on
@@ -5544,7 +5710,10 @@ lessons:
     task: Estimate the accidental coincidence rate.
     title: Coincidence measurements
     setup: 2 independent detectors count at 100/s and 200/s with a 1 microsecond coincidence window.
-    scene: Coincidence measurements ask whether two detectors recorded events within the same short time window. True coincidences can reveal that signals came from one physical event, while random coincidences occur by chance. The bomb program uses coincidence logic to reject background and to connect different measurements to the same rapidly changing experiment.
+    scene: >-
+      Hinton has two detectors on the same experiment, one counting at a hundred a second
+      and the other at two hundred. They are wired so that a pair arriving inside a
+      microsecond is recorded as one event. Some of those pairs will be chance.
     guide: >-
       Four numbers, and two of them are windows a thousand apart. Ask of each which
       one this system uses. And note why the answer matters. Accidentals are events
@@ -5590,7 +5759,10 @@ lessons:
     task: Estimate the speed.
     title: Time of flight
     setup: A particle travels 3 m in 100 ns.
-    scene: Time of flight estimates particle speed by measuring how long it takes to cross a known distance. The method requires a start signal, a stop signal, and a carefully measured path. Los Alamos uses timing to infer neutron energies and other fast processes, so a clock error can masquerade as a change in the physics.
+    scene: >-
+      James Chadwick, who heads the British Mission on the Hill, has a flight path of three
+      metres between a start signal and a stop signal. The last run came back at a hundred
+      nanoseconds, and the neutron energies in his report rest on that timing.
     guide: >-
       Four numbers, in two pairs, and only one of each belongs to this measurement.
       Ask of each whether it is a distance or a time. And check the powers of ten
@@ -5636,7 +5808,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Gamma-ray spectroscopy
     setup: Order the analysis from raw spectrum to line identification.
-    scene: Gamma-ray spectroscopy identifies nuclear transitions by measuring the energies of penetrating photons. Peaks can reveal which radioactive nuclei are present, but background, detector resolution, and efficiency all affect the spectrum. Los Alamos uses gamma measurements to study fission products and materials, making careful calibration essential for turning peaks into physical conclusions.
+    scene: >-
+      A counting run on fission products has finished and Wu has the raw spectrum on the
+      analysis table. The energy scale has not been set today and the shielding was changed
+      on Tuesday. Bacher wants the identifications by evening.
     guide: >-
       All four steps happen, so ask what each one would spoil if it came later. A
       peak found before the background is modelled may be background. And a peak
@@ -5674,7 +5849,10 @@ lessons:
     task: Match each information need or situation to the best action, instrument, or control. Each option is used once.
     title: Alpha and beta counting
     setup: Match each measurement problem to the best control.
-    scene: Alpha particles deposit energy densely but travel only a short distance, while beta particles travel farther and are more sensitive to source thickness and backing material. A poorly prepared sample can absorb its own radiation and distort the count. The bomb program needs thin, reproducible samples so measured differences reflect nuclear composition rather than sample geometry.
+    scene: >-
+      Four sample mounts have come up from the chemistry building for Graves to count, and
+      no two are prepared the same way. One is visibly thick, one sits on a heavy backing.
+      She wants each problem named before any of them goes under a counter.
     guide: >-
       Four symptoms and four fixes. Pair them by asking where in the arrangement the
       problem lives. In the sample itself? In what it sits on? In the air between?
@@ -5721,7 +5899,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Activation analysis
     setup: Order the activation-analysis workflow.
-    scene: Activation analysis exposes a material to neutrons and later measures the radiation from newly created radioactive nuclei. The observed signal depends on neutron flux, reaction probability, irradiation time, cooling time, decay, and detector efficiency. Los Alamos uses this chain of reasoning to infer material content and neutron exposure from measurements made after an experiment.
+    scene: >-
+      Enrico Fermi, who built the first pile at Chicago, has left a foil in the neutron flux
+      and gone to lunch. The foil is already decaying, the counter is not free until three,
+      and nobody has written down when the irradiation stopped.
     guide: >-
       All four steps happen, and the product is being created and decaying
       throughout. Ask of each card what has to be defined before it. A cooling
@@ -5759,7 +5940,10 @@ lessons:
     task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Signal-to-noise optimization
     setup: A weak line sits on substantial background.
-    scene: Signal-to-noise optimization is not simply making the signal larger; it is improving the ability to distinguish the desired effect from random fluctuations and systematic backgrounds. Shielding, geometry, timing windows, and detector choice can all help. With limited test opportunities, Los Alamos must design diagnostics that answer a clear question rather than merely produces impressive traces.
+    scene: >-
+      A weak line sits on a heavy background and three groups have written proposals for
+      getting at it. Bacher has a hundred credits and one afternoon, and the committee
+      outside his office wants to hear the criterion as well as the split.
     guide: >-
       Doubling detector area raises signal and background together, so the ratio
       improves only where counting statistics are the limit. Running four times
@@ -5813,7 +5997,10 @@ lessons:
     task: Match each information need or situation to the best action, instrument, or control. Each option is used once.
     title: Saturation and dynamic range
     setup: Match each pattern to the likely dynamic-range failure.
-    scene: Every instrument has a finite dynamic range between signals too small to distinguish from noise and signals so large that the electronics saturate. Pulse pileup, clipping, and slow recovery can make a strong signal look deceptively simple. Bomb tests require overlapping high- and low-sensitivity channels so at least one instrument remains useful when the true signal differs from predictions.
+    scene: >-
+      Four traces from yesterday’s shot are pinned up in the bay and Hall has been through
+      them twice. Each goes wrong differently at the top of its range, and the recording
+      crew wants to know what to change before the next firing.
     guide: >-
       Four symptoms and four diagnoses. Pair them by asking which stage of the chain
       ran out of range. An amplifier that cannot represent a larger voltage? A
@@ -5860,7 +6047,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Gain drift and environmental control
     setup: Order a responsible drift response.
-    scene: Detector gain can drift as temperature, voltage, or electronics change, causing the same physical event to produce a different pulse size later. Reference pulses and environmental records reveal that drift. Los Alamos needs these checks because a changing instrument can otherwise be mistaken for changing nuclear behavior.
+    scene: >-
+      The same reference source read one pulse height in April and a smaller one this week,
+      on the same counter. Woods has the temperature log and the voltage record for both
+      days. Nothing in the source has changed, and a report goes out on Friday.
     guide: >-
       All four steps happen, so ask what each one has to come after. A correction
       applied before the shift is confirmed corrects for something that may not be
@@ -5898,7 +6088,10 @@ lessons:
     task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Redundancy and common-mode failure
     setup: The current system relies on two detectors sharing the same clock and amplifier design.
-    scene: Redundant instruments help only when they do not share the same hidden failure. Two channels using one clock, one power supply, or one analysis assumption can agree and still be wrong. The bomb program therefore seeks independent diagnostics based on different physical principles so agreement carries real evidential weight.
+    scene: >-
+      Two channels have been agreeing all month, and Bacher has just noticed on the wiring
+      diagram that they run off one clock and one amplifier design. A hundred credits are
+      left for instrument work, and the readiness review is in three weeks.
     guide: >-
       Two channels agreeing is evidence only if they can fail apart. The existing
       channels share one clock, one power supply and one analysis assumption, so a
@@ -5951,7 +6144,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Data acquisition architecture
     setup: Order the data-acquisition chain.
-    scene: A data-acquisition system carries a signal from sensor to amplifier, trigger, digitizer, timestamp, and recorded file. Each stage can change or lose information, and the configuration must be stored with the data. The bomb program’s fast experiments required the entire chain to work once, so end-to-end tests are as important as the detector itself.
+    scene: >-
+      Hinton has a bench of unwired boxes: amplifiers, a digitiser, a trigger unit, cable
+      drums. The shot is four weeks off, the fast experiment gets one chance to record
+      anything at all, and the configuration sheet is still blank.
     guide: >-
       These four are one path from a sensor to a stored file. Ask of each card what
       it needs first. Nothing can be triggered on a signal too small to see. And a
@@ -5989,7 +6185,10 @@ lessons:
     task: Match each information need or situation to the best action, instrument, or control. Each option is used once.
     title: Field instrumentation
     setup: Match each field risk to the best mitigation.
-    scene: Field instruments face vibration, long cables, weather, electromagnetic interference, uncertain power, and limited access. A detector that works on a laboratory bench may fail at a remote test site. Los Alamos must qualify complete field packages and plan backups because Trinity offers no convenient second attempt for a missing measurement.
+    scene: >-
+      Norris Bradbury, who is assembling the Trinity shot, has come back from the desert
+      with a list. Long cable runs, no shelter, borrowed power, and a two-hour drive to the
+      nearest spare. Everything in the bay has to survive out there once.
     guide: >-
       Four field problems and four responses. Pair them by asking where the problem
       arises: in the cable, in the surrounding electrical noise, in the access, or
@@ -6036,7 +6235,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Blind analysis and data integrity
     setup: Order a simple blind-analysis workflow.
-    scene: Blind analysis hides selected information from analysts until methods and quality checks are fixed. The goal is to reduce the temptation to adjust choices until the result matches expectations. In a high-pressure bomb program, preserving data integrity helps distinguish genuine agreement with theory from unconscious tuning.
+    scene: >-
+      Everybody in the room already knows what the theory division predicts. The last two
+      analyses were adjusted twice each before they were reported, and Bacher has asked for
+      the workflow written down before this run is touched.
     guide: >-
       All four steps happen, so ask which of them cannot be reversed. Once you have
       seen the answer-sensitive data, no later care restores the state you were in
@@ -6074,7 +6276,11 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Mass balance
     setup: Order the bookkeeping workflow.
-    scene: Mass balance accounts for material entering, leaving, remaining, and being lost from a process. If the numbers do not close within uncertainty, material may be hidden in waste, equipment, samples, or measurement error. In the bomb program, careful balances protect scarce material and help detect contamination or procedural failures.
+    scene: >-
+      Glenn Seaborg, the chemist isolating the plutonium, has a run whose numbers do not
+      close. Nobody can yet say whether the missing material is in the waste, in the
+      equipment, or only in the arithmetic. Nothing leaves the building on a ledger like
+      that.
     guide: >-
       All four steps happen, so ask what each one needs defined before it. Nothing
       can be counted as coming in until there is a boundary for it to cross. And a
@@ -6112,7 +6318,10 @@ lessons:
     task: Match each information need or situation to the best action, instrument, or control. Each option is used once.
     title: Oxidation states
     setup: Match each goal to the most direct chemical lever.
-    scene: An element can exist in several oxidation states, meaning it has lost or gained different numbers of electrons. Those states can change solubility, color, reactivity, and which chemical separation will work. Los Alamos chemists need control of oxidation state because a small chemical change can redirect valuable material into the wrong phase or waste stream.
+    scene: >-
+      Seaborg has an element that will sit in more than one oxidation state, and a batch of
+      it went into the wrong stream twice last month. He wants the chemical levers written
+      down before the next separation is run.
     guide: >-
       Four aims and four actions. Pair them by asking what each action changes about
       where the element sits. Its charge? What is bound to it? Whether it stays
@@ -6159,7 +6368,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Precipitation and solubility
     setup: Order the procedure.
-    scene: Precipitation turns dissolved ions into a solid when solution conditions make the solid less soluble. Temperature, acidity, concentration, mixing, and competing ions affect how completely and cleanly the material precipitates. The bomb program uses controlled precipitation to separate and purify materials, but must avoid trapping impurities inside the growing solid.
+    scene: >-
+      Seaborg is precipitating a batch and the yield and the purity are not telling the same
+      story. He wants the procedure fixed in writing before the next one goes in. There is
+      not enough of this material to redo a batch.
     guide: >-
       All four steps happen, so ask what each one leaves for the next. A solid
       cannot be separated before it has grown. And a yield measured before washing
@@ -6197,7 +6409,10 @@ lessons:
     task: Estimate the fraction extracted in one stage.
     title: Solvent extraction
     setup: A solute has distribution ratio D=4 between organic and aqueous phases, with equal phase volumes.
-    scene: Solvent extraction moves a dissolved species between two liquids that do not mix, such as an aqueous phase and an organic phase. Chemical conditions determine which phase the desired species prefers. Los Alamos uses repeated extraction stages to purify materials, so chemists must balance recovery against contamination carried along with the product.
+    scene: >-
+      Seaborg has a solute that favours the organic phase four to one over the aqueous, with
+      the two phase volumes equal. Before the stage count is fixed he wants to know what a
+      single pass actually recovers.
     guide: >-
       Four numbers, in two pairs, and only one of each belongs here. Ask of each
       whether it is a distribution ratio or a phase-volume ratio. Both are ratios,
@@ -6243,7 +6458,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Ion exchange
     setup: Order the column workflow.
-    scene: Ion exchange uses a solid resin whose charged sites selectively hold ions from a solution. Changing acidity or chemical composition can wash unwanted species away and later release the target. The method is valuable for separating small amounts of nuclear material, but resin capacity and incomplete washing can reduce yield or purity.
+    scene: >-
+      A column run has lost part of the target and nobody can say at which step. Seaborg
+      wants the resin work written down as a standing procedure before the next small batch
+      goes onto it. There is not enough to lose twice.
     guide: >-
       All four steps happen, so ask what each one needs to be true first. A resin in
       the wrong chemical form has no selectivity to offer. Loading past capacity
@@ -6281,7 +6499,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Contamination control
     setup: Order the response.
-    scene: Radioactive contamination can spread invisibly through dust, liquids, tools, clothing, and airflow. The first task is to stop movement, survey where the material went, and contain it before cleanup. In the bomb program, contamination control protects workers and prevents small traces from corrupting precision measurements or material accounts.
+    scene: >-
+      Lilli Hornig, the chemist casting the metal, has a survey meter reading activity
+      outside the line in a room where people are still working. She wants the response
+      settled as a written procedure, not argued about in the middle of one.
     guide: >-
       All four steps happen, so ask which one stops things getting worse. Spreading
       continues while anybody is still moving through the area. And nothing can be
@@ -6319,7 +6540,10 @@ lessons:
     task: Match each information need or situation to the best action, instrument, or control. Each option is used once.
     title: Gloveboxes and atmospheres
     setup: Match each risk to the appropriate feature.
-    scene: A glovebox is a sealed workspace that lets operators handle hazardous material through fixed gloves while controlling air pressure and atmosphere. Negative pressure keeps contamination from escaping, while an inert gas can keep reactive material away from oxygen or moisture. Los Alamos needs both kinds of control for materials that are radioactive, chemically reactive, or scarce.
+    scene: >-
+      Hornig is fitting out a new glovebox line for material that is radioactive and also
+      reacts with damp air. Every feature on the drawing has to answer to one of those
+      problems, and the shop wants the list by Friday.
     guide: >-
       Four aims and four features. Pair them by asking what each feature actually
       controls. Which way a leak goes? What the atmosphere contains? How things
@@ -6366,7 +6590,10 @@ lessons:
     task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Corrosion and compatibility
     setup: A new process fluid contacts several metals and seals.
-    scene: Corrosion is a chemical or electrochemical reaction that changes a material at its surface. A metal may attack another metal, react with moisture, or form brittle products that weaken an interface. Because bomb components must fit and remain reliable during storage and transport, Los Alamos needs compatibility tests for every material combination and environment.
+    scene: >-
+      Norris Bradbury, who is assembling the Trinity test, has a new process fluid that will
+      sit against several metals and seals through storage and transport. A hundred research
+      credits are on the table and three proposals want them.
     guide: >-
       Corrosion at an interface can be fast and obvious, or slow and assisted by
       stress, and only the second kind survives a short test. Short coupon tests
@@ -6419,7 +6646,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Allotropy and polymorphism
     setup: Order a generic transformation analysis.
-    scene: Allotropy or polymorphism means one material can adopt different crystal structures. A transformation between structures may change density, volume, and mechanical behavior even though the chemical composition stays the same. This is critical for plutonium metallurgy because temperature history can alter the shape and properties of a component intended for precise assembly.
+    scene: >-
+      Hornig has two components cast from the same metal that came out different sizes, and
+      the composition sheets for both are identical. Nothing can be fitted until somebody
+      can account for the difference, and neither part was tracked closely.
     guide: >-
       All four steps happen, and the composition never changes. Ask of each card
       what has to be known first. A boundary crossed means nothing until you know
@@ -6457,7 +6687,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Solidification and casting
     setup: Order the causal chain.
-    scene: During casting, solidification begins at cool surfaces and advances inward. Grain growth, shrinkage, trapped gas, and uneven cooling can create voids or distorted regions. Los Alamos must connect casting conditions to internal defects because an apparently smooth component can contain hidden flaws that affect machining or implosion symmetry.
+    scene: >-
+      A casting has come out of the mould and Hornig will not sign for it until she has the
+      cooling record. The programme cannot spare the metal to cut one open every time
+      somebody wonders what happened inside.
     guide: >-
       These four are a history rather than a list. Ask of each card what has to have
       happened before it. Solute cannot redistribute before grains start growing.
@@ -6495,7 +6728,10 @@ lessons:
     task: Estimate the density.
     title: Density measurement
     setup: A sample has mass 250 g and measured volume 20 cm^3.
-    scene: Density is mass divided by volume, but measuring either quantity becomes difficult for small, irregular, reactive, or radioactive samples. A density change can signal porosity, phase transformation, or composition differences. For an implosion weapon, density matters because it affects both neutron behavior and how the material responded to compression.
+    scene: >-
+      A sample has come across to Hornig with a mass of 250 grams and a measured volume of
+      20 cubic centimetres. Before anything else is done to it, she wants to know whether
+      the metal is what the label says.
     guide: >-
       Four numbers, in two pairs, and each pair differs by a factor of ten. Ask of
       each whether it is a mass or a volume. Then check which pair goes together.
@@ -6541,7 +6777,10 @@ lessons:
     task: Estimate the length change in millimetres.
     title: Thermal properties
     setup: A 100 mm component has expansion coefficient 15 x 10^-6 per kelvin and warms by 100 K.
-    scene: Thermal expansion, heat capacity, and thermal conductivity describe how a material changes size, stores heat, and spreads temperature. Temperature differences during fabrication or storage can create stress and misalignment. Los Alamos engineers need these properties to keep precisely fitted components within tolerance and to predict how materials behaved during rapid heating.
+    scene: >-
+      A hundred-millimetre component has to hold its fit through a hundred-kelvin swing
+      between the shop and the assembly bay. Bradbury wants the number before the tolerance
+      is written, because parts are measured cold and used warm.
     guide: >-
       Four numbers, and two of them are temperature changes ten times apart. Ask of
       each which one this part saw. And watch the units: the coefficient is per
@@ -6587,7 +6826,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Crystal defects
     setup: Order a generic strengthening chain.
-    scene: Crystals contain defects such as dislocations, vacancies, and grain boundaries. Processing changes how easily those defects move, which changes strength and ductility. Los Alamos uses mechanical tests and microscope work to connect heat treatment and fabrication history to the reliability of nuclear and high-explosive components.
+    scene: >-
+      Two batches of the same alloy came off the bench with different strengths, and Hornig
+      has the microscope work in front of her. The shop wants to know which part of the
+      fabrication history it is allowed to change.
     guide: >-
       These four are one chain from processing to a measured property. Ask of each
       card what has to change before it. Dislocations move more or less easily
@@ -6625,7 +6867,10 @@ lessons:
     task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Heat treatment
     setup: A material shows inconsistent hardness after fabrication.
-    scene: Heat treatment changes a material’s microscopic structure by controlling temperature and time, then cooling at a chosen rate. The same composition can become harder, softer, stronger, or more brittle depending on that history. The bomb program needs controlled coupons and records rather than arbitrary heating because reproducible properties are essential for assembly and shock response.
+    scene: >-
+      Hornig has material coming off fabrication with hardness that will not repeat from one
+      batch to the next. A hundred research credits are on the table, and three proposals
+      disagree about what a heat treatment even is.
     guide: >-
       One composition can end up harder, softer or more brittle depending on its
       thermal history. The record of that history is therefore part of the result.
@@ -6678,7 +6923,10 @@ lessons:
     task: Match each information need or situation to the best action, instrument, or control. Each option is used once.
     title: Machining and surface integrity
     setup: Match each machining risk to a control.
-    scene: Machining creates the final dimensions and surface of a component, but cutting forces, heat, tool wear, coolant, and burrs can damage the material. A part can meet a simple diameter measurement while still carrying surface cracks or contamination. Los Alamos therefore treats machining as a controlled materials process, not merely shaping metal.
+    scene: >-
+      David Greenglass, the machinist cutting these parts, has a run where every diameter
+      measures correct and two components still came back rejected. He wants the controls
+      agreed before the next lot goes on the lathe.
     guide: >-
       Four problems and four controls. Pair them by asking what each problem
       damages: the dimensions, the surface beneath them, the chemistry, or the fit.
@@ -6726,7 +6974,10 @@ lessons:
     task: Match each information need or situation to the best action, instrument, or control. Each option is used once.
     title: Nondestructive evaluation
     setup: Match each defect to a likely method.
-    scene: Nondestructive evaluation looks for flaws without cutting apart the finished component. Surface inspection, dye penetrant, ultrasound, radiography, and eddy currents reveal different kinds and depths of defects. Since bomb components are scarce and often cannot be sacrificed for testing, the program needs multiple inspection methods matched to the flaw being sought.
+    scene: >-
+      Bradbury has four finished components and four different worries about them, and not
+      one of the four can be cut apart to settle the question. The inspection bay wants to
+      know what to book time for.
     guide: >-
       Four flaws and four methods. Pair them by asking where the flaw is and what
       the material allows. Does it reach the surface? Is it deep in the bulk? Just
@@ -6773,7 +7024,10 @@ lessons:
     task: Estimate the unaccounted amount.
     title: Assay and inventory
     setup: A process begins with 100.0 units of material and reports 97.5 units in product plus 1.5 units in measured waste.
-    scene: Assay measures how much nuclear material is present, while inventory records where it is and who is responsible for it. Measurements have uncertainty, and transfers must preserve identity. Los Alamos needs assay and inventory together because losing track of material is both a scientific problem and a severe safety and security failure.
+    scene: >-
+      A run started with 100 units, shipped 97.5 as product, and measured 1.5 in waste.
+      Seaborg has to write the inventory line before the material moves on, and a
+      discrepancy here is a security matter as well as a scientific one.
     guide: >-
       Four numbers, and two of them are waste figures ten times apart. Ask of each
       which one this run produced. And note what the answer is. It is what the
@@ -6819,7 +7073,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Sample preparation and self-absorption
     setup: Order the workflow.
-    scene: A thick radioactive sample can absorb some of its own emitted particles before they reach the detector, a problem called self-absorption. Sample thickness, uniformity, and geometry therefore change the measured count. The bomb program needs standardized preparation, blanks, and reference standards so analytical results reflect composition rather than sample shape.
+    scene: >-
+      Two aliquots of one batch have come back from the counters with different answers, and
+      Seaborg suspects the preparation rather than the material. He wants the bench routine
+      written down before another analysis is argued over.
     guide: >-
       All four steps happen, so ask what each one has to be decided against. Sample
       form follows from the measurement rather than the other way round. And a
@@ -6857,7 +7114,10 @@ lessons:
     task: Match each information need or situation to the best action, instrument, or control. Each option is used once.
     title: Chemical process safety
     setup: Match each hazard to a primary control.
-    scene: Chemical processes can release heat, generate gas, build pressure, or combine incompatible materials. Small-scale compatibility tests, controlled addition, ventilation, and emergency shutdowns reveal and limit those hazards. Los Alamos must develop processes quickly without allowing schedule pressure to replace basic chemical safety.
+    scene: >-
+      Kistiakowsky has a new process being scaled up faster than anybody would like. Four
+      things about it could go wrong in a room with people in it, and he wants a control
+      named against each before it runs.
     guide: >-
       Four hazards and four controls. Pair them by asking what each control bounds.
       The rate of energy release? Where pressure can go? How much is at risk? Or
@@ -6904,7 +7164,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Waste and environmental control
     setup: Order the responsible workflow.
-    scene: Radioactive and chemical wastes remain hazardous after the useful material has been removed. Different wastes may react with one another or require different containment, treatment, and records. The bomb program’s environmental legacy begins with these routine choices about segregation, storage, and disposal, not only with the final weapon.
+    scene: >-
+      The drums behind the chemistry building have been filling faster than anybody planned,
+      and the site has no agreed routine for them. Seaborg wants the handling settled before
+      somebody improvises it on a night shift.
     guide: >-
       All four steps happen, so ask what each one needs known first. Nothing can be
       segregated by category before the categories are established. And nothing can
@@ -6942,7 +7205,10 @@ lessons:
     task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Batch variability
     setup: 3 interventions compete for 100 credits.
-    scene: Two batches produced by the same written process can differ because temperature, composition, mixing, timing, or equipment drifts. Final inspection may find the difference but does not reveal its cause. Los Alamos needs process measurements and designed experiments to learn which variables controlled material properties and to make production reproducible.
+    scene: >-
+      Two batches made to the same written process have come out different, and nobody on
+      the floor can point to what changed. Bradbury has a hundred research credits and three
+      proposals that would spend them very differently.
     guide: >-
       Two batches made to one written process differ because something drifted, and
       final inspection sees the difference without seeing the cause. Measuring
@@ -6997,7 +7263,10 @@ lessons:
     task: Match each information need or situation to the best action, instrument, or control. Each option is used once.
     title: Chain of custody and records
     setup: Match each record problem to the corrective action.
-    scene: Chain of custody records who handled a sample or component, when it moved, and whether its identity remained secure. Technical records connect that identity to processing, inspection, and test results. Los Alamos needs this traceability because a perfect measurement is useless if no one can prove which part or batch it describes.
+    scene: >-
+      Four results have arrived at Bradbury's desk and each one has a gap in its record: a
+      label, a calibration version, a signature, a revision date. He wants a corrective
+      action written against each before the dossier closes.
     guide: >-
       Four failures and four responses. Pair them by asking what has been lost: the
       identity, the configuration, the approval, or the version. A number without
@@ -7044,7 +7313,10 @@ lessons:
     task: Match each situation to the best action, control, document, or interpretation. Each option is used once.
     title: Translate Fat Man into engineering requirements
     setup: Match each Fat Man program question to the requirement category it belongs to.
-    scene: "A physical idea becomes an engineering program only after it is translated into requirements: what must fit, what must happen in sequence, what must remain safe, and what evidence will count as success. For Fat Man, the implosion assembly, firing system, casing, aircraft, and field procedures all must agree at their interfaces. The team must connect each broad need to a concrete requirement that can be inspected or tested."
+    scene: >-
+      Deak Parsons, who runs the Ordnance division, has the implosion assembly, the firing
+      system, the casing, the aircraft and the field procedures on one list. Each is written
+      as a broad need, and none of them yet says what would count as met.
     guide: >-
       Four situations and four kinds of requirement. Pair them by asking who has to
       agree with whom. The aircraft and the device? Two subsystems at a boundary?
@@ -7091,7 +7363,10 @@ lessons:
     task: Estimate how far the centre of mass sits from the light module.
     title: Packaging and center of gravity
     setup: An inert mockup has a 100 kg module and a 300 kg module separated by 1.5 m along a reference axis. This is not a Fat Man dimension set.
-    scene: Fat Man is not only a nuclear assembly; it is a large object that must fit inside a modified B-29, remain balanced, and separate safely from the aircraft. Center of gravity describes where the object’s weight effectively acts, and a shift can change flight or release behavior. Engineers use inert shapes and weight distributions to study packaging without exposing nuclear components.
+    scene: >-
+      The shop has an inert mockup on the trestle, a 100 kg module and a 300 kg module set
+      1.5 m apart along the reference axis. Greenglass, the machinist who built it, needs
+      the balance point marked before the suspension crew arrives.
     guide: >-
       Four numbers, and one of them is the light module, which the relationship does
       not use directly. Ask of each what the balance depends on. The centre of mass
@@ -7138,7 +7413,11 @@ lessons:
     task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Integrate Fat Man with the Silverplate B-29
     setup: The air-integration team can fund only the most decision-relevant work this month.
-    scene: The Silverplate B-29 is modified to carry and release the unusually shaped Fat Man weapon. Aircraft structure, bomb-bay clearances, electrical connections, crew procedures, and flight performance all become part of the weapon system. A design that works on a laboratory stand will still fail as a weapon if it cannot be loaded, carried, armed, and released reliably from the aircraft.
+    scene: >-
+      The Silverplate B-29 has been modified to carry and release an unusually shaped
+      weapon. Bomb-bay clearance, electrical connections, crew procedures and flight
+      performance are all now part of it. Parsons, who runs Ordnance, has three funding
+      requests and one month.
     guide: >-
       The failures at issue are at the boundary between two systems: bay clearance,
       electrical connections, loads, vibration, separation. An inert full-scale
@@ -7192,7 +7471,11 @@ lessons:
     task: Estimate the fall time ignoring drag.
     title: Drop time and the pumpkin-bomb test program
     setup: Use a deliberately simplified vacuum calculation for an inert training shape; real trajectories require drag and full flight testing.
-    scene: Before using a live weapon, crews dropped inert ‘pumpkin bombs’ with a similar external shape and weight to Fat Man. These tests measure release behavior, fall time, aircraft handling, and bombing procedures without a nuclear core. The program needs estimates from rough flight conditions because the weapon’s fuzing and crew timing depends on how long it will fall after release.
+    scene: >-
+      Crews are dropping inert pumpkin bombs with Fat Man's external shape and weight, to
+      measure release behavior, aircraft handling and bombing procedure. Groves, the
+      commanding general, wants a figure for how long the shape falls from 8,000 m before
+      the next series is flown.
     guide: >-
       Four numbers, and two of them are altitudes ten times apart. Ask of each which
       one the aircraft flew at. And note what the answer is worth. It ignores the
@@ -7240,7 +7523,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: The Fat Man firing chain
     setup: Order the high-level firing-chain logic used in a safety-critical ordnance system.
-    scene: The Fat Man firing chain carries an authorized command through power, switching, timing, and many output channels. Each link must remain disabled during handling but work reliably after release. Engineers treat the chain as a sequence because an error in order—power too early, a missing permissive, or a late pulse—can make the weapon unsafe or ineffective.
+    scene: >-
+      The firing chain carries an authorized command through power, switching, timing and
+      many output channels, and every link has to stay dead during handling. Parsons, who
+      runs Ordnance, wants the stages written down in order before anybody builds to them.
     guide: >-
       All four stages exist, so ask what each one has to be separated from. A stored
       device has to be inhibited, which is a different state from an armed one.
@@ -7278,7 +7564,10 @@ lessons:
     task: Match each situation to the best action, control, document, or interpretation. Each option is used once.
     title: Arming, fuzing, and safety interlocks
     setup: Match each scenario to the most relevant ordnance control.
-    scene: Arming and fuzing are different jobs. Arming changes the system from a safe state toward readiness, while fuzing decides when conditions such as release, time, or altitude permit firing. Interlocks require independent conditions to agree before a dangerous command can pass. Fat Man needs these layers so normal transport or a single fault cannot accidentally initiate the firing chain.
+    scene: >-
+      Transport is next week and the safe-state rules are still being argued in the
+      corridor. Bradbury, who is assembling the Trinity device, wants one sheet saying which
+      safeguard applies where, before a rehearsal is run against it.
     guide: >-
       Four situations and four controls, and they solve different parts of one
       problem. Pair them by asking when each control acts: during handling, after
@@ -7325,7 +7614,10 @@ lessons:
     task: Match each situation to the best action, control, document, or interpretation. Each option is used once.
     title: Explosive-lens segment interfaces
     setup: Match each observed problem to the first engineering response.
-    scene: Fat Man’s explosive system is assembled from many manufactured segments whose surfaces must meet in controlled positions. A gap, reversed piece, missing identity mark, or conflicting drawing can change how the wave crosses an interface. Engineers use configuration records, inspection limits, and quarantine procedures because ‘making it fit’ by an unapproved adjustment can hide a serious symmetry error.
+    scene: >-
+      Segments for the lens assembly are machined in one shop and fitted in another, and the
+      floor has stopped four times this morning. Kistiakowsky, who heads the explosives
+      division, wants a written response to each before the next shift.
     guide: >-
       Four situations and four responses. Ask of each what has become informal: the
       identity, the geometry, the limit, or who is allowed to authorise a change. A
@@ -7372,7 +7664,10 @@ lessons:
     task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Select high-explosive materials for a wave-shaping system
     setup: Choose a safe research portfolio; no formulations or processing recipes are provided.
-    scene: An explosive lens uses materials with different detonation speeds and shaped boundaries to bend an outward detonation wave into a converging one. Engineers must choose materials not only for speed but also for stability, manufacturability, compatibility, and reproducibility. The best theoretical pair will be useless if production cannot hold its properties consistently from segment to segment.
+    scene: >-
+      The lens program has to settle on a pair of explosives, and there are three proposals
+      on the table for how to choose. Lilli Hornig, the chemist working on the castings, has
+      to say which of the three the panel should back.
     guide: >-
       A lens works only if the wave behaviour and the castings both hold from
       segment to segment. Detonation velocity is one property and can be optimised
@@ -7425,7 +7720,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: The X-unit as a pulsed-power subsystem
     setup: Order a conceptual pulsed-power sequence without circuit values or construction details.
-    scene: The X-unit stores electrical energy and releases it as a short, synchronized pulse to the detonators. It must remain safely inhibited during handling, verify its state, and then distribute a closely timed command through many channels. This pulsed-power problem connects ordinary electrical engineering directly to the symmetry of the implosion.
+    scene: >-
+      The X-unit sits on the bench in the electrical shop, and two groups are testing it to
+      different written procedures. Kistiakowsky, whose explosives division owns the unit,
+      wants one order of operations that both will work to.
     guide: >-
       All four functions exist and each is tested separately as well as together.
       Ask of each card what has to be true before it. Energy cannot be stored safely
@@ -7463,7 +7761,10 @@ lessons:
     task: Estimate the largest allowed path mismatch, then state the engineering response.
     title: Cable routing and signal integrity
     setup: An inert test rack must hold 2 signal paths matched to within 2 ns; signal speed in the cable is 2.0 x 10^8 m/s. These are classroom values.
-    scene: A fast electrical pulse can be distorted by cable length, impedance mismatch, poor connections, or electromagnetic interference. If channels receive different pulse shapes or arrival times, detonators may not act together. Fat Man engineers therefore controlled cable routing, connector identity, shielding, and calibration as carefully as the explosive components themselves.
+    scene: >-
+      A test rack is being wired, and its two signal paths have to arrive within two
+      nanoseconds of each other. Signals travel at 2×10⁸ m/s in the cable. Bacher, who heads
+      the physics division, wants something the installers can check with a tape measure.
     guide: >-
       Four numbers, and two of them are signal speeds a factor of two apart. Ask of
       each which cable this is. And note what the answer turns into. A timing
@@ -7511,7 +7812,11 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: V-Site assembly workflow
     setup: Order a historically grounded but non-operational assembly-control workflow.
-    scene: At V-Site, crews must assemble large high-explosive and mechanical components in a controlled sequence. Identity checks, approved tooling, cleanliness, inspections, and independent sign-offs prevent one hidden mistake from being sealed inside the assembly. Fat Man’s complexity makes the assembly procedure part of the engineering design, not an afterthought.
+    scene: >-
+      V-Site takes delivery of high-explosive and mechanical components this week, and the
+      crews there have never assembled them in one place before. Bradbury, who is assembling
+      the Trinity device, wants the workflow written and signed before the first component
+      arrives.
     guide: >-
       All four steps happen, so ask what each one has to be true before it. A
       component of unknown identity cannot be assembled into a controlled
@@ -7550,7 +7855,10 @@ lessons:
     task: Estimate the worst-case stack.
     title: Tooling, jigs, and tolerance stack-up
     setup: Use an invented three-interface fixture; no weapon geometry is represented.
-    scene: A jig holds a part in a repeatable position, and a tolerance is the allowed variation in a dimension. When several parts are assembled, their small variations can add into a tolerance stack-up that produces a large final misalignment. Fat Man engineers need tooling and dimensional analysis to make sure acceptable individual parts still form an acceptable complete assembly.
+    scene: >-
+      A new fixture in the machine shop stacks three independently machined interfaces, each
+      held to plus or minus 0.15 mm. Greenglass, the machinist who cut them, has been asked
+      what the fixture can promise about the finished assembly.
     guide: >-
       Four numbers, in two pairs, and only one of each belongs here. Ask of each
       whether it is a per-interface tolerance or a count of interfaces. And note
@@ -7598,7 +7906,10 @@ lessons:
     task: Match each situation to the best action, control, document, or interpretation. Each option is used once.
     title: Inspection and lot traceability
     setup: Match each record to the question it answers.
-    scene: Inspection records show what is measured, lot travelers trace a component through production, and as-built records identify the exact configuration that is being tested. If a part fails inspection, a nonconformance record documents what happened and who authorized the disposition. This traceability allows Los Alamos to connect a test result to the actual Fat Man hardware rather than to an ideal drawing.
+    scene: >-
+      A test result came back good yesterday and nobody can say which parts were in the
+      unit. Lilli Hornig, the chemist on the lens castings, has four questions of that kind
+      and four kinds of record in the cabinet behind her.
     guide: >-
       Four questions and four records. Pair them by asking what each record follows.
       A part from raw stock? A measurement against a drawing? One particular unit
@@ -7645,7 +7956,10 @@ lessons:
     task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Environmental qualification of Fat Man subsystems
     setup: The qualification team must distribute its next 100 credits.
-    scene: Fat Man subsystems must survive transportation, vibration, temperature changes, humidity, and aircraft operation before they enter service. Environmental qualification exposes hardware to representative conditions and then checks whether performance changes. A component that works only in a quiet laboratory cannot be considered ready for Tinian or a combat mission.
+    scene: >-
+      Subsystems that have only run in a quiet laboratory are due to go by ship, truck and
+      aircraft to Tinian. Groves, the commanding general, wants them declared fit for that
+      journey, and the qualification team has one month of credit to spend.
     guide: >-
       The conditions this hardware has to survive are transport vibration,
       temperature swings, humidity and aircraft operation, and in service they
@@ -7697,9 +8011,9 @@ lessons:
     answerText: "Recommended: 85 to B, 10 to A only after prerequisites, 5 in reserve."
   - group: E
     scene: >-
-      In a series firing chain, every required link has to work for the final
-      command to pass. That means the reliability of the whole chain can be lower
-      than the reliability of any single part in it.
+      The readiness board meets on Friday and wants one reliability figure for the firing
+      chain. Parsons, who runs Ordnance, has four required subsystems in front of him, each
+      rated 0.98 for a single mission, and four separate certificates saying so.
     guide: >-
       Four numbers, in two pairs, and only one of each belongs here. Ask of each
       whether it is a per-link reliability or a number of links. And note what the
@@ -7749,8 +8063,12 @@ lessons:
   - group: E
     task: Match each situation to the best action, control, document, or interpretation. Each option is used once.
     title: Fat Man failure modes and effects analysis
+    concept: "Criticality: mass, geometry, reflectors, moderation"
     setup: Match each notional failure to the first review category.
-    scene: Failure-modes-and-effects analysis begins by imagining how each part can fail, what causes that failure, how it will be detected, and what the system will do next. For Fat Man, failures ranged from a safe abort to an undetected asymmetry. The value of the analysis is not predicting every accident, but forcing the team to connect component faults to system consequences before deployment.
+    scene: >-
+      Four anomalies came out of last night's rehearsal and they are sitting on one sheet in
+      no particular order. The physics division head, Bacher, will not let the next
+      rehearsal be scheduled until each has a disposition.
     guide: >-
       Four anomalies and four dispositions. Pair them by asking what each one
       threatens: safety, the mission function, the evidence, or only the schedule.
@@ -7797,7 +8115,10 @@ lessons:
     task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Common-mode failure in simultaneous initiation
     setup: Choose the most valuable reliability investment.
-    scene: Redundancy does not protect a system when several channels share the same power supply, clock, connector design, or manufacturing defect. That shared vulnerability is a common-mode failure. Since Fat Man relies on many simultaneous initiation channels, engineers must look for one fault capable of making all channels late, weak, or silent together.
+    scene: >-
+      Many initiation channels have to fire together, and at present they share a trigger
+      path, a power supply and a procedure. John von Neumann, the mathematician working on
+      implosion, has three reliability proposals in front of him and a hundred credits.
     guide: >-
       Many channels have to fire together, and at present they share a trigger path,
       a power supply and a procedure. Adding channels on that same path multiplies
@@ -7849,7 +8170,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Configuration control after a design change
     setup: Order the change-control process.
-    scene: After a design change, drawings, parts, procedures, training materials, and test records must all refer to the same revision. Configuration control prevents a team from assembling one version while interpreting evidence from another. As Trinity approached, Los Alamos needs strict change authority because even a sensible local improvement can invalidate earlier qualification work.
+    scene: >-
+      An anomaly found last week has produced a sensible local improvement, and two
+      divisions have already started building to it. With Trinity approaching, Oppenheimer
+      wants the change routed properly rather than adopted a shop at a time.
     guide: >-
       All four steps happen, so ask what each one has to cover. A change reviewed by
       one division misses the interfaces it shares with the others. And a revision
@@ -7887,7 +8211,10 @@ lessons:
     task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: The Jumbo contingency decision
     setup: The Trinity team must decide where to invest as confidence in implosion rises.
-    scene: Jumbo is a massive steel vessel considered as a way to contain scarce plutonium if the Trinity high explosives fail to produce a nuclear explosion. Using it might protect material, but it can interfere with diagnostics and create new hazards. The decision forces engineers to compare uncertain failure risk with the scientific value of an unobstructed full-scale test.
+    scene: >-
+      Jumbo, the steel vessel ordered to hold the plutonium if the high explosives fail, is
+      standing at the Trinity site. Confidence in implosion has moved since it was ordered,
+      and Groves wants the contingency money decided this week.
     guide: >-
       Jumbo would protect scarce plutonium if the high explosives fail, and it
       stands between the device and several of the diagnostics. The evidence for a
@@ -7940,7 +8267,10 @@ lessons:
     task: Match each situation to the best action, control, document, or interpretation. Each option is used once.
     title: Interfaces to Trinity diagnostics
     setup: Match each diagnostic concern to the correct engineering control.
-    scene: Trinity diagnostics need shared timing marks, known viewing directions, calibrated cables, and enough dynamic range to record unexpectedly large or small signals. A measurement without a common time or coordinate reference cannot be compared with the firing sequence or another instrument. Engineers therefore treat diagnostic interfaces as part of the test configuration.
+    scene: >-
+      Four instrument teams have set up at Trinity and each has written its own timing
+      marks, coordinates and ranges. Bacher, who heads the physics division, has four
+      complaints from the recording crews and wants each answered before the next dry run.
     guide: >-
       Four problems and four fixes. Pair them by asking what has become unrelatable:
       the times, the positions, the ranges, or the wiring a calibration belongs to.
@@ -7987,7 +8317,10 @@ lessons:
     task: Match each situation to the best action, control, document, or interpretation. Each option is used once.
     title: Project Alberta and Tinian logistics
     setup: Match each Tinian challenge to the needed Project Alberta capability.
-    scene: Project Alberta moves Fat Man components, records, trained specialists, and Silverplate aircraft support to Tinian. Transport must preserve identity and condition, while final assembly must occur under strict technical and security control far from Los Alamos. The weapon is not truly deployable until the field team can reproduce the approved configuration and diagnose problems on site.
+    scene: >-
+      Components, records, trained specialists and Silverplate support all have to reach
+      Tinian, and the last assembly will happen there rather than here. Parsons, who runs
+      Ordnance, has four requirements from the island to arrange.
     guide: >-
       Four needs and four arrangements. Pair them by asking what each one has to
       survive. A journey? An outside depot? A base with no laboratory behind it? An
@@ -8034,7 +8367,10 @@ lessons:
     task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Final Fat Man engineering readiness review
     setup: The board must decide how to allocate its final review effort.
-    scene: The final engineering review asks whether Fat Man can be assembled, carried, armed, released, and initiated in the exact configuration supported by tests. It combines hardware reliability, records, crew training, aircraft interfaces, and unresolved risks. A successful physics concept is only one part of declaring the complete weapon ready.
+    scene: >-
+      The board has to say whether Fat Man can be assembled, carried, armed, released and
+      initiated in the one configuration the tests support. Groves has given it a fixed
+      date, and three proposals are competing for the review effort.
     guide: >-
       Readiness is a claim about assembly, carriage, arming, release and initiation
       in one configuration, and Trinity tested a device rather than a mission. An
@@ -8086,7 +8422,10 @@ lessons:
     task: Estimate final density divided by initial density.
     title: Spherical compression and density
     setup: This is a generic sphere calculation, not a Fat Man dimension or compression claim.
-    scene: Compressing a sphere increases its density and reduces the distance neutrons travel before finding another nucleus, while the smaller effective leakage helps the chain reaction grow. But compression must occur throughout the volume rather than merely crushing the surface. Implosion scientists therefore study how radius, density, mass conservation, and wave motion fit together.
+    scene: >-
+      John von Neumann, the mathematician working the implosion problem, keeps the study
+      group at the blackboard on a textbook sphere. Its mass is fixed and its radius comes
+      in a little. How much the density moves is what the lens work has to buy.
     guide: >-
       Four numbers, and two of them are radius ratios. Only one describes this
       compression. Ask of each what the relationship needs. Volume goes as the cube
@@ -8134,7 +8473,11 @@ lessons:
     task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Invest in multipoint initiation evidence
     setup: The implosion group has 100 credits for initiation research.
-    scene: Multipoint initiation requires many detonators, cables, and firing channels to act together, but testing every possible failure is impossible. The team must invest in evidence that separates detonator variation from cable delay, firing-unit error, and measurement error. That knowledge determines whether the implosion program is improving the physical system or merely improving one instrument.
+    scene: >-
+      George Kistiakowsky, head of the Explosives Division, has a hundred credits for
+      initiation research and three proposals in front of him. Multipoint initiation asks
+      dozens of detonators, cables and firing channels to act together, and nobody can test
+      every way that fails.
     guide: >-
       Four things spread here: the detonators, the cables, the firing units, and the
       measurement itself. None of the four is presently separated from the others. A
@@ -8187,7 +8530,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Hydrodynamic scaling with inert mock materials
     setup: Order the logic of a useful scaled hydrodynamic experiment.
-    scene: Hydrodynamic tests use inert materials to reproduce the motion of solids and explosives without a nuclear chain reaction. Scaling laws compare dimensions, times, densities, and wave speeds to decide what a smaller or safer test can teach about the full assembly. Los Alamos relies on these repeated mock shots to develop implosion before risking plutonium or a nuclear test.
+    scene: >-
+      Norris Bradbury, who runs the mock shots at the test range, wants the logic of the
+      next one settled before anybody casts a charge. Inert materials stand in for the real
+      assembly, and every shot costs weeks the schedule does not have.
     guide: >-
       All four steps happen, so ask what each one has to be settled before it.
       Materials cannot be chosen before you know which quantities the model has to
@@ -8225,7 +8571,10 @@ lessons:
     task: Match each situation to the best action, control, document, or interpretation. Each option is used once.
     title: Shock impedance at material boundaries
     setup: Match each observation to the best qualitative interpretation.
-    scene: When a shock wave reaches a boundary between materials, part of the wave can reflect and part can transmit with a changed speed and pressure. The outcome depends on shock impedance, which combines material density and response. Fat Man contains many interfaces, so a void, wrong material, or poor contact can create a local disturbance that grows into asymmetric compression.
+    scene: >-
+      Lilli Hornig, a chemist on the lens work, brings four shot records to the interface
+      review. Fat Man has many boundaries between materials, and each record shows the wave
+      doing something different where two of them meet.
     guide: >-
       Four observations and four causes. Pair them by asking what differs across the
       boundary in each case. The density and shock response? The stress each solid
@@ -8272,7 +8621,11 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Density, geometry, and neutron multiplication
     setup: Order the qualitative chain.
-    scene: Neutron multiplication depends on density, geometry, and leakage as well as the amount of fissile material. Implosion is valuable because compression puts nuclei closer together and makes it harder for neutrons to escape before causing another fission. The integration group must connect hydrodynamic measurements of compression to nuclear predictions of how rapidly the chain reaction will grow.
+    scene: >-
+      Hans Bethe, head of the Theoretical Division, wants the hydrodynamic measurements of
+      compression set beside the neutron predictions in one chain. The integration group has
+      both sets of numbers on the table and no agreed account of how the first leads to the
+      second.
     guide: >-
       These four are one chain, and compression changes two things at once. Ask of
       each card what has to happen before it. Leakage paths cannot shorten before
@@ -8310,7 +8663,10 @@ lessons:
     task: Match each situation to the best action, control, document, or interpretation. Each option is used once.
     title: Reflector and tamper functions
     setup: Match each statement to the relevant role.
-    scene: "A surrounding layer can serve several roles at once: scatter some escaping neutrons back inward, add inertia that delays expansion, and transmit the imploding pressure wave. These neutron-reflector and tamper functions cannot be chosen independently because changing the material also changes shock behavior and interfaces. Fat Man design therefore requires a coupled nuclear and hydrodynamic tradeoff."
+    scene: >-
+      James Chadwick, who heads the British Mission, has the tradeoff sheet for the layer
+      that surrounds the core. Four different things are being asked of one shell, and the
+      people arguing for each of them are all in the room.
     guide: >-
       Four functions and four ways one layer serves them. Pair them by asking which
       physics each belongs to: neutron transport, inertia, or the explosive train.
@@ -8357,7 +8713,11 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: The modulated neutron initiator as a timing problem
     setup: Order the conceptual logic; no construction details are given.
-    scene: "A neutron initiator is intended to provide neutrons at a controlled point late in the implosion rather than rely entirely on random background neutrons. The important idea is timing: too early can encourage pre-initiation, while too late will fail to influence the first chain-reaction generations. Los Alamos treats the initiator as one element in the larger synchronization problem."
+    scene: >-
+      Robert Bacher, who runs the Gadget's physics division, will not leave the starting
+      neutrons to whatever the background supplies. The initiator has to fire at a chosen
+      moment inside the implosion, and that moment is now part of the synchronization
+      argument.
     guide: >-
       All four steps happen, and two separate risks live here. Ask of each card
       whether it is about when neutrons should arrive, or about when they might
@@ -8395,7 +8755,11 @@ lessons:
     task: Estimate the probability of at least one event using P approximately lambda when lambda is small.
     title: Pre-initiation probability as a time-window problem
     setup: Invented classroom rates are used and do not represent plutonium or Fat Man.
-    scene: Pre-initiation risk depends on both the neutron background and the length of time the material remains vulnerable during assembly. A faster implosion shortens that time window, reducing the chance that a random neutron begins the reaction too soon. This probability argument explains why measuring plutonium’s spontaneous-neutron rate changes the entire Fat Man program.
+    scene: >-
+      Enrico Fermi, the physicist who built the Chicago pile, sets the classroom version on
+      the board. Random neutrons arrive at a steady rate, and an assembly stays vulnerable
+      for a very short window. The plutonium measurements are what made this the program's
+      argument.
     guide: >-
       Four numbers, and two of them are windows a thousand apart. Ask of each which
       assembly this is. And note what the answer says. For a fixed random rate, the
@@ -8443,7 +8807,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: "RaLa: seeing an implosion with gamma rays"
     setup: Order a safe, conceptual RaLa evidence chain.
-    scene: The RaLa experiments place a strong gamma-ray source inside an imploding mock assembly and measure how much radiation passed through as the material compresses. Greater density absorbs more gamma rays, so changing detector signals reveal the motion indirectly. This gives Los Alamos a way to see inside an opaque implosion and compare different lens designs without a nuclear core.
+    scene: >-
+      Joan Hinton, an experimental physicist on the mesa, is set up outside a mock assembly
+      with a strong gamma-ray source at its center. The implosion is over before anyone can
+      look at it, and the detectors are the only witnesses the shot will have.
     guide: >-
       All four steps happen, so ask what each one needs first. Nothing can be
       recorded before there are detectors placed to record it. And a symmetry
@@ -8481,7 +8848,10 @@ lessons:
     task: Match each situation to the best action, control, document, or interpretation. Each option is used once.
     title: Betatron and high-speed radiography
     setup: Match each radiography problem to its remedy.
-    scene: A betatron produces energetic x-rays that can photograph dense material during a rapid event. High-speed radiography requires a short exposure, precise synchronization, enough penetration, and viewing angles that separate possible shapes. These images help determine whether an implosion stays symmetric rather than relying only on external flashes or fragments.
+    scene: >-
+      Leona Woods, a physicist who builds detectors, has four betatron radiographs pinned up
+      and not one of them settles the question. The machine can photograph through dense
+      material during the shot, but only if everything about the exposure is right.
     guide: >-
       Four problems and four fixes. Pair them by asking which property of the image
       each is about. The time resolution? The range of brightness it can hold? Its
@@ -8528,7 +8898,11 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Hydrodynamic shots with surrogate cores
     setup: Order the test-development loop.
-    scene: Hydrodynamic shots replace the fissile core with surrogate materials chosen to mimic important mass and shock properties. Multiple diagnostics then measure wave arrival, density, and shape. The purpose is to test the mechanical implosion repeatedly so that Trinity’s one nuclear test will not be the first time the full geometry had been examined.
+    scene: >-
+      George Kistiakowsky, who heads the Explosives Division, has another mock shot
+      authorized, with surrogate material standing in for the core. Trinity will be the
+      first time the full geometry goes off for real, and he will not let it be the first
+      look.
     guide: >-
       All four steps happen, so ask what each one has to state before it. A
       surrogate is only interpretable if what it cannot reproduce is written down
@@ -8566,7 +8940,11 @@ lessons:
     task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Control jets and hydrodynamic instabilities
     setup: The group has 100 credits after radiography reveals a narrow high-velocity feature near an interface.
-    scene: A narrow jet of material can form when shocks interact with a void, gap, or surface imperfection, while hydrodynamic instabilities can amplify small ripples during acceleration. Such effects break spherical symmetry and mix materials. Fat Man development therefore requires both smooth manufacturing and experiments that can reveal how small defects grew under implosion.
+    scene: >-
+      Last night's radiographs show a narrow high-velocity feature near an interface. John
+      von Neumann, the mathematician on the implosion problem, wants to know where it came
+      from before anyone changes the design. The group has a hundred credits and three
+      proposals.
     guide: >-
       A narrow feature in the radiograph comes either from a real void, gap or
       surface imperfection, or from the imaging. Controlled defect studies put a
@@ -8618,7 +8996,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Model-test correlation
     setup: Order the correlation workflow.
-    scene: Model-test correlation compares a calculated quantity with a measurement that represents the same physical feature. Agreement in one observable does not guarantee the entire model is correct, while disagreement may come from either physics or diagnostics. Los Alamos needs carefully matched comparisons to use hydrodynamic tests as evidence for the Fat Man design.
+    scene: >-
+      Stanisław Ulam, a mathematician in the implosion group, has a calculated quantity on
+      one sheet and a measurement of the same feature on another. They agree. The question
+      in the room is what that agreement is worth as evidence for Fat Man.
     guide: >-
       All four steps happen, so ask which of them cannot be reordered. A prediction
       made after the data is not a prediction. And a model updated on one set of
@@ -8656,7 +9037,10 @@ lessons:
     task: Match each situation to the best action, control, document, or interpretation. Each option is used once.
     title: The Christy design simplification
     setup: Match each program concern to the benefit sought by simplifying the internal configuration.
-    scene: The Christy design simplifies the internal core geometry into a more nearly solid configuration, reducing interfaces and making calculations and experiments easier to compare. Simplification does not make implosion easy, but it removes sources of uncertainty that are difficult to manufacture and model. This helps the program converge on one configuration for Trinity and Fat Man.
+    scene: >-
+      Hans Bethe, head of the Theoretical Division, has the simplified core configuration on
+      the table and wants the program to say plainly what it buys. Four divisions want
+      different things from it, and only one arrangement can be carried into Trinity.
     guide: >-
       Four problems and four things the simplification buys. Pair them by asking who
       each one helps: the machinists, the theorists, the test programme, or the
@@ -8703,7 +9087,11 @@ lessons:
     task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Freeze the implosion architecture
     setup: The laboratory has 100 credits and only months before Trinity.
-    scene: Freezing the implosion architecture means selecting one controlled arrangement of lenses, initiation, core geometry, surrounding layers, and interfaces for final qualification. Without a baseline, each successful test might describe a different system. The freeze allows Trinity evidence to support the actual Fat Man configuration rather than a moving target.
+    scene: >-
+      Oppenheimer, the laboratory director, has months before Trinity and a hundred credits
+      left. Lenses, initiation, core geometry, surrounding layers and interfaces are all
+      still being changed by the people who own them. No two successful tests describe quite
+      the same system.
     guide: >-
       Trinity can only test the configuration that is actually frozen. Every week
       without a baseline is a week of tests describing slightly different systems.
@@ -8755,7 +9143,10 @@ lessons:
     task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Design the Trinity diagnostic portfolio
     setup: The test director has 100 diagnostic credits.
-    scene: Because no instrument is guaranteed to survive or stay within range at Trinity, the diagnostic plan uses several independent methods for timing, radiation, blast, photography, and energy release. Redundancy across different physical principles makes the result interpretable even if one channel fails. The team must choose breadth of evidence over dependence on one expected ‘best’ measurement.
+    scene: >-
+      Robert Bacher, head of the Gadget physics division, has a hundred diagnostic credits
+      and one shot to spend them on. No instrument at Trinity is guaranteed to survive the
+      event or stay inside its range, and three plans are competing for the money.
     guide: >-
       No instrument at Trinity is guaranteed to survive the event or to stay inside
       its range. Methods resting on different physical principles fail for different
@@ -8807,7 +9198,11 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Trinity countdown and decision gates
     setup: Order the final decision chain.
-    scene: A countdown is a series of decision gates, not simply a clock reaching zero. Weather, evacuation, communications, diagnostic readiness, configuration, and firing-system status each had a hold point and responsible authority. Trinity can produce useful evidence only if schedule pressure does not override an unresolved condition.
+    scene: >-
+      General Leslie Groves wants the shot fired on the date he has given Washington.
+      Weather, evacuation, communications, diagnostics, configuration and the firing system
+      each have a hold point on the countdown, and each hold point has somebody whose call
+      it is.
     guide: >-
       All four stages happen, and the countdown exists to stop schedule pressure
       overriding an unresolved condition. Ask of each card what it holds open. A
@@ -8845,7 +9240,10 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: From the Gadget to Fat Man
     setup: Order the transition.
-    scene: The Trinity Gadget demonstrates the central implosion principle, but Fat Man also needs a casing, aircraft interfaces, fuzing, safety systems, field assembly, and controlled records. Moving from test device to weapon means preserving the validated core design while qualifying everything required for delivery. The transition joins Los Alamos science with Project Alberta engineering and logistics.
+    scene: >-
+      William Parsons, the naval ordnance officer on the delivery side, has a device that
+      works on a tower and an aircraft to carry the next one. Casing, fuzing, safety, field
+      assembly and the records are all still open.
     guide: >-
       All four steps happen, and the two devices share a principle rather than a
       configuration. Ask of each card what has to be settled first. Nothing can be
@@ -8883,7 +9281,10 @@ lessons:
     task: Match each situation to the best action, control, document, or interpretation. Each option is used once.
     title: Radiation, blast, and fallout consequences
     setup: Match each consequence to its primary physical origin.
-    scene: "A nuclear explosion releases energy through several channels: a pressure wave from rapidly expanding hot material, intense thermal radiation, prompt neutrons and gamma rays, and later radiation from fission products and activated material. Understanding these channels is essential not only for predicting weapon effects but also for recognizing the human and environmental consequences of Fat Man."
+    scene: >-
+      Elizabeth Graves, a physicist on critical assemblies, brings in the post-shot survey
+      readings from beyond the site. What Trinity did to the ground, the air and the people
+      downwind now has to be written up as carefully as the yield was.
     guide: >-
       Four channels and four behaviours. Pair them by asking how fast each one
       travels and how far it reaches. Light arrives first and is stopped by anything
@@ -8930,7 +9331,10 @@ lessons:
     task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.
     title: Final Fat Man implosion synthesis
     setup: The final review has 100 curriculum credits to preserve the most important lessons.
-    scene: Fat Man brings together plutonium measurements, rapid compression, explosive lenses, synchronized initiation, neutron multiplication, diagnostics, aircraft engineering, and field operations. Its history cannot be understood as one clever device; it is a tightly linked scientific and institutional system. A final synthesis must connect how the bomb works with how it is tested, deployed, and used.
+    scene: >-
+      The final review has a hundred credits and one page to say what Fat Man was.
+      Oppenheimer, the laboratory director, will not let the record become a story about a
+      clever device. The people who built it disagree about what belongs in it.
     guide: >-
       The three chains on the board are not alternatives to one another. The weapon
       existed because all three held at once. The physics chain is what a
@@ -8980,6 +9384,213 @@ lessons:
       B: 35
       C: 30
     answerText: "Recommended: about 35 to A, 35 to B, and 30 to C; nearby balanced allocations are acceptable if the learner explicitly connects the 3 chains."
+  - group: T
+    task: The two labels on the crate give different counts for the same nucleus. What does the disagreement mean?
+    title: The nucleus as a physical system — Review
+    concept: "Nuclear structure: protons, neutrons, isotopes, nuclide notation"
+    setup: A crate arrives labelled twice, and the stockroom cannot book it in until the two labels are reconciled.
+    scene: >-
+      A crate reaches the stockroom with a label on each end, and the two do not describe
+      the same nucleus. One counts 92 protons and 146 neutrons. The other reads uranium
+      235. Hans Bethe, who heads the Theoretical Division, wants it settled before the
+      material is booked in.
+    guide: >-
+      One label counts particles and the other is a nuclide name, so put them in the
+      same currency before comparing. A mass number is protons and neutrons added
+      together. The element is fixed by the proton count alone, and that part is not in
+      dispute here. What is in dispute is what the nucleus weighs.
+    background:
+      - >-
+          Why the wrong options are the interesting ones. Each distractor is written to
+          be the answer under one specific misreading — a step skipped, a quantity
+          confused with a rate, a correlation taken for a cause. Identifying which
+          misreading each belongs to is where the learning is; the right answer alone
+          can be reached on instinct and teach nothing.
+      - >-
+          Why the shape of an option tells you nothing. A correct answer collects the
+          qualifying clause and the unit. So across a whole game the key used to be the
+          longest option far more often than chance — 88 per cent of passage quizzes
+          here, before it was fixed. It is now checked per game as a binomial tail, so
+          length, hedging and specificity have had the signal taken out of them
+          deliberately.
+      - >-
+          What the verdict adds. Every wrong option carries its own rebuttal, and the
+          verdict prints them — the reason that option fails, not a restatement of the
+          right one. They are worth reading after a correct answer as well: a right
+          choice made for an approximate reason is indistinguishable from a sound one
+          until the day the approximation is what is being tested.
+    assumes:
+      - an atom has a nucleus of protons and neutrons, with electrons around it
+    takeaway: Chemical identity and nuclear identity are separate facts, and a label stating only one of them is incomplete.
+    format: CHOICE
+    why: A nuclide symbol carries two facts and they are not interchangeable. The element name is the proton count, and that alone settles the chemistry. The mass number is protons and neutrons together. So 92 protons with 146 neutrons is mass 238, and the crate is uranium 238 by one label and uranium 235 by the other. Same element, same behaviour in a beaker, a different nucleus and a very different cross section. No chemical assay on this mesa would tell the two apart.
+    rebuttals:
+      - A neutral uranium atom always carries 92 electrons, but nothing fixes how many neutrons sit in the nucleus. That freedom is what isotopes are.
+      - Neutrons carry no charge, so adding them changes the mass and leaves the element exactly where it was.
+      - Both labels describe one nucleus, one by counting its parts and one by naming it, so they are directly comparable.
+    choices:
+      - Two nuclides of the same element, because 92 protons with 146 neutrons is mass 238 rather than 235.
+      - One nuclide written two ways, because a neutral atom of an element has a fixed neutron count.
+      - Two different elements, because adding neutrons moves a nucleus along the periodic table.
+      - Nothing comparable, because one label counts particles and the other reports a chemical weight.
+    answer: Two nuclides of the same element, because 92 protons with 146 neutrons is mass 238 rather than 235.
+    answerText: Two nuclides of the same element, because 92 protons with 146 neutrons is mass 238 rather than 235.
+  - group: CM
+    task: Match each information need or situation to the best action, instrument, or control. Each option is used once.
+    title: Isotopes and chemical identity — Review
+    concept: "Nuclear structure: protons, neutrons, isotopes, nuclide notation"
+    setup: Four stockroom questions about one delivery, each answered by a different property.
+    scene: >-
+      Lilli Hornig, the chemist working on lenses and plutonium, has four questions from the
+      stockroom on one sheet. Each turns on the same thing. Does the property being asked
+      about belong to the electrons of the delivered material, or to its nucleus?
+    guide: >-
+      Four questions and four places to look. Ask of each whether the property lives in the
+      electron shells or in the nucleus. Bonding and dissolving are electrons, and a few
+      extra neutrons barely disturb them. What an arriving neutron does is nuclear. And a
+      physical separation has only the mass to work with.
+    background:
+      - >-
+          Why this is a matching board and not four separate questions. Responses on
+          boards like this are written to be plausible for more than one situation, so
+          choosing them one at a time lets a nearly-right answer through unexamined.
+          Having to place all of them forces the comparison — not "is this reasonable
+          here", but "is it more right here than there".
+      - >-
+          How to use the one-each rule. Because the responses are a set to be
+          distributed rather than a list to be sampled, every join you make constrains
+          the rest. Settling the two you are confident of can leave the remaining pair
+          decided by elimination. Where it does not, two responses are still competing
+          for one situation, and that is exactly the distinction the stop is testing.
+      - >-
+          Why you cannot be wrong about exactly one. With every response used once,
+          three correct joins leave the fourth with only one place to go. Any error
+          therefore involves at least two joins. That is worth remembering when the last
+          pair looks forced: the fault is usually not in the join you are struggling
+          with, but in one you made early and stopped questioning.
+    assumes:
+      - chemical bonding is a property of the electrons
+    takeaway: Which method can see a difference depends on where in the atom that difference lives.
+    format: PROTOCOL
+    why: Chemical behaviour is decided by the electron shells, and the electron count follows from the proton count alone. Two isotopes therefore carry the same shells, dissolve in the same acid, and behave alike in every reaction, which is why no chemical assay separates them. What an arriving neutron does is decided in the nucleus, and there the two are not alike at all. The one handle left is mass, and every separation plant built for this project works on nothing else.
+    columns:
+      - What the stockroom is asking
+      - Where the answer lives
+    scenarios:
+      - Whether two deliveries will dissolve in the same acid
+      - Whether one delivery will fission on slow neutrons and the other will not
+      - Whether a chemical assay can tell the two deliveries apart
+      - Whether the two can be separated at all
+    choices:
+      - The electron shells, which the extra neutrons barely disturb.
+      - The nucleus, which decides what an arriving neutron does.
+      - Neither one, because the chemistry is identical and the assay is blind to it.
+      - The mass difference, which is the only handle a physical method has.
+    mapping: [0, 1, 2, 3]
+    answerText: Whether two deliveries will dissolve in the same acid -> The electron shells, which the extra neutrons barely disturb; Whether one delivery will fission on slow neutrons and the other will not -> The nucleus, which decides what an arriving neutron does; Whether a chemical assay can tell the two deliveries apart -> Neither one, because the chemistry is identical and the assay is blind to it; Whether the two can be separated at all -> The mass difference, which is the only handle a physical method has
+  - group: P
+    task: Arrange the four cards from earliest cause or prerequisite to latest result.
+    title: Ionization and detector signals — Review
+    concept: "Detectors: ionisation, count rate, efficiency, dead time"
+    setup: Order the steps that turn a raw overnight count into a quoted source activity.
+    scene: >-
+      Leona Woods, who builds the counters here, has a tape of raw counts from an
+      overnight run and a figure somebody has already quoted from it. She wants the steps
+      between the two written out in order before that figure goes any further.
+    guide: >-
+      These four are one chain, and the number at the end is meant to belong to the source
+      rather than to the counter. Ask of each card what has to exist before it. Nothing
+      can be corrected as a rate until it is a rate. And nothing about the source can be
+      claimed while the instrument is still inside the number.
+    background:
+      - >-
+          Why the order is graded whole. A sequence is a claim about dependency: each
+          step is here because the one before it has already happened, or has to have.
+          One transposed pair falsifies that claim wherever it sits, so partial credit
+          would be credit for a sequence that does not work.
+      - >-
+          Why the ends are the place to start. The first and last cards are constrained
+          by having nothing before or after them, which usually makes them the two you
+          can settle from the scene alone. Pinning them collapses the remaining
+          arrangements sharply, and what is left in the middle is where the actual
+          judgement lives.
+      - >-
+          What the rail can be ordered on. Time is the usual axis, but it is not the
+          only one. An order can run on cost, on risk, or on reversibility — every
+          observation that leaves the sample as it was, before any that consumes it. On
+          those boards a chronological reading finds nothing, because none of the steps
+          has to happen at a particular hour.
+    takesAsRead:
+      - Decay constant, half-life and activity
+    assumes:
+      - a counter records only a fraction of the events that happen
+    takeaway: A reported quantity belongs to the source only once everything belonging to the instrument has been taken back out.
+    format: SEQUENCE
+    why: A counter reports its own events, never the source. The pulses are totalled first, then divided by the live time, because every correction after that is written as a rate. Next the background rate comes out, measured with the source taken away, since the counter answers to cosmic rays and to contamination whether or not anything is on the shelf. Only then does efficiency convert what was detected into what actually decayed. Skip a step and the figure quoted is a property of the apparatus.
+    rebuttals:
+      - Counting the pulses is where it starts. Everything after it is a correction applied to that total.
+      - A total over an unstated interval is not a rate, and every correction that follows is written as a rate.
+      - The background is what the counter reports with the source taken away, so it comes out before anything is claimed.
+      - Efficiency is last because it is the only step that turns a counter reading into a statement about the source.
+    cards:
+      - Count the pulses recorded over the run
+      - Convert the total into a rate per second
+      - Subtract the background rate measured with the source removed
+      - Divide by the detector efficiency to reach decays per second
+    order: [0, 1, 2, 3]
+    answerText: 2 -> 3 -> 4 -> 5 (Count the pulses recorded over the run -> Convert the total into a rate per second -> Subtract the background rate measured with the source removed -> Divide by the detector efficiency to reach decays per second)
+  - group: E
+    task: The two routes end at the same physical condition. Which difference between them should drive the order sheet?
+    title: Two weapon architectures at Los Alamos — Review
+    concept: "Criticality: mass, geometry, reflectors, moderation"
+    setup: Ordnance must choose which difference between the two assembly routes commits the long-lead order.
+    scene: >-
+      William Parsons, who runs the Ordnance Division, has a long-lead order sheet in
+      front of him and a fortnight to sign it. Two assembly routes are still open, and
+      what he signs commits buildings and people to one of them.
+    guide: >-
+      Four differences between the routes, and both routes end at the same physical
+      condition. Ask of each whether it separates them at all. Mass, geometry, reflection
+      and moderation are available to either design. Three of these are therefore
+      describing something both can do, and one is not.
+    background:
+      - >-
+          Why the wrong options are the interesting ones. Each distractor is written to
+          be the answer under one specific misreading — a step skipped, a quantity
+          confused with a rate, a correlation taken for a cause. Identifying which
+          misreading each belongs to is where the learning is; the right answer alone
+          can be reached on instinct and teach nothing.
+      - >-
+          Why the shape of an option tells you nothing. A correct answer collects the
+          qualifying clause and the unit. So across a whole game the key used to be the
+          longest option far more often than chance — 88 per cent of passage quizzes
+          here, before it was fixed. It is now checked per game as a binomial tail, so
+          length, hedging and specificity have had the signal taken out of them
+          deliberately.
+      - >-
+          What the verdict adds. Every wrong option carries its own rebuttal, and the
+          verdict prints them — the reason that option fails, not a restatement of the
+          right one. They are worth reading after a correct answer as well: a right
+          choice made for an approximate reason is indistinguishable from a sound one
+          until the day the approximation is what is being tested.
+    takesAsRead:
+      - Fission, neutron multiplication and chain reactions
+    assumes:
+      - criticality depends on geometry and surroundings as well as on mass
+    takeaway: When two designs reach the same physical condition, the engineering choice is about the path and its timing.
+    format: CHOICE
+    why: Criticality answers to mass, geometry, reflection and moderation together, and both routes are aiming at the same condition. What separates them is the path taken to reach it. One drives two pieces along a line and is limited by how fast a piece can travel. The other squeezes a shell inward, is very much faster, and has never been built. Speed is what the order sheet is really buying, because an assembly only counts if it finishes before a stray neutron arrives.
+    rebuttals:
+      - Mass alone does not settle criticality. Geometry, reflection and moderation move the same mass either side of the boundary.
+      - A reflector lowers the mass needed and either route can carry one, so it does not separate the two paths.
+      - Crew size is a real handling concern, and it is not what the assembly time depends on.
+    choices:
+      - How fast each route can carry the pieces from clearly subcritical to well past critical.
+      - Which route needs the smaller total mass of active material, since mass is the whole of criticality.
+      - Which route uses the thicker reflector, because reflection is what makes the difference.
+      - Which route can be assembled by fewer people, since that lowers the handling risk.
+    answer: How fast each route can carry the pieces from clearly subcritical to well past critical.
+    answerText: How fast each route can carry the pieces from clearly subcritical to well past critical.
 
 # Diagnosis panels shared by several lessons, expanded at load by normalize.js.
 packs:

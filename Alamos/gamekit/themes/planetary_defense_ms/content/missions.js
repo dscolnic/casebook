@@ -159,11 +159,6 @@ export const MISSIONS = [
         "group": "OPS",
         "lesson": 8,
         "task": "Say which measurement would narrow the range of consequences most."
-      },
-      {
-        "group": "ORBIT",
-        "lesson": 3,
-        "task": "Turn the count of paths that hit into a chance anybody can quote."
       }
     ]
   },
@@ -183,11 +178,6 @@ export const MISSIONS = [
         "group": "IMPACT",
         "lesson": 2,
         "task": "Match each item on the board to what it does to the outcome."
-      },
-      {
-        "group": "ORBIT",
-        "lesson": 4,
-        "task": "Lock a predicted range, run the impact, then spend the tracking to find out what happened."
       },
       {
         "group": "IMPACT",
@@ -217,11 +207,30 @@ export const MISSIONS = [
         "group": "OPS",
         "lesson": 11,
         "task": "Set the threshold before the updates arrive, then release the stream."
-      },
+      }
+    ]
+  },
+  {
+    "title": "Did We Move It?",
+    "objective": "Measure the orbit change the impact actually made, and restate the chance from the new paths.",
+    "briefing": "The kinetic impactor has arrived. The player must separate a successful collision from a measured deflection, protect the observing night that measures it, and rebuild impact probability from the new spread of paths.",
+    "stake": "The impactor struck the asteroid this morning, and the control room is still cheering. Marco Rossi, the orbit lead, has one tracking campaign left in the budget. Today you say what push you expected, then spend that campaign to find out what really happened. The telescope has one night, and the object sets in an hour. Get no measurement and nine million people are told a mission worked, on a cheer.",
+    "takeaway": "Use prediction, momentum transfer, tracking, observing priorities, chance from a spread as an evidence chain rather than as isolated facts.",
+    "stops": [
       {
         "group": "OPS",
         "lesson": 12,
         "task": "Observe what the priority asks for."
+      },
+      {
+        "group": "ORBIT",
+        "lesson": 3,
+        "task": "Lock a predicted range, run the impact, then spend the tracking to find out what happened."
+      },
+      {
+        "group": "ORBIT",
+        "lesson": 4,
+        "task": "Turn the count of paths that hit into a chance anybody can quote."
       }
     ]
   },
