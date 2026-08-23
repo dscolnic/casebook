@@ -2,6 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<!-- Export compliance, answered once here instead of on every upload.
+	     App Store Connect asks whether the app uses non-exempt encryption and
+	     holds the build at "Missing Compliance" until somebody clicks through it,
+	     every time. This app's only cryptography is HTTPS to its own server and
+	     to Clerk, which is exempt, so the honest answer is false — and answering
+	     it in the build means the answer travels with the build rather than
+	     depending on somebody remembering.
+	     If real cryptography is ever added — encrypting saved campaigns, a custom
+	     protocol — this line stops being true and has to go. -->
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
   <key>CAPACITOR_DEBUG</key>
 	<string>$(CAPACITOR_DEBUG)</string>
 	<key>CFBundleDevelopmentRegion</key>
