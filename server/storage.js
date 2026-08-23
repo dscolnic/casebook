@@ -309,6 +309,58 @@ async function saveRoom(room) {
 // The row keeps no personal data of the leaver — the campaign blob is the shared
 // game state and the member list is in memory in server/rooms.js, not here — so
 // what survives is a game, not a record of a person.
+// ---------------------------------------------------------------------------
+// Ratings. A finished campaign offers one star rating, and the shelf shows the
+// average of them.
+
+/** Store this account's rating of one game, replacing any earlier one. */
+async function setRating(userId, gameId, stars) {
+  const n = Math.round(Number(stars));
+  // Clamped rather than trusted: the caller is a game running in a browser, and
+  // the check constraint would come back as a 500 that says nothing useful.
+  if (!Number.isFinite(n) || n < 1 || n > 5) {
+    const err = new Error("stars must be a whole number from 1 to 5");
+    err.status = 400;
+    throw err;
+  }
+  await pool.query(
+    `INSERT INTO game_ratings (user_id, game_id, stars, rated_at)
+     VALUES ($1, $2, $3, now())
+     ON CONFLICT (user_id, game_id) DO UPDATE SET stars = EXCLUDED.stars, rated_at = now()`,
+    [userId, String(gameId), n]
+  );
+  return n;
+}
+
+/**
+ * Every game's average and how many people it is an average of, keyed by game
+ * id. One query for the whole shelf: thirty cards asking one at a time is
+ * thirty round trips for a number that is drawn all at once.
+ *
+ * The count travels with the average deliberately. "4.5" off two ratings and
+ * "4.5" off two hundred are the same number and not the same claim, and the
+ * card has room to say which it is.
+ */
+async function ratingSummary() {
+  const { rows } = await pool.query(
+    `SELECT game_id, round(avg(stars)::numeric, 2) AS avg, count(*)::int AS count
+       FROM game_ratings GROUP BY game_id`
+  );
+  const out = {};
+  for (const r of rows) out[r.game_id] = { avg: Number(r.avg), count: r.count };
+  return out;
+}
+
+/** What this account has already said, so the game can show it back. */
+async function ratingsByUser(userId) {
+  const { rows } = await pool.query(
+    `SELECT game_id, stars FROM game_ratings WHERE user_id = $1`, [userId]
+  );
+  const out = {};
+  for (const r of rows) out[r.game_id] = r.stars;
+  return out;
+}
+
 async function deleteUserData(userId) {
   const { rowCount } = await pool.query(`DELETE FROM users WHERE id = $1`, [userId]);
   return rowCount > 0;
@@ -323,14 +375,15 @@ async function countUserData(userId) {
             (SELECT count(*) FROM game_results WHERE user_id = $1) AS results,
             (SELECT count(*) FROM classes      WHERE teacher_id = $1) AS teaching,
             (SELECT count(*) FROM class_members WHERE user_id = $1) AS enrolled,
-            (SELECT count(*) FROM rooms        WHERE owner_id = $1) AS rooms`,
+            (SELECT count(*) FROM rooms        WHERE owner_id = $1) AS rooms,
+            (SELECT count(*) FROM game_ratings WHERE user_id = $1) AS ratings`,
     [userId]
   );
   const r = rows[0] || {};
   return {
     saves: Number(r.saves || 0), results: Number(r.results || 0),
     teaching: Number(r.teaching || 0), enrolled: Number(r.enrolled || 0),
-    rooms: Number(r.rooms || 0),
+    rooms: Number(r.rooms || 0), ratings: Number(r.ratings || 0),
   };
 }
 
@@ -338,5 +391,6 @@ module.exports = {
   upsertUser, upsertUserProfile, getUser, recordResult, getStats, getAvatar, setAvatar,
   getGameSave, putGameSave, deleteGameSave, listGameSaves,
   loadRoom, saveRoom,
+  setRating, ratingSummary, ratingsByUser,
   deleteUserData, countUserData,
 };

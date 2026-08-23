@@ -152,6 +152,9 @@
 
 </div>
 
+<!-- Where the API is and how a request to it authenticates. Absent on a static
+     host, and present in the iOS bundle. See api-base.js. -->
+<script src="/api-base.js"></script>
 <script>
 const form = document.getElementById('f');
 const status = document.getElementById('status');
@@ -195,12 +198,14 @@ form.addEventListener('submit', async (e) => {
 
   let r = null, out = null;
   try{
-    r = await fetch('/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'same-origin',
-      body: JSON.stringify(body),
-    });
+    // Through FPL_API where it exists (api-base.js). Inside the iOS app this
+    // page comes out of the app bundle, so a relative /api/ path resolves into
+    // the bundle, where there is no server — the form would fail on device and
+    // work everywhere it was tested. Absent, this is a plain relative fetch.
+    const post = { method: 'POST', headers: { 'Content-Type': 'application/json' },
+                   body: JSON.stringify(body) };
+    r = window.FPL_API ? await window.FPL_API.fetch('/api/contact', post)
+                       : await fetch('/api/contact', { credentials: 'same-origin', ...post });
     out = await r.json().catch(() => null);
   }catch(err){
     // Offline, or a network filter. Say which, because the remedy is different.

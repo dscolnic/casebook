@@ -381,9 +381,21 @@
 
 </div>
 
+<!-- Where the API is and how a request to it authenticates. Must be
+     evaluated before anything calls it. See api-base.js. -->
+<script src="/api-base.js"></script>
 <script>
 const esc = (s) => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;')
   .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+// Every request goes through FPL_API (api-base.js), which is where the API is
+// and how it authenticates. On the web it is the identity; inside the iOS app
+// the pages come out of the app bundle, so a relative /api/ path resolves into
+// the bundle and there is no server there. Absent — a static host with no
+// api-base.js — this falls back to a plain relative fetch, which is what that
+// deployment wants anyway.
+const apiFetch = (u, o) => (window.FPL_API ? window.FPL_API.fetch(u, o)
+                                           : fetch(u, { credentials: 'same-origin', ...o }));
 
 // A game the player has a campaign in, keyed by theme id. Empty for a signed-out
 // visitor, and empty when there is no API at all.
@@ -431,7 +443,7 @@ const inLevel = (g) => (SHOWN.find(l => l.id === level) ?? SHOWN[0]).has(g);
 
 async function json(url){
   try{
-    const r = await fetch(url, { credentials: 'same-origin' });
+    const r = await apiFetch(url);
     return r.ok ? await r.json() : null;
   }catch(e){ return null; }
 }
@@ -448,7 +460,7 @@ function initialsOf(u, name){
 // ordinary visitor — and it gets the sign-in door instead of nothing.
 async function loadAccount(){
   let r = null;
-  try{ r = await fetch('/api/auth/user', { credentials: 'same-origin' }); }catch(e){}
+  try{ r = await apiFetch('/api/auth/user'); }catch(e){}
   if(r && r.status === 401){
     document.getElementById('signinDoor').hidden = false;
     return;
@@ -671,7 +683,7 @@ function wireDelete(){
     go.textContent = 'Deleting…';
     let ok = false;
     try{
-      const r = await fetch('/api/account', { method: 'DELETE', credentials: 'same-origin' });
+      const r = await apiFetch('/api/account', { method: 'DELETE' });
       ok = r.ok;
       if(!ok){
         const body = await r.json().catch(() => null);

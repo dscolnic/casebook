@@ -195,6 +195,9 @@
 
 </div>
 
+<!-- Where the API is and how a request to it authenticates. Must be
+     evaluated before anything calls it. See api-base.js. -->
+<script src="/api-base.js"></script>
 <script>
 const esc = (s) => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;')
   .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
@@ -210,9 +213,16 @@ let catalogue = {};      // theme id -> { title, days }
 let myId = null;         // the signed-in account, for the one route that needs it
 let timer = null;
 
+// api-base.js decides where the API is and how a request authenticates: the
+// identity on the web, an absolute base plus a Bearer token inside the iOS app,
+// where these pages are loaded from the app bundle and a relative /api/ path
+// resolves into it. Absent (a static host), fall back to a relative fetch.
+const apiFetch = (u, o) => (window.FPL_API ? window.FPL_API.fetch(u, o)
+                                           : fetch(u, { credentials:'same-origin', ...o }));
+
 async function api(url, opts){
   try{
-    const r = await fetch(url, { credentials:'same-origin', ...opts });
+    const r = await apiFetch(url, opts);
     if(r.status === 204) return {};
     const body = r.headers.get('content-type')?.includes('json') ? await r.json() : null;
     if(!r.ok) return { _error: (body && body.message) || `Request failed (${r.status})` };

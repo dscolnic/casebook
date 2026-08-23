@@ -4,15 +4,21 @@
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
-    "test": "node scripts/test-classes.js && node scripts/test-sw.js && node scripts/test-public.js && node scripts/test-app-origin.js && node scripts/test-contact.js && node scripts/test-entitlement.js",
-    "test:contact": "node scripts/test-contact.js",
-    "test:entitlement": "node scripts/test-entitlement.js",
-    "grant": "node scripts/grant.js",
+    "test": "node scripts/test-classes.js && node scripts/test-sw.js && node scripts/test-public.js && node scripts/test-app-origin.js && node scripts/test-api-base.js && node scripts/test-native-auth.js && node scripts/test-contact.js && node scripts/test-entitlement.js",
     "test:sw": "node scripts/test-sw.js",
     "clerk:check": "node scripts/set-clerk-key.mjs --check",
     "clerk:set": "node scripts/set-clerk-key.mjs",
     "test:public": "node scripts/test-public.js",
-    "test:origin": "node scripts/test-app-origin.js"
+    "test:contact": "node scripts/test-contact.js",
+    "test:entitlement": "node scripts/test-entitlement.js",
+    "test:api": "node scripts/test-api-base.js",
+    "test:auth": "node scripts/test-native-auth.js",
+    "test:origin": "node scripts/test-app-origin.js",
+    "grant": "node scripts/grant.js",
+    "build:ios": "node scripts/build-ios.mjs",
+    "ios": "npm run build:ios && npx cap sync ios",
+    "clerk:origin": "node scripts/clerk-native-setup.mjs",
+    "clerk:native": "node scripts/clerk-native-setup.mjs"
   },
   "keywords": [],
   "author": "",
@@ -24,5 +30,12 @@
     "nodemailer": "^9.0.5",
     "pg": "^8.22.0",
     "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@capacitor/browser": "^8.0.4",
+    "@capacitor/cli": "^8.5.0",
+    "@capacitor/core": "^8.5.0",
+    "@capacitor/ios": "^8.5.0",
+    "@capacitor/app": "^8.1.1"
   }
 }
