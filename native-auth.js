@@ -205,7 +205,17 @@
           if (!session) throw new Error('the ticket did not produce a session');
           return c.setActive({ session: session });
         })
-        .then(function () { return c.user || null; });
+        // Resolving with `c.user` was wrong, and wrong in the way that is hardest
+        // to see: setActive does not populate `clerk.user` synchronously, so a
+        // sign-in that had entirely succeeded resolved `null`, the caller read
+        // null as failure, put the button back, and logged nothing — because
+        // nothing had thrown. From the phone it looks like the browser opens,
+        // closes, and nothing happens.
+        //
+        // Getting here at all means the ticket was redeemed and a session was
+        // made active. That IS the success condition, so it is what is returned.
+        // The user object follows on its own and the caller reloads anyway.
+        .then(function () { return c.user || (c.session && c.session.user) || true; });
     });
   }
 
@@ -291,12 +301,31 @@
       b.disabled = true;
       b.textContent = 'Signing in…';
       signIn()
-        .then(function (u) { if (u) location.reload(); else reset(); })
+        // A resolve is a session. There is no third outcome to branch on: every
+        // way of not being signed in throws, and the old `if (u)` turned the
+        // commonest success into a silent no-op.
+        .then(function () { location.reload(); })
         .catch(function (e) {
+          // On a phone a console warning is nothing at all. Whoever pressed this
+          // watched a browser open and close, and has to be told what happened
+          // or the only thing they learn is not to press it again.
           console.warn('sign-in failed:', e.message);
-          reset();
+          reset(e.message || 'that did not work');
         });
-      function reset() { b.disabled = false; b.textContent = 'Sign in'; }
+      function reset(why) {
+        b.disabled = false;
+        b.textContent = 'Sign in';
+        if (why && b.parentNode) {
+          var note = b.parentNode.querySelector('.signInNote');
+          if (!note) {
+            note = document.createElement('p');
+            note.className = 'signInNote';
+            note.style.cssText = 'margin:8px 0 0;font-size:13px;color:#e8737f';
+            b.parentNode.appendChild(note);
+          }
+          note.textContent = 'Sign-in failed: ' + why;
+        }
+      }
     });
     el.appendChild(b);
   }

@@ -38,6 +38,7 @@ const COPY = [
   'legal.css',
   'room.html',          // co-op: needs the network, and its links are bundle paths
   'teacher.html',
+  'manifest.webmanifest', // the shelf links it; absent, it is a 404 in the log
   'icon-180.png',
   'icon-192.png',
   'icon-512.png',
