@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "What a supernova is worth as a ruler",
     "objective": "Establish why a Type Ia can be standardised, and how brightness and redshift become a distance test.",
     "briefing": "Forty-two high-redshift events, no distances attached to any of them yet.",
-    "stake": "Tuesday morning, and the last follow-up frames came down at ten past four. Tomás Ferreira, the photometry lead, has forty-two events with light curves good enough to fit. None of them has a distance yet. Nuria Bardem, who runs the programme, will not let a fitted cosmology onto the floor until the ruler is agreed, and she has said so twice this week. Today you settle what one of these explosions is worth as a measuring stick. You will read a fading rate, measure a line against its rest wavelength, and turn a difference in brightness into a difference in distance. Get the ruler wrong and every point on the board moves the same way, quietly, for the rest of the campaign.",
+    "stake": "Tuesday morning, and the last follow-up frames came down at ten past four. Tomás Riess, the photometry lead, has forty-two events with light curves good enough to fit. None of them has a distance yet. Brian Schmidt, who runs the programme, will not let a fitted cosmology onto the floor until the ruler is agreed, and she has said so twice this week. Today you settle what one of these explosions is worth as a measuring stick. You will read a fading rate, measure a line against its rest wavelength, and turn a difference in brightness into a difference in distance. Get the ruler wrong and every point on the board moves the same way, quietly, for the rest of the campaign.",
     "takeaway": "A distance indicator is a chain of corrections, and the chain is the measurement.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "Fainter than the universe should allow",
     "objective": "Put the high-redshift sample against a matter-only prediction and test the first alternative explanation.",
     "briefing": "The sealed sample goes on the board this morning, against a curve drawn before anybody saw it.",
-    "stake": "Wednesday, and the decelerating curve has been on the wall since the campaign opened. Sofia Grant, the photometry analyst, unsealed the high-redshift sample at eight. The points are not on the curve and they are not scattered either side of it. They are above it, most of them, by about a quarter of a magnitude, which means the distant supernovae came out fainter than a universe made of matter alone would allow. Ferreira wants to know what the residual is measured against before anybody says a word about cosmology. Ravi Anand, who owns the zero points and the colour terms, wants the dust checked first. Today you place the points, commit to what gravity alone predicts, and then go looking for the ordinary explanation before reaching for the strange one.",
+    "stake": "Wednesday, and the decelerating curve has been on the wall since the campaign opened. Sofia Grant, the photometry analyst, unsealed the high-redshift sample at eight. The points are not on the curve and they are not scattered either side of it. They are above it, most of them, by about a quarter of a magnitude, which means the distant supernovae came out fainter than a universe made of matter alone would allow. Riess wants to know what the residual is measured against before anybody says a word about cosmology. Nicholas Suntzeff, who owns the zero points and the colour terms, wants the dust checked first. Today you place the points, commit to what gravity alone predicts, and then go looking for the ordinary explanation before reaching for the strange one.",
     "takeaway": "An anomaly is only worth as much as the alternatives you have already knocked down.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "Say only what the data will carry",
     "objective": "Compare expansion histories against the same points, put a number on the sign, and write the claim at the level the evidence supports.",
     "briefing": "Three models, one sample, and a sentence that has to survive being wrong about the cause.",
-    "stake": "Thursday, the last day of the run, and the sample has been frozen since Wednesday night. Bardem has three expansion histories on the console and one set of points to lay them over. Halina Marek, the publication editor, is in the Publication Room with a draft that already says more than the measurement does, which is what she is there to stop. Today you rank the models by what they leave over, work out the sign of the number that says whether the expansion is speeding up, and settle what the result is allowed to claim. The temptation on the last day is to write the explanation as though it were the observation. It is not, and the difference is what will still be standing in twenty years.",
+    "stake": "Thursday, the last day of the run, and the sample has been frozen since Wednesday night. Schmidt has three expansion histories on the console and one set of points to lay them over. Halina Marek, the publication editor, is in the Publication Room with a draft that already says more than the measurement does, which is what she is there to stop. Today you rank the models by what they leave over, work out the sign of the number that says whether the expansion is speeding up, and settle what the result is allowed to claim. The temptation on the last day is to write the explanation as though it were the observation. It is not, and the difference is what will still be standing in twenty years.",
     "takeaway": "A result outlives its explanation only if the two were written in separate sentences.",
     "stops": [
       {
@@ -84,7 +84,7 @@ export const WARMUPS = {
   },
   "trial-near": {
     "title": "Walk the floor before the sample is unsealed",
-    "why": "Photometry and the cosmology console are out on the floor, and spectroscopy and the publication room are through the ring corridor behind you. Walk it once now. Ferreira, the photometry lead, would rather you knew the way than went looking during a run."
+    "why": "Photometry and the cosmology console are out on the floor, and spectroscopy and the publication room are through the ring corridor behind you. Walk it once now. Riess, the photometry lead, would rather you knew the way than went looking during a run."
   },
   "follow": {
     "title": "Grant carries a light curve from the desk to the console",

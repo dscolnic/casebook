@@ -64,6 +64,18 @@ for(const theme of wanted){
                      // sentence reads easily, and the person exists.
                      'passageDepth.mjs',
                      'equationOrder.mjs', 'bookParity.mjs', 'placement.mjs', 'reachable.mjs',
+                     // Can this place be got about in more than one way? Eight sites
+                     // have a far tier, so the engine signs the vehicles out on the
+                     // unlock day and the warm-up card says so — "transport is signed
+                     // out to reach them. Drive the route once" — and seven of the
+                     // eight shipped with no vehicle in the world at all. Every
+                     // content gate passed, because the book was right.
+                     'vehicleKinds.mjs',
+                     // The games that re-enact real work: they name the real people,
+                     // credit them once at the end, keep the player an invented role,
+                     // and never sign a claim the game marks unsupported with a real
+                     // person's name. Silent for every theme that invents its cast.
+                     'discoveryHistory.mjs',
                      // equationOrder's rule, one field over: no concept is claimed
                      // before the concepts it is built out of. Silent for a course
                      // whose concepts carry no `needs`. A prerequisite may be met on
@@ -201,7 +213,14 @@ if(!process.argv[2]){
                      // stub world that hands back whatever the play asked for, so it
                      // cannot see whether walking up to somebody counts as a greeting
                      // or whether EVADE's clock stops while you are caught.
-                     'worldFormats.mjs --selftest']){
+                     'worldFormats.mjs --selftest',
+                     // And it can tell three trucks under three names from two kinds
+                     // of transport — a grep for `driveable(` cannot.
+                     'vehicleKinds.mjs --selftest',
+                     // And it reads the nesting the content actually uses: its first
+                     // version read `lesson.attest`, found nothing in any campaign,
+                     // and passed all ten games by measuring an empty set.
+                     'discoveryHistory.mjs --selftest']){
     const [file, ...flags] = tool.split(' ');
     const res = spawnSync(process.execPath, [resolve(here, file), ...flags],
       { stdio: 'inherit', cwd: resolve(here, '../..') });

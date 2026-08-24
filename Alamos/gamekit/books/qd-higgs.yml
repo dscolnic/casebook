@@ -1,0 +1,1032 @@
+# The Higgs Boson — a Quick Discovery.
+#
+# The 3 x 3 shape from great_discoveries_first10_expanded.docx, game 05, mapped
+# onto the engine's day model: a level is a day, a micro-game is a stop, and the
+# campaign is nine stops in one sitting. Three levels, in order:
+#
+#   1  The missing piece      what would count as evidence, and where to look
+#   2  Reconstruct collisions from detector layers to a mass distribution
+#   3  Is the bump real       significance, and the claim July 2012 could carry
+#
+# Both halves of the science guardrail from the source book, kept. "The Higgs
+# gives all matter its mass" is refused explicitly on level 1 — the field is what
+# W and Z masses and fermion mass terms come from, and nearly all of a proton's
+# mass is the strong force holding it together. And the announcement is the 2012
+# one: a new boson, consistent with the hypothesis, properties still to be
+# measured. Level 3 ends on that distinction rather than on a slogan.
+#
+# Written for a reader two grades below the AP games, and every card teaches its
+# method before it asks anything: the `guide` says in plain words what the move
+# is, and the first background paragraph works the same move on different
+# numbers.
+#
+# Format budget. Nine stops, cap three of any one format: CHOICE 2, and one each
+# of PROTOCOL, ALLOCATE, DIAGNOSIS, BALLPARK, HOLDOUT, SWEEP, ATTEST. Eight
+# formats in nine stops, two of them instruments the player drives.
+
+theme:
+  id: qd_higgs
+  title: The Higgs Boson
+  subtitle: Physicist · Collider Analysis Group
+
+groups:
+  - id: CHART
+    code: CHRT
+    name: Theory Wall
+    color: '#3a5f8a'
+    desc: The Standard Model on one wall, and the one slot on it nobody has filled.
+    defaultLeader: ellis
+    milestones: [Place the particle, Say what the field does, Pick the channel, Ready to hand over]
+  - id: EVENT
+    code: EVNT
+    name: Event Display
+    color: '#c98a2b'
+    desc: One collision at a time, drawn layer by layer, with nothing labelled.
+    defaultLeader: kirchner
+    milestones: [Read the layers, Name the object, Combine the pair, Ready to hand over]
+  - id: HIST
+    code: HIST
+    name: Histogram Room
+    color: '#7a4fa3'
+    desc: Every candidate mass in one distribution, and a background nobody is allowed to peek at.
+    defaultLeader: gross
+    milestones: [Fill the bins, Fit the sidebands, Freeze it, Ready to hand over]
+  - id: STATS
+    code: STAT
+    name: Combination Room
+    color: '#b5502f'
+    desc: Two channels, two experiments, and the difference between a number and a claim.
+    defaultLeader: gianotti
+    milestones: [Combine the channels, Price the significance, Draft the claim, Ready to hand over]
+
+roster:
+  - id: ellis
+    name: John Ellis
+    role: Theory Liaison
+    real: true
+    division: CHART
+    bio: |
+      Keeps the wall chart, and the sentence written under it that the press
+      office keeps trying to shorten.
+
+      His rule is that the Higgs field is what electroweak symmetry breaking is
+      about. It is what makes the W and Z heavy, and fermion mass terms are built
+      out of interactions with it. Almost all of a proton's mass is the strong
+      force holding its quarks together, and that has nothing to do with it.
+
+      His limit is that he can tell you what to look for and not where to find
+      it. Which decay is measurable is an experimental question and he will send
+      you to ask it.
+    quiz:
+      - q: What does Ellis refuse to let anybody say about the Higgs field?
+        a: That it gives everything its mass
+        wrong:
+          - That the W and Z bosons get their masses through interactions with the field
+          - That the field has a value everywhere rather than pointing in some direction
+          - That fermion mass terms are built out of couplings to the same field
+
+  - id: kirchner
+    name: Ada Kirchner
+    role: Reconstruction Lead
+    division: EVENT
+    bio: |
+      Turns detector hits into objects. Nothing arrives labelled: each layer
+      either registered something or did not, and an identification is the whole
+      pattern of yes and no across them.
+
+      Her rule is that the layers that saw nothing carry as much as the ones that
+      did. An energy deposit with no charged track in front of it is a different
+      object from the same deposit with one, and that distinction is the whole of
+      photon identification.
+
+      Her limit is that reconstruction is a claim about one event, and one event
+      is never the result. She hands over objects and declines to be quoted about
+      any single collision.
+    quiz:
+      - q: Why does Kirchner care about the detector layers that saw nothing?
+        a: Silence rules identifications out
+        wrong:
+          - Because a layer that registers nothing is usually a sign of a hardware fault
+          - Because the calorimeter cannot be trusted unless the tracker agrees with it
+          - Because an event with fewer hits in it is much faster for the software to fit
+
+  - id: novak
+    name: Petra Novak
+    role: Detector Physicist
+    division: EVENT
+    bio: |
+      Keeps the calorimeter calibrated, which decides what a measured energy
+      actually means.
+
+      An energy is a number the electronics produce, and turning it into GeV
+      needs a calibration derived from particles of known energy. A calorimeter
+      two per cent out shifts every reconstructed mass by two per cent, in the
+      same direction, and nothing in the distribution looks wrong.
+
+      Her limit is that her checks are on the instrument rather than on the
+      physics. She can tell you the energy scale is good to a fraction of a per
+      cent and nothing at all about whether there is a particle in the data.
+    quiz:
+      - q: What does a calorimeter two per cent out do to the data?
+        a: Shifts every mass the same way
+        wrong:
+          - Adds a scatter to the reconstructed masses that grows with the energy involved
+          - Removes a fixed fraction of the events from the distribution altogether
+          - Produces a narrow spike at one particular mass that was not there before
+
+  - id: gross
+    name: Eilam Gross
+    role: Statistics Lead
+    real: true
+    division: HIST
+    bio: |
+      Owns the background model, and the rule that it is fitted where the signal
+      is not.
+
+      A curve with enough freedom in it will follow anything, including the thing
+      being searched for. So the shape is fitted on the regions either side of
+      the window, frozen, and only then compared with the window — which is the
+      difference between a measurement and a curve drawn round an answer.
+
+      His limit is that freezing a background does not make it right. A shape
+      that is genuinely the wrong family will be wrong in the window whatever it
+      was fitted on, and only a second channel shows that up.
+    quiz:
+      - q: Why does Gross fit the background away from the search window?
+        a: A flexible curve will swallow the signal
+        wrong:
+          - Because the events inside the window are recorded with a different trigger
+          - Because there are not enough events inside the window to fit anything at all
+          - Because the detector resolution is measurably worse inside that mass range
+
+  - id: gianotti
+    name: Fabiola Gianotti
+    role: Combination and Publication
+    real: true
+    division: STATS
+    bio: |
+      Combines the channels, and writes the sentence.
+
+      Her rule is that a significance is a statement about the background model.
+      It says how often background alone would produce something at least this
+      extreme; it says nothing about how probable the new theory is. Those two get
+      swapped in almost every draft that crosses her desk.
+
+      Her limit is that combining is not confirming. Two channels agreeing at the
+      same mass is strong, and it still leaves spin, parity and the couplings
+      entirely unmeasured.
+    quiz:
+      - q: What is a five-sigma significance a statement about?
+        a: How often background alone would do this
+        wrong:
+          - How likely it is that the new theoretical model is correct after all
+          - How large the calibration uncertainty on the energy scale currently is
+          - How many separate events in the sample lie far from the expected mass
+
+  - id: incandela
+    name: Joe Incandela
+    role: Analysis Coordinator
+    real: true
+    division: STATS
+    bio: |
+      Decides where the group's effort goes, which is the only genuinely scarce
+      thing in the building.
+
+      Every channel is worth analysing and there are not enough people. The
+      decay a particle makes most often is not the decay it can be found in, so
+      the coordinator's job is to spend effort on the signatures ordinary
+      physics does not also produce.
+
+      His limit is that a plan cannot answer everything. What matters is knowing
+      which questions the plan has left open, and saying so before somebody
+      assumes they were covered.
+    quiz:
+      - q: What does Incandela spend the group's effort on?
+        a: Signatures ordinary physics does not fake
+        wrong:
+          - The decay channel that the theory predicts will happen most often of all
+          - Whichever channel the other experiment has already published a result in
+          - The channel with the largest total number of recorded candidate events
+
+glossary:
+  - name: Proton
+    aliases: [proton, protons]
+    def: One of the two kinds of particle an atomic nucleus is built from.
+  - name: Boson
+    aliases: [boson, bosons]
+    def: A particle that carries force or, in one case, fills space as a field.
+  - name: Fermion
+    aliases: [fermion, fermions, matter particle]
+    def: A particle of matter — quarks and leptons, such as electrons.
+  - name: GeV
+    aliases: [GeV, gigaelectronvolt]
+    def: A unit of energy, and of mass. A proton is about one GeV.
+  - name: Decay channel
+    aliases: [decay channel, channel, branching]
+    def: One particular set of products a particle can turn into.
+  - name: Calorimeter
+    aliases: [calorimeter, electromagnetic shower]
+    def: A detector layer that stops a particle and measures the energy it carried.
+  - name: Tracker
+    aliases: [tracker, charged track, charged-particle track]
+    def: The inner detector layers, which see only particles carrying electric charge.
+  - name: Invariant mass
+    aliases: [invariant mass, reconstructed mass, diphoton mass]
+    def: The mass of whatever a set of decay products came from.
+  - name: Background
+    aliases: [background, background model, ordinary events]
+    def: Everything the known physics produces that looks like what you are hunting.
+  - name: Significance
+    aliases: [significance, sigma, five sigma]
+    def: How far an excess stands out, measured in units of its own expected wobble.
+  - name: Resonance
+    aliases: [resonance, narrow resonance, a new particle of definite mass]
+    def: A particle showing up as extra events at one mass and no other.
+
+missions:
+  - title: The missing piece
+    objective: Settle what would count as evidence, and where it is worth looking for it.
+    briefing: Ellis has the wall chart open and Incandela has four channels and not enough people.
+    stake: >-
+      Monday, and nothing has been looked at yet. John Ellis, the theory liaison, has the
+      Standard Model chart on the wall with one empty slot on it, and a sentence underneath
+      that the press office keeps trying to shorten. Joe Incandela, the analysis coordinator,
+      has four possible decay channels and eleven people. Billions of collisions are already
+      on tape and the thing being looked for will never appear as a track with a label on it.
+      Today you place the particle on the chart, say what the field actually does, and decide
+      where the group's effort goes. Choose the wrong channels and the search runs for a year
+      and finds nothing that was ever findable.
+    takeaway: What counts as evidence has to be settled before the data are opened, or the search has no target.
+    stops:
+      - group: CHART
+        task: Put each particle in its family
+        title: Three families and one on its own
+        place: Theory Wall
+        concept: 'The Higgs is a scalar boson, in a category of its own'
+        scene: >
+          Ellis has four cards off the wall chart. Three family slots are open on
+          it — matter fermions, gauge bosons that carry forces, and one slot with
+          nothing in it at all.
+        guide: >-
+          Four particles, and each belongs in one of four places on the chart. The way to
+          sort them is to ask what each one is for rather than what it is called: does it
+          make up matter, does it carry a force between things, or is it neither of those.
+          One of the four is neither, and the slot it goes in is empty because nothing has
+          ever been found to put in it.
+        background:
+          - >-
+              How to do it, on a different example. Sorting a toolbox: things that hold
+              material together, things that shape it, and one measuring tape that does
+              neither. You do not sort by size or by which drawer they came from, you sort by
+              what job each does. Ask the same question of these four.
+          - >-
+              What the three families are. Matter fermions are what things are made of —
+              quarks and leptons like the electron. Gauge bosons carry the forces between
+              them: the photon carries electromagnetism, the W and Z carry the weak force,
+              gluons the strong. And a scalar is neither. It has a value everywhere without
+              pointing in any direction, which is exactly what a field filling space has to
+              be able to do.
+          - >-
+              Why being a scalar is not a filing detail. A field that picked out a direction
+              in space would show up in every experiment ever done, because space does not
+              have a preferred direction. A scalar can have a value everywhere and leave the
+              symmetry of space alone, which is why the missing slot on this chart is a scalar
+              slot rather than a fifth kind of gauge boson.
+        assumes:
+          - matter is built out of fermions and forces are carried by bosons
+          - a scalar quantity has a value without having a direction
+        takeaway: The chart sorts particles by what job they do, and one slot on it is for a thing that does neither job.
+        format: PROTOCOL
+        task_line: Match each particle to where it belongs on the chart.
+        scenarios:
+          - The electron, which atoms are partly made of.
+          - The photon, which carries the electromagnetic force between charges.
+          - The top quark, the heaviest thing protons are partly made of.
+          - A particle that has a value everywhere and points in no direction at all.
+        choices:
+          - A matter fermion.
+          - A force-carrying gauge boson.
+          - Also a matter fermion, in the quark half of that family.
+          - The scalar slot, which is the one nothing has ever been found in.
+        mapping: [0, 1, 2, 3]
+        why: >
+          Sort by job and the four fall out. The electron and the top quark are matter: one
+          is a lepton and one is a quark, and both are fermions. The photon carries a force,
+          so it is a gauge boson. And the fourth is neither — it makes nothing up and carries
+          nothing between anything. That is what a scalar is, and the reason the chart has a
+          slot for one is that a field filling all of space cannot point anywhere. Space has
+          no preferred direction, so a field that had one would have shown up in every
+          experiment ever performed. A scalar can sit everywhere at once and leave space
+          alone, which is why the empty slot is the shape it is.
+
+      - group: CHART
+        task: Say what the field actually does
+        title: The sentence the press office keeps shortening
+        place: Theory Wall
+        person: true
+        personId: mbeki
+        concept: "The field breaks electroweak symmetry; it is not where a proton's mass comes from"
+        scene: >
+          Four headline sentences are on the monitor and one of them is already in
+          a draft release. Ellis has a diagram of a proton beside them with its
+          mass broken into parts.
+        guide: >-
+          Four statements about the same field, and only one of them is accurate. The test to
+          apply is whether each sentence says something you could check. Watch for the one
+          that claims the field accounts for all the mass of ordinary matter, because the
+          proton diagram beside the monitor is there to settle exactly that.
+        background:
+          - >-
+              How to think about it, on a different example. "Yeast makes bread" is a useful
+              sentence and a bad one if it is taken to mean the loaf is made of yeast.
+              Almost all of the loaf is flour and water. Yeast decides something crucial about
+              it and is not most of it. Read the four sentences below for the same slip.
+          - >-
+              What the field does. It is central to electroweak symmetry breaking, which is
+              what makes the W and Z bosons heavy while leaving the photon massless. Fermion
+              mass terms are built out of interactions with the same field, with a different
+              strength for each fermion.
+          - >-
+              Where a proton's mass actually comes from. The three quarks inside a proton
+              account for about one per cent of its mass. Nearly all the rest is the energy of
+              the strong force binding them, which has nothing to do with the Higgs field at
+              all. So the slogan is wrong in exactly the case people reach for.
+          - >-
+              And the one that gives itself away. Any sentence saying the photon would become
+              massive without the field has it backwards: the photon is the gauge boson that
+              stays massless, and that is one of the things the mechanism has to explain.
+        assumes:
+          - the mass of a bound system includes the energy binding it together
+          - the photon is massless and the W and Z are not
+        takeaway: The field is what makes the W and Z heavy; a proton's mass is mostly the strong force holding it together.
+        format: CHOICE
+        question: Which sentence about the Higgs field is accurate?
+        choices:
+          - It breaks electroweak symmetry, and W and Z masses come from interactions with it.
+          - It contains all of the mass that is inside every proton in the universe.
+          - It is really just another name for ordinary everyday gravity.
+          - Without it the photon would be heavy, because the photon is a heavy particle.
+        answer: It breaks electroweak symmetry, and W and Z masses come from interactions with it.
+        rebuttals:
+          - About one per cent of a proton's mass is its quarks. The rest is the energy of the strong force binding them, which the field has nothing to do with.
+          - Gravity acts on everything with energy and is described by a completely different theory. Nothing about the two is the same object under two names.
+          - The photon is massless and stays massless, and explaining why it does while the W and Z do not is part of what the mechanism is for.
+        why: >
+          The accurate sentence is the narrow one. The field is what breaks electroweak
+          symmetry, which is what leaves the photon massless while making the W and Z heavy,
+          and fermion mass terms are built out of couplings to it with a different strength
+          for each fermion. Now the sentence everybody reaches for. A proton's quarks account
+          for roughly one per cent of its mass; almost all the rest is the energy of the
+          strong force holding them together. So "it gives everything its mass" is wrong in
+          precisely the case people mean by it. And the fourth option is worth reading twice,
+          because it inverts the result: the photon is the one gauge boson that comes out
+          massless, and that is a thing the mechanism explains rather than a thing it breaks.
+
+      - group: STATS
+        task: Decide where the effort goes
+        title: The commonest decay is not the findable one
+        place: Combination Room
+        concept: 'A clean channel beats a common one'
+        scene: >
+          Incandela has eleven analyst-months to hand out and four channels wanting
+          them. Beside each channel is how often the decay happens and how much
+          ordinary physics produces the same signature.
+        guide: >-
+          A finite pool of effort and more channels than it will cover. Every one of these is
+          worth analysing, so the decision is not which are good — it is which combination
+          answers a question at all. Read what each channel would let you claim, spend the
+          pool, and then be able to say which question your plan has left open.
+        background:
+          - >-
+              How to do it, on a different example. You have four hours to find a quiet
+              conversation in a crowded building. The largest room has the most conversations
+              in it and also the most noise; a small side room has fewer and you can hear
+              every word. Going where there is most of what you want is not the same as going
+              where you can detect it.
+          - >-
+              What the two numbers beside each channel mean. How often the decay happens
+              decides how many signal events exist at all. How much ordinary physics makes
+              the same signature decides whether you could ever see them. A decay happening
+              ten times more often, buried in a thousand times more background, is a worse
+              place to look.
+          - >-
+              Why two channels rather than one. A bump in one channel is a bump. The same bump
+              at the same mass in a second channel, with different backgrounds and different
+              detector systematics, is very much harder to explain as an artefact. So a plan
+              that buys one channel beautifully has bought less than a plan that buys two
+              adequately.
+          - >-
+              And what the plan will not answer. There is not enough effort for everything, and
+              the channel that measures how strongly the thing couples to heavy quarks is
+              expensive. Leaving it open is a legitimate choice; not noticing you left it open
+              is not.
+        assumes:
+          - a finite pool of effort cannot cover every channel
+          - what can be detected depends on the background as much as on the signal
+        takeaway: A channel is worth its cost when its signature is one ordinary physics does not also produce.
+        format: ALLOCATE
+        question: >-
+          Eleven analyst-months. Build the plan, and know which question it leaves open.
+        allocate:
+          hint: >-
+            Nothing here is a wrong choice on its own. What a plan cannot answer is the price of
+            what it can.
+          pool: { amount: 11, unit: analyst-months, mode: scalar }
+          items:
+            - { id: trig, label: 'Keep the diphoton trigger running', cost: 2, protected: true, note: 'without it there is no data at all' }
+            - { id: gg, label: 'Two photons', cost: 3, note: 'a narrow peak, and the backgrounds are smooth' }
+            - { id: zz, label: 'Two Z bosons into four leptons', cost: 4, note: 'very few events, almost no background' }
+            - { id: bb, label: 'Two bottom quarks', cost: 5, note: 'much the commonest decay, and the jets are everywhere' }
+            - { id: ww, label: 'Two W bosons', cost: 4, note: 'no narrow mass peak, because of the neutrinos' }
+            - { id: tt, label: 'Produced with a pair of top quarks', cost: 5, note: 'the coupling to heavy quarks' }
+          answers:
+            - { question: 'Is there a narrow peak at all?', requires: [gg], required: true }
+            - { question: 'Does the same peak appear in a second, independent channel?', requires: [zz] }
+            - { question: 'How strongly does it couple to bottom quarks?', requires: [bb] }
+            - { question: 'How strongly does it couple to top quarks?', requires: [tt] }
+          commit: Commit the plan
+        answerText: >-
+          Two photons and the four-lepton channel, which is seven of the eleven months and
+          answers whether there is a peak and whether a second channel agrees. Whatever is
+          left will not reach both couplings, and naming which one you dropped is the answer.
+        why: >
+          Read one at a time all four channels are justified, which is why a list cannot teach
+          this. The pool makes the trade concrete. Two photons is cheap, gives a narrow peak
+          and sits on a smooth background, so it goes in first. The four-lepton channel has
+          almost no events and almost no background, and buying it is what turns a bump into
+          the same bump twice with different systematics behind it. The commonest decay of all
+          is the one to leave: bottom quarks are produced in enormous numbers by ordinary
+          physics, so a real signal there is a small ripple on a mountain. And the coupling
+          measurements are real physics that this plan cannot reach. The failure to avoid is
+          not choosing badly. It is finishing and reporting as though the couplings had been
+          covered.
+
+  - title: Reconstruct collisions
+    objective: Get from detector layers to one number per event, and from single events to a distribution.
+    briefing: Kirchner has the display room and nothing in it is labelled.
+    stake: >-
+      Tuesday, and the tape is open. Ada Kirchner, the reconstruction lead, has the event
+      display room running, and nothing that comes up on it arrives with a name attached —
+      each detector layer either registered something or did not. Eilam Gross, who owns the
+      background model, is next door and will not let anybody near the search window until
+      the background is fitted and frozen. Today you identify what two energy deposits
+      actually were, turn a pair of them into one mass, and fit a background without letting
+      it eat the thing you are looking for. Every one of those steps is where a discovery
+      goes wrong quietly.
+    takeaway: A collider result is built out of one number per event, and each of those numbers is a claim.
+    stops:
+      - group: EVENT
+        task: Say what the two energy deposits were
+        title: What the tracker did not see
+        place: Event Display
+        concept: 'An object is identified by which detectors saw it and which did not'
+        scene: >
+          One collision is up on the display. Two tight bunches of energy sit in
+          the electromagnetic layer, well separated from everything else, and the
+          tracker shows nothing pointing at either of them.
+        guide: >-
+          Read every row on the panel, including the rows that say nothing was seen. Each
+          candidate identification predicts a particular pattern across the layers, so the
+          way to choose is to check which candidate is consistent with all four rows rather
+          than with the loudest one. The quiet rows are what rule things out.
+        background:
+          - >-
+              How to do it, on a different example. A parcel is on the step, the doorbell did
+              not ring, and the dog did not bark. "A neighbour left it" fits all three. "The
+              postman delivered it" has to explain a silent doorbell, and "somebody broke in"
+              has to explain a silent dog. The rows that reported nothing are doing the work.
+          - >-
+              What each layer sees. The tracker is the innermost part and it only sees
+              particles carrying electric charge, which leave a curved line of hits. The
+              electromagnetic calorimeter stops electrons and photons and measures the energy
+              they carried. The muon system is outside everything and sees the particles that
+              got all the way through.
+          - >-
+              Which patterns go with which object. An electron makes a track and then a shower
+              in the electromagnetic layer. A photon makes the shower with no track in front
+              of it, because it carries no charge. A muon makes a track and reaches the outer
+              layers. A neutrino makes nothing anywhere and is inferred from what is missing.
+          - >-
+              And why "isolated" is on the panel. A shower in the middle of a spray of other
+              energy is probably part of a jet. One standing on its own, with nothing around
+              it, is much more likely to be a single particle from the collision itself.
+        assumes:
+          - the tracker registers only particles carrying electric charge
+          - an identification is a pattern across layers rather than a label
+        takeaway: An object is what the pattern of hits and silences across the layers is consistent with.
+        format: DIAGNOSIS
+        headline: Two isolated bunches of electromagnetic energy, and nothing in the tracker pointing at either.
+        task_line: Which identification fits every row, not just the loud one?
+        readings:
+          - { zone: Electromagnetic layer, label: Two tight energy deposits, value: 'present, isolated', status: alarm }
+          - { zone: Tracker, label: Charged tracks toward either deposit, value: none, status: normal }
+          - { zone: Muon system, label: Hits beyond the calorimeter, value: none, status: normal }
+          - { zone: Hadron layer, label: Energy behind the deposits, value: negligible, status: normal, note: 'nothing carried on through' }
+        choices:
+          - { label: Two photons, mechanism: 'Neither carries charge, so both shower in the electromagnetic layer with no track in front.' }
+          - { label: Two muons, mechanism: 'Charged and penetrating, so both would leave tracks and reach the outer layers.' }
+          - { label: Two protons stopping in the tracker, mechanism: 'Charged and strongly interacting, so tracks inside and energy in the hadron layer.' }
+          - { label: Two neutrinos, mechanism: 'They interact with nothing in the detector and leave no signal anywhere.' }
+        answer: Two photons
+        why: >
+          Take the rows one at a time. Energy in the electromagnetic layer rules out
+          neutrinos, which leave nothing anywhere at all. No tracks rules out muons and
+          protons, both of which carry charge and would draw a line in the tracker on the way
+          in. Nothing in the muon system rules out muons a second time, and nothing in the
+          hadron layer rules out protons a second time. What is left is a particle that
+          showers in the electromagnetic layer and carries no charge, which is a photon.
+          Notice that the only row that reported something is the one row consistent with
+          three of the four candidates. Everything that narrowed this down was a layer
+          reporting nothing.
+
+      - group: EVENT
+        task: Turn the pair into one number
+        title: Two energies, one mass
+        place: Event Display
+        concept: 'Invariant mass reconstructs the parent from its products'
+        scene: >
+          Kirchner has passed the two photons to the mass calculator. They came
+          off in exactly opposite directions, and each carries sixty-two and a
+          half GeV.
+        guide: >-
+          This is one sum. When two massless particles fly off in exactly opposite
+          directions, they carry no net momentum between them, so all their energy is the
+          mass of whatever produced them. Add the two energies. The general case needs the
+          angle between them as well, and that is in the background, but this event is the
+          simple one and the tiles you need are the two energies.
+        background:
+          - >-
+              How to do it, on a different example. Two photons back to back, one carrying 40
+              GeV and one carrying 40 GeV, reconstruct a mass of 80 GeV. Two carrying 45 and
+              35 reconstruct the same 80, because the sum is what matters when they are exactly
+              opposed. Add the energies and stop.
+          - >-
+              Why the sum works here and not always. Momentum is a direction as well as a
+              size, so two particles going opposite ways cancel each other's momentum exactly.
+              With no momentum left over, the whole of the energy is mass. Send them off at
+              some other angle and part of the energy is carrying the pair somewhere, so the
+              reconstructed mass is smaller — the general form is m squared equals twice the
+              product of the energies times one minus the cosine of the angle between them.
+          - >-
+              Why this is worth doing at all. The thing that made these photons was gone long
+              before anything was measured, and it will never be seen. Its energy and momentum
+              went into things that were measured, and combining those recovers its mass. That
+              is the whole reason a particle living for a tiny fraction of a second has a mass
+              anybody can quote.
+        assumes:
+          - two particles moving in exactly opposite directions carry no net momentum between them
+          - energy and momentum are both conserved in a decay
+        takeaway: The mass of a parent is recovered from the energies and directions of what it decayed into.
+        format: BALLPARK
+        question: What mass do the two photons reconstruct?
+        estimate:
+          prompt: >-
+            The two photons came off exactly opposed. Kirchner wants a mass before the event
+            goes into the histogram.
+          question: What mass do the two photons reconstruct?
+          relationship: For two photons emitted exactly back to back, the invariant mass is simply the sum of their two energies.
+          labels:
+            - 62.5 GeV  (energy of the first photon)
+            - 62.5 GeV  (energy of the second photon)
+            - 180 degrees  (angle between them)
+            - 2  (the number of photons)
+          values: [62.5, 62.5, 180, 2]
+          slots: 2
+          template: '{0} + {1}'
+          formula: a+b
+          correct: [0, 1]
+          target: 125
+          tolerance: 2
+          units: GeV
+          solution: Sixty-two and a half plus sixty-two and a half is a hundred and twenty-five GeV.
+          explanation: The angle is on the bench because it is why the sum works — at exactly 180 degrees the momenta cancel. It is not a term in this particular sum.
+        why: >
+          Two massless particles flying in exactly opposite directions cancel each other's
+          momentum, so nothing is left over to carry the pair anywhere and the whole of their
+          energy is mass. Sixty-two and a half twice is a hundred and twenty-five GeV. Two
+          things to keep. The sum only works because the angle is a hundred and eighty
+          degrees — at any other angle part of the energy is carrying the pair along, and the
+          reconstructed mass comes out lower. And notice what has just happened: something
+          that vanished before any part of the detector saw it now has a measured mass,
+          recovered entirely from what it turned into.
+
+      - group: HIST
+        task: Fit the background without eating the signal
+        title: The curve that follows anything
+        place: Histogram Room
+        concept: 'A background fitted where you looked will absorb what you were looking for'
+        scene: >
+          Gross has the diphoton distribution binned and the search window
+          masked. There are sixteen candidate background shapes, from a nearly
+          straight line to a curve with a great deal of freedom in it.
+        guide: >-
+          Choose the background shape on the region either side of the window, freeze it, and
+          then find out what it scores where you have not been allowed to look. The trap is
+          that the shape scoring best on the region you fitted it to is usually not the shape
+          that does best on the window — a curve with more freedom in it follows the wobbles
+          of the data it was fitted to, and those wobbles do not repeat.
+        background:
+          - >-
+              How to think about it, on a different example. Somebody draws a line through
+              last year's monthly sales and it fits perfectly, every bump accounted for. It
+              then predicts next January badly, because the bumps it followed were noise
+              rather than pattern. Fitting harder made it worse, and the only way to find that
+              out was to test it on months it had never seen.
+          - >-
+              What the window is, and why it is masked. The window is the range of masses
+              where a signal is expected. It is covered up while the background is chosen so
+              that nothing about the choice can be influenced by what is in there — which is
+              the only thing that makes the comparison afterwards meaningful.
+          - >-
+              What too much freedom does here specifically. A background curve with enough
+              parameters can grow a gentle dip either side of a bump and a rise underneath it,
+              and then the bump is part of the background. The analysis has explained away its
+              own result and every number in it still looks reasonable.
+          - >-
+              Why the honest choice usually scores slightly worse. A stiffer curve cannot
+              chase the wobbles, so its fit on the sidebands is a little poorer. That is the
+              price of a shape that will still be the same shape when it is moved into the
+              window, and it is a price worth paying every time.
+        assumes:
+          - a curve with more free parameters can follow more of the data it is fitted to
+          - noise in one region does not repeat in another
+        takeaway: A model chosen on the data it is scored on is scored too well, and freezing it first is the only cure.
+        format: HOLDOUT
+        question: >-
+          Choose a background shape on the sidebands, freeze it, and report what it scores in
+          the masked window.
+        holdout:
+          axis:
+            label: Freedom in the background shape
+            unit: free parameters
+            min: 2
+            max: 12
+            step: 1
+          unit: "%"
+          fitLabel: Sidebands
+          testLabel: The masked window
+          fitNote: The bins either side of the window. Every shape on the curve is scored on these.
+          testNote: The window itself, masked until you freeze. It opens when you do.
+          afterFreeze: >-
+            Frozen. The window had no part in choosing this shape, so its number is one you
+            can quote.
+          fit:
+            - { at: 2, value: 88.0 }
+            - { at: 3, value: 93.4 }
+            - { at: 4, value: 95.6 }
+            - { at: 5, value: 95.9 }
+            - { at: 6, value: 96.1 }
+            - { at: 7, value: 96.6 }
+            - { at: 8, value: 97.2 }
+            - { at: 9, value: 97.9 }
+            - { at: 10, value: 98.4 }
+            - { at: 11, value: 98.9 }
+            - { at: 12, value: 99.3 }
+          test:
+            - { at: 2, value: 87.4 }
+            - { at: 3, value: 92.8 }
+            - { at: 4, value: 95.2 }
+            - { at: 5, value: 95.0 }
+            - { at: 6, value: 94.1 }
+            - { at: 7, value: 92.6 }
+            - { at: 8, value: 90.4 }
+            - { at: 9, value: 87.9 }
+            - { at: 10, value: 85.1 }
+            - { at: 11, value: 82.0 }
+            - { at: 12, value: 78.8 }
+          pass: 94
+          commit: Freeze the shape
+        answerText: >-
+          Four free parameters, which scores about 95 in the window. Twelve parameters is the
+          best score on the sidebands and the worst in the window — it followed the wobbles.
+        why: >
+          The two curves go opposite ways and that is the whole lesson. On the sidebands, more
+          freedom always looks better: twelve parameters score ninety-nine against
+          eighty-eight for two, because a flexible curve can chase every wobble in the bins it
+          was fitted to. In the window, those wobbles are gone and different ones are there
+          instead, so the flexible curve is now bending in the wrong places. It scores
+          seventy-nine. The shape that survives the move is the stiff one near four
+          parameters, which was never the best fit anywhere and is the same shape in both
+          places. In a real search this is worse than a bad score: a background with enough
+          freedom will grow a rise underneath a bump and dips either side of it, and then the
+          signal has become part of the background with nothing looking wrong.
+
+  - title: Is the bump real
+    objective: Locate the excess, price it honestly, and claim only what July 2012 could carry.
+    briefing: Two channels, two experiments, and a sentence that has to survive ten more years.
+    stake: >-
+      Wednesday, and the window is open. Eilam Gross's background is frozen, both channels
+      are filled, and there is something at the same mass in each of them. Fabiola Gianotti, who
+      combines the channels and writes the sentence, has a draft with four possible headlines
+      on it and an auditorium booked for the morning. Today you find where the excess actually
+      is, decide which claims the significance will carry, and choose the announcement. Get
+      the last one wrong and the correction runs for a decade, because a sentence that
+      overclaims is quoted long after the paper that qualified it.
+    takeaway: The claim is bounded by what the numbers say, and the numbers say less than the room wants them to.
+    stops:
+      - group: HIST
+        task: Find where the excess is
+        title: Slide the window
+        place: Histogram Room
+        concept: 'A localised excess is what a narrow resonance looks like'
+        relationship: The significance in a window is the excess over the frozen background divided by the square root of the background — the excess measured in units of its own wobble.
+        scene: >
+          The frozen background is drawn under the binned data and a window can
+          be slid along the mass axis. The window reports how far above the
+          background its bins sit, in units of the expected wobble.
+        guide: >-
+          One slider and one reading. The slider is where the window sits on the mass axis;
+          the reading is how far above the frozen background that window's bins are, counted
+          in units of how much the background alone would wobble. Sweep from one end to the
+          other and find where it is largest. Most of the range will read close to nothing,
+          and that is information too.
+        background:
+          - >-
+              How to read a sweep. Move the control in large steps to find where anything
+              happens, then in small steps through the part that moves. A flat reading across
+              most of the range means the background is doing its job everywhere else.
+          - >-
+              How the reading is built, on different numbers. Say a window holds 400 events
+              and the frozen background predicts 361. The excess is 39. The wobble on 361 is
+              its square root, which is 19, so the excess is a little over two of those — just
+              over two sigma. The same arithmetic runs in every window as you slide it.
+          - >-
+              Why a localised excess is the thing to look for. A new particle has one mass, so
+              it puts its extra events in one place. Something wrong with the calibration or
+              the modelling tends to push a whole distribution up or down together. A bump in
+              one window with flat readings either side is the shape a particle makes and the
+              shape a mistake usually does not.
+          - >-
+              And why one spectacular event would be worth nothing. Out of billions of
+              collisions, some single event will look extraordinary by chance. You cannot count
+              it as evidence because you chose it after seeing it. A modest excess that keeps
+              turning up in the same bin cannot be chosen that way.
+        assumes:
+          - a count of B events wobbles by about the square root of B
+          - a new particle of definite mass adds events at one mass only
+        takeaway: A resonance is extra events in one window with nothing unusual either side of it.
+        format: SWEEP
+        question: >-
+          Slide the window along the mass axis. Where is the excess over the frozen background
+          largest?
+        sweep:
+          axis:
+            label: Centre of the mass window
+            unit: GeV
+            min: 105
+            max: 160
+            step: 0.5
+          readout:
+            label: Excess over the frozen background
+            unit: sigma
+          baseline: 0.2
+          response:
+            - { at: 105, value: 0.3 }
+            - { at: 110, value: 0.1 }
+            - { at: 115, value: 0.6 }
+            - { at: 118, value: 0.9 }
+            - { at: 121, value: 1.8 }
+            - { at: 125, value: 4.1 }
+            - { at: 129, value: 1.5 }
+            - { at: 134, value: 0.4 }
+            - { at: 142, value: 0.7 }
+            - { at: 152, value: 0.2 }
+            - { at: 160, value: 0.3 }
+          target: 125
+          tolerance: 2
+          start: 105
+        answerText: >-
+          At about 125 GeV, where the window sits four sigma above the frozen background.
+          Everywhere else reads under two.
+        why: >
+          The reading wanders around half a sigma for most of the range, which is what a
+          background doing its job looks like — windows sitting a little above and a little
+          below by turns. Then between about 121 and 129 GeV it climbs to four and comes
+          straight back down. That shape is the point. A new particle has one mass, so it puts
+          its events in one window and leaves the rest alone. A calibration error or a badly
+          chosen background shape tends to lift or tilt the whole distribution, which would
+          show up as a reading that is high everywhere or drifts steadily. Four sigma in one
+          window with nothing either side is the shape of a particle. It is also not yet a
+          discovery, which is the next stop.
+
+      - group: STATS
+        task: Say which claims the number will carry
+        title: What five sigma does not mean
+        place: Combination Room
+        concept: 'A p-value is a statement about the background model, not about the theory'
+        scene: >
+          The combination gives five sigma. Gianotti has six sentences drafted from
+          it, each attributed to whoever wrote it, and time to check three
+          against what is actually on the table.
+        guide: >-
+          Six claims, all of them written from the same number, and you cannot check them all.
+          Open each one and read what actually stands behind it. Some are exactly what a
+          significance says; some are a different statement wearing the same number. Verify
+          what the three checks allow and hold whatever the evidence present does not
+          support.
+        background:
+          - >-
+              How to think about it, on a different example. A test for a rare condition is
+              wrong once in a thousand times. Somebody tests positive. "A well person would
+              test positive only once in a thousand" is what the test tells you. "There is a
+              999 in 1000 chance this person is ill" is a different claim entirely, and it
+              depends on how rare the condition is. Same number, two sentences, one of them
+              unsupported.
+          - >-
+              What a significance actually says. It is computed under the assumption that only
+              background is present, and it says how often background alone would produce a
+              fluctuation at least this extreme. Five sigma corresponds to roughly a few parts
+              in ten million, on the convention this field uses.
+          - >-
+              What it does not say. It says nothing about the probability that any particular
+              theory is true, because no theory entered the calculation. That number would
+              also require knowing how likely the theory was beforehand, which is not a thing
+              the data contain.
+          - >-
+              Two other confusions worth being able to name. Five sigma is not a property of
+              each individual event; it is a property of the excess taken together. And it is
+              not a statement about the detector's calibration, though a calibration error is
+              exactly the kind of thing that could produce a false one — which is why the
+              systematic uncertainties are part of the calculation rather than beside it.
+        assumes:
+          - a significance is computed assuming background only
+          - a statement's support is what stands behind it, not who wrote it
+        takeaway: A significance says what the background would do; it never says how likely a theory is.
+        format: ATTEST
+        question: >-
+          Check what the three verifications allow, and hold whatever the number will not
+          support.
+        attest:
+          hint: >-
+            Every one of these is drafted from the same five sigma. Verifying costs time and
+            there is not enough of it for the whole list.
+          checks: 3
+          claims:
+            - { id: bg, label: 'Background alone would give something this extreme a few times in ten million', signedBy: Gianotti, critical: true, backed: true, evidence: 'that is the definition of the significance quoted' }
+            - { id: theory, label: 'There is now a 99.99997 per cent chance the theory is correct', signedBy: press office, critical: true, evidence: 'no theory entered the calculation, and its prior probability is nowhere on the table' }
+            - { id: two, label: 'Two channels show an excess at the same mass', signedBy: Gross, backed: true, evidence: 'both distributions peak within the mass resolution of each other' }
+            - { id: each, label: 'Every event in the excess is five standard deviations from the mean', signedBy: a summer student, critical: true, evidence: 'the significance is a property of the excess taken together, not of any event' }
+            - { id: syst, label: 'The systematic uncertainties are included in the quoted number', signedBy: Novak, backed: true, evidence: 'listed in the combination, line by line' }
+            - { id: cal, label: 'The detector calibration is good to a fraction of a per cent', signedBy: Novak, evidence: 'as recorded from the calibration runs' }
+        answerText: >-
+          Hold the theory-probability claim and the one about every event. Both are critical,
+          both were written from the five sigma, and neither is a thing that number says.
+        why: >
+          A significance is computed under one assumption — that only background is present —
+          and it reports how often background alone would produce something at least this
+          extreme. The first claim is that sentence, so it stands. The claim about the theory
+          is a different statement entirely: it would need to know how likely the theory was
+          before the data arrived, and nothing on this table contains that. It is also the one
+          most likely to end up in a headline. The claim about every event misreads what the
+          number is attached to; the excess as a whole is five sigma and no individual
+          collision is anything of the kind. The other three survive because something on the
+          table backs each of them. Note what makes this hard: all six were written by
+          competent people from a correct number.
+
+      - group: STATS
+        task: Choose the announcement
+        title: A new boson, and what is still open
+        place: Combination Room
+        person: true
+        personId: tanaka
+        concept: 'The careful claim: a new boson, consistent with the hypothesis'
+        scene: >
+          Both channels are on the screen side by side, peaking at the same mass.
+          The auditorium is booked for the morning and Gianotti has four possible
+          announcements on the draft.
+        guide: >-
+          Four sentences, and you are choosing the one this week's numbers will carry. Test
+          each clause separately: is there a measurement behind it? What has been measured is
+          a mass and an excess in two channels. What has not been measured is anything about
+          spin, parity or how strongly the thing couples to other particles — so any clause
+          that depends on those is a clause with nothing under it.
+        background:
+          - >-
+              How to think about it, on a different example. A new bird is photographed
+              clearly enough to say it is a species nobody has recorded. That is a finding.
+              Saying which family it belongs to needs its call, its nest and its bones, and
+              those come later. Announcing the sighting and announcing the classification are
+              two different announcements, and only one of them is available.
+          - >-
+              What has been established this week. There is a new boson at about 125 GeV, seen
+              in two channels with different backgrounds, at a significance the field treats
+              as discovery. It is consistent with what the Higgs hypothesis predicted.
+          - >-
+              What consistent with means, and does not. It means nothing measured so far
+              disagrees. It does not mean the identification is settled, because most of the
+              properties that would settle it have not been measured — the spin, the parity,
+              and the pattern of how strongly it couples to each other particle.
+          - >-
+              Why the careful sentence is the one that survives. Ten years later the couplings
+              and the spin have been measured and the identification has held up. The
+              announcement that said both halves is still accurate. An announcement that had
+              claimed the identification outright would have been right by luck, and would
+              have been quoted as though it had been earned.
+        assumes:
+          - an identification requires the properties that distinguish one candidate from another
+          - a claim survives by not depending on measurements nobody has made
+        takeaway: The announcement that survives says what was found and what is still to be tested, in the same sentence.
+        format: CHOICE
+        question: Which announcement will this week's numbers carry?
+        choices:
+          - A new boson near 125 GeV has been observed, consistent with the Higgs hypothesis, and its properties are still to be measured.
+          - Every property of the Standard Model Higgs boson has now been measured, and each one agrees.
+          - A Higgs particle was photographed directly as it travelled across the detector.
+          - The Standard Model is now proven complete, and no further particles remain to be found.
+        answer: A new boson near 125 GeV has been observed, consistent with the Higgs hypothesis, and its properties are still to be measured.
+        rebuttals:
+          - The spin, the parity and the couplings are the properties that would identify it, and not one of them has been measured this week.
+          - Nothing was photographed. It decayed long before any part of the detector registered anything, and what was measured was the mass of its products.
+          - A single new particle at one mass says nothing about whether the theory is complete, and several things the theory does not cover were already known.
+        why: >
+          Take the surviving sentence clause by clause. A new boson near 125 GeV — the mass
+          comes out of the reconstruction and the excess out of the combination, so that is
+          measured. Consistent with the hypothesis — nothing measured so far disagrees with
+          what was predicted, which is a claim about agreement rather than identity. Still to
+          be measured — the spin, the parity and the couplings, none of which this week
+          touched. Every clause has something under it, including the last one, which is a
+          claim about the state of the work. The other three all depend on measurements nobody
+          has made: two of them on properties still unmeasured, one on a photograph that could
+          not exist. And the reason this stop is the last one in the game is that ten years
+          later the careful sentence is still accurate. That is what a claim written at the
+          level of its evidence buys.
+
+warmups:
+  greet:
+    title: Eleven people, two channels, one number
+    why: >-
+      Nothing in this building is measured by one person. The reconstruction, the calibration,
+      the background and the combination are four different desks, and a significance is worth
+      what the desk behind each of its inputs is worth. Put a name to as many of them as you
+      can before the week starts.
+  trial-near:
+    title: Walk the floor before the window is opened
+    why: >-
+      The theory wall and the event display are down one side and the histogram room and the
+      combination room are down the other. Walk it once now. Ada Kirchner, the reconstruction
+      lead, would rather you knew the way than went looking for the display room with the
+      window already open.
+  follow:
+    title: Novak carries an energy scale from the calibration bay to the histogram
+    why: >-
+      An energy is measured by electronics, turned into GeV by a calibration, and binned into a
+      distribution in a third room, and a fraction of a per cent lost in between moves every
+      mass in the plot. Petra Novak, the detector physicist, walks one through. Stay with her
+      and watch where the number is scaled.
+
+interiors:
+  CHART:
+    caption: The chart sorts particles by what job they do.
+    standLine: Three families, and one slot with nothing in it.
+    station:
+      kind: panel
+      title: Standard Model
+      rows:
+        - { label: Matter fermions, value: 12 known, status: normal }
+        - { label: Gauge bosons, value: 4 known, status: normal }
+        - { label: Scalar slot, value: empty, status: alarm }
+        - { label: Photon mass, value: zero, status: normal }
+  EVENT:
+    caption: Nothing here arrives labelled.
+    standLine: One collision at a time, drawn layer by layer.
+    station:
+      kind: panel
+      title: This event
+      rows:
+        - { label: EM deposits, value: 2 isolated, status: alarm }
+        - { label: Charged tracks, value: none toward them, status: normal }
+        - { label: Muon hits, value: none, status: normal }
+        - { label: Reconstructed mass, value: not yet, status: low }
+  HIST:
+    caption: A background is fitted where the signal is not.
+    standLine: Every candidate mass in one distribution, and the window still masked.
+    station:
+      kind: plot
+      title: Diphoton mass
+      note: 'window masked until the fit is frozen
+      axes: { x: reconstructed mass, y: events per bin' }
+      curves:
+        - { points: [[0.02, 0.92], [0.2, 0.7], [0.4, 0.53], [0.6, 0.4], [0.8, 0.3], [0.98, 0.23]], dashed: true, faint: true, label: frozen background }
+        - { points: [[0.02, 0.93], [0.2, 0.71], [0.36, 0.57], [0.4, 0.63], [0.44, 0.55], [0.6, 0.41], [0.8, 0.31], [0.98, 0.24]], label: data }
+  STATS:
+    caption: A significance says what the background would do, and nothing else.
+    standLine: Two channels, two experiments, and a sentence that has to last ten years.
+    station:
+      kind: panel
+      title: Combination
+      rows:
+        - { label: Two photons, value: 4.1 sigma, status: high }
+        - { label: Four leptons, value: 3.2 sigma, status: high }
+        - { label: Combined, value: 5.0 sigma, status: alarm }
+        - { label: Spin and parity, value: not measured, status: low }
+
+copy:
+  CHART: <p>The theory wall, first door on the west side. The Standard Model painted floor to ceiling, one slot on it empty, and a sentence underneath that has been rewritten nine times.</p>
+  EVENT: <p>The event display room, across the corridor and dark. Two large screens, a cylindrical detector drawn on each, and nothing on either of them labelled.</p>
+  HIST: <p>The histogram room, further down the east side. Binned distributions on the long wall, a masking strip over the search window, and sixteen candidate background shapes in a folder.</p>
+  STATS: <p>The combination room at the far end of the west side. Both channels on one screen, a whiteboard of drafted sentences, and the only telephone in the building that rings.</p>
+  PORCH: <p>The entrance desk. Badges, a signing-in book that doubles as the fire roll, and a screen showing how many collisions have been recorded today.</p>
+  TEA: <p>The coffee area halfway down the west side. A machine, eight chairs, and a printout of the beam schedule that everybody reads and nobody trusts.</p>
+  DARK: <p>The calibration bay, next to the event display. Test pulses, known-energy sources, and the tables that turn electronics counts into GeV.</p>
+  RACK: <p>The computing store at the end of the west side. Tape cartridges by run number, spare disks, and the boxes the last processing pass came back in.</p>
+  LIB: <p>The reading room at the far end. Preprints, two decades of conference proceedings, and the only quiet on the floor.</p>

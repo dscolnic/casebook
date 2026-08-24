@@ -23,7 +23,10 @@
 //     opening than it was on day one.
 
 import * as THREE from 'three';
-import { MATERIALS, box, cyl, crateStack, vehicle, sign } from '../../engine/world/kit.js';
+import {
+  MATERIALS, box, cyl, crateStack, vehicle, sign,
+  utilityCart, CART_DRIVE, clearSpot,
+} from '../../engine/world/kit.js';
 import { driveable } from '../../engine/world/driving.js';
 import { site } from './site.js';
 
@@ -622,7 +625,7 @@ function billboard(scene, groundAt, x, z, { facing = 0, text, sub = '', w = 9, h
 
 /** Decorate the park. */
 export function decorate(scene, ctx){
-  const { groundHeight, colliders, softColliders, interactables, stateHooks } = ctx;
+  const { groundHeight, colliders, softColliders, interactables, stateHooks, blocked } = ctx;
   const at = (x, z) => groundHeight(x, z);
   const rand = rng(0x51DE5170);
 
@@ -763,10 +766,32 @@ export function decorate(scene, ctx){
    */
   const truck = vehicle(scene, -56, 62, at(-56, 62), { facing: 0, colour: 0x3f6f5a });
   driveable(scene, truck.group, {
-    id: 'park-truck', label: 'maintenance truck',
+    id: 'park-truck', label: 'maintenance truck', kind: 'truck',
     halfWidth: 1.4, halfLength: 3.2, height: 3.2,
     seat: { x: 0.45, y: 2.1, z: truck.cabZ },
     wheels: truck.wheels, topSpeed: 10,
+    colliders, interactables,
+  });
+
+  /**
+   * And a service cart, which is the vehicle an amusement park is actually run
+   * on and the one this one should have had first.
+   *
+   * The truck is the right answer to *carrying* and the wrong answer to the
+   * midway: Corbin Park's paths are three metres wide between the carousel and
+   * the bumper floor, and a flatbed on them is a flatbed being three-point
+   * turned. A canopied cart goes down them, which is what the ride fitters use
+   * to get a gearbox from the workshop to the wheel without going round by the
+   * service road. Slower flat out, and quicker to everywhere that matters.
+   */
+  const cs = clearSpot({ x: -46, z: 68 }, blocked,
+    { pad: 2.0, avoid: [{ x: 0, z: 58, r: 13 }, { x: -56, z: 62, r: 6 }] });
+  const cart = utilityCart(scene, cs.x, cs.z, at(cs.x, cs.z),
+    { facing: 0, colour: 0x96513f });
+  driveable(scene, cart.group, {
+    ...CART_DRIVE,
+    id: 'park-cart', label: 'service cart', kind: 'cart', verb: 'Take',
+    wheels: cart.wheels,
     colliders, interactables,
   });
 }

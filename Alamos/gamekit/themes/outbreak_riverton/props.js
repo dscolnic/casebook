@@ -14,7 +14,11 @@
 //     lights took a floor from 118 fps to 20 and the sun rig already spends
 //     three of the six the contract allows.
 import * as THREE from 'three';
-import { MATERIALS, box, cyl, crateStack, fenceRun, sign } from '../../engine/world/kit.js';
+import {
+  MATERIALS, box, cyl, crateStack, fenceRun, sign,
+  vehicle, VEHICLE_DRIVE, utilityCart, CART_DRIVE, clearSpot,
+} from '../../engine/world/kit.js';
+import { driveable } from '../../engine/world/driving.js';
 import { canvasTex } from '../../engine/world/materials.js';
 
 /**
@@ -565,6 +569,8 @@ export function decorate(scene, ctx){
   const soft = (s) => { if(s) softColliders.push(s); };
   const glow = (m) => { if(m) lightPanels.push(m); };
 
+  transport(scene, ctx, y);
+
   // ================================================ the town outside the fence
   // Three weeks into an outbreak in a town, and the town was not there: hills
   // in every direction and a fence around an empty campus. Rooftops now press
@@ -1111,5 +1117,48 @@ export default decorate;
 
 // Present so the manifest can export the same three hook names whichever world
 // it is wired to. This game is outdoors.
+
+// ------------------------------------------------------------------ transport
+/**
+ * The two things a campus in week three moves people and boxes on.
+ *
+ * The tankers and box vans already on this site are scenery with a note saying
+ * "none of these can be taken", and the day-4 card says the opposite: "they are
+ * far enough out that transport is signed out to reach them. Drive the route
+ * once…". The One Health field station is 190 m south of the fence and the
+ * wastewater station 120 m; both are past the decon tunnel, and neither is a
+ * walk anybody makes twice with a cold box.
+ *
+ * Two kinds, and the split is the fence. The utility cart is how a campus
+ * actually moves — no doors, a load bed, and it goes between marquees and
+ * through the courtyards, which a van does not. The van is for outside the wire.
+ */
+function transport(scene, ctx, y){
+  const { colliders, interactables, blocked } = ctx;
+  const spawn = { x: 0, z: 44, r: 13 };
+
+  const vs = clearSpot({ x: -18, z: 52 }, blocked, { pad: 3.4, avoid: [spawn] });
+  const van = vehicle(scene, vs.x, vs.z, y(vs.x, vs.z),
+    { facing: Math.PI, colour: 0xdedad0 });
+  driveable(scene, van.group, {
+    ...VEHICLE_DRIVE,
+    id: 'outreach-van', label: 'outreach van', kind: 'van',
+    seat: { x: 0.52, y: 2.18, z: van.cabZ },
+    wheels: van.wheels,
+    colliders, interactables,
+  });
+
+  const cs = clearSpot({ x: 16, z: 52 }, blocked,
+    { pad: 2.0, avoid: [spawn, { x: vs.x, z: vs.z, r: 5 }] });
+  const cart = utilityCart(scene, cs.x, cs.z, y(cs.x, cs.z),
+    { facing: Math.PI, colour: 0x2f6f7a });
+  driveable(scene, cart.group, {
+    ...CART_DRIVE,
+    id: 'porter-cart', label: 'porter cart', kind: 'cart', verb: 'Take',
+    wheels: cart.wheels,
+    colliders, interactables,
+  });
+}
+
 export function fitOutRoom(){}
 export function fitOutSpine(){}

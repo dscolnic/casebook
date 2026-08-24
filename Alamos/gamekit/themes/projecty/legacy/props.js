@@ -502,7 +502,7 @@ function jeep(scene, x, z, ry, { drive = false, label = 'jeep', id = null } = {}
     // The jeep's body is built along +x, so its long axis is x and the driver
     // sits on the left of the tub, facing the way the body points.
     driveables.push({
-      group: g, wheels, label, id,
+      group: g, wheels, label, id, kind: 'jeep',
       halfWidth: 0.95, halfLength: 1.95, height: 1.9,
       // Seat given in the driving wrapper's frame (see driving.js): the jeep's
       // own +x becomes -z there, so its left-hand seat lands on +x.

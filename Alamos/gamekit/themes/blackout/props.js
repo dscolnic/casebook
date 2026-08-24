@@ -16,6 +16,7 @@
 import * as THREE from 'three';
 import {
   MATERIALS, box, cyl, post, sign, fenceRun, crateStack, tank, pipeRun, vehicle, displayBoard,
+  utilityCart, CART_DRIVE, clearSpot,
 } from '../../engine/world/kit.js';
 import { driveable } from '../../engine/world/driving.js';
 
@@ -96,7 +97,7 @@ function turbine(scene, x, z, y, h = 62, r = 26, spin = 0){
 }
 
 export function decorate(scene, ctx){
-  const { groundHeight, colliders, softColliders, interactables, lightPanels, stateHooks } = ctx;
+  const { groundHeight, colliders, softColliders, interactables, lightPanels, stateHooks, blocked } = ctx;
   const y = (x, z) => groundHeight(x, z);
   const soft = (s) => { if(s) softColliders.push(s); };
   const glow = (m) => { if(m) lightPanels?.push(m); };
@@ -397,10 +398,29 @@ export function decorate(scene, ctx){
 
     const truck = vehicle(scene, 18, 92, y(18, 92), { facing: Math.PI / 2, colour: 0xd8b13a });
     driveable(scene, truck.group, {
-      id: 'VEH_LINE', label: 'line truck',
+      id: 'VEH_LINE', label: 'line truck', kind: 'truck',
       halfWidth: 1.25, halfLength: 2.9, height: 3.0,
       seat: { x: 0.52, y: 2.18, z: truck.cabZ },
       wheels: truck.wheels, topSpeed: 12,
+      colliders, interactables,
+    });
+
+    // And the yard buggy, which is the second kind and the one actually used.
+    //
+    // A switchyard is a fenced rectangle of bays with a gravel road round it and
+    // gates a line truck needs a banksman to reverse through. What a station
+    // moves a spares crate or a relay test set on is a flatbed buggy — no doors,
+    // low, and it goes down a bay road the truck stays out of. It is also the
+    // right speed for the place: Calder is 6 areas inside 110 m, and a truck
+    // that does 12 m/s across it is a truck being braked the whole way.
+    const cs = clearSpot({ x: 26, z: 84 }, blocked,
+      { pad: 2.0, avoid: [{ x: 0, z: 56, r: 13 }, { x: 18, z: 92, r: 5 }] });
+    const buggy = utilityCart(scene, cs.x, cs.z, y(cs.x, cs.z),
+      { facing: Math.PI / 2, colour: 0x3a6b5a });
+    driveable(scene, buggy.group, {
+      ...CART_DRIVE,
+      id: 'VEH_BUGGY', label: 'yard buggy', kind: 'cart', verb: 'Take',
+      wheels: buggy.wheels,
       colliders, interactables,
     });
   }

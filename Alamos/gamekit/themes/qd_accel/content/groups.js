@@ -11,7 +11,7 @@ export const GROUPS = [
     "difficulty": 3,
     "type": "protocol",
     "desc": "Light curves, magnitudes and the residual plot everything ends up on.",
-    "defaultLeader": "ferreira",
+    "defaultLeader": "riess",
     "budget": 70,
     "milestones": [
       {
@@ -52,7 +52,7 @@ export const GROUPS = [
     "difficulty": 3,
     "type": "protocol",
     "desc": "What the lines say the redshift is, and whether dust is in the way.",
-    "defaultLeader": "oyelaran",
+    "defaultLeader": "filippenko",
     "budget": 70,
     "milestones": [
       {
@@ -93,7 +93,7 @@ export const GROUPS = [
     "difficulty": 3,
     "type": "protocol",
     "desc": "Expansion histories, laid over the same points and read off the leftovers.",
-    "defaultLeader": "bardem",
+    "defaultLeader": "schmidt",
     "budget": 70,
     "milestones": [
       {

@@ -510,6 +510,331 @@ export function scooterRack(scene, x, z, y = 0, { facing = 0, slots = 3 } = {}){
 }
 
 /**
+ * A bicycle, and the player can ride it.
+ *
+ * The transport almost every one of these sites should have had and only one
+ * did — as scenery, leaning on a wall. It is the second kind of movement a
+ * walking game most obviously wants: quicker than a walk, parked at the door
+ * you rode it to, and it needs no road, no yard and no keys. It is also the
+ * only vehicle in the kit that is right in 1944 and right today, which is why
+ * Project Y and a modern island station can both take one.
+ *
+ * Like every driveable, the frame runs along **-z**. Front wheel, forks and
+ * bar are one `steer` group pivoting about the head tube: `driveable` turns it
+ * on the y axis, the same as the scooter's.
+ */
+export function bicycle(scene, x, z, y = 0, { facing = 0, colour = 0x2c3a44, basket = false } = {}){
+  const g = new THREE.Group();
+  const frame = MATERIALS.paintedSteel(colour);
+  const dark = MATERIALS.paintedSteel(0x23272b);
+  const R = 0.34;                       // wheel radius; a 26" wheel is about this
+
+  const wheels = [];
+  /**
+   * A spoked wheel: a torus for the tyre, a hub, and eight spokes between them.
+   *
+   * The spokes were a thin disc of steel at almost the tyre's radius, which is
+   * cheaper and renders as a **solid grey wheel** — a moped, not a bicycle, and
+   * from ten metres the difference between the two is the only thing telling you
+   * which one is parked there. Eight boxes cost eight meshes and read correctly,
+   * which is the same trade the 1919 lorry in qd_eclipse makes for the same
+   * reason. A screenshot found this; nothing else could have.
+   */
+  const rim = (parent, wz) => {
+    const w = new THREE.Group();
+    // The major radius is the *centreline* of the tube, so a torus of radius R
+    // has its tread at R + tube and dips below the ground it is standing on.
+    const tyre = new THREE.Mesh(new THREE.TorusGeometry(R - 0.032, 0.032, 6, 18), MATERIALS.rubber());
+    // A torus is built in its own xy plane, so it already stands upright facing
+    // +z — which is across the bike. Turned a quarter so it rolls fore and aft.
+    tyre.rotation.y = Math.PI / 2;
+    w.add(tyre);
+    const spoke = MATERIALS.steel();
+    for(let i = 0; i < 8; i++){
+      const sp = new THREE.Mesh(new THREE.BoxGeometry(0.012, (R - 0.05) * 2, 0.012), spoke);
+      // Spread over a half turn, not a whole one: a spoke is a diameter here, so
+      // eight of them over π give sixteen visible arms and no doubled-up pair.
+      sp.rotation.x = (i / 8) * Math.PI;
+      w.add(sp);
+    }
+    const hub = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.045, 0.075, 8), spoke);
+    hub.rotation.z = Math.PI / 2;
+    w.add(hub);
+    w.position.set(0, R, wz);
+    // The group rolls about x, which is what `driveable` spins.
+    w.userData.spinAxis = 'x';
+    wheels.push(w);
+    parent.add(w);
+    return w;
+  };
+  rim(g, 0.52);                          // rear
+
+  /** A frame tube between two points in the bike's own frame. */
+  const tube = (parent, y0, z0, y1, z1, r = 0.024, m = frame) => {
+    const dy = y1 - y0, dz = z1 - z0;
+    const len = Math.hypot(dy, dz);
+    const t = new THREE.Mesh(new THREE.CylinderGeometry(r, r, len, 6), m);
+    t.position.set(0, (y0 + y1) / 2, (z0 + z1) / 2);
+    // A cylinder stands along y. Rotate about x to lay it along the y–z line.
+    t.rotation.x = Math.atan2(dz, dy);
+    parent.add(t);
+    return t;
+  };
+  tube(g, 0.86, -0.14, 0.80, 0.40);      // top tube
+  tube(g, 0.30, -0.10, 0.86, -0.14);     // head/down tube, standing end
+  tube(g, 0.30, -0.10, 0.30, 0.52);      // chainstay
+  tube(g, 0.30, 0.52, 0.80, 0.40);       // seat tube
+  const saddle = box(g, 0.11, 0.05, 0.26, 0, 0.88, 0.44, MATERIALS.paintedSteel(0x1a1c1f));
+  saddle.rotation.x = 0.08;
+  // Chainring and cranks, because a bicycle with no drive reads as a toy.
+  const ring = new THREE.Mesh(new THREE.CylinderGeometry(0.11, 0.11, 0.012, 12), MATERIALS.steel());
+  ring.rotation.z = Math.PI / 2;
+  ring.position.set(0, 0.30, 0.10);
+  g.add(ring);
+  for(const s of [-1, 1]){
+    // One crank up and one down, which is what a parked bicycle looks like.
+    const crank = box(g, 0.02, 0.17, 0.03, s * 0.07, 0.30, 0.10, dark);
+    crank.rotation.x = s * 0.9;
+    // The pedal at the far end of that crank, in the plane it swings through.
+    box(g, 0.06, 0.02, 0.11,
+      s * 0.11, 0.30 + s * 0.085 * Math.cos(s * 0.9), 0.10 - s * 0.085 * Math.sin(s * 0.9), dark);
+  }
+
+  // The steering half: everything in front of the head tube, in its own group.
+  //
+  // The pivot is vertical, so lifting this group to the head tube buys nothing
+  // and costs the one thing that matters — `rim` puts a hub at y = R in the
+  // frame it is handed, and in a group raised 0.30 m that is a front wheel
+  // floating thirty centimetres off the ground. Ground level, absolute heights.
+  const steer = new THREE.Group();
+  steer.position.set(0, 0, -0.12);
+  rim(steer, -0.48);
+  // Forks, raked forward to the hub.
+  for(const s of [-1, 1]){
+    const fork = box(steer, 0.022, 0.58, 0.022, s * 0.05, 0.58, -0.40, frame);
+    fork.rotation.x = 0.30;
+  }
+  tube(steer, 0.34, -0.48, 0.92, -0.30, 0.022);         // steerer
+  const bar = box(steer, 0.50, 0.028, 0.028, 0, 0.94, -0.30, dark);
+  for(const s of [-1, 1]) box(steer, 0.10, 0.036, 0.036, s * 0.20, 0.94, -0.30, MATERIALS.rubber());
+  if(basket){
+    // A wire basket, drawn as a shallow open box: four sides and a floor.
+    //
+    // Slung under the bar and touching the steerer, not out in front of it. The
+    // first version floated a hand's width clear of the bike in two directions
+    // at once and read as a white box hanging in the air beside a bicycle —
+    // which is what a screenshot showed and what the numbers alone did not.
+    const wire = MATERIALS.steel();
+    box(steer, 0.30, 0.02, 0.24, 0, 0.66, -0.31, wire);
+    for(const s of [-1, 1]) box(steer, 0.02, 0.22, 0.24, s * 0.15, 0.77, -0.31, wire);
+    box(steer, 0.30, 0.22, 0.02, 0, 0.77, -0.42, wire);
+    box(steer, 0.30, 0.22, 0.02, 0, 0.77, -0.20, wire);
+    // Two stays back to the steerer, so it is visibly carried rather than
+    // hovering: a basket is bolted to the bars and braced to the fork crown.
+    for(const s of [-1, 1]){
+      const stay = box(steer, 0.016, 0.24, 0.016, s * 0.13, 0.78, -0.24, wire);
+      stay.rotation.x = -0.55;
+    }
+  }
+  g.add(steer);
+
+  g.position.set(x, y, z);
+  g.rotation.y = facing;
+  scene.add(g);
+  g.traverse(o => { if(o.isMesh) o.castShadow = true; });
+  return { group: g, wheels, steer, bar, R };
+}
+
+/**
+ * The handling a bicycle wants, as one object to spread into `driveable`.
+ *
+ * Separated out because eight themes park one and eight copies of fourteen
+ * numbers is how a vehicle ends up feeling different in every game for no
+ * authored reason. Faster than a scooter and slower than a truck; leans, because
+ * two wheels do; and a low `clearance` would be wrong — a bicycle rides a kerb
+ * a scooter stops dead against, but not a step.
+ */
+export const BICYCLE_DRIVE = {
+  halfWidth: 0.30, halfLength: 0.95, height: 1.15, clearance: 0.30,
+  seat: { x: 0, y: 1.42, z: 0.34 },
+  steerAxis: 'y', steerAmount: 0.55,
+  wheelRadius: 0.34,
+  topSpeed: 10, sprint: 1.25,
+  accel: 5.5, brake: 6, reverseAccel: 1.4, coastDrag: 1.1, driveDrag: 0.55,
+  turn: 1.8, gripAt: 1.8, reverseFrac: 0.10, lean: 0.24,
+  hint: 'W/S pedal · A/D steer · Shift harder · E — get off',
+};
+
+/**
+ * A rack of bicycles: the bar, and `n` machines standing in it.
+ *
+ * Four themes park bicycles and the first version of each spaced them by hand,
+ * two and a half metres apart with nothing to lean on — which renders as three
+ * bicycles abandoned in a row rather than a rack somebody left theirs at. The
+ * spacing is the whole of the difference and it is the same number every time,
+ * so it lives here.
+ *
+ * Returns the rail's soft collider and one entry per bicycle, ready to hand to
+ * `driveable`. The rail is in each bicycle's `ignore` set: a machine parked
+ * 0.7 m off the bar is inside the rail's collider before it moves, and from
+ * there every direction out is blocked — you get on and nothing happens, which
+ * is house rule 16 reached from the vehicle's side.
+ *
+ * @param list  one entry per machine: `{ colour, basket }`
+ */
+export function bicycleRack(scene, x, z, y = 0, { facing = 0, list = [] } = {}){
+  const rail = scooterRack(scene, x, z, y, { facing, slots: list.length });
+  const cos = Math.cos(facing), sin = Math.sin(facing);
+  const made = [];
+  list.forEach((b, i) => {
+    // Along the bar, which runs *across* the direction the machines point.
+    const off = (i - (list.length - 1) / 2) * 0.62;
+    // And 0.7 m out from it, where the rear wheel stands. On the bar itself the
+    // rail runs through the frame.
+    const bx = x + off * cos - Math.sin(facing) * 0.7;
+    const bz = z - off * sin - Math.cos(facing) * 0.7;
+    const built = bicycle(scene, bx, bz, y, { facing, colour: b.colour, basket: b.basket });
+    made.push({ ...built, x: bx, z: bz, ignore: [rail.soft] });
+  });
+  return { rail, bicycles: made };
+}
+
+/**
+ * A quad bike, and the player can ride it.
+ *
+ * What five of these sites actually keep, and the reason is in their own books:
+ * Overwind's track "is peat for the last hundred", Dark Fibre's "shifts with the
+ * sand", Slack Water's far gauge is across mud. A van does not go there and a
+ * bicycle does not go there loaded. The quad is the broken-ground answer — slower
+ * flat out than a truck, quicker than one over anything that is not a road.
+ *
+ * Handlebar steering, so the `steer` group turns about y like the scooter's.
+ */
+export function quadBike(scene, x, z, y = 0, { facing = 0, colour = 0x9c3f2c, rack = true } = {}){
+  const g = new THREE.Group();
+  const body = MATERIALS.paintedSteel(colour);
+  const dark = MATERIALS.paintedSteel(0x23272b);
+  const R = 0.32;
+
+  const wheels = [];
+  const tyre = (parent, sx, wz) => {
+    const w = new THREE.Mesh(new THREE.CylinderGeometry(R, R, 0.26, 12), MATERIALS.rubber());
+    w.rotation.z = Math.PI / 2;
+    w.position.set(sx, R, wz);
+    w.userData.spinAxis = 'x';
+    wheels.push(w);
+    parent.add(w);
+    return w;
+  };
+  for(const sx of [-0.52, 0.52]) tyre(g, sx, 0.62);        // rear pair
+
+  box(g, 0.72, 0.26, 1.70, 0, 0.52, 0.05, dark);            // chassis
+  box(g, 0.86, 0.30, 0.90, 0, 0.74, 0.34, body);            // tank and flank
+  const seat = box(g, 0.42, 0.20, 0.72, 0, 0.94, 0.52, MATERIALS.paintedSteel(0x1a1c1f));
+  seat.rotation.x = -0.05;
+  box(g, 1.02, 0.16, 0.70, 0, 0.72, -0.52, body);           // front guard
+  for(const s of [-1, 1]) box(g, 0.30, 0.06, 0.36, s * 0.44, 0.44, 0.20, dark);   // footboards
+  if(rack){
+    // The reason it is here rather than a bicycle: it carries the kit.
+    for(const s of [-1, 1]) box(g, 0.04, 0.16, 0.60, s * 0.34, 1.02, -0.86, MATERIALS.steel());
+    box(g, 0.76, 0.04, 0.62, 0, 1.10, -0.86, MATERIALS.steel());
+  }
+
+  const steer = new THREE.Group();
+  steer.position.set(0, 0, -0.66);
+  for(const sx of [-0.52, 0.52]) tyre(steer, sx, 0);
+  box(steer, 0.08, 0.72, 0.08, 0, 0.86, 0.10, dark);        // column
+  box(steer, 0.74, 0.04, 0.04, 0, 1.20, 0.06, dark);        // bar
+  for(const s of [-1, 1]) box(steer, 0.12, 0.05, 0.05, s * 0.30, 1.20, 0.06, MATERIALS.rubber());
+  // A headlamp pod, aimed the way the bar points: on a moor at dusk it is the
+  // only part of the machine that reads at distance.
+  box(steer, 0.26, 0.12, 0.10, 0, 1.02, -0.14, MATERIALS.emissive(0xffe9b8, 0.5));
+  g.add(steer);
+
+  g.position.set(x, y, z);
+  g.rotation.y = facing;
+  scene.add(g);
+  g.traverse(o => { if(o.isMesh) o.castShadow = true; });
+  return { group: g, wheels, steer, R };
+}
+
+/** The handling a quad wants. See `BICYCLE_DRIVE` for why this is shared. */
+export const QUAD_DRIVE = {
+  halfWidth: 0.70, halfLength: 1.30, height: 1.30, clearance: 0.34,
+  seat: { x: 0, y: 1.52, z: 0.42 },
+  steerAxis: 'y', steerAmount: 0.42,
+  wheelRadius: 0.32,
+  topSpeed: 11, sprint: 1.3,
+  accel: 7.5, brake: 7, reverseAccel: 3.0, coastDrag: 2.6, driveDrag: 0.9,
+  turn: 1.7, gripAt: 2.6, reverseFrac: 0.22, lean: 0.10,
+  hint: 'W/S throttle · A/D steer · Shift faster · E — get off',
+};
+
+/**
+ * A utility cart — the flat-bed electric buggy a campus runs on.
+ *
+ * Between the truck and the bicycle, and it is the shape a *site* uses rather
+ * than a road: no doors, a bench seat, a canopy on four posts and a load bed
+ * behind. A hospital campus moves oxygen on one, an amusement park moves a
+ * fitter and his tools, a switchyard moves a spares crate to a bay a truck has
+ * no gate to reach.
+ *
+ * Steered by a wheel, not a bar, so it takes `driveable`'s own default.
+ */
+export function utilityCart(scene, x, z, y = 0, { facing = 0, colour = 0x2f6f5a, canopy = true, bed = true } = {}){
+  const g = new THREE.Group();
+  const body = MATERIALS.paintedSteel(colour);
+  const dark = MATERIALS.paintedSteel(0x23272b);
+  const R = 0.28;
+
+  const wheels = [];
+  for(const [sx, wz] of [[0.62, 0.86], [-0.62, 0.86], [0.62, -0.82], [-0.62, -0.82]]){
+    const w = new THREE.Mesh(new THREE.CylinderGeometry(R, R, 0.16, 12), MATERIALS.rubber());
+    w.rotation.z = Math.PI / 2;
+    w.position.set(sx, R, wz);
+    w.userData.spinAxis = 'x';
+    wheels.push(w);
+    g.add(w);
+  }
+
+  box(g, 1.34, 0.22, 2.30, 0, 0.44, 0, dark);                    // chassis pan
+  box(g, 1.34, 0.34, 0.70, 0, 0.72, 0.30, body);                 // seat base
+  box(g, 1.30, 0.52, 0.16, 0, 1.15, 0.62, body);                 // seat back
+  box(g, 1.30, 0.10, 0.60, 0, 0.90, 0.30, MATERIALS.paintedSteel(0x1a1c1f));   // cushion
+  box(g, 1.34, 0.46, 0.14, 0, 0.78, -0.98, body);                // nose
+  if(bed){
+    // The load bed, as a floor and three low sides.
+    box(g, 1.30, 0.06, 1.00, 0, 0.58, 0.98, MATERIALS.steel());
+    for(const s of [-1, 1]) box(g, 0.06, 0.26, 1.00, s * 0.62, 0.72, 0.98, body);
+    box(g, 1.30, 0.26, 0.06, 0, 0.72, 1.45, body);
+  }
+  if(canopy){
+    for(const [sx, cz] of [[0.60, 0.62], [-0.60, 0.62], [0.60, -0.78], [-0.60, -0.78]]){
+      box(g, 0.06, 1.20, 0.06, sx, 1.55, cz, MATERIALS.steel());
+    }
+    box(g, 1.42, 0.08, 1.70, 0, 2.19, -0.08, MATERIALS.panel());
+  }
+
+  g.position.set(x, y, z);
+  g.rotation.y = facing;
+  scene.add(g);
+  g.traverse(o => { if(o.isMesh) o.castShadow = true; });
+  return { group: g, wheels, R };
+}
+
+/** The handling a utility cart wants. See `BICYCLE_DRIVE`. */
+export const CART_DRIVE = {
+  halfWidth: 0.78, halfLength: 1.55, height: 2.25, clearance: 0.28,
+  // On the bench, on the left, ahead of the seat back and under the canopy.
+  seat: { x: 0.34, y: 1.42, z: 0.24 },
+  wheelRadius: 0.28,
+  topSpeed: 8, sprint: 1.15,
+  accel: 5.0, brake: 5.5, reverseAccel: 2.6, coastDrag: 2.4, driveDrag: 0.9,
+  turn: 1.5, gripAt: 2.4, reverseFrac: 0.35, lean: 0,
+  hint: 'W/S drive · A/D steer · E — step off',
+};
+
+/**
  * A free-standing display board — the instrument readout or map that gives a
  * location its scientific identity. Emissive, so it reads at dusk without
  * costing a light.
@@ -525,6 +850,60 @@ export function displayBoard(scene, x, z, y = 0, { facing = 0, title = '', tint 
   g.rotation.y = facing;
   scene.add(g);
   return { group: g, screen, soft: { x, z, r: 1.7 } };
+}
+
+/**
+ * The handling `kit.vehicle` wants, as one object to spread into `driveable`.
+ *
+ * The seat is deliberately not in here: it depends on `cabZ`, which is where the
+ * cab ended up on that particular body, and a shared seat would put half the
+ * drivers behind the load. See `BICYCLE_DRIVE` for why the rest is shared.
+ */
+export const VEHICLE_DRIVE = {
+  halfWidth: 1.25, halfLength: 2.9, height: 3.0,
+  wheelRadius: 0.52,
+  topSpeed: 12,
+};
+
+/**
+ * A clear spot for something that must not be placed inside anything.
+ *
+ * House rule 16 for props rather than people: a vehicle dropped inside a
+ * collider is a vehicle you get into and cannot move, because every direction
+ * out is blocked — the same trap `settle()` rescues a person from, reached from
+ * the other side, and the symptom is identical (you press W and nothing at all
+ * happens). Every parked vehicle in this repo was placed by reading a site file
+ * and doing the arithmetic by hand, which works until somebody moves a shed.
+ *
+ * Deterministic on purpose: it walks a fixed spiral rather than drawing from the
+ * world's seeded generator, because a draw from that moves every later one and
+ * the later ones are the crowd's faces.
+ *
+ * @param prefer  where it should stand if nothing is in the way
+ * @param blocked the world's own predicate, `(x, z, pad) => boolean`
+ * @param pad     the half-diagonal of the thing being parked
+ * @param avoid   points it must stay clear of — the spawn, above all: a vehicle
+ *                over the spawn welds the player in place (house rule 8)
+ */
+export function clearSpot({ x, z }, blocked, { pad = 3, step = 2.5, rings = 8, avoid = [] } = {}){
+  const ok = (px, pz) => {
+    if(blocked && blocked(px, pz, pad)) return false;
+    return avoid.every(a => Math.hypot(px - a.x, pz - a.z) >= (a.r ?? 12));
+  };
+  if(ok(x, z)) return { x, z, moved: 0 };
+  for(let r = 1; r <= rings; r++){
+    // Twelve bearings a ring, starting due -z and going round; enough that a
+    // ring never steps over a gap a vehicle would fit through.
+    for(let i = 0; i < 12; i++){
+      const a = (i / 12) * Math.PI * 2;
+      const px = x + Math.sin(a) * r * step;
+      const pz = z - Math.cos(a) * r * step;
+      if(ok(px, pz)) return { x: px, z: pz, moved: r * step };
+    }
+  }
+  // Nowhere clear inside four ring-widths. Returning the preferred spot anyway
+  // would park it in a wall silently; saying so is the whole point of the note.
+  return { x, z, moved: -1 };
 }
 
 /** Scatter helper: n positions on a ring, skipping anywhere `blocked` says no. */

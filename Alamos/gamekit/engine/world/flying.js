@@ -53,6 +53,10 @@ export function flyable(scene, group, opts = {}){
   const record = {
     id: opts.id ?? `aircraft-${Math.round(group.position.x)}-${Math.round(group.position.z)}`,
     label: opts.label ?? 'helicopter',
+    // See driving.js: the sort of thing rather than this one's name. An aircraft
+    // defaults to its own kind because it already is one — nothing that flies is
+    // interchangeable with anything that does not.
+    kind: opts.kind ?? 'aircraft',
     group, hit, seat, halfW, halfL, height,
     rotors: opts.rotors ?? {},
     cruise: opts.cruise ?? 30,        // metres a second, flat out
@@ -69,7 +73,7 @@ export function flyable(scene, group, opts = {}){
   record.box = boxFor(record);
   opts.colliders?.push(record.box);
   opts.interactables?.push({
-    mesh: hit, type: 'aircraft', id: record.id,
+    mesh: hit, type: 'aircraft', id: record.id, kind: record.kind,
     prompt: `E — Fly the ${record.label}`,
     aircraft: record,
   });

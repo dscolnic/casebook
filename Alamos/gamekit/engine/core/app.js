@@ -361,10 +361,40 @@ export function showEnding(theme, ui, onClose){
   if(!paras.length) return false;
   ui.open(`${theme.title} — how it ends`,
     `<div class="briefBox endingCard">${paras.map(p => `<p>${p}</p>`).join('')}</div>`
+    + historyHTML(theme)
     + ratingHTML(),
     [{ id: 'endingDone', label: 'Close', primary: true, onClick: () => { ui.close(); onClose?.(); } }]);
   mountRating();
   return true;
+}
+
+/**
+ * What really happened, under the ending, in the games that re-enact something.
+ *
+ * WHY IT IS SEPARATE FROM THE ENDING AND NOT PART OF IT. The ending is the last
+ * paragraph of the fiction and is addressed to the player — *that was your
+ * fortnight* — which `checkStory` enforces. This is the opposite voice: it steps
+ * out, names the real people and the real date, and says where the game departed
+ * from the record. Folding the two together would either put a bibliography in
+ * the middle of a story beat or leave the credit sounding like more fiction.
+ *
+ * WHY IT EXISTS AT ALL. The Quick Discoveries dramatise real work by people who
+ * are named on the roster, and several of them are alive. A game may put a real
+ * scientist in a room and have them ask for a number; what it may not do is
+ * leave a player unable to tell which parts happened. Naming the date, the
+ * institution and the compression is the difference between a dramatisation and
+ * a claim about somebody.
+ *
+ * Absent on every game that invents its place, and inert there — a theme with no
+ * `history` renders exactly what it rendered before.
+ */
+function historyHTML(theme){
+  const paras = theme?.history ?? [];
+  if(!paras.length) return '';
+  return `<div class="briefBox historyCard">
+    <p class="historyLabel">What really happened</p>
+    ${paras.map(p => `<p>${p}</p>`).join('')}
+  </div>`;
 }
 
 /**

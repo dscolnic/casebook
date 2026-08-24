@@ -1,0 +1,1018 @@
+# No Middle To It — a Quick Discovery.
+#
+# The 3 x 3 shape from great_discoveries_first10_expanded.docx, game 10, mapped
+# onto the engine's day model: a level is a day, a micro-game is a stop, and the
+# campaign is nine stops in one sitting. Three levels, in order:
+#
+#   1  Measure distance   a ladder, and everything that makes it lie
+#   2  Measure recession  a shift, a pattern, and which error dominates
+#   3  Find the law        a slope, a time, and where the middle is
+#
+# The science guardrail from the source book, kept, and it is mostly about credit.
+# Many galaxy redshifts had already been measured by somebody else; an expanding
+# solution and a distance-velocity estimate were published two years before the
+# influential observational paper; and the period-luminosity relation the whole
+# distance ladder rests on was somebody else's work again. The campaign says all
+# of that on the cards rather than in a footnote. And the historical values of the
+# slope were badly wrong because the distances were, which is what one whole stop
+# of level 2 is about.
+#
+# Written for a reader two grades below the AP games, and every card teaches its
+# method before it asks anything: the `guide` says in plain words what the move
+# is, and the first background paragraph works the same move on different numbers.
+#
+# Format budget. Nine stops, cap three of any one format: CHOICE 2, BALLPARK 2,
+# and one each of PROTOCOL, CONTROL, TRACE, PROPAGATE, SWEEP. Seven formats in
+# nine stops, two of them instruments the player drives.
+
+theme:
+  id: qd_hubble
+  title: No Middle To It
+  subtitle: Observer · Mountain Observatory
+
+groups:
+  - id: PLATES
+    code: PLT
+    name: Plate Vault
+    color: '#8a6a1e'
+    desc: Years of photographs of the same nebulae, and the stars in them that will not hold still.
+    defaultLeader: leavitt
+    milestones: [Find the variable, Time the cycle, Grade the star, Ready to hand over]
+  - id: SPEC
+    code: SPC
+    name: Spectrograph Room
+    color: '#3f7f8f'
+    desc: Nights of exposure for one spectrum, and a set of lines that have all moved together.
+    defaultLeader: slipher
+    milestones: [Expose it, Identify the lines, Measure the shift, Ready to hand over]
+  - id: LADDER
+    code: LDR
+    name: Ladder Desk
+    color: '#b5502f'
+    desc: Where a brightness becomes a distance, and where every error in the brightness goes.
+    defaultLeader: moreau
+    milestones: [Calibrate it, Convert it, Price the error, Ready to hand over]
+  - id: DIAGRAM
+    code: DGM
+    name: Diagram Room
+    color: '#7a4fa3'
+    desc: One plot, two axes measured by different people, and a line somebody has to defend.
+    defaultLeader: hubble
+    milestones: [Place the points, Fit the slope, Read the units, Ready to hand over]
+
+roster:
+  - id: leavitt
+    name: Henrietta Leavitt
+    role: Plate Vault Lead
+    real: true
+    division: PLATES
+    bio: |
+      Keeps the plate vault: years of photographs of the same patches of sky, and
+      the stars in them that change brightness on a cycle.
+
+      Her rule is the one the whole ladder rests on. Among these variable stars
+      the slow ones are the bright ones, so timing a cycle — which anybody can do
+      from a stack of plates — is a statement about how much light the star is
+      really giving off.
+
+      Her limit is that the relation was established on stars whose own distances
+      had to be got some other way. Everything above it in the ladder inherits
+      whatever is wrong with that first rung.
+    quiz:
+      - q: What does timing a variable star's cycle tell Henrietta Leavitt?
+        a: Roughly how much light it really gives off
+        wrong:
+          - How far away the star is, directly and without any further calibration
+          - How much light from the star is being absorbed by dust along the way
+          - Whether the star belongs to our own galaxy or to a much more distant one
+
+  - id: moreau
+    name: Camille Moreau
+    role: Ladder Desk
+    division: LADDER
+    bio: |
+      Turns brightnesses into distances, which means owning every error in the
+      brightnesses.
+
+      Compare how much light a star emits with how much arrives and the
+      difference is a distance. That step is arithmetic. Everything difficult
+      about it happens before it, in establishing the first of those two numbers.
+
+      Her limit is that her arithmetic cannot see a bad input. Extra light from a
+      neighbouring star makes a distance come out too small, and nothing about
+      the calculation looks wrong afterwards.
+    quiz:
+      - q: What does extra light from a neighbour do to Moreau's distance?
+        a: Makes it come out too small
+        wrong:
+          - Makes it come out too large, because the star appears further away
+          - Adds a random scatter without changing the answer on average at all
+          - Has no effect, because the calculation uses the period rather than the brightness
+
+  - id: slipher
+    name: Vesto Slipher
+    role: Spectrograph Lead
+    real: true
+    division: SPEC
+    bio: |
+      Takes the spectra, which at this size of telescope means several nights of
+      exposure for one faint nebula.
+
+      His rule is that one shifted line is an identification and nothing more. A
+      feature at an unexpected wavelength could always be a different feature at
+      rest, and only a whole set of known lines shifted by the same fraction
+      settles it.
+
+      His limit is that he was measuring these shifts for years before anybody
+      had a distance to put beside them. A list of redshifts on its own is a list.
+    quiz:
+      - q: Why will Slipher not take a redshift from one line?
+        a: A line at an odd wavelength could be a different line
+        wrong:
+          - Because a single exposure is never long enough to record any line clearly
+          - Because the shift of one line is always smaller than the shift of the others
+          - Because a redshift must be measured at two different telescopes to count
+
+  - id: hubble
+    name: Edwin Hubble
+    role: Diagram Room
+    real: true
+    division: DIAGRAM
+    bio: |
+      Owns the plot, which is the only place the two halves of the observatory
+      meet.
+
+      One axis comes from the plate vault and one from the spectrograph, measured
+      by different people with different instruments on different nights. A line
+      through the points is a claim about both of them at once.
+
+      His limit is that a slope is only as good as its worse axis, and the worse
+      axis is the distances by a long way. He writes the slope down with that
+      said out loud beside it.
+    quiz:
+      - q: What limits the slope Hubble can quote?
+        a: The distances, which are much the worse axis
+        wrong:
+          - The redshifts, which are the harder of the two measurements to make
+          - The number of galaxies on the plot, since more points always help
+          - The size of the telescope used to take the original photographs
+
+  - id: farouk
+    name: Nadia Farouk
+    role: Theory Desk
+    division: DIAGRAM
+    bio: |
+      Works on what the plot would mean, and had an expanding solution written
+      down before there were enough points to draw a line through.
+
+      Her argument is that a recession proportional to distance is the one
+      pattern that looks the same from everywhere. Any other relation picks out a
+      place, and picking out a place needs a reason.
+
+      Her limit is that she has no data. Everything she has is a consequence of a
+      relation somebody else has to measure, and she says so at the top of every
+      page.
+    quiz:
+      - q: What is special about recession proportional to distance?
+        a: It looks the same seen from any galaxy
+        wrong:
+          - It is the only relation that can be drawn as a straight line on a plot
+          - It requires the observer to be at the centre for the pattern to appear
+          - It is what an ordinary explosion in existing space would produce
+
+  - id: humason
+    name: Milton Humason
+    role: Plate Measurer
+    real: true
+    division: PLATES
+    bio: |
+      Measures the plates, which means deciding which stars on them are worth
+      measuring at all.
+
+      A star crowded up against its neighbours, one bright enough to have
+      saturated the emulsion, and one photographed only once are three different
+      kinds of useless, and each one fails in its own direction. Grading the star
+      is part of the measurement.
+
+      His limit is that grading is a judgement. He can say a star is clean and
+      well sampled; he cannot prove there is nothing behind it.
+    quiz:
+      - q: Why does Humason grade a star before measuring it?
+        a: Each kind of bad star fails in its own direction
+        wrong:
+          - Because grading is required by the observatory before plates may be released
+          - Because a poorly graded star takes much longer to measure on the engine
+          - Because the grade is used to decide which telescope should observe it next
+
+glossary:
+  - name: Nebula
+    aliases: [nebula, nebulae, spiral nebula]
+    def: A faint patch of light in the sky, some of which turned out to be galaxies.
+  - name: Period
+    aliases: [period, cycle, pulsation period]
+    def: How long it takes something that repeats to come back round again.
+  - name: Variable star
+    aliases: [variable star, variable, cepheid]
+    def: A star that swells and shrinks, so its brightness changes over and over.
+  - name: Apparent brightness
+    aliases: [apparent brightness, how bright it looks, apparent magnitude]
+    def: How much of a star's light actually reaches us.
+  - name: Absolute brightness
+    aliases: [absolute brightness, intrinsic brightness, how much light it gives off, absolute magnitude]
+    def: How much light a star gives off, whatever its distance.
+  - name: Megaparsec
+    aliases: [megaparsec, megaparsecs, Mpc]
+    def: About three million million million kilometres — a convenient step between galaxies.
+  - name: Redshift
+    aliases: [redshift, shifted line, shift]
+    def: How far a spectral line has moved to longer wavelengths, as a fraction.
+  - name: Recession speed
+    aliases: [recession speed, recession, moving away]
+    def: How fast something is going away from us along the line of sight.
+  - name: Peculiar velocity
+    aliases: [peculiar velocity, peculiar motion, local motion]
+    def: A galaxy's own motion, on top of any general expansion.
+  - name: Saturated
+    aliases: [saturated, saturation]
+    def: So bright on a photograph that the plate cannot record how bright.
+
+missions:
+  - title: Measure distance
+    objective: Get a distance to a nebula, and know everything that could make it wrong.
+    briefing: Years of plates, one relation, and three stars that should not be used.
+    stake: >-
+      Monday in the plate vault. Henrietta Leavitt, who runs it, has years of photographs of the
+      same patch of sky and a handful of stars in them that swell and shrink on a regular
+      cycle. That cycle is the only rung of the ladder anybody has: among these stars the slow
+      ones are the bright ones, and knowing how bright a thing really is turns how bright it
+      looks into a distance. Camille Moreau, at the ladder desk, will do that arithmetic and
+      inherit every error in it. Today you say what the cycle tells you, match the two
+      brightnesses to what each one fixes, and find out what a crowded star does to a distance.
+    takeaway: A distance is only as good as the brightness it came from, and brightness is easy to get wrong in one direction.
+    stops:
+      - group: PLATES
+        task: Say what the cycle tells you
+        title: The slow ones are the bright ones
+        place: Plate Vault
+        concept: 'A longer-period variable star is intrinsically brighter'
+        scene: >
+          Leavitt has a stack of plates and two variable stars marked on them. One
+          runs through its cycle in three days and the other takes thirty. Neither
+          has a distance attached.
+        guide: >-
+          Four possible answers, and you are choosing what a longer cycle means about how much
+          light a star really gives off. The way to think about it is to ask what the cycle
+          could possibly be a property of. A star that takes ten times longer to swell and
+          shrink is a physically different star, and the useful question is whether that
+          difference goes with anything else about it.
+        background:
+          - >-
+              How to think about it, on a different example. Church bells: the big ones ring
+              slowly and the small ones quickly, because the pitch and the size go together.
+              So somebody who cannot see the bell can tell roughly how big it is by listening.
+              The size and the note are two properties of one object, and one of them is easy
+              to measure from a long way off.
+          - >-
+              What makes this useful rather than merely interesting. The cycle length can be
+              measured from a stack of photographs by anybody, at any distance, without knowing
+              anything else about the star. If that easily-measured property predicts how much
+              light the star emits, then a hard question has been turned into an easy one.
+          - >-
+              Where the relation itself came from, which matters. It was established on
+              variable stars whose distances had to be worked out some other way, and getting
+              those first distances right is the hardest and least celebrated part of the whole
+              ladder. Every distance measured above that rung inherits whatever is wrong with
+              it.
+        assumes:
+          - a star's cycle length can be measured without knowing its distance
+          - two properties of one kind of object can be related to each other
+        takeaway: A property you can measure from anywhere becomes a distance tool when it predicts one you cannot.
+        format: CHOICE
+        question: For these variable stars, a longer cycle goes with what?
+        choices:
+          - More light given off.
+          - Less light given off, without exception.
+          - Exactly the same light, whatever the cycle.
+          - No light at all, at the long-period end.
+        answer: More light given off.
+        rebuttals:
+          - It runs the other way. The slow stars are the luminous ones, which is what makes a long-period star usable at a great distance.
+          - If every one of them gave off the same light there would be no need to time anything, and a single measurement of apparent brightness would be a distance.
+          - A star with no light is not a star anybody has photographed. Every one of these was found because it is bright enough to see across a galaxy.
+        why: >
+          Among these variable stars the slow ones are the bright ones. What makes that worth
+          anything is not the relation itself but which of the two quantities is easy to
+          measure: the cycle length can be timed off a stack of plates from any distance,
+          knowing nothing else about the star, while how much light it gives off cannot be
+          measured at all without already knowing how far away it is. So a hard question has
+          been converted into an easy one. And note where the relation came from. It was
+          established on stars whose distances had to be got some other way, and that first
+          rung is the least celebrated and most consequential part of the ladder: every
+          distance measured above it inherits whatever is wrong down there.
+
+      - group: LADDER
+        task: Say what each brightness fixes
+        title: How much it gives off, and how much arrives
+        place: Ladder Desk
+        person: true
+        personId: moreau
+        concept: 'A distance comes from comparing how bright a thing is with how bright it looks'
+        scene: >
+          Moreau has four statements on the desk about one star and a distance to
+          work out. Two of them are brightnesses and two are not.
+        guide: >-
+          Four facts about one star, and each fixes a different thing. Work out for each one
+          whether it tells you about the star itself, about what arrives here, about the
+          journey in between, or about nothing that enters a distance at all. Only two of the
+          four are needed for a distance, and knowing which two is the whole point.
+        background:
+          - >-
+              How to do it, on a different example. A car headlamp of known power looks a
+              certain brightness from where you stand. The power is a property of the lamp, the
+              brightness is a property of where you are, and the ratio of the two is how far
+              away it is. Fog is a third thing, and it makes the lamp look further away than
+              it is.
+          - >-
+              How the two brightnesses give a distance. Light from a source spreads over a
+              sphere, so what arrives falls as one over the distance squared. Knowing what was
+              emitted and measuring what arrived therefore fixes the distance, and that step is
+              arithmetic. Everything difficult happens before it.
+          - >-
+              Why the cycle length is in the list. It is not a brightness. It is the thing that
+              lets you say how much light the star gives off without knowing the distance, and
+              on the previous stop that was the whole discovery. Here it is one step further
+              back in the chain.
+          - >-
+              And why dust is in the list. Anything absorbing light on the way makes a star look
+              fainter, and a fainter-looking star is calculated as a more distant one. It is a
+              third quantity that enters a distance without being either brightness.
+        assumes:
+          - light from a source falls off as one over the distance squared
+          - a measured brightness is a property of where the measurement was made
+        takeaway: A distance is the ratio of light emitted to light arriving, and everything else in the list is a way of getting one of those wrong.
+        format: PROTOCOL
+        task_line: Match each fact to what it fixes.
+        scenarios:
+          - The star's cycle takes thirty days.
+          - The plate records a particular faint brightness at this star's position.
+          - There is dust between us and the nebula.
+          - The nebula is in a crowded part of the sky.
+        choices:
+          - How much light the star gives off, without any distance being known.
+          - How much of that light actually arrives here.
+          - Light lost on the way, which makes the star look further off than it is.
+          - Light added by neighbours, which makes it look nearer than it is.
+        mapping: [0, 1, 2, 3]
+        why: >
+          Two of the four are the distance and two are ways of ruining it. The cycle length
+          gives how much light the star gives off, without any distance being involved, which is
+          what the previous stop was for. The plate gives how much arrives. Those two together
+          are the distance, because light spreads over a sphere and what arrives falls as one
+          over the distance squared. The other two are the interesting rows. Dust removes light
+          on the way, so the star looks fainter and the arithmetic puts it further away.
+          Crowding adds light from neighbours, so the star looks brighter and the arithmetic
+          brings it nearer. Both leave a calculation that looks perfectly correct afterwards,
+          and they push the answer in opposite directions.
+
+      - group: PLATES
+        task: Find out what a bad star does
+        title: Change one thing about the star
+        place: Plate Vault
+        concept: 'Anything that makes a star look brighter makes it look closer'
+        scene: >
+          Milton Humason, who measures the plates, has one star and four things about
+          how it was observed that can be changed. The number on the desk is the
+          distance that comes out.
+        guide: >-
+          The number you are watching is the distance the ladder desk computes from this star.
+          Four things about the observation can be changed, and each asks a different question:
+          does the distance depend on how crowded the field is, on how bright the star was on
+          the plate, on how often it was photographed, or on which night the measurement
+          started. Change one, read the distance, then put it back and read it again.
+        background:
+          - >-
+              How to do it, on a different example. A weighing scale reads high. Take the mat
+              out from under it and read again; put the mat back and read again. If the reading
+              followed the mat and returned when it went back, the mat is the cause. If it only
+              drifted, something else was changing while you worked.
+          - >-
+              What each control asks. Crowding asks whether neighbouring stars are adding
+              light. Saturation asks whether the plate could record the peak at all. Cadence
+              asks whether the cycle was sampled often enough to be timed. And the start night
+              asks whether anything about the calendar matters, which it should not.
+          - >-
+              Why the direction of the error is the lesson. Extra light from neighbours makes
+              the star look brighter, a brighter-looking star is calculated as nearer, and a
+              nearer galaxy on the plot pushes the slope of the whole relation up. This is not
+              random scatter — it is a bias, and it is the reason the historical values of that
+              slope were wrong by a large factor.
+          - >-
+              And why the change has to be undone. A distance that changed while you were
+              working and did not come back was following something else. Reversing the change
+              is what separates a cause from a coincidence, and it costs almost nothing here.
+        assumes:
+          - a controlled test changes one variable and holds the rest
+          - light from two stars blurred together is measured as one brighter star
+        takeaway: A relationship is causal when it reverses, and crowding biases a distance in one direction rather than scattering it.
+        format: CONTROL
+        question: >-
+          Four things you can change about the observation. Find out what the distance depends
+          on, and prove it.
+        control:
+          hint: >-
+            Change what you like and read the distance again. What you changed is a decision;
+            what the reading means depends on how many things moved.
+          observable: { label: Distance from this star, unit: Mpc }
+          held: [the plate emulsion, the measuring engine, the calibration]
+          variables:
+            - { id: crowd, label: How crowded the field around the star is }
+            - { id: sat, label: Whether the star saturated the plate }
+            - { id: cadence, label: How often the star was photographed }
+            - { id: night, label: Which night the sequence started on }
+          truth: crowd
+          baseline: 10.0
+          response: -3.6
+          noise: 0.2
+          changeVerb: crowded
+          run: Read the distance
+          commit: Name it
+        answerText: >-
+          The crowding. Blending the star with its neighbours takes the distance from about ten
+          megaparsecs to about six, and un-blending it brings the ten straight back.
+        why: >
+          Only one of the four moves the distance, and it moves it a long way and in one
+          direction. Crowd the field and the star is measured together with its neighbours, so
+          it looks brighter, and a brighter-looking star of known output is calculated as
+          nearer: ten megaparsecs becomes six. Un-crowd it and the ten comes back, which is
+          what turns that from a coincidence into a cause. The other three do nothing here, and
+          two of them would matter on a different star — a saturated plate cannot record a peak
+          at all and a badly sampled sequence cannot be timed, which is why both are grounds
+          for refusing to use a star rather than for correcting it. What makes crowding the
+          dangerous one is the direction. It is a bias, not scatter, so it does not average
+          away over many galaxies, and it pushes every distance the same way.
+
+  - title: Measure recession
+    objective: Get speeds out of the spectra, and find out which axis is limiting everything.
+    briefing: Nights of exposure for one spectrum, and a list of shifts with no distances beside it.
+    stake: >-
+      Tuesday, and the spectrograph room has been running for years. Vesto Slipher, who runs
+      it, has spent several nights of exposure on each of these faint nebulae and has a list of
+      spectral lines that have all moved to longer wavelengths. He was measuring these long
+      before anybody had a distance to put beside them, and a list of shifts on its own is a
+      list. Today you turn a shift into a speed, decide whether one shifted line is enough to
+      call it a redshift at all, and work out which of the two axes of the coming plot is
+      actually limiting it. The answer to the last one is why every early value of the slope
+      was wrong.
+    takeaway: A redshift is a pattern rather than a measurement, and the plot it goes on is limited by its other axis.
+    stops:
+      - group: SPEC
+        task: Turn the shift into a speed
+        title: Five nanometres out of five hundred
+        place: Spectrograph Room
+        concept: 'A wavelength shift is a speed, when the shift is small'
+        scene: >
+          Slipher has a laboratory line at five hundred nanometres and the same
+          feature in this nebula at five hundred and five. The speed of light is
+          written on the board.
+        guide: >-
+          Two operations. First work out what fraction of its own wavelength the line has
+          moved: subtract, then divide by the laboratory value. That fraction is the redshift,
+          and while it is small it is also the fraction of the speed of light the nebula is
+          receding at — so multiply by the speed of light. The other tiles are real numbers
+          about this measurement and neither belongs in the sum.
+        background:
+          - >-
+              How to do it, on a different example. A line at 400 nanometres measured at 404.
+              The shift is 4, divided by 400 is 0.01, and a hundredth of three hundred thousand
+              kilometres a second is three thousand. Subtract, divide by the laboratory
+              wavelength, multiply by the speed of light.
+          - >-
+              Why you divide by the laboratory value and not the measured one. The laboratory
+              wavelength is the ruler — it is the thing the shift is a fraction of. Dividing by
+              the observed one instead gives a slightly different answer and is the commonest
+              slip in this arithmetic.
+          - >-
+              Why this is only good while the shift is small. The relation between a fractional
+              shift and a speed is an approximation that gets worse as the shift grows, and at
+              large shifts the honest treatment is not about speed through space at all. Every
+              nebula on this list is well inside the range where it is fine.
+          - >-
+              And what the number is not. It is a speed along the line of sight and nothing
+              else. Nothing here says how far away the nebula is, which is the other half of
+              the plot and is being measured in a different room by different people.
+        assumes:
+          - a spectral line has a fixed wavelength measured in a laboratory
+          - a small fractional shift corresponds to the same fraction of the speed of light
+        takeaway: A shift becomes a speed by dividing by the laboratory wavelength and multiplying by the speed of light.
+        format: BALLPARK
+        question: How fast is this nebula receding?
+        estimate:
+          prompt: >-
+            Slipher wants a speed beside each shift before any of them goes to the diagram
+            room.
+          question: How fast is this nebula receding?
+          relationship: The recession speed is the shift in wavelength divided by the laboratory wavelength, multiplied by the speed of light.
+          labels:
+            - 505 nm  (where the line is measured in this nebula)
+            - 500 nm  (where that line sits in the laboratory)
+            - 300000 km/s  (the speed of light)
+            - 10 Mpc  (the distance from the plate vault)
+          values: [505, 500, 300000, 10]
+          slots: 3
+          template: '({0} − {1}) ÷ {1} × {2}'
+          formula: (a-b)/b*c
+          correct: [0, 1, 2]
+          target: 3000
+          tolerance: 200
+          units: km/s
+          solution: Five nanometres out of five hundred is a hundredth, and a hundredth of three hundred thousand kilometres a second is three thousand.
+          explanation: The distance is on the bench because it is the other axis of the plot rather than a term in this sum, and it was measured in a different room.
+        why: >
+          The line has moved five nanometres and its laboratory wavelength is five hundred, so
+          it has shifted by a hundredth of itself. A hundredth of the speed of light is three
+          thousand kilometres a second. Two things to keep. Divide by the laboratory wavelength
+          rather than the measured one — that is the ruler, and using the other is the
+          commonest slip in this arithmetic. And be clear what has been established: a speed
+          along the line of sight, and nothing whatever about distance. The distance is on the
+          bench because it is the other axis of the plot that all of this is heading for, and
+          it was measured by somebody else in another room off a stack of photographs.
+
+      - group: SPEC
+        task: Decide whether it is a redshift at all
+        title: One line, or all of them
+        place: Spectrograph Room
+        concept: 'One line is an identification; several lines agreeing is a redshift'
+        scene: >
+          Five measured features are on the panel. Slipher has identified three
+          of them against one reference list and two against direct laboratory
+          measurements, and one of the five does not fit the others.
+        guide: >-
+          Open each feature and see what its identification rests on. Some were matched against
+          a reference list of expected wavelengths; others were measured directly in a
+          laboratory. Keep the ones whose evidence stands on its own, then name the thing the
+          rest have in common. Agreement between measurements that share a source is not the
+          same as agreement between independent ones.
+        background:
+          - >-
+              How to think about it, on a different example. Four witnesses agree on a car's
+              number plate, and three of them read it off the same photograph. Their agreement
+              is one piece of evidence, not three, and if the photograph is blurred all three
+              are wrong together. The fourth saw the car.
+          - >-
+              What a reference list is here. A table of which lines a galaxy of this type is
+              expected to show, at what wavelengths. Identifying features against it is normal
+              and useful — and if one entry in that table is wrong, every identification made
+              from it is wrong in the same way and they will all agree beautifully.
+          - >-
+              Why a common shift across independent lines is the strong test. Different
+              elements have lines at unrelated wavelengths. Finding all of them shifted by the
+              same fraction cannot be arranged by a misidentification, because a
+              misidentification moves one line and leaves the others where they are.
+          - >-
+              And what survives a correction. Anything whose wavelength came from a direct
+              laboratory measurement never touched the reference list, so it keeps its evidence
+              whatever happens to the list. Those are the lines the redshift should be built on.
+        assumes:
+          - measurements computed from a common source share that source's error
+          - different elements have spectral lines at unrelated wavelengths
+        takeaway: Agreement between measurements that share a reference is one piece of evidence, not several.
+        format: TRACE
+        question: >-
+          Open the identifications, keep the ones whose evidence stands, and name what the
+          others share.
+        trace:
+          hint: >-
+            Open a feature to see what its identification was made against. Tick the ones whose
+            evidence still stands on its own, then name the source.
+          channels:
+            - { id: f1, label: 'Feature at 505.0 nm', reading: '0.0100 fractional shift', depends: [list] }
+            - { id: f2, label: 'Feature at 662.9 nm', reading: '0.0100 fractional shift', depends: [list] }
+            - { id: f3, label: 'Feature at 397.3 nm', reading: '0.0099 fractional shift', depends: [list] }
+            - { id: f4, label: 'Feature at 592.1 nm', reading: '0.0101 fractional shift', depends: [] }
+            - { id: f5, label: 'Feature at 431.6 nm', reading: '0.0098 fractional shift', depends: [] }
+          resources:
+            - { id: list, label: 'The expected-wavelength table for this type of galaxy' }
+            - { id: plate, label: 'The plate scale of the spectrograph' }
+          independent: [f4, f5]
+          target: list
+          correction:
+            what: The expected-wavelength table used for three of the five identifications
+            was: 'one entry listed at 500.0 nm, from a 1908 compilation'
+            now: '499.4 nm, re-measured directly in the laboratory this year'
+            effect: Every shift computed against that entry is low by about a part in a thousand.
+            corrected: 'The three list-based fractional shifts move from about 0.0100 to about 0.0112; the two measured directly do not move at all.'
+          commit: Correct it
+        answerText: >-
+          The expected-wavelength table. Three of the five identifications were made against it,
+          so they share its error and agree with each other while doing so — and the two
+          measured directly in the laboratory keep their evidence.
+        why: >
+          Five features, five shifts, and they all agree to within a per cent. That looks like
+          five confirmations and it is not. Three of them were identified against the same table
+          of expected wavelengths, so all three inherit whatever is wrong with it. If one entry
+          in that table is out by a part in a thousand, all three are out by the same amount —
+          and they agree beautifully while being wrong. Nothing looks inconsistent, which is why
+          this kind of error survives review. The correction applies to exactly those three and
+          to nothing else. The two features measured directly in a laboratory never touched the
+          table, so they keep their evidence, and they are what the redshift should rest on. The
+          honest version of the strong test is this. Different elements have lines at unrelated
+          wavelengths. All of them shifted by the same fraction is a pattern no single wrong
+          identification can produce.
+
+      - group: LADDER
+        task: Find out which axis is limiting the slope
+        title: Which error is carrying it
+        place: Ladder Desk
+        concept: 'The dominant uncertainty in the relation is the distances'
+        scene: >
+          Moreau has the slope written as a speed divided by a distance, with four
+          measured quantities behind it and their uncertainties beside them. There
+          is one observing season to spend improving one of them.
+        guide: >-
+          Four quantities go into the slope and each has its own width. What each one
+          contributes is its own fractional width multiplied by the power it enters at, so a
+          quantity raised to a high power is not automatically the problem. Read the bars,
+          find the widest contribution, and buy the work that narrows that one.
+        background:
+          - >-
+              How to do it, on a different example. A quantity is a length cubed divided by a
+              time. The length is known to one per cent, so it contributes three; the time is
+              known to fifteen per cent and contributes fifteen. The time is the problem even
+              though the length is the term that gets cubed. Multiply each width by its power
+              and compare.
+          - >-
+              Why the shortcut is tempting. Ranking by power is quick, it is often right, and
+              it sounds like understanding. It fails exactly when a badly known quantity enters
+              at first order, which is the common case, because the hard things to measure tend
+              to be the ones that enter simply.
+          - >-
+              What the four quantities are here. The recession speeds, which come off spectra
+              and are good to a per cent or two. The distances, which come off the ladder and
+              are not. The peculiar velocities of individual galaxies, which are a few hundred
+              kilometres a second whatever the distance. And the plate scale, which is measured
+              carefully and known well.
+          - >-
+              And why this is the most consequential stop in the campaign. Every historical
+              value of this slope was wrong by a large factor, and it was wrong for exactly the
+              reason the arithmetic below gives. Nobody was careless about the redshifts; the
+              ladder underneath the distances was miscalibrated, and a slope inherits its worse
+              axis whole.
+        assumes:
+          - a term contributes its fractional width multiplied by the power it enters at
+          - widths from separate quantities add in quadrature rather than simply
+        takeaway: The dominant term is arithmetic rather than intuition, and here it is the axis that was hardest to measure.
+        format: PROPAGATE
+        question: >-
+          One observing season. Which uncertainty is carrying the slope?
+        propagate:
+          hint: >-
+            Each term contributes its own width times the power it enters at. The bar is that
+            contribution.
+          output: { label: Slope of the relation, unit: 'km/s per Mpc' }
+          costUnit: seasons
+          budget: 1
+          inputs:
+            - { id: speed, label: 'Recession speeds from the spectra', value: 3000, unit: 'km/s', sigmaFrac: 0.02, exponent: 1 }
+            - { id: dist, label: 'Distances from the ladder', value: 10, unit: 'Mpc', sigmaFrac: 0.35, exponent: 1 }
+            - { id: pec, label: 'Peculiar velocity of a single galaxy', value: 300, unit: 'km/s', sigmaFrac: 0.10, exponent: 2 }
+            - { id: plate, label: 'Plate scale of the spectrograph', value: 1.0, unit: 'ratio', sigmaFrac: 0.01, exponent: 1 }
+          improvable:
+            - { id: dist, label: 'Re-calibrate the first rung of the ladder', cost: 1, newSigmaFrac: 0.12 }
+            - { id: speed, label: 'Re-expose the faintest spectra', cost: 1, newSigmaFrac: 0.01 }
+            - { id: pec, label: 'Average over galaxy groups instead of single galaxies', cost: 1, newSigmaFrac: 0.03 }
+          dominant: dist
+          commit: Report the range
+        answerText: >-
+          The distances. They enter at first power and are known to thirty-five per cent, which
+          beats a peculiar velocity term that is squared and known to ten — so re-calibrating
+          the ladder is the season worth spending.
+        why: >
+          Multiply each width by the power it enters at and the ranking falls out. The peculiar
+          velocity term is squared, which is the part that catches the eye, and twice ten per
+          cent is twenty. The distances enter at first power and are known to thirty-five per
+          cent, so they contribute nearly twice as much as anything else on the board. That is
+          the term to buy. Now the part that is history rather than arithmetic: every early
+          value of this slope was wrong by a large factor, and this is why. Nobody was careless
+          about the redshifts — they were good then and they are good now — but the first rung
+          of the distance ladder was miscalibrated, and a slope inherits its worse axis whole.
+          The tempting shortcut, fix the term with the biggest power, would have sent the season
+          at the one place it could not have helped.
+
+  - title: Find the law
+    objective: Fit the relation, read what its units mean, and say what it does not imply.
+    briefing: Two axes measured by different people, and a line somebody has to defend.
+    stake: >-
+      Wednesday, in the diagram room. Edwin Hubble owns the plot. Distances from the plate vault
+      go along the bottom and recession speeds from the spectrograph go up the side, measured by
+      different people on different nights. Nadia Farouk, at the theory desk, had an expanding
+      solution written down before there were enough points to draw a line through, and has been
+      saying so politely for two years. Today you find the slope the points support, work out
+      what its units mean once they cancel, and say what a recession in proportion to distance
+      does and does not imply about where we are standing.
+    takeaway: A relation is a slope, a set of units, and a careful statement about what it does not say.
+    stops:
+      - group: DIAGRAM
+        task: Find the slope the points support
+        title: Pivot the line
+        place: Diagram Room
+        concept: 'The slope with no structure left in the leftovers is the law'
+        relationship: The slope of the relation is a galaxy's recession speed divided by its distance, in kilometres a second per megaparsec.
+        scene: >
+          Hubble has the points on the plot: distances along the bottom, recession
+          speeds up the side. A control pivots a straight line through the origin
+          and reports how much is left over.
+        guide: >-
+          One slider and one reading. The slider is the slope of a line through the origin; the
+          reading is how well that line accounts for the points. Sweep it and watch. Too shallow
+          and the far galaxies sit above the line; too steep and they sit below it. You are
+          looking for the peak, which is the slope at which nothing is left over in any
+          particular direction.
+        background:
+          - >-
+              How to read a sweep. Move the control in large steps first to see the shape, then
+              in small steps through the part that matters. A single clear peak means one slope
+              accounts for the points much better than its neighbours, which is itself worth
+              knowing — a flat top would mean the data could not distinguish them.
+          - >-
+              How to check a slope by hand, on different numbers. A galaxy at 15 megaparsecs
+              receding at 1,050 kilometres a second: 1,050 divided by 15 is 70. Do that for
+              two or three galaxies and if the answers agree, that is the slope and the relation
+              really is proportional.
+          - >-
+              Why the line goes through the origin. A galaxy at no distance is not receding, so
+              a relation that is genuinely proportional has no intercept. Fitting one anyway is
+              a good check: an intercept that comes out large means something is wrong with
+              either axis.
+          - >-
+              And what the scatter looks like. The nearest galaxies sit well off the line and the
+              far ones close to it. That is not the fit being poor; it is peculiar velocities — a
+              few hundred kilometres a second of a galaxy's own motion is most of the recession
+              speed nearby and almost none of it far out.
+        assumes:
+          - a galaxy at no distance has no recession speed
+          - a relation is established when nothing is left over in a systematic direction
+        takeaway: A slope is right when the leftovers have no direction to them, and the scatter that remains has a cause of its own.
+        format: SWEEP
+        question: >-
+          Pivot the line. What slope accounts for the points?
+        sweep:
+          axis:
+            label: Slope of the line
+            unit: km/s per Mpc
+            min: 10
+            max: 200
+            step: 1
+          readout:
+            label: How well the line accounts for the points
+            unit: relative
+          baseline: 0.05
+          response:
+            - { at: 10, value: 0.04 }
+            - { at: 30, value: 0.18 }
+            - { at: 50, value: 0.52 }
+            - { at: 62, value: 0.81 }
+            - { at: 70, value: 1.00 }
+            - { at: 80, value: 0.79 }
+            - { at: 100, value: 0.42 }
+            - { at: 140, value: 0.14 }
+            - { at: 200, value: 0.05 }
+          target: 70
+          tolerance: 8
+          start: 10
+        answerText: >-
+          About seventy kilometres a second per megaparsec. That is a modern illustrative value
+          for teaching data, not the number anybody got from the original plates.
+        why: >
+          The reading peaks near seventy kilometres a second per megaparsec. It is a single
+          sharp peak rather than a flat top, which means these points really can tell one slope
+          from its neighbours. Check it by hand and the same number comes out. A galaxy at
+          twenty megaparsecs receding at fourteen hundred kilometres a second gives fourteen
+          hundred over twenty, which is seventy. So does the next one. Two things about what is
+          left over. The line goes through the origin, because a galaxy at no distance is not
+          receding, and fitting an intercept anyway is a useful check on both axes. And the
+          nearest galaxies sit well off the line while the far ones sit close to it. That is not
+          the fit failing. It is each galaxy's own motion, a few hundred kilometres a second,
+          which is most of the recession nearby and almost none of it far out.
+
+      - group: DIAGRAM
+        task: Read what the units mean
+        title: Kilometres a second per megaparsec
+        place: Diagram Room
+        person: true
+        personId: okonjo
+        concept: 'A speed per distance is one over a time'
+        scene: >
+          The slope is on the board with its units written after it. Hubble has
+          three conversion figures beside it and has not put any of them together
+          yet.
+        guide: >-
+          Two divisions. The slope is a speed divided by a distance, and if you put both into
+          the same units of length they cancel and leave one over a time. So take the length of
+          a megaparsec in kilometres, divide by the slope, and divide again by the number of
+          seconds in a year. What comes out is a time in years.
+        background:
+          - >-
+              How to see the cancellation, on different numbers. A slope of 100 kilometres a
+              second per megaparsec. A megaparsec is about 3.1 times ten to the nineteen
+              kilometres, so dividing gives 3.1 times ten to the seventeen seconds. The
+              kilometres cancelled and what is left is a time.
+          - >-
+              How to do the second step. A year is about 3.16 times ten to the seven seconds, so
+              dividing a time in seconds by that gives it in years. Two divisions in a row: once
+              to get seconds, once to get years.
+          - >-
+              What the answer means and what it does not. If everything had been receding at
+              today's speeds all along, this is how long ago it was all in one place. Nothing
+              here says the speeds have been constant, and they have not been — so this is a
+              rough age rather than the age, and the honest calculation needs the whole history.
+          - >-
+              And why it is worth doing at all. A slope is an observation and a time is a
+              consequence. Getting a number of the right size out of it, from nothing but unit
+              conversion, is what turns a straight line on a plot into a claim about the past.
+        assumes:
+          - units of length cancel when both quantities are expressed in the same ones
+          - a speed divided by a distance leaves one over a time
+        takeaway: The units of the slope are one over a time, and turning it upside down turns an observation into a history.
+        format: BALLPARK
+        question: What time does the slope work out to?
+        estimate:
+          prompt: >-
+            Hubble will not put the slope in the paper until somebody has said what its units
+            mean.
+          question: What time does the slope work out to?
+          relationship: The time is one over the slope, worked out by dividing a megaparsec in kilometres by the slope and then by the seconds in a year.
+          labels:
+            - 3.09e19 km  (a megaparsec, in kilometres)
+            - 70  (the slope, in km a second per megaparsec)
+            - 3.16e7 s  (a year, in seconds)
+            - 1400 km/s  (the recession speed of one galaxy on the plot)
+          values: [3.09e19, 70, 3.16e7, 1400]
+          slots: 3
+          template: '{0} ÷ {1} ÷ {2}'
+          formula: a/b/c
+          correct: [0, 1, 2]
+          target: 1.4e10
+          tolerance: 1.5e9
+          units: years
+          solution: A megaparsec in kilometres divided by seventy is about 4.4 times ten to the seventeen seconds, and dividing that by the seconds in a year gives about fourteen thousand million years.
+          explanation: One galaxy's recession speed is on the bench because it is a point on the plot rather than a term in this conversion.
+        why: >
+          The slope is a speed divided by a distance, so putting both into kilometres makes the
+          lengths cancel and leaves one over a time. A megaparsec is about three times ten to
+          the nineteen kilometres; divided by seventy that is about four times ten to the
+          seventeen seconds; divided by the seconds in a year it is about fourteen thousand
+          million years. Two things to be careful about. That number is what you get if
+          everything had been receding at today's speeds the whole way, and it has not been —
+          so this is a rough age rather than the age, and the honest calculation needs the whole
+          expansion history. And notice what has just happened anyway. A straight line on a plot
+          of two measured quantities, with nothing added but unit conversion, has produced a
+          time of about the right size for the age of everything.
+
+      - group: DIAGRAM
+        task: Say where the middle is
+        title: The same from anywhere
+        place: Diagram Room
+        concept: 'Uniform expansion has no middle to be standing at'
+        scene: >
+          Nadia Farouk, at the theory desk, has a grid of galaxies drawn on the
+          board. A note is pinned beside it. Every one of them recedes from every
+          other in proportion to how far apart they are.
+        guide: >-
+          Four possible readings of the same relation, and you are choosing the one it actually
+          supports. The test is to imagine standing on a different galaxy and asking what you
+          would see. A relation that gives the same answer from anywhere is saying something
+          different from one that only works from here, and only one of these four sentences
+          gets that right.
+        background:
+          - >-
+              How to think about it, on a different example. Mark dots on a rubber band and
+              stretch it. From any dot, every other dot is moving away, and the far ones are
+              moving away faster in exact proportion to how far off they are. Every dot sees the
+              same thing and no dot is the middle. Nothing was added to the band to arrange
+              that; it is what uniform stretching does.
+          - >-
+              Why proportionality is the special part. If recession went as the square of the
+              distance, or fell off, then an observer on another galaxy would see a different
+              pattern, and the one place seeing the simple pattern would be a special place
+              needing an explanation. Only proportionality looks the same from everywhere.
+          - >-
+              What an explosion would look like instead. Debris thrown out from a point into
+              existing space has a place it came from, and an observer standing at the edge of
+              it sees the pattern lopsided. Nothing in this plot is lopsided, and looking for
+              the middle on a map of the sky is looking for something the observation does not
+              contain.
+          - >-
+              And who is owed what here. The relation was measured from these plates and these
+              spectra. An expanding solution and an estimate of a distance-velocity relation
+              had been published two years earlier from theory, the redshifts were largely
+              somebody else's decade of work, and the period-luminosity relation the distances
+              rest on was somebody else's again. The plot is a synthesis rather than a
+              discovery by one person.
+        assumes:
+          - a relation can be tested by imagining the same measurement made elsewhere
+          - a special place in a theory is something that has to be explained
+        takeaway: A pattern that is available from everywhere is not evidence about where the observer happens to be.
+        format: CHOICE
+        question: If every galaxy sees the others receding in proportion to distance, what follows?
+        choices:
+          - Every galaxy sees exactly what we do, so ours is nothing special.
+          - Our own galaxy has to be at the exact centre for this pattern to appear at all.
+          - Everything is flying out from one point in existing space, which could be found on a map.
+          - The redshifts are made by our instruments rather than by anything out in the sky.
+        answer: Every galaxy sees exactly what we do, so ours is nothing special.
+        rebuttals:
+          - Needing a centre is the opposite of what proportionality gives you. A relation that only worked from one place would be the surprising one, and this is not that.
+          - Debris from a point in existing space looks lopsided from anywhere except that point, and nothing in this plot is lopsided. There is no direction on the sky where the pattern breaks.
+          - The redshifts were measured by several people on different instruments over more than a decade, and the shifts agree across independent spectral lines. An instrument cannot arrange that.
+        why: >
+          Imagine standing on one of the other galaxies on the board. Every galaxy recedes from
+          every other in proportion to their separation, so that observer sees exactly what we
+          see. Everything moving away, and the far things faster, in proportion. The observation
+          puts us nowhere special and the pattern needs no centre at all. That is the whole
+          difference between this and an explosion in existing space, because debris from a point
+          looks lopsided from anywhere except that point. Proportionality is doing all the work.
+          Any other relation would look different from another galaxy, and the one place seeing
+          the simple version would be a place demanding an explanation. Now say who is owed
+          what. This plot is a synthesis. The redshifts were a decade of somebody else's nights.
+          The distances rest on somebody else's relation between period and brightness. And an
+          expanding solution with a distance-velocity estimate in it was published two years
+          before there were enough points to draw this line.
+
+warmups:
+  greet:
+    title: Six people, two axes, one plot
+    why: >-
+      The two axes of that plot were measured in different rooms by different people on
+      different nights, and the line only means something if both of them do. The plates, the
+      grading, the ladder, the spectra and the theory are five different desks. Put a name to
+      as many of them as you can before the week starts.
+  trial-near:
+    title: Walk the observatory before the plates come out
+    why: >-
+      The plate vault and the diagram room are down one side of the corridor and the
+      spectrograph and the ladder desk are down the other. Walk it once now. Henrietta Leavitt, who
+      runs the plate vault, would rather you knew the way than went looking for the ladder desk
+      with an armful of glass.
+  follow:
+    title: Humason carries one star from the plate to the ladder desk
+    why: >-
+      A star is graded in one room, measured on an engine in the same room, and turned into a
+      distance in another, and a distance inherits every error in the brightness it came from.
+      Milton Humason, the physicist who measures the plates, walks one all the way through. Stay
+      with him and watch what he refuses to use.
+
+interiors:
+  PLATES:
+    caption: The slow ones are the bright ones, and the cycle can be timed from anywhere.
+    standLine: Years of the same patch of sky, in glass, in drawers.
+    station:
+      kind: plot
+      title: Light curve
+      note: thirty days, clean and well sampled
+      axes: { x: days, y: brightness }
+      curves:
+        - { points: [[0.0, 0.3], [0.12, 0.9], [0.3, 0.45], [0.5, 0.3], [0.62, 0.9], [0.8, 0.45], [1.0, 0.3]], label: measured }
+  SPEC:
+    caption: One shifted line is an identification. Several agreeing is a redshift.
+    standLine: Several nights of exposure for one faint nebula.
+    station:
+      kind: panel
+      title: This spectrum
+      rows:
+        - { label: Features measured, value: 5, status: normal }
+        - { label: Identified from the table, value: 3, status: alarm }
+        - { label: Measured in the laboratory, value: 2, status: normal }
+        - { label: Common shift, value: about a hundredth, status: high }
+  LADDER:
+    caption: A distance inherits every error in the brightness it came from.
+    standLine: Two brightnesses in, one distance out, and four uncertainties behind it.
+    station:
+      kind: panel
+      title: Error budget
+      rows:
+        - { label: Recession speeds, value: 2 per cent, status: normal }
+        - { label: Distances, value: 35 per cent, status: alarm }
+        - { label: Peculiar velocities, value: 10 per cent, status: high }
+        - { label: Plate scale, value: 1 per cent, status: normal }
+  DIAGRAM:
+    caption: Two axes, two rooms, and a line that is a claim about both.
+    standLine: Distances along the bottom, recession speeds up the side.
+    station:
+      kind: plot
+      title: Velocity against distance
+      note: scatter nearby, tight far out
+      axes: { x: distance, y: recession speed }
+      curves:
+        - { points: [[0.02, 0.02], [0.5, 0.5], [0.98, 0.98]], dashed: true, faint: true, label: slope 70 }
+      points: [[0.06, 0.16], [0.09, 0.02], [0.14, 0.2], [0.22, 0.26], [0.3, 0.28], [0.41, 0.44], [0.52, 0.5], [0.63, 0.65], [0.71, 0.7], [0.84, 0.85], [0.93, 0.92]]
+
+copy:
+  PLATES: <p>The plate vault, first door on the west side. Years of glass in numbered drawers, a blink comparator on the bench, and the marked-up finding charts pinned above it.</p>
+  SPEC: <p>The spectrograph room, across the corridor. The instrument bolted to a pier of its own, the plate holders in a rack beside it, and the laboratory comparison lamps on a shelf above.</p>
+  LADDER: <p>The ladder desk, further down the east side. A log table, a slide rule, the calibration of the first rung pinned to the wall, and the error budget beside it in pencil.</p>
+  DIAGRAM: <p>The diagram room at the far end of the west side. One large plot on the wall with the points added in ink as they arrive, and a straightedge on a pivot at the origin.</p>
+  PORCH: <p>The entrance desk. A signing-in book, the night's seeing conditions chalked on a slate, and a clock kept on sidereal time.</p>
+  TEA: <p>The common room halfway down the west side. A stove, six chairs, and the observing rota that everybody has already changed by hand.</p>
+  DARK: <p>The darkroom, next to the spectrograph. Dishes, a red lamp, and a line for prints to dry on.</p>
+  RACK: <p>The store at the end of the west side. Unexposed plates in sealed boxes, spare holders, and the crate the new grating came in.</p>
+  LIB: <p>The library at the far end. Bound journals, the plate catalogue, and the one desk with a lamp that works.</p>

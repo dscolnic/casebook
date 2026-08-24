@@ -45,7 +45,7 @@ export function decorate(scene, ctx){
   const park = (x, z, opts = {}) => {
     const box = vehicle(scene, x, z, y(x, z), opts);
     return driveable(scene, box.group, {
-      id: opts.id, label: opts.label ?? 'vehicle',
+      id: opts.id, label: opts.label ?? 'vehicle', kind: 'truck',
       halfWidth: 1.25, halfLength: 2.9, height: 3.0,
       // In the cab, on the left, looking out over the bonnet. Seated behind the
       // load instead — which is what a positive z put you — the whole vehicle
@@ -84,7 +84,7 @@ export function decorate(scene, ctx){
       const sz = z - off * sin - Math.cos(facing) * 0.7;
       const s = scooter(scene, sx, sz, y(sx, sz), { facing, colour });
       taken.push(driveable(scene, s.group, {
-        id, label, verb: 'Ride',
+        id, label, kind: 'scooter', verb: 'Ride',
         halfWidth: 0.34, halfLength: 0.7, height: 1.35, clearance: 0.22,
         // Standing on the deck, hands on the bar: the eye is a rider's height
         // above the deck, not a seated driver's above a chassis.

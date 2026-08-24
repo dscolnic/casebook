@@ -110,6 +110,14 @@ export function driveable(scene, group, opts = {}){
 
   const record = {
     id: opts.id ?? `vehicle-${Math.round(group.position.x)}-${Math.round(group.position.z)}`,
+    // What sort of thing this is, as opposed to what this one is called. Three
+    // trucks in three colours with three labels are one kind of transport, and
+    // `engine/dev/vehicleKinds.mjs` is the gate that says so — a site whose only
+    // way to move is a truck asks nothing about how to get about, whatever the
+    // nameplates say. Unstated is deliberately its own bucket rather than a
+    // guess off the label: two vehicles that decline to say what they are must
+    // not be counted as two kinds because they are spelled differently.
+    kind: opts.kind ?? 'vehicle',
     steeringWheel,
     steerAxis: opts.steerAxis ?? 'z',
     steerAmount: opts.steerAmount ?? 0.9,
@@ -156,7 +164,7 @@ export function driveable(scene, group, opts = {}){
   record.box = boxFor(record);
   opts.colliders?.push(record.box);
   opts.interactables?.push({
-    mesh: hit, type: 'vehicle', id: record.id,
+    mesh: hit, type: 'vehicle', id: record.id, kind: record.kind,
     prompt: `E — ${record.verb} the ${record.label}`,
     vehicle: record,
   });

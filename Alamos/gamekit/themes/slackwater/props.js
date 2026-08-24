@@ -21,7 +21,11 @@
 //
 // Placement helpers take `(x, z, y)` — ground last.
 import * as THREE from 'three';
-import { MATERIALS, box, cyl } from '../../engine/world/kit.js';
+import {
+  MATERIALS, box, cyl,
+  vehicle, VEHICLE_DRIVE, quadBike, QUAD_DRIVE, clearSpot,
+} from '../../engine/world/kit.js';
+import { driveable } from '../../engine/world/driving.js';
 
 /** The line of the barrage, and how wide its deck is. */
 const LINE = { z: -12, x0: -72, x1: 72, deck: 6.0, top: 3.6 };
@@ -174,10 +178,58 @@ export function decorate(scene, ctx){
 
   floatRack(scene, -42, 8, at(-42, 8));
 
+  // --------------------------------------------------------------- transport
+  // The wall station is 170 m east along the shore and the campaign's own
+  // warm-up card sends the player out there on the unlock day. Two kinds,
+  // because the estuary is two surfaces: the works van has the barrage road and
+  // stops where the metalling does, and the quad is what crosses the mud to the
+  // training wall — which is the difference the far lap is about.
+  transport(scene, ctx, at);
+
   // The stilling well: a vertical pipe down the seaward face of the gauge tower,
   // which is the forty minutes the whole gate-timing argument turns on.
   cyl(scene, 0.28, 12.0, -12, at(-12, 1.4) + 6.0, 1.4, PAINT(0x9aa0a2));
   box(scene, 0.9, 0.7, 0.5, -12, at(-12, 1.4) + 1.1, 1.4, PAINT(0xc9a23f));
+}
+
+
+// ------------------------------------------------------------------ transport
+/** The spawn, so nothing is parked on top of it. Mirrors `site.start`. */
+const SPAWN = { x: 0, z: 70 };
+const VAN_AT = { x: 16, z: 56 }, VAN_FACING = Math.PI, VAN_COLOUR = 0x2f5f7a;
+const VAN_ID = 'barrage-van', VAN_LABEL = 'barrage van';
+const QUAD_AT = { x: -16, z: 54 }, QUAD_FACING = Math.PI, QUAD_COLOUR = 0xb4741f;
+const QUAD_ID = 'mud-quad', QUAD_LABEL = 'mud quad';
+/**
+ * The two vehicles this site keeps, and the player can take either.
+ *
+ * `clearSpot` rather than a hand-checked coordinate: a vehicle parked inside a
+ * collider is one you get into and cannot move (house rule 16 from the other
+ * side), and the spawn is in the avoid list because a prop over the spawn welds
+ * the player in place (house rule 8).
+ */
+function transport(scene, ctx, at){
+  const { colliders, interactables, blocked } = ctx;
+  const spawn = { x: SPAWN.x, z: SPAWN.z, r: 14 };
+
+  const vs = clearSpot(VAN_AT, blocked, { pad: 3.4, avoid: [spawn] });
+  const van = vehicle(scene, vs.x, vs.z, at(vs.x, vs.z), { facing: VAN_FACING, colour: VAN_COLOUR });
+  driveable(scene, van.group, {
+    ...VEHICLE_DRIVE,
+    id: VAN_ID, label: VAN_LABEL, kind: 'van',
+    seat: { x: 0.52, y: 2.18, z: van.cabZ },
+    wheels: van.wheels,
+    colliders, interactables,
+  });
+
+  const qs = clearSpot(QUAD_AT, blocked, { pad: 1.8, avoid: [spawn, { x: vs.x, z: vs.z, r: 5 }] });
+  const q = quadBike(scene, qs.x, qs.z, at(qs.x, qs.z), { facing: QUAD_FACING, colour: QUAD_COLOUR });
+  driveable(scene, q.group, {
+    ...QUAD_DRIVE,
+    id: QUAD_ID, label: QUAD_LABEL, kind: 'quad',
+    wheels: q.wheels, steer: q.steer,
+    colliders, interactables,
+  });
 }
 
 export function fitOutRoom(){}

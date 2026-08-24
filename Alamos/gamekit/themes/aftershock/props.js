@@ -38,7 +38,9 @@
 import * as THREE from 'three';
 import {
   MATERIALS, box, cyl, post, sign, fenceRun, crateStack, vehicle, displayBoard, tank,
+  VEHICLE_DRIVE, quadBike, QUAD_DRIVE, clearSpot,
 } from '../../engine/world/kit.js';
+import { driveable } from '../../engine/world/driving.js';
 // The buildings, so the damage on them is placed from the same numbers the world
 // built them with. A wall crack whose position is typed by hand goes stale the
 // first time a building moves, and nothing checks a decal.
@@ -624,6 +626,8 @@ export function decorate(scene, ctx){
   const y = (x, z) => groundHeight(x, z);
   const soft = (s) => { if(s) softColliders.push(s); };
   const glow = (m) => { if(m) lightPanels?.push(m); };
+
+  transport(scene, ctx, y);
 
   // ===================================================== the rupture, on foot
   // The fault trace runs from (-400, 40) to (400, -110). Where it crosses the
@@ -1299,5 +1303,47 @@ export default decorate;
 // to exist: the manifest exports the same three names whichever world it is
 // wired to, and a props file without them kills the world with a SyntaxError
 // about a missing export.
+
+// ------------------------------------------------------------------ transport
+/**
+ * The incident base's two vehicles.
+ *
+ * Day 4's card reads "the van is signed out to reach them. Drive the route
+ * once…", and until now nothing on this site could be driven — the card
+ * promised a run the world did not have.
+ *
+ * Two kinds because the scarp is the whole game. The van has Bay Road and the
+ * granite bench, which is the half of Kestrel Bay that still has a road surface.
+ * The quad is what gets down the 1.8 m scarp onto liquefied fill, where a van
+ * with a rear axle is a van being dug out — and that is exactly the distinction
+ * the far tier exists to teach.
+ */
+function transport(scene, ctx, y){
+  const { colliders, interactables, blocked } = ctx;
+  const spawn = { x: 0, z: 56, r: 13 };
+
+  const vs = clearSpot({ x: -14, z: 46 }, blocked, { pad: 3.4, avoid: [spawn] });
+  const van = vehicle(scene, vs.x, vs.z, y(vs.x, vs.z),
+    { facing: Math.PI, colour: 0xd8d3c4 });
+  driveable(scene, van.group, {
+    ...VEHICLE_DRIVE,
+    id: 'assessment-van', label: 'assessment van', kind: 'van',
+    seat: { x: 0.52, y: 2.18, z: van.cabZ },
+    wheels: van.wheels,
+    colliders, interactables,
+  });
+
+  const qs = clearSpot({ x: 14, z: 44 }, blocked,
+    { pad: 1.8, avoid: [spawn, { x: vs.x, z: vs.z, r: 5 }] });
+  const q = quadBike(scene, qs.x, qs.z, y(qs.x, qs.z),
+    { facing: Math.PI, colour: 0xd8a02a });
+  driveable(scene, q.group, {
+    ...QUAD_DRIVE,
+    id: 'fill-quad', label: 'fill quad', kind: 'quad',
+    wheels: q.wheels, steer: q.steer,
+    colliders, interactables,
+  });
+}
+
 export function fitOutRoom(){}
 export function fitOutSpine(){}

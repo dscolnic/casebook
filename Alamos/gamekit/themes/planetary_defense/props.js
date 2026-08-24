@@ -614,7 +614,7 @@ export function decorate(scene, ctx){
   const truck = vehicle(scene, -14, 46, y(-14, 46), { facing: 0, colour: 0x8a5a2c, box: false });
   driveable(scene, truck.group, {
     id: 'site-truck',
-    label: 'site truck',
+    label: 'site truck', kind: 'truck',
     halfWidth: 1.25, halfLength: 2.9, height: 3.0,
     // In the cab, on the left, looking out over the bonnet — not behind the load,
     // which puts the whole vehicle between the driver and the road.
@@ -634,7 +634,7 @@ export function decorate(scene, ctx){
   const heli = helicopter(scene, home.x, home.z, y(home.x, home.z), { facing: Math.PI });
   flyable(scene, heli.group, {
     id: 'survey-helicopter',
-    label: 'survey helicopter',
+    label: 'survey helicopter', kind: 'helicopter',
     rotors: heli.rotors,
     light: heli.light,
     cockpitHide: heli.shell,

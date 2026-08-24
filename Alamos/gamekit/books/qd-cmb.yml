@@ -1,0 +1,1064 @@
+# The Noise That Would Not Go — a Quick Discovery.
+#
+# The 3 x 3 shape from great_discoveries_first10_expanded.docx, game 09, mapped
+# onto the engine's day model: a level is a day, a micro-game is a stop, and the
+# campaign is nine stops in one sitting. Three levels, in order:
+#
+#   1  The unwanted noise    an engineering problem that will not go away
+#   2  What spectrum is it   a shape, a temperature, and what is not yet known
+#   3  Cosmic interpretation a framework, a cooling law, and one explanation
+#
+# The science guardrail from the source book, kept, and it is a chronology rather
+# than a caution. The excess was measured at a horn antenna and reported in 1965;
+# the connection to a hot early universe was made by a group down the road who
+# had been looking for exactly that; and the extraordinarily precise thermal
+# spectrum was established decades later by a satellite. Level 2 says out loud
+# that its own measurements are not the ones the horn made, and one whole stop is
+# about not running the two together.
+#
+# Written for a reader two grades below the AP games, and every card teaches its
+# method before it asks anything: the `guide` says in plain words what the move
+# is, and the first background paragraph works the same move on different numbers.
+#
+# Format budget. Nine stops, cap three of any one format: CHOICE 2, BALLPARK 2,
+# and one each of SEQUENCE, CONTROL, PROBE, RESIDUAL, ATTEST. Seven formats in
+# nine stops, two of them instruments the player drives.
+#
+# Outdoors, because the antenna is. A twenty-foot horn on a hill above a road is
+# the whole of why the first explanation was pigeons, and none of that survives
+# being moved into a corridor.
+
+theme:
+  id: qd_cmb
+  title: The Noise That Would Not Go
+  subtitle: Radio Astronomer · Hilltop Antenna
+
+groups:
+  - id: HORN
+    code: HRN
+    name: Horn Antenna
+    color: '#8a6a1e'
+    desc: Twenty feet of aluminium open to the sky, on a mount that will point it anywhere.
+    defaultLeader: penzias
+    milestones: [Point it, Sweep the sky, Log the excess, Ready to hand over]
+  - id: RECV
+    code: RCV
+    name: Receiver Hut
+    color: '#b5502f'
+    desc: A cold load, an amplifier, and a list of everything that could be making this up.
+    defaultLeader: wilson
+    milestones: [Cool the load, Check the chain, Cross one off, Ready to hand over]
+  - id: SPECTRUM
+    code: SPC
+    name: Spectrum Building
+    color: '#3f7f8f'
+    desc: Decades later, up the hill: the same sky measured at forty frequencies instead of one.
+    defaultLeader: wilkinson
+    milestones: [Take the band, Fit the shape, Read the peak, Ready to hand over]
+  - id: COSMO
+    code: CSM
+    name: Theory Room
+    color: '#7a4fa3'
+    desc: Two frameworks on a blackboard, one of which has to invent a source.
+    defaultLeader: dicke
+    milestones: [State the frameworks, Cool it forward, Name the relic, Ready to hand over]
+
+roster:
+  - id: penzias
+    name: Arno Penzias
+    role: Antenna Engineer
+    real: true
+    division: HORN
+    bio: |
+      Owns the horn. Twenty feet of aluminium, open at one end, on a mount that
+      will point it at any part of the sky above the hill.
+
+      His rule is that the antenna is a suspect until it is cleared. A horn
+      collects whatever is in front of it, and what is in front of it includes
+      the ground, the road, the weather and anything that has decided to live in
+      the throat of it.
+
+      His limit is that he cannot tell you what a signal is. He can tell you it
+      does not change when he points somewhere else, which is a fact about the
+      antenna rather than about the sky.
+    quiz:
+      - q: Why does Penzias treat his own antenna as a suspect?
+        a: A horn collects whatever sits in front of it
+        wrong:
+          - Because aluminium slowly corrodes and changes how much power it reflects
+          - Because the mount cannot be pointed accurately enough for a real measurement
+          - Because the antenna was designed for satellite work rather than for astronomy
+
+  - id: wilson
+    name: Robert Wilson
+    role: Receiver Engineer
+    real: true
+    division: RECV
+    bio: |
+      Keeps the receiver, which means keeping a reference load cold enough that
+      the sky can be compared with it.
+
+      His method is a list. Calibration load, amplifier, waveguide, connectors,
+      the throat of the horn, the ground shield — each one checked, each one
+      crossed off, and the excess still there afterwards.
+
+      His limit is that a list is finite. Crossing off everything he has thought
+      of leaves a signal with no local explanation he can name, which is not the
+      same as a signal with no local explanation.
+    quiz:
+      - q: What has Wilson established when his list is exhausted?
+        a: No local cause he thought of accounts for it
+        wrong:
+          - That the excess signal must therefore be coming from somewhere in space
+          - That the receiver is working exactly as well as its design specification
+          - That the calibration load is colder than the sky the antenna is pointed at
+
+  - id: wilkinson
+    name: David Wilkinson
+    role: Spectrum Programme
+    real: true
+    division: SPECTRUM
+    bio: |
+      Runs the building up the hill, which was put there decades after the horn
+      and does a different job.
+
+      The horn measured one excess temperature at one frequency. This measures
+      the same sky at forty frequencies at once, which is what it takes to say a
+      spectrum is thermal rather than merely to say it is bright.
+
+      His limit is that he is measuring the sky as it is now. Everything his
+      instrument says about the early universe is an inference, and he is
+      careful about which of his results the horn could ever have supported.
+    quiz:
+      - q: What does Wilkinson's building do that the horn could not?
+        a: Take forty bands of the sky in one go
+        wrong:
+          - Point at a much larger number of separate directions across the whole sky
+          - Reach a temperature accuracy better than a thousandth of a kelvin
+          - Remove the effect of the ground from the measurement entirely
+
+  - id: dicke
+    name: Robert Dicke
+    role: Theory
+    real: true
+    division: COSMO
+    bio: |
+      Keeps the blackboard, and the rule that a framework is judged on what it
+      has to add.
+
+      A universe that was once hot and dense enough to be opaque must leave
+      radiation behind when it clears. A universe with no hot phase has to invent
+      a source for the same signal, and having to invent one is what makes a
+      framework worse rather than merely different.
+
+      His limit is that he cannot measure anything. Everything on his blackboard
+      is somebody else's number, and he will tell you whose.
+    quiz:
+      - q: How does Dicke compare two frameworks?
+        a: By what each one has to add to explain the same thing
+        wrong:
+          - By which of the two makes the simpler and more memorable diagram
+          - By how many people currently working in the field accept each one
+          - By which one was proposed first in the published literature
+
+  - id: bergqvist
+    name: Sonja Bergqvist
+    role: Site and Foregrounds
+    division: HORN
+    bio: |
+      Knows what else is in the sky above this hill, which is more than anybody
+      wants it to be.
+
+      Our own galaxy glows in the microwave, brightest along the band of it, so a
+      sweep across the sky finds that and has to leave it behind. What is left
+      after the galaxy is removed is the thing worth arguing about.
+
+      Her limit is that a foreground is only removable if you know where it is.
+      Something spread evenly across the sky and not in our galaxy is exactly the
+      case her methods cannot separate from the background itself.
+    quiz:
+      - q: How does Bergqvist separate our own galaxy from the background?
+        a: By where it is, because it lies along the galaxy
+        wrong:
+          - By how bright it is, since a galactic source is always the stronger one
+          - By its spectrum, which is identical to the background in every band
+          - By observing only at night, when the galaxy is below the horizon
+
+  - id: roll
+    name: Peter Roll
+    role: Calibration
+    real: true
+    division: SPECTRUM
+    bio: |
+      Decides what a temperature means, which is a different question from what
+      it is.
+
+      Every reading is the sky compared with a reference load of a known
+      temperature. Get the load wrong by a tenth of a kelvin and every point on
+      the spectrum moves by a tenth of a kelvin, in the same direction, and the
+      shape still looks perfect.
+
+      His limit is that his checks are on the instrument and not on the sky. He
+      can tell you the scale is right to a few thousandths and nothing at all
+      about what is out there.
+    quiz:
+      - q: What does a reference load a tenth of a kelvin out do?
+        a: Moves every point the same way
+        wrong:
+          - Adds a random scatter to the measured spectrum that grows with frequency
+          - Changes the shape of the spectrum from thermal into a power law
+          - Removes the highest-frequency points from the measurement altogether
+
+glossary:
+  - name: Horn antenna
+    aliases: [horn antenna, the horn, horn]
+    def: A wide open funnel of metal that collects radio waves from one direction.
+  - name: Microwave
+    aliases: [microwave, microwaves, millimetre waves]
+    def: Radio waves a few millimetres to a few centimetres long.
+  - name: Antenna temperature
+    aliases: [antenna temperature, excess temperature, excess]
+    def: A power arriving at a receiver, quoted as the temperature that would produce it.
+  - name: Kelvin
+    aliases: [kelvin, K]
+    def: A temperature counted up from absolute zero rather than from freezing.
+  - name: Reference load
+    aliases: [reference load, calibration load, cold load]
+    def: A body at a known temperature the sky is compared against.
+  - name: Isotropic
+    aliases: [isotropic, isotropy, the same in every direction]
+    def: The same whichever way you look.
+  - name: Foreground
+    aliases: [foreground, foregrounds, galactic emission]
+    def: Something nearer than what you are measuring, in the way of it.
+  - name: Blackbody
+    aliases: [blackbody, thermal spectrum, planck curve]
+    def: The particular spread of colours anything warm gives off.
+  - name: Redshift
+    aliases: [redshift, one plus z, stretched]
+    def: How much the universe has stretched since light set out.
+  - name: Relic
+    aliases: [relic, relic radiation, left over from]
+    def: Something still around from an earlier state of the universe.
+
+missions:
+  - title: The unwanted noise
+    objective: Work through the instrument, and find out what is left when the list runs out.
+    briefing: A few kelvin of excess in every direction, and nothing on the list explains it.
+    stake: >-
+      Monday on the hill, and there is a signal that should not be there. Arno Penzias, the
+      antenna engineer, has twenty feet of aluminium pointed at the sky. About three kelvin of
+      excess power keeps arriving from it, after the atmosphere and the ground and everything
+      else anybody has thought to subtract. Robert Wilson, the receiver engineer, has a list of
+      every local thing that could be making it up. Nobody in this hut is thinking about
+      cosmology. They think the receiver is broken, which is what anybody sensible would think.
+      Today you work the list in order, find out which local causes the signal survives, and
+      sweep the sky to see whether it comes from anywhere in particular.
+    takeaway: A discovery starts as a fault report, and everything that makes it a discovery is elimination.
+    stops:
+      - group: RECV
+        task: Work the receiver in order
+        title: The list, in the order it has to be worked
+        place: Receiver Hut
+        concept: 'An unexplained signal is an instrument problem until it survives the checks'
+        scene: >
+          Wilson has five checks written on the hut wall and about three kelvin of
+          excess that none of them has removed yet. Nothing has been crossed off
+          in the right order.
+        guide: >-
+          Five checks. Four look at one part each, and the parts sit in a line: sky, horn,
+          waveguide, amplifier, reading. Every reading is the sky against a reference load
+          of known temperature. To test any part you have to trust everything between it and
+          that reading, so work from the reading outward. The fifth is not a part at all. It
+          is the whole instrument run again on colder sky, and it goes ahead of the check
+          that needs a ladder.
+        background:
+          - >-
+              How to do it, on a different example. A tap is dripping. You do not start by
+              replacing the pipework: you check the washer, then the seat, then the pressure,
+              then the pipe. Each step is cheaper than the next and each one has to be cleared
+              before the next tells you anything, because a fault upstream makes everything
+              downstream look faulty.
+          - >-
+              Why the reference load comes first. Every reading here is the sky compared with a
+              body at a known temperature. If that temperature is wrong by a kelvin then every
+              measurement is wrong by a kelvin, and nothing else on the list can be trusted at
+              all. It is the ruler, so it is measured first.
+          - >-
+              Why the antenna is last. It is the biggest, the most awkward and the most likely
+              to have something living in it, which is exactly why it is tempting to start
+              there. But a horn full of pigeons and an amplifier inventing three kelvin look
+              identical from the hut, and only one of those can be checked without a ladder.
+          - >-
+              What the second measurement settles. Swing the horn to a colder patch and run
+              the whole thing again. If the excess follows you, it is not coming from that
+              part of the sky; if it does not, it is. Either way it is an hour's work and it
+              can save the climb, which is the only reason it comes before the climb.
+          - >-
+              And what the whole list is worth. Working it through does not find the signal. It
+              removes everything that would have been a boring explanation, which is the only
+              thing that makes what is left worth a second thought.
+        assumes:
+          - a measurement is a comparison against something of known value
+          - a fault early in a chain makes everything after it unreadable
+        axis: >-
+          Put the five checks in the order they have to be done. Nothing is worth checking
+          until everything it leans on has been cleared.
+        ends: [First, Last]
+        takeaway: The instrument is worked from the reference outward, because a fault upstream makes everything downstream look faulty.
+        format: SEQUENCE
+        task_line: Order the five checks of the receiver.
+        cards:
+          - Measure the temperature of the reference load itself.
+          - Check the amplifier for excess noise of its own.
+          - Check the waveguide and the connectors between them.
+          - Point the horn at a cold part of the sky and repeat the whole measurement.
+          - Climb up and inspect the throat of the horn for anything living in it.
+        order: [0, 1, 2, 3, 4]
+        why: >
+          The order comes out of what each step needs to already be true. The reference load is
+          the ruler: every reading is the sky compared with it, so a load wrong by a kelvin
+          makes everything else wrong by a kelvin and nothing further down the list means
+          anything. Then the amplifier, because an amplifier inventing three kelvin would show
+          up in every measurement including the ones used to check other things. Then the
+          waveguide and connectors, which are cheap to check and can only be interpreted once
+          the electronics are clear. Then a repeat measurement pointed somewhere else, which
+          tests the whole chain at once. And the horn last, because it is the awkward one and
+          because it is the only step that needs a ladder. Note what working the list actually
+          achieves. It does not find the signal. It removes every boring explanation, which is
+          the only thing that makes what is left worth thinking about.
+
+      - group: RECV
+        task: Find out what the signal depends on
+        title: Change one thing, put it back
+        place: Receiver Hut
+        person: true
+        personId: alvarez
+        concept: 'A local cause depends on something local; a cosmic one does not'
+        scene: >
+          Four things about this site can be changed and the excess measured
+          again. The list on the wall is crossed off and the signal is still
+          about three kelvin.
+        guide: >-
+          The number you are watching is the excess temperature. Four things can be changed and
+          each one asks a different question: does the signal depend on where the horn points,
+          on the time of day, on how warm the amplifier is, or on whether a particular
+          transmitter down the valley is running. Change one, measure, then put it back and
+          measure again — because a reading that will not come back was never following what
+          you moved.
+        background:
+          - >-
+              How to do it, on a different example. A radio hisses. Move it to another room and
+              the hiss stays; unplug the fridge and it goes, and plugging the fridge back in
+              brings it back. That last part is the whole test. Something that merely stopped
+              while you were working was a coincidence with good timing.
+          - >-
+              What each control asks. Pointing asks whether the source is in one direction.
+              Time of day asks whether it is the Sun or the ground warming. Amplifier
+              temperature asks whether the receiver is making it. The transmitter asks whether
+              it is a neighbour. Each of those would be a perfectly ordinary answer.
+          - >-
+              Why one at a time. Changing the pointing and the time of day together gives one
+              reading and no information about either, and the question "which of the two was
+              it" will be asked in the first meeting.
+          - >-
+              And what a signal that survives all four has established. Not that it is cosmic.
+              That it does not depend on any of the four local things anybody thought to try,
+              which is a much smaller claim and is the only one available.
+        assumes:
+          - a controlled test changes one variable and holds the rest
+          - a cause is something the effect depends on in both directions
+        takeaway: A relationship is causal when it reverses, and a signal that reverses with nothing local has ruled out being local.
+        format: CONTROL
+        question: >-
+          Four things you can change, one excess temperature. Find out what it depends on.
+        control:
+          hint: >-
+            Change what you like and measure again. What you changed is a decision; what the
+            reading then means depends on how many things moved.
+          observable: { label: Excess antenna temperature, unit: K }
+          held: [reference load, waveguide, ground shield]
+          variables:
+            - { id: point, label: Where the horn is pointed }
+            - { id: hour, label: Time of day }
+            - { id: amp, label: Temperature of the amplifier }
+            - { id: tx, label: The transmitter down the valley }
+          truth: amp
+          baseline: 3.5
+          response: 1.4
+          noise: 0.1
+          changeVerb: warmed
+          run: Measure the excess
+          commit: Name it
+        answerText: >-
+          Only the amplifier moves it, and it moves it by less than half of the excess — so a
+          warmer amplifier adds noise and about three kelvin is still there with the amplifier
+          cold. Nothing else changes it at all.
+        why: >
+          Three of the four controls do nothing. Point the horn somewhere else and the excess is
+          the same. Come back at midnight and it is the same. Switch the transmitter off and it
+          is the same. Only the amplifier moves the reading, and it moves it by less than half
+          of what is there — which is exactly what an amplifier is supposed to do, and it leaves
+          about three kelvin unaccounted for with the amplifier as cold as it will go. Read what
+          that has and has not established. It has not established that anything is cosmic. It
+          has established that the excess does not depend on direction, on time of day, or on
+          the nearest transmitter, which is four ordinary explanations gone. That is the whole
+          content of the result at this point in the week, and it is why the next question is
+          about the sky rather than about the hut.
+
+      - group: HORN
+        task: Sweep the sky
+        title: Where the galaxy is, and where it is not
+        place: Horn Antenna
+        concept: 'A foreground is separated by where it is, not by how strong it is'
+        scene: >
+          Sonja Bergqvist, the site's foregrounds specialist, has six directions
+          worth pointing at and nothing recorded for any of them. The mount will
+          reach all six.
+        guide: >-
+          Nothing is on the screen until you go and measure it. Point the horn at a direction,
+          take the reading, and the panel shows you what came in and what the sky ought to give
+          if the excess is the same everywhere. Work through the directions and name the one
+          where the measurement and that expectation part company — because the one that is
+          different is the one that is not the background.
+        background:
+          - >-
+              How to do it, on a different example. Take the temperature in six rooms of a
+              house expecting them all to be the same, and five read within a degree while one
+              reads eight degrees warmer. The odd one is not telling you about the house; it is
+              telling you there is a radiator on in it. Find the exception first and set it
+              aside, and what is left is the house.
+          - >-
+              What our own galaxy does here. It glows in the microwave, and it is brightest
+              along the band of it, because that is where most of the galaxy is. So a direction
+              looking through the plane of the galaxy collects the galaxy as well as the
+              background, and it reads high.
+          - >-
+              Why the exception is set aside rather than argued about. A foreground is only
+              removable if you know where it is. Being able to say "it is bright along the
+              galaxy and nowhere else" is what makes it separable, and this is exactly what
+              cannot be done to something spread evenly over the whole sky.
+          - >-
+              And what "nearly" is doing in the answer. The residual really is very nearly the
+              same in all directions. It is not exactly the same, and the tiny differences
+              turned out decades later to be the most informative thing about it. Nothing on
+              this hill in this decade can see them.
+        assumes:
+          - our own galaxy is brightest along the band of it
+          - something in the way can be removed only if its position is known
+        takeaway: A foreground is identified by where it is, and what survives its removal is the same in every direction.
+        format: PROBE
+        question: >-
+          Point the horn at each direction in turn. Which one is not the background?
+        probe:
+          chainLabel: Direction
+          minReadings: 3
+          stations:
+            - id: pole
+              label: Toward the northern sky pole
+              reading: 3.5 K
+              expected: 3.5 K
+              load: well away from the band of the galaxy
+            - id: high
+              label: High, forty degrees off the galaxy
+              reading: 3.6 K
+              expected: 3.5 K
+              load: well away from the band of the galaxy
+            - id: east
+              label: Due east, sixty degrees up
+              reading: 3.4 K
+              expected: 3.5 K
+              load: well away from the band of the galaxy
+            - id: plane
+              label: Along the band of the galaxy
+              reading: 9.2 K
+              expected: 3.5 K
+              load: looking the long way through our own galaxy
+            - id: west
+              label: Due west, seventy degrees up
+              reading: 3.5 K
+              expected: 3.5 K
+              load: well away from the band of the galaxy
+            - id: low
+              label: Low, twenty degrees above the horizon
+              reading: 4.1 K
+              expected: 3.5 K
+              load: more air, and more ground, in the beam
+          target: plane
+          commit: Name the direction
+        answerText: >-
+          Along the band of the galaxy, at more than nine kelvin against three and a half
+          everywhere else. The low pointing runs a little warm as well, and that is the air and
+          the ground rather than the sky.
+        why: >
+          Five of the six directions agree at about three and a half kelvin, within a tenth or
+          two of each other, and one reads more than nine. That one is looking the long way
+          through our own galaxy, which glows in the microwave and is brightest along its own
+          band — so it is collecting the galaxy on top of whatever else is there. Set it aside
+          and what is left is the finding: the same reading whichever way the horn is pointed.
+          Two more things worth taking. The low pointing runs warm by about half a kelvin,
+          which is more air and more ground in the beam, and it is a foreground of a different
+          kind that is removed by not pointing there. And the word to use is nearly. The
+          residual really is very nearly the same everywhere, it is not exactly the same, and
+          the tiny differences turned out much later to be the most informative thing about it.
+
+  - title: What spectrum is it
+    objective: Get a shape and a temperature, and be clear about which measurement gave which.
+    briefing: Forty frequencies from a building that was not here in 1965.
+    stake: >-
+      The scene changes. This level's measurements are made in the building further up the
+      hill, and it was put there decades after the horn. David Wilkinson, who runs the spectrum
+      programme, measures the same sky at forty frequencies at once, which is what it takes to
+      say a spectrum is thermal rather than merely to say it is bright — and the horn measured
+      one frequency. Today you find out which spectral shape leaves nothing unexplained, turn
+      the peak into a temperature, and decide which claims about all this the 1965 measurement
+      could ever have supported. Running the two together is the commonest mistake told about
+      this discovery.
+    takeaway: What a measurement supports depends on what it measured, and combining two eras into one claim is how a story goes wrong.
+    stops:
+      - group: SPECTRUM
+        task: Find the shape that leaves nothing over
+        title: Three curves through the same points
+        place: Spectrum Building
+        concept: 'A shape is chosen by what it fails to explain'
+        scene: >
+          Wilkinson has forty measurements on the plot, from microwave out to far
+          infrared. Three candidate shapes have been fitted to them. A thermal
+          curve, a power law, and one broad emission line.
+        guide: >-
+          Three shapes have each been fitted properly and each has a score. Ignore the scores
+          and look at what is left over, band by band. If the leftovers jump about at random,
+          the shape has nothing left to explain. If they run positive at one end and negative
+          at the other, or all one way across a whole stretch, there is something in the data
+          the shape does not contain — and a score averages exactly that away.
+        background:
+          - >-
+              How to do it, on a different example. Fit a straight line to points that curve.
+              The line can be placed so the average error is small and its leftovers will still
+              be positive at both ends and negative in the middle, every time. That pattern is
+              the curve showing through.
+          - >-
+              What each candidate would leave. A power law is a straight line on this kind of
+              plot, so it can be made to pass through the middle of the range and must then miss
+              at both ends, because a thermal curve turns over and a power law never does. A
+              single emission line accounts for the peak and nothing on either side of it.
+          - >-
+              Why a thermal shape is such strong evidence. It is not one curve among many. It
+              is the shape anything in equilibrium with itself gives off, it has exactly one
+              free number in it — the temperature — and it is fixed at every frequency at once.
+              Matching it across forty bands with one number is very hard to arrange by
+              accident.
+          - >-
+              And the chronology, which matters here. The horn measured one excess temperature
+              at one frequency. Everything on this plot came from later instruments, and it is
+              their precision rather than the horn's that made the thermal shape a fact.
+        assumes:
+          - a fitted model leaves scatter when it is complete and structure when it is not
+          - a summary score averages over structure it cannot see
+        takeaway: The shape to keep is the one with no pattern left in what it misses, whatever its score.
+        format: RESIDUAL
+        question: >-
+          Read what each shape leaves over. Which would you carry forward?
+        residual:
+          hint: >-
+            Each stick is one band of frequency. Up is more power than the shape predicts, down
+            is less.
+          fits:
+            - id: power
+              label: A power law
+              rms: 0.17
+              structured: true
+              residuals:
+                - { x: -2, y: -2, value: 0.29 }
+                - { x: 0, y: -2, value: 0.05 }
+                - { x: 2, y: -2, value: -0.04 }
+                - { x: -2, y: 2, value: -0.06 }
+                - { x: 0, y: 2, value: 0.07 }
+                - { x: 2, y: 2, value: 0.33 }
+            - id: line
+              label: A single broad emission line
+              rms: 0.15
+              structured: true
+              residuals:
+                - { x: -2, y: -2, value: 0.26 }
+                - { x: 0, y: -2, value: 0.23 }
+                - { x: 2, y: -2, value: 0.2 }
+                - { x: -2, y: 2, value: 0.04 }
+                - { x: 0, y: 2, value: 0.03 }
+                - { x: 2, y: 2, value: 0.06 }
+            - id: thermal
+              label: A thermal curve, one temperature
+              rms: 0.16
+              residuals:
+                - { x: -2, y: -2, value: 0.13 }
+                - { x: 0, y: -2, value: -0.1 }
+                - { x: 2, y: -2, value: 0.06 }
+                - { x: -2, y: 2, value: -0.15 }
+                - { x: 0, y: 2, value: 0.11 }
+                - { x: 2, y: 2, value: -0.08 }
+          accept: thermal
+          commit: Carry this shape forward
+        answerText: >-
+          The thermal curve, at 0.16. The emission line scores better and leaves large positive
+          residuals right across the low-frequency half, which is the part it has no account of.
+        why: >
+          Two of the three leave a pattern. The power law passes neatly through the middle of
+          the range and misses at both ends, positive at each, because a thermal curve turns
+          over at high frequency and a power law never does. The emission line has the best
+          score of the three and is the worst shape: its residuals are large and all positive
+          across the low-frequency half, because a line accounts for the peak and has no
+          account at all of the long slow rise below it. The thermal curve scores worst on the
+          summary and its residuals change sign at random, which is what a complete description
+          produces. And the thermal shape is not one candidate among many. It has exactly one
+          free number in it, the temperature, fixed at every frequency at once — which is why
+          matching it across forty bands is so much stronger than fitting a curve with room in
+          it to be adjusted.
+
+      - group: SPECTRUM
+        task: Turn the peak into a temperature
+        title: Two point nine over one point one
+        place: Spectrum Building
+        concept: 'The wavelength a thermal spectrum peaks at gives its temperature'
+        scene: >
+          Peter Roll, who does the calibration, has the fitted curve on the
+          screen. Its peak is marked at about one point one millimetres. The
+          constant is chalked on the board beside it.
+        guide: >-
+          This is one division. For any thermal spectrum, the wavelength it peaks at multiplied
+          by its temperature is the same constant — about two point nine, in millimetre kelvin.
+          So divide that constant by the peak wavelength and what comes out is a temperature in
+          kelvin. The other tiles are real numbers about this measurement and neither belongs in
+          the sum.
+        background:
+          - >-
+              How to do it, on a different example. A thermal spectrum peaking at 0.5
+              millimetres: 2.9 divided by 0.5 is about 5.8 kelvin. A hotter body peaks at a
+              shorter wavelength, so a smaller number on the bottom gives a bigger answer,
+              which is the right way round.
+          - >-
+              Why there is a constant at all. Anything warm radiates across a spread of
+              wavelengths with a peak in it, and the hotter it is the shorter that peak
+              wavelength gets — in exact proportion. So the product of the two is fixed for
+              every thermal spectrum in the universe, and one measurement of a peak is one
+              measurement of a temperature.
+          - >-
+              What this temperature is a temperature of. Not the air, not the antenna and not
+              the reference load. It is the temperature a body would have to be to give off
+              this spectrum, and the whole argument of the next level is about what body that
+              could possibly be.
+          - >-
+              And why the calibration is on the wall behind it. Every reading here is the sky
+              against a reference load. Get that load wrong by a tenth of a kelvin and every
+              point moves by a tenth of a kelvin in the same direction, and the shape still
+              looks perfect.
+        assumes:
+          - a hotter body radiates with its peak at a shorter wavelength
+          - the peak wavelength times the temperature is the same for every thermal spectrum
+        takeaway: A peak wavelength is a temperature, because the two multiply to the same constant every time.
+        format: BALLPARK
+        question: What temperature does the peak imply?
+        estimate:
+          prompt: >-
+            Roll will not sign the spectrum off until there is a temperature written under it.
+          question: What temperature does the peak imply?
+          relationship: The temperature is the constant of two point nine millimetre kelvin divided by the wavelength the spectrum peaks at.
+          labels:
+            - 2.9 mm K  (the constant, the same for every thermal spectrum)
+            - 1.1 mm  (the wavelength this spectrum peaks at)
+            - 40  (the number of frequency bands measured)
+            - 3.5 K  (the excess the horn measured at one frequency)
+          values: [2.9, 1.1, 40, 3.5]
+          slots: 2
+          template: '{0} ÷ {1}'
+          formula: a/b
+          correct: [0, 1]
+          target: 2.64
+          tolerance: 0.2
+          units: kelvin
+          solution: Two point nine divided by one point one is about two point six kelvin.
+          explanation: The horn's own number is on the bench because it is what this result is compared with rather than a term in it, and it came from one frequency rather than forty.
+        why: >
+          Two point nine divided by one point one is about two point six kelvin. That is the
+          temperature a body would have to be to give off this spectrum, and it is worth being
+          clear which body: not the air, not the antenna and not the reference load. Something
+          fills the sky and it is a couple of degrees above absolute zero. Two things to keep.
+          The constant is what makes a peak into a temperature — a hotter body peaks at a
+          shorter wavelength, in exact proportion, so the product of the two is the same for
+          every thermal spectrum there is. And the horn's own three and a half kelvin is on the
+          bench for comparison rather than as a term. It came from one frequency, and one
+          frequency cannot tell you a spectrum is thermal at all.
+
+      - group: SPECTRUM
+        task: Say which claims the horn could support
+        title: One frequency, and forty
+        place: Spectrum Building
+        concept: 'What one measurement supports is not what the whole story needs'
+        scene: >
+          Six sentences about this background are drafted for a review, each with
+          the measurement it is attributed to. Wilkinson has time to check three of
+          them against what was actually on the table.
+        guide: >-
+          Six claims, all of them written about the same background, and you cannot check them
+          all. Open each and read what actually stands behind it. Some are exactly what the
+          measurement named can support; some are true statements attributed to a measurement
+          that could not have shown them. Verify what the three checks allow and hold whatever
+          the evidence present does not support.
+        background:
+          - >-
+              How to think about it, on a different example. A photograph taken from a moving
+              train shows a field. "There is a field beside the line" is supported. "The field
+              is forty acres" is a true-sounding claim the photograph cannot carry, and
+              attributing it to the photograph is a small error that gets repeated.
+          - >-
+              What the horn measured. An excess antenna temperature of about three and a half
+              kelvin at one frequency, the same in every direction it was pointed, surviving
+              every local check on the list. That is a great deal and it is one number.
+              A single frequency cannot establish a shape.
+              A shape is the relationship between frequencies.
+          - >-
+              What the later measurements did. Forty bands from microwave to far infrared, from
+              instruments above the atmosphere, giving a thermal curve fitted to a precision
+              nothing on a hill can approach. That is where the precise spectrum comes from, and
+              it is decades after the horn.
+          - >-
+              And why this stop exists at all. The commonest way this discovery is told runs the
+              two eras together, so that a pair of engineers with one receiver are described as
+              having measured a perfect thermal spectrum. Getting the chronology right is not
+              pedantry: the interesting thing about the horn result is how little it took to be
+              decisive.
+        assumes:
+          - a claim's support is what stands behind it rather than who wrote it
+          - a shape is a relationship between measurements at different frequencies
+        takeaway: A claim has to be attributed to a measurement that could have shown it.
+        format: ATTEST
+        question: >-
+          Check what the three verifications allow, and hold whatever the measurement named
+          could not have shown.
+        attest:
+          hint: >-
+            Every one of these is a true statement about the background. The question is whether
+            the measurement it is attributed to could have established it.
+          checks: 3
+          claims:
+            - { id: excess, label: 'The horn measured an excess of about three and a half kelvin', signedBy: the 1965 paper, critical: true, backed: true, evidence: 'the measured antenna temperature, at one frequency' }
+            - { id: shape, label: 'The horn established that the spectrum is thermal', signedBy: a review draft, critical: true, evidence: 'one frequency was measured, and a shape is a relationship between frequencies' }
+            - { id: iso, label: 'The excess was the same in every direction the horn was pointed', signedBy: the 1965 paper, backed: true, evidence: 'the sky sweep, recorded direction by direction' }
+            - { id: precise, label: 'The thermal spectrum is known to better than a thousandth of a kelvin', signedBy: a review draft, critical: true, evidence: 'true, and it comes from a satellite instrument decades later' }
+            - { id: local, label: 'No local cause on the list accounts for the excess', signedBy: the receiver log, backed: true, evidence: 'every item checked and crossed off, with the excess still present' }
+            - { id: hot, label: 'A hot early universe naturally predicts a background like this', signedBy: a theory group, evidence: 'argued from the framework, not from the horn measurement' }
+        answerText: >-
+          Hold the claim that the horn established the spectrum, and the one attributing the
+          thousandth-of-a-kelvin precision to it. Both are critical, both are true of the
+          background, and neither is a thing that measurement could have shown.
+        why: >
+          Two of the six are attributed to the wrong measurement. Both are true, which is what
+          makes them hard. The horn measured one frequency, and a shape is a relationship
+          between frequencies, so nothing about a thermal spectrum can come out of it however
+          careful the work was. And the precision of a thousandth of a kelvin belongs to an
+          instrument above the atmosphere, decades later. Everything else stands. The excess,
+          the sky sweep and the exhausted list of local causes are all things the horn and the
+          hut actually did, and the framework claim is honestly credited to the people who
+          argued it. This is not pedantry. The remarkable thing about the horn result is how
+          little it took to be decisive, and running the two eras together hides exactly that.
+
+  - title: Cosmic interpretation
+    objective: Compare the frameworks, cool the early universe forward, and name what this is.
+    briefing: Two blackboards, one of which has to invent a source.
+    stake: >-
+      Wednesday, in the theory room at the end of the track. Robert Dicke, who keeps the
+      blackboard, has two frameworks chalked up. One has an early universe hot enough to be
+      opaque; the other has never had one. Both have to account for the same background, and
+      one of them has to invent something to do it. Beside them are two numbers nobody has put
+      together: the temperature at which the early universe would have cleared, and the
+      redshift of that moment. Today you say which framework produces a relic without being
+      asked to, cool that temperature forward to the present, and name what this background
+      is. If the arithmetic lands on the measured value, nobody adjusted anything to make it.
+    takeaway: A framework that predicts a number it was not fitted to has done something no amount of fitting can.
+    stops:
+      - group: COSMO
+        task: Say which framework predicts a relic
+        title: The one that has to invent a source
+        place: Theory Room
+        concept: 'A framework is judged by what it has to add to explain the same thing'
+        scene: >
+          Two frameworks are on the blackboard and the same background is pinned
+          between them. Dicke has written the same question under each one:
+          what does this have to add?
+        guide: >-
+          Four candidate explanations, and you are choosing the one that produces this
+          background without being asked to. The test is not which sounds more likely — it is
+          which one has to have something added to it. A framework that already implies a
+          background like this is doing better than one that can accommodate it once a source
+          is invented and fitted.
+        background:
+          - >-
+              How to think about it, on a different example. Two accounts of a wet floor. One
+              says a pipe upstairs burst, which also explains the stain on the ceiling and the
+              sound at three in the morning. The other says somebody spilled a bucket, and then
+              needs a separate story for the ceiling and another for the sound. Both fit the
+              floor. Only one of them was not adjusted afterwards.
+          - >-
+              What a hot early universe implies without being asked. Hot and dense enough and
+              matter is ionised, which makes it opaque — radiation cannot travel far without
+              being scattered. As it expands and cools there comes a moment when it clears, and
+              the radiation that was bouncing around at that moment is suddenly free to travel.
+              It is still travelling. That is not an addition to the model; it is a consequence
+              of it.
+          - >-
+              What the alternative has to add. A universe with no hot dense phase has no such
+              moment and therefore no such radiation, so it needs a source: something that
+              fills the whole sky, at one temperature, thermally, in every direction. Every
+              property of the background becomes a separate thing to arrange.
+              That is the cost.
+          - >-
+              And what this stop is not claiming. That the framework is proved. This background
+              became one of several independent lines of evidence, alongside the expansion
+              itself and the abundances of the lightest elements, and it is the agreement
+              between those that did the work.
+        assumes:
+          - hot ionised matter scatters radiation and is opaque to it
+          - a framework that has to add a mechanism is doing worse than one that implies it
+        takeaway: The framework to keep is the one that produces the observation without being adjusted to.
+        format: CHOICE
+        question: Which explanation produces a background like this without being asked to?
+        choices:
+          - One that started out opaque and cleared as it grew.
+          - One that has never been hot or dense, with a source put in to fill the sky.
+          - A nearby star, whose light happens to arrive from every direction at once.
+          - Microwaves given off by the oceans, reaching the antenna from above.
+        answer: One that started out opaque and cleared as it grew.
+        rebuttals:
+          - Adding a source is the cost. Every property of the background — its temperature, its shape, its sameness in every direction — becomes a separate thing to arrange rather than a consequence.
+          - A star is in one direction. This background is the same whichever way the horn points, which is the one thing a single object cannot do.
+          - The oceans are below the antenna and warm. Neither the direction nor the temperature is anywhere near right, and pointing the horn up rather than down settles it.
+        why: >
+          A universe that was once hot and dense was opaque, because ionised matter scatters
+          radiation. Expanding and cooling, there comes a moment when it clears, and the
+          radiation that was bouncing about at that moment is released in every direction at
+          once. It is still arriving. Nothing was added to the framework to get that; it falls
+          out of it. Now the cost of the alternative. A universe with no hot phase has no such
+          moment, so it needs a source that fills the whole sky at one temperature with a
+          thermal spectrum — and every one of those properties becomes a separate thing to
+          arrange. The other two options fail on the measurements already taken: a single star
+          is in one direction, and the oceans are below the antenna and hundreds of kelvin too
+          warm. And this is not a proof. It became one of several independent lines of evidence,
+          and the agreement between them is what did the work.
+
+      - group: COSMO
+        task: Cool the early universe forward
+        title: Three thousand, divided by eleven hundred
+        place: Theory Room
+        person: true
+        personId: dubois
+        concept: 'Radiation cools as the universe expands, in proportion to one plus the redshift'
+        scene: >
+          Robert Dicke, who keeps the blackboard, has two numbers on it and has
+          not put them together. The early universe cleared at about three
+          thousand kelvin, at a redshift of about eleven hundred.
+        guide: >-
+          This is one division. Expansion stretches every wavelength by one plus the redshift,
+          and a thermal spectrum stretched that way is still thermal at a temperature lower by
+          exactly the same factor. So take the temperature it had then and divide by one plus
+          the redshift. The other tiles are real numbers about this argument and neither belongs
+          in the sum.
+        background:
+          - >-
+              How to do it, on a different example. A spectrum at four thousand kelvin, released
+              at a redshift of nine hundred and ninety-nine. One plus the redshift is a
+              thousand, and four thousand divided by a thousand is four kelvin. Add one to the
+              redshift first, then divide.
+          - >-
+              Why the redshift needs the one added to it. Redshift is defined as how much the
+              wavelength has grown as a fraction of what it was, so a redshift of one means it
+              has doubled rather than stayed the same. One plus the redshift is the factor
+              everything has actually been stretched by.
+          - >-
+              Why a stretched thermal spectrum is still thermal. Expansion stretches every
+              wavelength by the same factor, so the shape of the spectrum is preserved exactly
+              and only its scale changes. That is why the background is thermal today rather
+              than being a thermal spectrum smeared into something else, and it is one of the
+              least obvious and most useful facts in the subject.
+          - >-
+              And what makes the answer worth anything. Nobody adjusted either number to reach
+              the measured value. The three thousand kelvin comes from the physics of hydrogen
+              becoming transparent and the redshift from the expansion history, and the result
+              lands within a fraction of a kelvin of what an antenna on a hill measured.
+        assumes:
+          - expansion stretches every wavelength by the same factor
+          - a thermal spectrum stretched uniformly is still thermal at a lower temperature
+        takeaway: A framework that predicts the measured number without being fitted to it has done something fitting cannot.
+        format: BALLPARK
+        question: What temperature should that radiation have today?
+        estimate:
+          prompt: >-
+            Dicke will not put a conclusion on the board until the two numbers on it have been
+            put together.
+          question: What temperature should that radiation have today?
+          relationship: The temperature today is the temperature at release divided by one plus the redshift of the moment it was released.
+          labels:
+            - 3000 K  (the temperature when the early universe cleared)
+            - 1101  (one plus the redshift of that moment)
+            - 1100  (the redshift itself)
+            - 2.64 K  (the temperature measured from the peak)
+          values: [3000, 1101, 1100, 2.64]
+          slots: 2
+          template: '{0} ÷ {1}'
+          formula: a/b
+          correct: [0, 1]
+          target: 2.72
+          tolerance: 0.15
+          units: kelvin
+          solution: Three thousand divided by eleven hundred and one is about two point seven kelvin.
+          explanation: The bare redshift is on the bench because it is the wrong one by a factor nobody notices, and the measured temperature is what the answer is compared with rather than a term in it.
+        why: >
+          Three thousand divided by one thousand one hundred and one is about two point seven
+          kelvin. Now look at where those two numbers came from. Three thousand kelvin is where
+          hydrogen stops being ionised and the universe becomes transparent, which is atomic
+          physics and has nothing to do with antennas. Eleven hundred is the redshift of that
+          moment, which comes from the expansion history. Neither was adjusted to reach any
+          particular answer, and the answer lands within a fraction of a kelvin of what was
+          measured off a curve in another building. That is the whole weight of this stop. A
+          framework can always be fitted to a number; producing the number from two unrelated
+          pieces of physics is what fitting cannot do.
+
+      - group: COSMO
+        task: Name what the background is
+        title: Four facts and one explanation
+        place: Theory Room
+        concept: 'One explanation that accounts for every clue at once'
+        scene: >
+          Four things are pinned up together. The excess that survived every check.
+          The sameness in every direction. The thermal curve near two point seven
+          kelvin. And the arithmetic that predicts it.
+        guide: >-
+          Four possible answers, and you are choosing the one that accounts for all four pinned
+          facts at once. Test each one fact by fact rather than by how it sounds. Three of the
+          four are contradicted by something on the wall, and being able to name which fact
+          kills each is the answer the room will ask you for.
+        background:
+          - >-
+              How to do it, on a different example. Four explanations of a warm engine and three
+              facts: it is warm, the key is in your pocket, and the bonnet is dusty. Go fact by
+              fact and cross off whoever each one excludes. What survives is what nothing
+              excludes, and you can say for each of the others exactly which fact removed it.
+          - >-
+              The four facts, and what each one demands. The excess survived every local check,
+              so whatever it is is not on this hill. It is the same in every direction, so it is
+              not any single object. It is thermal, so whatever produced it was in equilibrium
+              with itself. And the temperature is what a hot early universe predicts, so its
+              value is not a coincidence either.
+          - >-
+              What the surviving answer is, said carefully. Radiation released when the early
+              universe became transparent, travelling ever since, and cooled by the expansion to
+              a couple of degrees above absolute zero. Every one of the four facts is a
+              consequence of that sentence rather than a separate thing arranged.
+              That is what an explanation is.
+              A description merely restates the facts.
+          - >-
+              And what to say about the antenna. It was never the source of the signal, and the
+              engineers who found it were right to spend weeks assuming it was. Being wrong
+              about that in the right order is exactly how the measurement came to be
+              believable.
+        assumes:
+          - an explanation accounts for the facts rather than restating them
+          - a thermal spectrum implies something was once in equilibrium
+        takeaway: The explanation to keep produces every fact as a consequence, and every rejection can be named by the fact that kills it.
+        format: CHOICE
+        question: What is this background?
+        choices:
+          - Radiation left over from when the early universe became transparent, cooled by expansion since.
+          - Microwave light given off mainly by the planets of our own solar system today.
+          - Radio noise leaking out of the receiver in the hut at the bottom of the hill.
+          - One very distant galaxy, which happens to be seen in every direction at once.
+        answer: Radiation left over from when the early universe became transparent, cooled by expansion since.
+        rebuttals:
+          - Planets are in particular directions and move against the sky. This background is the same whichever way the horn points and does not move at all.
+          - Every item on the receiver list was checked and crossed off with the excess still present, and warming the amplifier accounts for less than half of it.
+          - A galaxy is one object in one direction. Nothing seen in every direction at once can be a single object, which is what the sky sweep settled on the first day.
+        why: >
+          Go fact by fact. The excess survived every local check, which kills the receiver. It
+          is the same in every direction, which kills any single object — a planet, a star or a
+          galaxy — because a single object is somewhere. It is thermal, which means whatever
+          produced it was in equilibrium with itself, and nothing in the list of local
+          candidates was. And its temperature is what cooling a three-thousand-kelvin early
+          universe forward by a redshift of eleven hundred predicts, which no coincidence
+          arranges. One explanation produces all four as consequences: radiation released when
+          the early universe became transparent, still travelling, cooled by the expansion to a
+          couple of degrees above absolute zero. And a word about the hut. The antenna was never
+          the source, and the engineers were right to spend weeks assuming it was. Being wrong
+          about that in the right order is what made the measurement believable.
+
+warmups:
+  greet:
+    title: Six people, two eras, one hill
+    why: >-
+      Half the measurements in this campaign were made decades apart by different people, and a
+      claim is worth what the instrument behind it could show. The antenna, the receiver, the
+      foregrounds, the spectrum and the calibration are five different hands. Put a name to as
+      many of them as you can before the week starts.
+  trial-near:
+    title: Walk the hill before anything is pointed
+    why: >-
+      The horn and the receiver hut are at the top of the track and the spectrum building and
+      the theory room are further along it. Walk it once now. Arno Penzias, the antenna engineer,
+      would rather you knew the way than went looking for the cold load with the horn already
+      pointed.
+  follow:
+    title: Roll carries a load temperature from the calibration bay to the spectrum
+    why: >-
+      Every reading on that hill is the sky compared with a body at a known temperature, and a
+      load wrong by a tenth of a kelvin moves every point on the spectrum by a tenth of a
+      kelvin. Peter Roll, the physicist who does the calibration, walks one through. Stay with
+      him and watch where the number is applied.
+
+interiors:
+  HORN:
+    caption: A horn collects whatever is in front of it, and that includes the ground.
+    standLine: Twenty feet of aluminium, open at one end, pointing wherever the mount is set.
+    station:
+      kind: panel
+      title: Antenna
+      rows:
+        - { label: Pointing, value: 40° off the galaxy, status: normal }
+        - { label: Excess, value: 3.5 K, status: alarm }
+        - { label: Along the galaxy, value: 9.2 K, status: high }
+        - { label: Ground shield, value: fitted, status: normal }
+  RECV:
+    caption: The instrument is a suspect until the list runs out.
+    standLine: A cold reference load, an amplifier, and six things crossed off.
+    station:
+      kind: panel
+      title: Receiver
+      rows:
+        - { label: Reference load, value: 4.2 K, status: normal }
+        - { label: Amplifier, value: checked, status: normal }
+        - { label: Waveguide, value: checked, status: normal }
+        - { label: Excess remaining, value: about 3 K, status: alarm }
+  SPECTRUM:
+    caption: One frequency cannot tell you a shape. A shape is a relationship.
+    standLine: Forty bands from microwave to far infrared, decades after the horn.
+    station:
+      kind: plot
+      title: Spectrum
+      note: one free number, fixed at every frequency
+      axes: { x: wavelength, y: brightness }
+      curves:
+        - { points: [[0.05, 0.12], [0.2, 0.55], [0.34, 0.95], [0.5, 0.72], [0.7, 0.3], [0.95, 0.06]], label: 'thermal, one temperature' }
+  COSMO:
+    caption: A framework is judged on what it has to add.
+    standLine: Two blackboards, the same background between them, and one of them inventing a source.
+    station:
+      kind: panel
+      title: Blackboard
+      rows:
+        - { label: Cleared at, value: about 3000 K, status: normal }
+        - { label: Redshift then, value: about 1100, status: normal }
+        - { label: Predicted now, value: about 2.7 K, status: high }
+        - { label: Measured now, value: about 2.7 K, status: high }
+
+copy:
+  HORN: <p>The horn itself, at the top of the track: twenty feet of riveted aluminium on a mount, open to the sky, with a ground shield round the mouth and a ladder to the throat.</p>
+  RECV: <p>The receiver hut, right underneath it. The cold load in its dewar, the amplifier chain along one bench, and the list of checks pencilled on the wall with dates against each one.</p>
+  SPECTRUM: <p>The spectrum building, further along the ridge and much newer. Forty channels of the same sky at once, and a wall of results none of which the horn could have produced.</p>
+  COSMO: <p>The theory room at the end of the track. Two blackboards facing each other, the same background pinned between them, and not one instrument in the place.</p>
+  GATE: <p>The gate at the bottom of the track, with the site hut beside it and the log everybody signs on the way up.</p>

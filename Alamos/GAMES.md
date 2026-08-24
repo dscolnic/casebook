@@ -3,7 +3,8 @@
 > New game? Start at [`README.md`](README.md), which names the two documents
 > to read first — `gamekit/STORY_SPEC.md` then `gamekit/NEW_GAME.md`.
 
-Nineteen playable games, one engine. Everything below is current as of the last
+Nineteen playable games plus the first of the shorter **Quick Discoveries**, one
+engine. Everything below is current as of the last
 commit on `deep-watch-integration`. `CLAUDE.md` is the working manual — house
 rules, the day model, editions and copy conventions. This file is the inventory.
 **`GAME_IDEAS.md` is the games that do not exist yet** — the subject gaps and
@@ -99,6 +100,86 @@ different course:
 
 All three compute every equation on their own syllabus. Four of the seven
 university games were considered and rejected; the reasons are in that file.
+
+## A shorter shape: the Quick Discoveries
+
+`great_discoveries_first10_expanded.docx` specifies ten discoveries on one
+spine — **three levels, three micro-games each** — as a ten-to-twenty minute
+"you are in the discovery" session rather than a fortnight of shifts. That
+maps onto this engine without a second day model: a level is a day, a
+micro-game is a stop, and the campaign is nine stops in one sitting.
+`dayNoun: 'Level'` is the only thing the engine needs told.
+
+**All ten are built.** Each is nine stops, three levels, every equation on its own
+syllabus computed by a question, and every one green on all twenty-six checks.
+
+| # | Game | Where | Subject, and the shape of the three levels | Run it |
+| --- | --- | --- | --- | --- |
+| 01 | **The Only Shape That Fits** | `themes/qd_dna` | Biology. What chemistry forbids before any photograph exists; what a diffraction pattern will and will not settle; the model no clue rules out | `THEME=qd_dna npm run dev` |
+| 02 | **Too Faint** | `themes/qd_accel` | Astronomy. What a Type Ia is worth as a ruler; fainter than a universe of matter allows; say only what the data will carry | `THEME=qd_accel npm run dev` |
+| 03 | **The Impossible Bounce** | `themes/qd_nucleus` | Physics. Commit to what the accepted atom permits; count the band it forbids; explain the dull majority and the ten exceptions at once | `THEME=qd_nucleus npm run dev` |
+| 04 | **One Moving System** | `themes/qd_tectonics` | Earth science. What the continents alone will carry; the mechanism ten years of ships supplied; one framework over seven files | `THEME=qd_tectonics npm run dev` |
+| 05 | **Is the Bump Real** | `themes/qd_higgs` | Particle physics. What would count as evidence and where to look; detector layers to a mass distribution; significance, and the claim July 2012 could carry | `THEME=qd_higgs npm run dev` |
+| 06 | **Twice the Old Number** | `themes/qd_eclipse` | Physics. Two predictions a factor of two apart; registration, direction and which error dominates; what the band separates and what may be said | `THEME=qd_eclipse npm run dev` |
+| 07 | **Something Is Pulling** | `themes/qd_exo` | Astronomy. An orbit inferred from motion nobody can see; a size, and the impostors that fake one; mass, radius, tilt and what may be called what | `THEME=qd_exo npm run dev` |
+| 08 | **The Chirp** | `themes/qd_ligo` | Physics. What the instrument listens for and everything else it hears; a shape, a cause and a second site; masses, missing mass, and what a match supports | `THEME=qd_ligo npm run dev` |
+| 09 | **The Noise That Would Not Go** | `themes/qd_cmb` | Cosmology. An engineering problem that will not go away; a shape, a temperature, and what is not yet known; a framework, a cooling law and one explanation | `THEME=qd_cmb npm run dev` |
+| 10 | **No Middle To It** | `themes/qd_hubble` | Astronomy. A ladder and everything that makes it lie; a shift, a pattern and which axis limits everything; a slope, a time, and where the middle is | `THEME=qd_hubble npm run dev` |
+
+**They are written for grade 9, not AP, and every card teaches its method before
+it asks anything.** That is the one thing about the set that came from playing it
+rather than from checking it: the first two were authored at the parent games'
+grade 11, and the questions were too hard for a nine-stop session somebody arrives
+at cold. Two grades down, and a rule — every stop's `guide` says in plain words
+what the move is, and the first `background` paragraph works the same move on
+*different numbers*. Different numbers deliberately: a worked example on the
+question's own numbers is the answer with a label on it, and `probeQuestions`
+would fail it and should. All ten opening cards were rewritten the same way, mystery
+first: what is unexplained, what it would mean if it held, and then the job.
+
+**Two of them are outdoors, and the subject decided which.** An eclipse expedition
+is a camp pitched on a plain with a clear horizon and half of what makes it hard is
+that it is a camp; a twenty-foot horn antenna on a hill above a road is the whole
+reason the first explanation offered was pigeons. Neither survives being moved into
+a corridor, so both are `outdoorTown` from a site.js. The other seven new ones are
+`interiorSite` from a plan.js, which is the cheap and checked way to bring a
+building — `placement` can fire rays at it and every fixture goes up through
+`interiorKit`.
+
+**Format diversity is per campaign and it is the point.** The source book specifies
+nine *different* interactions per discovery, so a campaign of nine multiple choices
+is exactly what it is written against. Every one of the ten carries seven or eight
+distinct answer formats in nine stops, no format over the cap, and at least one
+instrument the player drives. Across the set that is twenty formats: CHOICE,
+BALLPARK, PROTOCOL, SEQUENCE, VALUE, ALLOCATE, DIAGNOSIS, ATTEST, TRACE, CHAIN,
+BALANCE, CONTROL, VERIFY, PROPAGATE, DEGENERACY, TRIANGULATE, RESIDUAL, SWEEP,
+PROBE and HOLDOUT — and TRIANGULATE's instance in `qd_tectonics`, three
+continents' ice-scratch bearings crossing on one ancient pole, is the first that
+format has had in a game rather than in the instrument harness.
+
+The place is `themes/bring_them_home`'s, **copied rather than imported** — this
+is not an edition, because the course, the cast, the areas and the length all
+differ, and `edition-of:` would put `editionParity` in front of every one of
+those changes. What was reskinned is the palette, the boards, the console groups
+and everything printed on a wall; the geometry is untouched, so the copied props
+and world still line up with the copied site. Cerro Vela Survey Operations: an
+analysis floor stepped down to a wall of plot boards, a ring corridor behind it,
+two rooms off that, and forty-five metres of the north leg carrying **the
+measurement chain as one drawing** — the event, the sky, the telescope, the
+instruments, the frames, the light curve, the standardisation, the diagram, so
+walking the hallway walks one photon from a supernova to a point on the plot.
+
+Three things the reskin got wrong and only a screenshot said so, all fixed:
+the north leg was still carrying the donor's **launch vehicle in elevation**,
+which is the largest piece of wall art in the building and about the wrong
+subject entirely; the three plot boards — LIGHT CURVES, HUBBLE DIAGRAM,
+RESIDUALS — were rendering **one identical progress readout each** (`instrumentScreen`
+had no plot face until this game needed one, and now the diagram is sealed on
+level 1, carries the sample against gravity alone on level 2, and puts both
+histories up on level 3); and the middle board was 5.8 m tall on a 2.4 m base
+under a 7.2 m ceiling, so **a metre of it was inside the soffit and the metre
+holding its title**. Nothing else in the set is a reskin: the other nine bring their
+own place, which is why none of those three defects could recur in them.
 
 A seventeenth theme, `instruments`, is registered and checked but is not a game:
 four missions authoring one stop of each instrument format, so a panel can be

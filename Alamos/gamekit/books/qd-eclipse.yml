@@ -1,0 +1,999 @@
+# The Bending of Starlight — a Quick Discovery.
+#
+# The 3 x 3 shape from great_discoveries_first10_expanded.docx, game 06, mapped
+# onto the engine's day model: a level is a day, a micro-game is a stop, and the
+# campaign is nine stops in one sitting. Three levels, in order:
+#
+#   1  Competing predictions  two numbers a factor of two apart, and an angle
+#   2  Measure the plates     registration, direction, and which error dominates
+#   3  Test the prediction    what the band separates, and what may be said
+#
+# The science guardrail from the source book, kept in both of its halves. No one
+# perfect photograph proved anything: the 1919 result was difficult, argued over
+# at the time, and it is the decades of later work at far better precision that
+# settled light bending. And the smaller prediction is not attributed to anybody
+# by name — it is what a treatment of light as particles falling toward the Sun
+# gives, and the game says exactly that.
+#
+# Written for a reader two grades below the AP games, and every card teaches its
+# method before it asks anything: the `guide` says in plain words what the move
+# is, and the first background paragraph works the same move on different numbers.
+#
+# Format budget. Nine stops, cap three of any one format: CHOICE 2, BALLPARK 2,
+# and one each of SEQUENCE, PROTOCOL, VERIFY, PROPAGATE, SWEEP. Eight formats in
+# nine stops, two of them instruments the player drives.
+#
+# This is the first Quick Discovery outdoors. The place is a camp on a plain
+# rather than a corridor, which is `engine/world/outdoorTown.js` from site.js, and
+# the rooms behind its doors come from the `interiors:` block below.
+
+theme:
+  id: qd_eclipse
+  title: The Bending of Starlight
+  subtitle: Expedition Astronomer · Eclipse Camp
+
+groups:
+  - id: CAMERA
+    code: CAM
+    name: Camera Field
+    color: '#c98a2b'
+    desc: A mirror that follows the Sun, a lens on its side, and about five minutes to use them.
+    defaultLeader: eddington
+    milestones: [Level the mount, Focus the lens, Expose the plates, Ready to hand over]
+  - id: PLATES
+    code: PLT
+    name: Plate Hut
+    color: '#3f6f8f'
+    desc: Developing dishes, a measuring engine, and two sets of plates that have to be made comparable.
+    defaultLeader: davidson
+    milestones: [Develop it, Register the field, Measure the residual, Ready to hand over]
+  - id: COMPUTE
+    code: CMP
+    name: Computing Tent
+    color: '#7a4fa3'
+    desc: Log tables, an error budget, and the arithmetic that turns residuals into a number with a band on it.
+    defaultLeader: nakagawa
+    milestones: [Budget the errors, Weight the sets, Draw the band, Ready to hand over]
+  - id: CABLE
+    code: CBL
+    name: Telegraph Hut
+    color: '#b5502f'
+    desc: One wire to the coast, and a word limit that makes overclaiming cheap.
+    defaultLeader: fielding
+    milestones: [Draft it, Cut it, Send it, Ready to hand over]
+
+roster:
+  - id: eddington
+    name: Arthur Eddington
+    role: Chief Observer
+    real: true
+    division: CAMERA
+    bio: |
+      Runs the camera field. A mirror on a clock drive follows the Sun and throws
+      its light down a fixed lens, because a lens this long cannot be swung about
+      in five minutes.
+
+      His rule is that everything is decided before totality. Focus, plate
+      numbers, exposure lengths and who says the times out loud are all settled
+      the day before, because nobody thinks clearly in the dark with a stopwatch
+      running.
+
+      His limit is the weather and the clock. He gets one attempt lasting a few
+      minutes, and no amount of care buys a second one.
+    quiz:
+      - q: Why does Eddington settle everything the day before totality?
+        a: Nobody thinks well in five dark minutes
+        wrong:
+          - Because the mirror's clock drive has to be wound a full day in advance of use
+          - Because the photographic plates must be loaded exactly twenty-four hours early
+          - Because the focus of the lens changes if it is adjusted on the day itself
+
+  - id: davidson
+    name: Charles Davidson
+    role: Plate Measurer
+    real: true
+    division: PLATES
+    bio: |
+      Develops the plates and measures them on the engine, which is a microscope
+      on a screw that reads position to a fraction of the width of a star image.
+
+      His rule is that the two plate sets have to be made comparable before
+      anything is interpreted. They differ in offset, in rotation and in scale
+      before gravity is even considered, and the stars far from the Sun are what
+      those differences are solved from.
+
+      His limit is the plate itself. A soft focus or a warm night widens every
+      star image, and no amount of care at the engine recovers a position the
+      emulsion never recorded sharply.
+    quiz:
+      - q: What does Davidson solve for using the stars far from the Sun?
+        a: The offset, rotation and scale between plates
+        wrong:
+          - The exact temperature the photographic emulsion reached during the exposure
+          - The amount of light each individual star contributed to the finished plate
+          - The direction in which the deflection of the nearer stars ought to point
+
+  - id: nakagawa
+    name: Sumire Nakagawa
+    role: Computer
+    division: COMPUTE
+    bio: |
+      Does the arithmetic, which on this expedition means an error budget before
+      a result.
+
+      Her rule is that each quantity contributes its own fractional uncertainty
+      times the power it enters at. Ranking by the power alone sounds right and
+      goes wrong whenever a badly known quantity enters at first order, which is
+      most of the time.
+
+      Her limit is that she can tell you which measurement is worth improving and
+      not how to improve it. That is somebody else's morning in the plate hut.
+    quiz:
+      - q: How does Nakagawa decide which error is worth fixing?
+        a: She multiplies each width by its own power and compares
+        wrong:
+          - By fixing whichever quantity has the largest power in the relationship first
+          - By improving the measurement that would take the least time to repeat again
+          - By treating every contributing quantity as equally important to the final number
+
+  - id: fielding
+    name: Rupert Fielding
+    role: Expedition Secretary
+    division: CABLE
+    bio: |
+      Owns the telegraph, which charges by the word and has therefore done more
+      damage to careful science than any instrument in the camp.
+
+      His rule is that a cable has to survive being read on its own, without the
+      plates, the band or the argument. A sentence that is true only in context
+      arrives without the context.
+
+      His limit is that he cannot make a short sentence carry a long
+      qualification. Where it will not fit, the cable says less and the paper
+      says the rest.
+    quiz:
+      - q: What does Fielding insist a cable must survive?
+        a: Being read with nothing else beside it
+        wrong:
+          - Being transmitted twice over the same wire without any words being dropped
+          - Being read by somebody who has already seen the plates and the error budget
+          - Being shortened by the newspaper office before anybody at home reads it
+
+  - id: cottingham
+    name: Edwin Cottingham
+    role: Instrument Maker
+    real: true
+    division: CAMERA
+    bio: |
+      Keeps the mount, the drive and the focus, which between them decide how
+      wide a star image is on the finished plate.
+
+      A wide image is not simply a worse picture. The measuring engine finds the
+      centre of a blob, and the centre of a wide blob is less certain than the
+      centre of a tight one, so focus turns directly into the size of the error
+      bar.
+
+      His limit is temperature. The lens and the tube change length as the night
+      cools, and the only defence is to record what happened rather than to
+      pretend it did not.
+    quiz:
+      - q: Why does focus decide the size of the error bar?
+        a: A blurred star has a less certain middle
+        wrong:
+          - Because a poorly focused plate records fewer stars than a sharply focused one
+          - Because the measuring engine cannot be used at all on a soft photographic plate
+          - Because a wide star image is brighter and therefore saturates the emulsion
+
+  - id: crommelin
+    name: Andrew Crommelin
+    role: Second Observer
+    real: true
+    division: PLATES
+    bio: |
+      Takes the reference plates, months later and half a world away, on the same
+      lens with the Sun nowhere near the field.
+
+      That set is half the measurement and gets none of the attention. Without
+      it there is nothing to compare the eclipse plates with, because nobody can
+      say where a star ought to be to a fraction of an arcsecond from theory
+      alone.
+
+      His limit is that the two sets are never taken under the same conditions.
+      Different night, different temperature, different air, and every one of
+      those differences has to be solved for rather than assumed away.
+    quiz:
+      - q: Why are the reference plates half the measurement?
+        a: There is nothing to compare against without them
+        wrong:
+          - Because they are exposed for exactly the same length of time as the eclipse plates
+          - Because they contain twice as many stars as the plates taken during totality
+          - Because they are taken with a different lens and so check the first one
+
+glossary:
+  - name: Arcsecond
+    aliases: [arcsecond, arcseconds, arc second]
+    def: A very small angle — one thirty-six hundredth of a degree.
+  - name: Arcminute
+    aliases: [arcminute, arcminutes]
+    def: A sixtieth of a degree, and sixty arcseconds.
+  - name: Totality
+    aliases: [totality, total eclipse, the eclipse]
+    def: The few minutes when the Moon covers the Sun completely.
+  - name: Solar limb
+    aliases: [solar limb, the limb, edge of the Sun]
+    def: The visible edge of the Sun's disc, where a grazing ray passes closest.
+  - name: Photographic plate
+    aliases: [photographic plate, plate, plates]
+    def: A glass sheet coated so that light leaves a permanent mark on it.
+  - name: Reference plate
+    aliases: [reference plate, reference plates, comparison field]
+    def: A photograph of the same stars taken when the Sun is nowhere near them.
+  - name: Plate scale
+    aliases: [plate scale, arcseconds per millimetre]
+    def: How much sky one millimetre on the finished plate covers.
+  - name: Registration
+    aliases: [registration, register, registering the plates]
+    def: Solving for the offset, rotation and scale between two plates.
+  - name: Centroid
+    aliases: [centroid, centre of the star image, star centre]
+    def: The measured middle of a star's blurred image on a plate.
+  - name: Error bar
+    aliases: [error bar, uncertainty band, uncertainty]
+    def: How far a measured number might be from the truth.
+
+missions:
+  - title: Competing predictions
+    objective: Settle what is being separated, and how small the angle is.
+    briefing: Two numbers on a card, a factor of two apart, and an eclipse in eleven days.
+    stake: >-
+      Eleven days out, and the camp is still being levelled. Arthur Eddington, the chief
+      observer, has two prediction cards pinned inside the camera hut: about nine tenths of
+      an arcsecond, and about one and three quarters. They are not two guesses at the same
+      thing — one comes from treating light as particles falling toward the Sun, and the other
+      from a theory that says space itself is bent. Today you say which number the newer
+      theory gives, work out how small an arcsecond actually is, and put the observing plan in
+      the order it has to happen in. Totality lasts about five minutes and there is no second
+      attempt.
+    takeaway: An experiment does not need to be precise in the abstract; it needs to separate two numbers.
+    stops:
+      - group: CAMERA
+        task: Say which number the theory gives
+        title: Nine tenths, or one and three quarters
+        place: Camera Field
+        concept: 'The two predictions differ by a factor of two, and that is the whole test'
+        scene: >
+          Two cards are pinned inside the camera hut with a number on each. Da
+          Costa has drawn a ruler on the door between them and wants the newer
+          theory's number marked on it.
+        guide: >-
+          Four numbers, and you are picking the one the newer theory gives for a ray just
+          grazing the edge of the Sun. Two of the wrong ones are the right number moved by a
+          factor of a hundred, so the test is not whether the digits look familiar — it is
+          whether the size of the angle makes sense for something that took an expedition and
+          a photograph to see at all.
+        background:
+          - >-
+              How to think about it, on a different example. Somebody tells you a bridge sags
+              by a millimetre under a lorry. If an option offers a tenth of a millimetre, ask
+              whether anybody would need special equipment to see it; if one offers a hundred
+              millimetres, ask whether the bridge would still be standing. The right size is
+              the one that matches how hard the thing was to detect.
+          - >-
+              What the two predictions are. Treating light as particles falling toward the
+              Sun gives a deflection of about nine tenths of an arcsecond at the edge of the
+              disc. Treating gravity as a bending of space gives about twice that. Nobody
+              famous wrote the smaller number down as a prediction — it is what that older way
+              of thinking gives when it is worked through.
+          - >-
+              Why a factor of two is a gift. Separating two numbers ten per cent apart needs
+              an instrument ten times better than separating two that differ by a factor of
+              two. The whole reason this expedition is worth mounting is that the two
+              candidates are far apart, so a difficult measurement can still tell them apart.
+        assumes:
+          - a grazing ray passes closest to the Sun and is deflected most
+          - an angle of about an arcsecond is at the limit of what a plate can show
+        takeaway: The test is a factor of two, which is what makes a hard measurement enough.
+        format: CHOICE
+        question: What deflection does the newer theory give for starlight grazing the Sun?
+        choices:
+          - About 1.75 arcseconds.
+          - About 0.0175 arcseconds.
+          - About 175 arcseconds.
+          - Exactly zero, because light has no mass.
+        answer: About 1.75 arcseconds.
+        rebuttals:
+          - That is a hundred times too small. An angle that size is far beyond anything a photographic plate of this era could measure, and no expedition would have been mounted for it.
+          - That is a hundred times too large. A shift that big would be about a twentieth of the Sun's own diameter, and it would have been noticed centuries ago without any special apparatus.
+          - Both predictions are larger than zero, and the older one is larger than zero too. Nothing here is testing whether the effect exists — it is testing which of two sizes it has.
+        why: >
+          The newer theory gives about one and three quarters of an arcsecond at the edge of
+          the disc, which is close to twice what you get by treating light as particles
+          falling toward the Sun. Notice how the two wrong sizes give themselves away. A
+          hundredth of that angle is far beyond any plate of this period, so nobody would sail
+          to the tropics to look for it. A hundred times it is about a twentieth of the Sun's
+          own width, which would have been common knowledge for centuries. And the fourth
+          option changes the question: nobody here is testing whether gravity affects light at
+          all. Both candidates say it does. The experiment is about which of two numbers is
+          right, and they are a factor of two apart, which is the only reason a hard
+          measurement is capable of deciding it.
+
+      - group: COMPUTE
+        task: Work out how small the angle is
+        title: One part in three thousand six hundred
+        place: Computing Tent
+        person: true
+        personId: nakagawa
+        concept: 'An arcsecond is a tiny angle, and that sets what the apparatus must do'
+        scene: >
+          Sumire Nakagawa, the expedition's computer, has the prediction written
+          in arcseconds. She wants it in degrees. Nobody can work out what the
+          lens has to do until it is.
+        guide: >-
+          This is one division. A degree splits into sixty arcminutes, and each arcminute
+          splits into sixty arcseconds, so a degree holds sixty times sixty of them. Divide
+          the prediction by that number and you have it in degrees. The other tiles on the
+          bench are real numbers about this expedition and none of them belongs in the sum.
+        background:
+          - >-
+              How to do it, on a different example. An angle of 7.2 arcseconds in degrees:
+              divide by three thousand six hundred and you get 0.002 degrees. The arithmetic
+              is one division, and the answer being a very small decimal is the point rather
+              than a nuisance.
+          - >-
+              Where the three thousand six hundred comes from. Sixty arcminutes to a degree,
+              sixty arcseconds to an arcminute, and sixty times sixty is three thousand six
+              hundred. It is the same structure as hours, minutes and seconds on a clock,
+              which is where the names came from.
+          - >-
+              Why the answer matters to the apparatus. On this lens, one arcsecond is about a
+              hundredth of a millimetre on the finished plate. So the measuring engine has to
+              find the middle of each star image to a fraction of that, the focus has to hold
+              overnight, and the temperature of the tube has to be recorded rather than
+              hoped about. Every requirement in the camp comes out of this one number.
+        assumes:
+          - a degree holds sixty arcminutes and an arcminute holds sixty arcseconds
+          - a smaller angle needs a larger instrument or a more careful measurement
+        takeaway: An arcsecond is a thirty-six hundredth of a degree, and every requirement in the camp follows from that.
+        format: BALLPARK
+        question: What is the predicted deflection in degrees?
+        estimate:
+          prompt: >-
+            Nakagawa wants the prediction in degrees before the lens requirements are worked
+            out.
+          question: What is the predicted deflection in degrees?
+          relationship: An angle in degrees is the angle in arcseconds divided by the three thousand six hundred arcseconds that make a degree.
+          labels:
+            - 1.75  (the prediction, in arcseconds)
+            - 3600  (arcseconds in one degree)
+            - 60  (arcminutes in one degree)
+            - 0.01 mm  (what one arcsecond is on this plate)
+          values: [1.75, 3600, 60, 0.01]
+          slots: 2
+          template: '{0} ÷ {1}'
+          formula: a/b
+          correct: [0, 1]
+          target: 0.000486
+          tolerance: 0.00005
+          units: degrees
+          solution: One and three quarters divided by three thousand six hundred is about 0.00049 of a degree.
+          explanation: Sixty is on the bench because it is the wrong sixty — that is arcminutes in a degree, not arcseconds. Dividing by it gives an answer sixty times too large.
+        why: >
+          A degree holds sixty arcminutes and each of those holds sixty arcseconds, so there
+          are three thousand six hundred arcseconds in a degree. One and three quarters
+          divided by that is about five ten-thousandths of a degree. Now look at what that
+          means for the camp. On this lens one arcsecond is about a hundredth of a millimetre
+          on the plate, so the whole effect is a shift of roughly two hundredths of a
+          millimetre — about a third of the width of a human hair. That is why the focus has
+          to hold, why the temperature of the tube is logged, and why the measuring engine
+          reads to a fraction of the width of a star image. The requirement came from the
+          arithmetic rather than from anybody's opinion about care.
+
+      - group: CAMERA
+        task: Put the observing plan in order
+        title: What has to happen before what
+        place: Camera Field
+        concept: 'The measurement is differential: two plates, never one'
+        scene: >
+          Edwin Cottingham, the instrument maker, has the mount levelled. The plan is
+          chalked on a board beside it. Five things to do, and one of them lasts
+          five minutes and cannot be repeated.
+        guide: >-
+          Five steps, and you are putting them in the order they have to happen. The way to
+          work it out is to ask what each step needs to already be true. Something measured
+          against a known field cannot come before that field is photographed. Something
+          that happens during totality cannot be moved at all. And a plate is worth no more
+          than the plate scale it was taken on, so the scale is fixed before the first plate.
+          One of the steps says months early: that is when it happens, not a claim that
+          nothing comes before it.
+        background:
+          - >-
+              How to do it, on a different example. Weighing a lorry-load of gravel: you park
+              the empty lorry on the weighbridge, load it, weigh it again, and subtract. The
+              empty weighing has to come first or there is nothing to subtract, and the two
+              weighings have to be on the same bridge or the difference means nothing.
+          - >-
+              Why there have to be two plate sets. Nobody can say where a star ought to be to
+              a fraction of an arcsecond from theory. What can be measured is a difference:
+              where a star appears with the Sun beside it, against where the same star appears
+              months later with the Sun far away. The eclipse plates on their own are a
+              photograph of some stars.
+          - >-
+              Why the same lens for both. Two lenses have different scales and different
+              distortions, so a shift measured across them would be mostly instrument. Using
+              the same lens for both sets makes almost all of that cancel, which is worth
+              more than any single improvement to either set.
+          - >-
+              And what the five minutes forces. Totality cannot be moved, rehearsed or
+              repeated. Everything that can be settled beforehand is settled beforehand, and
+              anything that has to be decided during it is a mistake in the plan.
+        assumes:
+          - a difference can only be measured between two things recorded the same way
+          - the moment of totality is fixed and lasts a few minutes
+        axis: >-
+          Put the five steps in the order they have to happen. Totality is on a fixed date
+          and cannot be moved, and the plate scale is fixed before the first plate is taken —
+          months early or not.
+        ends: [First, Last]
+        takeaway: Two plate sets on one lens make the measurement a difference, and only a difference is measurable here.
+        format: SEQUENCE
+        task_line: Order the five steps of the observing plan.
+        cards:
+          - Set the focus and photograph a known star field to fix the plate scale.
+          - Photograph the eclipse field months early, at night, with the Sun far from it.
+          - Expose the eclipse plates during the five minutes of totality.
+          - Develop both sets and register them against the stars far from the Sun.
+          - Measure the residual shift of the stars nearest the Sun's edge.
+        order: [0, 1, 2, 3, 4]
+        why: >
+          The order comes out of what each step needs to already exist. The plate scale is
+          fixed first. Every later measurement is in millimetres and has to become arcseconds,
+          and that is the number which does it. The reference field comes next, because it can
+          only be photographed at night with the Sun far away. Then the eclipse exposures,
+          which cannot be moved at all. Both sets have to exist before they can be registered.
+          And only after registration is the residual about gravity rather than about offset,
+          rotation and scale. Put the registration before the reference plates and there is
+          nothing to register against. Measure the residual before registering and you have
+          measured the difference between two cameras.
+
+  - title: Measure the plates
+    objective: Make the two sets comparable, find the pattern, and price the errors honestly.
+    briefing: The plates are back and one set has visibly softer focus than the other.
+    stake: >-
+      Eight weeks later, and both sets of plates are on the bench. Charles Davidson, the
+      plate measurer, has the measuring engine set up and a problem: one set was exposed on a
+      warm night with the focus a little soft, and its star images are visibly wider than the
+      other's. Nakagawa has an error budget open beside her. Today you make the two sets
+      comparable, work out which direction the shifts should point if this is gravity at all,
+      and find out which of the four uncertainties is actually carrying the answer. Getting
+      the last one wrong means spending a week improving a number that was already good
+      enough.
+    takeaway: A residual is only about physics once everything that is not physics has been solved for.
+    stops:
+      - group: PLATES
+        task: Make the two plate sets comparable
+        title: Offset, turn, and scale
+        place: Plate Hut
+        concept: 'Registering the plates is part of the measurement, not something before it'
+        scene: >
+          Davidson has an eclipse plate and a reference plate on the engine.
+          Laid on top of each other the star fields do not match, and they do not
+          match in three different ways at once.
+        guide: >-
+          Four things about the pair of plates are listed, and each one is removed by a
+          different correction. Match them up by asking what each difference does to the star
+          pattern as a whole: does it move every star the same way, swing them about a centre,
+          spread them apart, or blur each one where it stands. What separates the four is
+          which of those it is.
+        background:
+          - >-
+              How to do it, on a different example. Two tracings of the same map on tracing
+              paper. If one is shifted, every feature is out by the same amount in the same
+              direction. If one is turned, features far from the centre are out more than
+              features near it. If one was printed slightly larger, every distance from the
+              centre is out in proportion. Three different faults, three different signatures.
+          - >-
+              Why this is measurement rather than tidying. The residual you want is a couple
+              of hundredths of a millimetre. Offset, rotation and scale between two plates are
+              far larger than that, so anything left over is meaningless until they have been
+              solved for. Registration is not a step before the measurement — it is most of
+              the measurement.
+          - >-
+              What the far stars are for. Stars well away from the Sun are barely deflected, so
+              they are a fixed pattern the two plates can be locked together on. Using many of
+              them, rather than two or three, means an error in any one star image barely moves
+              the solution.
+          - >-
+              And what a wider star image does. A soft focus does not shift a star; it blurs
+              it. The engine still finds a centre, but the centre of a wide blob is less
+              certain than the centre of a tight one — so soft focus becomes a larger error bar
+              rather than a wrong answer.
+        assumes:
+          - a difference between two photographs may be offset, rotation, scale or blur
+          - a star far from the Sun is barely deflected
+        takeaway: Offset, rotation and scale are solved from the far stars, and only what is left over is physics.
+        format: PROTOCOL
+        task_line: Match each difference between the plates to what removes it.
+        scenarios:
+          - Every star on one plate is out by the same amount in the same direction.
+          - Stars far from the plate centre are out more than stars near it, and the pattern swings.
+          - Every star's distance from the plate centre is out in the same proportion.
+          - Each star image is wider on one plate than on the other, and none of them has moved.
+        choices:
+          - Solve for a shift and subtract it.
+          - Solve for a rotation about the plate centre.
+          - Solve for a difference in plate scale.
+          - Give that plate a larger error bar, because nothing about it can be corrected away.
+        mapping: [0, 1, 2, 3]
+        why: >
+          Each fault has its own signature in the pattern, which is what lets it be told
+          apart. A shift moves everything equally, so it is removed by one subtraction. A
+          rotation moves the outer stars more than the inner ones and swings them round, so it
+          is removed by a turn about the centre. A scale error moves every star in proportion
+          to how far out it is, so it is removed by a stretch. And a wider star image is the
+          one that is not a fault of position at all — the star has not moved, it is simply
+          less well defined, so there is nothing to subtract and the honest response is a
+          larger error bar. Note what that last row costs. Three of these four can be removed.
+          One can only be carried, and carrying it properly is what makes the combined result
+          trustworthy.
+
+      - group: PLATES
+        task: Predict the pattern, then measure it
+        title: Which way the stars should move
+        place: Plate Hut
+        concept: 'Light bends toward the Sun, so a star appears displaced away from it'
+        scene: >
+          The plates are registered and the residual arrows are still hidden.
+          Andrew Crommelin, the second observer, will uncover them once a prediction
+          is written down and not before.
+        guide: >-
+          Commit to a number first, then measure. The number is the average size of the
+          residual shift, in arcseconds, for the stars nearest the Sun's edge. Work it out
+          from what the newer theory gives at the very edge and the fact that the shift falls
+          off the further out a star sits. Then uncover the arrows and pay for the measuring
+          that tells you whether you were right.
+        background:
+          - >-
+              How to think about the direction, on a different example. A stick half in water
+              looks bent, and it looks bent away from where it really is. The light was
+              deflected on its way to you, so you trace it back along the wrong line and place
+              the object where that line points. Here the ray is pulled toward the Sun, so
+              tracing it back puts the star further out than it is. The arrows point away from
+              the Sun.
+          - >-
+              How the size falls off. The deflection is largest for a ray that just grazes the
+              edge and gets smaller the further out the ray passes — roughly in proportion to
+              one over that distance. So a star two solar radii out shows about half of the
+              edge value, and one four radii out about a quarter.
+          - >-
+              What that gives for this field, on different numbers. If the edge value were two
+              arcseconds and the nearest usable stars sat two radii out, you would expect
+              about one arcsecond from them. Do the same arithmetic with the prediction from
+              level one and the star distances on the plate.
+          - >-
+              And why measuring is not optional. Uncovering the arrows and looking at them
+              proves the plates were exposed. The number that goes in the paper is the measured
+              mean residual, and it is the number you have to be willing to have been wrong
+              about.
+        assumes:
+          - a ray is deflected most when it passes closest to the Sun
+          - the deflection falls off roughly as one over the distance from the centre
+        takeaway: The shifts point away from the Sun and shrink with distance from it, and both of those are testable.
+        format: VERIFY
+        question: >-
+          Predict the mean residual shift of the nearest stars, uncover the arrows, and report
+          what they measure.
+        verify:
+          hint: >-
+            Lock the prediction before the arrows are uncovered. Nothing about it can change
+            afterwards, which is the point of writing it first.
+          prediction: { label: Mean residual shift of the nearest usable stars, unit: arcseconds, min: 0.1, max: 2.4, step: 0.05 }
+          truth: 0.9
+          passRatio: [0.55, 1.8]
+          intervention:
+            label: Uncover the residual arrows
+            note: Both sets registered on twenty-two stars well away from the Sun.
+            outcome: The arrows appear. They point outward from the Sun, and the ones nearest the edge are the longest.
+          measurement:
+            label: Measure every arrow on the engine
+            note: Seven usable stars, each centroid measured twice by two people.
+            cost: 3
+            costUnit: days at the engine
+          unmeasuredMoral: >-
+            Uncovering the arrows and seeing that they point outward establishes that something
+            deflected the light. It establishes no number at all, and the number is the test.
+          commit: Report the shift
+        answerText: >-
+          About nine tenths of an arcsecond. The nearest usable stars sit around two solar
+          radii out, and the deflection there is about half of what it is at the edge.
+        why: >
+          The direction is the free half. Light is pulled toward the Sun on its way past, so
+          tracing the ray back puts the star further out than it really is — every arrow points
+          away from the Sun, which is a pattern no fault of the instrument would produce.
+          Nothing in a shift of focus, or a rotation, or a temperature change makes a radial
+          outward pattern centred on the Sun. The size is the part that is a test. The
+          deflection falls off roughly as one over the distance from the centre, so stars
+          about two solar radii out show about half of the edge value: roughly nine tenths of
+          an arcsecond if the edge value is one and three quarters. And the reason the arrows
+          had to stay covered is the same reason as always. A prediction written while looking
+          at the answer is a description.
+
+      - group: COMPUTE
+        task: Find out which error is carrying the answer
+        title: The wide one, not the powerful one
+        place: Computing Tent
+        concept: 'The widest contribution decides what is worth fixing'
+        scene: >
+          Nakagawa has the deflection written as four measured quantities
+          multiplied together. Each has its own uncertainty. There are two days of
+          plate-hut time and one of them can be improved.
+        guide: >-
+          Four quantities go into the answer and each has its own width. What each one
+          contributes is its own fractional width multiplied by the power it enters at, so a
+          quantity raised to a high power is not automatically the problem. Read the bars,
+          find the widest contribution, and buy the measurement that narrows that one.
+        background:
+          - >-
+              How to do it, on a different example. A volume is a length cubed. If the length
+              is known to one per cent, the volume is known to about three. Now suppose the
+              volume is also multiplied by a density known to twenty per cent. Three per cent
+              against twenty per cent: the density is the problem, even though the length is
+              the term that gets cubed. Multiply each width by its power and compare.
+          - >-
+              Why the shortcut is so tempting. Ranking by power is quick, it is often right,
+              and it sounds like understanding. It fails exactly when a badly known quantity
+              enters at first order, which is the common case — the things that are hard to
+              measure tend to be the things that enter simply.
+          - >-
+              What buying an improvement is worth. Narrowing a term that contributes little
+              moves the answer almost not at all, and it costs the same two days as narrowing
+              the one that matters. There is no partial credit here: the expedition has one
+              plate hut and one week.
+          - >-
+              And what to do with a term nobody can improve. Record it, carry it, and say so.
+              An uncertainty that is documented is part of the result; the same uncertainty
+              left out is a result that claims more than it has.
+        assumes:
+          - a term contributes its fractional width multiplied by the power it enters at
+          - widths from separate quantities add in quadrature rather than simply
+        takeaway: The dominant term is arithmetic rather than intuition, and the shortcut of ranking by power gets it wrong.
+        format: PROPAGATE
+        question: >-
+          Two days in the plate hut. Which uncertainty is carrying the answer?
+        propagate:
+          hint: >-
+            Each term contributes its own width times the power it enters at. The bar is that
+            contribution.
+          output: { label: Deflection at the limb, unit: arcseconds }
+          costUnit: days
+          budget: 2
+          inputs:
+            - { id: shift, label: 'Measured residual shift', value: 0.9, unit: 'arcsec', sigmaFrac: 0.09, exponent: 1 }
+            - { id: scale, label: 'Plate scale', value: 96, unit: 'arcsec per mm', sigmaFrac: 0.22, exponent: 1 }
+            - { id: temp, label: 'Tube length change with temperature', value: 1.004, unit: 'ratio', sigmaFrac: 0.05, exponent: 2 }
+            - { id: limb, label: 'Star distance from the centre of the Sun', value: 2.1, unit: 'solar radii', sigmaFrac: 0.03, exponent: 1 }
+          improvable:
+            - { id: scale, label: 'Photograph a catalogued star field through the same lens', cost: 2, newSigmaFrac: 0.05 }
+            - { id: shift, label: 'Re-measure every centroid a third time', cost: 1, newSigmaFrac: 0.05 }
+            - { id: temp, label: 'Log the tube temperature every minute of the exposure', cost: 1, newSigmaFrac: 0.02 }
+          dominant: scale
+          commit: Report the range
+        answerText: >-
+          The plate scale. It enters at first power and is known to twenty-two per cent, which
+          beats a temperature term that is squared and known to five — so photographing a
+          catalogued field is the two days worth spending.
+        why: >
+          Multiply each width by the power it enters at and the ranking falls out. The
+          temperature term is squared, which is the part that catches the eye, and twice five
+          per cent is ten. The plate scale enters at first power and is known to
+          twenty-two per cent, so it contributes more than twice as much. That is the term to
+          buy, and photographing a catalogued star field through the same lens is what
+          narrows it. What makes this worth catching is that the obvious shortcut — fix the
+          term with the biggest power — is reasonable, teachable and gives the wrong answer
+          here. And note the term nobody offered to improve: the star distances are already
+          known to three per cent and contribute almost nothing, which is exactly why nobody
+          should spend a day on them.
+
+  - title: Test the prediction
+    objective: Combine the sets honestly, see what the band separates, and write what may be said.
+    briefing: Two results, two very different error bars, and a wire that charges by the word.
+    stake: >-
+      The last week, and there are two combined estimates on the table. One plate set gives
+      close to two arcseconds with a narrow error bar; the softer set gives about nine tenths
+      with an error bar six times wider. Rupert Fielding, the expedition secretary, has the
+      telegraph open and a word limit. Today you find out how wide the band has to be before
+      the result stops separating the two predictions, work out how much more the sharper set
+      should count, and choose the sentence that goes down the wire. A cable arrives without
+      the plates, without the band and without the argument, and it is quoted for a century.
+    takeaway: A result is a number, a band, and a sentence, and the sentence has to survive being read alone.
+    stops:
+      - group: COMPUTE
+        task: Find where the result stops deciding anything
+        title: How wide is too wide
+        place: Computing Tent
+        concept: 'A result is inconclusive when its band covers both predictions'
+        scene: >
+          The combined estimate sits near one and seven tenths of an arcsecond.
+          A control widens the assumed error band, and a readout says how much of
+          the band still separates the two predictions.
+        guide: >-
+          One slider and one reading. The slider is how wide the error band is; the reading is
+          how much of the gap between the two predictions the band still leaves clear. Start
+          narrow and widen it. You are looking for the width at which the reading reaches
+          zero — the point where the band touches both predictions at once and the result
+          stops choosing between them.
+        background:
+          - >-
+              How to read a sweep. Move the control in large steps first to see the shape,
+              then in small steps through the part you care about. Here the reading falls
+              steadily, so what you are hunting is a crossing rather than a peak.
+          - >-
+              How the reading is built, on different numbers. Suppose two predictions sat at
+              4 and 6, and a measurement at 5.8 carried a band of plus or minus 0.5. The band
+              runs 5.3 to 6.3, which touches 6 and stays well clear of 4 — so it separates
+              them. Widen the band to plus or minus 1.8 and it runs 4.0 to 7.6, which now
+              includes both. The same measurement, and it has stopped being a test.
+          - >-
+              Why this is the number that mattered in 1919. The two predictions are about
+              nine tenths of an arcsecond apart. A result near one and seven tenths with a
+              band of a tenth is decisive; the same result with a band of eight tenths favours
+              nothing at all. The whole argument at the time was about which of those the
+              plates actually supported.
+          - >-
+              And what widening the band means in practice. It is not pessimism. It is what
+              you get by taking the soft plates seriously, or by admitting a plate scale known
+              to twenty-two per cent. An honest band is sometimes a band that stops the
+              experiment deciding, and saying so is part of doing it.
+        assumes:
+          - a measurement tests between two values only if its band excludes one of them
+          - the gap between the two predictions is about nine tenths of an arcsecond
+        takeaway: An experiment is a test only while its band is small compared with the gap it is separating.
+        format: SWEEP
+        question: >-
+          Widen the error band. At what width does the result stop separating the two
+          predictions?
+        sweep:
+          axis:
+            label: Half-width of the error band
+            unit: arcseconds
+            min: 0.05
+            max: 1.20
+            step: 0.01
+          readout:
+            label: Gap still clear of the smaller prediction
+            unit: arcseconds
+          baseline: 0.75
+          response:
+            - { at: 0.05, value: 0.78 }
+            - { at: 0.15, value: 0.68 }
+            - { at: 0.30, value: 0.53 }
+            - { at: 0.50, value: 0.33 }
+            - { at: 0.65, value: 0.18 }
+            - { at: 0.78, value: 0.05 }
+            - { at: 0.83, value: 0.0 }
+            - { at: 1.00, value: 0.0 }
+            - { at: 1.20, value: 0.0 }
+          target: 0.83
+          tolerance: 0.07
+          start: 0.05
+        answerText: >-
+          At about eight tenths of an arcsecond. Beyond that the band reaches down to the
+          smaller prediction and the result stops choosing between them.
+        why: >
+          The reading falls steadily and hits zero near a half-width of eight tenths of an
+          arcsecond. That is not a coincidence: the measurement sits near one and seven
+          tenths, the smaller prediction is near nine tenths, and eight tenths is the distance
+          between them. Once the band is that wide it reaches the smaller prediction and the
+          experiment has stopped being a test — the same central number, favouring nothing.
+          Two things to keep. This is why the width of the band was the whole argument in
+          1919, rather than the central value everybody quotes. And widening the band is not
+          pessimism: it is what taking the soft plates seriously actually costs, and an honest
+          experiment sometimes reports that it could not decide.
+
+      - group: COMPUTE
+        task: Work out how much more the sharp set counts
+        title: Four times, for half the error
+        place: Computing Tent
+        concept: 'Weight goes as one over the square of the uncertainty'
+        scene: >
+          Two results are on the board. One is close to two arcseconds with a band
+          of about a tenth; the softer set gives about nine tenths with a band six
+          tenths wide.
+        guide: >-
+          This is a division and then a multiplication. Measurements are combined in
+          proportion to one over the square of their own uncertainty, so what you want is the
+          ratio of the two error bars, squared. Divide the wider band by the narrower one,
+          then multiply that answer by itself. The other tiles are the two measured values,
+          and neither belongs in the weighting.
+        background:
+          - >-
+              How to do it, on a different example. Two measurements with error bars of 0.4
+              and 0.2. The ratio is 0.4 divided by 0.2, which is 2. Squared, that is 4 — so
+              the sharper one counts four times as much. Halving an error bar is worth four
+              times the weight, not twice.
+          - >-
+              Why the square and not the plain ratio. Combining measurements fairly means
+              weighting by how much information each one carries, and that goes as one over
+              the square of the uncertainty. It is the reason a very poor measurement can be
+              included honestly without doing much damage: its weight collapses rather than
+              merely shrinking.
+          - >-
+              What this is not. It is not choosing the measurement you prefer. The weight
+              comes from the error bar, which was worked out before either result was known,
+              and the weighting is the same whichever way the numbers had come out. That
+              distinction — weighting by precision, never by agreement — is the whole
+              difference between combining and cherry-picking.
+        assumes:
+          - a measurement's weight in a combination is one over the square of its uncertainty
+          - an error bar is decided by the measurement, not by the result
+        takeaway: Weight goes as one over the square of the error bar, so a sharper result counts far more than it looks.
+        format: BALLPARK
+        question: How many times more weight does the sharper result get?
+        estimate:
+          prompt: >-
+            Nakagawa will not combine the two sets until the weighting is written down.
+          question: How many times more weight does the sharper result get?
+          relationship: The ratio of the weights is the ratio of the two error bars multiplied by itself, because weight goes as one over the square of the uncertainty.
+          labels:
+            - 0.60  (error bar on the softer set, in arcseconds)
+            - 0.12  (error bar on the sharper set, in arcseconds)
+            - 1.98  (the sharper set's measured value)
+            - 0.93  (the softer set's measured value)
+          values: [0.60, 0.12, 1.98, 0.93]
+          slots: 2
+          template: '({0} ÷ {1}) × ({0} ÷ {1})'
+          formula: (a/b)*(a/b)
+          correct: [0, 1]
+          target: 25
+          tolerance: 2
+          units: times more weight
+          solution: Six tenths divided by twelve hundredths is five, and five times five is twenty-five.
+          explanation: The two measured values are on the bench because they must not be in the sum. A weight decided by how close a result is to what you expected is not a weight.
+        why: >
+          The error bars are six tenths and twelve hundredths, so the ratio is five, and
+          squaring it gives twenty-five. The sharper set counts twenty-five times as much as
+          the softer one. Two things follow. Halving an error bar is worth four times the
+          weight rather than twice, which is why an afternoon spent narrowing an uncertainty
+          is often worth more than a week spent collecting more of the same. And notice what
+          was deliberately excluded: the two measured values took no part in the arithmetic.
+          Weighting by precision is combining. Weighting by which answer looks better is
+          choosing, and the two are only distinguishable if the weights were fixed before the
+          results were read.
+
+      - group: CABLE
+        task: Write what goes down the wire
+        title: Favoured, and what came later
+        place: Telegraph Hut
+        person: true
+        personId: fielding
+        concept: 'Favoured is not proved, and later tests did the proving'
+        scene: >
+          Rupert Fielding, the expedition secretary, has four drafts on the desk
+          and a wire that charges by the word. The combined result, the band and
+          the two predictions are pinned above it.
+        guide: >-
+          Four sentences, and you are choosing the one this expedition's plates will carry.
+          Test each clause on its own: is there a measurement behind it? What was measured is
+          a mean shift with a band on it, from two plate sets of unequal quality. Anything a
+          sentence claims beyond that — a precision nobody reached, a question closed for
+          good — is a clause with nothing under it.
+        background:
+          - >-
+              How to think about it, on a different example. A single careful survey finds a
+              new plant on one hillside. "The plant grows here, and this is the first record of
+              it" is a finding. "The plant grows only here" needs every other hillside checked.
+              The first sentence survives; the second is quoted for years and then quietly
+              withdrawn.
+          - >-
+              What this expedition established. A mean shift, from plates of unequal quality,
+              with a band that separates the two predictions and favours the larger one. That
+              is genuinely important and it is not a precise measurement of anything.
+          - >-
+              What settled the question afterwards. Radio observations of quasars passing
+              behind the Sun, radar timing across the solar system, gravitational lensing of
+              distant galaxies, and pulsar timing — all of them far more precise than a glass
+              plate exposed for a few minutes in a field. Light bending is now known to a
+              fraction of a per cent, and none of that was done here.
+          - >-
+              Why the careful sentence is the one that lasts. A century later the measurement
+              is still important and the claim that it was decisive on its own is not
+              defensible. A cable that said "favoured, and later tests will settle it" is
+              still accurate. A cable that said "proved" was wrong the moment somebody looked
+              at the error bars.
+        assumes:
+          - a difficult measurement on one side of a two-way question is evidence rather than proof
+          - a sentence sent by wire arrives without the argument behind it
+        takeaway: A claim written at the level of its own evidence is still standing when a better measurement arrives.
+        format: CHOICE
+        question: Which sentence should go down the wire?
+        choices:
+          - The plates favour the larger deflection, and better tests are still to come.
+          - One flawless photograph has permanently proved every prediction of the new theory.
+          - The observations show that gravity has no effect whatever on a ray of light.
+          - These plates have measured the deflection to many decimal places of precision.
+        answer: The plates favour the larger deflection, and better tests are still to come.
+        rebuttals:
+          - Nothing here is flawless — one plate set has an error bar six times the other's — and a single result on one side of a two-way question is evidence rather than proof.
+          - The arrows point outward from the Sun and the nearest stars show the largest shifts. That is a deflection, and the question was only ever which of two sizes it has.
+          - The band on this result is a good fraction of an arcsecond wide. Many decimal places is a claim about a precision nobody in this camp reached.
+        why: >
+          Take the surviving sentence clause by clause. The plates favour the larger deflection
+          — the combined result sits near the larger prediction with a band that excludes the
+          smaller one, so that is measured. Better tests are still to come — that is a claim
+          about the state of the work, and it was true: radio observations, radar timing,
+          lensing and pulsar timing all did this far better later, and light bending is now
+          known to a fraction of a per cent. Every clause has something under it. The other
+          three do not. One claims a perfection the error bars deny, one contradicts the
+          direction of the arrows, and one claims a precision no glass plate exposed for five
+          minutes in a field ever had. And the reason this is the last stop is that a century
+          later the careful sentence is still accurate, which is what writing a claim at the
+          level of its evidence buys.
+
+warmups:
+  greet:
+    title: Six people and one attempt
+    why: >-
+      Nothing in this camp is done by one person, and the eclipse happens once. The mount, the
+      focus, the exposures, the reference set, the engine and the arithmetic are six different
+      pairs of hands. Put a name to as many of them as you can before totality.
+  trial-near:
+    title: Walk the camp before the mount is levelled
+    why: >-
+      The camera field is out on the flat and the plate hut, the computing tent and the
+      telegraph are back along the track. Walk it once now. Arthur Eddington, the chief observer,
+      would rather you knew the way than went looking for a plate box during the five minutes
+      that matter.
+  follow:
+    title: Davidson carries a plate from the darkroom to the engine
+    why: >-
+      A plate is developed in one hut, carried across the camp, and measured on a screw that
+      reads to a fraction of a star's width, and most of what goes wrong happens in between.
+      Charles Davidson, the plate measurer, walks one all the way through. Stay with him and
+      watch how it is held.
+
+interiors:
+  CAMERA:
+    caption: Everything is decided before totality, because nobody decides well in the dark.
+    standLine: A mirror on a clock drive, a long lens on its side, and five minutes of sky.
+    station:
+      kind: panel
+      title: Camera field
+      rows:
+        - { label: Mount levelled, value: 'yes', status: normal }
+        - { label: Focus set, value: 'yes, cold', status: normal }
+        - { label: Plates loaded, value: 16, status: normal }
+        - { label: Totality, value: 5 min 12 s, status: alarm }
+  PLATES:
+    caption: A residual is not physics until everything that is not physics is solved for.
+    standLine: Two plate sets on one lens, and twenty-two stars to lock them together on.
+    station:
+      kind: film
+      title: Eclipse plate 7
+      note: registered on 22 far stars, residuals radial
+  COMPUTE:
+    caption: The widest contribution decides what is worth fixing.
+    standLine: Four uncertainties, two days of plate-hut time, and one of them carrying the answer.
+    station:
+      kind: plot
+      title: Error budget
+      note: width times the power it enters at
+      axes: { x: contributing term, y: share of the total width }
+      curves:
+        - { points: [[0.1, 0.3], [0.37, 0.72], [0.63, 0.33], [0.9, 0.1]], label: contribution }
+  CABLE:
+    caption: A cable arrives without the plates and without the band.
+    standLine: One wire to the coast, and a charge for every word.
+    station:
+      kind: panel
+      title: Draft
+      rows:
+        - { label: Words allowed, value: 40, status: normal }
+        - { label: Result, value: near 1.7 arcsec, status: normal }
+        - { label: Band, value: separates the two, status: high }
+        - { label: Claim, value: not yet cut, status: low }
+
+copy:
+  CAMERA: <p>The camera field: a levelled patch on the flat with the coelostat mirror at one end and the lens laid along a trestle. Nothing here can be moved during totality.</p>
+  PLATES: <p>The plate hut, back along the track and light-tight. Developing dishes on one bench, the measuring engine bolted to a pier on the other, and both sets of plates in racks between them.</p>
+  COMPUTE: <p>The computing tent beside it. Log tables, a slide rule, the error budget pinned to the canvas, and a folding table that has been levelled three times this week.</p>
+  CABLE: <p>The telegraph hut at the end of the track. One key, one wire to the coast, and the tariff card nailed above it.</p>
+  GATE: <p>The camp entrance, where the track from the road comes in. The store tent, the water, and the board with the day's times chalked on it.</p>

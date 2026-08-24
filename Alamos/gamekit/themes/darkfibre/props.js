@@ -17,7 +17,11 @@
 //
 // Placement helpers take `(x, z, y)` — ground last.
 import * as THREE from 'three';
-import { MATERIALS, box, cyl } from '../../engine/world/kit.js';
+import {
+  MATERIALS, box, cyl,
+  vehicle, VEHICLE_DRIVE, quadBike, QUAD_DRIVE, clearSpot,
+} from '../../engine/world/kit.js';
+import { driveable } from '../../engine/world/driving.js';
 
 const CONCRETE = () => MATERIALS.concrete();
 const PAINT = (c) => MATERIALS.paintedSteel(c);
@@ -104,12 +108,59 @@ export function decorate(scene, ctx){
   roofs(scene, ctx);
   crestFence(scene, ctx);
 
+  // --------------------------------------------------------------- transport
+  // The radiography bay is 196 m out in the dunes and the beach manhole is 120 m
+  // down the sand, and the book says the track "shifts with the sand". So: the
+  // works van for the station apron and the yard, and the quad for the dune
+  // track and the beach, which is the only one of the two that gets there.
+  transport(scene, ctx, at);
+
   // The duct trench, left open for twelve metres where the splice trailer is
   // parked against it — which is why the trailer is where it is.
   for(let i = 0; i < 6; i++){
     const z = -24 - i * 2.2, y = at(-16, z);
     box(scene, 1.2, 0.5, 2.0, -16, y - 0.1, z, CONCRETE());
   }
+}
+
+
+// ------------------------------------------------------------------ transport
+/** The spawn, so nothing is parked on top of it. Mirrors `site.start`. */
+const SPAWN = { x: 0, z: 70 };
+const VAN_AT = { x: 14, z: 56 }, VAN_FACING = Math.PI, VAN_COLOUR = 0xd8d3c4;
+const VAN_ID = 'works-van', VAN_LABEL = 'works van';
+const QUAD_AT = { x: -12, z: 54 }, QUAD_FACING = Math.PI, QUAD_COLOUR = 0x2f6f7a;
+const QUAD_ID = 'dune-quad', QUAD_LABEL = 'dune quad';
+/**
+ * The two vehicles this site keeps, and the player can take either.
+ *
+ * `clearSpot` rather than a hand-checked coordinate: a vehicle parked inside a
+ * collider is one you get into and cannot move (house rule 16 from the other
+ * side), and the spawn is in the avoid list because a prop over the spawn welds
+ * the player in place (house rule 8).
+ */
+function transport(scene, ctx, at){
+  const { colliders, interactables, blocked } = ctx;
+  const spawn = { x: SPAWN.x, z: SPAWN.z, r: 14 };
+
+  const vs = clearSpot(VAN_AT, blocked, { pad: 3.4, avoid: [spawn] });
+  const van = vehicle(scene, vs.x, vs.z, at(vs.x, vs.z), { facing: VAN_FACING, colour: VAN_COLOUR });
+  driveable(scene, van.group, {
+    ...VEHICLE_DRIVE,
+    id: VAN_ID, label: VAN_LABEL, kind: 'van',
+    seat: { x: 0.52, y: 2.18, z: van.cabZ },
+    wheels: van.wheels,
+    colliders, interactables,
+  });
+
+  const qs = clearSpot(QUAD_AT, blocked, { pad: 1.8, avoid: [spawn, { x: vs.x, z: vs.z, r: 5 }] });
+  const q = quadBike(scene, qs.x, qs.z, at(qs.x, qs.z), { facing: QUAD_FACING, colour: QUAD_COLOUR });
+  driveable(scene, q.group, {
+    ...QUAD_DRIVE,
+    id: QUAD_ID, label: QUAD_LABEL, kind: 'quad',
+    wheels: q.wheels, steer: q.steer,
+    colliders, interactables,
+  });
 }
 
 export function fitOutRoom(){}

@@ -1,0 +1,1041 @@
+# The Chirp — a Quick Discovery.
+#
+# The 3 x 3 shape from great_discoveries_first10_expanded.docx, game 08, mapped
+# onto the engine's day model: a level is a day, a micro-game is a stop, and the
+# campaign is nine stops in one sitting. Three levels, in order:
+#
+#   1  Build the detector  what it is listening for, and everything else it hears
+#   2  Find the chirp      a shape, a cause, and a second site
+#   3  Read the merger     masses, missing mass, and what a match supports
+#
+# The science guardrail from the source book, kept. The numbers here are the
+# early-reported values for one event used as an explicit teaching case — masses
+# of roughly thirty-six and twenty-nine solar masses, a remnant near sixty-two,
+# and about three solar masses radiated. They are not a current precision fit and
+# the cards say so where it matters. The final claim is "consistent with", never
+# "proves", which is the second half of the same guardrail.
+#
+# Written for a reader two grades below the AP games, and every card teaches its
+# method before it asks anything: the `guide` says in plain words what the move
+# is, and the first background paragraph works the same move on different numbers.
+#
+# Format budget. Nine stops, cap three of any one format: CHOICE 2, BALLPARK 2,
+# and one each of VERIFY, SWEEP, RESIDUAL, CHAIN, DEGENERACY. Seven formats in
+# nine stops, two of them instruments the player drives.
+
+theme:
+  id: qd_ligo
+  title: The Chirp
+  subtitle: Detector Scientist · Interferometer Site
+
+groups:
+  - id: OPTICS
+    code: OPT
+    name: Optics Lab
+    color: '#3f7f8f'
+    desc: A laser split two ways, recombined, and held at almost complete cancellation.
+    defaultLeader: weiss
+    milestones: [Split the beam, Lock the fringe, Hold it, Ready to hand over]
+  - id: ISOL
+    code: ISO
+    name: Isolation Bay
+    color: '#8a6a1e'
+    desc: Every other thing that moves a mirror, sorted by the frequency it moves it at.
+    defaultLeader: mwangi
+    milestones: [Log the noise, Band it, Isolate it, Ready to hand over]
+  - id: CTRL
+    code: CTL
+    name: Control Room
+    color: '#b5502f'
+    desc: One strain channel, a bank of templates, and a candidate that lasted a fifth of a second.
+    defaultLeader: gonzalez
+    milestones: [Flag the candidate, Match a template, Check the other site, Ready to hand over]
+  - id: PARAM
+    code: PRM
+    name: Parameter Room
+    color: '#7a4fa3'
+    desc: What went in, what came out, and the difference between them.
+    defaultLeader: bergstrom
+    milestones: [Fit the masses, Close the ledger, Write the claim, Ready to hand over]
+
+roster:
+  - id: weiss
+    name: Rainer Weiss
+    role: Optics Lead
+    real: true
+    division: OPTICS
+    bio: |
+      Runs the interferometer. A laser is split down two arms four kilometres
+      long, bounced back, and recombined so that the two beams almost exactly
+      cancel each other.
+
+      His rule is that the instrument measures a difference and nothing else. It
+      has no idea how long either arm is; what it reports is whether one has
+      changed relative to the other, and it reports that to a fraction of the
+      width of a proton.
+
+      His limit is that anything which moves a mirror looks the same to him. A
+      wave from the sky and a lorry on the road produce the same kind of reading,
+      and separating them is somebody else's job.
+    quiz:
+      - q: What does Weiss's interferometer actually report?
+        a: Whether one arm changed relative to the other
+        wrong:
+          - The absolute length of each of the two four-kilometre arms at any moment
+          - The direction from which a passing gravitational wave has arrived
+          - The total amount of laser light that has been sent down both arms
+
+  - id: mwangi
+    name: Asha Mwangi
+    role: Noise and Isolation
+    division: ISOL
+    bio: |
+      Keeps the list of everything that moves a mirror and is not a
+      gravitational wave, sorted by the frequency it moves it at.
+
+      Ground motion dominates below a few tens of hertz, the counting statistics
+      of photons above a few hundred, and thermal motion in between. Adding them
+      gives a curve with a floor, and the floor is the only band the instrument
+      can hear anything in.
+
+      Her limit is that isolation is never finished. She can suppress the sources
+      she knows about, and a candidate is still checked against every auxiliary
+      sensor on the site before anybody uses the word signal.
+    quiz:
+      - q: What does Mwangi's noise curve have that matters most?
+        a: A floor, and the band where it sits
+        wrong:
+          - A single source of noise that dominates at every frequency equally
+          - A slope that keeps falling, so higher frequencies are always better
+          - A peak that marks the frequency the instrument is most sensitive at
+
+  - id: gonzalez
+    name: Gabriela González
+    role: Candidate Review
+    real: true
+    division: CTRL
+    bio: |
+      Watches the strain channel and decides what is worth waking anybody up
+      for.
+
+      Her rule is that a candidate has to look like something rather than
+      merely look odd. A rising sweep in frequency and amplitude is a particular
+      shape, and a template either accounts for it or leaves structure behind.
+
+      Her limit is that one site can be fooled. Whatever she flags is checked
+      against the other detector before it is anything at all, and the check is
+      about timing rather than about shape.
+    quiz:
+      - q: What does González require before calling a candidate a signal?
+        a: That the other site saw it too, at the right delay
+        wrong:
+          - That the amplitude of the candidate exceeds a fixed threshold in strain
+          - That the candidate lasted for more than a full second in the channel
+          - That every auxiliary sensor on the site recorded something at the same moment
+
+  - id: bergstrom
+    name: Elin Bergström
+    role: Parameter Estimation
+    division: PARAM
+    bio: |
+      Turns a waveform into masses, and masses into what happened.
+
+      How fast the chirp sweeps upward depends on one particular combination of
+      the two masses, so a great many pairs give the same sweep. What separates
+      them is how the signal ends: the frequency at which the two objects finally
+      touch depends on the total mass rather than the combination.
+
+      Her limit is that a teaching number is not a catalogue number. The values
+      she quotes here are early-reported ones for one event, and the precision
+      fits came later and moved them.
+    quiz:
+      - q: What separates two mass pairs that give the same chirp?
+        a: How high the frequency gets before it stops
+        wrong:
+          - How large the amplitude of the signal grows at its very loudest moment
+          - How long the signal remains visible above the noise floor of the detector
+          - How far apart the two detectors were when they each recorded the event
+
+  - id: oyelaran
+    name: Femi Oyelaran
+    role: Calibration
+    division: OPTICS
+    bio: |
+      Decides what a number in the strain channel means, which is a different
+      question from whether there is a signal in it.
+
+      The readout is an amount of light at a port. Turning that into a length
+      change needs a calibration measured by shaking a mirror a known amount, and
+      a calibration a few per cent out scales every amplitude in the same
+      direction.
+
+      His limit is that his work says nothing about whether an event is real. He
+      can tell you a strain to within a few per cent and nothing at all about
+      where it came from.
+    quiz:
+      - q: What does a calibration a few per cent out do?
+        a: Scales every amplitude the same way
+        wrong:
+          - Adds a random scatter to the strain channel that grows with frequency
+          - Removes short events from the record while leaving long ones in place
+          - Shifts the arrival time of the signal by a few milliseconds either way
+
+  - id: takahashi
+    name: Ren Takahashi
+    role: Detector Characterisation
+    division: ISOL
+    bio: |
+      Owns the auxiliary sensors: hundreds of channels watching the building, the
+      ground, the power supply and the air, none of which is the strain channel.
+
+      A local disturbance shows up in one of them. A wave from the sky shows up
+      in none. That asymmetry is the single most useful thing about having a
+      building full of instruments that are not the detector.
+
+      His limit is that a quiet auxiliary channel is not proof. It means nothing
+      he is watching caused this, which is not the same as nothing having caused
+      it.
+    quiz:
+      - q: What makes Takahashi's auxiliary channels useful?
+        a: A local cause appears in one of them and a wave in none
+        wrong:
+          - They measure the strain in the arms more accurately than the main channel
+          - They record the direction on the sky the candidate signal arrived from
+          - They are the only channels sensitive enough to see a real gravitational wave
+
+glossary:
+  - name: Arm
+    aliases: [arm, arms, the two arms]
+    def: One of the two long tunnels the laser travels down and back.
+  - name: Calibration
+    aliases: [calibration, calibrated, shaken mirror]
+    def: Measuring what a reading means, by causing a known amount of it.
+  - name: Interferometer
+    aliases: [interferometer, the detector, the instrument]
+    def: An instrument that compares two light paths by recombining them.
+  - name: Strain
+    aliases: [strain, strain channel, differential length]
+    def: How much one arm has changed in length compared with the other, as a fraction.
+  - name: Dark fringe
+    aliases: [dark fringe, destructive interference, the readout port]
+    def: The working point where the two beams almost exactly cancel each other.
+  - name: Test mass
+    aliases: [test mass, the mirrors, suspended mirror]
+    def: One of the heavy suspended mirrors an arm is measured between.
+  - name: Chirp
+    aliases: [chirp, rising sweep, inspiral signal]
+    def: A signal whose frequency and loudness both climb toward the end.
+  - name: Template
+    aliases: [template, template bank, candidate waveform]
+    def: A calculated waveform, compared against the data to see what fits.
+  - name: Residual
+    aliases: [residual, residuals, what is left over]
+    def: Whatever a fitted model fails to account for, point by point.
+  - name: Inspiral
+    aliases: [inspiral, spiralling together, orbit tightening]
+    def: The stretch while two bodies circle closer and faster before they meet.
+  - name: Ringdown
+    aliases: [ringdown, ringing remnant, after the merger]
+    def: The fading wobble of the single object left once two have merged.
+  - name: Solar mass
+    aliases: [solar mass, solar masses]
+    def: The mass of the Sun, used as a unit for stars and black holes.
+
+missions:
+  - title: Build the detector
+    objective: Understand what the instrument is listening for, and everything else it hears.
+    briefing: Two four-kilometre arms holding still, and a list of everything that will not let them.
+    stake: >-
+      Monday, and nothing has happened yet. Rainer Weiss, the optics lead, has both arms
+      locked and the two beams recombining so nearly perfectly that almost no light reaches the
+      readout at all. Asha Mwangi, who runs noise and isolation, has a list of everything else
+      that moves a mirror, from lorries on the road to the counting statistics of photons.
+      What this instrument is trying to notice is a change in length smaller than a fraction of
+      the width of a proton. Today you say why it is held at near-total cancellation, predict
+      what a passing wave does to the two arms, and find the band where the instrument can hear
+      anything at all.
+    takeaway: An instrument that can hear one thing at one loudness is an instrument built around a noise curve.
+    stops:
+      - group: OPTICS
+        task: Say why the port is nearly dark
+        title: Almost no light, on purpose
+        place: Optics Lab
+        concept: 'A dark fringe is where a tiny path difference is most visible'
+        scene: >
+          Weiss has the two beams recombining at the output port with almost
+          no light coming out of it. He can move that working point anywhere on
+          the fringe and has left it where it is.
+        guide: >-
+          Four possible reasons, and only one of them is a reason. The way to think about it is
+          to ask what happens to the amount of light at the port when one arm changes length by
+          a tiny amount. At some working points that change makes almost no difference to the
+          brightness. At one particular point it makes as much difference as it possibly can.
+        background:
+          - >-
+              How to think about it, on a different example. Two people carrying a plank in step
+              lift it high; a step out of step and it barely lifts at all. If they are almost
+              exactly out of step, a very small change in one person's timing makes a large
+              relative change in how much the plank moves. Being poised at cancellation is what
+              makes a small difference visible.
+          - >-
+              What the instrument actually compares. The laser is split, sent four kilometres
+              each way, bounced back, and put together again. If the two paths are the same
+              length the beams arrive in step; if one is very slightly different they arrive out
+              of step by that difference. The port's brightness is a measurement of that
+              difference and of nothing else.
+          - >-
+              Why almost dark rather than exactly dark. At exactly total cancellation the
+              brightness is at a minimum, so a change in either direction makes it brighter and
+              the sign of the change is lost. A whisker off gives the largest change in
+              brightness for a given change in length, and keeps the sign.
+        assumes:
+          - two beams out of step by half a wavelength cancel each other
+          - the amount of light at a port depends on the difference between two path lengths
+        takeaway: An instrument poised at cancellation turns the smallest change in one path into a visible change in brightness.
+        format: CHOICE
+        question: Why is the interferometer worked at almost complete cancellation?
+        choices:
+          - A tiny change in one arm then makes a big change in the light at the port.
+          - It stops gravity acting on the suspended mirrors.
+          - It makes the laser light travel faster down the arms.
+          - It removes every source of noise from the measurement.
+        answer: A tiny change in one arm then makes a big change in the light at the port.
+        rebuttals:
+          - Nothing about how light is recombined changes what gravity does to a mirror. The mirrors are hanging on wires and gravity acts on them all the time.
+          - Light travels at the same speed whatever is done with it afterwards. The arms are the length they are and the round trip takes the time it takes.
+          - Working at cancellation makes the instrument sensitive, which makes it sensitive to noise as well. Removing noise is a separate and much longer piece of work.
+        why: >
+          The port's brightness is a measurement of the difference between the two arm lengths.
+          Poised where the beams almost exactly cancel, a change of a tiny fraction of a
+          wavelength in one arm turns a nearly dark port into a measurably brighter one. Set
+          the working point anywhere else on the fringe and the same change moves the
+          brightness far less. That is the whole reason for the dark fringe, and it cuts both
+          ways: an instrument that sensitive to a length change is equally sensitive to a lorry,
+          a wave on a beach, and the thermal jiggling of its own mirrors. Nothing here has made
+          anything quieter. It has only made the instrument capable of hearing.
+
+      - group: OPTICS
+        task: Predict what the wave does to the arms
+        title: One longer, one shorter
+        place: Optics Lab
+        person: true
+        personId: sundqvist
+        concept: 'A gravitational wave stretches one direction and squeezes the other'
+        scene: >
+          A ring of free test particles is drawn on the screen with the two arms
+          across it. Femi Oyelaran, who does the calibration, has a simulated
+          wave loaded and has not run it yet.
+        guide: >-
+          Set a number, then run the wave. The number is how much the difference between the
+          two arm lengths changes, as a fraction, at the moment the wave is strongest. Work it
+          out from the strain the simulation is set to and the fact that one arm lengthens
+          while the other shortens — so the difference changes by more than either arm does on
+          its own. Then pay for the calibration that turns the port brightness into a length.
+        background:
+          - >-
+              How to think about the shape, on a different example. Squeeze a rubber ring
+              between finger and thumb: it gets shorter the way you squeeze and longer the other
+              way, and the area stays about the same. A gravitational wave does that to space
+              itself, alternating, so a circle of free particles becomes a tall ellipse, then a
+              wide one, then tall again.
+          - >-
+              Why two arms at right angles. If both arms changed the same way there would be
+              nothing to measure, because the instrument only reports a difference. The wave
+              lengthens one transverse direction while shortening the perpendicular one, which
+              is exactly the pattern two perpendicular arms are built to notice.
+          - >-
+              How to get the number, on different numbers. Suppose the strain were four parts
+              in a thousand million million million. One arm gets longer by that fraction and
+              the other gets shorter by it, so the difference between them changes by twice
+              that — eight parts in the same. Double the strain to get the differential change.
+          - >-
+              And why it has to be measured rather than watched. Running the simulation and
+              seeing the port flicker establishes that the model does something. The number
+              that goes in the log is a strain, and getting there needs the calibration: a
+              mirror shaken by a known amount, so that a brightness at the port means a length.
+        assumes:
+          - the two arms lie at right angles to each other
+          - the instrument reports the difference between the arms and not either length
+        takeaway: A wave lengthens one arm and shortens the other, so the difference changes by twice the strain.
+        format: VERIFY
+        question: >-
+          Predict how much the difference between the arms changes, run the wave, and report the
+          measured strain.
+        verify:
+          hint: >-
+            Lock the prediction before the wave runs. Nothing about it can change afterwards,
+            which is the point of making it first.
+          prediction: { label: Change in the difference between the arms, unit: parts in 10^21, min: 0.2, max: 6.0, step: 0.1 }
+          truth: 2.0
+          passRatio: [0.6, 1.6]
+          intervention:
+            label: Run the simulated wave through the ring
+            note: 'Strain set to one part in ten to the twenty-one, plus polarised, arriving square on.'
+            outcome: The ring becomes a tall ellipse, then a wide one, and the port flickers as it goes.
+          measurement:
+            label: Calibrate the port brightness against a shaken mirror
+            note: 'A mirror driven by a known amount, so a brightness becomes a length.'
+            cost: 4
+            costUnit: hours
+          unmeasuredMoral: >-
+            Running the wave and watching the port flicker establishes that the model does
+            something. Without the calibration there is no strain, and a strain is the only
+            thing that can be compared with anything.
+          commit: Report the strain
+        answerText: >-
+          Twice the strain — two parts in ten to the twenty-one. One arm lengthens by one part
+          and the other shortens by one part, and the instrument measures the difference.
+        why: >
+          The wave lengthens one direction across the arms and shortens the other. So one arm
+          gets longer by the strain and the other gets shorter by the same fraction. The
+          instrument reports the difference between them, and that difference changes by twice
+          the strain. That factor of two is the whole reason there are two arms at right angles
+          rather than one very good ruler. Now the size of it. One part in ten to the twenty-one
+          across four kilometres is about a thousandth of the width of a proton. The dark fringe
+          from the last stop is what makes it measurable. The calibration is what makes the
+          number mean anything, which is why an unmeasured run is a picture rather than a
+          result.
+
+      - group: ISOL
+        task: Find the band the instrument can hear in
+        title: Where the floor is
+        place: Isolation Bay
+        concept: 'Every noise source has its own frequency band, and the sum has a minimum'
+        scene: >
+          Asha Mwangi, who runs noise and isolation, has three noise sources
+          plotted and their sum drawn over the top. A control moves a cursor
+          along the frequency axis.
+        guide: >-
+          One slider and one reading. The slider is frequency; the reading is how well the
+          instrument can hear at that frequency, which is what is left once the three noise
+          sources are added together. Sweep across and find where it peaks, because that band
+          is the only place a signal of a given size stands out. Both ends of the range are
+          useless, and they are useless for completely different reasons.
+        background:
+          - >-
+              How to read a sweep. Move the control in large steps to find the shape, then in
+              small steps through the part that matters. Here you are hunting for a minimum
+              rather than a peak, and the useful thing about a minimum is that it tells you
+              which two sources are fighting each other there.
+          - >-
+              What each source does with frequency. Ground motion is enormous at low frequency
+              and falls off steeply, because the Earth moves slowly and hugely. The counting
+              statistics of photons rise with frequency, because measuring faster means fewer
+              photons per measurement. Thermal motion of the mirrors and their suspensions sits
+              in between.
+          - >-
+              How adding them works, on different numbers. Say two sources contributed three
+              and four units at some frequency. Noise from separate causes adds in quadrature —
+              the square root of nine plus sixteen — which is five, not seven. So the total is
+              dominated by whichever source is largest, and improving the smaller one hardly
+              moves it.
+          - >-
+              Why the answer decides what can be found. A source that emits at a hundred hertz
+              can be heard and the same source emitting at one hertz cannot, however loud it is.
+              The band at the floor is not a preference of the instrument. It is the instrument.
+        assumes:
+          - noise from independent causes adds in quadrature
+          - a signal is detectable when it stands above the total noise at its own frequency
+        takeaway: The band where the total noise is least is the only band the instrument can hear anything in.
+        format: SWEEP
+        question: >-
+          Sweep the frequency axis. Where can the instrument hear best?
+        sweep:
+          axis:
+            label: Frequency
+            unit: Hz
+            min: 5
+            max: 3000
+            step: 5
+          readout:
+            label: How well the instrument can hear
+            unit: relative
+          baseline: 0.03
+          response:
+            - { at: 5, value: 0.01 }
+            - { at: 10, value: 0.03 }
+            - { at: 20, value: 0.12 }
+            - { at: 40, value: 0.37 }
+            - { at: 80, value: 0.74 }
+            - { at: 150, value: 1.00 }
+            - { at: 300, value: 0.68 }
+            - { at: 700, value: 0.31 }
+            - { at: 1500, value: 0.14 }
+            - { at: 3000, value: 0.07 }
+          target: 150
+          tolerance: 60
+          start: 5
+        answerText: >-
+          Around a hundred and fifty hertz, where the ground has stopped dominating and the
+          photon statistics have not started to. Below twenty hertz and above a thousand it is
+          worse by a factor of ten or more.
+        why: >
+          Both ends of the range are hopeless and for opposite reasons. At five hertz the
+          ground itself is moving the mirrors and no amount of isolation gets it down to the
+          level a wave would produce. At three thousand hertz the limit is how many photons
+          arrive in each measurement, and measuring faster means fewer of them. Between the two
+          the instrument can hear, and here it hears best around a hundred and fifty hertz. That number is
+          not a preference — it decides what this instrument can find. A source radiating at a
+          hundred hertz is audible and the same source radiating at five hertz is not, however
+          violent it is. Two black holes of a few tens of solar masses happen to sweep through
+          exactly this band in the last fraction of a second before they touch, which is a
+          piece of luck the whole field runs on.
+
+  - title: Find the chirp
+    objective: Say what the candidate is shaped like, why it is shaped that way, and whether it was real.
+    briefing: A fifth of a second in both detectors, and everything local to rule out first.
+    stake: >-
+      Tuesday at four in the morning, and something has been through both instruments. Nuria
+      González, who reviews candidates, has a fifth of a second of strain that sweeps upward
+      in frequency and amplitude and then stops. Ren Takahashi, who owns the auxiliary
+      channels, has several hundred sensors watching the building and the ground and reports
+      that none of them saw anything. Today you find which template accounts for the shape, say
+      why the frequency climbs, and work out how far apart in time two sites are allowed to see
+      the same wave. Every one of those is a way this turns out to be a lorry.
+    takeaway: A candidate becomes a signal by surviving the ordinary explanations, one at a time.
+    stops:
+      - group: CTRL
+        task: Find the template that accounts for the shape
+        title: What is left over
+        place: Control Room
+        concept: 'A chirp is what an inspiral leaves, and a match is judged on the residual'
+        scene: >
+          González has three candidate templates fitted to the same fifth of a
+          second, each with a score. Beside each one is what it failed to account
+          for, sample by sample.
+        guide: >-
+          Three templates have each been fitted properly and each has a score. Ignore the
+          scores and look at the shape of what is left over. If the leftovers jump about at
+          random, the template has nothing left to explain. If they run positive at one end and
+          negative at the other, or grow toward the end of the event, there is a feature the
+          template does not contain — and a score averages exactly that away.
+        background:
+          - >-
+              How to do it, on a different example. Fit a straight line to points that actually
+              curve. The line can be placed so the average error is small, and the leftovers
+              will still be positive at both ends and negative in the middle. That pattern is
+              the curve showing through, and no amount of moving the line removes it.
+          - >-
+              What each candidate would leave. A constant tone has no rise in it, so it accounts
+              for the middle of the event and leaves the beginning and the end standing outside.
+              A single sharp spike accounts for the loudest moment and nothing before it. A
+              rising sweep accounts for all of it, if the rate of the sweep is right.
+          - >-
+              Why a better score can be a worse template. A score is one number over the whole
+              event, so a template can improve it by fitting the loud part better while having
+              no account at all of the quiet part before it. The structure in the leftovers is
+              precisely what a single number cannot show.
+        assumes:
+          - a fitted model leaves scatter when it is complete and structure when it is not
+          - a summary score averages over structure it cannot see
+        takeaway: A template is judged by the shape of what it fails to explain, not by the size of it.
+        format: RESIDUAL
+        question: >-
+          Read what each template leaves over. Which one would you carry forward?
+        residual:
+          hint: >-
+            Each stick is one stretch of the event. Up is more strain than the template
+            predicts, down is less.
+          fits:
+            - id: tone
+              label: A constant tone at one frequency
+              rms: 0.19
+              structured: true
+              residuals:
+                - { x: -2, y: -2, value: 0.31 }
+                - { x: 0, y: -2, value: 0.06 }
+                - { x: 2, y: -2, value: 0.04 }
+                - { x: -2, y: 2, value: 0.05 }
+                - { x: 0, y: 2, value: 0.08 }
+                - { x: 2, y: 2, value: 0.34 }
+            - id: spike
+              label: A single sharp glitch
+              rms: 0.16
+              structured: true
+              residuals:
+                - { x: -2, y: -2, value: 0.27 }
+                - { x: 0, y: -2, value: 0.24 }
+                - { x: 2, y: -2, value: 0.21 }
+                - { x: -2, y: 2, value: 0.03 }
+                - { x: 0, y: 2, value: 0.02 }
+                - { x: 2, y: 2, value: 0.05 }
+            - id: chirp
+              label: A rising sweep in frequency and amplitude
+              rms: 0.18
+              residuals:
+                - { x: -2, y: -2, value: 0.14 }
+                - { x: 0, y: -2, value: -0.11 }
+                - { x: 2, y: -2, value: 0.05 }
+                - { x: -2, y: 2, value: -0.16 }
+                - { x: 0, y: 2, value: 0.12 }
+                - { x: 2, y: 2, value: -0.07 }
+          accept: chirp
+          commit: Carry this template forward
+        answerText: >-
+          The rising sweep, at 0.18. The glitch scores better and its leftovers are large across
+          the whole first half of the event, which is the part it has no account of.
+        why: >
+          Two of the three leave a pattern. The constant tone accounts for the middle of the
+          event and leaves both ends standing outside it, because a tone has no rise in it and
+          this event begins quiet and low and ends loud and high. The single glitch has the
+          best score of the three and is the worst template: its leftovers are large right
+          across the first half, because a spike accounts for the loudest instant and has no
+          account of the tenth of a second leading up to it. The rising sweep scores worst on
+          the summary and its leftovers change sign at random, which is what a complete
+          description produces. One large leftover would be a bad stretch of data. Three of the
+          same sign in a row are a feature nobody has modelled.
+
+      - group: CTRL
+        task: Say why the frequency climbs
+        title: Follow the energy
+        place: Control Room
+        concept: 'Energy leaving the orbit is why the frequency rises'
+        scene: >
+          The template is fitted and the frequency climbs from about thirty-five
+          hertz to about two hundred and fifty in a fifth of a second. Nothing on
+          the screen says why.
+        guide: >-
+          Five steps are listed and each one hands something to the next. Put them in the order
+          the cause actually runs in, then name the step that decides whether the frequency
+          climbs at all. The way to find that step is to ask which one, if it stopped happening,
+          would leave the orbit exactly as it was.
+        background:
+          - >-
+              How to do it, on a different example. A satellite in a low orbit meets a trace of
+              atmosphere. Drag takes energy out of the orbit, the orbit shrinks, and a smaller
+              orbit is a faster one — so the satellite speeds up as it is slowed down, which
+              sounds wrong and is exactly what happens. Follow the energy and the sequence is
+              forced.
+          - >-
+              What each step does here. Two masses in orbit radiate gravitational waves. Those
+              waves carry energy away from the orbit. An orbit with less energy is a smaller
+              orbit. A smaller orbit goes round faster. And the waves come out at twice the
+              orbital frequency, so a faster orbit is a higher note.
+          - >-
+              Why the whole thing runs away with itself. A closer orbit radiates far more
+              strongly than a wide one, so losing energy makes it lose energy faster. That is
+              why the sweep is slow for most of an inspiral lasting millions of years and then
+              covers two hundred hertz in a fifth of a second at the end.
+          - >-
+              And which step is the one under test. The radiation is what makes any of it
+              happen: switch it off and the two bodies orbit for ever at the same separation
+              and the same frequency. Every other step in the chain is ordinary orbital
+              mechanics that nobody has ever doubted.
+        assumes:
+          - an orbit with less energy has a smaller separation
+          - a smaller orbit has a shorter period
+        takeaway: The rising pitch is a record of an orbit being destroyed, and the step that destroys it is the radiation.
+        format: CHAIN
+        question: >-
+          Put the steps in the order the cause runs, then name the one that decides whether the
+          frequency rises at all.
+        chain:
+          hint: >-
+            Every step has to be there. A cause with a gap in it is not a cause.
+          links:
+            - { id: orbit, label: Two masses in orbit around each other, transfers: 'motion into a changing gravitational field', reading: 'separation 350 km at the start of the record' }
+            - { id: radiate, label: Gravitational waves carrying energy out, transfers: 'orbital energy away from the system', reading: 'about three solar masses over the whole event' }
+            - { id: shrink, label: The separation falling, transfers: 'lost energy into a tighter orbit', reading: '350 km down to about 350 km at merger' }
+            - { id: faster, label: The orbital frequency rising, transfers: 'a tighter orbit into a shorter period', reading: '17 orbits a second up to about 125' }
+            - { id: note, label: The wave frequency following it, transfers: 'orbital frequency into the strain channel', reading: '35 Hz up to about 250 Hz' }
+          order: [orbit, radiate, shrink, faster, note]
+          governing: radiate
+          distractor: note
+          commit: Name the step that governs
+        answerText: >-
+          Orbit, radiation, shrinking separation, rising orbital frequency, rising wave
+          frequency — governed by the radiation, the only step that takes energy out.
+        why: >
+          The sequence is forced once you follow the energy. Two masses in orbit radiate
+          gravitational waves; the waves carry energy out; an orbit with less energy is a
+          smaller orbit; a smaller orbit goes round faster; and the wave frequency follows the
+          orbital one. Now the step that governs. Switch off the radiation and every other link
+          in the chain stops: the two bodies simply orbit for ever at the same separation and
+          the same frequency, which is what Newtonian gravity on its own predicts. Every other
+          step is ordinary orbital mechanics nobody has ever doubted. The rising note at the end
+          of the channel is the loudest thing on the screen and it is a consequence rather than
+          a cause — which is exactly why it is the wrong answer to name.
+
+      - group: ISOL
+        task: Work out how far apart the two sites may see it
+        title: Ten milliseconds, at most
+        place: Isolation Bay
+        concept: 'A delay bounded by light travel is what two sites buy you'
+        scene: >
+          Ren Takahashi, who owns the auxiliary channels, has both traces up. The
+          two detectors are about three thousand kilometres apart and the second
+          one saw the candidate slightly later.
+        guide: >-
+          This is one division. A wave from the sky crosses the Earth at the speed of light, so
+          the largest possible difference in arrival time between two places is the time light
+          takes to travel between them. Divide the distance between the sites by the speed of
+          light. The other tiles are real numbers about this event and neither belongs in the
+          sum.
+        background:
+          - >-
+              How to do it, on a different example. Two places two thousand kilometres apart,
+              and light travels three hundred thousand kilometres a second. Two thousand divided
+              by three hundred thousand is about seven thousandths of a second, or seven
+              milliseconds. Divide the distance by the speed and the answer is a time.
+          - >-
+              Why it is a maximum rather than the delay. The full light-travel time only happens
+              for a wave arriving along the line joining the two sites. A wave arriving from
+              directly overhead reaches both at once, and everything in between gives something
+              in between — which is also how the direction on the sky is worked out.
+          - >-
+              Why this is the strongest veto in the building. A lorry, a storm, a power glitch
+              or a cracking weld happens at one site. Anything with a partner at the other site
+              at a delay this small is very hard to explain locally, because the two buildings
+              share no ground, no power and no weather.
+          - >-
+              And what a wrong delay would mean. A candidate matched at fifty milliseconds
+              cannot be a wave crossing the Earth, because nothing carrying the signal could get
+              between the sites that slowly. That is a rejection on geometry alone, without any
+              argument about the shape.
+        assumes:
+          - a gravitational wave travels at the speed of light
+          - the two detectors are at fixed places on the Earth
+        takeaway: The longest a real wave can take between two sites is the time light takes, and that bound is a veto.
+        format: BALLPARK
+        question: What is the largest delay a real wave could have between the two sites?
+        estimate:
+          prompt: >-
+            Takahashi wants the allowed window written down before the two traces are shifted
+            against each other.
+          question: What is the largest delay a real wave could have between the two sites?
+          relationship: The largest possible delay is the distance between the two detectors divided by the speed of light.
+          labels:
+            - 3000 km  (straight-line distance between the two detectors)
+            - 300000 km/s  (the speed of light)
+            - 4 km  (the length of one detector arm)
+            - 0.2 s  (how long the candidate lasted)
+          values: [3000, 300000, 4, 0.2]
+          slots: 2
+          template: '{0} ÷ {1}'
+          formula: a/b
+          correct: [0, 1]
+          target: 0.01
+          tolerance: 0.002
+          units: seconds
+          solution: Three thousand divided by three hundred thousand is a hundredth of a second, which is ten milliseconds.
+          explanation: The arm length and the duration are both real numbers about this measurement and neither is a distance between the sites.
+        why: >
+          Three thousand kilometres divided by three hundred thousand kilometres a second is a
+          hundredth of a second — ten milliseconds. That is the window. A wave arriving along
+          the line joining the two sites takes the full ten; one arriving from overhead reaches
+          both at once; everything else lands in between, which is also how the direction on
+          the sky is recovered. Two things follow. Anything seen at both sites inside that
+          window is very hard to explain as a local disturbance, because the two buildings
+          share no ground, no power and no weather — which makes this the strongest veto on the
+          site. And anything matched at fifty milliseconds is rejected on geometry alone,
+          without a word about its shape.
+
+  - title: Read the merger
+    objective: Get masses out of the waveform, close the ledger, and claim only what the match supports.
+    briefing: One waveform, two masses, and three solar masses that are not there any more.
+    stake: >-
+      Wednesday, and the candidate has survived everything. Elin Bergström, who does the
+      parameter estimation, has the waveform fitted through the inspiral, the merger and the
+      ringdown, and a template bank that will give her almost any pair of masses if she lets
+      it. What went in does not equal what came out, and the difference is about three times
+      the mass of the Sun. Today you find out which pair of masses the signal actually fixes,
+      say where the missing mass went, and write the claim a coherent match will carry. The
+      numbers on this desk are early-reported teaching values, and the paper has to say so.
+    takeaway: A waveform gives up a combination before it gives up a number, and a claim stops where the match stops.
+    stops:
+      - group: PARAM
+        task: Find out which masses the signal fixes
+        title: The same sweep, many pairs
+        place: Parameter Room
+        concept: 'One observable across two masses fixes a combination'
+        scene: >
+          The template bank has two dials on it, one for each mass, and the sweep
+          rate of the chirp on the screen. The frequency the signal reaches at
+          the very end is on a second screen and has not been brought across.
+        guide: >-
+          Both dials change the model and only one number is being matched. Work them against
+          each other until the sweep rate agrees, then look at what else agrees just as well.
+          When you have seen the family, bring the second measurement over and report where the
+          two of them cross.
+        background:
+          - >-
+              What the sweep rate depends on. Not the two masses separately, but one particular
+              combination of them. A heavier pair sweeps faster, and so does a pair of the same
+              total mass shared out differently — so a great many pairs give the same sweep and
+              the rate cannot tell them apart.
+          - >-
+              Why that is a family rather than a bad measurement. Every trade along that curve
+              reproduces the sweep exactly, so measuring the sweep better slides along the same
+              curve instead of narrowing it. A louder event of the same shape gives the same
+              family, more tightly drawn.
+          - >-
+              What the second measurement does. The frequency the signal reaches just before it
+              stops is set by how close the two objects get before they touch, and that depends
+              on the total mass. Total mass is a different combination from the sweep rate, so
+              its curve runs across the family rather than along it.
+          - >-
+              And the footnote the paper needs. These are early-reported values for one event,
+              used here because they are round and memorable. The precision fits came later and
+              moved them, and quoting a teaching number as a catalogue number is a small lie
+              that gets repeated.
+        assumes:
+          - the sweep rate of a chirp depends on a combination of the two masses
+          - the frequency at merger depends on the total mass
+        takeaway: One observable across two unknowns fixes a family, and a second measurement of a different combination picks a member of it.
+        format: DEGENERACY
+        question: >-
+          Match the sweep rate, then say what the two masses are.
+        degeneracy:
+          hint: >-
+            Both dials move the model. The match to the sweep rate is the number to watch, and
+            it will not be the last word.
+          observable: { label: Sweep rate of the chirp }
+          controls:
+            - { id: heavier, label: The heavier mass, min: 20, max: 70, step: 1, unit: solar masses }
+            - { id: lighter, label: The lighter mass, min: 5, max: 45, step: 1, unit: solar masses }
+          locus:
+            - { a: 22, b: 45 }
+            - { a: 28, b: 36 }
+            - { a: 36, b: 29 }
+            - { a: 46, b: 24 }
+            - { a: 58, b: 20 }
+            - { a: 68, b: 18 }
+          second:
+            label: The frequency the signal reaches at the very end, which is set by the total mass
+            apply: Bring the merger frequency over
+            locus:
+              - { a: 30, b: 35 }
+              - { a: 36, b: 29 }
+              - { a: 44, b: 21 }
+              - { a: 52, b: 13 }
+          truth: { a: 36, b: 29 }
+          tolerance: { a: 4, b: 4 }
+          still: [how fast either object was spinning, how far away the event was]
+          commit: Report the masses
+        answerText: >-
+          About thirty-six and twenty-nine solar masses — and those are early-reported teaching
+          values for this event, not a precision fit.
+        why: >
+          The sweep rate depends on a combination of the two masses rather than on either of
+          them, so twenty-two with forty-five sweeps at the same rate as thirty-six with
+          twenty-nine, and so does everything along that curve. Measuring the sweep more
+          precisely slides along the family instead of shrinking it, which is why a louder
+          event of the same shape would not help. The frequency at the very end breaks it,
+          because how close the two objects get before they touch depends on the total mass —
+          a different combination, so its curve crosses the family instead of following it.
+          Where they meet, both masses are fixed. Two things are still open even so: how fast
+          either object was spinning, and how far away all this happened.
+
+      - group: PARAM
+        task: Close the ledger
+        title: Three suns that are not there
+        place: Parameter Room
+        person: true
+        personId: bergstrom
+        concept: 'Mass that is missing has become energy'
+        scene: >
+          Elin Bergström, who does the parameter estimation, has the two masses
+          that went in on one line and the single object that came out on the
+          next. The two lines do not agree.
+        guide: >-
+          This is one addition and one subtraction. Add the two masses that spiralled together,
+          then take away the mass of the single object left behind. What is left over is the
+          mass that is no longer there. The other tiles are real numbers about this event and
+          neither belongs in the sum.
+        background:
+          - >-
+              How to do it, on a different example. Two objects of twelve and eight units merge
+              and leave one of eighteen. Twelve plus eight is twenty, minus eighteen is two
+              units missing. Add what went in, subtract what came out, and the difference is
+              what left.
+          - >-
+              Where it went, which is the point of the stop. Mass and energy are two ways of
+              counting the same thing, related by the speed of light squared. The missing mass
+              did not vanish and no matter flew out; the system radiated that much energy as
+              gravitational waves, and the bookkeeping is done in mass units because they are
+              easier to say.
+          - >-
+              How much energy that is. Three times the mass of the Sun, multiplied by the speed
+              of light squared, released in about a fifth of a second. For that fraction of a
+              second the event was radiating more power than all the light from every star in
+              the observable universe put together. Nothing about the strain reading suggests
+              that, which is what distance does.
+        assumes:
+          - mass and energy are related by the speed of light squared
+          - a merger conserves total energy including what is radiated
+        takeaway: What went in minus what came out is what left, and what left was energy.
+        format: BALLPARK
+        question: How much mass is no longer there?
+        estimate:
+          prompt: >-
+            Bergström will not write the energy on the board until the mass ledger is closed.
+          question: How much mass is no longer there?
+          relationship: The mass radiated is the two masses that went in added together, minus the mass of the single object that came out.
+          labels:
+            - 36  (the heavier mass, in solar masses)
+            - 29  (the lighter mass, in solar masses)
+            - 62  (the single object left behind, in solar masses)
+            - 0.2  (how long the whole event lasted, in seconds)
+          values: [36, 29, 62, 0.2]
+          slots: 3
+          template: '{0} + {1} − {2}'
+          formula: a+b-c
+          correct: [0, 1, 2]
+          target: 3
+          tolerance: 0.6
+          units: solar masses
+          solution: Thirty-six plus twenty-nine is sixty-five, and sixty-five minus sixty-two is three solar masses.
+          explanation: The duration is on the bench because it is what makes the number extraordinary rather than because it is part of it.
+        why: >
+          Thirty-six plus twenty-nine is sixty-five, and the object left behind is about
+          sixty-two, so about three solar masses are missing. Nothing vanished and no matter
+          flew out. Mass and energy are two ways of counting the same thing, so the system
+          radiated three solar masses' worth of energy as gravitational waves, and the ledger
+          is kept in mass units because they are easier to say than the joules. Now put the
+          duration beside it. That energy left in about a fifth of a second, which for that
+          fraction of a second is more power than the light of every star in the observable
+          universe added together. And the reading in the strain channel was a thousandth of
+          the width of a proton, because it happened a billion light years away.
+
+      - group: PARAM
+        task: Write the claim
+        title: Consistent with, and nothing more
+        place: Parameter Room
+        concept: 'Consistent with is the claim a coherent match supports'
+        scene: >
+          Nothing structured is left over anywhere in the event, at either site.
+          Four possible sentences are chalked on the board and one of them is
+          already in a draft going out this evening.
+        guide: >-
+          Four sentences, and you are choosing the one this week's work supports. Test each
+          clause separately: is there a measurement behind it? What has been measured is a
+          waveform that matches a prediction across a whole event, seen at two sites at an
+          allowed delay. Anything a sentence claims beyond that — every rival theory dead, no
+          uncertainty left, light from inside a horizon — is a clause with nothing under it.
+        background:
+          - >-
+              How to think about it, on a different example. A key turns in a lock. That is
+              strong evidence this key belongs to this lock. It is not evidence that no other
+              key in the world could ever be cut to fit it, and a claim that said so would be
+              wrong for reasons that have nothing to do with the key.
+          - >-
+              What a match across the whole event buys. The inspiral, the merger and the
+              ringdown are three different regimes and the theory predicts all three from the
+              same two masses. A template that fits one of them proves little; one that fits all
+              three, with nothing structured left over, is very hard to arrange by accident.
+          - >-
+              Why the ringdown is the interesting third. It is the fading wobble of the single
+              object left behind, and its frequency and how fast it dies away depend only on
+              that object's mass and spin. It is the part of the signal that says the remnant
+              behaves the way the theory says a black hole should.
+          - >-
+              And what the sentence cannot say. A single event, however clean, constrains
+              alternative theories rather than eliminating them, and every measurement here has
+              an uncertainty on it. Both of those belong in the paper, and neither survives being
+              shortened into a headline.
+        assumes:
+          - a theory is supported by agreement and constrained rather than eliminated by it
+          - every measurement in the event carries an uncertainty
+        takeaway: A coherent match supports consistency with a description, and a claim that outruns that is a claim about nothing measured.
+        format: CHOICE
+        question: What does the match across the whole event support?
+        choices:
+          - Two heavy objects spiralled together, and the theory describes what happened.
+          - Every alternative theory of gravity has now been shown to be impossible.
+          - Black holes give off ordinary light from inside their own horizons.
+          - The instrument measured this event with no uncertainty at all.
+        answer: Two heavy objects spiralled together, and the theory describes what happened.
+        rebuttals:
+          - One event constrains alternatives rather than eliminating them. Ruling a theory out for good takes many events, and some alternatives predict the same waveform to the precision available here.
+          - Nothing in this measurement is light. The whole event was recorded as a change in the length of two arms, and no photons came from the source at all.
+          - Every number on this desk has an uncertainty beside it, starting with a calibration good to a few per cent. A measurement with no uncertainty is not a measurement.
+        why: >
+          Take the surviving sentence clause by clause. Consistent with two compact objects
+          merging — the waveform matches the prediction through the inspiral, the merger and
+          the ringdown, which are three different regimes predicted from the same two masses,
+          and it matches at two sites at an allowed delay. Every part of that is measured. As
+          the theory describes — that is a statement about agreement, not about identity, and
+          it is the strongest thing available from one event. The other three all claim
+          something nobody measured: alternatives eliminated rather than constrained, light
+          that was never detected, and a measurement without an uncertainty. And notice which
+          part of the signal did the most work at the end. The ringdown is the object left
+          behind, wobbling and dying away, and its frequency depends only on that object's mass
+          and spin. It is the part that says the remnant behaves the way a black hole should.
+
+warmups:
+  greet:
+    title: Six people, two buildings, one channel
+    why: >-
+      Nothing here is measured by one person, and half the argument comes from a site two
+      thousand miles away. The optics, the calibration, the isolation, the auxiliary channels
+      and the parameter fitting are five different desks. Put a name to as many of them as you
+      can before the week starts.
+  trial-near:
+    title: Walk the site before the arms are locked
+    why: >-
+      The optics lab and the parameter room are down one side of the corridor and the isolation
+      bay and the control room are down the other. Walk it once now. Rainer Weiss, the
+      optics lead, would rather you knew the way than went looking for the control room at four
+      in the morning.
+  follow:
+    title: Oyelaran carries a calibration from the shaken mirror to the strain channel
+    why: >-
+      A brightness at a port becomes a length only through a calibration, and a calibration a
+      few per cent out scales every amplitude in the record the same way. Femi Oyelaran, the
+      physicist who does the calibration, walks one through. Stay with him and watch where the
+      number is scaled.
+
+interiors:
+  OPTICS:
+    caption: The instrument measures a difference. It has no idea how long either arm is.
+    standLine: A laser split two ways, four kilometres each, and recombined at almost total cancellation.
+    station:
+      kind: panel
+      title: Interferometer
+      rows:
+        - { label: Both arms locked, value: 'yes', status: normal }
+        - { label: Working point, value: near dark fringe, status: normal }
+        - { label: Differential sensitivity, value: 1e-21 strain, status: high }
+        - { label: Calibration, value: 3 per cent, status: normal }
+  ISOL:
+    caption: Both ends of the range are hopeless, for opposite reasons.
+    standLine: Ground motion below, photon statistics above, and a floor between them.
+    station:
+      kind: plot
+      title: Noise budget
+      note: the band at the floor is the instrument
+      axes: { x: frequency, y: total noise in strain }
+      curves:
+        - { points: [[0.02, 0.98], [0.1, 0.6], [0.3, 0.18], [0.5, 0.1], [0.7, 0.28], [0.95, 0.72]], label: total }
+  CTRL:
+    caption: A candidate has to look like something, not merely look odd.
+    standLine: A fifth of a second, sweeping upward, and several hundred quiet auxiliary channels.
+    station:
+      kind: plot
+      title: Strain channel
+      note: 35 Hz to 250 Hz in a fifth of a second
+      axes: { x: time, y: strain }
+      curves:
+        - { points: [[0.02, 0.5], [0.2, 0.56], [0.4, 0.44], [0.55, 0.66], [0.68, 0.3], [0.78, 0.82], [0.86, 0.5], [0.95, 0.52]], label: candidate }
+  PARAM:
+    caption: A waveform gives up a combination before it gives up a number.
+    standLine: What went in, what came out, and three solar masses that are not there.
+    station:
+      kind: panel
+      title: Ledger
+      rows:
+        - { label: Heavier mass, value: 36 solar, status: normal }
+        - { label: Lighter mass, value: 29 solar, status: normal }
+        - { label: Left behind, value: 62 solar, status: normal }
+        - { label: Missing, value: about 3 solar, status: alarm }
+
+copy:
+  OPTICS: <p>The optics lab, first door on the west side. The beam splitter, the recycling cavities, and the two windows through which the arms leave the building at right angles to each other.</p>
+  ISOL: <p>The isolation bay, across the corridor. Suspension stacks on the floor, the noise budget drawn along the wall as one long curve, and several hundred auxiliary channels on a rack of screens.</p>
+  CTRL: <p>The control room, further down the east side. The strain channel across the top of the wall, the template bank beside it, and a telephone with the other site's number written on it.</p>
+  PARAM: <p>The parameter room at the far end of the west side. The waveform fitted through all three stages, a mass ledger on the whiteboard, and no instrument in the room at all.</p>
+  PORCH: <p>The entrance desk. A signing-in book, a rack of hard hats nobody wears indoors, and a screen showing how long both arms have been locked.</p>
+  TEA: <p>The coffee area halfway down the west side. A machine, six chairs, and the seismic trace from the ground outside printed out every hour.</p>
+  DARK: <p>The calibration bay, next to the isolation bay. The drive that shakes a mirror by a known amount, and the tables that turn a brightness into a length.</p>
+  RACK: <p>The store at the end of the west side. Spare suspension wires, optics in sealed cases, and the crate the last mirror came in.</p>
+  LIB: <p>The reading room at the far end. Preprints, the waveform catalogue, and the only quiet on a site whose whole purpose is quiet.</p>

@@ -227,7 +227,7 @@ export const GAMES = [
   // else — the shelf already prints the length off the theme's own missions file,
   // so a card reading "3 levels · 9 stops" beside one reading "15 days · 45 stops"
   // says what it is without a second kind of row to maintain.
-  { id: 'qd_accel', kind: 'quick', title: 'Too Faint',
+  { id: 'qd_accel', kind: 'quick', title: 'The Accelerating Universe',
     course: 'Astronomy · how the accelerating expansion was measured',
     field: 'Earth & Space', accent: '#7a4fa3',
     place: 'Cerro Vela Survey Operations: an analysis floor stepped down to a wall of plot boards, and the measurement chain drawn along forty-five metres of corridor behind it.',
@@ -238,7 +238,7 @@ export const GAMES = [
   // place is the engine's own interior world rather than a copy of anybody's —
   // which is the cheap way to bring a building and the only way `placement` can
   // fire rays at it.
-  { id: 'qd_dna', kind: 'quick', title: 'The Only Shape That Fits',
+  { id: 'qd_dna', kind: 'quick', title: 'The Double Helix',
     course: 'Biology · how the structure of DNA was forced by the evidence',
     field: 'Biology', accent: '#3f7f6a',
     place: 'A 1950s structural biology unit: one corridor, a chemistry bench and a model room down one side, an X-ray room and an evidence wall down the other.',
@@ -248,18 +248,63 @@ export const GAMES = [
   // The third Quick Discovery, and the first written for the plainer register the
   // whole set moved to: grade 9 rather than AP, and every card teaches its method
   // before it asks anything.
-  { id: 'qd_nucleus', kind: 'quick', title: 'The Impossible Bounce',
+  { id: 'qd_nucleus', kind: 'quick', title: 'The Atomic Nucleus',
     course: 'Physics · how the atomic nucleus was inferred from a scattering experiment',
     field: 'Physics', accent: '#b5502f',
     place: 'A 1910 university physics laboratory: the apparatus down one side of a corridor, the counting and the argument down the other, and a gold leaf in a vacuum between them.',
     hero: 'scattering-chamber--doorway.png',
     level: 'high', grades: '9–12' },
 
-  { id: 'qd_tectonics', kind: 'quick', title: 'One Moving System',
+  { id: 'qd_tectonics', kind: 'quick', title: 'Plate Tectonics',
     course: 'Earth science · how continental clues and ocean data became plate tectonics',
     field: 'Earth & Space', accent: '#2f4a55',
     place: 'A postwar government survey section: the land evidence down one side of a corridor, ten years of ships down the other, and thirty feet of continents on pins.',
     hero: 'map-room--doorway.png',
+    level: 'high', grades: '9–12' },
+
+  { id: 'qd_higgs', kind: 'quick', title: 'The Higgs Boson',
+    course: 'Particle physics · how a new boson was found in a background of ordinary events',
+    field: 'Physics', accent: '#1f4a63',
+    place: 'A collider analysis floor: the theory wall and the combination room down one side, a dark event-display room and ten metres of histogram down the other.',
+    hero: 'histogram-room--doorway.png',
+    level: 'high', grades: '9–12' },
+
+  // The first Quick Discovery outdoors, and the reason is the subject: an eclipse
+  // expedition is a camp on a plain with a clear horizon, and half of what makes
+  // it hard is that it is a camp.
+  { id: 'qd_eclipse', kind: 'quick', title: 'The Bending of Starlight',
+    course: 'Physics · how the 1919 eclipse tested light bending near the Sun',
+    field: 'Physics', accent: '#c98a2b',
+    place: 'An eclipse camp on a red dust plain: two coelostats and their lenses out on the flat, a light-tight plate hut back along the track, and one wire to the coast.',
+    hero: 'camera-field--from-the-track.png',
+    level: 'high', grades: '9–12' },
+
+  { id: 'qd_exo', title: 'Something Is Pulling',
+    course: 'Astronomy · how a planet nobody can see is detected and then described',
+    field: 'Earth & Space', accent: '#274a4f',
+    place: 'A planet search floor: a spectrograph on one side of the corridor, a month of light curve on the wall of the other, and a room at the end with no instrument in it.',
+    hero: 'survey-photometry--doorway.png',
+    level: 'high', grades: '9–12' },
+
+  { id: 'qd_ligo', title: 'The Chirp',
+    course: 'Physics · how a passing gravitational wave was measured and read',
+    field: 'Physics', accent: '#1c3f52',
+    place: 'An interferometer corner station: the beam splitter and two metre-wide tubes leaving through the wall at right angles, three suspension stacks, and a control room at four in the morning.',
+    hero: 'optics-lab--doorway.png',
+    level: 'high', grades: '9–12' },
+
+  { id: 'qd_cmb', title: 'The Noise That Would Not Go',
+    course: 'Cosmology · how an unwanted signal turned out to be the early universe',
+    field: 'Earth & Space', accent: '#7a4fa3',
+    place: 'A hilltop radio site: a twenty-foot horn on a concrete pier inside a ring of ground shielding, a receiver hut under it, and a much newer building up the ridge.',
+    hero: 'horn--three-quarter.png',
+    level: 'high', grades: '9–12' },
+
+  { id: 'qd_hubble', title: 'No Middle To It',
+    course: 'Astronomy · how a relation between distance and recession became an expanding universe',
+    field: 'Earth & Space', accent: '#2e3d48',
+    place: 'A 1920s mountain observatory: years of glass in numbered drawers on one side of the corridor, a spectrograph on its own pier on the other, and one plot at the end of it.',
+    hero: 'diagram-room--doorway.png',
     level: 'high', grades: '9–12' },
 
   { id: 'hospital', title: 'Hospital Heroes',

@@ -17,7 +17,11 @@
 //
 // Placement helpers take `(x, z, y)` — ground last.
 import * as THREE from 'three';
-import { MATERIALS, box, cyl } from '../../engine/world/kit.js';
+import {
+  MATERIALS, box, cyl,
+  vehicle, VEHICLE_DRIVE, quadBike, QUAD_DRIVE, clearSpot,
+} from '../../engine/world/kit.js';
+import { driveable } from '../../engine/world/driving.js';
 
 /** Where the shaft is, how tall the frame is, and where the drum sits. */
 const SHAFT = { x: 0, z: -4, h: 32, w: 5.6 };
@@ -178,11 +182,58 @@ export function decorate(scene, ctx){
     box(scene, 5.0, 0.3, 5.0, x, y + 3.3, z, STEEL());
   }
 
+  // --------------------------------------------------------------- transport
+  // The gravity station is 290 m out along the bench, and the book says the
+  // track "is peat for the last hundred". That sentence is the reason there are
+  // two: the pit van goes as far as the hard standing and the quad does the
+  // peat, which is a decision about the route rather than a faster way to walk.
+  transport(scene, ctx, at);
+
   // The gravity station's pillar, which is the whole instrument as far as the
   // survey is concerned: concrete to bedrock, and a brass plate on top.
   const gx = -70, gz = -283, gy = at(gx, gz);
   cyl(scene, 0.45, 1.1, gx, gy + 0.55, gz, MATERIALS.concrete());
   cyl(scene, 0.16, 0.06, gx, gy + 1.13, gz, MATERIALS.paintedSteel(0xb08a3a));
+}
+
+
+// ------------------------------------------------------------------ transport
+/** The spawn, so nothing is parked on top of it. Mirrors `site.start`. */
+const SPAWN = { x: 0, z: 70 };
+const VAN_AT = { x: 12, z: 56 }, VAN_FACING = Math.PI, VAN_COLOUR = 0x35502f;
+const VAN_ID = 'pit-van', VAN_LABEL = 'pit van';
+const QUAD_AT = { x: -14, z: 54 }, QUAD_FACING = Math.PI, QUAD_COLOUR = 0x8e2f22;
+const QUAD_ID = 'bench-quad', QUAD_LABEL = 'bench quad';
+/**
+ * The two vehicles this site keeps, and the player can take either.
+ *
+ * `clearSpot` rather than a hand-checked coordinate: a vehicle parked inside a
+ * collider is one you get into and cannot move (house rule 16 from the other
+ * side), and the spawn is in the avoid list because a prop over the spawn welds
+ * the player in place (house rule 8).
+ */
+function transport(scene, ctx, at){
+  const { colliders, interactables, blocked } = ctx;
+  const spawn = { x: SPAWN.x, z: SPAWN.z, r: 14 };
+
+  const vs = clearSpot(VAN_AT, blocked, { pad: 3.4, avoid: [spawn] });
+  const van = vehicle(scene, vs.x, vs.z, at(vs.x, vs.z), { facing: VAN_FACING, colour: VAN_COLOUR });
+  driveable(scene, van.group, {
+    ...VEHICLE_DRIVE,
+    id: VAN_ID, label: VAN_LABEL, kind: 'van',
+    seat: { x: 0.52, y: 2.18, z: van.cabZ },
+    wheels: van.wheels,
+    colliders, interactables,
+  });
+
+  const qs = clearSpot(QUAD_AT, blocked, { pad: 1.8, avoid: [spawn, { x: vs.x, z: vs.z, r: 5 }] });
+  const q = quadBike(scene, qs.x, qs.z, at(qs.x, qs.z), { facing: QUAD_FACING, colour: QUAD_COLOUR });
+  driveable(scene, q.group, {
+    ...QUAD_DRIVE,
+    id: QUAD_ID, label: QUAD_LABEL, kind: 'quad',
+    wheels: q.wheels, steer: q.steer,
+    colliders, interactables,
+  });
 }
 
 export function fitOutRoom(){}

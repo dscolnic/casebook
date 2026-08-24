@@ -184,9 +184,17 @@ try{
     const offered = !!btn('lapPay'), disabledRich = !!btn('lapPay')?.disabled;
     btn('lapPay')?.click(); await sleep(400);
     const title = document.querySelector('.modalTitle, #modalTitle')?.textContent?.trim() ?? '';
+    // What the plan card is called is the THEME's word for a day, not a list kept
+    // here. Bring Them Home says Watch, Red Sand says Sol, a Quick Discovery says
+    // Level — and a hardcoded list reported "the plan card did not come up" for a
+    // card that was on the screen with its title in the assertion's own message.
+    // Compared by prefix rather than by regex: this whole block is inside a
+    // String.raw template, so a character class with a dollar-brace in it closes
+    // the template instead of escaping anything.
+    const noun = (g.theme?.dayNoun ?? 'Day').trim();
     const after = { offered, disabledRich, reserve: st.reserve,
-      lapsMarked: Object.keys(st.laps ?? {}).length, title,
-      planUp: /^(Day|Watch|Shift|Sol|Stage|Phase)\b/i.test(title) };
+      lapsMarked: Object.keys(st.laps ?? {}).length, title, noun,
+      planUp: title.toLowerCase().startsWith(noun.toLowerCase()) };
     // Broke: the same card, and the button is there but dead — a missing button
     // and a disabled one read very differently to somebody with no money.
     st.week = 2; st.laps = {}; st.reserve = 0;

@@ -1,0 +1,1007 @@
+# Something Is Pulling — a Quick Discovery.
+#
+# The 3 x 3 shape from great_discoveries_first10_expanded.docx, game 07, mapped
+# onto the engine's day model: a level is a day, a micro-game is a stop, and the
+# campaign is nine stops in one sitting. Three levels, in order:
+#
+#   1  The wobbling star   an orbit inferred from motion nobody can see
+#   2  A transit appears   a size, and the impostors that fake one
+#   3  Characterise it     mass, radius, tilt, and what may be called what
+#
+# The science guardrail from the source book, kept. This is a composite teaching
+# case and not a reconstruction of one historical planet: the first confirmed
+# exoplanets were found around a pulsar in 1992, and 51 Pegasi b in 1995 was the
+# first around a Sun-like star. And most planets found by the wobble never
+# transit at all, which is the whole subject of level 3's middle stop.
+#
+# Written for a reader two grades below the AP games, and every card teaches its
+# method before it asks anything: the `guide` says in plain words what the move
+# is, and the first background paragraph works the same move on different numbers.
+#
+# Format budget. Nine stops, cap three of any one format: CHOICE 2, BALLPARK 2,
+# and one each of SWEEP, DIAGNOSIS, VERIFY, VALUE, DEGENERACY. Seven formats in
+# nine stops, two of them instruments the player drives.
+
+theme:
+  id: qd_exo
+  title: Something Is Pulling
+  subtitle: Observer · Planet Search Programme
+
+groups:
+  - id: SPEC
+    code: SPEC
+    name: Spectrograph Room
+    color: '#3f7f8f'
+    desc: One star, a thousand absorption lines, and a shift smaller than the width of any of them.
+    defaultLeader: mayor
+    milestones: [Take the exposure, Measure the shift, Fold the record, Ready to hand over]
+  - id: PHOT
+    code: PHOT
+    name: Survey Photometry
+    color: '#c98a2b'
+    desc: Brightness measured every four minutes for a month, and a dip a hundredth deep.
+    defaultLeader: charbonneau
+    milestones: [Reduce the frames, Find the dip, Predict the next, Ready to hand over]
+  - id: FOLLOW
+    code: FLW
+    name: Validation Room
+    color: '#b5502f'
+    desc: Everything else that makes a dip of exactly the right size and is not a planet.
+    defaultLeader: haraldsson
+    milestones: [List the impostors, Buy the check, Rule one out, Ready to hand over]
+  - id: CLASS
+    code: CLS
+    name: Characterisation Desk
+    color: '#7a4fa3'
+    desc: A mass, a radius, a tilt, and the difference between a label and a description.
+    defaultLeader: ferrand
+    milestones: [Combine the two, Fix the tilt, Name the class, Ready to hand over]
+
+roster:
+  - id: mayor
+    name: Michel Mayor
+    role: Spectrograph Lead
+    real: true
+    division: SPEC
+    bio: |
+      Runs the spectrograph. Every night it records a thousand absorption lines
+      from one star, and the whole measurement is how far they have all moved
+      together.
+
+      His rule is that the star is what moves. The planet is never seen and never
+      will be in this programme; what is measured is a star being pulled about,
+      and the planet is what has to be there for that to happen.
+
+      His limit is the line of sight. The instrument sees only the part of the
+      motion coming toward it or going away, so a heavy companion on a tilted
+      orbit and a light one seen edge-on look identical to it.
+    quiz:
+      - q: What does Mayor's spectrograph actually measure?
+        a: The star moving toward us or away
+        wrong:
+          - The mass of the unseen companion as a number, once the lines have been measured
+          - The size of the planet, worked out from how much light it blocks each orbit
+          - The full three-dimensional motion of the star as it goes round its own centre
+
+  - id: charbonneau
+    name: David Charbonneau
+    role: Survey Photometrist
+    real: true
+    division: PHOT
+    bio: |
+      Measures one star's brightness every four minutes for a month and gets a
+      record that is almost entirely noise.
+
+      A transit is a dip of about a hundredth, lasting a few hours, and one dip
+      is worth very little. What matters is that the dips repeat on a schedule,
+      because a schedule can be used to predict the next one and a prediction can
+      be wrong.
+
+      His limit is that his instrument measures light and not position to any
+      precision. A dip in his record is light lost from somewhere near the target
+      and he cannot say from exactly where.
+    quiz:
+      - q: Why is one dip worth very little to Charbonneau?
+        a: It cannot be predicted from, only described
+        wrong:
+          - Because a single dip is always shallower than the ones that come after it
+          - Because the instrument has to warm up for a full month before it is reliable
+          - Because a dip must be seen by two separate telescopes before it is recorded
+
+  - id: haraldsson
+    name: Sigrid Haraldsson
+    role: Validation
+    division: FOLLOW
+    bio: |
+      Keeps the list of everything that makes a dip of the right size and is not
+      a planet.
+
+      Her favourite is a pair of stars eclipsing each other a few seconds of arc
+      away, blurred into the same measurement. Diluted by the target's own light,
+      a deep eclipse becomes a shallow dip of exactly the depth a planet would
+      make, on a perfectly steady schedule.
+
+      Her limit is that ruling out impostors is never finished. She can eliminate
+      the ones she has thought of, and a candidate is validated rather than
+      confirmed.
+    quiz:
+      - q: What is Haraldsson's favourite impostor?
+        a: Two stars eclipsing, just beside the target
+        wrong:
+          - A planet on an orbit so tilted that it only appears to cross the star's face
+          - A sunspot rotating across the visible face of the target star every few days
+          - An instrument fault that removes exactly one hundredth of the light each hour
+
+  - id: ferrand
+    name: Marie Ferrand
+    role: Characterisation
+    division: CLASS
+    bio: |
+      Puts the two measurements together, which is the only place either of them
+      becomes a planet rather than a signal.
+
+      The wobble gives a mass and the transit gives a size, and neither on its
+      own says what the thing is made of. Their ratio does: mass divided by
+      radius cubed is a density, and a density rules out whole categories of
+      material at once.
+
+      Her limit is that a class is a summary. Naming something a hot Jupiter says
+      four things at once, and quoting the name without the four measurements
+      behind it is a label.
+    quiz:
+      - q: Why does Ferrand insist on both measurements?
+        a: Neither alone says what it is made of
+        wrong:
+          - Because the two instruments have to agree before either result is published
+          - Because the wobble gives the size and the transit gives the mass of the planet
+          - Because a planet cannot be detected at all unless both methods are used together
+
+  - id: queloz
+    name: Didier Queloz
+    role: Data Reduction
+    real: true
+    division: PHOT
+    bio: |
+      Turns raw frames into a light curve, which means removing everything that
+      is about the instrument and the air rather than about the star.
+
+      Cloud, temperature, the detector's own drift and the star's altitude all
+      change the measured brightness by more than a transit does. What survives
+      is a curve where the only thing left is the star.
+
+      His limit is that a correction can remove a real signal as easily as a
+      false one. A transit lasting hours looks a great deal like a slow drift,
+      and the safest corrections are the ones with the fewest free parameters.
+    quiz:
+      - q: What is Queloz's danger when correcting a light curve?
+        a: A correction can remove the transit too
+        wrong:
+          - That the detector will drift further than the correction is able to follow
+          - That cloud will pass over the field during the few hours the transit lasts
+          - That the star will be too low in the sky for the measurement to be attempted
+
+  - id: oduya
+    name: Bakari Oduya
+    role: Programme Scheduler
+    division: FOLLOW
+    bio: |
+      Decides which nights go to which candidate, which is the only genuinely
+      scarce thing in the programme.
+
+      Every follow-up observation is real and would produce a result. What
+      matters is whether the result could come out two ways, and whether the two
+      ways lead somewhere different for this candidate.
+
+      His limit is that the telescope is booked months ahead. A check that would
+      settle a candidate in April is worth nothing to a paper due in February.
+    quiz:
+      - q: How does Oduya choose which follow-up to schedule?
+        a: By whether its answer could go two ways
+        wrong:
+          - By taking whichever observation the largest telescope on the site can perform
+          - By running every available check on each candidate in a fixed standard order
+          - By choosing the observation that takes the fewest nights of telescope time
+
+glossary:
+  - name: Absorption line
+    aliases: [absorption line, absorption lines, spectral line]
+    def: A narrow gap in a star's spectrum where one element has absorbed light.
+  - name: Doppler shift
+    aliases: [doppler shift, doppler, shift in wavelength]
+    def: The change in a wavelength caused by the source moving toward or away.
+  - name: Radial velocity
+    aliases: [radial velocity, reflex velocity, wobble]
+    def: The part of a star's motion along the line of sight to us.
+  - name: Transit
+    aliases: [transit, transits, the dip]
+    def: A planet crossing the face of its star and blocking a little of its light.
+  - name: Light curve
+    aliases: [light curve, brightness record]
+    def: A star's measured brightness plotted against time.
+  - name: Transit depth
+    aliases: [transit depth, depth of the dip, fraction blocked]
+    def: How much of a star's light is lost while the planet crosses it.
+  - name: Eclipsing binary
+    aliases: [eclipsing binary, pair of stars eclipsing]
+    def: Two stars orbiting so that each one passes across the other.
+  - name: Centroid
+    aliases: [centroid, image centroid, centre of the light]
+    def: The measured middle of the light in an image.
+  - name: Inclination
+    aliases: [inclination, tilt of the orbit, edge-on, face-on]
+    def: How much an orbit is tipped relative to our line of sight.
+  - name: Jupiter radius
+    aliases: [jupiter radius, jupiter radii, jupiter mass, jupiter masses]
+    def: The size or mass of Jupiter, used as a convenient unit for big planets.
+
+missions:
+  - title: The wobbling star
+    objective: Establish that something is pulling the star, and how often it goes round.
+    briefing: Twenty nights of spectra, and a shift smaller than any line in them.
+    stake: >-
+      Monday, and there is nothing on the images but an ordinary star. Michel Mayor, the
+      spectrograph lead, has twenty nights of spectra of it, and every one of them shows the
+      whole forest of absorption lines shifted very slightly from the night before —
+      sometimes toward the blue, sometimes toward the red, and back again. Something is
+      pulling that star about and it is not in any picture anybody has. Today you say which
+      way the star is moving when the lines go blue, find how long the pattern takes to
+      repeat, and decide whether the thing pulling it could be another star. Get the last one
+      wrong and the programme spends a year on a binary.
+    takeaway: A wobble is evidence that something is there, and by itself it does not say what.
+    stops:
+      - group: SPEC
+        task: Say which way the star is moving
+        title: Blue means coming
+        place: Spectrograph Room
+        concept: 'A shift to shorter wavelengths means the star is coming toward us'
+        scene: >
+          Mayor has two spectra on the screen. The reference is fixed and the
+          star's whole set of lines sits very slightly to the short-wavelength
+          side of it.
+        guide: >-
+          Four possible motions, and you are choosing the one a shift to shorter wavelengths
+          means. The way to work it out is to think about what happens to a wave when its
+          source moves. Waves arriving from something coming toward you are crowded closer
+          together; waves from something going away are stretched further apart. Then ask
+          which of those is a shorter wavelength.
+        background:
+          - >-
+              How to think about it, on a different example. A siren coming toward you sounds
+              higher than the same siren going away. Higher means the sound waves arrive more
+              often and closer together — a shorter wavelength. Light does exactly the same
+              thing, and shorter wavelength light is nearer the blue end.
+          - >-
+              What is actually moving. The star. Nothing in this measurement sees the planet
+              at all. A star with a companion does not sit still while the companion orbits —
+              both go round their common centre, so the star traces a small circle of its own,
+              and the spectrograph sees the part of that circle pointing toward or away from
+              us.
+          - >-
+              Why the shift is so small. The star is far heavier than anything orbiting it, so
+              its own circle is tiny and its speed along it is a few tens of metres a second.
+              That is a shift of a few parts in ten million in wavelength — far less than the
+              width of any single line, which is why a thousand lines are measured together.
+        assumes:
+          - a wave from an approaching source arrives with a shorter wavelength
+          - two bodies in orbit both move about their common centre
+        takeaway: A blueward shift is the star coming toward us, and the star is the only thing being measured.
+        format: CHOICE
+        question: When the star's lines shift to shorter wavelengths, the star is moving how?
+        choices:
+          - Toward us, which is always what crowded waves mean.
+          - Away from us, at the far end of its orbit.
+          - Sideways, across our line of sight rather than along it.
+          - Not at all, because a wavelength is a property of the light.
+        answer: Toward us, which is always what crowded waves mean.
+        rebuttals:
+          - It is the other way round. Waves from a receding source are stretched to longer wavelengths, which is a shift toward the red.
+          - Motion purely across the line of sight produces no shift at all, so a measured shift is exactly what rules that out.
+          - A shift is a comparison between the observed wavelength and the laboratory one, and it only appears when there is motion along the line of sight.
+        why: >
+          Waves from something approaching arrive crowded together, which is a shorter
+          wavelength — the blue end. Waves from something receding are stretched, which is the
+          red end. So a blueward shift is the star coming toward us. Now be careful about what
+          is moving. Nothing here sees a planet. What is measured is a star being pulled about
+          by something, tracing a small circle of its own, and the shift comes from the part of
+          that circle aimed along our line of sight. The speeds involved are a few tens of
+          metres a second, which is a shift of a few parts in ten million — much less than the
+          width of a single line. That is why a thousand lines are measured at once, and why
+          this was impossible before instruments got very good indeed.
+
+      - group: SPEC
+        task: Find how long the pattern takes to repeat
+        title: Fold it until it lines up
+        place: Spectrograph Room
+        person: true
+        personId: reyes
+        concept: 'A repeating wobble has a period, and folding the data finds it'
+        scene: >
+          Twenty nights of velocities are plotted against date and look like
+          scatter. A control folds the whole record at a trial period, laying
+          every cycle on top of every other.
+        guide: >-
+          One slider and one reading. The slider is the trial period; the reading is how
+          tightly the folded points fall on a single curve. Sweep it and watch. At the right
+          period every cycle lands on top of every other and the scatter collapses; at any
+          other period the points stay spread out. You are looking for the peak.
+        background:
+          - >-
+              How to read a sweep. Move the control in large steps first to see where anything
+              happens, then in small steps through the part that moves. Here almost the whole
+              range is flat, which is itself information: only very particular periods make a
+              scattered record look ordered.
+          - >-
+              What folding means, on a different example. Suppose a shop is busy every Saturday.
+              Plot the takings against the date and it looks noisy. Cut the record into
+              seven-day lengths and lay them on top of each other and the Saturday peak appears
+              in one place. Cut it into six-day lengths instead and the peak smears across the
+              whole width. Seven is the period.
+          - >-
+              Why a wrong period can look almost right. Fold at twice the true period and every
+              cycle still lands on top of another cycle, so the fold is tidy — but it shows two
+              humps instead of one. Fold at half and each cycle lands on top of two, which
+              smears everything. Both of those look better than a random period and worse than
+              the truth, which is why the reading has a clear single peak rather than a step.
+        assumes:
+          - a record can be cut into equal lengths and laid on top of itself
+          - a periodic signal only lines up at its own period
+        takeaway: The period is the one length at which every stretch of the record agrees with every other.
+        format: SWEEP
+        question: >-
+          Fold the record. At what period do the cycles line up?
+        sweep:
+          axis:
+            label: Trial period
+            unit: days
+            min: 1.0
+            max: 12.0
+            step: 0.05
+          readout:
+            label: How tightly the folded points fall on one curve
+            unit: ""
+          baseline: 0.12
+          response:
+            - { at: 1.0, value: 0.10 }
+            - { at: 2.1, value: 0.34 }
+            - { at: 3.0, value: 0.14 }
+            - { at: 4.0, value: 0.42 }
+            - { at: 4.2, value: 0.95 }
+            - { at: 4.4, value: 0.38 }
+            - { at: 6.0, value: 0.11 }
+            - { at: 8.4, value: 0.61 }
+            - { at: 10.0, value: 0.13 }
+            - { at: 12.0, value: 0.12 }
+          target: 4.2
+          tolerance: 0.2
+          start: 12.0
+        answerText: >-
+          About 4.2 days. Twice that folds tidily too and shows two humps instead of one, and
+          half of it smears everything, so neither is the period.
+        why: >
+          The reading is flat across most of the range and then spikes near four and two
+          tenths of a day. That is the period: at that spacing every stretch of the twenty
+          nights lands on top of every other and the scatter collapses into a single clean
+          curve. Two of the other bumps are worth understanding rather than ignoring. Eight
+          and four tenths — twice the true period — folds neatly as well, because every cycle
+          still lands on top of another one, but what appears is two humps rather than one.
+          Two and one tenth, half the period, lays each cycle on top of two and smears them
+          together. Both score better than a random period and worse than the truth, which is
+          exactly why the reading has one sharp peak instead of a plateau.
+
+      - group: FOLLOW
+        task: Decide what is pulling the star
+        title: A planet, or another star
+        place: Validation Room
+        concept: 'Radial velocity alone gives a minimum mass'
+        scene: >
+          Sigrid Haraldsson keeps the list of impostors. Four readings are on her
+          panel. The size of the wobble, the spectrum, the shape of the lines, and
+          how steady the star's brightness is.
+        guide: >-
+          Read every row on the panel, including the ones that report nothing unusual. Each
+          candidate explanation predicts a particular pattern across the four, so the way to
+          choose is to find the one consistent with all of them rather than with the loudest.
+          The rows that look boring are what rule things out.
+        background:
+          - >-
+              How to do it, on a different example. A parcel is on the step, the doorbell did
+              not ring, and the dog did not bark. "A neighbour left it" fits all three. "The
+              postman rang" has to explain a silent doorbell. The rows that reported nothing
+              are doing the work.
+          - >-
+              What each row tells you. The size of the wobble scales with how heavy the
+              companion is: a star pulls its partner about at kilometres a second, not tens of
+              metres. A second star also puts its own set of absorption lines in the spectrum,
+              so seeing only one set is informative. And a star with active, churning surface
+              patches makes its line shapes change as it rotates, which fakes a wobble without
+              anything orbiting at all.
+          - >-
+              Why the answer is still only a minimum. The spectrograph sees the motion along
+              the line of sight, so a heavy companion on an orbit tipped nearly face-on
+              produces the same small reading as a light companion seen edge-on. What comes out
+              is the least the companion can weigh. That is enough to rule a star out and not
+              enough to say what this is.
+        assumes:
+          - a heavier companion pulls its star about faster
+          - two stars in a system each contribute their own absorption lines
+        takeaway: A measurement that sees only part of a motion sets a floor on the cause of it, never the cause itself.
+        format: DIAGNOSIS
+        headline: A wobble of a few tens of metres a second, one set of lines, and nothing else out of the ordinary.
+        task_line: Which explanation fits every row, not just the loud one?
+        readings:
+          - { zone: Velocity, label: Size of the wobble, value: 'tens of metres a second', status: alarm }
+          - { zone: Spectrum, label: Second set of absorption lines, value: none, status: normal }
+          - { zone: Line shapes, label: Change through the cycle, value: none measurable, status: normal }
+          - { zone: Brightness, label: Variation with rotation, value: 'steady', status: normal, note: 'nothing on the surface is turning in and out of view' }
+        choices:
+          - { label: 'Something light, going round it', mechanism: 'Too small to add lines of its own, and too small to pull the star faster than this.' }
+          - { label: 'Another star, going round with it', mechanism: 'Heavy enough to pull the star at kilometres a second, and it would add its own lines.' }
+          - { label: 'Patches on the surface turning in and out of view', mechanism: 'Would change the line shapes and the brightness as the star rotates.' }
+          - { label: 'Nothing at all, and the shift is the instrument', mechanism: 'Would not repeat on a single clean period across twenty nights.' }
+        answer: Something light, going round it
+        why: >
+          Take the rows one at a time. The size of the wobble rules out a second star: a
+          stellar companion pulls its partner about at kilometres a second, not at tens of
+          metres. The absence of a second set of lines rules the same thing out again, from a
+          completely different direction. Steady line shapes and steady brightness rule out
+          churning patches on the star's own surface, which is the impostor that fakes a
+          wobble with nothing orbiting at all. And a clean repeating period across twenty
+          nights rules out the instrument. What is left is something light, orbiting. Now the
+          limit, which matters: the spectrograph only sees motion along the line of sight, so
+          a heavy companion on a nearly face-on orbit gives the same small reading as a light
+          one seen edge-on. This is a floor on the mass. It is not the mass.
+
+  - title: A transit appears
+    objective: Get a size out of a dip, and find out what else makes one.
+    briefing: A month of photometry on the same star, and dips on a schedule.
+    stake: >-
+      A month later, and the survey has been watching the same star every four minutes.
+      David Charbonneau, the survey photometrist, has a light curve that is almost entirely
+      noise with a dip of about a hundredth in it, lasting three hours — and then another
+      one, and another. Didier Queloz, the physicist who turns raw frames into a light curve, has already had to decide
+      how much of the drift to remove without removing the dip. Today you predict when the
+      next dip should fall and go and look, turn its depth into a size, and buy the one
+      follow-up that could show the whole thing is a pair of stars next door. A candidate
+      that is really a blend has cost programmes years.
+    takeaway: A dip has to be predicted before it means anything, and then defended against the things that fake it.
+    stops:
+      - group: PHOT
+        task: Predict the next dip, then look
+        title: Say when, then find out
+        place: Survey Photometry
+        concept: 'Two independent methods agreeing on one period is the strong part'
+        scene: >
+          Charbonneau has dips at days 2.0, 6.2, 10.4 and 14.6, and the frames for
+          day 18 are on tape and not yet reduced. The spectrograph's period is
+          pinned to the wall beside them.
+        guide: >-
+          Set a number, then find out. The number is the day the next dip should fall on. Work
+          out the spacing between the dips you already have, add it to the last one, and lock
+          that in. Then pay for the reduction of the day-18 frames and see whether the dip is
+          where you said it would be. A prediction that could have been wrong is the only kind
+          worth making.
+        background:
+          - >-
+              How to do it, on a different example. Buses logged at 9:05, 9:23, 9:41 and 9:59.
+              The spacing is eighteen minutes every time, so the next is 10:17. Take the
+              difference between successive events, check the difference is the same each time,
+              and add it to the last one.
+          - >-
+              Why this is a stronger test than finding the dips at all. Four dips on a regular
+              spacing could be a coincidence of how the observations were scheduled. A fifth
+              dip arriving where you said it would, in data nobody had looked at, could not.
+          - >-
+              And the part that makes it very strong indeed. The spectrograph and the
+              photometer share no instrument, no detector and no site. One measures a shift in
+              wavelength and the other measures a quantity of light. Two measurements with
+              nothing in common landing on the same period is not the kind of thing a fault
+              does.
+          - >-
+              Why the reduction has to be paid for. Raw frames are not a light curve. Cloud,
+              temperature and the detector's own drift all change the brightness by more than
+              a transit does, and removing them is careful work — with the standing danger that
+              a correction with enough freedom will remove a three-hour dip as happily as a
+              three-hour drift.
+        assumes:
+          - events on a regular spacing can be extrapolated forward
+          - two instruments sharing nothing are unlikely to share a fault
+        takeaway: A prediction that lands in data nobody had looked at is worth more than any number of dips already seen.
+        format: VERIFY
+        question: >-
+          Predict the day the next dip falls on, reduce the frames, and report where it was.
+        verify:
+          hint: >-
+            Lock the prediction before the frames are reduced. Nothing about it can change
+            afterwards, which is the point of making it first.
+          prediction: { label: Day the next dip should fall on, unit: days, min: 15.0, max: 24.0, step: 0.1 }
+          truth: 18.8
+          passRatio: [0.97, 1.03]
+          intervention:
+            label: Reduce the day-18 frames
+            note: 'Cloud, temperature and detector drift removed with the low-freedom correction.'
+            outcome: The curve comes out clean. There is a dip in it, three hours long and about a hundredth deep.
+          measurement:
+            label: Fit the dip and read off its centre
+            note: 'Centre measured against the survey clock, to a few minutes.'
+            cost: 2
+            costUnit: nights of processing
+          unmeasuredMoral: >-
+            Reducing the frames and seeing that there is a dip establishes that the star dipped
+            again. Until its centre is measured, nothing has been tested — the prediction was
+            about when.
+          commit: Report the centre
+        answerText: >-
+          Day 18.8. The four known dips are 4.2 days apart, and 14.6 plus 4.2 is 18.8 — the
+          same period the spectrograph found from something else entirely.
+        why: >
+          The spacing between the known dips is the same every time: 6.2 minus 2.0 is 4.2,
+          10.4 minus 6.2 is 4.2, and so on. Add it to the last one and the next dip is due on
+          day 18.8, which is where it is. Two things make this the strongest stop in the game
+          so far. The prediction was made about data nobody had reduced, so it could have been
+          wrong, and four dips on a regular spacing could always have been an accident of the
+          observing schedule while a fifth arriving on cue could not. And the period matches
+          the spectrograph's to within the precision of both. Those two instruments share no
+          detector, no site and no systematic — one measures a wavelength shift and the other
+          measures a quantity of light. A fault does not do that.
+
+      - group: PHOT
+        task: Turn the depth into a size
+        title: A hundredth of the light
+        place: Survey Photometry
+        concept: 'Transit depth is an area ratio, so the radius is its square root'
+        scene: >
+          Queloz has the folded transit on the screen: a flat-bottomed dip
+          about a hundredth deep. Beside it is a schematic of a small dark disc
+          crossing a large bright one.
+        guide: >-
+          This is one multiplication. A dark disc crossing a bright one blocks light in
+          proportion to the area it covers, and area goes as the radius multiplied by itself.
+          So take the radius ratio on the bench and multiply it by itself, and what comes out
+          is the fraction of the light lost. The other tiles are real numbers about this
+          system and none of them belongs in the sum.
+        background:
+          - >-
+              How to do it, on a different example. A disc a fifth of the star's radius: a
+              fifth times a fifth is a twenty-fifth, so it blocks four per cent of the light.
+              Notice how much smaller the blocked fraction is than the size ratio. That is the
+              squaring, and it is why very small planets are very hard to see.
+          - >-
+              Why the depth is the *area* ratio. What the photometer measures is how much light
+              is missing, and light comes from an area of stellar surface. The planet hides a
+              circle whose area goes as its radius squared, out of a disc whose area goes as
+              the star's radius squared, so the fraction is the ratio squared.
+          - >-
+              How this is used in practice, which is backwards from the sum below. The depth is
+              what gets measured and the size is what is wanted, so the working runs the other
+              way: take the square root of the depth to get the radius ratio, then multiply by
+              the star's known radius. A hundredth has a square root of a tenth.
+          - >-
+              And why the bottom of the dip is flat. Once the planet is entirely inside the
+              star's disc it is hiding the same area however far across it has got, so the
+              brightness stops changing until it starts to leave. A dip with a pointed bottom
+              is something else.
+        assumes:
+          - light lost is proportional to the area of surface hidden
+          - the area of a circle goes as the square of its radius
+        takeaway: Depth is the radius ratio squared, so a planet a tenth the star's size blocks a hundredth of its light.
+        format: BALLPARK
+        question: What fraction of the star's light does the planet block?
+        estimate:
+          prompt: >-
+            The folded transit is on the screen and Queloz wants the depth checked against
+            the size before either goes in the file.
+          question: What fraction of the star's light does the planet block?
+          relationship: The transit depth is the radius ratio multiplied by itself, because the light lost goes as the area hidden and area goes as radius squared.
+          labels:
+            - 0.10  (planet radius divided by star radius)
+            - 4.2 days  (the orbital period)
+            - 1.0  (the star's radius, in solar radii)
+            - 9.7  (Jupiter radii in one solar radius)
+          values: [0.10, 4.2, 1.0, 9.7]
+          slots: 1
+          template: '{0} × {0}'
+          formula: a*a
+          correct: [0]
+          target: 0.01
+          tolerance: 0.002
+          units: of the star's light
+          solution: A tenth times a tenth is a hundredth, so the planet blocks about one per cent of the light.
+          explanation: The period and the conversion to Jupiter radii are both needed later and neither is part of this sum. Squaring is the whole of it.
+        why: >
+          A tenth times a tenth is a hundredth, so a planet one tenth of the star's radius
+          blocks about one per cent of its light. The squaring is the point and it cuts both
+          ways. It means a modest-sized planet makes a very small dip, which is why this
+          measurement needs a photometer good to a fraction of a per cent. And it means the
+          arithmetic run backwards is forgiving: the depth is what is measured, its square
+          root is the radius ratio, and a hundredth has a square root of a tenth. Multiply
+          that by this star's radius and the planet comes out roughly the size of Jupiter.
+          One more thing worth noticing on the screen. The bottom of the dip is flat, because
+          once the planet is wholly inside the star's disc it hides the same area however far
+          across it has travelled. A dip with a pointed bottom is not a planet.
+
+      - group: FOLLOW
+        task: Buy the check that could kill it
+        title: The light that comes from next door
+        place: Validation Room
+        person: true
+        personId: haraldsson
+        concept: 'A blend can imitate a transit, and the test is where the light moves'
+        scene: >
+          Haraldsson has four possible follow-ups written up and three nights of
+          telescope time. Bakari Oduya, the programme scheduler, will book
+          whichever is asked for and nothing else this season.
+        guide: >-
+          Three nights, and four things you could go and measure. Everything here would come
+          back with a real result. What separates them is whether the result could come out
+          two ways, and whether the two ways lead somewhere different for this candidate. Buy
+          the check whose answer could kill it.
+        background:
+          - >-
+              What the impostor is. A pair of stars eclipsing each other a couple of seconds of
+              arc away from the target, blurred into the same measurement. A deep eclipse,
+              diluted by all the target's own light, arrives as a shallow dip of exactly the
+              depth a planet makes, on a perfectly regular schedule. Nothing in the light curve
+              distinguishes them.
+          - >-
+              How to think about which check to buy, on a different example. A shop's till is
+              short every Tuesday. Counting the till again more carefully tells you the same
+              thing more precisely. Checking which member of staff worked Tuesdays could come
+              out two ways and the two ways lead somewhere different. Precision is not the same
+              as decisiveness.
+          - >-
+              What the decisive measurement is here. If the light being lost comes from the
+              neighbour rather than the target, then the measured middle of the light in the
+              image shifts very slightly away from the neighbour during the dip. That is a
+              measurement of position rather than of brightness, and it is the one thing a
+              blend cannot fake.
+          - >-
+              And why more of the same is the trap. Another month of photometry measures the
+              depth and the period better and cannot tell you where in the image the light went.
+              A perfectly good measurement of the wrong quantity is the commonest way a
+              programme wastes a season.
+        assumes:
+          - a measurement is worth what it changes, not what it costs
+          - two nearby stars can be blurred into one measurement by the instrument
+        takeaway: A check earns its nights when its result could come out two ways that lead somewhere different.
+        format: VALUE
+        question: >-
+          Three nights of telescope time. Buy the check that could show this is not a planet.
+        value:
+          hint: >-
+            Everything here would come back with a real result. The question is which of them
+            could come back two ways.
+          budget: { amount: 3, unit: nights }
+          decision: Whether the dip is a planet or a pair of stars blended in from next door
+          options:
+            - { id: centroid, label: 'Measure where the light sits in the image during the dip', cost: 2, axis: 'where in the image the light is lost', decisive: true, reveals: 'The middle of the light moves by a few thousandths of a pixel, away from the neighbour.' }
+            - { id: morephot, label: 'Another month of photometry on the same star', cost: 3, axis: 'how deep and how regular the dip is', reveals: 'Seven more dips, same depth, same spacing, measured better than before.' }
+            - { id: spectra, label: 'Twenty more spectra to tighten the wobble', cost: 2, axis: 'how heavy the companion is', reveals: 'The same minimum mass as before, to a tighter uncertainty.' }
+            - { id: catalogue, label: 'Look up the field in an existing star catalogue', cost: 1, axis: 'what else is nearby on the sky', reveals: 'There is a faint star two seconds of arc away, as there is beside most stars.' }
+          commit: Book the nights
+        answerText: >-
+          Measure where the light sits in the image during the dip. It is the only check whose
+          answer could come out two ways, and the two ways are planet and blend.
+        why: >
+          Ask of each option what a result would force. Measuring the position of the light
+          during the dip could come out two ways: if the light is being lost from the target,
+          the middle of the image barely moves, and if it is being lost from the neighbour,
+          the middle shifts away from it. Either answer settles the candidate. Now the others.
+          Another month of photometry measures the depth and the period better than anybody
+          needs, and cannot say where in the image the light went — it is a careful measurement
+          of the wrong quantity, which is the commonest way a season is wasted. More spectra
+          tighten a minimum mass that was never in dispute. And the catalogue tells you there
+          is a neighbour, which is true beside almost every star and settles nothing either
+          way. Only one of these four has an answer that moves the candidate.
+
+  - title: Characterise the world
+    objective: Put the two measurements together, remove the tilt, and say what this is.
+    briefing: A mass, a radius, and a name that has to be earned.
+    stake: >-
+      The last week, and both measurements are on the desk of Marie Ferrand, the physicist who does the characterisation. The wobble gives at
+      least half of Jupiter's mass; the transit gives a radius a little larger than Jupiter's.
+      Ferrand, who does the characterisation, will not put a class on the file until the tilt
+      of the orbit has been dealt with, because the wobble on its own never gave a mass at
+      all. Today you work out how tightly the thing is packed, find out what the transit tells
+      you about the tilt, and name what this is. The name goes on the discovery paper and gets
+      quoted without any of the four measurements behind it.
+    takeaway: A class is a summary of several measurements, and the summary is only as good as the measurements in it.
+    stops:
+      - group: CLASS
+        task: Work out how tightly it is packed
+        title: Half the mass and more of the size
+        place: Characterisation Desk
+        concept: 'Mass over radius cubed is a density, and density says what it is made of'
+        scene: >
+          Ferrand has the two numbers in Jupiter units: about half of Jupiter's
+          mass, and a radius about one and two tenths of Jupiter's. Nothing has
+          been said yet about what it is made of.
+        guide: >-
+          This is a division after a cube. Volume goes as the radius multiplied by itself
+          three times, so take the radius, cube it, and divide the mass by the answer. What
+          comes out is how tightly the material is packed, in units of Jupiter's own packing.
+          The other tiles are real numbers about this system and neither belongs in the sum.
+        background:
+          - >-
+              How to do it, on a different example. A planet with twice Jupiter's mass and
+              twice its radius. Two cubed is eight, and two divided by eight is a quarter — so
+              it is four times less tightly packed than Jupiter despite being far heavier.
+              Cube first, then divide.
+          - >-
+              Why the cube. Density is mass divided by volume, and a volume goes as the cube of
+              a length. That makes density very sensitive to size: a ten per cent larger radius
+              is a third more volume, and the same mass in it is a third less tightly packed.
+          - >-
+              What a density rules out. Rock is roughly four times as tightly packed as Jupiter
+              and iron nearly ten times. So anything that comes out below Jupiter cannot be a
+              rocky planet however heavy it is, because there is no rock light enough for that
+              size. Density does not tell you what something is; it tells you what it cannot be.
+          - >-
+              And why a planet can be less dense than Jupiter at all. A gas planet very close
+              to its star is heated hard from outside, and heated gas takes up more room. That
+              is a whole category of object, and its size is a measurement of something being
+              done to it rather than only of what it contains.
+        assumes:
+          - volume goes as the cube of a radius
+          - rock and iron are far more tightly packed than a gas planet
+        takeaway: A mass and a size become a density, and a density rules out whole categories of material at once.
+        format: BALLPARK
+        question: How tightly is this planet packed, compared with Jupiter?
+        estimate:
+          prompt: >-
+            Ferrand will not write a class on the file until there is a density beside the mass
+            and the radius.
+          question: How tightly is this planet packed, compared with Jupiter?
+          relationship: The density in Jupiter units is the mass in Jupiter masses divided by the radius in Jupiter radii cubed.
+          labels:
+            - 0.5  (the mass, in Jupiter masses)
+            - 1.2  (the radius, in Jupiter radii)
+            - 4.2  (the orbital period, in days)
+            - 0.01  (the fraction of light the transit blocks)
+          values: [0.5, 1.2, 4.2, 0.01]
+          slots: 2
+          template: '{0} ÷ ({1} × {1} × {1})'
+          formula: a/(b*b*b)
+          correct: [0, 1]
+          target: 0.29
+          tolerance: 0.04
+          units: times Jupiter's density
+          solution: One and two tenths cubed is about 1.73, and half divided by 1.73 is about 0.29 — a little over a quarter of Jupiter's density.
+          explanation: The period and the depth are both on the file for other reasons, and neither is part of a density.
+        why: >
+          Cube the radius first: one and two tenths multiplied by itself three times is about
+          one and three quarters. Half divided by that is about 0.29, so this planet is packed
+          a little over a quarter as tightly as Jupiter. Read what that excludes. Rock is
+          roughly four times Jupiter's density and iron nearly ten, so nothing rocky can be
+          this light for this size — there is no such rock. So it is a gas planet, and a
+          notably puffy one. And that last part is a measurement of something being done to
+          it: a gas planet very close to its star is heated hard from outside, heated gas takes
+          up more room, and a radius larger than Jupiter's on half the mass is what that looks
+          like from a great distance.
+
+      - group: CLASS
+        task: Get the tilt out of the way
+        title: Two unknowns, and one of them removed
+        place: Characterisation Desk
+        concept: 'One observable across two unknowns leaves a family, and a transit fixes the tilt'
+        scene: >
+          The wobble is on one screen with two dials under it: how heavy the
+          companion is, and how far the orbit is tipped. The transit result is on
+          a second screen and has not been brought across.
+        guide: >-
+          Both dials change the model and only one number is being matched. Work them against
+          each other until the wobble agrees, then look at what else agrees just as well. When
+          you have seen the family, bring the transit result over and report where the two of
+          them cross.
+        background:
+          - >-
+              What the wobble depends on. Two things: how heavy the companion is, and how much
+              the orbit is tipped out of edge-on. A heavy companion on a nearly face-on orbit
+              barely moves the star along our line of sight, and a light one seen edge-on moves
+              it just as little. The measurement cannot separate them.
+          - >-
+              Why that is a family rather than a bad measurement. Every trade between mass and
+              tilt reproduces the same wobble exactly, so measuring the wobble more precisely
+              slides along the same curve instead of narrowing it. A hundred more nights would
+              give the same family, more tightly drawn.
+          - >-
+              What the transit does. A planet only crosses the face of its star if the orbit is
+              very nearly edge-on — within a few degrees, for an orbit this size. So the
+              existence of a transit fixes the tilt directly, without reference to the mass,
+              and its curve runs across the family instead of along it.
+          - >-
+              And the honest footnote. Most planets found by the wobble never transit, because
+              most orbits are not lined up with us. Those keep their minimum mass for ever, and
+              the ones that transit are a lucky minority rather than the normal case.
+        assumes:
+          - the wobble depends on both the companion mass and the tilt of the orbit
+          - a transit only happens for an orbit seen nearly edge-on
+        takeaway: One observable across two unknowns fixes a family, and a second measurement of different geometry picks a member of it.
+        format: DEGENERACY
+        question: >-
+          Match the wobble, then say how heavy the companion is.
+        degeneracy:
+          hint: >-
+            Both dials move the model. The match to the wobble is the number to watch, and it
+            will not be the last word.
+          observable: { label: Size of the measured wobble }
+          controls:
+            - { id: mass, label: Companion mass, min: 0.4, max: 3.2, step: 0.1, unit: Jupiter masses }
+            - { id: tilt, label: Tilt away from edge-on, min: 0, max: 80, step: 1, unit: degrees }
+          locus:
+            - { a: 0.5, b: 0 }
+            - { a: 0.6, b: 34 }
+            - { a: 0.8, b: 51 }
+            - { a: 1.2, b: 65 }
+            - { a: 2.0, b: 75 }
+            - { a: 3.0, b: 80 }
+          second:
+            label: The transit, which only happens for an orbit seen nearly edge-on
+            apply: Bring the transit result over
+            locus:
+              - { a: 0.5, b: 2 }
+              - { a: 1.2, b: 2 }
+              - { a: 2.2, b: 2 }
+              - { a: 3.0, b: 2 }
+          truth: { a: 0.5, b: 2 }
+          tolerance: { a: 0.15, b: 6 }
+          still: [what the atmosphere is made of, whether the orbit is circular]
+          commit: Report the mass
+        answerText: >-
+          About half of Jupiter's mass, on an orbit within a couple of degrees of edge-on — and
+          that is a mass now rather than a floor, because the transit fixed the tilt.
+        why: >
+          The wobble depends on a product: a heavier companion pulls harder, and a more tilted
+          orbit hides more of that pull from our line of sight. So half a Jupiter seen edge-on
+          and three Jupiters seen at eighty degrees give the same reading, and so does
+          everything in between. Every point on that curve fits the measurement exactly, which
+          is why more spectra do not help — they slide along the family instead of shrinking
+          it. The transit breaks it because a planet only crosses the face of its star if the
+          orbit is nearly edge-on, and that is a statement about the tilt alone. Its curve runs
+          across the family rather than along it, and where they cross the mass is fixed. And
+          the footnote is not small: most planets found this way never transit, so most of them
+          keep a minimum mass for ever.
+
+      - group: CLASS
+        task: Say what this is
+        title: Four measurements and one name
+        place: Characterisation Desk
+        concept: 'A class is a summary of several measurements at once'
+        scene: >
+          Everything is on one sheet: a period of four and two tenths of a day,
+          about half of Jupiter's mass, a radius larger than Jupiter's, and an
+          ordinary Sun-like star. Ferrand wants a class on it.
+        guide: >-
+          Four possible names, and you are choosing the one this sheet supports. Test each one
+          against the four measurements rather than against how it sounds. For each name, ask
+          which measurement contradicts it — the period, the mass, the radius or the star.
+          Three of the four are contradicted by something on the sheet, and being able to say
+          which is the answer.
+        background:
+          - >-
+              How to do it, on a different example. Four descriptions of an animal and three
+              facts: it weighs forty kilograms, it has hooves, it lives in water. Go fact by
+              fact and see which descriptions each one kills, rather than deciding which
+              animal sounds likely. What survives is what nothing excludes.
+          - >-
+              What each measurement contributes. The period says how close in it orbits — four
+              days round a Sun-like star is a small fraction of the distance from the Sun to
+              Mercury. The wobble with the transit gives the mass. The depth gives the radius.
+              And the star type sets how much heat is falling on it.
+          - >-
+              What the four together add up to. A gas planet about Jupiter's size, less than
+              half as tightly packed, going round a Sun-like star in four days. Very close in
+              means very hot, and heated gas is puffy, which is exactly the radius that was
+              measured. The four facts explain each other.
+          - >-
+              And what is still open, which the paper has to say. Nothing here measures what
+              the atmosphere is made of, or whether the orbit is circular, or how it got that
+              close to its star. The next measurement is watching the star's light shine
+              through the planet's atmosphere during a transit, and that is somebody else's
+              programme.
+        assumes:
+          - a class is a claim about several quantities at the same time
+          - a planet very close to its star is heated hard from outside
+        takeaway: A name earns its place when every measurement on the sheet supports it and one of them would have killed each alternative.
+        format: CHOICE
+        question: What is this planet best described as?
+        choices:
+          - A hot Jupiter.
+          - An Earth analogue, of about the same size and temperature as our own planet.
+          - An ice giant, orbiting a long way out where it is extremely cold.
+          - A free-floating planet, not bound to any star at all.
+        answer: A hot Jupiter.
+        rebuttals:
+          - The radius is about ten times Earth's and the mass more than a hundred times, so the size measurement kills this before the temperature is even considered.
+          - An ice giant far out would have a period of decades. This one goes round in four days, so the period kills it.
+          - A free-floating planet has no star to orbit and no star to transit. Both of this candidate's measurements are of a star being affected by it.
+        why: >
+          Go measurement by measurement. The period of four days puts it very close to its
+          star, which kills the ice giant on its own — anything far out has a period of years
+          or decades. The mass and radius are Jupiter-scale, which kills the Earth analogue by
+          a factor of ten in size and a hundred in mass. And both of the detections are of a
+          star being pulled about and dimmed, which kills the free-floating planet outright.
+          What survives is a gas planet about Jupiter's size, orbiting a Sun-like star in four
+          days: a hot Jupiter. Notice that the four measurements also explain each other. Very
+          close in means very hot, heated gas takes up more room, and a radius larger than
+          Jupiter's on half its mass is what that looks like. And say what is not on the sheet:
+          nothing here measures the atmosphere, or whether the orbit is round, or how a planet
+          that size arrived that close. Those are the next three papers.
+
+warmups:
+  greet:
+    title: Six people, two instruments, one star
+    why: >-
+      Nothing in this programme is measured by one person, and the two halves of the result
+      come off different machines. The spectra, the reduction, the photometry, the validation
+      and the characterisation are five different desks. Put a name to as many of them as you
+      can before the week starts.
+  trial-near:
+    title: Walk the floor before the tape is loaded
+    why: >-
+      The spectrograph room and the characterisation desk are down one side and photometry and
+      the validation room are down the other. Walk it once now. Michel Mayor, the spectrograph
+      lead, would rather you knew the way than went looking for the validation room with three
+      nights of telescope time to book.
+  follow:
+    title: Queloz carries a night of frames from the tape room to the light curve
+    why: >-
+      Raw frames are corrected for cloud, for temperature and for the detector's own drift,
+      and a correction with too much freedom removes a three-hour transit as happily as a
+      three-hour drift. Didier Queloz is the physicist who turns raw frames into a light
+      curve, and she walks one night's worth all the way through. Stay with her and watch
+      what is taken out.
+
+interiors:
+  SPEC:
+    caption: The star is what moves. The planet is what has to be there.
+    standLine: A thousand absorption lines, measured together, shifting by parts in ten million.
+    station:
+      kind: plot
+      title: Velocity, folded
+      note: collapses at one period only
+      axes: { x: phase of the orbit, y: velocity along the line of sight }
+      curves:
+        - { points: [[0.0, 0.5], [0.15, 0.86], [0.3, 0.95], [0.5, 0.5], [0.7, 0.08], [0.85, 0.14], [1.0, 0.5]], label: folded at 4.2 days }
+  PHOT:
+    caption: One dip is a description. A predicted dip is a test.
+    standLine: Brightness every four minutes for a month, and a dip a hundredth deep.
+    station:
+      kind: plot
+      title: Light curve, folded
+      note: flat bottom, three hours wide
+      axes: { x: hours from the middle of the dip, y: brightness }
+      curves:
+        - { points: [[0.0, 0.95], [0.35, 0.95], [0.42, 0.62], [0.58, 0.62], [0.65, 0.95], [1.0, 0.95]], label: measured }
+  FOLLOW:
+    caption: A perfectly good measurement of the wrong quantity wastes a season.
+    standLine: Four things that make a dip of exactly this depth, and one of them is a planet.
+    station:
+      kind: panel
+      title: Candidate
+      rows:
+        - { label: Period agrees, value: 'both methods', status: normal }
+        - { label: Second set of lines, value: none, status: normal }
+        - { label: Neighbour on the sky, value: 2 arcsec away, status: alarm }
+        - { label: Centroid during the dip, value: not measured, status: low }
+  CLASS:
+    caption: A class is four measurements at once, or it is a label.
+    standLine: A mass, a radius, a tilt, and a star.
+    station:
+      kind: panel
+      title: Planet passport
+      rows:
+        - { label: Period, value: 4.2 days, status: normal }
+        - { label: Mass, value: 0.5 Jupiter, status: normal }
+        - { label: Radius, value: 1.2 Jupiter, status: high }
+        - { label: Atmosphere, value: not measured, status: low }
+
+copy:
+  SPEC: <p>The spectrograph room, first door on the west side. Two screens, a reference spectrum on one and the star on the other, and a rack of twenty nights on tape.</p>
+  PHOT: <p>The survey photometry room, across the corridor. A month of frames on one wall as a single long light curve, and the reduction terminals in a row beneath it.</p>
+  FOLLOW: <p>The validation room, further down the east side. A list of impostors pinned up, the telescope schedule beside it, and four follow-up proposals nobody has costed yet.</p>
+  CLASS: <p>The characterisation desk at the far end of the west side. One sheet per candidate, a density gauge drawn on the wall, and no instrument in the room at all.</p>
+  PORCH: <p>The entrance desk. A signing-in book, the observing rota, and a clock still set to the mountain the telescope is on.</p>
+  TEA: <p>The coffee area halfway down the west side. A kettle, six chairs, and the weather from the summit printed out every hour.</p>
+  DARK: <p>The tape room, next to photometry. A month of raw frames in cartridges, ordered by night, and the drive that reads them.</p>
+  RACK: <p>The store at the end of the west side. Spare drives, calibration lamps, and the crate the new detector came in.</p>
+  LIB: <p>The reading room at the far end. Catalogues, finding charts, and the only chair with a lamp beside it.</p>

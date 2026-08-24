@@ -19,7 +19,7 @@
 // piles, the drifts, the flag lines and the fuel, not by the roofs.
 
 import * as THREE from 'three';
-import { MATERIALS, box, cyl, crateStack, scooter, vehicle } from '../../engine/world/kit.js';
+import { MATERIALS, box, cyl, crateStack, vehicle, clearSpot } from '../../engine/world/kit.js';
 import { driveable } from '../../engine/world/driving.js';
 // The world's decorate context does not carry the site, and the piles and
 // drifts are placed off the same numbers the buildings are.
@@ -324,7 +324,7 @@ export function decorate(scene, ctx){
     box(blade, 0.18, 0.18, 1.6, 1.1, 1.0, -2.6, steel);
     v.group.add(blade);
     return driveable(scene, v.group, {
-      id: opts.id, label: opts.label ?? 'snow tractor',
+      id: opts.id, label: opts.label ?? 'snow tractor', kind: 'tractor',
       halfWidth: 1.4, halfLength: 3.4, height: 3.0,
       seat: { x: 0.48, y: 2.16, z: v.cabZ },
       // Slower than a truck on a road: a blade in snow is a load, and the
@@ -398,9 +398,31 @@ export function decorate(scene, ctx){
   crateStack(scene, 12, -52, at(12, -52), { count: 4 });
 
   // Skidoos: the only way anybody gets to the stake array and back in a day.
-  scooter(scene, -14, 30, at(-14, 30), { facing: 0.4, colour: 0xc4452f });
-  scooter(scene, -11, 30, at(-11, 30), { facing: 0.4, colour: 0x2f6f9f });
-  scooter(scene, 70, 24, at(70, 24), { facing: -1.4, colour: 0xc4452f });
+  //
+  // These were three `kit.scooter` calls — kick scooters, on a polar plateau,
+  // under a comment calling them skidoos, and none of them takeable. The comment
+  // was right about what the camp needs and the geometry was a city pavement.
+  const skidoos = [
+    { at: { x: -14, z: 30 }, facing: 0.4, colour: 0xc4452f, id: 'skidoo-camp', label: 'skidoo' },
+    { at: { x: -11, z: 30 }, facing: 0.4, colour: 0x2f6f9f, id: 'skidoo-spare', label: 'skidoo' },
+    { at: { x: 70, z: 24 }, facing: -1.4, colour: 0xc4452f, id: 'skidoo-array', label: 'array skidoo' },
+  ];
+  let prev = null;
+  for(const d of skidoos){
+    const spot = clearSpot(d.at, ctx.blocked, {
+      pad: 1.4, step: 1.8,
+      avoid: [{ x: 0, z: 44, r: 12 }, ...(prev ? [prev] : [])],
+    });
+    const m = skidoo(scene, spot.x, spot.z, at(spot.x, spot.z),
+      { facing: d.facing, colour: d.colour });
+    driveable(scene, m.group, {
+      ...SKIDOO_DRIVE,
+      id: d.id, label: d.label, kind: 'skidoo', verb: 'Ride',
+      steer: m.steer, wheels: [],
+      colliders, interactables,
+    });
+    prev = { x: spot.x, z: spot.z, r: 2.6 };
+  }
 
   // The mast, at the head of the array, and a second one by the hut.
   metMast(scene, 96, 20, at(96, 20), 10);
@@ -449,6 +471,81 @@ export function decorate(scene, ctx){
   plow(-84, 34, { facing: -Math.PI / 2, colour: 0xb8452c, id: 'plow-skiway', label: 'skiway groomer' });
   plow(52, 22, { facing: Math.PI / 2, colour: 0xc9a52a, id: 'plow-array', label: 'stake-array tractor' });
 }
+
+/**
+ * A skidoo — a track at the back, two skis at the front, and a handlebar.
+ *
+ * The second kind of transport this camp has, and the one it could not do
+ * without: the snow tractors groom, at eight metres a second with a blade on
+ * the front, and the stake array is a hundred metres out with a met mast on the
+ * end of it. Nobody grooms their way to a stake.
+ *
+ * It carries no wheels, which is the one thing about it `driveable` has to be
+ * told: a track does not roll and a spinning ski is worse than a still one. The
+ * skis and the bar are the `steer` group, so the machine visibly points where
+ * it is about to go — on a white plateau with no landmarks that is the only
+ * heading reference there is.
+ */
+function skidoo(scene, x, z, y = 0, { facing = 0, colour = 0xc4452f } = {}){
+  const g = new THREE.Group();
+  const paint = MATERIALS.paintedSteel(colour);
+  const dark = MATERIALS.paintedSteel(0x23272b);
+
+  // The track: a long low box on the ground, with a return roller at each end.
+  box(g, 0.50, 0.22, 1.90, 0, 0.11, 0.52, MATERIALS.rubber());
+  for(const tz of [-0.34, 1.38]){
+    // `cyl` adds to whatever it is handed, so hand it the group. Laid on its
+    // side by the z rotation, which puts the roller's axis across the machine.
+    const roll = cyl(g, 0.14, 0.52, 0, 0.14, tz, dark);
+    roll.rotation.z = Math.PI / 2;
+  }
+  box(g, 0.62, 0.30, 1.60, 0, 0.38, 0.50, dark);            // tunnel over the track
+  box(g, 0.66, 0.34, 0.86, 0, 0.68, 0.62, MATERIALS.paintedSteel(0x1a1c1f));   // seat
+  box(g, 0.74, 0.46, 0.90, 0, 0.62, -0.34, paint);          // cowl over the engine
+  box(g, 0.80, 0.10, 0.70, 0, 0.90, -0.24, paint);          // hood
+  // The windscreen, which is the part that reads as a skidoo from any distance.
+  const screen = box(g, 0.62, 0.34, 0.04, 0, 1.10, -0.02, MATERIALS.glass());
+  screen.rotation.x = -0.42;
+  for(const s of [-1, 1]) box(g, 0.10, 0.06, 0.70, s * 0.36, 0.44, 0.50, dark);   // running boards
+
+  const steer = new THREE.Group();
+  steer.position.set(0, 0, -0.62);
+  for(const s of [-1, 1]){
+    // A ski: a flat blade with the tip turned up, and a spindle down to it.
+    box(steer, 0.16, 0.05, 1.10, s * 0.38, 0.05, -0.10, paint);
+    const tip = box(steer, 0.16, 0.05, 0.24, s * 0.38, 0.11, -0.72, paint);
+    tip.rotation.x = -0.55;
+    box(steer, 0.06, 0.34, 0.06, s * 0.38, 0.25, -0.10, dark);
+  }
+  box(steer, 0.07, 0.62, 0.07, 0, 0.78, 0.10, dark);        // column
+  box(steer, 0.66, 0.04, 0.04, 0, 1.09, 0.06, dark);        // bar
+  for(const s of [-1, 1]) box(steer, 0.11, 0.05, 0.05, s * 0.26, 1.09, 0.06, MATERIALS.rubber());
+  // A headlamp, because half of a polar season is dark and this is the only
+  // vehicle here small enough not to carry a light bar.
+  box(steer, 0.22, 0.10, 0.08, 0, 0.92, -0.18, MATERIALS.emissive(0xffe9b8, 0.5));
+  g.add(steer);
+
+  g.position.set(x, y, z);
+  g.rotation.y = facing;
+  scene.add(g);
+  g.traverse(o => { if(o.isMesh) o.castShadow = true; });
+  return { group: g, steer };
+}
+
+/** How a skidoo handles: quick away, and it slides rather than grips. */
+const SKIDOO_DRIVE = {
+  halfWidth: 0.55, halfLength: 1.55, height: 1.25, clearance: 0.30,
+  seat: { x: 0, y: 1.48, z: 0.55 },
+  steerAxis: 'y', steerAmount: 0.40,
+  // No wheels to spin, so the radius is never read; stated so nothing divides
+  // travel by a default meant for a truck's tyre.
+  wheelRadius: 0,
+  topSpeed: 14, sprint: 1.25,
+  accel: 8.5, brake: 4.5, reverseAccel: 1.6, coastDrag: 1.4, driveDrag: 0.6,
+  // Lower grip than anything on wheels: it is a track on snow.
+  turn: 1.6, gripAt: 3.2, reverseFrac: 0.12, lean: 0.14,
+  hint: 'W/S throttle · A/D steer · Shift faster · E — get off',
+};
 
 /** Fit out one room. `bounds` gives the room's inner/outer faces and centre. */
 export function fitOutRoom(room, ctx){

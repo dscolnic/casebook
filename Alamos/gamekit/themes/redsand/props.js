@@ -28,7 +28,7 @@
 // silhouette here is the plant rather than the housing.
 
 import * as THREE from 'three';
-import { MATERIALS, box, cyl, crateStack, tank, pipeRun, vehicle } from '../../engine/world/kit.js';
+import { MATERIALS, box, cyl, crateStack, tank, pipeRun, vehicle, clearSpot } from '../../engine/world/kit.js';
 import { driveable } from '../../engine/world/driving.js';
 // The world's decorate context does not carry the site, and the berms are
 // placed off the same numbers the buildings are.
@@ -565,7 +565,7 @@ function phobos(scene, x, y, z){
  * they are positioned off the same numbers.
  */
 export function decorate(scene, ctx){
-  const { groundHeight, colliders, softColliders, interactables, stateHooks } = ctx;
+  const { groundHeight, colliders, softColliders, interactables, stateHooks, blocked } = ctx;
   const at = (x, z) => groundHeight(x, z);
   // Colliders are boxes, not meshes: `blocked` reads `.min` and `.max` off every
   // entry, so pushing a group straight in throws on the first person the crowd
@@ -786,7 +786,7 @@ export function decorate(scene, ctx){
     for(const sx of [-1, 1]) box(shell, 0.08, 1.2, 0.08, sx * 0.9, 3.1, 2.7, dark);
     v.group.add(shell);
     return driveable(scene, v.group, {
-      id: opts.id, label: opts.label ?? 'pressurised rover',
+      id: opts.id, label: opts.label ?? 'pressurised rover', kind: 'rover',
       halfWidth: 1.4, halfLength: 3.2, height: 3.9,
       seat: { x: 0.42, y: 2.1, z: v.cabZ },
       // Slower than a truck on a road, and this is not a road.
@@ -798,6 +798,72 @@ export function decorate(scene, ctx){
   rover(15, 46, { facing: 0, colour: 0xb8b2a6, id: 'rover-yard', label: 'pressurised rover' });
   rover(-16, 8, { facing: Math.PI, colour: 0xa07a5a, id: 'rover-plant', label: 'plant rover' });
   rover(-70, -18, { facing: 0.4, colour: 0x8f9aa4, id: 'rover-dig', label: 'excavation rover' });
+
+  /**
+   * An open buggy, which is the second kind and the cheap one.
+   *
+   * A pressurised rover is a habitat: you get in out of your suit, and it costs
+   * the power budget the whole campaign is about — sol 12's ALLOCATE is 430 kWh
+   * against seven loads, and three rovers on the charger is one of them. What a
+   * crew already suited up takes to a valve two hundred metres away is a frame,
+   * four wheels and a rack, driven in the suit. That distinction is the game's
+   * own subject arriving in the motor pool: the buggy is quicker to leave in and
+   * costs nothing, and it does not keep you alive if the walk goes wrong.
+   */
+  const buggy = (x, z, opts = {}) => {
+    const spot = clearSpot({ x, z }, blocked, {
+      pad: 1.9, avoid: [{ x: 0, z: 52, r: 13 }, ...(opts.avoid ?? [])],
+    });
+    const g = new THREE.Group();
+    const paint = MATERIALS.paintedSteel(opts.colour ?? 0xc4712c);
+    const dark = MATERIALS.paintedSteel(0x3a3f45);
+    const wheels = [];
+    // Mesh wheels, tall and thin, the way a low-pressure rover wheel is: a
+    // pneumatic tyre is a bad idea in an atmosphere that thin and a worse one at
+    // −80 °C, so nothing here is rubber.
+    for(const [sx, wz] of [[0.86, 1.05], [-0.86, 1.05], [0.86, -1.05], [-0.86, -1.05]]){
+      const w = new THREE.Mesh(new THREE.CylinderGeometry(0.46, 0.46, 0.24, 12), MATERIALS.steel());
+      w.rotation.z = Math.PI / 2;
+      w.position.set(sx, 0.46, wz);
+      w.userData.spinAxis = 'x';
+      wheels.push(w);
+      g.add(w);
+    }
+    box(g, 1.60, 0.16, 2.60, 0, 0.62, 0, dark);                      // frame
+    box(g, 1.40, 0.12, 0.86, 0, 0.94, 0.30, paint);                  // seat pan
+    box(g, 1.36, 0.60, 0.10, 0, 1.28, 0.74, paint);                  // seat back
+    box(g, 1.30, 0.06, 1.00, 0, 0.80, -0.86, MATERIALS.steel());     // toe board
+    // A roll frame and a load rack, which is most of what it is for.
+    for(const [sx, cz] of [[0.68, 0.62], [-0.68, 0.62], [0.68, -0.30], [-0.68, -0.30]]){
+      box(g, 0.07, 1.00, 0.07, sx, 1.60, cz, MATERIALS.steel());
+    }
+    box(g, 1.50, 0.07, 1.06, 0, 2.13, 0.16, MATERIALS.steel());
+    box(g, 1.40, 0.08, 0.90, 0, 0.74, 1.20, MATERIALS.steel());      // rear rack
+    for(const sx of [-1, 1]) box(g, 0.06, 0.24, 0.90, sx * 0.70, 0.90, 1.20, paint);
+    // A gas bottle on the rack: the thing a suited crew is usually carrying.
+    const bottle = cyl(g, 0.16, 0.90, 0.34, 0.95, 1.20, MATERIALS.paintedSteel(0xc8c3b6));
+    bottle.rotation.x = Math.PI / 2;
+
+    g.position.set(spot.x, at(spot.x, spot.z), spot.z);
+    g.rotation.y = opts.facing ?? 0;
+    scene.add(g);
+    g.traverse(o => { if(o.isMesh) o.castShadow = true; });
+    return driveable(scene, g, {
+      id: opts.id, label: opts.label ?? 'open buggy', kind: 'buggy', verb: 'Take',
+      halfWidth: 1.00, halfLength: 1.60, height: 2.20, clearance: 0.44,
+      // Sitting on the frame in a suit, not in a cab.
+      seat: { x: 0.36, y: 1.74, z: 0.22 },
+      wheels, wheelRadius: 0.46,
+      // Quicker than a rover, which is a habitat on wheels: less to move, and
+      // nothing inside it that minds being shaken.
+      topSpeed: 12, accel: 6.5, brake: 6, turn: 1.7, gripAt: 3.0, lean: 0.06,
+      hint: 'W/S drive · A/D steer · E — step off',
+      colliders, interactables,
+    });
+  };
+
+  buggy(24, 40, { facing: Math.PI, colour: 0xc4712c, id: 'buggy-yard', label: 'open buggy' });
+  buggy(-28, 14, { facing: 0.6, colour: 0x9a6b3a, id: 'buggy-plant', label: 'plant buggy' });
 }
 
 /** Fit out one room. `bounds` gives the room's inner/outer faces and centre. */

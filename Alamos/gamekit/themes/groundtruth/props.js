@@ -20,7 +20,11 @@
 //
 // Placement helpers take `(x, z, y)` — ground last.
 import * as THREE from 'three';
-import { MATERIALS, box, cyl } from '../../engine/world/kit.js';
+import {
+  MATERIALS, box, cyl,
+  vehicle, VEHICLE_DRIVE, quadBike, QUAD_DRIVE, clearSpot,
+} from '../../engine/world/kit.js';
+import { driveable } from '../../engine/world/driving.js';
 import { site } from './site.js';
 
 /** Where the mast stands, and how tall it is. Read by everything below. */
@@ -226,6 +230,13 @@ export function decorate(scene, ctx){
   const cx = MAST.x + 2.0, cz = MAST.z + 0.9;
   box(scene, 0.8, 1.9, 0.6, cx, at(cx, cz) + 0.95, cz, CABINET());
 
+  // --------------------------------------------------------------- transport
+  // Sablon Flats is a salt pan with an outstation 180 m out and a rocket store
+  // at the other end of the site, and the season is storms — a station keeps
+  // something that will run for the mast in ten minutes and something that will
+  // cross wet salt when the pan is standing in water. Hence two.
+  transport(scene, ctx, at);
+
   // The met mast: small, guyed, and the only other vertical thing on the site.
   const mx = -52, mz = 6, my = at(mx, mz);
   cyl(scene, 0.06, 10, mx, my + 5, mz, MATERIALS.steel());
@@ -236,5 +247,45 @@ export function decorate(scene, ctx){
 }
 
 /** Not used: this theme is outdoor, and its rooms come from interiorBuilding. */
+
+// ------------------------------------------------------------------ transport
+/** The spawn, so nothing is parked on top of it. Mirrors `site.start`. */
+const SPAWN = { x: 0, z: 52 };
+const VAN_AT = { x: -14, z: 42 }, VAN_FACING = 0, VAN_COLOUR = 0xc9b07a;
+const VAN_ID = 'field-truck', VAN_LABEL = 'field truck';
+const QUAD_AT = { x: 4, z: 36 }, QUAD_FACING = Math.PI, QUAD_COLOUR = 0xb4451f;
+const QUAD_ID = 'flats-quad', QUAD_LABEL = 'flats quad';
+/**
+ * The two vehicles this site keeps, and the player can take either.
+ *
+ * `clearSpot` rather than a hand-checked coordinate: a vehicle parked inside a
+ * collider is one you get into and cannot move (house rule 16 from the other
+ * side), and the spawn is in the avoid list because a prop over the spawn welds
+ * the player in place (house rule 8).
+ */
+function transport(scene, ctx, at){
+  const { colliders, interactables, blocked } = ctx;
+  const spawn = { x: SPAWN.x, z: SPAWN.z, r: 14 };
+
+  const vs = clearSpot(VAN_AT, blocked, { pad: 3.4, avoid: [spawn] });
+  const van = vehicle(scene, vs.x, vs.z, at(vs.x, vs.z), { facing: VAN_FACING, colour: VAN_COLOUR });
+  driveable(scene, van.group, {
+    ...VEHICLE_DRIVE,
+    id: VAN_ID, label: VAN_LABEL, kind: 'van',
+    seat: { x: 0.52, y: 2.18, z: van.cabZ },
+    wheels: van.wheels,
+    colliders, interactables,
+  });
+
+  const qs = clearSpot(QUAD_AT, blocked, { pad: 1.8, avoid: [spawn, { x: vs.x, z: vs.z, r: 5 }] });
+  const q = quadBike(scene, qs.x, qs.z, at(qs.x, qs.z), { facing: QUAD_FACING, colour: QUAD_COLOUR });
+  driveable(scene, q.group, {
+    ...QUAD_DRIVE,
+    id: QUAD_ID, label: QUAD_LABEL, kind: 'quad',
+    wheels: q.wheels, steer: q.steer,
+    colliders, interactables,
+  });
+}
+
 export function fitOutRoom(){}
 export function fitOutSpine(){}

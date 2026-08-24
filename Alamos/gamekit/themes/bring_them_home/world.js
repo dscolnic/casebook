@@ -790,7 +790,21 @@ function paintVehicleWall(){
       w, h: 3.4,
       kind: 'rocket',
       ink: '#1d2228', paper: '#cfc8b6', soft: '#5a5f66',
-      t0: i / PANELS, t1: (i + 1) / PANELS,
+      // The slice runs the other way to the boards.
+      //
+      // This wall faces −z, so every board's face is rotated a half turn and its
+      // texture's u axis runs against +x. A board is placed at increasing x, so
+      // handing board i the slice [i/n, (i+1)/n] puts the *start* of its slice at
+      // its high-x edge — each board is right on its own and the run jumps two
+      // slices at every joint. It looked like a continuous drawing until the
+      // stations were numbered, because a launch vehicle in elevation has no
+      // legible order: the donor wall this was copied from has the same joint and
+      // the drawing on it is a Saturn V, whose interstage sits to the right of the
+      // second stage on that wall to this day.
+      //
+      // Reversed, the joints close and the run reads left to right *for somebody
+      // facing the wall* — looking +z, the viewer's right hand is −x.
+      t0: 1 - (i + 1) / PANELS, t1: 1 - i / PANELS,
       seed: `vehicle-${i}`,
     });
   }

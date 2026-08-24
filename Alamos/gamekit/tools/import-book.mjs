@@ -130,10 +130,21 @@ const ROSTER = roster.map((p) => {
     if(!ok) fail(`roster "${p.id}" quiz item ${i + 1} needs q, a and three distinct wrong answers`);
     return ok;
   });
+  // `real: true` says this entry is a real historical person rather than an
+  // invented one. It is declared rather than guessed, because no rule can tell
+  // "Ernest Marsden" from "Ernest Rutherfield" by looking, and the whole point
+  // of the flag is what it forbids: `engine/dev/discoveryHistory.mjs` refuses
+  // to let a real person sign a claim the game then marks unsupported. Putting
+  // an invented colleague's name on the wrong answer is drama; putting a real
+  // one's there is a fabricated quote.
+  if(p.real !== undefined && p.real !== true){
+    fail(`roster "${p.id}": \`real\` is a flag — write \`real: true\` or leave it out`);
+  }
   return {
     id: p.id, name: p.name, role: p.role ?? '', division: p.division,
     color: p.color ?? GROUPS.find(g => g.id === p.division)?.color ?? '#5b6068',
     bio: bio.split(/\n{2,}/).map(s => `<p>${s.replace(/\n/g, ' ').trim()}</p>`).join(''),
+    ...(p.real ? { real: true } : {}),
     ...(quiz.length ? { quiz } : {}),
   };
 });

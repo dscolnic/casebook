@@ -4,15 +4,16 @@
 
 export const ROSTER = [
   {
-    "id": "bardem",
-    "name": "Nuria Bardem",
+    "id": "schmidt",
+    "name": "Brian Schmidt",
     "role": "Principal Investigator",
     "division": "COSMO",
     "color": "#7a4fa3",
-    "bio": "<p>Runs the programme, which mostly means deciding what it is allowed to claim and when. She keeps the cosmology sealed until the light curves and the calibration are frozen, on the argument that a team which knows the answer will find it.</p><p>Her position is that the sample is a ruler before it is a result, and that an argument about the ruler is cheaper now than after a paper is out. She has been on the wrong end of that once and does not intend to be again.</p>",
+    "bio": "<p>Runs the programme, which mostly means deciding what it is allowed to claim and when. He keeps the cosmology sealed until the light curves and the calibration are frozen, on the argument that a team which knows the answer will find it.</p><p>His position is that the sample is a ruler before it is a result, and that an argument about the ruler is cheaper now than after a paper is out. He has been on the wrong end of that once and does not intend to be again.</p>",
+    "real": true,
     "quiz": [
       {
-        "q": "Why does Bardem keep the fitted cosmology off the floor until the calibration is frozen?",
+        "q": "Why does Schmidt keep the fitted cosmology off the floor until the calibration is frozen?",
         "a": "A team that already knows the answer will tend to find it",
         "wrong": [
           "The console cannot fit a model until every light curve is complete",
@@ -23,15 +24,16 @@ export const ROSTER = [
     ]
   },
   {
-    "id": "ferreira",
-    "name": "Tomás Ferreira",
+    "id": "riess",
+    "name": "Adam Riess",
     "role": "Photometry Lead",
     "division": "PHOT",
     "color": "#c98a2b",
     "bio": "<p>Fits every light curve in the sample and puts the points on the board. He came to supernovae from asteroid searching, which is where he learned that most of what a survey finds is the survey looking at itself.</p><p>He is the person who asks what a residual is measured against, every time, including when everybody in the room already knows. Nobody enjoys it and the plot has never once been mislabelled.</p>",
+    "real": true,
     "quiz": [
       {
-        "q": "What does Ferreira insist on before a residual is allowed on the board?",
+        "q": "What does Riess insist on before a residual is allowed on the board?",
         "a": "A statement of which model it is measured against",
         "wrong": [
           "A second measurement of the same supernova on another night",
@@ -42,15 +44,16 @@ export const ROSTER = [
     ]
   },
   {
-    "id": "oyelaran",
-    "name": "Wren Oyelaran",
+    "id": "filippenko",
+    "name": "Alex Filippenko",
     "role": "Spectroscopy Lead",
     "division": "SPEC",
     "color": "#3f7f8f",
-    "bio": "<p>Takes the spectra that turn a transient into a Type Ia with a redshift. She measures every line against a comparison arc taken in the same setup, because the wavelength scale moves when the building cools.</p><p>Her rule for the room is that a classification is a claim about a line you actually saw. A light curve that looks right is not a type, and she has sent three candidates back this month for exactly that.</p>",
+    "bio": "<p>Takes the spectra that turn a transient into a Type Ia with a redshift. He measures every line against a comparison arc taken in the same setup, because the wavelength scale moves when the building cools.</p><p>His rule for the room is that a classification is a claim about a line you actually saw. A light curve that looks right is not a type, and he has sent three candidates back this month for exactly that.</p>",
+    "real": true,
     "quiz": [
       {
-        "q": "Why does Oyelaran take a comparison arc in the same setup as the science frames?",
+        "q": "Why does Filippenko take a comparison arc in the same setup as the science frames?",
         "a": "The wavelength scale shifts when the grating or the building moves",
         "wrong": [
           "An arc is the only way to measure how bright the supernova was",
@@ -99,15 +102,16 @@ export const ROSTER = [
     ]
   },
   {
-    "id": "anand",
-    "name": "Ravi Anand",
+    "id": "suntzeff",
+    "name": "Nicholas Suntzeff",
     "role": "Calibration Scientist",
     "division": "SPEC",
     "color": "#3f7f8f",
     "bio": "<p>Owns the zero points and the colour terms, which means he owns the part of the result nobody photographs. He measures standards on every clear night and refuses to carry a calibration across into the next one.</p><p>His argument is that a systematic is only tested when it would have left a second signature and you went and looked for it. Dust is his favourite example because it is the easiest one to check and the easiest one to wave away.</p>",
+    "real": true,
     "quiz": [
       {
-        "q": "What does Anand say makes a systematic actually tested?",
+        "q": "What does Suntzeff say makes a systematic actually tested?",
         "a": "Looking for a second signature it would have left",
         "wrong": [
           "Showing that its size is smaller than the measurement uncertainty",
@@ -121,24 +125,24 @@ export const ROSTER = [
 
 export const LEADERS = [
   {
-    "id": "ferreira",
-    "name": "Tomás Ferreira",
+    "id": "riess",
+    "name": "Adam Riess",
     "role": "Photometry Lead",
     "science": 4,
     "management": 4,
     "trait": ""
   },
   {
-    "id": "oyelaran",
-    "name": "Wren Oyelaran",
+    "id": "filippenko",
+    "name": "Alex Filippenko",
     "role": "Spectroscopy Lead",
     "science": 4,
     "management": 4,
     "trait": ""
   },
   {
-    "id": "bardem",
-    "name": "Nuria Bardem",
+    "id": "schmidt",
+    "name": "Brian Schmidt",
     "role": "Principal Investigator",
     "science": 4,
     "management": 4,

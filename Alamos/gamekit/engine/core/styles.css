@@ -1493,6 +1493,12 @@ ol.trialTaken li{font:600 .82rem/1.4 Inter,system-ui;color:#3f3b34}
    blue, because it is the one control on that card that is not part of the
    story — and 44px of touch target on the stars themselves, since the games
    are played on tablets and a 20px glyph is not a button there. */
+/* The historical note under a Quick Discovery's ending. Deliberately quieter
+   than the ending it follows and than the rating below it: it is an aside in a
+   different voice, not a third beat of the story. */
+.historyCard{background:#f3f1ec;border-left-color:var(--muted);color:#4e4a43}
+.historyLabel{margin:0 0 6px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;font-size:.66rem;color:var(--muted)}
+.historyCard p{margin:6px 0;line-height:1.5}
 .rateBox{background:var(--goldSoft);border-left-color:var(--gold)}
 .rateAsk{margin:0 0 6px;font-weight:800}
 .rateStars{display:flex;gap:2px;margin:0 0 6px}

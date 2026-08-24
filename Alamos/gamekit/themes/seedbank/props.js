@@ -23,7 +23,9 @@
 import * as THREE from 'three';
 import {
   MATERIALS, box, cyl, sign, crateStack, tank, fenceRun, vehicle,
+  VEHICLE_DRIVE, bicycleRack, BICYCLE_DRIVE, clearSpot,
 } from '../../engine/world/kit.js';
+import { driveable } from '../../engine/world/driving.js';
 import { RINGS, rimAt } from './site.js';
 
 const TAU = Math.PI * 2;
@@ -429,6 +431,8 @@ export function decorate(scene, ctx){
   const y = (x, z) => groundHeight(x, z);
   const soft = (s) => { if(s) softColliders.push(s); };
 
+  transport(scene, ctx, y);
+
   // ================================================================ the rings
   // The trial ring, minus the wedges the two field buildings stand in.
   ringPlots(scene, y, {
@@ -535,5 +539,53 @@ export function decorate(scene, ctx){
 }
 
 /** Unused: this is an outdoor theme and its rooms come from interiors.js. */
+
+// ------------------------------------------------------------------ transport
+/**
+ * A station pickup and two bicycles.
+ *
+ * Wellmere's own warm-up card for the unlock day says "the vehicle is signed out
+ * for it. Drive the ring road…" and until now there was no vehicle on the
+ * headland at all — a card that promises a run the world cannot give.
+ *
+ * Two kinds because the rings are two problems. The pickup carries bagged heads
+ * and seed trays out to the trial plots and back, on the ring road, which is the
+ * only made surface here. A bicycle goes down an alley between plots, which is
+ * where most of the walking on a breeding station actually is, and it is the
+ * right vehicle for a place whose whole layout is isolation distance — you can
+ * ride one between blocks without driving anything through them.
+ */
+function transport(scene, ctx, y){
+  const { colliders, interactables, softColliders, blocked } = ctx;
+  const spawn = { x: 0, z: 155, r: 13 };
+
+  const ps = clearSpot({ x: -14, z: 148 }, blocked, { pad: 3.4, avoid: [spawn] });
+  const pick = vehicle(scene, ps.x, ps.z, y(ps.x, ps.z),
+    { facing: Math.PI, colour: 0x4a6b3c, box: false });
+  driveable(scene, pick.group, {
+    ...VEHICLE_DRIVE,
+    id: 'station-pickup', label: 'station pickup', kind: 'pickup',
+    seat: { x: 0.52, y: 2.18, z: pick.cabZ },
+    wheels: pick.wheels,
+    colliders, interactables,
+  });
+
+  const rs = clearSpot({ x: 16, z: 148 }, blocked,
+    { pad: 2.0, avoid: [spawn, { x: ps.x, z: ps.z, r: 6 }] });
+  const { rail, bicycles } = bicycleRack(scene, rs.x, rs.z, y(rs.x, rs.z), {
+    facing: Math.PI,
+    list: [{ colour: 0x2c4a5c, basket: true }, { colour: 0x8a6a2c, basket: true }],
+  });
+  if(rail.soft) softColliders.push(rail.soft);
+  bicycles.forEach((b, i) => {
+    driveable(scene, b.group, {
+      ...BICYCLE_DRIVE,
+      id: `station-bicycle-${i + 1}`, label: 'station bicycle', kind: 'bicycle', verb: 'Ride',
+      wheels: b.wheels, steer: b.steer, ignore: b.ignore,
+      colliders, interactables,
+    });
+  });
+}
+
 export function fitOutRoom(){}
 export function fitOutSpine(){}

@@ -11,6 +11,11 @@ export const CURRICULUM = {
       "takeaway": "A population that is not uniform can still be a ruler, provided something measurable predicts the spread.",
       "place": "Photometry Desk",
       "guide": "Both curves are drawn from the same peak, so the height tells you nothing here. What separates them is width. Ask what a Type Ia is: a white dwarf that has run out of room, powered afterwards by the nickel it made. More nickel means more light, and it also means a hotter, more opaque envelope that takes longer to let the light out. So the two things move together, and one of them is measurable from the shape alone.",
+      "background": [
+        "How to do it, on a different example. Two torches are shone at a wall and each is turned down to the same reading on a meter, so you cannot tell them apart by brightness. One takes ten seconds to fade out and the other takes thirty. Whatever is fuelling them, the slow one had more of it — and if the fuel is also what set the brightness, the slow one was the brighter torch to start with. The two light curves below are that comparison, with fifteen days for the ten seconds.",
+        "What a magnitude is. A brightness on a backwards scale: bigger numbers are fainter objects, and a difference of one magnitude is a factor of about two and a half in the light arriving. \"Declines by nine tenths of a magnitude\" therefore means it has faded to a little under half of its peak.",
+        "Why these explosions can be a ruler at all. They are not identical, and they do not have to be. What makes a population usable is that something you can measure without knowing the distance predicts the spread — here the shape of the fade — so a varied population can be corrected onto a common scale."
+      ],
       "story": "Two light curves are up on the board, each normalised to its own peak. One has lost nine tenths of a magnitude in the fifteen days since maximum. The other has lost a magnitude and a half in the same fifteen days.",
       "game": {
         "type": "CHOICE",
@@ -51,6 +56,11 @@ export const CURRICULUM = {
       "takeaway": "A residual carries the model it was measured against, so the same supernova sits in three different places on three different plots.",
       "place": "Photometry Desk",
       "guide": "Two things have to be held at once here. Magnitudes run backwards, so a larger number is a fainter object. And a residual is observed minus model, so it takes its sign from which of those two is larger. Work each case through in that order rather than reaching for the feel of the words. Note also what the plot is telling you about itself: with a different model on the axis, every one of these three points would land somewhere else.",
+      "background": [
+        "How to do it, on a different example. A train is predicted to arrive at 10:00 and arrives at 10:07. Observed minus predicted is plus seven minutes, so the point goes above the line. Arrive at 09:53 and it is minus seven, below the line. Do the subtraction in that order every time and the sign looks after itself.",
+        "The one thing that makes this harder than the train. Magnitudes run backwards, so a *larger* magnitude is a *fainter* object. A supernova that comes in fainter than predicted therefore has a larger observed magnitude, and observed minus model is positive — above the line. Faint is up.",
+        "Why the plot carries its model in its name. A residual is a comparison, so the same supernova sits in three different places on three different residual plots. The axis here says \"observed minus the matter-only model\", and every point on it means nothing without that phrase."
+      ],
       "story": "The residual plot is up with redshift along the bottom and observed minus model up the side. Grant has three supernovae to place and the model on the axis is the matter-only one drawn before the sample was unsealed.",
       "game": {
         "type": "PROTOCOL",
@@ -120,11 +130,16 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Three curves over the same points",
-      "scene": "Ferreira has laid three model curves over the residual plot: a flat universe with matter and a repulsive term, an open universe with matter alone at low density, and a critical-density universe of matter only. The points are the same for all three.",
+      "scene": "Riess has laid three model curves over the residual plot. One is flat, with matter and a repulsive term. One is open, with matter alone and not much of it. One is matter only, at critical density. The points are the same for all three.",
       "takeaway": "Rival models are not judged one at a time, but laid over the same points and read off by what is left over.",
       "place": "Photometry Desk",
       "guide": "Rank the three by what is left over once the curve is subtracted, best first. Work from the sign and the size of the residuals rather than from what you already expect. The distant points sit faint, so a model that puts them closer will fall short, and by how much depends on how much matter is pulling. One of these three has something in it that pushes; of the other two, the emptier one decelerates less.",
-      "story": "Ferreira has laid three model curves over the residual plot: a flat universe with matter and a repulsive term, an open universe with matter alone at low density, and a critical-density universe of matter only. The points are the same for all three.",
+      "background": [
+        "How to do it, on a different example. Three predicted growth curves are laid over the same measured heights, and the measurements all come in above two of the curves and on the third. Rank them by how much is left over once each curve is subtracted: the one the points sit on is best, and of the two that fall short, the one that falls least short is second. You are ranking by leftovers, not by which model you like.",
+        "Which way the points sit here, and why. The distant supernovae came in faint, which means further away than a decelerating universe puts them. So the model that fits is the one that lets the expansion speed up, and the one that misses by most is the one with the most matter in it — because that is the one braking hardest.",
+        "Where the middle model comes from. An open universe with the same amount of matter and nothing else still decelerates, but less, because less matter means less braking. It gets part of the way to the points and not all of it, which is exactly what puts it second."
+      ],
+      "story": "Riess has laid three model curves over the residual plot. One is flat, with matter and a repulsive term. One is open, with matter alone and not much of it. One is matter only, at critical density. The points are the same for all three.",
       "game": {
         "type": "SEQUENCE",
         "title": "Three curves over the same points",
@@ -186,11 +201,16 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Fifty nanometres out of five hundred",
-      "scene": "Wren Oyelaran, the spectroscopy lead, has the host galaxy on one screen and a comparison arc taken in the same setup on the other. A feature that sits at five hundred nanometres in the laboratory is measured here at five hundred and fifty.",
+      "scene": "Alex Filippenko, the spectroscopy lead, has the host galaxy on one screen and a comparison arc taken in the same setup on the other. A feature that sits at five hundred nanometres in the laboratory is measured here at five hundred and fifty.",
       "takeaway": "A redshift is measured against a rest wavelength, so it is a property of the pair rather than of either number alone.",
       "place": "Spectroscopy Room",
       "guide": "Redshift is a ratio and nothing else. Take how far the line has moved, and divide it by where the line sits at rest. The answer has no units, which is the first clue that it is not a distance and not a speed. The arc matters because the scale it fixes is what \"measured here\" means. Two of the tiles on the board are rest wavelengths of other lines entirely, and neither belongs in this calculation.",
-      "story": "Wren Oyelaran, the spectroscopy lead, has the host galaxy on one screen and a comparison arc taken in the same setup on the other. A feature that sits at five hundred nanometres in the laboratory is measured here at five hundred and fifty.",
+      "background": [
+        "How to do it, on a different example. A line that sits at 400 nm in the laboratory turns up at 440 nm in a galaxy. The shift is 440 minus 400, which is 40, and the redshift is 40 divided by 400 — a tenth. Two steps: subtract to get the shift, divide by the rest wavelength. Always divide by the rest one, never by the measured one, because the rest wavelength is the ruler.",
+        "Why the answer has no units. Nanometres divided by nanometres cancel, so a redshift is a bare number. That is the first clue about what it is not: not a distance, and only roughly a speed, and then only when it is small.",
+        "What the comparison arc is for. It is a lamp with lines at known wavelengths, photographed through the same instrument in the same setting. Without it, \"measured at five hundred and fifty\" is a position on a photograph rather than a wavelength."
+      ],
+      "story": "Alex Filippenko, the spectroscopy lead, has the host galaxy on one screen and a comparison arc taken in the same setup on the other. A feature that sits at five hundred nanometres in the laboratory is measured here at five hundred and fifty.",
       "game": {
         "type": "BALLPARK",
         "title": "Fifty nanometres out of five hundred",
@@ -235,11 +255,16 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "The ordinary explanation, tested rather than waved away",
-      "scene": "Anand has the same forty-two events measured in two bands and a colour readout on the bench. Three things could be making the distant sample come out faint, and the bench can change one of them at a time.",
+      "scene": "Suntzeff has the same forty-two events measured in two bands and a colour readout on the bench. Three things could be making the distant sample come out faint, and the bench can change one of them at a time.",
       "takeaway": "A systematic is tested when you look for a second signature it would have left, not when you argue about how big it might be.",
       "place": "Spectroscopy Room",
       "guide": "Change one variable, watch the colour, and then put it back and watch it return. The colour excess is what dust would leave behind: it scatters short wavelengths more than long ones, so anything it dims it also reddens. The other two candidates would move the brightness without touching the colour at all. That difference is the entire test, and it is why colour is on this bench rather than magnitude.",
-      "story": "Anand has the same forty-two events measured in two bands and a colour readout on the bench. Three things could be making the distant sample come out faint, and the bench can change one of them at a time.",
+      "background": [
+        "How to do it, on a different example. A room is dimmer than expected and there are three suspects: the bulb, the dimmer switch, and a curtain across the window. Pull the curtain back and if the light changes, put it back and see if the change reverses. One suspect at a time, and always undo it — a change that does not come back was something else drifting while you worked.",
+        "What colour excess is, and why it is the readout rather than brightness. Measure the same events in a blue band and a red band and subtract. Dust scatters short wavelengths harder than long ones, so anything it dims it also reddens. That gives dust a second fingerprint that the other suspects do not have.",
+        "Why the other two suspects leave the colour alone. A zero-point error shifts every magnitude by the same amount, so a subtraction between two bands cancels it. A bandpass correction changes what a magnitude means at high redshift and does the same. Both move brightness. Neither moves colour."
+      ],
+      "story": "Suntzeff has the same forty-two events measured in two bands and a colour readout on the bench. Three things could be making the distant sample come out faint, and the bench can change one of them at a time.",
       "game": {
         "type": "CONTROL",
         "title": "The ordinary explanation, tested rather than waved away",
@@ -317,11 +342,16 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Four times fainter is not four times farther",
-      "scene": "Three standardised supernovae are on the console, all with the same intrinsic brightness after correction. Their measured fluxes are not the same. Bardem wants them ranked by distance before anything is plotted.",
+      "scene": "Three standardised supernovae are on the console, all with the same intrinsic brightness after correction. Their measured fluxes are not the same. Schmidt wants them ranked by distance before anything is plotted.",
       "takeaway": "Brightness differences never map onto distance differences one for one, because the light is spread over an area rather than a line.",
       "place": "Cosmology Console",
       "guide": "The light from each of these left in every direction at once and is now spread over a sphere. Ask what happens to the area of that sphere when you double the radius. Whatever the flux does, it does it to the area rather than to the distance, and that is where the mismatch between the two numbers comes from. One of the options treats brightness and distance as though they scale together; two others invert the relation in different ways.",
-      "story": "Three standardised supernovae are on the console, all with the same intrinsic brightness after correction. Their measured fluxes are not the same. Bardem wants them ranked by distance before anything is plotted.",
+      "background": [
+        "How to do it, on a different example. A lamp nine times fainter than an identical one: nine is three squared, so it is three times further away. Work backwards from the flux ratio by taking its square root. A hundred times fainter is ten times further; twice as faint is about one and a half times further, not twice.",
+        "Why it is a square. Light leaves a source in every direction and spreads over the surface of a sphere. Double the radius and that surface is four times as big, so the same light is spread four times as thin. The area grows as the square of the radius, and the brightness falls the same way.",
+        "Why the campaign works in magnitudes. On a logarithmic scale a fixed step in brightness is a fixed *ratio* in distance rather than a fixed number of megaparsecs, which is what you want when the sample spans a factor of ten in distance."
+      ],
+      "story": "Three standardised supernovae are on the console, all with the same intrinsic brightness after correction. Their measured fluxes are not the same. Schmidt wants them ranked by distance before anything is plotted.",
       "game": {
         "type": "CHOICE",
         "title": "Four times fainter is not four times farther",
@@ -357,11 +387,16 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "What gravity alone would have done",
-      "scene": "Bardem has the matter-only curve on the console and the high-redshift sample still sealed beside it. She wants the prediction written down and locked before the points go up, in that order and not the other one.",
+      "scene": "Schmidt has the matter-only curve on the console and the high-redshift sample still sealed beside it. She wants the prediction written down and locked before the points go up, in that order and not the other one.",
       "takeaway": "The prediction has to be written down before the data are seen, because a prediction made afterwards is a description.",
       "place": "Cosmology Console",
       "guide": "A universe containing only matter has one thing acting on its expansion, and that thing pulls inwards. So the expansion was faster in the past than a straight line would suggest, and objects at a given redshift are closer, and closer means brighter. Predict the mean residual you expect the distant sample to show against that curve, in magnitudes, and then unseal it and measure. What you are being asked for is the size of a gap, so a prediction of nothing is a real answer here.",
-      "story": "Bardem has the matter-only curve on the console and the high-redshift sample still sealed beside it. She wants the prediction written down and locked before the points go up, in that order and not the other one.",
+      "background": [
+        "How to think about it, on a different example. Throw a ball straight up. Gravity is the only thing acting on it, so it is always slowing down, and at any moment on the way up it is *lower* than it would have been if nothing had pulled on it. A universe with nothing in it but matter is that ball. Everything is closer than a coasting universe would put it, and closer means brighter.",
+        "So what number is being predicted. The mean residual of the distant sample against the matter-only curve, in magnitudes, on the *faint* side. If the universe really is matter-only, the honest prediction is zero — the points land on their own model. Anything on the faint side is a gap that model cannot account for.",
+        "Why the order matters. A prediction written after the sample is unsealed is a description of the sample. Locking it first is the only thing that makes the measurement afterwards capable of surprising anybody, including you."
+      ],
+      "story": "Schmidt has the matter-only curve on the console and the high-redshift sample still sealed beside it. She wants the prediction written down and locked before the points go up, in that order and not the other one.",
       "game": {
         "type": "VERIFY",
         "title": "What gravity alone would have done",
@@ -437,11 +472,16 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "The sign is the whole answer",
-      "scene": "The console is holding the flat fit: about three tenths of the critical density in matter and about seven tenths in the repulsive term. Bardem wants the deceleration parameter written on the board before anybody leaves.",
+      "scene": "The console is holding the flat fit. Matter is about three tenths of the critical density and the repulsive term is about seven tenths. Schmidt wants the deceleration parameter on the board before anybody leaves.",
       "takeaway": "One number and its sign carry the answer, which is why the sign is checked before the size is quoted.",
       "place": "Cosmology Console",
       "guide": "Matter pulls the expansion down and the repulsive term pushes it up, and the deceleration parameter is those two weighed against each other in one line. The matter term enters halved. Take the tiles that belong to this fit and leave the two that describe a matter-only universe alone. What matters when you are done is not the size of the answer but which side of zero it lands on.",
-      "story": "The console is holding the flat fit: about three tenths of the critical density in matter and about seven tenths in the repulsive term. Bardem wants the deceleration parameter written on the board before anybody leaves.",
+      "background": [
+        "How to do it, on a different example. Suppose a fit held four tenths of matter and six tenths of the repulsive term. Half of four tenths is two tenths, and two tenths minus six tenths is minus four tenths. Two steps: halve the matter, then subtract the repulsive term. What matters at the end is not the size but which side of zero it lands on.",
+        "Why matter enters halved and the other term does not. The two act on the expansion in different ways, and the factor of a half is what falls out of the relativistic bookkeeping. For this stop it is simply the rule the line carries: half the matter, minus the dark energy.",
+        "What the sign means. Positive means the expansion is slowing down, which is the universe everybody expected. Negative means it is speeding up. That single change of sign is the whole discovery, which is why it is checked before the size is quoted anywhere."
+      ],
+      "story": "The console is holding the flat fit. Matter is about three tenths of the critical density and the repulsive term is about seven tenths. Schmidt wants the deceleration parameter on the board before anybody leaves.",
       "game": {
         "type": "BALLPARK",
         "title": "The sign is the whole answer",
@@ -499,6 +539,11 @@ export const CURRICULUM = {
       "takeaway": "A measurement and an explanation of it belong in separate sentences, and only the first one is the result.",
       "place": "Publication Room",
       "guide": "Read each sentence and ask what would have to be true for it to be wrong. One of them fails only if the distance measurements themselves are wrong. The others fail if a theory turns out differently, or if a stronger claim than the data support has been smuggled into a verb. Watch particularly for the sentence that names an effect and a cause in the same breath, and for the one that makes a statement about every supernova rather than about the sample.",
+      "background": [
+        "How to do it, on a different example. A thermometer on a wall reads two degrees higher than last year. \"The room is warmer\" fails only if the thermometer is wrong. \"The heating has been turned up\" fails if it turns out to be sunlight through the window. Same data, and the second sentence has smuggled in a cause. Ask of each sentence below: what would have to be true for this to be wrong?",
+        "What this campaign actually measured. Brightnesses and redshifts of forty-two exploding stars, and nothing else. From those you get how the expansion rate has changed. You do not get what is causing it to change, and no amount of extra supernovae will give you that.",
+        "Two traps to watch for. A sentence that names an effect and a cause in the same breath, and a sentence that makes a claim about *every* supernova rather than about this sample. Both read as confident and both go further than the data."
+      ],
       "story": "Marek has four candidate opening sentences on the screen, one of which is in the draft already. The sample is frozen, the model comparison is done, and the wire services are waiting on a form of words.",
       "game": {
         "type": "CHOICE",
@@ -508,7 +553,7 @@ export const CURRICULUM = {
         "task": "Choose the strongest statement the evidence will carry.",
         "question": "What is the strongest statement this supernova result will carry?",
         "answer": "The late-time expansion of the universe is accelerating. That is the measurement, and it survives any theory of the cause.",
-        "why": "What was measured is a set of distances and redshifts, and what they show is that the expansion has been speeding up in the recent past. That sentence fails only if the distances are wrong. Naming a component and calling it detected goes further than the data: the supernovae say nothing about what that component is made of, or whether it is a component at all rather than a property of gravity. Saying the expansion has always accelerated contradicts the same data, which show deceleration earlier on.",
+        "why": "What was measured is a set of distances and redshifts. What they show is that the expansion has been speeding up in the recent past. That sentence fails only if the distances are wrong. Naming a component and calling it detected goes further than the data. The supernovae say nothing about what that component is made of, or even whether it is a component at all rather than a property of gravity. And saying the expansion has always accelerated contradicts the same points, which show deceleration earlier on.",
         "rebuttals": [
           "Nothing here detects a particle. The supernovae constrain how the expansion has changed, and are silent about what is behind it.",
           "The same data show deceleration at higher redshift, so a constant rate of acceleration is ruled out by the very sample being quoted.",

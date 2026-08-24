@@ -1502,6 +1502,116 @@ export function furnishCorridor(spec){
  * this fills the gaps rather than making a room's furniture the one thing in it
  * that does not match.
  */
+/**
+ * Where the spine wall on one side of a corridor is actually solid.
+ *
+ * A corridor is not two continuous walls. Every closed room has a doorway cut out
+ * of the middle of its spine face, and a room marked `open` has no spine face at
+ * all beyond a nib at each end — so anything hung at a fixed spacing, or painted
+ * as one long panel per side, lands in mid-air wherever it meets an opening.
+ * These are the same numbers `interiorSite.partition()` cuts the walls with, read
+ * back off the plan.
+ *
+ * **Why this is here rather than in a theme.** It was written once for Quantum,
+ * and every interior theme after it needs the identical forty lines: the spans,
+ * the per-room `wallOk`, and the mural slicing that goes with them. Nine copies of
+ * that is house rule 1 in a new directory, and the copies would drift the first
+ * time either half was corrected — which is exactly what happened to the sliced
+ * mural's mirror, wrong on the one wall nobody had put a legible drawing on.
+ */
+export function spineSolidSpans(plan, P, side){
+  const out = [];
+  const NIB = 0.9;
+  for(const r of (plan?.rooms ?? []).filter(x => x.side === side)){
+    const cz = (r.z0 + r.z1) / 2;
+    if(r.open){
+      out.push({ z0: r.z0, z1: r.z0 + NIB });
+      out.push({ z0: r.z1 - NIB, z1: r.z1 });
+    } else {
+      const dw = r.door === 'wide' ? P.doorWideW : P.doorW;
+      out.push({ z0: r.z0, z1: cz - dw / 2 - 0.06 });
+      out.push({ z0: cz + dw / 2 + 0.06, z1: r.z1 });
+    }
+  }
+  // Anything under a metre is a stub of wall, not somewhere to hang or paint.
+  return out.filter(sp => sp.z1 - sp.z0 > 1.0);
+}
+
+/** Is the corridor's spine wall solid on this side, at this z? */
+export function spineWallOk(plan, P, x, z){
+  return spineSolidSpans(plan, P, x < 0 ? 'w' : 'e')
+    .some(sp => z > sp.z0 + 0.35 && z < sp.z1 - 0.35);
+}
+
+/**
+ * Is there wall behind this point, inside one room?
+ *
+ * Three holes, all of which a notice has hung in: the spine face's doorway (or an
+ * open room's whole spine face), and either end of a room that nothing adjoins —
+ * a gap between two rooms on the same side has no cross-wall, and boards hung on
+ * it stood in the gap.
+ */
+export function roomWallOk(room, bounds, plan, P){
+  const mine = (plan?.rooms ?? []).filter(r2 => r2.side === room.side);
+  const last = mine[mine.length - 1];
+  const crossAt = (zz) => mine.some(r2 => Math.abs(r2.z0 - zz) < 0.06)
+    || (last && Math.abs(last.z1 - zz) < 0.06);
+  return (x, z) => {
+    if(Math.abs(z - room.z0) < 0.4 && !crossAt(room.z0)) return false;
+    if(Math.abs(z - room.z1) < 0.4 && !crossAt(room.z1)) return false;
+    const onSpine = Math.abs(x - bounds.xInner) < 0.4;
+    if(!onSpine) return true;
+    const NIB = 0.9;
+    if(room.open) return z < room.z0 + NIB || z > room.z1 - NIB;
+    const dw = room.door === 'wide' ? P.doorWideW : P.doorW;
+    return Math.abs(z - bounds.cz) > dw / 2 + 0.2;
+  };
+}
+
+/**
+ * Paint one drawing along whichever parts of one side of a corridor are wall.
+ *
+ * Two things here are load-bearing and both are invisible when wrong.
+ *
+ * **Proud of the face, not of the line.** `interiorSite` raises a wall *centred*
+ * on the corridor half-width, so with 0.18 m of plaster the surface the player
+ * sees is 0.09 m inside that line. Painting 0.06 in from the line put the panel a
+ * centimetre off the plaster: it rendered, it faced the right way, and it could
+ * not be seen from the corridor.
+ *
+ * **The slices are numbered against the mirror.** `paintMural`'s `t0`/`t1` carve
+ * one drawing across a run of panels. A face on a wall whose normal points −x is
+ * rotated a half turn, so its texture's u axis runs *against* +z — which means one
+ * of a corridor's two sides has to be handed its slices reversed. Every panel is
+ * correct on its own either way and the run jumps two slices at every joint, so
+ * nothing catches it until the drawing has a legible order: a run of colour looks
+ * fine backwards, a chain of numbered stations does not.
+ */
+export function paintAlongWall({ box, plan, P, side, run, ...opts }){
+  const sign = side === 'w' ? -1 : 1;
+  const sp = run ?? plan.spine ?? { z0: 0, z1: 1 };
+  const wallX = P.corridorHalfWidth - P.wall / 2 - 0.04;
+  const t = (z) => (z - sp.z0) / ((sp.z1 - sp.z0) || 1);
+  const made = [];
+  for(const span of spineSolidSpans(plan, P, side)){
+    const len = span.z1 - span.z0 - 0.5;
+    const parts = Math.max(1, Math.round(len / 7));
+    for(let i = 0; i < parts; i++){
+      const w = len / parts;
+      const cz = span.z0 + 0.25 + (i + 0.5) * w;
+      const a = t(cz - w / 2), b = t(cz + w / 2);
+      // Looking across the corridor at the east wall the viewer's right hand is
+      // +z; at the west wall it is −z. One of the two runs is therefore reversed.
+      const [t0, t1] = side === 'e' ? [a, b] : [1 - b, 1 - a];
+      made.push(paintMural({
+        box, x: sign * wallX, z: cz, faceX: true, toward: -sign,
+        w: w - 0.12, t0, t1, seed: `${side}-${Math.round(cz)}`, ...opts,
+      }));
+    }
+  }
+  return made;
+}
+
 export function furnishingMaterials(existing = {}){
   const std = (colour, roughness = 0.8, metalness = 0) =>
     new THREE.MeshStandardMaterial({ color: colour, roughness, metalness });
@@ -1894,6 +2004,661 @@ export function paintMural({ box, x, y = 1.9, z, faceX, toward = -1, w = 3, h = 
     // No figure for scale. It was drawn at the foot of the station rule and read as
     // a person standing in the drawing rather than as a scale mark — the numbers do
     // that job and do not need help.
+    g.restore();
+  } else if(kind === 'lightpath'){
+    // The measurement chain, star to diagram, along the whole length of a corridor:
+    // walking the leg walks one photon from a supernova to a point on the
+    // distance-redshift plot. Same move as the launch vehicle in `rocket` — the
+    // machine the building is about, drawn at the length of the hallway, sliced so
+    // twelve boards are one drawing — and the reason it is a chain rather than an
+    // instrument is the aspect. A leg of corridor is about thirteen times as long
+    // as it is high, and a four-metre telescope in elevation is a squat object with
+    // forty metres of blank wall beside it.
+    //
+    // Left to right: the event, the sky, the telescope, the instruments, the
+    // frames, the light curve, the standardisation, the diagram. The optical half
+    // is drawn as a section and the data half as panels on the same spine, which is
+    // what a signal-flow wall in a working building looks like.
+    const FULL = px / Math.max(0.0001, (t1 - t0));
+    g.save();
+    g.translate(-t0 * FULL, 0);
+    const line = Math.max(1.5, py * 0.005);
+    g.lineWidth = line;
+    g.strokeStyle = ink;
+    const at = (t) => FULL * t;            // a fraction of the whole run, in px
+    const beam = py * 0.40;                // the optical axis, and then the spine
+    const rail = py * 0.90;                // the numbered rail along the bottom
+    // One generator for the whole run rather than the panel's own, so the twelve
+    // boards draw the same scatter: every panel paints the entire drawing and
+    // shows only its own slice, and a per-board seed would put a different set of
+    // points in each window of one plot.
+    const rnd = rng('lightpath');
+    const H1 = `700 ${Math.round(py * 0.044)}px Inter, Helvetica, Arial, sans-serif`;
+    const H2 = `400 ${Math.round(py * 0.034)}px Inter, Helvetica, Arial, sans-serif`;
+    const path = (pts, close = false) => {
+      g.beginPath();
+      pts.forEach(([X, Y], i) => (i ? g.lineTo(X, Y) : g.moveTo(X, Y)));
+      if(close) g.closePath();
+    };
+    const dot = (X, Y, r) => { g.beginPath(); g.arc(X, Y, r, 0, Math.PI * 2); g.fill(); };
+    // A label with a leader line back to the thing it names. Above or below, so two
+    // callouts on the same station do not sit on each other.
+    const callout = (X, Y, up, text, sub) => {
+      const ly = up ? Y - py * 0.16 : Y + py * 0.16;
+      g.globalAlpha = 0.55; g.strokeStyle = soft;
+      path([[X, Y], [X, ly]]); g.stroke();
+      g.globalAlpha = 1; g.strokeStyle = ink;
+      g.textAlign = 'center'; g.fillStyle = ink; g.font = H1;
+      g.fillText(text, X, up ? ly - py * 0.02 : ly + py * 0.045);
+      if(sub){
+        g.fillStyle = soft; g.font = H2;
+        g.fillText(sub, X, up ? ly + py * 0.025 : ly + py * 0.085);
+      }
+      g.textAlign = 'left';
+    };
+
+    // ---- 1. the event: a host galaxy, and one point in the outskirts of it
+    {
+      const cx2 = at(0.038), cy2 = beam, a = FULL * 0.026, b = py * 0.20;
+      g.globalAlpha = 0.30; g.fillStyle = soft;
+      for(let i = 0; i < 220; i++){
+        // Two draws off the same generator per point, so the cloud is elliptical
+        // rather than round and denser toward the middle.
+        const u = rnd() * Math.PI * 2, v = rnd() ** 1.7;
+        dot(cx2 + Math.cos(u) * a * v, cy2 + Math.sin(u) * b * v, py * 0.006);
+      }
+      g.globalAlpha = 0.5; g.strokeStyle = soft;
+      const ring = [];
+      for(let i = 0; i <= 48; i++){
+        const th = (i / 48) * Math.PI * 2;
+        ring.push([cx2 + Math.cos(th) * a * 1.05, cy2 + Math.sin(th) * b * 1.05]);
+      }
+      path(ring, true); g.stroke();
+      g.globalAlpha = 1; g.strokeStyle = ink;
+      // The supernova itself: off the nucleus, which is where they are found.
+      const sx = cx2 + a * 0.62, sy = cy2 - b * 0.48;
+      g.fillStyle = ink; dot(sx, sy, py * 0.017);
+      for(const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]){
+        path([[sx + dx * py * 0.028, sy + dy * py * 0.028],
+          [sx + dx * py * 0.055, sy + dy * py * 0.055]]);
+        g.stroke();
+      }
+      callout(sx, sy, true, 'THE EVENT', 'type Ia · z = 0.55');
+    }
+
+    // ---- 3. the telescope, in section, under a dome with the shutter open
+    //
+    // Built before the sky is drawn, because where the beam arrives is a property
+    // of where the aperture is: the first version ran the beam in at its own
+    // height, the tube's top corners were fifty pixels below it, and the two rays
+    // crossed outside the building.
+    // Every number here is set against the dome, and the one that has to be
+    // checked rather than eyeballed is that the tube stays inside the shell: the
+    // first version put the top of the truss above the crown, so a four-metre
+    // telescope was drawn sticking out through the roof of its own building.
+    //   dome crown   drum − rD          = floor − 0.10·py − 0.30·py = floor − 0.40·py
+    //   tube crown   axisY − cos·0.62·len ≈ floor − 0.19·py − 0.144·py
+    // which clears the shell by about a twentieth of the height of the wall, with
+    // the tilted corners spread a fifth of that either side.
+    const dCx = at(0.276), rD = py * 0.30;
+    const floor = rail - py * 0.05;
+    const drum = floor - py * 0.10;
+    const dCy = drum;                         // the dome springs off the drum
+    const azY = floor - py * 0.014;
+    const pierTop = azY - py * 0.075;
+    const axisY = floor - py * 0.19;
+    const lean = -0.30;                       // radians from vertical, toward the source
+    const halfT = py * 0.065, len = py * 0.26;
+    const ux = Math.sin(lean), uy = -Math.cos(lean);      // up the tube
+    const nx = Math.cos(lean), ny = Math.sin(lean);       // across it
+    const P = (alongT, across) => [dCx + ux * alongT + nx * across,
+      axisY + uy * alongT + ny * across];
+    const m1 = P(-len * 0.38, 0), m2 = P(len * 0.62, 0);
+    // The two corners of the aperture, which is what the sky has to arrive at.
+    const apA = P(len * 0.62, -halfT), apB = P(len * 0.62, halfT);
+    {
+      // The drum, then the dome shell over it with a slit left open toward the
+      // source. Two arcs with a gap between them is the shutter, and the gap is on
+      // the side the light comes from — the only orientation that is not a lie.
+      g.globalAlpha = 0.9; g.fillStyle = paper === '#fbfaf6' ? '#e9ecee' : '#d9d3c4';
+      g.fillRect(dCx - rD, drum, rD * 2, floor - drum);
+      g.strokeRect(dCx - rD, drum, rD * 2, floor - drum);
+      g.globalAlpha = 1;
+      const slitA = Math.PI * 1.13, slitB = Math.PI * 1.37;
+      g.beginPath(); g.arc(dCx, dCy, rD, Math.PI, slitA); g.stroke();
+      g.beginPath(); g.arc(dCx, dCy, rD, slitB, Math.PI * 2); g.stroke();
+      // The slit is drawn as the two edges of the opening rather than as leaves
+      // stood off the shell: an arc floating outside the dome reads as two ticks
+      // in mid-air, and the gap is what says the shutter is open.
+      g.globalAlpha = 0.7; g.strokeStyle = soft;
+      for(const a2 of [slitA, slitB]){
+        path([[dCx + Math.cos(a2) * rD * 0.86, dCy + Math.sin(a2) * rD * 0.86],
+          [dCx + Math.cos(a2) * rD, dCy + Math.sin(a2) * rD]]);
+        g.stroke();
+      }
+      // The springing line, so the shell reads as sitting on the drum.
+      path([[dCx - rD, drum], [dCx + rD, drum]]); g.stroke();
+      g.globalAlpha = 1; g.strokeStyle = ink;
+
+      // The mount: an azimuth track on the floor, a pier, and a fork carrying the
+      // altitude axis the tube turns on.
+      g.globalAlpha = 0.8; g.strokeStyle = soft;
+      path([[dCx - rD * 0.66, azY], [dCx + rD * 0.66, azY]]); g.stroke();
+      g.globalAlpha = 1; g.strokeStyle = ink;
+      g.fillStyle = paper === '#fbfaf6' ? '#dfe3e6' : '#cdc6b6';
+      g.fillRect(dCx - rD * 0.30, pierTop, rD * 0.60, azY - pierTop);
+      g.strokeRect(dCx - rD * 0.30, pierTop, rD * 0.60, azY - pierTop);
+      for(const s of [-1, 1]){
+        path([[dCx + s * rD * 0.26, pierTop], [dCx + s * rD * 0.26, axisY]]);
+        g.stroke();
+        g.fillStyle = ink; dot(dCx + s * rD * 0.26, axisY, py * 0.010);
+      }
+      // The tube: a truss box on the altitude axis, leaning toward the slit.
+      path([P(-len * 0.38, -halfT), P(len * 0.62, -halfT),
+        P(len * 0.62, halfT), P(-len * 0.38, halfT)], true);
+      g.fillStyle = paper === '#fbfaf6' ? '#f2f4f5' : '#e2dccd';
+      g.fill(); g.stroke();
+      g.globalAlpha = 0.35;
+      for(let i = 1; i < 6; i++){
+        const f = -0.38 + i * 0.1667;
+        path([P(len * f, -halfT), P(len * (f + 0.1667), halfT)]); g.stroke();
+      }
+      g.globalAlpha = 1;
+      // The primary as a concave line and the secondary as a small convex one.
+      g.lineWidth = line * 2.4;
+      const arcAt = (c, r, sweep) => {
+        const pts = [];
+        for(let i = 0; i <= 12; i++){
+          const t2 = -sweep / 2 + (sweep * i) / 12;
+          pts.push([c[0] + nx * r * Math.sin(t2) + ux * r * (1 - Math.cos(t2)),
+            c[1] + ny * r * Math.sin(t2) + uy * r * (1 - Math.cos(t2))]);
+        }
+        return pts;
+      };
+      path(arcAt(m1, halfT * 1.9, 1.05)); g.stroke();
+      path(arcAt(m2, -halfT * 0.85, 0.9)); g.stroke();
+      g.lineWidth = line;
+      // The light inside: down the tube at full aperture, up to the secondary, and
+      // back through the hole in the primary to a focus under the mount. The two
+      // rays cross at the secondary, which is what a converging beam does.
+      const focus = P(-len * 0.74, 0);
+      g.globalAlpha = 0.75; g.strokeStyle = soft;
+      for(const s of [-1, 1]){
+        path([P(len * 0.62, s * halfT * 0.86), P(-len * 0.36, s * halfT * 0.86), m2, focus]);
+        g.stroke();
+      }
+      g.globalAlpha = 1; g.strokeStyle = ink;
+      g.fillStyle = ink; dot(focus[0], focus[1], py * 0.011);
+      // Out of the building at the height it left the focus, then up onto the spine
+      // the data half of the drawing hangs on. Run straight from the focus to the
+      // spine it cut diagonally across the shell and through the mirror's own
+      // label.
+      const outY = floor + py * 0.008;
+      g.globalAlpha = 0.6; g.strokeStyle = soft;
+      path([[focus[0], focus[1]], [focus[0], outY], [dCx + rD * 1.5, outY],
+        [at(0.322), beam]]);
+      g.stroke();
+      g.globalAlpha = 1; g.strokeStyle = ink;
+
+      callout(dCx, dCy - rD, true, 'THE TELESCOPE', 'four metres · alt-azimuth');
+      // Not a callout: a leader dropped to the rail would land on the station
+      // names, and one raised would land on the dome. It goes out to the right of
+      // the shell instead, where there is nothing.
+      g.globalAlpha = 0.55; g.strokeStyle = soft;
+      path([[m1[0], m1[1]], [dCx + rD * 1.06, drum - py * 0.05]]); g.stroke();
+      g.globalAlpha = 1; g.strokeStyle = ink;
+      g.font = H2; g.fillStyle = soft; g.textAlign = 'left';
+      g.fillText('PRIMARY · THE COLLECTING AREA', dCx + rD * 1.10, drum - py * 0.04);
+    }
+
+    // ---- 2. the sky: the light arrives collimated, and the air is what blurs it
+    {
+      const x0 = at(0.052);
+      g.globalAlpha = 0.7; g.strokeStyle = soft;
+      for(const [X, Y] of [apA, apB]){ path([[x0, Y], [X, Y]]); g.stroke(); }
+      g.globalAlpha = 1; g.strokeStyle = ink;
+      // Bands of atmosphere across the beam, spread over the run rather than
+      // bunched: what the air does to this measurement is the seeing, and it is the
+      // only thing happening along five metres of wall.
+      const top = Math.min(apA[1], apB[1]), bot = Math.max(apA[1], apB[1]);
+      for(let i = 0; i < 4; i++){
+        const bx = at(0.078 + i * 0.030);
+        g.globalAlpha = 0.35; g.strokeStyle = soft;
+        const wave = [];
+        for(let k = 0; k <= 24; k++){
+          const t2 = k / 24;
+          wave.push([bx + Math.sin(t2 * 7 + i) * FULL * 0.0016,
+            top - py * 0.11 + t2 * (bot - top + py * 0.22)]);
+        }
+        path(wave); g.stroke();
+        g.globalAlpha = 1; g.strokeStyle = ink;
+      }
+      callout(at(0.123), bot, false, 'THE SKY', 'seeing 0.9″ · one clear night');
+    }
+
+    // ---- 4. the instruments, hung off the focus
+    {
+      const bx = at(0.372);
+      const boxes = [
+        { t: 0.352, w: 0.030, h: 0.17, n: 'IMAGER', s: 'two bands, every night' },
+        { t: 0.398, w: 0.030, h: 0.17, n: 'SPECTROGRAPH', s: 'the redshift, once' },
+      ];
+      // The spine the data half of the drawing hangs on, from the focus rightward.
+      g.globalAlpha = 0.6; g.strokeStyle = soft;
+      path([[at(0.318), beam], [at(0.995), beam]]); g.stroke();
+      g.globalAlpha = 1; g.strokeStyle = ink;
+      boxes.forEach((b, i) => {
+        const X = at(b.t), w2 = FULL * b.w, h2 = py * b.h;
+        const Y = beam + (i ? py * 0.06 : -py * 0.06 - h2);
+        g.fillStyle = paper === '#fbfaf6' ? '#eef1f2' : '#ded8c9';
+        g.fillRect(X, Y, w2, h2); g.strokeRect(X, Y, w2, h2);
+        g.globalAlpha = 0.6; g.strokeStyle = soft;
+        path([[X + w2 / 2, beam], [X + w2 / 2, i ? Y : Y + h2]]); g.stroke();
+        g.globalAlpha = 1; g.strokeStyle = ink;
+        callout(X + w2 / 2, i ? Y + h2 : Y, !i, b.n, b.s);
+      });
+      void bx;
+    }
+
+    // ---- 5. the frames: two nights and the difference between them
+    {
+      const gx = at(0.482), cw = FULL * 0.017, gap = FULL * 0.004;
+      const rowY2 = [beam - py * 0.13, beam + py * 0.02];
+      for(let r = 0; r < 2; r++){
+        for(let c = 0; c < 3; c++){
+          const X = gx + c * (cw + gap), Y = rowY2[r], h2 = py * 0.11;
+          g.fillStyle = paper === '#fbfaf6' ? '#20242a' : '#2a2620';
+          g.fillRect(X, Y, cw, h2);
+          g.globalAlpha = 0.5; g.strokeStyle = soft; g.strokeRect(X, Y, cw, h2);
+          g.globalAlpha = 1; g.strokeStyle = ink;
+          g.fillStyle = paper;
+          // The same field twice; the bottom-right frame is the subtraction and is
+          // the only one with a source left in it.
+          const stars = r === 1 && c === 2 ? 1 : 5;
+          for(let k = 0; k < stars; k++){
+            dot(X + cw * (0.2 + rnd() * 0.6), Y + h2 * (0.2 + rnd() * 0.6),
+              py * (r === 1 && c === 2 ? 0.011 : 0.006));
+          }
+        }
+      }
+      callout(gx + (cw * 3 + gap * 2) / 2, rowY2[1] + py * 0.11, false,
+        'SUBTRACTION', 'what was not there last month');
+    }
+
+    // ---- 6. the light curve, and the fifteen days that standardise it
+    {
+      const X0 = at(0.590), W = FULL * 0.075, Y0 = beam + py * 0.20, H = py * 0.30;
+      g.globalAlpha = 0.7; g.strokeStyle = soft;
+      path([[X0, Y0 - H], [X0, Y0], [X0 + W, Y0]]); g.stroke();
+      g.globalAlpha = 1; g.strokeStyle = ink;
+      const curve = (X, wid, hgt, broad) => {
+        const pts = [];
+        for(let i = 0; i <= 40; i++){
+          const t2 = i / 40;
+          // A fast rise and a slow decline, with `broad` stretching the decline.
+          const v = t2 < 0.22 ? (t2 / 0.22) ** 2
+            : Math.exp(-(((t2 - 0.22) / (0.30 * broad)) ** 1.1));
+          pts.push([X + wid * t2, Y0 - hgt * v]);
+        }
+        return pts;
+      };
+      g.lineWidth = line * 1.8;
+      path(curve(X0, W, H * 0.92, 1)); g.stroke();
+      g.lineWidth = line;
+      g.fillStyle = ink;
+      for(const t2 of [0.10, 0.20, 0.26, 0.34, 0.46, 0.60, 0.78, 0.92]){
+        const p = curve(X0, W, H * 0.92, 1)[Math.round(t2 * 40)];
+        dot(p[0], p[1], py * 0.010);
+      }
+      // The bracket: peak, then fifteen days later, and the drop between them is
+      // the one number the whole standardisation turns on.
+      const pk = curve(X0, W, H * 0.92, 1)[9], fif = curve(X0, W, H * 0.92, 1)[22];
+      g.globalAlpha = 0.6; g.strokeStyle = soft;
+      path([[pk[0], pk[1]], [pk[0], pk[1] - py * 0.05]]); g.stroke();
+      path([[fif[0], fif[1]], [fif[0], pk[1] - py * 0.05]]); g.stroke();
+      path([[pk[0], pk[1] - py * 0.05], [fif[0], pk[1] - py * 0.05]]); g.stroke();
+      g.globalAlpha = 1; g.strokeStyle = ink;
+      callout((pk[0] + fif[0]) / 2, pk[1] - py * 0.05, true,
+        'THE LIGHT CURVE', 'fifteen days after peak');
+    }
+
+    // ---- 7. the standardisation: broader is brighter, and the scatter closes
+    {
+      const X0 = at(0.700), W = FULL * 0.060, Y0 = beam + py * 0.20, H = py * 0.28;
+      g.globalAlpha = 0.7; g.strokeStyle = soft;
+      path([[X0, Y0 - H], [X0, Y0], [X0 + W, Y0]]); g.stroke();
+      g.globalAlpha = 1; g.strokeStyle = ink;
+      // Three declines, and the same three brought together — the correction is
+      // the point, so both states are on the wall.
+      for(const [broad, hgt, alpha] of [[1.35, 1.00, 0.85], [1.0, 0.86, 0.5], [0.72, 0.72, 0.5]]){
+        const pts = [];
+        for(let i = 0; i <= 32; i++){
+          const t2 = i / 32;
+          const v = t2 < 0.22 ? (t2 / 0.22) ** 2
+            : Math.exp(-(((t2 - 0.22) / (0.30 * broad)) ** 1.1));
+          pts.push([X0 + W * t2, Y0 - H * hgt * v]);
+        }
+        g.globalAlpha = alpha; path(pts); g.stroke(); g.globalAlpha = 1;
+      }
+      g.fillStyle = soft; g.font = H2;
+      g.fillText('BROADER IS BRIGHTER', X0 + W * 0.06, Y0 - H - py * 0.03);
+      callout(X0 + W * 0.5, Y0, false, 'STANDARDISED', 'one population, one ruler');
+    }
+
+    // ---- 8. the diagram: the points, and the two histories laid over them
+    {
+      const X0 = at(0.800), W = FULL * 0.170, Y0 = beam + py * 0.24, H = py * 0.34;
+      g.globalAlpha = 0.7; g.strokeStyle = soft;
+      path([[X0, Y0 - H], [X0, Y0], [X0 + W, Y0]]); g.stroke();
+      g.globalAlpha = 1; g.strokeStyle = ink;
+      const mag = (t2, lift) => Y0 - H * (0.12 + 0.74 * Math.sqrt(t2) + lift);
+      // Matter only, dashed-looking because it is the prediction rather than the
+      // fit; then the flat model with a repulsive term, which runs through the
+      // points; then the points, sitting above the first by about a quarter of the
+      // height of the box — which is the quarter magnitude the campaign found.
+      for(const [lift, alpha] of [[0, 0.45], [0.12, 0.9]]){
+        const pts = [];
+        for(let i = 0; i <= 40; i++) pts.push([X0 + (W * i) / 40, mag(i / 40, lift)]);
+        g.globalAlpha = alpha; path(pts); g.stroke(); g.globalAlpha = 1;
+      }
+      g.fillStyle = ink;
+      for(let i = 0; i < 34; i++){
+        const t2 = 0.03 + rnd() * 0.95;
+        dot(X0 + W * t2, mag(t2, 0.12) + (rnd() - 0.5) * py * 0.035, py * 0.009);
+      }
+      g.fillStyle = soft; g.font = H2;
+      g.fillText('MATTER ONLY', X0 + W * 0.70, mag(0.82, 0) + py * 0.05);
+      g.fillText('FLAT, WITH A REPULSIVE TERM', X0 + W * 0.42, mag(0.60, 0.12) - py * 0.03);
+      callout(X0 + W * 0.24, mag(0.24, 0.12), true,
+        'THE DIAGRAM', 'about a quarter of a magnitude faint');
+      g.fillStyle = soft; g.font = H2;
+      g.textAlign = 'right';
+      g.fillText('redshift →', X0 + W, Y0 + py * 0.055);
+      g.textAlign = 'left';
+    }
+
+    // ---- the rail: what each station of the wall is, in the order you walk it
+    {
+      const STATIONS = [['1', 'THE EVENT', 0.038], ['2', 'THE SKY', 0.123],
+        ['3', 'THE TELESCOPE', 0.268], ['4', 'THE INSTRUMENTS', 0.385],
+        ['5', 'THE FRAMES', 0.503], ['6', 'THE LIGHT CURVE', 0.628],
+        ['7', 'STANDARDISED', 0.730], ['8', 'THE DIAGRAM', 0.884]];
+      g.globalAlpha = 0.8; g.strokeStyle = soft;
+      path([[at(0.02), rail], [at(0.98), rail]]); g.stroke();
+      g.font = H2; g.textAlign = 'center';
+      for(const [n, name, t2] of STATIONS){
+        const X = at(t2);
+        path([[X, rail], [X, rail - py * 0.028]]); g.stroke();
+        g.globalAlpha = 1; g.fillStyle = soft;
+        g.fillText(`${n} · ${name}`, X, rail + py * 0.055);
+        g.globalAlpha = 0.8;
+      }
+      g.globalAlpha = 1; g.textAlign = 'left'; g.strokeStyle = ink;
+    }
+    g.restore();
+  } else if(kind === 'chain'){
+    // A measurement chain along the length of a corridor, authored rather than
+    // drawn: the caller names the stations and this draws the rail, the numbers,
+    // the labels and one schematic glyph per station.
+    //
+    // WHY THIS EXISTS BESIDE `lightpath`. That one is a supernova survey's own
+    // signal flow, drawn by hand — a dome in section, a spectrograph, a light
+    // curve — and it is forty metres of one specific argument. Every discovery
+    // game has a chain like it and none of them has the same chain, so the choice
+    // was nine hand-drawn walls or one that takes its stations as data. The glyphs
+    // are deliberately schematic: a corridor drawing is read at 1.4 m/s and a
+    // recognisable silhouette carries further than a correct one.
+    //
+    // `text.stations` is [{ title, sub, glyph }]. Numbering is the index, because a
+    // chain whose stations are numbered by hand goes wrong the first time one is
+    // inserted. Slicing works exactly as it does for `lightpath`: every panel
+    // paints the whole run and shows its own window of it, so a run of boards
+    // reads as one drawing.
+    const FULL = px / Math.max(0.0001, (t1 - t0));
+    g.save();
+    g.translate(-t0 * FULL, 0);
+    const at = (t) => FULL * t;
+    const line = Math.max(1.5, py * 0.006);
+    const spine = py * 0.44;
+    const rail = py * 0.88;
+    const H1 = `700 ${Math.round(py * 0.05)}px Inter, Helvetica, Arial, sans-serif`;
+    const H2 = `400 ${Math.round(py * 0.038)}px Inter, Helvetica, Arial, sans-serif`;
+    const H3 = `400 ${Math.round(py * 0.034)}px Inter, Helvetica, Arial, sans-serif`;
+    const path = (pts, close = false) => {
+      g.beginPath();
+      pts.forEach(([X, Y], i) => (i ? g.lineTo(X, Y) : g.moveTo(X, Y)));
+      if(close) g.closePath();
+    };
+    const dot = (X, Y, r) => { g.beginPath(); g.arc(X, Y, r, 0, Math.PI * 2); g.fill(); };
+    const rnd = rng('chain');
+
+    const stations = (text.stations ?? []).filter(st => st && st.title);
+    const n = stations.length;
+    if(n){
+      // Stations sit inset from both ends, so the first and last glyph are not
+      // cut in half by the end of the wall.
+      const t = (i) => 0.055 + (0.89 * (n === 1 ? 0.5 : i / (n - 1)));
+
+      // The spine the whole chain hangs off, drawn first and under everything.
+      g.globalAlpha = 0.5; g.strokeStyle = soft; g.lineWidth = line;
+      path([[at(t(0)), spine], [at(t(n - 1)), spine]]); g.stroke();
+      g.globalAlpha = 1;
+
+      /** One schematic glyph, centred on (X, spine), about `r` across. */
+      const glyph = (name, X, r) => {
+        g.strokeStyle = ink; g.fillStyle = ink; g.lineWidth = line;
+        switch(name){
+          case 'flask': {
+            path([[X - r * 0.22, spine - r], [X - r * 0.22, spine - r * 0.2],
+              [X - r * 0.62, spine + r * 0.85], [X + r * 0.62, spine + r * 0.85],
+              [X + r * 0.22, spine - r * 0.2], [X + r * 0.22, spine - r]], true);
+            g.stroke();
+            g.globalAlpha = 0.3;
+            path([[X - r * 0.44, spine + r * 0.3], [X - r * 0.62, spine + r * 0.85],
+              [X + r * 0.62, spine + r * 0.85], [X + r * 0.44, spine + r * 0.3]], true);
+            g.fill(); g.globalAlpha = 1;
+            break;
+          }
+          case 'column': {
+            // A separation column: a tall tube with a band part way down it.
+            path([[X - r * 0.3, spine - r], [X - r * 0.3, spine + r],
+              [X + r * 0.3, spine + r], [X + r * 0.3, spine - r]], true);
+            g.stroke();
+            g.globalAlpha = 0.35;
+            g.fillRect(X - r * 0.3, spine - r * 0.15, r * 0.6, r * 0.3);
+            g.globalAlpha = 1;
+            break;
+          }
+          case 'bars': {
+            const bs = [0.95, 0.62, 0.95, 0.62];
+            bs.forEach((v, i) => {
+              const bw = (r * 1.5) / bs.length;
+              const bx = X - r * 0.75 + i * bw;
+              g.globalAlpha = 0.35;
+              g.fillRect(bx + bw * 0.14, spine + r - r * 2 * v, bw * 0.72, r * 2 * v);
+              g.globalAlpha = 1;
+              g.strokeRect(bx + bw * 0.14, spine + r - r * 2 * v, bw * 0.72, r * 2 * v);
+            });
+            break;
+          }
+          case 'fibre': {
+            // A drawn strand held between two clamps.
+            for(const s of [-1, 1]) g.strokeRect(X - r * 0.85, spine + s * r * 0.7 - r * 0.1,
+              r * 1.7, r * 0.2);
+            g.beginPath();
+            for(let i = 0; i <= 40; i++){
+              const u = i / 40;
+              const Y = spine - r * 0.62 + r * 1.24 * u;
+              const dx = Math.sin(u * Math.PI * 3) * r * 0.14;
+              i ? g.lineTo(X + dx, Y) : g.moveTo(X + dx, Y);
+            }
+            g.stroke();
+            break;
+          }
+          case 'camera': {
+            // A source, a collimator and a plate: the beam line, side on.
+            g.beginPath(); g.arc(X - r * 0.85, spine, r * 0.22, 0, Math.PI * 2); g.stroke();
+            path([[X - r * 0.6, spine], [X + r * 0.55, spine]]); g.stroke();
+            g.strokeRect(X - r * 0.2, spine - r * 0.3, r * 0.12, r * 0.6);
+            g.globalAlpha = 0.35;
+            g.fillRect(X + r * 0.55, spine - r * 0.8, r * 0.28, r * 1.6);
+            g.globalAlpha = 1;
+            g.strokeRect(X + r * 0.55, spine - r * 0.8, r * 0.28, r * 1.6);
+            break;
+          }
+          case 'plate': {
+            // An exposed plate: a dark rectangle with an X of marks on it.
+            g.globalAlpha = 0.5; g.fillStyle = ink;
+            g.fillRect(X - r * 0.9, spine - r * 0.9, r * 1.8, r * 1.8);
+            g.globalAlpha = 1; g.fillStyle = paper;
+            for(const sx of [-1, 1]) for(let i = 1; i <= 4; i++){
+              const u = i / 4.4;
+              dot(X + sx * r * 0.78 * u, spine - r * 0.72 * u, py * 0.009);
+              dot(X + sx * r * 0.78 * u, spine + r * 0.72 * u, py * 0.009);
+            }
+            g.fillStyle = ink;
+            g.strokeRect(X - r * 0.9, spine - r * 0.9, r * 1.8, r * 1.8);
+            break;
+          }
+          case 'ruler': {
+            g.strokeRect(X - r * 0.95, spine - r * 0.28, r * 1.9, r * 0.56);
+            for(let i = 1; i < 8; i++){
+              const X2 = X - r * 0.95 + (r * 1.9 * i) / 8;
+              path([[X2, spine + r * 0.28], [X2, spine + r * 0.28 - r * (i % 2 ? 0.2 : 0.36)]]);
+              g.stroke();
+            }
+            break;
+          }
+          case 'spiral': {
+            // Two strands winding, drawn as opposed sine curves with rungs.
+            for(const s of [1, -1]){
+              g.beginPath();
+              for(let i = 0; i <= 48; i++){
+                const u = i / 48;
+                const Y = spine - r + r * 2 * u;
+                const X2 = X + Math.sin(u * Math.PI * 2.4) * r * 0.5 * s;
+                i ? g.lineTo(X2, Y) : g.moveTo(X2, Y);
+              }
+              g.stroke();
+            }
+            g.globalAlpha = 0.45;
+            for(let i = 1; i < 10; i++){
+              const u = i / 10;
+              const Y = spine - r + r * 2 * u;
+              const d = Math.sin(u * Math.PI * 2.4) * r * 0.5;
+              path([[X - d, Y], [X + d, Y]]); g.stroke();
+            }
+            g.globalAlpha = 1;
+            break;
+          }
+          case 'grid': {
+            for(let i = 0; i <= 3; i++){
+              path([[X - r * 0.9, spine - r * 0.9 + (r * 1.8 * i) / 3],
+                [X + r * 0.9, spine - r * 0.9 + (r * 1.8 * i) / 3]]); g.stroke();
+              path([[X - r * 0.9 + (r * 1.8 * i) / 3, spine - r * 0.9],
+                [X - r * 0.9 + (r * 1.8 * i) / 3, spine + r * 0.9]]); g.stroke();
+            }
+            break;
+          }
+          case 'wave': {
+            g.beginPath();
+            for(let i = 0; i <= 64; i++){
+              const u = i / 64;
+              const env = Math.min(1, u * 2.4);
+              const X2 = X - r + r * 2 * u;
+              const Y = spine - Math.sin(u * Math.PI * 7) * r * 0.78 * env;
+              i ? g.lineTo(X2, Y) : g.moveTo(X2, Y);
+            }
+            g.stroke();
+            break;
+          }
+          case 'curve': {
+            path([[X - r, spine + r * 0.85], [X - r, spine - r * 0.9]]); g.stroke();
+            path([[X - r, spine + r * 0.85], [X + r, spine + r * 0.85]]); g.stroke();
+            g.beginPath();
+            for(let i = 0; i <= 40; i++){
+              const u = i / 40;
+              const X2 = X - r + r * 2 * u;
+              const Y = spine + r * 0.85 - r * 1.6 * Math.exp(-((u - 0.28) ** 2) / 0.05);
+              i ? g.lineTo(X2, Y) : g.moveTo(X2, Y);
+            }
+            g.stroke();
+            break;
+          }
+          case 'points': {
+            path([[X - r, spine + r * 0.85], [X - r, spine - r * 0.9]]); g.stroke();
+            path([[X - r, spine + r * 0.85], [X + r, spine + r * 0.85]]); g.stroke();
+            for(let i = 0; i < 11; i++){
+              const u = (i + 0.5) / 11;
+              const Y = spine + r * 0.7 - r * 1.35 * u + (rnd() - 0.5) * r * 0.3;
+              dot(X - r + r * 2 * u, Y, py * 0.011);
+            }
+            break;
+          }
+          case 'dish': {
+            g.beginPath();
+            g.arc(X, spine + r * 0.5, r * 0.95, Math.PI * 1.15, Math.PI * 1.85);
+            g.stroke();
+            path([[X, spine - r * 0.42], [X, spine + r * 0.85]]); g.stroke();
+            dot(X, spine - r * 0.42, py * 0.013);
+            break;
+          }
+          case 'beam': {
+            for(const s of [-1, 1]){
+              path([[X + s * r * 0.95, spine - r * 0.55], [X + s * r * 0.2, spine],
+                [X + s * r * 0.95, spine + r * 0.55]]);
+              g.stroke();
+            }
+            dot(X, spine, py * 0.016);
+            break;
+          }
+          case 'globe': {
+            g.beginPath(); g.arc(X, spine, r * 0.88, 0, Math.PI * 2); g.stroke();
+            g.beginPath(); g.ellipse(X, spine, r * 0.88, r * 0.3, 0, 0, Math.PI * 2); g.stroke();
+            g.beginPath(); g.ellipse(X, spine, r * 0.34, r * 0.88, 0, 0, Math.PI * 2); g.stroke();
+            break;
+          }
+          case 'box':
+          default:
+            g.strokeRect(X - r * 0.85, spine - r * 0.7, r * 1.7, r * 1.4);
+            break;
+        }
+      };
+
+      stations.forEach((st, i) => {
+        const X = at(t(i));
+        glyph(st.glyph ?? 'box', X, py * 0.20);
+
+        // The label, alternating above and below, with a leader back to the spine
+        // so a run of eight does not become one line of text.
+        const up = i % 2 === 0;
+        const ly = up ? spine - py * 0.30 : spine + py * 0.30;
+        g.globalAlpha = 0.5; g.strokeStyle = soft; g.lineWidth = line;
+        path([[X, spine + (up ? -py * 0.22 : py * 0.22)], [X, ly]]); g.stroke();
+        g.globalAlpha = 1;
+        g.textAlign = 'center';
+        g.fillStyle = ink; g.font = H1;
+        g.fillText(String(st.title).toUpperCase(), X, up ? ly - py * 0.015 : ly + py * 0.055);
+        if(st.sub){
+          g.fillStyle = soft; g.font = H2;
+          g.fillText(String(st.sub), X, up ? ly + py * 0.035 : ly + py * 0.105);
+        }
+        g.textAlign = 'left';
+
+        // The numbered rail along the bottom. The number is the index, so
+        // inserting a station renumbers the rest for free.
+        g.globalAlpha = 0.55; g.strokeStyle = soft;
+        path([[X, rail], [X, rail - py * 0.03]]); g.stroke();
+        g.fillStyle = soft; g.font = H3; g.textAlign = 'center';
+        g.fillText(`${i + 1} · ${String(st.title).toUpperCase()}`, X, rail + py * 0.06);
+        g.textAlign = 'left'; g.globalAlpha = 1;
+      });
+
+      // The rail itself, under the numbers.
+      g.globalAlpha = 0.35; g.strokeStyle = soft; g.lineWidth = line;
+      path([[at(t(0)), rail], [at(t(n - 1)), rail]]); g.stroke();
+      g.globalAlpha = 1; g.strokeStyle = ink;
+    }
     g.restore();
   }
 

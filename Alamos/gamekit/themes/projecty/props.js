@@ -17,7 +17,10 @@
 // unchanged; the bulbs are emissive and registered as light panels, which is how
 // every other game on this engine lights a night scene.
 import * as THREE from 'three';
-import { MATERIALS, box, cyl, post, sign, fenceRun, crateStack } from '../../engine/world/kit.js';
+import {
+  MATERIALS, box, cyl, post, sign, fenceRun, crateStack,
+  bicycleRack, BICYCLE_DRIVE, clearSpot,
+} from '../../engine/world/kit.js';
 import { driveable } from '../../engine/world/driving.js';
 import { buildProps } from './legacy/props.js';
 import { plantTrees, srand, srandRange } from './legacy/env.js';
@@ -70,11 +73,50 @@ export function decorate(scene, ctx){
     driveable(scene, v.group, { ...v, colliders, interactables, topSpeed: 13 });
   }
 
+  // Is this spot inside something? Reads `colliders` at call time, so it is
+  // declared once here and used by both the bicycle rack below and the forest
+  // further down — the trees are planted last and see everything.
+  const isBlocked = (x, z, pad = 2) => colliders.some(b =>
+    x > b.min.x - pad && x < b.max.x + pad && z > b.min.z - pad && z < b.max.z + pad);
+
+  // ------------------------------------------------------------ the bicycles
+  //
+  // The Hill's second vehicle, and by numbers its first. Motor transport on the
+  // mesa was Army-issue and signed for; a bicycle was how a physicist got from
+  // the Sundt apartments to T Building before eight, and `buildProps` already
+  // draws eight of them leaning on walls. Those stay as they are — a leaning
+  // bicycle is scenery and reads as one — and these are the rack outside Fuller
+  // Lodge, upright, which anybody may take.
+  //
+  // The site is 170 m across and the jeeps are parked at the motor pool at the
+  // north end, so on most mornings the bicycle is the faster of the two: it is
+  // where you are, and the jeep is a walk away in the wrong direction.
+  const spot = clearSpot({ x: -6, z: -22 }, isBlocked, {
+    // The spawn is at (0, 14) and the road runs through it.
+    pad: 2.4, avoid: [{ x: 0, z: 14, r: 12 }],
+  });
+  const { rail, bicycles } = bicycleRack(scene, spot.x, spot.z, y(spot.x, spot.z), {
+    facing: 0,
+    list: [
+      { colour: 0x2c3a44, basket: true },
+      { colour: 0x6b3a2c, basket: true },
+      { colour: 0x3c4a34, basket: false },
+      { colour: 0x44404a, basket: false },
+    ],
+  });
+  if(rail.soft) softColliders.push(rail.soft);
+  bicycles.forEach((b, i) => {
+    driveable(scene, b.group, {
+      ...BICYCLE_DRIVE,
+      id: `BIKE_LODGE_${i + 1}`, label: 'bicycle', kind: 'bicycle', verb: 'Ride',
+      wheels: b.wheels, steer: b.steer, ignore: b.ignore,
+      colliders, interactables,
+    });
+  });
+
   // -------------------------------------------------------- the Ponderosa forest
   // Thinned in town, dense to the rim. It reads the colliders that already exist,
   // so it has to be planted after everything above.
-  const isBlocked = (x, z, pad = 2) => colliders.some(b =>
-    x > b.min.x - pad && x < b.max.x + pad && z > b.min.z - pad && z < b.max.z + pad);
   plantTrees(scene, isBlocked).forEach(c => softColliders.push(c));
 
   // ============================================ what the town was still missing

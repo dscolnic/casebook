@@ -25,7 +25,7 @@ walk to a place, answer a science question, hand off. No combat, no weapons.
 | `gamekit/MIDDLE_SCHOOL_EDITIONS.md` | The junior-edition plan. |
 | `gamekit/FOURTH_GAME.md` | The plan the Project Y flip came from. |
 
-## The twenty-five games
+## The twenty-five games, and the ten Quick Discoveries
 
 `GAMES.md` is the full inventory. This is the place, and the command.
 
@@ -56,6 +56,157 @@ walk to a place, answer a science question, hand off. No combat, no weapons.
 | Dark Fibre | `gamekit/themes/darkfibre/` | Pellow Head: a low landing station in the dunes, a manhole above the tide line, a radiography bay 300 m out. AP Physics 2, optics and modern | `THEME=darkfibre npm run dev` |
 | Project Y | `gamekit/themes/projecty/` | Los Alamos 1943–45, outdoor mesa | `THEME=projecty npm run dev` |
 | Hospital Heroes | `gamekit/themes/hospital/` | Children's hospital, interior, ~grades 3–4 | `THEME=hospital npm run dev` |
+| Too Faint | `gamekit/themes/qd_accel/` | **A Quick Discovery, not a fortnight**: Cerro Vela Survey Operations, an analysis floor facing a wall of plot boards. Astronomy and cosmology | `THEME=qd_accel npm run dev` |
+| The Only Shape That Fits | `gamekit/themes/qd_dna/` | A 1950s structural biology unit: chemistry and the model room down one side of a corridor, X-ray and an evidence wall down the other. Biology | `THEME=qd_dna npm run dev` |
+| The Impossible Bounce | `gamekit/themes/qd_nucleus/` | A 1910 physics laboratory: the apparatus down one side, the counting and the argument down the other, a gold leaf in a vacuum between them. Physics | `THEME=qd_nucleus npm run dev` |
+| One Moving System | `gamekit/themes/qd_tectonics/` | A postwar survey section: the land evidence one side, ten years of ships the other, and thirty feet of continents on pins. Earth science | `THEME=qd_tectonics npm run dev` |
+| Is the Bump Real | `gamekit/themes/qd_higgs/` | A collider analysis floor: a theory wall, a dark event-display room, ten metres of histogram. Particle physics | `THEME=qd_higgs npm run dev` |
+| Twice the Old Number | `gamekit/themes/qd_eclipse/` | **Outdoors**: an eclipse camp on a red dust plain — two coelostats out on the flat, a light-tight plate hut, one wire to the coast. Physics | `THEME=qd_eclipse npm run dev` |
+| Something Is Pulling | `gamekit/themes/qd_exo/` | A planet search floor: a spectrograph one side, a month of light curve on the wall of the other. Astronomy | `THEME=qd_exo npm run dev` |
+| The Chirp | `gamekit/themes/qd_ligo/` | An interferometer corner station: a beam splitter with two metre-wide tubes leaving through the wall at right angles. Physics | `THEME=qd_ligo npm run dev` |
+| The Noise That Would Not Go | `gamekit/themes/qd_cmb/` | **Outdoors**: a hilltop radio site — a twenty-foot horn inside a ring of ground shielding, a receiver hut under it. Cosmology | `THEME=qd_cmb npm run dev` |
+| No Middle To It | `gamekit/themes/qd_hubble/` | A 1920s mountain observatory: years of glass in drawers one side, a spectrograph on its own pier the other, one plot at the end. Astronomy | `THEME=qd_hubble npm run dev` |
+
+**A Quick Discovery is nine stops in one sitting, and needs no second day model.**
+`great_discoveries_first10_expanded.docx` specifies ten discoveries on a 3 × 3
+spine — establish the tool, meet the anomaly, make the claim — as a ten-to-twenty
+minute session. A level is a day, a micro-game is a stop, `dayNoun: 'Level'`, and
+every gate in the repo reads it unchanged: all ten are green on all of them at
+three days and nine calls. What it did need was one honest number on the shelf —
+both front doors printed "days" for the fifteen themes that call a day something
+else, and `sizeOf` counted the WARMUPS array's seven titles as seven more days, so
+**every card overstated its own campaign by the number of warm-ups** (Blackout's
+fifteen read as twenty-two). `tools/themeFacts.js` is the one description of what
+is read back off a theme now, because `gallery.mjs` and `sync-casebook.mjs` had
+their own copy of all five readers and the copies had drifted into being wrong in
+the same way.
+
+**A reskin of another game's place is a copy, not an edition** — the course, the
+cast, the areas and the length all differ, and `edition-of:` would put
+`editionParity` in front of every one of those differences. What that costs is
+that nothing checks the reskin, and three things came across from Bring Them Home
+that only a screenshot found: forty-five metres of corridor still carrying **a
+Saturn V in elevation**, the three plot boards rendering **one identical progress
+readout each**, and the middle board's title bar **inside the soffit** because a
+5.8 m board on a 2.4 m base does not fit under a 7.2 m ceiling. Grep the donor's
+nouns, and photograph every view the theme declares — five of `qd_accel`'s
+fifteen had never been rendered, and they were the five carrying everything the
+reskin was supposed to have changed. **Nothing else in the set is a reskin**: the
+other nine bring their own place, which is why none of those three defects can
+recur in them.
+
+**The set is written for grade 9, and the reason is the one thing checking cannot
+find.** The first two were authored at the parent games' grade 11 and a player
+said the questions were too hard — which is `questionLoad`'s lesson arriving from
+the other end of the range. Reading score cannot see that a nine-stop session
+somebody comes to cold is not a fortnight in a course they are taking. So all ten
+sit at `audience: { grade: 9 }`, still above 8 so the driven instruments stay
+legal, and every stop carries a rule that no gate asks for: **the `guide` says in
+plain words what the move is, and the first `background` paragraph works the same
+move on different numbers.** Different numbers deliberately — a worked example on
+the question's own numbers is the answer with a label on it, and `probeQuestions`
+fails it, correctly. The opening cards were rewritten the same way and to the same
+brief: the mystery first, then what it would mean if it held, then the job. That
+brief came from the person playing it, not from a check, and it is the one part of
+this work no gate in the repo would have asked for.
+
+**Format diversity is per campaign here, and it is the specification rather than a
+preference.** The source book asks for nine *different* interactions per
+discovery, so a campaign of nine multiple choices is exactly the thing it is
+written against. Every one of the ten carries seven or eight distinct answer
+formats in nine stops and at least one instrument the player drives. Two
+consequences worth knowing. The instruments are chosen from what the stop is
+already about, which is how DEGENERACY ended up on the radial-velocity stop
+(one observable, mass and tilt) and on the chirp (one sweep rate, two masses) —
+those are the same defect in the physics, and the format is a description of it.
+And **TRIANGULATE now has its first authored instance in a game**: three
+continents' ice-scratch bearings crossing on one old pole, in `qd_tectonics`. It
+was the last format in the catalogue that existed only in `books/instruments.yml`
+besides the four arcade ones and the suspended STACK. Counting before claiming
+mattered here — the first draft of this paragraph said six formats had got their
+first instance from this set, and five of the six (ALLOCATE, ATTEST, DEGENERACY,
+PROBE, TRACE) were already authored in between four and twenty-eight shipping
+books. One `grep -l` settled it.
+
+**Two of the ten are outdoors and the subject decided which.** An eclipse
+expedition is a camp on a plain with a clear horizon and half of what makes it
+hard is that it is a camp; a twenty-foot horn on a hill above a road is the whole
+reason the first explanation offered was pigeons. Neither survives being moved
+into a corridor. Both cost about a third of what an interior costs, because an
+outdoor place is `site.js` — buildings as data with `roof` and `siding` — plus a
+`decorate` hook, where an interior is a plan and a fit-out. Three things bit in
+those two and all three were invisible until a screenshot: **`ctx.MATERIALS` is a
+map of factory functions**, so spreading it over a theme's own palette replaces
+materials with functions and three.js renders default white (a row of telegraph
+poles, bare white); **the outdoor world's `colliders` are `THREE.Box3`**, not the
+interior world's plain-number shape, and pushing the wrong one throws on the first
+ray `reachable.mjs` fires; and **a collider on a building's own door walls the stop
+off** — the coelostat was placed at the camera hut's entrance and `reachable`
+correctly reported the stop as unreachable behind its own instrument.
+
+Two more that only a picture from outside would have found. **`profile: 'hill'`
+puts its mound at the origin**, so a site described as a hilltop and built with
+seven metres of relief is a green slope the camera looks into at eye height, with
+two roof ridges poking over the crest and nothing else visible anywhere; a
+hilltop reads from the horizon ranks and the fog, and nothing in that campaign
+happens on a gradient. And **the object a game is named after was behind its own
+building** — the horn antenna was placed north of the antenna hut, which is
+correct for a real site and means that from anywhere on the track the hut is
+exactly in front of it. Both of those pass every check in the repo.
+
+**The interior fit-out boilerplate is now four functions in `interiorKit`, and
+that was the second-largest thing this work found.** Every interior theme needs
+the same forty lines: where a corridor's spine wall is actually solid, the
+per-room `wallOk` that knows about doorways and missing cross-walls, and the mural
+slicing with its mirror. Nine copies of that is house rule 1 in a new directory,
+and the copies would have drifted the first time either half was corrected —
+which is exactly what had already happened to the sliced mural's mirror, wrong on
+the one wall nobody had put a legible drawing on. `spineSolidSpans`,
+`spineWallOk`, `roomWallOk` and `paintAlongWall` are that code, once.
+
+**The chain band sits at the same height in all seven, and that is not a detail.**
+It is at y = 2.20 with a 0.62 m height whatever the ceiling is, because what sets
+it is where the player's eye is rather than where the slab is. Set relative to
+`tileH` — which is the honest-looking thing to do, and which the first cut of
+four of these did — it lands above the top of a 66-degree frame at walking
+distance from the wall, so the drawing is in the scene, correctly positioned,
+facing the right way, and cannot be seen while walking down the corridor. Only a
+screenshot says so, and only a screenshot taken along the corridor rather than at
+a room door.
+
+**And `paintMural` gained `chain`, which is `lightpath` with its stations as
+data.** `lightpath` is one supernova survey's signal flow drawn by hand, forty
+metres of one specific argument; every discovery has a chain like it and none of
+them has the same chain. `chain` takes `text.stations` — a title, a subtitle and
+one of thirteen schematic glyphs each — draws the rail, numbers the stations by
+index, and alternates the labels above and below so a run of nine does not
+collapse into one line of type. Numbered by index rather than by hand, because a
+chain numbered by hand goes wrong the first time a station is inserted.
+
+**Two shared painters gained a face for it, and both were missing rather than
+wrong.** `interiorKit`'s `paintMural` had `rocket` and no way to draw a chain of
+measurements, so `lightpath` is the corridor drawing: the event, the sky, the
+telescope, the instruments, the frames, the light curve, the standardisation, the
+diagram. And `screens.js` had `vitals`, `panel` and `film` — a machine reporting
+its own state — and nothing for a wall a team *faces*, so a board reading
+`LEVEL 1 / 3` was a progress bar where the plot should be. `plot` takes curves and
+points in 0..1 of its own box, prints how much of the sample is up, and **says why
+it is empty in the middle of the space where the data would be** — a note in the
+corner of a blank board reads as a board that is broken rather than one that is
+waiting, and this game's diagram is deliberately blank on level 1 because the
+campaign's own rule is that the cosmology stays sealed until the ruler is agreed.
+
+**A sliced mural's boards have to be numbered against the mirror, and both walls
+that use one were wrong.** `paintMural`'s `t0`/`t1` carve one drawing across a run
+of boards, and a face on a wall whose normal is −z is rotated a half turn — so its
+texture's u axis runs *against* +x. Handing board i the slice `[i/n, (i+1)/n]` puts
+the start of its slice at the board's high-x edge: every board is right on its own
+and the run jumps two slices at every joint. Reversed, the joints close and the run
+reads left to right for somebody facing the wall, because looking +z the viewer's
+right hand is −x. It survived years in Bring Them Home because the drawing on that
+wall is a launch vehicle, which has no legible order — the interstage sat to the
+right of the second stage and nobody reads a Saturn V for stacking order. It was
+found the moment a drawing with **numbered stations** went on the same wall.
 
 **A game's silhouette comes from its world module.** Two themes on the same world look
 alike however the palette differs, which is why five either bring their own world
@@ -815,6 +966,10 @@ node engine/dev/dayCalls.mjs --selftest       # and it can tell a review variant
 node engine/dev/dayDebrief.mjs     <theme>    # the day closes on something earned, and somebody says it
 node engine/dev/dayDebrief.mjs --selftest     # and it can tell a byline from a sentence
 node engine/dev/placement.mjs      <theme>    # everything hung is on a wall, not in it or over a doorway
+node engine/dev/vehicleKinds.mjs   <theme>    # an outdoor site can be got about in two different ways
+node engine/dev/vehicleKinds.mjs --selftest   # and three trucks under three names are one kind, not three
+node engine/dev/discoveryHistory.mjs <theme>  # a game that re-enacts real work credits it, and the player is not a real person
+node engine/dev/discoveryHistory.mjs --selftest # and it reads the nesting the claims are actually under
 node engine/dev/questionLoad.mjs   <theme>    # the questions are as small as the sentences (grade 8 and below)
 node engine/dev/questionLoad.mjs --sweep      # every game: estimates that smush two equations together
 node engine/dev/questionLoad.mjs --selftest   # and that gate can tell a hard campaign from an easy one
@@ -847,6 +1002,9 @@ npm run lessons                               # harvest two real stops of every 
 node engine/dev/cardLoad.mjs --all            # how much a player reads before they can act
 node engine/dev/cardLoad.mjs <theme>          # the sweep's work list, heaviest card first
 node engine/dev/cardLoad.mjs --selftest       # and it can tell a heavy card from a light one
+node engine/dev/readerProbe.mjs --harvest     # hand every answerable stop to a weaker model, with the card and without
+node engine/dev/readerProbe.mjs --report      # and see which cards it cannot follow
+node engine/dev/readerProbe.mjs --selftest    # and the prompts carry no verdict, no rebuttal, no worked solution
 ```
 
 `smokeCampaign` exists because a theme once had entirely valid content and two thirds of its
@@ -887,7 +1045,7 @@ panel asking different questions. The pair must come from different *families*, 
 theme ids — a grade-6 edition is the senior book with shorter sentences, so ROUTE's pair was
 deepwatch and deepwatch_ms until `editionBase` was folded into the choice. Where no other book
 authors the format the second card comes from `instruments`; where there is no second stop at all
-(TALLY, TRIANGULATE) the page says so rather than inventing one. Six formats are authored nowhere:
+(TALLY) the page says so rather than inventing one — TRIANGULATE has a second stop now, in `qd_tectonics`. Six formats are authored nowhere:
 BELT, TRIAL, HOLD, SPOT, STACK, LOB. **Nothing on that page renders or grades anything** —
 `questionUI.mountStandalone` is one hook, so the card, panel, shuffle, grading, verdict figure and
 reasoning are the engine's own code, and a panel broken there is broken in the game. The tempting
@@ -1180,6 +1338,227 @@ the bar over it; the browser scrolled six pixels and stopped. `showControls()` s
 height, and all four panels call it. **The DOM had every element, the checks were green, and only a
 picture showed the controls were gone.**
 
+## A card is followable or it is not, and one reading cannot tell you which
+
+`engine/dev/readerProbe.mjs` hands every answerable stop to Haiku twice — once
+with everything the player sees before answering, once with the question and the
+options alone — and reports the pair. 53 of the 90 Quick Discovery stops; the
+other 37 are live instruments whose answer is a sequence of moves on a panel, and
+serialising those into text would invent a question the game does not ask.
+
+**The pair is the point, and three of its four cells are findings.** Wrong both
+ways is a card missing something the question needs. Right without the card and
+wrong with it is a card that actively misled. Right both ways is answerable
+without the science. Only right-with, wrong-without is the question working.
+
+**But the first version of this reported a clean sweep and it was wrong.** Two
+harness bugs came out of the readers rather than the score: DIAGNOSIS candidates
+are `{label, mechanism}` objects, so four stops were served **"[object Object]"**
+as their options — and the tally recorded two of them *correct*, because the
+reader guessed and said so only in the field asking what was unclear. The other
+was a BALLPARK template reusing one slot (`{0} × {0}`) under an instruction
+saying "choose 1 tiles". **A reader's complaint is data the score cannot carry**,
+which is why the prompt asks for the exact phrase it could not follow.
+
+**And the real defect was found by a person, after the sweep said all clear.**
+The CMB day-1 ordering stop — five checks on a receiver — asked what a normal
+person is supposed to do with it. The card gave **two ordering rules that
+disagree at one pair**. Its axis and guide led with interpretability (*"each one
+is only interpretable once the ones before it are clear"*, *"this is not a
+preference"*, *"work outward from the thing everything else is measured
+against"*), and worked outward that rule puts the horn before the sky repeat. The
+key is the other way round, and the only thing justifying it is cost — the horn
+needs a ladder — which appears in a background bullet arguing the horn should not
+be *first*, and in the `why`, which arrives after the answer. **A player
+following the stated rule gets it wrong.** Eclipse day 2 is the same class: the
+only card carrying a date says *"months early"* and is not the first step.
+
+**Why the probe had not flagged it, and this is the lesson.** It had — on the
+first run, in the wrong-both-ways bucket. A rerun after the harness fixes got it
+right and the rerun is what got reported. **A stop that flips between runs is the
+finding**, and one sample per condition cannot tell a question that was worked
+from one that was guessed. The harness now takes repeat runs and reports how many
+**distinct** answers a stop produced, plus, for orderings, how many adjacent
+swaps from the key — because exact match alone scores a one-pair slip and a random
+permutation identically, and for a five-card SEQUENCE that difference is the whole
+signal. Asked four times, the CMB stop was right twice and gave two answers
+differing in exactly the pair the two rules disagree about.
+
+Both cards were rewritten to name the governing rule and say which wins where the
+two collide, rather than reordering the cards — the authored order is the better
+practice and the defect was that the card would not admit which principle it was
+using. **33 stops asked more than once, 2 gave more than one answer, and both were
+SEQUENCE.** After the rewrite each is 4/4 with one answer, and the CMB stop now
+fails the bare condition, which is the cell a working question belongs in.
+
+Two things the repeat count got wrong before it was right, both in the direction
+of confident noise: rounding counted as disagreement (`AB 2.72` and `AB 2.73` put
+two boards in the no-followable-answer bucket that were right every time), so only
+the graded part of an answer is compared; and the leak check exempts `answer` when
+it is one of the options, because `validateContent` requires `choices` to contain
+`correctChoice` verbatim and 14 stops repeat it in `answerText` — an exact-match
+rule failed all 14 on its first run. The exemption is against the bare label, and
+a planted verdict is a selftest case, because a leak checker that never fires
+reports every prompt clean.
+
+**One structural thing the probe cannot fix.** `questionLoad` already bans a
+SEQUENCE graded as one exact permutation with no feedback — 51 of Hospital's 110
+findings are that decision. It applies at **grade 8 and below**, and every Quick
+Discovery is `audience.grade: 9`. Five cards is one in a hundred and twenty. The
+ten short games sit one grade above the gate written for exactly this, which is
+the grade-2 exemption in this file's own table arriving from the other end.
+
+**What the bare column does not mean.** The reader is a language model, so its
+prior is undergraduate physics rather than a ninth grader's, and 46 of 53 stops
+came back right with no card at all. That is not a defect list and the report
+prints so above the table. What it is good for is narrower: an option set that
+falls to elimination on general grounds. Read the reader's own `because` — if it
+cites only the option text and never the science, that is the finding.
+
+## The discovery games name the real people, and the player is never one of them
+
+**The player is an unnamed role in all ten, and that is the rule.** Every Quick
+Discovery opens *"You are the analyst on the team"*, *"the expedition
+astronomer"*, *"the radio astronomer on the site"* — a job, never a name. It has
+to stay that way now the rest of the cast is real: the ending tells the player
+*you made those calls*, and attributing those to somebody who existed is a claim
+about what that person did rather than a dramatisation of what they did.
+
+**Everybody else is real where one identifiable person held that role.** 39 of the
+60 roster slots across the ten games are now the people who did the work —
+Rutherford, Geiger and Marsden; Eddington, Cottingham, Crommelin and Davidson;
+Leavitt, Slipher, Hubble and Humason; Franklin, Gosling, Crick, Randall and
+Chargaff; Tharp, Hess, Matthews, Benioff and Ewing; Penzias, Wilson, Dicke,
+Wilkinson and Roll; Schmidt, Riess, Filippenko and Suntzeff; Mayor, Queloz and
+Charbonneau; Ellis, Gross, Gianotti and Incandela; Weiss and González. The other
+21 stay invented, and **the reason is not squeamishness**: a Higgs reconstruction
+lead or a LIGO parameter-estimation lead was a job held by dozens, and picking one
+name for it invents a fact rather than reporting one.
+
+**What it replaced was worse than either.** Three rosters were *pastiche* —
+`Ernest Rutherfield`, `Hedda Geiger` (real surname, invented first name),
+`Tomas Marsden`, `Marta Leavett`, `Anton Slipworth`. Not real, so nobody was
+credited; close enough that a reader who knew the history saw three mangled names
+and one who did not learnt three that were almost right and would go on to
+mis-cite them. `qd_nucleus` was the sharpest case: a fake Rutherford standing in a
+scene that *is* the Geiger–Marsden experiment, on a blackboard already citing
+*Thomson, 1904* and *Bragg, 1906* by their real names.
+
+**`theme.history` is the closing note, and it is a different voice from the
+ending.** The ending is the last beat of the fiction and is addressed to the
+player — `checkStory` enforces that. This steps out: the real people, the real
+date and institution, what the game compressed, and one paragraph of *what it does
+not soften* — Franklin's data reaching Cambridge without her consent, Tharp's name
+off the papers, Hubble's distances a factor of seven small, the blind injections
+LIGO had been running for years. It lives in `theme.js` beside `ending` (the
+importer has never touched either) and renders as its own block under the ending
+card, above the rating.
+
+**`real: true` on a roster entry is the one book key this needed, and it exists
+for what it forbids.** `engine/dev/discoveryHistory.mjs` is the gate, in `npm run
+check`:
+
+- every Quick Discovery declares a `history` note of at least 60 words;
+- every roster person flagged `real` is named in that note, so a rename cannot
+  drift the cast and the credit apart;
+- the opening casts the player as a role and never as a real person;
+- **no ATTEST claim the game marks unsupported is `signedBy` a real person.**
+  ATTEST's whole subject is that the record is not the condition, so the board is
+  built out of claims that do not hold. An invented colleague signing one is
+  drama; a real scientist signing one is a sentence the game invented and put in
+  a living person's mouth. The books already did this by hand — every unsupported
+  claim is signed by `press office`, `a review draft`, `a summer student`, `a
+  theory group` — and the flag is what keeps it true after a rename. Declared and
+  not inferred, because nothing can tell `Ernest Marsden` from `Ernest
+  Rutherfield` by looking.
+
+**And the gate passed that fourth rule for the wrong reason on its first run.**
+The carver read `lesson.attest.claims`; the format payload hangs off
+`lesson.game.attest`. So it found **zero ATTEST boards in every campaign**, ticked
+all ten games, and passed a deliberately injected Gianotti signature — the same
+one-level-too-high read that once reported nine mute instruments in
+`fieldCoverage`. Two selftest cases were added from the shipped nesting, and the
+row now prints the board count, so a carver going blind shows up in the ordinary
+output rather than only under an injection. All three rules are verified by
+putting each bug back and watching only that rule fire.
+
+**A consequence to keep in view.** The invented rosters were deliberately diverse;
+the real 1911 Manchester, 1919 eclipse and 1953 King's casts are not, and eleven
+slots changed gender in the rewrite. Tharp, Franklin, Leavitt, Gianotti and
+González are real and stay; most slots had no such option. The supporting slots
+were kept invented partly to hold some of it, and the notes say plainly what each
+of those women was denied at the time.
+
+## Every outdoor site can be got about two ways
+
+**Seven of the eight two-tier campaigns promised a vehicle that did not exist.**
+`orientation.js` opens the far tier on the unlock day and `src/main.js` signs the
+vehicles out on the same morning, and the warm-up card the player reads before
+anything else that day says so out loud — *"they are far enough out that transport
+is signed out to reach them. Drive the route once before somebody is waiting at
+the other end."* Outbreak, Aftershock, Wellmere, Carrying Capacity, Slack Water,
+Overwind and Dark Fibre shipped with **no driveable vehicle in the world at all**,
+the far ground 190–320 m out and nothing to take. Only Planetary Defense had any.
+Every content gate was green, because the book was right: this is the HUNT-count
+defect in a different currency, and only a person walking out of the plan card and
+looking would ever have seen it.
+
+**The second half is about the place rather than the promise.** A site whose only
+transport is a truck asks nothing about how to get about — there is one answer and
+it is always the same answer, which is the argument the countdown rests on with the
+route taken out of it. So **two kinds, chosen from what the site is already about**:
+Slack Water's van has the barrage road and its quad crosses the mud to the training
+wall; Corbin Park's flatbed carries and its cart fits down a three-metre midway a
+flatbed is three-point-turned on; Red Sand's rover is a habitat that costs the power
+budget sol 12 is an ALLOCATE about, and its buggy is a frame you ride in the suit you
+are already wearing. **Period, not just function** — Project Y gets bicycles because
+the Hill ran on them, the 1919 eclipse camp gets a spoked-wheel motor lorry, and the
+1964 antenna site gets a Bell service van and a staff car.
+
+`engine/dev/vehicleKinds.mjs` is the gate, inside `npm run check`. **18 outdoor
+sites, all at two kinds, no debt file** — the gap was closed in the same pass the
+gate was written, so there is nothing to record.
+
+- **It builds the world and reads `ctx.interactables`, never the source.** Three
+  trucks in three colours are three `driveable(` calls and **one** kind: Red Sand
+  parks "pressurised rover", "plant rover" and "excavation rover", Ice Core three
+  tractors under three names, and a grep would have called both sites varied.
+  `kind` is a field on the call, and **an unstated kind is one bucket rather than a
+  guess off the label** — two vehicles that decline to say what they are must not
+  count as two because they are spelled differently. Both are selftest cases, and
+  the third is that the rule still separates a van from a quad, without which the
+  first two pass by the counter being broken in the safe direction.
+- **A vehicle parked inside a collider is one you get into and cannot move** —
+  house rule 16 reached from the other side, and the symptom is identical: you press
+  W and nothing happens. `kit.clearSpot` walks a deterministic spiral (never the
+  world's seeded generator, which hands out faces) and the spawn is always in its
+  avoid list. The gate reports anything inside 10 m of the spawn as well, and both
+  assertions were verified by putting the bug back — a same-kind pair fails exactly
+  that theme, and a vehicle placed on the spawn fires exactly that line.
+- **Interiors are skipped on what the site says it is, not which file builds it.**
+  Five interiors bring their own world module, so testing `world:` would have
+  excluded an *outdoor* theme that did the same. An outdoor theme with its own world
+  module and no vehicles found is a **failure**, not a pass: "this cannot see your
+  motor pool" and "you have no motor pool" are the same output, and passing on the
+  ambiguity is how a gate reports all-clear on the one theme it cannot read.
+
+**What the pass added to the kit**, because eight themes were about to write it
+each: `bicycle` + `BICYCLE_DRIVE`, `quadBike` + `QUAD_DRIVE`, `utilityCart` +
+`CART_DRIVE`, `VEHICLE_DRIVE` for `kit.vehicle`, `bicycleRack`, and `clearSpot`.
+Five are theme-local because only one place has one — Ice Core's skidoo, Red Sand's
+open buggy, the eclipse camp's 1919 lorry, the CMB site's staff car.
+
+**And the screenshots found three things no number would have.** Ice Core's three
+skidoos were `kit.scooter` calls — **kick scooters, on a polar plateau, under a
+comment calling them skidoos**, and none of them takeable; the comment had been
+right about what the camp needs since the day it was written. The new bicycle drew
+its spokes as a thin steel *disc*, which renders as a solid grey wheel: a moped, and
+from ten metres the wheel is the only thing telling you which of the two is parked
+there — eight boxes cost eight meshes and read correctly. And the basket floated a
+hand's width clear of the bike in two directions at once. **The bicycle passed its
+own headless test all three times**, because that test asks whether the hubs are on
+the ground.
+
 ## Two tiers of ground, and the two laps that teach them
 
 **A site with a far half opens it on day 4, with the keys.** `engine/core/orientation.js` measures every
@@ -1204,7 +1583,8 @@ and no vehicle to unlock in Mission Control.
   house rule 8 with a schedule attached.
 - **The vehicles come out on the same day.** `AIRCRAFT_FROM_DAY` existed for one theme's helicopter;
   scooters and cars were never gated. Both are `VEHICLES_FROM_DAY` now, driven by the tier rule. Signing
-  them out earlier would let a player drive to ground with nothing open on it.
+  them out earlier would let a player drive to ground with nothing open on it. **Seven of the eight
+  two-tier sites had no vehicle to sign out** — see the section above.
 - **`shapeMissions` trades far calls out of the opening days rather than moving them.** Every two-tier
   campaign teaches in its far half on day 1 — Wellmere had seven of its first ten calls out past the
   glasshouses. A far call on day 2 swaps with a near call from a later day: both days keep their stop
@@ -1867,7 +2247,9 @@ shows the scene and where you are, never the takeaway.
 - **660 of 692 concept takeaways are unwritten** — see the sequencing pass.
 - **Tier 2 and 3 of the card sweep** — 728 board stops and 343 CHOICE stops.
 - **The 122 dead `story` values**, 8,589 words, displayed nowhere.
-- **Six formats are authored nowhere**: BELT, TRIAL, HOLD, SPOT, STACK, LOB (only `books/instruments.yml`
-  has them). STACK is suspended.
+- **Four formats are authored nowhere**: TRIAL, STACK, and — outside the games that already carry
+  them — nothing else in the arcade set is unreached. BELT, HOLD and SPOT are in twenty-eight books
+  each; LOB is in Midway; TRIANGULATE picked up its first game instance in `qd_tectonics`. STACK is
+  suspended and TRIAL is a warm-up format the campaigns reach through `warmups:` rather than as a stop.
 - `questionUI.js` question renderers should become pluggable per theme.
 - `engine/core/*` still uses Los Alamos vocabulary in places (`divisions`, `budget`, `Director funds`).

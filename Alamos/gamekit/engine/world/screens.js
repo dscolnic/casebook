@@ -33,7 +33,8 @@ export const SCREEN_STATUS = {
  * One machine screen.
  *
  * `kind` picks the face: 'vitals' (scrolling trace plus numbers), 'panel'
- * (rows of label/value/status), 'film' (a plate on a lightbox). Anything else
+ * (rows of label/value/status), 'film' (a plate on a lightbox), 'plot' (axes,
+ * curves and the points they are judged against). Anything else
  * paints the idle screen rather than throwing, because a mistyped kind should
  * cost a dull screen and not the whole room.
  */
@@ -48,6 +49,7 @@ export function instrumentScreen(spec = {}, { w = 512, h = 320 } = {}){
   const paint = spec.kind === 'panel' ? paintPanel
     : spec.kind === 'film' ? paintFilm
     : spec.kind === 'vitals' ? paintVitals
+    : spec.kind === 'plot' ? paintPlot
     : paintIdle;
 
   let t = 0;
@@ -93,6 +95,121 @@ function chrome(ctx, spec, w, h){
     ctx.textAlign = 'right';
     ctx.fillText(spec.patient, w - 14, 18);
     ctx.textAlign = 'left';
+  }
+}
+
+/**
+ * A plot, on a wall board: axes, whatever curves the room is arguing about, and
+ * the points those curves are being judged against.
+ *
+ * The face a room full of *analysis* needs, and the one this file did not have.
+ * `panel` prints numbers against their range, which is right for a machine
+ * reporting its own state and wrong for a wall a team faces: a board reading
+ * `LEVEL 1 / 3` is a progress bar, not a measurement. Three of those side by
+ * side are the same progress bar three times.
+ *
+ * The spec:
+ *   `curves`  [{ points: [[x, y], …], dashed, faint, label }]  in 0..1 of the box
+ *   `points`  [[x, y], …]                                     likewise
+ *   `shown`   how many of `points` to draw, so a board can fill as a campaign
+ *             does. Absent means all of them.
+ *   `axes`    { x, y } — what each axis is, in the fewest words that are true
+ *   `note`    one line under the title, for what the plot currently says
+ *
+ * Everything is in 0..1 of the plotting box and y is up, because the caller is
+ * describing a relationship and should not have to know the pixel height of a
+ * board it never sees.
+ */
+function paintPlot(ctx, spec, t, w, h){
+  chrome(ctx, spec, w, h);
+  const L = 44, R = 14, T = 46, B = 30;
+  const bx = L, by = T, bw = w - L - R, bh = h - T - B;
+  const X = (u) => bx + bw * Math.max(0, Math.min(1, u));
+  const Y = (v) => by + bh * (1 - Math.max(0, Math.min(1, v)));
+
+  // The box, and a grid quiet enough to read a point against.
+  ctx.strokeStyle = LINE; ctx.lineWidth = 1;
+  for(let i = 1; i < 4; i++){
+    ctx.beginPath(); ctx.moveTo(bx, Y(i / 4)); ctx.lineTo(bx + bw, Y(i / 4)); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(X(i / 4), by); ctx.lineTo(X(i / 4), by + bh); ctx.stroke();
+  }
+  ctx.strokeStyle = DIM; ctx.lineWidth = 1.4;
+  ctx.beginPath();
+  ctx.moveTo(bx, by); ctx.lineTo(bx, by + bh); ctx.lineTo(bx + bw, by + bh);
+  ctx.stroke();
+
+  // An empty plot has to say why it is empty, in the middle of the space where
+  // the data would be. Printed small in the corner it reads as a board that is
+  // broken rather than as a board that is waiting.
+  const empty = !(spec.curves || []).some(c => (c.points || []).length > 1)
+    && !(spec.points || []).length;
+  if(spec.note && empty){
+    ctx.fillStyle = DIM;
+    ctx.font = '700 17px Inter, Helvetica, Arial, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(spec.note, bx + bw / 2, by + bh / 2);
+    ctx.textAlign = 'left';
+  } else if(spec.note){
+    ctx.fillStyle = DIM;
+    ctx.font = '400 12px Inter, Helvetica, Arial, sans-serif';
+    ctx.fillText(spec.note, L, 40);
+  }
+
+  for(const c of spec.curves || []){
+    const pts = c.points || [];
+    if(pts.length < 2) continue;
+    ctx.strokeStyle = c.faint ? LINE : DIM;
+    ctx.lineWidth = c.faint ? 1.6 : 2.2;
+    // A dash on a wall board has to be coarse or it reads as a thin solid line
+    // from the far side of the room.
+    if(c.dashed) ctx.setLineDash([10, 7]);
+    ctx.beginPath();
+    pts.forEach(([u, v], i) => (i ? ctx.lineTo(X(u), Y(v)) : ctx.moveTo(X(u), Y(v))));
+    ctx.stroke();
+    ctx.setLineDash([]);
+    if(c.label){
+      const [u, v] = pts[Math.floor(pts.length * 0.72)];
+      ctx.fillStyle = c.faint ? LINE : DIM;
+      ctx.font = '400 11px Inter, Helvetica, Arial, sans-serif';
+      ctx.fillText(c.label, X(u) + 4, Y(v) - 7);
+    }
+  }
+
+  const pts = spec.points || [];
+  const shown = spec.shown === undefined ? pts.length : Math.max(0, Math.min(pts.length, spec.shown));
+  const st = SCREEN_STATUS[spec.status] || SCREEN_STATUS.normal;
+  ctx.fillStyle = st.colour;
+  for(let i = 0; i < shown; i++){
+    const [u, v] = pts[i];
+    ctx.beginPath(); ctx.arc(X(u), Y(v), 2.6, 0, Math.PI * 2); ctx.fill();
+  }
+  // How much of the sample is up, said in words: a board filling as the campaign
+  // does is only legible if the count is on it.
+  if(spec.shown !== undefined && pts.length){
+    ctx.fillStyle = DIM;
+    ctx.font = '700 12px Inter, Helvetica, Arial, sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillText(`${shown} / ${pts.length}`, bx + bw - 4, by + 12);
+    ctx.textAlign = 'left';
+  }
+
+  const ax = spec.axes || {};
+  ctx.fillStyle = DIM;
+  ctx.font = '400 11px Inter, Helvetica, Arial, sans-serif';
+  if(ax.x){
+    ctx.textAlign = 'center';
+    ctx.fillText(ax.x, bx + bw / 2, h - 10);
+    ctx.textAlign = 'left';
+  }
+  if(ax.y){
+    // Rotated, because a vertical axis label written horizontally either runs
+    // into the plot or takes a third of the board's width.
+    ctx.save();
+    ctx.translate(14, by + bh / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.textAlign = 'center';
+    ctx.fillText(ax.y, 0, 0);
+    ctx.restore();
   }
 }
 

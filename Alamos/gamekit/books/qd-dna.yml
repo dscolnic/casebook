@@ -1,0 +1,1006 @@
+# The Double Helix — a Quick Discovery.
+#
+# The 3 x 3 shape from great_discoveries_first10_expanded.docx, game 01, mapped
+# onto the engine's day model: a level is a day, a micro-game is a stop, and the
+# campaign is nine stops in one sitting. Three levels, in order:
+#
+#   1  Chemical constraints   what any model already has to do
+#   2  Photo 51               what the photograph will and will not settle
+#   3  Build the structure    the model no clue rules out
+#
+# The science guardrail from the source book, kept. The X-ray photograph was
+# made by a crystallographer and an assistant, and the structural constraints it
+# carried were theirs; the model was built by other hands from that work, from
+# the base analysis, and from a density measurement none of those people made.
+# No single photograph revealed a structure, which is why the middle level ends
+# on what the pattern *cannot* settle rather than on what it can.
+#
+# Format budget. Nine stops, so `formatMix`'s cap is three of any one format:
+# BALLPARK 2, CHOICE 2, and one each of PROTOCOL, CONTROL, DEGENERACY, BALANCE,
+# SEQUENCE. Seven formats in nine stops, which is the point — the source book
+# specifies nine *different* interactions, and a campaign of nine multiple
+# choices is the thing it is written against.
+
+theme:
+  id: qd_dna
+  title: The Double Helix
+  subtitle: Research Student · Structural Biology Unit
+
+groups:
+  - id: CHEM
+    code: CHEM
+    name: Nucleic Acid Chemistry
+    color: '#3f7f6a'
+    desc: What the sample is made of, in what proportions, and what a charge will and will not tolerate.
+    defaultLeader: chargaff
+    milestones: [Run the analysis, Close the composition, Say what it forbids, Ready to hand over]
+  - id: XRAY
+    code: XRAY
+    name: X-ray Diffraction
+    color: '#7a4fa3'
+    desc: The camera, the photograph, and the two lengths anybody is allowed to measure off it.
+    defaultLeader: franklin
+    milestones: [Mount the fibre, Expose the plate, Measure the spacings, Ready to hand over]
+  - id: MODEL
+    code: MODEL
+    name: Model Room
+    color: '#c98a2b'
+    desc: Brass rods, base plates and a diameter that has to come out the same on every rung.
+    defaultLeader: crick
+    milestones: [Build a strand, Close one rung, Wind the pair, Ready to hand over]
+  - id: BOARD
+    code: BOARD
+    name: Evidence Room
+    color: '#8a5a2b'
+    desc: Every clue on one wall, and the argument about which candidates are still standing.
+    defaultLeader: randall
+    milestones: [Pin the clue, Name what it forbids, Cross off a candidate, Ready to hand over]
+
+roster:
+  - id: chargaff
+    name: Erwin Chargaff
+    role: Nucleic Acid Chemistry Lead
+    real: true
+    division: CHEM
+    bio: |
+      Runs the chemistry bench, which is a column, a balance and one rule: a
+      composition is a measurement and a structure is an argument, and the two
+      must not be allowed to swap places on a sheet of paper.
+
+      His analysis breaks the sample into its four bases and reports each as a
+      share of the whole. Run twice on the same material it comes back the same,
+      which is why the ratios in it are worth arguing from at all.
+
+      His limit is that composition says nothing about arrangement. Every model
+      anybody has proposed this year reproduces his numbers, and he will say so
+      before he is asked.
+    quiz:
+      - q: Why will Chargaff not choose between two structures on his own numbers?
+        a: Composition fixes how much of each base is present, and several arrangements can hold the same amounts
+        wrong:
+          - The column cannot separate guanine from cytosine reliably
+          - His analysis is only accurate to within ten per cent
+          - He has not yet run the sample a second time
+
+  - id: pinto
+    name: Manuel Pinto
+    role: Analytical Chemist
+    division: CHEM
+    bio: |
+      Prepares the fibres and keeps the salt solutions, which sounds like
+      housekeeping and is where half of the evidence about charge comes from.
+
+      A phosphate group carries a negative charge, and a charge behaves
+      differently in water than it does packed against other charges in a dry
+      interior. Pinto's fibres swell and shrink as the salt around them changes,
+      and how much they do it is a statement about where those charges are.
+
+      His limit is that a swelling curve says a charged group is meeting water.
+      It does not say how many chains there are or which way any of them runs.
+    quiz:
+      - q: What does Pinto learn by changing the salt concentration around a fibre?
+        a: Whether the charged groups are exposed to water rather than buried away from it
+        wrong:
+          - How many chains the fibre contains
+          - The distance between neighbouring bases along the chain
+          - Which of the four bases is most abundant
+
+  - id: franklin
+    name: Rosalind Franklin
+    role: X-ray Crystallographer
+    real: true
+    division: XRAY
+    bio: |
+      Takes the photographs. A fibre is mounted, held wet, and left in the beam
+      for hours; what comes back is not a picture of a molecule but a record of
+      where the scattered X-rays went.
+
+      A helix scatters into two arms crossing in an X, and the spacings between
+      the marks are lengths — the repeat of one full turn, and the distance
+      between one base and the next. Those two lengths are what the plate gives
+      anybody, and they are enough to be dangerous.
+
+      Her limit is the one she states first: the pattern is consistent with a
+      family of structures, and she will not have the photograph described as
+      having shown the answer.
+    quiz:
+      - q: Why does Franklin object to the photograph being called the answer?
+        a: The pattern fixes the symmetry and two spacings, and several structures share all three
+        wrong:
+          - The exposure was too short to be trusted
+          - The plate was fogged by scattered light from the camera housing
+          - X-ray patterns cannot distinguish a helix from a sheet
+
+  - id: gosling
+    name: Raymond Gosling
+    role: Diffraction Assistant
+    real: true
+    division: XRAY
+    bio: |
+      Mounts the fibres, keeps the humidity where it belongs and measures the
+      plates. The measuring is the part nobody credits and the part the numbers
+      come from.
+
+      A spacing on a plate is read against a scale, twice, by two people. The
+      axial repeat and the base stacking come off the same photograph, and their
+      ratio is a count rather than a length — which is the one number on the
+      wall with no units after it.
+
+      His limit is that a measurement he has made carefully is still a
+      measurement of one thing. He will give you the ratio and decline to say
+      what it means.
+    quiz:
+      - q: Why is the ratio of the two spacings a number with no units?
+        a: It is one length divided by another, so it counts how many of the small spacing fit in the repeat
+        wrong:
+          - Because the plate is calibrated against a standard of known size
+          - Because ångström units cancel only for helical patterns
+          - Because both spacings are measured by the same person twice
+
+  - id: crick
+    name: Francis Crick
+    role: Model Builder
+    real: true
+    division: MODEL
+    bio: |
+      Builds in brass. A model is a claim you can walk round, and the useful
+      thing about metal is that it will not let you cheat: a rod is the length
+      it is, and a rung that does not close does not close.
+
+      Every rung of a helix with one diameter has to come to the same total
+      across. That turns a question about which bases go together into a
+      question about arithmetic, and the arithmetic has one answer.
+
+      His limit is that he can build anything that closes. Several structures
+      close, and choosing between them is not a job for the workshop.
+    quiz:
+      - q: What does Crick's constant-diameter requirement decide?
+        a: That a two-ring base has to pair with a one-ring base, because only that combination gives the same width twice
+        wrong:
+          - How many bases lie in one turn of the helix
+          - Which end of a strand carries the free phosphate
+          - How much of each base the sample contains
+
+  - id: randall
+    name: John Randall
+    role: Unit Director
+    real: true
+    division: BOARD
+    bio: |
+      Keeps the evidence room, which is one wall, a box of cards and the only
+      rule in the building that everybody resents: a candidate structure is
+      crossed off by naming the clue it breaks, never by a show of hands.
+
+      What goes on the wall is what somebody measured, with whose measurement it
+      was written beside it. What comes off the wall is a structure that has
+      been shown to violate something on it.
+
+      His limit is that the wall cannot rank the survivors. When two candidates
+      break nothing, the answer is another measurement, and he will send you to
+      get one.
+    quiz:
+      - q: How is a candidate structure eliminated in Randall's evidence room?
+        a: By naming the specific clue on the wall that it violates
+        wrong:
+          - By a vote of the people who have seen the photograph
+          - By showing that a different structure is more elegant
+          - By failing to reproduce the base composition to within one per cent
+
+glossary:
+  - name: Nucleotide
+    aliases: [nucleotide, nucleotides]
+    def: One sugar, one phosphate and one base — the unit a strand repeats.
+  - name: Backbone
+    aliases: [backbone, backbones, sugar-phosphate backbone]
+    def: The chain of sugars joined by phosphates that runs the length of a strand.
+  - name: Purine
+    aliases: [purine, purines, two-ring base]
+    def: A base built on two fused rings. Adenine and guanine are the two.
+  - name: Pyrimidine
+    aliases: [pyrimidine, pyrimidines, one-ring base]
+    def: A base built on a single ring. Thymine and cytosine are the two.
+  - name: Ångström
+    aliases: [ångström, angstrom, Å]
+    def: A ten-billionth of a metre. Atoms are a few of them across.
+  - name: Axial repeat
+    aliases: [axial repeat, one full turn, repeat distance]
+    def: How far along the fibre you travel before the structure looks the same again.
+  - name: Layer line
+    aliases: [layer line, layer lines]
+    def: One of the horizontal rows of marks a helix scatters X-rays into.
+  - name: Hydrogen bond
+    aliases: [hydrogen bond, hydrogen bonds]
+    def: A weak link between two molecules that holds them a fixed distance apart.
+  - name: Antiparallel
+    aliases: [antiparallel, opposite directions]
+    def: Side by side but running opposite ways, so each strand's head is beside the other's tail.
+  - name: Mass per unit length
+    aliases: [mass per unit length, density of the fibre]
+    def: How much material there is in a given length of fibre, measured by weighing it.
+
+missions:
+  - title: What any model has to do already
+    objective: Establish what composition and charge permit, before a photograph is on the table.
+    briefing: Randall wants the chemical constraints on the wall before the plate room delivers anything.
+    stake: >-
+      Monday, and there is no photograph in the building yet. Erwin Chargaff, who runs the
+      chemistry bench, has run the base analysis twice and has two blank columns on the sheet.
+      Francis Crick, the model builder, has three candidate strands in brass and no reason to
+      prefer one. John Randall, the unit director, has a wall with nothing on it. Today you
+      close the composition, say which piece of a strand is the chain, and buy the one
+      measurement that decides where the charges can sit. A constraint written down before the
+      evidence arrives cannot be bent to fit it afterwards.
+    takeaway: Composition and charge rule on a structure before any picture of it is taken.
+    stops:
+      - group: CHEM
+        task: Close the base composition
+        title: Thirty per cent adenine, and what that fixes
+        place: Chemistry Bench
+        concept: "Chargaff's ratios: adenine matches thymine and guanine matches cytosine"
+        scene: >
+          Chargaff has run the base analysis on the sample twice and both runs
+          agree. Adenine is thirty per cent of the four bases and guanine is
+          twenty. Two columns on the sheet are still blank.
+        guide: >-
+          Build the estimate out of the quantities that belong to this sample rather than
+          facts about some other one. What the two runs establish is a pairing between the
+          bases, not four independent numbers, and the four together are the whole of the
+          material. The share you are being asked for is one of the two that were never
+          measured.
+        background:
+          - >-
+              How to do it, on a different example. Say a sample were 25 per cent adenine
+              and 15 per cent guanine. Adenine brings an equal amount of thymine, so those
+              two are 50 of the hundred. That leaves 50 for guanine and cytosine together,
+              and they are equal too, so each is 25 — except guanine was measured at 15, so
+              that sample would not obey the ratios at all. Do the arithmetic in that order:
+              double the measured one, take it off a hundred, halve what is left.
+          - >-
+              Why the analysis is run twice. A composition is the one thing in this building
+              that can be checked by repeating it, and the ratios are only worth arguing
+              from because the second run came back the same. A single run agreeing with a
+              theory is not evidence about the theory.
+          - >-
+              What the ratios are, and what they are not. However much adenine a sample
+              holds it holds the same amount of thymine, and the same is true of guanine and
+              cytosine. That is a statement about how much of each base is present. It is
+              not a statement about what is next to what.
+          - >-
+              Why this is the first question rather than a later one. Every candidate
+              structure in the building has to reproduce these four numbers, so a
+              composition that is still half blank cannot rule anything out. Filling it is
+              cheap and it fixes what the rest of the week has to satisfy.
+        assumes:
+          - the four bases together account for the whole of the material analysed
+          - a share of a whole is a percentage, and percentages of one whole sum to a hundred
+        takeaway: A pairing in the composition means naming one base names its partner, and what is left splits between the other pair.
+        format: BALLPARK
+        question: What percentage of the bases is cytosine?
+        estimate:
+          prompt: >-
+            Chargaff wants both blank columns filled before the sheet goes to the evidence
+            room.
+          question: What percentage of the bases is cytosine?
+          relationship: Guanine and cytosine arrive in equal amounts of each other, so the cytosine share is the hundred less twice the adenine, halved.
+          labels:
+            - 100 %  (all four bases together)
+            - 30 %  (adenine, the same in both runs)
+            - 2  (the number of bases in a matched pair)
+            - 15 %  (guanine in the worked example, which is a different sample)
+            - 4  (the number of different bases)
+          values: [100, 30, 2, 15, 4]
+          slots: 3
+          template: '({0} − {1} × {2}) ÷ {2}'
+          formula: (a-b*c)/c
+          correct: [0, 1, 2]
+          target: 20
+          tolerance: 1
+          units: per cent of the bases
+          solution: Thirty per cent of adenine brings thirty per cent of thymine with it, which is sixty of the hundred; the forty left over is shared between guanine and cytosine, twenty each.
+          explanation: The guanine figure on the board belongs to the worked example in the background, not to this sample — which is what the guide means about quantities that belong to some other one.
+        why: >
+          The four percentages are shares of one whole, so they come to a hundred, and the
+          measurement says they come in matched pairs. That turns two measured numbers into
+          four: adenine brings an equal amount of thymine, and whatever is left of the
+          hundred belongs to the other pair and divides evenly between its two members.
+          Notice how little this buys. Every structure anybody has proposed reproduces these
+          numbers, because a pairing in the composition is satisfied by any arrangement that
+          holds equal amounts. What it does is set a bar under the whole week: a model that
+          cannot give these four figures is finished before it is built.
+
+      - group: MODEL
+        task: Say which piece is the chain
+        title: What carries the strand, and what hangs off it
+        place: Model Room
+        concept: 'The sugar-phosphate backbone is the repeating unit, and the bases hang off it'
+        scene: >
+          Crick has sugars, phosphates and base tiles laid out along the bench.
+          Three trial strands are clamped in the vice, and two of them put the
+          bases in the chain itself.
+        guide: >-
+          Four observations about a single strand are on the card, and each one settles a
+          different question about it. What separates the four is which part of the molecule
+          each observation is actually about — the chain, the pieces attached to it, the ends
+          of it, or the record you were handed. Read what each observation constrains, not
+          what it reminds you of.
+        background:
+          - >-
+              How to do it, on a different example. Think about a bicycle chain with
+              reflectors clipped to some of the links. The links joined to each other are the
+              chain — they carry the load and set the length. The reflectors are attached to
+              links and are not part of the chain, so you can change which links have them
+              without changing how the chain runs. Ask of each observation below which of
+              those two roles it is describing.
+          - >-
+              Why it matters which piece is the chain. A chain has a length that does not
+              depend on what is hanging off it, so if the bases are attached to the backbone
+              the sequence can change without the shape changing. If the bases are in the
+              chain, every different sequence is a different-shaped molecule, and a
+              structure that varies with its own message cannot be a general one.
+          - >-
+              What a phosphate is doing. It joins one sugar to the next, which is a
+              structural job. That is the whole reason the backbone is called a backbone,
+              and it is why the negative charges on this molecule sit on the part that runs
+              its whole length.
+          - >-
+              Why the two ends differ. A sugar has more than one place a phosphate can
+              attach, so a chain built the same way all the way along still arrives at two
+              chemically different ends. That is a small fact today and the whole of the
+              third level.
+        assumes:
+          - a repeating chain is defined by which unit is joined to which
+          - a charged group is a property of the piece it sits on, wherever that piece ends up
+        takeaway: The backbone carries the strand and the bases hang off it, so the sequence can vary without the shape changing.
+        format: PROTOCOL
+        task_line: Match each observation to what it settles.
+        scenarios:
+          - A phosphate joins the sugar of one nucleotide to the sugar of the next.
+          - A base is attached to a sugar and to nothing else in the chain.
+          - The two ends of a finished strand are chemically different from each other.
+          - The bench sheet gives base percentages and no spacings at all.
+        choices:
+          - The chain that runs the length of the strand is sugars and phosphates, so the strand's negative charges run its whole length.
+          - The sequence can change without the shape of the chain changing.
+          - A strand has a direction, and its two ends can be told apart.
+          - Composition is fixed and geometry is left entirely open.
+        mapping: [0, 1, 2, 3]
+        why: >
+          Each of the four says something about a different part of the molecule. The
+          phosphate link is about the chain, and it puts the charges on the part that runs
+          the whole length. The base attachment is about what hangs off the chain, and it is
+          why a strand of any sequence has the same shape — which is what a structure has to
+          be, since one molecule has to hold every message. The two ends are about direction,
+          which is worth nothing on Monday and settles the third level. And the sheet is
+          about the record: it fixes how much of each base is there and says nothing at all
+          about how far apart anything is.
+
+      - group: BOARD
+        task: Find out whether the charges meet the water
+        title: Change the salt, and put it back
+        place: Evidence Room
+        concept: 'A charged group sits where the water is'
+        scene: >
+          Two candidate structures are pinned to the wall. One buries the
+          phosphate groups in a dry interior; the other puts them outside. Manuel
+          Pinto, the analytical chemist, has a fibre in a bath and a balance
+          beside it.
+        guide: >-
+          The number on the balance is how much water a length of fibre is holding. Four
+          things about the bench can be changed and only one of them is about charge. Change
+          one at a time and read the balance, then put whatever you changed back, because a
+          number that will not come back was never following what you moved.
+        background:
+          - >-
+              How to do it, on a different example. A room is colder than it should be and
+              there are four suspects: a window, a door, the thermostat and a draught
+              excluder. Move one, read the thermometer, then put it back and read it again.
+              If the temperature followed what you moved and came back when you undid it,
+              that is the one. If it only drifted, it was something else changing while you
+              worked.
+          - >-
+              What a charge wants. A negative charge is stabilised by the water around it,
+              which screens it from other charges, and destabilised by being packed against
+              them in a dry interior. So a structure that buries the phosphates is making a
+              chemical claim, and chemical claims can be tested at a bench.
+          - >-
+              Why the salt is the interesting knob. Ions in the bath screen a charge whether
+              or not water does, so raising the salt takes over part of the water's job. A
+              fibre whose charges are out in the bath then needs less water and gives some
+              up. A fibre whose charges are sealed in a dry core has much less to give.
+          - >-
+              Why anything is put back. Three other things about this bench could move on
+              their own — the room warms up, the mount creeps, somebody switches a lamp on.
+              A reading that follows what you changed and then returns when you undo it is a
+              dependency. A reading that merely drifted while you worked is a coincidence
+              with good timing.
+          - >-
+              Why one at a time. Changing the salt and the temperature together produces a
+              real number about a bench nobody can describe, and the result will not survive
+              being asked which of the two did it. That question is always asked.
+        assumes:
+          - a controlled test changes one variable and holds the rest
+          - ions in solution screen a charge in the same way water does
+        takeaway: A relationship is causal when it reverses, not when it coincides.
+        format: CONTROL
+        question: >-
+          Four things you can change, one balance reading. Establish what the water uptake
+          depends on, and prove it.
+        control:
+          hint: >-
+            Change what you like and read the balance. What you changed is a decision; what the
+            reading then means depends on how many things moved.
+          observable: { label: Water held by the fibre, unit: '% of dry mass' }
+          held: [bath temperature, chamber humidity, tension on the fibre]
+          variables:
+            - { id: salt, label: Salt concentration in the bath }
+            - { id: temp, label: Bath temperature }
+            - { id: tension, label: Tension on the mounted fibre }
+            - { id: lamp, label: Lamp over the bench }
+          truth: salt
+          baseline: 42
+          response: -24
+          noise: 2
+          changeVerb: raised
+          run: Read the balance
+          commit: Name it
+        answerText: >-
+          The salt. Raising it alone takes twenty-four points of water out of the fibre, and
+          dropping it back brings the water straight back in.
+        why: >
+          Three of the four knobs can move a balance reading for reasons that have nothing to
+          do with charge, which is exactly why they are on the bench. Only the salt changes
+          how well a charge is screened, and the fibre's answer to it is large and it
+          reverses. That reversal is the whole of the evidence: a drift that happened while
+          you were working does not come back on demand. Now read what it means, and read no
+          further. Water uptake following the salt says the charged groups are meeting the
+          bath, so a structure that seals them into a dry core is in trouble. It says nothing
+          about how many chains there are, or which way round they run. One candidate comes
+          off the wall, and the other stays on it unbeaten rather than proven.
+
+  - title: What the photograph will and will not say
+    objective: Take the geometry off the plate, and stop where the plate stops.
+    briefing: Franklin will hand over two spacings and a symmetry, and nothing else.
+    stake: >-
+      Tuesday, and the plate is developed. Rosalind Franklin, the crystallographer who exposed
+      it, has brought it up with Raymond Gosling, the diffraction assistant who measured it.
+      Both have said the same sentence twice. This is a record of where the scattered X-rays
+      went, and the room wants it to be a picture of the molecule. Today you read the symmetry
+      off the pattern, turn two spacings into a count, and then find out how many chains the
+      photograph cannot tell you about. The level ends on what the plate does not settle, which
+      is the only honest place for it to end.
+    takeaway: A pattern fixes a symmetry and some spacings, and leaves a family of structures standing.
+    stops:
+      - group: XRAY
+        task: Read the symmetry off the pattern
+        title: Two arms crossing, and what makes that shape
+        place: X-ray Room
+        concept: 'An X-shaped diffraction pattern is the signature of a helix'
+        scene: >
+          The plate is on the light box. A strong X of marks runs across it,
+          arms crossing near the centre. Franklin has four candidate templates in
+          a folder and will overlay any of them.
+        guide: >-
+          The four candidates differ in what repeats and in which direction. What separates
+          them here is what each one would send the scattered X-rays into: a shape whose
+          repeat runs along one axis scatters differently from one whose repeat runs in two,
+          and differently again from something with no repeat at all. Ask what pattern each
+          candidate would make, then compare.
+        background:
+          - >-
+              How to do it, on a different example. Hold a fine mesh in front of a distant
+              lamp and you see a cross of light through it, because the mesh repeats in two
+              directions at right angles. Hold up a comb and you get a line of spots, because
+              it repeats in one. The pattern tells you about the *repeat*, not about the
+              object's outline. Ask what each candidate below would repeat in, and what that
+              would send the rays into.
+          - >-
+              Why a shape has a pattern at all. X-rays scattered off a regularly repeating
+              structure reinforce each other in some directions and cancel in others. The
+              marks on the plate are the directions where they reinforced, so their layout is
+              a statement about the repeat rather than a photograph of the object.
+          - >-
+              Why a helix gives an X. Seen in projection, a spiral is two opposed slopes
+              crossing each other, and the scattering carries that geometry: two arms of
+              marks running out from the centre at an angle. A flat lattice gives rows and
+              columns; a coil with no regular repeat gives a smear.
+          - >-
+              What this does not settle. The X says the repeating shape is helical. It says
+              nothing about how many chains wind together, which way round each of them runs,
+              or which part of the molecule is on the outside. Those are the next three
+              questions and only one of them is answered on this plate.
+        assumes:
+          - a regular repeat scatters radiation into some directions and not others
+          - a projection of a spiral is two opposed slopes
+        takeaway: An X of marks is the scattering signature of a helical repeat, and it settles the symmetry and nothing else.
+        format: CHOICE
+        question: >-
+          What does the strong X-shaped pattern most directly say about the repeating
+          structure?
+        choices:
+          - It is helical.
+          - It is a flat lattice, repeating in two directions at right angles.
+          - It has no regular repeat at all.
+          - It is a solid body with no internal structure.
+        answer: It is helical.
+        rebuttals:
+          - A lattice repeating in two directions scatters into rows and columns of marks rather than into two arms crossing at an angle, so the plate would read as a grid.
+          - Without a regular repeat there is nothing for the scattered rays to reinforce along, so the plate would carry a broad smear instead of sharp marks in particular directions.
+          - A solid body with nothing repeating inside it scatters weakly and without structure, and sharp marks in specific directions are the one thing it cannot produce.
+        why: >
+          The marks on a plate are the directions in which scattered X-rays reinforced each
+          other, so their layout describes the repeat rather than the object. A helix in
+          projection is two opposed slopes crossing, and that geometry comes through as two
+          arms of marks running out from the centre — which is what is on the light box. A
+          lattice would give rows and columns; something with no repeat would give a smear.
+          Stop there, though. Helical is a statement about symmetry. How many chains wind
+          together, which way each runs, and what is on the outside are all still open, and
+          nothing on this plate closes them.
+
+      - group: XRAY
+        task: Turn two lengths into a count
+        title: Thirty-four over three point four
+        place: X-ray Room
+        concept: 'A repeat distance divided by a spacing is a count'
+        scene: >
+          Gosling has measured the plate twice against the scale. One full turn
+          of the structure repeats every thirty-four ångström; neighbouring
+          bases stack three point four ångström apart.
+        guide: >-
+          Both numbers on the sheet are lengths taken off the same photograph, and the
+          quantity being asked for is not a length at all. Choose the two tiles whose ratio
+          answers the question, and notice which of the others are lengths that belong to a
+          different question entirely.
+        background:
+          - >-
+              How to do it, on a different example. A flight of stairs is 2.7 metres tall and
+              each step is 0.18 metres. Divide and you get 15 — a count of steps, with the
+              metres cancelling out. The same arithmetic here: one full turn is a length, one
+              base-to-base step is a length, and dividing them counts bases. Any length that
+              is not measured *along* the thing that repeats does not belong in it.
+          - >-
+              What the two spacings are. The axial repeat is how far along the fibre you go
+              before the structure looks the same again — one full turn. The stacking distance
+              is how far it is from one base to the base above it. Both are read off marks on
+              the plate against a scale.
+          - >-
+              Why a ratio of lengths has no units. Dividing a length by a length leaves a
+              number, and what that number counts is how many of the small spacing fit inside
+              the big one. It is the same arithmetic as asking how many steps fit in a flight
+              of stairs, and it does not care what unit the steps were measured in.
+          - >-
+              Why the plate has other lengths on it. The diameter of the fibre and the
+              spacing between fibres in the bundle are both measurable and both real. Neither
+              is a distance along the structure, so neither belongs in this ratio.
+        assumes:
+          - one length divided by another is a count with no units
+          - a full repeat contains a whole number of the units that repeat within it
+        takeaway: Two lengths off one photograph divide into a count of how many of the small thing fit in the large one.
+        format: BALLPARK
+        question: About how many bases lie in one turn of the helix?
+        estimate:
+          prompt: >-
+            Gosling will put the ratio on the wall and not a word about what it means.
+          question: About how many bases lie in one turn of the helix?
+          relationship: The bases per turn is the axial repeat divided by the stacking distance — one full turn over one step.
+          labels:
+            - 34 Å  (axial repeat — one full turn)
+            - 3.4 Å  (spacing between stacked bases)
+            - 20 Å  (diameter of the fibre)
+            - 28 Å  (spacing between fibres in the bundle)
+            - 2  (chains, still unsettled)
+          values: [34, 3.4, 20, 28, 2]
+          slots: 2
+          template: '{0} ÷ {1}'
+          formula: a/b
+          correct: [0, 1]
+          target: 10
+          tolerance: 0.6
+          units: bases in one turn
+          solution: Thirty-four ångström of turn, three point four ångström to a base, so ten bases fill the turn.
+          explanation: The diameter and the fibre spacing are both real measurements off the same plate, and neither is a distance along the structure.
+        why: >
+          Both numbers are lengths measured off one photograph, and their ratio is not a
+          length. Thirty-four divided by three point four is ten, and what the ten counts is
+          bases: how many of them fit into the distance the structure takes to come back round
+          to itself. The unit falls out because a length over a length leaves a bare number.
+          The diameter and the fibre spacing are the trap, and they are not there to be wrong
+          — they are real measurements off the same plate. They are lengths across the
+          structure and between structures, and neither is a distance along the one thing that
+          is repeating, so neither belongs in this division.
+
+      - group: BOARD
+        task: Find out how many chains there are
+        title: One number, two unknowns
+        place: Evidence Room
+        concept: 'One measurement across two unknowns fixes a family, not a number'
+        scene: >
+          Gosling's ratio is on the wall. Beside it is the weighed mass per
+          unit length of the fibre, which depends both on how many chains wind
+          together and on how far apart their bases sit.
+        guide: >-
+          Both controls change the model and only one number is being matched. Work the two
+          against each other until the mass per unit length agrees, then look at what else
+          agrees just as well. When you have seen the family, bring the second measurement
+          over and report where the two of them cross.
+        background:
+          - >-
+              How to do it, on a different example. You are told a rectangle has an area of
+              twelve. That is one number and two unknowns, so it does not tell you the sides:
+              two by six fits, three by four fits, twelve by one fits. Every pair whose
+              product is twelve fits equally well, and measuring the area more carefully does
+              not help at all. What helps is being told one side. Here the weighing is the
+              area and the plate's stacking spacing is the side.
+          - >-
+              What is being weighed. A known length of fibre is dried and weighed, which
+              gives how much material there is in a given length. More chains wound together
+              means more material; bases spaced further apart along the fibre means the same
+              material spread over more length. So the weighing depends on both, and it
+              cannot separate them.
+          - >-
+              Why that is a family rather than a bad measurement. Doubling the number of
+              chains and doubling the spacing reproduces the weighing exactly. Every trade
+              along that curve fits the number equally well, so a more careful weighing slides
+              along the same curve instead of narrowing it. The problem is not noise.
+          - >-
+              What the second measurement does. The stacking spacing is read straight off the
+              plate, on its own, without reference to how many chains there are. It fixes one
+              of the two unknowns directly, so its curve runs across the first one instead of
+              along it, and the two meet in one place.
+          - >-
+              And what is still open when they meet. A chain count is not an arrangement.
+              Which way round each chain runs, and whether the backbones are on the outside
+              or packed into the middle, are untouched by both of these measurements — which
+              is the honest end of this level.
+        assumes:
+          - a quantity depending on two unknowns is satisfied by a family of pairs
+          - a measurement that depends on one unknown alone fixes that unknown
+        takeaway: One measurement across two unknowns fixes a family; a second measurement that depends on them differently picks a member of it.
+        format: DEGENERACY
+        question: >-
+          Match the weighed mass per unit length, then say how many chains there are.
+        degeneracy:
+          hint: >-
+            Both controls move the model. The match to the weighing is the number to watch, and
+            it will not be the last word.
+          observable: { label: Mass per unit length of the fibre }
+          controls:
+            - { id: chains, label: Chains wound together, min: 1, max: 6, step: 1 }
+            - { id: rise, label: Rise per base along the fibre, min: 1.0, max: 11.0, step: 0.1, unit: Å }
+          locus:
+            - { a: 1, b: 1.7 }
+            - { a: 2, b: 3.4 }
+            - { a: 3, b: 5.1 }
+            - { a: 4, b: 6.8 }
+            - { a: 5, b: 8.5 }
+            - { a: 6, b: 10.2 }
+          second:
+            label: Base stacking spacing, read straight off the plate
+            apply: Bring the plate measurement over
+            locus:
+              - { a: 1, b: 3.4 }
+              - { a: 2, b: 3.4 }
+              - { a: 4, b: 3.4 }
+              - { a: 6, b: 3.4 }
+          truth: { a: 2, b: 3.4 }
+          tolerance: { a: 0.6, b: 0.4 }
+          still: [which way round each chain runs, whether the backbones are inside or outside]
+          commit: Report the chain count
+        answerText: >-
+          Two chains, at three point four ångström a base — and that is a count of chains, not
+          an arrangement of them.
+        why: >
+          The weighing depends on a product: more chains means more material, and a wider rise
+          means the same material spread over more fibre. So one chain at half the spacing
+          weighs the same per length as two chains at the full spacing, and three at one and a
+          half times weighs the same again. Every pair along that curve fits the number
+          exactly, which is why weighing more carefully does not help — it slides along the
+          family instead of shrinking it. The stacking spacing breaks it because the plate
+          measures that spacing on its own, without reference to how many chains there are, so
+          its curve runs across the first rather than along it. What comes out is two chains.
+          What is still entirely open is which way round they run and what is on the outside.
+
+  - title: The model that survives every clue
+    objective: Close a rung, orient the strands, and keep the structure that violates nothing.
+    briefing: Crick has the brass out and Randall wants a candidate crossed off by name.
+    stake: >-
+      Thursday, and the wall is full. Two chains, ten bases to a turn, a charge that has to meet
+      water, and a composition in matched pairs. Crick has the brass out, and a diameter that
+      has to come out the same on every rung. Randall will not cross a candidate off without
+      being told which clue it breaks. Today you close one rung, work out which way the second
+      strand runs, and name the clue that brings each wrong structure down. Three are standing
+      this morning. One of them gets defended in print on Friday.
+    takeaway: A structure is kept because every independent clue is satisfied at once, and a near miss is named by the clue it breaks.
+    stops:
+      - group: MODEL
+        task: Close one rung across the helix
+        title: The rung that has to come out the same twice
+        place: Model Room
+        concept: 'A constant diameter forces a large base to pair with a small one'
+        scene: >
+          Crick has the two backbones clamped at a fixed separation and one
+          rung to fill. On the bench are the base pieces and a note that the
+          rungs all have to come out the same length.
+        guide: >-
+          Read what is actually spanning the gap between the two backbones and count all of
+          it. Some of what fills the rung is a piece you can pick up off the bench and some of
+          it is not, and the total is what has to match on every rung of the structure.
+        background:
+          - >-
+              How to do it, on a different example. A doorway is 900 mm wide and you are
+              filling it with a door, a frame and the gaps either side. If the door is 820 and
+              the frame takes 50, the gaps have to make up the remaining 30 — even though a
+              gap is not a piece you can pick up off the floor. Add everything that spans the
+              opening, not just everything you can hold.
+          - >-
+              Why every rung has to be the same. The diffraction says the structure repeats
+              cleanly every turn, which it cannot do if the distance across it changes from
+              rung to rung. A helix with a varying diameter is a different shape at every
+              step and has no repeat to scatter with.
+          - >-
+              What sizes the bases come in. Two of the four are built on two fused rings and
+              are wider; two are built on one ring and are narrower. That is a fact about the
+              molecules and not about the model, and it is what makes the arithmetic below
+              have one answer rather than several.
+          - >-
+              What is holding the two bases apart. They are not touching. Hydrogen bonds hold
+              them at a set distance, and that distance is part of the span whether or not
+              there is a piece on the bench representing it. It is the term that goes missing
+              precisely because nothing on the bench is it.
+        assumes:
+          - a structure with one repeat has one diameter all the way along
+          - two molecules held by hydrogen bonds sit a fixed distance apart rather than touching
+        takeaway: Every rung across a constant-diameter helix has to close to the same total, gaps included.
+        format: BALANCE
+        relationship: The rung width across the helix is the purine width plus the pyrimidine width plus the hydrogen bond gap, and a constant diameter needs the same total on every rung.
+        question: >-
+          Report the width of one closed rung, backbone to backbone.
+        balance:
+          hint: >-
+            Reading a piece off the bench is free. What you count is the claim you are making
+            about what spans the gap.
+          total: { amount: 11.1, unit: Å, label: 'Across one rung, backbone to backbone' }
+          streams:
+            - { id: pur, label: 'Adenine, a two-ring base', value: 4.9, display: 4.9 Å across the rings }
+            - { id: pyr, label: 'Thymine, a one-ring base', value: 3.3, display: 3.3 Å across the ring }
+            - { id: hb, label: The gap the hydrogen bonds hold open, value: 2.9, display: 2.9 Å, hidden: true, note: nothing on the bench is this piece }
+            - { id: spare, label: 'A second one-ring base, unpaired', value: 0, display: not in this rung }
+          tolerance: 0.4
+          commit: Report the rung width
+        answerText: >-
+          About eleven point one ångström — the two bases plus the gap the hydrogen bonds hold
+          open between them.
+        why: >
+          The span is not the pieces you can pick up. Two bases and the bonded gap between them
+          fill the rung, and the gap is the term that goes missing because nothing on the bench
+          represents it. Now do the arithmetic the other ways. Two two-ring bases come to about
+          twelve point seven with the gap, which is too wide for the backbones as clamped; two
+          one-ring bases come to about nine point five, which leaves the rung short. Only a
+          two-ring base with a one-ring base reaches the same total, and it reaches it twice —
+          once for each of the two ways of doing it. Composition said which bases come in equal
+          amounts. This says why those are the pairs that can.
+
+      - group: MODEL
+        task: Orient the second strand
+        title: Reading the partner from its own end
+        place: Model Room
+        concept: 'The two strands run in opposite directions'
+        scene: >
+          One strand is wound and labelled: reading from its free-phosphate end
+          it runs adenine, thymine, guanine, cytosine. The four partner bases
+          are cut and waiting on the bench.
+        guide: >-
+          The four cards are the four bases of the partner strand, and they are not in
+          dispute — each one is fixed by the base it has to pair with. What is in dispute is
+          the order somebody reading the partner strand would meet them in, which depends
+          entirely on which end of it they start from.
+        axis: >-
+          Lay the four out in the order somebody would read them along the partner strand,
+          starting at that strand's own free-phosphate end. This is not a clock — every card is
+          already cut and the question is which end you read from.
+        ends: [Its own free-phosphate end, Its own far end]
+        background:
+          - >-
+              How to do it, on a different example. Write ABCD on a strip of paper and lay a
+              second strip beside it head to tail. Reading the second strip from *its* own
+              start gives you the letters in the opposite order from the first strip. That
+              reversal is all that is being asked here: work out each partner base first, then
+              read the partner strand starting from its own beginning rather than from the
+              first strand's.
+          - >-
+              Why a strand has ends that differ. A sugar has more than one place a phosphate
+              can attach, so a chain built the same way all along still arrives at two
+              chemically different ends. One carries a free phosphate; the other does not.
+              That is what makes reading a strand a directed thing at all.
+          - >-
+              Why the two strands cannot run the same way. Each base has to reach across to
+              the base opposite it, and the chemistry that lets it do so only works with one
+              strand's ends facing one way and the other's facing back. Two strands running
+              the same direction bring the wrong faces together at every rung.
+          - >-
+              What follows from that, which is the whole reason anybody cares. If each strand
+              specifies the other, then a structure whose two halves are complementary is a
+              structure that carries instructions for making a copy of itself. That is not a
+              geometrical detail; it is the point.
+        assumes:
+          - a chain whose two ends are chemically different has a direction
+          - each base pairs with one particular partner and not with the others
+        takeaway: Two strands run opposite ways, so each is read off the other backwards.
+        format: SEQUENCE
+        task_line: Put the partner strand's four bases in reading order.
+        cards:
+          - Adenine
+          - Thymine
+          - Guanine
+          - Cytosine
+        order: [2, 3, 0, 1]
+        why: >
+          Take the partner base by base first. Opposite adenine goes thymine. Opposite thymine
+          goes adenine. Opposite guanine goes cytosine, and opposite cytosine goes guanine. So
+          alongside the first strand the partner reads thymine, adenine, cytosine, guanine.
+          But that is the partner laid out in the *first* strand's direction, and nobody reads
+          it that way. The two strands run opposite ways, so the partner's own start is at the
+          far end of the pair. Read it from there and the list reverses: guanine, cytosine,
+          adenine, thymine. That reversal is the whole content of the word antiparallel. It is
+          also what makes each strand a set of instructions for rebuilding the other.
+
+      - group: BOARD
+        task: Keep the structure nothing rules out
+        title: Named by what it breaks
+        place: Evidence Room
+        concept: 'The structure that is kept is the one no clue rules out'
+        scene: >
+          Four candidates are on the wall with every clue of the week pinned
+          above them. Randall will not cross one off without being told which
+          clue it violates.
+        guide: >-
+          Three of the four are wrong in a way that can be named, and one is wrong in a way
+          that is easy to miss because it reproduces the composition perfectly. Go clue by
+          clue rather than candidate by candidate, and take the one that survives all of them
+          at once.
+        background:
+          - >-
+              How to do it, on a different example. Four suspects and three facts: one was
+              abroad, one is left-handed, one owns no car. Go fact by fact and cross off
+              whoever it excludes, rather than candidate by candidate deciding who seems
+              likely. When one name is left, you can say for each of the others exactly which
+              fact removed it — which is the answer the room will ask you for.
+          - >-
+              What is on the wall, in the order it arrived. Composition comes in matched
+              pairs. Charged groups have to be where the water is. The pattern is helical.
+              Ten bases to a turn. Two chains. Every rung the same width. Strands run
+              opposite ways. Each of those was measured by somebody, and each is a veto.
+          - >-
+              Why a near miss is the dangerous candidate. A structure that pairs the wrong
+              bases can still hold equal amounts of each and satisfy the composition exactly,
+              so the clue that catches it is not the chemistry sheet but the rung width — a
+              two-ring base with a two-ring base does not close to the same total as two
+              one-ring bases.
+          - >-
+              Why elegance is not on the list. Every candidate on that wall was proposed
+              because somebody found it convincing, and one of them is right for reasons that
+              have nothing to do with why it was proposed. The claim being made at the end of
+              this is not that the surviving structure is beautiful. It is that nothing on the
+              wall rules it out, and that everything on the wall rules the others out.
+        assumes:
+          - a candidate is eliminated by a specific clue rather than by preference
+          - independent clues can be applied in any order and all have to hold at once
+        takeaway: The surviving structure is the one no clue on the wall excludes, and every rejection is named by the clue it breaks.
+        format: CHOICE
+        question: Which candidate survives every clue on the wall?
+        choices:
+          - Two chains, backbones on the outside, complementary pairs inside, strands running opposite ways.
+          - Three chains, phosphates packed into the middle, bases facing out.
+          - Two chains, backbones outside, with adenine paired to guanine and thymine to cytosine.
+          - One chain, bases unpaired, phosphates distributed through the core.
+        answer: Two chains, backbones on the outside, complementary pairs inside, strands running opposite ways.
+        rebuttals:
+          - Two clues kill the three-chain model. The weighing read with the stacking spacing gives two chains rather than three, and burying the charged phosphates in a dry core is what the salt titration ruled out on Monday.
+          - >-
+              The wrong-pairs model reproduces the composition perfectly, which is why it is the
+              dangerous one. What it cannot do is close a rung. Two two-ring bases together are
+              wider than two one-ring bases, so the diameter changes along the helix.
+          - For the single chain the count is wrong by the weighing, unpaired bases give no reason at all for the composition to arrive in matched pairs, and phosphates through the core fails the charge constraint as well.
+        why: >
+          Go clue by clue. Two chains rules out the three-chain and single-chain candidates
+          before anything else is considered. Charges in the water rules out both structures
+          that pack phosphates into the middle. And the constant rung width rules out the
+          near miss — pairing the two two-ring bases together and the two one-ring bases
+          together holds equal amounts of everything, satisfies the composition sheet exactly,
+          and gives two different widths across the helix, which a single repeat cannot have.
+          One candidate is left, and notice what has been claimed about it: not that it is
+          elegant, and not that a photograph showed it. That every independent measurement
+          made this week permits it, and that each of the others is excluded by a measurement
+          that can be named.
+
+warmups:
+  greet:
+    title: Six people and one wall between them
+    why: >-
+      Nothing on that wall was measured by one person. The composition, the plate, the
+      spacings, the weighing and the brass are five different benches, and a clue is worth
+      what the bench it came from is worth. Put a name to as many of them as you can before
+      the week starts.
+  trial-near:
+    title: Walk the unit before the plate is developed
+    why: >-
+      The chemistry bench and the model room are down one side of the corridor and the X-ray
+      room and the evidence room are down the other. Walk it once now. John Randall, the
+      unit director, would rather you knew the way than went looking for it on Thursday.
+  follow:
+    title: Gosling carries a spacing from the plate to the wall
+    why: >-
+      A length is measured at the light box, checked against the scale, and written on a card
+      in another room, and most of what goes wrong happens in between. Raymond Gosling, the
+      diffraction assistant, walks one the whole way. Stay with her and watch where the number
+      changes hands.
+
+interiors:
+  CHEM:
+    caption: A composition is a measurement; a structure is an argument.
+    standLine: Two runs of the base analysis, agreeing, and two columns still blank.
+    station:
+      kind: panel
+      title: Base analysis
+      rows:
+        - { label: Adenine, value: 30.1 %, status: normal }
+        - { label: Guanine, value: 19.8 %, status: normal }
+        - { label: Thymine, value: not reported, status: low }
+        - { label: Cytosine, value: not reported, status: low }
+  XRAY:
+    caption: A plate records where the scattered rays went, not what the molecule looks like.
+    standLine: One exposure, eleven hours, measured twice against the scale.
+    station:
+      kind: film
+      title: Plate 51
+      note: strong X, layer lines to the fourth order
+  MODEL:
+    caption: Brass will not let a rung close that does not close.
+    standLine: Two backbones clamped at a fixed separation, one rung to fill.
+    station:
+      kind: panel
+      title: Rung gauge
+      rows:
+        - { label: Backbone separation, value: 11.1 Å, status: normal }
+        - { label: Rungs closed, value: 0 of 10, status: low }
+        - { label: Widths agreeing, value: awaiting a pair, status: low }
+  BOARD:
+    caption: A candidate is crossed off by naming the clue it breaks.
+    standLine: Four candidates standing, seven clues pinned above them.
+    station:
+      kind: plot
+      title: Mass per unit length
+      note: one number, two unknowns
+      axes: { x: chains wound together, y: rise per base }
+      curves:
+        - { points: [[0.08, 0.06], [0.25, 0.28], [0.42, 0.5], [0.58, 0.72], [0.75, 0.94]], label: fits the weighing }
+
+copy:
+  CHEM: <p>The chemistry bench, first door on the west side. A column, a balance, and the sheet with two of its four columns filled in.</p>
+  XRAY: <p>The X-ray room, across the corridor behind a light-tight door. A camera, a humidifier, and a light box with one plate on it.</p>
+  MODEL: <p>The model room, at the far end of the west side. Brass rod in racks, base plates cut and sorted, and a vice holding two backbones a fixed distance apart.</p>
+  BOARD: <p>The evidence room, opposite the model room. One long wall, a box of cards, and four candidate structures pinned under everything measured so far.</p>
+  PORCH: <p>The porter's desk, inside the front door. A signing-in book that doubles as the fire roll, a rack of pigeonholes, and a red lamp repeater for the X-ray room.</p>
+  TEA: <p>The tea room, halfway down the west side. An urn with a switch that does nothing, eight chairs that never leave, and the milk rota nobody follows.</p>
+  DARK: <p>The dark room, next to the camera. Three dishes, a timer, and a green lamp that means the door stays shut.</p>
+  RACK: <p>The brass store at the end of the west side. Rod, plate and wire in racks, and a tray of offcuts that is not a bin.</p>
+  LIB: <p>The reading room at the far end. Journals on the shelves, a loan card inside every front cover, and the only quiet in the building.</p>

@@ -42,6 +42,16 @@
     "changeover": "themes/changeover",
     "slackwater": "themes/slackwater",
     "overwind": "themes/overwind",
-    "darkfibre": "themes/darkfibre"
+    "darkfibre": "themes/darkfibre",
+    "qd_accel": "themes/qd_accel",
+    "qd_dna": "themes/qd_dna",
+    "qd_nucleus": "themes/qd_nucleus",
+    "qd_tectonics": "themes/qd_tectonics",
+    "qd_higgs": "themes/qd_higgs",
+    "qd_eclipse": "themes/qd_eclipse",
+    "qd_exo": "themes/qd_exo",
+    "qd_ligo": "themes/qd_ligo",
+    "qd_cmb": "themes/qd_cmb",
+    "qd_hubble": "themes/qd_hubble"
   }
 }

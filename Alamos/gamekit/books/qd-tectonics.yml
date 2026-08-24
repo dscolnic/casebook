@@ -1,0 +1,980 @@
+# Plate Tectonics — a Quick Discovery.
+#
+# The 3 x 3 shape from great_discoveries_first10_expanded.docx, game 04, mapped
+# onto the engine's day model: a level is a day, a micro-game is a stop, and the
+# campaign is nine stops in one sitting. Three levels, in order:
+#
+#   1  Wegener's clues        what the continents alone will and will not carry
+#   2  The ocean floor speaks the mechanism the continents could not supply
+#   3  One moving system      one framework over every layer at once
+#
+# The science guardrail from the source book, kept. Continental drift had strong
+# descriptive clues and no convincing mechanism, and it is not the same thing as
+# plate tectonics. What made the modern theory was seafloor spreading, the
+# magnetic reversals, global seismicity and subduction — postwar ocean data, from
+# many hands. Level 1 therefore ends without a mechanism on purpose, and the
+# opening card says so.
+#
+# Written for a reader two grades below the AP games, and every card teaches its
+# method before it asks anything: the `guide` says in plain words what the move
+# is, and the first background paragraph works the same move on different
+# numbers. Different numbers deliberately — a worked example on the question's own
+# numbers is the answer with a label on it.
+#
+# Format budget. Nine stops, cap three of any one format: CHOICE 2, and one each
+# of VALUE, TRIANGULATE, BALLPARK, SEQUENCE, SWEEP, PROTOCOL, VERIFY. Eight
+# formats in nine stops, three of them instruments the player drives.
+
+theme:
+  id: qd_tectonics
+  title: Plate Tectonics
+  subtitle: Geoscientist · Global Survey Section
+
+groups:
+  - id: MAP
+    code: MAP
+    name: Map Room
+    color: '#8a6a1e'
+    desc: Continental outlines, fossil cards, ice scratches, and a wall you can move the world on.
+    defaultLeader: tharp
+    milestones: [Pin the outline, Fit the shelves, Lay the clue on it, Ready to hand over]
+  - id: MARINE
+    code: MRN
+    name: Marine Survey
+    color: '#3f6f8f'
+    desc: Rock ages and magnetic bands from ten years of ships towing instruments.
+    defaultLeader: hess
+    milestones: [Log the sample, Date the rock, Match the band, Ready to hand over]
+  - id: SEIS
+    code: SEIS
+    name: Seismology
+    color: '#b5502f'
+    desc: Every recorded earthquake, with a depth attached, on one blank world.
+    defaultLeader: benioff
+    milestones: [Locate it, Depth it, Draw the belt, Ready to hand over]
+  - id: MODEL
+    code: MDL
+    name: Kinematics Room
+    color: '#7a4fa3'
+    desc: Cross-sections, motion arrows, and the only place the whole thing is put together.
+    defaultLeader: ewing
+    milestones: [Name the boundary, Run the section, Close the cycle, Ready to hand over]
+
+roster:
+  - id: tharp
+    name: Marie Tharp
+    role: Map Room Curator
+    real: true
+    division: MAP
+    bio: |
+      Keeps the map wall, which is thirty feet of continents cut out of board and
+      hung on pins so they can be moved. Nothing on it is glued down.
+
+      Her rule is that a fit is judged at the shelf edge and not at the beach. A
+      coastline is where the sea happens to stand this century; the shelf is
+      where the continent actually stops, and the two can be a hundred miles
+      apart.
+
+      Her limit is that a good fit is not a mechanism. She can show you two
+      continents that lock together and she cannot tell you what would move
+      them, and she says so before anybody asks.
+    quiz:
+      - q: Why does Tharp fit continents at the shelf edge?
+        a: A shoreline moves with the sea and a shelf does not
+        wrong:
+          - Because shelf edges are marked much more accurately on modern survey charts
+          - Because the rocks exposed at a shelf edge are always older than those inland
+          - Because sea level has been almost exactly constant throughout geological time
+
+  - id: bekele
+    name: Tesfaye Bekele
+    role: Palaeontologist
+    division: MAP
+    bio: |
+      Brings the fossil cards. Each one is a species and a set of places it has
+      been found, and the places are the evidence rather than the animal.
+
+      His rule is that a fossil is worth what its alternative explanation costs.
+      A freshwater reptile on two continents is expensive to explain without a
+      land connection; a seabird on two continents is not expensive at all.
+
+      His limit is that absence proves very little. A species not found on a
+      third continent may never have lived there, or may simply never have been
+      dug up there.
+    quiz:
+      - q: What makes one fossil stronger evidence than another?
+        a: How hard it is to explain any other way
+        wrong:
+          - How many separate specimens of that species have been catalogued so far
+          - How old the species is compared with the other species on the same map
+          - How large the animal was, since larger animals are far less likely to drift
+
+  - id: hess
+    name: Harry Hess
+    role: Marine Geophysicist
+    real: true
+    division: MARINE
+    bio: |
+      Runs the rock-age file. Ten years of ships have dredged and drilled the
+      Atlantic floor, and every sample has a position and an age.
+
+      The pattern is the finding. Ages rise away from the ridge, on both sides,
+      by about the same amount at the same distance — which is what you would
+      see if the floor were made at the ridge and carried off.
+
+      His limit is coverage. The file is a scatter of points across an ocean, and
+      the bands between them are drawn by somebody deciding the pattern
+      continues.
+    quiz:
+      - q: What does Hess's age pattern say about the ridge?
+        a: New floor is made there and carried away
+        wrong:
+          - That the ridge is the oldest part of the ocean floor anywhere in the basin
+          - That the ocean floor has been the same age everywhere since it first formed
+          - That rock ages cannot be measured reliably anywhere out in the deep ocean
+
+  - id: matthews
+    name: Drummond Matthews
+    role: Magnetic Survey Lead
+    real: true
+    division: MARINE
+    bio: |
+      Tows a magnetometer behind a ship in straight lines and comes back with a
+      trace that goes up and down in bands.
+
+      Rock freezes in whatever direction the field had at the time, and the field
+      has reversed many times. So a floor that moves carries the history of those
+      reversals outward as a pattern of bands, and the same pattern turns up on
+      the other side of the ridge.
+
+      His limit is that a band is a shape rather than a date. Turning the pattern
+      into years needs somebody else's dated reversal timeline laid against it.
+    quiz:
+      - q: Why does Matthews's band pattern appear on both sides of the ridge?
+        a: Both sides record the same field as they leave
+        wrong:
+          - Because the magnetic field is always stronger on both sides of any ocean ridge
+          - Because seawater slowly magnetises the ocean floor once it reaches the coast
+          - Because the survey ships towed their instruments along both sides in the same year
+
+  - id: benioff
+    name: Hugo Benioff
+    role: Seismologist
+    real: true
+    division: SEIS
+    bio: |
+      Has every located earthquake of the last forty years on one blank world map,
+      with a depth on each.
+
+      Plotted flat, they fall into narrow belts rather than being spread about. Plotted
+      with depth, the belts near trenches turn into sheets tilting down and inland,
+      which is a shape nothing visible at the surface would show you.
+
+      His limit is that he is drawing where rock is breaking, not what is
+      breaking it. The sheet is real; calling it a descending plate is an
+      interpretation somebody has to argue for.
+    quiz:
+      - q: What does Benioff's depth pattern near a trench draw?
+        a: A sheet of rock tilting down and inland
+        wrong:
+          - A ring of shallow shocks arranged neatly around the edge of every ocean basin
+          - A layer of earthquakes all at exactly the same depth beneath the sea floor
+          - A random scatter of shocks with no relationship to the trench at all
+
+  - id: ewing
+    name: Maurice Ewing
+    role: Head of Section
+    real: true
+    division: MODEL
+    bio: |
+      Runs the kinematics room, which has no data in it at all — only
+      cross-sections, motion arrows, and the argument.
+
+      His rule is that a framework has to take every layer at once. Fossils, ice
+      scratches, rock ages, magnetic bands, earthquake depths and volcanoes are
+      six independent files, and a model that explains five of them is a model
+      with a hole in it.
+
+      His limit is that he cannot settle a question by preference. When two
+      frameworks both survive, the answer is another survey, and he will send a
+      ship.
+    quiz:
+      - q: How does Ewing decide between two frameworks?
+        a: By naming the evidence layer each one fails
+        wrong:
+          - By choosing whichever of the two makes the simpler and more elegant diagram
+          - By counting how many published papers currently support each of the two ideas
+          - By waiting until the older of the two frameworks is no longer taught anywhere
+
+glossary:
+  - name: Continental shelf
+    aliases: [continental shelf, shelf edge, the shelf]
+    def: The shallow submerged rim of a continent, where the land really ends.
+  - name: Striation
+    aliases: [striation, striations, glacial scratches, ice scratches]
+    def: Scratches left in bedrock by stones dragged along under moving ice.
+  - name: Mid-ocean ridge
+    aliases: [mid-ocean ridge, the ridge, ridge crest]
+    def: A long undersea mountain chain where new ocean floor is made.
+  - name: Magnetic reversal
+    aliases: [magnetic reversal, reversal, polarity flip]
+    def: An occasion when the Earth's magnetic field swapped north for south.
+  - name: Trench
+    aliases: [trench, ocean trench, the trench]
+    def: A deep, narrow furrow in the sea floor where one plate bends downward.
+  - name: Subduction
+    aliases: [subduction, subducts, descending slab, slab]
+    def: One plate sliding down beneath another and back into the mantle.
+  - name: Divergent boundary
+    aliases: [divergent, divergent boundary, pulling apart]
+    def: A boundary where two plates move away from each other.
+  - name: Convergent boundary
+    aliases: [convergent, convergent boundary, coming together]
+    def: A boundary where two plates move toward each other.
+  - name: Transform boundary
+    aliases: [transform, transform boundary, sliding past]
+    def: A boundary where two plates slide past each other sideways.
+  - name: Lithosphere
+    aliases: [lithosphere, lithospheric plate, plate]
+    def: The rigid outer shell of the Earth, broken into moving pieces.
+
+missions:
+  - title: What the continents alone will carry
+    objective: Get everything the land can give, and stop where it stops.
+    briefing: Tharp has the map wall clear and the ocean-floor file is still locked.
+    stake: >-
+      Monday, and the second wall is locked. Marie Tharp, the map room curator, has thirty
+      feet of continents cut out of board and hung on pins, and Tesfaye Bekele, the
+      palaeontologist, has brought his fossil cards down. Everything available today was
+      collected on land. Today you find the fit that means something geologically, decide
+      which fossil is worth arguing from, and place an ancient pole from ice scratches on
+      three continents. What you will not have by the end of it is a mechanism, and Hugh
+      Ewing, who runs the section, will say so out loud.
+    takeaway: Descriptive clues can make an arrangement likely without saying what moved anything.
+    stops:
+      - group: MAP
+        task: Find the fit that means something
+        title: The beach is not the edge
+        place: Map Room
+        concept: "A continent's real edge is its shelf, not its coastline"
+        scene: >
+          South America and Africa are on the wall on pins, and Tharp can slide
+          them together along four different lines. The rock belts and the shelf
+          soundings are drawn on both pieces.
+        guide: >-
+          Four possible lines to join the continents along, and only one is a real edge of
+          anything. The test to apply to each is simple: is this line a property of the
+          continent itself, or of something that has happened to it? A line that moves when
+          the sea moves, or that was drawn by people, cannot be the shape the two pieces
+          were once joined along.
+        background:
+          - >-
+              How to think about it, on a different example. Two halves of a torn page fit
+              along the tear, not along the printed margin. The tear is a property of the
+              paper; the margin was put there afterwards by a printer, and two different
+              pages can have the same margin without ever having been one sheet. Ask which of
+              the four lines below is the tear.
+          - >-
+              What a shelf is. Around most continents the sea is shallow for tens or hundreds
+              of miles and then the floor drops away steeply. That drop is where the
+              continent stops. The beach is just where the water level happens to cut across
+              the shelf today, and it has moved a long way in the past.
+          - >-
+              Why the rock belts matter more than the outline. Two shapes can be made to fit
+              if you push hard enough. Bands of a particular rock of a particular age running
+              off the edge of one continent and continuing on the other are much harder to
+              arrange by accident, and they only line up on one of these four fits.
+        assumes:
+          - sea level has changed considerably over geological time
+          - a fit can be judged by whether features other than the outline continue across it
+        takeaway: Two continents fit at the edge of the continent, which is the shelf rather than the shore.
+        format: CHOICE
+        question: Which line gives the fit that is worth something geologically?
+        choices:
+          - The edges of the continental shelves.
+          - The beach lines as they are drawn on charts today.
+          - The national borders of the countries along each coast.
+          - Lines of latitude, so that both pieces keep their present north.
+        answer: The edges of the continental shelves.
+        rebuttals:
+          - Today's beaches move with sea level and with erosion, so a fit made along them is a fit to where the water happens to be this century.
+          - National borders were drawn by people, mostly within the last few hundred years, and have nothing at all to do with the shape of the rock.
+          - Keeping both pieces at their present latitudes assumes the answer. If the continents have moved, their latitudes have moved with them.
+        why: >
+          A fit is only evidence if the line you fit along is a real edge. The shelf is that
+          edge: it is where the continental rock ends and the deep floor begins, and it does
+          not move when the sea does. Fit at the shelves and the rock belts on the two
+          pieces run into each other, and the older mountain chains line up too. That
+          second part is what makes it more than a jigsaw. Any two curved shapes can be
+          pushed together somehow; belts of the same rock of the same age continuing across
+          the join are much harder to arrange by luck. And note what this still is not. A
+          good fit says these pieces were probably once together. It says nothing about what
+          moved them, which is the whole reason the second wall is locked.
+
+      - group: MAP
+        task: Decide which fossil survey to fund
+        title: The animal that could not have swum
+        place: Map Room
+        person: true
+        personId: bekele
+        concept: 'Evidence is weighed by how much explaining it needs'
+        scene: >
+          Bekele has four proposals on the table and one field season to spend.
+          Each would go and look for a particular fossil in a particular place,
+          and each would come back with something true.
+        guide: >-
+          One field season, and four things you could go and look for. Everything here would
+          produce a real result. What separates them is whether the result could come out two
+          ways, and whether the two ways lead to different answers about whether the
+          continents were joined. Buy the survey whose finding is expensive to explain any
+          other way.
+        background:
+          - >-
+              How to think about it, on a different example. You want to know whether two
+              gardens used to be one. Finding the same species of dandelion in both tells you
+              very little, because dandelion seed blows for miles. Finding the same buried
+              brick path running to the fence in both, lining up across it, is expensive to
+              explain any other way. Same kind of evidence, wildly different value.
+          - >-
+              Why a freshwater animal is worth more than a seabird. A seabird on two
+              continents needs no land connection at all — it flies. A reptile that cannot
+              survive in salt water needs either a land connection or a very unlikely raft.
+              The evidence is strong exactly in proportion to how awkward the alternative is.
+          - >-
+              And why an absence is worth very little. Not finding a species on a third
+              continent might mean it never lived there, or might mean nobody has dug in the
+              right place. A survey whose interesting outcome is a nothing is a survey whose
+              interesting outcome cannot be interpreted.
+        assumes:
+          - a measurement is worth what it changes, not what it costs
+          - an animal that cannot cross salt water needs a land route or an unlikely accident
+        takeaway: Evidence earns its cost when the other explanation of it is expensive.
+        format: VALUE
+        question: >-
+          You have one field season. Buy the survey that changes what the map wall is allowed
+          to claim.
+        value:
+          hint: >-
+            Everything here would come back with something true. The question is which finding
+            would be hard to explain if the continents were never joined.
+          budget: { amount: 4, unit: weeks }
+          decision: Whether the two continents were once a single land mass
+          options:
+            - { id: reptile, label: Search the Brazilian beds for the freshwater reptile found in Namibia, cost: 3, axis: whether a land-bound animal lived on both sides, decisive: true, reveals: 'Two specimens, in beds of the same age as the Namibian ones.' }
+            - { id: bird, label: Search both coasts for the fossil seabird already known from Africa, cost: 2, axis: whether a flying animal lived on both sides, reveals: 'Present on both coasts, as it is on most coasts.' }
+            - { id: count, label: Catalogue two hundred more specimens of a species already found on both, cost: 2, axis: how many specimens are in the collection, reveals: 'Two hundred and eleven more, all of the same species.' }
+            - { id: modern, label: Survey the living plants of both coastlines, cost: 2, axis: what grows there now, reveals: 'A detailed and useful list of what grows on each coast today.' }
+          commit: Spend the season
+        answerText: >-
+          The freshwater reptile. It is the only one of the four whose result would be
+          expensive to explain if the two continents had never been joined.
+        why: >
+          Ask of each proposal what a positive result would force. The freshwater reptile
+          cannot cross an ocean, so finding it in beds of the same age on both sides leaves
+          you with a land connection or a very unlucky raft — and that is what makes it
+          evidence. The seabird flies, so finding it on both coasts forces nothing at all.
+          Two hundred more specimens of a species already known from both sides is careful
+          work that changes no argument, because the argument was never about how many there
+          were. And the living plants of both coasts are genuinely worth knowing and say
+          nothing about the past. Notice that only one of these four is cheap to dismiss and
+          it is not the cheapest to buy.
+
+      - group: MODEL
+        task: Put the old pole where the ice says it was
+        title: Scratches that point at nothing
+        place: Kinematics Room
+        concept: 'Indicators scattered now can be coherent on a reconstruction'
+        scene: >
+          Three continents have glacial scratches in old rock of the same age.
+          Each set of scratches says how far that continent was from the centre
+          of one ice sheet. On the modern map the three answers do not meet.
+        guide: >-
+          Each continent's scratches give a distance from the centre of the ice sheet and no
+          direction, so on its own each one leaves a whole circle of possible centres. Switch
+          the stations in one at a time and watch the circles appear. Where they cross is
+          the answer, and it is an area rather than a point. One of the three was surveyed
+          against magnetic north instead of true north, and its circle is in the wrong place
+          until that is corrected.
+        background:
+          - >-
+              How to do it, on a different example. Somebody tells you they are eleven miles
+              from a town. That leaves every point on a circle of radius eleven. A second
+              town's distance narrows it to two points; a third narrows it to one small area.
+              Three distances give a region, not a dot, and reporting a dot claims more than
+              the measurements contain.
+          - >-
+              What the scratches actually measure. Ice flows outward from the thick centre of
+              a sheet, dragging stones that score the rock beneath. The direction of the
+              scoring, together with how worn the rock is, gives how far that place was from
+              the centre. It does not say which way the centre lay — that is what makes this
+              a circle rather than an arrow.
+          - >-
+              Why one survey has to be corrected. Bearings taken against a compass are
+              bearings against the magnetic pole, not the geographic one, and the two are
+              hundreds of miles apart. A survey that never made that correction puts its
+              circle in the wrong place, consistently — and taking more readings from that
+              same survey will not fix it. Only knowing about it will.
+        assumes:
+          - one distance leaves a circle of possibilities, and three leave a region
+          - a bearing taken against a compass is not a bearing against the geographic pole
+        takeaway: One distance gives a circle, three give a region, and a survey error moves the whole region.
+        format: TRIANGULATE
+        question: >-
+          Switch the three continents in, decide what to do about the compass survey, and
+          report where the centre of the ice sheet was.
+        triangulate:
+          hint: >-
+            Switching a continent in draws what its own scratches permit. Click the map to
+            report where you think the centre was.
+          unit: hundreds of km
+          stations:
+            - { id: africa, label: Southern Africa, x: 0, y: 0, distance: 18.7, observation: 'striations, deep, flowing north-west' }
+            - { id: samerica, label: Eastern South America, x: -30, y: 8, distance: 43.6, observation: 'striations, shallow, flowing west' }
+            - { id: india, label: Peninsular India, x: 26, y: -14, distance: 21.4, observation: 'striations, deep, bearings by compass' }
+          truth: { x: 5, y: -18 }
+          tolerance: 4
+          systematic:
+            id: compass
+            label: Correct the Indian bearings from magnetic to true north
+            appliesTo: india
+            delta: 9
+          commit: Report the centre
+        answerText: >-
+          Around five east and eighteen south of the southern African site, as a region a few
+          hundred kilometres across — and only once the Indian bearings are corrected, which
+          moves that circle by nine hundred kilometres.
+        why: >
+          Each continent's scratches give a distance and no direction, so each one on its own
+          leaves a circle. Three circles cross in an area, and the area is the answer:
+          reporting a single point claims a precision that scratches in old rock cannot
+          support, and somebody downstream will treat it as certain. The compass survey
+          matters because the whole calculation runs on bearings. India's were taken against
+          the magnetic pole rather than the geographic one, so its circle sits nine hundred
+          kilometres from where it belongs, and nothing in that survey's own records looks
+          wrong. Now notice the thing this stop is really for. On the modern map those three
+          circles have no common crossing at all. They only meet when the three continents are
+          put back together. A pattern that appears in one arrangement and no other is an
+          argument for that arrangement.
+
+  - title: The ocean floor speaks
+    objective: Get from a floor of rock ages and magnetic bands to a mechanism.
+    briefing: The second wall is open, and it is ten years of ships.
+    stake: >-
+      Tuesday, and Ewing has unlocked the second wall. Behind it is what the land could
+      never give: rock ages from the deep Atlantic, magnetic traces towed in straight lines
+      across it, and every located earthquake of forty years with a depth attached. Rei
+      Hess, the marine geophysicist, has the age file; Drummond Matthews, who runs the
+      magnetic survey, has the bands. Today you get a speed out of the age pattern, put the
+      magnetic bands in order, and find out what the earthquake depths draw. Level one had
+      clues. This is the mechanism.
+    takeaway: A pattern in space can be a record of a process in time, and that is what a mechanism looks like in data.
+    stops:
+      - group: MARINE
+        task: Get a speed out of the age pattern
+        title: How fast a floor moves
+        place: Marine Survey
+        concept: 'New crust forms at a ridge, so age rises with distance from it'
+        scene: >
+          Hess has the age file open. A basalt sample dredged nine hundred
+          kilometres west of the ridge dates to thirty million years, and the
+          samples nearer in are younger in proportion.
+        guide: >-
+          This is one division. If the floor was made at the ridge and has been carried away
+          ever since, then a sample's distance from the ridge is the distance it has
+          travelled and its age is the time it took. Divide the distance by the age and you
+          have a speed. The other tiles on the bench describe the ocean and are not part of
+          the sum.
+        background:
+          - >-
+              How to do it, on a different example. A stone found 600 kilometres from a
+              volcano, dated to 20 million years. Six hundred divided by twenty is thirty
+              kilometres per million years. To turn that into everyday units, a kilometre is
+              a hundred thousand centimetres and a million years is a million years, so
+              thirty kilometres per million years is three centimetres a year. The arithmetic
+              is a division and then a unit change.
+          - >-
+              Why age rising with distance is the whole argument. It is a prediction, not an
+              observation dressed up. If floor is made at a ridge and moves off, age has to
+              rise with distance, and it has to do it symmetrically on both sides. Either of
+              those failing would have killed the idea, and neither did.
+          - >-
+              What the number means once you have it. A few centimetres a year is
+              fingernail-growth slow and continent-moving fast: over a hundred million years
+              it is a few thousand kilometres, which is an ocean. Slow processes given
+              geological time are the whole of this subject.
+        assumes:
+          - a sample made at the ridge has travelled its whole distance from the ridge
+          - the age of a rock is how long ago it solidified
+        takeaway: Distance divided by age is a speed, and for an ocean floor it is a few centimetres a year.
+        format: BALLPARK
+        question: How fast is the floor moving away from the ridge?
+        estimate:
+          prompt: >-
+            Hess wants a rate on the board before the magnetic traces go up beside it.
+          question: How fast is the floor moving away from the ridge?
+          relationship: The spreading rate is the distance from the ridge divided by the age of the rock.
+          labels:
+            - 900 km  (distance of the sample from the ridge)
+            - 30 million years  (age of the rock in that sample)
+            - 4,200 m  (depth of water over the sample)
+            - 6,000 km  (width of the whole ocean basin)
+          values: [900, 30, 4200, 6000]
+          slots: 2
+          template: '{0} ÷ {1}'
+          formula: a/b
+          correct: [0, 1]
+          target: 30
+          tolerance: 3
+          units: km per million years
+          solution: Nine hundred kilometres in thirty million years is thirty kilometres per million years, which is three centimetres a year.
+          explanation: The water depth and the basin width are both real numbers about this ocean and neither is a distance the sample has travelled.
+        why: >
+          The distance is nine hundred kilometres and the time is thirty million years, so
+          the rate is thirty kilometres per million years — about three centimetres a year,
+          which is roughly how fast a fingernail grows. Two things follow. Given a hundred
+          million years, three centimetres a year is three thousand kilometres, which is why
+          a slow process is capable of opening an ocean. And the rate is testable: the same
+          division done on a sample twice as far out should give the same answer, and on the
+          other side of the ridge it should give the same answer again. It does, which is why
+          this file was worth ten years of ships. The depth of water and the width of the
+          basin are on the bench because they are real and because neither is a distance
+          anything has travelled.
+
+      - group: MARINE
+        task: Put the magnetic bands in order
+        title: A barcode read outward
+        place: Marine Survey
+        concept: 'A record laid down in time shows up as a pattern in space'
+        scene: >
+          Matthews has one magnetic trace laid out, running from the ridge crest
+          out to the west. Four bands are marked on it and the dated reversal
+          timeline is pinned above.
+        guide: >-
+          Four bands, and you are putting them in the order they were laid down — oldest
+          first. The rule that decides it is that new floor forms at the ridge and everything
+          already there is pushed further out. So distance from the ridge is age: the band
+          against the crest is the newest and the one furthest out has been travelling
+          longest. Work out which band is furthest from the crest and start there.
+        background:
+          - >-
+              How to do it, on a different example. A printer stacks finished pages on a tray,
+              each new one on top. Reading the stack from the bottom up gives you the order
+              they were printed in. The ocean floor stacks sideways instead of upward, and the
+              ridge is the printer.
+          - >-
+              What the bands are. Rock cooling at the ridge locks in whichever way the Earth's
+              magnetic field is pointing at that moment. The field has flipped many times, so
+              floor made during a long stretch of one polarity is a wide band and floor made
+              during a short stretch is a narrow one.
+          - >-
+              Why this is stronger evidence than the ages. The reversal timeline was worked out
+              independently, from dated lava flows on land. The widths and the order of the
+              bands on the sea floor match that timeline, and match it again on the other side
+              of the ridge. Two records of the same history that were never compared while
+              they were being made agreeing afterwards is about as good as evidence gets.
+        assumes:
+          - rock records the direction of the magnetic field as it solidifies
+          - the Earth's magnetic field has reversed many times in the past
+        axis: >-
+          Put the four bands in the order they were laid down, oldest first. This is not a
+          journey — all four are on the sea floor now, and the question is which of them was
+          made first.
+        ends: [Made first, Made most recently]
+        takeaway: On a spreading floor, distance from the ridge is age, so a pattern in space is a record in time.
+        format: SEQUENCE
+        task_line: Order the four magnetic bands by when they were laid down.
+        cards:
+          - The narrow reversed band 40 km from the crest.
+          - The wide normal band 340 km from the crest.
+          - The narrow normal band lying against the crest itself.
+          - The wide reversed band 780 km from the crest.
+        order: [3, 1, 0, 2]
+        why: >
+          Distance from the crest is the whole ordering. Floor is made at the ridge and
+          pushed outward, so the band furthest out has been travelling longest and was made
+          first: the wide reversed band at 780 kilometres, then the wide normal band at 340,
+          then the narrow reversed band at 40, and finally the narrow band sitting against
+          the crest, which is being made now. Two things worth taking from it. The widths are
+          not decoration — a wide band is a long stretch of one polarity and a narrow band a
+          short one, so the pattern carries durations as well as order. And the same sequence
+          of widths appears on the other side of the ridge, mirrored. That mirroring is the
+          hard part to explain any other way. It means two separate pieces of floor recorded
+          the same history while they moved apart.
+
+      - group: SEIS
+        task: Find out what the earthquake depths draw
+        title: A sheet going down
+        place: Seismology
+        concept: 'Earthquake depth traces a slab going down'
+        scene: >
+          Hugo Benioff, the seismologist, has forty years of located earthquakes
+          for one trench, and a control that moves a window inland from it. The
+          window reports the average depth of the shocks inside it.
+        guide: >-
+          One slider and one reading. The slider is how far inland from the trench you are
+          looking; the reading is the average depth of the earthquakes there. Start at the
+          trench and work inland, watching what the depth does. You are looking for the
+          distance at which the shocks reach three hundred kilometres down — a depth nothing
+          at the surface could reach on its own.
+        background:
+          - >-
+              How to read a sweep. Move the control in large steps first to see the shape,
+              then in small steps through the part you care about. Here you are hunting for a
+              particular depth rather than a peak, so watch the reading and stop when it
+              arrives.
+          - >-
+              How to turn the shape into an angle, on a different example. Suppose the shocks
+              were 100 kilometres deep at 100 kilometres inland. Depth equal to distance is a
+              slope of one in one, which is forty-five degrees. Half as deep as far inland
+              would be about twenty-seven degrees. So depth against distance inland gives you
+              the angle the sheet is going down at.
+          - >-
+              Why the depths are the interesting part. On a flat map the earthquakes near a
+              trench are just a belt, and a belt could be almost anything. Give each one a
+              depth and the belt becomes a sheet tilting down and inland, hundreds of
+              kilometres long. Nothing visible at the surface shows you that shape.
+          - >-
+              And what it does not prove. Benioff is plotting where rock is breaking, not what
+              is breaking it. The sheet is a measurement. Calling it a slab of ocean floor
+              going down into the mantle is an interpretation, and it needs the rest of the
+              week behind it.
+        assumes:
+          - an earthquake is located in three dimensions, not two
+          - a straight line of depths against distances has a slope that is an angle
+        takeaway: Earthquake depths against distance inland draw the shape of whatever is stressing the rock.
+        relationship: The dip of the slab comes out of earthquake depth against distance inland — the deeper inland the shocks run, the steeper the sheet is descending at.
+        format: SWEEP
+        question: >-
+          Work the window inland from the trench. At what distance inland do the earthquakes
+          reach three hundred kilometres deep?
+        sweep:
+          axis:
+            label: Distance inland from the trench
+            unit: km
+            min: 0
+            max: 800
+            step: 10
+          readout:
+            label: Mean earthquake depth
+            unit: km
+          baseline: 12
+          response:
+            - { at: 0, value: 12 }
+            - { at: 50, value: 28 }
+            - { at: 100, value: 52 }
+            - { at: 200, value: 105 }
+            - { at: 300, value: 158 }
+            - { at: 400, value: 212 }
+            - { at: 570, value: 300 }
+            - { at: 700, value: 366 }
+            - { at: 800, value: 418 }
+          target: 570
+          tolerance: 40
+          start: 0
+        answerText: >-
+          About 570 kilometres inland. The depths climb almost in a straight line from the
+          trench, which is a sheet descending at a little over twenty-five degrees.
+        why: >
+          The reading rises steadily and almost in a straight line: twelve kilometres deep at
+          the trench, a hundred at two hundred kilometres inland, three hundred at about five
+          hundred and seventy. A straight line of depths against distances is a plane, and its
+          slope is an angle — three hundred over five hundred and seventy is a little over
+          twenty-five degrees. So what these earthquakes are drawing is a sheet of rock
+          hundreds of kilometres long, tilting down and inland from the trench. That is a
+          shape, and it is worth being careful about what has and has not been shown. The
+          shape is measured. That it is a piece of ocean floor descending into the mantle is
+          an interpretation, and it is the one the rest of the week has to earn.
+
+  - title: One moving system
+    objective: Put every layer under one framework, and say what it does not cover.
+    briefing: Six files, three boundary types, and a claim Ewing will take apart.
+    stake: >-
+      Wednesday, and every file is open at once. Hugo Benioff, the seismologist, has three
+      depth sections on the table. Hess has the ages, Matthews has the bands, and Tharp
+      still has the continents on pins next door. Seven files, and yesterday's mechanism
+      accounts for four of them on its own. Maurice Ewing, who runs the section, wants one
+      framework over all seven by the end of the day, and he will name the file any near miss
+      leaves standing outside. Today you classify what is happening at three boundaries,
+      predict which plate goes down where an ocean meets a continent, and write the summary
+      the section will publish. Whatever goes to the printer on Friday is what the section is
+      held to for the next twenty years.
+    takeaway: A framework is judged on every layer at once, and a near miss is named by the layer it leaves out.
+    stops:
+      - group: SEIS
+        task: Say what is happening at each boundary
+        title: Three things two plates can do
+        place: Seismology
+        concept: 'A boundary is classified by what the two plates do at it'
+        scene: >
+          Benioff has three sections on the table, each with the earthquake
+          depths and the volcanoes marked. One is the Mid-Atlantic Ridge, one is
+          the Andean margin, one is a long fault in California.
+        guide: >-
+          Three boundaries and three things that can happen at one: the plates separate, they
+          converge, or they slide past. Match each section to its type using what is drawn on
+          it. Shallow earthquakes with new rock forming means separating. Earthquakes
+          deepening away from a trench, with volcanoes behind, means converging. Shallow
+          earthquakes in a line with no volcanoes and no new rock means sliding past.
+        background:
+          - >-
+              How to do it, on a different example. Two sheets of paper on a desk can do
+              exactly three things: move apart, move together, or slide alongside each other.
+              If they move apart you can see the desk between them. If they move together one
+              buckles or goes under. If they slide, the edges scrape and nothing appears or
+              disappears. Every boundary on Earth is one of those three.
+          - >-
+              What the evidence for each looks like. Separating leaves a gap that fills with
+              new rock, so you get a ridge, young ages and only shallow earthquakes.
+              Converging pushes one plate down, so you get a trench, earthquakes that deepen
+              inland and volcanoes above the descending sheet. Sliding past destroys and
+              creates nothing, so you get shallow earthquakes along a line and no volcanoes.
+          - >-
+              Why the volcanoes are the giveaway. Rock going down carries water with it, and
+              water lowers the melting point of the mantle above. So a descending sheet makes
+              melt, and the melt comes up as a line of volcanoes behind the trench. A sliding
+              boundary has nothing going down and therefore nothing to melt.
+        assumes:
+          - two plates in contact can only separate, converge, or slide past
+          - melting above a descending sheet produces a line of volcanoes
+        takeaway: Each boundary type leaves its own signature in earthquake depth, volcanoes, and whether crust is made or lost.
+        format: PROTOCOL
+        task_line: Match each section to what the plates are doing.
+        scenarios:
+          - Shallow earthquakes only, a ridge of young rock, ages rising away on both sides.
+          - A deep trench, earthquakes deepening inland, a line of volcanoes behind them.
+          - Shallow earthquakes along one long line, no volcanoes, no new rock anywhere.
+        choices:
+          - The plates are separating, and new crust is filling the gap.
+          - The plates are converging, and one of them is going down.
+          - The plates are sliding past each other, and neither is made nor lost.
+        mapping: [0, 1, 2]
+        why: >
+          Each of the three leaves a different signature, and the signature is what you read
+          rather than the map. Shallow earthquakes with young rock and ages rising outward is
+          crust being made in a gap: the plates are separating. A trench with earthquakes
+          getting deeper inland and volcanoes above them is crust going down, taking water
+          with it and melting the mantle above: the plates are converging. Shallow shocks
+          along a line with no volcanoes and no new rock is neither being made nor lost, which
+          leaves only sliding past. Note which piece of evidence does most of the work here.
+          The depths separate converging from the other two, and the volcanoes confirm it.
+          A flat map of earthquake locations, with no depths on it, would not tell you apart
+          two of the three.
+
+      - group: MODEL
+        task: Predict which plate goes down
+        title: The dense one sinks
+        place: Kinematics Room
+        person: true
+        personId: driscoll
+        concept: 'Density decides which plate goes under'
+        scene: >
+          Ewing has a section running with an ocean plate closing on a
+          continent at seven centimetres a year. Nothing has been allowed to
+          happen yet. He wants a prediction, in a number, before it runs.
+        guide: >-
+          Set a number, then run the section and find out. The number is how deep the trench
+          gets. What decides the whole outcome is which plate goes down, and that is a
+          comparison of two densities: ocean floor is thin and heavy, continental crust is
+          thick and light. Decide which one sinks, then predict how deep the furrow it makes
+          will be, then pay for the survey that measures it.
+        background:
+          - >-
+              How to think about it, on a different example. Push a sheet of steel and a sheet
+              of cork together on water. The steel goes under and the cork rides up over it,
+              every time, and no amount of pushing harder swaps them round. Which one sinks is
+              decided before the pushing starts, by what they are made of.
+          - >-
+              What the two plates are made of. Ocean floor is basalt, about seven kilometres
+              thick and dense. Continental crust is granite, about thirty-five kilometres thick
+              and noticeably lighter. Where they converge, the dense thin one bends down and
+              the light thick one stays up.
+          - >-
+              How deep a trench gets, roughly. The bend where the ocean plate turns downward
+              pulls the floor below its normal level, and the faster the convergence the
+              sharper the bend. Trenches around the Pacific run from about six to eleven
+              kilometres deep, against an ordinary ocean floor of four.
+          - >-
+              And why the prediction has to be measured. A section that runs and produces a
+              trench nobody sounded is an animation. The number that goes in the report is
+              the sounded depth, and it is the number you have to be willing to have been
+              wrong about.
+        assumes:
+          - denser material sinks beneath less dense material
+          - a converging boundary bends one plate downward at the contact
+        takeaway: Which plate descends is decided by density, and the trench depth follows from it.
+        format: VERIFY
+        question: >-
+          Predict how deep the trench will get, run the section, and report the sounded depth.
+        verify:
+          hint: >-
+            Lock the prediction before the section runs. Nothing about it can be changed
+            afterwards, which is the point of making it first.
+          prediction: { label: Depth of the trench that forms, unit: km, min: 2, max: 14, step: 0.5 }
+          truth: 8.0
+          passRatio: [0.6, 1.5]
+          intervention:
+            label: Run the convergence
+            note: Ocean plate closing on a continental margin at 7 cm a year.
+            outcome: The ocean plate bends downward at the contact. A furrow opens offshore and a line of volcanoes begins to grow inland of it.
+          measurement:
+            label: Sound the trench along its length
+            note: Echo sounder, twelve crossings, deepest sounding reported.
+            cost: 12
+            costUnit: ship days
+          unmeasuredMoral: >-
+            The section ran, the trench opened and the volcanoes grew, and nobody sounded it.
+            That establishes that the model does something. It establishes no depth at all.
+          commit: Report the depth
+        answerText: >-
+          About eight kilometres. The ocean plate is the one that descends, because it is
+          denser, and the furrow at the bend is about twice the depth of ordinary ocean floor.
+        why: >
+          Density settles it before anything moves. Ocean floor is basalt, thin and heavy.
+          Continental crust is granite, thick and light. So the ocean plate bends down and the
+          continent rides over it, and it goes that way whichever plate is pushed harder.
+          Everything else on the section follows from that. The furrow at the bend is the
+          trench, about eight kilometres deep against an ordinary floor of four. The descending
+          sheet is what Benioff's deepening earthquakes were drawing. And the water it carries
+          down melts the mantle above it, which is the line of volcanoes inland. One prediction
+          about density gave you three features at once. Only the sounding turned the last of
+          them into a number.
+
+      - group: MAP
+        task: Write the summary
+        title: Every layer, or none of it
+        place: Map Room
+        concept: 'One framework has to account for every layer of evidence'
+        scene: >
+          Every file is on the wall at once: the shelf fit, the fossils, the ice
+          scratches, the rock ages, the magnetic bands, the earthquake depths and
+          the volcanoes. Ewing has four candidate summaries on the board.
+        guide: >-
+          Four possible summaries, and you are choosing the one every file on this wall
+          supports. Test each one against the layers rather than against how it sounds. For
+          each summary, go through the files and ask which of them it fails to explain. Three
+          of the four leave a whole layer standing outside, and naming that layer is the
+          answer Ewing will ask you for.
+        background:
+          - >-
+              How to do it, on a different example. Four explanations of a flooded kitchen, and
+              three facts: the ceiling is wet, the tap is off, and the flat upstairs is empty.
+              Go fact by fact and see which explanations each one kills, rather than deciding
+              which story you like. The explanation left standing is the one no fact excludes.
+          - >-
+              The seven files, and what each one demands of a framework. The shelf fit and the
+              fossils demand that continents have moved. The ice scratches demand that they
+              were once arranged differently. The rock ages and the magnetic bands demand that
+              ocean floor is being made at ridges. The earthquake depths and the volcanoes
+              demand that it is being destroyed somewhere. Any framework has to do all four
+              things.
+          - >-
+              Which layer each near miss drops. A framework where continents plough through
+              fixed ocean floor has no account of the ages and the bands. One where only
+              continents move and ocean basins are permanent has no account of either. And
+              one where the earthquakes and volcanoes are scattered at random contradicts the
+              narrow belts Benioff plotted, which is the file this whole level was built on.
+        assumes:
+          - a framework is judged by the evidence it leaves unexplained
+          - crust that is being made somewhere at a steady rate must be destroyed somewhere
+        takeaway: The framework that survives is the one no file on the wall excludes, and each rejection names its own file.
+        format: CHOICE
+        question: Which summary does every file on this wall support?
+        choices:
+          - Rigid plates move, and crust is always made where they separate and taken back where they converge.
+          - Continents plough slowly through an ocean floor that stays where it is.
+          - The continents move and the ocean basins keep their shape and size.
+          - Earthquakes and volcanoes are scattered more or less at random over the Earth.
+        answer: Rigid plates move, and crust is always made where they separate and taken back where they converge.
+        rebuttals:
+          - An ocean floor that stays where it is has no account of the age bands or the magnetic stripes, and both of those are measurements of floor that has moved.
+          - Basins that keep their shape fail on the same two files, and on the trenches as well, which are floor being taken back into the mantle.
+          - Random earthquakes contradict Benioff's map directly. His shocks fall in narrow belts, and near trenches those belts have a depth structure random events cannot produce.
+        why: >
+          Go file by file. The shelf fit, the fossils and the ice scratches all need
+          continents that have moved, which rules nothing in yet — Wegener had all three and
+          no mechanism. The rock ages and the magnetic bands need ocean floor that is being
+          made at ridges and carried away, which kills any framework with a permanent ocean.
+          The earthquake depths and the volcanoes need floor being taken back down somewhere,
+          because a floor made steadily at ridges and never destroyed would have grown the
+          Earth. One framework does all of it: rigid plates, made at boundaries that
+          separate, recycled at boundaries that converge, sliding past each other in between.
+          And say what it still is not. Nothing here says what drives the motion. That
+          question is open, and the strength of the claim is that it does not depend on the
+          answer.
+
+warmups:
+  greet:
+    title: Six files, six people, one wall
+    why: >-
+      Every layer on that wall was collected by somebody else, and a file is worth what the
+      survey behind it is worth. The fossils, the ages, the magnetics and the earthquakes are
+      four different sections. Put a name to as many of them as you can before the week
+      starts.
+  trial-near:
+    title: Walk the section before the second wall opens
+    why: >-
+      The map room and the kinematics room are down one side, marine survey and seismology
+      down the other. Walk it once now. Marie Tharp, the map room curator, would rather you
+      knew the way than went looking for the age file on Tuesday morning.
+  follow:
+    title: Matthews carries a magnetic trace from the ship room to the wall
+    why: >-
+      A trace is towed at sea, corrected for the ship's own iron, and matched against a dated
+      timeline in a third room, and most of what goes wrong happens in between. Chidi
+      Matthews, who runs the magnetic survey, walks one all the way through. Stay with him and
+      watch where the correction is applied.
+
+interiors:
+  MAP:
+    caption: A fit is judged at the shelf, not at the beach.
+    standLine: Thirty feet of continents cut out of board and hung on pins.
+    station:
+      kind: panel
+      title: Map wall
+      rows:
+        - { label: Pieces on the wall, value: 11, status: normal }
+        - { label: Fit tested at, value: shelf edge, status: normal }
+        - { label: Rock belts crossing the join, value: 4, status: high }
+        - { label: Mechanism, value: none, status: alarm }
+  MARINE:
+    caption: Age rising away from the ridge is a prediction, not a description.
+    standLine: Ten years of ships, and every sample carries a position and an age.
+    station:
+      kind: plot
+      title: Age against distance
+      note: both sides of the ridge
+      axes: { x: distance from the ridge, y: age of the rock }
+      curves:
+        - { points: [[0.02, 0.02], [0.3, 0.3], [0.6, 0.62], [0.95, 0.96]], label: measured }
+  SEIS:
+    caption: A belt on a flat map is a sheet once every shock has a depth.
+    standLine: Forty years of located earthquakes, and a depth on each.
+    station:
+      kind: plot
+      title: Depth against distance inland
+      note: one trench, forty years
+      axes: { x: distance inland from the trench, y: depth of the shock }
+      curves:
+        - { points: [[0.02, 0.03], [0.25, 0.25], [0.5, 0.5], [0.75, 0.74], [0.98, 0.99]], label: mean depth }
+  MODEL:
+    caption: A framework that explains five files out of six has a hole in it.
+    standLine: Cross-sections, motion arrows, and not one measurement in the room.
+    station:
+      kind: panel
+      title: Section under test
+      rows:
+        - { label: Convergence rate, value: 7 cm a year, status: normal }
+        - { label: Denser plate, value: oceanic, status: normal }
+        - { label: Trench sounded, value: not yet, status: low }
+        - { label: Files accounted for, value: 5 of 7, status: alarm }
+
+copy:
+  MAP: <p>The map room, first door on the west side. Thirty feet of continents cut out of board and hung on pins, with the fossil cards and the ice-scratch overlays in the plan chest underneath.</p>
+  MARINE: <p>The marine survey room, across the corridor. Ten years of ships in two filing cabinets, the age file on the long table, and the magnetic traces rolled in tubes along the wall.</p>
+  SEIS: <p>The seismology room, further down the east side. One blank world map covering a whole wall, forty years of located earthquakes pinned to it, and a depth written beside every pin.</p>
+  MODEL: <p>The kinematics room at the far end of the west side. Cross-sections on rollers, a box of motion arrows, and no data of its own at all.</p>
+  PORCH: <p>The porter's desk inside the front door. A signing-in book, the section's pigeonholes, and a barometer nobody has adjusted since the building opened.</p>
+  TEA: <p>The tea room halfway down the west side. An urn, eight chairs that never leave, and a wall map with everybody's field seasons marked on it in wool.</p>
+  DARK: <p>The photographic room, next to marine survey. Contact prints of every magnetic trace, hung on a line to dry.</p>
+  RACK: <p>The store at the end of the west side. Rolled charts, spare pins, plan-chest drawers, and the crates the last expedition came back in.</p>
+  LIB: <p>The reading room at the far end. Journals, expedition reports, and the only chair in the building anybody actually wants.</p>

@@ -15,6 +15,11 @@
 //
 // The unused ones are ignored, so all three can be exported from here.
 
+import {
+  vehicle, VEHICLE_DRIVE, bicycleRack, BICYCLE_DRIVE, clearSpot,
+} from '../../engine/world/kit.js';
+import { driveable } from '../../engine/world/driving.js';
+
 /**
  * Decorate an outdoor town. Everything generic — benches, bins, posts, signs,
  * fences, tanks, pipe runs, display boards, vehicles — is already in
@@ -27,8 +32,59 @@
  * To make a parked vehicle driveable, see themes/contamcity/props.js `park()`.
  */
 export function decorate(scene, ctx){
-  const { groundHeight } = ctx;
-  void scene; void groundHeight;
+  transport(scene, ctx);
+}
+
+/**
+ * The island's two vehicles.
+ *
+ * Day 4's card says "the truck is signed out for it. Drive the road once…", and
+ * until now Vellan had nothing to drive. The tip is 206 m up the island road,
+ * the turbine yard the same the other way and the reef station 318 m out — a
+ * campaign about ninety-one people on a low island that was walked end to end.
+ *
+ * Two kinds, and on an island of ninety-one people that is not a stylistic
+ * choice: there is one flatbed, shared, because the island has one — and there
+ * are bicycles, because that is what everybody else uses and the road is flat.
+ * A game whose subject is carrying capacity should not have a truck each.
+ */
+function transport(scene, ctx){
+  const { groundHeight, colliders, interactables, blocked } = ctx;
+  const y = (x, z) => groundHeight(x, z);
+  const spawn = { x: 0, z: 75, r: 13 };
+
+  const ts = clearSpot({ x: -18, z: 60 }, blocked, { pad: 3.4, avoid: [spawn] });
+  const flat = vehicle(scene, ts.x, ts.z, y(ts.x, ts.z),
+    { facing: 0, colour: 0x8a5f3a, box: false });
+  driveable(scene, flat.group, {
+    ...VEHICLE_DRIVE,
+    id: 'island-flatbed', label: 'island flatbed', kind: 'pickup',
+    seat: { x: 0.52, y: 2.18, z: flat.cabZ },
+    wheels: flat.wheels,
+    // An island road, not a highway. Slower than a town truck on purpose.
+    topSpeed: 10,
+    colliders, interactables,
+  });
+
+  const rs = clearSpot({ x: 15, z: 63 }, blocked,
+    { pad: 2.2, avoid: [spawn, { x: ts.x, z: ts.z, r: 6 }] });
+  const { rail, bicycles } = bicycleRack(scene, rs.x, rs.z, y(rs.x, rs.z), {
+    facing: Math.PI,
+    list: [
+      { colour: 0x2c4a5c, basket: true },
+      { colour: 0x7a3a2c, basket: false },
+      { colour: 0x3c6a4a, basket: true },
+    ],
+  });
+  if(rail.soft) ctx.softColliders?.push(rail.soft);
+  bicycles.forEach((b, i) => {
+    driveable(scene, b.group, {
+      ...BICYCLE_DRIVE,
+      id: `island-bicycle-${i + 1}`, label: 'island bicycle', kind: 'bicycle', verb: 'Ride',
+      wheels: b.wheels, steer: b.steer, ignore: b.ignore,
+      colliders, interactables,
+    });
+  });
 }
 
 /** Fit out one room. `bounds` gives the room's inner/outer faces and centre. */
